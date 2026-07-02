@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-C — audit smart form UI bridge CLI shape tests.
+ * Phase 5H-G-C - audit smart form UI bridge CLI shape tests.
  */
 
 import { describe, expect, test } from "vitest";

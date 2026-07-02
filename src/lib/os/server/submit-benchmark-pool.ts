@@ -48,7 +48,7 @@ export async function getSectorBenchmarkPool(
   }
 }
 
-/** Anonim skoru Firestore havuzuna yazar — uid veya ham metrik saklanmaz. */
+/** Anonim skoru Firestore havuzuna yazar - uid veya ham metrik saklanmaz. */
 export async function submitAnonymizedBenchmark(
   data: BenchmarkData,
 ): Promise<RecordBenchmarkResult> {

@@ -1,5 +1,5 @@
 /**
- * SEO-P2 — first 50 high-intent tool SEO landing slugs.
+ * SEO-P2 - first 50 high-intent tool SEO landing slugs.
  *
  * Selection: premium conversion potential, search intent, business cost pain,
  * global usability, formula governance confidence.
@@ -14,9 +14,9 @@ export type SeoP2First50Entry = {
   readonly source: SeoP2LandingSource;
 };
 
-/** Ordered priority list — exactly 50 entries. */
+/** Ordered priority list - exactly 50 entries. */
 export const SEO_P2_FIRST_50: readonly SeoP2First50Entry[] = [
-  // Revenue — sector bid / margin analyzers (27)
+  // Revenue - sector bid / margin analyzers (27)
   { slug: "cnc-quote-risk-analyzer", source: "revenue" },
   { slug: "change-order-impact-analyzer", source: "revenue" },
   { slug: "hvac-project-margin-guard", source: "revenue" },
@@ -44,7 +44,7 @@ export const SEO_P2_FIRST_50: readonly SeoP2First50Entry[] = [
   { slug: "renovation-budget-optimizer", source: "revenue" },
   { slug: "trip-budget-optimizer", source: "revenue" },
   { slug: "meal-planning-verdict", source: "revenue" },
-  // Schema-only — cross-sector cost / margin / compliance (23)
+  // Schema-only - cross-sector cost / margin / compliance (23)
   { slug: "carbon-footprint-compliance-risk", source: "schema" },
   { slug: "cbam-exposure-quick-check", source: "schema" },
   { slug: "cbam-unit-product-carbon-footprint-calculator", source: "schema" },

@@ -1,9 +1,9 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * SECTORCALC PRO — EXPRESSION ENGINE (Industrial Grade v2.0)
+ * SECTORCALC PRO - EXPRESSION ENGINE (Industrial Grade v2.0)
  * ───────────────────────────────────────────────────────────────────────────
  * Dual-Core Calculation Intelligence
- *  - No eval() — sandboxed new Function with whitelisted scope
+ *  - No eval() - sandboxed new Function with whitelisted scope
  *  - DAG-based formula execution order
  *  - Domain Guard enforcement (fail-closed)
  *  - Dimensional Consistency Check (ISO 80000)

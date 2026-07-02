@@ -1,6 +1,6 @@
 "use client";
 /**
- * CategoriesHubGrid — Category grid for the industries / free-tools / premium-tools pages.
+ * CategoriesHubGrid - Category grid for the industries / free-tools / premium-tools pages.
  *
  * Renders a 4-column responsive grid of centered category cards with:
  * - Premium SVG line-art symbol (colored per page variant)
@@ -8,7 +8,7 @@
  * - Tool count (+ PRO badge)
  *
  * Design matches homepage "Sectoral Calculation Tools" style.
- * ECMI / ISO 9001 — Industrial-grade taxonomy display.
+ * ECMI / ISO 9001 - Industrial-grade taxonomy display.
  */
 
 

@@ -1,5 +1,5 @@
 /**
- * Human approval gate — Phase 5I-G scope and forbidden operation validation.
+ * Human approval gate - Phase 5I-G scope and forbidden operation validation.
  */
 
 import {

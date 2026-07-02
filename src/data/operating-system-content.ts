@@ -1,5 +1,5 @@
 /**
- * Operating system page content — Phase 6C pipeline narrative.
+ * Operating system page content - Phase 6C pipeline narrative.
  */
 
 export const OPERATING_SYSTEM_PIPELINE_STAGES = [
@@ -19,7 +19,7 @@ export const OPERATING_SYSTEM_GATES = [
   {
     id: "deterministic",
     title: "Deterministic calculation",
-    body: "Production outputs come from governed formula contracts. LLM assists input extraction only — never formula selection or validation override.",
+    body: "Production outputs come from governed formula contracts. LLM assists input extraction only - never formula selection or validation override.",
   },
   {
     id: "oracle",
@@ -34,7 +34,7 @@ export const OPERATING_SYSTEM_GATES = [
   {
     id: "audit-trail",
     title: "Audit trail",
-    body: "Calculation summary reports document inputs, assumptions, limitations, and validation coverage — not black-box scores.",
+    body: "Calculation summary reports document inputs, assumptions, limitations, and validation coverage - not black-box scores.",
   },
 ] as const;
 

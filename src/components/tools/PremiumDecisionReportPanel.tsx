@@ -165,7 +165,7 @@ function AuditVerdictReportContent({ data }: { data: AuditVerdictReportData }) {
  );
 }
 
-/** Big Four audit layout — premium-panel + report-heading. */
+/** Big Four audit layout - premium-panel + report-heading. */
 export function AuditVerdictReportView({
  data,
  heading = "Audit Verdict & Risk Calculation",
@@ -306,7 +306,7 @@ trackRevenueEvent(REVENUE_EVENTS.premium_result_generated, {
  <h2 className="report-heading">Audit Verdict &amp; Risk Calculation</h2>
  <p className="mt-1 text-sm text-text-secondary">{toolTitle}</p>
  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary">
- Stochastic P90 margin calculation — naive exposure vs safe price with sensitivity
+ Stochastic P90 margin calculation - naive exposure vs safe price with sensitivity
  scenarios. Formulas run server-side; only the verdict is shown.
  </p>
 
@@ -382,7 +382,7 @@ trackRevenueEvent(REVENUE_EVENTS.premium_result_generated, {
  <EngineeringAuthorityPanel toolSlug={toolSlug || ""} />
  
  <p className="mt-6 text-xs leading-relaxed text-text-secondary">
- Technical simulation only — not financial, legal or engineering advice. Verify
+ Technical simulation only - not financial, legal or engineering advice. Verify
  all outputs before quoting or accepting work.
  </p>
  </>
@@ -446,7 +446,7 @@ function LegacyDecisionReportPanel({
  <h2 className="report-heading">Decision Summary</h2>
  <p className="mt-1 text-sm text-text-secondary">{toolTitle}</p>
  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary">
- Export-ready view of your paid calculator result — verdict, key drivers and
+ Export-ready view of your paid calculator result - verdict, key drivers and
  suggested action.
  </p>
 

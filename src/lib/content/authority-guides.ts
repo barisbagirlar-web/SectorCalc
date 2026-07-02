@@ -37,7 +37,7 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
     localeKey: "guides.manufacturingCost",
     category: "manufacturing",
     title: "How to Calculate Manufacturing Cost",
-    seoTitle: "How to Calculate Manufacturing Cost — Unit, Labor & Machine Rate Guide",
+    seoTitle: "How to Calculate Manufacturing Cost - Unit, Labor & Machine Rate Guide",
     seoDescription:
       "Learn how to calculate manufacturing cost from unit cost, machine hour rate and labor time. Free calculators and premium hidden-loss analyzers for shop-floor decisions.",
     h1: "How to calculate manufacturing cost",
@@ -191,7 +191,7 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
     localeKey: "guides.scrapRate",
     category: "manufacturing",
     title: "How to Calculate Scrap Rate",
-    seoTitle: "How to Calculate Scrap Rate — Yield & Material Loss Guide",
+    seoTitle: "How to Calculate Scrap Rate - Yield & Material Loss Guide",
     seoDescription:
       "Calculate scrap rate and material yield for manufacturing jobs. Free scrap calculators and premium sheet-metal scrap risk analyzer on SectorCalc.",
     h1: "How to calculate scrap rate",
@@ -260,7 +260,7 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
     localeKey: "guides.constructionOverrun",
     category: "construction",
     title: "How to Calculate Construction Cost Overrun",
-    seoTitle: "Construction Cost Overrun Calculator — Estimate Budget Exposure",
+    seoTitle: "Construction Cost Overrun Calculator - Estimate Budget Exposure",
     seoDescription:
       "Estimate construction cost overrun from scope, labor and material drift. Free renovation and concrete calculators plus premium project overrun analyzer.",
     h1: "How to calculate construction cost overrun",
@@ -305,7 +305,7 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
       {
         question: "What is a typical construction contingency?",
         answer:
-          "Many contractors carry 5–10% contingency on hard costs depending on project complexity and contract type. Contingency is not profit—it absorbs expected variability.",
+          "Many contractors carry 5–10% contingency on hard costs depending on project complexity and contract type. Contingency is not profit-it absorbs expected variability.",
       },
       {
         question: "How do change orders affect overrun?",
@@ -324,7 +324,7 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
     localeKey: "guides.routeCost",
     category: "logistics",
     title: "How to Calculate Route Cost",
-    seoTitle: "Route Cost Calculator — Delivery & Fuel Cost Guide",
+    seoTitle: "Route Cost Calculator - Delivery & Fuel Cost Guide",
     seoDescription:
       "Calculate route cost from distance, fuel rate and stop count. Free logistics calculators and premium route loss analyzer on SectorCalc.",
     h1: "How to calculate route cost",
@@ -379,7 +379,7 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
       {
         question: "What is route deadhead cost?",
         answer:
-          "Deadhead cost is expense from running empty or under-loaded legs—fuel, driver hours and tolls without matching freight revenue on that segment.",
+          "Deadhead cost is expense from running empty or under-loaded legs-fuel, driver hours and tolls without matching freight revenue on that segment.",
       },
     ],
   },
@@ -388,7 +388,7 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
     localeKey: "guides.foodCost",
     category: "food-retail",
     title: "How to Calculate Restaurant Food Cost",
-    seoTitle: "Restaurant Food Cost Calculator — Menu Margin Guide",
+    seoTitle: "Restaurant Food Cost Calculator - Menu Margin Guide",
     seoDescription:
       "Calculate restaurant food cost percentage and menu margin. Free food cost calculators and premium menu margin leak analyzer on SectorCalc.",
     h1: "How to calculate restaurant food cost",
@@ -472,7 +472,7 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
         bullets: [
           "Electricity CO₂ = kWh × grid emission factor",
           "Fuel CO₂ = liters × fuel emission factor",
-          "Track peak load separately—it drives both cost and compliance risk",
+          "Track peak load separately-it drives both cost and compliance risk",
         ],
       },
       {
@@ -516,13 +516,13 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
     localeKey: "guides.areaConverter",
     category: "conversion",
     title: "How to Use an Area Converter",
-    seoTitle: "Area Converter — m² to ft², Hectares to Acres Guide",
+    seoTitle: "Area Converter - m² to ft², Hectares to Acres Guide",
     seoDescription:
       "Convert area units between metric and imperial: m², ft², hectares and acres. Free area converter and related measurement calculators on SectorCalc.",
     h1: "How to use an area converter",
     featuredQuestion: "How do you convert m² to ft² and hectares to acres?",
     featuredAnswer:
-      "Area conversion multiplies by a fixed factor between units. One square meter equals 10.7639 square feet; one hectare equals 2.471 acres. To convert m² to ft², multiply by 10.7639. To convert hectares to acres, multiply by 2.471. SectorCalc free area converter handles metric and imperial area units instantly in your browser—useful for floor plans, land quotes and material coverage checks before construction or logistics decisions.",
+      "Area conversion multiplies by a fixed factor between units. One square meter equals 10.7639 square feet; one hectare equals 2.471 acres. To convert m² to ft², multiply by 10.7639. To convert hectares to acres, multiply by 2.471. SectorCalc free area converter handles metric and imperial area units instantly in your browser-useful for floor plans, land quotes and material coverage checks before construction or logistics decisions.",
     sections: [
       {
         heading: "Common area units in construction and land",

@@ -5,7 +5,7 @@ type CalculatorCardGridProps = {
   readonly className?: string;
 };
 
-/** Text-based tool grid — 3-4 equal columns, symmetric. */
+/** Text-based tool grid - 3-4 equal columns, symmetric. */
 export function CalculatorCardGrid({ children, className }: CalculatorCardGridProps) {
   return (
     <ul

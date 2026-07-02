@@ -1,5 +1,5 @@
 /**
- * Batch free/revenue calculator oracle baselines — Phase 5G-B.
+ * Batch free/revenue calculator oracle baselines - Phase 5G-B.
  * Independent reference implementations; does NOT import production calculators.
  */
 

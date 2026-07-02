@@ -1,5 +1,5 @@
 /**
- * Tool #36 — Proje Maliyet Tahmini
+ * Tool #36 - Proje Maliyet Tahmini
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const PROJECT_COST_ESTIMATE_ANALYZER_SCHEMA: PremiumCalculatorSchema = {

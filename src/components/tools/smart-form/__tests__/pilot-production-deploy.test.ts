@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-Q — smart form production deploy approval gate tests.
+ * Phase 5H-G-Q - smart form production deploy approval gate tests.
  */
 
 import { execSync } from "node:child_process";
@@ -30,7 +30,7 @@ function passedStagingSmokeGate() {
   );
 }
 
-describe("smart form production deploy gate — Phase 5H-G-P", () => {
+describe("smart form production deploy gate - Phase 5H-G-P", () => {
   test("staging smoke passed + pending approval keeps productionDeploymentReady false", () => {
     const decision = evaluateSmartFormPilotProductionDeployGate({
       stagingSmokeGate: passedStagingSmokeGate(),

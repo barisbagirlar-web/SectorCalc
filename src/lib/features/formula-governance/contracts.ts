@@ -1,5 +1,5 @@
 /**
- * Formula contract registry — no contract, no launch.
+ * Formula contract registry - no contract, no launch.
  */
 
 import type { FormulaContract } from "@/lib/features/formula-governance/types";
@@ -21,7 +21,7 @@ import { INDUSTRIAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/
 import { PREMIUM_152_BATCH1_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/premium-152-batch1-critical";
 
 const RENT_VS_BUY_DISCLAIMER =
-  "Technical simulation only — not financial, legal, or tax advice. Verify assumptions before housing or investment decisions.";
+  "Technical simulation only - not financial, legal, or tax advice. Verify assumptions before housing or investment decisions.";
 
 export const rentVsBuyContract: FormulaContract = {
   toolId: "free-traffic.rent-vs-buy-calculator",

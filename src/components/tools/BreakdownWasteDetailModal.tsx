@@ -12,7 +12,7 @@ type BreakdownWasteDetailModalProps = {
 
 function formatInputValue(value: unknown, locale: string): string {
   if (value === null || value === undefined || value === "") {
-    return "—";
+    return "-";
   }
   if (typeof value === "number" && Number.isFinite(value)) {
     return new Intl.NumberFormat(locale, { maximumFractionDigits: 4 }).format(value);

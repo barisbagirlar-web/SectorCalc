@@ -12,7 +12,7 @@ const BALANCE_DOC = "balance";
 
 export type UseCreditsState = {
   credits: number | null;
-  /** Alias for credits — matches Firestore balance field semantics. */
+  /** Alias for credits - matches Firestore balance field semantics. */
   balance: number;
   loading: boolean;
   refreshCredits: () => Promise<void>;

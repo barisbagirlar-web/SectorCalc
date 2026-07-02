@@ -1,5 +1,5 @@
 /**
- * Smart form production rollout governance audit — Phase 5I-L read-only.
+ * Smart form production rollout governance audit - Phase 5I-L read-only.
  */
 
 import {

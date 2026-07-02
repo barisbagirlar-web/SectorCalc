@@ -44,7 +44,7 @@ function formatPrimaryValue(
   schema: GeneratedToolSchema,
 ): string {
   if (typeof value !== "number" || !Number.isFinite(value)) {
-    return "—";
+    return "-";
   }
   return formatGeneratedNumericValue(value, key, locale);
 }
@@ -205,7 +205,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
               <p className="sc-result-nowrap font-mono text-3xl font-semibold text-premium-velvet">
                 {formatPrimaryValue(primaryValue, primaryKey, locale, schema)}
               </p>
-              {primaryUnit && primaryUnit !== "—" ? (
+              {primaryUnit && primaryUnit !== "-" ? (
                 <p className="text-xs font-medium uppercase tracking-wider text-body-charcoal/70">
                   {t("resultUnit", { unit: primaryUnit })}
                 </p>

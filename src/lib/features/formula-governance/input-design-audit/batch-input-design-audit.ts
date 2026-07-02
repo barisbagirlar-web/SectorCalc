@@ -1,5 +1,5 @@
 /**
- * Batch input design audit — read-only summary across FormulaContracts (Phase 5H-C).
+ * Batch input design audit - read-only summary across FormulaContracts (Phase 5H-C).
  */
 
 import type { CalculationOntology } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";

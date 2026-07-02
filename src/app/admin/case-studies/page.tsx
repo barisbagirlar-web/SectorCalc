@@ -21,7 +21,7 @@ export default function AdminCaseStudiesPage() {
       <PageHero
         eyebrow="Admin"
         title="Case Studies"
-        subtitle="Review live success stories and author new drafts. Publishing updates static repo files — no runtime API writes."
+        subtitle="Review live success stories and author new drafts. Publishing updates static repo files - no runtime API writes."
       />
 
       <section className="bg-off-white py-10 md:py-14">

@@ -1,5 +1,5 @@
 /**
- * SectorCalc Premium Tool Contract v1 — all premium analyzer contracts.
+ * SectorCalc Premium Tool Contract v1 - all premium analyzer contracts.
  */
 
 import type {

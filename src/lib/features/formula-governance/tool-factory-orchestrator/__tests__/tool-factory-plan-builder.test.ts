@@ -1,5 +1,5 @@
 /**
- * Tool factory plan builder tests — Phase 5I-A.
+ * Tool factory plan builder tests - Phase 5I-A.
  */
 
 import { describe, expect, test } from "vitest";
@@ -11,7 +11,7 @@ import { runToolFactoryOrchestratorAudit } from "@/lib/features/formula-governan
 import { buildToolFactoryPlan } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-plan-builder";
 import { TOOL_FACTORY_GATES } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-types";
 
-describe("tool factory plan builder — Phase 5I-A", () => {
+describe("tool factory plan builder - Phase 5I-A", () => {
   test("deterministic fixture plan is produced", () => {
     const first = buildDraftToolFactoryPlan();
     const second = buildDraftToolFactoryPlan();

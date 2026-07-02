@@ -1,11 +1,11 @@
 /**
- * Roadmap debt register tests — Phase 5I-Q.
+ * Roadmap debt register tests - Phase 5I-Q.
  */
 
 import { describe, expect, test } from "vitest";
 import { runRoadmapDebtAudit } from "@/lib/features/formula-governance/roadmap-debt-register/roadmap-debt-audit";
 
-describe("roadmap debt register — Phase 5I-Q", () => {
+describe("roadmap debt register - Phase 5I-Q", () => {
   test("debt register has expected categories", () => {
     const result = runRoadmapDebtAudit();
     expect(result.totalRemainingDebt).toBe(10);

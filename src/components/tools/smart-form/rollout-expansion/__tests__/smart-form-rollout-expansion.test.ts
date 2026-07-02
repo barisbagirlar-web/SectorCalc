@@ -1,5 +1,5 @@
 /**
- * Smart form rollout expansion tests — Phase 5I-H.
+ * Smart form rollout expansion tests - Phase 5I-H.
  */
 
 import { describe, expect, test, beforeEach, afterEach } from "vitest";
@@ -16,7 +16,7 @@ import {
   shouldFallbackToClassicForm,
 } from "@/components/tools/smart-form/rollout-expansion/smart-form-rollout-fallback-policy";
 
-describe("smart form rollout expansion — Phase 5I-H", () => {
+describe("smart form rollout expansion - Phase 5I-H", () => {
   test("first 3 live pilots remain live_already", () => {
     for (const slug of ROLLOUT_BATCH_H_LIVE_GOVERNANCE_SLUGS) {
       expect(resolveRolloutCategory(slug)).toBe("live_already");

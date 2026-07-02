@@ -1,12 +1,12 @@
 "use client";
 /**
- * CategoryCatalogView — Compact category cards + full tool listing below.
+ * CategoryCatalogView - Compact category cards + full tool listing below.
  *
  * No tab bar, no inline search (hero search covers that).
  * Click a category card → expands a detail panel below the grid listing
  * ALL tools in that category with their localized names and direct links.
  *
- * ECMI / ISO 9001 — TUV-certifiable industrial UX.
+ * ECMI / ISO 9001 - TUV-certifiable industrial UX.
  */
 
 

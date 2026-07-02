@@ -1,5 +1,5 @@
 /**
- * Smart form pilot feature flag — disabled during regeneration baseline.
+ * Smart form pilot feature flag - disabled during regeneration baseline.
  */
 
 import { resolvePilotGovernanceSlugFromRoute } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";

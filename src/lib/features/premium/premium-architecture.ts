@@ -55,7 +55,7 @@ export interface FieldPanelKpi {
 }
 
 /**
- * Industrial field panel — designed for glove-on, noisy shop-floor reading in ~3 seconds.
+ * Industrial field panel - designed for glove-on, noisy shop-floor reading in ~3 seconds.
  */
 export interface PremiumFieldPanel {
   readonly familyBadge: string;
@@ -70,7 +70,7 @@ export interface PremiumFieldPanel {
   readonly kpis: readonly FieldPanelKpi[];
 }
 
-/** Per-engine-mode logic descriptor (not formula — operator-facing). */
+/** Per-engine-mode logic descriptor (not formula - operator-facing). */
 export interface PremiumEngineModeDescriptor {
   readonly mode: PremiumEngineMode;
   readonly label: string;

@@ -1,5 +1,5 @@
 /**
- * Batch premium/revenue analyzer oracle baselines — Phase 5F-B.
+ * Batch premium/revenue analyzer oracle baselines - Phase 5F-B.
  * Independent reference implementations; does NOT import production calculators.
  */
 

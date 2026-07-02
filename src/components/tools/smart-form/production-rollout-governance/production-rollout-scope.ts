@@ -1,5 +1,5 @@
 /**
- * Smart form production rollout scope — Phase 5I-L live pilot protection.
+ * Smart form production rollout scope - Phase 5I-L live pilot protection.
  */
 
 import { ROLLOUT_BATCH_H_LIVE_GOVERNANCE_SLUGS, ROLLOUT_BATCH_H_TOOL_DEFINITIONS } from "@/components/tools/smart-form/rollout-batch-h-catalog";

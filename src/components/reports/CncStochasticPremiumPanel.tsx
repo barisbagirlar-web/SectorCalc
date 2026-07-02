@@ -120,7 +120,7 @@ export function CncStochasticPremiumPanel({
  }
 
  // -------------------------------------------------------------------------
- // Render: Non-Pro user — paywall
+ // Render: Non-Pro user - paywall
  // -------------------------------------------------------------------------
 
  if (!isPro) {
@@ -163,7 +163,7 @@ Z-score (P90). View base cost, risk buffer, and safe quote price.
  }
 
  // -------------------------------------------------------------------------
- // Render: Pro user — calculation panel
+ // Render: Pro user - calculation panel
  // -------------------------------------------------------------------------
 
  return (
@@ -287,7 +287,7 @@ Base Cost
  <p className="mt-1 text-xs text-text-secondary">Raw base cost (risk-free)</p>
  </div>
 
- {/* Risk Buffer — status signal (risk metric) */}
+ {/* Risk Buffer - status signal (risk metric) */}
  <div className="border border-border-subtle status-warn-bg p-4" data-status="warning">
 <p className="text-xs font-semibold uppercase tracking-wider text-warn-amber">
 Risk Buffer

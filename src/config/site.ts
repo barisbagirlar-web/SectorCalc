@@ -26,13 +26,13 @@ export const SITE_SOCIAL = {
 
 export const SITE = {
  siteName: "SectorCalc",
- /** @deprecated Prefer siteName — kept for existing components */
+ /** @deprecated Prefer siteName - kept for existing components */
  name: "SectorCalc",
  domain: "sectorcalc.com",
  url: siteUrl,
- defaultTitle: "SectorCalc — Sector-specific measurement, loss detection and decision reports",
+ defaultTitle: "SectorCalc - Sector-specific measurement, loss detection and decision reports",
  defaultDescription:
- "Calculate costs, measure efficiency, detect losses, and optimize operations across 27 sectors — free calculators and premium verdict reports without ERP complexity.",
+ "Calculate costs, measure efficiency, detect losses, and optimize operations across 27 sectors - free calculators and premium verdict reports without ERP complexity.",
  tagline: "Sector-specific calculation, measurement, and decision reports.",
  secondaryTagline: "Calculate the number. Get the decision.",
  contactEmail: "hello@sectorcalc.com",
@@ -40,7 +40,7 @@ export const SITE = {
  defaultCurrency: "USD" as const,
 } as const;
 
-/** Desktop header nav — Free → Premium → Industry → Pricing. */
+/** Desktop header nav - Free → Premium → Industry → Pricing. */
 export const DESKTOP_HEADER_NAV = [
   { key: "freeCalculators", href: "/free-tools" },
   { key: "premiumCalculators", href: "/pro-tools" },
@@ -48,10 +48,10 @@ export const DESKTOP_HEADER_NAV = [
   { key: "pricing", href: "/pricing" },
 ] as const;
 
-/** Mobile drawer nav — same order as desktop header. */
+/** Mobile drawer nav - same order as desktop header. */
 export const PRIMARY_HEADER_NAV = [...DESKTOP_HEADER_NAV] as const;
 
-/** Footer platform links — moved from header. */
+/** Footer platform links - moved from header. */
 export const FOOTER_PLATFORM_NAV = [
   { key: "caseStudies", href: "/case-studies" },
   { key: "reports", href: "/account/reports" },

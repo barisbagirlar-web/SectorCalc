@@ -1,5 +1,5 @@
 /**
- * Shared locale message verification — build gate + audits.
+ * Shared locale message verification - build gate + audits.
  */
 
 import { readFileSync } from "node:fs";

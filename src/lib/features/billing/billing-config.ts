@@ -1,6 +1,6 @@
 /**
  * Canonical billing plan catalog for checkout routing.
- * Stripe price IDs are read from env at runtime (Cloud Functions) — never hardcoded here.
+ * Stripe price IDs are read from env at runtime (Cloud Functions) - never hardcoded here.
  */
 
 import type { CheckoutPlan } from "@/lib/features/billing/create-checkout-session";

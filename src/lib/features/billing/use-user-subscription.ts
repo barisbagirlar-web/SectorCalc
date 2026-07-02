@@ -56,7 +56,7 @@ function setStoreState(next: UseUserSubscriptionState) {
 
 function subscribeStore(listener: StoreListener): () => void {
   storeListeners.add(listener);
-  // Always warm the auth store — AuthStatusIndicator in the header needs
+  // Always warm the auth store - AuthStatusIndicator in the header needs
   // the user state on every page, not just protected routes.
   bootstrapAuthStore();
   return () => {
@@ -132,7 +132,7 @@ function bootstrapAuthStore() {
         // Clear server-side session cookie ONLY when we transition from
         // authenticated → unauthenticated (deliberate sign-out).
         // On initial page load Firebase emits null before restoring the
-        // persisted auth state from IndexedDB — clearing the cookie then
+        // persisted auth state from IndexedDB - clearing the cookie then
         // would destroy the session on every navigation.
         if (hadAuthUser) {
           clearSessionCookie();
@@ -190,7 +190,7 @@ function bootstrapAuthStore() {
             });
           },
           (err: FirestoreError) => {
-            // Firestore subscription failed — set degraded state
+            // Firestore subscription failed - set degraded state
             setStoreState({
               user,
               subscription: null,
@@ -218,7 +218,7 @@ function bootstrapAuthStore() {
   }
 }
 
-/** Shared subscription store — one Firebase listener for the whole app. */
+/** Shared subscription store - one Firebase listener for the whole app. */
 export function useUserSubscription(): UseUserSubscriptionState {
   return useSyncExternalStore(subscribeStore, getStoreSnapshot, () => INITIAL_STATE);
 }

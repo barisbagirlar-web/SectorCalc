@@ -1,5 +1,5 @@
 /**
- * MarginCore Stochastic Risk Engine — Pure Mathematical Module
+ * MarginCore Stochastic Risk Engine - Pure Mathematical Module
  *
  * Architecture: Pure functions, explicit type guards, zero client-side
  * dependencies. No Firebase, Stripe, React, or Next.js imports.
@@ -71,7 +71,7 @@ export interface SensitivityScenario {
 }
 
 /**
- * Full engine output — the top-level result returned to the server action.
+ * Full engine output - the top-level result returned to the server action.
  */
 export interface MarginCoreEngineOutput {
  readonly p90: P90SafeCostResult;
@@ -91,7 +91,7 @@ export interface MarginCoreEngineOutput {
  * Uses a lookup table for standard levels; falls back to an
  * Abramowitz & Stegun approximation for non-standard levels.
  *
- * @param confidenceLevel — confidence percentage (e.g. 90 for P90)
+ * @param confidenceLevel - confidence percentage (e.g. 90 for P90)
  * @returns Z-score (e.g. 1.28 for 90%)
  */
 export function calculateZScore(confidenceLevel: number): number {
@@ -126,8 +126,8 @@ export function calculateZScore(confidenceLevel: number): number {
  * σ = expectedCost × (volatilityPercent / 100)
  * Safe = Expected + (Z_90 × σ)
  *
- * @param expectedCost — naive (base) cost estimate
- * @param volatilityPercent — cost volatility as a percentage (e.g. 18 for 18%)
+ * @param expectedCost - naive (base) cost estimate
+ * @param volatilityPercent - cost volatility as a percentage (e.g. 18 for 18%)
  * @returns { expected, safe, buffer }
  */
 export function calculateP90SafeCost(
@@ -166,8 +166,8 @@ export function calculateP90SafeCost(
  * Where carbonPriceRatio models the EU ETS carbon price as a fraction
  * of the base material/energy cost (default 8% = 0.08).
  *
- * @param baseCost — pre-carbon base cost
- * @param emissionFactor — sector emission intensity (0.0 = clean, 1.0 = max dirty)
+ * @param baseCost - pre-carbon base cost
+ * @param emissionFactor - sector emission intensity (0.0 = clean, 1.0 = max dirty)
  * @returns { baseCost, carbonLiability, totalWithCBAM }
  */
 export function applyCBAMShock(
@@ -205,8 +205,8 @@ export function applyCBAMShock(
  * Scenario B: +10% labor cost increase
  * Scenario C: +3 days delay (carrying cost)
  *
- * @param baseCost — base project cost
- * @param iv — implied volatility (as decimal, e.g. 0.18 for 18%)
+ * @param baseCost - base project cost
+ * @param iv - implied volatility (as decimal, e.g. 0.18 for 18%)
  * @returns structured plain-text matrix string
  */
 export function generateSensitivityMatrixText(
@@ -214,7 +214,7 @@ export function generateSensitivityMatrixText(
  iv: number,
 ): string {
  if (!Number.isFinite(baseCost) || baseCost < 0) {
- return " [No data — invalid base cost]";
+ return " [No data - invalid base cost]";
  }
 
  const sigma = baseCost * (Number.isFinite(iv) && iv > 0 ? iv : 0.18);
@@ -273,9 +273,9 @@ export function generateSensitivityMatrixText(
 /**
  * Run the complete MarginCore stochastic calculation.
  *
- * @param expectedCost — naive base cost
- * @param volatilityPercent — cost volatility as percentage (e.g. 18)
- * @param emissionFactor — CBAM emission intensity (0–1)
+ * @param expectedCost - naive base cost
+ * @param volatilityPercent - cost volatility as percentage (e.g. 18)
+ * @param emissionFactor - CBAM emission intensity (0–1)
  * @returns MarginCoreEngineOutput
  */
 export function runEngine(
@@ -298,7 +298,7 @@ export function runEngine(
 
  if (bufferPercent > 50) {
  verdict = "reject";
- verdictReason = "Risk buffer exceeds 50% of expected cost. Margin erosion is critical — do not proceed without repricing.";
+ verdictReason = "Risk buffer exceeds 50% of expected cost. Margin erosion is critical - do not proceed without repricing.";
  } else if (bufferPercent > 25) {
  verdict = "caution";
  verdictReason = "Risk buffer is elevated (25–50%). Recommend upward price adjustment before commitment.";
@@ -318,8 +318,8 @@ export function runEngine(
  * Serialize the full engine output into a Big Four–style audit report
  * string. This is the canonical output for server → client transfer.
  *
- * @param output — MarginCoreEngineOutput from runEngine()
- * @param currency — ISO currency code (USD, EUR, TRY)
+ * @param output - MarginCoreEngineOutput from runEngine()
+ * @param currency - ISO currency code (USD, EUR, TRY)
  * @returns structured plain-text report
  */
 export function formatEngineReport(

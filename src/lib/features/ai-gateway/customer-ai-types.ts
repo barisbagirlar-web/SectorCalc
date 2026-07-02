@@ -21,7 +21,7 @@ export type CustomerAiRequest = {
   formInputs?: Record<string, unknown>;
   /** Prior turns for multi-message chat (latest user message is `message`). */
   messages?: readonly CustomerAiConversationMessage[];
-  /** Pro / team subscriber — unlocks operational guidance prompts. */
+  /** Pro / team subscriber - unlocks operational guidance prompts. */
   isPremium?: boolean;
 };
 

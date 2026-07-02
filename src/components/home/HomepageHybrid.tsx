@@ -30,7 +30,7 @@ import {
 const FREE_ITEM_IDS = ["basic", "fast", "category", "noSignup"] as const;
 const PREMIUM_ITEM_IDS = ["inputs", "scenario", "summary", "export"] as const;
 
-/** Keep homepage search focused on industry / business calculators — not daily-life catalog tabs. */
+/** Keep homepage search focused on industry / business calculators - not daily-life catalog tabs. */
 const HOMEPAGE_SEARCH_EXCLUDED_FREE_CATEGORIES = new Set([
   "everyday-life",
   "math-statistics",

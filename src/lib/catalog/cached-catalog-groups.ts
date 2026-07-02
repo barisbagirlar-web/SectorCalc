@@ -55,7 +55,7 @@ function enrichFreeTrafficCatalogGroups(
   }));
 }
 
-/** Module-level cache — catalog data changes only on deploy. */
+/** Module-level cache - catalog data changes only on deploy. */
 export function getCachedIndustryCatalogGroups(locale = "en"): readonly CatalogGroup[] {
   const key = locale.toLowerCase();
   const hit = industryCache.get(key);

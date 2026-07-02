@@ -1,5 +1,5 @@
 /**
- * SectorCalc Assistant — shared types (P10).
+ * SectorCalc Assistant - shared types (P10).
  *
  * The assistant is deterministic and guardrailed. It never calculates
  * formulas, never invents benchmark data, and never accesses private data.

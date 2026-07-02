@@ -45,11 +45,11 @@ export function calculateWPSPreheat(rawInput: Record<string, any>): WeldResult {
 
   const warnings: Array<{ severity: string; source: string; message: string }> = [];
 
-  // Calculations — simplified from PRO_043.json formulas
+  // Calculations - simplified from PRO_043.json formulas
   const HI_kj_mm = (U * I * eta * 60) / (v * 1000);
   const HAZ_mm = 0.9 * HI_kj_mm / (4.13e-3 * t);
 
-  // CET method (EN 1011-2 Annex C) — simplified
+  // CET method (EN 1011-2 Annex C) - simplified
   const CET = CE * 0.75 + 0.25;
   const T_preheat_c = Math.max(0,
     350 * Math.sqrt(
@@ -61,7 +61,7 @@ export function calculateWPSPreheat(rawInput: Record<string, any>): WeldResult {
     ) - 0.08 * t
   );
 
-  // AWS D1.1 Table 3.2 — simplified
+  // AWS D1.1 Table 3.2 - simplified
   let T_preheat_aws_c: number;
   if (CE < 0.40) T_preheat_aws_c = 10;
   else if (CE < 0.45) T_preheat_aws_c = 66;
@@ -70,7 +70,7 @@ export function calculateWPSPreheat(rawInput: Record<string, any>): WeldResult {
 
   const T_preheat_gov_c = Math.max(T_preheat_c, T_preheat_aws_c, 10);
 
-  // t8/5 cooling rate — simplified Seyffarth thin-plate
+  // t8/5 cooling rate - simplified Seyffarth thin-plate
   const t85_s = Math.max(0,
     (6700 - 5 * T_preheat_gov_c) * HI_kj_mm *
     (Math.pow(1 / Math.max(300 - T_preheat_gov_c, 1), 2) -
@@ -80,7 +80,7 @@ export function calculateWPSPreheat(rawInput: Record<string, any>): WeldResult {
   // Validation warnings
   if (HI_kj_mm > 3.5) {
     warnings.push({ severity: "CRITICAL", source: "AWS D1.1 Table 3.2",
-      message: `V1 BLOCK: Heat input ${HI_kj_mm.toFixed(2)} kJ/mm > 3.5: excessive — grain coarsening.` });
+      message: `V1 BLOCK: Heat input ${HI_kj_mm.toFixed(2)} kJ/mm > 3.5: excessive - grain coarsening.` });
   }
   if (HI_kj_mm < 0.3) {
     warnings.push({ severity: "CRITICAL", source: "EN 1011-2:2001",

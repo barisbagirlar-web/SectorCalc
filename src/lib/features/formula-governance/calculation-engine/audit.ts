@@ -2,7 +2,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  * AUDIT SERVICE
  * ───────────────────────────────────────────────────────────────────────────
- * • Uses Web Crypto (globalThis.crypto.subtle) — works in browser AND Node
+ * • Uses Web Crypto (globalThis.crypto.subtle) - works in browser AND Node
  * • Hash covers the FULL evidentiary set (toolId + version + inputs + results + timestamp)
  * • Hash CHAINING for tamper-evident audit trail
  *

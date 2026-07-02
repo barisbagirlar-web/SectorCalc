@@ -5,7 +5,7 @@
  * references are semantically consistent with the formula's purpose.
  *
  * Example violation: "direct_labor_cost" formula uses "material_cost_per_unit"
- * instead of "labor_cost_per_hour" — the formula compiles and runs but
+ * instead of "labor_cost_per_hour" - the formula compiles and runs but
  * produces WRONG results.
  *
  * This verifier uses domain-specific heuristics derived from the
@@ -168,7 +168,7 @@ const FORMULA_DOMAIN_KEYWORDS: Record<string, readonly DomainTag[]> = {
   total_delay: ["time", "efficiency"],
   labor_cost_total: ["labor", "cost"],
 
-  // Exposure hours — when formula uses time inputs, this is valid
+  // Exposure hours - when formula uses time inputs, this is valid
   annual_exposure_hours: ["time", "risk"],
 };
 
@@ -228,7 +228,7 @@ export function verifyFormulaSemantics(
   const expectedTags = formulaTags.length > 0 ? formulaTags : inferredTags;
 
   if (expectedTags.length === 0) {
-    // Unknown formula key — can't verify
+    // Unknown formula key - can't verify
     return issues;
   }
 

@@ -1,5 +1,5 @@
 /**
- * Smart formula risk scoring — keyword heuristics for inventory (Phase 2).
+ * Smart formula risk scoring - keyword heuristics for inventory (Phase 2).
  * Does not mutate calculator logic or production risk engines.
  */
 

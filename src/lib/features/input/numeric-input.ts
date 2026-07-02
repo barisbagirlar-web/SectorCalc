@@ -37,6 +37,6 @@ export function handleNumericInputChange(
   return { sanitized, numeric: parseNumericInput(sanitized) };
 }
 
-/** Industrial numeric input — JetBrains Mono + tabular alignment */
+/** Industrial numeric input - JetBrains Mono + tabular alignment */
 export const SC_NUMERIC_INPUT_CLASS =
   "sc-input data-value w-full min-h-[32px] rounded-none border border-technical-gray bg-white px-2 py-1 font-mono text-xs tabular-nums text-premium-velvet focus:border-premium-velvet focus:outline-none";

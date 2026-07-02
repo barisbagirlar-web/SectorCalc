@@ -1,5 +1,5 @@
 /**
- * Industry diagnostic configuration — maps semantic param keys to U-Engine.
+ * Industry diagnostic configuration - maps semantic param keys to U-Engine.
  */
 
 export interface IndustryDiagnosticParamMap {
@@ -28,7 +28,7 @@ export const CNC_MANUFACTURING_DIAGNOSTIC_CONFIG: IndustryDiagnosticConfig = {
  },
  premiumRules: {
    Critical: "Tool wear or machine downtime detected.",
-   Warning: "Cycle time at tolerance limit — review tool calibration.",
+   Warning: "Cycle time at tolerance limit - review tool calibration.",
    Optimal: "Cycle time within target range; margin leakage low.",
  },
  costBasis: "per-hour-on-minute-delta",

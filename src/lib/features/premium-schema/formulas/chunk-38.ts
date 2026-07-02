@@ -72,7 +72,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.crop_yield_loss_7",
     family: "cost",
-    label: "Mahsul Verim Loss Analizoru — ROI_Intervention",
+    label: "Mahsul Verim Loss Analizoru - ROI_Intervention",
     fn: (inputs) => {
     const financialLoss = num(inputs, "financialLoss");
     const Recovered = num(inputs, "Recovered");
@@ -86,7 +86,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_0",
     family: "cost",
-    label: "Makine Ekonomik Omru — EUAC_Capital",
+    label: "Makine Ekonomik Omru - EUAC_Capital",
     fn: (inputs) => {
     const initialCost = num(inputs, "initialCost");
     const salvageValue = num(inputs, "salvageValue");
@@ -100,7 +100,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_1",
     family: "cost",
-    label: "Makine Ekonomik Omru — EUAC_Operating",
+    label: "Makine Ekonomik Omru - EUAC_Operating",
     fn: (inputs) => {
     const opCost = num(inputs, "opCost");
     const t = num(inputs, "t");
@@ -116,7 +116,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_2",
     family: "cost",
-    label: "Makine Ekonomik Omru — TotalEUAC",
+    label: "Makine Ekonomik Omru - TotalEUAC",
     fn: (inputs) => {
     const eUAC = num(inputs, "eUAC");
     const Capital = num(inputs, "Capital");
@@ -129,15 +129,15 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_3",
     family: "cost",
-    label: "Makine Ekonomik Omru — EconomicLife",
+    label: "Makine Ekonomik Omru - EconomicLife",
     fn: (inputs) => {
-    return 0; // EconomicLife = n where TotalEUAC is MINIMUM — requires solver
+    return 0; // EconomicLife = n where TotalEUAC is MINIMUM - requires solver
   },
   },
   {
     id: "user.machine_economic_life_4",
     family: "cost",
-    label: "Makine Ekonomik Omru — Defender_EUAC",
+    label: "Makine Ekonomik Omru - Defender_EUAC",
     fn: (inputs) => {
     const currentMarketValue = num(inputs, "currentMarketValue");
     const a = num(inputs, "a");
@@ -153,7 +153,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_5",
     family: "cost",
-    label: "Makine Ekonomik Omru — Challenger_EUAC",
+    label: "Makine Ekonomik Omru - Challenger_EUAC",
     fn: (inputs) => {
     const eUAC = num(inputs, "eUAC");
     const NewMachine = num(inputs, "NewMachine");
@@ -164,7 +164,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_6",
     family: "cost",
-    label: "Makine Ekonomik Omru — ReplacementDecision",
+    label: "Makine Ekonomik Omru - ReplacementDecision",
     fn: (inputs) => {
     const defender = num(inputs, "defender");
     const challenger = num(inputs, "challenger");
@@ -180,7 +180,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.material_replacement_cost_0",
     family: "cost",
-    label: "Malzeme Replacement Maliyet — TCO_Current",
+    label: "Malzeme Replacement Maliyet - TCO_Current",
     fn: (inputs) => {
     const matCost = num(inputs, "matCost");
     const Current = num(inputs, "Current");
@@ -197,7 +197,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.material_replacement_cost_1",
     family: "cost",
-    label: "Malzeme Replacement Maliyet — TCO_Alternative",
+    label: "Malzeme Replacement Maliyet - TCO_Alternative",
     fn: (inputs) => {
     const matCost = num(inputs, "matCost");
     const Alt = num(inputs, "Alt");
@@ -214,7 +214,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.material_replacement_cost_2",
     family: "cost",
-    label: "Malzeme Replacement Maliyet — WeightSavings",
+    label: "Malzeme Replacement Maliyet - WeightSavings",
     fn: (inputs) => {
     const weight = num(inputs, "weight");
     const Current = num(inputs, "Current");
@@ -227,7 +227,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.material_replacement_cost_3",
     family: "cost",
-    label: "Malzeme Replacement Maliyet — FuelSavings",
+    label: "Malzeme Replacement Maliyet - FuelSavings",
     fn: (inputs) => {
     const weightSavings = num(inputs, "weightSavings");
     const fuelFactor = num(inputs, "fuelFactor");
@@ -239,7 +239,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.material_replacement_cost_4",
     family: "cost",
-    label: "Malzeme Replacement Maliyet — NetBenefit",
+    label: "Malzeme Replacement Maliyet - NetBenefit",
     fn: (inputs) => {
     const tCO = num(inputs, "tCO");
     const Current = num(inputs, "Current");
@@ -254,7 +254,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.material_replacement_cost_5",
     family: "cost",
-    label: "Malzeme Replacement Maliyet — Payback",
+    label: "Malzeme Replacement Maliyet - Payback",
     fn: (inputs) => {
     const toolingCost = num(inputs, "toolingCost");
     const Alt = num(inputs, "Alt");
@@ -269,7 +269,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.moq_stock_balance_0",
     family: "cost",
-    label: "MOQ Stok Denge — EOQ",
+    label: "MOQ Stok Denge - EOQ",
     fn: (inputs) => {
     const annualDemand = num(inputs, "annualDemand");
     const orderCost = num(inputs, "orderCost");

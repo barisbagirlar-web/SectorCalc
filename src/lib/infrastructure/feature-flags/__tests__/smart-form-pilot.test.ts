@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-D — smart form pilot feature flag tests.
+ * Phase 5H-G-D - smart form pilot feature flag tests.
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";

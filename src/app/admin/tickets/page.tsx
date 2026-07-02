@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/infrastructure/metadata";
 export const metadata: Metadata = {
   ...createPageMetadata({
     title: "Support Tickets (Admin)",
-    description: "Manage customer support tickets — view, filter, reply and update status.",
+    description: "Manage customer support tickets - view, filter, reply and update status.",
     path: "/admin/tickets",
   }),
   robots: { index: false, follow: false },

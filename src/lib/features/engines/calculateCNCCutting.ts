@@ -68,8 +68,8 @@ export function calculateCNCCutting(rawInput: Record<string, any>): CNCResult {
   if (!Pmax || Pmax < 1) throw new Error("Machine rated power (P_mach) required.");
 
   // Geometry validation
-  if (ae > D) throw new Error("V1 BLOCK: a_e > D — Radial engagement exceeds tool diameter.");
-  if (ap > D * 0.8) throw new Error("V3 BLOCK: a_p > 0.8D — Catastrophic bending load risk.");
+  if (ae > D) throw new Error("V1 BLOCK: a_e > D - Radial engagement exceeds tool diameter.");
+  if (ap > D * 0.8) throw new Error("V3 BLOCK: a_p > 0.8D - Catastrophic bending load risk.");
 
   const warnings: Array<{ severity: string; source: string; message: string }> = [];
 

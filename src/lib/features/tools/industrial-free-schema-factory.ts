@@ -3,7 +3,7 @@
  * Enables free-stub pages for the 18 industrial formulas without requiring
  * a pre-generated schema JSON file in generated/schemas/.
  *
- * ECMI / ISO 9001 — TUV-certifiable engineering quality.
+ * ECMI / ISO 9001 - TUV-certifiable engineering quality.
  */
 
 import type { GeneratedToolSchema, GeneratedToolInput } from "@/lib/features/generated-tools/types";
@@ -65,7 +65,7 @@ export function buildIndustrialFreeToolSchema(slug: string): GeneratedToolSchema
         `Upgrade to ${tool.paidTitle} for full industrial-grade analysis.`,
         `Contact SectorCalc support for custom enterprise implementation.`,
       ],
-      dataConfidenceAdjusted: "Free-tier estimate — not suitable for production decisions.",
+      dataConfidenceAdjusted: "Free-tier estimate - not suitable for production decisions.",
     },
     premiumFeatures: [
       ...tool.freeMissingFactors.map((f) => `Full ${f} analysis`),

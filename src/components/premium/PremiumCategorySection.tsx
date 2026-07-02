@@ -1,5 +1,5 @@
 /**
- * PremiumCategorySection — Industrial-grade category block for premium tools.
+ * PremiumCategorySection - Industrial-grade category block for premium tools.
  *
  * Renders a category header with:
  * - A premium line-art SVG symbol (copper tint)
@@ -10,7 +10,7 @@
  * Designed for the premium-tools listing page; each category becomes a
  * visually distinct, scannable section.
  *
- * ECMI / ISO 9001 — TUV-certifiable engineering presentation.
+ * ECMI / ISO 9001 - TUV-certifiable engineering presentation.
  */
 
 import { Suspense } from "react";

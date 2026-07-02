@@ -13,7 +13,7 @@ export function savePrintData(data: PrintData): void {
   try {
     sessionStorage.setItem(PRINT_STORAGE_KEY, JSON.stringify(data));
   } catch {
-    // sessionStorage full or unavailable — silently fail
+    // sessionStorage full or unavailable - silently fail
   }
 }
 

@@ -1,5 +1,5 @@
 /**
- * Smart form pilot production final command checklist — Phase 5H-G-R.
+ * Smart form pilot production final command checklist - Phase 5H-G-R.
  */
 
 import {

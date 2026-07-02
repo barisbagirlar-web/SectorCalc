@@ -45,7 +45,7 @@ function computeAgeHours(baseDate: Date, referenceDate: Date): number {
 
 export function formatFollowUpAgeLabel(ageHours: number): string {
  if (!Number.isFinite(ageHours) || ageHours < 0) {
- return "—";
+ return "-";
  }
 
  if (ageHours < 24) {
@@ -103,7 +103,7 @@ function resolveReviewedSla(ageHours: number): SlaResolution {
  return {
  slaLevel: "urgent",
     slaLabel: "Overdue",
-    recommendedAction: "Overdue follow-up — respond immediately",
+    recommendedAction: "Overdue follow-up - respond immediately",
  };
 }
 
@@ -180,10 +180,10 @@ export function resolveLeadFollowUpSla(
  status,
  baseDate: null,
  ageHours: 0,
- ageLabel: "—",
+ ageLabel: "-",
  slaLevel: "ok",
     slaLabel: "In Progress",
-    recommendedAction: "Missing date info — check manually",
+    recommendedAction: "Missing date info - check manually",
  };
  }
 

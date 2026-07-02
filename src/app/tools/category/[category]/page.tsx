@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const title = resolveTaxonomyCategoryTitle(taxonomyLanding, locale, category);
     return createPageMetadata({
       title: `${title} | SectorCalc`,
-      description: `${title} — ${taxonomyLanding.tools.length} calculators and decision tools.`,
+      description: `${title} - ${taxonomyLanding.tools.length} calculators and decision tools.`,
       path: `/tools/category/${category}`,
       locale: locale as AppLocale,
     });
@@ -87,7 +87,7 @@ export default async function ToolsCategoryLandingPage({ params }: PageProps) {
   if (taxonomyLanding) {
     const t = await getTranslations("generatedToolCatalog");
     const categoryTitle = resolveTaxonomyCategoryTitle(taxonomyLanding, locale, category);
-    const categoryDescription = `${categoryTitle} — ${taxonomyLanding.tools.length} ${locale === "tr" ? "hesaplama aracı" : "calculators"}.`;
+    const categoryDescription = `${categoryTitle} - ${taxonomyLanding.tools.length} ${locale === "tr" ? "hesaplama aracı" : "calculators"}.`;
 
     const jsonLd = [
       await buildLocalizedBreadcrumbJsonLd(

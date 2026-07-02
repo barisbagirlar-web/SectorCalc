@@ -3,7 +3,7 @@
 import { HubLink } from "@/components/layout/HubLink";
 import type { SectorRegistryKey } from "@/lib/os/registry/sectors";
 
-/** Cross-hub prefetch map — related sectors for entity graph & crawl depth. */
+/** Cross-hub prefetch map - related sectors for entity graph & crawl depth. */
 const RELATED_SECTORS: Partial<Record<SectorRegistryKey, readonly SectorRegistryKey[]>> = {
   cnc: ["logistics", "construction", "metalworking"],
   logistics: ["cnc", "construction", "marine"],
@@ -56,7 +56,7 @@ export function SectorHubCrossLinks({ sectorKey, sectorName }: SectorHubCrossLin
         </li>
       </ul>
       <p className="mt-3 text-xs text-body-charcoal">
-        Cross-linked from {sectorName} audit — no orphan pages in the SectorCalc entity graph.
+        Cross-linked from {sectorName} audit - no orphan pages in the SectorCalc entity graph.
       </p>
     </nav>
   );

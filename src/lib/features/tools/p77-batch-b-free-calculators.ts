@@ -1,5 +1,5 @@
 /**
- * P77-MAX Batch B — stub version.
+ * P77-MAX Batch B - stub version.
  */
 
 import type { RevenueTool } from "@/lib/features/tools/revenue-tools";

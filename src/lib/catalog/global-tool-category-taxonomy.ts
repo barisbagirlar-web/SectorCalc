@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 /**
- * Global tool category taxonomy — merged from premium-152 seed categories
+ * Global tool category taxonomy - merged from premium-152 seed categories
  * and free tool categories so that every category used in the catalog
  * is a valid GlobalToolCategorySlug.
  *
@@ -25,7 +25,7 @@ import {
 /** All 29 canonical global category slugs (20 from premium-152 + 15 free-only). */
 export type GlobalToolCategorySlug =
   | Premium152SeedCategory["slug"]
-  // Free-only categories (15) — not present in premium-152 seed
+  // Free-only categories (15) - not present in premium-152 seed
   | "mathematics-statistics"
   | "health-fitness-daily-life"
   | "conversion-measurement"

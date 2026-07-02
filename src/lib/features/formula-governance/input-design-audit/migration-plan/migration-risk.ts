@@ -1,5 +1,5 @@
 /**
- * Migration risk and priority helpers — Phase 5H-E.
+ * Migration risk and priority helpers - Phase 5H-E.
  */
 
 import type { ToolInputDesignAuditResult } from "@/lib/features/formula-governance/input-design-audit/input-design-audit-types";

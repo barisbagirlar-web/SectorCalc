@@ -1,5 +1,5 @@
 /**
- * Commercial model data contract — Phase 6B (no payment integration).
+ * Commercial model data contract - Phase 6B (no payment integration).
  */
 
 export type CommercialTierId =

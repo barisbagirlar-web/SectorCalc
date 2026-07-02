@@ -19,17 +19,17 @@ export const QUOTE_PRICE_PROFIT_MARGIN_CALCULATOR_SCHEMA: PremiumCalculatorSchem
       critical: 8,
       direction: "lower_is_bad",
       warningMessage:
-        "Achieved margin is below a typical shop band — review waste, setup and payment-term lines before sending the quote.",
+        "Achieved margin is below a typical shop band - review waste, setup and payment-term lines before sending the quote.",
       criticalMessage:
-        "Quoted margin is critically thin — reprice or remove discount before committing.",
+        "Quoted margin is critically thin - reprice or remove discount before committing.",
     },
     {
       fieldId: "wasteRate",
       warning: 6,
       critical: 10,
       direction: "higher_is_bad",
-      warningMessage: "Waste rate is elevated — confirm nesting, scrap and rework allowance.",
-      criticalMessage: "Waste rate is very high — margin may be lost before production starts.",
+      warningMessage: "Waste rate is elevated - confirm nesting, scrap and rework allowance.",
+      criticalMessage: "Waste rate is very high - margin may be lost before production starts.",
     },
   ],
 

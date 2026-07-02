@@ -1,5 +1,5 @@
 /**
- * Batch patch plan audit — Phase 5I-B read-only.
+ * Batch patch plan audit - Phase 5I-B read-only.
  */
 
 import type { FullExistingToolAuditResult } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

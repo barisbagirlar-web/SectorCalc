@@ -21,7 +21,7 @@ export const FABRIC_CUTTING_SCHEMA: PremiumCalculatorSchema = {
     { id: "utilGain", label: "Efficiency improvement Gain", label_i18n: {"en":"Efficiency improvement Gain"}, unit: "USD", format: "currency" },
     { id: "totalYardage", label: "Total Pastal Boyu", label_i18n: {"en":"Total Pastal Boyu"}, unit: "m", format: "number" },
   ],
-  thresholds: [{ fieldId: "cutEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Efficiency < 80% — marker optimization recommended.", warningMessage_i18n: {"en":"Efficiency < 80% — marker optimization recommended."}, criticalMessage: "Efficiency < %70 — urgent improvement gerekli.", criticalMessage_i18n: {"en":"Efficiency < %70 — urgent improvement gerekli."} }],
+  thresholds: [{ fieldId: "cutEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Efficiency < 80% - marker optimization recommended.", warningMessage_i18n: {"en":"Efficiency < 80% - marker optimization recommended."}, criticalMessage: "Efficiency < %70 - urgent improvement gerekli.", criticalMessage_i18n: {"en":"Efficiency < %70 - urgent improvement gerekli."} }],
   formulaPipeline: [
     { formulaId: "measurement.fabric_marker_eff", inputMap: {
         netArea: "patternAreas",

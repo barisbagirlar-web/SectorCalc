@@ -21,7 +21,7 @@ describe("calculateIRR", () => {
     expect(irr!).toBeCloseTo(0.2, 2);
   });
 
-  // Edge cases — must return null (never 0)
+  // Edge cases - must return null (never 0)
   it("returns null for less than 2 cash flows", () => {
     expect(calculateIRR([])).toBeNull();
     expect(calculateIRR([100])).toBeNull();

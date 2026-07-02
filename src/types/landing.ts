@@ -236,7 +236,7 @@ export interface LandingContent {
     card4Desc: string;
   };
 
-  /** Category cards — Problem → Tools → Pro Output */
+  /** Category cards - Problem → Tools → Pro Output */
   categories2?: Array<{
     id: string;
     name: string;

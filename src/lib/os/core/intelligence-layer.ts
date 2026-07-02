@@ -1,5 +1,5 @@
 /**
- * Intelligence Layer — sector expertise modules and decision support.
+ * Intelligence Layer - sector expertise modules and decision support.
  * Hidden loss, prescription engine and CBAM/carbon impact.
  */
 
@@ -67,7 +67,7 @@ export function calculateHiddenLoss(sectorId: SectorRegistryKey, baseCost: numbe
   return safeNumber(baseCost) * multiplier;
 }
 
-/** Decision support — operational prescription based on tolerance drift. */
+/** Decision support - operational prescription based on tolerance drift. */
 export function generateActionPlan(varianceRatio: number): ActionPlanResult {
   if (Math.abs(safeNumber(varianceRatio)) > ACTION_PLAN_VARIANCE_THRESHOLD) {
     return {

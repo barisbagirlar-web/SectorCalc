@@ -1,5 +1,5 @@
 /**
- * Report renderer data contract — Phase 5I-F field requirements.
+ * Report renderer data contract - Phase 5I-F field requirements.
  */
 
 import type { ReportRendererDataContract } from "@/lib/features/formula-governance/report-renderer-contract/report-renderer-types";

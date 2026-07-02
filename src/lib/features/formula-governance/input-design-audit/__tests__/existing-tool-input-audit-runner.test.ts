@@ -1,5 +1,5 @@
 /**
- * Phase 5H-C — existing tool input audit runner tests.
+ * Phase 5H-C - existing tool input audit runner tests.
  */
 
 import { readFileSync } from "node:fs";

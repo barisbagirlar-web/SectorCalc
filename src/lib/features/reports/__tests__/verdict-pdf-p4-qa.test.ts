@@ -1,5 +1,5 @@
 /**
- * P4 — Premium Decision Summary PDF closeout QA (data + template structure + banned language).
+ * P4 - Premium Decision Summary PDF closeout QA (data + template structure + banned language).
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -137,7 +137,7 @@ describe("P4 Premium Decision Summary PDF closeout", () => {
     expect(cssSource).toMatch(/@media \(max-width: 390px\)[\s\S]*\.sc-premium-export-actions__btn[\s\S]*width: 100%/);
   });
 
-  test("legacy premium tool — welding-bid-risk-analyzer", () => {
+  test("legacy premium tool - welding-bid-risk-analyzer", () => {
     const tool = getRevenueToolByPaidSlug(LEGACY_PREMIUM_SLUG);
     expect(tool).toBeDefined();
     if (!tool) {
@@ -160,7 +160,7 @@ describe("P4 Premium Decision Summary PDF closeout", () => {
     assertNoBannedLanguage(collectPdfText(data), LEGACY_PREMIUM_SLUG);
   });
 
-  test.each(PREMIUM_SCHEMA_SLUGS)("premium-schema tool — %s", (schemaSlug) => {
+  test.each(PREMIUM_SCHEMA_SLUGS)("premium-schema tool - %s", (schemaSlug) => {
     const schema = getPremiumCalculatorSchema(schemaSlug);
     expect(schema).not.toBeNull();
     if (!schema) {

@@ -1,5 +1,5 @@
 /**
- * Batch remediation apply audit — Phase 5I-J read-only.
+ * Batch remediation apply audit - Phase 5I-J read-only.
  */
 
 import { FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts";

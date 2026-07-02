@@ -1,5 +1,5 @@
 /**
- * Premium 152 — batch 1 FormulaContracts (lean + additive manufacturing).
+ * Premium 152 - batch 1 FormulaContracts (lean + additive manufacturing).
  */
 
 import type { FormulaContract } from "@/lib/features/formula-governance/types";
@@ -12,7 +12,7 @@ import {
 import { createWarningPolicy } from "@/lib/features/formula-governance/warning-policy";
 
 const PREMIUM_SCHEMA_DISCLAIMER =
-  "Technical simulation only — not financial, legal, or engineering advice. Verify assumptions before bid, pricing or business decisions.";
+  "Technical simulation only - not financial, legal, or engineering advice. Verify assumptions before bid, pricing or business decisions.";
 
 const BATCH1_SCENARIO = [
   {
@@ -51,7 +51,7 @@ function buildBatchContract(config: {
     missingParameterWarnings: [],
     warningPolicy: createWarningPolicy({
       acceptedAssumptions: [PREMIUM_SCHEMA_DISCLAIMER],
-      modelLimitations: ["Operational estimate only — not audited financial advice."],
+      modelLimitations: ["Operational estimate only - not audited financial advice."],
       futureExtensions: ["ERP actuals import and sector benchmark overlays."],
     }),
     validationRules: [

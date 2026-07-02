@@ -1,5 +1,5 @@
 /**
- * Apple-style geo locale bootstrap — synchronous head script for unprefixed English URLs.
+ * Apple-style geo locale bootstrap - synchronous head script for unprefixed English URLs.
  * Runs before React paint so TR/DE/FR/ES/AR visitors never flash English on cached static HTML.
  *
  * EN-only: all functions are no-ops. Stale locale cookies are cleaned on page load.
@@ -42,7 +42,7 @@ export function resolveBootstrapTargetLocale(_options: {
   readonly navigatorLanguage: string | null;
   readonly timezone: string | null;
 }): SupportedLocale | null {
-  // EN-only site — never redirect to another locale
+  // EN-only site - never redirect to another locale
   return null;
 }
 

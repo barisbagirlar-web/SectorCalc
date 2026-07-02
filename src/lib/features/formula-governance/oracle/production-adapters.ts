@@ -1,5 +1,5 @@
 /**
- * Production output adapters — normalize calculator UI output for oracle comparison (Phase 5A).
+ * Production output adapters - normalize calculator UI output for oracle comparison (Phase 5A).
  */
 
 import type { CalculatorInputValues } from "@/lib/features/calculators/registry";
@@ -382,7 +382,7 @@ function adaptProfitMarginProduction(
 
 function adaptRentVsBuyProduction(values: FreeTrafficInputValues): ProductionAdapterResult {
   const result = calculateFreeTrafficTool("rent-vs-buy-calculator", values, "en");
-  if (result.primaryValue === "—") {
+  if (result.primaryValue === "-") {
     return { status: "error", reason: result.explanation };
   }
 
@@ -472,7 +472,7 @@ function parseMinutes(value: string): number | null {
 
 function adaptBreakEvenProduction(values: FreeTrafficInputValues): ProductionAdapterResult {
   const result = calculateFreeTrafficTool("break-even-calculator", values, "en");
-  if (result.primaryValue === "—") {
+  if (result.primaryValue === "-") {
     return { status: "error", reason: result.explanation };
   }
   const breakEvenUnits = parsePlainNumber(result.primaryValue);
@@ -1061,7 +1061,7 @@ function adaptBatchTrafficCatalogProduction(
 ): ProductionAdapterResult {
   const spec = getBatchTrafficCatalogOracleSpec(slug);
   const result = calculateFreeTrafficTool(slug, values, "en");
-  if (result.primaryValue === "—") {
+  if (result.primaryValue === "-") {
     return { status: "error", reason: "Production returned unavailable output for invalid inputs." };
   }
 

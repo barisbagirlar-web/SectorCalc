@@ -5,7 +5,7 @@
 import { describe, expect, test } from "vitest";
 import { PUBLIC_INVESTOR_DEMO_POST_DEPLOY_SMOKE } from "@/content/deploy-approvals/public-investor-demo-post-deploy-smoke";
 
-describe("public investor demo post-deploy smoke — Phase 6E", () => {
+describe("public investor demo post-deploy smoke - Phase 6E", () => {
   test("records production deploy", () => {
     expect(PUBLIC_INVESTOR_DEMO_POST_DEPLOY_SMOKE.phase).toBe("6E");
     expect(PUBLIC_INVESTOR_DEMO_POST_DEPLOY_SMOKE.deployTarget).toBe("production");

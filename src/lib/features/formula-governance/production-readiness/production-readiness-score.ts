@@ -1,5 +1,5 @@
 /**
- * Production readiness score — Phase 5I-P weighted gate scoring.
+ * Production readiness score - Phase 5I-P weighted gate scoring.
  */
 
 export function computeReadinessScore(gateResults: Readonly<Record<string, boolean>>): number {

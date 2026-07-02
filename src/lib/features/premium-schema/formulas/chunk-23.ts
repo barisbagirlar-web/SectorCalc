@@ -72,7 +72,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.volumetric_weight_chargeable_1",
     family: "cost",
-    label: "HACIMSEL AGIRLIK — VolWeight_Road",
+    label: "HACIMSEL AGIRLIK - VolWeight_Road",
     fn: (inputs) => {
     const l = num(inputs, "l");
     const w = num(inputs, "w");
@@ -83,7 +83,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.volumetric_weight_chargeable_2",
     family: "cost",
-    label: "HACIMSEL AGIRLIK — VolWeight_Sea",
+    label: "HACIMSEL AGIRLIK - VolWeight_Sea",
     fn: (inputs) => {
     const l = num(inputs, "l");
     const w = num(inputs, "w");
@@ -94,7 +94,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.volumetric_weight_chargeable_3",
     family: "cost",
-    label: "HACIMSEL AGIRLIK — Chargeable",
+    label: "HACIMSEL AGIRLIK - Chargeable",
     fn: (inputs) => {
     const gross = num(inputs, "gross");
     const volWeight = num(inputs, "volWeight");
@@ -105,7 +105,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.volumetric_weight_chargeable_4",
     family: "cost",
-    label: "HACIMSEL AGIRLIK — Freight",
+    label: "HACIMSEL AGIRLIK - Freight",
     fn: (inputs) => {
     const chargeable = num(inputs, "chargeable");
     const rate = num(inputs, "rate");
@@ -115,7 +115,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.volumetric_weight_chargeable_5",
     family: "cost",
-    label: "HACIMSEL AGIRLIK — Density",
+    label: "HACIMSEL AGIRLIK - Density",
     fn: (inputs) => {
     const gross = num(inputs, "gross");
     const vol = num(inputs, "vol");
@@ -125,7 +125,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.volumetric_weight_chargeable_6",
     family: "cost",
-    label: "HACIMSEL AGIRLIK — StackLoss",
+    label: "HACIMSEL AGIRLIK - StackLoss",
     fn: (inputs) => {
     const actualLoad = num(inputs, "actualLoad");
     const maxCont = num(inputs, "maxCont");
@@ -135,7 +135,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.volumetric_weight_chargeable_7",
     family: "cost",
-    label: "HACIMSEL AGIRLIK — Ineff",
+    label: "HACIMSEL AGIRLIK - Ineff",
     fn: (inputs) => {
     const chargeable = num(inputs, "chargeable");
     const gross = num(inputs, "gross");
@@ -148,7 +148,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.lightweight_cost_savings_0",
     family: "cost",
-    label: "HAFIFLIK COST TASARRUFU — WeightRed",
+    label: "HAFIFLIK COST TASARRUFU - WeightRed",
     fn: (inputs) => {
     const mass = num(inputs, "mass");
     const Orig = num(inputs, "Orig");
@@ -160,7 +160,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.lightweight_cost_savings_1",
     family: "cost",
-    label: "HAFIFLIK COST TASARRUFU — FuelSav_Auto",
+    label: "HAFIFLIK COST TASARRUFU - FuelSav_Auto",
     fn: (inputs) => {
     const weightRed = num(inputs, "weightRed");
     const fuelFactor = num(inputs, "fuelFactor");
@@ -172,7 +172,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.lightweight_cost_savings_2",
     family: "cost",
-    label: "HAFIFLIK COST TASARRUFU — FuelSav_Aero",
+    label: "HAFIFLIK COST TASARRUFU - FuelSav_Aero",
     fn: (inputs) => {
     const weightRed = num(inputs, "weightRed");
     const burnFactor = num(inputs, "burnFactor");
@@ -184,7 +184,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.lightweight_cost_savings_3",
     family: "cost",
-    label: "HAFIFLIK COST TASARRUFU — PayloadGain",
+    label: "HAFIFLIK COST TASARRUFU - PayloadGain",
     fn: (inputs) => {
     const weightRed = num(inputs, "weightRed");
     const revPerKg = num(inputs, "revPerKg");
@@ -194,7 +194,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.lightweight_cost_savings_4",
     family: "cost",
-    label: "HAFIFLIK COST TASARRUFU — MatPrem",
+    label: "HAFIFLIK COST TASARRUFU - MatPrem",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const Orig = num(inputs, "Orig");
@@ -207,7 +207,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.lightweight_cost_savings_5",
     family: "cost",
-    label: "HAFIFLIK COST TASARRUFU — ToolDelta",
+    label: "HAFIFLIK COST TASARRUFU - ToolDelta",
     fn: (inputs) => {
     const tool = num(inputs, "tool");
     const Orig = num(inputs, "Orig");
@@ -219,7 +219,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.lightweight_cost_savings_6",
     family: "cost",
-    label: "HAFIFLIK COST TASARRUFU — NetSav",
+    label: "HAFIFLIK COST TASARRUFU - NetSav",
     fn: (inputs) => {
     const fuelSav = num(inputs, "fuelSav");
     const payload = num(inputs, "payload");
@@ -234,7 +234,7 @@ export const CHUNK_23_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scrap_rate_optimize_0",
     family: "cost",
-    label: "HURDA RATIO OPTIMIZE — ScrapRate",
+    label: "HURDA RATIO OPTIMIZE - ScrapRate",
     fn: (inputs) => {
     const scrapQty = num(inputs, "scrapQty");
     const totalInput = num(inputs, "totalInput");

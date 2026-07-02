@@ -1,5 +1,5 @@
 /**
- * Smart form pilot production deploy audit — Phase 5H-G-P.
+ * Smart form pilot production deploy audit - Phase 5H-G-P.
  */
 
 import {

@@ -15,7 +15,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     scenarioKind: "representative_scenario",
     evidenceLevel: "representative-scenario",
     problem:
-      "A job shop prices spindle time and material but leaves programming, setup, and expected downtime out of the quick quote — the bid looks healthy until hidden machine minutes erode margin.",
+      "A job shop prices spindle time and material but leaves programming, setup, and expected downtime out of the quick quote - the bid looks healthy until hidden machine minutes erode margin.",
     toolSlug: "cnc-quote-risk-analyzer",
     toolTitle: "CNC Quote Risk Analyzer",
     inputSummary: [
@@ -24,9 +24,9 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
       "Target margin 20%",
     ],
     hiddenLoss:
-      "Setup/programming minutes and non-productive downtime are not loaded into the customer-facing quote — roughly $290–$340 per job in this illustrative input set.",
+      "Setup/programming minutes and non-productive downtime are not loaded into the customer-facing quote - roughly $290–$340 per job in this illustrative input set.",
     calculationResult:
-      "Modeled loaded job cost ~$2,180 vs a $1,920 quote — about a 12-point gap versus the 20% target margin floor (representative model output only).",
+      "Modeled loaded job cost ~$2,180 vs a $1,920 quote - about a 12-point gap versus the 20% target margin floor (representative model output only).",
     calculationLogic:
       "Direct machine and material cost loaded with downtime, scrap, and tooling buffers; minimum safe price computed at the entered target margin.",
     methodologyNote:
@@ -36,7 +36,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     suggestedAction:
       "Reprice or tighten scope if the customer offer sits below the modeled safe floor before accepting the lot.",
     expectedImpact:
-      "Illustrative per-job margin pressure in the modeled band above — not a measured client outcome.",
+      "Illustrative per-job margin pressure in the modeled band above - not a measured client outcome.",
     assumptions: [
       "Machine rate includes operator burden as entered",
       "Scrap and downtime hours are user estimates",
@@ -52,7 +52,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     scenarioKind: "representative_scenario",
     evidenceLevel: "representative-scenario",
     problem:
-      "A subcontractor prices labor and materials on the base bid but under-reserves for mobilization, inspection cycles, and schedule slip — margin looks intact on paper until field burn catches up.",
+      "A subcontractor prices labor and materials on the base bid but under-reserves for mobilization, inspection cycles, and schedule slip - margin looks intact on paper until field burn catches up.",
     toolSlug: "change-order-impact-analyzer",
     toolTitle: "Change Order Impact Analyzer",
     inputSummary: [
@@ -61,19 +61,19 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
       "Allowance $18,000 for rework / re-inspection",
     ],
     hiddenLoss:
-      "Delay burn and re-mobilization are excluded from the headline bid — modeled hidden exposure ~$34,000–$42,000 on this illustrative schedule input.",
+      "Delay burn and re-mobilization are excluded from the headline bid - modeled hidden exposure ~$34,000–$42,000 on this illustrative schedule input.",
     calculationResult:
       "Headline bid implies ~17.5% margin; loaded field burn and slip reserve pull modeled net margin toward ~11–13% vs the 18% target (representative simulation).",
     calculationLogic:
       "Contract value minus loaded direct cost, schedule-disruption reserve, and remobilization buffer; net margin compared to target band.",
     methodologyNote:
-      "Deterministic construction overrun model with user-entered burn and slip days — illustrative framing for bid review, not a guarantee of field outcome.",
+      "Deterministic construction overrun model with user-entered burn and slip days - illustrative framing for bid review, not a guarantee of field outcome.",
     lossType: "schedule_delay",
     lossTypeLabel: "Schedule & mobilization margin leak",
     suggestedAction:
       "Increase bid reserve or tighten schedule assumptions before tender submission if modeled net margin falls below target.",
     expectedImpact:
-      "Modeled margin compression band on this synthetic bid — not verified project savings.",
+      "Modeled margin compression band on this synthetic bid - not verified project savings.",
     assumptions: [
       "Burn rate flat across slip days",
       "Rework allowance entered explicitly",
@@ -89,7 +89,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     scenarioKind: "representative_scenario",
     evidenceLevel: "representative-scenario",
     problem:
-      "A cleaning contractor quotes square meters and visit frequency but under-models supplies, travel between sites, and non-billable setup — monthly contracts turn thin after the first audit.",
+      "A cleaning contractor quotes square meters and visit frequency but under-models supplies, travel between sites, and non-billable setup - monthly contracts turn thin after the first audit.",
     toolSlug: "office-cleaning-bid-optimizer",
     toolTitle: "Office Cleaning Bid Optimizer",
     inputSummary: [
@@ -98,19 +98,19 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
       "Target margin 15%",
     ],
     hiddenLoss:
-      "Supplies, travel, and setup minutes missing from the client proposal — roughly $590/mo in this illustrative overhead stack.",
+      "Supplies, travel, and setup minutes missing from the client proposal - roughly $590/mo in this illustrative overhead stack.",
     calculationResult:
-      "Client budget $5,100/mo vs modeled safe monthly floor ~$5,920/mo — about 14% under the margin target before overhead (representative model).",
+      "Client budget $5,100/mo vs modeled safe monthly floor ~$5,920/mo - about 14% under the margin target before overhead (representative model).",
     calculationLogic:
       "Monthly labor from area × frequency × productivity, plus supplies and travel; minimum safe monthly bid at target margin.",
     methodologyNote:
-      "Browser-side deterministic bid model with user productivity assumptions — decision-support only, not a contractual quote.",
+      "Browser-side deterministic bid model with user productivity assumptions - decision-support only, not a contractual quote.",
     lossType: "margin_leak",
     lossTypeLabel: "Overhead & supply leak",
     suggestedAction:
       "Adjust monthly bid or reduce scope if the client cap sits below the modeled safe floor.",
     expectedImpact:
-      "Illustrative monthly margin pressure range — not a verified account result.",
+      "Illustrative monthly margin pressure range - not a verified account result.",
     assumptions: [
       "Productivity and visit frequency as entered",
       "Travel aggregated per route, not per site detail",
@@ -126,7 +126,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     scenarioKind: "representative_scenario",
     evidenceLevel: "representative-scenario",
     problem:
-      "Dispatch prices planned miles and fuel but under-models deadhead return legs, stop-time burn, and route drift against the plan — lane margin erodes in aggregate.",
+      "Dispatch prices planned miles and fuel but under-models deadhead return legs, stop-time burn, and route drift against the plan - lane margin erodes in aggregate.",
     toolSlug: "route-optimization-analyzer",
     toolTitle: "Route Optimization Analyzer",
     inputSummary: [
@@ -134,19 +134,19 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
       "6 stops, 22% deadhead share, driver cost $32/h",
     ],
     hiddenLoss:
-      "Extra miles and stop-time not in the customer rate card — modeled overrun ~$165–$210 per run in this illustrative set.",
+      "Extra miles and stop-time not in the customer rate card - modeled overrun ~$165–$210 per run in this illustrative set.",
     calculationResult:
       "Planned lane cost ~$620 vs modeled actual ~$790 per run; at 36 runs/month the illustrative exposure band is ~$6.1k–$6.8k (representative model only).",
     calculationLogic:
       "Fuel and time cost from planned vs actual distance, stop count, and deadhead share; loss exposure vs planned economics.",
     methodologyNote:
-      "Logistics route-loss model with user-entered drift — surfaces drivers for repricing review, not GPS-verified audit.",
+      "Logistics route-loss model with user-entered drift - surfaces drivers for repricing review, not GPS-verified audit.",
     lossType: "route_deadhead",
     lossTypeLabel: "Route drift & deadhead exposure",
     suggestedAction:
       "Review lane pricing or stop sequencing if modeled drift exceeds your tolerance band.",
     expectedImpact:
-      "Indicative monthly route-loss exposure band — representative scenario only.",
+      "Indicative monthly route-loss exposure band - representative scenario only.",
     assumptions: [
       "Fuel price and deadhead share as entered",
       "Stop time averaged per route",
@@ -162,7 +162,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     scenarioKind: "representative_scenario",
     evidenceLevel: "representative-scenario",
     problem:
-      "Facilities track kWh spend but treat compressor leaks and peak-tariff demand as fixed overhead — avoidable load stays invisible until the bill arrives.",
+      "Facilities track kWh spend but treat compressor leaks and peak-tariff demand as fixed overhead - avoidable load stays invisible until the bill arrives.",
     toolSlug: "energy-compressor-leak-cost",
     toolTitle: "Compressor Leak Cost Calculator",
     toolRoute: "premium-schema",
@@ -172,19 +172,19 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
       "Operating hours 5,800 h/yr, target review threshold 10% avoidable load",
     ],
     hiddenLoss:
-      "Leak load and peak-tariff overlap not separated in budgeting — modeled avoidable cost band ~$980–$1,240/mo on these inputs.",
+      "Leak load and peak-tariff overlap not separated in budgeting - modeled avoidable cost band ~$980–$1,240/mo on these inputs.",
     calculationResult:
       "Total bill ~$6,760/mo; modeled avoidable leak + peak component ~$1,100/mo mid-band (~16% of bill in this synthetic scenario).",
     calculationLogic:
       "Leak power draw converted to kWh cost, overlaid with peak-share tariff pressure; compared to user threshold for action prioritization.",
     methodologyNote:
-      "Engineering-style estimate from entered leak proxy and tariff — verify with meter data and maintenance records before capital decisions.",
+      "Engineering-style estimate from entered leak proxy and tariff - verify with meter data and maintenance records before capital decisions.",
     lossType: "energy_demand",
     lossTypeLabel: "Compressor leak & peak demand",
     suggestedAction:
       "Prioritize leak survey and peak-shaving review on the highest modeled drivers before equipment upgrades.",
     expectedImpact:
-      "Illustrative monthly avoidable-cost band — not measured facility savings.",
+      "Illustrative monthly avoidable-cost band - not measured facility savings.",
     assumptions: [
       "CFM leak proxy and tariff flat across month",
       "Peak share entered as percent of bill",
@@ -200,7 +200,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     scenarioKind: "representative_scenario",
     evidenceLevel: "representative-scenario",
     problem:
-      "A fab shop quotes labor and material but under-loads fit-up, rework, and gas consumables — visible margin erodes after callbacks.",
+      "A fab shop quotes labor and material but under-loads fit-up, rework, and gas consumables - visible margin erodes after callbacks.",
     toolSlug: "welding-bid-risk-analyzer",
     toolTitle: "Welding Bid Risk Analyzer",
     inputSummary: [
@@ -210,15 +210,15 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     ],
     hiddenLoss: "Fit-up, rework buffer, and consumables under-loaded in the headline weld quote.",
     calculationResult:
-      "Modeled loaded weld cost exceeds quick quote by an illustrative margin gap — see tool for threshold read.",
+      "Modeled loaded weld cost exceeds quick quote by an illustrative margin gap - see tool for threshold read.",
     calculationLogic:
       "Base weld cost loaded with hidden multipliers for fit-up, rework buffer, and volatility band; minimum safe price at target margin.",
     methodologyNote:
-      "Deterministic weld bid model with user rework risk — representative framing only.",
+      "Deterministic weld bid model with user rework risk - representative framing only.",
     lossType: "labor_rework",
     lossTypeLabel: "Rework & fit-up buffer",
     suggestedAction: "Compare quoted price to minimum safe floor before accepting the job.",
-    expectedImpact: "Modeled waste exposure if quoted below P90 cost band — illustrative range only.",
+    expectedImpact: "Modeled waste exposure if quoted below P90 cost band - illustrative range only.",
     assumptions: [
       "Flat labor rate; consumables as entered",
       "Rework risk percent drives tolerance multiplier",
@@ -243,9 +243,9 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     ],
     hiddenLoss: "Callback and commissioning reserves omitted from install bid.",
     calculationResult:
-      "Modeled net margin sits below target when callback reserve applied — illustrative tool output.",
+      "Modeled net margin sits below target when callback reserve applied - illustrative tool output.",
     calculationLogic: "Equipment + labor + callback reserve; P90 floor and safe price at target margin.",
-    methodologyNote: "HVAC margin guard with user callback risk — not field-verified performance.",
+    methodologyNote: "HVAC margin guard with user callback risk - not field-verified performance.",
     lossType: "margin_leak",
     lossTypeLabel: "Callback & commissioning exposure",
     suggestedAction: "Hold margin band before signing install contract.",
@@ -267,9 +267,9 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     inputSummary: ["Parts cost, labor hours, fixture count", "Callback risk %, target margin"],
     hiddenLoss: "Inspection and callback trips not reserved in fixture-price quote.",
     calculationResult:
-      "Safe price floor above customer offer in modeled scenario — illustrative per-job read.",
+      "Safe price floor above customer offer in modeled scenario - illustrative per-job read.",
     calculationLogic: "Direct cost stack with inspection/callback multipliers and safe price floor.",
-    methodologyNote: "Deterministic service-job margin model — verify parts and labor locally.",
+    methodologyNote: "Deterministic service-job margin model - verify parts and labor locally.",
     lossType: "labor_rework",
     lossTypeLabel: "Callback & inspection risk",
     suggestedAction: "Reprice or reduce scope if quote below safe floor.",
@@ -293,14 +293,14 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     ],
     hiddenLoss: "Programming minutes and scrap allowance missing from fab package price.",
     calculationResult:
-      "Scrap-adjusted material and programming load widen margin gap in modeled quote — illustrative.",
+      "Scrap-adjusted material and programming load widen margin gap in modeled quote - illustrative.",
     calculationLogic:
       "Labor minutes + scrap-adjusted material + finishing; margin floor via governance oracle path.",
-    methodologyNote: "Sheet metal quote risk with user scrap percent — representative only.",
+    methodologyNote: "Sheet metal quote risk with user scrap percent - representative only.",
     lossType: "material_scrap",
     lossTypeLabel: "Scrap & programming leak",
     suggestedAction: "Use safe quote floor before releasing fab package.",
-    expectedImpact: "Modeled scrap-driven margin erosion — representative only.",
+    expectedImpact: "Modeled scrap-driven margin erosion - representative only.",
     assumptions: [CASE_STUDY_REPRESENTATIVE_LABEL],
     disclaimer: CASE_STUDY_DISCLAIMER,
   },
@@ -317,13 +317,13 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     inputSummary: ["Selling price, food cost, waste rate", "Target margin"],
     hiddenLoss: "Prep waste and yield loss excluded from menu price.",
     calculationResult:
-      "Actual margin below target when waste buffer applied — illustrative menu read.",
+      "Actual margin below target when waste buffer applied - illustrative menu read.",
     calculationLogic: "Loaded food cost with waste buffer; actual vs target margin verdict.",
-    methodologyNote: "Menu margin model with user waste rate — not POS-verified.",
+    methodologyNote: "Menu margin model with user waste rate - not POS-verified.",
     lossType: "food_waste",
     lossTypeLabel: "Food waste & prep leak",
     suggestedAction: "Reprice item or adjust portion if margin below target band.",
-    expectedImpact: "Modeled weekly margin leak range — illustrative.",
+    expectedImpact: "Modeled weekly margin leak range - illustrative.",
     assumptions: [CASE_STUDY_REPRESENTATIVE_LABEL],
     disclaimer: CASE_STUDY_DISCLAIMER,
   },
@@ -340,13 +340,13 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     inputSummary: ["Product price, cost, return rate %", "Expected revenue, target margin"],
     hiddenLoss: "Return handling and restock cost not in SKU margin view.",
     calculationResult:
-      "Return-adjusted net margin below headline product margin — illustrative erosion band.",
+      "Return-adjusted net margin below headline product margin - illustrative erosion band.",
     calculationLogic: "Return-adjusted net profit and margin vs target; erosion drivers surfaced.",
-    methodologyNote: "Return erosion model from user return rate — not marketplace verified.",
+    methodologyNote: "Return erosion model from user return rate - not marketplace verified.",
     lossType: "return_erosion",
     lossTypeLabel: "Return & handling erosion",
     suggestedAction: "Adjust pricing or return policy if net margin below threshold.",
-    expectedImpact: "Estimated monthly profit erosion range — synthetic scenario.",
+    expectedImpact: "Estimated monthly profit erosion range - synthetic scenario.",
     assumptions: [CASE_STUDY_REPRESENTATIVE_LABEL],
     disclaimer: CASE_STUDY_DISCLAIMER,
   },
@@ -371,11 +371,11 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
       "Cost-only change pricing compresses net margin vs target in modeled scenario.",
     calculationLogic:
       "Direct change cost loaded with schedule-disruption and re-mobilization buffers; net margin impact vs target band.",
-    methodologyNote: "Change-order impact model — illustrative schedule inputs only.",
+    methodologyNote: "Change-order impact model - illustrative schedule inputs only.",
     lossType: "schedule_delay",
     lossTypeLabel: "Schedule disruption leak",
     suggestedAction: "Reprice the change order if net margin falls below the target floor.",
-    expectedImpact: "Modeled margin dilution range from delay exposure — illustrative only.",
+    expectedImpact: "Modeled margin dilution range from delay exposure - illustrative only.",
     assumptions: ["User-provided schedule and burn rate", CASE_STUDY_REPRESENTATIVE_LABEL],
     disclaimer: CASE_STUDY_DISCLAIMER,
   },
@@ -396,14 +396,14 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     ],
     hiddenLoss: "Idle load and peak tariff share treated as fixed cost.",
     calculationResult:
-      "Avoidable demand band modeled against baseline — illustrative annual exposure range.",
+      "Avoidable demand band modeled against baseline - illustrative annual exposure range.",
     calculationLogic:
       "Baseline demand split into avoidable vs structural load; indicative savings band against reference intensity.",
-    methodologyNote: "Energy peak-cost model — confirm with meter data before upgrades.",
+    methodologyNote: "Energy peak-cost model - confirm with meter data before upgrades.",
     lossType: "energy_demand",
     lossTypeLabel: "Avoidable energy demand",
     suggestedAction: "Prioritize the highest avoidable-demand drivers before capital upgrades.",
-    expectedImpact: "Estimated annual energy cost exposure range — representative only.",
+    expectedImpact: "Estimated annual energy cost exposure range - representative only.",
     assumptions: ["Tariff and consumption as entered", CASE_STUDY_REPRESENTATIVE_LABEL],
     disclaimer: CASE_STUDY_DISCLAIMER,
   },
@@ -424,14 +424,14 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     ],
     hiddenLoss: "Embedded-carbon cost not in export price build-up.",
     calculationResult:
-      "Carbon cost exposure band modeled from tonnage × factor × price — illustrative verdict.",
+      "Carbon cost exposure band modeled from tonnage × factor × price - illustrative verdict.",
     calculationLogic:
       "Embedded-carbon cost estimate from tonnage × emissions factor × carbon price; exposure verdict vs margin.",
-    methodologyNote: "CBAM exposure estimator — not a regulatory determination.",
+    methodologyNote: "CBAM exposure estimator - not a regulatory determination.",
     lossType: "carbon_cost",
     lossTypeLabel: "Embedded carbon cost exposure",
     suggestedAction: "Factor embedded-carbon cost into export pricing before committing volumes.",
-    expectedImpact: "Indicative carbon cost exposure range — not a regulatory determination.",
+    expectedImpact: "Indicative carbon cost exposure range - not a regulatory determination.",
     assumptions: ["Emissions factor and carbon price as entered", CASE_STUDY_REPRESENTATIVE_LABEL],
     disclaimer: CASE_STUDY_DISCLAIMER,
   },

@@ -1,5 +1,5 @@
 /**
- * Dual-intelligence runtime coverage types — read-only classification.
+ * Dual-intelligence runtime coverage types - read-only classification.
  */
 
 export type DualIntelligenceRuntimeTier =
@@ -11,7 +11,7 @@ export type DualIntelligenceRuntimeTier =
   | "staged_calculation_bridge"
   /** Render-only Smart Form eligible; no calculation bridge yet. */
   | "staged_render_only"
-  /** Controlled input patch — Mind 2 fields at manifest build, classic calc at runtime. */
+  /** Controlled input patch - Mind 2 fields at manifest build, classic calc at runtime. */
   | "governed_buildtime_only"
   /** Formula contract + audit pipeline only (alignment/requirement/validation in CI). */
   | "audit_pipeline_only"

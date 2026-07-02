@@ -13,7 +13,7 @@ interface SectorCalcLogoProps {
 const STROKE_COLOR = "#1a1915";
 
 /**
- * SectorCalc brand logo — vector bracket/sector symbol.
+ * SectorCalc brand logo - vector bracket/sector symbol.
  *
  * ViewBox: 0 0 120 120 | stroke-width: 4 | strokeLinecap: round
  * Industrial-grade SVG, suitable for header, chatbot, popup, and favicon contexts.

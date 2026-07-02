@@ -1,5 +1,5 @@
 /**
- * Ontology builder helpers — validation without mutating production calculators.
+ * Ontology builder helpers - validation without mutating production calculators.
  */
 
 import { detectCircularDependencies, detectUnreachableTargetVariables } from "@/lib/features/formula-governance/calculation-ontology/dependency-graph";

@@ -1,7 +1,7 @@
 import type { P24AuditVerdict } from "@/lib/features/tools/runtime-readiness-p24-verdicts";
 
 /**
- * P8.1 — Revenue allowlist slugs with stale P24 WARN after activation bridge.
+ * P8.1 - Revenue allowlist slugs with stale P24 WARN after activation bridge.
  * Fixed set; do not use as a payment expansion surface.
  */
 export const REVENUE_BOUNDARY_RESTORE_SLUGS: ReadonlySet<string> = new Set([

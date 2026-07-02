@@ -72,7 +72,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_compliance_verdict_3",
     family: "cost",
-    label: "CBAM UYUMLULUK — ActualVsDefault",
+    label: "CBAM UYUMLULUK - ActualVsDefault",
     fn: (inputs) => {
     const specificEmbedded = num(inputs, "specificEmbedded");
     const defaultEmissionFactor = num(inputs, "defaultEmissionFactor");
@@ -82,7 +82,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_compliance_verdict_4",
     family: "cost",
-    label: "CBAM UYUMLULUK — FinancialLiability",
+    label: "CBAM UYUMLULUK - FinancialLiability",
     fn: (inputs) => {
     const totalEmbedded = num(inputs, "totalEmbedded");
     const eU = num(inputs, "eU");
@@ -95,7 +95,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_compliance_verdict_5",
     family: "cost",
-    label: "CBAM UYUMLULUK — ComplianceDecision",
+    label: "CBAM UYUMLULUK - ComplianceDecision",
     fn: (inputs) => {
     const actualVsDefault = num(inputs, "actualVsDefault");
     const liability = num(inputs, "liability");
@@ -108,7 +108,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_0",
     family: "cost",
-    label: "CHATTER SURFACE QUALITY — V_c",
+    label: "CHATTER SURFACE QUALITY - V_c",
     fn: (inputs) => {
     const d = num(inputs, "d");
     const n = num(inputs, "n");
@@ -118,7 +118,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_1",
     family: "cost",
-    label: "CHATTER SURFACE QUALITY — f_z",
+    label: "CHATTER SURFACE QUALITY - f_z",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const f = num(inputs, "f");
@@ -131,7 +131,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_2",
     family: "cost",
-    label: "CHATTER SURFACE QUALITY — SurfaceRoughness_Theo",
+    label: "CHATTER SURFACE QUALITY - SurfaceRoughness_Theo",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const z = num(inputs, "z");
@@ -145,7 +145,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_3",
     family: "cost",
-    label: "CHATTER SURFACE QUALITY — SurfaceRoughness_Actual",
+    label: "CHATTER SURFACE QUALITY - SurfaceRoughness_Actual",
     fn: (inputs) => {
     const theo = num(inputs, "theo");
     const chatterAmplification = num(inputs, "chatterAmplification");
@@ -155,7 +155,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_4",
     family: "cost",
-    label: "CHATTER SURFACE QUALITY — QualityLossCost",
+    label: "CHATTER SURFACE QUALITY - QualityLossCost",
     fn: (inputs) => {
     const actual = num(inputs, "actual");
     const toleranceLimit = num(inputs, "toleranceLimit");
@@ -166,7 +166,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_5",
     family: "cost",
-    label: "CHATTER SURFACE QUALITY — ScrapRate",
+    label: "CHATTER SURFACE QUALITY - ScrapRate",
     fn: (inputs) => {
     const actual = num(inputs, "actual");
     const maxTolerance = num(inputs, "maxTolerance");
@@ -179,7 +179,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bolt_torque_preload_0",
     family: "cost",
-    label: "CIVATE TORK — T",
+    label: "CIVATE TORK - T",
     fn: (inputs) => {
     const k = num(inputs, "k");
     const d = num(inputs, "d");
@@ -190,7 +190,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bolt_torque_preload_1",
     family: "cost",
-    label: "CIVATE TORK — F",
+    label: "CIVATE TORK - F",
     fn: (inputs) => {
     const preload = num(inputs, "preload");
     const sigma = num(inputs, "sigma");
@@ -205,7 +205,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bolt_torque_preload_2",
     family: "cost",
-    label: "CIVATE TORK — Sigma_p",
+    label: "CIVATE TORK - Sigma_p",
     fn: (inputs) => {
     const proofStrength = num(inputs, "proofStrength");
     return nonNegative(assertFinite(0.7 * proofStrength));
@@ -214,7 +214,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bolt_torque_preload_3",
     family: "cost",
-    label: "CIVATE TORK — A_t",
+    label: "CIVATE TORK - A_t",
     fn: (inputs) => {
     const d2 = num(inputs, "d2");
     const d3 = num(inputs, "d3");
@@ -224,7 +224,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bolt_torque_preload_4",
     family: "cost",
-    label: "CIVATE TORK — d2",
+    label: "CIVATE TORK - d2",
     fn: (inputs) => {
     const d = num(inputs, "d");
     const p = num(inputs, "p");
@@ -234,7 +234,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bolt_torque_preload_5",
     family: "cost",
-    label: "CIVATE TORK — d3",
+    label: "CIVATE TORK - d3",
     fn: (inputs) => {
     const d = num(inputs, "d");
     const p = num(inputs, "p");

@@ -1,5 +1,5 @@
 /**
- * Site-wide design system CSS — imported from layouts before globals.css so
+ * Site-wide design system CSS - imported from layouts before globals.css so
  * webpack resolves each file directly (avoids invalid @import-after-@tailwind).
  */
 import "../styles/industrial-ui.css";

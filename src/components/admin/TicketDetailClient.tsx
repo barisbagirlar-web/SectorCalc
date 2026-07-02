@@ -204,7 +204,7 @@ export function TicketDetailClient({ ticketId }: Props) {
         </div>
       )}
 
-      {/* Reply form + status changer — single transaction */}
+      {/* Reply form + status changer - single transaction */}
       <div className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
         <h3 className="text-sm font-semibold uppercase tracking-wider text-text-secondary mb-4">Add Reply</h3>
 

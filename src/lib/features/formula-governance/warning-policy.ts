@@ -1,5 +1,5 @@
 /**
- * Phase 5D — classified warning policy for critical FormulaContracts.
+ * Phase 5D - classified warning policy for critical FormulaContracts.
  * Replaces blind CRIT_UNRESOLVED_WARNINGS on all missingParameterWarnings.
  */
 

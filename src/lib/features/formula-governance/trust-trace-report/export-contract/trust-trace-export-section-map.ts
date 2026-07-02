@@ -1,5 +1,5 @@
 /**
- * Trust trace export section mapping — Phase 5I-C deterministic section map.
+ * Trust trace export section mapping - Phase 5I-C deterministic section map.
  */
 
 import type { TrustTraceExportSection } from "@/lib/features/formula-governance/trust-trace-report/export-contract/trust-trace-export-types";

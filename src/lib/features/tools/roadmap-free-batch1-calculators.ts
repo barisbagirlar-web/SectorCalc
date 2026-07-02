@@ -1,4 +1,4 @@
-/** Regeneration baseline — batch1 calculators cleared. */
+/** Regeneration baseline - batch1 calculators cleared. */
 
 export const ROADMAP_FREE_BATCH1_SLUGS = [] as const;
 

@@ -1,5 +1,5 @@
 /**
- * P4C — Tool feedback transactional email via Brevo (server-side only).
+ * P4C - Tool feedback transactional email via Brevo (server-side only).
  */
 
 export type ToolFeedbackTier = "free" | "premium" | "premium-schema" | "unknown";

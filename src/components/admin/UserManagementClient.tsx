@@ -369,8 +369,8 @@ export function UserManagementClient() {
                       )}
                     </td>
                     <td className="px-6 py-4 text-xs text-text-secondary">
-                      <div>Registered: {item.creationTime ? new Date(item.creationTime).toLocaleDateString() : "—"}</div>
-                      <div>Login: {item.lastSignInTime ? new Date(item.lastSignInTime).toLocaleDateString() : "—"}</div>
+                      <div>Registered: {item.creationTime ? new Date(item.creationTime).toLocaleDateString() : "-"}</div>
+                      <div>Login: {item.lastSignInTime ? new Date(item.lastSignInTime).toLocaleDateString() : "-"}</div>
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex justify-end gap-2">

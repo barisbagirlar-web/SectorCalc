@@ -1,5 +1,5 @@
 /**
- * Smart form pilot post-deploy smoke test audit — Phase 5H-G-S-POSTSMOKE.
+ * Smart form pilot post-deploy smoke test audit - Phase 5H-G-S-POSTSMOKE.
  */
 
 import {

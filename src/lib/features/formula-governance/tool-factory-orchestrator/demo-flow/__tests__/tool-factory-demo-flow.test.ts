@@ -1,11 +1,11 @@
 /**
- * Tool factory demo flow tests — Phase 5I-N.
+ * Tool factory demo flow tests - Phase 5I-N.
  */
 
 import { describe, expect, test } from "vitest";
 import { runToolFactoryDemoFlowAudit } from "@/lib/features/formula-governance/tool-factory-orchestrator/demo-flow/demo-flow-audit";
 
-describe("tool factory demo flow — Phase 5I-N", () => {
+describe("tool factory demo flow - Phase 5I-N", () => {
   test("demo flow reaches patch plan stage", () => {
     const result = runToolFactoryDemoFlowAudit();
     expect(result.completedStages).toBeGreaterThanOrEqual(12);

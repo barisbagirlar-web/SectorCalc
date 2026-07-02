@@ -1,5 +1,5 @@
 /**
- * Full existing tool audit types — Phase 5H-J read-only batch classification.
+ * Full existing tool audit types - Phase 5H-J read-only batch classification.
  */
 
 import type { TrustTraceStatus } from "@/lib/features/formula-governance/trust-trace-report/trust-trace-types";

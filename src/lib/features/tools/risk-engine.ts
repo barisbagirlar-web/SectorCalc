@@ -1,5 +1,5 @@
 /**
- * MarginCore Risk Engine — Central probabilistic & macro-economic math engine
+ * MarginCore Risk Engine - Central probabilistic & macro-economic math engine
  *
  * All math functions are isolated, pure, and deterministic given the same
  * inputs + risk profile. No side-effects, no I/O, no randomness.
@@ -38,7 +38,7 @@ const Z_P90 = 1.2816;
 /** Z-score for 95th percentile (used for "reject" threshold) */
 const Z_P95 = 1.6449;
 
-/** Default CBAM carbon price (EUR/tCO₂e) — EU ETS 2025 reference */
+/** Default CBAM carbon price (EUR/tCO₂e) - EU ETS 2025 reference */
 const DEFAULT_CARBON_PRICE_EUR = 85;
 
 /** EUR → USD conversion (approximate, overridable) */
@@ -58,8 +58,8 @@ const EUR_USD_RATE = 1.08;
  * σ = E[C] × baseVolatility (standard deviation of cost)
  * Z_90 = 1.2816 (90th-percentile, one-tailed)
  *
- * @param naiveCost — expected (base) cost before risk adjustment
- * @param riskProfile — sector risk profile containing baseVolatility
+ * @param naiveCost - expected (base) cost before risk adjustment
+ * @param riskProfile - sector risk profile containing baseVolatility
  * @returns P90 safe cost (currency)
  */
 export function calculateP90SafeCost(
@@ -92,8 +92,8 @@ export function calculateP95RejectThreshold(
  * Each named multiplier represents a cost driver (e.g. toolBreakage,
  * supplyChain). The function compounds them multiplicatively.
  *
- * @param naiveCost — base cost
- * @param riskProfile — sector risk profile
+ * @param naiveCost - base cost
+ * @param riskProfile - sector risk profile
  * @returns cost after all sector risk multipliers applied
  */
 export function applySectorRiskMultipliers(
@@ -120,10 +120,10 @@ export function applySectorRiskMultipliers(
  * This is a simplified proxy; real CBAM calculations require actual
  * embedded emissions data.
  *
- * @param baseCost — naive cost (used as proxy for output scale)
- * @param sectorEmissionFactor — tCO₂e per $1000 of output
- * @param cbamExposureIndex — 0 (no exposure) to 1 (full EU export)
- * @param carbonPriceOverride — optional carbon price override (EUR/tCO₂e)
+ * @param baseCost - naive cost (used as proxy for output scale)
+ * @param sectorEmissionFactor - tCO₂e per $1000 of output
+ * @param cbamExposureIndex - 0 (no exposure) to 1 (full EU export)
+ * @param carbonPriceOverride - optional carbon price override (EUR/tCO₂e)
  * @returns CBAM liability in USD
  */
 export function applyCBAMShock(
@@ -194,10 +194,10 @@ const DEFAULT_SHOCKS: readonly ShockDefinition[] = [
  * For each shock, the engine recalculates the P90 safe price under the
  * shocked cost and measures the margin impact.
  *
- * @param inputs — user inputs
- * @param riskProfile — sector risk profile
- * @param calculateNaiveCost — sector-specific naive cost calculator
- * @param targetMarginPercent — target margin %
+ * @param inputs - user inputs
+ * @param riskProfile - sector risk profile
+ * @param calculateNaiveCost - sector-specific naive cost calculator
+ * @param targetMarginPercent - target margin %
  * @returns array of 3 sensitivity scenarios
  */
 export function generateSensitivityMatrix(
@@ -211,7 +211,7 @@ export function generateSensitivityMatrix(
  const baseTargetRevenue = baseNaive / (1 - targetMarginPercent / 100);
 
  return DEFAULT_SHOCKS.map((shock) => {
- // Create shocked inputs — apply shock to numeric inputs proportionally
+ // Create shocked inputs - apply shock to numeric inputs proportionally
  const shockedInputs = applyShockToInputs(inputs, shock.shockPercent);
  const shockedNaive = calculateNaiveCost(shockedInputs);
 const shockedP90 = calculateP90SafeCost(shockedNaive, riskProfile);
@@ -318,12 +318,12 @@ export function resolveVerdict(
  return {
  label: labels.reject,
  severity: "reject",
- suggestedAction: `Do not accept below $${round2(naiveCost).toLocaleString()} — naive cost not covered. Minimum safe price: $${round2(p90SafePrice).toLocaleString()}.`,
+ suggestedAction: `Do not accept below $${round2(naiveCost).toLocaleString()} - naive cost not covered. Minimum safe price: $${round2(p90SafePrice).toLocaleString()}.`,
  };
 }
 
 // ---------------------------------------------------------------------------
-// 7. Main Engine — runMarginCoreEngine
+// 7. Main Engine - runMarginCoreEngine
 // ---------------------------------------------------------------------------
 
 /**

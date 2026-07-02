@@ -1,5 +1,5 @@
 /**
- * Mathematical Property Tester — domain-agnostic formula invariants.
+ * Mathematical Property Tester - domain-agnostic formula invariants.
  *
  * Uses fast-check to verify generic mathematical properties of any compiled
  * formula expression. Does NOT require domain knowledge.
@@ -85,7 +85,7 @@ function tryAllProperties(
 ): PropertyTestResult[] {
   const iterations = opts.iterations ?? 100;
 
-  // P1 — STRICT: Finite output for any valid input
+  // P1 - STRICT: Finite output for any valid input
   const p1 = fc.check(
     fc.property(buildArbitrary(inputIds, ranges), (inputs: Record<string, number>) => {
       const r = evaluateSafe(compiled, inputs);
@@ -94,7 +94,7 @@ function tryAllProperties(
     { numRuns: iterations, seed: opts.seed },
   );
 
-  // P3 — WARNING: Extreme value stability — result stays within bounds
+  // P3 - WARNING: Extreme value stability - result stays within bounds
   const extremeRanges: Record<string, InputRange> = {};
   for (const [id, r] of Object.entries(ranges)) {
     const min = r.min === 0 ? 0 : r.min * 0.01;
@@ -109,7 +109,7 @@ function tryAllProperties(
     { numRuns: Math.min(iterations, 10), seed: opts.seed },
   );
 
-  // P4 — STRICT: Input permutation stability — reorder shouldn't crash
+  // P4 - STRICT: Input permutation stability - reorder shouldn't crash
   const p4Passed = (() => {
     if (inputIds.length < 2) return true;
     try {
@@ -127,7 +127,7 @@ function tryAllProperties(
     }
   })();
 
-  // P6 — WARNING: Zero identity — all inputs = 0 → output is finite
+  // P6 - WARNING: Zero identity - all inputs = 0 → output is finite
   const p6Passed = (() => {
     try {
       const zeroInputs: Record<string, number> = {};
@@ -139,7 +139,7 @@ function tryAllProperties(
     }
   })();
 
-  // P7 — STRICT: Boundary adherence — min/max values don't crash
+  // P7 - STRICT: Boundary adherence - min/max values don't crash
   const p7 = fc.check(
     fc.property(buildArbitrary(inputIds, ranges), (inputs: Record<string, number>) => {
       const r = evaluateSafe(compiled, inputs);

@@ -20,7 +20,7 @@ export const ISO50001_BASELINE_SCHEMA: PremiumCalculatorSchema = {
     { id: "cusum", label: "CUSUM (Actual-Predicted)", label_i18n: {"en":"CUSUM (Actual-Predicted)"}, unit: "kWh", format: "number" },
     { id: "savings", label: "Energy Savings", label_i18n: {"en":"Energy Savings"}, unit: "kWh/yil", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "enpi", warning: 550, critical: 650, direction: "higher_is_bad", warningMessage: "EnPI > 550 — energy intensity is high, improvement opportunity exists.", warningMessage_i18n: {"en":"EnPI > 550 — energy intensity is high, improvement opportunity exists."}, criticalMessage: "EnPI > 650 — energy efficiency is at critical level.", criticalMessage_i18n: {"en":"EnPI > 650 — energy efficiency is at critical level."} }],
+  thresholds: [{ fieldId: "enpi", warning: 550, critical: 650, direction: "higher_is_bad", warningMessage: "EnPI > 550 - energy intensity is high, improvement opportunity exists.", warningMessage_i18n: {"en":"EnPI > 550 - energy intensity is high, improvement opportunity exists."}, criticalMessage: "EnPI > 650 - energy efficiency is at critical level.", criticalMessage_i18n: {"en":"EnPI > 650 - energy efficiency is at critical level."} }],
   formulaPipeline: [
     { formulaId: "energy.enpi", inputMap: { totalEnergy: "totalEnergy", productionVolume: "productionVolume" ,
         energy: "energy",

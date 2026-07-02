@@ -95,8 +95,8 @@ export const PLUMBING_JOB_MARGIN_VERDICT_SCHEMA: PremiumCalculatorSchema = {
       warning: 2,
       critical: 5,
       direction: "higher_is_bad",
-      warningMessage: "Callback visits are elevated — verify leak risk and warranty terms.",
-      criticalMessage: "Critical callback count — reprice fixed-price plumbing work.",
+      warningMessage: "Callback visits are elevated - verify leak risk and warranty terms.",
+      criticalMessage: "Critical callback count - reprice fixed-price plumbing work.",
     },
     {
       fieldId: "warrantyReservePercent",
@@ -104,7 +104,7 @@ export const PLUMBING_JOB_MARGIN_VERDICT_SCHEMA: PremiumCalculatorSchema = {
       critical: 8,
       direction: "higher_is_bad",
       warningMessage: "Warranty reserve is above typical band.",
-      criticalMessage: "Critical warranty exposure — margin may not cover return visits.",
+      criticalMessage: "Critical warranty exposure - margin may not cover return visits.",
     },
   ],
 

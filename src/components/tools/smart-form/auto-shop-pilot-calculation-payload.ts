@@ -1,5 +1,5 @@
 /**
- * Auto shop smart form pilot calculation payload — Phase 5H-G-G (free production shape only).
+ * Auto shop smart form pilot calculation payload - Phase 5H-G-G (free production shape only).
  */
 
 import type { FreeToolInputValues } from "@/lib/features/tools/free-tool-results";

@@ -1,5 +1,5 @@
 /**
- * Safe AST expression engine — no eval, no Function constructor.
+ * Safe AST expression engine - no eval, no Function constructor.
  * Tokenizes → Pratt-parses → evaluates against a scope object.
  *
  * CRITICAL FIX: Preprocesses Math constants (Math.PI, Math.E, etc.) into

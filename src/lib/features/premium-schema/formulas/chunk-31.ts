@@ -72,7 +72,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_volume_cost_2",
     family: "cost",
-    label: "Kaynak Hacmi ve Maliyeti — Weight_Deposited",
+    label: "Kaynak Hacmi ve Maliyeti - Weight_Deposited",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const Weld = num(inputs, "Weld");
@@ -84,7 +84,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_volume_cost_3",
     family: "cost",
-    label: "Kaynak Hacmi ve Maliyeti — Weight_Electrode",
+    label: "Kaynak Hacmi ve Maliyeti - Weight_Electrode",
     fn: (inputs) => {
     const weight = num(inputs, "weight");
     const Deposited = num(inputs, "Deposited");
@@ -96,7 +96,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_volume_cost_4",
     family: "cost",
-    label: "Kaynak Hacmi ve Maliyeti — Cost_Filler",
+    label: "Kaynak Hacmi ve Maliyeti - Cost_Filler",
     fn: (inputs) => {
     const weight = num(inputs, "weight");
     const Electrode = num(inputs, "Electrode");
@@ -108,7 +108,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_volume_cost_5",
     family: "cost",
-    label: "Kaynak Hacmi ve Maliyeti — Cost_Gas",
+    label: "Kaynak Hacmi ve Maliyeti - Cost_Gas",
     fn: (inputs) => {
     const gasFlowRate = num(inputs, "gasFlowRate");
     const arcTime = num(inputs, "arcTime");
@@ -119,7 +119,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_volume_cost_6",
     family: "cost",
-    label: "Kaynak Hacmi ve Maliyeti — Cost_Power",
+    label: "Kaynak Hacmi ve Maliyeti - Cost_Power",
     fn: (inputs) => {
     const voltage = num(inputs, "voltage");
     const current = num(inputs, "current");
@@ -132,7 +132,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_volume_cost_7",
     family: "cost",
-    label: "Kaynak Hacmi ve Maliyeti — TotalWeldCost",
+    label: "Kaynak Hacmi ve Maliyeti - TotalWeldCost",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const Filler = num(inputs, "Filler");
@@ -152,7 +152,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_cost_analysis_0",
     family: "cost",
-    label: "Kaynak Maliyeti — OperatingFactor",
+    label: "Kaynak Maliyeti - OperatingFactor",
     fn: (inputs) => {
     const arcTime = num(inputs, "arcTime");
     const totalShiftTime = num(inputs, "totalShiftTime");
@@ -162,7 +162,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_cost_analysis_1",
     family: "cost",
-    label: "Kaynak Maliyeti — DepositionRate",
+    label: "Kaynak Maliyeti - DepositionRate",
     fn: (inputs) => {
     const weight = num(inputs, "weight");
     const Deposited = num(inputs, "Deposited");
@@ -174,7 +174,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_cost_analysis_2",
     family: "cost",
-    label: "Kaynak Maliyeti — TotalJointCost",
+    label: "Kaynak Maliyeti - TotalJointCost",
     fn: (inputs) => {
     const length = num(inputs, "length");
     const travelSpeed = num(inputs, "travelSpeed");
@@ -190,7 +190,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_cost_analysis_3",
     family: "cost",
-    label: "Kaynak Maliyeti — CostPerMeter",
+    label: "Kaynak Maliyeti - CostPerMeter",
     fn: (inputs) => {
     const totalJointCost = num(inputs, "totalJointCost");
     const length = num(inputs, "length");
@@ -200,7 +200,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_cost_analysis_4",
     family: "cost",
-    label: "Kaynak Maliyeti — ConsumableCostPct",
+    label: "Kaynak Maliyeti - ConsumableCostPct",
     fn: (inputs) => {
     const fillerCost = num(inputs, "fillerCost");
     const totalJointCost = num(inputs, "totalJointCost");
@@ -210,7 +210,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_cost_analysis_5",
     family: "cost",
-    label: "Kaynak Maliyeti — LaborCostPct",
+    label: "Kaynak Maliyeti - LaborCostPct",
     fn: (inputs) => {
     const laborCost = num(inputs, "laborCost");
     const totalJointCost = num(inputs, "totalJointCost");
@@ -222,7 +222,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_strength_0",
     family: "cost",
-    label: "Kaynak Mukavemeti — ThroatThickness",
+    label: "Kaynak Mukavemeti - ThroatThickness",
     fn: (inputs) => {
     const leg = num(inputs, "leg");
     const cos = num(inputs, "cos") || 0;
@@ -232,7 +232,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_strength_1",
     family: "cost",
-    label: "Kaynak Mukavemeti — Area_Shear",
+    label: "Kaynak Mukavemeti - Area_Shear",
     fn: (inputs) => {
     const throatThickness = num(inputs, "throatThickness");
     const length = num(inputs, "length");
@@ -242,7 +242,7 @@ export const CHUNK_31_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_strength_2",
     family: "cost",
-    label: "Kaynak Mukavemeti — AllowableShearStress",
+    label: "Kaynak Mukavemeti - AllowableShearStress",
     fn: (inputs) => {
     const tensileStrength = num(inputs, "tensileStrength");
     const Electrode = num(inputs, "Electrode");

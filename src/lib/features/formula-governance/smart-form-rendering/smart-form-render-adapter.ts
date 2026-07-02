@@ -1,5 +1,5 @@
 /**
- * Smart form render adapter — Phase 5H-G-B SmartFormPlan → SmartFormRenderPlan (no UI).
+ * Smart form render adapter - Phase 5H-G-B SmartFormPlan → SmartFormRenderPlan (no UI).
  */
 
 import type {

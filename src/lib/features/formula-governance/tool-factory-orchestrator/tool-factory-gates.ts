@@ -1,5 +1,5 @@
 /**
- * Tool factory gate validators — Phase 5I-A skeleton (read-only).
+ * Tool factory gate validators - Phase 5I-A skeleton (read-only).
  */
 
 import {
@@ -104,7 +104,7 @@ export function validateGate(plan: ToolFactoryPlan, gate: ToolFactoryGate): Gate
       }
       break;
     case "deploy_gate":
-      blockers.push("Auto deploy disabled — deploy gate never executes commands.");
+      blockers.push("Auto deploy disabled - deploy gate never executes commands.");
       break;
     default:
       break;

@@ -54,7 +54,7 @@ export type AdminCaseStudyEditorMessages = {
 const EN: AdminCaseStudyEditorMessages = {
   checkingSession: "Checking session…",
   pageTitle: "New success story",
-  pageSubtitle: "Paste your story in one box — AI fills the fields automatically.",
+  pageSubtitle: "Paste your story in one box - AI fills the fields automatically.",
   backToList: "Back to list",
   storyLabel: "Write your story (AI will parse it)",
   storyPlaceholder: `Example:
@@ -160,7 +160,7 @@ Customer: Ali Yilmaz, Production Manager, Izmir CNC Workshop`,
 const DE: AdminCaseStudyEditorMessages = {
   checkingSession: "Sitzung wird gepruft…",
   pageTitle: "Neue Erfolgsgeschichte",
-  pageSubtitle: "Geschichte in ein Feld einfugen — KI fullt die Felder automatisch aus.",
+  pageSubtitle: "Geschichte in ein Feld einfugen - KI fullt die Felder automatisch aus.",
   backToList: "Zur Liste",
   storyLabel: "Geschichte schreiben (KI parst automatisch)",
   storyPlaceholder: EN.storyPlaceholder,
@@ -207,7 +207,7 @@ const DE: AdminCaseStudyEditorMessages = {
 const FR: AdminCaseStudyEditorMessages = {
   checkingSession: "Vérification de la session…",
   pageTitle: "Nouvelle success story",
-  pageSubtitle: "Collez votre récit dans une zone — l'IA remplit les champs automatiquement.",
+  pageSubtitle: "Collez votre récit dans une zone - l'IA remplit les champs automatiquement.",
   backToList: "Retour à la liste",
   storyLabel: "Écrivez votre récit (l'IA l'analyse)",
   storyPlaceholder: EN.storyPlaceholder,
@@ -254,7 +254,7 @@ const FR: AdminCaseStudyEditorMessages = {
 const ES: AdminCaseStudyEditorMessages = {
   checkingSession: "Comprobando sesión…",
   pageTitle: "Nueva historia de éxito",
-  pageSubtitle: "Pega tu historia en un cuadro — la IA rellena los campos automáticamente.",
+  pageSubtitle: "Pega tu historia en un cuadro - la IA rellena los campos automáticamente.",
   backToList: "Volver a la lista",
   storyLabel: "Escribe tu historia (la IA la analiza)",
   storyPlaceholder: EN.storyPlaceholder,
@@ -301,7 +301,7 @@ const ES: AdminCaseStudyEditorMessages = {
 const AR: AdminCaseStudyEditorMessages = {
   checkingSession: "جارٍ التحقق من الجلسة…",
   pageTitle: "قصة نجاح جديدة",
-  pageSubtitle: "الصق قصتك في مربع واحد — الذكاء الاصطناعي يملأ الحقول تلقائياً.",
+  pageSubtitle: "الصق قصتك في مربع واحد - الذكاء الاصطناعي يملأ الحقول تلقائياً.",
   backToList: "العودة إلى القائمة",
   storyLabel: "اكتب قصتك (الذكاء الاصطناعي يحلّلها)",
   storyPlaceholder: EN.storyPlaceholder,

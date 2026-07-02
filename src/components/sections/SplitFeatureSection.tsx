@@ -12,14 +12,14 @@ export function SplitFeatureSection() {
  for decision outputs
  </h2>
  <p className="mt-6 text-base leading-relaxed text-text-secondary sm:text-lg">
- Premium sector tools turn validated inputs into stakeholder-ready packages — executive
+ Premium sector tools turn validated inputs into stakeholder-ready packages - executive
  summary, scenario evaluation, risk signals and recommendations. One structured engine
  powers every industry pack so operators and advisors work from the same decision
  language.
  </p>
  <p className="mt-4 text-base leading-relaxed text-text-secondary sm:text-lg">
  Free tools deliver fast estimates; decision tools add the report layer when the cost of
- being wrong is real — without changing routes, formulas or validation behavior in the
+ being wrong is real - without changing routes, formulas or validation behavior in the
  MVP.
  </p>
  </div>
@@ -49,7 +49,7 @@ export function SplitFeatureSection() {
  ))}
  </div>
  <p className="mt-6 text-center text-xs text-text-secondary">
- Illustrative report modules — not live customer data
+ Illustrative report modules - not live customer data
  </p>
  </div>
  </div>

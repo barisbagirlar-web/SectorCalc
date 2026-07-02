@@ -1,5 +1,5 @@
 /**
- * Premium schema report entitlement — adapter over billing/subscription state.
+ * Premium schema report entitlement - adapter over billing/subscription state.
  */
 
 import { resolveEntitlementLevelFromRecords } from "@/lib/features/entitlements/entitlement-mapping";

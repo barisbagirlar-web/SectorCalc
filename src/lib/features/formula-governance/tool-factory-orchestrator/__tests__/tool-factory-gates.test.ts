@@ -1,5 +1,5 @@
 /**
- * Tool factory gate tests — Phase 5I-A.
+ * Tool factory gate tests - Phase 5I-A.
  */
 
 import { describe, expect, test } from "vitest";
@@ -7,7 +7,7 @@ import { buildDraftToolFactoryPlan } from "@/lib/features/formula-governance/too
 import { validateGate } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-gates";
 import { buildToolFactoryPlan } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-plan-builder";
 
-describe("tool factory gates — Phase 5I-A", () => {
+describe("tool factory gates - Phase 5I-A", () => {
   test("FormulaContract missing blocks oracle gate", () => {
     const plan = buildDraftToolFactoryPlan();
     const result = validateGate(plan, "oracle_gate");

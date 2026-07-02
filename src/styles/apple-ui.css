@@ -303,7 +303,7 @@
   flex-shrink: 0;
 }
 
-/* ── Nav (Apple globalnav) — manifesto v2: 80px shell ── */
+/* ── Nav (Apple globalnav) - manifesto v2: 80px shell ── */
 .apple-nav {
   --apple-nav-height: 64px;
   position: sticky;
@@ -475,7 +475,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.16);
 }
 
-/* Enterprise mobile drawer — portaled to body with measured top offset */
+/* Enterprise mobile drawer - portaled to body with measured top offset */
 .sc-mobile-drawer {
   position: fixed;
   inset: 0;
@@ -642,7 +642,7 @@
   border-bottom: none;
 }
 
-/* ── Logo — icon mark + Sector Calc wordmark ── */
+/* ── Logo - icon mark + Sector Calc wordmark ── */
 .site-logo,
 .sc-site-logo,
 .sc-logo {
@@ -716,7 +716,7 @@
   opacity: 0.92;
 }
 
-/* Mobile header — compact mark, keep readable wordmark */
+/* Mobile header - compact mark, keep readable wordmark */
 @media (max-width: 767px) {
   .apple-nav {
     --apple-nav-height: 64px;
@@ -1068,7 +1068,7 @@
   text-decoration: underline;
 }
 
-/* Trust Trace — decorative labyrinth seal + public /verify promo (scannable QR on PDF reports) */
+/* Trust Trace - decorative labyrinth seal + public /verify promo (scannable QR on PDF reports) */
 .verify-report-box {
   display: flex;
   flex-direction: column;

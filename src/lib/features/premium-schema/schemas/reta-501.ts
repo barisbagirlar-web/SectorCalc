@@ -18,8 +18,8 @@ export const PRODUCT_CUSTOMER_PROFITABILITY_CALCULATOR_SCHEMA: PremiumCalculator
       warning: 12,
       critical: 5,
       direction: "lower_is_bad",
-      warningMessage: "Contribution margin is thin after service and returns — review account terms.",
-      criticalMessage: "Customer or SKU may be margin-negative — reprice or reduce service load.",
+      warningMessage: "Contribution margin is thin after service and returns - review account terms.",
+      criticalMessage: "Customer or SKU may be margin-negative - reprice or reduce service load.",
     },
   ],
 

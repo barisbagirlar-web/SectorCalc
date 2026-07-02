@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 /**
- * SectorCalc Premium Tool Contract v1 — unified decision engine.
+ * SectorCalc Premium Tool Contract v1 - unified decision engine.
  *
  * Reads revenue paid-input keys, applies contract hidden variables and
  * volatility buffer, and returns a PremiumDecisionReport per slug.
@@ -687,14 +687,14 @@ function resolveVerdict(
  if (quotedPrice < p90Cost) {
   return {
    severity: "reject",
-   label: "High risk — hidden cost may erase the margin",
+   label: "High risk - hidden cost may erase the margin",
    suggestedAction: `Exposure floor is ${formatCurrency(p90Cost)}. Reprice before accepting or reduce scope.`,
   };
  }
  if (quotedPrice < minimumSafePrice) {
   return {
    severity: "caution",
-   label: "Watch band — tolerance pressure on margin",
+   label: "Watch band - tolerance pressure on margin",
    suggestedAction: `Target floor is ${formatCurrency(minimumSafePrice)}. Energy and delay exposure are common risk drivers at this level.`,
   };
  }
@@ -804,7 +804,7 @@ function buildReportSections(
  if (title === "Hidden cost drivers") {
  const body =
  lossDrivers.length > 0
- ? lossDrivers.map((d) => `${d.label}: ${d.amountDisplay} — ${d.explanation}`).join(" ")
+ ? lossDrivers.map((d) => `${d.label}: ${d.amountDisplay} - ${d.explanation}`).join(" ")
  : "No material hidden drivers detected at current inputs.";
  return { title, body };
  }

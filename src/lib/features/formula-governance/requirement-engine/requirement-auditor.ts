@@ -1,5 +1,5 @@
 /**
- * Requirement auditor — sanity checks on requirement solve results.
+ * Requirement auditor - sanity checks on requirement solve results.
  */
 
 import type { CalculationOntology } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";

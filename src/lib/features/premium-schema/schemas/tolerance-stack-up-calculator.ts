@@ -18,8 +18,8 @@ export const TOLERANCE_STACK_UP_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       warning: 0.05,
       critical: 0,
       direction: "lower_is_bad",
-      warningMessage: "Worst-case stack is close to the assembly limit — review driving tolerances.",
-      criticalMessage: "Worst-case stack exceeds assembly limit — adjust tolerances before build.",
+      warningMessage: "Worst-case stack is close to the assembly limit - review driving tolerances.",
+      criticalMessage: "Worst-case stack exceeds assembly limit - adjust tolerances before build.",
     },
   ],
 

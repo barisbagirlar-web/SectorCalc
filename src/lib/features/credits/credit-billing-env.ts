@@ -1,18 +1,18 @@
 /**
- * Kredi billing env — key'ler sonra doldurulacak.
+ * Kredi billing env - key'ler sonra doldurulacak.
  * Bos birakilirsa Cloud Function URL'leri project id'den turetilir.
  */
 
 export const CREDIT_BILLING_ENV = {
-  /** Stripe checkout function — opsiyonel override */
+  /** Stripe checkout function - opsiyonel override */
   checkoutFunctionUrl:
     process.env.NEXT_PUBLIC_CREDIT_CHECKOUT_FUNCTION_URL?.trim() || "",
 
-  /** Kredi harcama function — opsiyonel override */
+  /** Kredi harcama function - opsiyonel override */
   spendCreditsFunctionUrl:
     process.env.NEXT_PUBLIC_SPEND_CREDITS_FUNCTION_URL?.trim() || "",
 
-  /** Firebase project — URL fallback icin */
+  /** Firebase project - URL fallback icin */
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID?.trim() || "",
 } as const;
 

@@ -15,13 +15,13 @@ export const HOME_FAQ: FaqItem[] = [
  id: "reports",
  question: "What is a decision report?",
  answer:
- "A decision report turns calculator outputs into structured findings, scenario comparisons, risk levels, and actionable recommendations — ready to share with clients or internal stakeholders.",
+ "A decision report turns calculator outputs into structured findings, scenario comparisons, risk levels, and actionable recommendations - ready to share with clients or internal stakeholders.",
  },
  {
  id: "industries",
  question: "Which industries does SectorCalc support?",
  answer:
- "We launch with 27 active industry packs — each with a free calculator and premium margin analyzer.",
+ "We launch with 27 active industry packs - each with a free calculator and premium margin analyzer.",
  },
  {
  id: "consultants",

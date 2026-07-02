@@ -1,5 +1,5 @@
 /**
- * Tool factory orchestrator types — Phase 5I-A skeleton (no deploy execution).
+ * Tool factory orchestrator types - Phase 5I-A skeleton (no deploy execution).
  */
 
 export const TOOL_FACTORY_PIPELINE_STAGES = [

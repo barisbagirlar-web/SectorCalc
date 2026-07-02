@@ -1,5 +1,5 @@
 /**
- * First controlled patch batch selector — Phase 5H-E read-only planning.
+ * First controlled patch batch selector - Phase 5H-E read-only planning.
  */
 
 import type {

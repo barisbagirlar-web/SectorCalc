@@ -1,5 +1,5 @@
 /**
- * Rent vs Buy oracle baseline — independent reference model (Phase 5B).
+ * Rent vs Buy oracle baseline - independent reference model (Phase 5B).
  * Does NOT import production calculator or rent-vs-buy-model.
  */
 

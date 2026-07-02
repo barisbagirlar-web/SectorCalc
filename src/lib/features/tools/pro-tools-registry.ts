@@ -1,5 +1,5 @@
 /**
- * SectorCalc — Static Pro Tools Registry
+ * SectorCalc - Static Pro Tools Registry
  * Generated automatically. Do not edit manually.
  */
 

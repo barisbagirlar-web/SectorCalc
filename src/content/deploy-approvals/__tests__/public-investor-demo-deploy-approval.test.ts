@@ -5,7 +5,7 @@
 import { describe, expect, test } from "vitest";
 import { PUBLIC_INVESTOR_DEMO_DEPLOY_APPROVAL } from "@/content/deploy-approvals/public-investor-demo-deploy-approval";
 
-describe("public investor demo deploy approval — Phase 6D", () => {
+describe("public investor demo deploy approval - Phase 6D", () => {
   test("deploy approved but command disabled", () => {
     expect(PUBLIC_INVESTOR_DEMO_DEPLOY_APPROVAL.deployApproved).toBe(true);
     expect(PUBLIC_INVESTOR_DEMO_DEPLOY_APPROVAL.deployCommandAllowed).toBe(false);

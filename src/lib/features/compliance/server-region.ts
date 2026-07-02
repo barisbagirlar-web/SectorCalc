@@ -25,7 +25,7 @@ function isStaticProductionBuild(): boolean {
   return process.env.NEXT_PHASE === "phase-production-build";
 }
 
-/** Server Components / Server Actions — locale-aware region with source. */
+/** Server Components / Server Actions - locale-aware region with source. */
 export async function getServerRegion(locale: string): Promise<ServerRegionResult> {
   if (isStaticProductionBuild()) {
     return localeFallbackRegion(locale);
@@ -38,7 +38,7 @@ export async function getServerRegion(locale: string): Promise<ServerRegionResul
     headerStore = await headers();
     cookieStore = await cookies();
   } catch {
-    // force-static prerender has no request scope — locale-derived region only.
+    // force-static prerender has no request scope - locale-derived region only.
     return localeFallbackRegion(locale);
   }
 

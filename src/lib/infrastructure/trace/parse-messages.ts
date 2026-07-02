@@ -24,9 +24,9 @@ export type ParsedMessage = {
  *
  * The return type `ParsedMessage[]` is the canonical shared type.
  * Callers that need a nominal subtype must cast explicitly at the
- * call site via a branded wrapper — never via a lying generic.
+ * call site via a branded wrapper - never via a lying generic.
  *
- * Used by free, pro and customer AI routes — single source of truth.
+ * Used by free, pro and customer AI routes - single source of truth.
  */
 export function parseConversationMessages(value: unknown): ParsedMessage[] {
   if (!Array.isArray(value)) {

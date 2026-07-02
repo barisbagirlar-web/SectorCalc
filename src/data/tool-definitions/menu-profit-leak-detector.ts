@@ -9,7 +9,7 @@ export const menuProfitLeakDetectorDefinition: ToolDefinition = {
  shortDescription:
  "Identify whether a menu item loses margin after ingredient cost, waste, labor and delivery commission.",
  longDescription:
- "Detect menu profit leaks by modeling ingredient cost, waste, packaging, kitchen labor and delivery commission against your target margin — with monthly leak estimate and scenario calculation.",
+ "Detect menu profit leaks by modeling ingredient cost, waste, packaging, kitchen labor and delivery commission against your target margin - with monthly leak estimate and scenario calculation.",
  inputs: [
  {
  id: "sellingPrice",
@@ -127,6 +127,6 @@ export const menuProfitLeakDetectorDefinition: ToolDefinition = {
  interpretationNote:
  "Food cost percentage shows how much of the menu price is consumed by ingredients and waste. A full menu decision should also consider labor, delivery commissions and product mix.",
  faqPlaceholder:
- "Who it is for: restaurant operators and hospitality consultants reviewing menu economics. What to do with the result: prioritize repricing or portion changes on leak items before they erode monthly profit. Premium adds scenarios, risk level and recommendations — indicative only.",
+ "Who it is for: restaurant operators and hospitality consultants reviewing menu economics. What to do with the result: prioritize repricing or portion changes on leak items before they erode monthly profit. Premium adds scenarios, risk level and recommendations - indicative only.",
  features: { decisionReport: true },
 };

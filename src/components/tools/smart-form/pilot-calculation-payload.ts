@@ -1,5 +1,5 @@
 /**
- * Smart form pilot calculation payload — Phase 5H-G-E/G (pure mapper; no calculator imports).
+ * Smart form pilot calculation payload - Phase 5H-G-E/G (pure mapper; no calculator imports).
  */
 
 import type { FreeToolInputValues } from "@/lib/features/tools/free-tool-results";

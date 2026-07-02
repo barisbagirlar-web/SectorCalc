@@ -20,9 +20,9 @@ export const CROP_YIELD_LOSS_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       critical: 8000,
       direction: "higher_is_bad",
       warningMessage:
-        "Combined yield and irrigation exposure is building — review water schedule and crop forecast.",
+        "Combined yield and irrigation exposure is building - review water schedule and crop forecast.",
       criticalMessage:
-        "Critical yield loss exposure — irrigation spend may not be recovered at current tonnage.",
+        "Critical yield loss exposure - irrigation spend may not be recovered at current tonnage.",
     },
   ],
 

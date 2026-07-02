@@ -275,7 +275,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
                 label="Planned Production Time"
                 symbol="T_p"
                 required
-                hint="Per shift — 8h = 480 min"
+                hint="Per shift - 8h = 480 min"
                 confidenceLabel="CERTAIN"
                 unit="min"
               />
@@ -332,7 +332,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
                 label="Ideal Cycle Time"
                 symbol="CT_0"
                 required
-                hint="OEM design value — NOT measured time"
+                hint="OEM design value - NOT measured time"
                 confidenceLabel="CERTAIN"
                 unit="min"
               />
@@ -582,7 +582,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
           </div>
           <div className="font-mono text-[10px] text-text-secondary/50 mt-1 select-none truncate">
             {step <= 3
-              ? `Step ... / 3 — complete inputs`
+              ? `Step ... / 3 - complete inputs`
               : `Calculation completed`}
           </div>
         </div>

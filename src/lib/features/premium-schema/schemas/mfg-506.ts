@@ -18,8 +18,8 @@ export const HYDRAULIC_PNEUMATIC_CYLINDER_FORCE_CALCULATOR_SCHEMA: PremiumCalcul
       warning: 15000,
       critical: 40000,
       direction: "higher_is_bad",
-      warningMessage: "Extend force is high — verify mountings and safety margins.",
-      criticalMessage: "Extend force is very high — confirm cylinder rating and plumbing.",
+      warningMessage: "Extend force is high - verify mountings and safety margins.",
+      criticalMessage: "Extend force is very high - confirm cylinder rating and plumbing.",
     },
   ],
 
@@ -35,7 +35,7 @@ export const HYDRAULIC_PNEUMATIC_CYLINDER_FORCE_CALCULATOR_SCHEMA: PremiumCalcul
     targetMarginPercent: 0,
     assumptionNotes: [
       "Extend force ≈ pressure × piston area (1 bar ≈ 0.1 N/mm²).",
-      "Retreat uses rod diameter as annulus proxy — screening only.",
+      "Retreat uses rod diameter as annulus proxy - screening only.",
       "Friction, seal drag and pressure drop are not modeled.",
     ],
   },

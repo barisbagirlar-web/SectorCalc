@@ -25,7 +25,7 @@ export const FREE_TOOL_LEGAL_NOTE =
   "This is a technical estimate based on the values you entered. It is not financial, legal, medical or engineering advice.";
 
 export const TECHNICAL_SIMULATION_NOTICE =
-  "Technical decision-support simulation — not financial, legal, medical or engineering advice.";
+  "Technical decision-support simulation - not financial, legal, medical or engineering advice.";
 
 export interface FormatNumberOptions {
   minimumFractionDigits?: number;

@@ -1,5 +1,5 @@
 /**
- * AI Token Cost Analyzer — Premium Calculator Schema
+ * AI Token Cost Analyzer - Premium Calculator Schema
  *
  * Formulas: BasePromptCost → BaseCompletionCost → CacheReadCost →
  *           MonthlyProjection → TCO
@@ -20,7 +20,7 @@ export const AI_TOKEN_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   name: "AI Token Cost Analyzer", name_i18n: {"en":"AI Token Cost Analyzer"},
   sectorSlug: "it-cloud",
   category: "cost",
-  painStatement: "LLM API costs grow silently with usage. Without a structured TCO model, teams miss cache savings and seasonal spikes — leading to budget overruns.", painStatement_i18n: {"en":"LLM API costs grow silently with usage. Without a structured TCO model, teams miss cache savings and seasonal spikes — leading to budget overruns."},
+  painStatement: "LLM API costs grow silently with usage. Without a structured TCO model, teams miss cache savings and seasonal spikes - leading to budget overruns.", painStatement_i18n: {"en":"LLM API costs grow silently with usage. Without a structured TCO model, teams miss cache savings and seasonal spikes - leading to budget overruns."},
   inputs: [
     { id: "dailyRequests", label: "Daily API Requests", label_i18n: {"en":"Daily API Requests"}, type: "number", unit: "units", required: true, smartDefault: 10000, validation: { min: 1, max: 100_000_000 }, helper: "Total LLM API calls per day.", helper_i18n: {"en":"Total LLM API calls per day."}, expertMeaning: "Daily inference request count", expertMeaning_i18n: {"en":"Daily inference request count"} },
     { id: "promptTokens", label: "Avg Prompt Tokens", label_i18n: {"en":"Avg Prompt Tokens"}, type: "number", unit: "token", required: true, smartDefault: 2000, validation: { min: 1, max: 1_000_000 }, helper: "Average input token count per request.", helper_i18n: {"en":"Average input token count per request."}, expertMeaning: "Prompt tokens per request", expertMeaning_i18n: {"en":"Prompt tokens per request"} },
@@ -43,7 +43,7 @@ export const AI_TOKEN_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "tco", label: "TCO (Aylk)", label_i18n: {"en":"TCO (Aylk)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "tco", warning: 5000, critical: 25000, direction: "higher_is_bad", warningMessage: "TCO > $5K/month — evaluate caching or model optimization.", warningMessage_i18n: {"en":"TCO > $5K/month — evaluate caching or model optimization."}, criticalMessage: "TCO > $25K/ay — urgent Cost optimizasyonu gerekiyor.", criticalMessage_i18n: {"en":"TCO > $25K/ay — urgent Cost optimizasyonu gerekiyor."} },
+    { fieldId: "tco", warning: 5000, critical: 25000, direction: "higher_is_bad", warningMessage: "TCO > $5K/month - evaluate caching or model optimization.", warningMessage_i18n: {"en":"TCO > $5K/month - evaluate caching or model optimization."}, criticalMessage: "TCO > $25K/ay - urgent Cost optimizasyonu gerekiyor.", criticalMessage_i18n: {"en":"TCO > $25K/ay - urgent Cost optimizasyonu gerekiyor."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.ai_daily_prompt", inputMap: { dailyRequests: "dailyRequests", promptTokens: "promptTokens", pricePerMToken: "promptPrice" }, outputId: "dailyBasePromptCost" },

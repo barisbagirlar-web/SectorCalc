@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-I — smart form pilot batch QA and optional expansion gate tests.
+ * Phase 5H-G-I - smart form pilot batch QA and optional expansion gate tests.
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";
@@ -33,7 +33,7 @@ import {
   THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
 } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
-describe("smart form pilot batch QA — Phase 5H-G-I", () => {
+describe("smart form pilot batch QA - Phase 5H-G-I", () => {
   afterEach(() => {
     vi.unstubAllEnvs();
   });
@@ -182,7 +182,7 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
   });
 });
 
-describe("smart form pilot manual QA result entry — Phase 5H-G-K", () => {
+describe("smart form pilot manual QA result entry - Phase 5H-G-K", () => {
   test("canonical manual QA records keep production deployed passed and batch H pending", () => {
     const { results, aggregateStatus } = getSmartFormPilotManualQaResults();
 
@@ -203,7 +203,7 @@ describe("smart form pilot manual QA result entry — Phase 5H-G-K", () => {
   });
 });
 
-describe("smart form pilot QA decision gate — Phase 5H-G-J", () => {
+describe("smart form pilot QA decision gate - Phase 5H-G-J", () => {
   test("pending QA keeps stagingFlagReady false", () => {
     const pending = buildDefaultPendingManualQaResults().results;
     const decision = evaluateSmartFormPilotQaDecision(pending);

@@ -47,7 +47,7 @@ export interface LeadRateLimitCheck {
 }
 
 /**
- * Client-side spam guard only — not a security control.
+ * Client-side spam guard only - not a security control.
  *
  * Server-side rate limiting (Cloud Functions + Firestore write guard)
  * must be added before production paid traffic scales.

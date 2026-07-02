@@ -1,5 +1,5 @@
 /**
- * Full audit remediation types — Phase 5I-D batch 1 planning only.
+ * Full audit remediation types - Phase 5I-D batch 1 planning only.
  */
 
 import type { PatchPlanRiskLevel } from "@/lib/features/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-types";

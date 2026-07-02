@@ -1,5 +1,5 @@
 /**
- * Autonomous release gate proof types — deterministic SYSTEM_APPROVABLE / BLOCKED verdict.
+ * Autonomous release gate proof types - deterministic SYSTEM_APPROVABLE / BLOCKED verdict.
  */
 
 export type ReleaseGateStatus = "PASS" | "FAIL" | "SKIP";

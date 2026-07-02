@@ -72,7 +72,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_2",
     family: "cost",
-    label: "Tekstil Atigi Risk Assessmentsi — FinancialLoss",
+    label: "Tekstil Atigi Risk Assessmentsi - FinancialLoss",
     fn: (inputs) => {
     const preConsumerWaste = num(inputs, "preConsumerWaste");
     const fabricCostPerKg = num(inputs, "fabricCostPerKg");
@@ -83,7 +83,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_3",
     family: "cost",
-    label: "Tekstil Atigi Risk Assessmentsi — DisposalCost",
+    label: "Tekstil Atigi Risk Assessmentsi - DisposalCost",
     fn: (inputs) => {
     const wasteWeight = num(inputs, "wasteWeight");
     const landfillFee = num(inputs, "landfillFee");
@@ -93,7 +93,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_4",
     family: "cost",
-    label: "Tekstil Atigi Risk Assessmentsi — CircularRevenue",
+    label: "Tekstil Atigi Risk Assessmentsi - CircularRevenue",
     fn: (inputs) => {
     const recycledWasteWeight = num(inputs, "recycledWasteWeight");
     const scrapValue = num(inputs, "scrapValue");
@@ -103,7 +103,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_5",
     family: "cost",
-    label: "Tekstil Atigi Risk Assessmentsi — NetWasteCost",
+    label: "Tekstil Atigi Risk Assessmentsi - NetWasteCost",
     fn: (inputs) => {
     const financialLoss = num(inputs, "financialLoss");
     const disposalCost = num(inputs, "disposalCost");
@@ -114,7 +114,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_6",
     family: "cost",
-    label: "Tekstil Atigi Risk Assessmentsi — RiskScore",
+    label: "Tekstil Atigi Risk Assessmentsi - RiskScore",
     fn: (inputs) => {
     const netWasteCost = num(inputs, "netWasteCost");
     const totalRevenue = num(inputs, "totalRevenue");
@@ -126,7 +126,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cleaning_bid_optimizer_0",
     family: "cost",
-    label: "Temizlik Teklifi Optimize Edici — AreaToClean",
+    label: "Temizlik Teklifi Optimize Edici - AreaToClean",
     fn: (inputs) => {
     const totalSqM = num(inputs, "totalSqM");
     const cleanablePct = num(inputs, "cleanablePct");
@@ -136,7 +136,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cleaning_bid_optimizer_1",
     family: "cost",
-    label: "Temizlik Teklifi Optimize Edici — LaborHours",
+    label: "Temizlik Teklifi Optimize Edici - LaborHours",
     fn: (inputs) => {
     const areaToClean = num(inputs, "areaToClean");
     const productionRatePerHour = num(inputs, "productionRatePerHour");
@@ -146,7 +146,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cleaning_bid_optimizer_2",
     family: "cost",
-    label: "Temizlik Teklifi Optimize Edici — LaborCost",
+    label: "Temizlik Teklifi Optimize Edici - LaborCost",
     fn: (inputs) => {
     const laborHours = num(inputs, "laborHours");
     const hourlyWage = num(inputs, "hourlyWage");
@@ -157,7 +157,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cleaning_bid_optimizer_3",
     family: "cost",
-    label: "Temizlik Teklifi Optimize Edici — MaterialCost",
+    label: "Temizlik Teklifi Optimize Edici - MaterialCost",
     fn: (inputs) => {
     const areaToClean = num(inputs, "areaToClean");
     const consumableCostPerSqM = num(inputs, "consumableCostPerSqM");
@@ -167,7 +167,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cleaning_bid_optimizer_4",
     family: "cost",
-    label: "Temizlik Teklifi Optimize Edici — EquipmentCost",
+    label: "Temizlik Teklifi Optimize Edici - EquipmentCost",
     fn: (inputs) => {
     const machineHours = num(inputs, "machineHours");
     const depreciationRate = num(inputs, "depreciationRate");
@@ -177,7 +177,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cleaning_bid_optimizer_5",
     family: "cost",
-    label: "Temizlik Teklifi Optimize Edici — Overhead",
+    label: "Temizlik Teklifi Optimize Edici - Overhead",
     fn: (inputs) => {
     const laborCost = num(inputs, "laborCost");
     const materialCost = num(inputs, "materialCost");
@@ -188,7 +188,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cleaning_bid_optimizer_6",
     family: "cost",
-    label: "Temizlik Teklifi Optimize Edici — BidPrice",
+    label: "Temizlik Teklifi Optimize Edici - BidPrice",
     fn: (inputs) => {
     const laborCost = num(inputs, "laborCost");
     const materialCost = num(inputs, "materialCost");
@@ -203,7 +203,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.delivery_cost_0",
     family: "cost",
-    label: "Teslimat Maliyeti — CostPerDrop",
+    label: "Teslimat Maliyeti - CostPerDrop",
     fn: (inputs) => {
     const totalRouteCost = num(inputs, "totalRouteCost");
     const numberOfDrops = num(inputs, "numberOfDrops");
@@ -213,7 +213,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.delivery_cost_1",
     family: "cost",
-    label: "Teslimat Maliyeti — CostPerKm",
+    label: "Teslimat Maliyeti - CostPerKm",
     fn: (inputs) => {
     const totalRouteCost = num(inputs, "totalRouteCost");
     const totalDistance = num(inputs, "totalDistance");
@@ -223,7 +223,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.delivery_cost_2",
     family: "cost",
-    label: "Teslimat Maliyeti — FailedDeliveryCost",
+    label: "Teslimat Maliyeti - FailedDeliveryCost",
     fn: (inputs) => {
     const failedDrops = num(inputs, "failedDrops");
     const returnFreight = num(inputs, "returnFreight");

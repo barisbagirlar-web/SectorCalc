@@ -29,7 +29,7 @@ export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "powerCost", label: "Energy Cost", label_i18n: {"en":"Energy Cost"}, unit: "USD", format: "currency" },
     { id: "totalWeldCost", label: "Total resource Cost", label_i18n: {"en":"Total resource Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalWeldCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "resource Cost > $5K — Process optimization should be evaluated.", warningMessage_i18n: {"en":"resource Cost > $5K — Process optimization should be evaluated."}, criticalMessage: "resource Cost > $15K — method change gerekebilir.", criticalMessage_i18n: {"en":"resource Cost > $15K — method change gerekebilir."} }],
+  thresholds: [{ fieldId: "totalWeldCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "resource Cost > $5K - Process optimization should be evaluated.", warningMessage_i18n: {"en":"resource Cost > $5K - Process optimization should be evaluated."}, criticalMessage: "resource Cost > $15K - method change gerekebilir.", criticalMessage_i18n: {"en":"resource Cost > $15K - method change gerekebilir."} }],
   formulaPipeline: [
     { formulaId: "measurement.weld_area", inputMap: { leg: "leg" }, outputId: "weldArea" },
     { formulaId: "measurement.weld_volume", inputMap: { weldArea: "weldArea", weldLength: "weldLength" }, outputId: "weldVolume" },

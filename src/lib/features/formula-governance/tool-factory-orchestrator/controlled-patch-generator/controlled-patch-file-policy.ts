@@ -1,5 +1,5 @@
 /**
- * Controlled patch file policy — Phase 5I-E allowed/forbidden paths.
+ * Controlled patch file policy - Phase 5I-E allowed/forbidden paths.
  */
 
 import { GLOBAL_FORBIDDEN_FILES } from "@/lib/features/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-diff-contract";

@@ -1,5 +1,5 @@
 /**
- * Premium report access gate — pure helpers for preview vs full export payloads.
+ * Premium report access gate - pure helpers for preview vs full export payloads.
  */
 
 import {

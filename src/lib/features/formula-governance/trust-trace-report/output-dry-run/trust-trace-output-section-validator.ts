@@ -1,5 +1,5 @@
 /**
- * Trust trace output section validator — Phase 5I-M redaction checks.
+ * Trust trace output section validator - Phase 5I-M redaction checks.
  */
 
 import type { TrustTraceOutputDryRun } from "@/lib/features/formula-governance/trust-trace-report/output-dry-run/trust-trace-output-dry-run-types";

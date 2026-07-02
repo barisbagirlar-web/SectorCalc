@@ -1,5 +1,5 @@
 /**
- * SSR-safe investor page metric snapshot — no fs/process.cwd().
+ * SSR-safe investor page metric snapshot - no fs/process.cwd().
  * Update trustTraceReady when `npm run audit:investor-demo` drift is confirmed in dev/CI.
  */
 

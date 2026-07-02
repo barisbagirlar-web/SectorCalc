@@ -20,9 +20,9 @@ export const CLOUD_API_COST_OVERRUN_SCHEMA: PremiumCalculatorSchema = {
       critical: 30,
       direction: "higher_is_bad",
       warningMessage:
-        "Cloud stack is consuming a rising share of revenue — review API unit economics.",
+        "Cloud stack is consuming a rising share of revenue - review API unit economics.",
       criticalMessage:
-        "Critical cost pressure — scale may be eroding product margin faster than revenue grows.",
+        "Critical cost pressure - scale may be eroding product margin faster than revenue grows.",
     },
   ],
 

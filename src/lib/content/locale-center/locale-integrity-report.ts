@@ -101,7 +101,7 @@ export function buildLocaleIntegrityReport(htmlByRoute?: Record<string, string>)
 
 export function formatLocaleIntegrityReport(report: LocaleIntegrityReport): string {
   const lines = [
-    `Locale Integrity Report — ${report.generatedAt}`,
+    `Locale Integrity Report - ${report.generatedAt}`,
     `Key parity gaps: ${report.localeKeyGaps}`,
     `Issues: ${report.issues.length}`,
   ];

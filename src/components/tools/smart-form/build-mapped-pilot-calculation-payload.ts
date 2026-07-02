@@ -1,5 +1,5 @@
 /**
- * Generic mapped smart form pilot calculation payload — Phase 5H-H.
+ * Generic mapped smart form pilot calculation payload - Phase 5H-H.
  */
 
 import type { FreeToolInputValues } from "@/lib/features/tools/free-tool-results";

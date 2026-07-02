@@ -1,5 +1,5 @@
 /**
- * Phase 5H — premium-schema batch FormulaContracts (11 legacy paid slugs).
+ * Phase 5H - premium-schema batch FormulaContracts (11 legacy paid slugs).
  */
 
 import type { FormulaContract } from "@/lib/features/formula-governance/types";
@@ -15,7 +15,7 @@ import { createWarningPolicy } from "@/lib/features/formula-governance/warning-p
 import { BATCH_PREMIUM_SCHEMA_CRITICAL_SLUGS } from "@/lib/features/formula-governance/premium-schema-governance/premium-schema-critical-slugs";
 
 const PREMIUM_DECISION_DISCLAIMER =
-  "Technical simulation only — not financial, legal, or engineering advice. Verify assumptions before bid, pricing or business decisions.";
+  "Technical simulation only - not financial, legal, or engineering advice. Verify assumptions before bid, pricing or business decisions.";
 
 function premiumSchemaContract(
   config: Parameters<typeof buildAssuredCriticalContract>[0],
@@ -675,7 +675,7 @@ export const threeDPrintJobMarginToolContract: FormulaContract = premiumSchemaCo
       PREMIUM_DECISION_PRODUCTION_FILE,
       'BASE_COST_CALCULATORS["3d-print-job-margin-tool"] → calc3dPrint + MarginCore',
     ),
-    "Distinct from free-traffic 3d-print-cost-check — paid slug uses fail-rate margin path.",
+    "Distinct from free-traffic 3d-print-cost-check - paid slug uses fail-rate margin path.",
   ],
   formulaSummary:
     "baseCost = material + machine + post-process + support with fail-rate multiplier; safe price via MarginCore.",

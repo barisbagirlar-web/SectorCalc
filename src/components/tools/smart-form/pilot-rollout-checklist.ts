@@ -1,5 +1,5 @@
 /**
- * Smart form pilot rollout rollback checklist — Phase 5H-G-L.
+ * Smart form pilot rollout rollback checklist - Phase 5H-G-L.
  */
 
 import { ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS } from "@/components/tools/smart-form/rollout-batch-h-catalog";

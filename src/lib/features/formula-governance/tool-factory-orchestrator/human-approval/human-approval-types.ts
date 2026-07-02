@@ -1,5 +1,5 @@
 /**
- * Human approval types — Phase 5I-G gate only; no deploy execution.
+ * Human approval types - Phase 5I-G gate only; no deploy execution.
  */
 
 export type HumanApprovalScope =

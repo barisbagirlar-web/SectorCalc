@@ -1,5 +1,5 @@
 /**
- * Tool — Steam Trap
+ * Tool - Steam Trap
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const STEAM_TRAP_ENERGY_LOSS_ANALYZER: PremiumCalculatorSchema = {
@@ -19,7 +19,7 @@ export const STEAM_TRAP_ENERGY_LOSS_ANALYZER: PremiumCalculatorSchema = {
     { id: "annualLoss", label: "Annual Energy Loss", label_i18n: {"en":"Annual Energy Loss"}, unit: "USD/year", format: "currency", isBigNumber: true },
     { id: "roi", label: "Repair Investment Return", label_i18n: {"en":"Repair Investment Return"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "annualLoss", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Annual loss >$10K — identify faulty traps.", warningMessage_i18n: {"en":"Annual loss >$10K — identify faulty traps."}, criticalMessage: "Annual loss >$50K — initiate urgent steam trap maintenance program.", criticalMessage_i18n: {"en":"Annual loss >$50K — initiate urgent steam trap maintenance program."} }],
+  thresholds: [{ fieldId: "annualLoss", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Annual loss >$10K - identify faulty traps.", warningMessage_i18n: {"en":"Annual loss >$10K - identify faulty traps."}, criticalMessage: "Annual loss >$50K - initiate urgent steam trap maintenance program.", criticalMessage_i18n: {"en":"Annual loss >$50K - initiate urgent steam trap maintenance program."} }],
   formulaPipeline: [
     { formulaId: "measurement.steam_loss_rate", inputMap: { steamPressure: "steamPressure", holeDiameter: "holeDiameter" }, outputId: "steamLossRate" },
     { formulaId: "cost.steam_trap_annual_loss", inputMap: { steamLossRate: "steamLossRate", operatingHoursPerYear: "operatingHoursPerYear", steamCost: "steamCost", faultyTraps: "faultyTraps" }, outputId: "annualLoss" },

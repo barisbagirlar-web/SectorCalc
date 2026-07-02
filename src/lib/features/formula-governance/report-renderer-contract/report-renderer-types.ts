@@ -1,5 +1,5 @@
 /**
- * Report renderer contract types — Phase 5I-F schema only; no file output.
+ * Report renderer contract types - Phase 5I-F schema only; no file output.
  */
 
 import type { TrustTraceExportContract } from "@/lib/features/formula-governance/trust-trace-report/export-contract/trust-trace-export-types";

@@ -1,5 +1,5 @@
 /**
- * Invariant engine — evaluates declared formula/ontology invariants.
+ * Invariant engine - evaluates declared formula/ontology invariants.
  */
 
 import type { FormulaNode } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";

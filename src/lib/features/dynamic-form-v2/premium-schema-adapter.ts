@@ -3,7 +3,7 @@
  * expected by DynamicFormEngine, so premium tools render through the same
  * HMI form engine as free tools.
  *
- * Formulas are generated as simple pass-through expressions — the actual
+ * Formulas are generated as simple pass-through expressions - the actual
  * premium calculation happens via runPremiumSchemaEngine in the parent
  * PremiumSchemaToolForm component.
  */

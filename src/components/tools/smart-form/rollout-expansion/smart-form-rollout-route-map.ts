@@ -1,5 +1,5 @@
 /**
- * Smart form rollout expansion route map — Phase 5I-H deterministic mappings.
+ * Smart form rollout expansion route map - Phase 5I-H deterministic mappings.
  */
 
 import {

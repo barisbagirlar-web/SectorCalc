@@ -1,4 +1,4 @@
-/** Homepage hero — mathematical symbol visual layer (locked). */
+/** Homepage hero - mathematical symbol visual layer (locked). */
 export function HeroMathematicalSymbols() {
   return (
     <div className="sc-hero-visuals" aria-hidden="true">

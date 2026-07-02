@@ -1,4 +1,4 @@
-/** Regeneration baseline — batch2 specs cleared. */
+/** Regeneration baseline - batch2 specs cleared. */
 
 export type RoadmapFreeBatch2Spec = {
   readonly kind?: string;

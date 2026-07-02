@@ -75,7 +75,7 @@ export function CalculatorFeedbackBox(props: CalculatorFeedbackBoxProps) {
     return (
       <aside className="sc-calculator-feedback sc-calculator-feedback--done mt-4 rounded-lg border border-slate/20 bg-off-white p-4">
         <p className="text-sm text-body-charcoal">
-          Thanks — your feedback helps improve this calculator.
+          Thanks - your feedback helps improve this calculator.
         </p>
       </aside>
     );
@@ -104,7 +104,7 @@ export function CalculatorFeedbackBox(props: CalculatorFeedbackBoxProps) {
         <div>
           <p className="sc-ledger-eyebrow">Calculator feedback</p>
           <h3 className="mt-1 text-sm font-semibold text-deep-navy">Report a mismatch</h3>
-          <p className="mt-1 text-xs text-body-charcoal">Optional — helps tune formulas and inputs.</p>
+          <p className="mt-1 text-xs text-body-charcoal">Optional - helps tune formulas and inputs.</p>
         </div>
         <button
           type="button"

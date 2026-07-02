@@ -1,5 +1,5 @@
 /**
- * Tool — Dairy Profit Detector
+ * Tool - Dairy Profit Detector
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const DAIRY_PROFIT_DETECTOR_ANALYZER: PremiumCalculatorSchema = {
@@ -20,7 +20,7 @@ export const DAIRY_PROFIT_DETECTOR_ANALYZER: PremiumCalculatorSchema = {
     { id: "fcmMilk", label: "Corrected Milk Yield (FCM)", label_i18n: {"en":"Corrected Milk Yield (FCM)"}, unit: "kg/gun", format: "number" },
     { id: "dairyIncomeOverFeed", label: "Income Over Feed Cost (IOFC)", label_i18n: {"en":"Income Over Feed Cost (IOFC)"}, unit: "USD/day", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "dairyIncomeOverFeed", warning: 3, critical: 1.5, direction: "lower_is_bad", warningMessage: "Feed Over Income <$3/cow/day — profitability is contracting.", warningMessage_i18n: {"en":"Feed Over Income <$3/cow/day — profitability is contracting."}, criticalMessage: "Feed Over Income <$1.5/cow/day — operation loss risk is high.", criticalMessage_i18n: {"en":"Feed Over Income <$1.5/cow/day — operation loss risk is high."} }],
+  thresholds: [{ fieldId: "dairyIncomeOverFeed", warning: 3, critical: 1.5, direction: "lower_is_bad", warningMessage: "Feed Over Income <$3/cow/day - profitability is contracting.", warningMessage_i18n: {"en":"Feed Over Income <$3/cow/day - profitability is contracting."}, criticalMessage: "Feed Over Income <$1.5/cow/day - operation loss risk is high.", criticalMessage_i18n: {"en":"Feed Over Income <$1.5/cow/day - operation loss risk is high."} }],
   formulaPipeline: [
     { formulaId: "measurement.fcm_milk", inputMap: {
         milkYield: "milkYieldPerCow",

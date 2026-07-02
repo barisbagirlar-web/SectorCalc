@@ -27,7 +27,7 @@ export async function generateStaticParams(): Promise<ToolPageParams[]> {
  { tier: "free", slug: "cleaning-cost-estimator" },
  { tier: "free", slug: "food-cost-calculator" },
  { tier: "free", slug: "product-margin-calculator" },
- // Legacy premium slugs only — revenue tools use /tools/premium/[paidSlug].
+ // Legacy premium slugs only - revenue tools use /tools/premium/[paidSlug].
  { tier: "premium", slug: "cnc-minimum-safe-quote-analyzer" },
  { tier: "premium", slug: "return-rate-profit-erosion-tool" },
  ];

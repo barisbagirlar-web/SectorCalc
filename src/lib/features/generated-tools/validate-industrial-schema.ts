@@ -178,7 +178,7 @@ export function validateIndustrialSchema(raw: Record<string, unknown>): Industri
     ).length;
     if (inputIds.length >= 4 && usedInputs < Math.ceil(inputIds.length / 2)) {
       errors.push(
-        `formulas use ${usedInputs}/${inputIds.length} inputs — incomplete domain model`,
+        `formulas use ${usedInputs}/${inputIds.length} inputs - incomplete domain model`,
       );
     }
     if (!hasNonStubFormula && isStubSumFormula(primaryExpr, inputIds)) {

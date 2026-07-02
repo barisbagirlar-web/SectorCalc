@@ -1,5 +1,5 @@
 /**
- * Report render dry-run builder — Phase 5I-I synthetic deterministic data.
+ * Report render dry-run builder - Phase 5I-I synthetic deterministic data.
  */
 
 import type { ReportRendererContract } from "@/lib/features/formula-governance/report-renderer-contract/report-renderer-types";

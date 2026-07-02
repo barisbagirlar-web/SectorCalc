@@ -1,5 +1,5 @@
 /**
- * Smart form pilot production deploy approval record — Phase 5H-G-Q.
+ * Smart form pilot production deploy approval record - Phase 5H-G-Q.
  */
 
 import { getProductionDeployedManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";

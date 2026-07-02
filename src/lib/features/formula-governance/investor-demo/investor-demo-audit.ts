@@ -1,5 +1,5 @@
 /**
- * Investor demo audit — Phase 5I-O read-only data contract.
+ * Investor demo audit - Phase 5I-O read-only data contract.
  */
 
 import { buildDemoScriptDataContract } from "@/lib/features/formula-governance/investor-demo/investor-demo-narrative-contract";

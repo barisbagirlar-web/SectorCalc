@@ -1,5 +1,5 @@
 /**
- * Investor metrics bridge tests — Phase 6A.
+ * Investor metrics bridge tests - Phase 6A.
  */
 
 import { describe, expect, test } from "vitest";
@@ -7,7 +7,7 @@ import { collectInvestorDemoMetrics } from "@/lib/features/formula-governance/in
 import { loadInvestorPageMetrics } from "@/lib/features/commercial/investor-metrics-bridge";
 import { INVESTOR_PAGE_TRUST_TRACE_READY } from "@/lib/features/commercial/investor-page-metrics-snapshot";
 
-describe("investor metrics bridge — Phase 6A", () => {
+describe("investor metrics bridge - Phase 6A", () => {
   test("loads live pilot count without fake metrics", () => {
     const metrics = loadInvestorPageMetrics();
     expect(metrics.livePilotCount).toBe(0);

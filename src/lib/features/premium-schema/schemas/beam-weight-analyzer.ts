@@ -17,7 +17,7 @@ export const BEAM_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalWeight", label: "Total Weight", label_i18n: {"en":"Total Weight"}, unit: "ton", format: "number" },
     { id: "materialCost", label: "Material Cost", label_i18n: {"en":"Material Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "materialCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Material > $50K — alternative profile should be evaluated.", warningMessage_i18n: {"en":"Material > $50K — alternative profile should be evaluated."}, criticalMessage: "material > $150K — budget revizyonu gerekli.", criticalMessage_i18n: {"en":"material > $150K — budget revizyonu gerekli."} }],
+  thresholds: [{ fieldId: "materialCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Material > $50K - alternative profile should be evaluated.", warningMessage_i18n: {"en":"Material > $50K - alternative profile should be evaluated."}, criticalMessage: "material > $150K - budget revizyonu gerekli.", criticalMessage_i18n: {"en":"material > $150K - budget revizyonu gerekli."} }],
   formulaPipeline: [
     { formulaId: "cost.beam_material", inputMap: {
         beamLength: "beamLength",

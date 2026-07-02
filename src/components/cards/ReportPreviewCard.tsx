@@ -26,7 +26,7 @@ export function ReportPreviewCard() {
  Decision report
  </p>
  <h3 className="mt-2 text-xl font-bold text-premium-velvet sm:text-2xl">
- Minimum Safe Quote — packaged output
+ Minimum Safe Quote - packaged output
  </h3>
  </div>
  <span className="rounded-md border border-amber/30 bg-amber/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber">
@@ -70,7 +70,7 @@ export function ReportPreviewCard() {
  </p>
  <p className="mt-2 text-sm leading-relaxed text-text-primary">
  Raise quote to the minimum safe level or reduce setup and scrap exposure before
- committing capacity — structured for client or internal sign-off.
+ committing capacity - structured for client or internal sign-off.
  </p>
  </div>
 

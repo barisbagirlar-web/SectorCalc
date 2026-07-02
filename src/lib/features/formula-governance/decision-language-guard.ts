@@ -1,5 +1,5 @@
 /**
- * Decision language guard — prevents over-confident claims vs formula strength.
+ * Decision language guard - prevents over-confident claims vs formula strength.
  */
 
 import type { AuditFinding, FormulaContract } from "@/lib/features/formula-governance/types";

@@ -1,5 +1,5 @@
 /**
- * NLP extraction contract — structured input extraction schema (interface only).
+ * NLP extraction contract - structured input extraction schema (interface only).
  */
 
 export type ExtractedInputCandidate = {

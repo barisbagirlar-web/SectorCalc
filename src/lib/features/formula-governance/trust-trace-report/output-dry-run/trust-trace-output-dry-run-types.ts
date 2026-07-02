@@ -1,5 +1,5 @@
 /**
- * Trust trace output dry-run types — Phase 5I-M (structured JSON only).
+ * Trust trace output dry-run types - Phase 5I-M (structured JSON only).
  */
 
 export type TrustTraceOutputSection =

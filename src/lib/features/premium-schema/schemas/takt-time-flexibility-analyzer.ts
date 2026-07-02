@@ -17,7 +17,7 @@ export const TAKT_TIME_FLEXIBILITY_SCHEMA: PremiumCalculatorSchema = {
     { id: "balanceLoss", label: "Balance Loss", label_i18n: {"en":"Balance Loss"}, unit: "USD/day", format: "currency" },
     { id: "flexibilityPremium", label: "Flexibility Premium", label_i18n: {"en":"Flexibility Premium"}, unit: "USD/day", format: "currency" },
   ],
-  thresholds: [{ fieldId: "cycleFlexibility", warning: 15, critical: 30, direction: "higher_is_bad", warningMessage: "Flexibility gap > 15% — line balancing recommended.", warningMessage_i18n: {"en":"Flexibility gap > 15% — line balancing recommended."}, criticalMessage: "Flexibility gap > 30% — revise Takt time.", criticalMessage_i18n: {"en":"Flexibility gap > 30% — revise Takt time."} }],
+  thresholds: [{ fieldId: "cycleFlexibility", warning: 15, critical: 30, direction: "higher_is_bad", warningMessage: "Flexibility gap > 15% - line balancing recommended.", warningMessage_i18n: {"en":"Flexibility gap > 15% - line balancing recommended."}, criticalMessage: "Flexibility gap > 30% - revise Takt time.", criticalMessage_i18n: {"en":"Flexibility gap > 30% - revise Takt time."} }],
   formulaPipeline: [
     { formulaId: "measurement.takt_time", inputMap: { availableTime: "availableTime", customerDemand: "customerDemand" }, outputId: "taktTime" },
     { formulaId: "measurement.cycle_flexibility", inputMap: { cycleTime: "cycleTime", taktTime: "taktTime" ,

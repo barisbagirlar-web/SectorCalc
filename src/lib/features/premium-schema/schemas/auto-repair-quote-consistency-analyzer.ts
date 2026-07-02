@@ -1,5 +1,5 @@
 /**
- * Tool #7 — Auto Repair Quote Consistency
+ * Tool #7 - Auto Repair Quote Consistency
  * QuoteVariance → ConsistencyScore → MarginLeak
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -25,7 +25,7 @@ export const AUTO_REPAIR_QUOTE_SCHEMA: PremiumCalculatorSchema = {
     { id: "marginLeak", label: "Margin Kacag", label_i18n: {"en":"Margin Kacag"}, unit: "USD", format: "currency" },
   ],
   thresholds: [
-    { fieldId: "consistencyScore", warning: 70, critical: 50, direction: "lower_is_bad", warningMessage: "Consistency < 70 — there is room for improvement.", warningMessage_i18n: {"en":"Consistency < 70 — there is room for improvement."}, criticalMessage: "consistency < 50 — fiyatlama policy revize edilmeli.", criticalMessage_i18n: {"en":"consistency < 50 — fiyatlama policy revize edilmeli."} },
+    { fieldId: "consistencyScore", warning: 70, critical: 50, direction: "lower_is_bad", warningMessage: "Consistency < 70 - there is room for improvement.", warningMessage_i18n: {"en":"Consistency < 70 - there is room for improvement."}, criticalMessage: "consistency < 50 - fiyatlama policy revize edilmeli.", criticalMessage_i18n: {"en":"consistency < 50 - fiyatlama policy revize edilmeli."} },
   ],
   formulaPipeline: [
     { formulaId: "stats.quote_variance", inputMap: { q1: "quote1Total", q2: "quote2Total", q3: "quote3Total" }, outputId: "quoteVariance" },

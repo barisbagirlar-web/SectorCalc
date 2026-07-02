@@ -134,7 +134,7 @@ describe("breakdown chart dimensions", () => {
   });
 });
 
-describe("SMED breakdown labels — all supported locales", () => {
+describe("SMED breakdown labels - all supported locales", () => {
   for (const locale of SUPPORTED_LOCALES) {
     if (locale === "en") continue;
 

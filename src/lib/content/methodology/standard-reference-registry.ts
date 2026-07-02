@@ -23,7 +23,7 @@ export const STANDARD_REFERENCE_REGISTRY: readonly StandardReferenceEntry[] = [
     jurisdiction: "HVAC industry",
     sourceType: "industry_guideline",
     referenceNote:
-      "HVAC tools use simplified tonnage and margin buffers — not a substitute for Manual J or licensed load calculations.",
+      "HVAC tools use simplified tonnage and margin buffers - not a substitute for Manual J or licensed load calculations.",
     confidenceLevel: "low",
     lastReviewedAt: "2026-06-01",
     disclaimer: STANDARD_REFERENCE_DISCLAIMER,

@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * SectorCalc — Industries Hub Page
+ * SectorCalc - Industries Hub Page
  * Drop into: /app/(route)/industries/page.jsx
  *
  * Replaces the current placeholder with a real sector hub.

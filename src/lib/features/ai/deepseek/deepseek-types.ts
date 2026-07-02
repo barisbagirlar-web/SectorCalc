@@ -1,4 +1,4 @@
-/** DeepSeek quality factory — server/script-only types (DSK-0A). */
+/** DeepSeek quality factory - server/script-only types (DSK-0A). */
 
 /* ── Existing types (backward compatible) ── */
 
@@ -141,7 +141,7 @@ export type DeepSeekModelConfig = {
   readonly maxTokens: number;
 };
 
-/** Industrial-grade model config map — env override supported */
+/** Industrial-grade model config map - env override supported */
 export const DEEPSEEK_MODEL_CONFIG: Readonly<Record<DeepSeekTaskType, DeepSeekModelConfig>> = {
   formula_audit: {
     primary: "deepseek-chat",

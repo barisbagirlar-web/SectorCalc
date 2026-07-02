@@ -72,7 +72,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_5",
     family: "cost",
-    label: "CNC CYCLE TIME — T_total",
+    label: "CNC CYCLE TIME - T_total",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const cut = num(inputs, "cut");
@@ -92,7 +92,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_6",
     family: "cost",
-    label: "CNC CYCLE TIME — OEE_Availability",
+    label: "CNC CYCLE TIME - OEE_Availability",
     fn: (inputs) => {
     const planned = num(inputs, "planned");
     const downtime = num(inputs, "downtime");
@@ -104,7 +104,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_0",
     family: "cost",
-    label: "CNC MACHINING COST — Cost_Material",
+    label: "CNC MACHINING COST - Cost_Material",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const raw = num(inputs, "raw");
@@ -118,7 +118,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_1",
     family: "cost",
-    label: "CNC MACHINING COST — Cost_Machining",
+    label: "CNC MACHINING COST - Cost_Machining",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const total = num(inputs, "total");
@@ -130,7 +130,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_2",
     family: "cost",
-    label: "CNC MACHINING COST — Cost_Tooling",
+    label: "CNC MACHINING COST - Cost_Tooling",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const cut = num(inputs, "cut");
@@ -143,7 +143,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_3",
     family: "cost",
-    label: "CNC MACHINING COST — Cost_Energy",
+    label: "CNC MACHINING COST - Cost_Energy",
     fn: (inputs) => {
     const power = num(inputs, "power");
     const t = num(inputs, "t");
@@ -156,7 +156,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_4",
     family: "cost",
-    label: "CNC MACHINING COST — Cost_Overhead",
+    label: "CNC MACHINING COST - Cost_Overhead",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const total = num(inputs, "total");
@@ -168,7 +168,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_5",
     family: "cost",
-    label: "CNC MACHINING COST — TotalUnitCost",
+    label: "CNC MACHINING COST - TotalUnitCost",
     fn: (inputs) => {
     const material = num(inputs, "material");
     const machining = num(inputs, "machining");
@@ -184,7 +184,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpk_ppm_converter_0",
     family: "cost",
-    label: "CPK TO PPM — Z_USL",
+    label: "CPK TO PPM - Z_USL",
     fn: (inputs) => {
     const uSL = num(inputs, "uSL");
     const mean = num(inputs, "mean");
@@ -195,7 +195,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpk_ppm_converter_1",
     family: "cost",
-    label: "CPK TO PPM — Z_LSL",
+    label: "CPK TO PPM - Z_LSL",
     fn: (inputs) => {
     const mean = num(inputs, "mean");
     const lSL = num(inputs, "lSL");
@@ -206,7 +206,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpk_ppm_converter_2",
     family: "cost",
-    label: "CPK TO PPM — Cpk",
+    label: "CPK TO PPM - Cpk",
     fn: (inputs) => {
     const z = num(inputs, "z");
     const min = num(inputs, "min") || 0;
@@ -218,7 +218,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpk_ppm_converter_3",
     family: "cost",
-    label: "CPK TO PPM — P_USL",
+    label: "CPK TO PPM - P_USL",
     fn: (inputs) => {
     const z = num(inputs, "z");
     const __NORMSDIST__ = num(inputs, "__NORMSDIST__") || 0;
@@ -229,7 +229,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpk_ppm_converter_4",
     family: "cost",
-    label: "CPK TO PPM — P_LSL",
+    label: "CPK TO PPM - P_LSL",
     fn: (inputs) => {
     const z = num(inputs, "z");
     const __NORMSDIST__ = num(inputs, "__NORMSDIST__") || 0;
@@ -240,7 +240,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpk_ppm_converter_5",
     family: "cost",
-    label: "CPK TO PPM — P_Total",
+    label: "CPK TO PPM - P_Total",
     fn: (inputs) => {
     const p = num(inputs, "p");
     const p_USL = num(inputs, "p_USL") || 0;
@@ -251,7 +251,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpk_ppm_converter_6",
     family: "cost",
-    label: "CPK TO PPM — PPM",
+    label: "CPK TO PPM - PPM",
     fn: (inputs) => {
     const p = num(inputs, "p");
     const Total = num(inputs, "Total");

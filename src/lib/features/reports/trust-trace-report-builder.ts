@@ -1,5 +1,5 @@
 /**
- * Trust trace export payload builder — ADIM 3 runtime full-loop → export data.
+ * Trust trace export payload builder - ADIM 3 runtime full-loop → export data.
  */
 
 import { getFormulaContractBySlug } from "@/lib/features/formula-governance/contracts";

@@ -1,5 +1,5 @@
 /**
- * DeepSeek JSON client — server/script only. Never import from client components.
+ * DeepSeek JSON client - server/script only. Never import from client components.
  *
  * Production client wrapping deepseek-core for JSON-parsed responses.
  * Core handles: adaptive timeout, exponential backoff+jitter, rate-limit detection,

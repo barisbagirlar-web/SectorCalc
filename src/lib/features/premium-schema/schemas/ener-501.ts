@@ -19,8 +19,8 @@ export const CARBON_FOOTPRINT_COMPLIANCE_RISK_SCHEMA: PremiumCalculatorSchema = 
       warning: 5000,
       critical: 20000,
       direction: "higher_is_bad",
-      warningMessage: "Carbon exposure is elevated — verify reporting and export assumptions.",
-      criticalMessage: "Critical compliance exposure — reprice or hedge before export shipment.",
+      warningMessage: "Carbon exposure is elevated - verify reporting and export assumptions.",
+      criticalMessage: "Critical compliance exposure - reprice or hedge before export shipment.",
     },
   ],
 
@@ -44,7 +44,7 @@ export const CARBON_FOOTPRINT_COMPLIANCE_RISK_SCHEMA: PremiumCalculatorSchema = 
     assumptionNotes: [
       "Total emissions = energy + fuel tonnage.",
       "Carbon exposure = emissions × carbon price × exposure percent.",
-      "Compliance estimates vary by jurisdiction — verify before reporting.",
+      "Compliance estimates vary by jurisdiction - verify before reporting.",
     ],
   },
 };

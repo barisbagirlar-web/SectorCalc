@@ -68,7 +68,7 @@ export type GeneratedSelectOptionEntry = {
   readonly label: string;
 };
 
-/** Safe select entries for render — accepts legacy object options from raw schemas. */
+/** Safe select entries for render - accepts legacy object options from raw schemas. */
 export function resolveGeneratedSelectOptions(
   input: GeneratedToolInput,
 ): readonly GeneratedSelectOptionEntry[] {

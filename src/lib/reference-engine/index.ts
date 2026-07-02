@@ -1,5 +1,5 @@
 /**
- * Global Reference Engine — barrel exports
+ * Global Reference Engine - barrel exports
  *
  * Usage:
  *   import { GlobalReferenceInput, registry } from "@/lib/reference-engine";

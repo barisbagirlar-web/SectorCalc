@@ -1,5 +1,5 @@
 /**
- * Phase 5H-B-5 — ontology alias map tests.
+ * Phase 5H-B-5 - ontology alias map tests.
  */
 
 import { describe, expect, test } from "vitest";

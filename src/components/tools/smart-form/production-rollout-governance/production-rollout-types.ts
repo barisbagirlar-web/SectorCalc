@@ -1,5 +1,5 @@
 /**
- * Smart form production rollout governance types — Phase 5I-L.
+ * Smart form production rollout governance types - Phase 5I-L.
  */
 
 export type ProductionRolloutToolStatus = "live_pilot" | "staging_only" | "preview_only" | "blocked";

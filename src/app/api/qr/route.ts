@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // Basic URL validation — allow only sectorcalc.com URLs
+  // Basic URL validation - allow only sectorcalc.com URLs
   try {
     const parsed = new URL(url);
     if (!parsed.hostname.endsWith("sectorcalc.com") && !parsed.hostname.endsWith("web.app")) {

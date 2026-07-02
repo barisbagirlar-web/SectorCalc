@@ -1,5 +1,5 @@
 /**
- * Benchmark / beta partner data loop — types only.
+ * Benchmark / beta partner data loop - types only.
  * No fake claims; data feeds future verified benchmarks.
  */
 
@@ -126,7 +126,7 @@ export interface ReportFeedbackSubmitResult {
   firestoreSaved?: boolean;
 }
 
-/** Public-safe benchmark row — no PII fields. */
+/** Public-safe benchmark row - no PII fields. */
 export interface AnonymizedBenchmarkPublicRow {
   readonly sectorSlug: string;
   readonly toolSlug: string;

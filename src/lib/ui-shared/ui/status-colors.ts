@@ -1,4 +1,4 @@
-/** Status accent classes — use ONLY for data signals, never decoration */
+/** Status accent classes - use ONLY for data signals, never decoration */
 export type StatusLevel = "critical" | "warning" | "safe" | "neutral";
 
 export const STATUS_TEXT_CLASS: Record<StatusLevel, string> = {

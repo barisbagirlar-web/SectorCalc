@@ -1,5 +1,5 @@
 /**
- * Rent vs Buy decision model — production calculation (Phase 5B).
+ * Rent vs Buy decision model - production calculation (Phase 5B).
  * Used by free-traffic calculator only; oracle reimplements independently.
  */
 

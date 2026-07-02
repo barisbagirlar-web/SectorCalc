@@ -43,15 +43,15 @@ function resolveAttributionPhrase(attributionLabel: string): string {
 }
 
 function resolveIndustryPhrase(industryLabel: string): string {
- return industryLabel !== UNKNOWN ? industryLabel : "—";
+ return industryLabel !== UNKNOWN ? industryLabel : "-";
 }
 
 function resolvePlanPhrase(planLabel: string): string {
- return planLabel !== UNKNOWN ? planLabel : "—";
+ return planLabel !== UNKNOWN ? planLabel : "-";
 }
 
 function resolveSourcePagePhrase(sourcePageLabel: string): string {
- return sourcePageLabel !== UNKNOWN ? sourcePageLabel : "—";
+ return sourcePageLabel !== UNKNOWN ? sourcePageLabel : "-";
 }
 
 function buildLeadContext(lead: LeadIntent) {
@@ -99,7 +99,7 @@ export function buildLeadEmailMessage(lead: LeadIntent): string {
  const name = lead.name.trim() || "Yetkili";
 
   return [
-   "Subject: SectorCalc — Regarding Your Request",
+   "Subject: SectorCalc - Regarding Your Request",
    "",
    `Dear ${name},`,
    "",
@@ -123,15 +123,15 @@ export function buildLeadInternalNote(lead: LeadIntent): string {
  const { attribution } = ctx;
 
   return [
-   "[SectorCalc — internal note]",
-   `Lead: ${lead.name.trim() || "—"} · ${lead.company.trim() || "—"}`,
+   "[SectorCalc - internal note]",
+   `Lead: ${lead.name.trim() || "-"} · ${lead.company.trim() || "-"}`,
    `Date (local): ${ctx.createdLocal} · UTC: ${lead.createdAt}`,
    `Intent: ${ctx.intentPhrase}`,
    `Attribution: ${ctx.attributionPhrase}`,
    `Page: ${ctx.sourcePagePhrase} · Tool: ${attribution.sourceToolLabel}`,
    `Sector: ${ctx.industryPhrase} · Plan: ${ctx.planPhrase} · CTA: ${attribution.ctaLabel}`,
    `Next action: ${ctx.nextActionPhrase}`,
-   `Email: ${ctx.email || "—"} · Phone: ${ctx.phone || "—"}`,
+   `Email: ${ctx.email || "-"} · Phone: ${ctx.phone || "-"}`,
    `Lead ID: ${lead.id}`,
   ].join("\n");
 }

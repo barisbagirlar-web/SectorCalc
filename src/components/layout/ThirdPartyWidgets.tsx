@@ -11,7 +11,7 @@ import {
 
 /**
  * Centralizes locale parameters for third-party embeds (Stripe, reCAPTCHA, chat).
- * Add script tags here when a vendor widget is enabled — never hardcode locale strings in pages.
+ * Add script tags here when a vendor widget is enabled - never hardcode locale strings in pages.
  */
 export function ThirdPartyWidgets() {
   const rawLocale = useLocale();

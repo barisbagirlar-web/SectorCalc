@@ -7,7 +7,7 @@ type ToolsIconTileGridProps = {
   readonly className?: string;
 };
 
-/** Text-based tool grid for icon-backed category pages — name + description, 3-4 columns. */
+/** Text-based tool grid for icon-backed category pages - name + description, 3-4 columns. */
 export function ToolsIconTileGrid({ tools, className = "" }: ToolsIconTileGridProps) {
   if (tools.length === 0) {
     return null;

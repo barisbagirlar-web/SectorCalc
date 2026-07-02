@@ -10,7 +10,7 @@ export const BID_RISK_SCHEMA: PremiumCalculatorSchema = {
       label: "Profit Margin",
       label_i18n: { en: "Profit Margin" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const BID_RISK_SCHEMA: PremiumCalculatorSchema = {
       label: "Indirect Cost",
       label_i18n: { en: "Indirect Cost" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -36,7 +36,7 @@ export const BID_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "winProbability", label: "Win Probability", label_i18n: {"en":"Win Probability"}, unit: "%", format: "percentage" },
     { id: "expectedValueBid", label: "Expected Value", label_i18n: {"en":"Expected Value"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "winProbability", warning: 40, critical: 20, direction: "lower_is_bad", warningMessage: "Win probability < 40% — review bid strategy.", warningMessage_i18n: {"en":"Win probability < 40% — review bid strategy."}, criticalMessage: "Win probability < 20% — bidding is risky.", criticalMessage_i18n: {"en":"Win probability < 20% — bidding is risky."} }],
+  thresholds: [{ fieldId: "winProbability", warning: 40, critical: 20, direction: "lower_is_bad", warningMessage: "Win probability < 40% - review bid strategy.", warningMessage_i18n: {"en":"Win probability < 40% - review bid strategy."}, criticalMessage: "Win probability < 20% - bidding is risky.", criticalMessage_i18n: {"en":"Win probability < 20% - bidding is risky."} }],
   formulaPipeline: [
     { formulaId: "cost.base_estimate", inputMap: {
         directCost: "baseEstimate"

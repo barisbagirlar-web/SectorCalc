@@ -1,5 +1,5 @@
 /**
- * Report render dry-run tests — Phase 5I-I.
+ * Report render dry-run tests - Phase 5I-I.
  */
 
 import { describe, expect, test } from "vitest";
@@ -33,7 +33,7 @@ function buildContract(overrides: Partial<ReportRendererContract>): ReportRender
   };
 }
 
-describe("report render dry-run — Phase 5I-I", () => {
+describe("report render dry-run - Phase 5I-I", () => {
   test("renderer_contract_ready yields dry_run_ready", () => {
     const contract = buildContract({ status: "renderer_contract_ready" });
     const dryRun = validateReportRenderDryRun(buildReportRenderDryRun(contract), contract);

@@ -43,7 +43,7 @@ function deriveBridgedReadinessStatus(
   return "ready";
 }
 
-/** P8 — sync stale P24 audit findings when deterministic backing is complete. */
+/** P8 - sync stale P24 audit findings when deterministic backing is complete. */
 export function applyReadinessActivationBridge(
   result: RuntimeReadinessResult,
 ): RuntimeReadinessResult {
@@ -74,7 +74,7 @@ function deriveBridgedRecommendedAction(
   return "safe_review";
 }
 
-/** P8 — enable live calculation for backed tools without widening payment / Formula Gate. */
+/** P8 - enable live calculation for backed tools without widening payment / Formula Gate. */
 export function applyRuntimeTrustActivationBridge(
   decision: RuntimeTrustDecision,
 ): RuntimeTrustDecision {

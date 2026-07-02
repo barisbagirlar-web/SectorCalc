@@ -56,7 +56,7 @@ function replaceBareMathCall(expression: string, name: string, replacement: stri
 
 function transformMathFunctions(expression: string): string {
   let result = expression;
-  // CEILING before CEIL — both map to Math.ceil; lookbehind avoids Math.Math.ceil.
+  // CEILING before CEIL - both map to Math.ceil; lookbehind avoids Math.Math.ceil.
   result = replaceBareMathCall(result, "CEILING", "Math.ceil(");
   result = replaceBareMathCall(result, "CEIL", "Math.ceil(");
   result = replaceBareMathCall(result, "FLOOR", "Math.floor(");

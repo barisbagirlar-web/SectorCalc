@@ -1,5 +1,5 @@
 /**
- * Tool — Supplier TCO
+ * Tool - Supplier TCO
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const SUPPLIER_PERFORMANCE_TCO_ANALYZER: PremiumCalculatorSchema = {
@@ -19,7 +19,7 @@ export const SUPPLIER_PERFORMANCE_TCO_ANALYZER: PremiumCalculatorSchema = {
   outputs: [
     { id: "supplierTco", label: "Total Cost of Ownership (TCO)", label_i18n: {"en":"Total Cost of Ownership (TCO)"}, unit: "USD/unit", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "supplierTco", warning: 6, critical: 8, direction: "higher_is_bad", warningMessage: "TCO >$6/unit — question supplier performance.", warningMessage_i18n: {"en":"TCO >$6/unit — question supplier performance."}, criticalMessage: "TCO >$8/unit — evaluate alternative suppliers.", criticalMessage_i18n: {"en":"TCO >$8/unit — evaluate alternative suppliers."} }],
+  thresholds: [{ fieldId: "supplierTco", warning: 6, critical: 8, direction: "higher_is_bad", warningMessage: "TCO >$6/unit - question supplier performance.", warningMessage_i18n: {"en":"TCO >$6/unit - question supplier performance."}, criticalMessage: "TCO >$8/unit - evaluate alternative suppliers.", criticalMessage_i18n: {"en":"TCO >$8/unit - evaluate alternative suppliers."} }],
   formulaPipeline: [
     { formulaId: "cost.supplier_tco", inputMap: { unitPrice: "unitPrice", annualVolume: "annualVolume", defectRate: "defectRate", costPerDefect: "costPerDefect", freightCostPerUnit: "freightCostPerUnit", leadTimeDays: "leadTimeDays", holdingCostPct: "holdingCostPct", inspectionCostPerUnit: "inspectionCostPerUnit" ,
         purchasePrice: "purchasePrice",

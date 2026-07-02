@@ -10,7 +10,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Output Weight",
       label_i18n: { en: "Output Weight" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Cost Per Unit",
       label_i18n: { en: "Cost Per Unit" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -28,7 +28,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Actual Yield",
       label_i18n: { en: "Actual Yield" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -37,7 +37,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Expected Yield",
       label_i18n: { en: "Expected Yield" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -56,7 +56,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "recipeEfficiency", label: "Recipe Efficiency", label_i18n: {"en":"Recipe Efficiency"}, unit: "%", format: "number" },
     { id: "recipeCostPerKg", label: "Unit Cost", label_i18n: {"en":"Unit Cost"}, unit: "USD/kg", format: "currency" },
   ],
-  thresholds: [{ fieldId: "recipeVariance", warning: 50, critical: 100, direction: "higher_is_bad", warningMessage: "Variance > $50 — initiate waste and usage tracking.", warningMessage_i18n: {"en":"Variance > $50 — initiate waste and usage tracking."}, criticalMessage: "Variance > $100 — urgently review recipe standards.", criticalMessage_i18n: {"en":"Variance > $100 — urgently review recipe standards."} }],
+  thresholds: [{ fieldId: "recipeVariance", warning: 50, critical: 100, direction: "higher_is_bad", warningMessage: "Variance > $50 - initiate waste and usage tracking.", warningMessage_i18n: {"en":"Variance > $50 - initiate waste and usage tracking."}, criticalMessage: "Variance > $100 - urgently review recipe standards.", criticalMessage_i18n: {"en":"Variance > $100 - urgently review recipe standards."} }],
   formulaPipeline: [
     { formulaId: "cost.recipe_theoretical", inputMap: { recipeQty: "recipeQty", ingredientCostPerKg: "ingredientCostPerKg" ,
         batchQty: "batchQty",

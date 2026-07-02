@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-C — smart form UI bridge adapter tests.
+ * Phase 5H-G-C - smart form UI bridge adapter tests.
  */
 
 import { describe, expect, test } from "vitest";

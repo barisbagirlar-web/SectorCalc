@@ -18,8 +18,8 @@ export const WELDED_BOLTED_CONNECTION_CALCULATOR_SCHEMA: PremiumCalculatorSchema
       warning: 50000,
       critical: 25000,
       direction: "lower_is_bad",
-      warningMessage: "Weld capacity index is low for the entered geometry — review throat and length.",
-      criticalMessage: "Weld capacity index is critically low — obtain qualified engineering review.",
+      warningMessage: "Weld capacity index is low for the entered geometry - review throat and length.",
+      criticalMessage: "Weld capacity index is critically low - obtain qualified engineering review.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const WELDED_BOLTED_CONNECTION_CALCULATOR_SCHEMA: PremiumCalculatorSchema
     assumptionNotes: [
       "Weld capacity index = throat × length × allowable stress ÷ safety factor.",
       "Bolt capacity index uses circular area × bolt count × allowable stress ÷ safety factor.",
-      "Screening calculation only — not structural code compliance or engineering sign-off.",
+      "Screening calculation only - not structural code compliance or engineering sign-off.",
     ],
   },
 };

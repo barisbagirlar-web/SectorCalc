@@ -1,5 +1,5 @@
 /**
- * Fixture expansion risk gate — Phase 5I-K eligibility checks.
+ * Fixture expansion risk gate - Phase 5I-K eligibility checks.
  */
 
 import type { FixtureExpansionPlan } from "@/lib/features/formula-governance/calculation-ontology/fixture-expansion/fixture-expansion-types";

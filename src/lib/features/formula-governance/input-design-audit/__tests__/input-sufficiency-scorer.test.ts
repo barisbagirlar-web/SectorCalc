@@ -1,5 +1,5 @@
 /**
- * Phase 5H-C — input sufficiency scorer tests.
+ * Phase 5H-C - input sufficiency scorer tests.
  */
 
 import { describe, expect, test } from "vitest";

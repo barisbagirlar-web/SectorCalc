@@ -1,5 +1,5 @@
 /**
- * Remediation batch builder — Phase 5I-D batch 1 deterministic plan.
+ * Remediation batch builder - Phase 5I-D batch 1 deterministic plan.
  */
 
 import type { FullExistingToolAuditResult } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

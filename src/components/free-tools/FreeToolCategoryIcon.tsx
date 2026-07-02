@@ -1,5 +1,5 @@
 /**
- * Free Tool Category Icon — Premium line-art SVG symbol renderer.
+ * Free Tool Category Icon - Premium line-art SVG symbol renderer.
  *
  * Renders the premium-style SVG symbol for a given free tool category.
  * Falls back to the generic "other" symbol for unknown slugs.

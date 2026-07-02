@@ -61,7 +61,7 @@ function buildHreflangAlternates(path: string): Metadata["alternates"] {
 export function getToolMetadata(options: ToolMetadataOptions): Metadata {
   const locale = normalizeLocale(options.locale ?? "en") as AppLocale;
   const tierLabel = resolveToolTierLabel(locale, options.tier);
-  const title = `${options.toolTitle} — ${tierLabel}`;
+  const title = `${options.toolTitle} - ${tierLabel}`;
   const description = resolveToolMetadataDescription(
     locale,
     options.tier,

@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-B — audit smart form rendering CLI shape tests.
+ * Phase 5H-G-B - audit smart form rendering CLI shape tests.
  */
 
 import { describe, expect, test } from "vitest";

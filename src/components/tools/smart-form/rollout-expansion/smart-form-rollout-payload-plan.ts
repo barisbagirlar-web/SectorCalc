@@ -1,5 +1,5 @@
 /**
- * Smart form rollout expansion payload plan — Phase 5I-H submit key policy.
+ * Smart form rollout expansion payload plan - Phase 5I-H submit key policy.
  */
 
 import { getRolloutBatchHSubmitKeys } from "@/components/tools/smart-form/rollout-batch-h-catalog";

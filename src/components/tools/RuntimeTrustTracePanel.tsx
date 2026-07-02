@@ -39,13 +39,13 @@ export function RuntimeTrustTracePanel({ trustTrace }: RuntimeTrustTracePanelPro
         </span>
       </div>
       <p className="mt-1 text-sm text-text-secondary">
-        Dual-intelligence runtime path — inputs, requirement resolution, and validation before verdict.
+        Dual-intelligence runtime path - inputs, requirement resolution, and validation before verdict.
       </p>
 
       <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
         <div>
           <dt className="text-xs font-semibold uppercase tracking-wide text-text-secondary">Canonical inputs</dt>
-          <dd className="mt-1 text-text-primary">{trustTrace.canonicalInputs.join(", ") || "—"}</dd>
+          <dd className="mt-1 text-text-primary">{trustTrace.canonicalInputs.join(", ") || "-"}</dd>
         </div>
         <div>
           <dt className="text-xs font-semibold uppercase tracking-wide text-text-secondary">Requirement engine</dt>
@@ -59,7 +59,7 @@ export function RuntimeTrustTracePanel({ trustTrace }: RuntimeTrustTracePanelPro
         </div>
         <div>
           <dt className="text-xs font-semibold uppercase tracking-wide text-text-secondary">Formula path</dt>
-          <dd className="mt-1 text-text-primary">{trustTrace.formulaPath.join(" → ") || "—"}</dd>
+          <dd className="mt-1 text-text-primary">{trustTrace.formulaPath.join(" → ") || "-"}</dd>
         </div>
       </dl>
 
@@ -80,7 +80,7 @@ export function RuntimeTrustTracePanel({ trustTrace }: RuntimeTrustTracePanelPro
           <span className="font-medium text-text-primary">Assumptions:</span>{" "}
           {trustTrace.acceptedAssumptions.length > 0
             ? trustTrace.acceptedAssumptions.join(" · ")
-            : "—"}
+            : "-"}
         </li>
         <li>
           <span className="font-medium text-text-primary">Validation sources:</span>{" "}

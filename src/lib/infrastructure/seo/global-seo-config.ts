@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 /**
- * Global SEO configuration — canonical base URL and supported sitemap locales.
+ * Global SEO configuration - canonical base URL and supported sitemap locales.
  *
  * IMPORTANT: SITE_BASE_URL is hardcoded to the production domain because:
  * 1. Sitemap/canonical URLs must always point to the public origin.
@@ -23,7 +23,7 @@ import {
   ROOT_LOCALE,
 } from "@/lib/infrastructure/i18n/locale-config";
 
-/** Canonical public origin — always production domain. */
+/** Canonical public origin - always production domain. */
 export const SITE_BASE_URL = "https://sectorcalc.com";
 
 export { SUPPORTED_LOCALES, DEFAULT_LOCALE, ROOT_LOCALE, type SupportedLocale, isSupportedLocale };

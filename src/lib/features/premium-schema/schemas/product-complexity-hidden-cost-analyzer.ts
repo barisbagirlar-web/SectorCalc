@@ -10,7 +10,7 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
       label: "Cost Per Minute",
       label_i18n: { en: "Cost Per Minute" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
       label: "Changeover Time",
       label_i18n: { en: "Changeover Time" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -39,8 +39,8 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
     { id: "wastePercent", label: "Waste Rate", label_i18n: {"en":"Waste Rate"}, unit: "%", format: "percentage" },
   ],
   thresholds: [
-    { fieldId: "hiddenCostComplexity", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Latent cost > $50K — product grouping and standardization are recommended.", warningMessage_i18n: {"en":"Latent cost > $50K — product grouping and standardization are recommended."}, criticalMessage: "Latent cost > $150K — urgent portfolio simplification is required.", criticalMessage_i18n: {"en":"Latent cost > $150K — urgent portfolio simplification is required."} },
-    { fieldId: "complexityIndex", warning: 50, critical: 80, direction: "higher_is_bad", warningMessage: "Complexity index > 50 — production cells should be reviewed.", warningMessage_i18n: {"en":"Complexity index > 50 — production cells should be reviewed."}, criticalMessage: "Complexity index > 80 — product architecture must be redesigned.", criticalMessage_i18n: {"en":"Complexity index > 80 — product architecture must be redesigned."} },
+    { fieldId: "hiddenCostComplexity", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Latent cost > $50K - product grouping and standardization are recommended.", warningMessage_i18n: {"en":"Latent cost > $50K - product grouping and standardization are recommended."}, criticalMessage: "Latent cost > $150K - urgent portfolio simplification is required.", criticalMessage_i18n: {"en":"Latent cost > $150K - urgent portfolio simplification is required."} },
+    { fieldId: "complexityIndex", warning: 50, critical: 80, direction: "higher_is_bad", warningMessage: "Complexity index > 50 - production cells should be reviewed.", warningMessage_i18n: {"en":"Complexity index > 50 - production cells should be reviewed."}, criticalMessage: "Complexity index > 80 - product architecture must be redesigned.", criticalMessage_i18n: {"en":"Complexity index > 80 - product architecture must be redesigned."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.complexity_index", inputMap: { numSkus: "numSkus", numPartsPerSku: "numPartsPerSku", setupTime: "setupTime", complexityScore: "complexityScore" ,

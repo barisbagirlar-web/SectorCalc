@@ -155,7 +155,7 @@ export function LeadActionCenter({
  Message templates
  </p>
  <p className="mt-1 text-xs text-text-secondary">
- No auto-send — copy the text and send it manually.
+ No auto-send - copy the text and send it manually.
  </p>
  <div className="mt-3 flex flex-col gap-2">
  {COPY_BUTTONS.map((button) => {

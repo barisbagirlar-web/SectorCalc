@@ -8,7 +8,7 @@ import {
 } from "@/lib/infrastructure/trace/trace-sanitizer";
 
 /**
- * Trace AI — audit-grounded analysis copilot for the SectorCalc credit engine.
+ * Trace AI - audit-grounded analysis copilot for the SectorCalc credit engine.
  * ---------------------------------------------------------------------------
  * A premium floating assistant. Collapsed, it reads as a precision instrument
  * (oscilloscope trace + live status); expanded, it answers questions about the
@@ -29,7 +29,7 @@ import {
  *   />
  *
  * History sanitizer:
- *   The conversation history passed to `onAsk` is auto-sanitized — orphaned
+ *   The conversation history passed to `onAsk` is auto-sanitized - orphaned
  *   `tool_use` messages and all `tool_use` blocks are stripped (trace never
  *   calls tools). If the upstream API returns `invalid_request_error`, a
  *   retry with fully cleaned history is attempted once.
@@ -110,14 +110,14 @@ const DEMO_ANSWERS: Record<string, string> = {
     "capacity or a collateral gap remains, it reads PREPARE_BEFORE_APPLICATION. Resize the ask or strengthen " +
     "collateral to move it toward CONDITIONAL.",
   binding:
-    "Capacity is the minimum of three ceilings — cash flow (DSCR), leverage (net debt / EBITDA), and collateral. " +
+    "Capacity is the minimum of three ceilings - cash flow (DSCR), leverage (net debt / EBITDA), and collateral. " +
     "The binding one is simply the lowest; it's the firm's weakest link. Lift that ceiling first.",
   dscr:
     "Post-facility DSCR = CFADS ÷ (existing + new debt service). It falls with higher existing service or a higher " +
     "assumed rate. Interest-only repayment, a longer tenor, or a smaller amount each raise it.",
   gap:
     "Close a collateral gap with higher-advance-rate assets (cash 100%, residential RE 70%), receivables assignment, " +
-    "or a guarantee scheme — a 50% guarantee halves the own-collateral requirement.",
+    "or a guarantee scheme - a 50% guarantee halves the own-collateral requirement.",
   _: "Grounded in this assessment's outputs. I can explain any ratio, the binding constraint, or what would change " +
     "the decision. For exact figures, see the Audit Log and Formulas & Standards tabs.",
 };
@@ -282,7 +282,7 @@ export function TraceAI({
           }
           return;
         } catch {
-          // retry failed — fall through to generic error
+          // retry failed - fall through to generic error
         }
       }
       setMessages((m) => [
@@ -457,7 +457,7 @@ export function TraceAI({
                 }}
               >
                 Ask anything about this assessment. Answers reference the
-                engine&apos;s formulas and audit trail — not guesses.
+                engine&apos;s formulas and audit trail - not guesses.
               </div>
             )}
             {messages.map((m, i) => (

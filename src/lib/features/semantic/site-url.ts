@@ -2,7 +2,7 @@ import { siteUrl } from "@/config/site";
 import { getCanonicalPathForLocale } from "@/lib/infrastructure/i18n/locale-routing";
 import { isSupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 
-/** Canonical public origin — single source of truth via `src/config/site.ts`. */
+/** Canonical public origin - single source of truth via `src/config/site.ts`. */
 export const SITE_URL = siteUrl;
 
 export function absoluteUrl(path: string): string {

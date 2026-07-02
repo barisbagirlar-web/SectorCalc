@@ -1,4 +1,4 @@
-// LOCKED — DO NOT MODIFY without explicit user approval.
+// LOCKED - DO NOT MODIFY without explicit user approval.
 // Trace engine: max_tokens=120, temperature=0.3, MAX_REPLY_LENGTH=600.
 // Changing these will produce long/AI-sounding responses.
 

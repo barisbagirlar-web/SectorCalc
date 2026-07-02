@@ -36,7 +36,7 @@ function metaOf(outputs: ToolOutput[], id: string): ToolOutput | undefined {
 }
 
 function valFmt(out: { name?: string; unit?: string; precision?: number | null; enum_labels?: Record<string, string> } | undefined, v: unknown, ccy: string): [string, string] {
-  if (v === null || v === undefined) return ["—", ""];
+  if (v === null || v === undefined) return ["-", ""];
   if (!out) return [String(v), ""];
   if (out.unit === "enum") {
     const labels = out.enum_labels || {};
@@ -383,7 +383,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     if (!inp) return;
     const rect = anchorEl.getBoundingClientRect();
     if (inp.allowed_values && inp.allowed_values.length > 0) {
-      const note = inpId === tool.ui_contract.currency_input ? "Label only — no FX conversion inside this tool." : undefined;
+      const note = inpId === tool.ui_contract.currency_input ? "Label only - no FX conversion inside this tool." : undefined;
       setPopover({
         id: inpId,
         rect,
@@ -553,7 +553,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
               <span className="led signal pulse" />
               <b>COM</b>
             </div>
-            <div className="timestamp">{utcTime || "—"}</div>
+            <div className="timestamp">{utcTime || "-"}</div>
           </div>
         </div>
 
@@ -563,7 +563,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
             <div className="module-id">MODULE · {tool.tool_id} · {(tool.category || "").toUpperCase()}</div>
             <h1>{tool.tool_name}</h1>
             <div className="sub-cap">
-              Dynamic engine — inputs, formulas, validation, warnings and units are read from {tool.tool_id}.json.
+              Dynamic engine - inputs, formulas, validation, warnings and units are read from {tool.tool_id}.json.
               Batch-commit execution model: edit inputs freely, press EXECUTE (or F9) to commit and compute.
             </div>
           </div>
@@ -746,7 +746,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
                 <span className={`led ${Object.keys(liveErrors).length > 0 ? "danger" : hasDirty ? "warn pulse" : executionCounter > 0 ? "ok" : "off"}`} />
                 <div>
                   <div><b>{Object.keys(liveErrors).length > 0 ? "VALIDATION ERRORS" : hasDirty ? `PENDING · ${dirtyCount} FIELD${dirtyCount > 1 ? "S" : ""}` : executionCounter > 0 ? "COMMITTED" : "READY"}</b></div>
-                  <div className="tx">{lastExecTime ? `Last execution · ${new Date(lastExecTime).toISOString().replace("T", " ").slice(0, 19)} UTC · #${executionCounter}` : "Last execution · —"}</div>
+                  <div className="tx">{lastExecTime ? `Last execution · ${new Date(lastExecTime).toISOString().replace("T", " ").slice(0, 19)} UTC · #${executionCounter}` : "Last execution · -"}</div>
                 </div>
               </div>
               <button className="btn-reset" onClick={handleReset} disabled={Object.keys(liveErrors).length > 0 && !hasDirty} title="Revert all inputs to schema defaults">
@@ -861,7 +861,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
                     <div className="ir"><b>Action: </b>{i.recommendation_rendered}</div>
                   </div>
                 )) : (
-                  <div className="no-warn" style={{ padding: "8px 0" }}>● NO DEEP INTERPRETATIONS TRIGGERED — INPUTS WITHIN NORMAL OPERATING RANGE</div>
+                  <div className="no-warn" style={{ padding: "8px 0" }}>● NO DEEP INTERPRETATIONS TRIGGERED - INPUTS WITHIN NORMAL OPERATING RANGE</div>
                 )}
               </div>
             ) : null}
@@ -947,7 +947,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
                 <div style={{ paddingBottom: 10 }}>
                   {(tool.formulas || []).filter((f) => !f.id.startsWith("X")).map((f) => {
                     const v = computed[f.output];
-                    const str = typeof v === "string" ? v : (typeof v === "number" ? fmt(v, Math.abs(v) < 10 ? 3 : 2) : String(v ?? "—"));
+                    const str = typeof v === "string" ? v : (typeof v === "number" ? fmt(v, Math.abs(v) < 10 ? 3 : 2) : String(v ?? "-"));
                     return (
                       <div key={f.id} className="frow">
                         <span className="fn"><span className="fid">{f.id}</span>{f.output}</span>
@@ -990,7 +990,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
         <div>
           <div className="ml">RESULT</div>
           <div className="mv">
-            {(() => { const pk = tool.ui_contract.primary; const pkVal = computed[pk]; if (pkVal != null && typeof pkVal === "number" && isFinite(pkVal)) { const [pv, pu] = valFmt(outMeta(pk), pkVal, ccy); return pv + " " + pu; } return "—"; })()}
+            {(() => { const pk = tool.ui_contract.primary; const pkVal = computed[pk]; if (pkVal != null && typeof pkVal === "number" && isFinite(pkVal)) { const [pv, pu] = valFmt(outMeta(pk), pkVal, ccy); return pv + " " + pu; } return "-"; })()}
           </div>
         </div>
         <div className="md">{decisionLabel}</div>

@@ -1,5 +1,5 @@
 /**
- * PWA offline capability registry — policy only, no service worker sync.
+ * PWA offline capability registry - policy only, no service worker sync.
  */
 
 export type OfflineCapabilityTier = "offline_safe" | "online_required" | "premium_gated";

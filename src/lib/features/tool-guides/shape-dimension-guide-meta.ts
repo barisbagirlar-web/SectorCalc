@@ -1,4 +1,4 @@
-/** P81 shape guide slugs + input keys (no JSX — safe for vitest / audit runners). */
+/** P81 shape guide slugs + input keys (no JSX - safe for vitest / audit runners). */
 export type ShapeDimensionGuideMeta = {
   readonly slug: string;
   readonly inputKeys: readonly string[];

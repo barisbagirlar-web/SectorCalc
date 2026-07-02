@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-A — missing input question planner tests.
+ * Phase 5H-G-A - missing input question planner tests.
  */
 
 import { describe, expect, test } from "vitest";

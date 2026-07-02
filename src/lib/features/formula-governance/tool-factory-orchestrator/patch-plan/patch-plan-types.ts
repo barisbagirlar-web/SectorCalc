@@ -1,5 +1,5 @@
 /**
- * Tool factory patch plan types — Phase 5I-B (plan only; no apply).
+ * Tool factory patch plan types - Phase 5I-B (plan only; no apply).
  */
 
 import type { FullToolRecommendedAction } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

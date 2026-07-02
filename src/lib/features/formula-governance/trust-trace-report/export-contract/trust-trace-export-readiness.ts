@@ -1,5 +1,5 @@
 /**
- * Trust trace export readiness evaluator — Phase 5I-C.
+ * Trust trace export readiness evaluator - Phase 5I-C.
  */
 
 import type {

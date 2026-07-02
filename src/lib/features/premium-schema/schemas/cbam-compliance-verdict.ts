@@ -18,8 +18,8 @@ export const CBAM_COMPLIANCE_VERDICT_SCHEMA: PremiumCalculatorSchema = {
       warning: 20,
       critical: 50,
       direction: "higher_is_bad",
-      warningMessage: "Medium CBAM readiness risk — review data completeness and coverage.",
-      criticalMessage: "High CBAM readiness risk — close emission and certificate gaps before filing.",
+      warningMessage: "Medium CBAM readiness risk - review data completeness and coverage.",
+      criticalMessage: "High CBAM readiness risk - close emission and certificate gaps before filing.",
     },
   ],
 
@@ -35,7 +35,7 @@ export const CBAM_COMPLIANCE_VERDICT_SCHEMA: PremiumCalculatorSchema = {
     targetMarginPercent: 0,
     assumptionNotes: [
       "Emission gap = max(embedded − declared, 0).",
-      "Risk score combines emission, coverage and data gaps — not a regulatory approval.",
+      "Risk score combines emission, coverage and data gaps - not a regulatory approval.",
       "Financial exposure = emission gap × certificate price × FX rate.",
     ],
   },

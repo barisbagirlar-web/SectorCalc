@@ -1,10 +1,10 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * SECTORCALC PRO — CALCULATION ENGINE TYPES
+ * SECTORCALC PRO - CALCULATION ENGINE TYPES
  * ═══════════════════════════════════════════════════════════════════════════
  * Source: claude_pro_tasarim_/engine-types.ts (verified engine design)
  * 
- * v2 — Added preValidationRules / postValidationRules for 2‑phase validation
+ * v2 - Added preValidationRules / postValidationRules for 2‑phase validation
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
@@ -65,11 +65,11 @@ export interface ToolSchema {
   riskLevel: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
   inputs: InputField[];
   formulas: FormulaNode[];
-  /** Rules that reference only input variables — checked BEFORE computation */
+  /** Rules that reference only input variables - checked BEFORE computation */
   preValidationRules?: ValidationRule[];
-  /** Rules that reference output variables — checked AFTER computation */
+  /** Rules that reference output variables - checked AFTER computation */
   postValidationRules?: ValidationRule[];
-  /** Legacy alias — kept for backward compatibility */
+  /** Legacy alias - kept for backward compatibility */
   validationRules?: ValidationRule[];
   gum?: GumConfig;
   auditConfig: { requirePeerReview: boolean; retentionDays: number };

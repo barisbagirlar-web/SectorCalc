@@ -1,4 +1,4 @@
-/** TR calculator surface — forbidden visible English UI tokens (P25 quality gate). */
+/** TR calculator surface - forbidden visible English UI tokens (P25 quality gate). */
 
 export const TR_FORBIDDEN_SURFACE_WORDS = [
   "Length",

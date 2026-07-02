@@ -4,7 +4,7 @@ import {
  PRO_BYPASS_EMAIL,
 } from "@/lib/features/billing/subscription";
 
-/** Premium analyzer URL segment — locale prefix optional. */
+/** Premium analyzer URL segment - locale prefix optional. */
 const PREMIUM_TOOL_PATH = /\/tools\/premium(?:\/|$)/;
 
 export function isPremiumToolPath(pathname: string): boolean {
@@ -17,7 +17,7 @@ export type PremiumRouteAccessInput = {
 };
 
 /**
- * Global premium route access — dev bypass, super-user email, or active Stripe sub.
+ * Global premium route access - dev bypass, super-user email, or active Stripe sub.
  * Used by middleware (pathname pass-through) and client gates.
  */
 export function canAccessPremiumRoute({

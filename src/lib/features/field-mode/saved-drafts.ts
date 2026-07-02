@@ -1,5 +1,5 @@
 /**
- * P8 — Saved input drafts (local-only). No secrets or sensitive personal data.
+ * P8 - Saved input drafts (local-only). No secrets or sensitive personal data.
  */
 
 import {

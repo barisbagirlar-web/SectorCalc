@@ -154,7 +154,7 @@ export function mapCustomerSignInError(error: unknown): string {
     return `Sign-in is not authorized on this domain. Expected Firebase authDomain: ${authDomain}. Add sectorcalc.com to Firebase Authorized domains if missing.`;
   }
   if (code === "popup-blocked") {
-    return "Popup was blocked. Redirect sign-in was attempted — if nothing happens, allow popups or try again.";
+    return "Popup was blocked. Redirect sign-in was attempted - if nothing happens, allow popups or try again.";
   }
   if (code === "network") {
     return "Network error during sign-in. Check your connection and try again.";

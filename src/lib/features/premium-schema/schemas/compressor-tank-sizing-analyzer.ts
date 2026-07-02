@@ -19,7 +19,7 @@ export const COMPRESSOR_TANK_SCHEMA: PremiumCalculatorSchema = {
     { id: "motorStartCheck", label: "Motor Start Kontrolu", label_i18n: {"en":"Motor Start Kontrolu"}, unit: "scalar", format: "score" },
     { id: "tankCost", label: "Tank Cost", label_i18n: {"en":"Tank Cost"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "motorStartCheck", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "Motor start limit exceeded — tank Volume must be increased.", warningMessage_i18n: {"en":"Motor start limit exceeded — tank Volume must be increased."}, criticalMessage: "" }],
+  thresholds: [{ fieldId: "motorStartCheck", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "Motor start limit exceeded - tank Volume must be increased.", warningMessage_i18n: {"en":"Motor start limit exceeded - tank Volume must be increased."}, criticalMessage: "" }],
   formulaPipeline: [
     { formulaId: "measurement.tank_required_vol", inputMap: {
         demand: "fillTimeTarget",

@@ -6,7 +6,7 @@ import type { AssistantSuggestion } from "@/lib/features/assistant/types";
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 
 /**
- * TF-IDF Semantic Search Engine — Industrial Grade
+ * TF-IDF Semantic Search Engine - Industrial Grade
  *
  * Builds term frequency–inverse document frequency vectors for every tool
  * in the index using 6-language title, description, keywords, intent, and
@@ -79,7 +79,7 @@ const LOCALE_CODES = Object.keys(STOP_WORDS_BY_LOCALE);
  *
  * Uses ALL_STOP_WORDS which covers all 6 locales: English, Turkish,
  * German, French, Spanish, Arabic. This aggressive filtering is
- * intentional for a multilingual corpus — we want term-focus, not
+ * intentional for a multilingual corpus - we want term-focus, not
  * language-noise.
  */
 function tokenize(text: string): string[] {
@@ -111,7 +111,7 @@ let _idf: Map<string, number> | null = null;
  *
  * Every tool's text fields (title, description, keywords, intent,
  * industries, pain) across all 6 locales are merged into one token
- * set. This gives cross-language recall — a Turkish query "maliyet"
+ * set. This gives cross-language recall - a Turkish query "maliyet"
  * triggers on the English token "cost" that appears alongside "maliyet"
  * in the index.
  */
@@ -136,7 +136,7 @@ function buildCorpus(): readonly SemanticDoc[] {
       ...tool.industries,
     );
 
-    // Keywords per locale — tokenized per-locale for proper stop-word filtering
+    // Keywords per locale - tokenized per-locale for proper stop-word filtering
     for (const locale of LOCALE_CODES) {
       const kw = tool.keywords[locale as SupportedLocale];
       if (kw) textParts.push(...kw);
@@ -171,7 +171,7 @@ function getCorpus(): readonly SemanticDoc[] {
 }
 
 /**
- * Inverse Document Frequency — smooth IDF with additive smoothing:
+ * Inverse Document Frequency - smooth IDF with additive smoothing:
  *   IDF(t) = log((N+1)/(df+1)) + 1
  *
  * Smoothing ensures terms that appear in every document still carry

@@ -19,8 +19,8 @@ export const RETAIL_INVENTORY_TURNOVER_RISK_SCHEMA: PremiumCalculatorSchema = {
       warning: 3,
       critical: 1,
       direction: "lower_is_bad",
-      warningMessage: "Turnover is below healthy band — carrying cost pressure is building.",
-      criticalMessage: "Critical slow inventory — markdown and cash tie-up risk is high.",
+      warningMessage: "Turnover is below healthy band - carrying cost pressure is building.",
+      criticalMessage: "Critical slow inventory - markdown and cash tie-up risk is high.",
     },
   ],
 

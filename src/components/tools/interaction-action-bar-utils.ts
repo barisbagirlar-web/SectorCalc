@@ -46,14 +46,14 @@ export function buildQuoteText(
   selectedText?: string,
 ): string {
   if (selectedText?.trim()) {
-    return `"${selectedText.trim()}"\n— ${title}\n${url}`;
+    return `"${selectedText.trim()}"\n- ${title}\n${url}`;
   }
 
   if (excerpt?.trim()) {
-    return `"${title}" — ${excerpt.trim()}\n— ${siteName}\n${url}`;
+    return `"${title}" - ${excerpt.trim()}\n- ${siteName}\n${url}`;
   }
 
-  return `"${title}" — ${siteName}\n${url}`;
+  return `"${title}" - ${siteName}\n${url}`;
 }
 
 export function openShareWindow(url: string): void {

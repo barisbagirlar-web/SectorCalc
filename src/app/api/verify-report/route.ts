@@ -1,6 +1,6 @@
 /**
  * GET /api/verify-report?reportId=...&hash=...
- * Public report verification endpoint — returns limited public data only.
+ * Public report verification endpoint - returns limited public data only.
  */
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";

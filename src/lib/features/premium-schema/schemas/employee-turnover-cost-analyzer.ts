@@ -1,5 +1,5 @@
 /**
- * Tool #18 — Turnover Cost (Employee Turnover Cost)
+ * Tool #18 - Turnover Cost (Employee Turnover Cost)
  * Separation → Vacancy → Replacement → Training → ProductivityLoss → Total
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -37,7 +37,7 @@ export const TURNOVER_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalTurnoverCost", label: "Total Ciro Cost", label_i18n: {"en":"Total Ciro Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "totalTurnoverCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Turnover Cost > $50K — employee engagement program should be evaluated.", warningMessage_i18n: {"en":"Turnover Cost > $50K — employee engagement program should be evaluated."}, criticalMessage: "Ciro Cost > $150K — urgent elde tutma stratejisi gerekiyor.", criticalMessage_i18n: {"en":"Ciro Cost > $150K — urgent elde tutma stratejisi gerekiyor."} },
+    { fieldId: "totalTurnoverCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Turnover Cost > $50K - employee engagement program should be evaluated.", warningMessage_i18n: {"en":"Turnover Cost > $50K - employee engagement program should be evaluated."}, criticalMessage: "Ciro Cost > $150K - urgent elde tutma stratejisi gerekiyor.", criticalMessage_i18n: {"en":"Ciro Cost > $150K - urgent elde tutma stratejisi gerekiyor."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.turnover_total", inputMap: { separationCost: "separationCostInput", vacancyCost: "vacancyCostInput", replacementCost: "replacementCostInput", trainingCost: "trainingCostInput", productivityLoss: "productivityLossInput" }, outputId: "totalTurnoverCost" },

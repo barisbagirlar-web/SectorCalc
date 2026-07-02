@@ -1,5 +1,5 @@
 /**
- * Smart form pilot staging smoke test decision gate — Phase 5H-G-N.
+ * Smart form pilot staging smoke test decision gate - Phase 5H-G-N.
  */
 
 import type {

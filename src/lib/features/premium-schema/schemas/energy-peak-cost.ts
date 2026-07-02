@@ -19,8 +19,8 @@ export const ENERGY_PEAK_COST_SCHEMA: PremiumCalculatorSchema = {
       warning: 10,
       critical: 20,
       direction: "higher_is_bad",
-      warningMessage: "Consumption is above target — peak and idle load may be driving cost.",
-      criticalMessage: "Energy and delay exposure are the main risk drivers — audit peak demand now.",
+      warningMessage: "Consumption is above target - peak and idle load may be driving cost.",
+      criticalMessage: "Energy and delay exposure are the main risk drivers - audit peak demand now.",
     },
     {
       fieldId: "totalEnergyCost",
@@ -28,7 +28,7 @@ export const ENERGY_PEAK_COST_SCHEMA: PremiumCalculatorSchema = {
       critical: 2500,
       direction: "higher_is_bad",
       warningMessage: "Total energy cost is elevated versus typical efficiency band.",
-      criticalMessage: "High risk — hidden cost may erase the margin on this budget period.",
+      criticalMessage: "High risk - hidden cost may erase the margin on this budget period.",
     },
   ],
 

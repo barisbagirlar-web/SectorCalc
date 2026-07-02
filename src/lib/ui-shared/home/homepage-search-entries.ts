@@ -10,7 +10,7 @@ import {
 } from "@/lib/catalog/cached-catalog-groups";
 import type { FreeTrafficCategoryMeta } from "@/lib/features/tools/free-traffic-categories";
 
-/** Keep homepage search focused on industry / business calculators — not daily-life catalog tabs. */
+/** Keep homepage search focused on industry / business calculators - not daily-life catalog tabs. */
 export const HOMEPAGE_SEARCH_EXCLUDED_FREE_CATEGORIES = new Set([
   "everyday-life",
   "math-statistics",

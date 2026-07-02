@@ -1,11 +1,11 @@
 /**
- * Production rollout governance tests — Phase 5I-L.
+ * Production rollout governance tests - Phase 5I-L.
  */
 
 import { describe, expect, test } from "vitest";
 import { runProductionRolloutGovernanceAudit } from "@/components/tools/smart-form/production-rollout-governance/production-rollout-audit";
 
-describe("production rollout governance — Phase 5I-L", () => {
+describe("production rollout governance - Phase 5I-L", () => {
   test("live pilot count is 3", () => {
     const result = runProductionRolloutGovernanceAudit();
     expect(result.livePilotCount).toBe(3);

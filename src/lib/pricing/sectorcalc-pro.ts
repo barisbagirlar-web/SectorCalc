@@ -1,5 +1,5 @@
 /**
- * SectorCalc Pro — pricing copy lock (Revenue Flow v1A).
+ * SectorCalc Pro - pricing copy lock (Revenue Flow v1A).
  * Canonical pricing lives in revenue-tools.ts; re-exported here for pricing pages.
  */
 
@@ -43,7 +43,7 @@ export const FREE_PLAN_PRICING = {
  priceLabel: "$0",
  period: "forever",
  description:
- "Quick sector checks — limited inputs, directional numbers and early risk signals.",
+ "Quick sector checks - limited inputs, directional numbers and early risk signals.",
  features: [
  "Seventeen industry quick-check calculators",
  "2–3 inputs per tool",

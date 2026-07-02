@@ -72,7 +72,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bolt_torque_preload_6",
     family: "cost",
-    label: "CIVATE TORK — YieldCheck",
+    label: "CIVATE TORK - YieldCheck",
     fn: (inputs) => {
     const sigma = num(inputs, "sigma");
     const p = num(inputs, "p");
@@ -88,7 +88,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_0",
     family: "cost",
-    label: "CIRO COSTI — SeparationCost",
+    label: "CIRO COSTI - SeparationCost",
     fn: (inputs) => {
     const exitInterview = num(inputs, "exitInterview");
     const hRRate = num(inputs, "hRRate");
@@ -100,7 +100,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_1",
     family: "cost",
-    label: "CIRO COSTI — VacancyCost",
+    label: "CIRO COSTI - VacancyCost",
     fn: (inputs) => {
     const timeToFill = num(inputs, "timeToFill");
     const dailyRevenue = num(inputs, "dailyRevenue");
@@ -111,7 +111,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_2",
     family: "cost",
-    label: "CIRO COSTI — ReplacementCost",
+    label: "CIRO COSTI - ReplacementCost",
     fn: (inputs) => {
     const ads = num(inputs, "ads");
     const agency = num(inputs, "agency");
@@ -123,7 +123,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_3",
     family: "cost",
-    label: "CIRO COSTI — TrainingCost",
+    label: "CIRO COSTI - TrainingCost",
     fn: (inputs) => {
     const trainHours = num(inputs, "trainHours");
     const trainerRate = num(inputs, "trainerRate");
@@ -135,7 +135,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_4",
     family: "cost",
-    label: "CIRO COSTI — ProductivityLoss",
+    label: "CIRO COSTI - ProductivityLoss",
     fn: (inputs) => {
     const timeToFull = num(inputs, "timeToFull");
     const avgOutput = num(inputs, "avgOutput");
@@ -147,7 +147,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_5",
     family: "cost",
-    label: "CIRO COSTI — TotalTurnoverCost",
+    label: "CIRO COSTI - TotalTurnoverCost",
     fn: (inputs) => {
     const separation = num(inputs, "separation");
     const vacancy = num(inputs, "vacancy");
@@ -162,7 +162,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_api_overrun_0",
     family: "cost",
-    label: "CLOUD API OVERRUN — OverrunRequests",
+    label: "CLOUD API OVERRUN - OverrunRequests",
     fn: (inputs) => {
     const totalRequests = num(inputs, "totalRequests");
     const includedRequests = num(inputs, "includedRequests");
@@ -173,7 +173,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_api_overrun_1",
     family: "cost",
-    label: "CLOUD API OVERRUN — OverrunCost",
+    label: "CLOUD API OVERRUN - OverrunCost",
     fn: (inputs) => {
     const overrunRequests = num(inputs, "overrunRequests");
     const overageRate = num(inputs, "overageRate");
@@ -183,7 +183,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_api_overrun_2",
     family: "cost",
-    label: "CLOUD API OVERRUN — ThrottlingCost",
+    label: "CLOUD API OVERRUN - ThrottlingCost",
     fn: (inputs) => {
     const throttledRequests = num(inputs, "throttledRequests");
     const retryCost = num(inputs, "retryCost");
@@ -194,7 +194,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_api_overrun_3",
     family: "cost",
-    label: "CLOUD API OVERRUN — DataEgressCost",
+    label: "CLOUD API OVERRUN - DataEgressCost",
     fn: (inputs) => {
     const dataOutGB = num(inputs, "dataOutGB");
     const egressRate = num(inputs, "egressRate");
@@ -204,7 +204,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_api_overrun_4",
     family: "cost",
-    label: "CLOUD API OVERRUN — SLABreachPenalty",
+    label: "CLOUD API OVERRUN - SLABreachPenalty",
     fn: (inputs) => {
     const availability = num(inputs, "availability");
     const sLA = num(inputs, "sLA");
@@ -216,7 +216,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_api_overrun_5",
     family: "cost",
-    label: "CLOUD API OVERRUN — TotalOverrunCost",
+    label: "CLOUD API OVERRUN - TotalOverrunCost",
     fn: (inputs) => {
     const overrunCost = num(inputs, "overrunCost");
     const throttlingCost = num(inputs, "throttlingCost");
@@ -230,7 +230,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_waste_elimination_0",
     family: "cost",
-    label: "CLOUD FIRE ELIMINATION — ZombieCost",
+    label: "CLOUD FIRE ELIMINATION - ZombieCost",
     fn: (inputs) => {
     const unattachedVolumes = num(inputs, "unattachedVolumes");
     const rate = num(inputs, "rate");
@@ -243,7 +243,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_waste_elimination_1",
     family: "cost",
-    label: "CLOUD FIRE ELIMINATION — OversizingSavings",
+    label: "CLOUD FIRE ELIMINATION - OversizingSavings",
     fn: (inputs) => {
     const currentCost = num(inputs, "currentCost");
     const rightSizedCost = num(inputs, "rightSizedCost");

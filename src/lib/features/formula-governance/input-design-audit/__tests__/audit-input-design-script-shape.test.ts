@@ -1,5 +1,5 @@
 /**
- * Phase 5H-C — input design audit CLI shape tests.
+ * Phase 5H-C - input design audit CLI shape tests.
  */
 
 import { describe, expect, test } from "vitest";

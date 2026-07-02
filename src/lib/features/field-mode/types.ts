@@ -1,5 +1,5 @@
 /**
- * P8 — Field mode types. Local-only convenience data, never secrets or PII.
+ * P8 - Field mode types. Local-only convenience data, never secrets or PII.
  */
 
 export type RecentToolEntry = {

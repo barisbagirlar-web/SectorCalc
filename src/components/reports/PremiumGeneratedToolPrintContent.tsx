@@ -75,7 +75,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   if (error) {
     return (
       <div style={{ padding: 40, color: "#EF4444", fontFamily: "sans-serif" }}>
-        <h1 style={{ fontSize: 20, marginBottom: 12 }}>{t("title")} — {t("preAssessment")}</h1>
+        <h1 style={{ fontSize: 20, marginBottom: 12 }}>{t("title")} - {t("preAssessment")}</h1>
         <p>{t(error)}</p>
         <button
           onClick={() => window.close()}
@@ -115,8 +115,8 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const primaryResolved = resolvePrimaryPrintValue(result, primaryOutputKey);
   const primaryIsNumber = primaryResolved !== null;
   const formattedPrimary = primaryIsNumber
-    ? formatGeneratedNumericValue(primaryResolved as number, primaryOutputKey, locale, primaryUnit !== "—" ? primaryUnit : undefined)
-    : "—";
+    ? formatGeneratedNumericValue(primaryResolved as number, primaryOutputKey, locale, primaryUnit !== "-" ? primaryUnit : undefined)
+    : "-";
 
   const hiddenDrivers: readonly string[] = Array.isArray(result.hiddenLossDrivers) ? result.hiddenLossDrivers : [];
   const suggestedActions: readonly string[] = Array.isArray(result.suggestedActions) ? result.suggestedActions : [];
@@ -160,7 +160,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
         ⬇ {t("printDownload")}
       </button>
 
-      {/* PAGE 1 — COVER */}
+      {/* PAGE 1 - COVER */}
       <div className="page">
         <div className="accent-top" />
         <div className="header">
@@ -213,7 +213,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
           </div>
           <div className="meta-item">
             <div className="meta-key">{t("metaEngine")}</div>
-            <div className="meta-val">SectorCalc v2.6 — Pro</div>
+            <div className="meta-val">SectorCalc v2.6 - Pro</div>
           </div>
           <div className="meta-item">
             <div className="meta-key">{t("metaTraceId")}</div>
@@ -242,13 +242,13 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
                   const displayVal =
                     typeof val === "number"
                       ? formatGeneratedNumericValue(val, input.id, locale)
-                      : String(val ?? "—");
+                      : String(val ?? "-");
                   const inputLabel = resolveGeneratedI18nText(input.label_i18n, locale, input.label ?? input.id);
                   return (
                     <tr key={input.id}>
                       <td>{inputLabel}</td>
                       <td className="val">{displayVal}</td>
-                      <td className="unit">{input.unit ?? "—"}</td>
+                      <td className="unit">{input.unit ?? "-"}</td>
                       <td className="ref">{t("preAssessment")}</td>
                     </tr>
                   );
@@ -301,7 +301,7 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
         </div>
       </div>
 
-      {/* PAGE 2 — RESULTS */}
+      {/* PAGE 2 - RESULTS */}
       <div className="page">
         <div className="accent-top-thin" />
         <div className="header">
@@ -377,17 +377,17 @@ export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
                     <div className="gauge-row">
                       <span className="gauge-dot" style={{ background: "#22C55E" }} />
                       <span className="gauge-row-label">{t("riskLow")} (0–30)</span>
-                      <span className="gauge-row-val">{riskLabelKey === "riskLow" ? `◀ ${t("riskLow")}` : "—"}</span>
+                      <span className="gauge-row-val">{riskLabelKey === "riskLow" ? `◀ ${t("riskLow")}` : "-"}</span>
                     </div>
                     <div className="gauge-row">
                       <span className="gauge-dot" style={{ background: "#F59E0B" }} />
                       <span className="gauge-row-label">{t("riskMedium")} (31–60)</span>
-                      <span className="gauge-row-val">{riskLabelKey === "riskMedium" ? `◀ ${t("riskMedium")}` : "—"}</span>
+                      <span className="gauge-row-val">{riskLabelKey === "riskMedium" ? `◀ ${t("riskMedium")}` : "-"}</span>
                     </div>
                     <div className="gauge-row">
                       <span className="gauge-dot" style={{ background: "#EF4444" }} />
                       <span className="gauge-row-label">{t("riskHigh")} (61–100)</span>
-                      <span className="gauge-row-val">{riskLabelKey === "riskHigh" ? `◀ ${t("riskHigh")}` : "—"}</span>
+                      <span className="gauge-row-val">{riskLabelKey === "riskHigh" ? `◀ ${t("riskHigh")}` : "-"}</span>
                     </div>
                   </div>
                 </div>

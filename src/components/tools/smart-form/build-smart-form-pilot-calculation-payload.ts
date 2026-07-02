@@ -1,5 +1,5 @@
 /**
- * Generic smart form pilot calculation payload dispatcher — Phase 5H-G-G/H / 5H-H.
+ * Generic smart form pilot calculation payload dispatcher - Phase 5H-G-G/H / 5H-H.
  */
 
 import { buildAutoShopPilotCalculationPayload } from "@/components/tools/smart-form/auto-shop-pilot-calculation-payload";

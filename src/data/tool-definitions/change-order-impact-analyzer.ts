@@ -145,6 +145,6 @@ export const changeOrderImpactAnalyzerDefinition: ToolDefinition = {
  interpretationNote:
  "This analyzer compares your offered change price to direct cost and target margin. It is indicative and does not replace contractual change-order review or a full project audit.",
  faqPlaceholder:
- "Who it is for: contractors and PMs approving or pricing change orders. What to do with the result: decide whether the change price protects margin on the full project before client sign-off. Premium adds scenarios, risk level and report packaging — payment and export are preview-only in the MVP.",
+ "Who it is for: contractors and PMs approving or pricing change orders. What to do with the result: decide whether the change price protects margin on the full project before client sign-off. Premium adds scenarios, risk level and report packaging - payment and export are preview-only in the MVP.",
  features: { decisionReport: true },
 };

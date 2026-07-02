@@ -1,5 +1,5 @@
 /**
- * Human approval gate tests — Phase 5I-G.
+ * Human approval gate tests - Phase 5I-G.
  */
 
 import { describe, expect, test } from "vitest";
@@ -9,7 +9,7 @@ import {
   buildDefaultHumanApprovalRecord,
 } from "@/lib/features/formula-governance/tool-factory-orchestrator/human-approval/human-approval-record";
 
-describe("human approval gate — Phase 5I-G", () => {
+describe("human approval gate - Phase 5I-G", () => {
   test("wrong scope is blocked", () => {
     const record = buildDefaultHumanApprovalRecord({
       toolSlug: "scope-tool",

@@ -195,7 +195,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "energy-carbon-calculators",
     title: "Energy & Carbon Calculators",
-    metaTitle: "Energy & Carbon Calculators — kWh and Peak Load | SectorCalc",
+    metaTitle: "Energy & Carbon Calculators - kWh and Peak Load | SectorCalc",
     metaDescription:
       "Calculate electricity cost, kWh exposure, peak load pressure and carbon footprint. Free energy calculators plus premium peak cost and compliance calculators.",
     intro:
@@ -252,7 +252,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "agriculture-calculators",
     title: "Agriculture Calculators",
-    metaTitle: "Agriculture Calculators — Irrigation, Yield & Feed Efficiency",
+    metaTitle: "Agriculture Calculators - Irrigation, Yield & Feed Efficiency",
     metaDescription:
       "Free agriculture calculators and premium calculators for irrigation yield loss, feed efficiency and farm margin exposure.",
     intro:
@@ -293,7 +293,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "finance-business-calculators",
     title: "Finance & Business Calculators",
-    metaTitle: "Finance & Business Calculators — Loan, Margin & Break-Even Tools",
+    metaTitle: "Finance & Business Calculators - Loan, Margin & Break-Even Tools",
     metaDescription:
       "Free finance and business calculators for loans, margins, break-even and pricing decisions across sectors.",
     intro:
@@ -334,7 +334,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "unit-conversion-calculators",
     title: "Unit Conversion Calculators",
-    metaTitle: "Unit Conversion Calculators — Area, Temperature, Volume & More",
+    metaTitle: "Unit Conversion Calculators - Area, Temperature, Volume & More",
     metaDescription:
       "Free unit conversion calculators for area, temperature, volume, length and everyday measurement tasks.",
     intro:
@@ -371,7 +371,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "hidden-loss-decision-reports",
     title: "Hidden Loss Decision Reports",
-    metaTitle: "Hidden Loss Decision Reports — Premium Calculators & Export-Ready Output",
+    metaTitle: "Hidden Loss Decision Reports - Premium Calculators & Export-Ready Output",
     metaDescription:
       "Premium SectorCalc calculators for hidden-loss diagnostics, threshold checks, suggested actions and export-ready decision reports.",
     intro:

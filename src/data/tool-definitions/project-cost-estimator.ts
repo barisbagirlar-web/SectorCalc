@@ -111,5 +111,5 @@ export const projectCostEstimatorDefinition: ToolDefinition = {
  interpretationNote:
  "This estimate is based on direct project costs plus overhead and contingency. It does not replace a full bid calculation, but it helps reveal whether labor, materials or overhead are driving the project cost.",
  faqPlaceholder:
- "Who it is for: contractors, estimators and project managers needing a fast project cost range. What to do with the result: sanity-check bid components before submitting; use the Change Order Impact Calculator when scope changes affect total margin. Assumptions follow your entered costs — indicative only.",
+ "Who it is for: contractors, estimators and project managers needing a fast project cost range. What to do with the result: sanity-check bid components before submitting; use the Change Order Impact Calculator when scope changes affect total margin. Assumptions follow your entered costs - indicative only.",
 };

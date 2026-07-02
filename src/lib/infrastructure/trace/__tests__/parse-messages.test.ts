@@ -1,5 +1,5 @@
 /**
- * parse-messages.test.ts — industrial validation of message sanitisation.
+ * parse-messages.test.ts - industrial validation of message sanitisation.
  *
  * Coverage:
  * - Null/undefined/array edge cases
@@ -33,7 +33,7 @@ function expectValidMessage(
 }
 
 /* ------------------------------------------------------------------ */
-/*  Tests — edge cases                                                */
+/*  Tests - edge cases                                                */
 /* ------------------------------------------------------------------ */
 describe("parseConversationMessages – edge cases", () => {
   test("returns empty array for null / undefined", () => {
@@ -95,7 +95,7 @@ describe("parseConversationMessages – edge cases", () => {
 });
 
 /* ------------------------------------------------------------------ */
-/*  Tests — valid messages                                            */
+/*  Tests - valid messages                                            */
 /* ------------------------------------------------------------------ */
 describe("parseConversationMessages – valid messages", () => {
   test("parses a single user message", () => {
@@ -123,7 +123,7 @@ describe("parseConversationMessages – valid messages", () => {
 });
 
 /* ------------------------------------------------------------------ */
-/*  Tests — message count cap                                         */
+/*  Tests - message count cap                                         */
 /* ------------------------------------------------------------------ */
 describe("parseConversationMessages – message count cap", () => {
   test("keeps only last 10 messages when more provided", () => {
@@ -142,7 +142,7 @@ describe("parseConversationMessages – message count cap", () => {
 });
 
 /* ------------------------------------------------------------------ */
-/*  Tests — structural type safety                                    */
+/*  Tests - structural type safety                                    */
 /* ------------------------------------------------------------------ */
 describe("parseConversationMessages – type safety", () => {
   test("returned messages are structurally assignable to ParsedMessage", () => {

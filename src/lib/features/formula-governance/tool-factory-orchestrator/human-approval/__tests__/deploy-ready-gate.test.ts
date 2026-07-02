@@ -1,5 +1,5 @@
 /**
- * Deploy ready gate tests — Phase 5I-G.
+ * Deploy ready gate tests - Phase 5I-G.
  */
 
 import { describe, expect, test } from "vitest";
@@ -118,7 +118,7 @@ const readyRenderer: ReportRendererContract = {
   warnings: [],
 };
 
-describe("deploy ready gate — Phase 5I-G", () => {
+describe("deploy ready gate - Phase 5I-G", () => {
   test("all gates pass with pending approval → waiting_human_approval", () => {
     const gate = evaluateDeployReadyGate({
       toolSlug: "ready-tool",

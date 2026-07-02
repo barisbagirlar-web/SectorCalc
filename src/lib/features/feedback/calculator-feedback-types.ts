@@ -1,5 +1,5 @@
 /**
- * Calculator feedback loop — types for full-loop runtime result corrections.
+ * Calculator feedback loop - types for full-loop runtime result corrections.
  */
 
 export const CALCULATOR_FEEDBACK_CATEGORIES = [

@@ -36,7 +36,7 @@ describe("schema catalog icon overrides", () => {
     expect(resolveCatalogCategoryIcon("perakende-gida")).toBe(ShoppingBag);
     expect(resolveCatalogCategoryIcon("enerji-karbon")).toBe(BatteryCharging);
     expect(resolveCatalogCategoryIcon("uretim-imalat")).toBe(Settings);
-    // isg-risk is also a taxonomy sector slug — resolver returns sector icon first
+    // isg-risk is also a taxonomy sector slug - resolver returns sector icon first
     expect(resolveCatalogCategoryIcon("isg-risk")).toBe(ShieldAlert);
     expect(resolveCatalogCategoryIcon("surdurulebilirlik")).toBe(Sprout);
     expect(resolveCatalogCategoryIcon("kalite-spc-alti-sigma")).toBe(Goal);
@@ -44,7 +44,7 @@ describe("schema catalog icon overrides", () => {
 
   it("covers every explicit schema override entry", () => {
     for (const slug of Object.keys(SCHEMA_CATALOG_ICON_OVERRIDES)) {
-      // Skip slugs that are also taxonomy sector icons — those resolve via sector path
+      // Skip slugs that are also taxonomy sector icons - those resolve via sector path
       if (isTaxonomySectorIconSlug(slug)) continue;
       expect(resolveCatalogCategoryIcon(slug)).toBe(SCHEMA_CATALOG_ICON_OVERRIDES[slug]);
     }

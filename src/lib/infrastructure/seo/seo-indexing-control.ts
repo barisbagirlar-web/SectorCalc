@@ -1,5 +1,5 @@
 /**
- * SectorCalc — indexability control
+ * SectorCalc - indexability control
  * ==================================
  * Site fully open to search engine indexing. All blocking signals removed.
  * Every page serves index,follow meta + X-Robots-Tag: all + robots.txt allow.
@@ -7,7 +7,7 @@
 
 /* ----------------------------- Core flag ----------------------------- */
 
-/** Always true — site is fully indexable with no env gate. */
+/** Always true - site is fully indexable with no env gate. */
 export function isIndexable(): boolean {
   return true;
 }
@@ -76,7 +76,7 @@ export function generateRobotsTxt(): string {
 
 /* ----------------------------- Sitemap guard ----------------------------- */
 
-/** Always serve the sitemap — site is fully indexable. */
+/** Always serve the sitemap - site is fully indexable. */
 export function shouldServeSitemap(): boolean {
   return true;
 }

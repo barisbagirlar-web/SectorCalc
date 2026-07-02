@@ -1,5 +1,5 @@
 /**
- * Tool #12 — Concrete Volume (Concrete Volume & Cost)
+ * Tool #12 - Concrete Volume (Concrete Volume & Cost)
  * V_slab → V_footing → V_column → V_wall → Total volume → Weight → Cost
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -41,7 +41,7 @@ export const CONCRETE_VOLUME_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalCost", label: "Total Cost", label_i18n: {"en":"Total Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "totalCost", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Concrete Cost > $10K — evaluate alternative supplier.", warningMessage_i18n: {"en":"Concrete Cost > $10K — evaluate alternative supplier."}, criticalMessage: "Concrete Cost > $50K — tendering process should be initiated.", criticalMessage_i18n: {"en":"Concrete Cost > $50K — tendering process should be initiated."} },
+    { fieldId: "totalCost", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Concrete Cost > $10K - evaluate alternative supplier.", warningMessage_i18n: {"en":"Concrete Cost > $10K - evaluate alternative supplier."}, criticalMessage: "Concrete Cost > $50K - tendering process should be initiated.", criticalMessage_i18n: {"en":"Concrete Cost > $50K - tendering process should be initiated."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.concrete_volume_total", inputMap: { slabLength: "slabLength", slabWidth: "slabWidth", slabThickness: "slabThickness", footingLength: "footingLength", footingWidth: "footingWidth", footingDepth: "footingDepth", footingCount: "footingCount", columnDiameter: "columnDiameter", columnHeight: "columnHeight", columnCount: "columnCount", wallLength: "wallLength", wallHeight: "wallHeight", wallThickness: "wallThickness", wasteFactor: "wasteFactor" }, outputId: "totalVolume" },

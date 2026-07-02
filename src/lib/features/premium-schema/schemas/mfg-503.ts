@@ -18,8 +18,8 @@ export const BOLT_TIGHTENING_TORQUE_CALCULATOR_SCHEMA: PremiumCalculatorSchema =
       warning: 80,
       critical: 200,
       direction: "higher_is_bad",
-      warningMessage: "Torque estimate is high — verify lubrication and tool calibration.",
-      criticalMessage: "Torque estimate exceeds typical hand-tool range — use controlled tightening procedure.",
+      warningMessage: "Torque estimate is high - verify lubrication and tool calibration.",
+      criticalMessage: "Torque estimate exceeds typical hand-tool range - use controlled tightening procedure.",
     },
   ],
 

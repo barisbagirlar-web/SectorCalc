@@ -1,5 +1,5 @@
 /**
- * Tool #10 — Basincli Hava Sistemi Energy Cost
+ * Tool #10 - Basincli Hava Sistemi Energy Cost
  * CompressorPower → AnnualEnergyCost → TotalAnnualCost
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -30,7 +30,7 @@ export const COMPRESSED_AIR_SCHEMA: PremiumCalculatorSchema = {
     { id: "carbonFootprint", label: "Annual Carbon Ayak Izi", label_i18n: {"en":"Annual Carbon Ayak Izi"}, unit: "kgCO₂/kWh", format: "number" },
   ],
   thresholds: [
-    { fieldId: "totalAnnualCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Annual Cost > $50K — Leak survey recommended.", warningMessage_i18n: {"en":"Annual Cost > $50K — Leak survey recommended."}, criticalMessage: "Annual Cost > $150K — compressor replacement feasibility study should be conducted.", criticalMessage_i18n: {"en":"Annual Cost > $150K — compressor replacement feasibility study should be conducted."} },
+    { fieldId: "totalAnnualCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Annual Cost > $50K - Leak survey recommended.", warningMessage_i18n: {"en":"Annual Cost > $50K - Leak survey recommended."}, criticalMessage: "Annual Cost > $150K - compressor replacement feasibility study should be conducted.", criticalMessage_i18n: {"en":"Annual Cost > $150K - compressor replacement feasibility study should be conducted."} },
   ],
   formulaPipeline: [
     { formulaId: "energy.compressed_air_annual_cost", inputMap: { annualEnergyCost: "annualEnergyCostInput", leakageCost: "leakageCostInput", pressureDropCost: "excessPressureDropKpa", heatRecoverySavings: "heatRecoverySavingsInput" }, outputId: "totalAnnualCost" },

@@ -31,7 +31,7 @@ export function resolvePrimaryPrintValue(
     return exact;
   }
 
-  // 2. Fallback — find the first numeric value that looks like a result
+  // 2. Fallback - find the first numeric value that looks like a result
   //    (skip known metadata/special keys)
   for (const [key, value] of Object.entries(result)) {
     if (SKIP_KEYS.has(key)) continue;

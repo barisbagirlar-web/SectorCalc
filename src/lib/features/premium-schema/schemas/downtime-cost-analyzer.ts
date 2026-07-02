@@ -1,5 +1,5 @@
 /**
- * Tool #5 — Downtime Cost (Downtime Cost)
+ * Tool #5 - Downtime Cost (Downtime Cost)
  * 6-component total cost
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -31,7 +31,7 @@ export const DOWNTIME_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalDowntimeCost", label: "Total Durus Cost", label_i18n: {"en":"Total Durus Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "totalDowntimeCost", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Downtime Cost > $10K — preventive maintenance plan must be reviewed.", warningMessage_i18n: {"en":"Downtime Cost > $10K — preventive maintenance plan must be reviewed."}, criticalMessage: "Downtime Cost > $50K — urgent root cause analysis required.", criticalMessage_i18n: {"en":"Downtime Cost > $50K — urgent root cause analysis required."} },
+    { fieldId: "totalDowntimeCost", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Downtime Cost > $10K - preventive maintenance plan must be reviewed.", warningMessage_i18n: {"en":"Downtime Cost > $10K - preventive maintenance plan must be reviewed."}, criticalMessage: "Downtime Cost > $50K - urgent root cause analysis required.", criticalMessage_i18n: {"en":"Downtime Cost > $50K - urgent root cause analysis required."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.downtime_labor", inputMap: { downtimeHours: "downtimeHours", affectedWorkers: "affectedWorkers", avgHourlyRate: "avgHourlyRate" }, outputId: "directLaborLoss" },

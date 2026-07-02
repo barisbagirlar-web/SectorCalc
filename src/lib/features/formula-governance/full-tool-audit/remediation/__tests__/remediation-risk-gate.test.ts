@@ -1,5 +1,5 @@
 /**
- * Remediation risk gate tests — Phase 5I-D.
+ * Remediation risk gate tests - Phase 5I-D.
  */
 
 import { describe, expect, test } from "vitest";
@@ -37,7 +37,7 @@ function buildItem(action: FullToolAuditItem["recommendedAction"]): FullToolAudi
   };
 }
 
-describe("remediation risk gate — Phase 5I-D", () => {
+describe("remediation risk gate - Phase 5I-D", () => {
   test("no_action is not eligible", () => {
     const item = buildItem("no_action");
     const result = isEligibleForRemediationBatch1(item, buildPatchPlanFromFullToolAudit(item));

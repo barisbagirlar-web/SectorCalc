@@ -105,7 +105,7 @@ export function PremiumToolsOmniHub({ groups, toolCount }: PremiumToolsOmniHubPr
           <span className="sc-omni-hub__headline-tail">paid calculators</span>
         </h1>
         <p className="sc-pro-lead sc-omni-hub__sub">
-          Loss detection, safe price floors and accept / reprice verdicts — pick a report family,
+          Loss detection, safe price floors and accept / reprice verdicts - pick a report family,
           then open the sector calculator you need.
         </p>
         <div className="sc-omni-hub__premium-actions">

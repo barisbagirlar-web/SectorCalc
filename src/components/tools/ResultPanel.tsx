@@ -75,7 +75,7 @@ function formatPrimaryDisplayValue(
     }).format(value);
   }
 
-  if (unit && unit !== "—") {
+  if (unit && unit !== "-") {
     const formatted = new Intl.NumberFormat(locale, {
       maximumFractionDigits: Math.abs(value) >= 1000 ? 0 : 2,
     }).format(value);

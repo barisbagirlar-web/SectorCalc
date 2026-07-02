@@ -36,13 +36,13 @@ function ProductImage({
  );
 }
 
-/** Homepage hero — SectorCalc platform architecture overview */
+/** Homepage hero - SectorCalc platform architecture overview */
 export function HeroPlatformIllustration({ className = "" }: IllustrationProps) {
  const platform = BRAND_ASSETS.platformFlow;
  return (
  <Image
  src={platform.src}
- alt="SectorCalc platform flow — dashboards, calculators, decision engine and sector reports"
+ alt="SectorCalc platform flow - dashboards, calculators, decision engine and sector reports"
  width={platform.width}
  height={platform.height}
  priority
@@ -53,7 +53,7 @@ export function HeroPlatformIllustration({ className = "" }: IllustrationProps) 
  );
 }
 
-/** MagiClick trusted-by strip proportions — sector labels on cyan band */
+/** MagiClick trusted-by strip proportions - sector labels on cyan band */
 export function TrustedIndustriesStrip({ className = "" }: IllustrationProps) {
  return (
  <svg
@@ -94,7 +94,7 @@ export function ExtendablePlatformIllustration({ className = "" }: IllustrationP
  return (
  <Image
  src={platform.src}
- alt="SectorCalc platform flow — sector inputs, calculators, decision engine and business outcomes"
+ alt="SectorCalc platform flow - sector inputs, calculators, decision engine and business outcomes"
  width={platform.width}
  height={platform.height}
  unoptimized

@@ -3,14 +3,14 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
   id: "cash-flow-gap-analyzer", legacyPaidSlug: "cash-flow-gap-analyzer",
   name: "Cash Flow Gap Analysis", name_i18n: {"en":"Cash Flow Gap Analysis"}, sectorSlug: "financial-planning", category: "measurement",
-  painStatement: "Cash flow gap, DSO/DPO/DIO balance, and cash cycle — if not calculated, liquidity crisis cannot be detected beforehand.", painStatement_i18n: {"en":"Cash flow gap, DSO/DPO/DIO balance, and cash cycle — if not calculated, liquidity crisis cannot be detected beforehand."},
+  painStatement: "Cash flow gap, DSO/DPO/DIO balance, and cash cycle - if not calculated, liquidity crisis cannot be detected beforehand.", painStatement_i18n: {"en":"Cash flow gap, DSO/DPO/DIO balance, and cash cycle - if not calculated, liquidity crisis cannot be detected beforehand."},
   inputs: [
     {
       id: "annualCOGS",
       label: "Annual C O G S",
       label_i18n: { en: "Annual C O G S" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label: "Annual Revenue",
       label_i18n: { en: "Annual Revenue" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -28,7 +28,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label: "Tax Payment",
       label_i18n: { en: "Tax Payment" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -37,7 +37,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label: "Operating Expenses",
       label_i18n: { en: "Operating Expenses" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -46,7 +46,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label: "Payroll",
       label_i18n: { en: "Payroll" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -55,7 +55,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label: "Other Income",
       label_i18n: { en: "Other Income" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -78,7 +78,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
     { id: "dio", label: "DIO (Inventory Gun Duration)", label_i18n: {"en":"DIO (Inventory Gun Duration)"}, unit: "days", format: "number" },
     { id: "cashConversionCycle", label: "cash Donusum Dongusu", label_i18n: {"en":"cash Donusum Dongusu"}, unit: "days", format: "number" },
   ],
-  thresholds: [{ fieldId: "cashGap", warning: 20000, critical: 50000, direction: "higher_is_bad", warningMessage: "Cash gap > $20K — evaluate credit line or factoring.", warningMessage_i18n: {"en":"Cash gap > $20K — evaluate credit line or factoring."}, criticalMessage: "Cash gap > $50K — urgent cash management action needed.", criticalMessage_i18n: {"en":"Cash gap > $50K — urgent cash management action needed."} }],
+  thresholds: [{ fieldId: "cashGap", warning: 20000, critical: 50000, direction: "higher_is_bad", warningMessage: "Cash gap > $20K - evaluate credit line or factoring.", warningMessage_i18n: {"en":"Cash gap > $20K - evaluate credit line or factoring."}, criticalMessage: "Cash gap > $50K - urgent cash management action needed.", criticalMessage_i18n: {"en":"Cash gap > $50K - urgent cash management action needed."} }],
   formulaPipeline: [
     { formulaId: "measurement.cash_inflow", inputMap: {
         salesRevenue: "monthlyRevenue"

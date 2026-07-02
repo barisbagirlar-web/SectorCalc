@@ -170,7 +170,7 @@ function buildFreeToolContract(slug: string): SemanticToolContract | null {
       ? revenue.freeResultIds.map((resultId) => ({
           key: resultId,
           label: fillLocaleRecord(() => resultId),
-          description: fillLocaleRecord((locale) => `${title[locale]} — ${resultId}`),
+          description: fillLocaleRecord((locale) => `${title[locale]} - ${resultId}`),
         }))
       : [buildDefaultOutput(title)];
 

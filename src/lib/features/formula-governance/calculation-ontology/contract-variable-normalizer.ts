@@ -1,5 +1,5 @@
 /**
- * Contract variable normalization — FormulaContract fields → ontology variable standard (Phase 5H-B-3).
+ * Contract variable normalization - FormulaContract fields → ontology variable standard (Phase 5H-B-3).
  */
 
 import type { FormulaContract } from "@/lib/features/formula-governance/types";
@@ -231,9 +231,9 @@ export function normalizeContractInputsToVariables(
     const isCritical = contract.criticalInputs.includes(inputKey);
 
     if (dimensionMeta.ambiguous) {
-      warnings.push(`Input "${id}" has ambiguous dimension (currency vs percent) — manual review required.`);
+      warnings.push(`Input "${id}" has ambiguous dimension (currency vs percent) - manual review required.`);
     } else if (dimensionMeta.inferred && dimensionMeta.dimension === "dimensionless") {
-      warnings.push(`Input "${id}" has no inferred unit/dimension — manual ontology review required.`);
+      warnings.push(`Input "${id}" has no inferred unit/dimension - manual ontology review required.`);
     }
 
     return {

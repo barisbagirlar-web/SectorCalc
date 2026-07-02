@@ -1,5 +1,5 @@
 /**
- * Controlled patch generator tests — Phase 5I-E.
+ * Controlled patch generator tests - Phase 5I-E.
  */
 
 import { describe, expect, test } from "vitest";
@@ -45,7 +45,7 @@ function buildPlan(overrides: Partial<PatchPlan> & Pick<PatchPlan, "slug" | "pat
   return { ...base, ...overrides };
 }
 
-describe("controlled patch generator — Phase 5I-E", () => {
+describe("controlled patch generator - Phase 5I-E", () => {
   test("metadata_only patch draft is dry_run_ready", () => {
     const draft = buildControlledPatchDraft(
       buildPlan({ slug: "meta-tool", patchType: "metadata_only", status: "needs_metadata", riskLevel: "low" }),

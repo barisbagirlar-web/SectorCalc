@@ -51,7 +51,7 @@ export function LeadFollowUpSlaSection({
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Follow-up SLA</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Lead follow-up delay — based on last update or creation date.
+ Lead follow-up delay - based on last update or creation date.
  </p>
  </div>
 

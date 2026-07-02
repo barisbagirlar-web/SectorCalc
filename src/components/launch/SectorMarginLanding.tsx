@@ -51,7 +51,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
 
  <section className="border-b border-border-subtle bg-white py-12 sm:py-14 sc-section">
  <Container>
- <h2 className="sc-h3">Sector pain — where margin disappears</h2>
+ <h2 className="sc-h3">Sector pain - where margin disappears</h2>
  <ul className="mt-8 grid gap-4 sm:grid-cols-2">
  {config.painPoints.map((point) => (
  <li key={point} className="sc-card text-sm font-medium leading-relaxed text-text-primary">
@@ -79,7 +79,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
  <Container size="narrow">
  <h2 className="sc-h3">Start with a free margin check</h2>
  <p className="mt-4 sc-body-muted">
- Enter structured sector inputs and see visible risk in your browser — no minimum safe
+ Enter structured sector inputs and see visible risk in your browser - no minimum safe
  price or final verdict on the free tier.
  </p>
  <Button href={config.freeToolHref} size="cta" className="mt-6">
@@ -94,7 +94,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
  <div>
  <h2 className="sc-h3">Sample verdict preview</h2>
  <p className="mt-4 sc-body-muted">
- Premium calculators deliver decision-ready reports — not spreadsheet dumps.
+ Premium calculators deliver decision-ready reports - not spreadsheet dumps.
  </p>
  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
  <Button href={SAMPLE_REPORT_HREF} variant="outline" size="md">

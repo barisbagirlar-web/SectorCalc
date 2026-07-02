@@ -1,5 +1,5 @@
 /**
- * Smart form UI bridge adapter — Phase 5H-G-C RenderPlan → UI manifest (no React/UI).
+ * Smart form UI bridge adapter - Phase 5H-G-C RenderPlan → UI manifest (no React/UI).
  */
 
 import type { SmartFormRenderPlan } from "@/lib/features/formula-governance/smart-form-rendering/smart-form-render-types";

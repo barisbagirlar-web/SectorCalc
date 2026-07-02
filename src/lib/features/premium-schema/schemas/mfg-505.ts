@@ -18,8 +18,8 @@ export const DOWNTIME_MINUTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       warning: 180,
       critical: 450,
       direction: "higher_is_bad",
-      warningMessage: "Downtime exposure is material — prioritize root-cause maintenance.",
-      criticalMessage: "Downtime exposure is severe — escalate preventive maintenance budget.",
+      warningMessage: "Downtime exposure is material - prioritize root-cause maintenance.",
+      criticalMessage: "Downtime exposure is severe - escalate preventive maintenance budget.",
     },
   ],
 

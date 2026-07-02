@@ -1,5 +1,5 @@
 /**
- * Optional smart form pilot field expansion gate — Phase 5H-G-F.
+ * Optional smart form pilot field expansion gate - Phase 5H-G-F.
  */
 
 import { THREE_D_PRINT_PILOT_SLUG } from "@/components/tools/smart-form/pilot-calculation-payload";

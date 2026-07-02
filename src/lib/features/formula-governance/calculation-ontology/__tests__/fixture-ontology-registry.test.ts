@@ -1,5 +1,5 @@
 /**
- * Phase 5H-B-6 — fixture ontology registry tests.
+ * Phase 5H-B-6 - fixture ontology registry tests.
  */
 
 import { describe, expect, test } from "vitest";

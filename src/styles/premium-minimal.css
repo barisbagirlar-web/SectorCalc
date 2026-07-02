@@ -1,8 +1,8 @@
 /**
- * Industrial OS — status signals + global input/button rules
+ * Industrial OS - status signals + global input/button rules
  */
 
-/* Header shell — synced with apple-ui manifesto v2 */
+/* Header shell - synced with apple-ui manifesto v2 */
 :root {
   --sc-header-height: 80px;
 }
@@ -19,7 +19,7 @@
   }
 }
 
-/* ── Status signals — report / PDF / badge (dark tones) ── */
+/* ── Status signals - report / PDF / badge (dark tones) ── */
 .status-crit,
 .text-crit-red[data-status],
 [data-status="critical"] {
@@ -93,7 +93,7 @@
   border-radius: 0;
 }
 
-/* ── Inputs — technical gray border, sharp corners (form fields only; not shell locale controls) ── */
+/* ── Inputs - technical gray border, sharp corners (form fields only; not shell locale controls) ── */
 input:not([type="checkbox"]):not([type="radio"]):not(.footer-newsletter__input),
 textarea:not(.footer-newsletter__input),
 select:not(.apple-locale__select) {
@@ -122,7 +122,7 @@ select:not(.apple-locale__select):focus-visible {
   border-color: var(--crit-red, #dc2626) !important;
 }
 
-/* ── Action buttons — orange ONLY for primary CTAs ── */
+/* ── Action buttons - orange ONLY for primary CTAs ── */
 .sc-btn-primary,
 .ind-btn-primary,
 .bf-btn-primary {

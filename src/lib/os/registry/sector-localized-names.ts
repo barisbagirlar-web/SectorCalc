@@ -6,7 +6,7 @@ export type RegistryLocaleKey = "en";
 export type LocalizedSectorName = Partial<Record<RegistryLocaleKey, string>>;
 
 /**
- * Dynamic sector display names — merged over JSON config at parse time.
+ * Dynamic sector display names - merged over JSON config at parse time.
  * Fallback chain: locale → en → config string.
  */
 export const SECTOR_LOCALIZED_NAMES: Record<IndustrialRegistryKey, LocalizedSectorName> = {

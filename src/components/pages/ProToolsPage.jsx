@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * SectorCalc — Pro Tools Page
+ * SectorCalc - Pro Tools Page
  * Drop into: /app/(route)/pro-tools/page.jsx
  *
  * Key fixes implemented:
@@ -21,21 +21,21 @@ import Link from 'next/link';
 
 const PRO_TOOLS_EN = [
   // Manufacturing Cost & Business
-  { slug: 'fx-hedging-stratejisi-forward-option-natural-maliyet-fayda-calculator',        name: 'FX Hedging Strategy — Forward, Option & Natural Cost-Benefit',       sector: 'Finance' },
+  { slug: 'fx-hedging-stratejisi-forward-option-natural-maliyet-fayda-calculator',        name: 'FX Hedging Strategy - Forward, Option & Natural Cost-Benefit',       sector: 'Finance' },
   { slug: 'garanti-ve-iade-karsiligi-optimizasyon-calculator',                             name: 'Warranty & Return Reserve Optimisation',                             sector: 'Finance' },
   { slug: 'isletme-sermayesi-ve-nakit-dongusu-optimizasyon-calculator',                   name: 'Working Capital & Cash Cycle Optimisation',                         sector: 'Finance' },
-  { slug: 'leasing-vs-satin-alma-finansal-karsilastirma-calculator',                      name: 'Leasing vs. Purchase — Financial Comparison',                        sector: 'Finance' },
+  { slug: 'leasing-vs-satin-alma-finansal-karsilastirma-calculator',                      name: 'Leasing vs. Purchase - Financial Comparison',                        sector: 'Finance' },
   { slug: 'musteri-kaybi-churn-ve-kaybedilen-gelir-calculator',                           name: 'Customer Churn & Lost Revenue Model',                                sector: 'Finance' },
   { slug: 'musteri-yasam-boyu-deger-clv-ve-edinme-maliyeti-cac-calculator',               name: 'Customer Lifetime Value (CLV) & Acquisition Cost (CAC)',             sector: 'Finance' },
   { slug: 'satis-kanali-karlilik-karsilastirma-calculator',                               name: 'Sales Channel Profitability Comparison',                             sector: 'Finance' },
   { slug: 'vade-farki-ve-erken-odeme-iskontosu-optimizasyon-calculator',                  name: 'Payment Term Difference & Early Payment Discount Optimisation',       sector: 'Finance' },
   // Quality, SPC & Six Sigma
   { slug: 'alti-sigma-proje-secimi-ve-yatirim-onceliklendirme-calculator',                name: 'Six Sigma Project Selection & Investment Prioritisation',             sector: 'Quality & Six Sigma' },
-  { slug: 'aql-kabul-orneklemesi-risk-ve-maliyet-calculator',                             name: 'AQL Acceptance Sampling — Risk & Cost',                              sector: 'Quality & Six Sigma' },
+  { slug: 'aql-kabul-orneklemesi-risk-ve-maliyet-calculator',                             name: 'AQL Acceptance Sampling - Risk & Cost',                              sector: 'Quality & Six Sigma' },
   { slug: 'cpk-ppk-hata-maliyeti-ppm-calculator',                                        name: 'CPK/PPK Error Cost & PPM',                                           sector: 'Quality & Six Sigma' },
-  { slug: 'fty-rty-haddelenmis-verim-finansal-calculator',                                name: 'FTY/RTY Rolled Throughput Yield — Financial Impact',                  sector: 'Quality & Six Sigma' },
+  { slug: 'fty-rty-haddelenmis-verim-finansal-calculator',                                name: 'FTY/RTY Rolled Throughput Yield - Financial Impact',                  sector: 'Quality & Six Sigma' },
   { slug: 'htea-rpn-skoru-parasal-risk-calculator',                                       name: 'FMEA RPN Score & Monetary Risk',                                     sector: 'Quality & Six Sigma' },
-  { slug: 'msa-gage-r-r-yanlis-karar-maliyet-calculator',                                name: 'MSA Gage R&R — Wrong Decision Cost',                                 sector: 'Quality & Six Sigma' },
+  { slug: 'msa-gage-r-r-yanlis-karar-maliyet-calculator',                                name: 'MSA Gage R&R - Wrong Decision Cost',                                 sector: 'Quality & Six Sigma' },
   { slug: 'spc-sinyal-kacirma-ve-gec-tespit-maliyet-calculator',                         name: 'SPC Signal Miss & Late Detection Cost',                              sector: 'Quality & Six Sigma' },
   { slug: 'taguchi-kalite-kayip-fonksiyonu-calculator',                                   name: 'Taguchi Quality Loss Function',                                      sector: 'Quality & Six Sigma' },
   // Technology, AI & Cloud
@@ -64,39 +64,39 @@ const PRO_TOOLS_EN = [
   { slug: 'tools/premium-schema/3d-printing-support-structure-post-processing-cost-calculator', name: '3D Print Support Structure & Post-Process Cost',                   sector: 'CNC & Additive' },
   { slug: 'tools/premium-schema/3d-printing-batch-optimization-nesting-calculator',    name: '3D Print Batch Optimisation & Nesting',                              sector: 'CNC & Additive' },
   { slug: 'tools/premium-schema/3d-printing-vs-machining-break-even-calculator', name: '3D Print vs. CNC Machining Break-Even',                              sector: 'CNC & Additive' },
-  { slug: 'cnc-takim-yolu-bos-kesim-suresi-calculator',                                  name: 'CNC Tool Path — Air-Cut Time',                                       sector: 'CNC & Additive' },
+  { slug: 'cnc-takim-yolu-bos-kesim-suresi-calculator',                                  name: 'CNC Tool Path - Air-Cut Time',                                       sector: 'CNC & Additive' },
   { slug: 'filament-recine-toz-maliyet-ve-fire-karsilastirma-calculator',                name: 'Filament/Resin/Powder Cost & Waste Comparison',                      sector: 'CNC & Additive' },
   { slug: 'isleme-stratejisi-sure-dagilim-optimizasyon-calculator',                      name: 'Machining Strategy Time Distribution Optimisation',                  sector: 'CNC & Additive' },
   { slug: 'kesme-parametreleri-takim-omru-optimizasyon-calculator',                      name: 'Cutting Parameters & Tool Life Optimisation',                        sector: 'CNC & Additive' },
-  { slug: 'topoloji-optimizasyonu-hafiflik-ve-yakit-tasarrufu-calculator',               name: 'Topology Optimisation — Weight Reduction & Fuel Savings',            sector: 'CNC & Additive' },
+  { slug: 'topoloji-optimizasyonu-hafiflik-ve-yakit-tasarrufu-calculator',               name: 'Topology Optimisation - Weight Reduction & Fuel Savings',            sector: 'CNC & Additive' },
   // Lean & OEE
   { slug: 'tools/premium-schema/5s-audit-score-productivity-loss-cost-calculator',  name: '5S Audit Score & Productivity Loss Cost',                            sector: 'Lean & OEE' },
-  { slug: 'tools/premium-schema/seven-wastes-muda-monetary-cost-calculator',       name: '7 Wastes (Muda) — Monetary Mapping',                                 sector: 'Lean & OEE' },
-  { slug: 'andon-sistemi-durus-ve-tepki-suresi-maliyet-calculator',                     name: 'Andon System — Stoppage & Response Time Cost',                       sector: 'Lean & OEE' },
+  { slug: 'tools/premium-schema/seven-wastes-muda-monetary-cost-calculator',       name: '7 Wastes (Muda) - Monetary Mapping',                                 sector: 'Lean & OEE' },
+  { slug: 'andon-sistemi-durus-ve-tepki-suresi-maliyet-calculator',                     name: 'Andon System - Stoppage & Response Time Cost',                       sector: 'Lean & OEE' },
   { slug: 'kaizen-kazanc-takip-ve-onceliklendirme-calculator',                           name: 'Kaizen Gain Tracking & Prioritisation',                              sector: 'Lean & OEE' },
   { slug: 'kanban-kart-sayisi-ve-supermarket-stok-calculator',                           name: 'Kanban Card Count & Supermarket Stock Level',                        sector: 'Lean & OEE' },
   { slug: 'kapasite-planlama-ve-darbogaz-yatirim-onceliklendirme-calculator',            name: 'Capacity Planning & Bottleneck Investment Prioritisation',           sector: 'Lean & OEE' },
   { slug: 'ogrenme-egrisi-ve-parti-sure-tahmin-calculator',                              name: 'Learning Curve & Batch Time Estimation',                             sector: 'Lean & OEE' },
   { slug: 'poka-yoke-hata-onleme-yatirim-geri-donus-calculator',                        name: 'Poka-Yoke Error Prevention Investment ROI',                          sector: 'Lean & OEE' },
   { slug: 'smed-setup-suresi-ve-ekonomik-parti-calculator',                              name: 'SMED Setup Time & Economic Batch Size',                              sector: 'Lean & OEE' },
-  { slug: 'takt-time-esnek-is-gucu-dalgalanma-maliyet-calculator',                      name: 'Takt Time — Flexible Workforce Fluctuation Cost',                    sector: 'Lean & OEE' },
-  { slug: 'urun-karmasi-karmasiklik-maliyeti-hidden-factory-calculator',                 name: 'Product Mix Complexity Cost — Hidden Factory',                       sector: 'Lean & OEE' },
-  { slug: 'vsm-finansal-donusum-calculator',                                             name: 'Value Stream Map (VSM) — Financial Conversion',                      sector: 'Lean & OEE' },
+  { slug: 'takt-time-esnek-is-gucu-dalgalanma-maliyet-calculator',                      name: 'Takt Time - Flexible Workforce Fluctuation Cost',                    sector: 'Lean & OEE' },
+  { slug: 'urun-karmasi-karmasiklik-maliyeti-hidden-factory-calculator',                 name: 'Product Mix Complexity Cost - Hidden Factory',                       sector: 'Lean & OEE' },
+  { slug: 'vsm-finansal-donusum-calculator',                                             name: 'Value Stream Map (VSM) - Financial Conversion',                      sector: 'Lean & OEE' },
   { slug: 'yamazumi-is-yuku-dengeleme-kayip-calculator',                                 name: 'Yamazumi Workload Balancing Loss',                                   sector: 'Lean & OEE' },
   { slug: 'zaman-etudu-ve-standart-sure-calculator',                                     name: 'Time Study & Standard Time',                                         sector: 'Lean & OEE' },
   // Maintenance
-  { slug: 'kok-neden-analizi-rca-tekrarlayan-ariza-birikimli-maliyet-calculator',        name: 'Root Cause Analysis (RCA) — Cumulative Failure Cost',                sector: 'Maintenance & Reliability' },
+  { slug: 'kok-neden-analizi-rca-tekrarlayan-ariza-birikimli-maliyet-calculator',        name: 'Root Cause Analysis (RCA) - Cumulative Failure Cost',                sector: 'Maintenance & Reliability' },
   { slug: 'koruyucu-bakim-frekansi-ve-maliyet-optimizasyon-calculator',                  name: 'Preventive Maintenance Frequency & Cost Optimisation',               sector: 'Maintenance & Reliability' },
   { slug: 'kritiklik-risk-matrisi-ve-bakim-stratejisi-secim-calculator',                 name: 'Criticality Risk Matrix & Maintenance Strategy Selection',           sector: 'Maintenance & Reliability' },
-  { slug: 'mtbf-mttr-ve-kullanilabilirlik-finansal-calculator',                          name: 'MTBF/MTTR Availability — Financial Impact',                          sector: 'Maintenance & Reliability' },
+  { slug: 'mtbf-mttr-ve-kullanilabilirlik-finansal-calculator',                          name: 'MTBF/MTTR Availability - Financial Impact',                          sector: 'Maintenance & Reliability' },
   { slug: 'spare-parts-stock-level-and-downtime-risk-optimization-calculator',           name: 'Spare Parts Stock Level & Downtime Risk Optimisation',               sector: 'Maintenance & Reliability' },
   // Construction
   { slug: 'beton-karisim-tasarimi-ve-maliyet-optimizasyon-calculator',                   name: 'Concrete Mix Design & Cost Optimisation',                            sector: 'Construction' },
   { slug: 'gecici-isler-ve-santiye-tesisleri-kurulum-maliyet-calculator',                name: 'Temporary Works & Site Facilities Setup Cost',                       sector: 'Construction' },
   { slug: 'hafriyat-ve-dolgu-dengesi-optimizasyon-calculator',                           name: 'Cut & Fill Balance Optimisation',                                    sector: 'Construction' },
   { slug: 'iskele-ve-kalip-kullanim-suresi-optimizasyon-calculator',                     name: 'Scaffolding & Formwork Usage Time Optimisation',                     sector: 'Construction' },
-  { slug: 'kazanilmis-deger-yonetimi-evm-tamamlanma-maliyet-tahmin-calculator',         name: 'Earned Value Management (EVM) — Completion Cost Forecast',           sector: 'Construction' },
-  { slug: 'kritik-yol-cpm-gecikme-cezasi-ve-hizlandirma-optimizasyon-calculator',       name: 'Critical Path (CPM) — Delay Penalty & Acceleration Optimisation',    sector: 'Construction' },
+  { slug: 'kazanilmis-deger-yonetimi-evm-tamamlanma-maliyet-tahmin-calculator',         name: 'Earned Value Management (EVM) - Completion Cost Forecast',           sector: 'Construction' },
+  { slug: 'kritik-yol-cpm-gecikme-cezasi-ve-hizlandirma-optimizasyon-calculator',       name: 'Critical Path (CPM) - Delay Penalty & Acceleration Optimisation',    sector: 'Construction' },
   { slug: 'proje-nakit-akisi-ve-ilerleme-hakedis-optimizasyon-calculator',               name: 'Project Cash Flow & Progress Payment Optimisation',                  sector: 'Construction' },
   // Automation & Digital Factory
   { slug: 'agv-amr-otonom-tasima-geri-donus-calculator',                                 name: 'AGV/AMR Autonomous Transport ROI',                                   sector: 'Automation & Digital Factory' },
@@ -104,14 +104,14 @@ const PRO_TOOLS_EN = [
   { slug: 'dijital-ikiz-vs-fiziksel-deneme-maliyet-calculator',                          name: 'Digital Twin vs. Physical Trial Cost',                               sector: 'Automation & Digital Factory' },
   { slug: 'enerji-izleme-sistemi-yatirim-ve-tasarruf-tahmin-calculator',                 name: 'Energy Monitoring System Investment & Savings Forecast',             sector: 'Automation & Digital Factory' },
   { slug: 'iot-sensor-ve-ongorucu-bakim-yatirim-geri-donus-calculator',                 name: 'IoT Sensor & Predictive Maintenance ROI',                           sector: 'Automation & Digital Factory' },
-  { slug: 'kagitsiz-uretim-dijital-is-emri-yatirim-geri-donus-calculator',               name: 'Paperless Manufacturing — Digital Work Order ROI',                   sector: 'Automation & Digital Factory' },
+  { slug: 'kagitsiz-uretim-dijital-is-emri-yatirim-geri-donus-calculator',               name: 'Paperless Manufacturing - Digital Work Order ROI',                   sector: 'Automation & Digital Factory' },
   // Supply Chain
   { slug: 'asgari-siparis-miktari-moq-ve-stok-tasima-maliyet-denge-calculator',         name: 'MOQ vs. Holding Cost Trade-Off',                                     sector: 'Supply Chain' },
   { slug: 'capraz-sevkiyat-cross-docking-vs-depolama-maliyet-calculator',               name: 'Cross-Docking vs. Storage Cost',                                     sector: 'Supply Chain' },
   { slug: 'depo-yerlesimi-ve-toplama-rotasi-optimizasyon-calculator',                    name: 'Warehouse Layout & Pick Route Optimisation',                         sector: 'Supply Chain' },
-  { slug: 'tasima-modu-toplam-maliyet-ve-risk-calculator',                              name: 'Transport Mode — Total Cost & Risk',                                  sector: 'Supply Chain' },
+  { slug: 'tasima-modu-toplam-maliyet-ve-risk-calculator',                              name: 'Transport Mode - Total Cost & Risk',                                  sector: 'Supply Chain' },
   { slug: 'tedarikci-performans-skor-karti-ve-tco-calculator',                           name: 'Supplier Performance Scorecard & TCO',                               sector: 'Supply Chain' },
-  { slug: 'toplam-sahip-olma-maliyeti-tco-ekipman-karsilastirma-calculator',             name: 'Total Cost of Ownership (TCO) — Equipment Comparison',               sector: 'Supply Chain' },
+  { slug: 'toplam-sahip-olma-maliyeti-tco-ekipman-karsilastirma-calculator',             name: 'Total Cost of Ownership (TCO) - Equipment Comparison',               sector: 'Supply Chain' },
   // Food & Cold Chain
   { slug: 'haccp-kritik-kontrol-noktasi-sapma-maliyet-calculator',                       name: 'HACCP Critical Control Point Deviation Cost',                        sector: 'Food & Cold Chain' },
   { slug: 'raf-omru-ve-fire-optimizasyon-calculator',                                    name: 'Shelf Life & Waste Optimisation',                                    sector: 'Food & Cold Chain' },
@@ -120,7 +120,7 @@ const PRO_TOOLS_EN = [
   // HSE
   { slug: 'ergonomi-ve-kas-iskelet-rahatsizligi-kayip-maliyet-calculator',               name: 'Ergonomic & Musculoskeletal Disorder Loss Cost',                     sector: 'HSE & Risk' },
   { slug: 'isg-yatirimi-ve-risk-azaltma-getiri-calculator',                              name: 'HSE Investment & Risk Reduction ROI',                                sector: 'HSE & Risk' },
-  { slug: 'kaza-maliyeti-dogrudan-ve-dolayli-toplam-kayip-calculator',                  name: 'Accident Cost — Direct & Indirect Total Loss',                       sector: 'HSE & Risk' },
+  { slug: 'kaza-maliyeti-dogrudan-ve-dolayli-toplam-kayip-calculator',                  name: 'Accident Cost - Direct & Indirect Total Loss',                       sector: 'HSE & Risk' },
   // Mechanical & HVAC
   { slug: 'buhar-kapani-steam-trap-kacak-ve-enerji-kayip-calculator',                   name: 'Steam Trap Leak & Energy Loss',                                      sector: 'Mechanical & HVAC' },
   { slug: 'hava-kanali-surtunme-ve-fan-enerji-tuketim-calculator',                      name: 'Duct Friction Loss & Fan Energy Consumption',                        sector: 'Mechanical & HVAC' },
@@ -129,7 +129,7 @@ const PRO_TOOLS_EN = [
   // Workforce & HR
   { slug: 'egitim-yatirimi-ve-verimlilik-artisi-geri-donus-calculator',                  name: 'Training Investment & Productivity Gain ROI',                        sector: 'Workforce & HR' },
   { slug: 'fazla-mesai-vs-yeni-ise-alim-basabas-calculator',                             name: 'Overtime vs. New Hire Break-Even',                                   sector: 'Workforce & HR' },
-  { slug: 'isten-ayrilma-turnover-toplam-maliyet-calculator',                            name: 'Employee Turnover — Total Cost',                                     sector: 'Workforce & HR' },
+  { slug: 'isten-ayrilma-turnover-toplam-maliyet-calculator',                            name: 'Employee Turnover - Total Cost',                                     sector: 'Workforce & HR' },
   { slug: 'vardiya-sistemi-2-li-3-lu-maliyet-ve-verimlilik-calculator',                 name: '2-Shift vs. 3-Shift Cost & Productivity',                            sector: 'Workforce & HR' },
 ];
 

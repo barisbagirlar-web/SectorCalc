@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable */
-// @ts-nocheck — Schema draft test (locked engine)
+// @ts-nocheck - Schema draft test (locked engine)
 
 import { describe, expect, test } from "vitest";
 import {

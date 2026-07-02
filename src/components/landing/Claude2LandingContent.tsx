@@ -35,12 +35,12 @@ export function Claude2LandingContent() {
   const recovery = annualLoss * 0.833;
   const roi = annualLoss > 0 ? Math.round(annualLoss / 1900) : 0;
 
-  /* Progress — Zeigarnik effect */
+  /* Progress - Zeigarnik effect */
   const filled = (prod > 0 ? 20 : 0) + (scrapRate > 0 ? 20 : 0) + (unitCost > 0 ? 20 : 0);
   const pct = Math.min(40 + filled, 100);
   const remaining = Math.max(0, Math.round((100 - pct) / 20));
 
-  /* Countdown ticker — end of month UTC */
+  /* Countdown ticker - end of month UTC */
   useEffect(() => {
     function tick() {
       const now = new Date();
@@ -272,7 +272,7 @@ export function Claude2LandingContent() {
               <div className="cl2-result-metric">
                 <div className="cl2-result-label">{t("calc.resultRoi")}</div>
                 <div className="cl2-result-val" style={{ color: "var(--cl2-terra-dark)" }}>
-                  {roi > 0 ? `${roi}x` : "—"}
+                  {roi > 0 ? `${roi}x` : "-"}
                 </div>
               </div>
             </div>
@@ -342,7 +342,7 @@ export function Claude2LandingContent() {
             &ldquo;{t("social.quoteText")}&rdquo;
           </p>
           <div style={{ fontSize: 12, color: "var(--cl2-ink-muted)", fontWeight: 600 }}>
-            — {t("social.quoteAuthor")}
+            - {t("social.quoteAuthor")}
           </div>
         </div>
       </section>

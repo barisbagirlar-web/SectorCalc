@@ -43,10 +43,10 @@ interface LeadDetailDrawerProps {
 
 function displayValue(value: string | number | undefined): string {
  if (value === undefined || value === null) {
- return "—";
+ return "-";
  }
  if (typeof value === "string" && !value.trim()) {
- return "—";
+ return "-";
  }
  return String(value);
 }

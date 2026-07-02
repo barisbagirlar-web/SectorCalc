@@ -74,7 +74,7 @@ export function AccountReportsPageContent() {
  </h1>
  <p className="mt-4 max-w-3xl text-sm leading-relaxed text-text-secondary">
  Saved reports are linked to your account. Single Verdict purchases unlock
- one premium calculator — run it and save the report here.
+ one premium calculator - run it and save the report here.
  </p>
  </Container>
  </section>

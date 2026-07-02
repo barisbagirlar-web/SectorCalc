@@ -1,5 +1,5 @@
 /**
- * Contract requirement runner — contract → draft → compile → solve → audit (Phase 5H-B-3).
+ * Contract requirement runner - contract → draft → compile → solve → audit (Phase 5H-B-3).
  */
 
 import { buildOntologyDraftFromFormulaContract } from "@/lib/features/formula-governance/calculation-ontology/contract-ontology-bridge";

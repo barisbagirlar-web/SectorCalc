@@ -1,5 +1,5 @@
 /**
- * Deploy ready gate — Phase 5I-G state only; deploy command always disabled.
+ * Deploy ready gate - Phase 5I-G state only; deploy command always disabled.
  */
 
 import { resolveEffectiveApprovalStatus, validateHumanApprovalRecord } from "@/lib/features/formula-governance/tool-factory-orchestrator/human-approval/human-approval-gate";

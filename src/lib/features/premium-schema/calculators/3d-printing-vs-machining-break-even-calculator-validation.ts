@@ -68,7 +68,7 @@ function collectInputErrors(inputs: ThreeBPrintingVsMachiningBreakevenInputs): s
 function collectWarnings(inputs: ThreeBPrintingVsMachiningBreakevenInputs): string[] {
   const warnings: string[] = [];
   if (inputs.printingUnitCost >= inputs.machiningUnitCost && inputs.printingSetupCost >= inputs.machiningSetupCost) {
-    warnings.push("3D printing is more expensive on both fixed and variable cost — check setup assumptions.");
+    warnings.push("3D printing is more expensive on both fixed and variable cost - check setup assumptions.");
   }
   return warnings;
 }

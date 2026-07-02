@@ -1,5 +1,5 @@
 /**
- * check-credits.test.ts — industrial validation of Firestore credit billing.
+ * check-credits.test.ts - industrial validation of Firestore credit billing.
  *
  * Coverage:
  * - Empty userId rejection

@@ -10,7 +10,7 @@ export const PROJECT_OVERRUN_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Budget At Completion",
       label_i18n: { en: "Budget At Completion" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -33,7 +33,7 @@ export const PROJECT_OVERRUN_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "mitigationCost", label: "Mitigation Cost", label_i18n: {"en":"Mitigation Cost"}, unit: "USD", format: "currency" },
     { id: "netRisk", label: "Net Risk", label_i18n: {"en":"Net Risk"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "cpi", warning: 0.95, critical: 0.85, direction: "lower_is_bad", warningMessage: "CPI < 0.95 — cost overrun signal.", warningMessage_i18n: {"en":"CPI < 0.95 — cost overrun signal."}, criticalMessage: "CPI < 0.85 — urgent cost corrective action.", criticalMessage_i18n: {"en":"CPI < 0.85 — urgent cost corrective action."} }],
+  thresholds: [{ fieldId: "cpi", warning: 0.95, critical: 0.85, direction: "lower_is_bad", warningMessage: "CPI < 0.95 - cost overrun signal.", warningMessage_i18n: {"en":"CPI < 0.95 - cost overrun signal."}, criticalMessage: "CPI < 0.85 - urgent cost corrective action.", criticalMessage_i18n: {"en":"CPI < 0.85 - urgent cost corrective action."} }],
   formulaPipeline: [
     { formulaId: "measurement.spi", inputMap: { earnedValue: "earnedValue", plannedValue: "plannedValue" }, outputId: "spi" },
     { formulaId: "measurement.cpi", inputMap: { earnedValue: "earnedValue", actualCost: "actualCost" }, outputId: "cpi" },

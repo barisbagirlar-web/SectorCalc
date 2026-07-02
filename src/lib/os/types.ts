@@ -1,12 +1,12 @@
 /**
- * Manufacturing OS — industry tool schema types.
+ * Manufacturing OS - industry tool schema types.
  *
  * Declarative sector modules: risk variables, variance formulas,
  * loss metrics and threshold-based verdict interpretation.
  * Complements MarginCore stochastic engine (`margincore-engine.ts`).
  */
 
-/** Supported verticals — extend as sectors ship. */
+/** Supported verticals - extend as sectors ship. */
 export type ManufacturingIndustry =
  | "cnc"
  | "agriculture"
@@ -49,7 +49,7 @@ export interface IndustryToolInputParam {
 export interface IndustryToolFormulas {
  /** Variance expression, e.g. "(actual - target) / target" */
  variance: string;
- /** Loss metric expression — currency or hours lost */
+ /** Loss metric expression - currency or hours lost */
  lossMetric: string;
 }
 
@@ -74,10 +74,10 @@ export interface IndustryToolSchema {
  /** Dynamic risk variables per sector */
  inputs: IndustryToolInputParam[];
 
- /** Analytic engine — variance + loss unit */
+ /** Analytic engine - variance + loss unit */
  formulas: IndustryToolFormulas;
 
- /** Premium reporting — threshold → verdict → advice */
+ /** Premium reporting - threshold → verdict → advice */
  interpretationRules: IndustryInterpretationRules;
 }
 

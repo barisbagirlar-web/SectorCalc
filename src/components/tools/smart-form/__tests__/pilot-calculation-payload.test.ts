@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-E — pilot calculation payload tests.
+ * Phase 5H-G-E - pilot calculation payload tests.
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";

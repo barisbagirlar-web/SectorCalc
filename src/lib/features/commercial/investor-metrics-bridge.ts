@@ -1,5 +1,5 @@
 /**
- * Bridge governance metrics into product pages — Phase 6A read-only.
+ * Bridge governance metrics into product pages - Phase 6A read-only.
  * SSR-safe: no filesystem scans (Cloud Run cwd lacks src/ tree).
  */
 

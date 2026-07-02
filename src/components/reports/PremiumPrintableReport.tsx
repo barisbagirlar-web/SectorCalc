@@ -31,7 +31,7 @@ interface PrintLabels {
 
 const PRINT_LABELS: Record<string, PrintLabels> = {
   en: {
-    sampleBanner: "Sample report — unlock the full decision report to export without this label.",
+    sampleBanner: "Sample report - unlock the full decision report to export without this label.",
     generated: "Generated",
     sector: "Sector",
     executiveSummary: "Executive Summary",
@@ -53,7 +53,7 @@ const PRINT_LABELS: Record<string, PrintLabels> = {
   },
   de: {
     sampleBanner:
-      "Musterbericht — schalten Sie den vollständigen Entscheidungsbericht frei, um ohne dieses Label zu exportieren.",
+      "Musterbericht - schalten Sie den vollständigen Entscheidungsbericht frei, um ohne dieses Label zu exportieren.",
     generated: "Erstellt",
     sector: "Branche",
     executiveSummary: "Management-Zusammenfassung",
@@ -75,7 +75,7 @@ const PRINT_LABELS: Record<string, PrintLabels> = {
   },
   fr: {
     sampleBanner:
-      "Rapport échantillon — débloquez le rapport de décision complet pour exporter sans ce label.",
+      "Rapport échantillon - débloquez le rapport de décision complet pour exporter sans ce label.",
     generated: "Généré",
     sector: "Secteur",
     executiveSummary: "Résumé Exécutif",
@@ -97,7 +97,7 @@ const PRINT_LABELS: Record<string, PrintLabels> = {
   },
   es: {
     sampleBanner:
-      "Informe de muestra — desbloquee el informe de decisión completo para exportar sin esta etiqueta.",
+      "Informe de muestra - desbloquee el informe de decisión completo para exportar sin esta etiqueta.",
     generated: "Generado",
     sector: "Sector",
     executiveSummary: "Resumen Ejecutivo",
@@ -119,7 +119,7 @@ const PRINT_LABELS: Record<string, PrintLabels> = {
   },
   ar: {
     sampleBanner:
-      "تقرير عينة — قم بإلغاء قفل تقرير القرار الكامل للتصدير بدون هذه العلامة.",
+      "تقرير عينة - قم بإلغاء قفل تقرير القرار الكامل للتصدير بدون هذه العلامة.",
     generated: "تم الإنشاء",
     sector: "القطاع",
     executiveSummary: "الملخص التنفيذي",
@@ -191,7 +191,7 @@ export function PremiumPrintableReport({
           {labels.generated} {generatedLabel} · {labels.sector}: {payload.sectorSlug}
         </p>
         <p className="sc-print-report__simulation-notice">
-          Technical decision-support simulation — not financial, legal, medical or engineering advice.
+          Technical decision-support simulation - not financial, legal, medical or engineering advice.
         </p>
       </header>
 

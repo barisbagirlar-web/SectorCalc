@@ -251,7 +251,7 @@ function inferPipelineChangedFields(entry: PipelineActivityEntry): string[] {
 
 export function formatChangedFieldsLabel(changedFields: string[]): string {
  if (changedFields.length === 0) {
- return "—";
+ return "-";
  }
 
  const labels: Record<string, string> = {

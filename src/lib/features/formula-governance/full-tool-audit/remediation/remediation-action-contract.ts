@@ -1,5 +1,5 @@
 /**
- * Remediation action contract — Phase 5I-D immutable safety rules.
+ * Remediation action contract - Phase 5I-D immutable safety rules.
  */
 
 import { GLOBAL_FORBIDDEN_FILES } from "@/lib/features/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-diff-contract";

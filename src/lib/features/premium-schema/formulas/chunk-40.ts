@@ -72,7 +72,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.muda_waste_cost_2",
     family: "cost",
-    label: "Muda Atik Maliyet — Transport",
+    label: "Muda Atik Maliyet - Transport",
     fn: (inputs) => {
     const transportDistance = num(inputs, "transportDistance");
     const costPerMeter = num(inputs, "costPerMeter");
@@ -83,7 +83,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.muda_waste_cost_3",
     family: "cost",
-    label: "Muda Atik Maliyet — Overprocessing",
+    label: "Muda Atik Maliyet - Overprocessing",
     fn: (inputs) => {
     const actualTime = num(inputs, "actualTime");
     const standardTime = num(inputs, "standardTime");
@@ -94,7 +94,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.muda_waste_cost_4",
     family: "cost",
-    label: "Muda Atik Maliyet — Inventory",
+    label: "Muda Atik Maliyet - Inventory",
     fn: (inputs) => {
     const excessInventory = num(inputs, "excessInventory");
     const holdingCostRate = num(inputs, "holdingCostRate");
@@ -105,7 +105,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.muda_waste_cost_5",
     family: "cost",
-    label: "Muda Atik Maliyet — Motion",
+    label: "Muda Atik Maliyet - Motion",
     fn: (inputs) => {
     const unnecessaryMotionTime = num(inputs, "unnecessaryMotionTime");
     const laborRate = num(inputs, "laborRate");
@@ -115,7 +115,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.muda_waste_cost_6",
     family: "cost",
-    label: "Muda Atik Maliyet — Defects",
+    label: "Muda Atik Maliyet - Defects",
     fn: (inputs) => {
     const defectUnits = num(inputs, "defectUnits");
     const materialCost = num(inputs, "materialCost");
@@ -126,7 +126,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.muda_waste_cost_7",
     family: "cost",
-    label: "Muda Atik Maliyet — TotalMudaCost",
+    label: "Muda Atik Maliyet - TotalMudaCost",
     fn: (inputs) => {
     const overproduction = num(inputs, "overproduction");
     const waiting = num(inputs, "waiting");
@@ -143,7 +143,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_0",
     family: "cost",
-    label: "Nakit Akisi Acigi — CashInflow",
+    label: "Nakit Akisi Acigi - CashInflow",
     fn: (inputs) => {
     const receipts = num(inputs, "receipts");
     const t = num(inputs, "t");
@@ -154,7 +154,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_1",
     family: "cost",
-    label: "Nakit Akisi Acigi — CashOutflow",
+    label: "Nakit Akisi Acigi - CashOutflow",
     fn: (inputs) => {
     const payments = num(inputs, "payments");
     const t = num(inputs, "t");
@@ -165,7 +165,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_2",
     family: "cost",
-    label: "Nakit Akisi Acigi — NetCashFlow_t",
+    label: "Nakit Akisi Acigi - NetCashFlow_t",
     fn: (inputs) => {
     const cashInflow = num(inputs, "cashInflow");
     const t = num(inputs, "t");
@@ -178,7 +178,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_3",
     family: "cost",
-    label: "Nakit Akisi Acigi — CumulativeCashFlow",
+    label: "Nakit Akisi Acigi - CumulativeCashFlow",
     fn: (inputs) => {
     const netCashFlow = num(inputs, "netCashFlow");
     const t = num(inputs, "t");
@@ -189,7 +189,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_4",
     family: "cost",
-    label: "Nakit Akisi Acigi — CashGap",
+    label: "Nakit Akisi Acigi - CashGap",
     fn: (inputs) => {
     const cumulativeCashFlow = num(inputs, "cumulativeCashFlow");
     const max = num(inputs, "max") || 0;
@@ -200,7 +200,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_5",
     family: "cost",
-    label: "Nakit Akisi Acigi — DSO",
+    label: "Nakit Akisi Acigi - DSO",
     fn: (inputs) => {
     const accountsReceivable = num(inputs, "accountsReceivable");
     const totalCreditSales = num(inputs, "totalCreditSales");
@@ -211,7 +211,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_6",
     family: "cost",
-    label: "Nakit Akisi Acigi — DPO",
+    label: "Nakit Akisi Acigi - DPO",
     fn: (inputs) => {
     const accountsPayable = num(inputs, "accountsPayable");
     const totalCreditPurchases = num(inputs, "totalCreditPurchases");
@@ -222,7 +222,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_7",
     family: "cost",
-    label: "Nakit Akisi Acigi — DIO",
+    label: "Nakit Akisi Acigi - DIO",
     fn: (inputs) => {
     const inventory = num(inputs, "inventory");
     const cOGS = num(inputs, "cOGS");
@@ -233,7 +233,7 @@ export const CHUNK_40_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_8",
     family: "cost",
-    label: "Nakit Akisi Acigi — CashConversionCycle",
+    label: "Nakit Akisi Acigi - CashConversionCycle",
     fn: (inputs) => {
     const dSO = num(inputs, "dSO");
     const dIO = num(inputs, "dIO");

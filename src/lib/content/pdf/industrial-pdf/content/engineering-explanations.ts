@@ -16,10 +16,10 @@ const DEFAULT_EXPLANATION_EN: PdfEngineeringExplanation = {
   methodology:
     "This analysis applies a deterministic calculation methodology based on user-provided input parameters and sector-standard reference data. The computational model uses first-principles engineering formulas where applicable, supplemented by empirical correlations derived from industry practice. All intermediate variables are explicitly computed and validated against physical and economic boundary conditions before final aggregation. The result is reported as a point estimate with implicit sensitivity to input variance.",
   standards: [
-    "ISO 9001:2015 — Quality management systems — requirements for measurement traceability",
-    "ISO 31000:2018 — Risk management — guidelines for decision-support analysis",
-    "IEC 60300-3-3 — Dependability management — life cycle costing",
-    "ASME B89.7.2 — Dimensional measurement planning",
+    "ISO 9001:2015 - Quality management systems - requirements for measurement traceability",
+    "ISO 31000:2018 - Risk management - guidelines for decision-support analysis",
+    "IEC 60300-3-3 - Dependability management - life cycle costing",
+    "ASME B89.7.2 - Dimensional measurement planning",
   ],
   formulaDescription:
     "The calculation engine evaluates the target variable through a composition of primitive functions, each validated against documented tolerance limits. Results are computed in IEEE 754 double-precision arithmetic with explicit guards against division by zero, overflow, and domain errors. Unit consistency is enforced via dimensional analysis at each step.",
@@ -37,10 +37,10 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Cost estimation follows a bottom-up parametric model, decomposing the total expenditure into direct material, direct labor, overhead, and risk-adjusted contingency components. Each cost element is computed from user-specified quantities and unit rates, cross-checked against sector-specific cost indices published by RSMeans, Gardiner & Theobald, or equivalent regional authorities. Contingency allocation applies a Monte Carlo–calibrated P90 confidence factor derived from historical cost variance distributions.",
       standards: [
-        "ISO 15686-5:2017 — Buildings and constructed assets — service-life planning — life-cycle costing",
-        "AACE International RP 17R-97 — Cost estimate classification system",
-        "ISO 15686 — Building costs — planning and management",
-        "PMBOK Guide 7th ed. — Project cost management",
+        "ISO 15686-5:2017 - Buildings and constructed assets - service-life planning - life-cycle costing",
+        "AACE International RP 17R-97 - Cost estimate classification system",
+        "ISO 15686 - Building costs - planning and management",
+        "PMBOK Guide 7th ed. - Project cost management",
       ],
       formulaDescription:
         "Total cost = Σ (material quantity × unit price) + Σ (labor hours × hourly rate) + overhead allocation + risk contingency. The contingency factor is computed as a function of input uncertainty bandwidth and historical sector volatility. Cost escalation indices are applied for multi-period projections.",
@@ -56,11 +56,11 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Measurement analysis applies statistical quality control principles per ISO 5725 and the Guide to the Expression of Uncertainty in Measurement (GUM). The measurement system is characterized by its accuracy (trueness and precision), resolution, and reproducibility. Uncertainty is propagated through the measurement chain using root-sum-square (RSS) combination of Type A (statistical) and Type B (systematic) uncertainty components. The expanded uncertainty is reported at a 95% confidence level (k=2 coverage factor).",
       standards: [
-        "ISO/IEC Guide 98-3:2008 — Uncertainty of measurement — GUM",
-        "ISO 5725:1994 — Accuracy of measurement methods and results",
-        "ISO 10012:2003 — Measurement management systems",
-        "ASME B89.7.2 — Dimensional measurement planning",
-        "EA-4/02 M:2022 — Expression of uncertainty in calibration",
+        "ISO/IEC Guide 98-3:2008 - Uncertainty of measurement - GUM",
+        "ISO 5725:1994 - Accuracy of measurement methods and results",
+        "ISO 10012:2003 - Measurement management systems",
+        "ASME B89.7.2 - Dimensional measurement planning",
+        "EA-4/02 M:2022 - Expression of uncertainty in calibration",
       ],
       formulaDescription:
         "Combined standard uncertainty u_c = √(Σ u_i²) where u_i represents each individual uncertainty component. Expanded uncertainty U = k × u_c with coverage factor k = 2 for 95% confidence. Measurement capability index Cg = (Tolerance) / (6 × σ_measurement).",
@@ -76,10 +76,10 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Scrap and material loss analysis follows the DMAIC (Define-Measure-Analyze-Improve-Control) framework of Six Sigma. The defect rate is modeled as a Poisson process with the observed defect count normalized to defects per million opportunities (DPMO). Process sigma level is computed from DPMO using the standard normal inverse cumulative distribution function. Material cost impact is calculated by multiplying defect quantity by unit material cost, including rework labor, inspection overhead, and disposal cost.",
       standards: [
-        "ISO 13053:2011 — Six Sigma — methodology and implementation",
-        "ASQ Six Sigma Body of Knowledge — Measurement system analysis",
-        "AIAG PPAP 4th ed. — Production Part Approval Process",
-        "IATF 16949:2016 — Automotive quality management",
+        "ISO 13053:2011 - Six Sigma - methodology and implementation",
+        "ASQ Six Sigma Body of Knowledge - Measurement system analysis",
+        "AIAG PPAP 4th ed. - Production Part Approval Process",
+        "IATF 16949:2016 - Automotive quality management",
       ],
       formulaDescription:
         "DPMO = (defects × 1,000,000) / (units × opportunities per unit). Sigma level = Φ⁻¹(1 - DPMO/1,000,000) + 1.5 (short-term to long-term shift). Material loss cost = Σ (defect quantity × unit cost + rework hours × hourly rate + disposal cost per unit × defect quantity).",
@@ -96,10 +96,10 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Overall Equipment Effectiveness (OEE) is computed according to the SEMI E10 / ISO 22400-1 standard for manufacturing performance measurement. OEE decomposes into three multiplicative components: Availability (actual runtime / planned production time), Performance (actual throughput / theoretical maximum throughput), and Quality (good units produced / total units produced). Each loss category is traced to its root cause through the Six Big Losses framework: equipment failure, setup/adjustment, idling/minor stops, reduced speed, process defects, and reduced yield.",
       standards: [
-        "ISO 22400-1:2014 — Manufacturing operations management — OEE key performance indicators",
-        "SEMI E10 — Specification for definition and measurement of equipment reliability, availability, and maintainability",
-        "VDMA 66412-1 — Manufacturing execution systems — KPIs",
-        "ANSI ISA-95 — Enterprise-control system integration",
+        "ISO 22400-1:2014 - Manufacturing operations management - OEE key performance indicators",
+        "SEMI E10 - Specification for definition and measurement of equipment reliability, availability, and maintainability",
+        "VDMA 66412-1 - Manufacturing execution systems - KPIs",
+        "ANSI ISA-95 - Enterprise-control system integration",
       ],
       formulaDescription:
         "OEE = Availability × Performance × Quality × 100%. Availability = Operating Time / Planned Production Time. Performance = (Ideal Cycle Time × Total Parts Produced) / Operating Time. Quality = Good Parts Produced / Total Parts Produced. Each component maps to specific loss categories under the Six Big Loss taxonomy.",
@@ -115,11 +115,11 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Energy analysis applies the ISO 50001 energy management framework with computation of specific energy consumption (SEC), energy intensity, and cost impact. Baseline energy consumption is established using the CUSUM (cumulative sum) method per ISO 50006:2014. Energy performance indicators (EnPIs) are normalized for production volume, weather, and other relevant variables. Avoided energy cost is calculated by comparing actual consumption against the baseline adjusted for activity levels.",
       standards: [
-        "ISO 50001:2018 — Energy management systems",
-        "ISO 50006:2014 — Energy baseline and energy performance indicators",
-        "ISO 50015:2014 — Energy performance measurement and verification",
-        "IPMVP Volume I — International Performance Measurement and Verification Protocol",
-        "EN 16231:2012 — Energy efficiency benchmarking methodology",
+        "ISO 50001:2018 - Energy management systems",
+        "ISO 50006:2014 - Energy baseline and energy performance indicators",
+        "ISO 50015:2014 - Energy performance measurement and verification",
+        "IPMVP Volume I - International Performance Measurement and Verification Protocol",
+        "EN 16231:2012 - Energy efficiency benchmarking methodology",
       ],
       formulaDescription:
         "SEC = Total Energy Consumed (kWh) / Production Output (units or tonnes). Energy Cost = SEC × Production Volume × Unit Energy Price. Avoided Energy = Baseline Adjusted Energy - Actual Energy. CO₂ emissions = Energy Consumption × Grid Emission Factor (kgCO₂eq/kWh).",
@@ -135,10 +135,10 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Time analysis follows the principles of predetermined motion time systems (PMTS) and work measurement per international standards. Standard time is computed as: Normal Time × (1 + Allowance Factor). Normal time is derived from direct observation (time study), predetermined times (MTM, MOST, MODAPTS), or historical data. Allowance factors account for personal needs, fatigue, and unavoidable delays per ILO (International Labour Organization) guidelines.",
       standards: [
-        "ISO 9001:2015 — Clause 7.1.3 — Infrastructure for process measurement",
-        "ILO — Introduction to Work Study (4th edition)",
-        "MTM-1, MTM-2, MTM-UAS — Methods-Time Measurement association standards",
-        "ANSI Z94.0 — Industrial engineering terminology",
+        "ISO 9001:2015 - Clause 7.1.3 - Infrastructure for process measurement",
+        "ILO - Introduction to Work Study (4th edition)",
+        "MTM-1, MTM-2, MTM-UAS - Methods-Time Measurement association standards",
+        "ANSI Z94.0 - Industrial engineering terminology",
       ],
       formulaDescription:
         "Standard Time = Observed Time × Performance Rating × (1 + Allowance Percentage). Performance rating applies the Westinghouse system (skill, effort, conditions, consistency) or 100% rating method. Allowance percentages follow ILO guidelines: personal 5-7%, fatigue 4-8%, delay 2-4% depending on work classification.",
@@ -154,10 +154,10 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Carbon footprint analysis follows the GHG Protocol Corporate Accounting and Reporting Standard (Scope 1, 2, and 3) with ISO 14064-1:2018 verification framework. Scope 1 covers direct emissions from owned sources. Scope 2 covers indirect emissions from purchased electricity, steam, heating, and cooling. Scope 3 covers all other indirect emissions in the value chain. Emission factors are sourced from IPCC Guidelines, DEFRA, EPA, and IEA databases.",
       standards: [
-        "ISO 14064-1:2018 — Greenhouse gas accounting at organizational level",
-        "GHG Protocol — Corporate Accounting and Reporting Standard",
-        "ISO 14067:2018 — Carbon footprint of products",
-        "PAS 2050:2011 — Specification for GHG life cycle assessment",
+        "ISO 14064-1:2018 - Greenhouse gas accounting at organizational level",
+        "GHG Protocol - Corporate Accounting and Reporting Standard",
+        "ISO 14067:2018 - Carbon footprint of products",
+        "PAS 2050:2011 - Specification for GHG life cycle assessment",
         "IPCC Guidelines for National GHG Inventories",
       ],
       formulaDescription:
@@ -174,10 +174,10 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Route and logistics analysis applies operations research principles for transportation optimization and cost minimization. The model evaluates the travelling salesman problem (TSP) and vehicle routing problem (VRP) heuristics including nearest neighbor, savings algorithm (Clarke-Wright), and sweep algorithm. Distance cost is computed using the Haversine formula for great-circle distance, adjusted for road network tortuosity factors. Time cost includes driving hours, regulatory rest periods, and loading/unloading delays.",
       standards: [
-        "ISO 28000:2022 — Security and resilience in supply chains",
-        "EN 16803:2016 — Intelligent transport systems",
-        "SCOR Model — Supply Chain Operations Reference model (ASCM)",
-        "ISO 5053 — Warehouse management systems",
+        "ISO 28000:2022 - Security and resilience in supply chains",
+        "EN 16803:2016 - Intelligent transport systems",
+        "SCOR Model - Supply Chain Operations Reference model (ASCM)",
+        "ISO 5053 - Warehouse management systems",
       ],
       formulaDescription:
         "Total Logistics Cost = Distance Cost + Time Cost + Fuel Cost + Toll Cost + Driver Cost. Distance cost = route distance × cost per km. Time cost = duration × hourly operating cost. Fuel cost = distance × consumption rate × fuel price. A route optimization factor (actual / optimal route distance ratio) quantifies routing efficiency.",
@@ -193,10 +193,10 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Benchmarking follows the ISO 20690 methodology for comparative performance assessment. The model computes percentile rankings against a sector-specific reference distribution. z-scores indicate the number of standard deviations from the sector mean. The performance gap is quantified as the difference between current performance and the target benchmark (median or top-quartile). Statistical significance of gaps is assessed using confidence intervals at the 95% level.",
       standards: [
-        "ISO 20690:2018 — Benchmarking methodology",
-        "EFQM Excellence Model 2020 — Performance assessment framework",
-        "APQC Process Classification Framework — Cross-industry benchmarking",
-        "DIN EN 16231:2012 — Energy efficiency benchmarking",
+        "ISO 20690:2018 - Benchmarking methodology",
+        "EFQM Excellence Model 2020 - Performance assessment framework",
+        "APQC Process Classification Framework - Cross-industry benchmarking",
+        "DIN EN 16231:2012 - Energy efficiency benchmarking",
       ],
       formulaDescription:
         "z-score = (Current Value - Sector Mean) / Sector Standard Deviation. Percentile Rank = Φ(z) × 100. Performance Gap = Target Benchmark - Current Performance. Minimum statistical significance threshold: |z| > 1.96 (95% confidence).",
@@ -212,11 +212,11 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       methodology:
         "Calibration analysis follows ISO/IEC 17025:2017 laboratory quality management principles and the GUM uncertainty framework. The calibration interval optimization model uses the risk-based approach from ILAC-G24:2022. Drift assessment applies linear regression to historical calibration data with Mandel's h and k consistency statistics for inter-laboratory comparison. Decision rules conform to ILAC-G8:2019 with guard bands calibrated to the 95% confidence level.",
       standards: [
-        "ISO/IEC 17025:2017 — General requirements for laboratory competence",
-        "ILAC-G24:2022 — Determination of calibration intervals",
-        "ILAC-G8:2019 — Decision rules and guard bands",
-        "ISO 10012:2003 — Measurement management systems",
-        "EA-4/02 M:2022 — Expression of uncertainty in calibration",
+        "ISO/IEC 17025:2017 - General requirements for laboratory competence",
+        "ILAC-G24:2022 - Determination of calibration intervals",
+        "ILAC-G8:2019 - Decision rules and guard bands",
+        "ISO 10012:2003 - Measurement management systems",
+        "EA-4/02 M:2022 - Expression of uncertainty in calibration",
       ],
       formulaDescription:
         "Calibration Interval = Base Interval × Drift Rate Factor × Risk Factor. Decision Rule: Accept if (measured value + U) ≤ tolerance limit (ILAC-G8 simple acceptance). Guard band width = (Tolerance - |measured value - nominal|) / U. Risk of false acceptance = Φ(-guard band).",
@@ -295,9 +295,9 @@ export function getDefaultEngineeringExplanation(locale: SupportedLocale): PdfEn
     ...DEFAULT_EXPLANATION_EN,
     methodology: "Bu analiz, kullanici tarafindan saglanan girdi parametrelerine ve sektor standart referans verilerine dayali deterministik bir calculation metodolojisi uygular.",
     standards: [
-      "ISO 9001:2015 — Kalite yonetim sistemleri",
-      "ISO 31000:2018 — Risk yonetimi",
-      "ASME B89.7.2 — Boyutsal olcum planlamasi",
+      "ISO 9001:2015 - Kalite yonetim sistemleri",
+      "ISO 31000:2018 - Risk yonetimi",
+      "ASME B89.7.2 - Boyutsal olcum planlamasi",
     ],
     formulaDescription: "Calculation motoru, hedef degiskeni, belgelenmis tolerans sinirlarina karsi dogrulanmis ilkel fonksiyonlarin bir bilesimi yoluyla valuelendirir.",
     interpretationGuide: "Birincil cikti, belirtilen girdi kosullari altinda en iyi tahmin sonucunu temsil eder.",

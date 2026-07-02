@@ -20,9 +20,9 @@ export const LOGISTICS_FUEL_ROUTE_DRIFT_SCHEMA: PremiumCalculatorSchema = {
       critical: 8,
       direction: "higher_is_bad",
       warningMessage:
-        "Idle hours are above plan — route sequencing or loading windows may need adjustment.",
+        "Idle hours are above plan - route sequencing or loading windows may need adjustment.",
       criticalMessage:
-        "Critical idle exposure — fuel and labor drift may erase route margin.",
+        "Critical idle exposure - fuel and labor drift may erase route margin.",
     },
   ],
 

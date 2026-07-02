@@ -24,7 +24,7 @@ export const BOTTLENECK_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
     { id: "roi", label: "Yatrm ROI", label_i18n: {"en":"Yatrm ROI"}, unit: "%", format: "percentage" },
     { id: "paybackMonths", label: "Payback Period", label_i18n: {"en":"Payback Period"}, unit: "months", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "roi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < 50% — Investment alternatives should be evaluated.", warningMessage_i18n: {"en":"ROI < 50% — Investment alternatives should be evaluated."}, criticalMessage: "ROI < 20% — Investment feasibility is weak.", criticalMessage_i18n: {"en":"ROI < 20% — Investment feasibility is weak."} }],
+  thresholds: [{ fieldId: "roi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < 50% - Investment alternatives should be evaluated.", warningMessage_i18n: {"en":"ROI < 50% - Investment alternatives should be evaluated."}, criticalMessage: "ROI < 20% - Investment feasibility is weak.", criticalMessage_i18n: {"en":"ROI < 20% - Investment feasibility is weak."} }],
   formulaPipeline: [
     { formulaId: "measurement.bottleneck_throughput", inputMap: { demand: "demand", defectRate: "defectRate" }, outputId: "measurement_bottleneck_throughput_out" },
     { formulaId: "measurement.bottleneck_util", inputMap: { actualOutput: "actualOutput", designCapacity: "designCapacity" }, outputId: "utilization" },

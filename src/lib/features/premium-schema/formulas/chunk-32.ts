@@ -72,7 +72,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_strength_3",
     family: "cost",
-    label: "Kaynak Mukavemeti — MaxLoad_Shear",
+    label: "Kaynak Mukavemeti - MaxLoad_Shear",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const Shear = num(inputs, "Shear");
@@ -84,7 +84,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_strength_4",
     family: "cost",
-    label: "Kaynak Mukavemeti — SafetyFactor",
+    label: "Kaynak Mukavemeti - SafetyFactor",
     fn: (inputs) => {
     const maxLoad = num(inputs, "maxLoad");
     const Shear = num(inputs, "Shear");
@@ -96,7 +96,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_strength_5",
     family: "cost",
-    label: "Kaynak Mukavemeti — BendingStress",
+    label: "Kaynak Mukavemeti - BendingStress",
     fn: (inputs) => {
     const appliedMoment = num(inputs, "appliedMoment");
     const throatThickness = num(inputs, "throatThickness");
@@ -107,7 +107,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_strength_6",
     family: "cost",
-    label: "Kaynak Mukavemeti — CombinedStress",
+    label: "Kaynak Mukavemeti - CombinedStress",
     fn: (inputs) => {
     const shearStress = num(inputs, "shearStress");
     const bendingStress = num(inputs, "bendingStress");
@@ -120,7 +120,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_0",
     family: "cost",
-    label: "Kesim Parameters Takim omru — ToolLife_T",
+    label: "Kesim Parameters Takim omru - ToolLife_T",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const v = num(inputs, "v");
@@ -138,7 +138,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_1",
     family: "cost",
-    label: "Kesim Parameters Takim omru — TaylorExponent_n",
+    label: "Kesim Parameters Takim omru - TaylorExponent_n",
     fn: (inputs) => {
     const t1 = num(inputs, "t1");
     const t2 = num(inputs, "t2");
@@ -151,7 +151,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_2",
     family: "cost",
-    label: "Kesim Parameters Takim omru — CostPerPart_Tool",
+    label: "Kesim Parameters Takim omru - CostPerPart_Tool",
     fn: (inputs) => {
     const toolCost = num(inputs, "toolCost");
     const edges = num(inputs, "edges");
@@ -163,7 +163,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_3",
     family: "cost",
-    label: "Kesim Parameters Takim omru — OptimalToolLife_Cost",
+    label: "Kesim Parameters Takim omru - OptimalToolLife_Cost",
     fn: (inputs) => {
     const n = num(inputs, "n");
     const toolChangeTime = num(inputs, "toolChangeTime");
@@ -176,7 +176,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_4",
     family: "cost",
-    label: "Kesim Parameters Takim omru — Optimal_Vc",
+    label: "Kesim Parameters Takim omru - Optimal_Vc",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const optimalToolLife = num(inputs, "optimalToolLife");
@@ -189,7 +189,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_5",
     family: "cost",
-    label: "Kesim Parameters Takim omru — ProductionRate",
+    label: "Kesim Parameters Takim omru - ProductionRate",
     fn: (inputs) => {
     const machiningTime = num(inputs, "machiningTime");
     const toolLife = num(inputs, "toolLife");
@@ -202,7 +202,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cut_fill_balance_0",
     family: "cost",
-    label: "Kesme-Dolgu Denge — Volume_Cut",
+    label: "Kesme-Dolgu Denge - Volume_Cut",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const Cut = num(inputs, "Cut");
@@ -216,7 +216,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cut_fill_balance_1",
     family: "cost",
-    label: "Kesme-Dolgu Denge — Volume_Fill",
+    label: "Kesme-Dolgu Denge - Volume_Fill",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const Fill = num(inputs, "Fill");
@@ -230,7 +230,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cut_fill_balance_2",
     family: "cost",
-    label: "Kesme-Dolgu Denge — ShrinkageFactor",
+    label: "Kesme-Dolgu Denge - ShrinkageFactor",
     fn: (inputs) => {
     const compactedVolume = num(inputs, "compactedVolume");
     const looseVolume = num(inputs, "looseVolume");
@@ -240,7 +240,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cut_fill_balance_3",
     family: "cost",
-    label: "Kesme-Dolgu Denge — SwellFactor",
+    label: "Kesme-Dolgu Denge - SwellFactor",
     fn: (inputs) => {
     const looseVolume = num(inputs, "looseVolume");
     const bankVolume = num(inputs, "bankVolume");
@@ -250,7 +250,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cut_fill_balance_4",
     family: "cost",
-    label: "Kesme-Dolgu Denge — NetBalance",
+    label: "Kesme-Dolgu Denge - NetBalance",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const Cut = num(inputs, "Cut");

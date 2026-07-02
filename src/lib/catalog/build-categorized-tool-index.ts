@@ -19,7 +19,7 @@ import { getRevenueToolByFreeSlug } from "@/lib/features/tools/revenue-tools";
 import { getPremium152Tools } from "@/lib/features/premium/premium-152-seed-reader";
 import { SUPPORTED_LOCALES } from "@/lib/infrastructure/i18n/locale-config";
 
-/** Premium 152 batch 1 — schema-backed routes with verified trust chain. */
+/** Premium 152 batch 1 - schema-backed routes with verified trust chain. */
 const PREMIUM_152_ACTIVE_BATCH_SLUGS: ReadonlySet<string> = new Set([
   "3d-printing-support-structure-post-processing-cost-calculator",
   "3d-printing-batch-optimization-nesting-calculator",
@@ -90,7 +90,7 @@ function resolveCategorySlugForSlug(
   tier: "free" | "premium",
   source: CategorizedToolSource,
 ): GlobalToolCategorySlug {
-  // Check manual overrides FIRST — these are expert-reviewed, highest authority
+  // Check manual overrides FIRST - these are expert-reviewed, highest authority
   const manual = MANUAL_CATEGORY_OVERRIDES[slug];
   if (manual) {
     return manual;
@@ -295,7 +295,7 @@ export function getUncategorizedToolCount(): number {
   ).length;
 }
 
-/** @deprecated Kept for import stability — canonical lists are validated at build time. */
+/** @deprecated Kept for import stability - canonical lists are validated at build time. */
 export function listCanonicalFreeSlugs(): readonly string[] {
   return CANONICAL_FREE_SLUGS;
 }

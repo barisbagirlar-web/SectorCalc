@@ -1,4 +1,4 @@
-// LOCKED — DO NOT MODIFY without explicit user approval.
+// LOCKED - DO NOT MODIFY without explicit user approval.
 // Trace tool catalog: sadece bu listedeki araclari oner. Hayali arac uretme.
 
 import "server-only";

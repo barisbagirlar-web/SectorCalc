@@ -1,5 +1,5 @@
 /**
- * Approved Reports & Validation Stamp types — P4
+ * Approved Reports & Validation Stamp types - P4
  * End-user facing approved report with calculation hash and public verification support.
  */
 

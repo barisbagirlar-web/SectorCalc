@@ -1,5 +1,5 @@
 /**
- * Patch plan risk classifier — Phase 5I-B deterministic risk scoring.
+ * Patch plan risk classifier - Phase 5I-B deterministic risk scoring.
  */
 
 import type { FullToolAuditItem } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

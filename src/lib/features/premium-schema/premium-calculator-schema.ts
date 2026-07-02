@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable */
-// @ts-nocheck — Premium Schema types (locked type system)
+// @ts-nocheck - Premium Schema types (locked type system)
 
 /**
- * SectorCalc Premium Schema Engine v1 — schema types.
+ * SectorCalc Premium Schema Engine v1 - schema types.
  *
  * Architecture contract:
  * - Dynamic UI renders; never calculates.
- * - Schema defines inputs, thresholds, report — NO expressions.
+ * - Schema defines inputs, thresholds, report - NO expressions.
  * - Safe Formula Registry executes typed functions by formulaId.
  * - Schema Linter validates before build.
  */
@@ -41,7 +41,7 @@ export type ExportFormat = "pdf" | "excel" | "csv";
 export interface PremiumInputSchema {
   readonly id: string;
   readonly label: string;
-  /** Optional 6-locale label map (en, tr, de, fr, es, ar) — falls back to label */
+  /** Optional 6-locale label map (en, tr, de, fr, es, ar) - falls back to label */
   readonly label_i18n?: Readonly<Record<string, string>>;
   readonly type: PremiumInputType;
   readonly unit: string;
@@ -58,7 +58,7 @@ export interface PremiumInputSchema {
     readonly step?: number;
   };
   readonly helper?: string;
-  /** Optional 6-locale helper map (en, tr, de, fr, es, ar) — falls back to helper */
+  /** Optional 6-locale helper map (en, tr, de, fr, es, ar) - falls back to helper */
   readonly helper_i18n?: Readonly<Record<string, string>>;
   readonly expertMeaning?: string;
   /** Optional 6-locale expertMeaning map */
@@ -110,7 +110,7 @@ export interface SectorAssumptionPack {
   readonly volatilityPercent: number;
   readonly targetMarginPercent: number;
   readonly assumptionNotes: readonly string[];
-  /** Optional 6-locale assumption notes array — parallel to assumptionNotes */
+  /** Optional 6-locale assumption notes array - parallel to assumptionNotes */
   readonly assumptionNotes_i18n?: readonly Readonly<Record<string, string>>[];
 }
 

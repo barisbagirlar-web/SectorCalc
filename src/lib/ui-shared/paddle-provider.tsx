@@ -89,7 +89,7 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
     script.crossOrigin = 'anonymous'
     script.onload = initPaddle
     script.onerror = () => {
-      console.warn('[PaddleProvider] Failed to load Paddle script — payment features unavailable.')
+      console.warn('[PaddleProvider] Failed to load Paddle script - payment features unavailable.')
     }
     document.head.appendChild(script)
   }, [])
@@ -137,7 +137,7 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
                   paddleRef.current = Paddle
                   setReady(true)
                 } else {
-                  console.warn('[PaddleProvider] Initialize rejected — payment unavailable:', msg)
+                  console.warn('[PaddleProvider] Initialize rejected - payment unavailable:', msg)
                 }
               })
           } else {
@@ -147,7 +147,7 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
             setReady(true)
           }
         } catch (innerErr) {
-          console.warn('[PaddleProvider] Initialize call threw — payment unavailable:', String(innerErr))
+          console.warn('[PaddleProvider] Initialize call threw - payment unavailable:', String(innerErr))
         }
       } else if (typeof Paddle.Setup === 'function') {
         try {
@@ -159,7 +159,7 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
         console.warn('[PaddleProvider] No Initialize or Setup method found on Paddle object.')
       }
     } catch (error) {
-      console.warn('[PaddleProvider] Initialization failed — payment unavailable:', String(error))
+      console.warn('[PaddleProvider] Initialization failed - payment unavailable:', String(error))
       // Fail gracefully, ready stays false
     }
   }
@@ -173,7 +173,7 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
 
       // CRITICAL SAFETY CHECK: successUrl in overlay mode causes Paddle 500 error
       if (opts.settings?.displayMode === 'overlay' && opts.settings?.successUrl) {
-        console.warn("[PaddleProvider] 'successUrl' invalid in 'overlay' mode — stripping to prevent crash.")
+        console.warn("[PaddleProvider] 'successUrl' invalid in 'overlay' mode - stripping to prevent crash.")
         delete opts.settings.successUrl
       }
 

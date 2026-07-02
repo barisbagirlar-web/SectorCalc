@@ -1,5 +1,5 @@
 /**
- * Release proof score tests — deterministic SYSTEM_APPROVABLE / BLOCKED verdict.
+ * Release proof score tests - deterministic SYSTEM_APPROVABLE / BLOCKED verdict.
  */
 
 import { describe, expect, test } from "vitest";

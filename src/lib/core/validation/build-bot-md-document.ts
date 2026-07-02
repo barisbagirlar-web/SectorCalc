@@ -63,7 +63,7 @@ function formatInputRows(
         ? `\n  - ${tApiPublic(locale, "constraintContext")}: ${display.helper}`
         : "";
 
-      return `- **${input.id}** — ${display.label}${unitText} (${input.type})${constraintText}${contextText}`;
+      return `- **${input.id}** - ${display.label}${unitText} (${input.type})${constraintText}${contextText}`;
     })
     .join("\n");
 }
@@ -144,6 +144,6 @@ ${localeVariants}
 ## ${tApiPublic(locale, "botUsageNote")}
 
 ---
-SectorCalc — ${SITE_URL}
+SectorCalc - ${SITE_URL}
 `;
 }

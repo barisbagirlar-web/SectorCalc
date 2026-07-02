@@ -8,7 +8,7 @@ import { useCallback, useLayoutEffect, useRef, useState } from "react";
  *
  * @param options.minPx   Hard floor (default 0.5rem ≈ 8px)
  * @param options.stepPx  Decrement step (default 1px)
- * @returns               [ref, ready] — attach ref to the text element, use `ready` to avoid FOUC
+ * @returns               [ref, ready] - attach ref to the text element, use `ready` to avoid FOUC
  */
 export function useFitText({ minPx = 8, stepPx = 1 }: { minPx?: number; stepPx?: number } = {}) {
   const ref = useRef<HTMLElement | null>(null);

@@ -1,6 +1,6 @@
 /**
  * CNC Cutting Dynamics & Spindle Power Tool Schema
- * PRO_043 — Schema-driven definition for CNC calculator
+ * PRO_043 - Schema-driven definition for CNC calculator
  * Tool selector in old HTML used PRO_043 for CNC
  * Inputs/validation/fmea from UNIVERSAL PRO TOOL FORM.txt
  */
@@ -23,7 +23,7 @@ const INPUTS: ToolSchemaInput[] = [
     note: "Carbide or HSS end mill / face mill",
   },
   {
-    id: "z", name: "Number of Flutes (z)", symbol: "z", unit: "—",
+    id: "z", name: "Number of Flutes (z)", symbol: "z", unit: "-",
     type: "number", required: true, confidence_label: "CERTAIN",
     absolute_min: 1, absolute_max: 24, resolution: 1,
     note: "Effective cutting teeth count",
@@ -62,13 +62,13 @@ const INPUTS: ToolSchemaInput[] = [
     id: "kc1", name: "Specific Cutting Force (k_c1)", symbol: "k_c1", unit: "N/mm²",
     type: "number", required: true, confidence_label: "STRONG",
     absolute_min: 100, absolute_max: 6000, resolution: 1,
-    note: "Kienzle constant — from material preset",
+    note: "Kienzle constant - from material preset",
   },
   {
-    id: "mc", name: "Chip Thickness Exponent (m_c)", symbol: "m_c", unit: "—",
+    id: "mc", name: "Chip Thickness Exponent (m_c)", symbol: "m_c", unit: "-",
     type: "number", required: true, confidence_label: "STRONG",
     absolute_min: 0.05, absolute_max: 0.5, resolution: 0.01,
-    note: "Kienzle exponent — typical 0.14–0.35",
+    note: "Kienzle exponent - typical 0.14–0.35",
   },
   {
     id: "eta", name: "Spindle Efficiency (η)", symbol: "η", unit: "%",
@@ -165,20 +165,20 @@ const cncToolSchema: LegacyToolSchema = {
   standards: STANDARDS,
   inputs: INPUTS,
   formulas: [
-    "n_rpm = (1000 × V_c) / (π × D)   // [RPM] Spindle speed — ISO 3002-1 §4.2",
+    "n_rpm = (1000 × V_c) / (π × D)   // [RPM] Spindle speed - ISO 3002-1 §4.2",
     "n_act = min(n_rpm, n_max)   // [RPM] Actual speed (capped by machine limit)",
     "Vc_act = (n_act × π × D) / 1000   // [m/min] Actual cutting speed after derating",
-    "V_f = f_z × z × n_act   // [mm/min] Table feed rate — ISO 3002-1 §4.4",
-    "h_m = f_z × √(a_e / D)   // [mm] Mean chip thickness — Kienzle-Victor (1957)",
-    "k_c = k_c1 / h_m^m_c   // [N/mm²] Specific cutting force — Kienzle Eq; Sandvik C-2920",
-    "F_c = k_c × a_p × f_z   // [N] Tangential cutting force — ISO 3002-1 §5.2",
-    "P_c,net = (F_c × V_c) / 60 000   // [kW] Net cutting power — ISO 3002-1 §5.3",
+    "V_f = f_z × z × n_act   // [mm/min] Table feed rate - ISO 3002-1 §4.4",
+    "h_m = f_z × √(a_e / D)   // [mm] Mean chip thickness - Kienzle-Victor (1957)",
+    "k_c = k_c1 / h_m^m_c   // [N/mm²] Specific cutting force - Kienzle Eq; Sandvik C-2920",
+    "F_c = k_c × a_p × f_z   // [N] Tangential cutting force - ISO 3002-1 §5.2",
+    "P_c,net = (F_c × V_c) / 60 000   // [kW] Net cutting power - ISO 3002-1 §5.3",
     "P_motor = P_c,net / (η / 100)   // [kW] Required spindle motor power",
     "UC = P_motor / P_machine   // [-] Power utilization ratio",
-    "MRR = (a_p × a_e × V_f) / 1 000   // [cm³/min] Material Removal Rate — ISO 3002-1 §4.5",
-    "R_z = (f_z² / (8 × r_ε)) × 1000   // [μm] Theoretical peak-to-valley roughness — ISO 3002-1 §7",
-    "R_a = R_z / 4.5   // [μm] Arithmetic mean roughness — milling empirical factor",
-    "T_life = (C / V_c)^(1/n)   // [min] Taylor tool life — ISO 3685:1993 §5.2",
+    "MRR = (a_p × a_e × V_f) / 1 000   // [cm³/min] Material Removal Rate - ISO 3002-1 §4.5",
+    "R_z = (f_z² / (8 × r_ε)) × 1000   // [μm] Theoretical peak-to-valley roughness - ISO 3002-1 §7",
+    "R_a = R_z / 4.5   // [μm] Arithmetic mean roughness - milling empirical factor",
+    "T_life = (C / V_c)^(1/n)   // [min] Taylor tool life - ISO 3685:1993 §5.2",
   ],
   validationRules: VALIDATION_RULES,
   fmea: FMEA,

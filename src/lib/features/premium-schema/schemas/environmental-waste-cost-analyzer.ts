@@ -23,7 +23,7 @@ export const ENVIRONMENTAL_WASTE_SCHEMA: PremiumCalculatorSchema = {
   outputs: [
     { id: "totalEnvCost", label: "Total environmental Cost", label_i18n: {"en":"Total environmental Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalEnvCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Environmental Cost > $50K — mitigation program must be initiated.", warningMessage_i18n: {"en":"Environmental Cost > $50K — mitigation program must be initiated."}, criticalMessage: "Cost > $150K — urgent environmental management action.", criticalMessage_i18n: {"en":"Cost > $150K — urgent environmental management action."} }],
+  thresholds: [{ fieldId: "totalEnvCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Environmental Cost > $50K - mitigation program must be initiated.", warningMessage_i18n: {"en":"Environmental Cost > $50K - mitigation program must be initiated."}, criticalMessage: "Cost > $150K - urgent environmental management action.", criticalMessage_i18n: {"en":"Cost > $150K - urgent environmental management action."} }],
   formulaPipeline: [
     { formulaId: "cost.env_fire_disposal", inputMap: {
         waste: "nonHazWaste",

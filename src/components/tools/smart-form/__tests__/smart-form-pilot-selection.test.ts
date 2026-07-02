@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-D — smart form pilot selection tests.
+ * Phase 5H-G-D - smart form pilot selection tests.
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";

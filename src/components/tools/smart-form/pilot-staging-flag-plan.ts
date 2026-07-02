@@ -1,5 +1,5 @@
 /**
- * Smart form pilot staging flag application plan — Phase 5H-G-N.
+ * Smart form pilot staging flag application plan - Phase 5H-G-N.
  * Read-only plan; does not mutate env or deploy config.
  */
 

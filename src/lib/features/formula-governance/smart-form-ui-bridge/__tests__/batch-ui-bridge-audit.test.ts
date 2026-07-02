@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-C — batch UI bridge audit tests.
+ * Phase 5H-G-C - batch UI bridge audit tests.
  */
 
 import { describe, expect, test } from "vitest";

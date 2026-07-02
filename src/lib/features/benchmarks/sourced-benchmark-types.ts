@@ -1,5 +1,5 @@
 /**
- * Sourced sector benchmark data types — no fabricated averages.
+ * Sourced sector benchmark data types - no fabricated averages.
  * Separate from beta-partner benchmark loop types in benchmark-types.ts.
  */
 

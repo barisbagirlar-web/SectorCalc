@@ -1,5 +1,5 @@
 /**
- * Migration patch level classifier — Phase 5H-E read-only planning.
+ * Migration patch level classifier - Phase 5H-E read-only planning.
  */
 
 import type { ToolInputDesignAuditResult } from "@/lib/features/formula-governance/input-design-audit/input-design-audit-types";

@@ -1,5 +1,5 @@
 /**
- * Smart form pilot production deploy decision gate — Phase 5H-G-P.
+ * Smart form pilot production deploy decision gate - Phase 5H-G-P.
  */
 
 import type { SmartFormPilotProductionDeployApproval } from "@/components/tools/smart-form/pilot-production-deploy-approval";

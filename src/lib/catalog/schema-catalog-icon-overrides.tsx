@@ -20,10 +20,10 @@ import {
 
 /**
  * Direct icon overrides for schema sidebar / sector keys on free-tools and catalog grids.
- * Every icon here is globally unique — no overlap with sectors, industry slugs,
+ * Every icon here is globally unique - no overlap with sectors, industry slugs,
  * categories, or homepage maps. These are internal backward-compatibility entries.
  *
- * ECMI / ISO 9001 — zero duplication, deterministic assignment.
+ * ECMI / ISO 9001 - zero duplication, deterministic assignment.
  */
 export const SCHEMA_CATALOG_ICON_OVERRIDES: Readonly<Record<string, LucideIcon>> = {
   "finans-kredi": Banknote,

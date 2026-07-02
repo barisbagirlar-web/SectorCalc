@@ -1,5 +1,5 @@
 /**
- * P6 — Indicative regional benchmark bands.
+ * P6 - Indicative regional benchmark bands.
  *
  * IMPORTANT: These are low-confidence, indicative reference ranges intended for
  * decision support only. They are not official industry statistics and must not
@@ -28,7 +28,7 @@ const GLOBAL_BANDS: Record<BenchmarkMetric, Omit<BenchmarkBand, "region">> = {
   payback_period: { metric: "payback_period", low: 6, mid: 18, high: 36, unit: "months", direction: "lower", sourceNote: INDICATIVE_NOTE, confidence: "low" },
 };
 
-/** Sparse regional overrides — only where a meaningful regional skew is assumed. */
+/** Sparse regional overrides - only where a meaningful regional skew is assumed. */
 const REGIONAL_OVERRIDES: Partial<Record<BenchmarkRegion, Partial<Record<BenchmarkMetric, Partial<Omit<BenchmarkBand, "region" | "metric">>>>>> = {
   tr: {
     energy_intensity: { low: 3, mid: 8, high: 16 },

@@ -1,5 +1,5 @@
 /**
- * Phase 5H-E — migration plan CLI shape tests.
+ * Phase 5H-E - migration plan CLI shape tests.
  */
 
 import { describe, expect, test } from "vitest";

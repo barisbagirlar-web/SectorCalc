@@ -32,7 +32,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     if (this.props.onError) {
       this.props.onError(error, errorInfo);
     } else {
-      console.warn("[ErrorBoundary] Caught an exception — rendering fallback:", error.message);
+      console.warn("[ErrorBoundary] Caught an exception - rendering fallback:", error.message);
     }
   }
 

@@ -1,5 +1,5 @@
 /**
- * Smart form layout planner — Phase 5H-G-B governance layout (no UI components).
+ * Smart form layout planner - Phase 5H-G-B governance layout (no UI components).
  */
 
 import type {

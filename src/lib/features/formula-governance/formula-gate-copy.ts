@@ -14,7 +14,7 @@ export function getFormulaGateReviewTitle(locale: string): string {
   return "This calculator is under quality review. The Formula Gate badge appears only when the live surface is runtime-ready.";
 }
 
-/** @deprecated Use getFormulaGateReviewLabel — kept for catalog meta compatibility */
+/** @deprecated Use getFormulaGateReviewLabel - kept for catalog meta compatibility */
 export function getFormulaGateReviewLabelLegacy(locale: string): string {
   return "Formula Gate review in progress";
 }

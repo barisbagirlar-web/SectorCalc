@@ -1,5 +1,5 @@
 /**
- * Investor demo metrics — Phase 5I-O coverage signals.
+ * Investor demo metrics - Phase 5I-O coverage signals.
  */
 
 import { FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts";

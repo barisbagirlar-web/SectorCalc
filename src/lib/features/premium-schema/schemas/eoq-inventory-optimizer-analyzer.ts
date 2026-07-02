@@ -20,7 +20,7 @@ export const EOQ_INVENTORY_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalInvCost", label: "Total Envanter Cost", label_i18n: {"en":"Total Envanter Cost"}, unit: "USD/year", format: "currency" },
     { id: "inventoryTurnover", label: "Inventory Turnover Rate", label_i18n: {"en":"Inventory Turnover Rate"}, unit: "tur/yil", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalInvCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Cost > $10K — EOQ optimization recommended.", warningMessage_i18n: {"en":"Cost > $10K — EOQ optimization recommended."}, criticalMessage: "Cost > $25K — envanter policy yenilenmeli.", criticalMessage_i18n: {"en":"Cost > $25K — envanter policy yenilenmeli."} }],
+  thresholds: [{ fieldId: "totalInvCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Cost > $10K - EOQ optimization recommended.", warningMessage_i18n: {"en":"Cost > $10K - EOQ optimization recommended."}, criticalMessage: "Cost > $25K - envanter policy yenilenmeli.", criticalMessage_i18n: {"en":"Cost > $25K - envanter policy yenilenmeli."} }],
   formulaPipeline: [
     { formulaId: "cost.eoq", inputMap: { annualDemand: "annualDemand", orderCost: "orderCost", holdingCost: "holdingCost" }, outputId: "eoq" },
     { formulaId: "measurement.eoq_safety_stock", inputMap: {

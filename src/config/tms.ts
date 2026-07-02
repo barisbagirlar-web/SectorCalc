@@ -1,5 +1,5 @@
 /**
- * Translation Management System (TMS) — Lokalise integration flags.
+ * Translation Management System (TMS) - Lokalise integration flags.
  */
 
 export const TMS_PROVIDER = "lokalise" as const;

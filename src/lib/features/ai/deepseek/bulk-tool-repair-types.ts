@@ -1,4 +1,4 @@
-/** ASR-0 — DeepSeek bulk tool repair factory types. */
+/** ASR-0 - DeepSeek bulk tool repair factory types. */
 
 export type BulkRepairPatchType =
   | "i18n_fix"

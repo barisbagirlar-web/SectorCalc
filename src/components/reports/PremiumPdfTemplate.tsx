@@ -205,7 +205,7 @@ function AnalysisTable({ data }: { data: PremiumPdfData }) {
  {
  metric: "Deterministic (naive) cost",
  deterministic: formatPremiumPdfUsd(data.naivePrice),
- p90: "—",
+ p90: "-",
  },
  {
  metric: "P90 risk buffer",
@@ -215,7 +215,7 @@ function AnalysisTable({ data }: { data: PremiumPdfData }) {
  },
  {
  metric: "P90 safe price",
- deterministic: "—",
+ deterministic: "-",
  p90: formatPremiumPdfUsd(data.p90SafePrice),
  },
  ];
@@ -304,7 +304,7 @@ export function PremiumPdfTemplate({ data }: PremiumPdfTemplateProps) {
  <Text style={styles.sectionTitle}>Sensitivity matrix</Text>
  <SensitivityMatrixTable rows={data.matrixRows} />
  <Text style={styles.footnote}>
- Three stress scenarios — material, labor and schedule delay impact on P90 safe
+ Three stress scenarios - material, labor and schedule delay impact on P90 safe
  price.
  </Text>
  </Page>

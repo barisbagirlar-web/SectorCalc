@@ -1,5 +1,5 @@
 /**
- * Investor demo / operating system types — Phase 5I-O data contract only.
+ * Investor demo / operating system types - Phase 5I-O data contract only.
  */
 
 export type InvestorDemoStatus = "investor_demo_ready" | "needs_review" | "blocked";

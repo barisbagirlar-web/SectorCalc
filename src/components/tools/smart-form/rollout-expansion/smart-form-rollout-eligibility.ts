@@ -1,5 +1,5 @@
 /**
- * Smart form rollout expansion eligibility — Phase 5I-H category resolver.
+ * Smart form rollout expansion eligibility - Phase 5I-H category resolver.
  */
 
 import { ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";

@@ -1,5 +1,5 @@
 /**
- * Tool #8 — Auto Shop Marj Kacak (Margin Leak)
+ * Tool #8 - Auto Shop Marj Kacak (Margin Leak)
  * EffectiveLaborRate → NetMargin → AnnualLeakage
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -27,7 +27,7 @@ export const AUTO_SHOP_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "annualLeakage", label: "Annual Margin Kacag", label_i18n: {"en":"Annual Margin Kacag"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "annualLeakage", warning: 30000, critical: 100000, direction: "higher_is_bad", warningMessage: "Annual Leak > $30K — pricing should be reviewed.", warningMessage_i18n: {"en":"Annual Leak > $30K — pricing should be reviewed."}, criticalMessage: "Annual Leak > $100K — urgent Margin improvement program must be initiated.", criticalMessage_i18n: {"en":"Annual Leak > $100K — urgent Margin improvement program must be initiated."} },
+    { fieldId: "annualLeakage", warning: 30000, critical: 100000, direction: "higher_is_bad", warningMessage: "Annual Leak > $30K - pricing should be reviewed.", warningMessage_i18n: {"en":"Annual Leak > $30K - pricing should be reviewed."}, criticalMessage: "Annual Leak > $100K - urgent Margin improvement program must be initiated.", criticalMessage_i18n: {"en":"Annual Leak > $100K - urgent Margin improvement program must be initiated."} },
   ],
   formulaPipeline: [
     { formulaId: "math.add", inputMap: { a: "monthlyPartsRevenue", b: "monthlyLaborRevenue" }, outputId: "totalMonthlyRevenue" },

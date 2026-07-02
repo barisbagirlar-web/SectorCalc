@@ -1,5 +1,5 @@
 /**
- * Smart form production rollout approval — Phase 5I-L default pending.
+ * Smart form production rollout approval - Phase 5I-L default pending.
  */
 
 export const PRODUCTION_ROLLOUT_APPROVED_DEFAULT = false as const;

@@ -1,12 +1,12 @@
 /**
- * P5 — Regional Unit Engine (display + conversion layer).
+ * P5 - Regional Unit Engine (display + conversion layer).
  *
  * Self-contained factor-to-base converter for metric / imperial / regional
  * display. This engine is intentionally decoupled from the live calculation
  * pipeline: it powers the unit selector, conversion trace and regional display
  * surfaces ONLY. It never mutates formula inputs at runtime.
  *
- * Currency is display-only — no FX rates are produced or applied.
+ * Currency is display-only - no FX rates are produced or applied.
  */
 
 export type MeasurementSystem = "metric" | "imperial" | "mixed";
@@ -62,7 +62,7 @@ export type ConversionTraceEntry = {
 };
 
 const DEFINITIONS: readonly UnitDefinition[] = [
-  // length — base m
+  // length - base m
   { id: "mm", label: "Millimeter", symbol: "mm", dimension: "length", system: "metric", canonicalUnitId: "m", toBaseFactor: 0.001 },
   { id: "cm", label: "Centimeter", symbol: "cm", dimension: "length", system: "metric", canonicalUnitId: "m", toBaseFactor: 0.01 },
   { id: "m", label: "Meter", symbol: "m", dimension: "length", system: "metric", canonicalUnitId: "m", toBaseFactor: 1 },
@@ -72,7 +72,7 @@ const DEFINITIONS: readonly UnitDefinition[] = [
   { id: "yd", label: "Yard", symbol: "yd", dimension: "length", system: "imperial", canonicalUnitId: "m", toBaseFactor: 0.9144 },
   { id: "mi", label: "Mile", symbol: "mi", dimension: "length", system: "imperial", canonicalUnitId: "m", toBaseFactor: 1609.344 },
 
-  // area — base m2
+  // area - base m2
   { id: "m2", label: "Square meter", symbol: "m²", dimension: "area", system: "metric", canonicalUnitId: "m2", toBaseFactor: 1 },
   { id: "km2", label: "Square kilometer", symbol: "km²", dimension: "area", system: "metric", canonicalUnitId: "m2", toBaseFactor: 1_000_000 },
   { id: "hectare", label: "Hectare", symbol: "ha", dimension: "area", system: "metric", canonicalUnitId: "m2", toBaseFactor: 10_000 },
@@ -80,7 +80,7 @@ const DEFINITIONS: readonly UnitDefinition[] = [
   { id: "yd2", label: "Square yard", symbol: "yd²", dimension: "area", system: "imperial", canonicalUnitId: "m2", toBaseFactor: 0.83612736 },
   { id: "acre", label: "Acre", symbol: "acre", dimension: "area", system: "imperial", canonicalUnitId: "m2", toBaseFactor: 4046.8564224 },
 
-  // volume — base L
+  // volume - base L
   { id: "ml", label: "Milliliter", symbol: "mL", dimension: "volume", system: "metric", canonicalUnitId: "l", toBaseFactor: 0.001 },
   { id: "l", label: "Liter", symbol: "L", dimension: "volume", system: "metric", canonicalUnitId: "l", toBaseFactor: 1 },
   { id: "m3", label: "Cubic meter", symbol: "m³", dimension: "volume", system: "metric", canonicalUnitId: "l", toBaseFactor: 1000 },
@@ -88,7 +88,7 @@ const DEFINITIONS: readonly UnitDefinition[] = [
   { id: "gal_uk", label: "Gallon (UK)", symbol: "gal (UK)", dimension: "volume", system: "imperial", canonicalUnitId: "l", toBaseFactor: 4.54609 },
   { id: "ft3", label: "Cubic foot", symbol: "ft³", dimension: "volume", system: "imperial", canonicalUnitId: "l", toBaseFactor: 28.316846592 },
 
-  // weight — base kg
+  // weight - base kg
   { id: "g", label: "Gram", symbol: "g", dimension: "weight", system: "metric", canonicalUnitId: "kg", toBaseFactor: 0.001 },
   { id: "kg", label: "Kilogram", symbol: "kg", dimension: "weight", system: "metric", canonicalUnitId: "kg", toBaseFactor: 1 },
   { id: "tonne", label: "Tonne", symbol: "t", dimension: "weight", system: "metric", canonicalUnitId: "kg", toBaseFactor: 1000 },
@@ -96,37 +96,37 @@ const DEFINITIONS: readonly UnitDefinition[] = [
   { id: "lb", label: "Pound", symbol: "lb", dimension: "weight", system: "imperial", canonicalUnitId: "kg", toBaseFactor: 0.45359237 },
   { id: "ton_us", label: "Ton (US)", symbol: "ton (US)", dimension: "weight", system: "imperial", canonicalUnitId: "kg", toBaseFactor: 907.18474 },
 
-  // temperature — base celsius (affine)
+  // temperature - base celsius (affine)
   { id: "celsius", label: "Celsius", symbol: "°C", dimension: "temperature", system: "metric", canonicalUnitId: "celsius", toBaseFactor: 1, toBaseOffset: 0 },
   { id: "fahrenheit", label: "Fahrenheit", symbol: "°F", dimension: "temperature", system: "imperial", canonicalUnitId: "celsius", toBaseFactor: 5 / 9, toBaseOffset: -160 / 9 },
 
-  // speed — base m/s
+  // speed - base m/s
   { id: "ms", label: "Meters per second", symbol: "m/s", dimension: "speed", system: "metric", canonicalUnitId: "ms", toBaseFactor: 1 },
   { id: "kmh", label: "Kilometers per hour", symbol: "km/h", dimension: "speed", system: "metric", canonicalUnitId: "ms", toBaseFactor: 1 / 3.6 },
   { id: "mph", label: "Miles per hour", symbol: "mph", dimension: "speed", system: "imperial", canonicalUnitId: "ms", toBaseFactor: 0.44704 },
 
-  // energy — base kWh
+  // energy - base kWh
   { id: "kwh", label: "Kilowatt-hour", symbol: "kWh", dimension: "energy", system: "metric", canonicalUnitId: "kwh", toBaseFactor: 1 },
   { id: "mj", label: "Megajoule", symbol: "MJ", dimension: "energy", system: "metric", canonicalUnitId: "kwh", toBaseFactor: 1 / 3.6 },
   { id: "btu", label: "British thermal unit", symbol: "BTU", dimension: "energy", system: "imperial", canonicalUnitId: "kwh", toBaseFactor: 0.00029307107 },
 
-  // power — base kW
+  // power - base kW
   { id: "kw", label: "Kilowatt", symbol: "kW", dimension: "power", system: "metric", canonicalUnitId: "kw", toBaseFactor: 1 },
   { id: "hp", label: "Horsepower", symbol: "hp", dimension: "power", system: "imperial", canonicalUnitId: "kw", toBaseFactor: 0.745699872 },
   { id: "btu_h", label: "BTU per hour", symbol: "BTU/h", dimension: "power", system: "imperial", canonicalUnitId: "kw", toBaseFactor: 0.00029307107 },
 
-  // time — base hour
+  // time - base hour
   { id: "minute", label: "Minute", symbol: "min", dimension: "time", system: "mixed", canonicalUnitId: "hour", toBaseFactor: 1 / 60 },
   { id: "hour", label: "Hour", symbol: "h", dimension: "time", system: "mixed", canonicalUnitId: "hour", toBaseFactor: 1 },
   { id: "day", label: "Day", symbol: "day", dimension: "time", system: "mixed", canonicalUnitId: "hour", toBaseFactor: 24 },
 
-  // currency — display only (no FX, no conversion)
+  // currency - display only (no FX, no conversion)
   { id: "usd", label: "US Dollar", symbol: "USD", dimension: "currency", system: "mixed", canonicalUnitId: "usd" },
   { id: "eur", label: "Euro", symbol: "EUR", dimension: "currency", system: "mixed", canonicalUnitId: "eur" },
   { id: "gbp", label: "British Pound", symbol: "GBP", dimension: "currency", system: "mixed", canonicalUnitId: "gbp" },
   { id: "try", label: "Turkish Lira", symbol: "TRY", dimension: "currency", system: "mixed", canonicalUnitId: "try" },
 
-  // percentage / count — display only
+  // percentage / count - display only
   { id: "percent", label: "Percent", symbol: "%", dimension: "percentage", system: "mixed", canonicalUnitId: "percent", toBaseFactor: 1 },
   { id: "unit", label: "Unit", symbol: "", dimension: "count", system: "mixed", canonicalUnitId: "unit", toBaseFactor: 1 },
 ];

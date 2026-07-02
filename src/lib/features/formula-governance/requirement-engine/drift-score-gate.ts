@@ -1,5 +1,5 @@
 /**
- * Drift score gate — migration risk thresholds for requirement alignment (Phase 5H-B-6).
+ * Drift score gate - migration risk thresholds for requirement alignment (Phase 5H-B-6).
  */
 
 import type { OntologyAliasMap } from "@/lib/features/formula-governance/calculation-ontology/ontology-alias-types";

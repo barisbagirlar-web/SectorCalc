@@ -58,7 +58,7 @@ export function LeadConversionMetrics({
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Conversion metrics</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Sales funnel and conversion rates — from the loaded lead list (read-only).
+ Sales funnel and conversion rates - from the loaded lead list (read-only).
  </p>
  </div>
 

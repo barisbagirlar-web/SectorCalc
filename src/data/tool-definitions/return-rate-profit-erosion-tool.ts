@@ -9,7 +9,7 @@ export const returnRateProfitErosionToolDefinition: ToolDefinition = {
  shortDescription:
  "Analyze how returns, shipping, platform fees and ad spend erode e-commerce product profit.",
  longDescription:
- "Quantify how return rates, fulfillment costs, marketplace fees and ad spend erode net margin per order — with break-even ad cost, required price for target margin and return-rate scenarios.",
+ "Quantify how return rates, fulfillment costs, marketplace fees and ad spend erode net margin per order - with break-even ad cost, required price for target margin and return-rate scenarios.",
  inputs: [
  {
  id: "sellingPrice",

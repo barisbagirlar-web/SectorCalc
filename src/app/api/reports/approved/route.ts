@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
       b.resultSnapshot && typeof b.resultSnapshot === "object" && !Array.isArray(b.resultSnapshot)
         ? (b.resultSnapshot as Record<string, unknown>)
         : {},
-    // User identity — not required, not enforced server-side here (client may pass if signed in)
+    // User identity - not required, not enforced server-side here (client may pass if signed in)
     userId:
       typeof b.userId === "string" ? b.userId : null,
     userEmail:

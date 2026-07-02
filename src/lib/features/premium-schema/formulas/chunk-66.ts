@@ -72,7 +72,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renewable_energy_irr_3",
     family: "cost",
-    label: "Yenilenebilir Enerji YG — NetCashFlow",
+    label: "Yenilenebilir Enerji YG - NetCashFlow",
     fn: (inputs) => {
     const annualSavings = num(inputs, "annualSavings");
     const annualOPEX = num(inputs, "annualOPEX");
@@ -83,7 +83,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renewable_energy_irr_4",
     family: "cost",
-    label: "Yenilenebilir Enerji YG — PaybackPeriod",
+    label: "Yenilenebilir Enerji YG - PaybackPeriod",
     fn: (inputs) => {
     const totalCapex = num(inputs, "totalCapex");
     const netCashFlow = num(inputs, "netCashFlow");
@@ -93,7 +93,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renewable_energy_irr_5",
     family: "cost",
-    label: "Yenilenebilir Enerji YG — LCOE",
+    label: "Yenilenebilir Enerji YG - LCOE",
     fn: (inputs) => {
     const totalCapex = num(inputs, "totalCapex");
     const oPEX = num(inputs, "oPEX");
@@ -107,7 +107,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renewable_energy_irr_6",
     family: "cost",
-    label: "Yenilenebilir Enerji YG — NPV",
+    label: "Yenilenebilir Enerji YG - NPV",
     fn: (inputs) => {
     const netCashFlow = num(inputs, "netCashFlow");
     const t = num(inputs, "t");
@@ -122,7 +122,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roi_npv_0",
     family: "cost",
-    label: "YG ve NBD — ROI",
+    label: "YG ve NBD - ROI",
     fn: (inputs) => {
     const totalNetProfit = num(inputs, "totalNetProfit");
     const totalInvestment = num(inputs, "totalInvestment");
@@ -132,7 +132,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roi_npv_1",
     family: "cost",
-    label: "YG ve NBD — NPV",
+    label: "YG ve NBD - NPV",
     fn: (inputs) => {
     const cashFlow = num(inputs, "cashFlow");
     const t = num(inputs, "t");
@@ -145,7 +145,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roi_npv_2",
     family: "cost",
-    label: "YG ve NBD — IRR",
+    label: "YG ve NBD - IRR",
     fn: (inputs) => {
     const rate = num(inputs, "rate");
     const where = num(inputs, "where");
@@ -156,7 +156,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roi_npv_3",
     family: "cost",
-    label: "YG ve NBD — PaybackPeriod",
+    label: "YG ve NBD - PaybackPeriod",
     fn: (inputs) => {
     const yearBefore = num(inputs, "yearBefore");
     const unrecoveredCost = num(inputs, "unrecoveredCost");
@@ -168,7 +168,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roi_npv_4",
     family: "cost",
-    label: "YG ve NBD — ProfitabilityIndex",
+    label: "YG ve NBD - ProfitabilityIndex",
     fn: (inputs) => {
     const pV = num(inputs, "pV");
     const FutureCashFlows = num(inputs, "FutureCashFlows");
@@ -180,9 +180,9 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roi_npv_5",
     family: "cost",
-    label: "YG ve NBD — DiscountedPayback",
+    label: "YG ve NBD - DiscountedPayback",
     fn: (inputs) => {
-    return 0; // DiscountedPayback = Year where CumulativeDiscountedCashFlow > 0 — requires iteration
+    return 0; // DiscountedPayback = Year where CumulativeDiscountedCashFlow > 0 - requires iteration
   },
   },
 
@@ -190,7 +190,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_0",
     family: "cost",
-    label: "Zaman Etudu Analizoru — ObservedTime",
+    label: "Zaman Etudu Analizoru - ObservedTime",
     fn: (inputs) => {
     const cycleTimes = num(inputs, "cycleTimes");
     const numberOfCycles = num(inputs, "numberOfCycles");
@@ -200,7 +200,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_1",
     family: "cost",
-    label: "Zaman Etudu Analizoru — NormalTime",
+    label: "Zaman Etudu Analizoru - NormalTime",
     fn: (inputs) => {
     const observedTime = num(inputs, "observedTime");
     const performanceRating = num(inputs, "performanceRating");
@@ -210,7 +210,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_2",
     family: "cost",
-    label: "Zaman Etudu Analizoru — AllowancePct",
+    label: "Zaman Etudu Analizoru - AllowancePct",
     fn: (inputs) => {
     const personal = num(inputs, "personal");
     const fatigue = num(inputs, "fatigue");
@@ -221,7 +221,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_3",
     family: "cost",
-    label: "Zaman Etudu Analizoru — StandardTime",
+    label: "Zaman Etudu Analizoru - StandardTime",
     fn: (inputs) => {
     const normalTime = num(inputs, "normalTime");
     const allowancePct = num(inputs, "allowancePct");
@@ -231,7 +231,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_4",
     family: "cost",
-    label: "Zaman Etudu Analizoru — StandardOutput",
+    label: "Zaman Etudu Analizoru - StandardOutput",
     fn: (inputs) => {
     const shiftDuration = num(inputs, "shiftDuration");
     const standardTime = num(inputs, "standardTime");

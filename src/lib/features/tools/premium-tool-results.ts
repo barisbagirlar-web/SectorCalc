@@ -66,7 +66,7 @@ export function calculatePremiumToolResult(
       verdict: "Review inputs",
       headline: "Analyzer contract not found.",
       primaryMetricLabel: "Result",
-      primaryMetricValue: "—",
+      primaryMetricValue: "-",
       riskDrivers: ["Configuration"],
       suggestedAction: "Contact support if this analyzer should be available.",
       severity: "watch",

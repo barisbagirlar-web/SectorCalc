@@ -18,8 +18,8 @@ export const CBAM_EXPOSURE_QUICK_CHECK_SCHEMA: PremiumCalculatorSchema = {
       warning: 250000,
       critical: 500000,
       direction: "higher_is_bad",
-      warningMessage: "CBAM exposure is elevated — verify certificate price and FX assumptions.",
-      criticalMessage: "Critical exposure band — review embedded emissions data before shipment.",
+      warningMessage: "CBAM exposure is elevated - verify certificate price and FX assumptions.",
+      criticalMessage: "Critical exposure band - review embedded emissions data before shipment.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const CBAM_EXPOSURE_QUICK_CHECK_SCHEMA: PremiumCalculatorSchema = {
     assumptionNotes: [
       "CBAM cost = embeddedEmissionsTon × cbamCertificatePrice × eurTryRate.",
       "Unit CBAM cost = cbamCost ÷ productQuantity.",
-      "Not a CBAM compliance obligation decision — financial exposure preview only.",
+      "Not a CBAM compliance obligation decision - financial exposure preview only.",
     ],
   },
 };

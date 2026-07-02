@@ -21,7 +21,7 @@ export const CPK_PPM_SCHEMA: PremiumCalculatorSchema = {
     { id: "expectedDefectsDaily", label: "Estimated Daily Error", label_i18n: {"en":"Estimated Daily Error"}, unit: "units/day", format: "number", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "cpk", warning: 1.33, critical: 1.0, direction: "lower_is_bad", warningMessage: "Cpk < 1.33 — proses improvement gerekiyor.", warningMessage_i18n: {"en":"Cpk < 1.33 — proses improvement gerekiyor."}, criticalMessage: "Cpk < 1.0 — proses insufficient, urgent aksiyon.", criticalMessage_i18n: {"en":"Cpk < 1.0 — proses insufficient, urgent aksiyon."} },
+    { fieldId: "cpk", warning: 1.33, critical: 1.0, direction: "lower_is_bad", warningMessage: "Cpk < 1.33 - proses improvement gerekiyor.", warningMessage_i18n: {"en":"Cpk < 1.33 - proses improvement gerekiyor."}, criticalMessage: "Cpk < 1.0 - proses insufficient, urgent aksiyon.", criticalMessage_i18n: {"en":"Cpk < 1.0 - proses insufficient, urgent aksiyon."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.cpk_z_usl", inputMap: { usl: "usl", mean: "mean", stdDev: "stdDev" }, outputId: "zUsl" },

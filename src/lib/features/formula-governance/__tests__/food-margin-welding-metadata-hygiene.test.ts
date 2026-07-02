@@ -1,5 +1,5 @@
 /**
- * Phase 5H-D-C — food / margin / welding / sample / HVAC batch metadata hygiene.
+ * Phase 5H-D-C - food / margin / welding / sample / HVAC batch metadata hygiene.
  */
 
 import { describe, expect, test } from "vitest";

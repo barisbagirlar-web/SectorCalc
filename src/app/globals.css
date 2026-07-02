@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Anthropic Kil Palette v1.0 — SectorCalc */
+    /* Anthropic Kil Palette v1.0 - SectorCalc */
     --sc-bg: #f0eee6;
     --sc-surface: #faf9f5;
     --sc-text: #1a1915;
@@ -28,7 +28,7 @@
     --border-technical-gray: var(--sc-border);
     --action-industrial-orange: var(--sc-copper);
 
-    /* Typography stack — serif headings / Inter sans / JetBrains Mono */
+    /* Typography stack - serif headings / Inter sans / JetBrains Mono */
     --font-sans: var(--font-inter);
     --font-heading: Georgia, "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
     --font-mono-os: var(--font-jetbrains);
@@ -154,7 +154,7 @@
 }
 
 @layer components {
-  /* Numeric output — G-code / audit / financial data */
+  /* Numeric output - G-code / audit / financial data */
   .data-value,
   .calculation-result,
   .tabular-data {
@@ -243,7 +243,7 @@
   }
 }
 
-/* RTL — minimal overrides for Arabic locale */
+/* RTL - minimal overrides for Arabic locale */
 [dir="rtl"] .apple-locale__select {
   direction: rtl;
 }

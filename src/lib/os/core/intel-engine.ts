@@ -1,5 +1,5 @@
 /**
- * Intel Engine — anonymous benchmarking layer.
+ * Intel Engine - anonymous benchmarking layer.
  * Raw operational data never leaves; only sector averages are updated.
  */
 
@@ -71,7 +71,7 @@ export function buildBenchmarkFromAudit(
   };
 }
 
-/** Anonymizes data — only sector ID + score + timestamp. */
+/** Anonymizes data - only sector ID + score + timestamp. */
 export function processBenchmarking(data: BenchmarkData): AnonymizedBenchmarkRecord {
   if (!isSectorRegistryKey(data.sectorId)) {
     throw new Error("Invalid sectorId for benchmarking.");

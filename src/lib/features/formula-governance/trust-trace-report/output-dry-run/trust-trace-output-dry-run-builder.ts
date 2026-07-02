@@ -1,5 +1,5 @@
 /**
- * Trust trace output dry-run builder — Phase 5I-M structured sections only.
+ * Trust trace output dry-run builder - Phase 5I-M structured sections only.
  */
 
 import type { TrustTraceReport } from "@/lib/features/formula-governance/trust-trace-report/trust-trace-types";

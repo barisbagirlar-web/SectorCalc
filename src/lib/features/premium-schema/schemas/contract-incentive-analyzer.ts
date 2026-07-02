@@ -1,5 +1,5 @@
 /**
- * Tool — Sozlesme Tesvik
+ * Tool - Sozlesme Tesvik
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CONTRACT_INCENTIVE_ANALYZER: PremiumCalculatorSchema = {
@@ -18,7 +18,7 @@ export const CONTRACT_INCENTIVE_ANALYZER: PremiumCalculatorSchema = {
     { id: "incentiveTargetFee", label: "Hedef Tesvik Rate", label_i18n: {"en":"Hedef Tesvik Rate"}, unit: "USD", format: "currency" },
     { id: "incentiveActualFee", label: "Gerceklesen Tesvik Rate", label_i18n: {"en":"Gerceklesen Tesvik Rate"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "incentiveActualFee", warning: 600000, critical: 300000, direction: "lower_is_bad", warningMessage: "Incentive fee <$600K — contractor motivation may decrease.", warningMessage_i18n: {"en":"Incentive fee <$600K — contractor motivation may decrease."}, criticalMessage: "Incentive fee <$300K — review contract structure.", criticalMessage_i18n: {"en":"Incentive fee <$300K — review contract structure."} }],
+  thresholds: [{ fieldId: "incentiveActualFee", warning: 600000, critical: 300000, direction: "lower_is_bad", warningMessage: "Incentive fee <$600K - contractor motivation may decrease.", warningMessage_i18n: {"en":"Incentive fee <$600K - contractor motivation may decrease."}, criticalMessage: "Incentive fee <$300K - review contract structure.", criticalMessage_i18n: {"en":"Incentive fee <$300K - review contract structure."} }],
   formulaPipeline: [
     { formulaId: "cost.incentive_target_fee", inputMap: {
         targetCost: "targetCost",

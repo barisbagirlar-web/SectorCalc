@@ -1,5 +1,5 @@
 /**
- * Production readiness runner — Phase 5I-P orchestrates all governance audits.
+ * Production readiness runner - Phase 5I-P orchestrates all governance audits.
  */
 
 import { runInvestorDemoAudit } from "@/lib/features/formula-governance/investor-demo/investor-demo-audit";

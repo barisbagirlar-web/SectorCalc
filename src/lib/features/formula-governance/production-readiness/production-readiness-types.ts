@@ -1,5 +1,5 @@
 /**
- * Production readiness master audit types — Phase 5I-P.
+ * Production readiness master audit types - Phase 5I-P.
  */
 
 export type ProductionReadinessAuditResult = {

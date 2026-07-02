@@ -1,11 +1,11 @@
 /**
- * MarginCore Premium Decision Engine — Type Standards (v1.0)
+ * MarginCore Premium Decision Engine - Type Standards (v1.0)
  */
 
 import type { RegionCode } from "@/config/regions";
 
 // ---------------------------------------------------------------------------
-// 1. Risk Profile — injected per-sector into the engine
+// 1. Risk Profile - injected per-sector into the engine
 // ---------------------------------------------------------------------------
 
 /** Sector-specific risk multipliers keyed by cost driver name */
@@ -14,13 +14,13 @@ export type SectorRiskMultipliers = Record<string, number>;
 /**
  * Stochastic + macroeconomic risk parameters for a sector.
  *
- * `baseVolatility` — coefficient of variation (σ/μ) for the sector.
+ * `baseVolatility` - coefficient of variation (σ/μ) for the sector.
  * Typical range 0.05 (stable) → 0.35 (volatile).
- * `sectorRiskMultipliers` — named driver → multiplier map.
+ * `sectorRiskMultipliers` - named driver → multiplier map.
  * e.g. { toolBreakage: 1.12, supplyChain: 1.08 }
- * `cbamExposureIndex` — Carbon Border Adjustment Mechanism exposure.
+ * `cbamExposureIndex` - Carbon Border Adjustment Mechanism exposure.
  * 0 = no exposure, 1 = full EU export exposure.
- * `macroShockVectors` — optional named macro shocks (e.g. oil, labour).
+ * `macroShockVectors` - optional named macro shocks (e.g. oil, labour).
  */
 export interface MarginCoreRiskProfile {
  /** Coefficient of variation for the sector (σ/μ) */
@@ -47,7 +47,7 @@ export interface MacroShockVector {
 }
 
 // ---------------------------------------------------------------------------
-// 2. Sensitivity Matrix — what-if scenarios
+// 2. Sensitivity Matrix - what-if scenarios
 // ---------------------------------------------------------------------------
 
 /** Single row of the sensitivity matrix */
@@ -126,7 +126,7 @@ export interface PremiumVerdict {
 }
 
 // ---------------------------------------------------------------------------
-// 6. Premium Verdict Report — canonical output
+// 6. Premium Verdict Report - canonical output
 // ---------------------------------------------------------------------------
 
 /**
@@ -149,7 +149,7 @@ export interface PremiumVerdictReport {
  /** Naive (base) cost before risk adjustments */
  readonly naiveCost: number;
 
- /** P90 safe price — the minimum price at 90th-percentile confidence */
+ /** P90 safe price - the minimum price at 90th-percentile confidence */
  readonly p90SafePrice: number;
 
  /** Risk buffer amount (p90SafePrice − naiveCost) */
@@ -189,7 +189,7 @@ export interface PremiumVerdictReport {
 }
 
 // ---------------------------------------------------------------------------
-// 7. Engine Input — normalized input bag
+// 7. Engine Input - normalized input bag
 // ---------------------------------------------------------------------------
 
 /** Named numeric inputs from the tool form */

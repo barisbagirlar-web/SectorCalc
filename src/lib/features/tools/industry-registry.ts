@@ -1,5 +1,5 @@
 /**
- * SectorCalc — 27 active industry registry (Revenue Flow multi-sector launch).
+ * SectorCalc - 27 active industry registry (Revenue Flow multi-sector launch).
  * Single source for industry metadata, categories, and additional analyzer copy.
  */
 
@@ -388,7 +388,7 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  },
  {
  slug: "sheet-metal",
- name: "Machine Shop — Sheet Metal",
+ name: "Machine Shop - Sheet Metal",
  category: "heavy-industry",
  description:
  "Check laser cutting time exposure and safe sheet metal quote before you accept low-volume jobs.",

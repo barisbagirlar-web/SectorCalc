@@ -1,6 +1,6 @@
 "use client";
 /**
- * UniversalProToolResults — Schema-driven results panel
+ * UniversalProToolResults - Schema-driven results panel
  * Renders UC gauge, verdict banner, warnings, and result table
  * using exact CSS classes from UNIVERSAL PRO TOOL FORM.txt
  */
@@ -8,7 +8,7 @@
 import type { ToolSchemaOutput } from "@/lib/features/tool-schemas/types";
 
 function fmt(value: any, decimals = 3): string {
-  if (value === null || value === undefined || isNaN(value)) return "—";
+  if (value === null || value === undefined || isNaN(value)) return "-";
   const abs = Math.abs(value);
   if (abs === 0) return "0";
   if (abs >= 1e6) return Number(value).toExponential(2);
@@ -101,7 +101,7 @@ export default function UniversalProToolResults({
       {/* OK banner on pass */}
       {status === "PASS" && warnings.length === 0 && (
         <div className="ok-banner">
-          ✓ Section capacity verified — all utilization ratios within safe limits.
+          ✓ Section capacity verified - all utilization ratios within safe limits.
         </div>
       )}
 
@@ -140,7 +140,7 @@ export default function UniversalProToolResults({
           <div className="verdict-body">
             <div className="verdict-title">
               {status === "PASS" ? "Section Capacity Adequate" :
-               status === "WARN" ? "Marginal — Engineering Review Required" :
+               status === "WARN" ? "Marginal - Engineering Review Required" :
                "Section Capacity INSUFFICIENT"}
             </div>
             <div className="verdict-sub">

@@ -1,6 +1,6 @@
 /**
- * Approved Report Service — create and retrieve approved reports in Firestore
- * Uses Firebase Admin SDK (server-side only — API routes, Cloud Functions).
+ * Approved Report Service - create and retrieve approved reports in Firestore
+ * Uses Firebase Admin SDK (server-side only - API routes, Cloud Functions).
  */
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
 import type { ApprovedReportPayload, CreateApprovedReportInput } from "./types";

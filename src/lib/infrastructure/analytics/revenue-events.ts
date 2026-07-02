@@ -1,5 +1,5 @@
 /**
- * Revenue Flow v1 conversion events — canonical names for GA4/PostHog wiring.
+ * Revenue Flow v1 conversion events - canonical names for GA4/PostHog wiring.
  * No-op sink until analytics provider is connected (no console logging in production).
  */
 

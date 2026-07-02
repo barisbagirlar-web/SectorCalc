@@ -1,5 +1,5 @@
 /**
- * Remediation apply approval — Phase 5I-J human approval invariants.
+ * Remediation apply approval - Phase 5I-J human approval invariants.
  */
 
 import type { HumanApprovalRecord } from "@/lib/features/formula-governance/tool-factory-orchestrator/human-approval/human-approval-types";

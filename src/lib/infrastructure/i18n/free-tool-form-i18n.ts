@@ -13,7 +13,7 @@ type FieldDisplayCopy = {
   readonly helper?: string;
 };
 
-/** UI chrome only — field copy must not read messages.freeToolInputs (legacy override risk). */
+/** UI chrome only - field copy must not read messages.freeToolInputs (legacy override risk). */
 const LOCALE_MESSAGES: Record<string, MessageRecord> = {};
 for (const locale of ["en", "tr", "de", "fr", "es", "ar"]) {
   LOCALE_MESSAGES[locale] = ((staticMessages as unknown as Record<string, Record<string, unknown>>)[locale] ?? {}) as MessageRecord;
@@ -230,7 +230,7 @@ export function localizeRevenueToolInputs(
   return localizeToolInputCopy(slug, locale, inputs);
 }
 
-/** Premium schema + revenue paid inputs — same field i18n pipeline */
+/** Premium schema + revenue paid inputs - same field i18n pipeline */
 export function resolveCalculatorInputDisplay(
   toolSlug: string,
   fieldKey: string,

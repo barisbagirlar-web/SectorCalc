@@ -72,7 +72,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_waste_elimination_2",
     family: "cost",
-    label: "CLOUD FIRE ELIMINATION — SpotSavings",
+    label: "CLOUD FIRE ELIMINATION - SpotSavings",
     fn: (inputs) => {
     const onDemand = num(inputs, "onDemand");
     const spot = num(inputs, "spot");
@@ -83,7 +83,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_waste_elimination_3",
     family: "cost",
-    label: "CLOUD FIRE ELIMINATION — ReservedSavings",
+    label: "CLOUD FIRE ELIMINATION - ReservedSavings",
     fn: (inputs) => {
     const onDemand = num(inputs, "onDemand");
     const reserved = num(inputs, "reserved");
@@ -94,7 +94,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_waste_elimination_4",
     family: "cost",
-    label: "CLOUD FIRE ELIMINATION — IdleHoursCost",
+    label: "CLOUD FIRE ELIMINATION - IdleHoursCost",
     fn: (inputs) => {
     const nonBizHours = num(inputs, "nonBizHours");
     const runningInstances = num(inputs, "runningInstances");
@@ -105,7 +105,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cloud_waste_elimination_5",
     family: "cost",
-    label: "CLOUD FIRE ELIMINATION — TotalWaste",
+    label: "CLOUD FIRE ELIMINATION - TotalWaste",
     fn: (inputs) => {
     const zombie = num(inputs, "zombie");
     const oversizing = num(inputs, "oversizing");
@@ -120,7 +120,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.clv_cac_ratio_0",
     family: "cost",
-    label: "CLV / CAC ORANI — CLV",
+    label: "CLV / CAC ORANI - CLV",
     fn: (inputs) => {
     const avgOrderValue = num(inputs, "avgOrderValue");
     const purchaseFreq = num(inputs, "purchaseFreq");
@@ -131,7 +131,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.clv_cac_ratio_1",
     family: "cost",
-    label: "CLV / CAC ORANI — GrossMarginCLV",
+    label: "CLV / CAC ORANI - GrossMarginCLV",
     fn: (inputs) => {
     const cLV = num(inputs, "cLV");
     const grossMarginPct = num(inputs, "grossMarginPct");
@@ -141,7 +141,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.clv_cac_ratio_2",
     family: "cost",
-    label: "CLV / CAC ORANI — DiscountedCLV",
+    label: "CLV / CAC ORANI - DiscountedCLV",
     fn: (inputs) => {
     const grossMarginCLV = num(inputs, "grossMarginCLV");
     const retention = num(inputs, "retention");
@@ -153,7 +153,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.clv_cac_ratio_3",
     family: "cost",
-    label: "CLV / CAC ORANI — CAC",
+    label: "CLV / CAC ORANI - CAC",
     fn: (inputs) => {
     const salesMarketing = num(inputs, "salesMarketing");
     const salaries = num(inputs, "salaries");
@@ -165,7 +165,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.clv_cac_ratio_4",
     family: "cost",
-    label: "CLV / CAC ORANI — Payback",
+    label: "CLV / CAC ORANI - Payback",
     fn: (inputs) => {
     const cAC = num(inputs, "cAC");
     const avgMonthlyGrossProfit = num(inputs, "avgMonthlyGrossProfit");
@@ -175,7 +175,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.clv_cac_ratio_5",
     family: "cost",
-    label: "CLV / CAC ORANI — LTV_CAC",
+    label: "CLV / CAC ORANI - LTV_CAC",
     fn: (inputs) => {
     const discountedCLV = num(inputs, "discountedCLV");
     const cAC = num(inputs, "cAC");
@@ -187,7 +187,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_0",
     family: "cost",
-    label: "CNC CYCLE TIME — T_cut",
+    label: "CNC CYCLE TIME - T_cut",
     fn: (inputs) => {
     const l = num(inputs, "l");
     const d = num(inputs, "d");
@@ -203,7 +203,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_1",
     family: "cost",
-    label: "CNC CYCLE TIME — V_f",
+    label: "CNC CYCLE TIME - V_f",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const z = num(inputs, "z");
@@ -215,7 +215,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_2",
     family: "cost",
-    label: "CNC CYCLE TIME — n",
+    label: "CNC CYCLE TIME - n",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const c = num(inputs, "c");
@@ -229,7 +229,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_3",
     family: "cost",
-    label: "CNC CYCLE TIME — T_rapid",
+    label: "CNC CYCLE TIME - T_rapid",
     fn: (inputs) => {
     const distance = num(inputs, "distance");
     const rapid = num(inputs, "rapid");
@@ -242,7 +242,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_4",
     family: "cost",
-    label: "CNC CYCLE TIME — T_toolchange",
+    label: "CNC CYCLE TIME - T_toolchange",
     fn: (inputs) => {
     const changes = num(inputs, "changes");
     const timePerChange = num(inputs, "timePerChange");

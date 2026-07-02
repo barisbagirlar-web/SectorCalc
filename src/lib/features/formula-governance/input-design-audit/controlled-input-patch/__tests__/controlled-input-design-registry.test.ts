@@ -1,5 +1,5 @@
 /**
- * Phase 5H-F — controlled input design registry tests.
+ * Phase 5H-F - controlled input design registry tests.
  */
 
 import { describe, expect, test } from "vitest";

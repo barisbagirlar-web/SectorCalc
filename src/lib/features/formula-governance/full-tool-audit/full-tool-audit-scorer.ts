@@ -1,5 +1,5 @@
 /**
- * Full tool audit scorer — deterministic read-only scoring (Phase 5H-J).
+ * Full tool audit scorer - deterministic read-only scoring (Phase 5H-J).
  */
 
 import type { FullToolAuditItem } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

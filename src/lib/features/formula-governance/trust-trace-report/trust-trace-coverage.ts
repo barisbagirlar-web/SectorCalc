@@ -1,5 +1,5 @@
 /**
- * Trust trace coverage helpers — oracle/scenario/property (read-only).
+ * Trust trace coverage helpers - oracle/scenario/property (read-only).
  */
 
 import type { FormulaContract } from "@/lib/features/formula-governance/types";

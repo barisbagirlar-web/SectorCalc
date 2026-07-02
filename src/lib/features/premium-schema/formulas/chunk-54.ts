@@ -72,7 +72,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irrigation_cost_check_0",
     family: "cost",
-    label: "Sulama Maliyet Check — WaterRequirement",
+    label: "Sulama Maliyet Check - WaterRequirement",
     fn: (inputs) => {
     const eTc = num(inputs, "eTc");
     const area = num(inputs, "area");
@@ -83,7 +83,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irrigation_cost_check_1",
     family: "cost",
-    label: "Sulama Maliyet Check — PumpEnergy",
+    label: "Sulama Maliyet Check - PumpEnergy",
     fn: (inputs) => {
     const waterRequirement = num(inputs, "waterRequirement");
     const totalHead = num(inputs, "totalHead");
@@ -95,7 +95,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irrigation_cost_check_2",
     family: "cost",
-    label: "Sulama Maliyet Check — EnergyCost",
+    label: "Sulama Maliyet Check - EnergyCost",
     fn: (inputs) => {
     const pumpEnergy = num(inputs, "pumpEnergy");
     const elecRate = num(inputs, "elecRate");
@@ -105,7 +105,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irrigation_cost_check_3",
     family: "cost",
-    label: "Sulama Maliyet Check — MaintCost",
+    label: "Sulama Maliyet Check - MaintCost",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const maintRatePerHa = num(inputs, "maintRatePerHa");
@@ -115,7 +115,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irrigation_cost_check_4",
     family: "cost",
-    label: "Sulama Maliyet Check — TotalIrrigationCost",
+    label: "Sulama Maliyet Check - TotalIrrigationCost",
     fn: (inputs) => {
     const energyCost = num(inputs, "energyCost");
     const maintCost = num(inputs, "maintCost");
@@ -127,7 +127,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irrigation_cost_check_5",
     family: "cost",
-    label: "Sulama Maliyet Check — CostPerM3",
+    label: "Sulama Maliyet Check - CostPerM3",
     fn: (inputs) => {
     const totalIrrigationCost = num(inputs, "totalIrrigationCost");
     const waterRequirement = num(inputs, "waterRequirement");
@@ -137,7 +137,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irrigation_cost_check_6",
     family: "cost",
-    label: "Sulama Maliyet Check — WaterUseEfficiency",
+    label: "Sulama Maliyet Check - WaterUseEfficiency",
     fn: (inputs) => {
     const waterRequirement = num(inputs, "waterRequirement");
     const losses = num(inputs, "losses");
@@ -149,7 +149,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_performance_tco_0",
     family: "cost",
-    label: "Supplier Performans Tco — TCO",
+    label: "Supplier Performans Tco - TCO",
     fn: (inputs) => {
     const purchasePrice = num(inputs, "purchasePrice");
     const orderingCost = num(inputs, "orderingCost");
@@ -163,7 +163,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_performance_tco_1",
     family: "cost",
-    label: "Supplier Performans Tco — QualityCost",
+    label: "Supplier Performans Tco - QualityCost",
     fn: (inputs) => {
     const defectRate = num(inputs, "defectRate");
     const annualVolume = num(inputs, "annualVolume");
@@ -174,7 +174,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_performance_tco_2",
     family: "cost",
-    label: "Supplier Performans Tco — InventoryCost",
+    label: "Supplier Performans Tco - InventoryCost",
     fn: (inputs) => {
     const avgLeadTime = num(inputs, "avgLeadTime");
     const safetyStockDays = num(inputs, "safetyStockDays");
@@ -186,7 +186,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_performance_tco_3",
     family: "cost",
-    label: "Supplier Performans Tco — RiskCost",
+    label: "Supplier Performans Tco - RiskCost",
     fn: (inputs) => {
     const probabilityOfDisruption = num(inputs, "probabilityOfDisruption");
     const impactCost = num(inputs, "impactCost");
@@ -196,7 +196,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_performance_tco_4",
     family: "cost",
-    label: "Supplier Performans Tco — SupplierScore",
+    label: "Supplier Performans Tco - SupplierScore",
     fn: (inputs) => {
     const qualityWeight = num(inputs, "qualityWeight");
     const qualityScore = num(inputs, "qualityScore");
@@ -210,7 +210,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_performance_tco_5",
     family: "cost",
-    label: "Supplier Performans Tco — TCO_Variance",
+    label: "Supplier Performans Tco - TCO_Variance",
     fn: (inputs) => {
     const tCO = num(inputs, "tCO");
     const Actual = num(inputs, "Actual");
@@ -225,7 +225,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dairy_profit_detector_0",
     family: "cost",
-    label: "Sut Kâr Dedektoru — FatCorrectedMilk",
+    label: "Sut Kâr Dedektoru - FatCorrectedMilk",
     fn: (inputs) => {
     const milkYield = num(inputs, "milkYield");
     const fatYield = num(inputs, "fatYield");
@@ -235,7 +235,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dairy_profit_detector_1",
     family: "cost",
-    label: "Sut Kâr Dedektoru — ProteinCorrectedMilk",
+    label: "Sut Kâr Dedektoru - ProteinCorrectedMilk",
     fn: (inputs) => {
     const milkYield = num(inputs, "milkYield");
     const proteinYield = num(inputs, "proteinYield");

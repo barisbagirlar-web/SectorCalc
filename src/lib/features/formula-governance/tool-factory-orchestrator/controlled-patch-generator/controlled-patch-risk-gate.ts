@@ -1,5 +1,5 @@
 /**
- * Controlled patch risk gate — Phase 5I-E impact classification.
+ * Controlled patch risk gate - Phase 5I-E impact classification.
  */
 
 import type { PatchPlan } from "@/lib/features/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-types";

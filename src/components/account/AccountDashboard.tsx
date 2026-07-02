@@ -53,7 +53,7 @@ export function AccountDashboard() {
                       : "Account Dashboard"}
                 </h1>
                 <p className="sc-account-hub__subtitle">
-                  Credit balance, usage summary, support and sign-out — one dashboard.
+                  Credit balance, usage summary, support and sign-out - one dashboard.
                 </p>
               </div>
               {user && (

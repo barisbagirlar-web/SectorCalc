@@ -1,5 +1,5 @@
 /**
- * Free traffic catalog — canonical free-slugs.json only (regeneration baseline).
+ * Free traffic catalog - canonical free-slugs.json only (regeneration baseline).
  */
 
 import {

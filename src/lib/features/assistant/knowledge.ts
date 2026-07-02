@@ -1,5 +1,5 @@
 /**
- * SectorCalc Assistant — static knowledge layer (P10).
+ * SectorCalc Assistant - static knowledge layer (P10).
  *
  * Builds a lightweight keyword index over the canonical premium tool registry
  * so the assistant can recommend the right tool deterministically, with no

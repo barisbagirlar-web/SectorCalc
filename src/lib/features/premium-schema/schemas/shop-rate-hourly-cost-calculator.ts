@@ -18,8 +18,8 @@ export const SHOP_RATE_HOURLY_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = 
       warning: 45,
       critical: 30,
       direction: "lower_is_bad",
-      warningMessage: "Shop rate may be below loaded cost — verify fixed allocation and hours.",
-      criticalMessage: "Hourly rate is critically low — reprice jobs before quoting.",
+      warningMessage: "Shop rate may be below loaded cost - verify fixed allocation and hours.",
+      criticalMessage: "Hourly rate is critically low - reprice jobs before quoting.",
     },
   ],
 

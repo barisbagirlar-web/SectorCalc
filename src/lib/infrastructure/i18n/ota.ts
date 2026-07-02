@@ -160,7 +160,7 @@ async function fetchViaLokaliseApi(locale: SupportedLocale): Promise<Record<stri
  * Fetch latest translations for a locale from Lokalise (REST live pull).
  * Returns null when TMS is off, credentials are missing, or fetch fails.
  *
- * Uses the REST API (async download + poll) — the correct approach for web.
+ * Uses the REST API (async download + poll) - the correct approach for web.
  * The OTA SDK path (lokalise-ota.ts) was removed because it used flutter_sdk
  * framework which is incompatible with Next.js web apps.
  */

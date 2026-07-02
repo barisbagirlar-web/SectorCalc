@@ -1,6 +1,6 @@
 /**
  * Canonical paid plan IDs for UI and checkout routing.
- * Stripe price IDs live in Cloud Functions env — never in the frontend.
+ * Stripe price IDs live in Cloud Functions env - never in the frontend.
  */
 
 export type CheckoutPlanId =
@@ -70,4 +70,4 @@ export const MONEY_BACK_GUARANTEE =
  "14-day money-back guarantee on your first Single Verdict purchase.";
 
 export const PRICING_REFUND_POLICY =
- "SectorCalc Pro is a digital subscription billed through Stripe. You can cancel anytime from your account or Stripe customer portal — access continues through the current billing period. Single verdict and annual plans are digital products with no guaranteed refunds; contact support if billing was made in error. Outputs are estimates only — not financial, legal or engineering advice. Stripe Adaptive Pricing may show local currency at checkout.";
+ "SectorCalc Pro is a digital subscription billed through Stripe. You can cancel anytime from your account or Stripe customer portal - access continues through the current billing period. Single verdict and annual plans are digital products with no guaranteed refunds; contact support if billing was made in error. Outputs are estimates only - not financial, legal or engineering advice. Stripe Adaptive Pricing may show local currency at checkout.";

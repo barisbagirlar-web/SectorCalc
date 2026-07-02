@@ -127,7 +127,7 @@ export default async function AdminVerificationQueuePage() {
             <li key={item.id} className="rounded-lg border border-slate-200 p-4 text-sm">
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <p className="font-medium text-slate-900">{item.toolSlug}</p>
-                <p className="text-xs text-slate-500">{item.createdAt || "—"}</p>
+                <p className="text-xs text-slate-500">{item.createdAt || "-"}</p>
               </div>
               <p className="mt-1 text-xs text-slate-600">
                 {item.issueType} · {item.status} · {item.tier}

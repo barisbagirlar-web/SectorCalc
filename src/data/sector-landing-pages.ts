@@ -88,7 +88,7 @@ export const CNC_QUOTE_RISK_LANDING = buildConfig("cnc-manufacturing", "/cnc-quo
  {
  question: "What does the free CNC check show?",
  answer:
- "Visible risk level and cost exposure signals from machine time, material and setup inputs — not a minimum safe price or final verdict.",
+ "Visible risk level and cost exposure signals from machine time, material and setup inputs - not a minimum safe price or final verdict.",
  },
  {
  question: "What does the premium calculator add?",
@@ -140,7 +140,7 @@ export const CONSTRUCTION_BID_MARGIN_LANDING = buildConfig(
  {
  question: "What does the free construction check show?",
  answer:
- "Visible cost exposure from budget and change estimate inputs — not a full change-order verdict or safe price floor.",
+ "Visible cost exposure from budget and change estimate inputs - not a full change-order verdict or safe price floor.",
  },
  {
  question: "What does the premium calculator add?",
@@ -150,7 +150,7 @@ export const CONSTRUCTION_BID_MARGIN_LANDING = buildConfig(
  {
  question: "Is this a replacement for estimating software?",
  answer:
- "No. SectorCalc is a decision-support layer for margin risk — verify all numbers with your estimating process.",
+ "No. SectorCalc is a decision-support layer for margin risk - verify all numbers with your estimating process.",
  },
  {
  question: "How is pricing structured?",
@@ -183,7 +183,7 @@ export const CLEANING_CONTRACT_MARGIN_LANDING = buildConfig(
  ],
  sampleVerdict: {
  title: "Office Cleaning Bid Report",
- verdict: "REPRICE REQUIRED — MINIMUM $2,180/MONTH",
+ verdict: "REPRICE REQUIRED - MINIMUM $2,180/MONTH",
  marginRisk: "HIGH",
  mainLeak: "Labor hours + supply buffer",
  suggestedAction: "Raise monthly bid or reduce scope before contract start.",
@@ -194,7 +194,7 @@ export const CLEANING_CONTRACT_MARGIN_LANDING = buildConfig(
  {
  question: "What does the free cleaning check show?",
  answer:
- "Basic labor and visit cost exposure with visible risk signal — not minimum monthly bid or final verdict.",
+ "Basic labor and visit cost exposure with visible risk signal - not minimum monthly bid or final verdict.",
  },
  {
  question: "What does the premium optimizer add?",
@@ -204,12 +204,12 @@ export const CLEANING_CONTRACT_MARGIN_LANDING = buildConfig(
  {
  question: "Does SectorCalc store my client data?",
  answer:
- "Free checks run without account setup. Business data is not sold — see privacy policy for details.",
+ "Free checks run without account setup. Business data is not sold - see privacy policy for details.",
  },
  {
  question: "Can I preview a full report?",
  answer:
- "Yes — view the sample verdict report to see premium output structure before purchasing.",
+ "Yes - view the sample verdict report to see premium output structure before purchasing.",
  },
  ],
  }

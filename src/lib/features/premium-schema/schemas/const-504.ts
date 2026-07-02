@@ -18,8 +18,8 @@ export const FIRE_SYSTEM_FLOW_HYDRANT_CALCULATOR_SCHEMA: PremiumCalculatorSchema
       warning: 8000,
       critical: 15000,
       direction: "higher_is_bad",
-      warningMessage: "Flow demand is material — confirm pipe sizing and pump head.",
-      criticalMessage: "Flow demand is very high — escalate hydraulic study before bid.",
+      warningMessage: "Flow demand is material - confirm pipe sizing and pump head.",
+      criticalMessage: "Flow demand is very high - escalate hydraulic study before bid.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const FIRE_SYSTEM_FLOW_HYDRANT_CALCULATOR_SCHEMA: PremiumCalculatorSchema
     assumptionNotes: [
       "Flow demand = protected area × design density.",
       "Hydrant count = ceil(flow demand ÷ hydrant capacity).",
-      "Informational screening only — verify with local fire code and hydraulic calculations.",
+      "Informational screening only - verify with local fire code and hydraulic calculations.",
     ],
   },
 };

@@ -1,5 +1,5 @@
 /**
- * SectorCalc — 27 premium analyzers reclassified by loss type and decision family.
+ * SectorCalc - 27 premium analyzers reclassified by loss type and decision family.
  * Links slug → architecture profile (Measurement / Loss / Optimization per sector).
  */
 

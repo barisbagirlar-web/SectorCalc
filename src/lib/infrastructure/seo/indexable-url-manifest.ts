@@ -40,7 +40,7 @@ export const INDEXABLE_LOCALES: readonly IndexableLocale[] = SUPPORTED_LOCALES.f
   (locale) => INDEXABLE_LOCALE_ROUTES[locale],
 );
 
-/** GSC-critical paths — used to seed inspectionOrder (English root + Turkish). */
+/** GSC-critical paths - used to seed inspectionOrder (English root + Turkish). */
 const CRITICAL_INSPECTION_PATHS: readonly string[] = [
   "/",
   "/t_r",

@@ -13,7 +13,7 @@ import {
   resolvePremiumToolHref,
 } from "@/lib/features/tools/tool-links";
 
-describe("tool-links — premium hrefs", () => {
+describe("tool-links - premium hrefs", () => {
   test("legacy revenue premium slugs resolve to premium route paths", () => {
     expect(resolvePremiumToolHref("welding-bid-risk-analyzer")).toBe(
       "/tools/premium/welding-bid-risk-analyzer",

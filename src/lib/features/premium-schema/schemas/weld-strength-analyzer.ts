@@ -18,7 +18,7 @@ export const WELD_STRENGTH_SCHEMA: PremiumCalculatorSchema = {
     { id: "maxShearLoad", label: "Maksimum Kesme Load", label_i18n: {"en":"Maksimum Kesme Load"}, unit: "N", format: "number" },
     { id: "safetyFactor", label: "Guvenlik Faktoru", label_i18n: {"en":"Guvenlik Faktoru"}, unit: "scalar", format: "number" },
   ],
-  thresholds: [{ fieldId: "safetyFactor", warning: 2, critical: 1.25, direction: "lower_is_bad", warningMessage: "SF < 2 — Design must be reviewed.", warningMessage_i18n: {"en":"SF < 2 — Design must be reviewed."}, criticalMessage: "SF < 1.25 — Structural risk is urgent!", criticalMessage_i18n: {"en":"SF < 1.25 — Structural risk is urgent!"} }],
+  thresholds: [{ fieldId: "safetyFactor", warning: 2, critical: 1.25, direction: "lower_is_bad", warningMessage: "SF < 2 - Design must be reviewed.", warningMessage_i18n: {"en":"SF < 2 - Design must be reviewed."}, criticalMessage: "SF < 1.25 - Structural risk is urgent!", criticalMessage_i18n: {"en":"SF < 1.25 - Structural risk is urgent!"} }],
   formulaPipeline: [
     { formulaId: "measurement.weld_throat", inputMap: { leg: "leg" }, outputId: "throat" },
     { formulaId: "measurement.weld_shear_area", inputMap: { throat: "throat", weldLength: "weldLength" }, outputId: "shearArea" },

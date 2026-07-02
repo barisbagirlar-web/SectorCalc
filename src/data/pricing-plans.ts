@@ -1,6 +1,6 @@
 import type { CheckoutPlanId } from "@/lib/pricing/plan-catalog";
 
-/** Translation-key driven plan definition — single global USD price list. */
+/** Translation-key driven plan definition - single global USD price list. */
 export type GlobalPricingPlanDef = {
  id: string;
  planId: CheckoutPlanId | "free";

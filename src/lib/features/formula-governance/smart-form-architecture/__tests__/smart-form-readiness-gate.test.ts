@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-A — smart form readiness gate tests.
+ * Phase 5H-G-A - smart form readiness gate tests.
  */
 
 import { describe, expect, test } from "vitest";

@@ -10,7 +10,7 @@ export const FIRE_HYDRANT_SCHEMA: PremiumCalculatorSchema = {
       label: "Penalty Per Hydrant",
       label_i18n: { en: "Penalty Per Hydrant" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const FIRE_HYDRANT_SCHEMA: PremiumCalculatorSchema = {
       label: "Deficient Hydrants",
       label_i18n: { en: "Deficient Hydrants" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -38,8 +38,8 @@ export const FIRE_HYDRANT_SCHEMA: PremiumCalculatorSchema = {
     { id: "complianceCost", label: "Uyumsuzluk Cost", label_i18n: {"en":"Uyumsuzluk Cost"}, unit: "USD", format: "currency" },
   ],
   thresholds: [
-    { fieldId: "hydrantCompliance", warning: 70, critical: 40, direction: "lower_is_bad", warningMessage: "Compliance score < 70 — maintenance plan should be created.", warningMessage_i18n: {"en":"Compliance score < 70 — maintenance plan should be created."}, criticalMessage: "Uyum skoru < 40 — urgent hidrant replacement program gerekli.", criticalMessage_i18n: {"en":"Uyum skoru < 40 — urgent hidrant replacement program gerekli."} },
-    { fieldId: "complianceCost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Non-compliance risk > $10K — insurance should be reviewed.", warningMessage_i18n: {"en":"Non-compliance risk > $10K — insurance should be reviewed."}, criticalMessage: "Non-compliance risk > $30K — legal sanction risk is high.", criticalMessage_i18n: {"en":"Non-compliance risk > $30K — legal sanction risk is high."} },
+    { fieldId: "hydrantCompliance", warning: 70, critical: 40, direction: "lower_is_bad", warningMessage: "Compliance score < 70 - maintenance plan should be created.", warningMessage_i18n: {"en":"Compliance score < 70 - maintenance plan should be created."}, criticalMessage: "Uyum skoru < 40 - urgent hidrant replacement program gerekli.", criticalMessage_i18n: {"en":"Uyum skoru < 40 - urgent hidrant replacement program gerekli."} },
+    { fieldId: "complianceCost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Non-compliance risk > $10K - insurance should be reviewed.", warningMessage_i18n: {"en":"Non-compliance risk > $10K - insurance should be reviewed."}, criticalMessage: "Non-compliance risk > $30K - legal sanction risk is high.", criticalMessage_i18n: {"en":"Non-compliance risk > $30K - legal sanction risk is high."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.hydrant_flow", inputMap: {

@@ -1,5 +1,5 @@
 /**
- * Report renderer format rules — Phase 5I-F deterministic format contracts.
+ * Report renderer format rules - Phase 5I-F deterministic format contracts.
  */
 
 import type {

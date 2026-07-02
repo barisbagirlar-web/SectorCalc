@@ -54,7 +54,7 @@ export function SupportTicketForm() {
       <h2 className="sc-account-hub__section-title">Open Support Ticket</h2>
 
       <form onSubmit={handleSubmit} className="support-ticket__form">
-        {/* Honeypot — invisible to users, catches bots */}
+        {/* Honeypot - invisible to users, catches bots */}
         <input
           type="text"
           name={HONEYPOT_FIELD}

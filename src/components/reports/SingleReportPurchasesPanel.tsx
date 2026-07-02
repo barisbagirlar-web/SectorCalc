@@ -36,7 +36,7 @@ export function SingleReportPurchasesPanel({
  <li key={purchase.sessionId}>
  <article className="sc-card flex h-full flex-col border-amber/20">
  <p className="text-xs font-semibold uppercase tracking-wider text-amber">
- {`Single Verdict — $${SINGLE_VERDICT_PRICE}`}
+ {`Single Verdict - $${SINGLE_VERDICT_PRICE}`}
  </p>
  <h3 className="mt-2 text-base font-bold text-text-primary">
  {title}

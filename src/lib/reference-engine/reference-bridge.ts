@@ -1,5 +1,5 @@
 /**
- * Reference Data Bridge — Shared utility for component integration.
+ * Reference Data Bridge - Shared utility for component integration.
  *
  * Provides safe access to reference data from the build-time validated registry.
  * Components use this instead of inline reference arrays.
@@ -112,7 +112,7 @@ export function getMaterialDatabase(): Record<string, MaterialData> {
   // mc, vc are described in the description field
   for (const ref of binding.references) {
     const key = ref.label
-      .replace(/[—–-]/g, "_")
+      .replace(/[-–-]/g, "_")
       .replace(/[\s()]+/g, "_")
       .replace(/[,_]+$/, "")
       .replace(/[^a-zA-Z0-9_]/g, "")

@@ -14,7 +14,7 @@ function scheduleIdleWarm(task: () => void, delayMs: number): () => void {
   return () => clearTimeout(timer);
 }
 
-/** Warm shared auth store after idle — keeps Firebase iframe off the homepage critical path. */
+/** Warm shared auth store after idle - keeps Firebase iframe off the homepage critical path. */
 export function HeaderNavPrefetch() {
   useEffect(() => {
     let cancelled = false;

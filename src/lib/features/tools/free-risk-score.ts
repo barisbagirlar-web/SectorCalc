@@ -14,10 +14,10 @@ export function freeRiskLevelToScore(level: FreeRiskLevel): number {
 export function freeRiskLevelLabel(level: FreeRiskLevel): string {
  switch (level) {
  case "LOW":
- return "Low visible risk — still missing expert buffers";
+ return "Low visible risk - still missing expert buffers";
  case "MEDIUM":
- return "Margin pressure likely — verify before quoting";
+ return "Margin pressure likely - verify before quoting";
  case "HIGH":
- return "High loss risk — do not commit without full verdict";
+ return "High loss risk - do not commit without full verdict";
  }
 }

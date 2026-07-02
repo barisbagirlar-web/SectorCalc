@@ -1,6 +1,6 @@
 "use server";
 /**
- * MarginCore Premium Calculation — Server Action
+ * MarginCore Premium Calculation - Server Action
  *
  * Server-side calculation entry point that protects the stochastic math
  * engine behind a Pro-subscription gate. Returns structured TXT strings
@@ -182,7 +182,7 @@ export async function calculatePremiumVerdict(
   const txt = serializePremiumVerdictTxt(sector, output, volatilityPercent);
 
   logSectorCalculation(uid, sector, expectedCost).catch(() => {
-    // Silent — logging failure must not break calculation
+    // Silent - logging failure must not break calculation
   });
 
   return txt;
@@ -234,7 +234,7 @@ export async function calculatePremium(
   const txt = formatEngineReport(output, request.currency || "USD");
 
   logCalculation(uid, request).catch(() => {
-    // Silent — logging failure must not break calculation
+    // Silent - logging failure must not break calculation
   });
 
   return {

@@ -1,5 +1,5 @@
 /**
- * Tool #2 — Six Sigma Project Prioritizer
+ * Tool #2 - Six Sigma Project Prioritizer
  * DPMO → Yield → Z_bench → SigmaLevel → COPQ → ProjectScore
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -31,7 +31,7 @@ export const SIX_SIGMA_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "projectScore", label: "Proje Skoru", label_i18n: {"en":"Proje Skoru"}, unit: "scalar", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "sigmaLevel", warning: 4, critical: 3, direction: "lower_is_bad", warningMessage: "Sigma level < 4 — improvement opportunity exists.", warningMessage_i18n: {"en":"Sigma level < 4 — improvement opportunity exists."}, criticalMessage: "Sigma level < 3 — urgent aksiyon gerekiyor.", criticalMessage_i18n: {"en":"Sigma level < 3 — urgent aksiyon gerekiyor."} },
+    { fieldId: "sigmaLevel", warning: 4, critical: 3, direction: "lower_is_bad", warningMessage: "Sigma level < 4 - improvement opportunity exists.", warningMessage_i18n: {"en":"Sigma level < 4 - improvement opportunity exists."}, criticalMessage: "Sigma level < 3 - urgent aksiyon gerekiyor.", criticalMessage_i18n: {"en":"Sigma level < 3 - urgent aksiyon gerekiyor."} },
   ],
   formulaPipeline: [
     { formulaId: "stats.dpmo", inputMap: { defects: "defectiveUnits", units: "productionVolume", opportunities: "opportunitiesPerUnit" }, outputId: "dpmo" },

@@ -28,7 +28,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             >
               Try again
             </button>
-            {/* global-error renders outside App Router providers — plain anchor is intentional */}
+            {/* global-error renders outside App Router providers - plain anchor is intentional */}
             {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a href="/" style={{ minHeight: "44px", display: "inline-flex", alignItems: "center", padding: "0.5rem 1rem" }}>
               Home

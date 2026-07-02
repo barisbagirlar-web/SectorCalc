@@ -29,7 +29,7 @@ export function buildCalculateActionSchema(
     additionalType: "https://schema.org/CalculateAction",
     "@id": `https://sectorcalc.com/semantic/CalculateAction:${tool.toolSlug}`,
     identifier: `CalculateAction:${tool.toolSlug}`,
-    name: `${title} — CalculateAction`,
+    name: `${title} - CalculateAction`,
     description,
     inLanguage: locale,
     target: {
@@ -97,7 +97,7 @@ export function buildCalculateActionSchemaLegacy(input: {
     additionalType: "https://schema.org/CalculateAction",
     "@id": `https://sectorcalc.com/semantic/CalculateAction:${input.toolSlug}`,
     identifier: `CalculateAction:${input.toolSlug}`,
-    name: `${input.name} — CalculateAction`,
+    name: `${input.name} - CalculateAction`,
     description: input.description,
     inLanguage: input.locale,
     target: {

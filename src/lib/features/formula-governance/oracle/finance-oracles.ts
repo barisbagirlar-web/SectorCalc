@@ -1,5 +1,5 @@
 /**
- * Finance oracle baselines — independent reference implementations (Phase 4).
+ * Finance oracle baselines - independent reference implementations (Phase 4).
  * Does NOT import production calculator functions.
  */
 

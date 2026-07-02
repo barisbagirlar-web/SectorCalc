@@ -159,7 +159,7 @@ export type InputGuideTrustFinding =
   | "generic_input_guide"
   | "input_guide_mapping_mismatch";
 
-/** Runtime Trust Engine hook — surfaces guide quality risks without rendering generic guides. */
+/** Runtime Trust Engine hook - surfaces guide quality risks without rendering generic guides. */
 export function collectInputGuideTrustFindings(
   slug: string,
   formInputKeys?: readonly string[],

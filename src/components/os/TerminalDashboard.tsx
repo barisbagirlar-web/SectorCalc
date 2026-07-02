@@ -14,7 +14,7 @@ import {
 export interface TerminalDashboardProps {
   sectorId: SectorRegistryKey;
   locale?: string;
-  /** For form linking — uses demo values if not provided. */
+  /** For form linking - uses demo values if not provided. */
   metrics?: AuditInput;
 }
 

@@ -1,5 +1,5 @@
 /**
- * U-Engine — Logic Layer core.
+ * U-Engine - Logic Layer core.
  * FormulaRepository with registry-decoupled analysis.
  * Regional Compliance overlay on financial loss.
  */
@@ -91,7 +91,7 @@ export const UEngine = {
     return analyzeMetrics(m);
   },
 
-  /** Registry-driven pipeline — FormulaRepository + tolerans + regional compliance. */
+  /** Registry-driven pipeline - FormulaRepository + tolerans + regional compliance. */
   runWithRegistry(
     sectorId: SectorRegistryKey,
     input: UEngineRegistryInput,

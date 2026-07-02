@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-A — smart form plan builder tests.
+ * Phase 5H-G-A - smart form plan builder tests.
  */
 
 import { describe, expect, test } from "vitest";

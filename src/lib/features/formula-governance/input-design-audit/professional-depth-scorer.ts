@@ -1,5 +1,5 @@
 /**
- * Professional depth scorer — decision-tool input design quality (Phase 5H-C).
+ * Professional depth scorer - decision-tool input design quality (Phase 5H-C).
  */
 
 import type { InputReadinessAlignmentSummary } from "@/lib/features/formula-governance/requirement-engine/contract-requirement-bridge";
@@ -189,7 +189,7 @@ function checkFreeToolRequiredInputWarning(
   const requiredCount = inputDesign?.requiredFields.length ?? contract.criticalInputs.length;
   if (requiredCount > FREE_TOOL_REQUIRED_INPUT_WARNING_THRESHOLD) {
     return [
-      `Free quick-check tool "${contract.slug}" exposes ${requiredCount} required inputs — may be too deep for free tier.`,
+      `Free quick-check tool "${contract.slug}" exposes ${requiredCount} required inputs - may be too deep for free tier.`,
     ];
   }
   return [];

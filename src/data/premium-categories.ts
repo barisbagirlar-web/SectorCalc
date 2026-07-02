@@ -1,10 +1,10 @@
 /**
- * Premium Category Registry — 20 industrial loss & efficiency categories.
+ * Premium Category Registry - 20 industrial loss & efficiency categories.
  *
  * Single source for all premium tool categories with full i18n (6 languages),
  * Lucide icon assignments, and premium line-art SVG symbols.
  *
- * ECMI / ISO 9001 — TUV-certifiable engineering quality.
+ * ECMI / ISO 9001 - TUV-certifiable engineering quality.
  * Every category ties to a measurable loss family or business function.
  */
 

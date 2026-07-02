@@ -1,5 +1,5 @@
 /**
- * Global real-calculator inventory — classifies entire SectorCalc calculator ecosystem.
+ * Global real-calculator inventory - classifies entire SectorCalc calculator ecosystem.
  */
 
 import { readFileSync } from "node:fs";

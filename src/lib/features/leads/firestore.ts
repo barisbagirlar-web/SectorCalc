@@ -29,7 +29,7 @@ export interface FirestoreLeadResult {
  error?: string;
 }
 
-/** Firestore create payload — only allowed lead fields, no diagnostics */
+/** Firestore create payload - only allowed lead fields, no diagnostics */
 function leadToFirestoreDocument(lead: LeadIntent): LeadIntent {
  const document: LeadIntent = {
  id: lead.id,

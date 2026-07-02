@@ -1,4 +1,4 @@
-// LOCKED — DO NOT MODIFY without explicit user approval.
+// LOCKED - DO NOT MODIFY without explicit user approval.
 
 export const TRACE_BRAND = {
   name: "Trace",

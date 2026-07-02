@@ -1,5 +1,5 @@
 /**
- * Patch plan risk classifier tests — Phase 5I-B.
+ * Patch plan risk classifier tests - Phase 5I-B.
  */
 
 import { describe, expect, test } from "vitest";
@@ -8,7 +8,7 @@ import {
   mapRecommendedActionToPatchType,
 } from "@/lib/features/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-risk-classifier";
 
-describe("patch plan risk classifier — Phase 5I-B", () => {
+describe("patch plan risk classifier - Phase 5I-B", () => {
   test("maps all recommended actions deterministically", () => {
     expect(mapRecommendedActionToPatchType("metadata_patch")).toBe("metadata_only");
     expect(mapRecommendedActionToPatchType("fixture_ontology")).toBe("fixture_ontology");

@@ -62,7 +62,7 @@ export function SupportTicketModal({ userId, email }: { userId: string; email: s
       <form ref={formRef} method="dialog" className="p-6" onSubmit={handleSubmit}>
         <h3 className="text-lg font-bold text-gray-900 mb-4">Submit a Support Ticket</h3>
 
-        {/* Honeypot — invisible to users, catches bots */}
+        {/* Honeypot - invisible to users, catches bots */}
         <input
           type="text"
           name={HONEYPOT_FIELD}

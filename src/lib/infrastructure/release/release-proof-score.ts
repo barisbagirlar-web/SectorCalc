@@ -1,5 +1,5 @@
 /**
- * Deterministic release proof score — all required gates must PASS for SYSTEM_APPROVABLE.
+ * Deterministic release proof score - all required gates must PASS for SYSTEM_APPROVABLE.
  */
 
 import type {

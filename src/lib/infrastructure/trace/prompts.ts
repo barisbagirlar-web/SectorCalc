@@ -1,4 +1,4 @@
-// LOCKED — DO NOT MODIFY without explicit user approval.
+// LOCKED - DO NOT MODIFY without explicit user approval.
 // Trace DNA: kisa cevap, insan dili, gercek route'lar, asla AI kokusu.
 // Locked files: prompts.ts, tool-catalog-prompt.ts, free-handler.ts, config/trace.ts
 

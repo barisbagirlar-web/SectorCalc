@@ -37,7 +37,7 @@ export function detectCountryFromHeaders(
  * Middleware-safe region detection: does NOT read cookies.
  * Region is derived ONLY from URL locale path (/en, /de, /tr).
  * CDN geo headers are IGNORED because:
- * 1. This is a single-language (EN) site — TR and DE support does not exist.
+ * 1. This is a single-language (EN) site - TR and DE support does not exist.
  * 2. Geo headers (x-country-code) would incorrectly set region=TR for TR visitors.
  * 3. Manual cookie override is handled in Server Components via getServerRegion().
  */

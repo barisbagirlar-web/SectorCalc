@@ -1,5 +1,5 @@
 /**
- * Batch alignment audit — read-only drift summary across FormulaContracts (Phase 5H-B-6).
+ * Batch alignment audit - read-only drift summary across FormulaContracts (Phase 5H-B-6).
  */
 
 import { buildOntologyDraftFromFormulaContract } from "@/lib/features/formula-governance/calculation-ontology/contract-ontology-bridge";
@@ -106,7 +106,7 @@ export function runBatchAlignmentAudit(
         warningCount: draft.warnings.length,
         safeToUseContractOntologyForRequirementEngine: draft.blockers.length === 0,
         recommendedAction:
-          "No professional fixture ontology registered — contract-only metadata analysis only.",
+          "No professional fixture ontology registered - contract-only metadata analysis only.",
         skippedReason: "No professional fixture ontology registered.",
       });
       if (draft.blockers.length > 0) {
@@ -158,7 +158,7 @@ export function runBatchAlignmentAudit(
     const status = resolveBatchStatus(driftGate, alignmentPlan);
 
     if (alignmentPlan.blockers.some((blocker) => blocker.includes("Production:"))) {
-      warnings.push(`Contract "${contract.slug}" missing Production metadata — flagged in alignment plan.`);
+      warnings.push(`Contract "${contract.slug}" missing Production metadata - flagged in alignment plan.`);
     }
 
     summaries.push({

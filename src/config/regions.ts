@@ -129,7 +129,7 @@ export function resolveActiveRegion(
   return localeToRegion(locale);
 }
 
-/** @deprecated Geo fallback — prefer resolveActiveRegion(manual, locale). */
+/** @deprecated Geo fallback - prefer resolveActiveRegion(manual, locale). */
 export function resolveRegion(
   explicit: RegionCode | undefined,
   locale: string,

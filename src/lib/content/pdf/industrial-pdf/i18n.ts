@@ -1,5 +1,5 @@
 /**
- * Industrial PDF Report — 100 % locale-native labels.
+ * Industrial PDF Report - 100 % locale-native labels.
  * Zero English fragments in non-English output.
  * ISO 9001 / ECMI / TUV-certifiable translation policy.
  */
@@ -84,7 +84,7 @@ export const PDF_LABELS: Record<SupportedLocale, PdfReportLabels> = {
     usageNote: "Usage Agreement",
     legalNote: "Legal Disclaimer",
     simulationNotice:
-      "Technical decision-support simulation — not financial, legal, medical or engineering advice.",
+      "Technical decision-support simulation - not financial, legal, medical or engineering advice.",
     trustTrace: "Trust Trace",
     verifiedReport:
       "This report's integrity is cryptographically verifiable at the URL below.",
@@ -100,11 +100,11 @@ export const PDF_LABELS: Record<SupportedLocale, PdfReportLabels> = {
     impactDistribution: "Loss Driver Distribution",
     severityDistribution: "Threshold Severity Distribution",
     generatedAt: "Generated at",
-    footerBrand: "SectorCalc — Engineering Decision Platform",
+    footerBrand: "SectorCalc - Engineering Decision Platform",
     allRightsReserved: "All rights reserved.",
     verificationUrl: "Verify at:",
     standards: "Applicable Standards",
-    sampleBanner: "SAMPLE REPORT — Unlock premium to export without this label",
+    sampleBanner: "SAMPLE REPORT - Unlock premium to export without this label",
   },
 };
 

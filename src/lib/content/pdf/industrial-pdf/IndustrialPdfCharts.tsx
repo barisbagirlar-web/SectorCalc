@@ -1,5 +1,5 @@
 /**
- * Industrial PDF Charts — SVG-powered dynamic charts for @react-pdf/renderer.
+ * Industrial PDF Charts - SVG-powered dynamic charts for @react-pdf/renderer.
  * Each chart renders entirely through react-pdf's <Svg> primitive.
  * No canvas, no external libs, zero runtime dependencies.
  */

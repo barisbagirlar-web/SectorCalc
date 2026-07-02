@@ -21,7 +21,7 @@ export const DYE_RECIPE_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalBatchCost", label: "Total Batch Cost", label_i18n: {"en":"Total Batch Cost"}, unit: "USD/batch", format: "currency" },
     { id: "costPerKg", label: "Kg Per Cost", label_i18n: {"en":"Kg Per Cost"}, unit: "USD/kg", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "costPerKg", warning: 3, critical: 5, direction: "higher_is_bad", warningMessage: "Cost > $3/kg — optimization potansiyeli var.", warningMessage_i18n: {"en":"Cost > $3/kg — optimization potansiyeli var."}, criticalMessage: "Cost > $5/kg — urgent recipe optimizasyonu.", criticalMessage_i18n: {"en":"Cost > $5/kg — urgent recipe optimizasyonu."} }],
+  thresholds: [{ fieldId: "costPerKg", warning: 3, critical: 5, direction: "higher_is_bad", warningMessage: "Cost > $3/kg - optimization potansiyeli var.", warningMessage_i18n: {"en":"Cost > $3/kg - optimization potansiyeli var."}, criticalMessage: "Cost > $5/kg - urgent recipe optimizasyonu.", criticalMessage_i18n: {"en":"Cost > $5/kg - urgent recipe optimizasyonu."} }],
   formulaPipeline: [
     { formulaId: "cost.dye_material_cost", inputMap: { concentrations: "dyeConcentrations", prices: "dyePrices", bathRatio: "bathRatio", fabricWeight: "fabricWeight" }, outputId: "dyeCost" },
     { formulaId: "cost.dye_material_cost", inputMap: { concentrations: "dosages", prices: "chemPrices", bathRatio: "bathRatio", fabricWeight: "fabricWeight" }, outputId: "chemCost" },

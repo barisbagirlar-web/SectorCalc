@@ -1,5 +1,5 @@
 /**
- * Fixture expansion plan builder — Phase 5I-K plan only, no file writes.
+ * Fixture expansion plan builder - Phase 5I-K plan only, no file writes.
  */
 
 import type { FixtureExpansionCandidate } from "@/lib/features/formula-governance/calculation-ontology/fixture-expansion/fixture-expansion-candidate-selector";
@@ -28,7 +28,7 @@ export function buildFixtureExpansionPlan(candidate: FixtureExpansionCandidate):
     status = "blocked";
   } else if (candidate.item.oracleStatus !== "PASS") {
     status = "needs_manual_review";
-    warnings.push(`${slug}: oracle status not PASS — manual review required.`);
+    warnings.push(`${slug}: oracle status not PASS - manual review required.`);
   }
 
   return {

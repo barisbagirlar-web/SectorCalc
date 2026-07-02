@@ -1,5 +1,5 @@
 /**
- * Tool — Su Kullanimi
+ * Tool - Su Kullanimi
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
@@ -12,7 +12,7 @@ export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
       label: "Installation Cost",
       label_i18n: { en: "Installation Cost" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -21,7 +21,7 @@ export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
       label: "Equipment Cost",
       label_i18n: { en: "Equipment Cost" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -39,7 +39,7 @@ export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
     { id: "waterCostSavings", label: "Water Cost Tasarrufu", label_i18n: {"en":"Water Cost Tasarrufu"}, unit: "USD/year", format: "currency" },
     { id: "waterRoi", label: "Water Verimliligi ROI", label_i18n: {"en":"Water Verimliligi ROI"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "waterIntensity", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Water intensity > 5 m³/ton — Productivity improvement opportunity exists.", warningMessage_i18n: {"en":"Water intensity > 5 m³/ton — Productivity improvement opportunity exists."}, criticalMessage: "Water intensity > 8 m³/ton — Urgent water management program required.", criticalMessage_i18n: {"en":"Water intensity > 8 m³/ton — Urgent water management program required."} }],
+  thresholds: [{ fieldId: "waterIntensity", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Water intensity > 5 m³/ton - Productivity improvement opportunity exists.", warningMessage_i18n: {"en":"Water intensity > 5 m³/ton - Productivity improvement opportunity exists."}, criticalMessage: "Water intensity > 8 m³/ton - Urgent water management program required.", criticalMessage_i18n: {"en":"Water intensity > 8 m³/ton - Urgent water management program required."} }],
   formulaPipeline: [
     { formulaId: "measurement.water_intensity", inputMap: { totalWaterUse: "totalWaterUse", productionOutput: "productionOutput" ,
         totalWater: "totalWater",

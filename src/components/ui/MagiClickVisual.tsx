@@ -57,7 +57,7 @@ export function MagiClickVisual({ variant, className = "" }: MagiClickVisualProp
  {["Quote", "Margin", "Risk"].map((label) => (
  <div key={label} className="rounded-md border border-border-subtle bg-white p-3">
  <p className="text-[9px] font-semibold uppercase text-text-secondary">{label}</p>
- <p className="mt-1 text-sm font-bold text-text-primary">—</p>
+ <p className="mt-1 text-sm font-bold text-text-primary">-</p>
  </div>
  ))}
  </div>

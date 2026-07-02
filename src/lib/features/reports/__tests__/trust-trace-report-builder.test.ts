@@ -1,5 +1,5 @@
 /**
- * Trust trace export payload builder tests — ADIM 3.
+ * Trust trace export payload builder tests - ADIM 3.
  */
 
 import { describe, expect, test } from "vitest";

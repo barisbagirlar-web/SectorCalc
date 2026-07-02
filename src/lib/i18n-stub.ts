@@ -15,13 +15,25 @@ function extractNamespace(ns: any): string {
 /**
  * Build a t function scoped to the given namespace.
  * Looks up "namespace.key" in the global fallback map.
+ * Supports template interpolation: replaces {key} with values[key].
  */
+function interpolate(template: string, values?: Record<string, any>): string {
+  if (!values) return template;
+  return template.replace(/\{(\w+)\}/g, (_, key) => {
+    const val = values[key];
+    return val !== undefined ? String(val) : `{${key}}`;
+  });
+}
+
 function buildT(ns: string) {
   function t(key: string, values?: Record<string, any>) {
     const fullKey = ns ? `${ns}.${key}` : key;
     const mapped = resolve(fullKey);
-    if (mapped !== fullKey) return mapped; // found in map
-    // Not in map — return the partial key to keep visible text readable
+    if (mapped !== fullKey) {
+      // Found in map - apply template interpolation
+      return interpolate(mapped, values);
+    }
+    // Not in map - return the partial key to keep visible text readable
     return key;
   }
   t.has = (key: string) => has(ns ? `${ns}.${key}` : key);

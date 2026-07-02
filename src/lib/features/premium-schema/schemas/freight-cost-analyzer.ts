@@ -24,7 +24,7 @@ export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalFreightCost", label: "Total freight Cost", label_i18n: {"en":"Total freight Cost"}, unit: "USD", format: "currency" },
     { id: "costPerUnit", label: "Unit Per freight", label_i18n: {"en":"Unit Per freight"}, unit: "USD/kg", format: "currency" },
   ],
-  thresholds: [{ fieldId: "totalFreightCost", warning: 3000, critical: 8000, direction: "higher_is_bad", warningMessage: "Total freight > $3K — alternative transport modes should be evaluated.", warningMessage_i18n: {"en":"Total freight > $3K — alternative transport modes should be evaluated."}, criticalMessage: "Total freight > $8K — logistics ihalesi yenilenmeli.", criticalMessage_i18n: {"en":"Total freight > $8K — logistics ihalesi yenilenmeli."} }],
+  thresholds: [{ fieldId: "totalFreightCost", warning: 3000, critical: 8000, direction: "higher_is_bad", warningMessage: "Total freight > $3K - alternative transport modes should be evaluated.", warningMessage_i18n: {"en":"Total freight > $3K - alternative transport modes should be evaluated."}, criticalMessage: "Total freight > $8K - logistics ihalesi yenilenmeli.", criticalMessage_i18n: {"en":"Total freight > $8K - logistics ihalesi yenilenmeli."} }],
   formulaPipeline: [
     { formulaId: "measurement.chargeable_weight", inputMap: { actualWeight: "grossWeight", volumetricWeight: "volumeM3" }, outputId: "chargeableWeight" },
     { formulaId: "cost.base_freight", inputMap: { chargeableWeight: "chargeableWeight", ratePerKg: "baseRate" }, outputId: "baseFreight" },

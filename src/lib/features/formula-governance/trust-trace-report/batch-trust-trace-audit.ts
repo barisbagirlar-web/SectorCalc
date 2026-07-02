@@ -1,5 +1,5 @@
 /**
- * Batch trust trace audit — Phase 5H-I read-only across FormulaContracts.
+ * Batch trust trace audit - Phase 5H-I read-only across FormulaContracts.
  */
 
 import { runBatchInputDesignAudit } from "@/lib/features/formula-governance/input-design-audit/batch-input-design-audit";

@@ -126,7 +126,7 @@ export const API_PUBLIC_MESSAGES = assertCompleteCatalog({
     en: "OpenAPI contract",
   },
   botUsageNote: {
-    en: "SectorCalc provides sector-specific calculators and decision-support outputs. Results are technical simulations — not financial, legal, medical, or engineering advice. Verify before business decisions.",
+    en: "SectorCalc provides sector-specific calculators and decision-support outputs. Results are technical simulations - not financial, legal, medical, or engineering advice. Verify before business decisions.",
   },
   botDefaultDescription: {
     en: "Sector-specific calculator",

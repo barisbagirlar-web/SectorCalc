@@ -1,6 +1,6 @@
 /**
  * Server-side Lokalise live message fetch (web OTA equivalent).
- * Uses LOKALISE_TOKEN + LOKALISE_PROJECT_ID — not the public OTA SDK token.
+ * Uses LOKALISE_TOKEN + LOKALISE_PROJECT_ID - not the public OTA SDK token.
  */
 
 import { isSupportedLocale, type SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";

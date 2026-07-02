@@ -1,5 +1,5 @@
 /**
- * Dependency resolver — expands formula paths into required variables.
+ * Dependency resolver - expands formula paths into required variables.
  */
 
 import { getFormulaById, getFormulaByOutputVariable } from "@/lib/features/formula-governance/calculation-ontology/formula-graph";

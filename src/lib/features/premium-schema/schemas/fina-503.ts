@@ -18,8 +18,8 @@ export const INVESTMENT_PAYBACK_NPV_CALCULATOR_SCHEMA: PremiumCalculatorSchema =
       warning: 0,
       critical: -25000,
       direction: "lower_is_bad",
-      warningMessage: "NPV is near zero — sensitivity to cash flow and rate is high.",
-      criticalMessage: "NPV is deeply negative — investment case is weak under these inputs.",
+      warningMessage: "NPV is near zero - sensitivity to cash flow and rate is high.",
+      criticalMessage: "NPV is deeply negative - investment case is weak under these inputs.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const INVESTMENT_PAYBACK_NPV_CALCULATOR_SCHEMA: PremiumCalculatorSchema =
     assumptionNotes: [
       "NPV uses equal annual cash flows and a fixed discount rate.",
       "Payback ignores discounting.",
-      "Not financial advice — verify tax, salvage and ramp-up effects separately.",
+      "Not financial advice - verify tax, salvage and ramp-up effects separately.",
     ],
   },
 };

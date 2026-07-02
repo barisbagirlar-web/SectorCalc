@@ -1,5 +1,5 @@
 /**
- * Trust trace report types — Phase 5H-I read-only governance layer.
+ * Trust trace report types - Phase 5H-I read-only governance layer.
  */
 
 import type { ToolInputDesignAuditStatus } from "@/lib/features/formula-governance/input-design-audit/input-design-audit-types";

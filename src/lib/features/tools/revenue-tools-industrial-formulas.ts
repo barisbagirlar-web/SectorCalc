@@ -1,8 +1,8 @@
 /**
- * Industrial Formula Tools — 18 premium engineering & financial calculators.
+ * Industrial Formula Tools - 18 premium engineering & financial calculators.
  * Tier 1-4 industrial formulas registered as RevenueTool pairs.
  *
- * ECMI / ISO 9001 — TUV-certifiable engineering quality.
+ * ECMI / ISO 9001 - TUV-certifiable engineering quality.
  * Every formula implements deterministic math from the industrial formula registry.
  */
 
@@ -70,7 +70,7 @@ function build(config: {
 }
 
 /* ────────────────────────────────────────────────────────────────────────────
- * TIER 1 — CRITICAL ITERATION TOOLS
+ * TIER 1 - CRITICAL ITERATION TOOLS
  * ──────────────────────────────────────────────────────────────────────────── */
 
 export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
@@ -230,7 +230,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
     ],
     freeResultPromise: "Shows approximate pressure drop using a uniform friction factor. Not suitable for design decisions.",
     paidResultPromise: "Returns Darcy friction factor via Colebrook-White iteration, total ΔP with minor losses, flow regime and pump power estimate.",
-    verdictLabels: ["HIGH ΔP — REDESIGN NEEDED", "MODERATE ΔP", "LOW ΔP — ACCEPTABLE"],
+    verdictLabels: ["HIGH ΔP - REDESIGN NEEDED", "MODERATE ΔP", "LOW ΔP - ACCEPTABLE"],
     seoKeywords: ["pressure drop calculator", "darcy weisbach", "colebrook white", "pipe friction", "hvac pipe sizing"],
     freeMissingFactors: ["Colebrook-White friction factor", "Reynolds number regime", "Minor losses (fittings)", "Pipe roughness selection", "Pump power estimate"],
     premiumCtaLabel: "Unlock Darcy-Weisbach Analyzer",
@@ -282,7 +282,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
     ],
     freeResultPromise: "Shows approximate LMTD area estimate from end temperatures and a uniform U-value assumption.",
     paidResultPromise: "Returns LMTD with ΔT₁=ΔT₂ guard, F-correction factor, overall U with fouling, required area and NTU-effectiveness verification.",
-    verdictLabels: ["OVERSPECIFIED (>20% margin)", "DESIGN ACCEPTABLE", "UNDERSIZED — REDESIGN"],
+    verdictLabels: ["OVERSPECIFIED (>20% margin)", "DESIGN ACCEPTABLE", "UNDERSIZED - REDESIGN"],
     seoKeywords: ["heat exchanger calculator", "lmtd calculator", "heat transfer sizing", "shell and tube", "ntu method"],
     freeMissingFactors: ["F-correction for multi-pass", "Overall U with fouling", "Tubular geometry", "NTU-effectiveness check", "F<0.75 redesign alert"],
     premiumCtaLabel: "Unlock Heat Exchanger Sizer",
@@ -437,7 +437,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
   }),
 
   // ────────────────────────────────────────────────────────────────────────────
-  // TIER 2 — SPRING DESIGN
+  // TIER 2 - SPRING DESIGN
   // ────────────────────────────────────────────────────────────────────────────
 
   // ─── 11. Spring Design ──────────────────────────────────────────────────
@@ -500,7 +500,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
     ],
     freeResultPromise: "Shows approximate spring rate from basic wire and coil geometry.",
     paidResultPromise: "Returns spring rate k, Wahl-corrected max stress τ_max, buckling stability λ, Goodman fatigue criterion and safety factor.",
-    verdictLabels: ["BUCKLING RISK — REDESIGN", "STRESS EXCEEDED", "DESIGN ACCEPTABLE"],
+    verdictLabels: ["BUCKLING RISK - REDESIGN", "STRESS EXCEEDED", "DESIGN ACCEPTABLE"],
     seoKeywords: ["spring design calculator", "helical spring", "wahl correction", "goodman fatigue", "buckling spring"],
     freeMissingFactors: ["Wahl curvature correction", "Buckling slenderness check", "Goodman fatigue criterion", "Material selection", "Safety factor"],
     premiumCtaLabel: "Unlock Spring Analyzer",
@@ -509,7 +509,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
   }),
 
   // ────────────────────────────────────────────────────────────────────────────
-  // TIER 2 — ENVIRONMENT
+  // TIER 2 - ENVIRONMENT
   // ────────────────────────────────────────────────────────────────────────────
 
   // ─── 12. Carbon Footprint (Scope 1, 2, 3) ────────────────────────────────
@@ -562,7 +562,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
   }),
 
   // ────────────────────────────────────────────────────────────────────────────
-  // TIER 3 — STATISTICAL TOOLS
+  // TIER 3 - STATISTICAL TOOLS
   // ────────────────────────────────────────────────────────────────────────────
 
   // ─── 13. Regression & Correlation ────────────────────────────────────────
@@ -648,7 +648,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
     ],
     freeResultPromise: "Shows minimum sample size for proportion estimation at specified confidence and margin.",
     paidResultPromise: "Returns n for proportion/mean, actual power, Type I/II error rates and sample adequacy verdict.",
-    verdictLabels: ["INADEQUATE — INCREASE SAMPLE", "MARGINAL", "ADEQUATE POWER (≥ 80%)"],
+    verdictLabels: ["INADEQUATE - INCREASE SAMPLE", "MARGINAL", "ADEQUATE POWER (≥ 80%)"],
     seoKeywords: ["sample size calculator", "power analysis", "statistical power", "survey sample", "aql sampling"],
     freeMissingFactors: ["Mean (t-test) mode", "Power level selection", "Type I/II error balance", "Effect size sensitivity", "Sample adequacy verdict"],
     premiumCtaLabel: "Unlock Power Analyzer",
@@ -690,7 +690,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
     ],
     freeResultPromise: "Shows preliminary F-statistic from supplied SS values. Does not compute post-hoc tests.",
     paidResultPromise: "Returns complete ANOVA table (SS, df, MS, F, p), η² effect size, Tukey HSD pairwise differences and significance verdict.",
-    verdictLabels: ["H₀ NOT REJECTED (p ≥ α)", "MARGINAL (p ≈ α)", "H₀ REJECTED (p < α) — GROUPS DIFFER"],
+    verdictLabels: ["H₀ NOT REJECTED (p ≥ α)", "MARGINAL (p ≈ α)", "H₀ REJECTED (p < α) - GROUPS DIFFER"],
     seoKeywords: ["anova calculator", "one-way anova", "tukey hsd", "post-hoc test", "variance analysis"],
     freeMissingFactors: ["Group mean/variance input", "Complete SS decomposition", "η² effect size", "Tukey HSD pairwise", "Bonferroni correction"],
     premiumCtaLabel: "Unlock ANOVA Analyzer",
@@ -699,7 +699,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
   }),
 
   // ────────────────────────────────────────────────────────────────────────────
-  // TIER 4 — CONTEXTUAL TOOLS
+  // TIER 4 - CONTEXTUAL TOOLS
   // ────────────────────────────────────────────────────────────────────────────
 
   // ─── 16. ROI (Return on Investment) ──────────────────────────────────────
@@ -728,7 +728,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
     ],
     freeResultPromise: "Shows simple ROI percent and approximate payback period from uniform annual returns.",
     paidResultPromise: "Returns ROI%, exact payback period, IRR, NPV and consolidated investment decision verdict.",
-    verdictLabels: ["REJECT", "BORDERLINE — REVIEW RISK", "ACCEPT — POSITIVE ROI+IRR+NPV"],
+    verdictLabels: ["REJECT", "BORDERLINE - REVIEW RISK", "ACCEPT - POSITIVE ROI+IRR+NPV"],
     seoKeywords: ["roi calculator", "return on investment", "payback period", "investment analysis"],
     freeMissingFactors: ["Exact payback (non-uniform)", "IRR calculation", "NPV at target rate", "Multi-period cash flows", "Consolidated verdict"],
     premiumCtaLabel: "Unlock ROI/Payback Analyzer",

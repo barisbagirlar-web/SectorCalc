@@ -1,5 +1,5 @@
 /**
- * Smart form pilot staging smoke test records — Phase 5H-G-N.
+ * Smart form pilot staging smoke test records - Phase 5H-G-N.
  */
 
 import { ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS } from "@/components/tools/smart-form/rollout-batch-h-catalog";

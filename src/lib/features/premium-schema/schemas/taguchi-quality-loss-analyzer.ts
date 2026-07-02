@@ -1,5 +1,5 @@
 /**
- * Tool — Taguchi Kalite
+ * Tool - Taguchi Kalite
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TAGUCHI_QUALITY_LOSS_ANALYZER: PremiumCalculatorSchema = {
@@ -19,7 +19,7 @@ export const TAGUCHI_QUALITY_LOSS_ANALYZER: PremiumCalculatorSchema = {
   outputs: [
     { id: "taguchiLossPerUnit", label: "Taguchi Loss per Unit", label_i18n: {"en":"Taguchi Loss per Unit"}, unit: "USD/unit", format: "currency" },
   ],
-  thresholds: [{ fieldId: "taguchiLossPerUnit", warning: 0.5, critical: 1, direction: "higher_is_bad", warningMessage: "Unit loss >$0.50 — process improvement opportunity exists.", warningMessage_i18n: {"en":"Unit loss >$0.50 — process improvement opportunity exists."}, criticalMessage: "Unit loss >$1.00 — review tolerance or process parameters.", criticalMessage_i18n: {"en":"Unit loss >$1.00 — review tolerance or process parameters."} }],
+  thresholds: [{ fieldId: "taguchiLossPerUnit", warning: 0.5, critical: 1, direction: "higher_is_bad", warningMessage: "Unit loss >$0.50 - process improvement opportunity exists.", warningMessage_i18n: {"en":"Unit loss >$0.50 - process improvement opportunity exists."}, criticalMessage: "Unit loss >$1.00 - review tolerance or process parameters.", criticalMessage_i18n: {"en":"Unit loss >$1.00 - review tolerance or process parameters."} }],
   formulaPipeline: [
     { formulaId: "cost.taguchi_loss_per_unit", inputMap: {
         targetValue: "targetValue",
@@ -31,5 +31,5 @@ export const TAGUCHI_QUALITY_LOSS_ANALYZER: PremiumCalculatorSchema = {
       }, outputId: "taguchiLossPerUnit" },
   ],
   reportTemplate: { title: "Taguchi Quality Loss Report", title_i18n: {"en":"Taguchi Quality Loss Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Taguchi loss = k × (MSD), MSD = σ² + (μ − T)².", "k = loss_tolerance / tolerance² — quality loss coefficient.", "Nominal-the-best (NTB) type Taguchi function is used.", "Process is calculated under normal distribution assumption."],assumptionNotes_i18n:[{"en":"Taguchi loss = k × (MSD), MSD = σ² + (μ − T)²."},{"en":"k = loss_tolerance / tolerance² — quality loss coefficient."},{"en":"Nominal-the-best (NTB) type Taguchi function is used."},{"en":"Process is calculated under normal distribution assumption."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Taguchi loss = k × (MSD), MSD = σ² + (μ − T)².", "k = loss_tolerance / tolerance² - quality loss coefficient.", "Nominal-the-best (NTB) type Taguchi function is used.", "Process is calculated under normal distribution assumption."],assumptionNotes_i18n:[{"en":"Taguchi loss = k × (MSD), MSD = σ² + (μ − T)²."},{"en":"k = loss_tolerance / tolerance² - quality loss coefficient."},{"en":"Nominal-the-best (NTB) type Taguchi function is used."},{"en":"Process is calculated under normal distribution assumption."}] },
 };

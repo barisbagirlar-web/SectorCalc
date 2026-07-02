@@ -1,5 +1,5 @@
 /**
- * Top 10 critical FormulaContracts — Phase 3 governance coverage.
+ * Top 10 critical FormulaContracts - Phase 3 governance coverage.
  * No formula changes; contract + audit skeleton only.
  */
 
@@ -738,7 +738,7 @@ export const cncQuoteRiskAnalyzerContract: FormulaContract = buildAssuredCritica
     FINANCIAL_SIMULATION_DISCLAIMER,
     `Production: ${PREMIUM_DECISION_PRODUCTION_FILE} → BASE_COST_CALCULATORS["cnc-quote-risk-analyzer"] → calcCnc baseCost.`,
     "Premium analyzer adds hidden loss buffers and probabilistic safe price via risk engine.",
-    "Under these assumptions, verdict bands are indicative — not a binding shop-floor guarantee.",
+    "Under these assumptions, verdict bands are indicative - not a binding shop-floor guarantee.",
   ],
   formulaSummary:
     "Base cost from machine hours × rate plus tooling and material with scrap factor; safe price and verdict derived via MarginCore risk engine.",
@@ -796,7 +796,7 @@ export const cncQuoteRiskAnalyzerContract: FormulaContract = buildAssuredCritica
       acceptablePhrases: [
         "Under these assumptions...",
         "Minimum safe price under the buffers entered.",
-        "DO NOT ACCEPT UNDER — indicative floor only.",
+        "DO NOT ACCEPT UNDER - indicative floor only.",
       ],
       requiredDisclaimer: true,
       forbiddenPhrases: [

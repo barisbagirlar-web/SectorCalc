@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-B — batch smart form render audit tests.
+ * Phase 5H-G-B - batch smart form render audit tests.
  */
 
 import { describe, expect, test } from "vitest";

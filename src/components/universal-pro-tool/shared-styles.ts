@@ -1,5 +1,5 @@
 /**
- * Universal PRO Tool — Shared Styles
+ * Universal PRO Tool - Shared Styles
  * SectorCalc design tokens: cream bg, near-black text, terracotta accent,
  * zero border-radius, Georgia/Inter/JetBrains Mono
  */
@@ -425,21 +425,21 @@ export const styles: any = {
 };
 
 export const MATERIAL_DB: Record<string, { label: string; kc1: number; mc: number; vc: number[]; color: string }> = {
-  "P_soft":   { label: "P — Steel (≤250 HB)",          kc1: 1900, mc: 0.26, vc: [180,280,400], color: "#3B82F6" },
-  "P_hard":   { label: "P — Steel (250-350 HB)",        kc1: 2200, mc: 0.28, vc: [100,180,280], color: "#2563EB" },
-  "M_aust":   { label: "M — Austenitic Stainless Steel",       kc1: 2400, mc: 0.22, vc: [80,160,240],  color: "#8B5CF6" },
-  "M_duplex": { label: "M — Duplex Stainless Steel",           kc1: 2700, mc: 0.24, vc: [60,120,180],  color: "#7C3AED" },
-  "K_gg":     { label: "K — Cast Iron (GG)",          kc1: 1350, mc: 0.20, vc: [100,200,350], color: "#6B7280" },
-  "K_ggg":    { label: "K — Nodular Iron (GGG)",       kc1: 1600, mc: 0.22, vc: [80,160,280],  color: "#4B5563" },
-  "N_al":     { label: "N — Aluminum Alloy",         kc1: 750,  mc: 0.14, vc: [400,800,1500],color: "#10B981" },
-  "N_cu":     { label: "N — Copper/Brass",              kc1: 900,  mc: 0.16, vc: [200,400,800], color: "#059669" },
-  "S_ti":     { label: "S — Titanium (Ti6Al4V)",        kc1: 2800, mc: 0.30, vc: [30,60,100],   color: "#F59E0B" },
-  "S_ni":     { label: "S — Inconel 718 / Ni Alloy", kc1: 3000, mc: 0.32, vc: [20,45,80],    color: "#D97706" },
-  "H_hrc55":  { label: "H — Hardened Steel (>55 HRC)", kc1: 3200, mc: 0.35, vc: [50,120,200],  color: "#EF4444" },
+  "P_soft":   { label: "P - Steel (≤250 HB)",          kc1: 1900, mc: 0.26, vc: [180,280,400], color: "#3B82F6" },
+  "P_hard":   { label: "P - Steel (250-350 HB)",        kc1: 2200, mc: 0.28, vc: [100,180,280], color: "#2563EB" },
+  "M_aust":   { label: "M - Austenitic Stainless Steel",       kc1: 2400, mc: 0.22, vc: [80,160,240],  color: "#8B5CF6" },
+  "M_duplex": { label: "M - Duplex Stainless Steel",           kc1: 2700, mc: 0.24, vc: [60,120,180],  color: "#7C3AED" },
+  "K_gg":     { label: "K - Cast Iron (GG)",          kc1: 1350, mc: 0.20, vc: [100,200,350], color: "#6B7280" },
+  "K_ggg":    { label: "K - Nodular Iron (GGG)",       kc1: 1600, mc: 0.22, vc: [80,160,280],  color: "#4B5563" },
+  "N_al":     { label: "N - Aluminum Alloy",         kc1: 750,  mc: 0.14, vc: [400,800,1500],color: "#10B981" },
+  "N_cu":     { label: "N - Copper/Brass",              kc1: 900,  mc: 0.16, vc: [200,400,800], color: "#059669" },
+  "S_ti":     { label: "S - Titanium (Ti6Al4V)",        kc1: 2800, mc: 0.30, vc: [30,60,100],   color: "#F59E0B" },
+  "S_ni":     { label: "S - Inconel 718 / Ni Alloy", kc1: 3000, mc: 0.32, vc: [20,45,80],    color: "#D97706" },
+  "H_hrc55":  { label: "H - Hardened Steel (>55 HRC)", kc1: 3200, mc: 0.35, vc: [50,120,200],  color: "#EF4444" },
 };
 
 export function fmt(value: any, decimals = 3): string {
-  if (value === null || value === undefined || isNaN(value)) return "—";
+  if (value === null || value === undefined || isNaN(value)) return "-";
   const abs = Math.abs(value);
   if (abs === 0) return "0";
   if (abs >= 1e6)  return Number(value).toExponential(2);

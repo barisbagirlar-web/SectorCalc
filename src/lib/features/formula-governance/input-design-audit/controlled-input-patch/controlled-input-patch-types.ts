@@ -1,5 +1,5 @@
 /**
- * Controlled input design patch types — Phase 5H-F read-only governance patches.
+ * Controlled input design patch types - Phase 5H-F read-only governance patches.
  */
 
 export type ControlledInputPatchType = "input_design_only";

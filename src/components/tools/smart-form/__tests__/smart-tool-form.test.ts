@@ -1,5 +1,5 @@
 /**
- * SmartToolForm contract tests — ADIM 2 (no DOM; node vitest environment).
+ * SmartToolForm contract tests - ADIM 2 (no DOM; node vitest environment).
  */
 
 import { describe, expect, test } from "vitest";

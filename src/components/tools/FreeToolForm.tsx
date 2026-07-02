@@ -42,7 +42,7 @@ export function FreeToolForm({ slug, schema }: FreeToolFormProps) {
   // Fallback for FreeTrafficToolPage (which uses @ts-nocheck with different props)
   return (
     <div className="sc-premium-dtf-container" data-testid="free-tool-form" data-tool-slug={slug}>
-      Fallback form — schema not provided.
+      Fallback form - schema not provided.
     </div>
   );
 }

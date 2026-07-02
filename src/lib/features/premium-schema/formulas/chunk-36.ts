@@ -72,7 +72,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.currency_risk_5",
     family: "cost",
-    label: "Kur Riski — CostOfHedge",
+    label: "Kur Riski - CostOfHedge",
     fn: (inputs) => {
     const notional = num(inputs, "notional");
     const forwardPoints = num(inputs, "forwardPoints");
@@ -82,7 +82,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.currency_risk_6",
     family: "cost",
-    label: "Kur Riski — NetImpact",
+    label: "Kur Riski - NetImpact",
     fn: (inputs) => {
     const spotRate = num(inputs, "spotRate");
     const forwardRate = num(inputs, "forwardRate");
@@ -95,7 +95,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kwh_cost_0",
     family: "cost",
-    label: "KWh Maliyet — EnergyCharge",
+    label: "KWh Maliyet - EnergyCharge",
     fn: (inputs) => {
     const activeEnergy = num(inputs, "activeEnergy");
     const energyRate = num(inputs, "energyRate");
@@ -105,7 +105,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kwh_cost_1",
     family: "cost",
-    label: "KWh Maliyet — DemandCharge",
+    label: "KWh Maliyet - DemandCharge",
     fn: (inputs) => {
     const peakDemand = num(inputs, "peakDemand");
     const demandRate = num(inputs, "demandRate");
@@ -115,7 +115,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kwh_cost_2",
     family: "cost",
-    label: "KWh Maliyet — ReactivePenalty",
+    label: "KWh Maliyet - ReactivePenalty",
     fn: (inputs) => {
     const powerFactor = num(inputs, "powerFactor");
     const threshold = num(inputs, "threshold");
@@ -127,7 +127,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kwh_cost_3",
     family: "cost",
-    label: "KWh Maliyet — TaxesAndFees",
+    label: "KWh Maliyet - TaxesAndFees",
     fn: (inputs) => {
     const energyCharge = num(inputs, "energyCharge");
     const demandCharge = num(inputs, "demandCharge");
@@ -138,7 +138,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kwh_cost_4",
     family: "cost",
-    label: "KWh Maliyet — TotalBill",
+    label: "KWh Maliyet - TotalBill",
     fn: (inputs) => {
     const energyCharge = num(inputs, "energyCharge");
     const demandCharge = num(inputs, "demandCharge");
@@ -150,7 +150,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kwh_cost_5",
     family: "cost",
-    label: "KWh Maliyet — UnitCost_kWh",
+    label: "KWh Maliyet - UnitCost_kWh",
     fn: (inputs) => {
     const totalBill = num(inputs, "totalBill");
     const activeEnergy = num(inputs, "activeEnergy");
@@ -160,7 +160,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kwh_cost_6",
     family: "cost",
-    label: "KWh Maliyet — PeakShavingSavings",
+    label: "KWh Maliyet - PeakShavingSavings",
     fn: (inputs) => {
     const oldPeak = num(inputs, "oldPeak");
     const newPeak = num(inputs, "newPeak");
@@ -173,7 +173,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_0",
     family: "cost",
-    label: "Lojistik Rota Loss — IdealDistance",
+    label: "Lojistik Rota Loss - IdealDistance",
     fn: (inputs) => {
     const pointToPoint = num(inputs, "pointToPoint");
     const Distance = num(inputs, "Distance");
@@ -184,7 +184,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_1",
     family: "cost",
-    label: "Lojistik Rota Loss — ActualDistance",
+    label: "Lojistik Rota Loss - ActualDistance",
     fn: (inputs) => {
     const routeDistance = num(inputs, "routeDistance");
     return nonNegative(assertFinite(routeDistance));
@@ -193,7 +193,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_2",
     family: "cost",
-    label: "Lojistik Rota Loss — DriftPct",
+    label: "Lojistik Rota Loss - DriftPct",
     fn: (inputs) => {
     const actualDistance = num(inputs, "actualDistance");
     const idealDistance = num(inputs, "idealDistance");
@@ -203,7 +203,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_3",
     family: "cost",
-    label: "Lojistik Rota Loss — FuelWaste",
+    label: "Lojistik Rota Loss - FuelWaste",
     fn: (inputs) => {
     const actualDistance = num(inputs, "actualDistance");
     const idealDistance = num(inputs, "idealDistance");
@@ -215,7 +215,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_4",
     family: "cost",
-    label: "Lojistik Rota Loss — TimeWaste",
+    label: "Lojistik Rota Loss - TimeWaste",
     fn: (inputs) => {
     const actualDistance = num(inputs, "actualDistance");
     const idealDistance = num(inputs, "idealDistance");
@@ -227,7 +227,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_5",
     family: "cost",
-    label: "Lojistik Rota Loss — TotalRouteLoss",
+    label: "Lojistik Rota Loss - TotalRouteLoss",
     fn: (inputs) => {
     const fuelWaste = num(inputs, "fuelWaste");
     const timeWaste = num(inputs, "timeWaste");

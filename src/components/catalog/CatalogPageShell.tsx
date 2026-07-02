@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * SectorCalc — Catalog Page Shell (search + sector boxes + expandable columns)
+ * SectorCalc - Catalog Page Shell (search + sector boxes + expandable columns)
  * Applies to /pro-tools, /free-tools, /industries.
  *
  * Design:
@@ -229,7 +229,7 @@ export function CatalogPageShell({
             />
           </div>
 
-          {/* Sector boxes — hidden while searching */}
+          {/* Sector boxes - hidden while searching */}
           {!searching && (
             <>
               <div className="cc-eyebrow">{categoryTitle}</div>
@@ -296,7 +296,7 @@ export function CatalogPageShell({
                   {fh && ph ? (
                     <>
                       Free tools cover the same formulas without parameter depth
-                      or PDF export. Start there if you&apos;re exploring —{" "}
+                      or PDF export. Start there if you&apos;re exploring -{" "}
                       <Link href={fh}>browse free tools</Link>, or{" "}
                       <Link href={ph}>explore pro tools</Link>.
                     </>
@@ -309,7 +309,7 @@ export function CatalogPageShell({
                   ) : (
                     <>
                       Free tools cover the same formulas without parameter depth
-                      or PDF export. Start there if you&apos;re exploring —{" "}
+                      or PDF export. Start there if you&apos;re exploring -{" "}
                       <Link href={fh as string}>browse free tools</Link>.
                     </>
                   )}

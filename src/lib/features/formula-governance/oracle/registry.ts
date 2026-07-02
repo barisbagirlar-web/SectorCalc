@@ -1,5 +1,5 @@
 /**
- * Oracle registry — independent reference models for critical formulas.
+ * Oracle registry - independent reference models for critical formulas.
  * Phase 4: finance oracles registered in finance-oracles.ts.
  */
 

@@ -19,7 +19,7 @@ export function buildGeneratedToolCalculateActionJsonLd(input: {
     "@type": "Action",
     additionalType: "https://sectorcalc.com/semantic/CalculateAction",
     identifier: `CalculateAction:${input.slug}`,
-    name: `${input.toolName} — CalculateAction`,
+    name: `${input.toolName} - CalculateAction`,
     description: input.description || input.schema.outputs.primary,
     inLanguage: input.locale,
     target: {

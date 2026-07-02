@@ -1,7 +1,7 @@
 import { SITE_SOCIAL } from "@/config/site";
 
 /**
- * Knowledge Graph entity identifiers — update Wikidata URLs after manual registration.
+ * Knowledge Graph entity identifiers - update Wikidata URLs after manual registration.
  * @see https://www.wikidata.org/wiki/Special:NewItem
  */
 export const KNOWLEDGE_GRAPH = {

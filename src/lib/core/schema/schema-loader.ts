@@ -78,7 +78,7 @@ export function translateTurkishToEnglish(text: string, fallbackId?: string): st
       .join(" ");
   }
 
-  // Step 3: Last resort — strip Turkish chars
+  // Step 3: Last resort - strip Turkish chars
   if (containsTurkish(translated)) {
     console.warn(
       `[SchemaLoader] Partial Turkish residue after translation: "${text}"`,

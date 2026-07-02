@@ -1,4 +1,4 @@
-/** @deprecated Import from case-study-seo — kept for older import paths. */
+/** @deprecated Import from case-study-seo - kept for older import paths. */
 export {
   buildCaseStudyIndexSummaryLine,
   buildCaseStudySnippetCopy,

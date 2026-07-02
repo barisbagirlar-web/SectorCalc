@@ -64,7 +64,7 @@ export async function startCheckout(options: StartCheckoutOptions): Promise<Star
   }
 }
 
-/** Redirect helper — use from click handlers. Falls back to login URL when unsigned. */
+/** Redirect helper - use from click handlers. Falls back to login URL when unsigned. */
 export async function startCheckoutRedirect(options: StartCheckoutOptions): Promise<void> {
   const result = await startCheckout(options);
   if (result.kind === "login") {

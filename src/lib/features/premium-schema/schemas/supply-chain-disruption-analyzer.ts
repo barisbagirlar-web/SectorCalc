@@ -18,7 +18,7 @@ export const SUPPLY_CHAIN_DISRUPTION_SCHEMA: PremiumCalculatorSchema = {
     { id: "riskAdjustedCostSc", label: "Risk-Adjusted Total Cost", label_i18n: {"en":"Risk-Adjusted Total Cost"}, unit: "USD/year", format: "currency", isBigNumber: true },
     { id: "resilienceIndex", label: "Resilience Index", label_i18n: {"en":"Resilience Index"}, unit: "scalar", format: "score" },
   ],
-  thresholds: [{ fieldId: "resilienceIndex", warning: 60, critical: 30, direction: "lower_is_bad", warningMessage: "Resilience index < 60 — risk mitigation plan recommended.", warningMessage_i18n: {"en":"Resilience index < 60 — risk mitigation plan recommended."}, criticalMessage: "Resilience index < 30 — supply chain is fragile.", criticalMessage_i18n: {"en":"Resilience index < 30 — supply chain is fragile."} }],
+  thresholds: [{ fieldId: "resilienceIndex", warning: 60, critical: 30, direction: "lower_is_bad", warningMessage: "Resilience index < 60 - risk mitigation plan recommended.", warningMessage_i18n: {"en":"Resilience index < 60 - risk mitigation plan recommended."}, criticalMessage: "Resilience index < 30 - supply chain is fragile.", criticalMessage_i18n: {"en":"Resilience index < 30 - supply chain is fragile."} }],
   formulaPipeline: [
     { formulaId: "cost.risk_exposure_sc", inputMap: { annualRevenue: "annualRevenue", disruptionProbability: "disruptionProbability", revenueAtRisk: "revenueAtRisk" ,
         supplierSpend: "supplierSpend",

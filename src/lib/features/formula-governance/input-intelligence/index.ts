@@ -1,5 +1,5 @@
 /**
- * Input intelligence bridge exports — Mind 2 requirement → input design adapter.
+ * Input intelligence bridge exports - Mind 2 requirement → input design adapter.
  */
 
 export {

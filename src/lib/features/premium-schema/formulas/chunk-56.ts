@@ -72,7 +72,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.tool_wear_cost_3",
     family: "cost",
-    label: "Takim Asinma Maliyeti — WearRate",
+    label: "Takim Asinma Maliyeti - WearRate",
     fn: (inputs) => {
     const flankWear = num(inputs, "flankWear");
     const machiningTime = num(inputs, "machiningTime");
@@ -82,7 +82,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.tool_wear_cost_4",
     family: "cost",
-    label: "Takim Asinma Maliyeti — OptimalToolLife",
+    label: "Takim Asinma Maliyeti - OptimalToolLife",
     fn: (inputs) => {
     const n = num(inputs, "n");
     const toolChangeTime = num(inputs, "toolChangeTime");
@@ -95,7 +95,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.tool_wear_cost_5",
     family: "cost",
-    label: "Takim Asinma Maliyeti — CostOfPrematureFailure",
+    label: "Takim Asinma Maliyeti - CostOfPrematureFailure",
     fn: (inputs) => {
     const expectedLife = num(inputs, "expectedLife");
     const actualLife = num(inputs, "actualLife");
@@ -108,7 +108,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_0",
     family: "cost",
-    label: "Takt Sure Flexibility Maliyet — TaktTime",
+    label: "Takt Sure Flexibility Maliyet - TaktTime",
     fn: (inputs) => {
     const availableTime = num(inputs, "availableTime");
     const customerDemand = num(inputs, "customerDemand");
@@ -118,7 +118,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_1",
     family: "cost",
-    label: "Takt Sure Flexibility Maliyet — CycleTimeFlexibility",
+    label: "Takt Sure Flexibility Maliyet - CycleTimeFlexibility",
     fn: (inputs) => {
     const cycleTime = num(inputs, "cycleTime");
     const i = num(inputs, "i");
@@ -131,7 +131,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_2",
     family: "cost",
-    label: "Takt Sure Flexibility Maliyet — BalanceLoss",
+    label: "Takt Sure Flexibility Maliyet - BalanceLoss",
     fn: (inputs) => {
     const taktTime = num(inputs, "taktTime");
     const cycleTime = num(inputs, "cycleTime");
@@ -144,7 +144,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_3",
     family: "cost",
-    label: "Takt Sure Flexibility Maliyet — CrossTrainingCost",
+    label: "Takt Sure Flexibility Maliyet - CrossTrainingCost",
     fn: (inputs) => {
     const operators = num(inputs, "operators");
     const trainingHours = num(inputs, "trainingHours");
@@ -155,7 +155,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_4",
     family: "cost",
-    label: "Takt Sure Flexibility Maliyet — FlexibilityPremium",
+    label: "Takt Sure Flexibility Maliyet - FlexibilityPremium",
     fn: (inputs) => {
     const crossTrainingCost = num(inputs, "crossTrainingCost");
     const annualProduction = num(inputs, "annualProduction");
@@ -165,7 +165,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_5",
     family: "cost",
-    label: "Takt Sure Flexibility Maliyet — VolumeVariationCost",
+    label: "Takt Sure Flexibility Maliyet - VolumeVariationCost",
     fn: (inputs) => {
     const demand = num(inputs, "demand");
     const capacity = num(inputs, "capacity");
@@ -179,7 +179,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.demand_forecast_stock_0",
     family: "cost",
-    label: "talep Forecast Stok Maliyet — ForecastError",
+    label: "talep Forecast Stok Maliyet - ForecastError",
     fn: (inputs) => {
     const actualDemand = num(inputs, "actualDemand");
     const forecastDemand = num(inputs, "forecastDemand");
@@ -190,7 +190,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.demand_forecast_stock_1",
     family: "cost",
-    label: "talep Forecast Stok Maliyet — SafetyStock",
+    label: "talep Forecast Stok Maliyet - SafetyStock",
     fn: (inputs) => {
     const z = num(inputs, "z");
     const Score = num(inputs, "Score");
@@ -206,7 +206,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.demand_forecast_stock_2",
     family: "cost",
-    label: "talep Forecast Stok Maliyet — CarryingCost_Safety",
+    label: "talep Forecast Stok Maliyet - CarryingCost_Safety",
     fn: (inputs) => {
     const safetyStock = num(inputs, "safetyStock");
     const unitCost = num(inputs, "unitCost");
@@ -217,7 +217,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.demand_forecast_stock_3",
     family: "cost",
-    label: "talep Forecast Stok Maliyet — StockoutCost",
+    label: "talep Forecast Stok Maliyet - StockoutCost",
     fn: (inputs) => {
     const actualDemand = num(inputs, "actualDemand");
     const forecastDemand = num(inputs, "forecastDemand");
@@ -229,7 +229,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.demand_forecast_stock_4",
     family: "cost",
-    label: "talep Forecast Stok Maliyet — TotalForecastCost",
+    label: "talep Forecast Stok Maliyet - TotalForecastCost",
     fn: (inputs) => {
     const carryingCost = num(inputs, "carryingCost");
     const Safety = num(inputs, "Safety");
@@ -244,7 +244,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.repair_shop_quote_0",
     family: "cost",
-    label: "Tamirhane Parca ve Iscilik Teklif — PartCost",
+    label: "Tamirhane Parca ve Iscilik Teklif - PartCost",
     fn: (inputs) => {
     const quantity = num(inputs, "quantity");
     const i = num(inputs, "i");

@@ -1,6 +1,6 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * CALCULATION ENGINE (v3 — Full Industrial 2‑Phase Validation)
+ * CALCULATION ENGINE (v3 - Full Industrial 2‑Phase Validation)
  * ═══════════════════════════════════════════════════════════════════════════
  * • Topological sort of the formula DAG (with cycle detection)
  * • 2‑phase validation:
@@ -71,7 +71,7 @@ export function prepare(schema: ToolSchema): Prepared {
     postRules.push({ compiled, rule: r });
   }
 
-  // Topological sort — track deps by formula ID (handles duplicate output vars)
+  // Topological sort - track deps by formula ID (handles duplicate output vars)
   const outToFormula = new Map(schema.formulas.map((f) => [f.outputVar, f]));
   const depsById = new Map<string, Set<string>>();
   for (const f of schema.formulas) {

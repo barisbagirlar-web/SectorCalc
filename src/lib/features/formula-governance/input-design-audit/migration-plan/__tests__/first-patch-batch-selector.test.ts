@@ -1,5 +1,5 @@
 /**
- * Phase 5H-E — first controlled patch batch selector tests.
+ * Phase 5H-E - first controlled patch batch selector tests.
  */
 
 import { describe, expect, test } from "vitest";

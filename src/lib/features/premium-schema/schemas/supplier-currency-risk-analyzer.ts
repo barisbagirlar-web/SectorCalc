@@ -19,7 +19,7 @@ export const SUPPLIER_CURRENCY_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "fxNetRiskCost", label: "Net Risk Cost", label_i18n: {"en":"Net Risk Cost"}, unit: "USD", format: "currency", isBigNumber: true },
     { id: "fxClauseSavings", label: "Klausul Tasarrufu", label_i18n: {"en":"Klausul Tasarrufu"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "fxNetRiskCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Net risk cost > $5K — hedge should be evaluated.", warningMessage_i18n: {"en":"Net risk cost > $5K — hedge should be evaluated."}, criticalMessage: "Net risk cost > $15K — currency hedging is mandatory.", criticalMessage_i18n: {"en":"Net risk cost > $15K — currency hedging is mandatory."} }],
+  thresholds: [{ fieldId: "fxNetRiskCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Net risk cost > $5K - hedge should be evaluated.", warningMessage_i18n: {"en":"Net risk cost > $5K - hedge should be evaluated."}, criticalMessage: "Net risk cost > $15K - currency hedging is mandatory.", criticalMessage_i18n: {"en":"Net risk cost > $15K - currency hedging is mandatory."} }],
   formulaPipeline: [
     { formulaId: "cost.fx_exposure_supplier", inputMap: {
         contractValue: "invoiceTotal",

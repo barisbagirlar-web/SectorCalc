@@ -1,6 +1,6 @@
 // ============================================================
 // src/utils/math/safeMath.ts
-// SectorCalc — Guvenli Matematik Katmani (Claude Opus)
+// SectorCalc - Guvenli Matematik Katmani (Claude Opus)
 // Tum floating-point islemleri bu katmandan gecer.
 // NaN, Infinity, -0 → null doner. Asla 0 dondurmez.
 // ============================================================
@@ -101,11 +101,11 @@ export class SafeMath {
   }
 
   // ── Sonuc formatlama ───────────────────────────────────────
-  // null revenuese kullaniciya "—" goster, asla "0" degil
+  // null revenuese kullaniciya "-" goster, asla "0" degil
   static format(
     value: SafeNumber,
     decimals = 2,
-    fallback = "—"
+    fallback = "-"
   ): string {
     if (value === null || value === undefined) return fallback;
     return value.toFixed(decimals);

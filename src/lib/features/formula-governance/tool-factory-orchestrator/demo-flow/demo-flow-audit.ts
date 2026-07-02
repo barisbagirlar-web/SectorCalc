@@ -1,5 +1,5 @@
 /**
- * Tool factory demo flow audit — Phase 5I-N read-only.
+ * Tool factory demo flow audit - Phase 5I-N read-only.
  */
 
 import { runToolFactoryDemoFlow } from "@/lib/features/formula-governance/tool-factory-orchestrator/demo-flow/demo-flow-runner";

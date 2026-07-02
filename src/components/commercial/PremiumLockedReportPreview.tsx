@@ -17,7 +17,7 @@ export function PremiumLockedReportPreview() {
         <p className="sc-pro-eyebrow">Report preview</p>
         <h2 className="sc-pro-title sc-pro-title--compact">Premium locked report preview</h2>
         <p className="sc-pro-lead mt-3 max-w-2xl">
-          Users see structure and value — locked fields stay blurred until checkout. Full sample
+          Users see structure and value - locked fields stay blurred until checkout. Full sample
           available on the public sample report page.
         </p>
         <div className="relative mt-8 overflow-hidden rounded-xl border border-border-subtle bg-white p-6">
@@ -27,7 +27,7 @@ export function PremiumLockedReportPreview() {
                 Executive summary
               </p>
               <p className="mt-2 text-sm text-deep-navy">
-                Verdict headline and risk classification — visible in sample.
+                Verdict headline and risk classification - visible in sample.
               </p>
             </div>
             {LOCKED_SECTIONS.map((section) => (

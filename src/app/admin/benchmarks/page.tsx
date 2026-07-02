@@ -21,7 +21,7 @@ export default function AdminBenchmarksPage() {
       <PageHero
         eyebrow="Admin"
         title="Benchmark Data"
-        subtitle="Beta partner intake, anonymized benchmark submissions and premium report feedback. Read-only v1 — status actions in a future patch."
+        subtitle="Beta partner intake, anonymized benchmark submissions and premium report feedback. Read-only v1 - status actions in a future patch."
       />
 
       <section className="bg-off-white py-10 md:py-14">

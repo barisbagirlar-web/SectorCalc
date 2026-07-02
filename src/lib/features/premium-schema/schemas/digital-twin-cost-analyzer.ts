@@ -20,7 +20,7 @@ export const DIGITAL_TWIN_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "roi", label: "Digital Twin ROI", label_i18n: {"en":"Digital Twin ROI"}, unit: "%", format: "percentage" },
     { id: "paybackMonths", label: "Payback Period", label_i18n: {"en":"Payback Period"}, unit: "months", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI < 100% — feasibility must be re-evaluated.", warningMessage_i18n: {"en":"ROI < 100% — feasibility must be re-evaluated."}, criticalMessage: "ROI < 50% — investment is not recommended.", criticalMessage_i18n: {"en":"ROI < 50% — investment is not recommended."} }],
+  thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI < 100% - feasibility must be re-evaluated.", warningMessage_i18n: {"en":"ROI < 100% - feasibility must be re-evaluated."}, criticalMessage: "ROI < 50% - investment is not recommended.", criticalMessage_i18n: {"en":"ROI < 50% - investment is not recommended."} }],
   formulaPipeline: [
     { formulaId: "cost.digital_twin_time_gain", inputMap: {
         iterations: "iterations",

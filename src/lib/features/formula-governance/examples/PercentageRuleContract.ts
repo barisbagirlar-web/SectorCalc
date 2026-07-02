@@ -49,7 +49,7 @@ export function executePercentageRule(input: PercentageRuleInput): PercentageRul
     smartWarnings.push({
       severity: "WARNING",
       source: "Real Estate Investment Metrics",
-      message: "Warning: Rental yield is below 0.4% of property value. Amortization period (ROI) exceeds 20 years — this is a low-yield investment."
+      message: "Warning: Rental yield is below 0.4% of property value. Amortization period (ROI) exceeds 20 years - this is a low-yield investment."
     });
   }
 

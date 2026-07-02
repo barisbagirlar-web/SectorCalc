@@ -13,7 +13,7 @@ import { useTranslations } from "@/lib/i18n-stub";
 import { useUser } from "@/hooks/useUser";
 import { TraceErrorBoundary } from "@/components/trace/TraceErrorBoundary";
 
-// Always use FreeTraceChat — no Pro mode.
+// Always use FreeTraceChat - no Pro mode.
 // Root cause of "unauthorized": ProTraceChat calls /api/trace/pro which
 // requires Firebase auth. When token is missing/expired it returns 401.
 // FreeTraceChat uses /api/trace/free which has ZERO auth checks.

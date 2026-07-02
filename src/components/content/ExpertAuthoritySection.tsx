@@ -1,6 +1,6 @@
 "use client";
 /**
- * ExpertAuthoritySection — Prof. Dr. Neela Nataraj
+ * ExpertAuthoritySection - Prof. Dr. Neela Nataraj
  *
  * Displays academic expert credentials for Google E-E-A-T (Experience,
  * Expertise, Authoritativeness, Trustworthiness) on every calculation tool

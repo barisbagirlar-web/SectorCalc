@@ -1,5 +1,5 @@
 /**
- * Formula Constraint Engine — Industrial-Grade
+ * Formula Constraint Engine - Industrial-Grade
  *
  * Dual-layer formula validation:
  *   Layer 1: Dimension/Unit inference from variable names
@@ -257,7 +257,7 @@ export function inferFormulaDomain(formulaKey: string): FormulaDomain | null {
 /* ── Statement-level domain extraction ─────────── */
 
 const COMPATIBLE_DOMAIN_PAIRS = new Map<FormulaDomain, readonly FormulaDomain[]>([
-  // Efficiency is a dimensionless scale factor — compatible with EVERYTHING
+  // Efficiency is a dimensionless scale factor - compatible with EVERYTHING
   ["labor", ["time", "cost", "efficiency", "general"]],
   ["material", ["cost", "volume", "mass", "count", "efficiency"]],
   ["energy", ["cost", "power", "time", "efficiency"]],
@@ -358,7 +358,7 @@ export function validateFormulaConstraint(
       formulaKey,
       severity: "WARN",
       category: "SUSPICIOUS_FORMULA",
-      message: `Formula "${formulaKey}" contains string concatenation — likely a display label, not a numeric formula`,
+      message: `Formula "${formulaKey}" contains string concatenation - likely a display label, not a numeric formula`,
     });
   }
 

@@ -116,7 +116,7 @@ function confClass(label?: string): string {
 /* ─── FORMAT VALUE HELPER ───────────────────────────────────────────── */
 
 function fmtValue(v: string | number | null | undefined): string {
-  if (v === null || v === undefined || v === "") return "—";
+  if (v === null || v === undefined || v === "") return "-";
   const num = typeof v === "number" ? v : Number(v);
   if (!Number.isFinite(num)) return String(v);
   if (Math.abs(num) >= 100000) return num.toExponential(2);
@@ -215,7 +215,7 @@ export function FreeToolPremiumCalculator({
     setLocalValues((prev) => ({ ...prev, [key]: value }));
   };
 
-  /* Handle input change — delegates to parent + local */
+  /* Handle input change - delegates to parent + local */
   const handleInputChange = (key: string, value: string) => {
     const num = value === "" ? "" : Number(value);
     onChange(key, typeof num === "number" && !Number.isNaN(num) ? num : value);
@@ -278,7 +278,7 @@ export function FreeToolPremiumCalculator({
             ) : submitted ? (
               <span className="sc-premium-badge sc-premium-badge-ok">✓ PASS</span>
             ) : (
-              <span className="sc-premium-badge sc-premium-badge-idle">— NOT ENTERED</span>
+              <span className="sc-premium-badge sc-premium-badge-idle">- NOT ENTERED</span>
             )}
           </div>
         </div>
@@ -316,7 +316,7 @@ export function FreeToolPremiumCalculator({
               {materialDB && (
                 <div style={{ marginBottom: 16 }}>
                   <div className="sc-premium-sec-lbl">
-                    Workpiece Material Group (ISO 513) — Select
+                    Workpiece Material Group (ISO 513) - Select
                   </div>
                   <div className="sc-premium-mat-grid">
                     {Object.entries(materialDB).map(([k, m]) => (

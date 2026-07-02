@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-B — smart form input type resolver tests.
+ * Phase 5H-G-B - smart form input type resolver tests.
  */
 
 import { describe, expect, test } from "vitest";

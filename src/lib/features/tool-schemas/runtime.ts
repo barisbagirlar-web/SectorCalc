@@ -1,9 +1,9 @@
 /**
- * Universal Tool Runtime — Expression Evaluator & Schema Validator
+ * Universal Tool Runtime - Expression Evaluator & Schema Validator
  *
  * Interprets strings from ToolSchema.FormulaDef.expression using a
  * safe expression evaluator. Supports Math.*, ternary, variables,
- * and nested arithmetic — all from a single expression string (I1).
+ * and nested arithmetic - all from a single expression string (I1).
  */
 
 import type {
@@ -79,7 +79,7 @@ export function validateSchema(
 
   const fired: { ruleId: string; message: string }[] = [];
 
-  // 1. Required input check (fail-closed — I6)
+  // 1. Required input check (fail-closed - I6)
   for (const inp of schema.inputs) {
     if (inp.optional) continue;
     if (inp.appliesTo && !inp.appliesTo.includes(standardId)) continue;
@@ -111,7 +111,7 @@ export function validateSchema(
     }
   }
 
-  // 3. Standard-level BLOCK validation rules — condition = TRUE means VIOLATED
+  // 3. Standard-level BLOCK validation rules - condition = TRUE means VIOLATED
   for (const rule of standard.validation) {
     if (rule.action !== "BLOCK") continue;
     try {
@@ -128,7 +128,7 @@ export function validateSchema(
 }
 
 /* ══════════════════════════════════════════════════════════════════
- * COMPUTE — Evaluate all formulas for a given standard
+ * COMPUTE - Evaluate all formulas for a given standard
  * ══════════════════════════════════════════════════════════════════ */
 
 export function computeStandard(
@@ -156,7 +156,7 @@ export function computeStandard(
       const result = evaluateExpr(formula.expression, scope);
       scope[formula.output] = result;
 
-      // Domain guard check — condition must evaluate to TRUE for valid domain
+      // Domain guard check - condition must evaluate to TRUE for valid domain
       if (formula.domainGuard) {
         const guardResult = evaluateExpr(formula.domainGuard.condition, scope);
         if (!guardResult) {
@@ -443,7 +443,7 @@ export async function computeTool(req: ComputeRequest): Promise<ComputeResult> {
 }
 
 /* ══════════════════════════════════════════════════════════════════
- * COMPUTE — Legacy wrapper (synchronous, no GUM, no hashing)
+ * COMPUTE - Legacy wrapper (synchronous, no GUM, no hashing)
  * ══════════════════════════════════════════════════════════════════ */
 
 export function computeLegacy(

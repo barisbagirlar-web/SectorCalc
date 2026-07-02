@@ -18,8 +18,8 @@ export const BREAK_EVEN_SAFETY_MARGIN_CALCULATOR_SCHEMA: PremiumCalculatorSchema
       warning: 10,
       critical: 0,
       direction: "lower_is_bad",
-      warningMessage: "Safety margin is thin — volume drop could erase profit quickly.",
-      criticalMessage: "Volume is at or below break-even — review pricing or cost stack.",
+      warningMessage: "Safety margin is thin - volume drop could erase profit quickly.",
+      criticalMessage: "Volume is at or below break-even - review pricing or cost stack.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const BREAK_EVEN_SAFETY_MARGIN_CALCULATOR_SCHEMA: PremiumCalculatorSchema
     assumptionNotes: [
       "Break-even units = fixed cost ÷ (unit price − variable cost per unit).",
       "Safety margin = (current volume − break-even units) ÷ current volume.",
-      "Informational simulation only — not financial advice.",
+      "Informational simulation only - not financial advice.",
     ],
   },
 };

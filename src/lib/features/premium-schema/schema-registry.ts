@@ -103,7 +103,7 @@ import { WATER_USAGE_OPTIMIZER_ANALYZER } from "@/lib/features/premium-schema/sc
 import { WELD_STRENGTH_SCHEMA } from "@/lib/features/premium-schema/schemas/weld-strength-analyzer";
 import { WELD_VOLUME_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/weld-volume-cost-analyzer";
 
-/** Premium 152 batch 1 — schema-backed calculators. */
+/** Premium 152 batch 1 - schema-backed calculators. */
 export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
   AI_TOKEN_COST_ANALYZER_SCHEMA,
   SIX_SIGMA_PRIORITIZER_SCHEMA,
@@ -272,7 +272,7 @@ export function listPremiumSchemaIds(): readonly string[] {
  * with their _i18n.en equivalents so the UI always renders English.
  */
 function normalizeSchemaToEnglish(schema: PremiumCalculatorSchema): PremiumCalculatorSchema {
-  // Cloned output — we mutate a working copy to bypass readonly
+  // Cloned output - we mutate a working copy to bypass readonly
   const out = JSON.parse(JSON.stringify(schema)) as any;
 
   if (out.name_i18n?.en) out.name = out.name_i18n.en;
@@ -325,7 +325,7 @@ export function getPremiumCalculatorSchema(slug: string): PremiumCalculatorSchem
     (schema) => schema.id === normalized || schema.legacyPaidSlug === normalized,
   ) ?? null;
   if (!raw) return null;
-  // Always return English-normalized schema — no Turkish content in UI
+  // Always return English-normalized schema - no Turkish content in UI
   return normalizeSchemaToEnglish(raw);
 }
 

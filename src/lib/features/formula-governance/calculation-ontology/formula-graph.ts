@@ -1,5 +1,5 @@
 /**
- * Formula graph lookups — pure helpers over ontology formulas.
+ * Formula graph lookups - pure helpers over ontology formulas.
  */
 
 import type { CalculationOntology, FormulaNode } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";

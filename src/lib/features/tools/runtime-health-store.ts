@@ -25,7 +25,7 @@ export type RuntimeToolHealthRecord = {
 
 const healthBySlug = new Map<string, RuntimeToolHealthRecord>();
 
-/** In-memory health read — Firestore integration planned for ERT-1. */
+/** In-memory health read - Firestore integration planned for ERT-1. */
 export function readRuntimeToolHealth(slug: string): RuntimeToolHealthRecord | null {
   const key = slug.trim();
   if (!key) {
@@ -34,7 +34,7 @@ export function readRuntimeToolHealth(slug: string): RuntimeToolHealthRecord | n
   return healthBySlug.get(key) ?? null;
 }
 
-/** Test/admin hook — not wired to Firestore in ERT-0. */
+/** Test/admin hook - not wired to Firestore in ERT-0. */
 export function writeRuntimeToolHealth(record: RuntimeToolHealthRecord): void {
   healthBySlug.set(record.slug.trim(), record);
 }

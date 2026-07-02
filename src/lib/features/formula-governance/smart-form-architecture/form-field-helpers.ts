@@ -1,5 +1,5 @@
 /**
- * Smart form field helpers — governance metadata only (Phase 5H-G-A).
+ * Smart form field helpers - governance metadata only (Phase 5H-G-A).
  */
 
 const CURRENCY_HINTS = ["cost", "price", "fee", "budget", "rent", "material", "parts", "fuel", "ink"];

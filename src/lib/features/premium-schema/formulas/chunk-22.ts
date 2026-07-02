@@ -72,7 +72,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_2",
     family: "cost",
-    label: "GUBRE DOZAJ — FertNeed",
+    label: "GUBRE DOZAJ - FertNeed",
     fn: (inputs) => {
     const nutReq = num(inputs, "nutReq");
     const soilSupp = num(inputs, "soilSupp");
@@ -83,7 +83,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_3",
     family: "cost",
-    label: "GUBRE DOZAJ — AppRate",
+    label: "GUBRE DOZAJ - AppRate",
     fn: (inputs) => {
     const fertNeed = num(inputs, "fertNeed");
     const contentPct = num(inputs, "contentPct");
@@ -93,7 +93,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_4",
     family: "cost",
-    label: "GUBRE DOZAJ — Cost",
+    label: "GUBRE DOZAJ - Cost",
     fn: (inputs) => {
     const appRate = num(inputs, "appRate");
     const area = num(inputs, "area");
@@ -104,7 +104,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_5",
     family: "cost",
-    label: "GUBRE DOZAJ — EnvRisk",
+    label: "GUBRE DOZAJ - EnvRisk",
     fn: (inputs) => {
     const appRate = num(inputs, "appRate");
     const uptake = num(inputs, "uptake");
@@ -115,7 +115,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_6",
     family: "cost",
-    label: "GUBRE DOZAJ — ROI",
+    label: "GUBRE DOZAJ - ROI",
     fn: (inputs) => {
     const yieldInc = num(inputs, "yieldInc");
     const cropPrice = num(inputs, "cropPrice");
@@ -126,7 +126,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_7",
     family: "cost",
-    label: "GUBRE DOZAJ — Precision",
+    label: "GUBRE DOZAJ - Precision",
     fn: (inputs) => {
     const baseRate = num(inputs, "baseRate");
     const zoneFactor = num(inputs, "zoneFactor");
@@ -138,7 +138,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.haccp_deviation_cost_0",
     family: "cost",
-    label: "HACCP DEVIATION — Cost_Hold",
+    label: "HACCP DEVIATION - Cost_Hold",
     fn: (inputs) => {
     const quarVol = num(inputs, "quarVol");
     const holdCost = num(inputs, "holdCost");
@@ -149,7 +149,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.haccp_deviation_cost_1",
     family: "cost",
-    label: "HACCP DEVIATION — Cost_Test",
+    label: "HACCP DEVIATION - Cost_Test",
     fn: (inputs) => {
     const samples = num(inputs, "samples");
     const labCost = num(inputs, "labCost");
@@ -159,7 +159,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.haccp_deviation_cost_2",
     family: "cost",
-    label: "HACCP DEVIATION — Cost_Rework",
+    label: "HACCP DEVIATION - Cost_Rework",
     fn: (inputs) => {
     const devVol = num(inputs, "devVol");
     const reworkCost = num(inputs, "reworkCost");
@@ -169,7 +169,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.haccp_deviation_cost_3",
     family: "cost",
-    label: "HACCP DEVIATION — Cost_Disp",
+    label: "HACCP DEVIATION - Cost_Disp",
     fn: (inputs) => {
     const condVol = num(inputs, "condVol");
     const dispCost = num(inputs, "dispCost");
@@ -180,7 +180,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.haccp_deviation_cost_4",
     family: "cost",
-    label: "HACCP DEVIATION — Cost_Recall",
+    label: "HACCP DEVIATION - Cost_Recall",
     fn: (inputs) => {
     const notif = num(inputs, "notif");
     const Rev = num(inputs, "Rev");
@@ -193,7 +193,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.haccp_deviation_cost_5",
     family: "cost",
-    label: "HACCP DEVIATION — Fine",
+    label: "HACCP DEVIATION - Fine",
     fn: (inputs) => {
     const probDet = num(inputs, "probDet");
     const fineAmt = num(inputs, "fineAmt");
@@ -203,7 +203,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.haccp_deviation_cost_6",
     family: "cost",
-    label: "HACCP DEVIATION — Total",
+    label: "HACCP DEVIATION - Total",
     fn: (inputs) => {
     const hold = num(inputs, "hold");
     const test = num(inputs, "test");
@@ -217,7 +217,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.haccp_deviation_cost_7",
     family: "cost",
-    label: "HACCP DEVIATION — RPN",
+    label: "HACCP DEVIATION - RPN",
     fn: (inputs) => {
     const sev = num(inputs, "sev");
     const occ = num(inputs, "occ");
@@ -230,7 +230,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.volumetric_weight_chargeable_0",
     family: "cost",
-    label: "HACIMSEL AGIRLIK — VolWeight_Air",
+    label: "HACIMSEL AGIRLIK - VolWeight_Air",
     fn: (inputs) => {
     const l = num(inputs, "l");
     const w = num(inputs, "w");

@@ -1,4 +1,4 @@
-/** Premium Guide Spec Engine — tool-specific guide types (P3). */
+/** Premium Guide Spec Engine - tool-specific guide types (P3). */
 
 export type ToolGuideType =
   | "shape_dimension"

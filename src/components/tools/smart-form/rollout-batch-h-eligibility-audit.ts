@@ -1,5 +1,5 @@
 /**
- * Smart form rollout batch H eligibility audit — Phase 5H-H.
+ * Smart form rollout batch H eligibility audit - Phase 5H-H.
  */
 
 import { buildPilotUiBridgeManifestForSlug } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-ui-bridge-manifest";

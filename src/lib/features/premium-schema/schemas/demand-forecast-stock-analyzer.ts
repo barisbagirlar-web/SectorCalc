@@ -18,7 +18,7 @@ export const DEMAND_FORECAST_STOCK_SCHEMA: PremiumCalculatorSchema = {
     { id: "stockoutCostForecast", label: "Inventory Ds Cost", label_i18n: {"en":"Inventory Ds Cost"}, unit: "USD/donem", format: "currency" },
     { id: "totalForecastCost", label: "Total Estimate Kaynakl Cost", label_i18n: {"en":"Total Estimate Kaynakl Cost"}, unit: "USD/donem", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "forecastError", warning: 100, critical: 300, direction: "higher_is_bad", warningMessage: "Estimate Error > 100 Units — forecast model must be reviewed.", warningMessage_i18n: {"en":"Estimate Error > 100 Units — forecast model must be reviewed."}, criticalMessage: "Estimate Error > 300 Units — urgent demand Estimated revizyonu gerekli.", criticalMessage_i18n: {"en":"Estimate Error > 300 Units — urgent demand Estimated revizyonu gerekli."} }],
+  thresholds: [{ fieldId: "forecastError", warning: 100, critical: 300, direction: "higher_is_bad", warningMessage: "Estimate Error > 100 Units - forecast model must be reviewed.", warningMessage_i18n: {"en":"Estimate Error > 100 Units - forecast model must be reviewed."}, criticalMessage: "Estimate Error > 300 Units - urgent demand Estimated revizyonu gerekli.", criticalMessage_i18n: {"en":"Estimate Error > 300 Units - urgent demand Estimated revizyonu gerekli."} }],
   formulaPipeline: [
     { formulaId: "measurement.forecast_error", inputMap: { actualDemand: "actualDemand", forecastDemand: "forecastDemand" }, outputId: "forecastError" },
     { formulaId: "measurement.safety_stock_forecast", inputMap: {

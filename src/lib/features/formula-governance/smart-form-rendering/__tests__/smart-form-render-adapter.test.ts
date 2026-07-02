@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-B — smart form render adapter tests.
+ * Phase 5H-G-B - smart form render adapter tests.
  */
 
 import { describe, expect, test } from "vitest";

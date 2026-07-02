@@ -1,5 +1,5 @@
 /**
- * Remediation batch audit — Phase 5I-D read-only validation and runner.
+ * Remediation batch audit - Phase 5I-D read-only validation and runner.
  */
 
 import { FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts";

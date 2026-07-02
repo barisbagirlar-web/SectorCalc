@@ -18,7 +18,7 @@ export type UseSubscriptionState = {
 export function useSubscription(): UseSubscriptionState {
  const { user, subscription, isActive, loading } = useUserSubscription();
 
- // BARIS BAGIRLAR — tam yetki bypass (production + local)
+ // BARIS BAGIRLAR - tam yetki bypass (production + local)
  const isSuperUser = isProBypassEmail(user?.email);
 
  if (isDevelopmentProBypass()) {

@@ -19,16 +19,16 @@ export const CNC_OEE_LOSS_SCHEMA: PremiumCalculatorSchema = {
       warning: 65,
       critical: 50,
       direction: "lower_is_bad",
-      warningMessage: "OEE is below typical job-shop band — schedule and scrap buffers are tight.",
-      criticalMessage: "High risk — hidden cost may erase the margin. Reprice before accepting this job.",
+      warningMessage: "OEE is below typical job-shop band - schedule and scrap buffers are tight.",
+      criticalMessage: "High risk - hidden cost may erase the margin. Reprice before accepting this job.",
     },
     {
       fieldId: "scrapCost",
       warning: 50,
       critical: 120,
       direction: "higher_is_bad",
-      warningMessage: "Scrap exposure is elevated — verify material yield and first-off plan.",
-      criticalMessage: "Material fire cost is critical — raise quote or reduce scrap allowance.",
+      warningMessage: "Scrap exposure is elevated - verify material yield and first-off plan.",
+      criticalMessage: "Material fire cost is critical - raise quote or reduce scrap allowance.",
     },
   ],
 
@@ -52,7 +52,7 @@ export const CNC_OEE_LOSS_SCHEMA: PremiumCalculatorSchema = {
     assumptionNotes: [
       "Hidden buffers include setup overrun, tool wear and inspection load.",
       "P90 uses sector volatility 22% unless you override shop history.",
-      "Outputs are estimates — verify before signing the job.",
+      "Outputs are estimates - verify before signing the job.",
     ],
   },
 };

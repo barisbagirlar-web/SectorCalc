@@ -16,7 +16,7 @@ export const SUBCONTRACTOR_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "marginLeakSub", label: "Margin Kacag", label_i18n: {"en":"Margin Kacag"}, unit: "USD", format: "currency" },
     { id: "leakagePct", label: "Leak Rate", label_i18n: {"en":"Leak Rate"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "leakagePct", warning: 5, critical: 15, direction: "higher_is_bad", warningMessage: "Margin leakage > 5% — subcontractor monitoring should be increased.", warningMessage_i18n: {"en":"Margin leakage > 5% — subcontractor monitoring should be increased."}, criticalMessage: "Margin leakage > 15% — subcontractor contracts should be renewed.", criticalMessage_i18n: {"en":"Margin leakage > 15% — subcontractor contracts should be renewed."} }],
+  thresholds: [{ fieldId: "leakagePct", warning: 5, critical: 15, direction: "higher_is_bad", warningMessage: "Margin leakage > 5% - subcontractor monitoring should be increased.", warningMessage_i18n: {"en":"Margin leakage > 5% - subcontractor monitoring should be increased."}, criticalMessage: "Margin leakage > 15% - subcontractor contracts should be renewed.", criticalMessage_i18n: {"en":"Margin leakage > 15% - subcontractor contracts should be renewed."} }],
   formulaPipeline: [
     { formulaId: "measurement.quoted_margin", inputMap: { quotedAmount: "quotedAmount", actualCost: "actualCost" ,
         quotedPrice: "quotedPrice",

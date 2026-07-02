@@ -15,7 +15,7 @@ import type {
 } from "@/lib/features/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 
 export const SMART_FORM_PILOT_CONNECTED_LABEL =
-  "Smart form pilot — connected to existing calculation path.";
+  "Smart form pilot - connected to existing calculation path.";
 
 type SmartFormBridgeRendererProps = {
   readonly manifest: SmartFormUiBridgeManifest;
@@ -203,11 +203,11 @@ function TrustTracePanel({
     >
       <h3 className="text-base font-semibold text-text-primary">Calculation summary</h3>
       <p className="mt-1 text-sm text-text-secondary">
-        Governance mapping preview — no report output in this phase.
+        Governance mapping preview - no report output in this phase.
       </p>
       <ul className="mt-3 space-y-1 text-sm text-text-secondary">
-        <li>Used inputs: {manifest.trustTrace.usedInputs.join(", ") || "—"}</li>
-        <li>Derived values: {manifest.trustTrace.derivedValues.join(", ") || "—"}</li>
+        <li>Used inputs: {manifest.trustTrace.usedInputs.join(", ") || "-"}</li>
+        <li>Derived values: {manifest.trustTrace.derivedValues.join(", ") || "-"}</li>
         <li>Assumptions: {manifest.trustTrace.assumptions.length}</li>
         <li>Validation sources: {manifest.trustTrace.validationSources.length}</li>
       </ul>
@@ -281,7 +281,7 @@ export function SmartFormBridgeRenderer({
       <div className="rounded border border-amber-200 bg-amber-50 p-3 text-sm text-amber-950">
         {calculationConnected
           ? SMART_FORM_PILOT_CONNECTED_LABEL
-          : "Smart form pilot — render only. Production calculator output path is unchanged."}
+          : "Smart form pilot - render only. Production calculator output path is unchanged."}
       </div>
 
       {orderedSections

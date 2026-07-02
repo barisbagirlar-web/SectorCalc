@@ -1,5 +1,5 @@
 /**
- * Tool #11 — Basabas Noktasi & Guvenlik Marji
+ * Tool #11 - Basabas Noktasi & Guvenlik Marji
  * BEP_Units → CMR → BEP_Revenue → MoS → OperatingLeverage → TargetProfit
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -28,7 +28,7 @@ export const BREAK_EVEN_SCHEMA: PremiumCalculatorSchema = {
     { id: "bepVerdict", label: "Karllk Durumu", label_i18n: {"en":"Karllk Durumu"}, unit: "scalar", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "marginOfSafetyPct", warning: 20, critical: 10, direction: "lower_is_bad", warningMessage: "Margin of safety < 20% — vulnerable to sales decline.", warningMessage_i18n: {"en":"Margin of safety < 20% — vulnerable to sales decline."}, criticalMessage: "Margin of safety < 10% — small sales decline causes loss.", criticalMessage_i18n: {"en":"Margin of safety < 10% — small sales decline causes loss."} },
+    { fieldId: "marginOfSafetyPct", warning: 20, critical: 10, direction: "lower_is_bad", warningMessage: "Margin of safety < 20% - vulnerable to sales decline.", warningMessage_i18n: {"en":"Margin of safety < 20% - vulnerable to sales decline."}, criticalMessage: "Margin of safety < 10% - small sales decline causes loss.", criticalMessage_i18n: {"en":"Margin of safety < 10% - small sales decline causes loss."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.bep_units", inputMap: { fixedCosts: "fixedCosts", unitPrice: "unitPrice", unitVariableCost: "unitVariableCost" }, outputId: "bepUnits" },

@@ -1,5 +1,5 @@
 /**
- * Patch plan generator — Phase 5I-B deterministic plan from full tool audit.
+ * Patch plan generator - Phase 5I-B deterministic plan from full tool audit.
  */
 
 import type { FullToolAuditItem } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

@@ -20,7 +20,7 @@ export const SCRAP_OPTIMIZE_SCHEMA: PremiumCalculatorSchema = {
     { id: "currentScrapRate", label: "Current Scrap Rate", label_i18n: {"en":"Current Scrap Rate"}, unit: "%", format: "percentage" },
     { id: "totalScrapCost", label: "Total Scrap Cost", label_i18n: {"en":"Total Scrap Cost"}, unit: "USD/year", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "currentScrapRate", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Scrap rate > 5% — initiate improvement program.", warningMessage_i18n: {"en":"Scrap rate > 5% — initiate improvement program."}, criticalMessage: "Scrap rate > 10% — urgent process improvement.", criticalMessage_i18n: {"en":"Scrap rate > 10% — urgent process improvement."} }],
+  thresholds: [{ fieldId: "currentScrapRate", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Scrap rate > 5% - initiate improvement program.", warningMessage_i18n: {"en":"Scrap rate > 5% - initiate improvement program."}, criticalMessage: "Scrap rate > 10% - urgent process improvement.", criticalMessage_i18n: {"en":"Scrap rate > 10% - urgent process improvement."} }],
   formulaPipeline: [
     { formulaId: "cost.scrap_optimize_total", inputMap: {
         salvage: "salvage",

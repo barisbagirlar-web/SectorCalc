@@ -29,7 +29,7 @@ const CONTENT: LocaleContentMap = {
       ],
       testimonial: {
         quote:
-          "SectorCalc's cost converter model turned 5S from a cleaning project into a cash-flow line item on the CFO report. €1.2M in five months — in our pocket with process discipline alone, without any CAPEX.",
+          "SectorCalc's cost converter model turned 5S from a cleaning project into a cash-flow line item on the CFO report. €1.2M in five months - in our pocket with process discipline alone, without any CAPEX.",
         author: "Klaus Weber",
         title: "COO / Plant Director",
         company: "Muller Präzision GmbH",
@@ -42,7 +42,7 @@ const CONTENT: LocaleContentMap = {
       subtitle: "How unplanned downtime, setup time, and quality losses were reversed",
       industry: "Manufacturing / CNC machining",
       challenge:
-        "A CNC job shop running 12 machines for batch production had an OEE of 18%. Unplanned downtime, long setups, and quality losses were eroding throughput — roughly 40 hours of unplanned stops each month.",
+        "A CNC job shop running 12 machines for batch production had an OEE of 18%. Unplanned downtime, long setups, and quality losses were eroding throughput - roughly 40 hours of unplanned stops each month.",
       solution:
         "SectorCalc OEE Downtime Calculator mapped stop categories. SMED Changeover Optimizer cut setup from 45 minutes to 12. Scrap rate dropped from 8% to 3% after rework buffers were priced into jobs.",
       results: [
@@ -89,7 +89,7 @@ const CONTENT: LocaleContentMap = {
       subtitle: "Quote discipline and weld cost optimization for competitive bids",
       industry: "Metal / welding",
       challenge:
-        "A welding shop produced different cost figures on every new quote. Wire, gas, labor, and energy were not standardized — margin leaked on competitive bids.",
+        "A welding shop produced different cost figures on every new quote. Wire, gas, labor, and energy were not standardized - margin leaked on competitive bids.",
       solution:
         "SectorCalc Welding Cost Calculator unified wire, gas, labor, and energy in one governed formula. Volume and strength checks added before release.",
       results: [

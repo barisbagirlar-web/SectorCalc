@@ -72,7 +72,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_shop_margin_leak_2",
     family: "cost",
-    label: "AUTO SHOP MARGIN LEAK — ProductivityRate",
+    label: "AUTO SHOP MARGIN LEAK - ProductivityRate",
     fn: (inputs) => {
     const totalFlagHours = num(inputs, "totalFlagHours");
     const totalAvailableHours = num(inputs, "totalAvailableHours");
@@ -82,7 +82,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_shop_margin_leak_3",
     family: "cost",
-    label: "AUTO SHOP MARGIN LEAK — MarginLeak_Discount",
+    label: "AUTO SHOP MARGIN LEAK - MarginLeak_Discount",
     fn: (inputs) => {
     const discount = num(inputs, "discount");
     const totalRevenue = num(inputs, "totalRevenue");
@@ -92,7 +92,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_shop_margin_leak_4",
     family: "cost",
-    label: "AUTO SHOP MARGIN LEAK — MarginLeak_Shrinkage",
+    label: "AUTO SHOP MARGIN LEAK - MarginLeak_Shrinkage",
     fn: (inputs) => {
     const inventoryShrinkage = num(inputs, "inventoryShrinkage");
     const partsCOGS = num(inputs, "partsCOGS");
@@ -102,7 +102,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_shop_margin_leak_5",
     family: "cost",
-    label: "AUTO SHOP MARGIN LEAK — NetMargin",
+    label: "AUTO SHOP MARGIN LEAK - NetMargin",
     fn: (inputs) => {
     const totalRevenue = num(inputs, "totalRevenue");
     const totalCOGS = num(inputs, "totalCOGS");
@@ -113,7 +113,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_shop_margin_leak_6",
     family: "cost",
-    label: "AUTO SHOP MARGIN LEAK — AnnualLeakage",
+    label: "AUTO SHOP MARGIN LEAK - AnnualLeakage",
     fn: (inputs) => {
     const totalRevenue = num(inputs, "totalRevenue");
     const targetMargin = num(inputs, "targetMargin");
@@ -126,7 +126,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.asme_pressure_vessel_0",
     family: "cost",
-    label: "PRESSURE VESSEL KALINLIK — t_shell",
+    label: "PRESSURE VESSEL KALINLIK - t_shell",
     fn: (inputs) => {
     const p = num(inputs, "p");
     const r = num(inputs, "r");
@@ -140,7 +140,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.asme_pressure_vessel_1",
     family: "cost",
-    label: "PRESSURE VESSEL KALINLIK — t_sphere",
+    label: "PRESSURE VESSEL KALINLIK - t_sphere",
     fn: (inputs) => {
     const p = num(inputs, "p");
     const r = num(inputs, "r");
@@ -154,7 +154,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.asme_pressure_vessel_2",
     family: "cost",
-    label: "PRESSURE VESSEL KALINLIK — t_head_ellip",
+    label: "PRESSURE VESSEL KALINLIK - t_head_ellip",
     fn: (inputs) => {
     const p = num(inputs, "p");
     const d = num(inputs, "d");
@@ -168,7 +168,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.asme_pressure_vessel_3",
     family: "cost",
-    label: "PRESSURE VESSEL KALINLIK — M",
+    label: "PRESSURE VESSEL KALINLIK - M",
     fn: (inputs) => {
     const l = num(inputs, "l");
     const r = num(inputs, "r");
@@ -179,7 +179,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.asme_pressure_vessel_4",
     family: "cost",
-    label: "PRESSURE VESSEL KALINLIK — t_head_tori",
+    label: "PRESSURE VESSEL KALINLIK - t_head_tori",
     fn: (inputs) => {
     const p = num(inputs, "p");
     const l = num(inputs, "l");
@@ -194,7 +194,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.asme_pressure_vessel_5",
     family: "cost",
-    label: "PRESSURE VESSEL KALINLIK — MAWP",
+    label: "PRESSURE VESSEL KALINLIK - MAWP",
     fn: (inputs) => {
     const s = num(inputs, "s");
     const e = num(inputs, "e");
@@ -210,7 +210,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_energy_cost_0",
     family: "cost",
-    label: "COMPRESSED AIR ENERGY — CompressorPower",
+    label: "COMPRESSED AIR ENERGY - CompressorPower",
     fn: (inputs) => {
     const q = num(inputs, "q");
     const deltaP = num(inputs, "deltaP");
@@ -227,7 +227,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_energy_cost_1",
     family: "cost",
-    label: "COMPRESSED AIR ENERGY — SpecificPower",
+    label: "COMPRESSED AIR ENERGY - SpecificPower",
     fn: (inputs) => {
     const compressorPower = num(inputs, "compressorPower");
     const q = num(inputs, "q");
@@ -239,7 +239,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_energy_cost_2",
     family: "cost",
-    label: "COMPRESSED AIR ENERGY — AnnualEnergyCost",
+    label: "COMPRESSED AIR ENERGY - AnnualEnergyCost",
     fn: (inputs) => {
     const compressorPower = num(inputs, "compressorPower");
     const opHours = num(inputs, "opHours");
@@ -251,7 +251,7 @@ export const CHUNK_04_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_energy_cost_3",
     family: "cost",
-    label: "COMPRESSED AIR ENERGY — LeakageCost",
+    label: "COMPRESSED AIR ENERGY - LeakageCost",
     fn: (inputs) => {
     const leakFlow = num(inputs, "leakFlow");
     const opHours = num(inputs, "opHours");

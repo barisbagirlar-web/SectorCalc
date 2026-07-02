@@ -15,7 +15,7 @@ const panelClassName =
   "sc-calc-workspace__panel min-w-0 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 lg:p-8";
 
 /**
- * Balanced calculator workspace — equal-height columns for field technicians.
+ * Balanced calculator workspace - equal-height columns for field technicians.
  * triple: legacy three-column layout (deprecated for premium calculators)
  * split: inputs | result (free / revenue premium)
  */

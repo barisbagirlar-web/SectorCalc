@@ -1,5 +1,5 @@
 /**
- * Pilot smart form manifest loader — Phase 5H-G-D/G (tests and server resolver).
+ * Pilot smart form manifest loader - Phase 5H-G-D/G (tests and server resolver).
  */
 
 import { resolvePilotGovernanceSlugFromRoute } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";

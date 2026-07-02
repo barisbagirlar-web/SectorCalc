@@ -136,7 +136,7 @@ export function LiveKpiReviewClient() {
               <p className="font-semibold">No live KPI data yet.</p>
               <p className="mt-2 text-text-secondary">
                 Start campaign distribution and check again after first traffic. Event storage is
-                not wired yet — this page shows the aggregate model with an empty snapshot.
+                not wired yet - this page shows the aggregate model with an empty snapshot.
               </p>
               <p className="mt-3 text-text-secondary">
                 See <code className="text-xs">docs/live-kpi-review-runbook.md</code> and{" "}
@@ -193,7 +193,7 @@ export function LiveKpiReviewClient() {
                 value={
                   snapshot.traffic.freeToolOpens > 0
                     ? `${Math.round((snapshot.conversion.freeCalculations / snapshot.traffic.freeToolOpens) * 100)}%`
-                    : "—"
+                    : "-"
                 }
                 hint="Calculations / free tool opens"
               />
@@ -257,7 +257,7 @@ export function LiveKpiReviewClient() {
               <AdminMetricCard
                 label="Report feedback submits"
                 value={formatCount(snapshot.leads.reportFeedbackSubmits)}
-                hint="Aggregate count only — no PII"
+                hint="Aggregate count only - no PII"
               />
             </div>
           </section>

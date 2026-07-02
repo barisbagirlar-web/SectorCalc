@@ -1,5 +1,5 @@
 /**
- * Smart Form adapter — maps existing tool metadata to engineering-grade form sections.
+ * Smart Form adapter - maps existing tool metadata to engineering-grade form sections.
  * Does not mutate canonical keys or calculation payloads.
  */
 

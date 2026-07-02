@@ -1,5 +1,5 @@
 /**
- * Smart Modules — sector expertise module catalog.
+ * Smart Modules - sector expertise module catalog.
  * IndustrialRegistry.features references these IDs.
  */
 
@@ -60,7 +60,7 @@ export function isSmartModuleId(value: string): value is SmartModuleId {
   return Object.values(SmartModuleIds).includes(value as SmartModuleId);
 }
 
-/** Intelligence Layer UI — bridge to legacy expert feature flags. */
+/** Intelligence Layer UI - bridge to legacy expert feature flags. */
 export type ExpertFeatureKey =
   | "hiddenLoss"
   | "energyOpt"

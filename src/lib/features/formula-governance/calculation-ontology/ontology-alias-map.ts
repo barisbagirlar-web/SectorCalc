@@ -1,5 +1,5 @@
 /**
- * Ontology alias map builder — deterministic contract ↔ fixture variable alignment (Phase 5H-B-5).
+ * Ontology alias map builder - deterministic contract ↔ fixture variable alignment (Phase 5H-B-5).
  */
 
 import type {
@@ -134,7 +134,7 @@ const SEMANTIC_ALIAS_RULES: readonly SemanticAliasRule[] = [
     contractVariableIds: ["cycleTime"],
     ontologyVariableId: "machineHours",
     confidence: "weak",
-    reason: "Cycle time per part may relate to machine hours only with quantity — manual review required.",
+    reason: "Cycle time per part may relate to machine hours only with quantity - manual review required.",
     shapeWarning: "Shape drift: cycleTime per part vs total machineHours in fixture ontology.",
   },
   {
@@ -149,7 +149,7 @@ const SEMANTIC_ALIAS_RULES: readonly SemanticAliasRule[] = [
     contractVariableIds: ["p90Cost"],
     ontologyVariableId: "riskAdjustedCost",
     confidence: "weak",
-    reason: "Contract p90Cost may approximate fixture riskAdjustedCost — manual review required.",
+    reason: "Contract p90Cost may approximate fixture riskAdjustedCost - manual review required.",
     shapeWarning: "Shape drift: probabilistic p90Cost vs buffered riskAdjustedCost.",
   },
   {
@@ -389,7 +389,7 @@ export function buildOntologyAliasMap(params: BuildOntologyAliasMapParams): Onto
         confidence: compositeConfidence,
         source: "semantic_name",
         reason: rule.reason,
-        warning: "Composite alias requires manual review — multiple contract variables map to one fixture variable.",
+        warning: "Composite alias requires manual review - multiple contract variables map to one fixture variable.",
       });
 
       for (const contractId of rule.contractVariableIds) {

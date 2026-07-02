@@ -1,5 +1,5 @@
 /**
- * SectorCalc Formula Assurance & Governance Platform — core types.
+ * SectorCalc Formula Assurance & Governance Platform - core types.
  * Contract-driven audit; not a substitute for domain review.
  */
 
@@ -58,7 +58,7 @@ export type DecisionLanguageRule = {
   readonly requiredDisclaimer?: boolean;
 };
 
-/** Phase 5D — classified missing-parameter / model-scope warnings. */
+/** Phase 5D - classified missing-parameter / model-scope warnings. */
 export type FormulaWarningPolicy = {
   readonly acceptedAssumptions: readonly string[];
   readonly modelLimitations: readonly string[];
@@ -90,7 +90,7 @@ export type FormulaContract = {
   readonly formulaSummary: string;
   /** @deprecated Prefer warningPolicy buckets; legacy entries without policy still fail audit. */
   readonly missingParameterWarnings: readonly string[];
-  /** Phase 5D — classified warning policy; supersedes blind missingParameterWarnings audit. */
+  /** Phase 5D - classified warning policy; supersedes blind missingParameterWarnings audit. */
   readonly warningPolicy?: FormulaWarningPolicy;
   readonly validationRules: readonly ValidationRule[];
   readonly scenarioTests: readonly ScenarioTestSpec[];
@@ -157,7 +157,7 @@ export type ContractAuditResult = {
   readonly riskLevel: RiskLevel;
   readonly status: AuditStatus;
   readonly findings: readonly AuditFinding[];
-  /** Phase 5D — warning policy breakdown when contract declares warningPolicy. */
+  /** Phase 5D - warning policy breakdown when contract declares warningPolicy. */
   readonly warningPolicySummary?: WarningPolicySummary;
 };
 

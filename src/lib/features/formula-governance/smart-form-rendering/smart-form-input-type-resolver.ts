@@ -1,5 +1,5 @@
 /**
- * Smart form input type resolver — Phase 5H-G-B governance (no UI).
+ * Smart form input type resolver - Phase 5H-G-B governance (no UI).
  */
 
 import type { SmartFormFieldSpec } from "@/lib/features/formula-governance/smart-form-architecture/smart-form-types";

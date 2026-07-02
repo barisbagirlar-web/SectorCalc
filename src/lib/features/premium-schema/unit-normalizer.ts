@@ -1,5 +1,5 @@
 /**
- * SectorCalc — Engine-Boundary Unit Normalizer
+ * SectorCalc - Engine-Boundary Unit Normalizer
  * Formulas NOW expect base units. Convert raw UI values BEFORE entering the formula.
  * Wire: call inside externalCompute BEFORE runPremiumSchemaEngine.
  *
@@ -42,7 +42,7 @@ export function normalizeInputs(
     const u = inp.unit;
     if (!u || u === "currency" || u === "unitless") continue; // no conversion
     const def = UNIT_TABLE[u];
-    if (!def) { warnings.push(`[UNKNOWN UNIT] '${u}' on '${inp.id}' — left raw (POTENTIAL BUG)`); continue; }
+    if (!def) { warnings.push(`[UNKNOWN UNIT] '${u}' on '${inp.id}' - left raw (POTENTIAL BUG)`); continue; }
     out[inp.id] = def.transform ? def.transform(v) : v * (def.toBase ?? 1);
   }
   return { values: out, warnings };

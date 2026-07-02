@@ -50,5 +50,5 @@ export const publishedCaseStudyBase: readonly PublishedCaseStudyBase[] = [
 
 export const PUBLISHED_CASE_STUDY_SLUGS = publishedCaseStudyBase.map((entry) => entry.slug);
 
-/** @deprecated Prefer publishedCaseStudyBase — alias for import compatibility. */
+/** @deprecated Prefer publishedCaseStudyBase - alias for import compatibility. */
 export const caseStudies = publishedCaseStudyBase;

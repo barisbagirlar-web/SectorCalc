@@ -1,5 +1,5 @@
 /**
- * Calculation hash service — deterministic hashing for approved reports
+ * Calculation hash service - deterministic hashing for approved reports
  */
 
 /**

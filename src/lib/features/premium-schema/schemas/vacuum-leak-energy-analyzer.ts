@@ -20,8 +20,8 @@ export const VACUUM_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "potentialSavings", label: "Potansiyel Tasarruf", label_i18n: {"en":"Potansiyel Tasarruf"}, unit: "USD/year", format: "currency" },
   ],
   thresholds: [
-    { fieldId: "vacuumLeakCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Leak cost > $5K — vacuum line maintenance should be scheduled.", warningMessage_i18n: {"en":"Leak cost > $5K — vacuum line maintenance should be scheduled."}, criticalMessage: "Leak cost > $15K — urgent leak repair program should be initiated.", criticalMessage_i18n: {"en":"Leak cost > $15K — urgent leak repair program should be initiated."} },
-    { fieldId: "vacuumCapacityWaste", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Capacity Loss > 10% — compressor Load must be optimized.", warningMessage_i18n: {"en":"Capacity Loss > 10% — compressor Load must be optimized."}, criticalMessage: "Capacity Loss > 25% — System must be redesigned.", criticalMessage_i18n: {"en":"Capacity Loss > 25% — System must be redesigned."} },
+    { fieldId: "vacuumLeakCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Leak cost > $5K - vacuum line maintenance should be scheduled.", warningMessage_i18n: {"en":"Leak cost > $5K - vacuum line maintenance should be scheduled."}, criticalMessage: "Leak cost > $15K - urgent leak repair program should be initiated.", criticalMessage_i18n: {"en":"Leak cost > $15K - urgent leak repair program should be initiated."} },
+    { fieldId: "vacuumCapacityWaste", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Capacity Loss > 10% - compressor Load must be optimized.", warningMessage_i18n: {"en":"Capacity Loss > 10% - compressor Load must be optimized."}, criticalMessage: "Capacity Loss > 25% - System must be redesigned.", criticalMessage_i18n: {"en":"Capacity Loss > 25% - System must be redesigned."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.vacuum_leak_rate", inputMap: { leakRate: "leakRate", numLeaks: "numLeaks" ,

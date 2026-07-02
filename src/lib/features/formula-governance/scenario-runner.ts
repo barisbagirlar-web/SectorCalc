@@ -1,5 +1,5 @@
 /**
- * Scenario test runtime — executes present scenario specs against oracle baselines (Phase 4).
+ * Scenario test runtime - executes present scenario specs against oracle baselines (Phase 4).
  */
 
 import type { FormulaContract, ScenarioTestSpec } from "@/lib/features/formula-governance/types";

@@ -72,7 +72,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.poka_yoke_roi_2",
     family: "cost",
-    label: "Poka-Yoke ROI — PokaYoke_Cost",
+    label: "Poka-Yoke ROI - PokaYoke_Cost",
     fn: (inputs) => {
     const design = num(inputs, "design");
     const implementation = num(inputs, "implementation");
@@ -84,7 +84,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.poka_yoke_roi_3",
     family: "cost",
-    label: "Poka-Yoke ROI — NewDefectRate",
+    label: "Poka-Yoke ROI - NewDefectRate",
     fn: (inputs) => {
     const currentDefectRate = num(inputs, "currentDefectRate");
     const effectiveness = num(inputs, "effectiveness");
@@ -94,7 +94,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.poka_yoke_roi_4",
     family: "cost",
-    label: "Poka-Yoke ROI — Savings",
+    label: "Poka-Yoke ROI - Savings",
     fn: (inputs) => {
     const currentDefectRate = num(inputs, "currentDefectRate");
     const newDefectRate = num(inputs, "newDefectRate");
@@ -106,7 +106,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.poka_yoke_roi_5",
     family: "cost",
-    label: "Poka-Yoke ROI — ROI",
+    label: "Poka-Yoke ROI - ROI",
     fn: (inputs) => {
     const savings = num(inputs, "savings");
     const pokaYoke = num(inputs, "pokaYoke");
@@ -118,7 +118,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.poka_yoke_roi_6",
     family: "cost",
-    label: "Poka-Yoke ROI — PaybackMonths",
+    label: "Poka-Yoke ROI - PaybackMonths",
     fn: (inputs) => {
     const pokaYoke = num(inputs, "pokaYoke");
     const Cost = num(inputs, "Cost");
@@ -132,7 +132,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.portion_cost_0",
     family: "cost",
-    label: "Porsiyon Maliyet — IngredientCost",
+    label: "Porsiyon Maliyet - IngredientCost",
     fn: (inputs) => {
     const quantity = num(inputs, "quantity");
     const i = num(inputs, "i");
@@ -145,7 +145,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.portion_cost_1",
     family: "cost",
-    label: "Porsiyon Maliyet — YieldAdjustedCost",
+    label: "Porsiyon Maliyet - YieldAdjustedCost",
     fn: (inputs) => {
     const ingredientCost = num(inputs, "ingredientCost");
     const yieldPct = num(inputs, "yieldPct");
@@ -155,7 +155,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.portion_cost_2",
     family: "cost",
-    label: "Porsiyon Maliyet — LaborCost",
+    label: "Porsiyon Maliyet - LaborCost",
     fn: (inputs) => {
     const prepTime = num(inputs, "prepTime");
     const laborRate = num(inputs, "laborRate");
@@ -165,7 +165,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.portion_cost_3",
     family: "cost",
-    label: "Porsiyon Maliyet — Overhead",
+    label: "Porsiyon Maliyet - Overhead",
     fn: (inputs) => {
     const ingredientCost = num(inputs, "ingredientCost");
     const laborCost = num(inputs, "laborCost");
@@ -176,7 +176,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.portion_cost_4",
     family: "cost",
-    label: "Porsiyon Maliyet — TotalPortionCost",
+    label: "Porsiyon Maliyet - TotalPortionCost",
     fn: (inputs) => {
     const yieldAdjustedCost = num(inputs, "yieldAdjustedCost");
     const laborCost = num(inputs, "laborCost");
@@ -187,7 +187,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.portion_cost_5",
     family: "cost",
-    label: "Porsiyon Maliyet — FoodCostPct",
+    label: "Porsiyon Maliyet - FoodCostPct",
     fn: (inputs) => {
     const totalPortionCost = num(inputs, "totalPortionCost");
     const menuPrice = num(inputs, "menuPrice");
@@ -197,7 +197,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.portion_cost_6",
     family: "cost",
-    label: "Porsiyon Maliyet — MenuPrice_Target",
+    label: "Porsiyon Maliyet - MenuPrice_Target",
     fn: (inputs) => {
     const totalPortionCost = num(inputs, "totalPortionCost");
     const targetFoodCostPct = num(inputs, "targetFoodCostPct");
@@ -207,7 +207,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.portion_cost_7",
     family: "cost",
-    label: "Porsiyon Maliyet — Margin",
+    label: "Porsiyon Maliyet - Margin",
     fn: (inputs) => {
     const menuPrice = num(inputs, "menuPrice");
     const totalPortionCost = num(inputs, "totalPortionCost");
@@ -219,7 +219,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_cost_estimate_0",
     family: "cost",
-    label: "Project Maliyet Tahmin — DirectLabor",
+    label: "Project Maliyet Tahmin - DirectLabor",
     fn: (inputs) => {
     const hours = num(inputs, "hours");
     const i = num(inputs, "i");
@@ -232,7 +232,7 @@ export const CHUNK_45_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_cost_estimate_1",
     family: "cost",
-    label: "Project Maliyet Tahmin — DirectMaterial",
+    label: "Project Maliyet Tahmin - DirectMaterial",
     fn: (inputs) => {
     const quantity = num(inputs, "quantity");
     const j = num(inputs, "j");

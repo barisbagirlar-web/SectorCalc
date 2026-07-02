@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-B — smart form layout planner tests.
+ * Phase 5H-G-B - smart form layout planner tests.
  */
 
 import { describe, expect, test } from "vitest";

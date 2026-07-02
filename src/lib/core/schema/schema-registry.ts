@@ -118,7 +118,7 @@ class SchemaRegistry {
   }
 }
 
-// Singleton instance — import this everywhere
+// Singleton instance - import this everywhere
 export const schemaRegistry = new SchemaRegistry();
 
 // For testing / DI

@@ -44,7 +44,7 @@ export default async function SampleDecisionReportPage({ params }: PageProps) {
             {SAMPLE_REPORT_INCLUDES.map((item) => (
               <li key={item} className="flex gap-2">
                 <span className="font-semibold text-deep-navy" aria-hidden>
-                  —
+                  -
                 </span>
                 {item}
               </li>

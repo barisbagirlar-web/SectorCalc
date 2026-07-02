@@ -1,5 +1,5 @@
 /**
- * Active locale definitions — single source of truth for routing, formatting, and UI.
+ * Active locale definitions - single source of truth for routing, formatting, and UI.
  */
 
 export const SUPPORTED_LOCALES = ["en"] as const;

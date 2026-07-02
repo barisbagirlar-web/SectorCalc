@@ -1,5 +1,5 @@
 /**
- * Canonical unit normalizer tests — ADIM 5.
+ * Canonical unit normalizer tests - ADIM 5.
  */
 
 import { describe, expect, test } from "vitest";

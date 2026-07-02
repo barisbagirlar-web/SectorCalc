@@ -1,11 +1,11 @@
 /**
- * Industrial PDF Document — Premium Decision Report
+ * Industrial PDF Document - Premium Decision Report
  *
  * Brand DNA colours: Navy (#0F172A / #1E40AF), Amber (#D97706),
  * Slate (#64748B / #94A3B8), Green (#059669), Red (#DC2626).
  *
  * ECMI / ISO 9001 / TUV-certifiable typography, layout & content policy.
- * 100 % locale-native — zero English fragments in non-English output.
+ * 100 % locale-native - zero English fragments in non-English output.
  */
 
 import {
@@ -561,7 +561,7 @@ export function IndustrialPdfDocument({ data }: IndustrialPdfDocumentProps) {
 
   return (
     <Document
-      title={`${data.schemaName} — ${data.title}`}
+      title={`${data.schemaName} - ${data.title}`}
       author="SectorCalc"
       subject={data.title}
       keywords={`sectorcalc,${data.schemaSlug},${data.sectorSlug},decision report`}

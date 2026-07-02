@@ -1,5 +1,5 @@
 /**
- * Patch plan human approval gate — Phase 5I-B (always required).
+ * Patch plan human approval gate - Phase 5I-B (always required).
  */
 
 import type { PatchPlan } from "@/lib/features/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-types";

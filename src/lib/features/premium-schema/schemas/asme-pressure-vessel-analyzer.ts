@@ -1,5 +1,5 @@
 /**
- * Tool #9 — Basinc Vessel Kalinlik (ASME BPVC)
+ * Tool #9 - Basinc Vessel Kalinlik (ASME BPVC)
  * Shell/sphere/head thickness + MAWP + weight
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -32,8 +32,8 @@ export const ASME_VESSEL_SCHEMA: PremiumCalculatorSchema = {
     { id: "corrosionAllowance", label: "Corrosion Allowance (C_A)", label_i18n: {"en":"Corrosion Allowance (C_A)"}, type: "number", unit: "mm", required: true, smartDefault: 2, validation: { min: 0 }, helper: "", expertMeaning: "Corrosion allowance", expertMeaning_i18n: {"en":"Corrosion allowance"} },
     { id: "vesselLength", label: "Head Length", label_i18n: {"en":"Head Length"}, type: "number", unit: "mm", required: false, smartDefault: 2000, validation: { min: 0 }, helper: "", expertMeaning: "Vessel cylindrical length", expertMeaning_i18n: {"en":"Vessel cylindrical length"} },
     { id: "materialDensity", label: "Material Density", label_i18n: {"en":"Material Density"}, type: "number", unit: "kg/m³", required: false, smartDefault: 7850, validation: { min: 0 }, helper: "", expertMeaning: "Material density", expertMeaning_i18n: {"en":"Material density"} },
-    { id: "crownRadiusMm", label: "Crown Radius (L) — Torispherical", label_i18n: {"en":"Crown Radius (L) — Torispherical"}, type: "number", unit: "mm", required: false, smartDefault: 1000, validation: { min: 0 }, helper: "", expertMeaning: "Crown radius for torispherical head", expertMeaning_i18n: {"en":"Crown radius for torispherical head"} },
-    { id: "knuckleRadiusMm", label: "Knuckle Radius (r) — Torispherical", label_i18n: {"en":"Knuckle Radius (r) — Torispherical"}, type: "number", unit: "mm", required: false, smartDefault: 100, validation: { min: 0 }, helper: "", expertMeaning: "Knuckle radius for torispherical head", expertMeaning_i18n: {"en":"Knuckle radius for torispherical head"} },
+    { id: "crownRadiusMm", label: "Crown Radius (L) - Torispherical", label_i18n: {"en":"Crown Radius (L) - Torispherical"}, type: "number", unit: "mm", required: false, smartDefault: 1000, validation: { min: 0 }, helper: "", expertMeaning: "Crown radius for torispherical head", expertMeaning_i18n: {"en":"Crown radius for torispherical head"} },
+    { id: "knuckleRadiusMm", label: "Knuckle Radius (r) - Torispherical", label_i18n: {"en":"Knuckle Radius (r) - Torispherical"}, type: "number", unit: "mm", required: false, smartDefault: 100, validation: { min: 0 }, helper: "", expertMeaning: "Knuckle radius for torispherical head", expertMeaning_i18n: {"en":"Knuckle radius for torispherical head"} },
   ],
   outputs: [
     { id: "requiredThickness", label: "required Cidar Kalnlg", label_i18n: {"en":"required Cidar Kalnlg"}, unit: "mm", format: "number" },
@@ -42,7 +42,7 @@ export const ASME_VESSEL_SCHEMA: PremiumCalculatorSchema = {
     { id: "designVerdict", label: "Tasarm decision", label_i18n: {"en":"Tasarm decision"}, unit: "scalar", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "requiredThickness", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Required thickness > 10 mm — Weight and Cost increasing.", warningMessage_i18n: {"en":"Required thickness > 10 mm — Weight and Cost increasing."}, criticalMessage: "Required thickness > 25 mm — alternative material should be evaluated.", criticalMessage_i18n: {"en":"Required thickness > 25 mm — alternative material should be evaluated."} },
+    { fieldId: "requiredThickness", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Required thickness > 10 mm - Weight and Cost increasing.", warningMessage_i18n: {"en":"Required thickness > 10 mm - Weight and Cost increasing."}, criticalMessage: "Required thickness > 25 mm - alternative material should be evaluated.", criticalMessage_i18n: {"en":"Required thickness > 25 mm - alternative material should be evaluated."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.vessel_shell_thickness", inputMap: { pressure: "internalPressure", radius: "innerRadius", stressAllowable: "stressAllowable", jointEfficiency: "jointEfficiency", corrosionAllowance: "corrosionAllowance" }, outputId: "requiredThickness" },

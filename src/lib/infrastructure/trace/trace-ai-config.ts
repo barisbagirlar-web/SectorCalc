@@ -9,9 +9,9 @@
  * sanitizer strips any URL the model emits that is not on the whitelist.
  *
  * Three layers of link safety:
- *   1. Prompt rule  — "only use URLs from AVAILABLE_LINKS, copy verbatim."
- *   2. Small list   — few links per request => reliable verbatim copy.
- *   3. Sanitizer    — runtime whitelist enforcement on the model's output.
+ *   1. Prompt rule  - "only use URLs from AVAILABLE_LINKS, copy verbatim."
+ *   2. Small list   - few links per request => reliable verbatim copy.
+ *   3. Sanitizer    - runtime whitelist enforcement on the model's output.
  * -----------------------------------------------------------------------------
  */
 
@@ -32,7 +32,7 @@ export interface TraceContext {
   currentPageUrl?: string;
   /**
    * The ONLY links the model is allowed to emit this turn.
-   * Frontend resolves these from the tool registry — never hand-typed.
+   * Frontend resolves these from the tool registry - never hand-typed.
    */
   availableLinks: TraceLink[];
 }
@@ -59,7 +59,7 @@ export function detectTraceMode(pathnameWithQuery: string): TraceMode {
  * ------------------------------------------------------------------------- */
 
 const LINK_CONTRACT = `
-LINK RULES — NON-NEGOTIABLE:
+LINK RULES - NON-NEGOTIABLE:
 - You may ONLY output URLs that appear verbatim in the AVAILABLE_LINKS block below.
 - Copy the URL character-for-character. Never edit, guess, complete, or invent a slug/path.
 - If no suitable link exists in AVAILABLE_LINKS, do NOT fabricate one. Either omit the
@@ -69,7 +69,7 @@ LINK RULES — NON-NEGOTIABLE:
 `.trim();
 
 function renderAvailableLinks(links: TraceLink[]): string {
-  if (!links.length) return "AVAILABLE_LINKS: (none — do not output any URL this turn)";
+  if (!links.length) return "AVAILABLE_LINKS: (none - do not output any URL this turn)";
   const rows = links.map((l) => `- ${l.label} => ${l.url}`).join("\n");
   return `AVAILABLE_LINKS (the only URLs you may use, copy verbatim):\n${rows}`;
 }
@@ -85,16 +85,16 @@ without ever being pushy, dishonest, or spammy.
 
 STYLE:
 - Keep it SHORT: 2-4 sentences. No headers, no walls of text.
-- Answer the user's actual question first and give real value — earn trust in one breath.
+- Answer the user's actual question first and give real value - earn trust in one breath.
 - Never invent numbers, benchmarks, standards claims, or capabilities. Accuracy > hype.
 
 CONVERSION BEHAVIOR (value-first, one open loop):
 - After the quick answer, name the deeper need the user likely has next.
-- Point out — specifically — how the matching PRO tool solves it (uncertainty analysis,
+- Point out - specifically - how the matching PRO tool solves it (uncertainty analysis,
   FMEA, audit log, standards-referenced formulas, batch/scenario work, exportable reports).
 - End with ONE clear call-to-action linking to the single most relevant PRO/pricing link
   from AVAILABLE_LINKS. Exactly one primary CTA. Do not stack multiple links.
-- Tone: confident and helpful, like showing a colleague a better tool — never desperate,
+- Tone: confident and helpful, like showing a colleague a better tool - never desperate,
   never fear-mongering, never fake scarcity.
 `.trim();
 
@@ -104,11 +104,11 @@ Behave like a rigorous senior engineer, not a salesperson. No upsell, no marketi
 
 STYLE:
 - Precise, technical, and useful. Show the reasoning/formula path when it helps.
-- Be standards-aware (e.g. ISO, ASME, VDI, DIN, IEC, EN) — but only cite a standard if
+- Be standards-aware (e.g. ISO, ASME, VDI, DIN, IEC, EN) - but only cite a standard if
   you are confident it applies. If unsure, say so; never fabricate a clause number.
 - Use confidence labels when a claim is not certain: (certain) / (likely) / (assumption)
   / (insufficient data). State assumptions explicitly and continue the analysis.
-- When another PRO tool is clearly the right next step, cross-link it — but only from
+- When another PRO tool is clearly the right next step, cross-link it - but only from
   AVAILABLE_LINKS. You may reference more than one relevant tool here.
 - No fluff, no hype, no fake precision. If data is missing, ask one focused question.
 `.trim();
@@ -153,7 +153,7 @@ export function buildTraceSystemPrompt(ctx: TraceContext): string {
 }
 
 /* ---------------------------------------------------------------------------
- * 6. Runtime link sanitizer — the hard guarantee
+ * 6. Runtime link sanitizer - the hard guarantee
  *    Strips/neutralizes any URL in the model output that is not whitelisted.
  * ------------------------------------------------------------------------- */
 
@@ -201,7 +201,7 @@ export function sanitizeTraceOutput(
 }
 
 /* ---------------------------------------------------------------------------
- * 7. Reference link resolver (ADAPT to your tool registry) — PREDICTED shape
+ * 7. Reference link resolver (ADAPT to your tool registry) - PREDICTED shape
  *    Replace the body with real registry lookups. URL PATTERNS below are real,
  *    taken from the live sitemap; the mapping logic is a stub to wire up.
  * ------------------------------------------------------------------------- */

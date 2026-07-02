@@ -1,5 +1,5 @@
 /**
- * Audit generator — premium report generator (global).
+ * Audit generator - premium report generator (global).
  */
 
 import type { IndustrySlug } from "@/lib/features/tools/industry-registry";

@@ -1,5 +1,5 @@
 /**
- * Report render dry-run types — Phase 5I-I (no file output).
+ * Report render dry-run types - Phase 5I-I (no file output).
  */
 
 import type { ReportRendererContract, ReportRendererFormat } from "@/lib/features/formula-governance/report-renderer-contract/report-renderer-types";

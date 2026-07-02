@@ -1,5 +1,5 @@
 /**
- * Server-safe smart form pilot manifest resolver — Phase 5H-G-D/G.
+ * Server-safe smart form pilot manifest resolver - Phase 5H-G-D/G.
  */
 
 import { resolveSmartFormPilotGovernanceSlug } from "@/lib/infrastructure/feature-flags/smart-form-pilot";

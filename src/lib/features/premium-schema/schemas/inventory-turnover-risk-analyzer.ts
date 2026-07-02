@@ -1,5 +1,5 @@
 /**
- * Tool — Stok Devir Hizi
+ * Tool - Stok Devir Hizi
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const INVENTORY_TURNOVER_RISK_ANALYZER: PremiumCalculatorSchema = {
@@ -21,7 +21,7 @@ export const INVENTORY_TURNOVER_RISK_ANALYZER: PremiumCalculatorSchema = {
     { id: "obsolescenceRiskCost", label: "Obsolescence Risk Cost", label_i18n: {"en":"Obsolescence Risk Cost"}, unit: "USD/year", format: "currency", isBigNumber: true },
     { id: "liquidationLoss", label: "Liquidation Loss", label_i18n: {"en":"Liquidation Loss"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "inventoryTurnoverRatio", warning: 4, critical: 2, direction: "lower_is_bad", warningMessage: "Inventory rotation rate < 4 — capital is idle.", warningMessage_i18n: {"en":"Inventory rotation rate < 4 — capital is idle."}, criticalMessage: "Inventory rotation rate < 2 — urgent inventory reduction action required.", criticalMessage_i18n: {"en":"Inventory rotation rate < 2 — urgent inventory reduction action required."} }],
+  thresholds: [{ fieldId: "inventoryTurnoverRatio", warning: 4, critical: 2, direction: "lower_is_bad", warningMessage: "Inventory rotation rate < 4 - capital is idle.", warningMessage_i18n: {"en":"Inventory rotation rate < 4 - capital is idle."}, criticalMessage: "Inventory rotation rate < 2 - urgent inventory reduction action required.", criticalMessage_i18n: {"en":"Inventory rotation rate < 2 - urgent inventory reduction action required."} }],
   formulaPipeline: [
     { formulaId: "measurement.inventory_turnover_ratio", inputMap: { annualCogs: "annualCogs", avgInventory: "avgInventory" ,
         cogs: "cogs"}, outputId: "inventoryTurnoverRatio" },

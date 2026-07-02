@@ -77,7 +77,7 @@ export const ACTIVITY_PLACEHOLDER_ROWS: readonly ActivityRow[] = [
   {
     id: "RPT-2026-0142",
     sector: "CNC Manufacturing",
-    verdict: "REPRICE — P90 buffer exceeded",
+    verdict: "REPRICE - P90 buffer exceeded",
     updatedAt: "2026-06-04T09:14:00Z",
     status: "sample",
   },
@@ -91,13 +91,13 @@ export const ACTIVITY_PLACEHOLDER_ROWS: readonly ActivityRow[] = [
   {
     id: "RPT-2026-0131",
     sector: "Logistics & Transport",
-    verdict: "MARGIN WATCH — desi variance",
+    verdict: "MARGIN WATCH - desi variance",
     updatedAt: "2026-06-02T11:08:00Z",
     status: "sample",
   },
   {
-    id: "—",
-    sector: "—",
+    id: "-",
+    sector: "-",
     verdict: "Sign in to load saved reports",
     updatedAt: "",
     status: "pending",

@@ -1,5 +1,5 @@
 /**
- * Contract ontology alignment plan — migration guidance without production changes (Phase 5H-B-5).
+ * Contract ontology alignment plan - migration guidance without production changes (Phase 5H-B-5).
  */
 
 import { buildOntologyDraftFromFormulaContract } from "@/lib/features/formula-governance/calculation-ontology/contract-ontology-bridge";
@@ -113,7 +113,7 @@ export function buildOntologyAlignmentPlan(
 
   for (const fixtureId of aliasMap.unmatchedOntologyVariables) {
     suggestedFixtureUpdates.push(
-      `Fixture variable "${fixtureId}" has no contract counterpart — preserve in professional ontology; document drift.`,
+      `Fixture variable "${fixtureId}" has no contract counterpart - preserve in professional ontology; document drift.`,
     );
   }
 

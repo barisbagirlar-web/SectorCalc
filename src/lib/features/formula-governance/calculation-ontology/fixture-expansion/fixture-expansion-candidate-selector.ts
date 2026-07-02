@@ -1,5 +1,5 @@
 /**
- * Fixture expansion candidate selector — Phase 5I-K contract_only / needs_fixture tools.
+ * Fixture expansion candidate selector - Phase 5I-K contract_only / needs_fixture tools.
  */
 
 import type { FullToolAuditItem } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

@@ -1,5 +1,5 @@
 /**
- * P3 — Tool feedback & formula objection queue types.
+ * P3 - Tool feedback & formula objection queue types.
  */
 
 export const FEEDBACK_KINDS = [

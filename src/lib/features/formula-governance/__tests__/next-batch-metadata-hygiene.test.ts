@@ -1,5 +1,5 @@
 /**
- * Phase 5H-D-B — next input audit batch metadata and locator hygiene.
+ * Phase 5H-D-B - next input audit batch metadata and locator hygiene.
  */
 
 import { describe, expect, test } from "vitest";

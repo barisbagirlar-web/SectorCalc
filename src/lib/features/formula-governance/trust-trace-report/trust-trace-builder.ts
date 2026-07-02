@@ -1,5 +1,5 @@
 /**
- * Trust trace report builder — deterministic read-only trace (Phase 5H-I).
+ * Trust trace report builder - deterministic read-only trace (Phase 5H-I).
  */
 
 import type { TrustTraceReport, BuildTrustTraceReportInput, TrustTraceInputEntry } from "@/lib/features/formula-governance/trust-trace-report/trust-trace-types";
@@ -148,7 +148,7 @@ function buildReportExportReadiness(
   const exportWarnings: string[] = [];
 
   if (!input.hasProductionLocator) {
-    exportBlockers.push("Production locator missing — export trace cannot anchor live calculator.");
+    exportBlockers.push("Production locator missing - export trace cannot anchor live calculator.");
   }
   if ((input.validationRules?.length ?? 0) === 0) {
     exportBlockers.push("Validation rules missing from contract trace.");

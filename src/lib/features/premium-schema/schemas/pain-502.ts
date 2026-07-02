@@ -19,8 +19,8 @@ export const PAINTING_REWORK_COVERAGE_RISK_SCHEMA: PremiumCalculatorSchema = {
       warning: 5,
       critical: 10,
       direction: "higher_is_bad",
-      warningMessage: "Coverage drift is elevated — verify spread rate and surface prep.",
-      criticalMessage: "Critical coverage drift — reprice before quoting by square meter.",
+      warningMessage: "Coverage drift is elevated - verify spread rate and surface prep.",
+      criticalMessage: "Critical coverage drift - reprice before quoting by square meter.",
     },
     {
       fieldId: "marginPressure",
@@ -28,7 +28,7 @@ export const PAINTING_REWORK_COVERAGE_RISK_SCHEMA: PremiumCalculatorSchema = {
       critical: 12,
       direction: "higher_is_bad",
       warningMessage: "Margin pressure is building on this painting envelope.",
-      criticalMessage: "Critical margin pressure — touch-up and scaffold cost may erase profit.",
+      criticalMessage: "Critical margin pressure - touch-up and scaffold cost may erase profit.",
     },
   ],
 

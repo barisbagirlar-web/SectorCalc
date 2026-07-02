@@ -19,9 +19,9 @@ function formatInputValue(value: unknown, locale: string): string {
   }
   if (typeof value === "string") {
     const trimmed = value.trim();
-    return trimmed.length > 0 ? trimmed : "—";
+    return trimmed.length > 0 ? trimmed : "-";
   }
-  return "—";
+  return "-";
 }
 
 export function buildPdfExportInputRows(input: {

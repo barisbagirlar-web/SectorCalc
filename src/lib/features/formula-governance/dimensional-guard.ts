@@ -1,5 +1,5 @@
 /**
- * Dimensional validation — units, periods, percentages, currencies.
+ * Dimensional validation - units, periods, percentages, currencies.
  */
 
 import type { AuditFinding, FormulaContract, ValidationRule } from "@/lib/features/formula-governance/types";
@@ -41,7 +41,7 @@ export function auditDimensionalRules(
       findings.push({
         code: "DIM_PERCENT_PERIOD",
         severity: "info",
-        message: `Input "${key}" appears to combine rate and period — verify annualization.`,
+        message: `Input "${key}" appears to combine rate and period - verify annualization.`,
       });
     }
 

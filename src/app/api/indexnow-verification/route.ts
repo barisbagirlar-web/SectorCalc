@@ -1,5 +1,5 @@
 /**
- * IndexNow key verification — serves `/{INDEXNOW_KEY}.txt` via next.config rewrite.
+ * IndexNow key verification - serves `/{INDEXNOW_KEY}.txt` via next.config rewrite.
  * Configure INDEXNOW_KEY in hosting env (Firebase). Local dev may use public/{key}.txt.
  */
 

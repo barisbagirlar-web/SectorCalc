@@ -1,5 +1,5 @@
 /**
- * Finance oracle property-based tests (Phase 4) — fast-check.
+ * Finance oracle property-based tests (Phase 4) - fast-check.
  */
 
 import { describe, expect, test } from "vitest";

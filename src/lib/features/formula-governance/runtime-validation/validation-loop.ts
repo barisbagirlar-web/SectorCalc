@@ -1,5 +1,5 @@
 /**
- * Validation loop — Mind 1 input/result checks and closed intelligence loop.
+ * Validation loop - Mind 1 input/result checks and closed intelligence loop.
  */
 
 import { getFormulaById } from "@/lib/features/formula-governance/calculation-ontology/formula-graph";
@@ -45,7 +45,7 @@ function validateContractDerivedTargets(
       errors.push(`${targetId} target percent result must be between 0 and 100.`);
     }
     if (variable.role === "target" && variable.dimension === "currency" && value === 0) {
-      warnings.push(`${targetId} target currency is zero — verify pricing inputs.`);
+      warnings.push(`${targetId} target currency is zero - verify pricing inputs.`);
     }
   }
 

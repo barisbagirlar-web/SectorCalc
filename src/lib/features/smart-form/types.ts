@@ -1,5 +1,5 @@
 /**
- * Engineering-grade Smart Form — shared metadata types.
+ * Engineering-grade Smart Form - shared metadata types.
  * Canonical input keys are never renamed here; adapter preserves source keys.
  */
 

@@ -1,5 +1,5 @@
 /**
- * Pilot UI bridge manifest builder — Phase 5H-G-C governance pipeline.
+ * Pilot UI bridge manifest builder - Phase 5H-G-C governance pipeline.
  */
 
 import { getControlledInputDesignPatch } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";

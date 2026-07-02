@@ -1,5 +1,5 @@
 /**
- * Smart form pilot manual QA execution records — Phase 5H-G-J/K.
+ * Smart form pilot manual QA execution records - Phase 5H-G-J/K.
  */
 
 import { getSmartFormPilotBatchRegistry } from "@/components/tools/smart-form/pilot-batch-qa-registry";
@@ -110,7 +110,7 @@ function buildBatchHManualQaResult(entry: {
 }
 
 /**
- * Canonical manual QA records — production deployed pilots passed; batch H expansion pending.
+ * Canonical manual QA records - production deployed pilots passed; batch H expansion pending.
  */
 export const SMART_FORM_PILOT_MANUAL_QA_RESULTS: readonly SmartFormPilotManualQaResult[] =
   getSmartFormPilotBatchRegistry().map((entry) => buildBatchHManualQaResult(entry));

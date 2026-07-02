@@ -1,5 +1,5 @@
 /**
- * Smart form production rollout risk gate — Phase 5I-L.
+ * Smart form production rollout risk gate - Phase 5I-L.
  */
 
 import type { ProductionRolloutToolEntry } from "@/components/tools/smart-form/production-rollout-governance/production-rollout-types";
@@ -24,7 +24,7 @@ export function validateProductionRolloutScope(
 
   const stagingCandidates = entries.filter((entry) => entry.status === "staging_only");
   if (stagingCandidates.length > 0) {
-    warnings.push(`${stagingCandidates.length} tool(s) staged for future rollout — human approval required.`);
+    warnings.push(`${stagingCandidates.length} tool(s) staged for future rollout - human approval required.`);
   }
 
   return { blockers, warnings };

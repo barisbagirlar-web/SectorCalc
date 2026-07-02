@@ -907,7 +907,7 @@ ${inputsStr}
                       {/* Q&A 1 */}
                       <div className="def" style={{ margin: "14px 0" }}>
                         <div className="q" style={{ fontFamily: "monospace", fontSize: "11px", color: "#BD5D3A", textTransform: "uppercase", fontWeight: "bold" }}>
-                          Definition — What Is It?
+                          Definition - What Is It?
                         </div>
                         <p 
                           style={{ fontSize: "14px", color: "#3A382F", marginTop: "4px" }}

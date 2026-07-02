@@ -25,7 +25,7 @@ type RawGeneratedModule = Record<string, unknown>;
  * verification hash for public result integrity verification.
  *
  * Export name resolution MUST use generatedCalculateExport / generatedInputSchemaExport
- * from export-names.ts — the same functions the code generator uses.
+ * from export-names.ts - the same functions the code generator uses.
  * Do NOT reimplement slug-to-export-name logic here.
  */
 export async function loadClientCalculator(

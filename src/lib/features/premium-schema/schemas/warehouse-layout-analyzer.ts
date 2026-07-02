@@ -24,7 +24,7 @@ export const WAREHOUSE_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
     { id: "pickEfficiency", label: "Toplama Verimliligi", label_i18n: {"en":"Toplama Verimliligi"}, unit: "kalem/saat", format: "number" },
     { id: "costPerPosition", label: "position Per Cost", label_i18n: {"en":"position Per Cost"}, unit: "USD/year", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "costPerPosition", warning: 150, critical: 250, direction: "higher_is_bad", warningMessage: "position Cost > $150 — Optimization opportunity exists.", warningMessage_i18n: {"en":"position Cost > $150 — Optimization opportunity exists."}, criticalMessage: "position Cost > $250 — Warehouse efficiency is low.", criticalMessage_i18n: {"en":"position Cost > $250 — Warehouse efficiency is low."} }],
+  thresholds: [{ fieldId: "costPerPosition", warning: 150, critical: 250, direction: "higher_is_bad", warningMessage: "position Cost > $150 - Optimization opportunity exists.", warningMessage_i18n: {"en":"position Cost > $150 - Optimization opportunity exists."}, criticalMessage: "position Cost > $250 - Warehouse efficiency is low.", criticalMessage_i18n: {"en":"position Cost > $250 - Warehouse efficiency is low."} }],
   formulaPipeline: [
     { formulaId: "measurement.warehouse_pallet_positions", inputMap: { warehouseFootprint: "warehouseFootprint", utilRate: "utilRate", palletFootprint: "palletFootprint", aisleFactor: "aisleFactor" ,
         storageArea: "storageArea"}, outputId: "palletPositions" },

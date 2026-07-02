@@ -20,7 +20,7 @@ export const FILAMENT_RECYCLING_SCHEMA: PremiumCalculatorSchema = {
     { id: "recycledCost", label: "Return Donusum Cost", label_i18n: {"en":"Return Donusum Cost"}, unit: "USD/kg", format: "currency" },
     { id: "roi", label: "Return Donusum ROI", label_i18n: {"en":"Return Donusum ROI"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "roi", warning: 30, critical: 10, direction: "lower_is_bad", warningMessage: "ROI < %30 — Return on conversion investment should be questioned.", warningMessage_i18n: {"en":"ROI < %30 — Return on conversion investment should be questioned."}, criticalMessage: "ROI < %10 — Investment is not feasible.", criticalMessage_i18n: {"en":"ROI < %10 — Investment is not feasible."} }],
+  thresholds: [{ fieldId: "roi", warning: 30, critical: 10, direction: "lower_is_bad", warningMessage: "ROI < %30 - Return on conversion investment should be questioned.", warningMessage_i18n: {"en":"ROI < %30 - Return on conversion investment should be questioned."}, criticalMessage: "ROI < %10 - Investment is not feasible.", criticalMessage_i18n: {"en":"ROI < %10 - Investment is not feasible."} }],
   formulaPipeline: [
     { formulaId: "cost.filament_virgin", inputMap: {
         priceV: "virginPrice",

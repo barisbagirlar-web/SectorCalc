@@ -1,9 +1,9 @@
 /**
- * CNC Machine Time — deterministic (naive) cost logic.
+ * CNC Machine Time - deterministic (naive) cost logic.
  * Formula DNA: (setupTime + cycleTime × quantity) / 60 × hourlyRate
  *
  * Phase 2: Stochastic risk engine consumes `buildCncMarginCoreInputs()` output
- * via `calculatePremiumVerdict` — see `CncStochasticPhaseSlot`.
+ * via `calculatePremiumVerdict` - see `CncStochasticPhaseSlot`.
  */
 
 import { setupBurdenRatio } from "@/lib/features/tools/calculation-formulas";
@@ -39,7 +39,7 @@ export function validateCncMachineTimeInputs(inputs: CncMachineTimeInputs): stri
   return null;
 }
 
-/** Total machining minutes — setup + cycle × quantity. */
+/** Total machining minutes - setup + cycle × quantity. */
 export function calculateCncTotalMinutes(
   setupTime: number,
   cycleTime: number,
@@ -81,7 +81,7 @@ export function calculateCncNaiveCost(
   };
 }
 
-/** Phase 2 — map free-tier inputs to MarginCore stochastic engine payload. */
+/** Phase 2 - map free-tier inputs to MarginCore stochastic engine payload. */
 export function buildCncMarginCoreInputs(
   inputs: CncMachineTimeInputs
 ): Record<string, number> {

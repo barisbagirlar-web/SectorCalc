@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const sector = getSectorEntry(sectorKey);
 
   return createPageMetadata({
-    title: `${sector.name} — Operational Audit`,
+    title: `${sector.name} - Operational Audit`,
     description: `Run an anonymized operational audit for ${sector.name}. U-Engine efficiency score, hidden loss detection, and industry benchmarks.`,
     path: `/audit/${sectorKey}`,
     locale: locale as AppLocale,

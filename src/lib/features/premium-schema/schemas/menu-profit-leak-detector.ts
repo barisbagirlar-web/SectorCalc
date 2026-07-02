@@ -28,7 +28,7 @@ export const MENU_PROFIT_LEAK_DETECTOR_SCHEMA: PremiumCalculatorSchema = {
       required: true,
       validation: { min: 0 },
       helper: "Total ingredient cost for one serving",
-      expertMeaning: "Direct material cost per unit — recipe cost including trim and prep loss",
+      expertMeaning: "Direct material cost per unit - recipe cost including trim and prep loss",
     },
     {
       id: "wasteRate",
@@ -86,17 +86,17 @@ export const MENU_PROFIT_LEAK_DETECTOR_SCHEMA: PremiumCalculatorSchema = {
       critical: 42,
       direction: "higher_is_bad",
       warningMessage:
-        "Food cost percent is above target — review menu mix and portion control.",
+        "Food cost percent is above target - review menu mix and portion control.",
       criticalMessage:
-        "Critical food cost band — reprice or reformulate before scaling delivery volume.",
+        "Critical food cost band - reprice or reformulate before scaling delivery volume.",
     },
     {
       fieldId: "wasteRate",
       warning: 5,
       critical: 10,
       direction: "higher_is_bad",
-      warningMessage: "Waste rate is elevated — track prep and spoilage by shift.",
-      criticalMessage: "High waste band — margin leak may exceed delivery fee recovery.",
+      warningMessage: "Waste rate is elevated - track prep and spoilage by shift.",
+      criticalMessage: "High waste band - margin leak may exceed delivery fee recovery.",
     },
     {
       fieldId: "totalMarginPressure",
@@ -104,9 +104,9 @@ export const MENU_PROFIT_LEAK_DETECTOR_SCHEMA: PremiumCalculatorSchema = {
       critical: 55,
       direction: "higher_is_bad",
       warningMessage:
-        "Combined cost pressure is building — ingredient, fee and waste stack needs review.",
+        "Combined cost pressure is building - ingredient, fee and waste stack needs review.",
       criticalMessage:
-        "Critical margin pressure — menu economics may not support current channel mix.",
+        "Critical margin pressure - menu economics may not support current channel mix.",
     },
   ],
 
@@ -131,7 +131,7 @@ export const MENU_PROFIT_LEAK_DETECTOR_SCHEMA: PremiumCalculatorSchema = {
       "Food cost percent = ingredient cost ÷ monthly revenue.",
       "Delivery fee cost = revenue × delivery app fee percent.",
       "Margin pressure stacks ingredient, delivery fee and waste over revenue.",
-      "Target food cost input is contextual — not recalculated in this analyzer.",
+      "Target food cost input is contextual - not recalculated in this analyzer.",
     ],
   },
 };

@@ -22,7 +22,7 @@ export const OFFICE_SUPPLIES_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "wastePct", label: "Waste Yuzdesi", label_i18n: {"en":"Waste Yuzdesi"}, unit: "%", format: "number" },
     { id: "optimizationSavings", label: "optimization Tasarrufu", label_i18n: {"en":"optimization Tasarrufu"}, unit: "USD/year", format: "currency" },
   ],
-  thresholds: [{ fieldId: "optimizationSavings", warning: 500, critical: 100, direction: "lower_is_bad", warningMessage: "Tasarruf < $500 — Current System optimize.", warningMessage_i18n: {"en":"Tasarruf < $500 — Current System optimize."}, criticalMessage: "Savings < $100 — small improvement opportunity.", criticalMessage_i18n: {"en":"Savings < $100 — small improvement opportunity."} }],
+  thresholds: [{ fieldId: "optimizationSavings", warning: 500, critical: 100, direction: "lower_is_bad", warningMessage: "Tasarruf < $500 - Current System optimize.", warningMessage_i18n: {"en":"Tasarruf < $500 - Current System optimize."}, criticalMessage: "Savings < $100 - small improvement opportunity.", criticalMessage_i18n: {"en":"Savings < $100 - small improvement opportunity."} }],
   formulaPipeline: [
     { formulaId: "cost.office_consumption_rate", inputMap: { monthlyConsumption: "monthlyConsumption" ,
         annualUsage: "annualUsage"}, outputId: "consumptionRate" },

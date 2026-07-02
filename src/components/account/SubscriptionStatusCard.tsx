@@ -87,7 +87,7 @@ export function SubscriptionStatusCard({
         <p className="sc-account-hub__subscription-eyebrow">Upgrade</p>
         <h2 className="sc-account-hub__subscription-title">Unlock SectorCalc Pro</h2>
         <p className="sc-account-hub__subscription-lead">
-          Safe price floors, margin leak detection and accept / reprice verdicts —{" "}
+          Safe price floors, margin leak detection and accept / reprice verdicts -{" "}
           {sectorCalcProPricing.planName} from ${sectorCalcProPricing.priceMonthly}/month.
         </p>
       </div>

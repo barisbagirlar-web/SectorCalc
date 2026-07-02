@@ -18,8 +18,8 @@ export const EMPLOYEE_TOTAL_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       warning: 6000,
       critical: 9000,
       direction: "higher_is_bad",
-      warningMessage: "Loaded headcount cost is elevated — verify quote labor rates.",
-      criticalMessage: "Loaded cost is very high — review hiring plan before committing.",
+      warningMessage: "Loaded headcount cost is elevated - verify quote labor rates.",
+      criticalMessage: "Loaded cost is very high - review hiring plan before committing.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const EMPLOYEE_TOTAL_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
     assumptionNotes: [
       "Total employer cost = gross salary + employer burden + monthly benefits.",
       "Employer burden = gross salary × burden rate.",
-      "Informational simulation only — not payroll or legal advice.",
+      "Informational simulation only - not payroll or legal advice.",
     ],
   },
 };

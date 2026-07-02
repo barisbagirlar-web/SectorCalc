@@ -1,5 +1,5 @@
 /**
- * Business oracle baselines — independent reference implementations (Phase 5C).
+ * Business oracle baselines - independent reference implementations (Phase 5C).
  * Does NOT import production calculator functions.
  */
 
@@ -70,7 +70,7 @@ export function calculateBreakEvenOracle(input: BreakEvenOracleInput): BreakEven
   if (contributionMargin <= 0) {
     throw new OracleValidationError(
       "INVALID_CONTRIBUTION",
-      "Contribution margin is zero or negative — break-even volume is not defined.",
+      "Contribution margin is zero or negative - break-even volume is not defined.",
     );
   }
 

@@ -1,5 +1,5 @@
 /**
- * Remediation risk gate — Phase 5I-D low-risk selection only.
+ * Remediation risk gate - Phase 5I-D low-risk selection only.
  */
 
 import type { FullToolAuditItem } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

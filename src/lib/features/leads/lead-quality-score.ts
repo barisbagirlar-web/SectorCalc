@@ -281,12 +281,12 @@ function scoreSla(
  if (status === "converted" || status === "lost") {
  return {
  points: 0,
-   warning: "Lead closed — active priority score carries less weight",
+   warning: "Lead closed - active priority score carries less weight",
  };
  }
 
  if (sla.slaLevel === "urgent") {
-   return { points: 5, reason: "Overdue open lead — urgent follow-up" };
+   return { points: 5, reason: "Overdue open lead - urgent follow-up" };
  }
 
  return { points: 0 };

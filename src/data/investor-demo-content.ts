@@ -1,5 +1,5 @@
 /**
- * Investor demo page content — Phase 6A (English, data-driven claims only).
+ * Investor demo page content - Phase 6A (English, data-driven claims only).
  */
 
 export const INVESTOR_LIVE_PILOTS = [
@@ -26,16 +26,16 @@ export const INVESTOR_LIVE_PILOTS = [
 export const INVESTOR_ROLLOUT_POTENTIAL_COUNT = 15 as const;
 
 export const INVESTOR_PROBLEM_STATEMENT = {
-  headline: "Sector-specific margin decisions fail in spreadsheets — not because teams lack formulas, but because inputs, assumptions, and validation are inconsistent.",
+  headline: "Sector-specific margin decisions fail in spreadsheets - not because teams lack formulas, but because inputs, assumptions, and validation are inconsistent.",
   subhead:
     "SectorCalc is a calculation operating system for sector tools: structured inputs, governed formulas, deterministic outputs, and auditable decision reports.",
 } as const;
 
 export const INVESTOR_DUAL_CORE = {
   mind2:
-    "Requirement Engine — given a goal and known inputs, the system resolves which inputs are missing, derivable, or require expert review.",
+    "Requirement Engine - given a goal and known inputs, the system resolves which inputs are missing, derivable, or require expert review.",
   mind1:
-    "Validation Engine — oracle, scenario, and property checks confirm inputs and results before any verdict or export is shown.",
+    "Validation Engine - oracle, scenario, and property checks confirm inputs and results before any verdict or export is shown.",
 } as const;
 
 export const INVESTOR_DEMO_FLOW_STEPS = [
@@ -43,11 +43,11 @@ export const INVESTOR_DEMO_FLOW_STEPS = [
   "Run a governed free check with browser-side inputs",
   "Show calculation summary readiness and report export contract (dry-run)",
   "Walk the Tool Factory pipeline through patch plan and human approval gate",
-  "Close with deploy-ready gate — command disabled until approved",
+  "Close with deploy-ready gate - command disabled until approved",
 ] as const;
 
 export const INVESTOR_MOAT_BULLETS = [
-  "Deterministic calculation boundary — LLM does not compute results or override oracle",
+  "Deterministic calculation boundary - LLM does not compute results or override oracle",
   "Formula governance with oracle/scenario/property validation loop",
   "Calculation summary and export renderer contracts before customer-facing reports",
   "Controlled patch and deploy gates with mandatory human approval",
@@ -59,5 +59,5 @@ export const INVESTOR_NINETY_DAY_PLAN = [
   "Expand Smart Form staging rollout for calculation-bridge candidates",
   "Wire premium report preview to calculation summary dry-run output",
   "Complete remediation batch apply sandbox with human approval",
-  "Prepare Stripe live readiness gate — no auto-deploy",
+  "Prepare Stripe live readiness gate - no auto-deploy",
 ] as const;

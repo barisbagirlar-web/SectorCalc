@@ -1,5 +1,5 @@
 /**
- * Phase 5H-D-D — free-sector batch2 metadata hygiene (remaining blocked contracts).
+ * Phase 5H-D-D - free-sector batch2 metadata hygiene (remaining blocked contracts).
  */
 
 import { describe, expect, test } from "vitest";

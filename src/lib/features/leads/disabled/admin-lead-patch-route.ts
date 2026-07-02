@@ -1,5 +1,5 @@
 /**
- * DISABLED — not under src/app/api (avoids Firebase Hosting Cloud Function deploy).
+ * DISABLED - not under src/app/api (avoids Firebase Hosting Cloud Function deploy).
  * Re-enable: copy to src/app/api/admin/leads/[leadId]/route.ts when Functions API is on.
  */
 import { NextResponse } from "next/server";

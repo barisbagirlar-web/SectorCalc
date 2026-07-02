@@ -6,7 +6,7 @@ export type StaticPageConfig = {
   readonly priority: number;
 };
 
-/** Core marketing and legal pages — priority/changefreq tuned for crawl budget. */
+/** Core marketing and legal pages - priority/changefreq tuned for crawl budget. */
 export function getStaticPages(_locale?: string): StaticPageConfig[] {
   return [
     { path: "/", changeFrequency: "weekly", priority: 1.0 },

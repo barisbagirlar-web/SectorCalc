@@ -372,7 +372,7 @@ export function savedReportToVerdictReportData(
  legalDisclaimer: report.legalDisclaimer,
  assumptions: [],
  scenarios: [],
- validationNotes: ["Saved report replay — validation notes from original session not stored."],
+ validationNotes: ["Saved report replay - validation notes from original session not stored."],
  methodologyNote: PREMIUM_DECISION_SUMMARY_METHODOLOGY,
  usageNote: PREMIUM_DECISION_SUMMARY_USAGE_NOTE,
  };

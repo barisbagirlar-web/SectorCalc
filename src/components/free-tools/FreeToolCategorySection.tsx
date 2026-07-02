@@ -21,7 +21,7 @@ type FreeToolCategorySectionProps = {
   readonly totalTools: number;
 };
 
-/** Premium-style category section — line icon + title + tagline + field/domain/purpose badges + tool grid. */
+/** Premium-style category section - line icon + title + tagline + field/domain/purpose badges + tool grid. */
 export function FreeToolCategorySection({
   slug,
   tools,
@@ -39,7 +39,7 @@ export function FreeToolCategorySection({
 
   return (
     <section className="mb-12" data-category-slug={slug}>
-      {/* Category header — premium line-art SVG symbol */}
+      {/* Category header - premium line-art SVG symbol */}
       <div className="mb-2 flex items-center gap-3">
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-copper/30 bg-white">
           <FreeToolCategoryIcon iconKey={iconKey} className="h-6 w-6 text-copper" />

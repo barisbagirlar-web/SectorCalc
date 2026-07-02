@@ -1,5 +1,5 @@
 /**
- * Tool — SMED Changeover Duration Optimizer
+ * Tool - SMED Changeover Duration Optimizer
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
@@ -12,7 +12,7 @@ export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
       label: "Smed Investment",
       label_i18n: { en: "Smed Investment" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -28,7 +28,7 @@ export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
     { id: "financialGain", label: "Financial Gain", label_i18n: {"en":"Financial Gain"}, unit: "USD/year", format: "currency" },
     { id: "roi", label: "Yatrm Return (ROI)", label_i18n: {"en":"Yatrm Return (ROI)"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI < 100% — SMED implementation should be questioned.", warningMessage_i18n: {"en":"ROI < 100% — SMED implementation should be questioned."}, criticalMessage: "ROI < 50% — SMED project should be re-evaluated.", criticalMessage_i18n: {"en":"ROI < 50% — SMED project should be re-evaluated."} }],
+  thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI < 100% - SMED implementation should be questioned.", warningMessage_i18n: {"en":"ROI < 100% - SMED implementation should be questioned."}, criticalMessage: "ROI < 50% - SMED project should be re-evaluated.", criticalMessage_i18n: {"en":"ROI < 50% - SMED project should be re-evaluated."} }],
   formulaPipeline: [
     { formulaId: "measurement.smed_capacity_recovered", inputMap: { currentChangeoverTime: "currentChangeoverTime", targetChangeoverTime: "targetChangeoverTime", changeoversPerMonth: "changeoversPerMonth" ,
         currentSetup: "currentSetup",

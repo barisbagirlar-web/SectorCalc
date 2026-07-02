@@ -188,7 +188,7 @@ export function SchemaGeneratorClient() {
       ) : (
         <>
           <div className="rounded-sm border border-slate/20 bg-off-white px-4 py-3 text-sm text-deep-navy">
-            <p className="font-semibold">Authoring only — no auto-publish</p>
+            <p className="font-semibold">Authoring only - no auto-publish</p>
             <p className="mt-1 text-text-secondary">
               Drafts stay in this session. Production schemas require developer review and git commit.
             </p>
@@ -566,7 +566,7 @@ export function SchemaGeneratorClient() {
                             <option value="">Select formula</option>
                             {FORMULA_REGISTRY_META.map((item) => (
                               <option key={item.formulaId} value={item.formulaId}>
-                                {item.formulaId} — {item.label}
+                                {item.formulaId} - {item.label}
                               </option>
                             ))}
                           </select>

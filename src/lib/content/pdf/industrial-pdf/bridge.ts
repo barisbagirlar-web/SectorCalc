@@ -1,5 +1,5 @@
 /**
- * Bridge — converts PremiumReportExportPayload → IndustrialPdfData
+ * Bridge - converts PremiumReportExportPayload → IndustrialPdfData
  * with automatic chart generation and engineering content resolution.
  */
 

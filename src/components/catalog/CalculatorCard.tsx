@@ -23,7 +23,7 @@ export type CalculatorCardProps = {
   readonly sectorCountLabel?: (free: number, premium: number) => string;
 };
 
-/** Text-based tool or industry item — name + description, no box. */
+/** Text-based tool or industry item - name + description, no box. */
 export function CalculatorCard({
   title,
   description,

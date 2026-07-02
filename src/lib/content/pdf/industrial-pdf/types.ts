@@ -1,5 +1,5 @@
 /**
- * Industrial PDF Report — type definitions.
+ * Industrial PDF Report - type definitions.
  * ECMI / ISO 9001 / TUV-certifiable data model.
  */
 

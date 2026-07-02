@@ -33,7 +33,7 @@ interface GlobalReferenceInputProps {
 // ─── Component ────────────────────────────────────────────────────────────
 
 /**
- * GlobalReferenceInput — Reference-bound form input.
+ * GlobalReferenceInput - Reference-bound form input.
  *
  * Renders a numeric input with a dropdown of reference values from the
  * build-time validated registry. Reference values are filtered by the

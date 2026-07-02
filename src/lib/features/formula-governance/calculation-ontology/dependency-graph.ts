@@ -1,5 +1,5 @@
 /**
- * Dependency graph builder — pure ontology analysis (Phase 5H-B-1).
+ * Dependency graph builder - pure ontology analysis (Phase 5H-B-1).
  */
 
 import {

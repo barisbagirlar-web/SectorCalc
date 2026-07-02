@@ -1,5 +1,5 @@
 /**
- * Patch plan generator tests — Phase 5I-B.
+ * Patch plan generator tests - Phase 5I-B.
  */
 
 import { describe, expect, test } from "vitest";
@@ -37,7 +37,7 @@ function buildAuditItem(
   };
 }
 
-describe("patch plan generator — Phase 5I-B", () => {
+describe("patch plan generator - Phase 5I-B", () => {
   test("metadata action maps to metadata_only", () => {
     const plan = buildPatchPlanFromFullToolAudit(
       buildAuditItem({ slug: "meta-tool", recommendedAction: "metadata_patch", hasProductionLocator: false }),

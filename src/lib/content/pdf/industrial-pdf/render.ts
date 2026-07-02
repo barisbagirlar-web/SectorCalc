@@ -1,5 +1,5 @@
 /**
- * Industrial PDF Renderer — renders IndustrialPdfDocument to buffer.
+ * Industrial PDF Renderer - renders IndustrialPdfDocument to buffer.
  */
 
 import React from "react";

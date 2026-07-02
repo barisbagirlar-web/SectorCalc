@@ -10,7 +10,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Reduction Factor",
       label_i18n: { en: "Reduction Factor" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Training Cost",
       label_i18n: { en: "Training Cost" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -28,7 +28,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Installation Cost",
       label_i18n: { en: "Installation Cost" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -37,7 +37,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Total Inspected",
       label_i18n: { en: "Total Inspected" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -57,7 +57,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "pokaYokeRoi", label: "Yatrm Return (ROI)", label_i18n: {"en":"Yatrm Return (ROI)"}, unit: "%", format: "number" },
     { id: "pokaYokePayback", label: "Payback Period", label_i18n: {"en":"Payback Period"}, unit: "months", format: "number" },
   ],
-  thresholds: [{ fieldId: "pokaYokeRoi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — investment feasibility should be questioned.", warningMessage_i18n: {"en":"ROI < %50 — investment feasibility should be questioned."}, criticalMessage: "ROI < %20 — Poka-Yoke investment is not recommended.", criticalMessage_i18n: {"en":"ROI < %20 — Poka-Yoke investment is not recommended."} }],
+  thresholds: [{ fieldId: "pokaYokeRoi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 - investment feasibility should be questioned.", warningMessage_i18n: {"en":"ROI < %50 - investment feasibility should be questioned."}, criticalMessage: "ROI < %20 - Poka-Yoke investment is not recommended.", criticalMessage_i18n: {"en":"ROI < %20 - Poka-Yoke investment is not recommended."} }],
   formulaPipeline: [
     { formulaId: "measurement.current_defect_rate", inputMap: {
         defects: "currentDefectRate"

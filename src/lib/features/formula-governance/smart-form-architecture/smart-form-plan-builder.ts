@@ -1,5 +1,5 @@
 /**
- * Smart form plan builder — Phase 5H-G-A deterministic form planning (no UI).
+ * Smart form plan builder - Phase 5H-G-A deterministic form planning (no UI).
  */
 
 import type { ControlledInputDesignPatch } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-patch-types";
@@ -71,7 +71,7 @@ const SECTION_META: Record<
   },
   trust_trace: {
     title: "Trust trace",
-    description: "Field mapping for future trust trace report — governance only in this phase.",
+    description: "Field mapping for future trust trace report - governance only in this phase.",
     collapsedByDefault: false,
   },
 };
@@ -127,7 +127,7 @@ function buildDerivedField(key: string, source: SmartFormFieldSpec["source"]): S
     userEditable: false,
     requiredForCalculation: false,
     validationMessages: [],
-    professionalNote: "Derived output — read-only trust trace; production formula unchanged.",
+    professionalNote: "Derived output - read-only trust trace; production formula unchanged.",
     visibility: "hidden_derived",
   };
 }

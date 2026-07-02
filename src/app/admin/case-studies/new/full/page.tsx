@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: "New case study — Advanced (Admin)",
+    title: "New case study - Advanced (Admin)",
     description: "Create a Schema.org supported case study draft.",
     path: "/admin/case-studies/new/full",
   }),

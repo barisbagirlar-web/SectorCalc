@@ -1,5 +1,5 @@
 /**
- * Tool factory demo flow types — Phase 5I-N deterministic fixture.
+ * Tool factory demo flow types - Phase 5I-N deterministic fixture.
  */
 
 import type { ToolFactoryPipelineStage } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-types";

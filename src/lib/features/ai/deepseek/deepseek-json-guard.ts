@@ -195,7 +195,7 @@ export function assertFinishReasonAllowsJson(finishReason: string | null | undef
     return {
       ok: false,
       reason: "truncated",
-      message: "Model finish_reason=length — JSON likely truncated.",
+      message: "Model finish_reason=length - JSON likely truncated.",
     };
   }
 

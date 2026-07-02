@@ -1,5 +1,5 @@
 /**
- * P7 — first five representative case studies (priority rollout).
+ * P7 - first five representative case studies (priority rollout).
  */
 
 export const P7_FIRST_5_CASE_STUDY_SLUGS = [

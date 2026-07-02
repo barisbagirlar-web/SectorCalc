@@ -131,7 +131,7 @@ export type GeneratedToolResult = {
   readonly premiumFeatures: readonly string[];
   /** Display unit for the primary result (e.g. MB, kg, %). */
   readonly unit: string;
-  /** Trust Trace verification hash — enables public result verification */
+  /** Trust Trace verification hash - enables public result verification */
   readonly trustTrace?: {
     readonly hash: string;
     readonly verificationUrl: string;

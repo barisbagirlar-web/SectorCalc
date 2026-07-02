@@ -13,7 +13,7 @@ const sizeClasses = {
   wide: "max-w-7xl",
 };
 
-/** Dense industrial container — tight horizontal padding */
+/** Dense industrial container - tight horizontal padding */
 export function Container({
   children,
   className = "",

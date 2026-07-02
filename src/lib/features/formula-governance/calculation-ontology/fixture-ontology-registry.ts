@@ -1,5 +1,5 @@
 /**
- * Professional fixture ontology registry — slug-indexed read-only lookup (Phase 5H-B-6).
+ * Professional fixture ontology registry - slug-indexed read-only lookup (Phase 5H-B-6).
  */
 
 import { CNC_QUOTE_RISK_ONTOLOGY } from "@/lib/features/formula-governance/calculation-ontology/fixtures/cnc-quote-risk-ontology";

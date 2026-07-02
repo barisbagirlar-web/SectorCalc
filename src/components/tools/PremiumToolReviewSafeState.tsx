@@ -9,7 +9,7 @@ type Props = {
   readonly showDebugFindings?: boolean;
 };
 
-/** @deprecated Use ToolSafeReviewState — kept for existing imports. */
+/** @deprecated Use ToolSafeReviewState - kept for existing imports. */
 export function PremiumToolReviewSafeState(props: Props) {
   return <ToolSafeReviewState {...props} />;
 }

@@ -1,5 +1,5 @@
 /**
- * AI assistant boundary tests — ADIM 6 (contract only; no LLM calls).
+ * AI assistant boundary tests - ADIM 6 (contract only; no LLM calls).
  */
 
 import { describe, expect, test } from "vitest";

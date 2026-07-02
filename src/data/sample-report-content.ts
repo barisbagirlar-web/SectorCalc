@@ -1,4 +1,4 @@
-/** CNC Quote Risk Report — premium decision report showcase (illustrative). */
+/** CNC Quote Risk Report - premium decision report showcase (illustrative). */
 
 export const SAMPLE_REPORT_TITLE = "CNC Quote Risk Report";
 
@@ -11,7 +11,7 @@ export const SAMPLE_REPORT_MAIN_LEAK = "Setup time + tooling buffer";
 export const SAMPLE_REPORT_SUGGESTED_ACTION =
  "Reprice or reduce scope before sending the quote.";
 
-export const SAMPLE_REPORT_EXECUTIVE_VERDICT = `The quoted job at $1,520 falls below the minimum safe price floor of $1,840. Margin risk is HIGH — setup time and tooling buffer consume disproportionate share of direct cost on this one-off run. Do not accept the work at the current quote without repricing or reducing scope.`;
+export const SAMPLE_REPORT_EXECUTIVE_VERDICT = `The quoted job at $1,520 falls below the minimum safe price floor of $1,840. Margin risk is HIGH - setup time and tooling buffer consume disproportionate share of direct cost on this one-off run. Do not accept the work at the current quote without repricing or reducing scope.`;
 
 export const SAMPLE_REPORT_INPUT_SUMMARY = [
  { label: "Quoted price", value: "$1,520" },
@@ -78,7 +78,7 @@ export const SAMPLE_REPORT_SCENARIOS = [
 ] as const;
 
 export const SAMPLE_REPORT_DISCLAIMER =
- "This sample report is illustrative and based on hypothetical CNC job inputs. It demonstrates premium verdict structure — not a live calculation from your data. SectorCalc outputs are decision-support simulations, not financial, legal or engineering advice. Verify all numbers before commercial commitments.";
+ "This sample report is illustrative and based on hypothetical CNC job inputs. It demonstrates premium verdict structure - not a live calculation from your data. SectorCalc outputs are decision-support simulations, not financial, legal or engineering advice. Verify all numbers before commercial commitments.";
 
 export const SAMPLE_REPORT_INCLUDES = [
  "Executive verdict with accept / reprice / reject signal",

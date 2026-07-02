@@ -17,7 +17,7 @@ export function normalizeAscii(str: string): string {
   return str.replace(/[gGuUsSiIoOcC]/g, (char) => TR_CHAR_MAP[char] ?? char);
 }
 
-/** Matches DeepSeek code generator — slug/file basename to safe identifier. */
+/** Matches DeepSeek code generator - slug/file basename to safe identifier. */
 export function toSafeVarName(str: string): string {
   const normalized = normalizeAscii(str.trim());
   const safe = normalized.replace(/[^a-zA-Z0-9]/g, "_");

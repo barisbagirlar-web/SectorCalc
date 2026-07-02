@@ -1,5 +1,5 @@
 /**
- * P8 — Low-bandwidth preference (local-only).
+ * P8 - Low-bandwidth preference (local-only).
  */
 
 import { FIELD_MODE_STORAGE_KEYS } from "@/lib/features/field-mode/types";

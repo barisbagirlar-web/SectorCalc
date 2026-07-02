@@ -1,5 +1,5 @@
 /**
- * LLM boundary policy — interface-only actions; calculation forbidden.
+ * LLM boundary policy - interface-only actions; calculation forbidden.
  */
 
 export type LlmAllowedAction =

@@ -19,8 +19,8 @@ export const SLUG_3D_PRINT_JOB_MARGIN_TOOL_SCHEMA: PremiumCalculatorSchema = {
       warning: 70,
       critical: 100,
       direction: "higher_is_bad",
-      warningMessage: "Tolerance band usage is elevated — drift may trigger scrap or rework.",
-      criticalMessage: "Critical tolerance usage — recalibrate before production rejection.",
+      warningMessage: "Tolerance band usage is elevated - drift may trigger scrap or rework.",
+      criticalMessage: "Critical tolerance usage - recalibrate before production rejection.",
     },
   ],
 
@@ -44,7 +44,7 @@ export const SLUG_3D_PRINT_JOB_MARGIN_TOOL_SCHEMA: PremiumCalculatorSchema = {
     assumptionNotes: [
       "Tolerance usage = |actual − target| ÷ tolerance × 100.",
       "Rejection exposure = batch value × rejection risk percent.",
-      "Outputs are technical measurement estimates — verify before compliance decisions.",
+      "Outputs are technical measurement estimates - verify before compliance decisions.",
     ],
   },
 };

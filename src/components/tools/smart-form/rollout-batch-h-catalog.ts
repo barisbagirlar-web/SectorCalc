@@ -1,5 +1,5 @@
 /**
- * Smart form rollout batch H catalog — Phase 5H-H (15 input-design patch tools).
+ * Smart form rollout batch H catalog - Phase 5H-H (15 input-design patch tools).
  */
 
 import { ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";

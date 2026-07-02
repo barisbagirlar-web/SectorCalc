@@ -10,7 +10,7 @@ export const FERTILIZER_DOSAGE_SCHEMA: PremiumCalculatorSchema = {
       label: "Eff",
       label_i18n: { en: "Eff" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -30,7 +30,7 @@ export const FERTILIZER_DOSAGE_SCHEMA: PremiumCalculatorSchema = {
     { id: "appRate", label: "application Miktar", label_i18n: {"en":"application Miktar"}, unit: "kg/ha", format: "number" },
     { id: "totalCost", label: "Total Gubre Cost", label_i18n: {"en":"Total Gubre Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalCost", warning: 5000, critical: 10000, direction: "higher_is_bad", warningMessage: "Fertilizer Cost > $5000 — alternative fertilization should be evaluated.", warningMessage_i18n: {"en":"Fertilizer Cost > $5000 — alternative fertilization should be evaluated."}, criticalMessage: "Cost > $10000 — Cost optimizasyonu acil.", criticalMessage_i18n: {"en":"Cost > $10000 — Cost optimizasyonu acil."} }],
+  thresholds: [{ fieldId: "totalCost", warning: 5000, critical: 10000, direction: "higher_is_bad", warningMessage: "Fertilizer Cost > $5000 - alternative fertilization should be evaluated.", warningMessage_i18n: {"en":"Fertilizer Cost > $5000 - alternative fertilization should be evaluated."}, criticalMessage: "Cost > $10000 - Cost optimizasyonu acil.", criticalMessage_i18n: {"en":"Cost > $10000 - Cost optimizasyonu acil."} }],
   formulaPipeline: [
     { formulaId: "measurement.fertilizer_need", inputMap: {
         nutReq: "yieldTarget",

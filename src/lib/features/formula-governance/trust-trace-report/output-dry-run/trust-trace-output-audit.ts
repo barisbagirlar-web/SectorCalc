@@ -1,5 +1,5 @@
 /**
- * Trust trace output dry-run audit — Phase 5I-M read-only.
+ * Trust trace output dry-run audit - Phase 5I-M read-only.
  */
 
 import { FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts";

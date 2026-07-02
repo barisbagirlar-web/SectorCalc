@@ -1,5 +1,5 @@
 /**
- * Production-aligned smart form pilot submit keys — Phase 5H-G-G / 5H-H.
+ * Production-aligned smart form pilot submit keys - Phase 5H-G-G / 5H-H.
  */
 
 export const THREE_D_PRINT_PILOT_SUBMIT_KEYS = [

@@ -1,5 +1,5 @@
 /**
- * Input design bridge — requirement result → UI-oriented input design adapter.
+ * Input design bridge - requirement result → UI-oriented input design adapter.
  */
 
 import type { CalculationOntology } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";
@@ -7,7 +7,7 @@ import type { RequirementSolveResult } from "@/lib/features/formula-governance/r
 
 import type { FormulaContract } from "@/lib/features/formula-governance/types";
 
-/** Local adapter type — compatible with future ToolInputDesign without breaking existing code. */
+/** Local adapter type - compatible with future ToolInputDesign without breaking existing code. */
 export type ToolInputDesignField = {
   readonly variableId: string;
   readonly label: string;

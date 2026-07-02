@@ -1,5 +1,5 @@
 /**
- * Controlled patch draft types — Phase 5I-E dry-run only.
+ * Controlled patch draft types - Phase 5I-E dry-run only.
  */
 
 import type { PatchPlanType } from "@/lib/features/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-types";

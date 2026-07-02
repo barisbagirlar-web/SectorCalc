@@ -5,7 +5,7 @@ import { sectorCalcPremium152Seed } from "@/data/premium/sectorcalc-premium-152.
 
 export type Premium152SeedCategory = (typeof sectorCalcPremium152Seed.categories)[number];
 
-/** Explicit shape — avoids TS union-size collapse on 152-item `as const` tools array. */
+/** Explicit shape - avoids TS union-size collapse on 152-item `as const` tools array. */
 export type Premium152SeedTool = {
   readonly id: number;
   readonly slug: string;

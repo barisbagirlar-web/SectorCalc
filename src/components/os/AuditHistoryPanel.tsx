@@ -11,7 +11,7 @@ export interface AuditHistoryPanelProps {
 
 function formatAuditTimestamp(iso: string, locale: string): string {
   if (!iso) {
-    return "—";
+    return "-";
   }
 
   const parsed = new Date(iso);

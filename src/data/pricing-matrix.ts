@@ -1,4 +1,4 @@
-/** Plan & feature matrix rows — Free / Pro / Enterprise (Team) */
+/** Plan & feature matrix rows - Free / Pro / Enterprise (Team) */
 export type PlanColumn = "free" | "pro" | "enterprise";
 
 export type PricingMatrixRow = {

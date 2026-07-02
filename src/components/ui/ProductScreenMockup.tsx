@@ -1,5 +1,5 @@
 /**
- * Real product UI mockup — calculator + result panel chrome (no AI illustration).
+ * Real product UI mockup - calculator + result panel chrome (no AI illustration).
  */
 export function ProductScreenMockup({ className = "" }: { className?: string }) {
   return (
@@ -32,7 +32,7 @@ export function ProductScreenMockup({ className = "" }: { className?: string }) 
         <div className="sc-pro-product-mockup__col sc-pro-product-mockup__col--result">
           <p className="sc-pro-eyebrow">Exposure</p>
           <p className="sc-pro-product-mockup__big">$4,280</p>
-          <p className="sc-pro-product-mockup__alert">Threshold alert — tolerance pressure</p>
+          <p className="sc-pro-product-mockup__alert">Threshold alert - tolerance pressure</p>
           <p className="sc-pro-product-mockup__action">Suggested action: Reprice before accepting</p>
           <p className="sc-pro-product-mockup__preview">Report preview · PDF-ready</p>
         </div>

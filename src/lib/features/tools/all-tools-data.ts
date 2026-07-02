@@ -31,7 +31,7 @@ import {
   SECTORS,
 } from "@/lib/features/tools/taxonomy";
 
-/** Resolve generated schemas directory — tries multiple deployment paths. */
+/** Resolve generated schemas directory - tries multiple deployment paths. */
 function resolveSchemasDir(): string {
   const candidates = [
     // Local dev / standard
@@ -267,7 +267,7 @@ function isPremiumTool(
 }
 
 export function getAllTools(_locale = "en"): ToolData[] {
-  // Force English — no Turkish content allowed in UI
+  // Force English - no Turkish content allowed in UI
   const locale = "en";
   const cached = toolsCache.get(locale);
   if (cached) {
@@ -460,7 +460,7 @@ export function getPremiumTools(_locale = "en"): ToolData[] {
   const locale = "en";
   const bySlug = new Map<string, ToolData>();
 
-  // 1. Premium schemas from schema-registry — these are the user's premium
+  // 1. Premium schemas from schema-registry - these are the user's premium
   //    calculator pages with working implementations at /tools/premium-schema/{id}.
   for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
     bySlug.set(schema.id, schemaToToolData(schema, locale));

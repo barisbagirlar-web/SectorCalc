@@ -1,5 +1,5 @@
 /**
- * Smart form pilot production deploy execution gate — Phase 5H-G-R.
+ * Smart form pilot production deploy execution gate - Phase 5H-G-R.
  */
 
 import type { SmartFormPilotProductionDeployExecutionPlan } from "@/components/tools/smart-form/pilot-production-deploy-execution-plan";

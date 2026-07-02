@@ -1,5 +1,5 @@
 /**
- * Launch readiness acceptance tests — complements production-hardening.test.ts.
+ * Launch readiness acceptance tests - complements production-hardening.test.ts.
  */
 
 import { readFileSync, readdirSync, statSync } from "node:fs";

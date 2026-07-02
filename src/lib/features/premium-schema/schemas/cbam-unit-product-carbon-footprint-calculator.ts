@@ -18,8 +18,8 @@ export const CBAM_UNIT_PRODUCT_CARBON_FOOTPRINT_CALCULATOR_SCHEMA: PremiumCalcul
       warning: 0.05,
       critical: 0.12,
       direction: "higher_is_bad",
-      warningMessage: "Unit carbon intensity is elevated — verify energy and yield assumptions.",
-      criticalMessage: "Unit carbon intensity is very high — review process before export filing.",
+      warningMessage: "Unit carbon intensity is elevated - verify energy and yield assumptions.",
+      criticalMessage: "Unit carbon intensity is very high - review process before export filing.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const CBAM_UNIT_PRODUCT_CARBON_FOOTPRINT_CALCULATOR_SCHEMA: PremiumCalcul
     assumptionNotes: [
       "Unit emissions = total batch emissions ÷ production units.",
       "Unit carbon cost = unit emissions × reference carbon price.",
-      "Informational simulation only — not legal or compliance certification.",
+      "Informational simulation only - not legal or compliance certification.",
     ],
   },
 };

@@ -1,5 +1,5 @@
 /**
- * Production readiness report formatter — Phase 5I-P.
+ * Production readiness report formatter - Phase 5I-P.
  */
 
 import { collectProductionReadinessGates } from "@/lib/features/formula-governance/production-readiness/production-readiness-runner";

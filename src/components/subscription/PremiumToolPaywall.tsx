@@ -35,7 +35,7 @@ export function PremiumToolPaywall({
  </h2>
  <p className="mt-3 text-sm leading-relaxed text-body-charcoal sm:text-base">
  Free calculators show quick checks. {toolTitle} delivers safe price floors,
- margin leak detection and accept/reject verdicts — {SECTORCALC_PRO_PRICE_LABEL}.
+ margin leak detection and accept/reject verdicts - {SECTORCALC_PRO_PRICE_LABEL}.
  </p>
  <div className="mt-6">
  <ProCheckoutButton

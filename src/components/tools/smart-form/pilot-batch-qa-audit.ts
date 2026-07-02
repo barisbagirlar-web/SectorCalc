@@ -1,5 +1,5 @@
 /**
- * Smart form pilot batch QA audit — Phase 5H-G-I/J.
+ * Smart form pilot batch QA audit - Phase 5H-G-I/J.
  */
 
 import { buildSmartFormPilotCalculationPayload } from "@/components/tools/smart-form/build-smart-form-pilot-calculation-payload";

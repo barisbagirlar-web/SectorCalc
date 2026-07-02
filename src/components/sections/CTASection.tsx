@@ -15,7 +15,7 @@ interface CTASectionProps {
 export function CTASection({
  eyebrow,
  title = "Move from operational inputs to structured decisions",
- subtitle = `${SITE.siteName} helps operators and advisors evaluate cost, margin and pricing risk — with sector tools and decision reports built for real commercial outcomes.`,
+ subtitle = `${SITE.siteName} helps operators and advisors evaluate cost, margin and pricing risk - with sector tools and decision reports built for real commercial outcomes.`,
  primaryLabel = "Explore sector tools",
  primaryHref = "/industries",
  secondaryLabel = "Preview sample report",

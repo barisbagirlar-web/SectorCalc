@@ -1,5 +1,5 @@
 /**
- * Batch premium batch-3 oracle baselines — Phase 5G-D.
+ * Batch premium batch-3 oracle baselines - Phase 5G-D.
  * Independent reference implementations; does NOT import production calculators.
  */
 

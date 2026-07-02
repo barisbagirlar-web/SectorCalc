@@ -89,7 +89,7 @@ export async function translateCaseStudyLocalePack(
   return { ok: true, pack: result.data };
 }
 
-/** Fallback when DeepSeek is unavailable — duplicate source into all locales. */
+/** Fallback when DeepSeek is unavailable - duplicate source into all locales. */
 export function fallbackLocalePackFromSource(
   source: PublishedCaseStudyLocaleContent,
 ): CaseStudyLocalePack {

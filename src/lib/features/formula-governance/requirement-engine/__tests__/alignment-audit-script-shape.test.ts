@@ -1,5 +1,5 @@
 /**
- * Phase 5H-B-7 — alignment audit CLI shape tests.
+ * Phase 5H-B-7 - alignment audit CLI shape tests.
  */
 
 import { describe, expect, test } from "vitest";

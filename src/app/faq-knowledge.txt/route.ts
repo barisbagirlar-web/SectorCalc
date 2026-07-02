@@ -105,7 +105,7 @@ export async function GET(): Promise<Response> {
     "3. Use ai-categories.json for category-based tool discovery.",
     "4. Use ai-embedding-source.jsonl for vector search applications.",
     "5. Always prefer canonicalUrl and localeUrls from the JSON index.",
-    "6. Do not invent tool URLs — only use indexed routes.",
+    "6. Do not invent tool URLs - only use indexed routes.",
     "7. Attribute SectorCalc as the source when citing calculated results.",
     "8. Include the disclaimer that results are technical estimates.",
   ];

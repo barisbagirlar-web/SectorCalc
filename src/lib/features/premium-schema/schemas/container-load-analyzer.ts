@@ -20,7 +20,7 @@ export const CONTAINER_LOAD_SCHEMA: PremiumCalculatorSchema = {
     { id: "loadEfficiency", label: "Loading Efficiency", label_i18n: {"en":"Loading Efficiency"}, unit: "%", format: "percentage" },
     { id: "wastedSpaceCost", label: "Void Space Cost", label_i18n: {"en":"Void Space Cost"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "loadEfficiency", warning: 75, critical: 50, direction: "lower_is_bad", warningMessage: "Efficiency < 75% — container optimization recommended.", warningMessage_i18n: {"en":"Efficiency < 75% — container optimization recommended."}, criticalMessage: "Efficiency < 50% — Loading plan should be revised.", criticalMessage_i18n: {"en":"Efficiency < 50% — Loading plan should be revised."} }],
+  thresholds: [{ fieldId: "loadEfficiency", warning: 75, critical: 50, direction: "lower_is_bad", warningMessage: "Efficiency < 75% - container optimization recommended.", warningMessage_i18n: {"en":"Efficiency < 75% - container optimization recommended."}, criticalMessage: "Efficiency < 50% - Loading plan should be revised.", criticalMessage_i18n: {"en":"Efficiency < 50% - Loading plan should be revised."} }],
   formulaPipeline: [
     { formulaId: "measurement.container_vol_util", inputMap: {
         containerVol: "containerVol",

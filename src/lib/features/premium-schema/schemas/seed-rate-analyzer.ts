@@ -17,7 +17,7 @@ export const SEED_RATE_SCHEMA: PremiumCalculatorSchema = {
     { id: "seedCostTotal", label: "Total Seed Cost", label_i18n: {"en":"Total Seed Cost"}, unit: "USD", format: "currency" },
     { id: "seedFinancialLoss", label: "Waste and Germination Loss", label_i18n: {"en":"Waste and Germination Loss"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "seedFinancialLoss", warning: 1000, critical: 3000, direction: "higher_is_bad", warningMessage: "Seed loss > $1K — increase planting precision.", warningMessage_i18n: {"en":"Seed loss > $1K — increase planting precision."}, criticalMessage: "Seed loss > $3K — review seed quality and planting method.", criticalMessage_i18n: {"en":"Seed loss > $3K — review seed quality and planting method."} }],
+  thresholds: [{ fieldId: "seedFinancialLoss", warning: 1000, critical: 3000, direction: "higher_is_bad", warningMessage: "Seed loss > $1K - increase planting precision.", warningMessage_i18n: {"en":"Seed loss > $1K - increase planting precision."}, criticalMessage: "Seed loss > $3K - review seed quality and planting method.", criticalMessage_i18n: {"en":"Seed loss > $3K - review seed quality and planting method."} }],
   formulaPipeline: [
     { formulaId: "measurement.seed_requirement", inputMap: { fieldArea: "fieldArea", seedPerDecare: "seedPerDecare", germinationRate: "germinationRate", wasteRateSeeds: "wasteRateSeeds" ,
         areaHa: "areaHa",

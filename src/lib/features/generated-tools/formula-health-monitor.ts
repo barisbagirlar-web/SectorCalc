@@ -1,5 +1,5 @@
 /**
- * Formula Health Monitor — Real-time Error Alert System
+ * Formula Health Monitor - Real-time Error Alert System
  *
  * Aggregates constraint engine results, CI gate status, and schema health
  * into a machine-readable alert payload. Designed to be called:
@@ -150,14 +150,14 @@ function generateAlerts(
     alerts.push({
       timestamp: now,
       severity: "CRITICAL",
-      message: "CI Gate report not found — build integrity unknown",
+      message: "CI Gate report not found - build integrity unknown",
       details: ["Run npm run steelcore:ci-gate to generate report"],
     });
   } else if (!ciGate.passed) {
     alerts.push({
       timestamp: now,
       severity: "CRITICAL",
-      message: "CI Gate FAILED — one or more quality checks did not pass",
+      message: "CI Gate FAILED - one or more quality checks did not pass",
       details: [
         `SteelCore pass rate: ${(ciGate.steelcorePassRate * 100).toFixed(1)}%`,
         `Golden test issues: ${ciGate.goldenIssues}`,
@@ -168,7 +168,7 @@ function generateAlerts(
     alerts.push({
       timestamp: now,
       severity: "CLEAR",
-      message: "CI Gate PASSED — all quality checks OK",
+      message: "CI Gate PASSED - all quality checks OK",
       details: [],
     });
   }
@@ -219,7 +219,7 @@ function generateAlerts(
     alerts.push({
       timestamp: now,
       severity: gLevel,
-      message: `${ciGate.goldenIssues} golden test issue(s) — check generated/golden-test-report.json`,
+      message: `${ciGate.goldenIssues} golden test issue(s) - check generated/golden-test-report.json`,
       details: [],
     });
   }

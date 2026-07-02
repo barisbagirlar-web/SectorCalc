@@ -1,5 +1,5 @@
 /**
- * Batch smart form UI bridge audit — Phase 5H-G-C read-only governance audit.
+ * Batch smart form UI bridge audit - Phase 5H-G-C read-only governance audit.
  */
 
 import { FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
@@ -112,7 +112,7 @@ export function formatBatchSmartFormUiBridgeAuditReport(
   ];
 
   if (result.recommendedFirstUiPilot.length === 0) {
-    lines.push("- (none — resolve blockers first)");
+    lines.push("- (none - resolve blockers first)");
   } else {
     result.recommendedFirstUiPilot.forEach((slug, index) => {
       lines.push(`${index + 1}. ${slug}`);

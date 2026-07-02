@@ -23,7 +23,7 @@ export const INTEREST_RATE_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "eveChange", label: "EVE Degisimi", label_i18n: {"en":"EVE Degisimi"}, unit: "USD", format: "currency" },
     { id: "valueAtRisk", label: "VaR (99% G.K.)", label_i18n: {"en":"VaR (99% G.K.)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "shockImpact", warning: 500000, critical: 1000000, direction: "higher_is_bad", warningMessage: "Shock impact > $500K — hedge rate should be increased.", warningMessage_i18n: {"en":"Shock impact > $500K — hedge rate should be increased."}, criticalMessage: "Shock impact > $1M — urgent risk mitigation strategy.", criticalMessage_i18n: {"en":"Shock impact > $1M — urgent risk mitigation strategy."} }],
+  thresholds: [{ fieldId: "shockImpact", warning: 500000, critical: 1000000, direction: "higher_is_bad", warningMessage: "Shock impact > $500K - hedge rate should be increased.", warningMessage_i18n: {"en":"Shock impact > $500K - hedge rate should be increased."}, criticalMessage: "Shock impact > $1M - urgent risk mitigation strategy.", criticalMessage_i18n: {"en":"Shock impact > $1M - urgent risk mitigation strategy."} }],
   formulaPipeline: [
     { formulaId: "cost.ir_exposure", inputMap: { floatingDebt: "floatingDebt", hedgeRatio: "hedgeRatio" }, outputId: "exposure" },
     { formulaId: "cost.ir_shock_impact", inputMap: { exposure: "exposure", bpsChange: "bpsChange" }, outputId: "shockImpact" },

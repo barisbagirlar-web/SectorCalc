@@ -1,9 +1,9 @@
 /**
- * SectorCalc — Category SVG Line-Art Symbols
+ * SectorCalc - Category SVG Line-Art Symbols
  *
  * Premium-quality SVG symbols for all 33 free-tool categories.
  * 48×48 viewBox, stroke-width="1.5", stroke-linecap="round", stroke-linejoin="round".
- * ECMI / ISO 9001 — TUV-certifiable engineering illustration standard.
+ * ECMI / ISO 9001 - TUV-certifiable engineering illustration standard.
  *
  * Symbols from premium-categories.ts are re-exported here for unified access.
  * New symbols are designed for the remaining 13 categories.
@@ -39,46 +39,46 @@ export const SYMBOL_CHIP = `<svg ${SYMBOL_BASE}><rect x="10" y="10" width="28" h
 
 // ── New premium line-art symbols (13 categories) ─────────────────
 
-/** Mathematics & Statistics — sigma / distribution curve */
+/** Mathematics & Statistics - sigma / distribution curve */
 export const SYMBOL_MATH = `<svg ${SYMBOL_BASE}><path d="M8 40h32"/><path d="M12 8h24l-12 16 12 16H12"/><circle cx="28" cy="12" r="2"/><circle cx="36" cy="24" r="2"/><circle cx="28" cy="36" r="2"/><path d="M20 12l-4 4 4 4"/></svg>`;
 
-/** Health & Fitness — heart rate / pulse */
+/** Health & Fitness - heart rate / pulse */
 export const SYMBOL_HEALTH = `<svg ${SYMBOL_BASE}><path d="M24 12c-8-10-20-4-20 6 0 8 8 14 20 22 12-8 20-14 20-22 0-10-12-16-20-6z"/><polyline points="6,24 14,24 18,18 24,30 28,20 32,24 42,24"/></svg>`;
 
-/** Conversion & Measurement — ruler / caliper */
+/** Conversion & Measurement - ruler / caliper */
 export const SYMBOL_CONVERSION = `<svg ${SYMBOL_BASE}><rect x="6" y="18" width="36" height="14" rx="2"/><line x1="10" y1="18" x2="10" y2="32"/><line x1="18" y1="18" x2="18" y2="32"/><line x1="26" y1="18" x2="26" y2="32"/><line x1="34" y1="18" x2="34" y2="32"/><line x1="14" y1="22" x2="14" y2="28"/><line x1="22" y1="22" x2="22" y2="28"/><line x1="30" y1="22" x2="30" y2="28"/></svg>`;
 
-/** Automotive & Transport — steering wheel / gear */
+/** Automotive & Transport - steering wheel / gear */
 export const SYMBOL_AUTOMOTIVE = `<svg ${SYMBOL_BASE}><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="6"/><line x1="24" y1="12" x2="24" y2="6"/><line x1="24" y1="36" x2="24" y2="42"/><line x1="12" y1="24" x2="6" y2="24"/><line x1="36" y1="24" x2="42" y2="24"/><path d="M14 14l4 4M30 30l4 4M30 14l-4 4M14 30l4-4"/></svg>`;
 
-/** Maritime & Shipping — anchor / wave */
+/** Maritime & Shipping - anchor / wave */
 export const SYMBOL_MARITIME = `<svg ${SYMBOL_BASE}><path d="M24 6v28"/><line x1="16" y1="12" x2="32" y2="12"/><path d="M24 34c-8 0-14-4-14-10s6-10 14-10 14 4 14 10-6 10-14 10z"/><path d="M12 38h24"/><path d="M18 42h12"/></svg>`;
 
-/** Mining & Geology — pickaxe / cross-section */
+/** Mining & Geology - pickaxe / cross-section */
 export const SYMBOL_MINING = `<svg ${SYMBOL_BASE}><path d="M28 6L14 24l6 6L38 14z"/><path d="M8 32l8-8"/><line x1="6" y1="42" x2="42" y2="42"/><path d="M16 26l-4 2"/><circle cx="28" cy="22" r="2"/><circle cx="34" cy="18" r="2"/></svg>`;
 
-/** Furniture & Woodworking — cabinet / saw cut */
+/** Furniture & Woodworking - cabinet / saw cut */
 export const SYMBOL_FURNITURE = `<svg ${SYMBOL_BASE}><rect x="8" y="8" width="32" height="32" rx="2"/><line x1="8" y1="24" x2="40" y2="24"/><line x1="24" y1="8" x2="24" y2="40"/><rect x="12" y="28" width="8" height="8" rx="1"/><rect x="28" y="28" width="8" height="8" rx="1"/><path d="M30 6l4 14"/></svg>`;
 
-/** Cleaning & Facility — sparkle / droplet */
+/** Cleaning & Facility - sparkle / droplet */
 export const SYMBOL_CLEANING = `<svg ${SYMBOL_BASE}><circle cx="24" cy="24" r="16"/><path d="M24 14v20M14 24h20"/><path d="M18 18l4 4M30 30l4 4M30 18l-4 4M18 30l4-4"/><circle cx="24" cy="10" r="2"/><circle cx="24" cy="38" r="2"/><circle cx="10" cy="24" r="2"/><circle cx="38" cy="24" r="2"/></svg>`;
 
-/** Water & Wastewater — water drop / flow */
+/** Water & Wastewater - water drop / flow */
 export const SYMBOL_WATER = `<svg ${SYMBOL_BASE}><path d="M24 6c-6 10-14 16-14 24 0 8 6 12 14 12s14-4 14-12c0-8-8-14-14-24z"/><path d="M18 30c0-4 3-6 6-6s6 2 6 6"/><line x1="24" y1="30" x2="24" y2="36"/></svg>`;
 
-/** Tourism & Hospitality — compass / sun */
+/** Tourism & Hospitality - compass / sun */
 export const SYMBOL_TOURISM = `<svg ${SYMBOL_BASE}><circle cx="24" cy="24" r="18"/><path d="M24 8L20 20l-12 4 12 4 4 12 4-12 12-4-12-4z"/><circle cx="24" cy="24" r="4"/></svg>`;
 
-/** Education & Academic — graduation cap / book */
+/** Education & Academic - graduation cap / book */
 export const SYMBOL_EDUCATION = `<svg ${SYMBOL_BASE}><path d="M6 20l18-10 18 10-18 10z"/><path d="M14 24v6c0 4 4 8 10 8s10-4 10-8v-6"/><line x1="6" y1="20" x2="6" y2="34"/><line x1="42" y1="20" x2="42" y2="34"/></svg>`;
 
-/** Real Estate & Property — house / building */
+/** Real Estate & Property - house / building */
 export const SYMBOL_REAL_ESTATE = `<svg ${SYMBOL_BASE}><path d="M8 26L24 8l16 18"/><line x1="12" y1="22" x2="12" y2="40"/><line x1="36" y1="22" x2="36" y2="40"/><rect x="14" y="30" width="20" height="10"/><rect x="18" y="34" width="6" height="6"/><line x1="24" y1="8" x2="24" y2="4"/></svg>`;
 
-/** Aerospace & Aviation — rocket / wing */
+/** Aerospace & Aviation - rocket / wing */
 export const SYMBOL_AEROSPACE = `<svg ${SYMBOL_BASE}><path d="M24 42c-4-8-6-16-6-24 0-6 2-10 6-14 4 4 6 8 6 14 0 8-2 16-6 24z"/><path d="M18 18l-8 4 8 4"/><path d="M30 18l8 4-8 4"/><path d="M22 30l2 6 2-6"/><circle cx="24" cy="18" r="4"/></svg>`;
 
-/** Other / catch-all — folder / ellipsis */
+/** Other / catch-all - folder / ellipsis */
 export const SYMBOL_OTHER = `<svg ${SYMBOL_BASE}><rect x="8" y="12" width="32" height="26" rx="2"/><path d="M8 12l6-6h8l6 6"/><circle cx="18" cy="26" r="2"/><circle cx="24" cy="26" r="2"/><circle cx="30" cy="26" r="2"/></svg>`;
 
 /**

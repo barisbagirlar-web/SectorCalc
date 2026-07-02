@@ -72,7 +72,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vsm_financial_converter_3",
     family: "cost",
-    label: "Vsm finansal Converter — InventoryReductionSavings",
+    label: "Vsm finansal Converter - InventoryReductionSavings",
     fn: (inputs) => {
     const oldWIP = num(inputs, "oldWIP");
     const newWIP = num(inputs, "newWIP");
@@ -83,7 +83,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vsm_financial_converter_4",
     family: "cost",
-    label: "Vsm finansal Converter — ProductivityGain",
+    label: "Vsm finansal Converter - ProductivityGain",
     fn: (inputs) => {
     const oldCycleTime = num(inputs, "oldCycleTime");
     const newCycleTime = num(inputs, "newCycleTime");
@@ -95,7 +95,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vsm_financial_converter_5",
     family: "cost",
-    label: "Vsm finansal Converter — TotalFinancialImpact",
+    label: "Vsm finansal Converter - TotalFinancialImpact",
     fn: (inputs) => {
     const inventoryReductionSavings = num(inputs, "inventoryReductionSavings");
     const productivityGain = num(inputs, "productivityGain");
@@ -108,7 +108,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wps_preheat_temperature_0",
     family: "cost",
-    label: "WPS Preheat Sicaklik — CarbonEquivalent_CE",
+    label: "WPS Preheat Sicaklik - CarbonEquivalent_CE",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const mn = num(inputs, "mn");
@@ -123,7 +123,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wps_preheat_temperature_1",
     family: "cost",
-    label: "WPS Preheat Sicaklik — PreheatTemp",
+    label: "WPS Preheat Sicaklik - PreheatTemp",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const cE = num(inputs, "cE");
@@ -136,7 +136,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wps_preheat_temperature_2",
     family: "cost",
-    label: "WPS Preheat Sicaklik — CriticalCoolingTime",
+    label: "WPS Preheat Sicaklik - CriticalCoolingTime",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const thickness = num(inputs, "thickness");
@@ -148,7 +148,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wps_preheat_temperature_3",
     family: "cost",
-    label: "WPS Preheat Sicaklik — HydrogenCrackingRisk",
+    label: "WPS Preheat Sicaklik - HydrogenCrackingRisk",
     fn: (inputs) => {
     const preheatTemp = num(inputs, "preheatTemp");
     const requiredPreheat = num(inputs, "requiredPreheat");
@@ -160,7 +160,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wps_preheat_temperature_4",
     family: "cost",
-    label: "WPS Preheat Sicaklik — EnergyCost",
+    label: "WPS Preheat Sicaklik - EnergyCost",
     fn: (inputs) => {
     const mass = num(inputs, "mass");
     const specificHeat = num(inputs, "specificHeat");
@@ -176,7 +176,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fuel_route_drift_0",
     family: "cost",
-    label: "Yakit Rota Sapma — PlannedFuel",
+    label: "Yakit Rota Sapma - PlannedFuel",
     fn: (inputs) => {
     const plannedDistance = num(inputs, "plannedDistance");
     const fuelEfficiency = num(inputs, "fuelEfficiency");
@@ -186,7 +186,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fuel_route_drift_1",
     family: "cost",
-    label: "Yakit Rota Sapma — ActualFuel",
+    label: "Yakit Rota Sapma - ActualFuel",
     fn: (inputs) => {
     const actualDistance = num(inputs, "actualDistance");
     const actualFuelEfficiency = num(inputs, "actualFuelEfficiency");
@@ -196,7 +196,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fuel_route_drift_2",
     family: "cost",
-    label: "Yakit Rota Sapma — RouteDrift",
+    label: "Yakit Rota Sapma - RouteDrift",
     fn: (inputs) => {
     const actualDistance = num(inputs, "actualDistance");
     const plannedDistance = num(inputs, "plannedDistance");
@@ -206,7 +206,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fuel_route_drift_3",
     family: "cost",
-    label: "Yakit Rota Sapma — FuelWaste_Distance",
+    label: "Yakit Rota Sapma - FuelWaste_Distance",
     fn: (inputs) => {
     const routeDrift = num(inputs, "routeDrift");
     const fuelEfficiency = num(inputs, "fuelEfficiency");
@@ -217,7 +217,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fuel_route_drift_4",
     family: "cost",
-    label: "Yakit Rota Sapma — FuelWaste_Efficiency",
+    label: "Yakit Rota Sapma - FuelWaste_Efficiency",
     fn: (inputs) => {
     const plannedDistance = num(inputs, "plannedDistance");
     const actualFuelEfficiency = num(inputs, "actualFuelEfficiency");
@@ -229,7 +229,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fuel_route_drift_5",
     family: "cost",
-    label: "Yakit Rota Sapma — IdleFuelCost",
+    label: "Yakit Rota Sapma - IdleFuelCost",
     fn: (inputs) => {
     const idleTime = num(inputs, "idleTime");
     const idleConsumptionRate = num(inputs, "idleConsumptionRate");
@@ -240,7 +240,7 @@ export const CHUNK_64_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fuel_route_drift_6",
     family: "cost",
-    label: "Yakit Rota Sapma — TotalDriftCost",
+    label: "Yakit Rota Sapma - TotalDriftCost",
     fn: (inputs) => {
     const fuelWaste = num(inputs, "fuelWaste");
     const Distance = num(inputs, "Distance");

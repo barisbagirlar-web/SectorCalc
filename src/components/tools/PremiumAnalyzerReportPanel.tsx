@@ -33,7 +33,7 @@ export function PremiumAnalyzerReportPanel({ report }: PremiumAnalyzerReportPane
 
         <details className="sc-premium-report-section">
           <summary className="cursor-pointer sc-premium-report-section__title">
-            Sensitivity — Measurement · Loss · Optimization
+            Sensitivity - Measurement · Loss · Optimization
           </summary>
           <ul className="mt-3 space-y-2 border-t border-technical-gray pt-3">
             {report.architecture.profile.engineModes.map((mode) => (

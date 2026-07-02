@@ -1,5 +1,5 @@
 /**
- * P8 — Recent tools (local-only). Pure list helpers + safe storage wrappers.
+ * P8 - Recent tools (local-only). Pure list helpers + safe storage wrappers.
  */
 
 import {
@@ -46,7 +46,7 @@ export function recordRecentTool(entry: Omit<RecentToolEntry, "visitedAt">): rea
   try {
     window.localStorage.setItem(FIELD_MODE_STORAGE_KEYS.recentTools, JSON.stringify(next));
   } catch {
-    /* storage unavailable — non-fatal */
+    /* storage unavailable - non-fatal */
   }
   return next;
 }

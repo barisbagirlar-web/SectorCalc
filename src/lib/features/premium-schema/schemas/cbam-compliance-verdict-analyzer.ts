@@ -1,5 +1,5 @@
 /**
- * Tool #15 — CBAM Uyumluluk Profitari
+ * Tool #15 - CBAM Uyumluluk Profitari
  * SpecificEmbedded → ActualVsDefault → FinancialLiability → ComplianceDecision
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -34,8 +34,8 @@ export const CBAM_COMPLIANCE_SCHEMA: PremiumCalculatorSchema = {
     { id: "complianceDecision", label: "Uyum decision", label_i18n: {"en":"Uyum decision"}, unit: "scalar", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "actualVsDefault", warning: 1, critical: 1.2, direction: "higher_is_bad", warningMessage: "Emissions close to EU default — verification required.", warningMessage_i18n: {"en":"Emissions close to EU default — verification required."}, criticalMessage: "Emissions exceed EU default — supply chain at risk.", criticalMessage_i18n: {"en":"Emissions exceed EU default — supply chain at risk."} },
-    { fieldId: "financialLiability", warning: 25000, critical: 75000, direction: "higher_is_bad", warningMessage: "Obligation > $25K — pricing strategy should be reviewed.", warningMessage_i18n: {"en":"Obligation > $25K — pricing strategy should be reviewed."}, criticalMessage: "Obligation > $75K — alternative supplier should be evaluated.", criticalMessage_i18n: {"en":"Obligation > $75K — alternative supplier should be evaluated."} },
+    { fieldId: "actualVsDefault", warning: 1, critical: 1.2, direction: "higher_is_bad", warningMessage: "Emissions close to EU default - verification required.", warningMessage_i18n: {"en":"Emissions close to EU default - verification required."}, criticalMessage: "Emissions exceed EU default - supply chain at risk.", criticalMessage_i18n: {"en":"Emissions exceed EU default - supply chain at risk."} },
+    { fieldId: "financialLiability", warning: 25000, critical: 75000, direction: "higher_is_bad", warningMessage: "Obligation > $25K - pricing strategy should be reviewed.", warningMessage_i18n: {"en":"Obligation > $25K - pricing strategy should be reviewed."}, criticalMessage: "Obligation > $75K - alternative supplier should be evaluated.", criticalMessage_i18n: {"en":"Obligation > $75K - alternative supplier should be evaluated."} },
   ],
   formulaPipeline: [
     { formulaId: "carbon.specific_embedded", inputMap: { totalEmbedded: "totalEmbeddedInput", totalMass: "totalImportMassTons" }, outputId: "specificEmbedded" },
@@ -43,5 +43,5 @@ export const CBAM_COMPLIANCE_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "carbon.cbam_financial_liability", inputMap: { totalEmbedded: "totalEmbeddedInput", euEtsPrice: "euEtsPrice", carbonPricePaidOrigin: "carbonPricePaidOrigin" }, outputId: "financialLiability" },
   ],
   reportTemplate: { title: "CBAM Compliance Verdict Report", title_i18n: {"en":"CBAM Compliance Verdict Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 20, targetMarginPercent: 25, assumptionNotes: ["Specific embedded = Total emissions / Total mass (tCO₂e/ton).", "Actual vs Default = Specific / EU default factor.", "Financial liability = Total × (EU price - Origin price paid).", "Decision = 'Proceed' if AVD < 1 AND liability < margin threshold.", "CBAM rules subject to change — verify with current EU regulation."],assumptionNotes_i18n:[{"en":"Specific embedded = Total emissions / Total mass (tCO₂e/ton)."},{"en":"Actual vs Default = Specific / EU default factor."},{"en":"Financial liability = Total × (EU price - Origin price paid)."},{"en":"Decision = 'Proceed' if AVD < 1 AND liability < margin threshold."},{"en":"CBAM rules subject to change — verify with current EU regulation."}]},
+  assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 20, targetMarginPercent: 25, assumptionNotes: ["Specific embedded = Total emissions / Total mass (tCO₂e/ton).", "Actual vs Default = Specific / EU default factor.", "Financial liability = Total × (EU price - Origin price paid).", "Decision = 'Proceed' if AVD < 1 AND liability < margin threshold.", "CBAM rules subject to change - verify with current EU regulation."],assumptionNotes_i18n:[{"en":"Specific embedded = Total emissions / Total mass (tCO₂e/ton)."},{"en":"Actual vs Default = Specific / EU default factor."},{"en":"Financial liability = Total × (EU price - Origin price paid)."},{"en":"Decision = 'Proceed' if AVD < 1 AND liability < margin threshold."},{"en":"CBAM rules subject to change - verify with current EU regulation."}]},
 };

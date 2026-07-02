@@ -4,7 +4,7 @@ import type {
 } from "@/lib/features/tools/runtime-trust-engine";
 import type { RuntimeToolTier } from "@/lib/features/tools/runtime-readiness";
 
-/** ERT-1 — controlled revenue recovery calibration (no fake Formula Gate). */
+/** ERT-1 - controlled revenue recovery calibration (no fake Formula Gate). */
 export const ERT1_CALIBRATION_ID = "ert-1-revenue-recovery";
 
 export function isPremiumPaymentSurfaceTier(tier: RuntimeToolTier): boolean {

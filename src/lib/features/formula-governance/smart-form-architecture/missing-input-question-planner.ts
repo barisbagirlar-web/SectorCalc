@@ -1,5 +1,5 @@
 /**
- * Missing input question planner — Phase 5H-G-A governance copy (no UI).
+ * Missing input question planner - Phase 5H-G-A governance copy (no UI).
  */
 
 import { humanizeFieldKey } from "@/lib/features/formula-governance/smart-form-architecture/form-field-helpers";
@@ -43,7 +43,7 @@ function buildAdvancedQuestion(key: string): string {
 }
 
 function buildAssumptionDisplay(key: string, text: string): string {
-  return `Assumption display — ${key}: ${text}`;
+  return `Assumption display - ${key}: ${text}`;
 }
 
 export function buildMissingInputQuestions(

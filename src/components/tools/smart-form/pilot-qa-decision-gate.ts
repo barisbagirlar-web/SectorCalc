@@ -1,5 +1,5 @@
 /**
- * Smart form pilot QA decision gate — Phase 5H-G-J (staging go/no-go; no deploy auto-approve).
+ * Smart form pilot QA decision gate - Phase 5H-G-J (staging go/no-go; no deploy auto-approve).
  */
 
 import type { SmartFormPilotManualQaResult } from "@/components/tools/smart-form/pilot-manual-qa-result";

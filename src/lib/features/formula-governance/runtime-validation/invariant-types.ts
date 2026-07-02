@@ -1,5 +1,5 @@
 /**
- * Runtime validation types — Mind 1 loop outputs (Phase 5H-B-1).
+ * Runtime validation types - Mind 1 loop outputs (Phase 5H-B-1).
  */
 
 import type { CalculationOntology, FormulaNode } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";

@@ -51,12 +51,12 @@ function toleranceFromVerdict(severity: PremiumSeverity): ToleranceStatus {
 
 function toleranceLine(status: ToleranceStatus, focus: string): string {
   if (status === "within") {
-    return `Within tolerance band — ${focus}`;
+    return `Within tolerance band - ${focus}`;
   }
   if (status === "breach") {
-    return `Tolerance breached — ${focus}`;
+    return `Tolerance breached - ${focus}`;
   }
-  return `Watch band — ${focus}`;
+  return `Watch band - ${focus}`;
 }
 
 function impactLine(profile: PremiumArchitectureProfile, p90Display: string): string {
@@ -113,7 +113,7 @@ export function buildPremiumFieldPanel(input: FieldPanelBuildInput): PremiumFiel
     sectorLabel: input.profile.sectorLabel,
     verdictLine: input.verdictLabel,
     measuredLine: input.profile.whatIsMeasured,
-    lossHotspotLine: `${input.topLossLabel} — ${input.profile.whereIsLoss}`,
+    lossHotspotLine: `${input.topLossLabel} - ${input.profile.whereIsLoss}`,
     toleranceStatus,
     toleranceLine: toleranceLine(toleranceStatus, input.profile.toleranceFocus),
     impactLine: impactLine(input.profile, input.p90CostDisplay),

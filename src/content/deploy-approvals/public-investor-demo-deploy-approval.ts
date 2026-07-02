@@ -1,5 +1,5 @@
 /**
- * Phase 6D deploy approval record — QA complete; deploy command disabled until 6E.
+ * Phase 6D deploy approval record - QA complete; deploy command disabled until 6E.
  */
 
 export const PUBLIC_INVESTOR_DEMO_DEPLOY_APPROVAL = {

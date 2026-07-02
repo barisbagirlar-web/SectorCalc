@@ -62,14 +62,14 @@ function validate(input: RCBeamInput): string[] {
   const errors: string[] = [];
   const std = input.designStandard || "EN_1992_1_1";
 
-  if (!input.b_w || input.b_w <= 0) errors.push("b_w <= 0 — Beam width must be positive.");
-  if (!input.h || input.h <= 0) errors.push("h <= 0 — Beam height must be positive.");
-  if (!input.d || input.d <= 0) errors.push("d <= 0 — Effective depth must be positive.");
-  if (input.d && input.h && input.d >= input.h) errors.push("d >= h — Effective depth exceeds total height.");
-  if (!input.A_s || input.A_s <= 0) errors.push("A_s <= 0 — Tension reinforcement area must be positive.");
-  if (input.M_Ed === undefined || input.M_Ed < 0) errors.push("M_Ed < 0 — Design moment must be ≥ 0.");
-  if (input.V_Ed === undefined || input.V_Ed < 0) errors.push("V_Ed < 0 — Design shear must be ≥ 0.");
-  if (input.A_sv && input.A_sv > 0 && (!input.s_v || input.s_v <= 0)) errors.push("A_sv > 0 but s_v missing — Stirrup spacing required when shear reinforcement provided.");
+  if (!input.b_w || input.b_w <= 0) errors.push("b_w <= 0 - Beam width must be positive.");
+  if (!input.h || input.h <= 0) errors.push("h <= 0 - Beam height must be positive.");
+  if (!input.d || input.d <= 0) errors.push("d <= 0 - Effective depth must be positive.");
+  if (input.d && input.h && input.d >= input.h) errors.push("d >= h - Effective depth exceeds total height.");
+  if (!input.A_s || input.A_s <= 0) errors.push("A_s <= 0 - Tension reinforcement area must be positive.");
+  if (input.M_Ed === undefined || input.M_Ed < 0) errors.push("M_Ed < 0 - Design moment must be ≥ 0.");
+  if (input.V_Ed === undefined || input.V_Ed < 0) errors.push("V_Ed < 0 - Design shear must be ≥ 0.");
+  if (input.A_sv && input.A_sv > 0 && (!input.s_v || input.s_v <= 0)) errors.push("A_sv > 0 but s_v missing - Stirrup spacing required when shear reinforcement provided.");
 
   if (std === "EN_1992_1_1") {
     if (!input.f_ck || input.f_ck <= 0) errors.push("f_ck required for EN 1992-1-1.");

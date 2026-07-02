@@ -1,5 +1,5 @@
 /**
- * Report render dry-run validator — Phase 5I-I redaction + prohibited field checks.
+ * Report render dry-run validator - Phase 5I-I redaction + prohibited field checks.
  */
 
 import { PROHIBITED_RENDERER_FIELDS } from "@/lib/features/formula-governance/report-renderer-contract/report-renderer-data-contract";

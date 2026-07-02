@@ -40,7 +40,7 @@ describe("dual-intelligence runtime coverage audit", () => {
     expect(result.stagedCalculationBridge).toBe(0);
     expect(result.governedBuildtimeOnly).toBe(0);
     // Current FORMULA_CONTRACTS = 354 total, minus 131 full_loop + pilots = audit_only
-    // Registry was pruned from ~341 (old) to 211 (current) — count is dynamic from FORMULA_CONTRACTS
+    // Registry was pruned from ~341 (old) to 211 (current) - count is dynamic from FORMULA_CONTRACTS
     expect(result.auditPipelineOnly).toBe(FORMULA_CONTRACTS.length - result.fullLoopRuntimeCount - result.liveSmartFormPilot);
   });
 

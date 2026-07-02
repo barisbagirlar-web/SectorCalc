@@ -34,7 +34,7 @@ describe("runtime readiness", () => {
       premiumSurfaceUsesFreeCopy: false,
     });
     expect(result.formulaGateEligible).toBe(false);
-    // Slug may not exist or have different findings — still blocked
+    // Slug may not exist or have different findings - still blocked
   });
 
   test("missing traffic tool is blocked with mixed TR/EN labels", () => {
@@ -65,7 +65,7 @@ describe("runtime readiness", () => {
       surface: "free",
     });
     expect(result.findings).not.toContain("missing_result_renderer");
-    // Validation path may still be missing — check renderer only
+    // Validation path may still be missing - check renderer only
   });
 
   test("funnel premium route resolves renderer", () => {

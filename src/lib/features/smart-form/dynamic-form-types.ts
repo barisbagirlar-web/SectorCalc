@@ -23,6 +23,10 @@ export type SmartInputRequirement = {
   readonly kind: SmartInputKind;
   readonly required: boolean;
   readonly unit?: string;
+  readonly unitOptions?: readonly {
+    readonly value: string;
+    readonly label: string;
+  }[];
   readonly min?: number;
   readonly max?: number;
   readonly options?: readonly {

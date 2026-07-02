@@ -1,5 +1,5 @@
 /**
- * Expert Calculation Spec — decoupled logic layer.
+ * Expert Calculation Spec - decoupled logic layer.
  *
  * Pipeline: Input → Physics → Hidden Variables → Expert Logic (A–E) → Verdict
  * Region coefficients from RegionProvider profile + sector-registry feature flags.
@@ -264,7 +264,7 @@ export function resolveExpertInputs(
 
 /**
  * Run Expert Calculation Spec for any OS registry sector.
- * UI-agnostic — consume via TerminalPanel or server actions.
+ * UI-agnostic - consume via TerminalPanel or server actions.
  */
 export function runExpertCalculation(params: {
   sectorId: SectorRegistryKey;
@@ -376,7 +376,7 @@ export interface ExpertFieldSpec {
   readonly kind: "target" | "actual" | "rate";
 }
 
-/** Field specs for TerminalPanel — derived from registry param triple. */
+/** Field specs for TerminalPanel - derived from registry param triple. */
 export function buildExpertFieldSpecs(sectorId: SectorRegistryKey): readonly ExpertFieldSpec[] {
   const sector = getSectorEntry(sectorId);
   const [targetKey, actualKey, rateKey] = sector.params;

@@ -13,9 +13,9 @@ import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
  * Only fields that should change per locale are optional overrides.
  */
 export interface LocalizedIndustryHub {
-  /** Hero eyebrow — replaces the English industry name when present. */
+  /** Hero eyebrow - replaces the English industry name when present. */
   eyebrow?: string;
-  /** H1 — replaces "<name> Cost & Margin Tools". */
+  /** H1 - replaces "<name> Cost & Margin Tools". */
   hubTitle?: string;
   painStatement?: string;
   whoItsFor?: string;

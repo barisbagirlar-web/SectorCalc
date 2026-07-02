@@ -1,5 +1,5 @@
 /**
- * Trust trace export payload types — ADIM 3 (data layer only; no file render).
+ * Trust trace export payload types - ADIM 3 (data layer only; no file render).
  */
 
 import type { ContractLoopStatus } from "@/lib/features/formula-governance/runtime-validation/contract-runtime-loop";

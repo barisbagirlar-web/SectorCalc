@@ -10,7 +10,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
       label: "Benefits",
       label_i18n: { en: "Benefits" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
       label: "Onboarding",
       label_i18n: { en: "Onboarding" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -28,7 +28,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
       label: "Training",
       label_i18n: { en: "Training" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -37,7 +37,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
       label: "Recruiting",
       label_i18n: { en: "Recruiting" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -54,7 +54,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
     { id: "breakevenHours", label: "Breakeven Threshold Hours", unit: "hr/mo", format: "number", isBigNumber: true },
     { id: "otHireDecision", label: "Decision", unit: "scalar", format: "score" },
   ],
-  thresholds: [{ fieldId: "breakevenHours", warning: 40, critical: 80, direction: "higher_is_bad", warningMessage: "Threshold > 40 hours — consider new hire.", criticalMessage: "Threshold > 80 hours — new hire unavoidable." }],
+  thresholds: [{ fieldId: "breakevenHours", warning: 40, critical: 80, direction: "higher_is_bad", warningMessage: "Threshold > 40 hours - consider new hire.", criticalMessage: "Threshold > 80 hours - new hire unavoidable." }],
   formulaPipeline: [
     { formulaId: "cost.ot_cost_hour", inputMap: {
         baseRate: "overtimeRate",

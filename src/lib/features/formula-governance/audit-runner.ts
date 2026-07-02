@@ -1,5 +1,5 @@
 /**
- * Formula governance audit runner — contract-driven assurance pipeline.
+ * Formula governance audit runner - contract-driven assurance pipeline.
  */
 
 import { FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts";
@@ -112,7 +112,7 @@ function auditContract(
     findings.push({
       code: "INV_TOOL_NOT_FOUND",
       severity: "warning",
-      message: "Tool not found in inventory scan — input coverage not verified.",
+      message: "Tool not found in inventory scan - input coverage not verified.",
     });
   }
 

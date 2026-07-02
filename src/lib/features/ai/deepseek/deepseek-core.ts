@@ -1,5 +1,5 @@
 /**
- * DeepSeek core client — industrial-grade.
+ * DeepSeek core client - industrial-grade.
  * Single entry point for ALL DeepSeek API calls.
  * Server/script only. Never import from client components.
  *
@@ -211,7 +211,7 @@ export async function callDeepSeekCore(options: DeepSeekCoreOptions): Promise<De
       ok: false,
       errorCode: "rate_limited",
       errorCategory: "rate_limit",
-      message: "Rate limit exceeded — token bucket empty.",
+      message: "Rate limit exceeded - token bucket empty.",
       attempts: 0,
     };
   }

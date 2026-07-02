@@ -152,6 +152,6 @@ export const cncMinimumSafeQuoteAnalyzerDefinition: ToolDefinition = {
  interpretationNote:
  "This calculator estimates a minimum safe quote based on the cost structure you entered. It is indicative and does not replace professional cost accounting, but it helps reveal whether setup time, scrap, tooling or batch size are making the job risky.",
  faqPlaceholder:
- "Who it is for: CNC shops, job shops, production managers and manufacturing consultants pricing discrete jobs. What to do with the result: compare minimum safe quote to your offer before sending; adjust setup, scrap or batch assumptions if risk is elevated. Premium adds scenarios, risk level and report-ready structure — indicative only, not a substitute for cost accounting or contract review.",
+ "Who it is for: CNC shops, job shops, production managers and manufacturing consultants pricing discrete jobs. What to do with the result: compare minimum safe quote to your offer before sending; adjust setup, scrap or batch assumptions if risk is elevated. Premium adds scenarios, risk level and report-ready structure - indicative only, not a substitute for cost accounting or contract review.",
  features: { decisionReport: true },
 };

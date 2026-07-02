@@ -354,7 +354,7 @@ export function LeadIntentsClient() {
  >
  <h2 className="text-lg font-bold text-deep-navy">Lead pipeline</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Sales tracking — filter by status (client-side).
+ Sales tracking - filter by status (client-side).
  </p>
  <div
  className="mt-4 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"

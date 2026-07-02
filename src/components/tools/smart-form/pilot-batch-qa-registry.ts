@@ -1,5 +1,5 @@
 /**
- * Smart form pilot batch QA registry — Phase 5H-G-I / 5H-H batch rollout.
+ * Smart form pilot batch QA registry - Phase 5H-G-I / 5H-H batch rollout.
  */
 
 import { REVENUE_EVENTS } from "@/lib/infrastructure/analytics/revenue-events";

@@ -1,5 +1,5 @@
 /**
- * Smart form rollout expansion types — Phase 5I-H (governance only).
+ * Smart form rollout expansion types - Phase 5I-H (governance only).
  */
 
 export type SmartFormRolloutCategory =

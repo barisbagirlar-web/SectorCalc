@@ -1,5 +1,5 @@
 /**
- * Controlled input design patch runner — Phase 5H-F read-only apply.
+ * Controlled input design patch runner - Phase 5H-F read-only apply.
  * Does not mutate production calculators, UI, or oracle behavior.
  */
 
@@ -19,12 +19,12 @@ function validatePatchSafety(patch: ControlledInputDesignPatch): readonly string
 
   if (patch.productionImpact !== "none") {
     blockers.push(
-      `Patch "${patch.slug}" declares productionImpact "${patch.productionImpact}" — read-only runner requires "none".`,
+      `Patch "${patch.slug}" declares productionImpact "${patch.productionImpact}" - read-only runner requires "none".`,
     );
   }
   if (patch.oracleImpact !== "none") {
     blockers.push(
-      `Patch "${patch.slug}" declares oracleImpact "${patch.oracleImpact}" — read-only runner requires "none".`,
+      `Patch "${patch.slug}" declares oracleImpact "${patch.oracleImpact}" - read-only runner requires "none".`,
     );
   }
 

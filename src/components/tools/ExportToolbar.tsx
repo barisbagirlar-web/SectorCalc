@@ -51,7 +51,7 @@ export function ExportToolbar({
  </h2>
  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
  {toolTitle
- ? `Decision summary for ${toolTitle} — export preview only. PDF download ships in a later release.`
+ ? `Decision summary for ${toolTitle} - export preview only. PDF download ships in a later release.`
  : "Export preview only. PDF download ships in a later release."}
  </p>
  <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

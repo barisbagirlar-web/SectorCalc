@@ -1,5 +1,5 @@
 /**
- * Premium report export — payload, CSV, and summary helpers.
+ * Premium report export - payload, CSV, and summary helpers.
  * No server-side PDF; browser print / CSV download only.
  */
 
@@ -263,7 +263,7 @@ export function buildPremiumReportSummaryText(
   const formatLocale = normalizeLocale(locale);
   const generatedLabel = formatLocalizedDate(payload.generatedAt, formatLocale);
   const lines: string[] = [
-    `SectorCalc — ${payload.schemaName}`,
+    `SectorCalc - ${payload.schemaName}`,
     payload.title,
     `Report ID: ${payload.reportId}`,
     `Generated: ${generatedLabel}`,
@@ -284,7 +284,7 @@ export function buildPremiumReportSummaryText(
   if (payload.thresholds.length > 0) {
     lines.push("", "Threshold check:");
     payload.thresholds.forEach((threshold) => {
-      lines.push(`- ${threshold.label} (${threshold.level}): ${threshold.value} — ${threshold.message}`);
+      lines.push(`- ${threshold.label} (${threshold.level}): ${threshold.value} - ${threshold.message}`);
     });
   }
 

@@ -21,7 +21,7 @@ export const RESTAURANT_MENU_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "restaurantIdealMargin", label: "Ideal Margin", label_i18n: {"en":"Ideal Margin"}, unit: "%", format: "number" },
     { id: "restaurantActualMargin", label: "Actual Margin", label_i18n: {"en":"Actual Margin"}, unit: "%", format: "number" },
   ],
-  thresholds: [{ fieldId: "restaurantVariancePct", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Variance > 5% — increase portion and waste control.", warningMessage_i18n: {"en":"Variance > 5% — increase portion and waste control."}, criticalMessage: "Variance > 10% — kitchen operations must be urgently audited.", criticalMessage_i18n: {"en":"Variance > 10% — kitchen operations must be urgently audited."} }],
+  thresholds: [{ fieldId: "restaurantVariancePct", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Variance > 5% - increase portion and waste control.", warningMessage_i18n: {"en":"Variance > 5% - increase portion and waste control."}, criticalMessage: "Variance > 10% - kitchen operations must be urgently audited.", criticalMessage_i18n: {"en":"Variance > 10% - kitchen operations must be urgently audited."} }],
   formulaPipeline: [
     { formulaId: "cost.restaurant_theoretical_food", inputMap: { theoreticalFoodCost: "theoreticalFoodCost" ,
         totalSales: "totalSales",

@@ -1,6 +1,6 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * PRO TOOL ADAPTER (v3 — FULL INDUSTRIAL FIX)
+ * PRO TOOL ADAPTER (v3 - FULL INDUSTRIAL FIX)
  * ───────────────────────────────────────────────────────────────────────────
  * Bridges the verified calculation engine (claude_pro_tasarim_ design) with
  * existing PRO tool JSON data files. Translates raw JSON tool definitions
@@ -125,7 +125,7 @@ function replaceForLoop(stmt: string, inputMap: Map<string, InputField>): string
     return `0.25 / pow(log10(${roughnessVar}/(3.7*${dhVar}) + 5.74/pow(Re, 0.9)), 2)`;
   }
 
-  // IRR — PRO_006: Newton-Raphson IRR via _irr(investment, cf, escalation, years, salvage)
+  // IRR - PRO_006: Newton-Raphson IRR via _irr(investment, cf, escalation, years, salvage)
   // Match: for(let i...){...irr...} IRR_pct = irr * 100
   if (stmt.includes('IRR_pct') && (stmt.includes('for') || stmt.includes('investment'))) {
     // Extract parameters from the expression using regex
@@ -138,13 +138,13 @@ function replaceForLoop(stmt: string, inputMap: Map<string, InputField>): string
     return 'IRR_pct = _irr(initial_investment_usd, CF_after_tax_usd, annual_escalation_pct, project_life_yr, salvage_value_usd)';
   }
 
-  // Dispersion — PRO_077: Pasquill-Gifford IDLH distance via _dispersion_idlh(...)
+  // Dispersion - PRO_077: Pasquill-Gifford IDLH distance via _dispersion_idlh(...)
   // Match: for(let i...){...stability_class...D_IDLH_m...}
   if (stmt.includes('D_IDLH_m') || (stmt.includes('stability_class') && stmt.includes('dispersion'))) {
     return 'D_IDLH_m = _dispersion_idlh(stability_class, release_rate_kg_s, wind_speed_m_s, release_height_m, molecular_weight_g_mol, IDLH_ppm)';
   }
 
-  // AQL — PRO_AQL_001: Operating characteristic via binomial_cdf
+  // AQL - PRO_AQL_001: Operating characteristic via binomial_cdf
   if (stmt.includes('binomial_coefficient') || stmt.includes('Pa_accept') || stmt.includes('binomial_cdf') || stmt.includes('incoming_quality_pct')) {
     if (stmt.includes('Pa_accept') || (stmt.includes('Pa =') && stmt.includes('for'))) {
       // Pa = sum_{k=0}^{accept_number} binom(sample_size,k) * p^k * (1-p)^(n-k)
@@ -283,7 +283,7 @@ function replaceInlineObjectBracket(line: string): string {
  * If unknown string, replace with 0 (first option).
  */
 function replaceStringLiterals(expr: string, inputMap: Map<string, InputField>): string {
-  // Use replace() with callback — avoids lastIndex corruption from string mutation
+  // Use replace() with callback - avoids lastIndex corruption from string mutation
   return expr.replace(/(\w+)\s*==+\s*['"]([^'"]+)['"]/g, (match, varName, strVal) => {
     const inp = inputMap.get(varName);
     if (inp && inp.options) {
@@ -292,7 +292,7 @@ function replaceStringLiterals(expr: string, inputMap: Map<string, InputField>):
       );
       return idx >= 0 ? `${varName} == ${idx}` : `${varName} == 0`;
     }
-    // Unknown variable — likely a validation rule; skip (convert to always-true)
+    // Unknown variable - likely a validation rule; skip (convert to always-true)
     return `1`;
   });
 }
@@ -367,22 +367,22 @@ export function parseFormulaExpressionFull(
       continue;
     }
 
-    // Convert lookup table objects — handled at whole‑expression level later
+    // Convert lookup table objects - handled at whole‑expression level later
     // For individual statement, just check if it's an object literal
     if (/^\w+\s*=\s*\{/.test(stmt) && /\};?\s*$/.test(stmt)) {
-      // Object literal assignment — skip (lookup tables handled upstream)
+      // Object literal assignment - skip (lookup tables handled upstream)
       // Emit a dummy to satisfy dependency tracking
       const objVar = stmt.match(/^(\w+)\s*=/);
       if (objVar) {
         results.push({
         outputVar: applyVarRename(objVar[1]),
-        expression: '0', // dummy value — real conversion is in replaceLookupTable
+        expression: '0', // dummy value - real conversion is in replaceLookupTable
       });
       }
       continue;
     }
 
-    // Detect array lookup: var = obj[key] — handled by lookup table replacement
+    // Detect array lookup: var = obj[key] - handled by lookup table replacement
     if (/^\w+\s*=\s*\w+\s*\[/.test(stmt)) {
       // Already handled by replaceLookupTable upstream
       // If we get here, emit a placeholder
@@ -399,7 +399,7 @@ export function parseFormulaExpressionFull(
     // Normal: find = and split
     const eqIdx = stmt.indexOf('=');
     if (eqIdx === -1) {
-      // Expression only — no assignment
+      // Expression only - no assignment
       results.push({
         outputVar: `${formulaId}_e${si}`,
         expression: normalizeExpression(stmt),
@@ -473,11 +473,11 @@ function classifyValidation(
 
 /* ═══════════════════════  MAIN ADAPTER  ════════════════════════════════ */
 
-/** Known data inconsistencies — map source → target variable names */
+/** Known data inconsistencies - map source → target variable names */
 const VAR_RENAME_MAP: Record<string, string> = {
   'N_allow': 'N_allow_cycles',          // PRO_047: F3 outputs N_allow but F4 references N_allow_cycles
   'E_loss_kwh_yr': 'E_loss_kwh',        // PRO_049: formula outputs E_loss_kwh but refs E_loss_kwh_yr
-  'delta_T_ad_K': 'delta_T_ad_k',       // PRO_050: case mismatch — formula outputs delta_T_ad_k
+  'delta_T_ad_K': 'delta_T_ad_k',       // PRO_050: case mismatch - formula outputs delta_T_ad_k
   'spindle_speed_RPM': 'Spindle_Speed_RPM',  // PRO_CNC_CYCLE_001: case mismatch
 };
 
@@ -699,7 +699,7 @@ export function adaptProTool(raw: any): ToolSchema {
     formulas,
     preValidationRules,
     postValidationRules,
-    /** Legacy alias — same as preValidationRules */
+    /** Legacy alias - same as preValidationRules */
     validationRules: preValidationRules,
     gum,
     auditConfig: { requirePeerReview: raw.riskLevel === 'CRITICAL' || raw.riskLevel === 'HIGH', retentionDays: 3650 },

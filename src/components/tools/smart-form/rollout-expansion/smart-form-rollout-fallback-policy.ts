@@ -1,5 +1,5 @@
 /**
- * Smart form rollout expansion fallback policy — Phase 5I-H flag + route gating.
+ * Smart form rollout expansion fallback policy - Phase 5I-H flag + route gating.
  */
 
 import { isSmartFormPilotEnabled } from "@/lib/infrastructure/feature-flags/smart-form-pilot";

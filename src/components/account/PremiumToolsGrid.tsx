@@ -14,7 +14,7 @@ interface PremiumToolsGridProps {
   isActive: boolean;
 }
 
-/** Text-based premium tool list — no boxes, no shadows. */
+/** Text-based premium tool list - no boxes, no shadows. */
 export function PremiumToolsGrid({ isActive }: PremiumToolsGridProps) {
   const t = useTranslations("premiumTools");
   return (

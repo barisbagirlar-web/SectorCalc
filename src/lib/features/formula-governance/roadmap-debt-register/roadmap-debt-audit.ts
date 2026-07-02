@@ -1,5 +1,5 @@
 /**
- * Roadmap debt audit — Phase 5I-Q read-only debt register.
+ * Roadmap debt audit - Phase 5I-Q read-only debt register.
  */
 
 import { buildDebtRegister } from "@/lib/features/formula-governance/roadmap-debt-register/debt-register-builder";

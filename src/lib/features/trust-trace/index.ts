@@ -1,5 +1,5 @@
 /**
- * Trust Trace — Approved Reports & Validation Stamp
+ * Trust Trace - Approved Reports & Validation Stamp
  * Public API index
  */
 

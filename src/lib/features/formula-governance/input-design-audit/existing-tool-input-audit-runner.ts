@@ -1,5 +1,5 @@
 /**
- * Existing tool input design audit runner — read-only contract audit (Phase 5H-C).
+ * Existing tool input design audit runner - read-only contract audit (Phase 5H-C).
  */
 
 import type { CalculationOntology } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";
@@ -74,10 +74,10 @@ function buildNextAction(
     return `Resolve blockers for "${slug}" before input design migration${alignmentStatus ? ` (alignment: ${alignmentStatus})` : ""}.`;
   }
   if (status === "professional_ready") {
-    return `Input design for "${slug}" is professional-ready — monitor alignment drift only.`;
+    return `Input design for "${slug}" is professional-ready - monitor alignment drift only.`;
   }
   if (patchLevel === "metadata_only") {
-    return `Patch contract metadata for "${slug}" — no UI break expected.`;
+    return `Patch contract metadata for "${slug}" - no UI break expected.`;
   }
   if (patchLevel === "minor_input_patch") {
     return `Add missing risk/cost drivers or advanced inputs for "${slug}".`;
@@ -130,7 +130,7 @@ export function auditExistingToolInputDesign(
 
   if (!fixtureOntology) {
     warnings.push(
-      `Contract "${contract.slug}" audited without professional fixture — contract-only analysis.`,
+      `Contract "${contract.slug}" audited without professional fixture - contract-only analysis.`,
     );
   }
 

@@ -72,7 +72,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.aql_sampling_risk_4",
     family: "cost",
-    label: "AQL SAMPLING RISK & COST — Alpha",
+    label: "AQL SAMPLING RISK & COST - Alpha",
     fn: (inputs) => {
     const pa = num(inputs, "pa");
     const producer = num(inputs, "producer");
@@ -83,7 +83,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.aql_sampling_risk_5",
     family: "cost",
-    label: "AQL SAMPLING RISK & COST — Pa_consumer",
+    label: "AQL SAMPLING RISK & COST - Pa_consumer",
     fn: (inputs) => {
       // COMPLEX: Pa_consumer = BINOMDIST(Ac, n, p_LTPD, TRUE)
       // Requires external implementation
@@ -93,7 +93,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.aql_sampling_risk_6",
     family: "cost",
-    label: "AQL SAMPLING RISK & COST — Beta",
+    label: "AQL SAMPLING RISK & COST - Beta",
     fn: (inputs) => {
     const pa = num(inputs, "pa");
     const consumer = num(inputs, "consumer");
@@ -104,7 +104,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.aql_sampling_risk_7",
     family: "cost",
-    label: "AQL SAMPLING RISK & COST — ATI",
+    label: "AQL SAMPLING RISK & COST - ATI",
     fn: (inputs) => {
     const n = num(inputs, "n");
     const pa = num(inputs, "pa");
@@ -114,7 +114,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.aql_sampling_risk_8",
     family: "cost",
-    label: "AQL SAMPLING RISK & COST — TotalRiskCost",
+    label: "AQL SAMPLING RISK & COST - TotalRiskCost",
     fn: (inputs) => {
     const n = num(inputs, "n");
     const p = num(inputs, "p");
@@ -129,7 +129,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vehicle_depreciation_tco_0",
     family: "cost",
-    label: "VEHICLE DEPRECIATION — SL_Annual",
+    label: "VEHICLE DEPRECIATION - SL_Annual",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const salvageValue = num(inputs, "salvageValue");
@@ -140,7 +140,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vehicle_depreciation_tco_1",
     family: "cost",
-    label: "VEHICLE DEPRECIATION — DB_Rate",
+    label: "VEHICLE DEPRECIATION - DB_Rate",
     fn: (inputs) => {
     const usefulLife = num(inputs, "usefulLife");
     return nonNegative(assertFinite(2 / usefulLife));
@@ -149,7 +149,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vehicle_depreciation_tco_2",
     family: "cost",
-    label: "VEHICLE DEPRECIATION — DB_Year_t",
+    label: "VEHICLE DEPRECIATION - DB_Year_t",
     fn: (inputs) => {
     const bookValue = num(inputs, "bookValue");
     const t = num(inputs, "t");
@@ -163,7 +163,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vehicle_depreciation_tco_3",
     family: "cost",
-    label: "VEHICLE DEPRECIATION — MACRS_Year_t",
+    label: "VEHICLE DEPRECIATION - MACRS_Year_t",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const mACRS = num(inputs, "mACRS");
@@ -177,7 +177,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vehicle_depreciation_tco_4",
     family: "cost",
-    label: "VEHICLE DEPRECIATION — UoP_PerUnit",
+    label: "VEHICLE DEPRECIATION - UoP_PerUnit",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const salvageValue = num(inputs, "salvageValue");
@@ -188,7 +188,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vehicle_depreciation_tco_5",
     family: "cost",
-    label: "VEHICLE DEPRECIATION — TCO",
+    label: "VEHICLE DEPRECIATION - TCO",
     fn: (inputs) => {
     const acquisitionCost = num(inputs, "acquisitionCost");
     const opCost = num(inputs, "opCost");
@@ -205,7 +205,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vehicle_depreciation_tco_6",
     family: "cost",
-    label: "VEHICLE DEPRECIATION — TaxShield",
+    label: "VEHICLE DEPRECIATION - TaxShield",
     fn: (inputs) => {
     const depreciation = num(inputs, "depreciation");
     const taxRate = num(inputs, "taxRate");
@@ -217,7 +217,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.downtime_cost_0",
     family: "cost",
-    label: "DOWNTIME COSTI — DirectLaborLoss",
+    label: "DOWNTIME COSTI - DirectLaborLoss",
     fn: (inputs) => {
     const downtimeHours = num(inputs, "downtimeHours");
     const affectedWorkers = num(inputs, "affectedWorkers");
@@ -229,7 +229,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.downtime_cost_1",
     family: "cost",
-    label: "DOWNTIME COSTI — ProductionLoss",
+    label: "DOWNTIME COSTI - ProductionLoss",
     fn: (inputs) => {
     const downtimeHours = num(inputs, "downtimeHours");
     const lineCapacity = num(inputs, "lineCapacity");
@@ -240,7 +240,7 @@ export const CHUNK_02_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.downtime_cost_2",
     family: "cost",
-    label: "DOWNTIME COSTI — EnergyWaste",
+    label: "DOWNTIME COSTI - EnergyWaste",
     fn: (inputs) => {
     const idlePowerKW = num(inputs, "idlePowerKW");
     const downtimeHours = num(inputs, "downtimeHours");

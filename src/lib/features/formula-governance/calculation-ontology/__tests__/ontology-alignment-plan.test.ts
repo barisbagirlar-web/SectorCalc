@@ -1,5 +1,5 @@
 /**
- * Phase 5H-B-5 — ontology alignment plan tests.
+ * Phase 5H-B-5 - ontology alignment plan tests.
  */
 
 import { describe, expect, test } from "vitest";

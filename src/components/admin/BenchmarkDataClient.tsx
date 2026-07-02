@@ -117,7 +117,7 @@ export function BenchmarkDataClient() {
 
           {!isFirebaseConfigured ? (
             <p className="mt-4 text-sm text-amber-800">
-              Firebase is not configured — no live records will load.
+              Firebase is not configured - no live records will load.
             </p>
           ) : null}
 
@@ -216,7 +216,7 @@ export function BenchmarkDataClient() {
                   item.schemaSlug,
                   String(item.rating),
                   item.formulaFit,
-                  item.missingVariable || "—",
+                  item.missingVariable || "-",
                 ],
               }))}
               headers={["Created", "Schema", "Rating", "Formula fit", "Missing variable"]}

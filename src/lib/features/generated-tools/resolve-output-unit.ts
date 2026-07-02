@@ -1,6 +1,6 @@
 import type { GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 
-const GENERIC_INPUT_UNITS = new Set(["unit", "units", "dimensionless", "—", "-"]);
+const GENERIC_INPUT_UNITS = new Set(["unit", "units", "dimensionless", "-", "-"]);
 
 function isMeaningfulUnit(unit: string | undefined): unit is string {
   const trimmed = unit?.trim();
@@ -72,7 +72,7 @@ export function resolvePrimaryOutputUnit(schema: GeneratedToolSchema): string {
     return inputUnit.trim();
   }
 
-  return "—";
+  return "-";
 }
 
 export function resolveBreakdownOutputUnit(schema: GeneratedToolSchema, key: string): string {

@@ -18,8 +18,8 @@ export const ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_SCHEMA: PremiumCalculatorS
       warning: 25000,
       critical: 60000,
       direction: "higher_is_bad",
-      warningMessage: "Exit exposure is elevated — confirm policy and statutory rules.",
-      criticalMessage: "Exit exposure is high — legal and HR review recommended.",
+      warningMessage: "Exit exposure is elevated - confirm policy and statutory rules.",
+      criticalMessage: "Exit exposure is high - legal and HR review recommended.",
     },
   ],
 
@@ -34,7 +34,7 @@ export const ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_SCHEMA: PremiumCalculatorS
     volatilityPercent: 5,
     targetMarginPercent: 0,
     assumptionNotes: [
-      "Screening model only — not legal or payroll advice.",
+      "Screening model only - not legal or payroll advice.",
       "Statutory severance, unused leave and local labor law may differ.",
       "Verify rates and tenure rules with qualified counsel before decisions.",
     ],

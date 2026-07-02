@@ -20,7 +20,7 @@ export function FreeToolEmailCaptureButton({
  <LeadIntentTrigger
  source="premium_unlock"
  plan="single_report"
- toolRequested={`${toolTitle} — free check risk breakdown`}
+ toolRequested={`${toolTitle} - free check risk breakdown`}
  pagePath={pathname ?? "/"}
  className={className}
  >

@@ -19,8 +19,8 @@ export const OFFICE_CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
       warning: 10,
       critical: 20,
       direction: "higher_is_bad",
-      warningMessage: "Unused space is above typical band — rent leak is building.",
-      criticalMessage: "Critical unused space — expand utilization before adding capacity.",
+      warningMessage: "Unused space is above typical band - rent leak is building.",
+      criticalMessage: "Critical unused space - expand utilization before adding capacity.",
     },
   ],
 

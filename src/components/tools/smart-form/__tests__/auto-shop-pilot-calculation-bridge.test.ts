@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-G — auto-shop smart form pilot calculation bridge tests.
+ * Phase 5H-G-G - auto-shop smart form pilot calculation bridge tests.
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";
@@ -35,7 +35,7 @@ vi.mock("@/lib/infrastructure/analytics/revenue-events", async (importOriginal) 
   };
 });
 
-describe("auto-shop smart form pilot calculation bridge — Phase 5H-G-G", () => {
+describe("auto-shop smart form pilot calculation bridge - Phase 5H-G-G", () => {
   afterEach(() => {
     vi.unstubAllEnvs();
     vi.mocked(trackRevenueEvent).mockClear();

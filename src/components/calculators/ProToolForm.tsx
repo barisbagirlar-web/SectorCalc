@@ -15,7 +15,7 @@ interface ProToolFormProps {
 // ─── HELPERS ──────────────────────────────────────────────────────────────
 
 const fmt = (v: any, d = 2): string => {
-  if (v === null || v === undefined || isNaN(v)) return "—";
+  if (v === null || v === undefined || isNaN(v)) return "-";
   if (Math.abs(v) > 1e6) return Number(v).toExponential(2);
   if (Math.abs(v) >= 1000) return Number(v).toFixed(0);
   if (Math.abs(v) >= 100) return Number(v).toFixed(1);
@@ -24,7 +24,7 @@ const fmt = (v: any, d = 2): string => {
 };
 
 const fmtCurrency = (v: any): string =>
-  v === null || isNaN(v) ? "—" : "$" + Number(v).toLocaleString("en-US", { maximumFractionDigits: 0 });
+  v === null || isNaN(v) ? "-" : "$" + Number(v).toLocaleString("en-US", { maximumFractionDigits: 0 });
 
 const hashStr = (s: string): string => {
   let h = 0;
@@ -62,19 +62,19 @@ function confidenceLabel(lbl?: string): string | undefined {
 // ─── MATERIAL DB ──────────────────────────────────────────────────────────
 
 const MAT_DB: Record<string, { label: string; kc1: number; mc: number; vc: [number, number, number]; color: string; C?: number; n?: number }> = {
-  P_soft:   { label: "P — Steel (≤250 HB)",          kc1: 1900, mc: 0.26, vc: [180, 280, 400] as [number, number, number], color: "#3B82F6", C: 600, n: 0.25 },
-  P_hard:   { label: "P — Steel (250–350 HB)",        kc1: 2200, mc: 0.28, vc: [100, 180, 280] as [number, number, number], color: "#2563EB", C: 400, n: 0.22 },
-  M_aust:   { label: "M — Austenitic Stainless",       kc1: 2400, mc: 0.22, vc: [80, 160, 240] as [number, number, number], color: "#7C3AED", C: 350, n: 0.20 },
-  M_duplex: { label: "M — Duplex Stainless",           kc1: 2700, mc: 0.24, vc: [60, 120, 180] as [number, number, number], color: "#6D28D9", C: 280, n: 0.18 },
-  K_gg:     { label: "K — Cast Iron (GG/GGG)",         kc1: 1350, mc: 0.20, vc: [100, 200, 350] as [number, number, number], color: "#4B5563", C: 800, n: 0.20 },
-  N_al:     { label: "N — Aluminium Alloy",            kc1: 750,  mc: 0.14, vc: [400, 800, 1500] as [number, number, number], color: "#059669", C: 1200, n: 0.30 },
-  S_ti:     { label: "S — Titanium Ti6Al4V",           kc1: 2800, mc: 0.30, vc: [30, 60, 100] as [number, number, number], color: "#D97706", C: 200, n: 0.15 },
-  H_hrc55:  { label: "H — Hardened Steel >55 HRC",     kc1: 3200, mc: 0.35, vc: [50, 120, 200] as [number, number, number], color: "#DC2626", C: 500, n: 0.30 },
+  P_soft:   { label: "P - Steel (≤250 HB)",          kc1: 1900, mc: 0.26, vc: [180, 280, 400] as [number, number, number], color: "#3B82F6", C: 600, n: 0.25 },
+  P_hard:   { label: "P - Steel (250–350 HB)",        kc1: 2200, mc: 0.28, vc: [100, 180, 280] as [number, number, number], color: "#2563EB", C: 400, n: 0.22 },
+  M_aust:   { label: "M - Austenitic Stainless",       kc1: 2400, mc: 0.22, vc: [80, 160, 240] as [number, number, number], color: "#7C3AED", C: 350, n: 0.20 },
+  M_duplex: { label: "M - Duplex Stainless",           kc1: 2700, mc: 0.24, vc: [60, 120, 180] as [number, number, number], color: "#6D28D9", C: 280, n: 0.18 },
+  K_gg:     { label: "K - Cast Iron (GG/GGG)",         kc1: 1350, mc: 0.20, vc: [100, 200, 350] as [number, number, number], color: "#4B5563", C: 800, n: 0.20 },
+  N_al:     { label: "N - Aluminium Alloy",            kc1: 750,  mc: 0.14, vc: [400, 800, 1500] as [number, number, number], color: "#059669", C: 1200, n: 0.30 },
+  S_ti:     { label: "S - Titanium Ti6Al4V",           kc1: 2800, mc: 0.30, vc: [30, 60, 100] as [number, number, number], color: "#D97706", C: 200, n: 0.15 },
+  H_hrc55:  { label: "H - Hardened Steel >55 HRC",     kc1: 3200, mc: 0.35, vc: [50, 120, 200] as [number, number, number], color: "#DC2626", C: 500, n: 0.30 },
 };
 
-// ─── FORMULA ENGINE (v2 — Multi-statement, const, object-literal safe) ──
+// ─── FORMULA ENGINE (v2 - Multi-statement, const, object-literal safe) ──
 
-// ─── FORMULA ENGINE (v5 — Full-formula execution with scope-aware tracing) ──
+// ─── FORMULA ENGINE (v5 - Full-formula execution with scope-aware tracing) ──
 
 /**
  * Recursively replace all math function calls (POWER, SQRT, ABS, LN, LOG10,
@@ -493,14 +493,14 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
       setResults(computed);
       setWarns(w);
 
-      // ——— RSS Uncertainty Propagation ———
+      // --- RSS Uncertainty Propagation ---
       if (tool.tool_id !== "PRO_117") {
-        // PRO_117 uses external calc — skip RSS for now
+        // PRO_117 uses external calc - skip RSS for now
         try {
           const u = computeRSSUncertainties(tool, inputs, parsed, computed, runFormulas);
           setUncertainties(u);
         } catch {
-          // Silent — uncertainty is a bonus feature, never block results
+          // Silent - uncertainty is a bonus feature, never block results
           setUncertainties(null);
         }
       }
@@ -608,14 +608,14 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 4 }}>
             <button disabled={creditPending} onClick={() => void startCreditPackCheckout({ toolSlug: tool.tool_id, returnPath: `/pro-tools/${tool.tool_id}`, locale, creditPackSize: 5 }).catch(() => undefined)}
               style={{ background: "#BD5D3A", color: "#fff", border: "none", padding: "10px 20px", fontSize: 13, fontWeight: 700, cursor: "pointer" }}>
-              {creditPending ? "Processing..." : "Load 5 credits — $4.99"}
+              {creditPending ? "Processing..." : "Load 5 credits - $4.99"}
             </button>
             <Link href="/pricing" style={{ background: "transparent", color: "#1A1915", border: "1px solid rgba(26,25,21,0.3)", padding: "10px 20px", fontSize: 13, fontWeight: 700, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>View Pro Plans</Link>
           </div>
         </div>
       ) : requiresCreditConsume ? (
         <div style={{ background: "#FAF9F5", border: "1px solid rgba(26,25,21,0.12)", padding: "12px 16px", fontSize: 13, color: "rgba(26,25,21,0.7)", marginBottom: 16 }}>
-          Credits Balance: <strong>{creditBalance}</strong> — 1 credit will be deducted per premium run.
+          Credits Balance: <strong>{creditBalance}</strong> - 1 credit will be deducted per premium run.
         </div>
       ) : null}
       {creditMsg && (
@@ -667,7 +667,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
         <div className="pro-status-row">
           <div>
             {!submitted ? (
-              <span className="pro-badge pro-badge-idle">— NOT CALCULATED</span>
+              <span className="pro-badge pro-badge-idle">- NOT CALCULATED</span>
             ) : critCount > 0 ? (
               <span className="pro-badge pro-badge-crit">⛔ {critCount} CRITICAL</span>
             ) : warnCount > 0 ? (
@@ -678,7 +678,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
           </div>
           {submitted && ucPct !== null && (
             <span className="pro-status-uc">
-              {tool.tool_id === "PRO_098" ? "OEE" : "UC"}: <strong>{typeof ucPct === "number" ? ucPct.toFixed(1) : "—"}%</strong>
+              {tool.tool_id === "PRO_098" ? "OEE" : "UC"}: <strong>{typeof ucPct === "number" ? ucPct.toFixed(1) : "-"}%</strong>
             </span>
           )}
         </div>
@@ -708,7 +708,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
               {hasMatDB && (
                 <>
                   <div className="pro-sec-lbl">
-                    Workpiece Material — Select Group
+                    Workpiece Material - Select Group
                     <span className="pro-sec-note">Sandvik C-2920 Database</span>
                   </div>
                   <div className="pro-mat-grid">
@@ -778,7 +778,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                               onChange={e => handleChange(inp.id, e.target.value)}
                               style={{ appearance: "auto" }}
                             >
-                              <option value="">— Select —</option>
+                              <option value="">- Select -</option>
                               {opts.map((opt: any, i: number) => (
                                 <option key={i} value={opt.value}>{opt.label}</option>
                               ))}
@@ -880,7 +880,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                   <div className="pro-verdict-banner fail">
                     <span className="pro-verdict-icon">⛔</span>
                     <div className="pro-verdict-body">
-                      <div className="pro-verdict-title">CRITICAL — Calculation requires attention</div>
+                      <div className="pro-verdict-title">CRITICAL - Calculation requires attention</div>
                       <div className="pro-verdict-sub">{critCount} critical warnings · Review parameters</div>
                     </div>
                   </div>
@@ -888,7 +888,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                   <div className="pro-verdict-banner warn">
                     <span className="pro-verdict-icon">⚠</span>
                     <div className="pro-verdict-body">
-                      <div className="pro-verdict-title">WARNING — Parameters at limit</div>
+                      <div className="pro-verdict-title">WARNING - Parameters at limit</div>
                       <div className="pro-verdict-sub">{warnCount} warnings · Verify before production use</div>
                     </div>
                   </div>
@@ -930,7 +930,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                         {tool.tool_id === "PRO_098" ? "OEE Score" : "Capacity Utilization Ratio"}
                       </span>
                       <span className={`pro-uc-value-display ${ucCls}`}>
-                        {typeof ucPct === "number" ? ucPct.toFixed(1) : "—"}%
+                        {typeof ucPct === "number" ? ucPct.toFixed(1) : "-"}%
                       </span>
                     </div>
                     <div className="pro-uc-gauge-track">
@@ -970,7 +970,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                           </span>
                           <span></span>
                           <span className={`pro-res-val${r.hl ? " hl" : ""}`}>{r.fmt}</span>
-                          <span className="pro-res-unc">{r.uncertainty?.display || "—"}</span>
+                          <span className="pro-res-unc">{r.uncertainty?.display || "-"}</span>
                           <span className="pro-res-unit">{r.unit}</span>
                         </div>
                       ))}
@@ -1094,13 +1094,13 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                 const rpnCls = rpn > 200 ? "pro-rpn-high" : rpn > 100 ? "pro-rpn-med" : "pro-rpn-low";
                 return (
                   <div key={i} className="pro-fmea-row">
-                    <div className="pro-fmea-mode">{entry.failureMode || entry.failure_mode || entry.name || "—"}</div>
-                    <div className="pro-fmea-effect">{entry.effect || entry.description || entry.effect_description || "—"}</div>
-                    <div className="pro-fmea-score">{entry.severity_score || entry.severity || "—"}</div>
-                    <div className="pro-fmea-score">{entry.occurrence || entry.occurrence_score || "—"}</div>
-                    <div className="pro-fmea-score">{entry.detection || entry.detection_score || "—"}</div>
+                    <div className="pro-fmea-mode">{entry.failureMode || entry.failure_mode || entry.name || "-"}</div>
+                    <div className="pro-fmea-effect">{entry.effect || entry.description || entry.effect_description || "-"}</div>
+                    <div className="pro-fmea-score">{entry.severity_score || entry.severity || "-"}</div>
+                    <div className="pro-fmea-score">{entry.occurrence || entry.occurrence_score || "-"}</div>
+                    <div className="pro-fmea-score">{entry.detection || entry.detection_score || "-"}</div>
                     <div className={`pro-fmea-rpn ${rpnCls}`}>{rpn}{entry.rpn_low ? ` / ${entry.rpn_low}` : ""}</div>
-                    <div className="pro-fmea-ctrl">{entry.control_measure || entry.controls || entry.current_controls || "—"}</div>
+                    <div className="pro-fmea-ctrl">{entry.control_measure || entry.controls || entry.current_controls || "-"}</div>
                   </div>
                 );
               })}
@@ -1124,7 +1124,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                     { k: "tool_id", v: tool.tool_id },
                     { k: "version", v: "1.0.0" },
                     { k: "timestamp", v: nowISO() },
-                    { k: "design_standard", v: (tool.engine_rules?.standards || []).join(" / ") || "—" },
+                    { k: "design_standard", v: (tool.engine_rules?.standards || []).join(" / ") || "-" },
                     { k: "input_hash", v: hashStr(JSON.stringify(values)) },
                     ...Object.entries(results)
                       .filter(([, v]) => typeof v === "number" || typeof v === "string")
@@ -1175,7 +1175,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
       <div className="pro-tool-footer">
         <span>📐 {[(tool.engine_rules?.standards || []).join(" · ") || "Industry standards"]}</span>
         <span>🔬 GUM ISO/IEC 98-3 uncertainty propagation included</span>
-        <span>⚠ Engineering decision support only — field validation by qualified engineer required</span>
+        <span>⚠ Engineering decision support only - field validation by qualified engineer required</span>
         <span>SectorCalc {tool.tool_id} v1.0.0</span>
       </div>
     </div>

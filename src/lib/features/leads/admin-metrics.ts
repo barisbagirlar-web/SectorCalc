@@ -14,11 +14,11 @@ function topValue(
 ): string {
  const counts = new Map<string, number>();
  for (const item of items) {
- const key = pick(item).trim() || "—";
+ const key = pick(item).trim() || "-";
  counts.set(key, (counts.get(key) ?? 0) + 1);
  }
 
- let best = "—";
+ let best = "-";
  let bestCount = 0;
  for (const [key, count] of counts) {
  if (count > bestCount) {
@@ -39,11 +39,11 @@ export function computeLeadAdminMetrics(leads: LeadIntent[]): LeadAdminMetrics {
 }
 
 export function formatLeadSource(source: string): string {
- if (source === "—") return source;
+ if (source === "-") return source;
  return source.replace(/_/g, " ");
 }
 
 export function formatLeadPlan(plan: string | undefined): string {
- if (!plan) return "—";
+ if (!plan) return "-";
  return plan.replace(/_/g, " ");
 }

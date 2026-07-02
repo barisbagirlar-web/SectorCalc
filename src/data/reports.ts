@@ -15,7 +15,7 @@ export const SAMPLE_REPORT_SECTIONS: ReportSection[] = [
  id: "key-findings",
  title: "Key Findings",
  description:
- "Critical insights from your calculator inputs — margin exposure, cost drivers, and threshold breaches.",
+ "Critical insights from your calculator inputs - margin exposure, cost drivers, and threshold breaches.",
  },
  {
  id: "scenario-analysis",
@@ -33,7 +33,7 @@ export const SAMPLE_REPORT_SECTIONS: ReportSection[] = [
  id: "recommendation",
  title: "Recommendation",
  description:
- "Clear, actionable next steps — adjust pricing, renegotiate terms, or proceed with documented rationale.",
+ "Clear, actionable next steps - adjust pricing, renegotiate terms, or proceed with documented rationale.",
  },
 ];
 

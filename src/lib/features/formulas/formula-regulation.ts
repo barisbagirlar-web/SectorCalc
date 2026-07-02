@@ -1,5 +1,5 @@
 /**
- * Formula regulation metadata — versioned source trace for every FormulaContract.
+ * Formula regulation metadata - versioned source trace for every FormulaContract.
  */
 
 import type { FormulaContract } from "@/lib/features/formula-governance/types";

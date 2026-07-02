@@ -72,7 +72,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vacuum_leak_energy_1",
     family: "cost",
-    label: "Vakum Kacagi Enerji Loss — PowerLoss_kW",
+    label: "Vakum Kacagi Enerji Loss - PowerLoss_kW",
     fn: (inputs) => {
     const leakRate = num(inputs, "leakRate");
     const p = num(inputs, "p");
@@ -85,7 +85,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vacuum_leak_energy_2",
     family: "cost",
-    label: "Vakum Kacagi Enerji Loss — AnnualEnergyLoss",
+    label: "Vakum Kacagi Enerji Loss - AnnualEnergyLoss",
     fn: (inputs) => {
     const powerLoss = num(inputs, "powerLoss");
     const kW = num(inputs, "kW");
@@ -97,7 +97,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vacuum_leak_energy_3",
     family: "cost",
-    label: "Vakum Kacagi Enerji Loss — CostOfLeak",
+    label: "Vakum Kacagi Enerji Loss - CostOfLeak",
     fn: (inputs) => {
     const annualEnergyLoss = num(inputs, "annualEnergyLoss");
     const elecRate = num(inputs, "elecRate");
@@ -107,7 +107,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vacuum_leak_energy_4",
     family: "cost",
-    label: "Vakum Kacagi Enerji Loss — PumpCapacityWaste",
+    label: "Vakum Kacagi Enerji Loss - PumpCapacityWaste",
     fn: (inputs) => {
     const leakRate = num(inputs, "leakRate");
     const totalPumpCapacity = num(inputs, "totalPumpCapacity");
@@ -117,7 +117,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vacuum_leak_energy_5",
     family: "cost",
-    label: "Vakum Kacagi Enerji Loss — CarbonEmissions",
+    label: "Vakum Kacagi Enerji Loss - CarbonEmissions",
     fn: (inputs) => {
     const annualEnergyLoss = num(inputs, "annualEnergyLoss");
     const gridEmissionFactor = num(inputs, "gridEmissionFactor");
@@ -129,7 +129,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shift_cost_efficiency_0",
     family: "cost",
-    label: "Vardiya Maliyet Verimliligi — PlannedProductionTime",
+    label: "Vardiya Maliyet Verimliligi - PlannedProductionTime",
     fn: (inputs) => {
     const shiftDuration = num(inputs, "shiftDuration");
     const plannedDowntime = num(inputs, "plannedDowntime");
@@ -139,7 +139,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shift_cost_efficiency_1",
     family: "cost",
-    label: "Vardiya Maliyet Verimliligi — ActualRunTime",
+    label: "Vardiya Maliyet Verimliligi - ActualRunTime",
     fn: (inputs) => {
     const plannedProductionTime = num(inputs, "plannedProductionTime");
     const unplannedDowntime = num(inputs, "unplannedDowntime");
@@ -149,7 +149,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shift_cost_efficiency_2",
     family: "cost",
-    label: "Vardiya Maliyet Verimliligi — LaborCost",
+    label: "Vardiya Maliyet Verimliligi - LaborCost",
     fn: (inputs) => {
     const operators = num(inputs, "operators");
     const shiftHours = num(inputs, "shiftHours");
@@ -160,7 +160,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shift_cost_efficiency_3",
     family: "cost",
-    label: "Vardiya Maliyet Verimliligi — EnergyCost",
+    label: "Vardiya Maliyet Verimliligi - EnergyCost",
     fn: (inputs) => {
     const machinePower = num(inputs, "machinePower");
     const actualRunTime = num(inputs, "actualRunTime");
@@ -171,7 +171,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shift_cost_efficiency_4",
     family: "cost",
-    label: "Vardiya Maliyet Verimliligi — OutputValue",
+    label: "Vardiya Maliyet Verimliligi - OutputValue",
     fn: (inputs) => {
     const goodUnits = num(inputs, "goodUnits");
     const unitContributionMargin = num(inputs, "unitContributionMargin");
@@ -181,7 +181,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shift_cost_efficiency_5",
     family: "cost",
-    label: "Vardiya Maliyet Verimliligi — ShiftEfficiency",
+    label: "Vardiya Maliyet Verimliligi - ShiftEfficiency",
     fn: (inputs) => {
     const outputValue = num(inputs, "outputValue");
     const laborCost = num(inputs, "laborCost");
@@ -193,7 +193,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shift_cost_efficiency_6",
     family: "cost",
-    label: "Vardiya Maliyet Verimliligi — CostPerUnit",
+    label: "Vardiya Maliyet Verimliligi - CostPerUnit",
     fn: (inputs) => {
     const laborCost = num(inputs, "laborCost");
     const energyCost = num(inputs, "energyCost");
@@ -207,7 +207,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vsm_financial_converter_0",
     family: "cost",
-    label: "Vsm finansal Converter — LeadTimeCost",
+    label: "Vsm finansal Converter - LeadTimeCost",
     fn: (inputs) => {
     const wIP = num(inputs, "wIP");
     const Inventory = num(inputs, "Inventory");
@@ -220,7 +220,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vsm_financial_converter_1",
     family: "cost",
-    label: "Vsm finansal Converter — ValueAddedRatio",
+    label: "Vsm finansal Converter - ValueAddedRatio",
     fn: (inputs) => {
     const valueAddedTime = num(inputs, "valueAddedTime");
     const totalLeadTime = num(inputs, "totalLeadTime");
@@ -230,7 +230,7 @@ export const CHUNK_63_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.vsm_financial_converter_2",
     family: "cost",
-    label: "Vsm finansal Converter — NonValueAddedCost",
+    label: "Vsm finansal Converter - NonValueAddedCost",
     fn: (inputs) => {
     const totalLeadTime = num(inputs, "totalLeadTime");
     const valueAddedTime = num(inputs, "valueAddedTime");

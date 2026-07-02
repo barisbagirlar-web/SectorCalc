@@ -72,7 +72,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_matrix_6",
     family: "cost",
-    label: "CHANGEOVER MATRIX SMED — AnnualSavings",
+    label: "CHANGEOVER MATRIX SMED - AnnualSavings",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const total = num(inputs, "total");
@@ -87,7 +87,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_matrix_7",
     family: "cost",
-    label: "CHANGEOVER MATRIX SMED — CapacityGain",
+    label: "CHANGEOVER MATRIX SMED - CapacityGain",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const total = num(inputs, "total");
@@ -104,7 +104,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.warehouse_layout_0",
     family: "cost",
-    label: "DEPO YERLESIMI — StorageArea",
+    label: "DEPO YERLESIMI - StorageArea",
     fn: (inputs) => {
     const footprint = num(inputs, "footprint");
     const utilRate = num(inputs, "utilRate");
@@ -114,7 +114,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.warehouse_layout_1",
     family: "cost",
-    label: "DEPO YERLESIMI — PalletPositions",
+    label: "DEPO YERLESIMI - PalletPositions",
     fn: (inputs) => {
     const storageArea = num(inputs, "storageArea");
     const palletFootprint = num(inputs, "palletFootprint");
@@ -125,7 +125,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.warehouse_layout_2",
     family: "cost",
-    label: "DEPO YERLESIMI — VerticalCap",
+    label: "DEPO YERLESIMI - VerticalCap",
     fn: (inputs) => {
     const palletPositions = num(inputs, "palletPositions");
     const rackLevels = num(inputs, "rackLevels");
@@ -135,7 +135,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.warehouse_layout_3",
     family: "cost",
-    label: "DEPO YERLESIMI — ThroughputCap",
+    label: "DEPO YERLESIMI - ThroughputCap",
     fn: (inputs) => {
     const doors = num(inputs, "doors");
     const turnaround = num(inputs, "turnaround");
@@ -149,7 +149,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.warehouse_layout_4",
     family: "cost",
-    label: "DEPO YERLESIMI — TravelDist",
+    label: "DEPO YERLESIMI - TravelDist",
     fn: (inputs) => {
     const freq = num(inputs, "freq");
     const dist = num(inputs, "dist");
@@ -159,7 +159,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.warehouse_layout_5",
     family: "cost",
-    label: "DEPO YERLESIMI — PickEfficiency",
+    label: "DEPO YERLESIMI - PickEfficiency",
     fn: (inputs) => {
     const lines = num(inputs, "lines");
     const travelTime = num(inputs, "travelTime");
@@ -169,7 +169,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.warehouse_layout_6",
     family: "cost",
-    label: "DEPO YERLESIMI — CubeUtil",
+    label: "DEPO YERLESIMI - CubeUtil",
     fn: (inputs) => {
     const actualVol = num(inputs, "actualVol");
     const rackVol = num(inputs, "rackVol");
@@ -179,7 +179,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.warehouse_layout_7",
     family: "cost",
-    label: "DEPO YERLESIMI — CostPerPos",
+    label: "DEPO YERLESIMI - CostPerPos",
     fn: (inputs) => {
     const facilityCost = num(inputs, "facilityCost");
     const palletPositions = num(inputs, "palletPositions");
@@ -191,7 +191,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.absenteeism_cost_0",
     family: "cost",
-    label: "DEVAMSIZLIK COSTI — DirectCost",
+    label: "DEVAMSIZLIK COSTI - DirectCost",
     fn: (inputs) => {
     const absentHours = num(inputs, "absentHours");
     const hourlyRate = num(inputs, "hourlyRate");
@@ -202,7 +202,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.absenteeism_cost_1",
     family: "cost",
-    label: "DEVAMSIZLIK COSTI — OvertimePremium",
+    label: "DEVAMSIZLIK COSTI - OvertimePremium",
     fn: (inputs) => {
     const replaceOT = num(inputs, "replaceOT");
     const oTRate = num(inputs, "oTRate");
@@ -213,7 +213,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.absenteeism_cost_2",
     family: "cost",
-    label: "DEVAMSIZLIK COSTI — TempCost",
+    label: "DEVAMSIZLIK COSTI - TempCost",
     fn: (inputs) => {
     const tempHours = num(inputs, "tempHours");
     const tempRate = num(inputs, "tempRate");
@@ -224,7 +224,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.absenteeism_cost_3",
     family: "cost",
-    label: "DEVAMSIZLIK COSTI — ProdLoss",
+    label: "DEVAMSIZLIK COSTI - ProdLoss",
     fn: (inputs) => {
     const absentHours = num(inputs, "absentHours");
     const outputPerHour = num(inputs, "outputPerHour");
@@ -236,7 +236,7 @@ export const CHUNK_13_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.absenteeism_cost_4",
     family: "cost",
-    label: "DEVAMSIZLIK COSTI — AdminCost",
+    label: "DEVAMSIZLIK COSTI - AdminCost",
     fn: (inputs) => {
     const events = num(inputs, "events");
     const hR = num(inputs, "hR");

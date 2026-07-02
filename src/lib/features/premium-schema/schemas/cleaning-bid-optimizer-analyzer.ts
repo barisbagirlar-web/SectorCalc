@@ -10,7 +10,7 @@ export const CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
       label: "Cleaning Margin",
       label_i18n: { en: "Cleaning Margin" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -26,7 +26,7 @@ export const CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "cleaningLaborCost", label: "Labor Cost", label_i18n: {"en":"Labor Cost"}, unit: "USD/month", format: "currency" },
     { id: "cleaningBidPrice", label: "Onerilen quote Fiyat", label_i18n: {"en":"Onerilen quote Fiyat"}, unit: "USD/month", format: "currency" },
   ],
-  thresholds: [{ fieldId: "cleaningBidPrice", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "quote > competitor — competitiveness may decline.", warningMessage_i18n: {"en":"quote > competitor — competitiveness may decline."}, criticalMessage: "quote below cost — Loss risk present.", criticalMessage_i18n: {"en":"quote below cost — Loss risk present."} }],
+  thresholds: [{ fieldId: "cleaningBidPrice", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "quote > competitor - competitiveness may decline.", warningMessage_i18n: {"en":"quote > competitor - competitiveness may decline."}, criticalMessage: "quote below cost - Loss risk present.", criticalMessage_i18n: {"en":"quote below cost - Loss risk present."} }],
   formulaPipeline: [
     { formulaId: "cost.cleaning_labor_cost", inputMap: {
         cleaningHours: "laborRate",

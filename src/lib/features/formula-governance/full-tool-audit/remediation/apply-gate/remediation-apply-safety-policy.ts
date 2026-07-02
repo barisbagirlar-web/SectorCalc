@@ -1,5 +1,5 @@
 /**
- * Remediation apply safety policy — Phase 5I-J forbidden paths.
+ * Remediation apply safety policy - Phase 5I-J forbidden paths.
  */
 
 import type { ControlledPatchDraft } from "@/lib/features/formula-governance/tool-factory-orchestrator/controlled-patch-generator/controlled-patch-types";

@@ -1,5 +1,5 @@
 /**
- * Phase 5H-B-6 — drift score gate tests.
+ * Phase 5H-B-6 - drift score gate tests.
  */
 
 import { describe, expect, test } from "vitest";

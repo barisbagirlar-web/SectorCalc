@@ -11,7 +11,7 @@ const INDEXNOW_LOCALE_SET = new Set<string>(SUPPORTED_LOCALES);
 
 export const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 
-/** IndexNow API limit — stay under 10_000 with margin. */
+/** IndexNow API limit - stay under 10_000 with margin. */
 export const INDEXNOW_MAX_URLS_PER_BATCH = 9_500;
 
 export type IndexNowSubmitMode = "en-tr" | "priority" | "all";

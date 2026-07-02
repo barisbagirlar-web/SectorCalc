@@ -4,21 +4,21 @@
 // @ts-nocheck
 
 /**
- * SectorCalc — Premium Global Header
+ * SectorCalc - Premium Global Header
  * Drop into: /src/components/Header.jsx
  *
  * Built to the standard of Stripe / Datadog / Linear navigation.
  *
  * Features:
  *   - Mega-menus for Products, Industries, Resources (hover desktop, tap mobile)
- *   - Two CTAs: "Sign in" (text) + "Get started" (filled) — converts new users
- *   - Language switcher (6 locales, RTL Arabic) — NO currency in header
+ *   - Two CTAs: "Sign in" (text) + "Get started" (filled) - converts new users
+ *   - Language switcher (6 locales, RTL Arabic) - NO currency in header
  *   - Keyboard nav + focus states + reduced-motion respect
  *   - Mobile drawer with collapsible sections
  *
  * LOCALE: handled by middleware.js. This component displays + switches only.
  *   sectorcalc.com → EN | /tr /de /fr /es /ar
- *   Currency is ALWAYS USD, surfaced on the pricing page — not here.
+ *   Currency is ALWAYS USD, surfaced on the pricing page - not here.
  */
 
 import { useState, useRef, useEffect, useCallback } from 'react';
@@ -42,19 +42,19 @@ const t = {
 
 const INDUSTRY_GROUPS = [
   { groupEn:'Production', groupTr:'Production', items:[
-    { slug:'manufacturing', icon:'🏭', en:'Manufacturing', count:40 },
-    { slug:'lean-oee',      icon:'📊', en:'Lean & OEE',     count:33 },
-    { slug:'quality-spc',   icon:'🎯', en:'Quality & SPC',  count:14 },
+    { slug:'manufacturing', href:'/industries', icon:'🏭', en:'Manufacturing', count:40 },
+    { slug:'lean-oee',      href:'/industries', icon:'📊', en:'Lean & OEE',     count:33 },
+    { slug:'quality-spc',   href:'/industries', icon:'🎯', en:'Quality & SPC',  count:14 },
   ]},
   { groupEn:'Engineering', groupTr:'Engineering', items:[
-    { slug:'mechanical-hvac',  icon:'⚙️', en:'Mechanical & HVAC', count:48 },
-    { slug:'electrical-power', icon:'⚡', en:'Electrical & Power', count:16 },
-    { slug:'construction',     icon:'🏗️', en:'Construction',       count:28 },
+    { slug:'mechanical-hvac',  href:'/industries', icon:'⚙️', en:'Mechanical & HVAC', count:48 },
+    { slug:'electrical-power', href:'/industries', icon:'⚡', en:'Electrical & Power', count:16 },
+    { slug:'construction',     href:'/industries', icon:'🏗️', en:'Construction',       count:28 },
   ]},
   { groupEn:'Operations', groupTr:'Operasyon', items:[
-    { slug:'supply-chain',     icon:'🚚', en:'Supply Chain',   count:17 },
-    { slug:'energy-esg',       icon:'🌱', en:'Energy & ESG',    count:16 },
-    { slug:'technology-cloud', icon:'☁️', en:'Technology & AI', count:17 },
+    { slug:'supply-chain',     href:'/industries', icon:'🚚', en:'Supply Chain',   count:17 },
+    { slug:'energy-esg',       href:'/industries', icon:'🌱', en:'Energy & ESG',    count:16 },
+    { slug:'technology-cloud', href:'/industries', icon:'☁️', en:'Technology & AI', count:17 },
   ]},
 ];
 
@@ -77,8 +77,8 @@ export function SiteHeader({
   const navRef=useRef(null);
   const closeTimer=useRef(null);
 
-  const openWithIntent=useCallback((m)=>{ if(closeTimer.current)clearReturnType<typeof setTimeout> | null(closeTimer.current); setOpenMenu(m); },[]);
-  const closeWithIntent=useCallback(()=>{ if(closeTimer.current)clearReturnType<typeof setTimeout> | null(closeTimer.current); closeTimer.current=setReturnType<typeof setTimeout> | null(()=>setOpenMenu(null),120); },[]);
+  const openWithIntent=useCallback((m)=>{ if(closeTimer.current)clearTimeout(closeTimer.current); setOpenMenu(m); },[]);
+  const closeWithIntent=useCallback(()=>{ if(closeTimer.current)clearTimeout(closeTimer.current); closeTimer.current=setTimeout(()=>setOpenMenu(null),120); },[]);
 
   useEffect(()=>{
     function onClick(e){
@@ -220,7 +220,7 @@ export function SiteHeader({
                         <div className="sc-mega-col" key={g.groupEn}>
                           <h4>{g.groupEn}</h4>
                           {g.items.map((it)=>(
-                            <Link key={it.slug} href={`/free-tools?sector=${it.slug}`} className="sc-mega-item">
+                            <Link key={it.slug} href={it.href} className="sc-mega-item">
                               <span className="ico">{it.icon}</span>
                               <span className="txt"><b>{it.en}</b><span>{it.count} {t.tools}</span></span>
                             </Link>
@@ -282,7 +282,7 @@ export function SiteHeader({
             {mobileSection==='industries' && (
               <div className="sc-draw-body">
                 {INDUSTRY_GROUPS.flatMap((g)=>g.items).map((it)=>(
-                  <Link key={it.slug} href={`/free-tools?sector=${it.slug}`} onClick={()=>setMobileOpen(false)}>
+                  <Link key={it.slug} href={it.href} onClick={()=>setMobileOpen(false)}>
                     {it.icon} {it.en} <span className="c">{it.count}</span>
                   </Link>
                 ))}

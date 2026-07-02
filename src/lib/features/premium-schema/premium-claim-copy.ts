@@ -1,5 +1,5 @@
 /**
- * Premium claim copy — public sales language for analyzers and reports.
+ * Premium claim copy - public sales language for analyzers and reports.
  * No schema/migration/pilot/debug terms in output.
  */
 
@@ -20,7 +20,7 @@ export type PremiumClaimCopy = {
   upgradeReason: string;
 };
 
-/** Locale-aware claim map — key = claim text, value = Record<locale, translation> */
+/** Locale-aware claim map - key = claim text, value = Record<locale, translation> */
 type ClaimLocaleMap = Record<string, Record<string, string>>;
 
 const LOCALE_FIELDS: readonly (keyof PremiumClaimCopy)[] = [
@@ -159,7 +159,7 @@ const SPECIFIC_CLAIMS: Readonly<
   },
   "restaurant-menu-margin-leak": {
     claimType: "potential_exposure",
-    headline: "Menu margin leaks hide in fees, waste and portion drift—not just food cost.",
+    headline: "Menu margin leaks hide in fees, waste and portion drift-not just food cost.",
     valueStatement:
       "This analyzer surfaces hidden margin pressure across ingredients, labor and platform fees.",
     exampleExposure: "A few high-volume items can subsidize loss-makers without a clear signal.",
@@ -190,7 +190,7 @@ const SPECIFIC_CLAIMS: Readonly<
   },
   "carbon-footprint-compliance-risk": {
     claimType: "benchmark_model",
-    headline: "Carbon exposure is a pricing decision—not only a compliance checkbox.",
+    headline: "Carbon exposure is a pricing decision-not only a compliance checkbox.",
     valueStatement:
       "This analyzer estimates compliance cost pressure and threshold risk from your current inputs.",
     exampleExposure: "A small emissions drift can change landed cost on export-heavy jobs.",
@@ -272,7 +272,7 @@ const CATEGORY_CLAIM_TEMPLATES: Readonly<
   },
   carbon: {
     claimType: "benchmark_model",
-    headline: "Carbon cost belongs in the quote—not only in the compliance folder.",
+    headline: "Carbon cost belongs in the quote-not only in the compliance folder.",
     valueStatement:
       "This analyzer estimates emissions exposure and compliance pressure from current inputs.",
     decisionValue: "Compare carbon drivers and prioritize the highest-cost reduction path.",
@@ -416,7 +416,7 @@ export function listPremiumClaimSlugs(): readonly string[] {
   return listPremiumSchemaIds();
 }
 
-/** Static pricing copy assertions for tests — mirrors messages/en.json pricing keys. */
+/** Static pricing copy assertions for tests - mirrors messages/en.json pricing keys. */
 export const PRICING_COPY_ASSERTIONS = {
   proPrice: "$19",
   teamPrice: "$49",

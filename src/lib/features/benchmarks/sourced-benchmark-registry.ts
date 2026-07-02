@@ -5,7 +5,7 @@ import {
   type SourcedBenchmarkEntry,
 } from "@/lib/features/benchmarks/sourced-benchmark-types";
 
-/** Registry of sourced benchmarks only — empty by default (no fabricated data). */
+/** Registry of sourced benchmarks only - empty by default (no fabricated data). */
 export const SOURCED_BENCHMARK_REGISTRY: readonly SourcedBenchmarkEntry[] = [];
 
 export function listPublishableSourcedBenchmarks(): readonly SourcedBenchmarkEntry[] {

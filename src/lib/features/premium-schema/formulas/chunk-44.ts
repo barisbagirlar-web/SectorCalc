@@ -72,7 +72,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_2",
     family: "cost",
-    label: "Ogrenme Egrisi Sure Tahmincisi — Time_N",
+    label: "Ogrenme Egrisi Sure Tahmincisi - Time_N",
     fn: (inputs) => {
     const time = num(inputs, "time");
     const n = num(inputs, "n");
@@ -84,7 +84,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_3",
     family: "cost",
-    label: "Ogrenme Egrisi Sure Tahmincisi — CumulativeTime_N",
+    label: "Ogrenme Egrisi Sure Tahmincisi - CumulativeTime_N",
     fn: (inputs) => {
     const time = num(inputs, "time");
     const n = num(inputs, "n");
@@ -96,7 +96,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_4",
     family: "cost",
-    label: "Ogrenme Egrisi Sure Tahmincisi — AverageTime_N",
+    label: "Ogrenme Egrisi Sure Tahmincisi - AverageTime_N",
     fn: (inputs) => {
     const cumulativeTime = num(inputs, "cumulativeTime");
     const n = num(inputs, "n");
@@ -107,7 +107,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_5",
     family: "cost",
-    label: "Ogrenme Egrisi Sure Tahmincisi — Cost_N",
+    label: "Ogrenme Egrisi Sure Tahmincisi - Cost_N",
     fn: (inputs) => {
     const time = num(inputs, "time");
     const laborRate = num(inputs, "laborRate");
@@ -118,15 +118,15 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_6",
     family: "cost",
-    label: "Ogrenme Egrisi Sure Tahmincisi — BreakevenUnit",
+    label: "Ogrenme Egrisi Sure Tahmincisi - BreakevenUnit",
     fn: (inputs) => {
-    return 0; // BreakevenUnit = N where StandardTime is reached — requires iteration
+    return 0; // BreakevenUnit = N where StandardTime is reached - requires iteration
   },
   },
   {
     id: "user.learning_curve_time_7",
     family: "cost",
-    label: "Ogrenme Egrisi Sure Tahmincisi — TotalLaborCost",
+    label: "Ogrenme Egrisi Sure Tahmincisi - TotalLaborCost",
     fn: (inputs) => {
     const cumulativeTime = num(inputs, "cumulativeTime");
     const laborRate = num(inputs, "laborRate");
@@ -139,7 +139,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_0",
     family: "cost",
-    label: "Pallet Rack Optimizer — RackCapacity",
+    label: "Pallet Rack Optimizer - RackCapacity",
     fn: (inputs) => {
     const bays = num(inputs, "bays");
     const levels = num(inputs, "levels");
@@ -150,7 +150,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_1",
     family: "cost",
-    label: "Pallet Rack Optimizer — FloorUtilization",
+    label: "Pallet Rack Optimizer - FloorUtilization",
     fn: (inputs) => {
     const rackFootprint = num(inputs, "rackFootprint");
     const totalFloorArea = num(inputs, "totalFloorArea");
@@ -160,7 +160,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_2",
     family: "cost",
-    label: "Pallet Rack Optimizer — Throughput",
+    label: "Pallet Rack Optimizer - Throughput",
     fn: (inputs) => {
     const aisles = num(inputs, "aisles");
     const forkliftSpeed = num(inputs, "forkliftSpeed");
@@ -171,7 +171,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_3",
     family: "cost",
-    label: "Pallet Rack Optimizer — Deflection",
+    label: "Pallet Rack Optimizer - Deflection",
     fn: (inputs) => {
     const load = num(inputs, "load");
     const beamLength = num(inputs, "beamLength");
@@ -183,7 +183,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_4",
     family: "cost",
-    label: "Pallet Rack Optimizer — SafetyFactor",
+    label: "Pallet Rack Optimizer - SafetyFactor",
     fn: (inputs) => {
     const maxLoadCapacity = num(inputs, "maxLoadCapacity");
     const actualLoad = num(inputs, "actualLoad");
@@ -193,7 +193,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_5",
     family: "cost",
-    label: "Pallet Rack Optimizer — CostPerPosition",
+    label: "Pallet Rack Optimizer - CostPerPosition",
     fn: (inputs) => {
     const totalRackCost = num(inputs, "totalRackCost");
     const rackCapacity = num(inputs, "rackCapacity");
@@ -203,7 +203,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_6",
     family: "cost",
-    label: "Pallet Rack Optimizer — RetrievalTime",
+    label: "Pallet Rack Optimizer - RetrievalTime",
     fn: (inputs) => {
     const travelTime = num(inputs, "travelTime");
     const Horizontal = num(inputs, "Horizontal");
@@ -219,7 +219,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.poka_yoke_roi_0",
     family: "cost",
-    label: "Poka-Yoke ROI — CurrentDefectRate",
+    label: "Poka-Yoke ROI - CurrentDefectRate",
     fn: (inputs) => {
     const defects = num(inputs, "defects");
     const totalUnits = num(inputs, "totalUnits");
@@ -229,7 +229,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.poka_yoke_roi_1",
     family: "cost",
-    label: "Poka-Yoke ROI — DefectCost_Annual",
+    label: "Poka-Yoke ROI - DefectCost_Annual",
     fn: (inputs) => {
     const currentDefectRate = num(inputs, "currentDefectRate");
     const totalUnits = num(inputs, "totalUnits");

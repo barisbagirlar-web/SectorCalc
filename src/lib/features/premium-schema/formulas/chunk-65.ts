@@ -72,7 +72,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fire_hydrant_flow_0",
     family: "cost",
-    label: "Yangin Hidranti Akis — FlowRate_Q",
+    label: "Yangin Hidranti Akis - FlowRate_Q",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const d = num(inputs, "d");
@@ -87,7 +87,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fire_hydrant_flow_1",
     family: "cost",
-    label: "Yangin Hidranti Akis — ResidualPressure",
+    label: "Yangin Hidranti Akis - ResidualPressure",
     fn: (inputs) => {
     const p = num(inputs, "p");
     const Static = num(inputs, "Static");
@@ -101,7 +101,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fire_hydrant_flow_2",
     family: "cost",
-    label: "Yangin Hidranti Akis — AvailableFlow_At20psi",
+    label: "Yangin Hidranti Akis - AvailableFlow_At20psi",
     fn: (inputs) => {
     const flowRate = num(inputs, "flowRate");
     const p = num(inputs, "p");
@@ -116,7 +116,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fire_hydrant_flow_3",
     family: "cost",
-    label: "Yangin Hidranti Akis — FrictionLoss",
+    label: "Yangin Hidranti Akis - FrictionLoss",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const length = num(inputs, "length");
@@ -129,7 +129,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fire_hydrant_flow_4",
     family: "cost",
-    label: "Yangin Hidranti Akis — RequiredPumpHead",
+    label: "Yangin Hidranti Akis - RequiredPumpHead",
     fn: (inputs) => {
     const elevationHead = num(inputs, "elevationHead");
     const frictionLoss = num(inputs, "frictionLoss");
@@ -140,7 +140,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fire_hydrant_flow_5",
     family: "cost",
-    label: "Yangin Hidranti Akis — Compliance",
+    label: "Yangin Hidranti Akis - Compliance",
     fn: (inputs) => {
     const availableFlow = num(inputs, "availableFlow");
     const At20psi = num(inputs, "At20psi");
@@ -156,7 +156,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renovation_budget_optimizer_0",
     family: "cost",
-    label: "Yenileme Butcesi Optimize Edici — BaseCost",
+    label: "Yenileme Butcesi Optimize Edici - BaseCost",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const costPerSqM = num(inputs, "costPerSqM");
@@ -168,7 +168,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renovation_budget_optimizer_1",
     family: "cost",
-    label: "Yenileme Butcesi Optimize Edici — Escalation",
+    label: "Yenileme Butcesi Optimize Edici - Escalation",
     fn: (inputs) => {
     const baseCost = num(inputs, "baseCost");
     const inflationRate = num(inputs, "inflationRate");
@@ -179,7 +179,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renovation_budget_optimizer_2",
     family: "cost",
-    label: "Yenileme Butcesi Optimize Edici — Contingency",
+    label: "Yenileme Butcesi Optimize Edici - Contingency",
     fn: (inputs) => {
     const baseCost = num(inputs, "baseCost");
     const escalation = num(inputs, "escalation");
@@ -190,7 +190,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renovation_budget_optimizer_3",
     family: "cost",
-    label: "Yenileme Butcesi Optimize Edici — SoftCosts",
+    label: "Yenileme Butcesi Optimize Edici - SoftCosts",
     fn: (inputs) => {
     const baseCost = num(inputs, "baseCost");
     const escalation = num(inputs, "escalation");
@@ -202,7 +202,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renovation_budget_optimizer_4",
     family: "cost",
-    label: "Yenileme Butcesi Optimize Edici — TotalBudget",
+    label: "Yenileme Butcesi Optimize Edici - TotalBudget",
     fn: (inputs) => {
     const baseCost = num(inputs, "baseCost");
     const escalation = num(inputs, "escalation");
@@ -216,7 +216,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renovation_budget_optimizer_5",
     family: "cost",
-    label: "Yenileme Butcesi Optimize Edici — ROI_Renovation",
+    label: "Yenileme Butcesi Optimize Edici - ROI_Renovation",
     fn: (inputs) => {
     const newPropertyValue = num(inputs, "newPropertyValue");
     const oldPropertyValue = num(inputs, "oldPropertyValue");
@@ -229,7 +229,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renewable_energy_irr_0",
     family: "cost",
-    label: "Yenilenebilir Enerji YG — AnnualGeneration",
+    label: "Yenilenebilir Enerji YG - AnnualGeneration",
     fn: (inputs) => {
     const systemCapacity = num(inputs, "systemCapacity");
     const capacityFactor = num(inputs, "capacityFactor");
@@ -239,7 +239,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renewable_energy_irr_1",
     family: "cost",
-    label: "Yenilenebilir Enerji YG — AnnualSavings",
+    label: "Yenilenebilir Enerji YG - AnnualSavings",
     fn: (inputs) => {
     const annualGeneration = num(inputs, "annualGeneration");
     const gridElectricityRate = num(inputs, "gridElectricityRate");
@@ -249,7 +249,7 @@ export const CHUNK_65_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.renewable_energy_irr_2",
     family: "cost",
-    label: "Yenilenebilir Enerji YG — AnnualOPEX",
+    label: "Yenilenebilir Enerji YG - AnnualOPEX",
     fn: (inputs) => {
     const maintenance = num(inputs, "maintenance");
     const insurance = num(inputs, "insurance");

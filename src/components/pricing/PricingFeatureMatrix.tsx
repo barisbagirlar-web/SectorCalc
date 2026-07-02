@@ -16,7 +16,7 @@ function CellValue({ value }: { value: boolean | "partial" }) {
   if (value === "partial") {
     return <span className="text-warn-amber">~</span>;
   }
-  return <span className="text-body-charcoal">—</span>;
+  return <span className="text-body-charcoal">-</span>;
 }
 
 export function PricingFeatureMatrix() {

@@ -1,5 +1,5 @@
 /**
- * Full existing tool audit report formatter — Phase 5H-J.
+ * Full existing tool audit report formatter - Phase 5H-J.
  */
 
 import type { FullExistingToolAuditResult } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

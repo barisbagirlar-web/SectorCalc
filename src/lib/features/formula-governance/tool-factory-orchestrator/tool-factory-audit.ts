@@ -1,5 +1,5 @@
 /**
- * Tool factory orchestrator audit — Phase 5I-A skeleton readiness.
+ * Tool factory orchestrator audit - Phase 5I-A skeleton readiness.
  */
 
 import { validateAllGates } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-gates";

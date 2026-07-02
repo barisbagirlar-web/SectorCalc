@@ -20,7 +20,7 @@ export function SchemaMesh({ sector, sectorKey, locale = "en", priceUsd = "19" }
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: `SectorCalc — ${sector.name}`,
+    name: `SectorCalc - ${sector.name}`,
     url: pageUrl,
     applicationCategory: "IndustrialIntelligence",
     operatingSystem: "Web",

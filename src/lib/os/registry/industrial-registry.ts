@@ -1,5 +1,5 @@
 /**
- * Industrial OS — 27-sector canonical registry.
+ * Industrial OS - 27-sector canonical registry.
  * JSON-config driven (sector-registry.config.json).
  * After config changes: npm run seo:llms && npm run seo:indexnow
  */
@@ -45,7 +45,7 @@ export type IndustrialRegistryKey =
 export type IndustrialParamTriple = readonly [string, string, string];
 
 export interface IndustrialRegistryEntry {
-  /** Dynamic localized names — { en, tr, de, ... } */
+  /** Dynamic localized names - { en, tr, de, ... } */
   names: LocalizedSectorName;
   /** Default English display (backward compat) */
   name: string;

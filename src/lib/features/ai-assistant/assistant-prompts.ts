@@ -1,5 +1,5 @@
 /**
- * AI assistant system prompt boundaries — ADIM 6 (interface-only; no LLM calls).
+ * AI assistant system prompt boundaries - ADIM 6 (interface-only; no LLM calls).
  *
  * Deterministic prompt contract for server-side assistant integration.
  * No API keys or runtime LLM calls in this module.

@@ -3,7 +3,7 @@
 
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * SAFE EXPRESSION CORE (v4 — Full Industrial + All PRO Tool Patterns)
+ * SAFE EXPRESSION CORE (v4 - Full Industrial + All PRO Tool Patterns)
  * ═══════════════════════════════════════════════════════════════════════════
  * No eval(). No `new Function()`. Uses mathjs AST whitelist for safe
  * expression evaluation. Recursively validates EVERY node against an
@@ -12,9 +12,9 @@
  * v4 additions:
  *   • ** → ^ normalization
  *   • !x → not(x) normalization
- *   • AccessorNode (obj[key]) — object must be known var, index simple
- *   • ObjectNode ({a:1, b:2}) — for inline lookup tables
- *   • ArrayNode ([1,2,3]) — for constant arrays
+ *   • AccessorNode (obj[key]) - object must be known var, index simple
+ *   • ObjectNode ({a:1, b:2}) - for inline lookup tables
+ *   • ArrayNode ([1,2,3]) - for constant arrays
  *   • normal_cdf → allowed (alias for mathjs erf-based CDF)
  *   • binomial_coefficient → allowed
  * ═══════════════════════════════════════════════════════════════════════════
@@ -157,12 +157,12 @@ export interface ValidationContext {
 }
 
 /**
- * Safari-safe negation normalization — no lookbehind assertions.
+ * Safari-safe negation normalization - no lookbehind assertions.
  *
  * Safari does not support lookbehind ((?<=), (?<!)). This helper uses a
  * placeholder technique instead:
  *   1. Protect != by replacing it with a control char
- *   2. Convert remaining unary ! → not() — safe because != / !== are gone
+ *   2. Convert remaining unary ! → not() - safe because != / !== are gone
  *   3. Restore !=
  *
  * Preserved unchanged:
@@ -185,7 +185,7 @@ export function normalizeNegation(s: string): string {
 
 /**
  * Pre‑normalize expression text before mathjs parsing.
- * Order matters — more specific patterns first.
+ * Order matters - more specific patterns first.
  */
 export function preNormalize(expr: string): string {
   let s = expr;
@@ -277,7 +277,7 @@ function assertSafeNode(node: MathNode, ctx: ValidationContext): void {
     }
 
     case 'AccessorNode': {
-      // obj[key] — allow if object is known var and index is safe
+      // obj[key] - allow if object is known var and index is safe
       const an = node as any;
       assertSafeNode(an.object, ctx);
       if (an.index) {
@@ -299,7 +299,7 @@ function assertSafeNode(node: MathNode, ctx: ValidationContext): void {
     }
 
     case 'ObjectNode': {
-      // {key: value, ...} — inline object literal (lookup tables)
+      // {key: value, ...} - inline object literal (lookup tables)
       const on = node as any;
       if (on.properties) {
         for (const key of Object.keys(on.properties)) {
@@ -310,7 +310,7 @@ function assertSafeNode(node: MathNode, ctx: ValidationContext): void {
     }
 
     case 'ArrayNode': {
-      // [item1, item2, ...] — constant arrays
+      // [item1, item2, ...] - constant arrays
       const arr = node as any;
       if (arr.items) {
         arr.items.forEach((item: MathNode) => assertSafeNode(item, ctx));
@@ -319,7 +319,7 @@ function assertSafeNode(node: MathNode, ctx: ValidationContext): void {
     }
 
     case 'RelationalNode': {
-      // a == b, a != b, a < b, a <= b, a > b, a >= b — allowed
+      // a == b, a != b, a < b, a <= b, a > b, a >= b - allowed
       const rn = node as any;
       const params = (rn as any).params || [];
       params.forEach((p: MathNode) => assertSafeNode(p, ctx));
@@ -346,12 +346,12 @@ export function compileSafe(expr: string, ctx: ValidationContext) {
       const v = code.evaluate(scope);
       if (typeof v === 'boolean') return v ? 1 : 0;
       if (typeof v === 'object' && v !== null && !Array.isArray(v)) {
-        // ObjectNode result — extract first numeric value
+        // ObjectNode result - extract first numeric value
         const vals = Object.values(v).filter((x): x is number => typeof x === 'number' && isFinite(x));
         return vals.length > 0 ? vals[0] : 0;
       }
       if (Array.isArray(v)) {
-        // ArrayNode result — extract first element
+        // ArrayNode result - extract first element
         const first = v[0];
         if (typeof first === 'number' && isFinite(first)) return first;
         return 0;

@@ -21,7 +21,7 @@ export const NOISE_VIBRATION_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "reworkCost", label: "Hata/Revizyon Cost", label_i18n: {"en":"Hata/Revizyon Cost"}, unit: "USD/year", format: "currency" },
     { id: "mitigationRoi", label: "Azaltma ROI", label_i18n: {"en":"Azaltma ROI"}, unit: "%", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "mitigationRoi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — Investment fizibilitesi riskli.", warningMessage_i18n: {"en":"ROI < %50 — Investment fizibilitesi riskli."}, criticalMessage: "ROI < %20 — reduction investment is not recommended.", criticalMessage_i18n: {"en":"ROI < %20 — reduction investment is not recommended."} }],
+  thresholds: [{ fieldId: "mitigationRoi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 - Investment fizibilitesi riskli.", warningMessage_i18n: {"en":"ROI < %50 - Investment fizibilitesi riskli."}, criticalMessage: "ROI < %20 - reduction investment is not recommended.", criticalMessage_i18n: {"en":"ROI < %20 - reduction investment is not recommended."} }],
   formulaPipeline: [
     { formulaId: "measurement.noise_exposure", inputMap: { noiseLevelDb: "noiseLevelDb", exposureHours: "exposureHours" ,
         noiseLevel: "noiseLevel",

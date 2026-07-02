@@ -26,7 +26,7 @@ export const SHOP_HOURLY_RATE_SCHEMA: PremiumCalculatorSchema = {
     { id: "shopHourlyRate", label: "Shop Hourly Rate", label_i18n: {"en":"Shop Hourly Rate"}, unit: "USD/hour", format: "currency" },
     { id: "effectiveMargin", label: "Actual Margin", label_i18n: {"en":"Actual Margin"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "effectiveMargin", warning: 20, critical: 10, direction: "lower_is_bad", warningMessage: "Margin < 20% — review cost structure.", warningMessage_i18n: {"en":"Margin < 20% — review cost structure."}, criticalMessage: "Margin < 10% — urgent pricing revision.", criticalMessage_i18n: {"en":"Margin < 10% — urgent pricing revision."} }],
+  thresholds: [{ fieldId: "effectiveMargin", warning: 20, critical: 10, direction: "lower_is_bad", warningMessage: "Margin < 20% - review cost structure.", warningMessage_i18n: {"en":"Margin < 20% - review cost structure."}, criticalMessage: "Margin < 10% - urgent pricing revision.", criticalMessage_i18n: {"en":"Margin < 10% - urgent pricing revision."} }],
   formulaPipeline: [
     { formulaId: "cost.shop_direct_labor", inputMap: { technicianWages: "technicianWages" }, outputId: "directLabor" },
     { formulaId: "cost.shop_indirect_labor", inputMap: { managerWages: "managerWages", adminWages: "adminWages" }, outputId: "indirectLabor" },

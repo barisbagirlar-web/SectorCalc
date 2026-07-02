@@ -20,10 +20,10 @@ export function OperatingSystemPageContent() {
         <Container className="sc-pro-container public-demo-hero">
           <p className="sc-pro-eyebrow text-white/70">Calculation operating system</p>
           <h1 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight md:text-4xl">
-            Tool Factory — from idea to controlled deploy
+            Tool Factory - from idea to controlled deploy
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80">
-            SectorCalc accelerates sector tool production with governed pipelines — not infinite
+            SectorCalc accelerates sector tool production with governed pipelines - not infinite
             audit loops. Every stage has a gate; deploy requires human approval.
           </p>
           <div className="public-demo-cta-row mt-8">
@@ -59,7 +59,7 @@ export function OperatingSystemPageContent() {
                     {stage.automated === true
                       ? "Automated governance"
                       : stage.automated === "partial"
-                        ? "Partial — feature-flag gated"
+                        ? "Partial - feature-flag gated"
                         : "Human gate required"}
                   </p>
                 </div>
@@ -93,7 +93,7 @@ export function OperatingSystemPageContent() {
               <h3 className="text-sm font-semibold uppercase tracking-wide text-deep-navy">Automated</h3>
               <ul className="mt-3 space-y-2 text-sm text-text-secondary">
                 {AUTOMATION_BOUNDARY.automated.map((item) => (
-                  <li key={item}>— {item}</li>
+                  <li key={item}>- {item}</li>
                 ))}
               </ul>
             </div>
@@ -101,7 +101,7 @@ export function OperatingSystemPageContent() {
               <h3 className="text-sm font-semibold uppercase tracking-wide text-deep-navy">Not automated</h3>
               <ul className="mt-3 space-y-2 text-sm text-text-secondary">
                 {AUTOMATION_BOUNDARY.notAutomated.map((item) => (
-                  <li key={item}>— {item}</li>
+                  <li key={item}>- {item}</li>
                 ))}
               </ul>
             </div>
@@ -113,11 +113,11 @@ export function OperatingSystemPageContent() {
         <Container className="sc-pro-container">
           <p className="sc-pro-eyebrow">Debt register</p>
           <h2 className="sc-pro-title sc-pro-title--compact">Remaining debt summary</h2>
-          <p className="mt-3 text-sm text-text-secondary">{debt.length} tracked items — top priority:</p>
+          <p className="mt-3 text-sm text-text-secondary">{debt.length} tracked items - top priority:</p>
           <ul className="mt-4 space-y-2 text-sm text-text-secondary">
             {debt.slice(0, 5).map((entry) => (
               <li key={entry.id}>
-                — {entry.description} ({entry.severity})
+                - {entry.description} ({entry.severity})
               </li>
             ))}
           </ul>
@@ -125,7 +125,7 @@ export function OperatingSystemPageContent() {
           <ul className="mt-3 space-y-2 text-sm text-text-secondary">
             {nextBatches.map((batch) => (
               <li key={batch.batchId}>
-                — {batch.batchId}: {batch.title}
+                - {batch.batchId}: {batch.title}
               </li>
             ))}
           </ul>
@@ -138,7 +138,7 @@ export function OperatingSystemPageContent() {
           <h2 className="text-2xl font-semibold">Next 3 real steps</h2>
           <ul className="mt-6 space-y-2 text-sm text-white/85">
             {NEXT_BUSINESS_STEPS.map((step) => (
-              <li key={step}>— {step}</li>
+              <li key={step}>- {step}</li>
             ))}
           </ul>
         </Container>

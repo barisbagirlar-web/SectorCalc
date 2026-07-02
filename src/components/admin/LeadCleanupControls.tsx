@@ -33,7 +33,7 @@ export function LeadCleanupControls({
  <div>
  <h2 className="text-sm font-bold text-deep-navy">Lead Cleanup</h2>
  <p className="mt-1 text-xs text-text-secondary">
- Exclude test/trial records from metrics — table shows all leads.
+ Exclude test/trial records from metrics - table shows all leads.
  </p>
  </div>
 
@@ -125,7 +125,7 @@ export function LeadDataQualityDetail({
  ? "Yes"
  : detection.manualOverrideNotTest
  ? "No (admin override)"
- : "—"
+ : "-"
  }
  />
  <DetailRow
@@ -133,7 +133,7 @@ export function LeadDataQualityDetail({
  value={
  detection.isTestLead
  ? formatTestLeadConfidence(detection.confidence)
- : "—"
+ : "-"
  }
  />
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
@@ -146,7 +146,7 @@ export function LeadDataQualityDetail({
  ))}
  </ul>
  ) : (
- "—"
+ "-"
  )}
  </dd>
  </div>

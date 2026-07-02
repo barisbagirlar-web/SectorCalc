@@ -22,7 +22,7 @@ export const SEWING_LINE_BALANCE_SCHEMA: PremiumCalculatorSchema = {
     { id: "lineEfficiency", label: "Line Verimliligi", label_i18n: {"en":"Line Verimliligi"}, unit: "%", format: "percentage" },
     { id: "balanceDelay", label: "Balance Loss", label_i18n: {"en":"Balance Loss"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "lineEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Efficiency < 80% — SMV distribution should be improved.", warningMessage_i18n: {"en":"Efficiency < 80% — SMV distribution should be improved."}, criticalMessage: "Efficiency < %70 — Line re dengelenmeli.", criticalMessage_i18n: {"en":"Efficiency < %70 — Line re dengelenmeli."} }],
+  thresholds: [{ fieldId: "lineEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Efficiency < 80% - SMV distribution should be improved.", warningMessage_i18n: {"en":"Efficiency < 80% - SMV distribution should be improved."}, criticalMessage: "Efficiency < %70 - Line re dengelenmeli.", criticalMessage_i18n: {"en":"Efficiency < %70 - Line re dengelenmeli."} }],
   formulaPipeline: [
     { formulaId: "measurement.sewing_takt_time", inputMap: { availableTime: "availableTime", demand: "demand" }, outputId: "taktTime" },
     { formulaId: "measurement.sewing_line_efficiency", inputMap: { cycleTotal: "cycleTotal", actualOperators: "operatorCount", taktTime: "taktTime" ,

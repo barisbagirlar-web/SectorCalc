@@ -51,7 +51,7 @@ export const PREMIUM_SUBSCRIPTION_NOTE =
 export const PRICING_CHECKOUT_LEGAL =
  "Subscription renews monthly. Cancel anytime. Digital product. No refunds. Estimates only. Not financial, legal or engineering advice. Verify all outputs before making business decisions.";
 
-/** @deprecated Use hasActiveSubscription — mock always false in v1E */
+/** @deprecated Use hasActiveSubscription - mock always false in v1E */
 export function hasActiveSubscriptionMock(): boolean {
  return false;
 }

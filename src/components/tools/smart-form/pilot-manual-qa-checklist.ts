@@ -1,5 +1,5 @@
 /**
- * Smart form pilot manual QA checklist builder — Phase 5H-G-I/J.
+ * Smart form pilot manual QA checklist builder - Phase 5H-G-I/J.
  */
 
 import {

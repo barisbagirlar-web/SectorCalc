@@ -1,5 +1,5 @@
 /**
- * Roadmap debt register types — Phase 5I-Q.
+ * Roadmap debt register types - Phase 5I-Q.
  */
 
 export type DebtSeverity = "critical" | "high" | "medium";

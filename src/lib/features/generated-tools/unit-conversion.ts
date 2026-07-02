@@ -76,7 +76,7 @@ export function inferInputUnitGroup(
     return "currency";
   }
 
-  // Compound currency units — not convertible
+  // Compound currency units - not convertible
   if (schemaUnit && isCompoundCurrencyUnit(schemaUnit)) {
     return null;
   }

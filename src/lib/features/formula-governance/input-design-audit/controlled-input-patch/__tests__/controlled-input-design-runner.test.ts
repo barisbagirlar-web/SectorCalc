@@ -1,5 +1,5 @@
 /**
- * Phase 5H-F — controlled input design runner tests.
+ * Phase 5H-F - controlled input design runner tests.
  */
 
 import { describe, expect, test } from "vitest";

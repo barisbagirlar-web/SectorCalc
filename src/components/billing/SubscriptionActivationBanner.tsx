@@ -136,7 +136,7 @@ export function PremiumSubscribedBanner({ toolSlug }: { toolSlug?: string }) {
  Payment received. Your SectorCalc Pro access may take a few seconds to activate.
  </p>
  {!loading && isActive ? (
- <p className="mt-2 text-sm text-deep-navy">Access is active — run the calculator below.</p>
+ <p className="mt-2 text-sm text-deep-navy">Access is active - run the calculator below.</p>
  ) : (
  <p className="mt-2 text-sm text-text-secondary">
  Waiting for activation… this page updates automatically when your subscription is ready.

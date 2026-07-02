@@ -1,5 +1,5 @@
 /**
- * Phase 5H-C — professional depth scorer tests.
+ * Phase 5H-C - professional depth scorer tests.
  */
 
 import { describe, expect, test } from "vitest";

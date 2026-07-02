@@ -24,7 +24,7 @@ export const HEAT_EXCHANGER_FOULING_SCHEMA: PremiumCalculatorSchema = {
     { id: "cost", label: "Annual Energy Loss", label_i18n: {"en":"Annual Energy Loss"}, unit: "USD/year", format: "currency" },
     { id: "roi", label: "Temizlik ROI", label_i18n: {"en":"Temizlik ROI"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "cost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Energy loss > $10K/year — cleaning should be scheduled.", warningMessage_i18n: {"en":"Energy loss > $10K/year — cleaning should be scheduled."}, criticalMessage: "Loss > $30K/year — urgent cleaning is required.", criticalMessage_i18n: {"en":"Loss > $30K/year — urgent cleaning is required."} }],
+  thresholds: [{ fieldId: "cost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Energy loss > $10K/year - cleaning should be scheduled.", warningMessage_i18n: {"en":"Energy loss > $10K/year - cleaning should be scheduled."}, criticalMessage: "Loss > $30K/year - urgent cleaning is required.", criticalMessage_i18n: {"en":"Loss > $30K/year - urgent cleaning is required."} }],
   formulaPipeline: [
     { formulaId: "energy.fouling_resistance", inputMap: { uClean: "uClean", uDirty: "uDirty" }, outputId: "rf" },
     { formulaId: "energy.heat_exchanger_loss", inputMap: { area: "area", uClean: "uClean", lmtd: "lmtd", uDirty: "uDirty" }, outputId: "heatLoss" },

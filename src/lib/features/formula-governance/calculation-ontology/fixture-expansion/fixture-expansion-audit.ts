@@ -1,5 +1,5 @@
 /**
- * Fixture expansion audit — Phase 5I-K read-only plan generation.
+ * Fixture expansion audit - Phase 5I-K read-only plan generation.
  */
 
 import { FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts";

@@ -3,7 +3,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CPM_DELAY_SCHEMA: PremiumCalculatorSchema = {
   id: "cpm-delay-penalty-analyzer", legacyPaidSlug: "cpm-delay-penalty-analyzer",
   name: "CPM Delay Penalty & EOT Claim Analyzer", name_i18n: {"en":"CPM Delay Penalty & EOT Claim Analyzer"}, sectorSlug: "construction", category: "cost",
-  painStatement: "In construction projects, delay penalties and EOT claims — if not calculated accurately — make disputes between subcontractor and main contractor inevitable.", painStatement_i18n: {"en":"In construction projects, delay penalties and EOT claims — if not calculated accurately — make disputes between subcontractor and main contractor inevitable."},
+  painStatement: "In construction projects, delay penalties and EOT claims - if not calculated accurately - make disputes between subcontractor and main contractor inevitable.", painStatement_i18n: {"en":"In construction projects, delay penalties and EOT claims - if not calculated accurately - make disputes between subcontractor and main contractor inevitable."},
   inputs: [
     { id: "plannedDuration", label: "Planned project duration", label_i18n: {"en":"Planned project duration"}, type: "number", unit: "days", required: true, smartDefault: 200, validation: { min: 1 }, helper: "", expertMeaning: "Planned project duration", expertMeaning_i18n: {"en":"Planned project duration"} },
     { id: "actualDuration", label: "Actual project duration", label_i18n: {"en":"Actual project duration"}, type: "number", unit: "days", required: true, smartDefault: 240, validation: { min: 1 }, helper: "", expertMeaning: "Actual project duration", expertMeaning_i18n: {"en":"Actual project duration"} },
@@ -24,7 +24,7 @@ export const CPM_DELAY_SCHEMA: PremiumCalculatorSchema = {
     { id: "eotClaim", label: "EOT demand Hakk", label_i18n: {"en":"EOT demand Hakk"}, unit: "days", format: "number", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "liquidatedDamages", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "penalty > $50K — acceleration or EOT should be evaluated.", warningMessage_i18n: {"en":"penalty > $50K — acceleration or EOT should be evaluated."}, criticalMessage: "penalty > $150K — legal process risk is high.", criticalMessage_i18n: {"en":"penalty > $150K — legal process risk is high."} },
+    { fieldId: "liquidatedDamages", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "penalty > $50K - acceleration or EOT should be evaluated.", warningMessage_i18n: {"en":"penalty > $50K - acceleration or EOT should be evaluated."}, criticalMessage: "penalty > $150K - legal process risk is high.", criticalMessage_i18n: {"en":"penalty > $150K - legal process risk is high."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.cpm_critical_delay", inputMap: { actualDuration: "actualDuration", plannedDuration: "plannedDuration", totalFloat: "totalFloat" }, outputId: "criticalDelay" },

@@ -136,7 +136,7 @@ export function normalizePhoneForWhatsApp(phone: string): string | null {
 
 export function buildWhatsAppMessage(lead: LeadIntent): string {
  const intent = formatLeadIntentSummary(lead);
- const tool = lead.toolRequested.trim() || "—";
+ const tool = lead.toolRequested.trim() || "-";
  const source = lead.source.replace(/_/g, " ");
  return (
    `Hello ${lead.name}, we are following up on your SectorCalc request.\n` +

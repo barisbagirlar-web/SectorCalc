@@ -18,7 +18,7 @@ export const GAGE_RNR_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "pctGrr", label: "%GRR", label_i18n: {"en":"%GRR"}, unit: "%", format: "percentage" },
     { id: "costError", label: "Olcum Error Cost", label_i18n: {"en":"Olcum Error Cost"}, unit: "USD/year", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "pctGrr", warning: 20, critical: 30, direction: "higher_is_bad", warningMessage: "%GRR > %20 — measurement system should be improved.", warningMessage_i18n: {"en":"%GRR > %20 — measurement system should be improved."}, criticalMessage: "%GRR > %30 — measurement system is inadequate.", criticalMessage_i18n: {"en":"%GRR > %30 — measurement system is inadequate."} }],
+  thresholds: [{ fieldId: "pctGrr", warning: 20, critical: 30, direction: "higher_is_bad", warningMessage: "%GRR > %20 - measurement system should be improved.", warningMessage_i18n: {"en":"%GRR > %20 - measurement system should be improved."}, criticalMessage: "%GRR > %30 - measurement system is inadequate.", criticalMessage_i18n: {"en":"%GRR > %30 - measurement system is inadequate."} }],
   formulaPipeline: [
     { formulaId: "measurement.grr_combined", inputMap: { ev: "ev", av: "av" }, outputId: "grr" },
     { formulaId: "measurement.grr_pct", inputMap: { grr: "grr", tv: "tv" }, outputId: "pctGrr" },

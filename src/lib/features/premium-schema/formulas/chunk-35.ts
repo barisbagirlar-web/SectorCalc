@@ -72,7 +72,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_3",
     family: "cost",
-    label: "Konteyner Yuku — LoadEfficiency",
+    label: "Konteyner Yuku - LoadEfficiency",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const Utilization = num(inputs, "Utilization");
@@ -86,7 +86,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_4",
     family: "cost",
-    label: "Konteyner Yuku — WastedSpaceCost",
+    label: "Konteyner Yuku - WastedSpaceCost",
     fn: (inputs) => {
     const loadEfficiency = num(inputs, "loadEfficiency");
     const freightCost = num(inputs, "freightCost");
@@ -96,7 +96,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_5",
     family: "cost",
-    label: "Konteyner Yuku — PalletStacking",
+    label: "Konteyner Yuku - PalletStacking",
     fn: (inputs) => {
     const containerHeight = num(inputs, "containerHeight");
     const palletHeight = num(inputs, "palletHeight");
@@ -107,7 +107,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_6",
     family: "cost",
-    label: "Konteyner Yuku — MaxPallets",
+    label: "Konteyner Yuku - MaxPallets",
     fn: (inputs) => {
     const palletStacking = num(inputs, "palletStacking");
     const floorArea = num(inputs, "floorArea");
@@ -124,7 +124,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_0",
     family: "cost",
-    label: "Kumas Kesim Optimize Edici — MarkerEfficiency",
+    label: "Kumas Kesim Optimize Edici - MarkerEfficiency",
     fn: (inputs) => {
     const totalPatternArea = num(inputs, "totalPatternArea");
     const markerLength = num(inputs, "markerLength");
@@ -135,7 +135,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_1",
     family: "cost",
-    label: "Kumas Kesim Optimize Edici — FabricRequired",
+    label: "Kumas Kesim Optimize Edici - FabricRequired",
     fn: (inputs) => {
     const totalPatternArea = num(inputs, "totalPatternArea");
     const markerEfficiency = num(inputs, "markerEfficiency");
@@ -146,7 +146,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_2",
     family: "cost",
-    label: "Kumas Kesim Optimize Edici — Cost_Fabric",
+    label: "Kumas Kesim Optimize Edici - Cost_Fabric",
     fn: (inputs) => {
     const fabricRequired = num(inputs, "fabricRequired");
     const pricePerMeter = num(inputs, "pricePerMeter");
@@ -156,7 +156,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_3",
     family: "cost",
-    label: "Kumas Kesim Optimize Edici — Utilization_Gain",
+    label: "Kumas Kesim Optimize Edici - Utilization_Gain",
     fn: (inputs) => {
     const newEfficiency = num(inputs, "newEfficiency");
     const oldEfficiency = num(inputs, "oldEfficiency");
@@ -168,7 +168,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_4",
     family: "cost",
-    label: "Kumas Kesim Optimize Edici — SplicingLoss",
+    label: "Kumas Kesim Optimize Edici - SplicingLoss",
     fn: (inputs) => {
     const splices = num(inputs, "splices");
     const overlapLength = num(inputs, "overlapLength");
@@ -179,7 +179,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_5",
     family: "cost",
-    label: "Kumas Kesim Optimize Edici — TotalYardage",
+    label: "Kumas Kesim Optimize Edici - TotalYardage",
     fn: (inputs) => {
     const markerLength = num(inputs, "markerLength");
     const endLoss = num(inputs, "endLoss");
@@ -192,7 +192,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.currency_risk_0",
     family: "cost",
-    label: "Kur Riski — Exposure_FC",
+    label: "Kur Riski - Exposure_FC",
     fn: (inputs) => {
     const totalRevenue = num(inputs, "totalRevenue");
     const totalCost = num(inputs, "totalCost");
@@ -204,7 +204,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.currency_risk_1",
     family: "cost",
-    label: "Kur Riski — VaR_Historical",
+    label: "Kur Riski - VaR_Historical",
     fn: (inputs) => {
     const exposure = num(inputs, "exposure");
     const stdDev = num(inputs, "stdDev");
@@ -220,7 +220,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.currency_risk_2",
     family: "cost",
-    label: "Kur Riski — VaR_Parametric",
+    label: "Kur Riski - VaR_Parametric",
     fn: (inputs) => {
     const exposure = num(inputs, "exposure");
     const volatility = num(inputs, "volatility");
@@ -233,7 +233,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.currency_risk_3",
     family: "cost",
-    label: "Kur Riski — HedgedExposure",
+    label: "Kur Riski - HedgedExposure",
     fn: (inputs) => {
     const exposure = num(inputs, "exposure");
     const hedgeRatio = num(inputs, "hedgeRatio");
@@ -244,7 +244,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.currency_risk_4",
     family: "cost",
-    label: "Kur Riski — UnhedgedVaR",
+    label: "Kur Riski - UnhedgedVaR",
     fn: (inputs) => {
     const vaR = num(inputs, "vaR");
     const Historical = num(inputs, "Historical");

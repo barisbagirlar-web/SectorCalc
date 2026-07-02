@@ -1,5 +1,5 @@
 /**
- * Tool tier header bands — free (light blue) · premium (light green)
+ * Tool tier header bands - free (light blue) · premium (light green)
  * High-contrast copy on tinted surfaces (never dark-on-dark).
  */
 
@@ -72,7 +72,7 @@
   background-color: var(--sc-tier-premium-accent);
 }
 
-/* Keep tier band copy readable — override global contrast safety nets */
+/* Keep tier band copy readable - override global contrast safety nets */
 .sc-tool-tier-band :is(
   h1,
   h2,

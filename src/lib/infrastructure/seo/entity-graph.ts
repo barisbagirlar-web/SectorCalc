@@ -150,7 +150,7 @@ function buildPlatformCalculateAction(): JsonLdRecord {
     "@type": "Action",
     additionalType: "https://schema.org/CalculateAction",
     "@id": `${SITE_URL}/#calculate-action-platform`,
-    name: "SectorCalc — Sector-specific calculation platform",
+    name: "SectorCalc - Sector-specific calculation platform",
     description: "Run sector-specific calculations across manufacturing, construction, logistics, energy, agriculture, food, finance and business operations.",
     inLanguage: ["en", "tr", "de", "fr", "es", "ar"],
     target: {

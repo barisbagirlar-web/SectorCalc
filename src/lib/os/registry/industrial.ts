@@ -1,5 +1,5 @@
 /**
- * Manufacturing OS — industrial module registry.
+ * Manufacturing OS - industrial module registry.
  * OEE / loss / efficiency focused operation modules; logic + premium report mapping.
  */
 

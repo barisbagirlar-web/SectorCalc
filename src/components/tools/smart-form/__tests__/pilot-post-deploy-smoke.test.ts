@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-S-POSTSMOKE — smart form post-deploy smoke result entry tests.
+ * Phase 5H-G-S-POSTSMOKE - smart form post-deploy smoke result entry tests.
  */
 
 import { describe, expect, test } from "vitest";
@@ -15,7 +15,7 @@ import {
   POST_DEPLOY_SMOKE_PASSED_NOTES,
 } from "@/components/tools/smart-form/pilot-post-deploy-smoke-test";
 
-describe("smart form post-deploy smoke — Phase 5H-G-S-POSTSMOKE", () => {
+describe("smart form post-deploy smoke - Phase 5H-G-S-POSTSMOKE", () => {
   test("recorded post-deploy smoke results are passed for 3 pilots", () => {
     const results = getSmartFormPilotPostDeploySmokeTestResults();
 

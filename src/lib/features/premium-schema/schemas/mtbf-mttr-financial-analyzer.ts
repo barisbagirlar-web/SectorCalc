@@ -20,7 +20,7 @@ export const MTBF_MTTR_FINANCIAL_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalReliabilityCost", label: "Total Guvenilirlik Cost", label_i18n: {"en":"Total Guvenilirlik Cost"}, unit: "USD/year", format: "currency" },
     { id: "roiPercent", label: "ROI (improvement)", label_i18n: {"en":"ROI (improvement)"}, unit: "%", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "downtimeCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Downtime cost > $50K — maintenance schedule should be reviewed.", warningMessage_i18n: {"en":"Downtime cost > $50K — maintenance schedule should be reviewed."}, criticalMessage: "Downtime cost > $150K — urgent reliability improvement program should be initiated.", criticalMessage_i18n: {"en":"Downtime cost > $150K — urgent reliability improvement program should be initiated."} }],
+  thresholds: [{ fieldId: "downtimeCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Downtime cost > $50K - maintenance schedule should be reviewed.", warningMessage_i18n: {"en":"Downtime cost > $50K - maintenance schedule should be reviewed."}, criticalMessage: "Downtime cost > $150K - urgent reliability improvement program should be initiated.", criticalMessage_i18n: {"en":"Downtime cost > $150K - urgent reliability improvement program should be initiated."} }],
   formulaPipeline: [
     { formulaId: "measurement.availability_mtbf", inputMap: { mtbfHours: "mtbfHours", mttrHours: "mttrHours" }, outputId: "availability" },
     { formulaId: "measurement.expected_downtime", inputMap: { availability: "availability", operatingHours: "operatingHours" }, outputId: "expectedDowntime" },

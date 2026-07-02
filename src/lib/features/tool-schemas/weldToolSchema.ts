@@ -1,6 +1,6 @@
 /**
  * WPS Preheat Temperature & Carbon Equivalent Tool Schema
- * PRO_091 — Schema-driven definition for welding preheat calculator
+ * PRO_091 - Schema-driven definition for welding preheat calculator
  * Data sourced from PRO_043.json (Arc Welding Heat Input)
  * Inputs/validation/fmea matched to UNIVERSAL PRO TOOL FORM.txt
  */
@@ -29,21 +29,21 @@ const INPUTS: ToolSchemaInput[] = [
     absolute_min: 50, absolute_max: 3000, resolution: 1,
     note: "Welding torch travel speed" },
   {
-    id: "thermal_efficiency", name: "Process Thermal Efficiency (η)", symbol: "η", unit: "—",
+    id: "thermal_efficiency", name: "Process Thermal Efficiency (η)", symbol: "η", unit: "-",
     type: "enum", required: true, confidence_label: "CERTAIN", default: 0.8,
     options: [
-      { value: "0.8", label: "SMAW (Stick) — 0.80" },
-      { value: "0.8", label: "GMAW (MIG/MAG) — 0.80" },
-      { value: "0.6", label: "GTAW (TIG) — 0.60" },
-      { value: "0.99", label: "SAW (Submerged Arc) — 0.99" },
-      { value: "0.8", label: "FCAW — 0.80" },
+      { value: "0.8", label: "SMAW (Stick) - 0.80" },
+      { value: "0.8", label: "GMAW (MIG/MAG) - 0.80" },
+      { value: "0.6", label: "GTAW (TIG) - 0.60" },
+      { value: "0.99", label: "SAW (Submerged Arc) - 0.99" },
+      { value: "0.8", label: "FCAW - 0.80" },
     ],
     note: "AWS D1.1-2020 Commentary §C-4.11 / EN 1011-1 Table B.1",
   },
-  { id: "base_metal_CE", name: "Base Metal Carbon Equivalent (CE_IIW)", symbol: "CE_IIW", unit: "—",
+  { id: "base_metal_CE", name: "Base Metal Carbon Equivalent (CE_IIW)", symbol: "CE_IIW", unit: "-",
     type: "number", required: true, confidence_label: "STRONG",
     default: 0.42, absolute_min: 0.1, absolute_max: 0.8, resolution: 0.01,
-    note: "CE = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15 — IIW formula" },
+    note: "CE = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15 - IIW formula" },
   { id: "plate_thickness_mm", name: "Base Metal Plate Thickness (t)", symbol: "t", unit: "mm",
     type: "number", required: true, confidence_label: "CERTAIN",
     absolute_min: 3, absolute_max: 300, resolution: 1,
@@ -52,10 +52,10 @@ const INPUTS: ToolSchemaInput[] = [
     id: "hydrogen_content", name: "Diffusible Hydrogen Content (H_d)", symbol: "H_d", unit: "ml/100g",
     type: "enum", required: true, confidence_label: "CERTAIN", default: 10,
     options: [
-      { value: "15", label: "H15 (≤15 ml/100g) — standard" },
-      { value: "10", label: "H10 (≤10 ml/100g) — low hydrogen" },
-      { value: "5", label: "H5 (≤5 ml/100g) — very low hydrogen" },
-      { value: "2.5", label: "H2.5 (≤2.5 ml/100g) — ultra-low" },
+      { value: "15", label: "H15 (≤15 ml/100g) - standard" },
+      { value: "10", label: "H10 (≤10 ml/100g) - low hydrogen" },
+      { value: "5", label: "H5 (≤5 ml/100g) - very low hydrogen" },
+      { value: "2.5", label: "H2.5 (≤2.5 ml/100g) - ultra-low" },
     ],
     note: "Per AWS A4.3 / ISO 3690 classification",
   },
@@ -63,22 +63,22 @@ const INPUTS: ToolSchemaInput[] = [
 
 const VALIDATION_RULES: ToolSchemaValidationRule[] = [
   { id: "V1", action: "BLOCK", condition: "HI_kj_mm > 3.5",
-    message: "Heat input > 3.5 kJ/mm: excessive — grain coarsening and toughness loss in HAZ",
+    message: "Heat input > 3.5 kJ/mm: excessive - grain coarsening and toughness loss in HAZ",
     standard_ref: "AWS D1.1 Table 3.2" },
   { id: "V2", action: "BLOCK", condition: "HI_kj_mm < 0.3",
-    message: "Heat input < 0.3 kJ/mm: very high cooling rate — hard HAZ and hydrogen cracking risk",
+    message: "Heat input < 0.3 kJ/mm: very high cooling rate - hard HAZ and hydrogen cracking risk",
     standard_ref: "EN 1011-2:2001" },
   { id: "V3", action: "WARN", condition: "CE > 0.50",
-    message: "High CE: severe cold cracking susceptibility — post-weld hydrogen release bake recommended per EN 1011-2",
+    message: "High CE: severe cold cracking susceptibility - post-weld hydrogen release bake recommended per EN 1011-2",
     standard_ref: "EN 1011-2:2001 Annex C" },
   { id: "V4", action: "WARN", condition: "Preheat > 150°C",
-    message: "Verify interpass temperature control — max interpass typically 250°C for structural steels",
+    message: "Verify interpass temperature control - max interpass typically 250°C for structural steels",
     standard_ref: "AWS D1.1 §4.11" },
   { id: "V5", action: "WARN", condition: "HAZ width > 8 mm",
-    message: "Large heat-affected zone — CTOD toughness testing at HAZ required per ISO 12135-2",
+    message: "Large heat-affected zone - CTOD toughness testing at HAZ required per ISO 12135-2",
     standard_ref: "ISO 15614-1" },
   { id: "V6", action: "WARN", condition: "t8/5 < 5 s",
-    message: "Rapid cooling — risk of martensite formation in HAZ; verify hardness < 350 HV",
+    message: "Rapid cooling - risk of martensite formation in HAZ; verify hardness < 350 HV",
     standard_ref: "ISO 15614-1" },
 ];
 
@@ -121,12 +121,12 @@ const weldToolSchema: LegacyToolSchema = {
   standards: STANDARDS,
   inputs: INPUTS,
   formulas: [
-    "HI_kj_mm = (U × I × η × 60) / (v × 1000)   // [kJ/mm] Arc Energy — AWS D1.1 §4.11 / EN 1011-1 §7",
-    "HAZ_mm = 0.9 × HI_kj_mm / (4.13e-3 × t)   // [mm] Estimated HAZ Width — Rosenthal 2D thin-plate",
+    "HI_kj_mm = (U × I × η × 60) / (v × 1000)   // [kJ/mm] Arc Energy - AWS D1.1 §4.11 / EN 1011-1 §7",
+    "HAZ_mm = 0.9 × HI_kj_mm / (4.13e-3 × t)   // [mm] Estimated HAZ Width - Rosenthal 2D thin-plate",
     "CET = CE_IIW × 0.75 + 0.25   // [-] Carbon Equivalent for preheat (CET method)",
     "T_preheat_c = 350 × √(CET − 0.1 × log₁₀(HI×1000) + 0.015 × log₁₀(H_d) + 0.005 × log₁₀(t)) − 0.08 × t   // [°C] EN 1011-2 CET method",
     "T_preheat_aws = CE < 0.40 ? 10 : CE < 0.45 ? 66 : CE < 0.50 ? 107 : 150   // [°C] AWS D1.1 Table 3.2",
-    "T_preheat_gov = max(T_preheat_c, T_preheat_aws, 10)   // [°C] Governing Preheat — conservative max",
+    "T_preheat_gov = max(T_preheat_c, T_preheat_aws, 10)   // [°C] Governing Preheat - conservative max",
     "t85_s = (6700 − 5 × T_preheat_gov) × HI × ((1/(300−T))² − (1/(700−T))²) × 1e-3   // [s] t8/5 thin-plate approx",
   ],
   validationRules: VALIDATION_RULES,

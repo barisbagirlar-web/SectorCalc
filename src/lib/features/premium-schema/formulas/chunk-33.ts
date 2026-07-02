@@ -72,7 +72,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cut_fill_balance_5",
     family: "cost",
-    label: "Kesme-Dolgu Denge — BorrowRequired",
+    label: "Kesme-Dolgu Denge - BorrowRequired",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const Fill = num(inputs, "Fill");
@@ -87,7 +87,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cut_fill_balance_6",
     family: "cost",
-    label: "Kesme-Dolgu Denge — WasteRequired",
+    label: "Kesme-Dolgu Denge - WasteRequired",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const Cut = num(inputs, "Cut");
@@ -102,7 +102,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cut_fill_balance_7",
     family: "cost",
-    label: "Kesme-Dolgu Denge — HaulCost",
+    label: "Kesme-Dolgu Denge - HaulCost",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const i = num(inputs, "i");
@@ -118,7 +118,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_0",
     family: "cost",
-    label: "Kiris Agirligi — Area_Cross",
+    label: "Kiris Agirligi - Area_Cross",
     fn: (inputs) => {
     const lookupArea = num(inputs, "lookupArea");
     const profileType = num(inputs, "profileType");
@@ -129,7 +129,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_1",
     family: "cost",
-    label: "Kiris Agirligi — Weight_PerMeter",
+    label: "Kiris Agirligi - Weight_PerMeter",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const Cross = num(inputs, "Cross");
@@ -143,7 +143,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_2",
     family: "cost",
-    label: "Kiris Agirligi — TotalWeight",
+    label: "Kiris Agirligi - TotalWeight",
     fn: (inputs) => {
     const weight = num(inputs, "weight");
     const PerMeter = num(inputs, "PerMeter");
@@ -156,7 +156,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_3",
     family: "cost",
-    label: "Kiris Agirligi — Cost_Material",
+    label: "Kiris Agirligi - Cost_Material",
     fn: (inputs) => {
     const totalWeight = num(inputs, "totalWeight");
     const pricePerTon = num(inputs, "pricePerTon");
@@ -166,7 +166,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_4",
     family: "cost",
-    label: "Kiris Agirligi — PaintArea",
+    label: "Kiris Agirligi - PaintArea",
     fn: (inputs) => {
     const perimeter = num(inputs, "perimeter");
     const length = num(inputs, "length");
@@ -176,7 +176,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_5",
     family: "cost",
-    label: "Kiris Agirligi — FireproofingArea",
+    label: "Kiris Agirligi - FireproofingArea",
     fn: (inputs) => {
     const paintArea = num(inputs, "paintArea");
     return nonNegative(assertFinite(paintArea));
@@ -185,7 +185,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_6",
     family: "cost",
-    label: "Kiris Agirligi — Deflection_Max",
+    label: "Kiris Agirligi - Deflection_Max",
     fn: (inputs) => {
     const w = num(inputs, "w");
     const l = num(inputs, "l");
@@ -197,7 +197,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_7",
     family: "cost",
-    label: "Kiris Agirligi — Moment_Max",
+    label: "Kiris Agirligi - Moment_Max",
     fn: (inputs) => {
     const w = num(inputs, "w");
     const l = num(inputs, "l");
@@ -209,7 +209,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_0",
     family: "cost",
-    label: "Kompresor Kacagi Maliyet — LeakFlow_CFM",
+    label: "Kompresor Kacagi Maliyet - LeakFlow_CFM",
     fn: (inputs) => {
     const d = num(inputs, "d");
     const p = num(inputs, "p");
@@ -225,7 +225,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_1",
     family: "cost",
-    label: "Kompresor Kacagi Maliyet — Power_Loss_kW",
+    label: "Kompresor Kacagi Maliyet - Power_Loss_kW",
     fn: (inputs) => {
     const leakFlow = num(inputs, "leakFlow");
     const p = num(inputs, "p");
@@ -241,7 +241,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_2",
     family: "cost",
-    label: "Kompresor Kacagi Maliyet — AnnualEnergyLoss",
+    label: "Kompresor Kacagi Maliyet - AnnualEnergyLoss",
     fn: (inputs) => {
     const power = num(inputs, "power");
     const Loss = num(inputs, "Loss");
@@ -254,7 +254,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_3",
     family: "cost",
-    label: "Kompresor Kacagi Maliyet — Cost_Leak",
+    label: "Kompresor Kacagi Maliyet - Cost_Leak",
     fn: (inputs) => {
     const annualEnergyLoss = num(inputs, "annualEnergyLoss");
     const electricityRate = num(inputs, "electricityRate");

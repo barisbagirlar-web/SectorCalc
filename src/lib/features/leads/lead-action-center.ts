@@ -65,8 +65,8 @@ function closedRecommendation(status: LeadStatus): LeadActionRecommendation {
   recommendedActionLabel: "Closed Record",
   recommendedActionReason:
    status === "converted"
-   ? "Lead completed conversion — no further sales action needed."
-   : "Lead marked as lost — leave as closed record.",
+   ? "Lead completed conversion - no further sales action needed."
+   : "Lead marked as lost - leave as closed record.",
  recommendedStatus: status,
  priorityLevel: "low",
   actionChecklist: buildChecklist(
@@ -147,7 +147,7 @@ function qualificationCallRecommendation(
 ): LeadActionRecommendation {
  return {
   recommendedActionLabel: "Qualification Call",
-  recommendedActionReason: `Lead reviewed and ${quality.label.toLowerCase()} (${quality.score}/100) — time for qualification assessment.`,
+  recommendedActionReason: `Lead reviewed and ${quality.label.toLowerCase()} (${quality.score}/100) - time for qualification assessment.`,
  recommendedStatus: "qualified",
  priorityLevel: "high",
   actionChecklist: buildChecklist(
@@ -163,7 +163,7 @@ function closingFollowUpRecommendation(): LeadActionRecommendation {
  return {
   recommendedActionLabel: "Quote / Closing Follow-up",
   recommendedActionReason:
-   "Lead marked as qualified — proceed to quote or closing step.",
+   "Lead marked as qualified - proceed to quote or closing step.",
  recommendedStatus: "converted",
  priorityLevel: "normal",
   actionChecklist: buildChecklist(
@@ -202,7 +202,7 @@ function defaultActiveRecommendation(
  if (status === "new") {
  return {
    recommendedActionLabel: "Initial Review",
-   recommendedActionReason: `New lead — ${quality.label.toLowerCase()} (${quality.score}/100). Source: ${attribution.attributionLabel}.`,
+   recommendedActionReason: `New lead - ${quality.label.toLowerCase()} (${quality.score}/100). Source: ${attribution.attributionLabel}.`,
  recommendedStatus: "reviewed",
  priorityLevel: "normal",
   actionChecklist: buildChecklist(

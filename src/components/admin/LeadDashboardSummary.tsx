@@ -71,7 +71,7 @@ export function LeadDashboardSummary({ stats, loading }: LeadDashboardSummaryPro
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Lead dashboard</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Management summary — from the loaded lead list (read-only).
+ Management summary - from the loaded lead list (read-only).
  </p>
  </div>
 

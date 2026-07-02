@@ -30,8 +30,8 @@ export const OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA: PremiumCalculatorSch
       warning: 65,
       critical: 50,
       direction: "lower_is_bad",
-      warningMessage: "OEE is below world-class band — investigate downtime and quality losses.",
-      criticalMessage: "OEE is critically low — margin may be lost before quotes are repriced.",
+      warningMessage: "OEE is below world-class band - investigate downtime and quality losses.",
+      criticalMessage: "OEE is critically low - margin may be lost before quotes are repriced.",
     },
   ],
 

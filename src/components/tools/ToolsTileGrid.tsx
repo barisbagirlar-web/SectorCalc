@@ -7,7 +7,7 @@ interface ToolsTileGridProps {
  className?: string;
 }
 
-/** Text-based tool grid — 3-4 equal columns, symmetric, with descriptions. */
+/** Text-based tool grid - 3-4 equal columns, symmetric, with descriptions. */
 export function ToolsTileGrid({ tools, onDark = false, className = "" }: ToolsTileGridProps) {
  if (tools.length === 0) return null;
 

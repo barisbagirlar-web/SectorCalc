@@ -27,7 +27,7 @@ export type UsePremiumToolAccessState = {
  isSuperUser: boolean;
  hasSinglePurchase: boolean;
  canAccessAnalyzer: boolean;
- /** P9 WIP stubs — safe defaults until credit billing ships. */
+ /** P9 WIP stubs - safe defaults until credit billing ships. */
  creditBalance: number;
  hasCredits: boolean;
  needsCreditLoad: boolean;

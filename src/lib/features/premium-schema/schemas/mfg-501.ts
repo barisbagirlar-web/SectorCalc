@@ -7,14 +7,14 @@ const WAITING_OPPORTUNITY_MODE_OPTIONS = [
 ] as const;
 
 const CURRENCY_CODE_OPTIONS = [
-  { value: "USD", label: "USD — US Dollar" },
-  { value: "EUR", label: "EUR — Euro" },
-  { value: "GBP", label: "GBP — British Pound" },
-  { value: "TRY", label: "TRY — TRY" },
-  { value: "CHF", label: "CHF — Swiss Franc" },
-  { value: "JPY", label: "JPY — Japanese Yen" },
-  { value: "CAD", label: "CAD — Canadian Dollar" },
-  { value: "AUD", label: "AUD — Australian Dollar" },
+  { value: "USD", label: "USD - US Dollar" },
+  { value: "EUR", label: "EUR - Euro" },
+  { value: "GBP", label: "GBP - British Pound" },
+  { value: "TRY", label: "TRY - TRY" },
+  { value: "CHF", label: "CHF - Swiss Franc" },
+  { value: "JPY", label: "JPY - Japanese Yen" },
+  { value: "CAD", label: "CAD - Canadian Dollar" },
+  { value: "AUD", label: "AUD - Australian Dollar" },
 ] as const;
 
 export const SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
@@ -35,8 +35,8 @@ export const SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = 
       warning: 5000,
       critical: 15000,
       direction: "higher_is_bad",
-      warningMessage: "Total muda exposure is material — review the highest waste category and recommended action order.",
-      criticalMessage: "Total muda exposure is severe — launch focused kaizen on the dominant waste driver.",
+      warningMessage: "Total muda exposure is material - review the highest waste category and recommended action order.",
+      criticalMessage: "Total muda exposure is severe - launch focused kaizen on the dominant waste driver.",
     },
   ],
 

@@ -1,6 +1,6 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * SECTORCALC PRO — AUDIT SERVICE (Immutable Audit Trail)
+ * SECTORCALC PRO - AUDIT SERVICE (Immutable Audit Trail)
  * ───────────────────────────────────────────────────────────────────────────
  * Tamper-evident audit logging for every computation.
  *
@@ -10,12 +10,12 @@
  * - ISO 9001 §7.5.3 Document Control compliant
  *
  * In legal disputes: "With these exact inputs at this exact time,
- * this exact result was produced" — irrefutable evidence.
+ * this exact result was produced" - irrefutable evidence.
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
 /**
- * Author roles in the audit trail — maps to ISO 9001 review hierarchy.
+ * Author roles in the audit trail - maps to ISO 9001 review hierarchy.
  */
 export type AuthorRole = 'ENGINEER' | 'REVIEWER' | 'APPROVER';
 
@@ -107,10 +107,10 @@ export class AuditService {
    * 2. Generates SHA-256 hash of the canonical input string
    * 3. Records timestamp, inputs, and results snapshots
    *
-   * @param toolId — Tool identifier (e.g., "PRO_024")
-   * @param inputs — Input values snapshot
-   * @param results — Computed results snapshot
-   * @param userId — Optional anonymized user identifier
+   * @param toolId - Tool identifier (e.g., "PRO_024")
+   * @param inputs - Input values snapshot
+   * @param results - Computed results snapshot
+   * @param userId - Optional anonymized user identifier
    * @returns Immutable AuditRecord
    */
   public async createAuditRecord(
@@ -147,8 +147,8 @@ export class AuditService {
    * tamper-evident: any modification to the record or the comment
    * would invalidate the signature chain.
    *
-   * @param record — The audit record to append to
-   * @param comment — The comment to append (without signature — it's auto-computed)
+   * @param record - The audit record to append to
+   * @param comment - The comment to append (without signature - it's auto-computed)
    * @returns A new AuditRecord with the comment appended (immutable pattern)
    */
   public addComment(record: AuditRecord, comment: AuditComment): AuditRecord {
@@ -172,7 +172,7 @@ export class AuditService {
    * For each comment with a signature, recomputes the expected signature
    * and compares. Any mismatch indicates tampering.
    *
-   * @param record — The audit record to verify
+   * @param record - The audit record to verify
    * @returns Array of verification results for each comment
    */
   public verifyIntegrity(record: AuditRecord): {
@@ -185,7 +185,7 @@ export class AuditService {
         return {
           commentId: comment.id,
           valid: false,
-          message: "Comment has no signature — cannot verify integrity.",
+          message: "Comment has no signature - cannot verify integrity.",
         };
       }
 
@@ -196,14 +196,14 @@ export class AuditService {
         return {
           commentId: comment.id,
           valid: true,
-          message: "Signature valid — comment integrity confirmed.",
+          message: "Signature valid - comment integrity confirmed.",
         };
       }
 
       return {
         commentId: comment.id,
         valid: false,
-        message: "SIGNATURE MISMATCH — comment or record may have been tampered with.",
+        message: "SIGNATURE MISMATCH - comment or record may have been tampered with.",
       };
     });
   }
@@ -211,7 +211,7 @@ export class AuditService {
   /**
    * Generate a summary view of an audit record for the UI.
    *
-   * @param record — Full audit record
+   * @param record - Full audit record
    * @returns AuditTrailSummary with condensed metadata
    */
   public summarize(record: AuditRecord): AuditTrailSummary {
@@ -240,7 +240,7 @@ export class AuditService {
    * Compute SHA-256 hex digest using Web Crypto API.
    * Falls back to a simple hash if crypto is unavailable (SSR/testing).
    *
-   * @param input — String to hash
+   * @param input - String to hash
    * @returns SHA-256 hex string (64 characters)
    */
   private async sha256Hex(input: string): Promise<string> {
@@ -261,7 +261,7 @@ export class AuditService {
 
   /**
    * Simple non-cryptographic hash for fallback.
-   * NOT for production use — Web Crypto SHA-256 is the standard.
+   * NOT for production use - Web Crypto SHA-256 is the standard.
    */
   private simpleHash(str: string): string {
     let hash = 0;

@@ -1,5 +1,5 @@
 /**
- * Controlled patch file policy tests — Phase 5I-E.
+ * Controlled patch file policy tests - Phase 5I-E.
  */
 
 import { describe, expect, test } from "vitest";
@@ -8,7 +8,7 @@ import {
   validateProposedOperations,
 } from "@/lib/features/formula-governance/tool-factory-orchestrator/controlled-patch-generator/controlled-patch-file-policy";
 
-describe("controlled patch file policy — Phase 5I-E", () => {
+describe("controlled patch file policy - Phase 5I-E", () => {
   test("calculators path is forbidden", () => {
     expect(isForbiddenTargetPath("src/lib/calculators/foo.ts")).toBe(true);
   });

@@ -1,5 +1,5 @@
 /**
- * Calculation Engine — Barrel Export
+ * Calculation Engine - Barrel Export
  *
  * Source: claude_pro_tasarim_/ (verified engine design)
  * Integrates the verified calculation engine into SectorCalc.

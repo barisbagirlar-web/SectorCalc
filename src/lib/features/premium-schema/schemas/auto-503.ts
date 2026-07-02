@@ -19,8 +19,8 @@ export const AUTO_SHOP_MARGIN_LEAK_DETECTOR_SCHEMA: PremiumCalculatorSchema = {
       warning: 4,
       critical: 8,
       direction: "higher_is_bad",
-      warningMessage: "Comeback rate is elevated — verify diagnostic and QC assumptions.",
-      criticalMessage: "Critical comeback band — reprice flat-rate work before scaling.",
+      warningMessage: "Comeback rate is elevated - verify diagnostic and QC assumptions.",
+      criticalMessage: "Critical comeback band - reprice flat-rate work before scaling.",
     },
   ],
 

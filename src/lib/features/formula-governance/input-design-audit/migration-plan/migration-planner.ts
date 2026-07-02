@@ -1,5 +1,5 @@
 /**
- * Existing tool migration planner — Phase 5H-E read-only Dual-Core migration plan.
+ * Existing tool migration planner - Phase 5H-E read-only Dual-Core migration plan.
  */
 
 import { hasFixtureOntologyForSlug } from "@/lib/features/formula-governance/calculation-ontology/fixture-ontology-registry";
@@ -176,16 +176,16 @@ function buildNotes(
   const notes: string[] = [...auditResult.warnings.slice(0, 2)];
 
   if (auditResult.alignmentStatus === "needs_review") {
-    notes.push("Alignment needs_review — prioritize fixture/alias review before UI migration.");
+    notes.push("Alignment needs_review - prioritize fixture/alias review before UI migration.");
   }
   if (auditResult.alignmentStatus === "contract_only_analysis") {
-    notes.push("Contract-only analysis — fixture ontology not registered.");
+    notes.push("Contract-only analysis - fixture ontology not registered.");
   }
   if (contract && isPremiumContract(contract)) {
-    notes.push("Premium/revenue tool — elevated migration priority.");
+    notes.push("Premium/revenue tool - elevated migration priority.");
   }
   if (patchLevel === "none" && auditResult.status === "professional_ready") {
-    notes.push("Professional-ready — form/report readiness analysis recommended over input patch.");
+    notes.push("Professional-ready - form/report readiness analysis recommended over input patch.");
   }
 
   return notes;
@@ -222,7 +222,7 @@ function applyCompletedInputDesignPatchOverlay(
     completedInputDesignPatchGate: patch.nextGate,
     nextGate: patch.nextGate,
     requiredActions: [
-      "Controlled input design patch completed — ready for smart form architecture gate.",
+      "Controlled input design patch completed - ready for smart form architecture gate.",
       ...item.requiredActions.filter(
         (action) => !action.includes("Map requirement-engine input design"),
       ),
@@ -264,7 +264,7 @@ function applySmartFormArchitectureOverlay(
     nextGate: plan.nextGate,
     completedInputDesignPatchGate: plan.nextGate,
     requiredActions: [
-      "Smart form architecture spec ready — smart form rendering gate only (governance; no production UI yet).",
+      "Smart form architecture spec ready - smart form rendering gate only (governance; no production UI yet).",
       ...item.requiredActions.filter(
         (action) =>
           !action.includes("Controlled input design patch completed") &&
@@ -397,11 +397,11 @@ export function formatMigrationPlanReport(plan: BatchMigrationPlan): string {
   ];
 
   if (plan.recommendedFirstPatchBatch.length === 0) {
-    lines.push("- (none — resolve blockers or defer high-risk tools first)");
+    lines.push("- (none - resolve blockers or defer high-risk tools first)");
   } else {
     plan.recommendedFirstPatchBatch.forEach((item, index) => {
       lines.push(
-        `${index + 1}. ${item.slug} — ${item.recommendedPatchLevel} / ${item.migrationRiskLevel} risk`,
+        `${index + 1}. ${item.slug} - ${item.recommendedPatchLevel} / ${item.migrationRiskLevel} risk`,
       );
     });
   }
@@ -416,7 +416,7 @@ export function formatMigrationPlanReport(plan: BatchMigrationPlan): string {
     for (const slug of plan.completedInputDesignPatches) {
       const item = plan.items.find((entry) => entry.slug === slug);
       lines.push(
-        `- ${slug} — nextGate ${item?.nextGate ?? "smart_form_architecture_pending"}`,
+        `- ${slug} - nextGate ${item?.nextGate ?? "smart_form_architecture_pending"}`,
       );
     }
   }

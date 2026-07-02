@@ -315,7 +315,7 @@ export function ProDecisionPanel({
                 <div className="sc">
                   −{isOee ? fmtCurrency(computedData.worstTotalLoss) : fmtCurrency(computedData.totalLoss * 1.2)}
                 </div>
-                <div className="sc">—</div>
+                <div className="sc">-</div>
                 <div style={{ fontSize: "12px", color: "var(--sc-muted)" }}>Risk buffer</div>
               </div>
               <div className="pro-decision-scen-row">
@@ -329,7 +329,7 @@ export function ProDecisionPanel({
                 <div className="sc">
                   −{fmtCurrency(computedData.totalLoss)}
                 </div>
-                <div className="sc">—</div>
+                <div className="sc">-</div>
                 <div style={{ fontSize: "12px", color: "var(--sc-muted)" }}>Baseline</div>
               </div>
               <div className="pro-decision-scen-row target">
@@ -491,19 +491,19 @@ export function ProDecisionPanel({
                 <div className="pro-decision-risk danger">
                   <div className="ic">!</div>
                   <div className="rtext">
-                    <b>Performance {fmtPercent(computedData.performance)}</b> — below 95% target, posing risk.
+                    <b>Performance {fmtPercent(computedData.performance)}</b> - below 95% target, posing risk.
                   </div>
                 </div>
                 <div className="pro-decision-risk warn">
                   <div className="ic">!</div>
                   <div className="rtext">
-                    <b>Availability {fmtPercent(computedData.availability)}</b> — downtime allowance exceeds plan.
+                    <b>Availability {fmtPercent(computedData.availability)}</b> - downtime allowance exceeds plan.
                   </div>
                 </div>
                 <div className="pro-decision-risk ok">
                   <div className="ic">✓</div>
                   <div className="rtext">
-                    <b>Quality {fmtPercent(computedData.quality)}</b> — within acceptable tolerance range.
+                    <b>Quality {fmtPercent(computedData.quality)}</b> - within acceptable tolerance range.
                   </div>
                 </div>
               </div>

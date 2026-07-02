@@ -1,5 +1,5 @@
 /**
- * Engineering interpretation client — server-only.
+ * Engineering interpretation client - server-only.
  * Calls DeepSeek to generate industrial-grade result commentary for premium tools.
  */
 
@@ -99,7 +99,7 @@ function validateConfidence(value: unknown): "high" | "medium" | "low" {
 
 /**
  * Generate engineering interpretation for a premium calculation result.
- * Server-only — call from API route or server component.
+ * Server-only - call from API route or server component.
  */
 export async function generateEngineeringInterpretation(
   request: InterpretPremiumResultRequest,

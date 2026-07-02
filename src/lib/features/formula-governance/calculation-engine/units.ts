@@ -17,28 +17,28 @@ export interface UnitDef {
 }
 
 export const UNIT_REGISTRY: Record<string, UnitDef> = {
-  // length — canonical mm
+  // length - canonical mm
   mm: { toCanonical: 1, canonical: 'mm' },
   cm: { toCanonical: 10, canonical: 'mm' },
   m: { toCanonical: 1000, canonical: 'mm' },
 
-  // area — canonical mm²
+  // area - canonical mm²
   'mm2': { toCanonical: 1, canonical: 'mm2' },
   'cm2': { toCanonical: 100, canonical: 'mm2' },
   'm2': { toCanonical: 1e6, canonical: 'mm2' },
 
-  // stress — canonical MPa
+  // stress - canonical MPa
   MPa: { toCanonical: 1, canonical: 'MPa' },
   kPa: { toCanonical: 1e-3, canonical: 'MPa' },
   Pa: { toCanonical: 1e-6, canonical: 'MPa' },
   GPa: { toCanonical: 1e3, canonical: 'MPa' },
 
-  // force — canonical kN
+  // force - canonical kN
   kN: { toCanonical: 1, canonical: 'kN' },
   N: { toCanonical: 1e-3, canonical: 'kN' },
   MN: { toCanonical: 1e3, canonical: 'kN' },
 
-  // moment — canonical kN·m
+  // moment - canonical kN·m
   'kNm': { toCanonical: 1, canonical: 'kNm' },
   'Nm': { toCanonical: 1e-3, canonical: 'kNm' },
 
@@ -94,13 +94,13 @@ export const UNIT_REGISTRY: Record<string, UnitDef> = {
 export function toCanonical(value: number, unit: string): number {
   if (!unit || unit === '') return value; // dimensionless / no conversion
   const def = UNIT_REGISTRY[unit];
-  if (!def) return value; // unknown unit — pass through (warn emitted in engine)
+  if (!def) return value; // unknown unit - pass through (warn emitted in engine)
   return value * def.toCanonical + (def.offset ?? 0);
 }
 
 export function canonicalUnitOf(unit: string): string {
   if (!unit || unit === '') return '-';
   const def = UNIT_REGISTRY[unit];
-  if (!def) return unit; // unknown — return as-is
+  if (!def) return unit; // unknown - return as-is
   return def.canonical;
 }

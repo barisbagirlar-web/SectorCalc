@@ -27,7 +27,7 @@ function formatHighlight(row: SourceRoiRow | null, loading?: boolean): string {
  return "…";
  }
  if (!row) {
- return "—";
+ return "-";
  }
  return `${row.sourceLabel} (${row.efficiencyScore})`;
 }
@@ -130,7 +130,7 @@ export function LeadSourceRoiSection({ roi, loading }: LeadSourceRoiProps) {
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Source ROI</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Source efficiency score — based on quality, conversion, and follow-up health (not monetary ROI).
+ Source efficiency score - based on quality, conversion, and follow-up health (not monetary ROI).
  </p>
  </div>
 

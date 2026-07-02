@@ -1,5 +1,5 @@
 /**
- * P77-MAX — Formula Gate contracts for active free traffic tools.
+ * P77-MAX - Formula Gate contracts for active free traffic tools.
  */
 
 import type { FormulaContract } from "@/lib/features/formula-governance/types";
@@ -44,7 +44,7 @@ function freeTrafficContract(config: {
         "Inputs processed in browser; values are not stored unless saved.",
         "Deterministic unit conversion or cost formula from documented inputs.",
       ],
-      modelLimitations: config.limitations ?? ["Free-tier quick check — not a certified engineering or legal decision."],
+      modelLimitations: config.limitations ?? ["Free-tier quick check - not a certified engineering or legal decision."],
       futureExtensions: ["Sector-specific paid verdict when premium pack exists."],
     }),
     validationRules: [

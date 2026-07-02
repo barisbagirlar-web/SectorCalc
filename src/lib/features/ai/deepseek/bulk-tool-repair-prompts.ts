@@ -1,4 +1,4 @@
-/** Regeneration baseline — bulk repair prompts cleared. */
+/** Regeneration baseline - bulk repair prompts cleared. */
 
 export function buildBulkRepairSystemPrompt(): string {
   return "Regeneration baseline: bulk repair prompts are not active.";

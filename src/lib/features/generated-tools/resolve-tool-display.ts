@@ -23,10 +23,10 @@ function humanizeSlug(slug: string): string {
 /**
  * Quadruple-layer locale-aware tool title resolution.
  *
- * Layer 1 — Premium schema i18n override (industry analyzer titles).
- * Layer 2 — i18n titles bundle (generated-tool-titles-i18n.generated.json).
- * Layer 3 — schema.toolName humanized + glossary-translated for the locale.
- * Layer 4 — Raw slug humanized + glossary-translated (guaranteed never empty).
+ * Layer 1 - Premium schema i18n override (industry analyzer titles).
+ * Layer 2 - i18n titles bundle (generated-tool-titles-i18n.generated.json).
+ * Layer 3 - schema.toolName humanized + glossary-translated for the locale.
+ * Layer 4 - Raw slug humanized + glossary-translated (guaranteed never empty).
  */
 export function resolveGeneratedToolTitle(
   slug: string,
@@ -60,7 +60,7 @@ export function resolveGeneratedToolTitle(
     }
   }
 
-  // Layer 4: Ultimate fallback — effective tool name
+  // Layer 4: Ultimate fallback - effective tool name
   return effectiveToolName;
 }
 
@@ -114,7 +114,7 @@ export function resolveGeneratedToolDescription(
 
   // 5. Ultimate fallback
   return translateCalculatorPhrase(
-    "Sector-specific calculator — enter inputs to see results.",
+    "Sector-specific calculator - enter inputs to see results.",
     locale,
   );
 }

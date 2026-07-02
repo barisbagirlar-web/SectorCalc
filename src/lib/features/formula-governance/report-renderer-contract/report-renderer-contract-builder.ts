@@ -1,5 +1,5 @@
 /**
- * Report renderer contract builder — Phase 5I-F no actual file output.
+ * Report renderer contract builder - Phase 5I-F no actual file output.
  */
 
 import { buildReportRendererDataContract } from "@/lib/features/formula-governance/report-renderer-contract/report-renderer-data-contract";

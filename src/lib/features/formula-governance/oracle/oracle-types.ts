@@ -1,5 +1,5 @@
 /**
- * Oracle baseline types — independent reference models (Phase 4).
+ * Oracle baseline types - independent reference models (Phase 4).
  */
 
 export type OracleValidationErrorCode =

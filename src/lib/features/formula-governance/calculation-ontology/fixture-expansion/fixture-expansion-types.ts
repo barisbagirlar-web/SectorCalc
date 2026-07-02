@@ -1,5 +1,5 @@
 /**
- * Fixture ontology expansion types — Phase 5I-K (plan only).
+ * Fixture ontology expansion types - Phase 5I-K (plan only).
  */
 
 export type FixtureExpansionStatus = "ready_for_fixture_draft" | "needs_manual_review" | "blocked";

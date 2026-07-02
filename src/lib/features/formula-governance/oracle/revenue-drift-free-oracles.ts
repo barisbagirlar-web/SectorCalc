@@ -69,7 +69,7 @@ export function mapDeadlinePressureToWastePercent(
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
-/** RSMeans-style change-order exposure — matches construction free revenue path. */
+/** RSMeans-style change-order exposure - matches construction free revenue path. */
 export function calculateProjectChangeOrderFreeOracle(
   input: ProjectChangeOrderFreeOracleInput,
 ): ProjectChangeOrderFreeOracleOutput {
@@ -101,7 +101,7 @@ export function calculateProjectChangeOrderFreeOracle(
   };
 }
 
-/** ISSA productivity benchmark — matches cleaning free revenue path. */
+/** ISSA productivity benchmark - matches cleaning free revenue path. */
 export function calculateCleaningIssaFreeOracle(
   input: CleaningIssaFreeOracleInput,
 ): CleaningIssaFreeOracleOutput {
@@ -126,7 +126,7 @@ export function calculateCleaningIssaFreeOracle(
   };
 }
 
-/** Simplified DTC margin — matches ecommerce free revenue path defaults. */
+/** Simplified DTC margin - matches ecommerce free revenue path defaults. */
 export function calculateProductMarginDtcFreeOracle(
   input: ProductMarginDtcFreeOracleInput,
 ): ProductMarginDtcFreeOracleOutput {

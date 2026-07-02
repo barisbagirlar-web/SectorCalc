@@ -1,5 +1,5 @@
 /**
- * Canonical tool route slugs — all calculators use /tools/generated/[slug].
+ * Canonical tool route slugs - all calculators use /tools/generated/[slug].
  */
 
 import { listFreeTrafficCalculatorSlugs } from "@/lib/features/tools/free-traffic-calculators";

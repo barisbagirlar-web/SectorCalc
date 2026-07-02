@@ -18,8 +18,8 @@ export const BELT_PULLEY_SPEED_LENGTH_CALCULATOR_SCHEMA: PremiumCalculatorSchema
       warning: 3600,
       critical: 6000,
       direction: "higher_is_bad",
-      warningMessage: "Driven speed is high — verify pulley rating and belt type.",
-      criticalMessage: "Driven speed exceeds typical belt drive range — engineering review required.",
+      warningMessage: "Driven speed is high - verify pulley rating and belt type.",
+      criticalMessage: "Driven speed exceeds typical belt drive range - engineering review required.",
     },
   ],
 

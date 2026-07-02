@@ -26,7 +26,7 @@ export function hasDistinctSchemaLocaleCopy(
 }
 
 /**
- * Generated calculator fields — schema i18n wins when locale copy is distinct;
+ * Generated calculator fields - schema i18n wins when locale copy is distinct;
  * otherwise bundle + phrase glossary pipeline applies.
  */
 export function resolveGeneratedFieldDisplay(

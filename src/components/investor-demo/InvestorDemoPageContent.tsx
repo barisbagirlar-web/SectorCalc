@@ -25,7 +25,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
         <Container className="sc-pro-container public-demo-hero">
           <p className="sc-pro-eyebrow text-white/70">Investor demo pack</p>
           <h1 className="mt-3 max-w-3xl text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-tight">
-            SectorCalc — calculation operating system for sector margin decisions
+            SectorCalc - calculation operating system for sector margin decisions
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
             {INVESTOR_PROBLEM_STATEMENT.subhead}
@@ -55,7 +55,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-text-secondary">
             Free tools provide fast checks and SEO entry points. Premium analyzers add verdict,
             safe price, and export-ready reports. The platform layer governs how each tool is built,
-            validated, and rolled out — not just how it renders on a page.
+            validated, and rolled out - not just how it renders on a page.
           </p>
         </Container>
       </section>
@@ -66,11 +66,11 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <h2 className="sc-pro-title sc-pro-title--compact">Two engines, one loop</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             <article className="sc-pro-panel p-6">
-              <h3 className="text-lg font-semibold text-deep-navy">Mind 2 — Requirements</h3>
+              <h3 className="text-lg font-semibold text-deep-navy">Mind 2 - Requirements</h3>
               <p className="mt-3 text-sm leading-relaxed text-text-secondary">{INVESTOR_DUAL_CORE.mind2}</p>
             </article>
             <article className="sc-pro-panel p-6">
-              <h3 className="text-lg font-semibold text-deep-navy">Mind 1 — Validation</h3>
+              <h3 className="text-lg font-semibold text-deep-navy">Mind 1 - Validation</h3>
               <p className="mt-3 text-sm leading-relaxed text-text-secondary">{INVESTOR_DUAL_CORE.mind1}</p>
             </article>
           </div>
@@ -83,7 +83,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <h2 className="sc-pro-title sc-pro-title--compact">Production Smart Form pilots</h2>
           <p className="sc-pro-lead mt-3">
             {metrics.livePilotCount} routes live behind{" "}
-            <code className="text-xs">NEXT_PUBLIC_SMART_FORM_PILOT</code> — classic form fallback when
+            <code className="text-xs">NEXT_PUBLIC_SMART_FORM_PILOT</code> - classic form fallback when
             flag is off or slug is unsupported.
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -130,7 +130,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <h2 className="sc-pro-title sc-pro-title--compact">Report layer vision</h2>
           <p className="sc-pro-lead mt-3 max-w-3xl">
             Calculation Summary documents inputs, assumptions, validation coverage, and limitations before
-            any export. Report renderer and output dry-runs are contracted — PDF,
+            any export. Report renderer and output dry-runs are contracted - PDF,
             Excel, and Word export remain gated behind premium subscription.
           </p>
           <p className="mt-4 text-sm text-text-secondary">
@@ -145,7 +145,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <p className="sc-pro-eyebrow">Tool Factory</p>
           <h2 className="sc-pro-title sc-pro-title--compact">Scale without losing control</h2>
           <p className="sc-pro-lead mt-3 max-w-3xl">
-            Tool Factory accelerates sector tool production through governed pipelines — patch plans,
+            Tool Factory accelerates sector tool production through governed pipelines - patch plans,
             controlled dry-run patches, and deploy-ready gates. Status: {metrics.toolFactoryStatus}.
             Human approval is required before any production deploy command is allowed.
           </p>
@@ -175,7 +175,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
             {INVESTOR_MOAT_BULLETS.map((bullet) => (
               <li key={bullet} className="flex gap-2 text-sm leading-relaxed text-text-secondary">
                 <span className="text-deep-navy" aria-hidden>
-                  —
+                  -
                 </span>
                 {bullet}
               </li>
@@ -206,7 +206,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <ul className="mt-6 space-y-2">
             {INVESTOR_NINETY_DAY_PLAN.map((step) => (
               <li key={step} className="text-sm text-white/85">
-                — {step}
+                - {step}
               </li>
             ))}
           </ul>

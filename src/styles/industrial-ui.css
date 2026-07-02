@@ -1,10 +1,10 @@
 /**
- * SectorCalc Industrial UI — Terminal-first design system
+ * SectorCalc Industrial UI - Terminal-first design system
  * Apple-clean surfaces · engineering typography · zero decorative shadow
  */
 
 :root {
-  /* Anthropic Kil Palette — Engineering Override */
+  /* Anthropic Kil Palette - Engineering Override */
   --bg-industrial-matte: #f0eee6;
   --text-premium-velvet: #1a1915;
   --text-body-charcoal: #696764;
@@ -342,7 +342,7 @@
   font-family: var(--ind-mono);
 }
 
-/* Black terminal — force white text/icons (archive, audit panels) */
+/* Black terminal - force white text/icons (archive, audit panels) */
 .ind-terminal--inverse {
   color: #ffffff;
 }
@@ -377,7 +377,7 @@
 /* -------------------------------------------------------------------------- */
 
 .ind-shell-header {
-  /* superseded by .apple-nav — kept for legacy pages */
+  /* superseded by .apple-nav - kept for legacy pages */
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background: rgba(255, 255, 255, 0.82);
   backdrop-filter: saturate(180%) blur(20px);

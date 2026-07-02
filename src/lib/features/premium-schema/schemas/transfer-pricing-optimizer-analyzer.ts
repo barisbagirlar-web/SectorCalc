@@ -17,7 +17,7 @@ export const TRANSFER_PRICING_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "transferTaxImpact", label: "tax Etkisi", label_i18n: {"en":"tax Etkisi"}, unit: "USD", format: "currency" },
     { id: "transferGlobalProfit", label: "Global Profit", label_i18n: {"en":"Global Profit"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "transferTaxImpact", warning: 30000, critical: 75000, direction: "higher_is_bad", warningMessage: "Tax impact > $30K — transfer price should be optimized.", warningMessage_i18n: {"en":"Tax impact > $30K — transfer price should be optimized."}, criticalMessage: "Tax impact > $75K — tax consultancy is recommended.", criticalMessage_i18n: {"en":"Tax impact > $75K — tax consultancy is recommended."} }],
+  thresholds: [{ fieldId: "transferTaxImpact", warning: 30000, critical: 75000, direction: "higher_is_bad", warningMessage: "Tax impact > $30K - transfer price should be optimized.", warningMessage_i18n: {"en":"Tax impact > $30K - transfer price should be optimized."}, criticalMessage: "Tax impact > $75K - tax consultancy is recommended.", criticalMessage_i18n: {"en":"Tax impact > $75K - tax consultancy is recommended."} }],
   formulaPipeline: [
     { formulaId: "cost.transfer_tax_impact", inputMap: {
         transferPrice: "transferPrice",

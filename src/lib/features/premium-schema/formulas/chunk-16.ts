@@ -72,7 +72,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.energy_consumption_report_6",
     family: "cost",
-    label: "ENERGY CONSUMPTION REPORT — Total",
+    label: "ENERGY CONSUMPTION REPORT - Total",
     fn: (inputs) => {
     const base = num(inputs, "base");
     const tOU = num(inputs, "tOU");
@@ -85,7 +85,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.energy_consumption_report_7",
     family: "cost",
-    label: "ENERGY CONSUMPTION REPORT — Carbon",
+    label: "ENERGY CONSUMPTION REPORT - Carbon",
     fn: (inputs) => {
     const active = num(inputs, "active");
     const emisFactor = num(inputs, "emisFactor");
@@ -98,7 +98,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inflation_escalation_0",
     family: "cost",
-    label: "ENFLASYON ESKALASYON — Esc_Mat",
+    label: "ENFLASYON ESKALASYON - Esc_Mat",
     fn: (inputs) => {
     const infl = num(inputs, "infl");
     const Mat = num(inputs, "Mat");
@@ -110,7 +110,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inflation_escalation_1",
     family: "cost",
-    label: "ENFLASYON ESKALASYON — Esc_Lab",
+    label: "ENFLASYON ESKALASYON - Esc_Lab",
     fn: (inputs) => {
     const infl = num(inputs, "infl");
     const Lab = num(inputs, "Lab");
@@ -122,7 +122,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inflation_escalation_2",
     family: "cost",
-    label: "ENFLASYON ESKALASYON — BaseAdj",
+    label: "ENFLASYON ESKALASYON - BaseAdj",
     fn: (inputs) => {
     const baseMat = num(inputs, "baseMat");
     const esc = num(inputs, "esc");
@@ -137,7 +137,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inflation_escalation_3",
     family: "cost",
-    label: "ENFLASYON ESKALASYON — RealDisc",
+    label: "ENFLASYON ESKALASYON - RealDisc",
     fn: (inputs) => {
     const nominal = num(inputs, "nominal");
     const infl = num(inputs, "infl");
@@ -147,7 +147,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inflation_escalation_4",
     family: "cost",
-    label: "ENFLASYON ESKALASYON — NPV_Nom",
+    label: "ENFLASYON ESKALASYON - NPV_Nom",
     fn: (inputs) => {
     const cash = num(inputs, "cash");
     const esc = num(inputs, "esc");
@@ -159,7 +159,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inflation_escalation_5",
     family: "cost",
-    label: "ENFLASYON ESKALASYON — NPV_Real",
+    label: "ENFLASYON ESKALASYON - NPV_Real",
     fn: (inputs) => {
     const cash = num(inputs, "cash");
     const real = num(inputs, "real");
@@ -170,7 +170,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inflation_escalation_6",
     family: "cost",
-    label: "ENFLASYON ESKALASYON — Contingency",
+    label: "ENFLASYON ESKALASYON - Contingency",
     fn: (inputs) => {
     const baseAdj = num(inputs, "baseAdj");
     const confFactor = num(inputs, "confFactor");
@@ -180,7 +180,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inflation_escalation_7",
     family: "cost",
-    label: "ENFLASYON ESKALASYON — Total",
+    label: "ENFLASYON ESKALASYON - Total",
     fn: (inputs) => {
     const baseAdj = num(inputs, "baseAdj");
     const contingency = num(inputs, "contingency");
@@ -192,7 +192,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.environmental_waste_cost_0",
     family: "cost",
-    label: "ENVIRONMENTAL FIRE — Cost_Disp",
+    label: "ENVIRONMENTAL FIRE - Cost_Disp",
     fn: (inputs) => {
     const waste = num(inputs, "waste");
     const dispFee = num(inputs, "dispFee");
@@ -202,7 +202,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.environmental_waste_cost_1",
     family: "cost",
-    label: "ENVIRONMENTAL FIRE — Cost_Haz",
+    label: "ENVIRONMENTAL FIRE - Cost_Haz",
     fn: (inputs) => {
     const hazMass = num(inputs, "hazMass");
     const hazFee = num(inputs, "hazFee");
@@ -213,7 +213,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.environmental_waste_cost_2",
     family: "cost",
-    label: "ENVIRONMENTAL FIRE — Cost_Recyc",
+    label: "ENVIRONMENTAL FIRE - Cost_Recyc",
     fn: (inputs) => {
     const recycMass = num(inputs, "recycMass");
     const sortCost = num(inputs, "sortCost");
@@ -224,7 +224,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.environmental_waste_cost_3",
     family: "cost",
-    label: "ENVIRONMENTAL FIRE — Cost_Emis",
+    label: "ENVIRONMENTAL FIRE - Cost_Emis",
     fn: (inputs) => {
     const air = num(inputs, "air");
     const carbonPrice = num(inputs, "carbonPrice");
@@ -236,7 +236,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.environmental_waste_cost_4",
     family: "cost",
-    label: "ENVIRONMENTAL FIRE — PenaltyRisk",
+    label: "ENVIRONMENTAL FIRE - PenaltyRisk",
     fn: (inputs) => {
     const probViolation = num(inputs, "probViolation");
     const fine = num(inputs, "fine");

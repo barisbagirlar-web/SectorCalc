@@ -39,7 +39,7 @@ function subscribeToSearch(onStoreChange: () => void): () => void {
 }
 
 /**
- * Read URL search params after mount — avoids useSearchParams() hydration/RSC
+ * Read URL search params after mount - avoids useSearchParams() hydration/RSC
  * failures on statically generated pages (pricing, catalogs, account).
  * Syncs on pathname changes and soft navigations that only update the query string.
  */

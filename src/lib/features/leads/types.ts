@@ -49,7 +49,7 @@ export interface LeadIntent {
  phone?: string;
  /** Admin-only follow-up note (max 500 chars) */
  adminNote?: string;
- /** UTC ISO — set on admin pipeline save only */
+ /** UTC ISO - set on admin pipeline save only */
  updatedAt?: string;
  /** Admin manual test lead classification */
  isTestLead?: boolean;

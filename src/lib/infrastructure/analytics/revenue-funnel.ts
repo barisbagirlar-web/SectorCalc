@@ -1,5 +1,5 @@
 /**
- * Revenue funnel model — scores conversion events for monetization review.
+ * Revenue funnel model - scores conversion events for monetization review.
  * No PII; event names and slugs only.
  */
 
@@ -189,13 +189,13 @@ export function getRecommendedRevenueAction(summary: RevenueIntentSummary): stri
       return "Improve locked report value copy and make the preview outcome more concrete.";
     case "unlock_intent":
     case "pricing_intent":
-      return "Review pricing page friction — Pro card dominance and single-report visibility.";
+      return "Review pricing page friction - Pro card dominance and single-report visibility.";
     case "purchase_intent":
       return "Prioritize checkout completion and entitlement confirmation for plan CTAs.";
     case "lead_intent":
       return "Route beta partner leads into case-study proof before pushing paid conversion.";
     case "export_intent":
-      return "Prioritize export entitlement and payment flow — export is the paywall trigger.";
+      return "Prioritize export entitlement and payment flow - export is the paywall trigger.";
     default:
       if (summary.level === "hot") {
         return "Launch a focused monetization sprint on the strongest revenue stage.";

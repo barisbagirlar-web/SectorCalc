@@ -1,5 +1,5 @@
 /**
- * Smart form rollout expansion batch audit — Phase 5I-H read-only.
+ * Smart form rollout expansion batch audit - Phase 5I-H read-only.
  */
 
 import { ROLLOUT_BATCH_H_TOOL_DEFINITIONS } from "@/components/tools/smart-form/rollout-batch-h-catalog";

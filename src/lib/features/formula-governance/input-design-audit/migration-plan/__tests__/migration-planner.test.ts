@@ -1,5 +1,5 @@
 /**
- * Phase 5H-E — migration planner tests.
+ * Phase 5H-E - migration planner tests.
  */
 
 import { describe, expect, test } from "vitest";

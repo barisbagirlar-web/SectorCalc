@@ -1,7 +1,7 @@
 /**
- * Industrial Formula Tools — 18 FormulaContracts (Phase 5H-c).
+ * Industrial Formula Tools - 18 FormulaContracts (Phase 5H-c).
  *
- * ECMI / ISO 9001 — TUV-certifiable engineering quality.
+ * ECMI / ISO 9001 - TUV-certifiable engineering quality.
  * Each contract declares purpose, inputs, outputs, assumptions, validation rules,
  * scenarios, monotonicity, decision language and warning policy.
  */
@@ -18,7 +18,7 @@ import {
 import { createWarningPolicy } from "@/lib/features/formula-governance/warning-policy";
 
 const PREMIUM_DISCLAIMER =
-  "Technical simulation only — not financial, legal, safety, or professional engineering advice. Verify assumptions before business decisions.";
+  "Technical simulation only - not financial, legal, safety, or professional engineering advice. Verify assumptions before business decisions.";
 
 /* ────────────────────────────────────────────────────────────────────────────
  * Shared warning policies
@@ -66,13 +66,13 @@ const STATISTICAL_WARNING_POLICY = createWarningPolicy({
 });
 
 /* ────────────────────────────────────────────────────────────────────────────
- * 1. IRR — Internal Rate of Return
+ * 1. IRR - Internal Rate of Return
  * ──────────────────────────────────────────────────────────────────────────── */
 export const IrrCalculatorContract: FormulaContract = buildCriticalContract({
   toolId: "industrial-formula.irr",
   toolName: "IRR Investment Analyzer",
   slug: "irr-investment-analyzer",
-  purpose: "Compute the internal rate of return (IRR) — the discount rate that zeroes the NPV of a cash-flow series — using a hybrid bisection + Newton-Raphson algorithm with convergence guards.",
+  purpose: "Compute the internal rate of return (IRR) - the discount rate that zeroes the NPV of a cash-flow series - using a hybrid bisection + Newton-Raphson algorithm with convergence guards.",
   userDecision: "Should this investment be accepted or rejected based on IRR relative to WACC?",
   decisionImpact: "investment",
   requiredInputs: [
@@ -91,7 +91,7 @@ export const IrrCalculatorContract: FormulaContract = buildCriticalContract({
     "NULL returns: no sign change, invalid input (NaN/Inf), or failed convergence.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "IrrCalculatorContract — deterministic hybrid IRR solver",
+      "IrrCalculatorContract - deterministic hybrid IRR solver",
     ),
   ],
   formulaSummary:
@@ -116,7 +116,7 @@ export const IrrCalculatorContract: FormulaContract = buildCriticalContract({
 });
 
 /* ────────────────────────────────────────────────────────────────────────────
- * 2. NPV — Net Present Value
+ * 2. NPV - Net Present Value
  * ──────────────────────────────────────────────────────────────────────────── */
 export const NpvCalculatorContract: FormulaContract = buildCriticalContract({
   toolId: "industrial-formula.npv",
@@ -140,7 +140,7 @@ export const NpvCalculatorContract: FormulaContract = buildCriticalContract({
     "Discount rate r > −1 and r ≠ −1 enforced.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "NpvCalculatorContract — deterministic NPV with risk adjustment and terminal value",
+      "NpvCalculatorContract - deterministic NPV with risk adjustment and terminal value",
     ),
   ],
   formulaSummary:
@@ -166,7 +166,7 @@ export const NpvCalculatorContract: FormulaContract = buildCriticalContract({
 });
 
 /* ────────────────────────────────────────────────────────────────────────────
- * 3. DCF — Discounted Cash Flow / WACC-CAPM
+ * 3. DCF - Discounted Cash Flow / WACC-CAPM
  * ──────────────────────────────────────────────────────────────────────────── */
 export const DcfCalculatorContract: FormulaContract = buildCriticalContract({
   toolId: "industrial-formula.dcf",
@@ -193,7 +193,7 @@ export const DcfCalculatorContract: FormulaContract = buildCriticalContract({
     "Base case uses user FCFF; Bull: g+1%, WACC−0.5%; Bear: g−1%, WACC+0.5%.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "DcfCalculatorContract — WACC-CAPM DCF with scenario analysis",
+      "DcfCalculatorContract - WACC-CAPM DCF with scenario analysis",
     ),
   ],
   formulaSummary:
@@ -244,7 +244,7 @@ export const LeaseVsBuyCalculatorContract: FormulaContract = buildCriticalContra
     "Salvage value is post-tax at disposal.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "LeaseVsBuyCalculatorContract — deterministic NAL with tax effects",
+      "LeaseVsBuyCalculatorContract - deterministic NAL with tax effects",
     ),
   ],
   formulaSummary:
@@ -301,7 +301,7 @@ export const DarcyWeisbachCalculatorContract: FormulaContract = buildCriticalCon
     "Pump power: P = ΔP_total × Q / η (η=0.75 assumed).",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "DarcyWeisbachCalculatorContract — Colebrook-White Newton-Raphson iteration",
+      "DarcyWeisbachCalculatorContract - Colebrook-White Newton-Raphson iteration",
     ),
   ],
   formulaSummary:
@@ -361,7 +361,7 @@ export const HeatExchangerCalculatorContract: FormulaContract = buildCriticalCon
     "Q_actual = ε × C_min × (T_h,in − T_c,in) used for verification.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "HeatExchangerCalculatorContract — LMTD with F-correction, U with fouling, NTU-effectiveness",
+      "HeatExchangerCalculatorContract - LMTD with F-correction, U with fouling, NTU-effectiveness",
     ),
   ],
   formulaSummary:
@@ -388,7 +388,7 @@ export const HeatExchangerCalculatorContract: FormulaContract = buildCriticalCon
 });
 
 /* ────────────────────────────────────────────────────────────────────────────
- * 7. OEE — Overall Equipment Effectiveness
+ * 7. OEE - Overall Equipment Effectiveness
  * ──────────────────────────────────────────────────────────────────────────── */
 export const OeeCalculatorContract: FormulaContract = buildCriticalContract({
   toolId: "industrial-formula.oee",
@@ -420,7 +420,7 @@ export const OeeCalculatorContract: FormulaContract = buildCriticalContract({
     "Loss Pareto sorts categories by contribution to total loss (1 − OEE).",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "OeeCalculatorContract — OEE with Six Big Losses and TEEP",
+      "OeeCalculatorContract - OEE with Six Big Losses and TEEP",
     ),
   ],
   formulaSummary:
@@ -476,7 +476,7 @@ export const LineBalancingCalculatorContract: FormulaContract = buildCriticalCon
     "Rebalance action suggests stations to combine or split based on load variance.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "LineBalancingCalculatorContract — takt, N_min, efficiency, bottleneck",
+      "LineBalancingCalculatorContract - takt, N_min, efficiency, bottleneck",
     ),
   ],
   formulaSummary:
@@ -532,7 +532,7 @@ export const StandardTimeCalculatorContract: FormulaContract = buildCriticalCont
     "1 TMU = 0.00001 hour = 0.036 seconds.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "StandardTimeCalculatorContract — NT, ST, sample size, MTM-1",
+      "StandardTimeCalculatorContract - NT, ST, sample size, MTM-1",
     ),
   ],
   formulaSummary:
@@ -588,7 +588,7 @@ export const LearningCurveCalculatorContract: FormulaContract = buildCriticalCon
     "p < 0.50 or p > 1.00 triggers invalid input warning.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "LearningCurveCalculatorContract — Wright + Crawford models",
+      "LearningCurveCalculatorContract - Wright + Crawford models",
     ),
   ],
   formulaSummary:
@@ -647,7 +647,7 @@ export const SpringDesignCalculatorContract: FormulaContract = buildCriticalCont
     "Goodman: σ_a/S_e + σ_m/UTS < 1/SF. SF fatigue target ≥ 1.5.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "SpringDesignCalculatorContract — Wahl correction, buckling, Goodman",
+      "SpringDesignCalculatorContract - Wahl correction, buckling, Goodman",
     ),
   ],
   formulaSummary:
@@ -703,7 +703,7 @@ export const CarbonFootprintCalculatorContract: FormulaContract = buildCriticalC
     "Market-based (renewable PPA): Scope 2 = 0 kgCO₂e.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "CarbonFootprintCalculatorContract — GHG Protocol Scope 1-2-3 with CBAM",
+      "CarbonFootprintCalculatorContract - GHG Protocol Scope 1-2-3 with CBAM",
     ),
   ],
   formulaSummary:
@@ -769,7 +769,7 @@ export const RegressionCalculatorContract: FormulaContract = buildCriticalContra
     "Assumes linearity, independence, homoscedasticity and normality of residuals.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "RegressionCalculatorContract — OLS with R², F-test, t-statistics",
+      "RegressionCalculatorContract - OLS with R², F-test, t-statistics",
     ),
   ],
   formulaSummary:
@@ -823,7 +823,7 @@ export const SampleSizeCalculatorContract: FormulaContract = buildCriticalContra
     "Medical standard: α = 0.01, Power ≥ 0.90.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "SampleSizeCalculatorContract — proportion and mean power analysis",
+      "SampleSizeCalculatorContract - proportion and mean power analysis",
     ),
   ],
   formulaSummary:
@@ -883,7 +883,7 @@ export const AnovaCalculatorContract: FormulaContract = buildCriticalContract({
     "Assumes normality within groups, homogeneity of variance, independence.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "AnovaCalculatorContract — one-way ANOVA with post-hoc",
+      "AnovaCalculatorContract - one-way ANOVA with post-hoc",
     ),
   ],
   formulaSummary:
@@ -908,7 +908,7 @@ export const AnovaCalculatorContract: FormulaContract = buildCriticalContract({
 });
 
 /* ────────────────────────────────────────────────────────────────────────────
- * 16. ROI — Return on Investment
+ * 16. ROI - Return on Investment
  * ──────────────────────────────────────────────────────────────────────────── */
 export const RoiCalculatorContract: FormulaContract = buildCriticalContract({
   toolId: "industrial-formula.roi",
@@ -933,10 +933,10 @@ export const RoiCalculatorContract: FormulaContract = buildCriticalContract({
     "Payback = cumulative cash flow reaches investment. Linear interpolation for partial year.",
     "IRR via Newton-NPV hybrid (same algorithm as IRR calculator).",
     "NPV at target discount rate. Positive NPV + IRR > rate + ROI > 0 → Accept.",
-    "ROI alone is NOT sufficient — must be presented with IRR and NPV.",
+    "ROI alone is NOT sufficient - must be presented with IRR and NPV.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "RoiCalculatorContract — ROI with payback, IRR and NPV",
+      "RoiCalculatorContract - ROI with payback, IRR and NPV",
     ),
   ],
   formulaSummary:
@@ -993,7 +993,7 @@ export const BeltPulleyCalculatorContract: FormulaContract = buildCriticalContra
     "Total efficiency = η_belt × η_gear_total.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "BeltPulleyCalculatorContract — speed ratio, slip, power, Euler, efficiency",
+      "BeltPulleyCalculatorContract - speed ratio, slip, power, Euler, efficiency",
     ),
   ],
   formulaSummary:
@@ -1052,7 +1052,7 @@ export const HydraulicCylinderCalculatorContract: FormulaContract = buildCritica
     "Required SF ≥ 3.5 for buckling safety.",
     calculatorProductionAssumption(
       "src/lib/formula-governance/contracts/industrial-formulas-critical.ts",
-      "HydraulicCylinderCalculatorContract — push/pull, speed, power, Euler buckling",
+      "HydraulicCylinderCalculatorContract - push/pull, speed, power, Euler buckling",
     ),
   ],
   formulaSummary:

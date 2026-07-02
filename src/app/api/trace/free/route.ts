@@ -1,6 +1,6 @@
 /**
  * POST /api/trace/free
- * Trace Free — no auth; routes to tools via slug/knowledge + optional flash model.
+ * Trace Free - no auth; routes to tools via slug/knowledge + optional flash model.
  */
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";

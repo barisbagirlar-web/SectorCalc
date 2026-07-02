@@ -1,5 +1,5 @@
 /**
- * Trust trace export contract types — Phase 5I-C (schema only; no file export).
+ * Trust trace export contract types - Phase 5I-C (schema only; no file export).
  */
 
 export type TrustTraceExportFormat = "pdf" | "excel" | "word";

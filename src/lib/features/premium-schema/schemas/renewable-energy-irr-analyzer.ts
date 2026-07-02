@@ -10,7 +10,7 @@ export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
       label: "Total Investment",
       label_i18n: { en: "Total Investment" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
       label: "Annual Cash Flow",
       label_i18n: { en: "Annual Cash Flow" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -40,9 +40,9 @@ export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
     { id: "paybackPeriod", label: "Payback Period", label_i18n: {"en":"Payback Period"}, unit: "years", format: "number" },
   ],
   thresholds: [
-    { fieldId: "renewableNpv", warning: 0, critical: -50000, direction: "lower_is_bad", warningMessage: "NPV is not positive — investment feasibility is weak.", warningMessage_i18n: {"en":"NPV is not positive — investment feasibility is weak."}, criticalMessage: "NPV < -$50K — investment should not be made; alternatives should be evaluated.", criticalMessage_i18n: {"en":"NPV < -$50K — investment should not be made; alternatives should be evaluated."} },
-    { fieldId: "renewableLcoe", warning: 0.12, critical: 0.20, direction: "higher_is_bad", warningMessage: "LCOE > $0.12/kWh — grid parity risk exists.", warningMessage_i18n: {"en":"LCOE > $0.12/kWh — grid parity risk exists."}, criticalMessage: "LCOE > $0.20/kWh — project is economically unsustainable.", criticalMessage_i18n: {"en":"LCOE > $0.20/kWh — project is economically unsustainable."} },
-    { fieldId: "renewableIrr", warning: 8, critical: 5, direction: "lower_is_bad", warningMessage: "IRR < 8% — return below discount rate.", warningMessage_i18n: {"en":"IRR < 8% — return below discount rate."}, criticalMessage: "IRR < 5% — alternative investments are more attractive.", criticalMessage_i18n: {"en":"IRR < 5% — alternative investments are more attractive."} },
+    { fieldId: "renewableNpv", warning: 0, critical: -50000, direction: "lower_is_bad", warningMessage: "NPV is not positive - investment feasibility is weak.", warningMessage_i18n: {"en":"NPV is not positive - investment feasibility is weak."}, criticalMessage: "NPV < -$50K - investment should not be made; alternatives should be evaluated.", criticalMessage_i18n: {"en":"NPV < -$50K - investment should not be made; alternatives should be evaluated."} },
+    { fieldId: "renewableLcoe", warning: 0.12, critical: 0.20, direction: "higher_is_bad", warningMessage: "LCOE > $0.12/kWh - grid parity risk exists.", warningMessage_i18n: {"en":"LCOE > $0.12/kWh - grid parity risk exists."}, criticalMessage: "LCOE > $0.20/kWh - project is economically unsustainable.", criticalMessage_i18n: {"en":"LCOE > $0.20/kWh - project is economically unsustainable."} },
+    { fieldId: "renewableIrr", warning: 8, critical: 5, direction: "lower_is_bad", warningMessage: "IRR < 8% - return below discount rate.", warningMessage_i18n: {"en":"IRR < 8% - return below discount rate."}, criticalMessage: "IRR < 5% - alternative investments are more attractive.", criticalMessage_i18n: {"en":"IRR < 5% - alternative investments are more attractive."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.renewable_annual_gen", inputMap: { annualGeneration: "annualGeneration", degradationRate: "degradationRate" ,

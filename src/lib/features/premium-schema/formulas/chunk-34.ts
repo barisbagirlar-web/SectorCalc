@@ -72,7 +72,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_4",
     family: "cost",
-    label: "Kompresor Kacagi Maliyet — TotalLeakCost",
+    label: "Kompresor Kacagi Maliyet - TotalLeakCost",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const Leak = num(inputs, "Leak");
@@ -84,7 +84,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_5",
     family: "cost",
-    label: "Kompresor Kacagi Maliyet — CarbonEmissions",
+    label: "Kompresor Kacagi Maliyet - CarbonEmissions",
     fn: (inputs) => {
     const annualEnergyLoss = num(inputs, "annualEnergyLoss");
     const gridEmissionFactor = num(inputs, "gridEmissionFactor");
@@ -94,7 +94,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_6",
     family: "cost",
-    label: "Kompresor Kacagi Maliyet — Payback_Repair",
+    label: "Kompresor Kacagi Maliyet - Payback_Repair",
     fn: (inputs) => {
     const repairCost = num(inputs, "repairCost");
     const cost = num(inputs, "cost");
@@ -108,7 +108,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressor_tank_sizing_0",
     family: "cost",
-    label: "Kompresor Tanki Boyutlandirma — V_Tank",
+    label: "Kompresor Tanki Boyutlandirma - V_Tank",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const q = num(inputs, "q");
@@ -125,7 +125,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressor_tank_sizing_1",
     family: "cost",
-    label: "Kompresor Tanki Boyutlandirma — t",
+    label: "Kompresor Tanki Boyutlandirma - t",
     fn: (inputs) => {
     const timeToFill = num(inputs, "timeToFill");
     return nonNegative(assertFinite(timeToFill));
@@ -134,7 +134,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressor_tank_sizing_2",
     family: "cost",
-    label: "Kompresor Tanki Boyutlandirma — Q",
+    label: "Kompresor Tanki Boyutlandirma - Q",
     fn: (inputs) => {
     const freeAirDelivery = num(inputs, "freeAirDelivery");
     return nonNegative(assertFinite(freeAirDelivery));
@@ -143,7 +143,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressor_tank_sizing_3",
     family: "cost",
-    label: "Kompresor Tanki Boyutlandirma — P_Max",
+    label: "Kompresor Tanki Boyutlandirma - P_Max",
     fn: (inputs) => {
     const cutOutPressure = num(inputs, "cutOutPressure");
     return nonNegative(assertFinite(cutOutPressure));
@@ -152,7 +152,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressor_tank_sizing_4",
     family: "cost",
-    label: "Kompresor Tanki Boyutlandirma — P_Min",
+    label: "Kompresor Tanki Boyutlandirma - P_Min",
     fn: (inputs) => {
     const cutInPressure = num(inputs, "cutInPressure");
     return nonNegative(assertFinite(cutInPressure));
@@ -161,7 +161,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressor_tank_sizing_5",
     family: "cost",
-    label: "Kompresor Tanki Boyutlandirma — CycleTime",
+    label: "Kompresor Tanki Boyutlandirma - CycleTime",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const Tank = num(inputs, "Tank");
@@ -180,7 +180,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressor_tank_sizing_6",
     family: "cost",
-    label: "Kompresor Tanki Boyutlandirma — CyclesPerHour",
+    label: "Kompresor Tanki Boyutlandirma - CyclesPerHour",
     fn: (inputs) => {
     const cycleTime = num(inputs, "cycleTime");
     return nonNegative(assertFinite(60 / cycleTime));
@@ -189,7 +189,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressor_tank_sizing_7",
     family: "cost",
-    label: "Kompresor Tanki Boyutlandirma — MotorStartLimit",
+    label: "Kompresor Tanki Boyutlandirma - MotorStartLimit",
     fn: (inputs) => {
     const cyclesPerHour = num(inputs, "cyclesPerHour");
     const maxStarts = num(inputs, "maxStarts");
@@ -201,7 +201,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressor_tank_sizing_8",
     family: "cost",
-    label: "Kompresor Tanki Boyutlandirma — Cost_Tank",
+    label: "Kompresor Tanki Boyutlandirma - Cost_Tank",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const pricePerLiter = num(inputs, "pricePerLiter");
@@ -213,7 +213,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_0",
     family: "cost",
-    label: "Konteyner Yuku — Volume_Utilization",
+    label: "Konteyner Yuku - Volume_Utilization",
     fn: (inputs) => {
     const itemVolume = num(inputs, "itemVolume");
     const i = num(inputs, "i");
@@ -225,7 +225,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_1",
     family: "cost",
-    label: "Konteyner Yuku — Weight_Utilization",
+    label: "Konteyner Yuku - Weight_Utilization",
     fn: (inputs) => {
     const itemWeight = num(inputs, "itemWeight");
     const i = num(inputs, "i");
@@ -237,7 +237,7 @@ export const CHUNK_34_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_2",
     family: "cost",
-    label: "Konteyner Yuku — ChargeableWeight",
+    label: "Konteyner Yuku - ChargeableWeight",
     fn: (inputs) => {
     const grossWeight = num(inputs, "grossWeight");
     const volumetricWeight = num(inputs, "volumetricWeight");

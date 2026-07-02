@@ -2,7 +2,7 @@
 // Use as source data seed; validate formula contracts before production calculation.
 
 export const sectorCalcPremium152Seed = {
-  "source": "SECTORCALC.COM — 152 Calculation Tools (With Formulas)",
+  "source": "SECTORCALC.COM - 152 Calculation Tools (With Formulas)",
   "totalTools": 152,
   "categories": [
     {
@@ -995,7 +995,7 @@ export const sectorCalcPremium152Seed = {
       "categorySlug": "hse-ergonomics",
       "tier": "premium",
       "formulaNote": "Direct = Treatment + Compensation + Insurance + Ceza | Indirect ≈ Direct × 4 (iceberg)",
-      "pain": "The cost of work accidents beyond treatment — downtime, training, penalties, reputation loss — is unknown.",
+      "pain": "The cost of work accidents beyond treatment - downtime, training, penalties, reputation loss - is unknown.",
       "formulaStatus": "source-formula-provided",
       "publicStatus": "active-after-contract-validation"
     },
@@ -1085,7 +1085,7 @@ export const sectorCalcPremium152Seed = {
       "categorySlug": "workforce-hr",
       "tier": "premium",
       "formulaNote": "Turnover = Hiring + Training + Productivity_loss + Knowledge_loss | Typical: Skilled employee 6-12 salary salary",
-      "pain": "The total cost of employee turnover — hiring, training, productivity loss — is unknown.",
+      "pain": "The total cost of employee turnover - hiring, training, productivity loss - is unknown.",
       "formulaStatus": "source-formula-provided",
       "publicStatus": "active-after-contract-validation"
     },

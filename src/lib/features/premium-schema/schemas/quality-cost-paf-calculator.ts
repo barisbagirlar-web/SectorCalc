@@ -18,8 +18,8 @@ export const QUALITY_COST_PAF_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       warning: 4,
       critical: 8,
       direction: "higher_is_bad",
-      warningMessage: "Quality cost ratio is elevated — review failure drivers.",
-      criticalMessage: "Quality cost ratio is critical — prioritize failure reduction projects.",
+      warningMessage: "Quality cost ratio is elevated - review failure drivers.",
+      criticalMessage: "Quality cost ratio is critical - prioritize failure reduction projects.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const QUALITY_COST_PAF_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
     assumptionNotes: [
       "Total quality cost = prevention + appraisal + failure.",
       "Quality cost % = total quality cost ÷ revenue × 100.",
-      "PAF classification is informational — align buckets with your finance policy.",
+      "PAF classification is informational - align buckets with your finance policy.",
     ],
   },
 };

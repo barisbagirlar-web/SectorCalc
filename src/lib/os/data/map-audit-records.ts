@@ -18,7 +18,7 @@ function resolveFinancialImpact(report: SavedVerdictReport): string {
     return primary;
   }
 
-  return "—";
+  return "-";
 }
 
 export function savedReportToAuditRecord(report: SavedVerdictReport): AuditRecord {

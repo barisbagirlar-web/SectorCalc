@@ -16,7 +16,7 @@ function normalizePath(pathname: string): string {
 }
 
 /**
- * Precise header nav active matching — /audit must never activate Pricing.
+ * Precise header nav active matching - /audit must never activate Pricing.
  */
 export function isNavLinkActive(pathname: string, href: string): boolean {
   const path = normalizePath(pathname);
@@ -47,7 +47,7 @@ export function isNavLinkActive(pathname: string, href: string): boolean {
   }
 }
 
-/** Audit hub routes — no primary nav item should appear active. */
+/** Audit hub routes - no primary nav item should appear active. */
 export function isAuditHubPath(pathname: string): boolean {
   const path = normalizePath(pathname);
   return path === "/audit" || path.startsWith("/audit/");

@@ -44,7 +44,7 @@ function translateSchemaTurkish(obj: unknown): void {
   }
 }
 
-/** Resolve generated schemas directory — tries multiple deployment paths. */
+/** Resolve generated schemas directory - tries multiple deployment paths. */
 function resolveSchemasDir(): string {
   const candidates = [
     // Local dev / standard

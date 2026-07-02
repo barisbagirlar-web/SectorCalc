@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable */
-// @ts-nocheck — Formula Registry (locked type system)
+// @ts-nocheck - Formula Registry (locked type system)
 
 /**
- * Safe Formula Registry — typed, testable functions only.
+ * Safe Formula Registry - typed, testable functions only.
  * Organized under 10 locked industrial formula families.
  * Schemas reference formulaId; never expression strings.
  */
@@ -391,7 +391,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #1 — AI Token Cost (6 formulas)
+  // TOOL #1 - AI Token Cost (6 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.ai_daily_prompt",
@@ -434,7 +434,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #2 — Six Sigma Project Prioritizer (6 formulas)
+  // TOOL #2 - Six Sigma Project Prioritizer (6 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "stats.dpmo",
@@ -486,7 +486,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "financialPriority") * 0.35 + num(inputs, "sigmaGap") * 0.25 + num(inputs, "strategicAlignment") * 0.25 + num(inputs, "ease") * 0.15),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #3 — AQL Sampling (4 formulas - ATI, TotalRiskCost, OptimalCost)
+  // TOOL #3 - AQL Sampling (4 formulas - ATI, TotalRiskCost, OptimalCost)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "quality.ati",
@@ -519,7 +519,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "acceptanceProbLTPD")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #4 — Arac Amortismani (4 formulas)
+  // TOOL #4 - Arac Amortismani (4 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "depreciation.sl_annual",
@@ -559,7 +559,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "annualDepreciation") * (num(inputs, "taxRate") / 100)),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #5 — Ariza Suresi Maliyeti (sub-components + total: 7 formulas)
+  // TOOL #5 - Ariza Suresi Maliyeti (sub-components + total: 7 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.downtime_labor",
@@ -598,7 +598,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "directLaborLoss") + num(inputs, "productionLoss") + num(inputs, "energyWaste") + num(inputs, "recoveryCost") + num(inputs, "qualityLoss") + num(inputs, "penalty")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #6 — Auto Repair Comeback (computed from raw inputs)
+  // TOOL #6 - Auto Repair Comeback (computed from raw inputs)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.comeback_direct",
@@ -625,7 +625,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "directCost") + num(inputs, "warrantyCost") + num(inputs, "goodwillCost")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #7 — Auto Repair Quote Consistency (4 formulas)
+  // TOOL #7 - Auto Repair Quote Consistency (4 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "stats.quote_variance",
@@ -664,7 +664,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "marketPrice") - num(inputs, "quotedPrice")) * num(inputs, "quantity"),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #8 — Auto Shop Marj Kacak (2 formulas)
+  // TOOL #8 - Auto Shop Marj Kacak (2 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.effective_labor_rate",
@@ -686,7 +686,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #9 — Basinc Vessel Kalinlik (ASME) (4 formulas)
+  // TOOL #9 - Basinc Vessel Kalinlik (ASME) (4 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "measurement.vessel_shell_thickness",
@@ -731,7 +731,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #10 — Basincli Hava Enerji Maliyeti (2 formulas)
+  // TOOL #10 - Basincli Hava Enerji Maliyeti (2 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "energy.compressed_air_power",
@@ -751,7 +751,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "annualEnergyCost") + num(inputs, "leakageCost") + num(inputs, "pressureDropCost") - num(inputs, "heatRecoverySavings")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #11 — Basabas Noktasi (5 formulas)
+  // TOOL #11 - Basabas Noktasi (5 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.bep_units",
@@ -814,7 +814,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #12 — Beton Hacmi (1 formula — total cost)
+  // TOOL #12 - Beton Hacmi (1 formula - total cost)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "measurement.concrete_volume_total",
@@ -830,7 +830,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #13 — Kalibrasyon Sapma Riski (3 formulas)
+  // TOOL #13 - Kalibrasyon Sapma Riski (3 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "measurement.drift_rate",
@@ -862,7 +862,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #14 — CBAM Maruziyet (3 formulas)
+  // TOOL #14 - CBAM Maruziyet (3 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "carbon.embedded_emissions",
@@ -886,7 +886,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "dataCompleteness") * 0.3 + num(inputs, "verificationStatus") * 0.3 + num(inputs, "reductionProgress") * 0.4),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #15 — CBAM Uyumluluk Profitari (3 formulas)
+  // TOOL #15 - CBAM Uyumluluk Profitari (3 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "carbon.specific_embedded",
@@ -918,7 +918,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #16 — Chatter Yuzey Kalite Loss (5 formulas)
+  // TOOL #16 - Chatter Yuzey Kalite Loss (5 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "measurement.cutting_speed",
@@ -963,7 +963,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #17 — Civata Torque (5 formulas)
+  // TOOL #17 - Civata Torque (5 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "measurement.bolt_d2",
@@ -1000,7 +1000,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "torqueCoefficient") * num(inputs, "nominalDiameter") * num(inputs, "preload")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #18 — Ciro Maliyeti (Turnover) (1 formula)
+  // TOOL #18 - Ciro Maliyeti (Turnover) (1 formula)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.turnover_total",
@@ -1009,7 +1009,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "separationCost") + num(inputs, "vacancyCost") + num(inputs, "replacementCost") + num(inputs, "trainingCost") + num(inputs, "productivityLoss")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #19 — Cloud API Overrun (3 formulas)
+  // TOOL #19 - Cloud API Overrun (3 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.cloud_overrun_cost",
@@ -1030,7 +1030,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "overrunCost") + num(inputs, "throttlingCost") + num(inputs, "dataEgressCost") + num(inputs, "slaPenalty")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #20 — Cloud Fire Elimination (1 formula)
+  // TOOL #20 - Cloud Fire Elimination (1 formula)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.cloud_waste_total",
@@ -2913,7 +2913,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       );
     },
   },
-  /* ─── Industrial Formula Tools (18) —— atomic sub-formulas ─── */
+  /* ─── Industrial Formula Tools (18) -- atomic sub-formulas ─── */
   {
     id: "finance.irr_estimate",
     family: "finance",
@@ -3102,7 +3102,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // -------------------------------------------------------------------------
-  // Setup & complexity cost formulas — product-complexity-hidden-cost
+  // Setup & complexity cost formulas - product-complexity-hidden-cost
   // -------------------------------------------------------------------------
   {
     id: "cost.setup_total_cost",
@@ -3117,7 +3117,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => safeDivide(num(inputs, "hiddenCostComplexity"), num(inputs, "numSkus")) * 100,
   },
   // -------------------------------------------------------------------------
-  // Vacuum leak energy — vacuum-leak-energy
+  // Vacuum leak energy - vacuum-leak-energy
   // -------------------------------------------------------------------------
   {
     id: "cost.vacuum_savings_potential",
@@ -3126,7 +3126,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "vacuumLeakCost") * 0.7),
   },
   // -------------------------------------------------------------------------
-  // Shift cost — shift-cost-efficiency
+  // Shift cost - shift-cost-efficiency
   // -------------------------------------------------------------------------
   {
     id: "cost.annual_shift_cost",
@@ -3135,7 +3135,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "shiftWorkers") * num(inputs, "shiftHours") * num(inputs, "shiftRate") * num(inputs, "shiftDays")),
   },
   // -------------------------------------------------------------------------
-  // WPS preheat crack risk — wps-preheat-temperature
+  // WPS preheat crack risk - wps-preheat-temperature
   // -------------------------------------------------------------------------
   {
     id: "measurement.crack_risk_score",
@@ -3144,7 +3144,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "carbonEquivalent") / num(inputs, "materialThickness") * 100),
   },
   // -------------------------------------------------------------------------
-  // Fire hydrant compliance — fire-hydrant-flow
+  // Fire hydrant compliance - fire-hydrant-flow
   // -------------------------------------------------------------------------
   {
     id: "cost.hydrant_compliance_penalty",
@@ -3153,7 +3153,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "deficientHydrants") * num(inputs, "penaltyPerHydrant")),
   },
   // -------------------------------------------------------------------------
-  // Renovation budget breakdown — renovation-budget-optimizer
+  // Renovation budget breakdown - renovation-budget-optimizer
   // -------------------------------------------------------------------------
   {
     id: "cost.renovation_budget_breakdown",
@@ -3162,7 +3162,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "renovationBaseCost") + num(inputs, "contingencyBudget") + num(inputs, "designFee")),
   },
   // -------------------------------------------------------------------------
-  // Renewable energy IRR — renewable-energy-irr
+  // Renewable energy IRR - renewable-energy-irr
   // -------------------------------------------------------------------------
   {
     id: "cost.renewable_irr",
@@ -3177,7 +3177,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => safeDivide(num(inputs, "installationCost"), num(inputs, "annualGeneration")),
   },
   // -------------------------------------------------------------------------
-  // Cash flow metrics — cash-flow-gap & payment-terms
+  // Cash flow metrics - cash-flow-gap & payment-terms
   // -------------------------------------------------------------------------
   {
     id: "measurement.dso",
@@ -3198,7 +3198,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => safeDivide(num(inputs, "inventory"), num(inputs, "annualCOGS") / 365),
   },
   // -------------------------------------------------------------------------
-  // Energy — kwh-cost
+  // Energy - kwh-cost
   // -------------------------------------------------------------------------
   {
     id: "cost.demand_charge",
@@ -3207,7 +3207,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "peakDemandKW") * num(inputs, "demandRatePerKW") * (num(inputs, "months") || 1)),
   },
   // -------------------------------------------------------------------------
-  // Breakeven — breakeven-unit
+  // Breakeven - breakeven-unit
   // -------------------------------------------------------------------------
   {
     id: "measurement.breakeven_unit",
@@ -3216,7 +3216,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => safeDivide(num(inputs, "fixedCost"), num(inputs, "unitPrice") - num(inputs, "variableCost")),
   },
   // -------------------------------------------------------------------------
-  // Machine economic life — machine-economic-life
+  // Machine economic life - machine-economic-life
   // -------------------------------------------------------------------------
   {
     id: "measurement.machine_economic_life",
@@ -3225,7 +3225,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(Math.sqrt(2 * num(inputs, "purchaseCost") * num(inputs, "purchaseResidualAmt") / num(inputs, "discountRate"))),
   },
   // -------------------------------------------------------------------------
-  // Project overrun (EVM) — project-overrun
+  // Project overrun (EVM) - project-overrun
   // -------------------------------------------------------------------------
   {
     id: "measurement.spi",
@@ -3270,7 +3270,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (i) => assertFinite(num(i, "riskExposure") - num(i, "mitigationCost")),
   },
   // -------------------------------------------------------------------------
-  // Recipe cost — recipe-cost-check
+  // Recipe cost - recipe-cost-check
   // -------------------------------------------------------------------------
   {
     id: "cost.recipe_yield_loss",
@@ -3285,7 +3285,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (i) => safeDivide(num(i, "actualYield"), num(i, "expectedYield")) * 100,
   },
   // -------------------------------------------------------------------------
-  // Restaurant margin — restaurant-menu-margin-leak
+  // Restaurant margin - restaurant-menu-margin-leak
   // -------------------------------------------------------------------------
   {
     id: "cost.restaurant_variance",
@@ -3294,7 +3294,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite((num(inputs, "expectedFoodCost") - num(inputs, "actualFoodCost")) * num(inputs, "mealsServed")),
   },
   // -------------------------------------------------------------------------
-  // Robot vs manual — robot-vs-manual
+  // Robot vs manual - robot-vs-manual
   // -------------------------------------------------------------------------
   {
     id: "cost.robot_roi",
@@ -3303,7 +3303,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(safeDivide(num(inputs, "manualCostAnnual") - num(inputs, "robotCostAnnual"), num(inputs, "robotInvestment")) * 100),
   },
   // -------------------------------------------------------------------------
-  // Route cost — route-cost
+  // Route cost - route-cost
   // -------------------------------------------------------------------------
   {
     id: "cost.route_overhead",
@@ -3337,7 +3337,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   } },
 ];
 
-// Legacy aliases — stable ids for existing pilot schemas (same functions)
+// Legacy aliases - stable ids for existing pilot schemas (same functions)
 const LEGACY_ALIASES: Readonly<Record<string, string>> = {
   "loss.time_cost": "time.labor_cost",
   "loss.scrap_cost": "scrap.material_cost",
@@ -4545,7 +4545,7 @@ const FORMULA_META_DETAILS: Record<
     requiredInputs: ["driverDiameterMm", "drivenDiameterMm", "centerDistanceMm"],
     outputHint: "number",
   },
-  /* ─── Industrial Formula Tools (18) —— meta ─── */
+  /* ─── Industrial Formula Tools (18) -- meta ─── */
   "finance.irr_estimate": {
     description: "IRR estimate using simplified Newton-Raphson.",
     requiredInputs: ["initialInvestment"],

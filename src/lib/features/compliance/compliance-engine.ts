@@ -1,5 +1,5 @@
 /**
- * Compliance Engine — region-aware coefficient selection for U-Engine & MarginCore.
+ * Compliance Engine - region-aware coefficient selection for U-Engine & MarginCore.
  *
  * TR: local inflation, tax, energy tariff (peak/off-peak)
  * DE: CBAM + EU industrial efficiency factors
@@ -144,7 +144,7 @@ export function enrichRecommendationForRegion(
   }
 
   if (code === "EN") {
-    return `${baseRecommendation} [Global] Default coefficients — no regional compliance overlay.`;
+    return `${baseRecommendation} [Global] Default coefficients - no regional compliance overlay.`;
   }
 
   return baseRecommendation;

@@ -1,5 +1,5 @@
 /**
- * Package positioning copy model — does NOT modify Stripe or live pricing UI.
+ * Package positioning copy model - does NOT modify Stripe or live pricing UI.
  */
 
 export type PackageTierId = "pro" | "business" | "enterprise";
@@ -22,7 +22,7 @@ export type PackagePositioningEntry = {
   readonly positioningLine: string;
 };
 
-/** Copy draft only — live checkout uses plan-catalog.ts separately. */
+/** Copy draft only - live checkout uses plan-catalog.ts separately. */
 export const PACKAGE_POSITIONING: readonly PackagePositioningEntry[] = [
   {
     id: "pro",

@@ -1,5 +1,5 @@
 /**
- * Remediation apply gate tests — Phase 5I-J.
+ * Remediation apply gate tests - Phase 5I-J.
  */
 
 import { describe, expect, test } from "vitest";
@@ -37,7 +37,7 @@ function buildItem(slug: string): FullToolAuditItem {
   };
 }
 
-describe("remediation apply gate — Phase 5I-J", () => {
+describe("remediation apply gate - Phase 5I-J", () => {
   test("dry-run ready + pending approval → waiting_human_approval", () => {
     const plan = buildPatchPlanFromFullToolAudit(buildItem("meta-tool"));
     const draft = buildControlledPatchDraft(plan);

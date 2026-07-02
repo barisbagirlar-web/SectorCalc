@@ -8,7 +8,7 @@ export interface HubLinkProps {
   prefetch?: boolean;
 }
 
-/** Hub navigation link — prefetch off to avoid RSC stream pressure. */
+/** Hub navigation link - prefetch off to avoid RSC stream pressure. */
 export function HubLink({
   href,
   children,

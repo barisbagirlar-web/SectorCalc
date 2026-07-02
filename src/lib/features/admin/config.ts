@@ -1,6 +1,6 @@
 /**
  * Admin panel access is gated by Firebase Auth + custom claim (admin: true).
- * NEXT_PUBLIC_ENABLE_ADMIN_LIGHT is deprecated — no longer used for /admin/leads.
+ * NEXT_PUBLIC_ENABLE_ADMIN_LIGHT is deprecated - no longer used for /admin/leads.
  */
 
 /** @deprecated Admin-light flag replaced by Firebase Auth admin claim. */

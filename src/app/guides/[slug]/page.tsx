@@ -122,8 +122,8 @@ function buildGuideJsonLd(guide: AuthorityGuide, homeLabel: string, guidesLabel:
       },
       mainEntityOfPage: buildLocalizedUrl(getAuthorityGuideRoutePath(guide.slug), locale as AppLocale, siteUrl),
     }) as JsonLdRecord,
-    buildItemListJsonLd(freeItems, `${guide.title} — free calculators`, locale),
-    buildItemListJsonLd(premiumItems, `${guide.title} — premium calculators`, locale),
+    buildItemListJsonLd(freeItems, `${guide.title} - free calculators`, locale),
+    buildItemListJsonLd(premiumItems, `${guide.title} - premium calculators`, locale),
   ];
 
   const faq = buildFAQJsonLd(guide.faq);

@@ -19,8 +19,8 @@ export const LEGAL_INTEREST_FEE_CALCULATOR_PRO_SCHEMA: PremiumCalculatorSchema =
       warning: 90,
       critical: 365,
       direction: "higher_is_bad",
-      warningMessage: "Accrual period is extended — interest exposure is building.",
-      criticalMessage: "Critical delay horizon — total exposure may exceed recovery assumptions.",
+      warningMessage: "Accrual period is extended - interest exposure is building.",
+      criticalMessage: "Critical delay horizon - total exposure may exceed recovery assumptions.",
     },
   ],
 

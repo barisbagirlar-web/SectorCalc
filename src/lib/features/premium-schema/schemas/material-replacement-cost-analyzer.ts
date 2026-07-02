@@ -19,7 +19,7 @@ export const MATERIAL_REPLACEMENT_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "netBenefit", label: "Net Annual Fayda", label_i18n: {"en":"Net Annual Fayda"}, unit: "USD/year", format: "currency" },
     { id: "paybackYears", label: "Payback Period", label_i18n: {"en":"Payback Period"}, unit: "years", format: "number" },
   ],
-  thresholds: [{ fieldId: "netBenefit", warning: 5000, critical: -5000, direction: "lower_is_bad", warningMessage: "Net benefit < $5K — transition decision is risky.", warningMessage_i18n: {"en":"Net benefit < $5K — transition decision is risky."}, criticalMessage: "Net benefit negative — alternative material is more expensive.", criticalMessage_i18n: {"en":"Net benefit negative — alternative material is more expensive."} }],
+  thresholds: [{ fieldId: "netBenefit", warning: 5000, critical: -5000, direction: "lower_is_bad", warningMessage: "Net benefit < $5K - transition decision is risky.", warningMessage_i18n: {"en":"Net benefit < $5K - transition decision is risky."}, criticalMessage: "Net benefit negative - alternative material is more expensive.", criticalMessage_i18n: {"en":"Net benefit negative - alternative material is more expensive."} }],
   formulaPipeline: [
     { formulaId: "cost.tco_current", inputMap: { currentMaterialCost: "currentMaterialCost", currentMaterialWeight: "currentMaterialWeight", productionVolume: "productionVolume" }, outputId: "currentTco" },
     { formulaId: "cost.tco_alternative", inputMap: { alternativeMaterialCost: "alternativeMaterialCost", alternativeWeight: "alternativeWeight", productionVolume: "productionVolume" }, outputId: "alternativeTco" },

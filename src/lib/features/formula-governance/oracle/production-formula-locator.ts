@@ -1,5 +1,5 @@
 /**
- * Production formula locator — where each governed tool's live calculator runs.
+ * Production formula locator - where each governed tool's live calculator runs.
  */
 
 import type { FinanceOracleSlug } from "@/lib/features/formula-governance/oracle/finance-oracles";

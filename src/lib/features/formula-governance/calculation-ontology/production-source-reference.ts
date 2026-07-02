@@ -1,5 +1,5 @@
 /**
- * Production source reference — locator metadata only (Phase 5H-B-2).
+ * Production source reference - locator metadata only (Phase 5H-B-2).
  */
 
 import type { OntologyDraft } from "@/lib/features/formula-governance/calculation-ontology/contract-ontology-bridge";

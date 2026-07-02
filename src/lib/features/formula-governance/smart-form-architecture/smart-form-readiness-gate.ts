@@ -1,5 +1,5 @@
 /**
- * Smart form readiness gate — Phase 5H-G-A governance gate (no UI).
+ * Smart form readiness gate - Phase 5H-G-A governance gate (no UI).
  */
 
 import type { ControlledInputDesignPatch } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-patch-types";

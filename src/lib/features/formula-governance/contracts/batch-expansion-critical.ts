@@ -1,5 +1,5 @@
 /**
- * Phase 5E — next 10 critical FormulaContracts (skeleton coverage only).
+ * Phase 5E - next 10 critical FormulaContracts (skeleton coverage only).
  * No oracle, runtime scenarios, or production formula changes in this phase.
  */
 
@@ -31,7 +31,7 @@ export const BATCH_PREMIUM_ORACLE_WIRED_SLUGS = [
   "welding-bid-risk-analyzer",
 ] as const;
 
-/** Phase 5G-A — next 10 critical contracts (skeleton only; oracle/property/scenario pending). */
+/** Phase 5G-A - next 10 critical contracts (skeleton only; oracle/property/scenario pending). */
 export const BATCH_FREE_BATCH2_CRITICAL_SLUGS = [
   "sample-size-calculator",
   "hvac-tonnage-rule-check",
@@ -45,7 +45,7 @@ export const BATCH_FREE_BATCH2_CRITICAL_SLUGS = [
   "laser-cutting-time-check",
 ] as const;
 
-/** Phase 5G-C — paired premium / sector critical contracts (skeleton only). */
+/** Phase 5G-C - paired premium / sector critical contracts (skeleton only). */
 export const BATCH_PREMIUM_BATCH3_CRITICAL_SLUGS = [
   "hvac-project-margin-guard",
   "panel-shop-margin-verdict",
@@ -62,7 +62,7 @@ export const BATCH_PREMIUM_BATCH3_CRITICAL_SLUGS = [
 import { createWarningPolicy } from "@/lib/features/formula-governance/warning-policy";
 
 const PREMIUM_DECISION_DISCLAIMER =
-  "Technical simulation only — not financial, legal, or engineering advice. Verify assumptions before bid, pricing or business decisions.";
+  "Technical simulation only - not financial, legal, or engineering advice. Verify assumptions before bid, pricing or business decisions.";
 
 export const projectCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.project-cost-calculator",
@@ -1077,7 +1077,7 @@ export const hvacTonnageRuleCheckContract: FormulaContract = buildAssuredCritica
       "recommendedPrice metadata alias equals recommended tonnage (recommendedTons).",
     ],
     modelLimitations: [
-      "Rule-of-thumb only — full Manual J / climate envelope not modeled",
+      "Rule-of-thumb only - full Manual J / climate envelope not modeled",
       "Duct leakage, ventilation and latent load not itemized on free tier",
       "Equipment efficiency and line-set length excluded",
       "Climate zone, insulation, window load and duct loss excluded unless modeled",

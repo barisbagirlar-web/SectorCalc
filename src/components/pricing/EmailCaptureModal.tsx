@@ -54,7 +54,7 @@ export function EmailCaptureModal({ open, onClose, onSubmit, onSkip, email, setE
             Continue to payment →
           </button>
           <button type="button" onClick={onSkip} className="w-full text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 py-1 transition-colors">
-            Skip — I don&apos;t need an email receipt
+            Skip - I don&apos;t need an email receipt
           </button>
         </form>
         <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 flex justify-center gap-4 text-[11px] text-gray-400">

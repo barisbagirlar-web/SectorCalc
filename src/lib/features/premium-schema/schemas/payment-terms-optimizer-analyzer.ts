@@ -22,7 +22,7 @@ export const PAYMENT_TERMS_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "cashFlowImpact", label: "cash Aks Etkisi", label_i18n: {"en":"cash Aks Etkisi"}, unit: "USD", format: "currency", isBigNumber: true },
     { id: "npvTerms", label: "Vade Degisimi Net Bugunku Value", label_i18n: {"en":"Vade Degisimi Net Bugunku Value"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "dso", warning: 45, critical: 60, direction: "higher_is_bad", warningMessage: "DSO > 45 days — collection policy should be reviewed.", warningMessage_i18n: {"en":"DSO > 45 days — collection policy should be reviewed."}, criticalMessage: "DSO > 60 days — serious cash flow risk.", criticalMessage_i18n: {"en":"DSO > 60 days — serious cash flow risk."} }],
+  thresholds: [{ fieldId: "dso", warning: 45, critical: 60, direction: "higher_is_bad", warningMessage: "DSO > 45 days - collection policy should be reviewed.", warningMessage_i18n: {"en":"DSO > 45 days - collection policy should be reviewed."}, criticalMessage: "DSO > 60 days - serious cash flow risk.", criticalMessage_i18n: {"en":"DSO > 60 days - serious cash flow risk."} }],
   formulaPipeline: [
     { formulaId: "measurement.dso", inputMap: { avgReceivables: "avgReceivables", annualRevenue: "annualRevenue" ,
         accountsReceivable: "accountsReceivable"}, outputId: "dso" },

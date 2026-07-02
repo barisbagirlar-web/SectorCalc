@@ -1,5 +1,5 @@
 /**
- * Report renderer section plan — Phase 5I-F deterministic section mapping.
+ * Report renderer section plan - Phase 5I-F deterministic section mapping.
  */
 
 import type { ReportRendererSection } from "@/lib/features/formula-governance/report-renderer-contract/report-renderer-types";

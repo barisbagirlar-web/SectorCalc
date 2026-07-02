@@ -20,7 +20,7 @@ export default function AdminSchemaGeneratorPage() {
       <PageHero
         eyebrow="Admin"
         title="Schema Generator"
-        subtitle="Build premium analyzer schemas from safe formula blocks. Draft only — developer review required before production."
+        subtitle="Build premium analyzer schemas from safe formula blocks. Draft only - developer review required before production."
       />
 
       <section className="bg-off-white py-10 md:py-14">

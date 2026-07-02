@@ -1,5 +1,5 @@
 /**
- * Investor demo narrative data contract — Phase 5I-O structured input only.
+ * Investor demo narrative data contract - Phase 5I-O structured input only.
  */
 
 import { buildInvestorSystemMap } from "@/lib/features/formula-governance/investor-demo/investor-demo-system-map";

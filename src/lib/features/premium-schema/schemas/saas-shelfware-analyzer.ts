@@ -1,5 +1,5 @@
 /**
- * Tool — SaaS Shelfware
+ * Tool - SaaS Shelfware
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const SAAS_SHELFWARE_ANALYZER: PremiumCalculatorSchema = {
@@ -17,7 +17,7 @@ export const SAAS_SHELFWARE_ANALYZER: PremiumCalculatorSchema = {
     { id: "shelfwarePct", label: "Shelfware Rate", label_i18n: {"en":"Shelfware Rate"}, unit: "%", format: "percentage" },
     { id: "shelfwareCost", label: "Shelfware Cost", label_i18n: {"en":"Shelfware Cost"}, unit: "USD/year", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "shelfwarePct", warning: 20, critical: 40, direction: "higher_is_bad", warningMessage: "Shelfware rate > 20% — license optimization recommended.", warningMessage_i18n: {"en":"Shelfware rate > 20% — license optimization recommended."}, criticalMessage: "Shelfware rate > 40% — urgent license audit and cancellation needed.", criticalMessage_i18n: {"en":"Shelfware rate > 40% — urgent license audit and cancellation needed."} }],
+  thresholds: [{ fieldId: "shelfwarePct", warning: 20, critical: 40, direction: "higher_is_bad", warningMessage: "Shelfware rate > 20% - license optimization recommended.", warningMessage_i18n: {"en":"Shelfware rate > 20% - license optimization recommended."}, criticalMessage: "Shelfware rate > 40% - urgent license audit and cancellation needed.", criticalMessage_i18n: {"en":"Shelfware rate > 40% - urgent license audit and cancellation needed."} }],
   formulaPipeline: [
     { formulaId: "measurement.saas_shelfware_pct", inputMap: { totalLicenses: "totalLicenses", activeUsers: "activeUsers" }, outputId: "shelfwarePct" },
     { formulaId: "cost.saas_shelfware_cost", inputMap: { totalLicenses: "totalLicenses", activeUsers: "activeUsers", licenseCostPerSeat: "licenseCostPerSeat" ,

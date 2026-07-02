@@ -6,7 +6,7 @@ export const THREE_B_PRINTING_VS_MACHINING_BREAKEVEN_SCHEMA: PremiumCalculatorSc
   name: "3D Printing vs Machining Break-Even Calculator", name_i18n: {"en":"3D Printing vs Machining Break-Even Calculator"},
   sectorSlug: "cnc-additive-manufacturing",
   category: "cost",
-  painStatement: "Determines the exact production quantity at which 3D printing becomes more economical than CNC machining (or vice versa), using break-even analysis of setup costs and unit costs for both manufacturing methods.\\n\\nChoosing between additive manufacturing and subtractive machining is one of the most common production decisions in modern manufacturing. Without data-driven comparison, teams default to habit — overpaying for additive at high volumes or machining at low volumes. This tool calculates the crossover quantity, total cost curves, and cost difference at any specified volume.\\n\\nExample: With 3D printing at $100 setup and $5/part, and machining at $500 setup and $2/part, the break-even quantity is 134 parts. Below 134 units, printing is cheaper; above 134, machining wins. At 100 units, printing costs $600 vs. machining\\u2019s $700.\\n\\nManufacturing engineers, production planners, and sourcing managers use this break-even analyzer to objectively select the most cost-effective manufacturing process for any production quantity, eliminating guesswork and reducing per-part costs.", painStatement_i18n: {"en":"Determines the exact production quantity at which 3D printing becomes more economical than CNC machining (or vice versa), using break-even analysis of setup costs and unit costs for both manufacturing methods.\\n\\nChoosing between additive manufacturing and subtractive machining is one of the most common production decisions in modern manufacturing. Without data-driven comparison, teams default to habit — overpaying for additive at high volumes or machining at low volumes. This tool calculates the crossover quantity, total cost curves, and cost difference at any specified volume.\\n\\nExample: With 3D printing at $100 setup and $5/part, and machining at $500 setup and $2/part, the break-even quantity is 134 parts. Below 134 units, printing is cheaper; above 134, machining wins. At 100 units, printing costs $600 vs. machining\\u2019s $700.\\n\\nManufacturing engineers, production planners, and sourcing managers use this break-even analyzer to objectively select the most cost-effective manufacturing process for any production quantity, eliminating guesswork and reducing per-part costs."},
+  painStatement: "Determines the exact production quantity at which 3D printing becomes more economical than CNC machining (or vice versa), using break-even analysis of setup costs and unit costs for both manufacturing methods.\\n\\nChoosing between additive manufacturing and subtractive machining is one of the most common production decisions in modern manufacturing. Without data-driven comparison, teams default to habit - overpaying for additive at high volumes or machining at low volumes. This tool calculates the crossover quantity, total cost curves, and cost difference at any specified volume.\\n\\nExample: With 3D printing at $100 setup and $5/part, and machining at $500 setup and $2/part, the break-even quantity is 134 parts. Below 134 units, printing is cheaper; above 134, machining wins. At 100 units, printing costs $600 vs. machining\\u2019s $700.\\n\\nManufacturing engineers, production planners, and sourcing managers use this break-even analyzer to objectively select the most cost-effective manufacturing process for any production quantity, eliminating guesswork and reducing per-part costs.", painStatement_i18n: {"en":"Determines the exact production quantity at which 3D printing becomes more economical than CNC machining (or vice versa), using break-even analysis of setup costs and unit costs for both manufacturing methods.\\n\\nChoosing between additive manufacturing and subtractive machining is one of the most common production decisions in modern manufacturing. Without data-driven comparison, teams default to habit - overpaying for additive at high volumes or machining at low volumes. This tool calculates the crossover quantity, total cost curves, and cost difference at any specified volume.\\n\\nExample: With 3D printing at $100 setup and $5/part, and machining at $500 setup and $2/part, the break-even quantity is 134 parts. Below 134 units, printing is cheaper; above 134, machining wins. At 100 units, printing costs $600 vs. machining\\u2019s $700.\\n\\nManufacturing engineers, production planners, and sourcing managers use this break-even analyzer to objectively select the most cost-effective manufacturing process for any production quantity, eliminating guesswork and reducing per-part costs."},
 
   inputs: [
     {
@@ -62,7 +62,7 @@ export const THREE_B_PRINTING_VS_MACHINING_BREAKEVEN_SCHEMA: PremiumCalculatorSc
       smartDefault: 100,
       validation: { min: 1 },
       helper: "Quantity used to compare total costs at a specific demand level.", helper_i18n: {"en":"Quantity used to compare total costs at a specific demand level."},
-      expertMeaning: "Not the break-even quantity — used for scenario totals only.", expertMeaning_i18n: {"en":"Not the break-even quantity — used for scenario totals only."},
+      expertMeaning: "Not the break-even quantity - used for scenario totals only.", expertMeaning_i18n: {"en":"Not the break-even quantity - used for scenario totals only."},
     },
   ],
 
@@ -136,8 +136,8 @@ export const THREE_B_PRINTING_VS_MACHINING_BREAKEVEN_SCHEMA: PremiumCalculatorSc
       warning: 250,
       critical: 1000,
       direction: "higher_is_bad",
-      warningMessage: "Break-even quantity is high — machining stays cheaper for typical batch sizes.", warningMessage_i18n: {"en":"Break-even quantity is high — machining stays cheaper for typical batch sizes."},
-      criticalMessage: "Break-even is very high — additive is unlikely to win except at very low volume.", criticalMessage_i18n: {"en":"Break-even is very high — additive is unlikely to win except at very low volume."},
+      warningMessage: "Break-even quantity is high - machining stays cheaper for typical batch sizes.", warningMessage_i18n: {"en":"Break-even quantity is high - machining stays cheaper for typical batch sizes."},
+      criticalMessage: "Break-even is very high - additive is unlikely to win except at very low volume.", criticalMessage_i18n: {"en":"Break-even is very high - additive is unlikely to win except at very low volume."},
     },
   ],
 
@@ -152,9 +152,9 @@ export const THREE_B_PRINTING_VS_MACHINING_BREAKEVEN_SCHEMA: PremiumCalculatorSc
     volatilityPercent: 8,
     targetMarginPercent: 0,
     assumptionNotes: [
-      "Linear unit-cost model — excludes tooling amortization beyond entered setup.",
+      "Linear unit-cost model - excludes tooling amortization beyond entered setup.",
       "Break-even uses printing setup/unit vs machining setup/unit crossover.",
       "Verify material yield, scrap, and post-process costs before production decisions.",
-    ],assumptionNotes_i18n:[{"en":"Linear unit-cost model — excludes tooling amortization beyond entered setup."},{"en":"Break-even uses printing setup/unit vs machining setup/unit crossover."},{"en":"Verify material yield, scrap, and post-process costs before production decisions."}],
+    ],assumptionNotes_i18n:[{"en":"Linear unit-cost model - excludes tooling amortization beyond entered setup."},{"en":"Break-even uses printing setup/unit vs machining setup/unit crossover."},{"en":"Verify material yield, scrap, and post-process costs before production decisions."}],
   },
 };

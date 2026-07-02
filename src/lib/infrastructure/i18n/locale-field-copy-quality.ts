@@ -23,7 +23,7 @@ function hasTrLocaleCopyLeak(text: string): boolean {
   );
 }
 
-/** Detect glossary/polish residue — TR copy that still contains English surface words. */
+/** Detect glossary/polish residue - TR copy that still contains English surface words. */
 export function hasCalculatorFieldCopyResidue(
   locale: string,
   copy: FieldDisplayCopyLike,

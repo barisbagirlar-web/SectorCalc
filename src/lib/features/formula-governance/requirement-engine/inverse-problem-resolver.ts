@@ -1,5 +1,5 @@
 /**
- * Inverse problem resolver — reversible formula requirement expansion.
+ * Inverse problem resolver - reversible formula requirement expansion.
  */
 
 import type { ResolveInverseRequirementParams, InverseRequirementResult } from "@/lib/features/formula-governance/requirement-engine/requirement-engine-types";

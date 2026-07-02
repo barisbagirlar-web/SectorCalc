@@ -9,13 +9,13 @@
 export function SeoHeadLinks() {
   return (
     <>
-      {/* DNS Prefetch — critical third-party origins */}
+      {/* DNS Prefetch - critical third-party origins */}
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       <link rel="dns-prefetch" href="https://apis.google.com" />
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
-      {/* Preconnect — critical third-party origins */}
+      {/* Preconnect - critical third-party origins */}
       <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://apis.google.com" crossOrigin="anonymous" />
 
@@ -36,9 +36,9 @@ export function SeoHeadLinks() {
 export function LlmsTxtLink() {
   return (
     <>
-      <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs Knowledge Base — SectorCalc Full Tool Index" />
-      <link rel="alternate" type="text/plain" href="/sectorcalc-index.txt" title="SectorCalc Index — Platform Overview" />
-      <link rel="alternate" type="text/plain" href="/faq-knowledge.txt" title="SectorCalc FAQ — Frequently Asked Questions" />
+      <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs Knowledge Base - SectorCalc Full Tool Index" />
+      <link rel="alternate" type="text/plain" href="/sectorcalc-index.txt" title="SectorCalc Index - Platform Overview" />
+      <link rel="alternate" type="text/plain" href="/faq-knowledge.txt" title="SectorCalc FAQ - Frequently Asked Questions" />
     </>
   );
 }

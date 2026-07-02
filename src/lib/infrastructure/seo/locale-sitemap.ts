@@ -179,7 +179,7 @@ async function tryReadCachedLocaleRecords(locale: SupportedLocale): Promise<Site
   }
 }
 
-/** Production route handler entry — uses ISR cache when Next runtime is available. */
+/** Production route handler entry - uses ISR cache when Next runtime is available. */
 export async function getLocaleSitemapUrlRecords(
   locale: SupportedLocale,
   baseUrl: string = SITE_BASE_URL,

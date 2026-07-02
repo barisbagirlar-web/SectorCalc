@@ -1,5 +1,5 @@
 /**
- * Regeneration baseline — no free→premium migration layer (canonical slug lists only).
+ * Regeneration baseline - no free→premium migration layer (canonical slug lists only).
  */
 
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";

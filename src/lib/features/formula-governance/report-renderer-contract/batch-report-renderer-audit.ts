@@ -1,5 +1,5 @@
 /**
- * Batch report renderer audit — Phase 5I-F read-only.
+ * Batch report renderer audit - Phase 5I-F read-only.
  */
 
 import { buildReportRendererContract } from "@/lib/features/formula-governance/report-renderer-contract/report-renderer-contract-builder";

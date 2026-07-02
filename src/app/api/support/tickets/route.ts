@@ -113,7 +113,7 @@ export async function POST(request: Request) {
 
   await ticketRef.set(ticket);
 
-  // Send emails — non-blocking, failures logged but never block ticket creation
+  // Send emails - non-blocking, failures logged but never block ticket creation
   const emailPromises: Promise<unknown>[] = [];
 
   emailPromises.push(

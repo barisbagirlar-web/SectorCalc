@@ -64,7 +64,7 @@ export function rankCampaignsByRevenueIntent(
 
 export function getTopCampaignAction(score: CampaignRevenueScore): string {
   if (score.totalEvents === 0) {
-    return "No attributed events yet — verify UTM campaign tags on cluster landing links.";
+    return "No attributed events yet - verify UTM campaign tags on cluster landing links.";
   }
   return score.topAction;
 }

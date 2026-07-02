@@ -1,5 +1,5 @@
 /**
- * Human approval record factory — Phase 5I-G default pending.
+ * Human approval record factory - Phase 5I-G default pending.
  */
 
 import type {
@@ -35,7 +35,7 @@ export function buildDefaultHumanApprovalRecord(input: {
     forbiddenOperations: [...DEFAULT_FORBIDDEN_OPERATIONS],
     expiresAt: input.expiresAt ?? null,
     status: "pending",
-    notes: "Awaiting human approval — Phase 5I-G gate only.",
+    notes: "Awaiting human approval - Phase 5I-G gate only.",
   };
 }
 

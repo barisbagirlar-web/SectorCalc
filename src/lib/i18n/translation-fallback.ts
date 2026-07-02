@@ -28,7 +28,7 @@ export const FALLBACK_MAP: Record<string, string> = {
   // ─── Home / Hero ──────────────────────────────────────────────────
   "homepageHybrid.hero.title": "Sector-Specific Engineering Calculators",
   "homepageHybrid.hero.subtitle":
-    "Precision calculation models for industry professionals — free checks and paid decision reports.",
+    "Precision calculation models for industry professionals - free checks and paid decision reports.",
   "homepageHybrid.coverage.subtitle": "",
   "homepageHybrid.losses.subtitle": "",
   "industrialHome.hero.title": "Industrial Intelligence Platform",
@@ -217,7 +217,7 @@ export const FALLBACK_MAP: Record<string, string> = {
     "A curated collection of technical demonstrations, integration examples, and platform capabilities.",
   "developerShowcase.semantic.title": "Semantic Calculation Engine",
   "developerShowcase.semantic.body":
-    "Each tool understands the domain context of its inputs — units, tolerances, and applicable standards are resolved automatically.",
+    "Each tool understands the domain context of its inputs - units, tolerances, and applicable standards are resolved automatically.",
   "developerShowcase.semantic.item1": "Automatic unit detection and conversion",
   "developerShowcase.semantic.item2": "Standard-aware reference data binding",
   "developerShowcase.semantic.item3": "Uncertainty propagation through multi-step calculations",
@@ -228,6 +228,12 @@ export const FALLBACK_MAP: Record<string, string> = {
   "developerShowcase.index.title": "Calculator Index",
   "developerShowcase.index.body":
     "Browse the complete catalog of available calculation tools.",
+
+  // ─── Catalog Explorer Labels ──────────────────────────────────────
+  "catalogExplorer.labels.free-tools.countLabel": "{count} tools",
+  "catalogExplorer.labels.free-tools.allLabel": "All Free Tools",
+  "catalogExplorer.labels.premium-tools.countLabel": "{count} tools",
+  "catalogExplorer.labels.premium-tools.allLabel": "All Premium Analyzers",
 
   // ─── Categories ───────────────────────────────────────────────────
   "catalogExplorer.categories.eyebrow": "CATEGORIES",
@@ -255,9 +261,9 @@ export const FALLBACK_MAP: Record<string, string> = {
   // ─── How It Works ─────────────────────────────────────────────────
   "howItWorks.meta.title": "How It Works | SectorCalc",
   "howItWorks.meta.description":
-    "Learn how SectorCalc works — from free checks to premium decision reports.",
+    "Learn how SectorCalc works - from free checks to premium decision reports.",
   "howItWorks.eyebrow": "HOW IT WORKS",
-  "howItWorks.title": "From Free Check to Paid Decision — in Minutes",
+  "howItWorks.title": "From Free Check to Paid Decision - in Minutes",
   "howItWorks.lead":
     "SectorCalc turns complex engineering calculations into simple web forms. Get answers fast, with full transparency and traceability.",
   "howItWorks.privacyNote":
@@ -286,19 +292,26 @@ export const FALLBACK_MAP: Record<string, string> = {
   "industries.title": "Industries We Serve",
   "industries.subtitle":
     "Find the right calculation tools for your specific industry.",
+  "industries.searchPlaceholder": "Search tools by industry...",
+  "industries.categoryTitle": "All Industries",
 
   // ─── Free Tools ───────────────────────────────────────────────────
   "freeTools.metaTitle": "Free Engineering Calculators | SectorCalc",
   "freeTools.meta.description":
     "Free, browser-based engineering calculators for quick checks.",
   "freeTools.title": "Free Calculators",
-  "freeTools.subtitle": "Quick, browser-based checks — no account needed.",
+  "freeTools.subtitle": "Quick, browser-based checks - no account needed.",
+  "freeTools.searchPlaceholder": "Search free calculators...",
+  "freeTools.categoryTitle": "Categories",
 
   // ─── Premium Tools ────────────────────────────────────────────────
   "premiumTools.metaTitle": "Premium Analyzers | SectorCalc",
   "premiumTools.meta.description":
     "Full-featured premium calculation analyzers with PDF export.",
   "premiumTools.title": "Premium Analyzers",
+  "premiumTools.subtitle": "Full-featured analyzers with PDF export and comprehensive parameter control.",
+  "premiumTools.searchPlaceholder": "Search premium analyzers...",
+  "premiumTools.categoryTitle": "Categories",
 
   // ─── SEO Pages ────────────────────────────────────────────────────
   "seoPage.guidesEyebrow": "GUIDE",
@@ -325,6 +338,45 @@ export const FALLBACK_MAP: Record<string, string> = {
     "Measure and improve your manufacturing sustainability.",
   "sustainabilityPage.semanticTitle": "More Resources",
 
+  // ─── Case Studies Database ────────────────────────────────────────
+  "caseStudies.database.breadcrumbHome": "Home",
+  "caseStudies.database.breadcrumbCurrent": "Case Studies",
+  "caseStudies.database.filterIndustry": "Industry",
+  "caseStudies.database.filterAll": "All",
+  "caseStudies.database.filterCountry": "Country",
+  "caseStudies.database.filterYear": "Year",
+  "caseStudies.database.filterSavings": "Savings",
+  "caseStudies.database.filterSavingsAll": "All",
+  "caseStudies.database.filterSavings0To100k": "€0 - €100k",
+  "caseStudies.database.filterSavings100kTo500k": "€100k - €500k",
+  "caseStudies.database.filterSavings500kTo1m": "€500k - €1m",
+  "caseStudies.database.filterSavings1mPlus": "€1m+",
+  "caseStudies.database.filterApply": "Apply",
+  "caseStudies.database.filterCsv": "Download CSV",
+  "caseStudies.database.indexSummaryHeading": "Real Results from Engineering Decisions",
+  "caseStudies.database.indexSummaryIntro": "Each case study documents a real operational loss, the calculation method used, and the financial impact of the recommended action. Companies and names are anonymized to protect confidentiality.",
+  "caseStudies.database.indexSummaryLineSavingsOnly": "{company} - {savings} in savings",
+  "caseStudies.database.indexSummaryLineWithMetric": "{company} - {metric}: {before} to {after}, {savings} savings",
+  "caseStudies.database.colIndex": "#",
+  "caseStudies.database.colCompany": "Company",
+  "caseStudies.database.colCity": "City",
+  "caseStudies.database.colCountry": "Country",
+  "caseStudies.database.colIndustry": "Industry",
+  "caseStudies.database.colProjectDuration": "Duration",
+  "caseStudies.database.colBefore": "Before",
+  "caseStudies.database.colAfter": "After",
+  "caseStudies.database.colSavings": "Savings",
+  "caseStudies.database.colYear": "Year",
+  "caseStudies.database.colDetail": "Details",
+  "caseStudies.database.detailLink": "View Case Study",
+  "caseStudies.database.unspecified": "N/A",
+  "caseStudies.database.noResults": "No case studies match the selected filters.",
+  "caseStudies.database.emDash": "-",
+  "caseStudies.database.authorityLine1": "This database is maintained and updated quarterly. All figures are anonymized.",
+  "caseStudies.database.authorityLine2": "Updated {date} - {total} case studies indexed.",
+  "caseStudies.database.metaTitle": "Case Studies | SectorCalc",
+  "caseStudies.database.metaDescription": "Real-world examples of how SectorCalc tools drive decisions.",
+
   // ─── Case Studies ─────────────────────────────────────────────────
   "caseStudiesIndex.metaTitle": "Case Studies | SectorCalc",
   "caseStudiesIndex.metaDescription":
@@ -345,7 +397,7 @@ export const FALLBACK_MAP: Record<string, string> = {
   // ─── OS / Operating System ────────────────────────────────────────
   "operatingSystemPage.meta.title": "Manufacturing OS | SectorCalc",
   "operatingSystemPage.meta.description":
-    "The Manufacturing Operating System — connect tools, data, and decisions.",
+    "The Manufacturing Operating System - connect tools, data, and decisions.",
 
   // ─── Methodology ──────────────────────────────────────────────────
   "methodologyPage.meta.title": "Methodology | SectorCalc",

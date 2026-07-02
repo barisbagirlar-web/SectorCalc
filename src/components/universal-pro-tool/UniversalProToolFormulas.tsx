@@ -1,6 +1,6 @@
 "use client";
 /**
- * UniversalProToolFormulas — Schema-driven formulas + validation rules panel
+ * UniversalProToolFormulas - Schema-driven formulas + validation rules panel
  * Renders formulas and validation rules from tool schema
  * using exact CSS classes from UNIVERSAL PRO TOOL FORM.txt
  */
@@ -104,7 +104,7 @@ export default function UniversalProToolFormulas({ tool }: UniversalProToolFormu
                   </span>
                 </div>
                 <div className="val-msg">
-                  <strong>{rule.condition}</strong> — {rule.message}
+                  <strong>{rule.condition}</strong> - {rule.message}
                   {rule.standard_ref && <span style={{ display: "block", fontStyle: "italic", marginTop: 2, color: "rgba(26,25,21,0.45)", fontSize: 9 }}>{rule.standard_ref}</span>}
                 </div>
               </div>

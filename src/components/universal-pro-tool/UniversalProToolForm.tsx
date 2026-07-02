@@ -1,6 +1,6 @@
 "use client";
 /**
- * UniversalProToolForm — Schema-driven input form renderer
+ * UniversalProToolForm - Schema-driven input form renderer
  * Reads tool.inputs schema and dynamically renders form fields
  * using exact CSS classes from UNIVERSAL PRO TOOL FORM.txt
  */
@@ -57,7 +57,7 @@ function EnumInput({ inp, value, onChange }: EnumInputProps) {
           value={value ?? ""}
           onChange={e => onChange(inp.id, e.target.value)}
         >
-          <option value="">— Select —</option>
+          <option value="">- Select -</option>
           {options.map((opt, i) => (
             <option key={i} value={opt.value}>{opt.label}</option>
           ))}

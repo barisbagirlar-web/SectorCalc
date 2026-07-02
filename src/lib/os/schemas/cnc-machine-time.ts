@@ -1,6 +1,6 @@
 import type { IndustryToolSchema } from "@/lib/os/types";
 
-/** CNC machine-time efficiency — reference schema for Manufacturing OS pilot. */
+/** CNC machine-time efficiency - reference schema for Manufacturing OS pilot. */
 export const CNC_MACHINE_TIME_EFFICIENCY_SCHEMA: IndustryToolSchema = {
  id: "cnc-machine-time-efficiency",
  industry: "cnc",
@@ -56,7 +56,7 @@ export const CNC_MACHINE_TIME_EFFICIENCY_SCHEMA: IndustryToolSchema = {
  {
  condition: "variance > 0.15",
  verdict: "CRITICAL_INEFFICIENCY",
- advice: "Setup burden dominates — re-batch quantity or reduce changeovers before quoting.",
+ advice: "Setup burden dominates - re-batch quantity or reduce changeovers before quoting.",
  },
  {
  condition: "variance > 0.05",
@@ -66,7 +66,7 @@ export const CNC_MACHINE_TIME_EFFICIENCY_SCHEMA: IndustryToolSchema = {
  {
  condition: "variance <= 0.05",
  verdict: "WITHIN_OPERATIONAL_LIMIT",
- advice: "Exposure within operational limit — run full P90 verdict before accepting bid.",
+ advice: "Exposure within operational limit - run full P90 verdict before accepting bid.",
  },
  ],
  },

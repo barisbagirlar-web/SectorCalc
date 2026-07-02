@@ -72,7 +72,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.moq_stock_balance_1",
     family: "cost",
-    label: "MOQ Stok Denge — MOQ_Penalty",
+    label: "MOQ Stok Denge - MOQ_Penalty",
     fn: (inputs) => {
     const mOQ = num(inputs, "mOQ");
     const eOQ = num(inputs, "eOQ");
@@ -83,7 +83,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.moq_stock_balance_2",
     family: "cost",
-    label: "MOQ Stok Denge — PriceBreakSavings",
+    label: "MOQ Stok Denge - PriceBreakSavings",
     fn: (inputs) => {
     const unitPrice = num(inputs, "unitPrice");
     const Standard = num(inputs, "Standard");
@@ -96,7 +96,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.moq_stock_balance_3",
     family: "cost",
-    label: "MOQ Stok Denge — NetBenefit",
+    label: "MOQ Stok Denge - NetBenefit",
     fn: (inputs) => {
     const priceBreakSavings = num(inputs, "priceBreakSavings");
     const mOQ = num(inputs, "mOQ");
@@ -109,7 +109,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.moq_stock_balance_4",
     family: "cost",
-    label: "MOQ Stok Denge — OptimalOrderQty",
+    label: "MOQ Stok Denge - OptimalOrderQty",
     fn: (inputs) => {
     const netBenefit = num(inputs, "netBenefit");
     const mOQ = num(inputs, "mOQ");
@@ -120,7 +120,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.moq_stock_balance_5",
     family: "cost",
-    label: "MOQ Stok Denge — CycleStock_Cost",
+    label: "MOQ Stok Denge - CycleStock_Cost",
     fn: (inputs) => {
     const optimalOrderQty = num(inputs, "optimalOrderQty");
     const holdingCost = num(inputs, "holdingCost");
@@ -132,7 +132,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.mtbf_mttr_financial_0",
     family: "cost",
-    label: "MTBF/MTTR Finansal Etki — Availability",
+    label: "MTBF/MTTR Finansal Etki - Availability",
     fn: (inputs) => {
     const mTBF = num(inputs, "mTBF");
     const mTTR = num(inputs, "mTTR");
@@ -142,7 +142,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.mtbf_mttr_financial_1",
     family: "cost",
-    label: "MTBF/MTTR Finansal Etki — ExpectedDowntime",
+    label: "MTBF/MTTR Finansal Etki - ExpectedDowntime",
     fn: (inputs) => {
     const totalTime = num(inputs, "totalTime");
     const availability = num(inputs, "availability");
@@ -152,7 +152,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.mtbf_mttr_financial_2",
     family: "cost",
-    label: "MTBF/MTTR Finansal Etki — DowntimeCost",
+    label: "MTBF/MTTR Finansal Etki - DowntimeCost",
     fn: (inputs) => {
     const expectedDowntime = num(inputs, "expectedDowntime");
     const costPerHour = num(inputs, "costPerHour");
@@ -162,7 +162,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.mtbf_mttr_financial_3",
     family: "cost",
-    label: "MTBF/MTTR Finansal Etki — FailureFrequency",
+    label: "MTBF/MTTR Finansal Etki - FailureFrequency",
     fn: (inputs) => {
     const totalTime = num(inputs, "totalTime");
     const mTBF = num(inputs, "mTBF");
@@ -172,7 +172,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.mtbf_mttr_financial_4",
     family: "cost",
-    label: "MTBF/MTTR Finansal Etki — RepairCost",
+    label: "MTBF/MTTR Finansal Etki - RepairCost",
     fn: (inputs) => {
     const failureFrequency = num(inputs, "failureFrequency");
     const mTTR = num(inputs, "mTTR");
@@ -184,7 +184,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.mtbf_mttr_financial_5",
     family: "cost",
-    label: "MTBF/MTTR Finansal Etki — TotalReliabilityCost",
+    label: "MTBF/MTTR Finansal Etki - TotalReliabilityCost",
     fn: (inputs) => {
     const downtimeCost = num(inputs, "downtimeCost");
     const repairCost = num(inputs, "repairCost");
@@ -194,7 +194,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.mtbf_mttr_financial_6",
     family: "cost",
-    label: "MTBF/MTTR Finansal Etki — ROI_Improvement",
+    label: "MTBF/MTTR Finansal Etki - ROI_Improvement",
     fn: (inputs) => {
     const oldCost = num(inputs, "oldCost");
     const newCost = num(inputs, "newCost");
@@ -205,7 +205,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.mtbf_mttr_financial_7",
     family: "cost",
-    label: "MTBF/MTTR Finansal Etki — TargetMTBF",
+    label: "MTBF/MTTR Finansal Etki - TargetMTBF",
     fn: (inputs) => {
     const totalTime = num(inputs, "totalTime");
     const targetAvailability = num(inputs, "targetAvailability");
@@ -218,7 +218,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.muda_waste_cost_0",
     family: "cost",
-    label: "Muda Atik Maliyet — Overproduction",
+    label: "Muda Atik Maliyet - Overproduction",
     fn: (inputs) => {
     const excessUnits = num(inputs, "excessUnits");
     const unitCost = num(inputs, "unitCost");
@@ -228,7 +228,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.muda_waste_cost_1",
     family: "cost",
-    label: "Muda Atik Maliyet — Waiting",
+    label: "Muda Atik Maliyet - Waiting",
     fn: (inputs) => {
     const waitingHours = num(inputs, "waitingHours");
     const laborRate = num(inputs, "laborRate");

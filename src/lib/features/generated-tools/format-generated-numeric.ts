@@ -1,10 +1,10 @@
-/** Keys that represent durations — never format 0–1 as percent. */
+/** Keys that represent durations - never format 0–1 as percent. */
 const TIME_LIKE_KEY = /time|downtime|cycle|duration/i;
 
 /** Keys that represent rotational speed. */
 const SPEED_LIKE_KEY = /spindle_speed|rpm/i;
 
-/** Keys that represent counts or frequencies — not ratios. */
+/** Keys that represent counts or frequencies - not ratios. */
 const COUNT_LIKE_KEY = /frequency|passes|count/i;
 
 const RATIO_LIKE_KEY =
@@ -37,7 +37,7 @@ export function formatGeneratedNumericValue(
   unitHint?: string,
 ): string {
   if (!Number.isFinite(value)) {
-    return "—";
+    return "-";
   }
 
   if (shouldFormatGeneratedValueAsPercent(key, value)) {

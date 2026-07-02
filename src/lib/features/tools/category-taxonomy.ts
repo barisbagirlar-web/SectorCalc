@@ -10,7 +10,7 @@ export type CategoryTaxonomyEntry = {
   readonly keywords: readonly string[];
 };
 
-/** 21 professional tool categories — profession, sector, and expertise oriented. */
+/** 21 professional tool categories - profession, sector, and expertise oriented. */
 export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> = {
   "Machinery & Design": {
     slug: "makine-tasarim",

@@ -17,7 +17,7 @@ export type PreviewStaticParamFamily =
   | "guides"
   | "generic";
 
-/** Revenue-gate control slug — must remain buildable in preview. */
+/** Revenue-gate control slug - must remain buildable in preview. */
 export const PROBLEM_SLUG = "abonelik-yazilim-cloud-yillik-maliyet-calc";
 
 const DEFAULT_KEEP_LOCALES = SUPPORTED_LOCALES;
@@ -88,7 +88,7 @@ const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
 };
 
 export function shouldUsePreviewStaticParams(): boolean {
-  // Force-full overrides everything — use only when full SSG is reliably safe.
+  // Force-full overrides everything - use only when full SSG is reliably safe.
   if (process.env.SECTORCALC_FORCE_FULL_STATIC === "1") {
     return false;
   }
@@ -106,7 +106,7 @@ export function shouldUsePreviewStaticParams(): boolean {
     return true;
   }
 
-  // Explicit — preview-safe by default. Only SECTORCALC_FORCE_FULL_STATIC bypasses.
+  // Explicit - preview-safe by default. Only SECTORCALC_FORCE_FULL_STATIC bypasses.
   return true;
 }
 

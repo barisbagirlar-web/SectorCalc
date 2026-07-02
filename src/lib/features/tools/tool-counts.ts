@@ -1,5 +1,5 @@
 /**
- * Dynamic tool counter — computes total tools at build/render time.
+ * Dynamic tool counter - computes total tools at build/render time.
  * Uses static imports (resolved by Next.js/webpack at build time).
  */
 import titles from "@/data/generated-tool-titles-i18n.generated.json";

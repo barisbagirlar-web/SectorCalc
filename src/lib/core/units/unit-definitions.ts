@@ -1,5 +1,5 @@
 /**
- * Canonical unit definitions — ADIM 5 regional unit motor (display + normalization layer).
+ * Canonical unit definitions - ADIM 5 regional unit motor (display + normalization layer).
  */
 
 import type { VariableDimension } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";

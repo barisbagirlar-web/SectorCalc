@@ -1,5 +1,5 @@
 /**
- * Deterministic unit conversion rules — ADIM 5 regional unit motor.
+ * Deterministic unit conversion rules - ADIM 5 regional unit motor.
  */
 
 import type { CanonicalUnitId } from "@/lib/core/units/unit-definitions";

@@ -1,5 +1,5 @@
 /**
- * Requirement engine types — Mind 2 outputs (Phase 5H-B-1).
+ * Requirement engine types - Mind 2 outputs (Phase 5H-B-1).
  */
 
 export type RequirementSolveStatus = "ready_to_calculate" | "need_more_data" | "blocked";

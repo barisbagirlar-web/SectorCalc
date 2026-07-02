@@ -1,5 +1,5 @@
 /**
- * Report renderer contract tests — Phase 5I-F.
+ * Report renderer contract tests - Phase 5I-F.
  */
 
 import { describe, expect, test } from "vitest";
@@ -27,7 +27,7 @@ function buildExportContract(
   };
 }
 
-describe("report renderer contract — Phase 5I-F", () => {
+describe("report renderer contract - Phase 5I-F", () => {
   test("export_contract_ready maps to renderer_contract_ready", () => {
     const contract = buildReportRendererContract(buildExportContract({}));
     expect(contract.status).toBe("renderer_contract_ready");

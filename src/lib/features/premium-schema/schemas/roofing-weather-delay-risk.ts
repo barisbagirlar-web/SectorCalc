@@ -19,8 +19,8 @@ export const ROOFING_WEATHER_DELAY_RISK_SCHEMA: PremiumCalculatorSchema = {
       warning: 3,
       critical: 8,
       direction: "higher_is_bad",
-      warningMessage: "Weather delay exposure is elevated — verify schedule buffer.",
-      criticalMessage: "Critical delay band — reprice before accepting roofing work.",
+      warningMessage: "Weather delay exposure is elevated - verify schedule buffer.",
+      criticalMessage: "Critical delay band - reprice before accepting roofing work.",
     },
   ],
 

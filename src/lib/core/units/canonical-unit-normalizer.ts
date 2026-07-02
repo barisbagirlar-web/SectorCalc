@@ -1,5 +1,5 @@
 /**
- * Canonical unit normalization — ADIM 5 regional unit motor (metadata + conversion layer).
+ * Canonical unit normalization - ADIM 5 regional unit motor (metadata + conversion layer).
  */
 
 import { normalizeLocale } from "@/lib/core/format/localization";

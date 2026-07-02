@@ -72,7 +72,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.quality_cost_paf_1",
     family: "cost",
-    label: "Kalite Maliyeti PAF — AppraisalCost",
+    label: "Kalite Maliyeti PAF - AppraisalCost",
     fn: (inputs) => {
     const inspection = num(inputs, "inspection");
     const testing = num(inputs, "testing");
@@ -84,7 +84,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.quality_cost_paf_2",
     family: "cost",
-    label: "Kalite Maliyeti PAF — InternalFailure",
+    label: "Kalite Maliyeti PAF - InternalFailure",
     fn: (inputs) => {
     const scrap = num(inputs, "scrap");
     const rework = num(inputs, "rework");
@@ -96,7 +96,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.quality_cost_paf_3",
     family: "cost",
-    label: "Kalite Maliyeti PAF — ExternalFailure",
+    label: "Kalite Maliyeti PAF - ExternalFailure",
     fn: (inputs) => {
     const warranty = num(inputs, "warranty");
     const returns = num(inputs, "returns");
@@ -109,7 +109,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.quality_cost_paf_4",
     family: "cost",
-    label: "Kalite Maliyeti PAF — TotalCOQ",
+    label: "Kalite Maliyeti PAF - TotalCOQ",
     fn: (inputs) => {
     const preventionCost = num(inputs, "preventionCost");
     const appraisalCost = num(inputs, "appraisalCost");
@@ -121,7 +121,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.quality_cost_paf_5",
     family: "cost",
-    label: "Kalite Maliyeti PAF — COQ_Ratio",
+    label: "Kalite Maliyeti PAF - COQ_Ratio",
     fn: (inputs) => {
     const totalCOQ = num(inputs, "totalCOQ");
     const totalRevenue = num(inputs, "totalRevenue");
@@ -131,7 +131,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.quality_cost_paf_6",
     family: "cost",
-    label: "Kalite Maliyeti PAF — PAF_Ratio",
+    label: "Kalite Maliyeti PAF - PAF_Ratio",
     fn: (inputs) => {
     const preventionCost = num(inputs, "preventionCost");
     const totalCOQ = num(inputs, "totalCOQ");
@@ -143,7 +143,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_0",
     family: "cost",
-    label: "Carbon Footprint Check — Scope1",
+    label: "Carbon Footprint Check - Scope1",
     fn: (inputs) => {
     const fuelConsumption = num(inputs, "fuelConsumption");
     const i = num(inputs, "i");
@@ -157,7 +157,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_1",
     family: "cost",
-    label: "Carbon Footprint Check — Scope2_Location",
+    label: "Carbon Footprint Check - Scope2_Location",
     fn: (inputs) => {
     const electricityConsumption = num(inputs, "electricityConsumption");
     const gridEmissionFactor = num(inputs, "gridEmissionFactor");
@@ -167,7 +167,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_2",
     family: "cost",
-    label: "Carbon Footprint Check — Scope2_Market",
+    label: "Carbon Footprint Check - Scope2_Market",
     fn: (inputs) => {
     const electricityConsumption = num(inputs, "electricityConsumption");
     const gridFactor = num(inputs, "gridFactor");
@@ -180,7 +180,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_3",
     family: "cost",
-    label: "Carbon Footprint Check — Scope3_Upstream",
+    label: "Carbon Footprint Check - Scope3_Upstream",
     fn: (inputs) => {
     const material = num(inputs, "material");
     const i = num(inputs, "i");
@@ -196,7 +196,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_4",
     family: "cost",
-    label: "Carbon Footprint Check — TotalCarbon",
+    label: "Carbon Footprint Check - TotalCarbon",
     fn: (inputs) => {
     const scope1 = num(inputs, "scope1");
     const scope2 = num(inputs, "scope2");
@@ -211,7 +211,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_5",
     family: "cost",
-    label: "Carbon Footprint Check — CarbonIntensity",
+    label: "Carbon Footprint Check - CarbonIntensity",
     fn: (inputs) => {
     const totalCarbon = num(inputs, "totalCarbon");
     const productionVolume = num(inputs, "productionVolume");
@@ -221,7 +221,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_6",
     family: "cost",
-    label: "Carbon Footprint Check — FinancialRisk",
+    label: "Carbon Footprint Check - FinancialRisk",
     fn: (inputs) => {
     const totalCarbon = num(inputs, "totalCarbon");
     const forecastedCarbonPrice = num(inputs, "forecastedCarbonPrice");
@@ -233,7 +233,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_volume_cost_0",
     family: "cost",
-    label: "Kaynak Hacmi ve Maliyeti — Area_Weld",
+    label: "Kaynak Hacmi ve Maliyeti - Area_Weld",
     fn: (inputs) => {
     const leg = num(inputs, "leg");
     return nonNegative(assertFinite((leg**2) / 2));
@@ -242,7 +242,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.weld_volume_cost_1",
     family: "cost",
-    label: "Kaynak Hacmi ve Maliyeti — Volume_Weld",
+    label: "Kaynak Hacmi ve Maliyeti - Volume_Weld",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const Weld = num(inputs, "Weld");

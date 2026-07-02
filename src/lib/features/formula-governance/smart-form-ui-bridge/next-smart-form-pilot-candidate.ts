@@ -1,5 +1,5 @@
 /**
- * Next smart form pilot candidate readiness — Phase 5H-G-F (read-only; no UI wiring).
+ * Next smart form pilot candidate readiness - Phase 5H-G-F (read-only; no UI wiring).
  */
 
 import { getControlledInputDesignPatch } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";

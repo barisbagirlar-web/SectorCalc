@@ -20,18 +20,18 @@ export const ENERGY_COMPRESSOR_LEAK_COST_SCHEMA: PremiumCalculatorSchema = {
       critical: 15,
       direction: "higher_is_bad",
       warningMessage:
-        "Leak percent is above typical industrial band — schedule ultrasonic audit.",
+        "Leak percent is above typical industrial band - schedule ultrasonic audit.",
       criticalMessage:
-        "Critical leak band — compressed air waste may exceed maintenance budget.",
+        "Critical leak band - compressed air waste may exceed maintenance budget.",
     },
     {
       fieldId: "monthlyLeakCost",
       warning: 500,
       critical: 1500,
       direction: "higher_is_bad",
-      warningMessage: "Monthly leak cost is material — prioritize valve and fitting repairs.",
+      warningMessage: "Monthly leak cost is material - prioritize valve and fitting repairs.",
       criticalMessage:
-        "Critical leak cost — stop treating compressed air loss as fixed overhead.",
+        "Critical leak cost - stop treating compressed air loss as fixed overhead.",
     },
   ],
 

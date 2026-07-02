@@ -1,5 +1,5 @@
 /**
- * Calculation ontology types — Mind 2 variable/formula graph (Phase 5H-B-1).
+ * Calculation ontology types - Mind 2 variable/formula graph (Phase 5H-B-1).
  */
 
 export type VariableRole = "input" | "derived" | "constant" | "target";

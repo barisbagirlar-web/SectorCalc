@@ -1,5 +1,5 @@
 /**
- * Revenue registry — legacy 27-sector specs + premium-slugs.json regeneration baseline.
+ * Revenue registry - legacy 27-sector specs + premium-slugs.json regeneration baseline.
  */
 
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
@@ -67,7 +67,7 @@ export const sectorCalcProPricing = {
   currency: "USD",
   headline: "Industrial loss & efficiency decision reports.",
   description:
-    "Sector-specific loss detection, measurement, OEE, routing, energy and profitability reports — without ERP pricing.",
+    "Sector-specific loss detection, measurement, OEE, routing, energy and profitability reports - without ERP pricing.",
   bullets: [
     "Loss detection & tolerance reports",
     "Measurement, scrap, OEE and route analysis",
@@ -107,7 +107,7 @@ export const FREE_PLAN_PRICING = {
   name: "Free",
   priceLabel: "$0",
   period: "forever",
-  description: "Quick sector checks — limited inputs, directional numbers and early risk signals.",
+  description: "Quick sector checks - limited inputs, directional numbers and early risk signals.",
   features: ["Free calculators", "Risk or preview signals", "No account required"],
 } as const;
 

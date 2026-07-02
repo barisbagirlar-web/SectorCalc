@@ -1,5 +1,5 @@
 /**
- * Locale default unit preferences — ADIM 5 regional unit motor.
+ * Locale default unit preferences - ADIM 5 regional unit motor.
  */
 
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";

@@ -14,7 +14,7 @@ export function getCategoryCardIcon(slug: string): CategoryCardIconMeta {
   };
 }
 
-/** @deprecated Use resolveCatalogCategoryIcon — kept for audit scripts. */
+/** @deprecated Use resolveCatalogCategoryIcon - kept for audit scripts. */
 export function assertUniqueCategoryCardIcons(): void {
   // Icon uniqueness is enforced by industry-slug-icon-map and category-icon-map tests.
 }

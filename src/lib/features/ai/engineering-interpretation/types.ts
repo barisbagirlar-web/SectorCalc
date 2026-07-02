@@ -1,5 +1,5 @@
 /**
- * Engineering interpretation types — premium result commentary.
+ * Engineering interpretation types - premium result commentary.
  * Structured output from DeepSeek for industrial-grade result interpretation.
  */
 
@@ -91,7 +91,7 @@ export function buildInterpretationContext(request: InterpretPremiumResultReques
 
   if (request.bigNumber) {
     lines.push("");
-    lines.push(`Primary metric — ${request.bigNumber.label}: ${request.bigNumber.value}`);
+    lines.push(`Primary metric - ${request.bigNumber.label}: ${request.bigNumber.value}`);
   }
 
   if (request.verdict) {

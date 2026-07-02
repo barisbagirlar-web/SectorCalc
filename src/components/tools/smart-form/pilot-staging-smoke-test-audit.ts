@@ -1,5 +1,5 @@
 /**
- * Smart form pilot staging smoke test audit — Phase 5H-G-N.
+ * Smart form pilot staging smoke test audit - Phase 5H-G-N.
  */
 
 import { buildSmartFormPilotStagingFlagPlan } from "@/components/tools/smart-form/pilot-staging-flag-plan";

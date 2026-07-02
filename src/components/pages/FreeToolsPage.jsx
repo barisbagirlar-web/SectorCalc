@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * SectorCalc — Free Tools Page
+ * SectorCalc - Free Tools Page
  * Drop into: /app/(route)/free-tools/page.jsx
  *
  * Features:
@@ -23,7 +23,7 @@ import Link from 'next/link';
 // The key fields: slug, name, sector, isPro (bool)
 
 const SAMPLE_TOOLS = [
-  // Free tools — from your existing /free-tools list (English names)
+  // Free tools - from your existing /free-tools list (English names)
   { slug: 'overall-equipment-effectiveness-calculator',       name: 'OEE Calculator',                      sector: 'lean-oee',        isPro: false },
   { slug: 'scrap-rate-optimization-calculator',               name: 'Scrap Rate Optimization',             sector: 'lean-oee',        isPro: false },
   { slug: 'bottleneck-analysis-calculator',                   name: 'Bottleneck Analysis',                 sector: 'lean-oee',        isPro: false },
@@ -35,7 +35,7 @@ const SAMPLE_TOOLS = [
   { slug: 'beam-deflection-calculator',                       name: 'Beam Deflection',                     sector: 'mechanical-hvac', isPro: false },
   { slug: 'von-mises-stress-calculator',                      name: 'Von Mises Stress',                    sector: 'mechanical-hvac', isPro: false },
   { slug: 'asme-shaft-diameter-bending-torsion-calculator',  name: 'ASME Shaft Diameter (Bending+Torsion)',sector: 'mechanical-hvac', isPro: false },
-  { slug: 'mohrs-circle-principal-stress-calculator',         name: "Mohr's Circle — Principal Stress",   sector: 'mechanical-hvac', isPro: false },
+  { slug: 'mohrs-circle-principal-stress-calculator',         name: "Mohr's Circle - Principal Stress",   sector: 'mechanical-hvac', isPro: false },
   { slug: 'steel-beam-maximum-bending-stress-calculator',     name: 'Steel Beam Max Bending Stress',       sector: 'mechanical-hvac', isPro: false },
   { slug: 'thin-walled-pressure-vessel-hoop-stress-calculator','name': 'Thin-Wall Pressure Vessel Hoop Stress', sector: 'mechanical-hvac', isPro: false },
   { slug: 'heat-transfer-rate-calculator',                    name: 'Heat Transfer Rate',                  sector: 'chemistry-process', isPro: false },
@@ -59,7 +59,7 @@ const SAMPLE_TOOLS = [
   { slug: 'fabric-weight-calculator',                         name: 'Fabric Weight',                       sector: 'textile-printing',isPro: false },
   { slug: 'fabric-shrinkage-calculator',                      name: 'Fabric Shrinkage',                    sector: 'textile-printing',isPro: false },
   { slug: 'loom-production-calculator',                       name: 'Loom Production',                     sector: 'textile-printing',isPro: false },
-  // Pro tools — English display names (slugs are your existing Turkish URLs)
+  // Pro tools - English display names (slugs are your existing Turkish URLs)
   { slug: 'tools/premium-schema/seven-wastes-muda-monetary-cost-calculator',        name: '7-Waste (Muda) Monetary Mapping',     sector: 'lean-oee',        isPro: true },
   { slug: 'tools/premium-schema/5s-audit-score-productivity-loss-cost-calculator',   name: '5S Audit Score & Productivity Loss',  sector: 'lean-oee',        isPro: true },
   { slug: 'tools/generated/mtbf-mttr-ve-kullanilabilirlik-finansal-calculator',          name: 'MTBF/MTTR Availability & Financial',  sector: 'maintenance',     isPro: true },

@@ -936,7 +936,7 @@ export function FmeaRpnPageContent() {
               />
               <SourceReferenceCard 
                 title="IEC 60812:2018"
-                detail="International Electrotechnical Commission. IEC 60812:2018 — Failure Modes and Effects Analysis: FMEA and FMECA. Edition 3.0. Published 2018-08-10."
+                detail="International Electrotechnical Commission. IEC 60812:2018 - Failure Modes and Effects Analysis: FMEA and FMECA. Edition 3.0. Published 2018-08-10."
                 type="International standard"
                 tier="Standards body"
                 accessed="2026-07-02"
@@ -946,7 +946,7 @@ export function FmeaRpnPageContent() {
               />
               <SourceReferenceCard 
                 title="ISO 12100:2010"
-                detail="International Organization for Standardization. ISO 12100:2010 — Safety of Machinery — General Principles for Design — Risk Assessment and Risk Reduction. Edition 1. Published 2010-11. Reviewed and confirmed in 2022."
+                detail="International Organization for Standardization. ISO 12100:2010 - Safety of Machinery - General Principles for Design - Risk Assessment and Risk Reduction. Edition 1. Published 2010-11. Reviewed and confirmed in 2022."
                 type="International standard"
                 tier="Standards body"
                 accessed="2026-07-02"

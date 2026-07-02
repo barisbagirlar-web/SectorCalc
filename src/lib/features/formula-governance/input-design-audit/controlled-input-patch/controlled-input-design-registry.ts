@@ -1,5 +1,5 @@
 /**
- * Controlled input design patch registry — Phase 5H-F batches.
+ * Controlled input design patch registry - Phase 5H-F batches.
  * Metadata-only; production calculator and UI unchanged.
  */
 
@@ -81,7 +81,7 @@ const THREE_D_PRINT_COST_CHECK_PATCH: ControlledInputDesignPatch = {
   ],
   userBurdenNotes: [
     "Free tier exposes five production-aligned required inputs; optional fail-rate and support inputs stay hidden until smart-form phase.",
-    "Revenue-free alternate path uses machine/material ratio risk bands — not merged into this free-traffic input shape.",
+    "Revenue-free alternate path uses machine/material ratio risk bands - not merged into this free-traffic input shape.",
   ],
   professionalDepthNotes: [
     "Advanced calibration, batch utilization and post-processing complexity inputs documented for 3d-print-job-margin-tool handoff.",
@@ -92,7 +92,7 @@ const THREE_D_PRINT_COST_CHECK_PATCH: ControlledInputDesignPatch = {
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional failedPrintRate and supportMaterialCost are governance placeholders — not wired to production free-traffic calculator yet.",
+    "Optional failedPrintRate and supportMaterialCost are governance placeholders - not wired to production free-traffic calculator yet.",
   ],
   blockers: [],
 };
@@ -144,7 +144,7 @@ const AUTO_SHOP_MARGIN_LEAK_DETECTOR_PATCH: ControlledInputDesignPatch = {
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Advanced risk inputs are governance-only — calcAutoShop hidden multipliers unchanged in Phase 5H-F.",
+    "Advanced risk inputs are governance-only - calcAutoShop hidden multipliers unchanged in Phase 5H-F.",
   ],
   blockers: [],
 };
@@ -169,7 +169,7 @@ const CABINET_COST_ESTIMATOR_PATCH: ControlledInputDesignPatch = {
   ],
   userBurdenNotes: [
     "Free quick-check exposes three production-aligned hour and material inputs; hardware/finish remain optional for smart-form phase.",
-    "laborRate optional for future cost translation — not used in current free risk band calculation.",
+    "laborRate optional for future cost translation - not used in current free risk band calculation.",
   ],
   professionalDepthNotes: [
     "Advanced field measurement, finish grade and custom hardware complexity inputs documented for cut-list aware cost model.",
@@ -180,7 +180,7 @@ const CABINET_COST_ESTIMATOR_PATCH: ControlledInputDesignPatch = {
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional hardwareCost and finishCost are governance placeholders — calculateCarpentryFreeResult hour logic unchanged.",
+    "Optional hardwareCost and finishCost are governance placeholders - calculateCarpentryFreeResult hour logic unchanged.",
   ],
   blockers: [],
 };
@@ -201,7 +201,7 @@ const ELECTRICAL_LABOR_ESTIMATOR_PATCH: ControlledInputDesignPatch = {
     "Labor cost = laborHours × laborRate; material cost entered as job snapshot.",
     "NEC estimating band (~40–65% commercial) used for labor/material ratio risk bands on free tier.",
     "Permit, inspection and testing hours excluded unless optional inputs are provided.",
-    "Panel complexity and conduit derating not modeled on free path — advanced inputs are governance placeholders only.",
+    "Panel complexity and conduit derating not modeled on free path - advanced inputs are governance placeholders only.",
   ],
   userBurdenNotes: [
     "Free quick-check exposes three production-aligned inputs; permit and inspection optional for smart-form phase.",
@@ -216,7 +216,7 @@ const ELECTRICAL_LABOR_ESTIMATOR_PATCH: ControlledInputDesignPatch = {
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional permitCost and inspectionHours are governance-only — not wired to free-sector calculator in Phase 5H-F-2.",
+    "Optional permitCost and inspectionHours are governance-only - not wired to free-sector calculator in Phase 5H-F-2.",
   ],
   blockers: [],
 };
@@ -253,14 +253,14 @@ const HVAC_PROJECT_MARGIN_GUARD_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced Manual J variance, duct leakage and latent load inputs prepare envelope-aware HVAC estimator extension.",
-    "calcHvac hidden multipliers unchanged — patch documents input taxonomy only.",
+    "calcHvac hidden multipliers unchanged - patch documents input taxonomy only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Advanced load-calculation inputs are governance placeholders — calcHvac production logic unchanged in Phase 5H-F-2.",
+    "Advanced load-calculation inputs are governance placeholders - calcHvac production logic unchanged in Phase 5H-F-2.",
   ],
   blockers: [],
 };
@@ -297,14 +297,14 @@ const MILLWORK_BID_RISK_ANALYZER_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced finish grade, field measurement and punch-list rework inputs prepare cut-list aware cost model.",
-    "calcMillwork hidden multipliers unchanged — patch documents required/optional/advanced split only.",
+    "calcMillwork hidden multipliers unchanged - patch documents required/optional/advanced split only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional hardwareCost and fieldMeasureAllowance are governance-only — calcMillwork production logic unchanged.",
+    "Optional hardwareCost and fieldMeasureAllowance are governance-only - calcMillwork production logic unchanged.",
   ],
   blockers: [],
 };
@@ -340,14 +340,14 @@ const PANEL_SHOP_MARGIN_VERDICT_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced panel complexity and wiring density inputs prepare code-aware panel and circuit complexity model.",
-    "calcElectrical hidden multipliers unchanged — patch documents input taxonomy only.",
+    "calcElectrical hidden multipliers unchanged - patch documents input taxonomy only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional permitRevisionReserve is governance-only — calcElectrical production logic unchanged in Phase 5H-F-3.",
+    "Optional permitRevisionReserve is governance-only - calcElectrical production logic unchanged in Phase 5H-F-3.",
   ],
   blockers: [],
 };
@@ -384,14 +384,14 @@ const PLUMBING_JOB_MARGIN_VERDICT_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced concealed damage and parts availability inputs prepare risk-adjusted plumbing bid floor model.",
-    "calcPlumbing hidden multipliers unchanged — patch documents required/optional/advanced split only.",
+    "calcPlumbing hidden multipliers unchanged - patch documents required/optional/advanced split only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Advanced water damage and concealed damage inputs are governance placeholders — calcPlumbing unchanged.",
+    "Advanced water damage and concealed damage inputs are governance placeholders - calcPlumbing unchanged.",
   ],
   blockers: [],
 };
@@ -411,7 +411,7 @@ const PRINT_JOB_COST_CHECK_PATCH: ControlledInputDesignPatch = {
   defaultAssumptions: [
     "Design cost = designHours × laborRate; SGIA-style design/material ratio thresholds on free tier.",
     "Spoilage, color calibration and setup time excluded on free path unless optional inputs are provided.",
-    "Install labor and press downtime not modeled on free tier — optional installLaborHours for smart-form handoff.",
+    "Install labor and press downtime not modeled on free tier - optional installLaborHours for smart-form handoff.",
     "HIGH risk when designMaterialRatio ≥ 1.2; recommendedPrice metadata alias equals designCost.",
   ],
   userBurdenNotes: [
@@ -420,14 +420,14 @@ const PRINT_JOB_COST_CHECK_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced color calibration, finishing complexity and reprint risk inputs prepare press-specific spoilage model.",
-    "calculatePrintingFreeResult production logic unchanged — patch documents governance input taxonomy only.",
+    "calculatePrintingFreeResult production logic unchanged - patch documents governance input taxonomy only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional spoilageRate and pressDowntime are governance-only — free-sector print calculator unchanged.",
+    "Optional spoilageRate and pressDowntime are governance-only - free-sector print calculator unchanged.",
   ],
   blockers: [],
 };
@@ -456,14 +456,14 @@ const REPAIR_TIME_VS_PRICE_CHECK_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced technician efficiency and comeback probability inputs prepare auto-shop margin leak detector handoff.",
-    "calculateRepairTimeResult production logic unchanged — patch documents governance input taxonomy only.",
+    "calculateRepairTimeResult production logic unchanged - patch documents governance input taxonomy only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional shopRate and diagnosticHours are governance-only — free-sector auto repair calculator unchanged.",
+    "Optional shopRate and diagnosticHours are governance-only - free-sector auto repair calculator unchanged.",
   ],
   blockers: [],
 };
@@ -502,14 +502,14 @@ const SHEET_METAL_QUOTE_RISK_TOOL_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced nesting scrap volatility and programming complexity inputs prepare nesting-aware quote model.",
-    "calcSheetMetal hidden multipliers unchanged — patch documents required/optional/advanced split only.",
+    "calcSheetMetal hidden multipliers unchanged - patch documents required/optional/advanced split only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional nestingEfficiency and assistGasCost are governance placeholders — calcSheetMetal unchanged.",
+    "Optional nestingEfficiency and assistGasCost are governance placeholders - calcSheetMetal unchanged.",
   ],
   blockers: [],
 };
@@ -546,14 +546,14 @@ const SIGNAGE_BID_SAFE_PRICE_TOOL_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced wide-format spoilage and install access inputs prepare press-specific finishing complexity model.",
-    "calcSignage hidden multipliers unchanged — patch documents input taxonomy only.",
+    "calcSignage hidden multipliers unchanged - patch documents input taxonomy only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Advanced finishing complexity inputs are governance-only — calcSignage production logic unchanged.",
+    "Advanced finishing complexity inputs are governance-only - calcSignage production logic unchanged.",
   ],
   blockers: [],
 };
@@ -590,14 +590,14 @@ const WELDING_BID_RISK_ANALYZER_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced weld procedure and certification trace inputs prepare risk-adjusted bid floor and WPS-aware cost model.",
-    "calcWelding hidden multipliers unchanged — patch documents input taxonomy only.",
+    "calcWelding hidden multipliers unchanged - patch documents input taxonomy only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional ndtInspectionCost and positionFactor are governance-only — calcWelding production logic unchanged.",
+    "Optional ndtInspectionCost and positionFactor are governance-only - calcWelding production logic unchanged.",
   ],
   blockers: [],
 };
@@ -634,14 +634,14 @@ const LANDSCAPING_CONTRACT_PROFIT_TOOL_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced route density and weather delay inputs prepare recurring route profitability and seasonality model.",
-    "calcLandscaping hidden multipliers unchanged — patch documents required/optional/advanced split only.",
+    "calcLandscaping hidden multipliers unchanged - patch documents required/optional/advanced split only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional seasonalityFactor and routeDensityRisk are governance placeholders — calcLandscaping unchanged.",
+    "Optional seasonalityFactor and routeDensityRisk are governance placeholders - calcLandscaping unchanged.",
   ],
   blockers: [],
 };
@@ -660,7 +660,7 @@ const LAWN_CARE_COST_CHECK_PATCH: ControlledInputDesignPatch = {
   derivedInputs: ["monthlyCrewHours", "recommendedPrice", "riskLevel"],
   defaultAssumptions: [
     "monthlyCrewHours = crewHoursPerVisit × visitsPerMonth; NALP-style route benchmarks for risk bands.",
-    "laborRate collected but not applied in free-tier risk signal — hour load is primary exposure metric.",
+    "laborRate collected but not applied in free-tier risk signal - hour load is primary exposure metric.",
     "Fuel, equipment wear and travel between sites excluded on free path unless optional inputs are provided.",
     "HIGH risk when monthly load ≥ 40 hr/month; MEDIUM when ≥ 20 hr/month.",
   ],
@@ -670,14 +670,14 @@ const LAWN_CARE_COST_CHECK_PATCH: ControlledInputDesignPatch = {
   ],
   professionalDepthNotes: [
     "Advanced route density and crew productivity inputs prepare landscaping contract profit tool handoff.",
-    "calculateLandscapingFreeResult production logic unchanged — patch documents governance input taxonomy only.",
+    "calculateLandscapingFreeResult production logic unchanged - patch documents governance input taxonomy only.",
   ],
   nextGate: "smart_form_architecture",
   productionImpact: "none",
   uiImpact: "future_smart_form_required",
   oracleImpact: "none",
   warnings: [
-    "Optional fuelCostPerVisit and equipmentWearCost are governance-only — free-sector landscaping calculator unchanged.",
+    "Optional fuelCostPerVisit and equipmentWearCost are governance-only - free-sector landscaping calculator unchanged.",
   ],
   blockers: [],
 };

@@ -1,5 +1,5 @@
 /**
- * Ontology alias types — contract vs fixture variable naming drift (Phase 5H-B-5).
+ * Ontology alias types - contract vs fixture variable naming drift (Phase 5H-B-5).
  */
 
 export type OntologyAliasConfidence = "exact" | "strong" | "weak" | "manual_review";

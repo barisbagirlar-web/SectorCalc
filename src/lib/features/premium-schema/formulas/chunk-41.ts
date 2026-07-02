@@ -72,7 +72,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_9",
     family: "cost",
-    label: "Nakit Akisi Acigi — FinancingCost",
+    label: "Nakit Akisi Acigi - FinancingCost",
     fn: (inputs) => {
     const cashGap = num(inputs, "cashGap");
     const dailyInterestRate = num(inputs, "dailyInterestRate");
@@ -84,7 +84,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.freight_cost_0",
     family: "cost",
-    label: "Navlun Maliyeti — ChargeableWeight",
+    label: "Navlun Maliyeti - ChargeableWeight",
     fn: (inputs) => {
     const grossWeight = num(inputs, "grossWeight");
     const volumetricWeight = num(inputs, "volumetricWeight");
@@ -95,7 +95,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.freight_cost_1",
     family: "cost",
-    label: "Navlun Maliyeti — BaseFreight",
+    label: "Navlun Maliyeti - BaseFreight",
     fn: (inputs) => {
     const chargeableWeight = num(inputs, "chargeableWeight");
     const ratePerKg = num(inputs, "ratePerKg");
@@ -105,7 +105,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.freight_cost_2",
     family: "cost",
-    label: "Navlun Maliyeti — BunkerSurcharge",
+    label: "Navlun Maliyeti - BunkerSurcharge",
     fn: (inputs) => {
     const baseFreight = num(inputs, "baseFreight");
     const bAF = num(inputs, "bAF");
@@ -117,7 +117,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.freight_cost_3",
     family: "cost",
-    label: "Navlun Maliyeti — SecurityFee",
+    label: "Navlun Maliyeti - SecurityFee",
     fn: (inputs) => {
     const chargeableWeight = num(inputs, "chargeableWeight");
     const securityRate = num(inputs, "securityRate");
@@ -127,7 +127,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.freight_cost_4",
     family: "cost",
-    label: "Navlun Maliyeti — TerminalHandling",
+    label: "Navlun Maliyeti - TerminalHandling",
     fn: (inputs) => {
     const units = num(inputs, "units");
     const tHC = num(inputs, "tHC");
@@ -139,7 +139,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.freight_cost_5",
     family: "cost",
-    label: "Navlun Maliyeti — CustomsClearance",
+    label: "Navlun Maliyeti - CustomsClearance",
     fn: (inputs) => {
     const fixedFee = num(inputs, "fixedFee");
     const value = num(inputs, "value");
@@ -150,7 +150,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.freight_cost_6",
     family: "cost",
-    label: "Navlun Maliyeti — TotalFreightCost",
+    label: "Navlun Maliyeti - TotalFreightCost",
     fn: (inputs) => {
     const baseFreight = num(inputs, "baseFreight");
     const bunkerSurcharge = num(inputs, "bunkerSurcharge");
@@ -163,7 +163,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.freight_cost_7",
     family: "cost",
-    label: "Navlun Maliyeti — CostPerUnit",
+    label: "Navlun Maliyeti - CostPerUnit",
     fn: (inputs) => {
     const totalFreightCost = num(inputs, "totalFreightCost");
     const totalUnits = num(inputs, "totalUnits");
@@ -175,7 +175,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.noise_vibration_cost_0",
     family: "cost",
-    label: "Noise & Vibration Maliyet — NoiseExposure_dBA",
+    label: "Noise & Vibration Maliyet - NoiseExposure_dBA",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const i = num(inputs, "i");
@@ -189,7 +189,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.noise_vibration_cost_1",
     family: "cost",
-    label: "Noise & Vibration Maliyet — Vibration_RMS",
+    label: "Noise & Vibration Maliyet - Vibration_RMS",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const a = num(inputs, "a");
@@ -203,7 +203,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.noise_vibration_cost_2",
     family: "cost",
-    label: "Noise & Vibration Maliyet — HealthCost",
+    label: "Noise & Vibration Maliyet - HealthCost",
     fn: (inputs) => {
     const noise = num(inputs, "noise");
     const oR = num(inputs, "oR");
@@ -219,7 +219,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.noise_vibration_cost_3",
     family: "cost",
-    label: "Noise & Vibration Maliyet — ProductivityLoss",
+    label: "Noise & Vibration Maliyet - ProductivityLoss",
     fn: (inputs) => {
     const actualOutput = num(inputs, "actualOutput");
     const baselineOutput = num(inputs, "baselineOutput");
@@ -230,7 +230,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.noise_vibration_cost_4",
     family: "cost",
-    label: "Noise & Vibration Maliyet — ReworkCost",
+    label: "Noise & Vibration Maliyet - ReworkCost",
     fn: (inputs) => {
     const vibrationDefectRate = num(inputs, "vibrationDefectRate");
     const totalUnits = num(inputs, "totalUnits");
@@ -241,7 +241,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.noise_vibration_cost_5",
     family: "cost",
-    label: "Noise & Vibration Maliyet — MitigationROI",
+    label: "Noise & Vibration Maliyet - MitigationROI",
     fn: (inputs) => {
     const healthCost = num(inputs, "healthCost");
     const prodLoss = num(inputs, "prodLoss");

@@ -1,5 +1,5 @@
 /**
- * Tool #4 — Arac Amortismani (Vehicle Depreciation & TCO)
+ * Tool #4 - Arac Amortismani (Vehicle Depreciation & TCO)
  * SL → DB → TCO → TaxShield
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -40,7 +40,7 @@ export const VEHICLE_DEPRECIATION_SCHEMA: PremiumCalculatorSchema = {
     { id: "tco", label: "TCO (Total Sahip Olma Cost)", label_i18n: {"en":"TCO (Total Sahip Olma Cost)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "tco", warning: 75000, critical: 100000, direction: "higher_is_bad", warningMessage: "TCO > $75K — Evaluate cost optimization.", warningMessage_i18n: {"en":"TCO > $75K — Evaluate cost optimization."}, criticalMessage: "TCO > $100K — Alternative vehicle/financing models must be reviewed.", criticalMessage_i18n: {"en":"TCO > $100K — Alternative vehicle/financing models must be reviewed."} },
+    { fieldId: "tco", warning: 75000, critical: 100000, direction: "higher_is_bad", warningMessage: "TCO > $75K - Evaluate cost optimization.", warningMessage_i18n: {"en":"TCO > $75K - Evaluate cost optimization."}, criticalMessage: "TCO > $100K - Alternative vehicle/financing models must be reviewed.", criticalMessage_i18n: {"en":"TCO > $100K - Alternative vehicle/financing models must be reviewed."} },
   ],
   formulaPipeline: [
     { formulaId: "depreciation.sl_annual", inputMap: { cost: "acquisitionCost", residualValue: "salvageValue", usefulLife: "usefulLife" }, outputId: "slAnnual" },

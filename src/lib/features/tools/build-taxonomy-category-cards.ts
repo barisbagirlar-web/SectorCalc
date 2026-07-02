@@ -1,10 +1,10 @@
 /**
- * SectorCalc — Build Category Cards for Taxonomy Grid
+ * SectorCalc - Build Category Cards for Taxonomy Grid
  *
  * Groups tools by their resolved category and enriches with
  * FreeToolCategoryEntry metadata (field, domain, social purpose, SVG symbol).
  *
- * ECMI / ISO 9001 — TUV-certifiable engineering classification.
+ * ECMI / ISO 9001 - TUV-certifiable engineering classification.
  */
 
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";

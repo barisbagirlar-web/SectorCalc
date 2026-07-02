@@ -72,7 +72,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_0",
     family: "cost",
-    label: "OEE ve Durma Suresi — Availability",
+    label: "OEE ve Durma Suresi - Availability",
     fn: (inputs) => {
     const operatingTime = num(inputs, "operatingTime");
     const plannedProductionTime = num(inputs, "plannedProductionTime");
@@ -82,7 +82,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_1",
     family: "cost",
-    label: "OEE ve Durma Suresi — Performance",
+    label: "OEE ve Durma Suresi - Performance",
     fn: (inputs) => {
     const idealCycleTime = num(inputs, "idealCycleTime");
     const totalCount = num(inputs, "totalCount");
@@ -93,7 +93,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_2",
     family: "cost",
-    label: "OEE ve Durma Suresi — Quality",
+    label: "OEE ve Durma Suresi - Quality",
     fn: (inputs) => {
     const goodCount = num(inputs, "goodCount");
     const totalCount = num(inputs, "totalCount");
@@ -103,7 +103,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_3",
     family: "cost",
-    label: "OEE ve Durma Suresi — OEE",
+    label: "OEE ve Durma Suresi - OEE",
     fn: (inputs) => {
     const availability = num(inputs, "availability");
     const performance = num(inputs, "performance");
@@ -114,7 +114,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_4",
     family: "cost",
-    label: "OEE ve Durma Suresi — TEEP",
+    label: "OEE ve Durma Suresi - TEEP",
     fn: (inputs) => {
     const oEE = num(inputs, "oEE");
     const plannedProductionTime = num(inputs, "plannedProductionTime");
@@ -125,7 +125,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_5",
     family: "cost",
-    label: "OEE ve Durma Suresi — DowntimeCost",
+    label: "OEE ve Durma Suresi - DowntimeCost",
     fn: (inputs) => {
     const plannedProductionTime = num(inputs, "plannedProductionTime");
     const operatingTime = num(inputs, "operatingTime");
@@ -136,7 +136,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_6",
     family: "cost",
-    label: "OEE ve Durma Suresi — SpeedLoss",
+    label: "OEE ve Durma Suresi - SpeedLoss",
     fn: (inputs) => {
     const operatingTime = num(inputs, "operatingTime");
     const idealCycleTime = num(inputs, "idealCycleTime");
@@ -148,7 +148,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_7",
     family: "cost",
-    label: "OEE ve Durma Suresi — QualityLoss",
+    label: "OEE ve Durma Suresi - QualityLoss",
     fn: (inputs) => {
     const totalCount = num(inputs, "totalCount");
     const goodCount = num(inputs, "goodCount");
@@ -161,7 +161,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.office_supplies_cost_0",
     family: "cost",
-    label: "Ofis Malzemeleri Maliyet — ConsumptionRate",
+    label: "Ofis Malzemeleri Maliyet - ConsumptionRate",
     fn: (inputs) => {
     const totalConsumed = num(inputs, "totalConsumed");
     const employeeCount = num(inputs, "employeeCount");
@@ -171,7 +171,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.office_supplies_cost_1",
     family: "cost",
-    label: "Ofis Malzemeleri Maliyet — AnnualCost",
+    label: "Ofis Malzemeleri Maliyet - AnnualCost",
     fn: (inputs) => {
     const item = num(inputs, "item");
     const i = num(inputs, "i");
@@ -186,7 +186,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.office_supplies_cost_2",
     family: "cost",
-    label: "Ofis Malzemeleri Maliyet — CarryingCost",
+    label: "Ofis Malzemeleri Maliyet - CarryingCost",
     fn: (inputs) => {
     const averageInventory = num(inputs, "averageInventory");
     const holdingRate = num(inputs, "holdingRate");
@@ -196,7 +196,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.office_supplies_cost_3",
     family: "cost",
-    label: "Ofis Malzemeleri Maliyet — StockoutCost",
+    label: "Ofis Malzemeleri Maliyet - StockoutCost",
     fn: (inputs) => {
     const emergencyOrders = num(inputs, "emergencyOrders");
     const premiumFreight = num(inputs, "premiumFreight");
@@ -206,7 +206,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.office_supplies_cost_4",
     family: "cost",
-    label: "Ofis Malzemeleri Maliyet — EOQ_Office",
+    label: "Ofis Malzemeleri Maliyet - EOQ_Office",
     fn: (inputs) => {
     const annualUsage = num(inputs, "annualUsage");
     const orderCost = num(inputs, "orderCost");
@@ -218,7 +218,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.office_supplies_cost_5",
     family: "cost",
-    label: "Ofis Malzemeleri Maliyet — WastePct",
+    label: "Ofis Malzemeleri Maliyet - WastePct",
     fn: (inputs) => {
     const purchased = num(inputs, "purchased");
     const consumed = num(inputs, "consumed");
@@ -228,7 +228,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.office_supplies_cost_6",
     family: "cost",
-    label: "Ofis Malzemeleri Maliyet — OptimizationSavings",
+    label: "Ofis Malzemeleri Maliyet - OptimizationSavings",
     fn: (inputs) => {
     const currentCost = num(inputs, "currentCost");
     const eOQ = num(inputs, "eOQ");

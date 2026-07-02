@@ -1,5 +1,5 @@
 /**
- * Operations oracle baselines — independent reference implementations (Phase 5C).
+ * Operations oracle baselines - independent reference implementations (Phase 5C).
  * Does NOT import production calculator functions.
  */
 

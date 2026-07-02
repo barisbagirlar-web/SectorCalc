@@ -1,6 +1,6 @@
 // ============================================================
 // src/utils/math/irr.ts
-// SectorCalc — IRR Hesaplama Motoru (Claude Opus)
+// SectorCalc - IRR Hesaplama Motoru (Claude Opus)
 // Bisection + Newton-Raphson hibrit algoritmasi.
 // Tum aritmetik SafeMath uzerinden gecer.
 // Hata durumunda 0 degil, null doner.

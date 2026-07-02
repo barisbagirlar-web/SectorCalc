@@ -10,7 +10,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label: "Risk Pct",
       label_i18n: { en: "Risk Pct" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label: "Cost Of Capital",
       label_i18n: { en: "Cost Of Capital" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -28,7 +28,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label: "Road Rate Per Km",
       label_i18n: { en: "Road Rate Per Km" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -37,7 +37,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label: "Sea Rate Per Cbm",
       label_i18n: { en: "Sea Rate Per Cbm" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -46,7 +46,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label: "Air Rate Per Kg",
       label_i18n: { en: "Air Rate Per Kg" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -67,7 +67,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "riskCostTransport", label: "Risk Cost", label_i18n: {"en":"Risk Cost"}, unit: "USD", format: "currency" },
     { id: "totalModeCost", label: "Total Mod Cost", label_i18n: {"en":"Total Mod Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalModeCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Total carrying cost > $10K — mode optimization is recommended.", warningMessage_i18n: {"en":"Total carrying cost > $10K — mode optimization is recommended."}, criticalMessage: "Total carrying cost > $25K — alternative routes should be evaluated.", criticalMessage_i18n: {"en":"Total carrying cost > $25K — alternative routes should be evaluated."} }],
+  thresholds: [{ fieldId: "totalModeCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Total carrying cost > $10K - mode optimization is recommended.", warningMessage_i18n: {"en":"Total carrying cost > $10K - mode optimization is recommended."}, criticalMessage: "Total carrying cost > $25K - alternative routes should be evaluated.", criticalMessage_i18n: {"en":"Total carrying cost > $25K - alternative routes should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "cost.transport_air", inputMap: { airFreightCost: "airFreightCost" ,
         airFreightKg: "airFreightCost",

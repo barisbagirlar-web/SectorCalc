@@ -1,5 +1,5 @@
 /**
- * Ontology draft compiler — OntologyDraft → CalculationOntology (Phase 5H-B-3).
+ * Ontology draft compiler - OntologyDraft → CalculationOntology (Phase 5H-B-3).
  */
 
 import { createOntology } from "@/lib/features/formula-governance/calculation-ontology/ontology-builder";

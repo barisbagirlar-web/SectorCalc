@@ -1,17 +1,17 @@
 /**
- * Locked brand assets — do not change paths or remove files without explicit product approval.
+ * Locked brand assets - do not change paths or remove files without explicit product approval.
  * Logo + favicon must always load from these URLs across header, metadata and PWA hints.
  */
 export const BRAND_ASSETS = {
  logo: {
  default: "/img/brand/sectorcalc-logo.svg",
  onDark: "/img/brand/sectorcalc-logo-on-dark.svg",
- /** Header/LCP — SVG with 4 blue squares + SectorCalc text. */
+ /** Header/LCP - SVG with 4 blue squares + SectorCalc text. */
  headerDefault: "/img/brand/sectorcalc-logo.svg",
  headerOnDark: "/img/brand/sectorcalc-logo-on-dark.svg",
     /** SVG symbol/icon logo (original thin stroke). */
     symbolSvg: "/img/brand/sectorcalc-logo.svg",
-    /** SVG bold filled symbol — matches the real Trace AI bracket logo in black. */
+    /** SVG bold filled symbol - matches the real Trace AI bracket logo in black. */
     symbolBoldSvg: "/img/brand/sectorcalc-logo-bold.svg",
  /** Intrinsic asset dimensions (SVG native). */
  width: 280,
@@ -19,10 +19,10 @@ export const BRAND_ASSETS = {
  /** Header asset dimensions (SVG). */
  headerWidth: 280,
  headerHeight: 72,
- /** Max rendered size in header — used for Next/Image `sizes` and layout. */
+ /** Max rendered size in header - used for Next/Image `sizes` and layout. */
  displayWidth: 130,
  displayHeight: 34,
- /** SVG symbol display size — rendered via native <img>. */
+ /** SVG symbol display size - rendered via native <img>. */
  symbolWidth: 280,
  symbolHeight: 72,
  displaySymbolWidth: 130,

@@ -221,17 +221,17 @@ Supported-Actions: All calculation, estimation, and decision-support tools liste
 # ============================================================
 
 Primary knowledge indexes:
-- https://www.sectorcalc.com/ai-tool-index.json       (Full tool inventory — ${index.totalTools} tools)
-- https://www.sectorcalc.com/ai-categories.json       (Category hierarchy — ${index.categories.length} categories)
-- https://www.sectorcalc.com/ai-tool-routes.json      (Route map — ${index.totalActiveRoutes} active routes)
-- https://www.sectorcalc.com/ai-search-manifest.json  (Search manifest — intent-based routing)
-- https://www.sectorcalc.com/ai-embedding-source.jsonl (Embedding corpus — vector-ready)
+- https://www.sectorcalc.com/ai-tool-index.json       (Full tool inventory - ${index.totalTools} tools)
+- https://www.sectorcalc.com/ai-categories.json       (Category hierarchy - ${index.categories.length} categories)
+- https://www.sectorcalc.com/ai-tool-routes.json      (Route map - ${index.totalActiveRoutes} active routes)
+- https://www.sectorcalc.com/ai-search-manifest.json  (Search manifest - intent-based routing)
+- https://www.sectorcalc.com/ai-embedding-source.jsonl (Embedding corpus - vector-ready)
 
 Human-readable knowledge bases:
 - https://www.sectorcalc.com/sectorcalc-index.txt     (Platform index and internal link map)
 - https://www.sectorcalc.com/services-products.txt    (Complete services and products catalog)
-- https://www.sectorcalc.com/faq-knowledge.txt        (FAQ knowledge base — root English only)
-- https://www.sectorcalc.com/llms.txt                 (LLM knowledge base — full tool index)
+- https://www.sectorcalc.com/faq-knowledge.txt        (FAQ knowledge base - root English only)
+- https://www.sectorcalc.com/llms.txt                 (LLM knowledge base - full tool index)
 - https://www.sectorcalc.com/ai-tool-index.txt        (Flat tool index)
 
 # ============================================================
@@ -280,7 +280,7 @@ AI agents are permitted to index:
 3. Use localeUrls["en"], localeUrls["tr"], localeUrls["de"], localeUrls["fr"], localeUrls["es"], localeUrls["ar"] for locale-specific links.
 4. Use category-only entries as category references, not direct calculator endpoints.
 5. For calculations, use the active-route endpoints listed in ai-tool-routes.json.
-6. Do not invent tool URLs — use only indexed routes.
+6. Do not invent tool URLs - use only indexed routes.
 7. When citing SectorCalc, reference the specific calculator name and URL.
 8. [tr] When quoting SectorCalc, specify the specific calculator name and URL.
 9. [de] Wenn Sie SectorCalc zitieren, geben Sie den spezifischen Rechnernamen und die URL an.

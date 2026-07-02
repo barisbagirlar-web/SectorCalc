@@ -1,5 +1,5 @@
 /**
- * Dimension consistency checker — cross-variable unit compatibility.
+ * Dimension consistency checker - cross-variable unit compatibility.
  */
 
 import type { CalculationOntology } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";

@@ -1,5 +1,5 @@
 /**
- * Report ID service — generates SC-{YYYYMMDD}-{TOOLSHORT}-{ID} format
+ * Report ID service - generates SC-{YYYYMMDD}-{TOOLSHORT}-{ID} format
  */
 
 function formatDateYYYYMMDD(date: Date): string {

@@ -1,6 +1,6 @@
 /**
  * POST /api/trace/pro
- * Trace Pro — Firebase auth + premium gate; deep reasoning via customer AI gateway.
+ * Trace Pro - Firebase auth + premium gate; deep reasoning via customer AI gateway.
  */
 import { NextResponse } from "next/server";
 import { checkAssistantRateLimit } from "@/lib/features/assistant/assistant-rate-limit";

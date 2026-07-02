@@ -18,8 +18,8 @@ export const COMPRESSOR_LEAK_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       warning: 6000,
       critical: 15000,
       direction: "higher_is_bad",
-      warningMessage: "Leak cost is material — schedule ultrasonic leak survey.",
-      criticalMessage: "Leak cost is severe — prioritize maintenance before next budget cycle.",
+      warningMessage: "Leak cost is material - schedule ultrasonic leak survey.",
+      criticalMessage: "Leak cost is severe - prioritize maintenance before next budget cycle.",
     },
   ],
 

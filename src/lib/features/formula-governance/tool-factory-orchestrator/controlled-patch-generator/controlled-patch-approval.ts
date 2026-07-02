@@ -1,5 +1,5 @@
 /**
- * Controlled patch approval gate — Phase 5I-E always requires approval.
+ * Controlled patch approval gate - Phase 5I-E always requires approval.
  */
 
 import type { ControlledPatchDraft } from "@/lib/features/formula-governance/tool-factory-orchestrator/controlled-patch-generator/controlled-patch-types";

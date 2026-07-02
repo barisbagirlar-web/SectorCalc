@@ -1,5 +1,5 @@
 /**
- * Debt register builder — Phase 5I-Q remaining debt catalog.
+ * Debt register builder - Phase 5I-Q remaining debt catalog.
  */
 
 import type { DebtRegisterEntry } from "@/lib/features/formula-governance/roadmap-debt-register/debt-register-types";

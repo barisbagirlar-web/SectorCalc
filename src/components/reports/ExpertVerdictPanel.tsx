@@ -54,7 +54,7 @@ export function ExpertVerdictPanel({
 
         <div className={isCritical ? "sc-risk-strip sc-risk-strip--danger" : "sc-risk-strip sc-risk-strip--safe"}>
           {isCritical
-            ? "High risk — hidden cost may erase the margin."
+            ? "High risk - hidden cost may erase the margin."
             : "Current inputs are inside the acceptable range."}
         </div>
 

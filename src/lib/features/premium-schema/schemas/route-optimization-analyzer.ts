@@ -1,5 +1,5 @@
 /**
- * Tool — Rota Optimizasyonu
+ * Tool - Rota Optimizasyonu
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const ROUTE_OPTIMIZATION_ANALYZER: PremiumCalculatorSchema = {
@@ -12,7 +12,7 @@ export const ROUTE_OPTIMIZATION_ANALYZER: PremiumCalculatorSchema = {
       label: "Dist A B",
       label_i18n: { en: "Dist A B" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -30,7 +30,7 @@ export const ROUTE_OPTIMIZATION_ANALYZER: PremiumCalculatorSchema = {
     { id: "efficiencyScore", label: "Route Efficiency Score", label_i18n: {"en":"Route Efficiency Score"}, unit: "%", format: "percentage" },
     { id: "totalSavings", label: "Total Tasarruf", label_i18n: {"en":"Total Tasarruf"}, unit: "USD/year", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "efficiencyScore", warning: 75, critical: 50, direction: "lower_is_bad", warningMessage: "Efficiency < 75% — route optimization recommended.", warningMessage_i18n: {"en":"Efficiency < 75% — route optimization recommended."}, criticalMessage: "Efficiency < 50% — urgent route improvement needed.", criticalMessage_i18n: {"en":"Efficiency < 50% — urgent route improvement needed."} }],
+  thresholds: [{ fieldId: "efficiencyScore", warning: 75, critical: 50, direction: "lower_is_bad", warningMessage: "Efficiency < 75% - route optimization recommended.", warningMessage_i18n: {"en":"Efficiency < 75% - route optimization recommended."}, criticalMessage: "Efficiency < 50% - urgent route improvement needed.", criticalMessage_i18n: {"en":"Efficiency < 50% - urgent route improvement needed."} }],
   formulaPipeline: [
     { formulaId: "measurement.route_nearest_neighbor", inputMap: {
         minDistance: "numStops",

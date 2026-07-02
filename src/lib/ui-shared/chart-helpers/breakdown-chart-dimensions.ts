@@ -1,4 +1,4 @@
-/** ECMI / ISO 9001 — breakdown chart dimension taxonomy (homogeneous units per panel). */
+/** ECMI / ISO 9001 - breakdown chart dimension taxonomy (homogeneous units per panel). */
 export type BreakdownChartDimension =
   | "currency"
   | "percent"

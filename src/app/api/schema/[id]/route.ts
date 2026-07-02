@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { schemaRegistry } from "@/lib/core/schema/schema-registry";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GET /api/schema/[id] — Dynamic schema loading with auto-translation
+// GET /api/schema/[id] - Dynamic schema loading with auto-translation
 // ─────────────────────────────────────────────────────────────────────────────
 
 export async function GET(
@@ -35,7 +35,7 @@ export async function GET(
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// POST /api/schema/[id] — Bulk translate (batch endpoint for clients)
+// POST /api/schema/[id] - Bulk translate (batch endpoint for clients)
 // ─────────────────────────────────────────────────────────────────────────────
 
 export async function POST(

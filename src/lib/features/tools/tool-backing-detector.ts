@@ -25,7 +25,7 @@ import {
 import { ERT_PROBLEM_SLUG } from "@/lib/features/tools/runtime-trust-engine";
 import { getP24VerdictForSlug } from "@/lib/features/tools/runtime-readiness-p24-verdicts";
 
-/** P8 — permanently blocked from calculation bridge activation. */
+/** P8 - permanently blocked from calculation bridge activation. */
 export const P8_SAFETY_BLOCKED_SLUGS: ReadonlySet<string> = new Set([
   "feed-efficiency-analyzer",
 ]);

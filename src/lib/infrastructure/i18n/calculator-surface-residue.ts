@@ -1,7 +1,7 @@
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 import { TR_FORBIDDEN_SURFACE_WORDS } from "@/lib/infrastructure/i18n/calculator-surface-forbidden";
 
-/** Word-boundary cleanup after glossary pass — removes visible EN residue on calculator surfaces. */
+/** Word-boundary cleanup after glossary pass - removes visible EN residue on calculator surfaces. */
 const TR_SURFACE_RESIDUE: Record<string, string> = {
   Time: "Sure",
   Input: "Girdi",

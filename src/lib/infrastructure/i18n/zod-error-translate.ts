@@ -1,5 +1,5 @@
 /**
- * translateZodErrorMessage — Locale-aware Zod validation error translator.
+ * translateZodErrorMessage - Locale-aware Zod validation error translator.
  *
  * Standard Zod error messages contain dynamic numbers (min/max values).
  * This function extracts numbers, translates the text template, then

@@ -1,5 +1,5 @@
 /**
- * Global Reference Contract — FormReferenceBindingContract
+ * Global Reference Contract - FormReferenceBindingContract
  *
  * Build-time validated Zod schema for binding reference data to form inputs.
  * Every reference value MUST have an explicit unit from the whitelist.
@@ -56,7 +56,7 @@ export const ReferenceItem = z.object({
   label: z.string().min(1),
   /** Numeric reference value */
   value: z.number(),
-  /** Unit from whitelist — unitless numbers are CRITICAL ERRORS */
+  /** Unit from whitelist - unitless numbers are CRITICAL ERRORS */
   unit: z.enum(UNIT_WHITELIST),
   /** Source standard identifier (e.g., "EN 10025-2", "ISO 898-1") */
   source: z.string().min(1),
@@ -76,7 +76,7 @@ export const FormReferenceBindingContract = z.object({
   standard: z.string().min(1),
   /** Unit system filter: METRIC_ONLY, IMPERIAL_ONLY, or GLOBAL */
   projectUnitSystem: ProjectUnitSystem,
-  /** Array of reference values — at least one required */
+  /** Array of reference values - at least one required */
   references: z.array(ReferenceItem).min(1),
 });
 

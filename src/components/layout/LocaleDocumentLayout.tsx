@@ -72,7 +72,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
 
         {/* === PUBSUBHUBBUB (Instant indexing notifications) === */}
         <link rel="hub" href="https://pubsubhubbub.appspot.com/" />
-        <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="SectorCalc Guides — Calculation guides, industry insights and decision tool walkthroughs" />
+        <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="SectorCalc Guides - Calculation guides, industry insights and decision tool walkthroughs" />
 
         {/* === PWA MANIFEST === */}
         <link rel="manifest" href="/manifest.webmanifest" />

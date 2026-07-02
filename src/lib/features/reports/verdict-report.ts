@@ -40,7 +40,7 @@ export type VerdictReportData = {
 };
 
 export const VERDICT_REPORT_LEGAL_DISCLAIMER =
- "This Calculation summary is for decision support only. It is a technical simulation — not financial, legal or engineering advice. Results depend on user-provided inputs. Verify all outputs before making business decisions.";
+ "This Calculation summary is for decision support only. It is a technical simulation - not financial, legal or engineering advice. Results depend on user-provided inputs. Verify all outputs before making business decisions.";
 
 export const PREMIUM_DECISION_SUMMARY_METHODOLOGY =
  "Methodology note: SectorCalc applies deterministic formulas, sector defaults, and documented tolerance rules to user inputs. Scenario lines show directional stress checks. Outputs are indicative working estimates.";
@@ -213,7 +213,7 @@ export function mapPremiumReportExportToVerdictReportData(
    primaryMetricLabel: payload.bigNumber.label,
    primaryMetricValue: payload.bigNumber.value,
    riskDrivers: payload.hiddenDrivers.map(
-    (driver) => `${driver.label}: ${driver.value} — ${driver.description}`
+    (driver) => `${driver.label}: ${driver.value} - ${driver.description}`
    ),
    suggestedAction: payload.suggestedActions.filter(Boolean).join(" "),
    inputs: [],

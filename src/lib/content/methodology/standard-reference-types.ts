@@ -1,5 +1,5 @@
 /**
- * Methodology standard reference types — metadata only, not compliance claims.
+ * Methodology standard reference types - metadata only, not compliance claims.
  */
 
 export type StandardSourceType =

@@ -1,5 +1,5 @@
 /**
- * Industrial PDF Report — public API
+ * Industrial PDF Report - public API
  */
 
 export { IndustrialPdfDocument } from "@/lib/content/pdf/industrial-pdf/IndustrialPdfDocument";

@@ -72,7 +72,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.heat_exchanger_fouling_6",
     family: "cost",
-    label: "ISI EXCHANGER FOULING — Total",
+    label: "ISI EXCHANGER FOULING - Total",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const Energy = num(inputs, "Energy");
@@ -84,7 +84,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.heat_exchanger_fouling_7",
     family: "cost",
-    label: "ISI EXCHANGER FOULING — ROI",
+    label: "ISI EXCHANGER FOULING - ROI",
     fn: (inputs) => {
     const total = num(inputs, "total");
     const cleanCost = num(inputs, "cleanCost");
@@ -96,7 +96,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.iso_50001_baseline_0",
     family: "cost",
-    label: "ISO 50001 BASELINE — EnPI",
+    label: "ISO 50001 BASELINE - EnPI",
     fn: (inputs) => {
     const energy = num(inputs, "energy");
     const volume = num(inputs, "volume");
@@ -106,7 +106,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.iso_50001_baseline_1",
     family: "cost",
-    label: "ISO 50001 BASELINE — Baseline",
+    label: "ISO 50001 BASELINE - Baseline",
     fn: (inputs) => {
     const intercept = num(inputs, "intercept");
     const slope1 = num(inputs, "slope1");
@@ -119,7 +119,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.iso_50001_baseline_2",
     family: "cost",
-    label: "ISO 50001 BASELINE — Cusum_t",
+    label: "ISO 50001 BASELINE - Cusum_t",
     fn: (inputs) => {
     const actual = num(inputs, "actual");
     const predicted = num(inputs, "predicted");
@@ -129,7 +129,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.iso_50001_baseline_3",
     family: "cost",
-    label: "ISO 50001 BASELINE — Cusum_Cum",
+    label: "ISO 50001 BASELINE - Cusum_Cum",
     fn: (inputs) => {
     const cusum = num(inputs, "cusum");
     const t = num(inputs, "t");
@@ -140,7 +140,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.iso_50001_baseline_4",
     family: "cost",
-    label: "ISO 50001 BASELINE — Savings",
+    label: "ISO 50001 BASELINE - Savings",
     fn: (inputs) => {
     const predicted = num(inputs, "predicted");
     const actual = num(inputs, "actual");
@@ -150,7 +150,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.iso_50001_baseline_5",
     family: "cost",
-    label: "ISO 50001 BASELINE — Norm",
+    label: "ISO 50001 BASELINE - Norm",
     fn: (inputs) => {
     const dD = num(inputs, "dD");
     const Curr = num(inputs, "Curr");
@@ -163,7 +163,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.iso_50001_baseline_6",
     family: "cost",
-    label: "ISO 50001 BASELINE — Sig",
+    label: "ISO 50001 BASELINE - Sig",
     fn: (inputs) => {
     const r2 = num(inputs, "r2");
     const p = num(inputs, "p");
@@ -173,7 +173,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.iso_50001_baseline_7",
     family: "cost",
-    label: "ISO 50001 BASELINE — Target",
+    label: "ISO 50001 BASELINE - Target",
     fn: (inputs) => {
     const baseline = num(inputs, "baseline");
     const redTarget = num(inputs, "redTarget");
@@ -185,7 +185,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_0",
     family: "cost",
-    label: "IC VERIM RATIO IRR — NPV",
+    label: "IC VERIM RATIO IRR - NPV",
     fn: (inputs) => {
     const cash = num(inputs, "cash");
     const t = num(inputs, "t");
@@ -197,7 +197,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_1",
     family: "cost",
-    label: "IC VERIM RATIO IRR — IRR",
+    label: "IC VERIM RATIO IRR - IRR",
     fn: (inputs) => {
     const r = num(inputs, "r");
     const where = num(inputs, "where");
@@ -208,7 +208,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_2",
     family: "cost",
-    label: "IC VERIM RATIO IRR — MIRR",
+    label: "IC VERIM RATIO IRR - MIRR",
     fn: (inputs) => {
     const fV = num(inputs, "fV");
     const Pos = num(inputs, "Pos");
@@ -223,7 +223,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_3",
     family: "cost",
-    label: "IC VERIM RATIO IRR — Payback",
+    label: "IC VERIM RATIO IRR - Payback",
     fn: (inputs) => {
     const year = num(inputs, "year");
     const Before = num(inputs, "Before");
@@ -238,7 +238,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_4",
     family: "cost",
-    label: "IC VERIM RATIO IRR — PI",
+    label: "IC VERIM RATIO IRR - PI",
     fn: (inputs) => {
     const pV = num(inputs, "pV");
     const Future = num(inputs, "Future");

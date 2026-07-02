@@ -24,7 +24,7 @@ const TRANSLATIONS = {
     det_formula: "deterministic formula",
     saha_dizin: "Field Analyses",
     desc_subtitle: "All field analyses in a single table. Click header to sort; click row to view details.",
-    caption: "SectorCalc Field Analyses — Master Directory (EN)",
+    caption: "SectorCalc Field Analyses - Master Directory (EN)",
     th_num: "#",
     th_sector: "Sector",
     th_analysis: "Field Analysis",
@@ -36,7 +36,7 @@ const TRANSLATIONS = {
     abstract_title: "Abstract / Definition",
     abstract_text: "A field analysis directory is a structured catalog of engineering reports that measure hidden cost leaks and quote margin erosion in industrial operations using real field data. Each record includes a problem definition, example parameters, a deterministic calculation formula, and a verified outcome.",
     count_suffix: "analyses",
-    tanim: "Definition — What is it?",
+    tanim: "Definition - What is it?",
     hesaplama: "Calculation Formula",
     detay: "View Detailed Report →",
     arac: "Open Related Calculator",
@@ -59,7 +59,7 @@ const TRANSLATIONS = {
     det_formula: "deterministic formula",
     saha_dizin: "Field Analyses",
     desc_subtitle: "All field analyses in a single table. Click header to sort; click row to view details.",
-    caption: "SectorCalc Field Analyses — Master Directory (EN)",
+    caption: "SectorCalc Field Analyses - Master Directory (EN)",
     th_num: "#",
     th_sector: "Sector",
     th_analysis: "Field Analysis",
@@ -71,7 +71,7 @@ const TRANSLATIONS = {
     abstract_title: "Abstract / Definition",
     abstract_text: "A field analysis directory is a structured catalog of engineering reports that measure hidden cost leaks and quote margin erosion in industrial operations using real field data. Each record includes a problem definition, example parameters, a deterministic calculation formula, and a verified outcome.",
     count_suffix: "analyses",
-    tanim: "Definition — What is it?",
+    tanim: "Definition - What is it?",
     hesaplama: "Calculation Formula",
     detay: "View Detailed Report →",
     arac: "Open Related Calculator",
@@ -851,7 +851,7 @@ export function CaseStudiesClientContent({ locale, studies, toolHrefs }: CaseStu
         {/* HEADER + ABSTRACT */}
         <header className="doc">
           <div className="eyebrow">{tr.dizin}</div>
-          <h1>{tr.dizin} — {tr.footer_text}</h1>
+          <h1>{tr.dizin} - {tr.footer_text}</h1>
           <div className="doc-meta">
             <span>
               <b id="mCount">{studies.length}</b> {tr.analyses}

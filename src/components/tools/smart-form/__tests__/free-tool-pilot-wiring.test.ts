@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-D — free tool pilot wiring selection tests.
+ * Phase 5H-G-D - free tool pilot wiring selection tests.
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";

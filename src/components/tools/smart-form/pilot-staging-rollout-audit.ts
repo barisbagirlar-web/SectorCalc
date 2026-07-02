@@ -1,5 +1,5 @@
 /**
- * Smart form pilot staging rollout audit — Phase 5H-G-L.
+ * Smart form pilot staging rollout audit - Phase 5H-G-L.
  */
 
 import { getProductionDeployedManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";

@@ -49,7 +49,7 @@ const CONFIDENCE_CLASS: Record<string, string> = {
   low: "text-slate-600 bg-slate-100 border-slate-300",
 };
 
-/** Known field-note category prefixes — used for visual labeling */
+/** Known field-note category prefixes - used for visual labeling */
 const FN_CATEGORY_PATTERNS: Array<{
   labelKey: string;
   patterns: RegExp[];
@@ -308,7 +308,7 @@ export function EngineeringInterpretationPanel({
         </span>
       </div>
 
-      {/* ── 1. Executive Summary (PREMIUM — large, multi-paragraph) ── */}
+      {/* ── 1. Executive Summary (PREMIUM - large, multi-paragraph) ── */}
       <div className="mt-6 space-y-3">
         <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-sc-navy">
           <span className="inline-block h-0.5 w-5 bg-sc-copper" />
@@ -406,7 +406,7 @@ export function EngineeringInterpretationPanel({
         </div>
       ) : null}
 
-      {/* ── 5. Field Notes (PREMIUM — professional advisory cards) ── */}
+      {/* ── 5. Field Notes (PREMIUM - professional advisory cards) ── */}
       {data.fieldNotes.length > 0 ? (
         <div className="mt-8 space-y-4">
           <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-sc-navy">

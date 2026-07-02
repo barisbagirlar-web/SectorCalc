@@ -1,5 +1,5 @@
 /**
- * Free tool full-loop runtime bridge — Mind 2 → canonical calc → Mind 1 validation.
+ * Free tool full-loop runtime bridge - Mind 2 → canonical calc → Mind 1 validation.
  */
 
 import { getFormulaContractBySlug } from "@/lib/features/formula-governance/contracts";
@@ -437,7 +437,7 @@ export function runFreeFullLoopCalculation(
 
   // No production adapter registered = display-only success.
   // The display calculation (registry or calculateFreeToolResult) already ran
-  // with real formulas — no need to block the free tier for missing oracle adapter.
+  // with real formulas - no need to block the free tier for missing oracle adapter.
   if (adapterResult.status === "needs_adapter") {
     const trustTrace = buildRuntimeTrustTraceView({
       slug,
@@ -479,7 +479,7 @@ export function runFreeFullLoopCalculation(
       canonicalKeys,
       rejectedKeys,
       extraBlockers: postLoop.validationResult?.errors ?? [
-        "Validation did not pass — result blocked.",
+        "Validation did not pass - result blocked.",
       ],
     });
   }

@@ -19,8 +19,8 @@ export const PANEL_SHOP_MARGIN_VERDICT_SCHEMA: PremiumCalculatorSchema = {
       warning: 5,
       critical: 12,
       direction: "higher_is_bad",
-      warningMessage: "Margin pressure is elevated — verify wiring and inspection assumptions.",
-      criticalMessage: "Critical margin pressure — reprice panel work before accepting.",
+      warningMessage: "Margin pressure is elevated - verify wiring and inspection assumptions.",
+      criticalMessage: "Critical margin pressure - reprice panel work before accepting.",
     },
   ],
 

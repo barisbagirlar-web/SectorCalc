@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable */
-// @ts-nocheck — Schema Linter (locked type system)
+// @ts-nocheck - Schema Linter (locked type system)
 
 /**
- * Schema Linter — build-time validation for premium calculator schemas.
+ * Schema Linter - build-time validation for premium calculator schemas.
  * Ensures registry compliance before schemas ship to production.
  */
 
@@ -69,7 +69,7 @@ function collectForbiddenKeys(obj: unknown, path = ""): SchemaLintIssue[] {
           issue(
             "error",
             "FORBIDDEN_KEY",
-            `Forbidden key "${key}" detected — schemas must not contain executable formula fields.`,
+            `Forbidden key "${key}" detected - schemas must not contain executable formula fields.`,
             keyPath
           )
         );
@@ -117,7 +117,7 @@ function lintInputs(inputs: readonly PremiumInputSchema[], schemaId: string): Sc
       issue(
         "warning",
         "INPUT_COUNT",
-        `Schema "${schemaId}" has fewer than 3 inputs — premium tools expect richer context.`
+        `Schema "${schemaId}" has fewer than 3 inputs - premium tools expect richer context.`
       )
     );
   }
@@ -199,7 +199,7 @@ export function lintPremiumCalculatorSchema(schema: PremiumCalculatorSchema): Sc
         issue(
           "error",
           "UNKNOWN_FORMULA",
-          `Unknown formulaId "${step.formulaId}" — register it in FORMULA_REGISTRY with tests.`,
+          `Unknown formulaId "${step.formulaId}" - register it in FORMULA_REGISTRY with tests.`,
           stepPath
         )
       );
@@ -269,7 +269,7 @@ export function lintPremiumCalculatorSchema(schema: PremiumCalculatorSchema): Sc
     );
   } else if (bigNumbers.length > 1) {
     warnings.push(
-      issue("warning", "MULTIPLE_BIG_NUMBER", "Multiple isBigNumber outputs — field panel should show one primary metric.")
+      issue("warning", "MULTIPLE_BIG_NUMBER", "Multiple isBigNumber outputs - field panel should show one primary metric.")
     );
   }
 

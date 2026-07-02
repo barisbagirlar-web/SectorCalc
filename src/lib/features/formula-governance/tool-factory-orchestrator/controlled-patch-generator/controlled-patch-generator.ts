@@ -1,5 +1,5 @@
 /**
- * Controlled patch draft generator — Phase 5I-E dry-run only.
+ * Controlled patch draft generator - Phase 5I-E dry-run only.
  */
 
 import { CONTROLLED_PATCH_DEFAULT_MODE } from "@/lib/features/formula-governance/tool-factory-orchestrator/controlled-patch-generator/controlled-patch-dry-run";
@@ -112,7 +112,7 @@ function buildOperationsForPatchType(plan: PatchPlan): ControlledPatchOperation[
       ];
     case "blocked_manual_review":
     default:
-      return [{ kind: "no_op", targetPath: "(none)", summary: "Manual review required — no file operations." }];
+      return [{ kind: "no_op", targetPath: "(none)", summary: "Manual review required - no file operations." }];
   }
 }
 
@@ -165,7 +165,7 @@ export function buildControlledPatchDraft(patchPlan: PatchPlan): ControlledPatch
     proposedOperations,
     allowedFiles,
     forbiddenFiles: [...CONTROLLED_PATCH_FORBIDDEN_FILES],
-    expectedDiffSummary: `Dry-run ${patchPlan.patchType} patch for ${patchPlan.slug} — no files written.`,
+    expectedDiffSummary: `Dry-run ${patchPlan.patchType} patch for ${patchPlan.slug} - no files written.`,
     requiredTests: [...patchPlan.requiredTests],
     ...approval,
     ...impacts,

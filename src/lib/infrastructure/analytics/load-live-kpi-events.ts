@@ -1,5 +1,5 @@
 /**
- * Live KPI event loader — v1 returns an empty list until a server-side
+ * Live KPI event loader - v1 returns an empty list until a server-side
  * analytics store is wired. No PII; aggregate event names and slugs only.
  */
 

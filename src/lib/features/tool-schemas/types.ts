@@ -1,22 +1,22 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * SECTORCALC PRO — UNIVERSAL TOOL SCHEMA CONTRACT  (v1)
+ * SECTORCALC PRO - UNIVERSAL TOOL SCHEMA CONTRACT  (v1)
  * ───────────────────────────────────────────────────────────────────────────
  * One ToolShell (chrome) + one ToolRuntime (engine) + N data schemas.
  * A PRO_xxx.json that conforms to `ToolSchema` is FULLY sufficient to render
  * and compute a tool. Zero per-tool JS. No display/compute drift.
  *
  * Design invariants:
- *   I1. SINGLE SOURCE OF TRUTH — the SAME `expression` string is both shown in
+ *   I1. SINGLE SOURCE OF TRUTH - the SAME `expression` string is both shown in
  *       the Formulas tab and evaluated by the AST runtime. One interpreter.
- *   I2. EVERYTHING IS AN EXPRESSION — validation, warnings, decision, FMEA gating
+ *   I2. EVERYTHING IS AN EXPRESSION - validation, warnings, decision, FMEA gating
  *       all reuse the same evaluator. No bespoke JS branches per tool.
- *   I3. GUM IS REAL — sensitivity coefficients come from AST partials (analytic)
+ *   I3. GUM IS REAL - sensitivity coefficients come from AST partials (analytic)
  *       or finite-difference fallback. No hardcoded constants.
- *   I4. DIMENSIONS ARE CHECKED — every input + formula output carries a unit;
+ *   I4. DIMENSIONS ARE CHECKED - every input + formula output carries a unit;
  *       runtime asserts dimensional consistency (ISO 80000) at eval time.
- *   I5. TAMPER-EVIDENT AUDIT — input snapshot hashed with SHA-256 (Web Crypto).
- *   I6. FAIL-CLOSED — missing required input or failed dimensional check → BLOCK.
+ *   I5. TAMPER-EVIDENT AUDIT - input snapshot hashed with SHA-256 (Web Crypto).
+ *   I6. FAIL-CLOSED - missing required input or failed dimensional check → BLOCK.
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
@@ -24,7 +24,7 @@ import type { CalculationEngine } from "./types-legacy";
 
 /* ─────────────────────────  PRIMITIVES  ───────────────────────── */
 
-/** Confidence label — your house standard. Drives the input badge. */
+/** Confidence label - your house standard. Drives the input badge. */
 export type Confidence = 'CERTAIN' | 'STRONG' | 'MEDIUM' | 'DEFAULT';
 
 /** Severity for warnings / decision banners. */
@@ -97,7 +97,7 @@ export interface FormulaDef {
   id: string;
   /** Output variable id, usable downstream in later formulas/expressions. */
   output: string;
-  /** The expression — rendered verbatim in Formulas tab AND evaluated. (I1) */
+  /** The expression - rendered verbatim in Formulas tab AND evaluated. (I1) */
   expression: Expr;
   /** Unit of the output, for dimensional assertion. (I4) */
   unit: UnitRef;
@@ -265,7 +265,7 @@ export interface ToolRuntime {
  * The existing ToolSchema (old) still works as the "light" variant.
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-/** Re-export of legacy types for backward compatibility — available as Legacy* or from types-legacy */
+/** Re-export of legacy types for backward compatibility - available as Legacy* or from types-legacy */
 export type { CalculationEngine, CalculationResult } from "./types-legacy";
 export type {
   ToolSchemaInput,

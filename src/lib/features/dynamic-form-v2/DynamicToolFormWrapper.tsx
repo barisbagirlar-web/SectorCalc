@@ -9,7 +9,7 @@ export type DynamicToolFormWrapperProps = {
   schema: AnyToolSchema;
   /** Optional slug for identification */
   slug?: string;
-  /** Show the tool-level masthead (default: false — use site header instead) */
+  /** Show the tool-level masthead (default: false - use site header instead) */
   showMasthead?: boolean;
 };
 

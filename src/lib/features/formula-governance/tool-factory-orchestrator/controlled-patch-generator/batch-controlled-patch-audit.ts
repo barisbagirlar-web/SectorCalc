@@ -1,5 +1,5 @@
 /**
- * Batch controlled patch draft audit — Phase 5I-E read-only.
+ * Batch controlled patch draft audit - Phase 5I-E read-only.
  */
 
 import { validateApprovalInvariants } from "@/lib/features/formula-governance/tool-factory-orchestrator/controlled-patch-generator/controlled-patch-approval";

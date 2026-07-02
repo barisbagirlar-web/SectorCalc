@@ -20,18 +20,18 @@ export const SHEET_METAL_SCRAP_RISK_SCHEMA: PremiumCalculatorSchema = {
       critical: 10,
       direction: "higher_is_bad",
       warningMessage:
-        "Scrap rate is above target — nesting or bend tolerance may be eroding quote margin.",
+        "Scrap rate is above target - nesting or bend tolerance may be eroding quote margin.",
       criticalMessage:
-        "Critical scrap band — reprice material and rework before accepting similar fabrication.",
+        "Critical scrap band - reprice material and rework before accepting similar fabrication.",
     },
     {
       fieldId: "reworkHours",
       warning: 8,
       critical: 20,
       direction: "higher_is_bad",
-      warningMessage: "Rework hours are elevated — verify setup and bend sequence assumptions.",
+      warningMessage: "Rework hours are elevated - verify setup and bend sequence assumptions.",
       criticalMessage:
-        "Rework exposure is critical — stop treating bend errors as normal shop time.",
+        "Rework exposure is critical - stop treating bend errors as normal shop time.",
     },
   ],
 

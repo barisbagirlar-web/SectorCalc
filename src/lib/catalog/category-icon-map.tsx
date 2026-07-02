@@ -45,10 +45,10 @@ import {
 } from "@/lib/catalog/global-tool-category-taxonomy";
 
 /**
- * One unique Lucide icon per global tool category — no overlap with taxonomy sector icons,
+ * One unique Lucide icon per global tool category - no overlap with taxonomy sector icons,
  * industry slug icons, or any other icon map.
  *
- * ECMI / ISO 9001 — deterministic, verifiable classification.
+ * ECMI / ISO 9001 - deterministic, verifiable classification.
  * Each icon appears exactly once across the entire system.
  */
 export const CATEGORY_ICON_MAP = {

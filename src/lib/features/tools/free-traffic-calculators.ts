@@ -1,5 +1,5 @@
 /**
- * Regeneration baseline — slug list only (free-slugs.json).
+ * Regeneration baseline - slug list only (free-slugs.json).
  */
 
 import freeSlugs from "../../../../free-slugs.json";

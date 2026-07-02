@@ -19,7 +19,7 @@ export const PRICE_ELASTICITY_SCHEMA: PremiumCalculatorSchema = {
     { id: "optimalMarkup", label: "Optimal Profit Margin", label_i18n: {"en":"Optimal Profit Margin"}, unit: "%", format: "percentage" },
     { id: "newRevenue", label: "New Revenue", label_i18n: {"en":"New Revenue"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "elasticity", warning: -2, critical: -4, direction: "lower_is_bad", warningMessage: "Elasticity < -2 — price increase significantly reduces demand.", warningMessage_i18n: {"en":"Elasticity < -2 — price increase significantly reduces demand."}, criticalMessage: "Elasticity < -4 — price increase causes severe demand loss.", criticalMessage_i18n: {"en":"Elasticity < -4 — price increase causes severe demand loss."} }],
+  thresholds: [{ fieldId: "elasticity", warning: -2, critical: -4, direction: "lower_is_bad", warningMessage: "Elasticity < -2 - price increase significantly reduces demand.", warningMessage_i18n: {"en":"Elasticity < -2 - price increase significantly reduces demand."}, criticalMessage: "Elasticity < -4 - price increase causes severe demand loss.", criticalMessage_i18n: {"en":"Elasticity < -4 - price increase causes severe demand loss."} }],
   formulaPipeline: [
     { formulaId: "measurement.price_elasticity", inputMap: { pctDemandChange: "pctDemandChange", pctPriceChange: "pctPriceChange" ,
         pctChangeDem: "pctChangeDem",

@@ -14,7 +14,7 @@ import {
 } from "@/lib/features/premium-schema/premium-schema-engine";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 
-// ── Layer 3: Runtime fallback — Turkish character sanitizer ──
+// ── Layer 3: Runtime fallback - Turkish character sanitizer ──
 const TURKISH_PATTERN = /[çğıöşüÇĞİÖŞÜ]/;
 
 function sanitizeLabel(label: string | undefined, fallbackId: string): string {
@@ -30,7 +30,7 @@ function sanitizeLabel(label: string | undefined, fallbackId: string): string {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// CONSTANTS — SINGLE SOURCE OF TRUTH (English only, no i18n)
+// CONSTANTS - SINGLE SOURCE OF TRUTH (English only, no i18n)
 // ─────────────────────────────────────────────────────────────────────────────
 
 const LEGAL_NOTE =
@@ -266,7 +266,7 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
     setInputUnits(initial);
   }, [schema]);
 
-  // Input validation engine — checks schema min/max + physical bounds
+  // Input validation engine - checks schema min/max + physical bounds
   const runValidation = useCallback(
     (scope: Record<string, unknown>): Record<string, string> => {
       const errs: Record<string, string> = {};
@@ -546,7 +546,7 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
         }}
       />
 
-      {/* Mobile sticky result bar — wrapped so desktop render is impossible */}
+      {/* Mobile sticky result bar - wrapped so desktop render is impossible */}
       <MobileOnly>
         <div
           className="mbar"
@@ -888,7 +888,7 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
           </p>
         )}
 
-        {/* Legal disclaimer — hardcoded EN, no locale */}
+        {/* Legal disclaimer - hardcoded EN, no locale */}
         <p
           style={{
             marginTop: 24,

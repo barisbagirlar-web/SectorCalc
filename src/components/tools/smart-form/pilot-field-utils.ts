@@ -1,5 +1,5 @@
 /**
- * Slug-aware smart form pilot field helpers — Phase 5H-G-G.
+ * Slug-aware smart form pilot field helpers - Phase 5H-G-G.
  */
 
 import type { SmartFormFieldComponentProps } from "@/lib/features/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";

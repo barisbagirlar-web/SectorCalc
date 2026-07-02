@@ -1,7 +1,7 @@
 "use client";
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * SECTORCALC PRO — DYNAMIC TOOL RENDERER (Industrial Grade v2.0)
+ * SECTORCALC PRO - DYNAMIC TOOL RENDERER (Industrial Grade v2.0)
  * ───────────────────────────────────────────────────────────────────────────
  * Schema-driven, mobile-responsive, WCAG 2.1 AA accessible form renderer.
  *  - Real-time calculation on input change
@@ -167,7 +167,7 @@ export const DynamicToolRenderer: React.FC<DynamicToolRendererProps> = ({
                     </div>
                   </div>
 
-                  {/* GAP 5: Reference Values — Quick Input Buttons */}
+                  {/* GAP 5: Reference Values - Quick Input Buttons */}
                   {field.referenceValues && field.referenceValues.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-1.5">
                       {field.referenceSource && (

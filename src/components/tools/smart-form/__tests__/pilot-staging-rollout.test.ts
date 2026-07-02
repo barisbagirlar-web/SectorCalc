@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-L/M — smart form staging rollout gate tests.
+ * Phase 5H-G-L/M - smart form staging rollout gate tests.
  */
 
 import { describe, expect, test } from "vitest";
@@ -26,7 +26,7 @@ import {
 } from "@/components/tools/smart-form/pilot-manual-qa-result";
 import { PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
-describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
+describe("smart form staging rollout gate - Phase 5H-G-L/M", () => {
   test("approved default record enables stagingRolloutReady", () => {
     const qaDecision = evaluateSmartFormPilotQaDecision(
       getProductionDeployedManualQaResults().results,

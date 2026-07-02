@@ -2,7 +2,7 @@ import { revenueLegalDisclaimer } from "@/lib/features/tools/revenue-legal-discl
 import type { RevenueTool } from "@/lib/features/tools/revenue-tools";
 
 export const legacyRevenueToolsCore: RevenueTool[] = [
-  /** MarginCore pilot — CNC Machine Time Calculator (free) → CNC Quote Risk Analyzer (paid) */
+  /** MarginCore pilot - CNC Machine Time Calculator (free) → CNC Quote Risk Analyzer (paid) */
   {
     sector: "cnc-manufacturing",
  freeSlug: "machine-time-calculator",

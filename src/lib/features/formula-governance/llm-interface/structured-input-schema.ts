@@ -1,5 +1,5 @@
 /**
- * Structured input schema — LLM output shape (no calculation fields).
+ * Structured input schema - LLM output shape (no calculation fields).
  */
 
 export type StructuredInputPayload = {

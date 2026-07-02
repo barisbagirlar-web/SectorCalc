@@ -72,7 +72,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.overtime_hiring_breakeven_0",
     family: "cost",
-    label: "Overtime vs. Hiring Breakeven — OvertimeCost_Hour",
+    label: "Overtime vs. Hiring Breakeven - OvertimeCost_Hour",
     fn: (inputs) => {
     const regularRate = num(inputs, "regularRate");
     const overtimeMultiplier = num(inputs, "overtimeMultiplier");
@@ -83,7 +83,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.overtime_hiring_breakeven_1",
     family: "cost",
-    label: "Overtime vs. Hiring Breakeven — HiringCost_Total",
+    label: "Overtime vs. Hiring Breakeven - HiringCost_Total",
     fn: (inputs) => {
     const recruitment = num(inputs, "recruitment");
     const onboarding = num(inputs, "onboarding");
@@ -95,7 +95,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.overtime_hiring_breakeven_2",
     family: "cost",
-    label: "Overtime vs. Hiring Breakeven — AnnualNewHireCost",
+    label: "Overtime vs. Hiring Breakeven - AnnualNewHireCost",
     fn: (inputs) => {
     const regularRate = num(inputs, "regularRate");
     const annualHours = num(inputs, "annualHours");
@@ -107,7 +107,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.overtime_hiring_breakeven_3",
     family: "cost",
-    label: "Overtime vs. Hiring Breakeven — BreakevenHours",
+    label: "Overtime vs. Hiring Breakeven - BreakevenHours",
     fn: (inputs) => {
     const hiringCost = num(inputs, "hiringCost");
     const Total = num(inputs, "Total");
@@ -123,7 +123,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.overtime_hiring_breakeven_4",
     family: "cost",
-    label: "Overtime vs. Hiring Breakeven — Decision",
+    label: "Overtime vs. Hiring Breakeven - Decision",
     fn: (inputs) => {
     const expectedOvertimeHours = num(inputs, "expectedOvertimeHours");
     const breakevenHours = num(inputs, "breakevenHours");
@@ -135,7 +135,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.overtime_hiring_breakeven_5",
     family: "cost",
-    label: "Overtime vs. Hiring Breakeven — QualityCost_OT",
+    label: "Overtime vs. Hiring Breakeven - QualityCost_OT",
     fn: (inputs) => {
     const overtimeHours = num(inputs, "overtimeHours");
     const fatigueDefectRate = num(inputs, "fatigueDefectRate");
@@ -148,7 +148,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_0",
     family: "cost",
-    label: "Odeme Vadesi Optimize Edici — DSO",
+    label: "Odeme Vadesi Optimize Edici - DSO",
     fn: (inputs) => {
     const accountsReceivable = num(inputs, "accountsReceivable");
     const revenue = num(inputs, "revenue");
@@ -159,7 +159,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_1",
     family: "cost",
-    label: "Odeme Vadesi Optimize Edici — CarryingCost_AR",
+    label: "Odeme Vadesi Optimize Edici - CarryingCost_AR",
     fn: (inputs) => {
     const averageAR = num(inputs, "averageAR");
     const wACC = num(inputs, "wACC");
@@ -169,7 +169,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_2",
     family: "cost",
-    label: "Odeme Vadesi Optimize Edici — BadDebtExpense",
+    label: "Odeme Vadesi Optimize Edici - BadDebtExpense",
     fn: (inputs) => {
     const revenue = num(inputs, "revenue");
     const defaultRate = num(inputs, "defaultRate");
@@ -179,7 +179,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_3",
     family: "cost",
-    label: "Odeme Vadesi Optimize Edici — DiscountCost",
+    label: "Odeme Vadesi Optimize Edici - DiscountCost",
     fn: (inputs) => {
     const earlyPaymentDiscountPct = num(inputs, "earlyPaymentDiscountPct");
     const discountTakeRate = num(inputs, "discountTakeRate");
@@ -190,15 +190,15 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_4",
     family: "cost",
-    label: "Odeme Vadesi Optimize Edici — OptimalTerms",
+    label: "Odeme Vadesi Optimize Edici - OptimalTerms",
     fn: (inputs) => {
-    return 0; // OptimalTerms = Terms where (CarryingCost + BadDebt - DiscountCost) is MINIMUM — requires solver
+    return 0; // OptimalTerms = Terms where (CarryingCost + BadDebt - DiscountCost) is MINIMUM - requires solver
   },
   },
   {
     id: "user.payment_terms_optimizer_5",
     family: "cost",
-    label: "Odeme Vadesi Optimize Edici — CashFlowImpact",
+    label: "Odeme Vadesi Optimize Edici - CashFlowImpact",
     fn: (inputs) => {
     const newDSO = num(inputs, "newDSO");
     const oldDSO = num(inputs, "oldDSO");
@@ -209,7 +209,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_6",
     family: "cost",
-    label: "Odeme Vadesi Optimize Edici — NPV_Terms",
+    label: "Odeme Vadesi Optimize Edici - NPV_Terms",
     fn: (inputs) => {
     const cashInflow = num(inputs, "cashInflow");
     const t = num(inputs, "t");
@@ -223,7 +223,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_0",
     family: "cost",
-    label: "Ogrenme Egrisi Sure Tahmincisi — LearningRate",
+    label: "Ogrenme Egrisi Sure Tahmincisi - LearningRate",
     fn: (inputs) => {
     const time = num(inputs, "time");
     const time_2N = num(inputs, "time_2N") || 0;
@@ -234,7 +234,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_1",
     family: "cost",
-    label: "Ogrenme Egrisi Sure Tahmincisi — Slope_b",
+    label: "Ogrenme Egrisi Sure Tahmincisi - Slope_b",
     fn: (inputs) => {
     const learningRate = num(inputs, "learningRate");
     const log = num(inputs, "log") || 0;

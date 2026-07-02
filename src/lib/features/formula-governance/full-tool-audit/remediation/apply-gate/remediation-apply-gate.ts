@@ -1,5 +1,5 @@
 /**
- * Remediation apply gate — Phase 5I-J no actual apply.
+ * Remediation apply gate - Phase 5I-J no actual apply.
  */
 
 import type { ControlledPatchDraft } from "@/lib/features/formula-governance/tool-factory-orchestrator/controlled-patch-generator/controlled-patch-types";

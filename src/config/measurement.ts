@@ -1,5 +1,5 @@
 /**
- * Measurement system preference — geo-detected defaults with optional manual override.
+ * Measurement system preference - geo-detected defaults with optional manual override.
  */
 
 export const UNIT_SYSTEM_COOKIE = "sc-unit-system";

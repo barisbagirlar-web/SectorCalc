@@ -1,5 +1,5 @@
 /**
- * Universal PRO Tools Registry — Schema v1
+ * Universal PRO Tools Registry - Schema v1
  * Generated automatically. Do not edit manually.
  */
 

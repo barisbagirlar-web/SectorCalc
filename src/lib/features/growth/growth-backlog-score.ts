@@ -1,5 +1,5 @@
 /**
- * Post-launch growth backlog scoring — pure model for sprint candidate selection.
+ * Post-launch growth backlog scoring - pure model for sprint candidate selection.
  * No PII; aligns with docs/growth-backlog-scoring-model.md
  */
 

@@ -72,7 +72,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_cost_estimate_2",
     family: "cost",
-    label: "Project Maliyet Tahmin — Equipment",
+    label: "Project Maliyet Tahmin - Equipment",
     fn: (inputs) => {
     const rentalDays = num(inputs, "rentalDays");
     const k = num(inputs, "k");
@@ -85,7 +85,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_cost_estimate_3",
     family: "cost",
-    label: "Project Maliyet Tahmin — Subcontractor",
+    label: "Project Maliyet Tahmin - Subcontractor",
     fn: (inputs) => {
     const lumpSum = num(inputs, "lumpSum");
     const m = num(inputs, "m");
@@ -96,7 +96,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_cost_estimate_4",
     family: "cost",
-    label: "Project Maliyet Tahmin — Overhead",
+    label: "Project Maliyet Tahmin - Overhead",
     fn: (inputs) => {
     const directLabor = num(inputs, "directLabor");
     const directMaterial = num(inputs, "directMaterial");
@@ -107,7 +107,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_cost_estimate_5",
     family: "cost",
-    label: "Project Maliyet Tahmin — Contingency",
+    label: "Project Maliyet Tahmin - Contingency",
     fn: (inputs) => {
     const direct = num(inputs, "direct");
     const overhead = num(inputs, "overhead");
@@ -118,7 +118,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_cost_estimate_6",
     family: "cost",
-    label: "Project Maliyet Tahmin — TotalEstimate",
+    label: "Project Maliyet Tahmin - TotalEstimate",
     fn: (inputs) => {
     const directLabor = num(inputs, "directLabor");
     const directMaterial = num(inputs, "directMaterial");
@@ -132,7 +132,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_cost_estimate_7",
     family: "cost",
-    label: "Project Maliyet Tahmin — CostVariance",
+    label: "Project Maliyet Tahmin - CostVariance",
     fn: (inputs) => {
     const totalEstimate = num(inputs, "totalEstimate");
     const budget = num(inputs, "budget");
@@ -144,7 +144,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_overrun_0",
     family: "cost",
-    label: "Project Overrun risk — SPI",
+    label: "Project Overrun risk - SPI",
     fn: (inputs) => {
     const earnedValue = num(inputs, "earnedValue");
     const plannedValue = num(inputs, "plannedValue");
@@ -154,7 +154,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_overrun_1",
     family: "cost",
-    label: "Project Overrun risk — CPI",
+    label: "Project Overrun risk - CPI",
     fn: (inputs) => {
     const earnedValue = num(inputs, "earnedValue");
     const actualCost = num(inputs, "actualCost");
@@ -164,7 +164,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_overrun_2",
     family: "cost",
-    label: "Project Overrun risk — EAC",
+    label: "Project Overrun risk - EAC",
     fn: (inputs) => {
     const budgetAtCompletion = num(inputs, "budgetAtCompletion");
     const cPI = num(inputs, "cPI");
@@ -174,7 +174,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_overrun_3",
     family: "cost",
-    label: "Project Overrun risk — ExpectedOverrun",
+    label: "Project Overrun risk - ExpectedOverrun",
     fn: (inputs) => {
     const eAC = num(inputs, "eAC");
     const budgetAtCompletion = num(inputs, "budgetAtCompletion");
@@ -184,7 +184,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_overrun_4",
     family: "cost",
-    label: "Project Overrun risk — ScheduleDelay",
+    label: "Project Overrun risk - ScheduleDelay",
     fn: (inputs) => {
     const actualDuration = num(inputs, "actualDuration");
     const plannedDuration = num(inputs, "plannedDuration");
@@ -194,7 +194,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_overrun_5",
     family: "cost",
-    label: "Project Overrun risk — RiskExposure",
+    label: "Project Overrun risk - RiskExposure",
     fn: (inputs) => {
     const probabilityOfDelay = num(inputs, "probabilityOfDelay");
     const delayDays = num(inputs, "delayDays");
@@ -207,7 +207,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_overrun_6",
     family: "cost",
-    label: "Project Overrun risk — MitigationCost",
+    label: "Project Overrun risk - MitigationCost",
     fn: (inputs) => {
     const crashingCost = num(inputs, "crashingCost");
     const fastTrackingCost = num(inputs, "fastTrackingCost");
@@ -217,7 +217,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.project_overrun_7",
     family: "cost",
-    label: "Project Overrun risk — NetRisk",
+    label: "Project Overrun risk - NetRisk",
     fn: (inputs) => {
     const riskExposure = num(inputs, "riskExposure");
     const mitigationCost = num(inputs, "mitigationCost");
@@ -229,7 +229,7 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recipe_cost_check_0",
     family: "cost",
-    label: "recete Maliyet Check — TheoreticalCost",
+    label: "recete Maliyet Check - TheoreticalCost",
     fn: (inputs) => {
     const formulationPct = num(inputs, "formulationPct");
     const i = num(inputs, "i");

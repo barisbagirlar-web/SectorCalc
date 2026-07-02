@@ -1,5 +1,5 @@
 /**
- * Report renderer readiness evaluator — Phase 5I-F.
+ * Report renderer readiness evaluator - Phase 5I-F.
  */
 
 import type {

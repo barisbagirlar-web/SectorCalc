@@ -1,5 +1,5 @@
 /**
- * Formula inventory — scans all calculator/analyzer sources (Phase 2).
+ * Formula inventory - scans all calculator/analyzer sources (Phase 2).
  * Read-only; does not mutate formulas or routes.
  */
 

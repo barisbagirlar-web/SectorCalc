@@ -75,7 +75,7 @@ export default async function HowItWorksPage({ params }: PageProps) {
                       {section.bullets.map((item) => (
                         <li key={item} className="flex gap-2 text-sm text-text-secondary">
                           <span className="text-deep-navy" aria-hidden>
-                            —
+                            -
                           </span>
                           {item}
                         </li>

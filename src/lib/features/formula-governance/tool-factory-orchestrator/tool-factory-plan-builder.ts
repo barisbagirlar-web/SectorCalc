@@ -1,5 +1,5 @@
 /**
- * Tool factory plan builder — Phase 5I-A skeleton.
+ * Tool factory plan builder - Phase 5I-A skeleton.
  */
 
 import {

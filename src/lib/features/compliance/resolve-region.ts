@@ -6,7 +6,7 @@ import {
 } from "@/config/regions";
 import { parseLocaleFromPath, type SupportedLocale } from "@/lib/infrastructure/i18n/locale-routing";
 
-/** Extract locale from pathname — unprefixed paths are English root. */
+/** Extract locale from pathname - unprefixed paths are English root. */
 export function extractLocaleFromPathname(pathname: string): SupportedLocale {
   return parseLocaleFromPath(pathname) ?? "en";
 }

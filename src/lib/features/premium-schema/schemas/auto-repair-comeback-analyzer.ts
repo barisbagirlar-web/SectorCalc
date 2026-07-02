@@ -1,5 +1,5 @@
 /**
- * Tool #6 — Auto Repair Comeback Cost
+ * Tool #6 - Auto Repair Comeback Cost
  * Direct + warranty + goodwill + opportunity
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -27,7 +27,7 @@ export const AUTO_REPAIR_COMEBACK_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalComebackCost", label: "Total Comeback Cost", label_i18n: {"en":"Total Comeback Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "comebackRate", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Comeback rate > 5% — process improvement plan must be initiated.", warningMessage_i18n: {"en":"Comeback rate > 5% — process improvement plan must be initiated."}, criticalMessage: "Comeback rate > %10 — urgent Quality revizyonu gerekiyor.", criticalMessage_i18n: {"en":"Comeback rate > %10 — urgent Quality revizyonu gerekiyor."} },
+    { fieldId: "comebackRate", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Comeback rate > 5% - process improvement plan must be initiated.", warningMessage_i18n: {"en":"Comeback rate > 5% - process improvement plan must be initiated."}, criticalMessage: "Comeback rate > %10 - urgent Quality revizyonu gerekiyor.", criticalMessage_i18n: {"en":"Comeback rate > %10 - urgent Quality revizyonu gerekiyor."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.comeback_direct", inputMap: { comebackOrders: "comebackOrders", avgDiagnosisMinutes: "avgDiagnosisMinutes", avgRepairMinutes: "avgRepairMinutes", laborRate: "laborRate", avgWastedPartsValue: "avgWastedPartsValue", bayOccupancyHours: "bayOccupancyHours", revenuePerBayHour: "revenuePerBayHour" ,

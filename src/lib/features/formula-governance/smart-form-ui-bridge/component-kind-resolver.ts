@@ -1,5 +1,5 @@
 /**
- * Component kind resolver — Phase 5H-G-C governance (no UI imports).
+ * Component kind resolver - Phase 5H-G-C governance (no UI imports).
  */
 
 import type { SmartFormRenderField } from "@/lib/features/formula-governance/smart-form-rendering/smart-form-render-types";

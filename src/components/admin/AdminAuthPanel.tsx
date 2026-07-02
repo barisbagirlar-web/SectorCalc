@@ -269,7 +269,7 @@ export function AdminAuthBar() {
  <p className="font-semibold">Admin privileges required for this action.</p>
  <p className="text-text-secondary">
  Signed in account:{" "}
- <span className="font-medium text-deep-navy">{user.email ?? "—"}</span>
+ <span className="font-medium text-deep-navy">{user.email ?? "-"}</span>
  </p>
  </div>
  <button
@@ -288,7 +288,7 @@ export function AdminAuthBar() {
  <div className="flex flex-col gap-3 rounded-sm border border-slate/20 bg-white px-5 py-4 text-sm text-deep-navy shadow-card sm:flex-row sm:items-center sm:justify-between">
  <p>
  <span className="text-text-secondary">Signed in:</span>{" "}
- <span className="font-medium">{user.email ?? "—"}</span>
+ <span className="font-medium">{user.email ?? "-"}</span>
  </p>
  <button
  type="button"

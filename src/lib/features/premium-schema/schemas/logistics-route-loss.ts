@@ -20,15 +20,15 @@ export const LOGISTICS_ROUTE_LOSS_SCHEMA: PremiumCalculatorSchema = {
       critical: 150,
       direction: "higher_is_bad",
       warningMessage: "Energy and delay exposure are the main risk drivers on this lane.",
-      criticalMessage: "High risk — hidden cost may erase the margin. Reprice before accepting this load.",
+      criticalMessage: "High risk - hidden cost may erase the margin. Reprice before accepting this load.",
     },
     {
       fieldId: "totalFreightCost",
       warning: 900,
       critical: 1200,
       direction: "higher_is_bad",
-      warningMessage: "Visible cost is approaching typical quote band — check fuel variance.",
-      criticalMessage: "Freight cost exceeds safe band — raise price or cut deadhead.",
+      warningMessage: "Visible cost is approaching typical quote band - check fuel variance.",
+      criticalMessage: "Freight cost exceeds safe band - raise price or cut deadhead.",
     },
   ],
 

@@ -18,8 +18,8 @@ export const VALUE_STREAM_MAP_VSM_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       warning: 15,
       critical: 5,
       direction: "lower_is_bad",
-      warningMessage: "Value-added ratio is low — prioritize queue and transport waste.",
-      criticalMessage: "Value-added ratio is critically low — run kaizen on wait and transport steps.",
+      warningMessage: "Value-added ratio is low - prioritize queue and transport waste.",
+      criticalMessage: "Value-added ratio is critically low - run kaizen on wait and transport steps.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const VALUE_STREAM_MAP_VSM_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
     assumptionNotes: [
       "Total lead time = process + wait + transport minutes.",
       "Value-added % = process time ÷ total lead time × 100.",
-      "Classic VSM screening — does not replace detailed cycle-time studies.",
+      "Classic VSM screening - does not replace detailed cycle-time studies.",
     ],
   },
 };

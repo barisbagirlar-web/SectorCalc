@@ -42,7 +42,7 @@ export function SampleDecisionReportLayout() {
  {SAMPLE_REPORT_TITLE}
  </h2>
  <p className="mt-3 text-sm text-text-secondary">
- Decision-ready output — not a calculator dump.
+ Decision-ready output - not a calculator dump.
  </p>
  </header>
 

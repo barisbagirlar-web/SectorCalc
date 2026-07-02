@@ -54,7 +54,7 @@ export function wrapWithTrustTrace(result: GeneratedToolResult): GeneratedToolRe
     };
   } catch {
     if (process.env.NODE_ENV !== "production") {
-      console.warn("[TrustTrace] Hash computation failed — returning result without trust trace");
+      console.warn("[TrustTrace] Hash computation failed - returning result without trust trace");
     }
     return result;
   }

@@ -22,7 +22,7 @@ export const PALLET_RACK_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "rackCostPerPosition", label: "position Per Cost", label_i18n: {"en":"position Per Cost"}, unit: "USD", format: "currency" },
     { id: "retrievalTime", label: "Average Erisim Duration", label_i18n: {"en":"Average Erisim Duration"}, unit: "saniye", format: "number" },
   ],
-  thresholds: [{ fieldId: "floorUtilization", warning: 65, critical: 50, direction: "lower_is_bad", warningMessage: "Space utilization < %65 — layout optimization is recommended.", warningMessage_i18n: {"en":"Space utilization < %65 — layout optimization is recommended."}, criticalMessage: "Space utilization < %50 — warehouse layout should be renewed.", criticalMessage_i18n: {"en":"Space utilization < %50 — warehouse layout should be renewed."} }],
+  thresholds: [{ fieldId: "floorUtilization", warning: 65, critical: 50, direction: "lower_is_bad", warningMessage: "Space utilization < %65 - layout optimization is recommended.", warningMessage_i18n: {"en":"Space utilization < %65 - layout optimization is recommended."}, criticalMessage: "Space utilization < %50 - warehouse layout should be renewed.", criticalMessage_i18n: {"en":"Space utilization < %50 - warehouse layout should be renewed."} }],
   formulaPipeline: [
     { formulaId: "measurement.rack_capacity", inputMap: {
         rackQty: "loadCapacity",

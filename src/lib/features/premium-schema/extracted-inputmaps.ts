@@ -1,5 +1,5 @@
 /**
- * AUTO-GENERATED — Extracted from all 147+ schema files
+ * AUTO-GENERATED - Extracted from all 147+ schema files
  * Each key is a formulaId, each value is the inputMap keys from schema formulaPipeline
  * Used to align formula-registry.ts fn() parameters with schema inputMaps
  */

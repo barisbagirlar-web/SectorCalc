@@ -1,5 +1,5 @@
 /**
- * Boundary checker — numeric constraint validation on ontology variables.
+ * Boundary checker - numeric constraint validation on ontology variables.
  */
 
 import type { CalculationVariable } from "@/lib/features/formula-governance/calculation-ontology/ontology-types";
@@ -50,7 +50,7 @@ export function checkVariableBoundaries(
   }
 
   if (variable.missingRisk === "high" && value === 0 && variable.role === "input") {
-    warnings.push(`${variable.id} is zero — high-risk input may understate exposure.`);
+    warnings.push(`${variable.id} is zero - high-risk input may understate exposure.`);
   }
 
   return { errors, warnings };

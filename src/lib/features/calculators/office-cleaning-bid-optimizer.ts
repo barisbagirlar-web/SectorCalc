@@ -154,7 +154,7 @@ function buildReport(
  keyFindings: [
  `Labor is ${formatCurrency(core.monthlyLaborCost)}/month (${input.crewSize} cleaners × ${input.hoursPerVisit} h × ${input.frequencyPerMonth} visits).`,
  `Margin at customer budget: ${core.marginAtBudget.toFixed(1)}% (${formatCurrency(core.profitAtBudget)} profit).`,
- `Budget gap vs minimum safe: ${core.budgetGap > 0 ? formatCurrency(core.budgetGap) : "none — budget meets minimum safe bid"}.`,
+ `Budget gap vs minimum safe: ${core.budgetGap > 0 ? formatCurrency(core.budgetGap) : "none - budget meets minimum safe bid"}.`,
  `Cost per visit: ${formatCurrency(core.costPerVisit)} before margin.`,
  ],
  riskLevelLabel: RISK_LEVEL_LABELS[riskLevel],

@@ -1,5 +1,5 @@
 /**
- * Input sufficiency scorer — Mind 2 readiness vs contract metadata (Phase 5H-C).
+ * Input sufficiency scorer - Mind 2 readiness vs contract metadata (Phase 5H-C).
  */
 
 import type { InputReadinessAlignmentSummary } from "@/lib/features/formula-governance/requirement-engine/contract-requirement-bridge";
@@ -198,7 +198,7 @@ export function scoreInputSufficiency(
 
   if (alignmentBlocked) {
     blockers.push(
-      `Alignment blocked for "${contract.slug}" — input design audit cannot certify sufficiency.`,
+      `Alignment blocked for "${contract.slug}" - input design audit cannot certify sufficiency.`,
     );
   }
 

@@ -9,7 +9,7 @@ export interface Sector {
   labelEn: string;
   professions: string[];
   keywords: string[];
-  /** Lucide icon key — UI resolves via taxonomy-sector-icon-map. */
+  /** Lucide icon key - UI resolves via taxonomy-sector-icon-map. */
   icon: string;
 }
 
@@ -945,7 +945,7 @@ export const OTHER_SECTOR: Sector = {
   keywords: [],
 };
 
-/** First taxonomy grid tile — shows every tool in the catalog. */
+/** First taxonomy grid tile - shows every tool in the catalog. */
 export const ALL_TOOLS_SECTOR: Sector = {
   id: "all",
   label: "Tumu",

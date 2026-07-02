@@ -18,7 +18,7 @@ export const CUT_FILL_BALANCE_SCHEMA: PremiumCalculatorSchema = {
     { id: "wasteRequired", label: "Overtime material", label_i18n: {"en":"Overtime material"}, unit: "m³", format: "number" },
     { id: "totalHaulCost", label: "Total Nakliye Cost", label_i18n: {"en":"Total Nakliye Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "borrowRequired", warning: 500, critical: 2000, direction: "higher_is_bad", warningMessage: "borrow > 500m³ — cost increase expected.", warningMessage_i18n: {"en":"borrow > 500m³ — cost increase expected."}, criticalMessage: "borrow > 2000m³ — proje ekonomisi riskli.", criticalMessage_i18n: {"en":"borrow > 2000m³ — proje ekonomisi riskli."} }],
+  thresholds: [{ fieldId: "borrowRequired", warning: 500, critical: 2000, direction: "higher_is_bad", warningMessage: "borrow > 500m³ - cost increase expected.", warningMessage_i18n: {"en":"borrow > 500m³ - cost increase expected."}, criticalMessage: "borrow > 2000m³ - proje ekonomisi riskli.", criticalMessage_i18n: {"en":"borrow > 2000m³ - proje ekonomisi riskli."} }],
   formulaPipeline: [
     { formulaId: "measurement.cut_fill_net", inputMap: { cutVolume: "cutVolume", fillVolume: "fillVolume", shrinkageFactor: "shrinkageFactor" }, outputId: "netBalance" },
     { formulaId: "measurement.cut_fill_borrow", inputMap: { fillVolume: "fillVolume", shrinkageFactor: "shrinkageFactor", cutVolume: "cutVolume" }, outputId: "borrowRequired" },

@@ -1,5 +1,5 @@
 /**
- * AI assistant boundary policy — ADIM 6 (interface-only; no LLM calls).
+ * AI assistant boundary policy - ADIM 6 (interface-only; no LLM calls).
  *
  * Enforces dual-core separation: assistant is not a calculation, oracle,
  * validation, or formula authority.

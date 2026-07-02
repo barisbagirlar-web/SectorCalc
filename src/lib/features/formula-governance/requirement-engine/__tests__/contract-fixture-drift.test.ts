@@ -1,5 +1,5 @@
 /**
- * Phase 5H-B-4 + 5H-B-5 — contract vs fixture ontology drift tests.
+ * Phase 5H-B-4 + 5H-B-5 - contract vs fixture ontology drift tests.
  */
 
 import { describe, expect, test } from "vitest";

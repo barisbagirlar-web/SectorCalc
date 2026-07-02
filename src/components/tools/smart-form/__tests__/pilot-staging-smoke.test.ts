@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-N — smart form staging flag plan and smoke test gate tests.
+ * Phase 5H-G-N - smart form staging flag plan and smoke test gate tests.
  */
 
 import { execSync } from "node:child_process";
@@ -28,7 +28,7 @@ function withSmokeOverrides(
   return { ...base, ...overrides };
 }
 
-describe("smart form staging smoke gate — Phase 5H-G-N", () => {
+describe("smart form staging smoke gate - Phase 5H-G-N", () => {
   test("flag plan is staging_only and ready_to_apply", () => {
     const plan = buildSmartFormPilotStagingFlagPlan();
 

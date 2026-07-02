@@ -1,5 +1,5 @@
 /**
- * Smart form pilot staging rollout decision gate — Phase 5H-G-L.
+ * Smart form pilot staging rollout decision gate - Phase 5H-G-L.
  */
 
 import type { SmartFormPilotStagingRolloutApproval } from "@/components/tools/smart-form/pilot-staging-rollout-approval";

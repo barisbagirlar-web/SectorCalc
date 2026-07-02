@@ -16,7 +16,7 @@ export const TOTAL_EMPLOYEE_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalEmployeeCost", label: "Total Employee Cost", label_i18n: {"en":"Total Employee Cost"}, unit: "USD/month", format: "currency", isBigNumber: true },
     { id: "employeeCostPerHour", label: "Employee Hourly Cost", label_i18n: {"en":"Employee Hourly Cost"}, unit: "USD/hour", format: "currency" },
   ],
-  thresholds: [{ fieldId: "employeeCostPerHour", warning: 30, critical: 50, direction: "higher_is_bad", warningMessage: "Hourly cost > $30 — productivity analysis is recommended.", warningMessage_i18n: {"en":"Hourly cost > $30 — productivity analysis is recommended."}, criticalMessage: "Hourly cost > $50 — cost structure should be optimized.", criticalMessage_i18n: {"en":"Hourly cost > $50 — cost structure should be optimized."} }],
+  thresholds: [{ fieldId: "employeeCostPerHour", warning: 30, critical: 50, direction: "higher_is_bad", warningMessage: "Hourly cost > $30 - productivity analysis is recommended.", warningMessage_i18n: {"en":"Hourly cost > $30 - productivity analysis is recommended."}, criticalMessage: "Hourly cost > $50 - cost structure should be optimized.", criticalMessage_i18n: {"en":"Hourly cost > $50 - cost structure should be optimized."} }],
   formulaPipeline: [
     { formulaId: "cost.total_employee_cost", inputMap: { numEmployees: "numEmployees", avgGrossSalary: "avgGrossSalary", employerPayrollTax: "employerPayrollTax", benefitsCostPerEmployee: "benefitsCostPerEmployee", trainingCostPerEmployee: "trainingCostPerEmployee" ,
         grossSalary: "grossSalary",

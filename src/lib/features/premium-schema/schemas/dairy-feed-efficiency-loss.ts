@@ -19,8 +19,8 @@ export const DAIRY_FEED_EFFICIENCY_LOSS_SCHEMA: PremiumCalculatorSchema = {
       warning: 22,
       critical: 18,
       direction: "lower_is_bad",
-      warningMessage: "Milk yield is below target band — feed efficiency pressure is building.",
-      criticalMessage: "Critical yield gap — feed cost may exceed milk revenue recovery.",
+      warningMessage: "Milk yield is below target band - feed efficiency pressure is building.",
+      criticalMessage: "Critical yield gap - feed cost may exceed milk revenue recovery.",
     },
   ],
 

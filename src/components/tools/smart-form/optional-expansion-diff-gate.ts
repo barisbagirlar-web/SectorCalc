@@ -1,5 +1,5 @@
 /**
- * Optional field expansion diff gate — Phase 5H-G-I (readiness report only; no payload expansion).
+ * Optional field expansion diff gate - Phase 5H-G-I (readiness report only; no payload expansion).
  */
 
 export type OptionalFieldExpansionStatus = "blocked" | "ready";

@@ -1,4 +1,4 @@
-/** Client-safe category inference — no Node/fs imports. */
+/** Client-safe category inference - no Node/fs imports. */
 
 export type FreeTrafficCategory =
   | "construction-measurement"

@@ -1,5 +1,5 @@
 /**
- * Premium schema draft — admin authoring only. Never auto-published.
+ * Premium schema draft - admin authoring only. Never auto-published.
  */
 
 import { SCHEMA_ENGINE_CONSTANTS } from "@/lib/features/premium-schema/schema-linter";
@@ -256,7 +256,7 @@ export function validatePremiumSchemaDraft(draft: PremiumSchemaDraft): SchemaDra
     errors.push("At least one output is required.");
   }
   if (!draft.outputs.some((output) => output.isBigNumber)) {
-    errors.push("Missing big number output — mark one output as primary exposure.");
+    errors.push("Missing big number output - mark one output as primary exposure.");
   }
   if (!draft.report.legalNote.trim()) {
     errors.push("Legal note is required.");
@@ -448,7 +448,7 @@ export function draftToJson(draft: PremiumSchemaDraft, pretty = true): string {
 export function draftToTypeScriptExport(draft: PremiumSchemaDraft): string {
   const schema = draftToPremiumSchema(draft);
   if (!schema) {
-    return "// Draft is invalid — fix validation errors before exporting TypeScript.";
+    return "// Draft is invalid - fix validation errors before exporting TypeScript.";
   }
 
   const constName = schema.id
@@ -458,7 +458,7 @@ export function draftToTypeScriptExport(draft: PremiumSchemaDraft): string {
 
   return `import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 
-/** Developer review required — not auto-published. */
+/** Developer review required - not auto-published. */
 export const ${constName}_SCHEMA: PremiumCalculatorSchema = ${JSON.stringify(schema, null, 2)};
 `;
 }

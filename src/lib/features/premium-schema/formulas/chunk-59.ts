@@ -72,7 +72,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_currency_risk_5",
     family: "cost",
-    label: "Tedarikci Doviz Kuru Riski — CurrencyClauseSavings",
+    label: "Tedarikci Doviz Kuru Riski - CurrencyClauseSavings",
     fn: (inputs) => {
     const contractHasAdjustment = num(inputs, "contractHasAdjustment");
     const exposure = num(inputs, "exposure");
@@ -85,7 +85,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_0",
     family: "cost",
-    label: "Teklif Risk Analizoru — BaseEstimate",
+    label: "Teklif Risk Analizoru - BaseEstimate",
     fn: (inputs) => {
     const directCosts = num(inputs, "directCosts");
     const overhead = num(inputs, "overhead");
@@ -95,7 +95,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_1",
     family: "cost",
-    label: "Teklif Risk Analizoru — Contingency",
+    label: "Teklif Risk Analizoru - Contingency",
     fn: (inputs) => {
     const baseEstimate = num(inputs, "baseEstimate");
     const riskFactor = num(inputs, "riskFactor");
@@ -105,7 +105,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_2",
     family: "cost",
-    label: "Teklif Risk Analizoru — ExpectedMargin",
+    label: "Teklif Risk Analizoru - ExpectedMargin",
     fn: (inputs) => {
     const bidPrice = num(inputs, "bidPrice");
     const baseEstimate = num(inputs, "baseEstimate");
@@ -116,7 +116,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_3",
     family: "cost",
-    label: "Teklif Risk Analizoru — WinProbability",
+    label: "Teklif Risk Analizoru - WinProbability",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const bidPrice = num(inputs, "bidPrice");
@@ -128,7 +128,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_4",
     family: "cost",
-    label: "Teklif Risk Analizoru — ExpectedValue",
+    label: "Teklif Risk Analizoru - ExpectedValue",
     fn: (inputs) => {
     const winProbability = num(inputs, "winProbability");
     const expectedMargin = num(inputs, "expectedMargin");
@@ -139,7 +139,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_5",
     family: "cost",
-    label: "Teklif Risk Analizoru — RiskAdjustedBid",
+    label: "Teklif Risk Analizoru - RiskAdjustedBid",
     fn: (inputs) => {
     const baseEstimate = num(inputs, "baseEstimate");
     const targetMargin = num(inputs, "targetMargin");
@@ -152,7 +152,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recurring_cost_0",
     family: "cost",
-    label: "Tekrarlayan Maliyet (RCA) — RecurringCost_Annual",
+    label: "Tekrarlayan Maliyet (RCA) - RecurringCost_Annual",
     fn: (inputs) => {
     const frequency = num(inputs, "frequency");
     const costPerEvent = num(inputs, "costPerEvent");
@@ -162,7 +162,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recurring_cost_1",
     family: "cost",
-    label: "Tekrarlayan Maliyet (RCA) — PresentValue_Recurring",
+    label: "Tekrarlayan Maliyet (RCA) - PresentValue_Recurring",
     fn: (inputs) => {
     const recurringCost = num(inputs, "recurringCost");
     const Annual = num(inputs, "Annual");
@@ -175,7 +175,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recurring_cost_2",
     family: "cost",
-    label: "Tekrarlayan Maliyet (RCA) — RootCauseInvestment",
+    label: "Tekrarlayan Maliyet (RCA) - RootCauseInvestment",
     fn: (inputs) => {
     const correctiveActionCost = num(inputs, "correctiveActionCost");
     const implementationCost = num(inputs, "implementationCost");
@@ -185,7 +185,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recurring_cost_3",
     family: "cost",
-    label: "Tekrarlayan Maliyet (RCA) — PaybackPeriod",
+    label: "Tekrarlayan Maliyet (RCA) - PaybackPeriod",
     fn: (inputs) => {
     const rootCauseInvestment = num(inputs, "rootCauseInvestment");
     const recurringCost = num(inputs, "recurringCost");
@@ -197,7 +197,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recurring_cost_4",
     family: "cost",
-    label: "Tekrarlayan Maliyet (RCA) — NPV_Elimination",
+    label: "Tekrarlayan Maliyet (RCA) - NPV_Elimination",
     fn: (inputs) => {
     const presentValue = num(inputs, "presentValue");
     const Recurring = num(inputs, "Recurring");
@@ -209,7 +209,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recurring_cost_5",
     family: "cost",
-    label: "Tekrarlayan Maliyet (RCA) — BreakevenFrequency",
+    label: "Tekrarlayan Maliyet (RCA) - BreakevenFrequency",
     fn: (inputs) => {
     const rootCauseInvestment = num(inputs, "rootCauseInvestment");
     const costPerEvent = num(inputs, "costPerEvent");
@@ -221,7 +221,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_0",
     family: "cost",
-    label: "Tekstil Atigi Risk Assessmentsi — WasteRate",
+    label: "Tekstil Atigi Risk Assessmentsi - WasteRate",
     fn: (inputs) => {
     const inputFabric = num(inputs, "inputFabric");
     const outputGarments = num(inputs, "outputGarments");
@@ -231,7 +231,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_1",
     family: "cost",
-    label: "Tekstil Atigi Risk Assessmentsi — PreConsumerWaste",
+    label: "Tekstil Atigi Risk Assessmentsi - PreConsumerWaste",
     fn: (inputs) => {
     const cuttingScrap = num(inputs, "cuttingScrap");
     const sewingDefects = num(inputs, "sewingDefects");

@@ -1,7 +1,7 @@
 "use server";
 
 /**
- * MarginCore Server Action — IP-protected calculation endpoint
+ * MarginCore Server Action - IP-protected calculation endpoint
  *
  * All MarginCore premium calculations run server-side only.
  * The client never sees the formulas, risk profiles, or CBAM logic.
@@ -46,11 +46,11 @@ const LEGAL_DISCLAIMER =
 /**
  * Run a MarginCore premium analysis for any sector.
  *
- * @param toolSlug — the tool identifier (e.g. "cnc-quote-risk-analyzer")
- * @param sectorSlug — the sector (e.g. "cnc-manufacturing")
- * @param inputs — user form inputs (key-value pairs)
- * @param quotedPrice — optional: the price the user is considering
- * @param targetMarginPercent — optional: target margin (default 20%)
+ * @param toolSlug - the tool identifier (e.g. "cnc-quote-risk-analyzer")
+ * @param sectorSlug - the sector (e.g. "cnc-manufacturing")
+ * @param inputs - user form inputs (key-value pairs)
+ * @param quotedPrice - optional: the price the user is considering
+ * @param targetMarginPercent - optional: target margin (default 20%)
  * @returns PremiumVerdictReport
  */
 export async function runMarginCoreAnalysis(params: {
@@ -153,7 +153,7 @@ export async function runMarginCoreBatchAnalysis(params: {
 }
 
 // ---------------------------------------------------------------------------
-// Sector Info (for UI — no formulas exposed)
+// Sector Info (for UI - no formulas exposed)
 // ---------------------------------------------------------------------------
 
 /**

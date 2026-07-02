@@ -72,7 +72,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_4",
     family: "cost",
-    label: "FIYAT ESNEKLIGI — MaxPrice",
+    label: "FIYAT ESNEKLIGI - MaxPrice",
     fn: (inputs) => {
     const elast = num(inputs, "elast");
     const varCost = num(inputs, "varCost");
@@ -82,7 +82,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_5",
     family: "cost",
-    label: "FIYAT ESNEKLIGI — Markup",
+    label: "FIYAT ESNEKLIGI - Markup",
     fn: (inputs) => {
     const elast = num(inputs, "elast");
     return nonNegative(assertFinite(-1 / (elast + 1)));
@@ -91,7 +91,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_6",
     family: "cost",
-    label: "FIYAT ESNEKLIGI — CannibLoss",
+    label: "FIYAT ESNEKLIGI - CannibLoss",
     fn: (inputs) => {
     const newDem = num(inputs, "newDem");
     const cannibRate = num(inputs, "cannibRate");
@@ -104,7 +104,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_7",
     family: "cost",
-    label: "FIYAT ESNEKLIGI — NetImpact",
+    label: "FIYAT ESNEKLIGI - NetImpact",
     fn: (inputs) => {
     const newMargin = num(inputs, "newMargin");
     const currMargin = num(inputs, "currMargin");
@@ -117,7 +117,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.flexible_manufacturing_roi_0",
     family: "cost",
-    label: "FLEXIBLE MANUFACTURING ROI — Cost_Ded",
+    label: "FLEXIBLE MANUFACTURING ROI - Cost_Ded",
     fn: (inputs) => {
     const mach = num(inputs, "mach");
     const Ded = num(inputs, "Ded");
@@ -134,7 +134,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.flexible_manufacturing_roi_1",
     family: "cost",
-    label: "FLEXIBLE MANUFACTURING ROI — Cost_Flex",
+    label: "FLEXIBLE MANUFACTURING ROI - Cost_Flex",
     fn: (inputs) => {
     const mach = num(inputs, "mach");
     const tool = num(inputs, "tool");
@@ -148,7 +148,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.flexible_manufacturing_roi_2",
     family: "cost",
-    label: "FLEXIBLE MANUFACTURING ROI — FlexVal",
+    label: "FLEXIBLE MANUFACTURING ROI - FlexVal",
     fn: (inputs) => {
     const tTM = num(inputs, "tTM");
     const Red = num(inputs, "Red");
@@ -162,7 +162,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.flexible_manufacturing_roi_3",
     family: "cost",
-    label: "FLEXIBLE MANUFACTURING ROI — InvSav",
+    label: "FLEXIBLE MANUFACTURING ROI - InvSav",
     fn: (inputs) => {
     const wIP = num(inputs, "wIP");
     const Ded = num(inputs, "Ded");
@@ -176,7 +176,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.flexible_manufacturing_roi_4",
     family: "cost",
-    label: "FLEXIBLE MANUFACTURING ROI — ScrapRed",
+    label: "FLEXIBLE MANUFACTURING ROI - ScrapRed",
     fn: (inputs) => {
     const scrap = num(inputs, "scrap");
     const Ded = num(inputs, "Ded");
@@ -191,7 +191,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.flexible_manufacturing_roi_5",
     family: "cost",
-    label: "FLEXIBLE MANUFACTURING ROI — ROI",
+    label: "FLEXIBLE MANUFACTURING ROI - ROI",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const Ded = num(inputs, "Ded");
@@ -210,7 +210,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_0",
     family: "cost",
-    label: "GAGE R&R COST — EV",
+    label: "GAGE R&R COST - EV",
     fn: (inputs) => {
     const range = num(inputs, "range");
     const Avg = num(inputs, "Avg");
@@ -224,7 +224,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_1",
     family: "cost",
-    label: "GAGE R&R COST — AV",
+    label: "GAGE R&R COST - AV",
     fn: (inputs) => {
     const range = num(inputs, "range");
     const Ops = num(inputs, "Ops");
@@ -242,7 +242,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_2",
     family: "cost",
-    label: "GAGE R&R COST — GRR",
+    label: "GAGE R&R COST - GRR",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const aV = num(inputs, "aV");
@@ -253,7 +253,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_3",
     family: "cost",
-    label: "GAGE R&R COST — PV",
+    label: "GAGE R&R COST - PV",
     fn: (inputs) => {
     const range = num(inputs, "range");
     const Parts = num(inputs, "Parts");
@@ -267,7 +267,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_4",
     family: "cost",
-    label: "GAGE R&R COST — TV",
+    label: "GAGE R&R COST - TV",
     fn: (inputs) => {
     const gRR = num(inputs, "gRR");
     const pV = num(inputs, "pV");

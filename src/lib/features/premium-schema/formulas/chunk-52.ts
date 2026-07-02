@@ -72,7 +72,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.contract_incentive_8",
     family: "cost",
-    label: "Sozlesme Tesvik — PerformanceBonus",
+    label: "Sozlesme Tesvik - PerformanceBonus",
     fn: (inputs) => {
     const metricWeight = num(inputs, "metricWeight");
     const i = num(inputs, "i");
@@ -88,7 +88,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_signal_delay_0",
     family: "cost",
-    label: "SPC Signal Delay Maliyet — ARL_InControl",
+    label: "SPC Signal Delay Maliyet - ARL_InControl",
     fn: (inputs) => {
     const alpha = num(inputs, "alpha");
     return nonNegative(assertFinite(1 / alpha));
@@ -97,7 +97,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_signal_delay_1",
     family: "cost",
-    label: "SPC Signal Delay Maliyet — ARL_OutOfControl",
+    label: "SPC Signal Delay Maliyet - ARL_OutOfControl",
     fn: (inputs) => {
     const beta = num(inputs, "beta");
     return nonNegative(assertFinite(1 / (1 - beta)));
@@ -106,7 +106,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_signal_delay_2",
     family: "cost",
-    label: "SPC Signal Delay Maliyet — DetectionDelay_Hours",
+    label: "SPC Signal Delay Maliyet - DetectionDelay_Hours",
     fn: (inputs) => {
     const aRL = num(inputs, "aRL");
     const OutOfControl = num(inputs, "OutOfControl");
@@ -118,7 +118,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_signal_delay_3",
     family: "cost",
-    label: "SPC Signal Delay Maliyet — DefectsProduced",
+    label: "SPC Signal Delay Maliyet - DefectsProduced",
     fn: (inputs) => {
     const detectionDelay = num(inputs, "detectionDelay");
     const Hours = num(inputs, "Hours");
@@ -132,7 +132,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_signal_delay_4",
     family: "cost",
-    label: "SPC Signal Delay Maliyet — Cost_Delay",
+    label: "SPC Signal Delay Maliyet - Cost_Delay",
     fn: (inputs) => {
     const defectsProduced = num(inputs, "defectsProduced");
     const costPerDefect = num(inputs, "costPerDefect");
@@ -142,7 +142,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_signal_delay_5",
     family: "cost",
-    label: "SPC Signal Delay Maliyet — InvestigationCost",
+    label: "SPC Signal Delay Maliyet - InvestigationCost",
     fn: (inputs) => {
     const falseAlarmRate = num(inputs, "falseAlarmRate");
     const samplingFrequency = num(inputs, "samplingFrequency");
@@ -153,7 +153,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_signal_delay_6",
     family: "cost",
-    label: "SPC Signal Delay Maliyet — OptimalInterval",
+    label: "SPC Signal Delay Maliyet - OptimalInterval",
     fn: (inputs) => {
     const samplingCost = num(inputs, "samplingCost");
     const productionRate = num(inputs, "productionRate");
@@ -170,7 +170,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_0",
     family: "cost",
-    label: "Steam Trap Enerji kayip — OrificeFlow",
+    label: "Steam Trap Enerji kayip - OrificeFlow",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const d = num(inputs, "d");
@@ -185,7 +185,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_1",
     family: "cost",
-    label: "Steam Trap Enerji kayip — SteamLoss_kg_h",
+    label: "Steam Trap Enerji kayip - SteamLoss_kg_h",
     fn: (inputs) => {
     const orificeFlow = num(inputs, "orificeFlow");
     return nonNegative(assertFinite(orificeFlow * 3600));
@@ -194,7 +194,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_2",
     family: "cost",
-    label: "Steam Trap Enerji kayip — EnergyLoss_kW",
+    label: "Steam Trap Enerji kayip - EnergyLoss_kW",
     fn: (inputs) => {
     const steamLoss = num(inputs, "steamLoss");
     const kg = num(inputs, "kg");
@@ -209,7 +209,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_3",
     family: "cost",
-    label: "Steam Trap Enerji kayip — AnnualCost",
+    label: "Steam Trap Enerji kayip - AnnualCost",
     fn: (inputs) => {
     const energyLoss = num(inputs, "energyLoss");
     const kW = num(inputs, "kW");
@@ -225,7 +225,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_4",
     family: "cost",
-    label: "Steam Trap Enerji kayip — TrapFailureRate",
+    label: "Steam Trap Enerji kayip - TrapFailureRate",
     fn: (inputs) => {
     const failedTraps = num(inputs, "failedTraps");
     const totalTraps = num(inputs, "totalTraps");
@@ -235,7 +235,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_5",
     family: "cost",
-    label: "Steam Trap Enerji kayip — TotalSystemLoss",
+    label: "Steam Trap Enerji kayip - TotalSystemLoss",
     fn: (inputs) => {
     const annualCost = num(inputs, "annualCost");
     const i = num(inputs, "i");
@@ -246,7 +246,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_6",
     family: "cost",
-    label: "Steam Trap Enerji kayip — RepairROI",
+    label: "Steam Trap Enerji kayip - RepairROI",
     fn: (inputs) => {
     const totalSystemLoss = num(inputs, "totalSystemLoss");
     const trapCost = num(inputs, "trapCost");

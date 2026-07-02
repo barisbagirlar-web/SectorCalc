@@ -1,5 +1,5 @@
 /**
- * Contract loop status mapper — requirement + validation → unified status (Phase 5H-B-4).
+ * Contract loop status mapper - requirement + validation → unified status (Phase 5H-B-4).
  */
 
 import type { RequirementSolveResult } from "@/lib/features/formula-governance/requirement-engine/requirement-engine-types";

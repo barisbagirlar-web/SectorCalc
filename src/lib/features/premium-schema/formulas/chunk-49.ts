@@ -72,7 +72,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.route_optimization_0",
     family: "cost",
-    label: "Rota Optimizasyonu Analizoru — NearestNeighbor_Dist",
+    label: "Rota Optimizasyonu Analizoru - NearestNeighbor_Dist",
     fn: (inputs) => {
     const minDistance = num(inputs, "minDistance");
     const i = num(inputs, "i");
@@ -83,7 +83,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.route_optimization_1",
     family: "cost",
-    label: "Rota Optimizasyonu Analizoru — Savings_ClarkeWright",
+    label: "Rota Optimizasyonu Analizoru - Savings_ClarkeWright",
     fn: (inputs) => {
     const distance = num(inputs, "distance");
     const Depot = num(inputs, "Depot");
@@ -98,7 +98,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.route_optimization_2",
     family: "cost",
-    label: "Rota Optimizasyonu Analizoru — RouteEfficiency",
+    label: "Rota Optimizasyonu Analizoru - RouteEfficiency",
     fn: (inputs) => {
     const theoreticalMinDistance = num(inputs, "theoreticalMinDistance");
     const actualRouteDistance = num(inputs, "actualRouteDistance");
@@ -108,7 +108,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.route_optimization_3",
     family: "cost",
-    label: "Rota Optimizasyonu Analizoru — DropDensity",
+    label: "Rota Optimizasyonu Analizoru - DropDensity",
     fn: (inputs) => {
     const numberOfDrops = num(inputs, "numberOfDrops");
     const routeArea = num(inputs, "routeArea");
@@ -118,7 +118,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.route_optimization_4",
     family: "cost",
-    label: "Rota Optimizasyonu Analizoru — TimeWindowPenalty",
+    label: "Rota Optimizasyonu Analizoru - TimeWindowPenalty",
     fn: (inputs) => {
     const arrivalTime = num(inputs, "arrivalTime");
     const lateWindow = num(inputs, "lateWindow");
@@ -130,7 +130,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.route_optimization_5",
     family: "cost",
-    label: "Rota Optimizasyonu Analizoru — VehicleUtilization",
+    label: "Rota Optimizasyonu Analizoru - VehicleUtilization",
     fn: (inputs) => {
     const totalLoad = num(inputs, "totalLoad");
     const vehicleCapacity = num(inputs, "vehicleCapacity");
@@ -140,7 +140,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.route_optimization_6",
     family: "cost",
-    label: "Rota Optimizasyonu Analizoru — TotalSavings",
+    label: "Rota Optimizasyonu Analizoru - TotalSavings",
     fn: (inputs) => {
     const baselineCost = num(inputs, "baselineCost");
     const optimizedCost = num(inputs, "optimizedCost");
@@ -152,7 +152,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wind_turbine_investment_0",
     family: "cost",
-    label: "Ruzgar Turbini Yatirim Getirisi — AEP",
+    label: "Ruzgar Turbini Yatirim Getirisi - AEP",
     fn: (inputs) => {
     const powerCurve = num(inputs, "powerCurve");
     const v = num(inputs, "v");
@@ -165,7 +165,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wind_turbine_investment_1",
     family: "cost",
-    label: "Ruzgar Turbini Yatirim Getirisi — CapacityFactor",
+    label: "Ruzgar Turbini Yatirim Getirisi - CapacityFactor",
     fn: (inputs) => {
     const aEP = num(inputs, "aEP");
     const ratedPower = num(inputs, "ratedPower");
@@ -175,7 +175,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wind_turbine_investment_2",
     family: "cost",
-    label: "Ruzgar Turbini Yatirim Getirisi — AnnualRevenue",
+    label: "Ruzgar Turbini Yatirim Getirisi - AnnualRevenue",
     fn: (inputs) => {
     const aEP = num(inputs, "aEP");
     const feedInTariff = num(inputs, "feedInTariff");
@@ -185,7 +185,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wind_turbine_investment_3",
     family: "cost",
-    label: "Ruzgar Turbini Yatirim Getirisi — OPEX",
+    label: "Ruzgar Turbini Yatirim Getirisi - OPEX",
     fn: (inputs) => {
     const landLease = num(inputs, "landLease");
     const maintenance = num(inputs, "maintenance");
@@ -197,7 +197,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wind_turbine_investment_4",
     family: "cost",
-    label: "Ruzgar Turbini Yatirim Getirisi — EBITDA",
+    label: "Ruzgar Turbini Yatirim Getirisi - EBITDA",
     fn: (inputs) => {
     const annualRevenue = num(inputs, "annualRevenue");
     const oPEX = num(inputs, "oPEX");
@@ -207,7 +207,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wind_turbine_investment_5",
     family: "cost",
-    label: "Ruzgar Turbini Yatirim Getirisi — LCOE",
+    label: "Ruzgar Turbini Yatirim Getirisi - LCOE",
     fn: (inputs) => {
     const capex = num(inputs, "capex");
     const opex = num(inputs, "opex");
@@ -221,7 +221,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wind_turbine_investment_6",
     family: "cost",
-    label: "Ruzgar Turbini Yatirim Getirisi — NPV",
+    label: "Ruzgar Turbini Yatirim Getirisi - NPV",
     fn: (inputs) => {
     const eBITDA = num(inputs, "eBITDA");
     const t = num(inputs, "t");
@@ -234,7 +234,7 @@ export const CHUNK_49_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.wind_turbine_investment_7",
     family: "cost",
-    label: "Ruzgar Turbini Yatirim Getirisi — IRR",
+    label: "Ruzgar Turbini Yatirim Getirisi - IRR",
     fn: (inputs) => {
     const r = num(inputs, "r");
     const where = num(inputs, "where");

@@ -32,9 +32,9 @@ import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 import { industryRegistry } from "@/lib/features/tools/industry-registry";
 
 /**
- * One unique Lucide icon per industry / profession slug — no reuse within this map,
+ * One unique Lucide icon per industry / profession slug - no reuse within this map,
  * and no overlap with taxonomy sector icons (sector originality is protected).
- * Every icon in this map is globally unique — no other map uses the same icon.
+ * Every icon in this map is globally unique - no other map uses the same icon.
  */
 export const INDUSTRY_SLUG_ICON_MAP = {
   "cnc-manufacturing": Settings2,

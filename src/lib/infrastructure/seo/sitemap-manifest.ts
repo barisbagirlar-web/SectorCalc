@@ -1,5 +1,5 @@
 /**
- * Sitemap source of truth — all public indexable routes derived from catalogs.
+ * Sitemap source of truth - all public indexable routes derived from catalogs.
  */
 
 import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
@@ -48,7 +48,7 @@ export type SitemapManifestItem = {
   readonly locales: readonly SupportedLocale[];
   /**
    * Real lastmod date from the data source (tool registry, CMS, etc.).
-   * When absent the sitemap builder falls back to build time — which is
+   * When absent the sitemap builder falls back to build time - which is
    * legitimate for dynamic pages regenerated at every build.
    */
   readonly updatedAt?: Date;
@@ -272,7 +272,7 @@ export function countAuthorityGuideSitemapEntries(): number {
   return getAuthorityGuideSitemapRoutes().reduce((sum, item) => sum + item.locales.length, 0);
 }
 
-/** @deprecated Use getSitemapManifest — legacy static route list for tests. */
+/** @deprecated Use getSitemapManifest - legacy static route list for tests. */
 export const SITEMAP_STATIC_ROUTES = [
   "/",
   "/free-tools",

@@ -1,5 +1,5 @@
 /**
- * Smart form pilot production deploy execution plan — Phase 5H-G-R.
+ * Smart form pilot production deploy execution plan - Phase 5H-G-R.
  */
 
 import type { SmartFormPilotProductionDeployGateDecision } from "@/components/tools/smart-form/pilot-production-deploy-gate";
@@ -65,7 +65,7 @@ export function buildSmartFormPilotProductionDeployExecutionPlan(
 
   if (status === "ready_for_final_command") {
     warnings.push(
-      "Deploy command generated but not executed — final human command approval required",
+      "Deploy command generated but not executed - final human command approval required",
     );
   }
 

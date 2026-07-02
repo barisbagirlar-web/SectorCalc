@@ -28,7 +28,7 @@ export interface IndustrialFieldPanelProps {
 }
 
 /**
- * Shop-floor panel — readable in ~3 seconds with gloves and noise.
+ * Shop-floor panel - readable in ~3 seconds with gloves and noise.
  */
 export function IndustrialFieldPanel({ panel, verdictSeverity }: IndustrialFieldPanelProps) {
   const a11y = useTranslations("a11y");

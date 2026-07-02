@@ -31,14 +31,14 @@ export type PremiumSeoRelated = {
 };
 
 export type PremiumToolSeoLanding = {
-  /** Landing slug — paidSlug or premium-schema id. */
+  /** Landing slug - paidSlug or premium-schema id. */
   readonly slug: string;
   readonly source: SeoP2LandingSource;
   /** Brand tool name injected into localized templates. */
   readonly toolName: string;
   /** Sector slug from the revenue or schema registry. */
   readonly sector: string;
-  /** CTA target — live premium tool route. */
+  /** CTA target - live premium tool route. */
   readonly premiumHref: string;
   /** Canonical SEO landing path. */
   readonly seoHref: string;

@@ -96,8 +96,8 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
   const primaryRaw = resolvePrimaryPrintValue(result, primaryOutputKey);
   const primaryIsNumber = primaryRaw !== null;
   const formattedPrimary = primaryIsNumber
-    ? formatGeneratedNumericValue(primaryRaw, primaryOutputKey, locale, primaryUnit !== "—" ? primaryUnit : undefined)
-    : "—";
+    ? formatGeneratedNumericValue(primaryRaw, primaryOutputKey, locale, primaryUnit !== "-" ? primaryUnit : undefined)
+    : "-";
 
   const breakdownEntries = useMemo(
     () => {
@@ -242,14 +242,14 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
           {confidenceBadges.map((b, i) => <Badge key={i} label={b.label} variant={b.variant} />)}
         </div>
 
-        {/* CTA — sole export button */}
+        {/* CTA - sole export button */}
         <div className="flex justify-end">
           <button
             type="button"
             onClick={onOpenFullReport}
             className="sc-cta-primary sc-ledger-cta-primary min-h-[44px] px-5 text-sm font-bold inline-flex items-center gap-2"
           >
-            <span>⬇</span> {t("printDownload")} — {t("fullReportCta")}
+            <span>⬇</span> {t("printDownload")} - {t("fullReportCta")}
           </button>
         </div>
       </div>

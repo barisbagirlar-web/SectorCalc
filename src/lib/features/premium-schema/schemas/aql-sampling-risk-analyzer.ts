@@ -1,5 +1,5 @@
 /**
- * Tool #3 — AQL Sampling Risk & Cost
+ * Tool #3 - AQL Sampling Risk & Cost
  * ATI, TotalRiskCost, Alpha, Beta
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -34,8 +34,8 @@ export const AQL_SAMPLING_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalRiskCost", label: "Total Risk Cost", label_i18n: {"en":"Total Risk Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "alphaRisk", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Producer risk > 5% — good lot may be rejected.", warningMessage_i18n: {"en":"Producer risk > 5% — good lot may be rejected."}, criticalMessage: "Producer risk > 10% — acceptance plan is too strict.", criticalMessage_i18n: {"en":"Producer risk > 10% — acceptance plan is too strict."} },
-    { fieldId: "betaRisk", warning: 10, critical: 20, direction: "higher_is_bad", warningMessage: "Consumer risk > 10% — bad lot may be accepted.", warningMessage_i18n: {"en":"Consumer risk > 10% — bad lot may be accepted."}, criticalMessage: "Consumer risk > 20% — acceptance plan is inadequate.", criticalMessage_i18n: {"en":"Consumer risk > 20% — acceptance plan is inadequate."} },
+    { fieldId: "alphaRisk", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Producer risk > 5% - good lot may be rejected.", warningMessage_i18n: {"en":"Producer risk > 5% - good lot may be rejected."}, criticalMessage: "Producer risk > 10% - acceptance plan is too strict.", criticalMessage_i18n: {"en":"Producer risk > 10% - acceptance plan is too strict."} },
+    { fieldId: "betaRisk", warning: 10, critical: 20, direction: "higher_is_bad", warningMessage: "Consumer risk > 10% - bad lot may be accepted.", warningMessage_i18n: {"en":"Consumer risk > 10% - bad lot may be accepted."}, criticalMessage: "Consumer risk > 20% - acceptance plan is inadequate.", criticalMessage_i18n: {"en":"Consumer risk > 20% - acceptance plan is inadequate."} },
   ],
   formulaPipeline: [
     { formulaId: "quality.ati", inputMap: { sampleSize: "sampleSize", lotSize: "lotSize", acceptanceProb: "acceptanceNumber" }, outputId: "ati" },

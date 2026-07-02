@@ -1,5 +1,5 @@
 /**
- * Phase 5H-E — patch level classifier tests.
+ * Phase 5H-E - patch level classifier tests.
  */
 
 import { describe, expect, test } from "vitest";

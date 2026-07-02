@@ -1,5 +1,5 @@
 /**
- * Premium-schema 27 classification — ADIM 1 inventory groups A–F.
+ * Premium-schema 27 classification - ADIM 1 inventory groups A–F.
  */
 
 import { PREMIUM_CALCULATOR_SCHEMAS } from "@/lib/features/premium-schema/schema-registry";
@@ -71,7 +71,7 @@ function classifySchema(schemaSlug: string): PremiumSchemaClassificationEntry {
       schemaSlug,
       legacyPaidSlugs,
       group: "A",
-      rationale: "Ready for FormulaContract — legacy paid slug lacks governed contract.",
+      rationale: "Ready for FormulaContract - legacy paid slug lacks governed contract.",
     };
   }
 
@@ -80,7 +80,7 @@ function classifySchema(schemaSlug: string): PremiumSchemaClassificationEntry {
       schemaSlug,
       legacyPaidSlugs,
       group: "B",
-      rationale: "Ready for full-loop — contract and oracle exist; not yet in PREMIUM_FULL_LOOP_RUNTIME_SLUGS.",
+      rationale: "Ready for full-loop - contract and oracle exist; not yet in PREMIUM_FULL_LOOP_RUNTIME_SLUGS.",
     };
   }
 
@@ -89,7 +89,7 @@ function classifySchema(schemaSlug: string): PremiumSchemaClassificationEntry {
       schemaSlug,
       legacyPaidSlugs,
       group: "E",
-      rationale: "Alias/funnel mapping — paid slug differs from free 3d-print-cost-check contract.",
+      rationale: "Alias/funnel mapping - paid slug differs from free 3d-print-cost-check contract.",
     };
   }
 
@@ -98,7 +98,7 @@ function classifySchema(schemaSlug: string): PremiumSchemaClassificationEntry {
       schemaSlug,
       legacyPaidSlugs,
       group: "D",
-      rationale: "Revenue/paid semantic drift — schema title differs from legacy paid slug domain.",
+      rationale: "Revenue/paid semantic drift - schema title differs from legacy paid slug domain.",
     };
   }
 
@@ -108,7 +108,7 @@ function classifySchema(schemaSlug: string): PremiumSchemaClassificationEntry {
       schemaSlug,
       legacyPaidSlugs,
       group: "C",
-      rationale: "Schema bridge needed — legacy full-loop exists; schema route uses formula-registry engine.",
+      rationale: "Schema bridge needed - legacy full-loop exists; schema route uses formula-registry engine.",
     };
   }
 
@@ -116,7 +116,7 @@ function classifySchema(schemaSlug: string): PremiumSchemaClassificationEntry {
     schemaSlug,
     legacyPaidSlugs,
     group: "F",
-    rationale: "Deferred — insufficient governance signal or blocked by alias drift.",
+    rationale: "Deferred - insufficient governance signal or blocked by alias drift.",
   };
 }
 

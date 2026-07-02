@@ -37,7 +37,7 @@ function buildSmartDefaultInputs(slug: string): Record<string, number | string |
   return values;
 }
 
-describe("Premium 152 batch 1 — trust and i18n", () => {
+describe("Premium 152 batch 1 - trust and i18n", () => {
   test.each(PREMIUM_152_BATCH1_SLUGS)("backing complete for %s", (slug: string) => {
     const backing = checkToolBacking(slug);
     expect(backing.isComplete).toBe(true);

@@ -34,7 +34,7 @@ export async function generateMetadata({
 
   const displayName = resolveGeneratedToolTitle(slug, schema, locale);
   const meta = createPageMetadata({
-    title: `${displayName} — Embed`,
+    title: `${displayName} - Embed`,
     description: `Embeddable ${displayName} calculator widget.`,
     path: `/embed/${slug}`,
     locale: locale as AppLocale,

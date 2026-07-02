@@ -1,7 +1,7 @@
 import { SUPPORTED_LOCALES } from "@/lib/infrastructure/i18n/locale-config";
 import { addLocaleToPath } from "@/lib/infrastructure/i18n/locale-routing";
 
-/** Core catalog hubs — smoke-tested on every supported locale route. */
+/** Core catalog hubs - smoke-tested on every supported locale route. */
 export const LOCALE_CATALOG_ROUTES = [
   "/free-tools",
   "/pro-tools",

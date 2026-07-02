@@ -19,7 +19,7 @@ export const MACHINE_ECONOMIC_LIFE_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalEuac", label: "Total EUAC", label_i18n: {"en":"Total EUAC"}, unit: "USD/year", format: "currency" },
     { id: "economicLife", label: "economical life", label_i18n: {"en":"economical life"}, unit: "years", format: "number" },
   ],
-  thresholds: [{ fieldId: "totalEuac", warning: 40000, critical: 75000, direction: "higher_is_bad", warningMessage: "EUAC > $40K — alternative machines should be evaluated.", warningMessage_i18n: {"en":"EUAC > $40K — alternative machines should be evaluated."}, criticalMessage: "EUAC > $75K — machine should be scheduled for replacement.", criticalMessage_i18n: {"en":"EUAC > $75K — machine should be scheduled for replacement."} }],
+  thresholds: [{ fieldId: "totalEuac", warning: 40000, critical: 75000, direction: "higher_is_bad", warningMessage: "EUAC > $40K - alternative machines should be evaluated.", warningMessage_i18n: {"en":"EUAC > $40K - alternative machines should be evaluated."}, criticalMessage: "EUAC > $75K - machine should be scheduled for replacement.", criticalMessage_i18n: {"en":"EUAC > $75K - machine should be scheduled for replacement."} }],
   formulaPipeline: [
     { formulaId: "cost.machine_euac_capital", inputMap: { purchaseCost: "purchaseCost", discountRate: "discountRate", lifeYears: "lifeYears", residualValue: "residualValue" }, outputId: "euacCapital" },
     { formulaId: "cost.machine_euac_operating", inputMap: { annualOperatingCost: "annualOperatingCost", annualEnergy: "annualEnergy", annualMaintenance: "annualMaintenance" }, outputId: "euacOperating" },

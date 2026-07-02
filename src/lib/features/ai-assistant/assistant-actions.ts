@@ -1,5 +1,5 @@
 /**
- * AI assistant allowed actions — ADIM 6 (interface-only; no LLM calls).
+ * AI assistant allowed actions - ADIM 6 (interface-only; no LLM calls).
  *
  * The assistant may guide, explain, and classify within tool result payloads.
  * It must never calculate, validate, or decide on behalf of the deterministic engine.

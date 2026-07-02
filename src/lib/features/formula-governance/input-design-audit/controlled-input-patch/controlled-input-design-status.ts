@@ -1,5 +1,5 @@
 /**
- * Controlled input design patch completion status — Phase 5H-F.
+ * Controlled input design patch completion status - Phase 5H-F.
  */
 
 import {

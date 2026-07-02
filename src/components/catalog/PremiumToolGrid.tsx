@@ -7,7 +7,7 @@ export type PremiumToolGridProps = {
   readonly openLabel: string;
 };
 
-/** Text-based premium tool grid — 3-4 equal columns, symmetric. */
+/** Text-based premium tool grid - 3-4 equal columns, symmetric. */
 export function PremiumToolGrid({
   tools,
   locale,

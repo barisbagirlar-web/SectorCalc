@@ -72,7 +72,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.calibration_drift_risk_0",
     family: "cost",
-    label: "CALIBRATION SAPMA — DriftRate",
+    label: "CALIBRATION SAPMA - DriftRate",
     fn: (inputs) => {
     const lastError = num(inputs, "lastError");
     const prevError = num(inputs, "prevError");
@@ -83,7 +83,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.calibration_drift_risk_1",
     family: "cost",
-    label: "CALIBRATION SAPMA — PredictedDrift",
+    label: "CALIBRATION SAPMA - PredictedDrift",
     fn: (inputs) => {
     const driftRate = num(inputs, "driftRate");
     const timeSinceLast = num(inputs, "timeSinceLast");
@@ -93,7 +93,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.calibration_drift_risk_2",
     family: "cost",
-    label: "CALIBRATION SAPMA — CurrentUncertainty",
+    label: "CALIBRATION SAPMA - CurrentUncertainty",
     fn: (inputs) => {
     const baseUncertainty = num(inputs, "baseUncertainty");
     const predictedDrift = num(inputs, "predictedDrift");
@@ -105,7 +105,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.calibration_drift_risk_3",
     family: "cost",
-    label: "CALIBRATION SAPMA — RiskScore",
+    label: "CALIBRATION SAPMA - RiskScore",
     fn: (inputs) => {
     const currentUncertainty = num(inputs, "currentUncertainty");
     const tolerance = num(inputs, "tolerance");
@@ -117,7 +117,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.calibration_drift_risk_4",
     family: "cost",
-    label: "CALIBRATION SAPMA — OptimalInterval",
+    label: "CALIBRATION SAPMA - OptimalInterval",
     fn: (inputs) => {
     const baseInterval = num(inputs, "baseInterval");
     const tolerance = num(inputs, "tolerance");
@@ -128,7 +128,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.calibration_drift_risk_5",
     family: "cost",
-    label: "CALIBRATION SAPMA — GuardBand",
+    label: "CALIBRATION SAPMA - GuardBand",
     fn: (inputs) => {
     const expandedUncertainty = num(inputs, "expandedUncertainty");
     const k = num(inputs, "k");
@@ -140,7 +140,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_0",
     family: "cost",
-    label: "CBAM EXPOSURE — DirectEmissions",
+    label: "CBAM EXPOSURE - DirectEmissions",
     fn: (inputs) => {
     const activityData = num(inputs, "activityData");
     const emissionFactor = num(inputs, "emissionFactor");
@@ -150,7 +150,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_1",
     family: "cost",
-    label: "CBAM EXPOSURE — IndirectEmissions",
+    label: "CBAM EXPOSURE - IndirectEmissions",
     fn: (inputs) => {
     const elecConsumption = num(inputs, "elecConsumption");
     const gridFactor = num(inputs, "gridFactor");
@@ -160,7 +160,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_2",
     family: "cost",
-    label: "CBAM EXPOSURE — CarbonIntensity",
+    label: "CBAM EXPOSURE - CarbonIntensity",
     fn: (inputs) => {
     const directEmissions = num(inputs, "directEmissions");
     const indirectEmissions = num(inputs, "indirectEmissions");
@@ -171,7 +171,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_3",
     family: "cost",
-    label: "CBAM EXPOSURE — CBAMCertificateCost",
+    label: "CBAM EXPOSURE - CBAMCertificateCost",
     fn: (inputs) => {
     const embeddedEmissions = num(inputs, "embeddedEmissions");
     const freeAllowance = num(inputs, "freeAllowance");
@@ -184,7 +184,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_4",
     family: "cost",
-    label: "CBAM EXPOSURE — FreeAllowance",
+    label: "CBAM EXPOSURE - FreeAllowance",
     fn: (inputs) => {
     const benchmark = num(inputs, "benchmark");
     const productionVolume = num(inputs, "productionVolume");
@@ -195,7 +195,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_5",
     family: "cost",
-    label: "CBAM EXPOSURE — ComplianceScore",
+    label: "CBAM EXPOSURE - ComplianceScore",
     fn: (inputs) => {
     const dataComplete = num(inputs, "dataComplete");
     const verification = num(inputs, "verification");
@@ -208,7 +208,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_compliance_verdict_0",
     family: "cost",
-    label: "CBAM UYUMLULUK — TotalMass",
+    label: "CBAM UYUMLULUK - TotalMass",
     fn: (inputs) => {
     const mass = num(inputs, "mass");
     return nonNegative(assertFinite(SUM(mass)));
@@ -217,7 +217,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_compliance_verdict_1",
     family: "cost",
-    label: "CBAM UYUMLULUK — TotalEmbedded",
+    label: "CBAM UYUMLULUK - TotalEmbedded",
     fn: (inputs) => {
     const direct = num(inputs, "direct");
     const indirect = num(inputs, "indirect");
@@ -227,7 +227,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_compliance_verdict_2",
     family: "cost",
-    label: "CBAM UYUMLULUK — SpecificEmbedded",
+    label: "CBAM UYUMLULUK - SpecificEmbedded",
     fn: (inputs) => {
     const totalEmbedded = num(inputs, "totalEmbedded");
     const totalMass = num(inputs, "totalMass");

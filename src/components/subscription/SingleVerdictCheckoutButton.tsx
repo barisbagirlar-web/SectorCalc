@@ -96,7 +96,7 @@ export function SingleVerdictCheckoutButton({
  );
 }
 
-/** @deprecated Use toolSlug — toolTitle kept for call-site compatibility only */
+/** @deprecated Use toolSlug - toolTitle kept for call-site compatibility only */
 export function SingleVerdictUpsellButton({
  toolSlug,
  pagePath,

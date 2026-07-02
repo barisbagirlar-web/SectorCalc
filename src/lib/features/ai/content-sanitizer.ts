@@ -1,5 +1,5 @@
 /**
- * Content sanitizer — normalizes DeepSeek API message content.
+ * Content sanitizer - normalizes DeepSeek API message content.
  *
  * DeepSeek text models (deepseek-chat, deepseek-coder) do NOT support
  * multimodal content arrays (e.g. content: [{ type: "text", text: "..." },
@@ -28,7 +28,7 @@ export function normalizeContent(content: unknown): string {
         const text = typeof record.text === "string" ? record.text : "";
         if (text) parts.push(text);
       }
-      // image_url parts are silently dropped — DeepSeek text models don't support them.
+      // image_url parts are silently dropped - DeepSeek text models don't support them.
       // If image support is needed, switch to deepseek-vl or a multimodal model.
     }
     return parts.join(" ").trim();

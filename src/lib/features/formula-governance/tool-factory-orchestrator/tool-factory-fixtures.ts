@@ -1,5 +1,5 @@
 /**
- * Tool factory deterministic fixtures — Phase 5I-A tests only.
+ * Tool factory deterministic fixtures - Phase 5I-A tests only.
  */
 
 import { buildToolFactoryPlan } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-plan-builder";
@@ -10,7 +10,7 @@ export const SAMPLE_TOOL_FACTORY_IDEA: ToolFactoryIdea = {
   sector: "hvac",
   targetUser: "contractor",
   calculationGoal: "Estimate safe bid margin before submitting HVAC quote.",
-  notes: "Fixture only — no production generation.",
+  notes: "Fixture only - no production generation.",
 };
 
 export function buildDraftToolFactoryPlan(): ToolFactoryPlan {

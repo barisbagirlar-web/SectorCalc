@@ -1,5 +1,5 @@
 /**
- * Requirement Engine — Mind 2: goal + known inputs → missing requirements.
+ * Requirement Engine - Mind 2: goal + known inputs → missing requirements.
  */
 
 import { detectCircularDependencies, detectUnreachableTargetVariables } from "@/lib/features/formula-governance/calculation-ontology/dependency-graph";

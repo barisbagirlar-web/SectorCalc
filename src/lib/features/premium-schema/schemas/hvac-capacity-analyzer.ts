@@ -18,7 +18,7 @@ export const HVAC_CAPACITY_SCHEMA: PremiumCalculatorSchema = {
     { id: "tons", label: "Capacity (Tons)", label_i18n: {"en":"Capacity (Tons)"}, unit: "ton", format: "number" },
     { id: "annualCost", label: "Annual Energy Cost", label_i18n: {"en":"Annual Energy Cost"}, unit: "USD/year", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "annualCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Energy cost > $5000 — EER should be improved.", warningMessage_i18n: {"en":"Energy cost > $5000 — EER should be improved."}, criticalMessage: "Cost > $15000 — system replacement should be evaluated.", criticalMessage_i18n: {"en":"Cost > $15000 — system replacement should be evaluated."} }],
+  thresholds: [{ fieldId: "annualCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Energy cost > $5000 - EER should be improved.", warningMessage_i18n: {"en":"Energy cost > $5000 - EER should be improved."}, criticalMessage: "Cost > $15000 - system replacement should be evaluated.", criticalMessage_i18n: {"en":"Cost > $15000 - system replacement should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "measurement.hvac_sensible", inputMap: { cfm: "cfm", deltaTemp: "deltaTemp" ,
         deltaT: "deltaT"}, outputId: "sensible" },

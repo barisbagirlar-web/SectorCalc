@@ -1,5 +1,5 @@
 /**
- * P6 — Benchmark scoring: position a value within an indicative band and derive
+ * P6 - Benchmark scoring: position a value within an indicative band and derive
  * a decision-support verdict. Pure, deterministic, display-only.
  */
 

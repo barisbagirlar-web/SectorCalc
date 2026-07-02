@@ -18,8 +18,8 @@ export const PRESSURE_VESSEL_WALL_THICKNESS_CALCULATOR_SCHEMA: PremiumCalculator
       warning: 8,
       critical: 3,
       direction: "lower_is_bad",
-      warningMessage: "Wall thickness is thin for the entered pressure — review material and joint efficiency.",
-      criticalMessage: "Wall thickness is critically thin — obtain qualified pressure vessel design review.",
+      warningMessage: "Wall thickness is thin for the entered pressure - review material and joint efficiency.",
+      criticalMessage: "Wall thickness is critically thin - obtain qualified pressure vessel design review.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const PRESSURE_VESSEL_WALL_THICKNESS_CALCULATOR_SCHEMA: PremiumCalculator
     assumptionNotes: [
       "Screening thickness ≈ P × D ÷ (2 × S × E) with unit conversion proxy.",
       "Corrosion allowance, nozzle reinforcement and code editions are not modeled.",
-      "Not ASME/API compliance output — engineering sign-off required.",
+      "Not ASME/API compliance output - engineering sign-off required.",
     ],
   },
 };

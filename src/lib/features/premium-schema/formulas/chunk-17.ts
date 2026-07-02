@@ -72,7 +72,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.environmental_waste_cost_5",
     family: "cost",
-    label: "ENVIRONMENTAL FIRE — Total",
+    label: "ENVIRONMENTAL FIRE - Total",
     fn: (inputs) => {
     const disp = num(inputs, "disp");
     const haz = num(inputs, "haz");
@@ -85,7 +85,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.environmental_waste_cost_6",
     family: "cost",
-    label: "ENVIRONMENTAL FIRE — WasteIntensity",
+    label: "ENVIRONMENTAL FIRE - WasteIntensity",
     fn: (inputs) => {
     const totalWaste = num(inputs, "totalWaste");
     const volume = num(inputs, "volume");
@@ -95,7 +95,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.environmental_waste_cost_7",
     family: "cost",
-    label: "ENVIRONMENTAL FIRE — Circularity",
+    label: "ENVIRONMENTAL FIRE - Circularity",
     fn: (inputs) => {
     const recyc = num(inputs, "recyc");
     const totalWaste = num(inputs, "totalWaste");
@@ -107,7 +107,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.eoq_inventory_optimizer_0",
     family: "cost",
-    label: "EOQ ENVANTER — EOQ",
+    label: "EOQ ENVANTER - EOQ",
     fn: (inputs) => {
     const demand = num(inputs, "demand");
     const orderCost = num(inputs, "orderCost");
@@ -119,7 +119,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.eoq_inventory_optimizer_1",
     family: "cost",
-    label: "EOQ ENVANTER — ROP",
+    label: "EOQ ENVANTER - ROP",
     fn: (inputs) => {
     const leadTime = num(inputs, "leadTime");
     const dailyDemand = num(inputs, "dailyDemand");
@@ -130,7 +130,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.eoq_inventory_optimizer_2",
     family: "cost",
-    label: "EOQ ENVANTER — SafetyStock",
+    label: "EOQ ENVANTER - SafetyStock",
     fn: (inputs) => {
     const z = num(inputs, "z");
     const stdDev = num(inputs, "stdDev");
@@ -142,7 +142,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.eoq_inventory_optimizer_3",
     family: "cost",
-    label: "EOQ ENVANTER — TotalCost",
+    label: "EOQ ENVANTER - TotalCost",
     fn: (inputs) => {
     const demand = num(inputs, "demand");
     const eOQ = num(inputs, "eOQ");
@@ -155,7 +155,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.eoq_inventory_optimizer_4",
     family: "cost",
-    label: "EOQ ENVANTER — CycleStock",
+    label: "EOQ ENVANTER - CycleStock",
     fn: (inputs) => {
     const eOQ = num(inputs, "eOQ");
     return nonNegative(assertFinite(eOQ / 2));
@@ -164,7 +164,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.eoq_inventory_optimizer_5",
     family: "cost",
-    label: "EOQ ENVANTER — Turnover",
+    label: "EOQ ENVANTER - Turnover",
     fn: (inputs) => {
     const demand = num(inputs, "demand");
     const avgInv = num(inputs, "avgInv");
@@ -174,7 +174,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.eoq_inventory_optimizer_6",
     family: "cost",
-    label: "EOQ ENVANTER — DaysSales",
+    label: "EOQ ENVANTER - DaysSales",
     fn: (inputs) => {
     const turnover = num(inputs, "turnover");
     return nonNegative(assertFinite(365 / turnover));
@@ -185,7 +185,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_0",
     family: "cost",
-    label: "EVM COST FORECAST — SV",
+    label: "EVM COST FORECAST - SV",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const pV = num(inputs, "pV");
@@ -195,7 +195,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_1",
     family: "cost",
-    label: "EVM COST FORECAST — CV",
+    label: "EVM COST FORECAST - CV",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const aC = num(inputs, "aC");
@@ -205,7 +205,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_2",
     family: "cost",
-    label: "EVM COST FORECAST — SPI",
+    label: "EVM COST FORECAST - SPI",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const pV = num(inputs, "pV");
@@ -215,7 +215,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_3",
     family: "cost",
-    label: "EVM COST FORECAST — CPI",
+    label: "EVM COST FORECAST - CPI",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const aC = num(inputs, "aC");
@@ -225,7 +225,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_4",
     family: "cost",
-    label: "EVM COST FORECAST — EAC_CPI",
+    label: "EVM COST FORECAST - EAC_CPI",
     fn: (inputs) => {
     const bAC = num(inputs, "bAC");
     const cPI = num(inputs, "cPI");

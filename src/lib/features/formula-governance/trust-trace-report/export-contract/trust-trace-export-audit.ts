@@ -1,5 +1,5 @@
 /**
- * Trust trace export contract audit — Phase 5I-C single contract validation.
+ * Trust trace export contract audit - Phase 5I-C single contract validation.
  */
 
 import { buildTrustTraceExportContract } from "@/lib/features/formula-governance/trust-trace-report/export-contract/trust-trace-export-contract-builder";

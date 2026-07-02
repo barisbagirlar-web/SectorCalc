@@ -21,7 +21,7 @@ export const SMED_CHANGEOVER_SCHEMA: PremiumCalculatorSchema = {
     { id: "annualSavings", label: "Annual Tasarruf", label_i18n: {"en":"Annual Tasarruf"}, unit: "USD/year", format: "currency" },
     { id: "capacityGain", label: "Capacity Kazanm", label_i18n: {"en":"Capacity Kazanm"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "annualSavings", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Savings > $10K — SMED project should be initiated.", warningMessage_i18n: {"en":"Savings > $10K — SMED project should be initiated."}, criticalMessage: "Savings > $50K — urgent SMED implementation required.", criticalMessage_i18n: {"en":"Savings > $50K — urgent SMED implementation required."} }],
+  thresholds: [{ fieldId: "annualSavings", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Savings > $10K - SMED project should be initiated.", warningMessage_i18n: {"en":"Savings > $10K - SMED project should be initiated."}, criticalMessage: "Savings > $50K - urgent SMED implementation required.", criticalMessage_i18n: {"en":"Savings > $50K - urgent SMED implementation required."} }],
   formulaPipeline: [
     { formulaId: "measurement.smed_target_time", inputMap: { internalSetup: "internalSetup", conversionRate: "conversionRate", externalSetup: "externalSetup" }, outputId: "measurement_smed_target_time_out" },
     { formulaId: "measurement.smed_setup_total", inputMap: { internalSetup: "internalSetup", externalSetup: "externalSetup" }, outputId: "totalSetup" },

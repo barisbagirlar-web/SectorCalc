@@ -1,5 +1,5 @@
 /**
- * Batch report render dry-run audit — Phase 5I-I read-only.
+ * Batch report render dry-run audit - Phase 5I-I read-only.
  */
 
 import { FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts";

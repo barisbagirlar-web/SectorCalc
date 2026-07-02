@@ -1,5 +1,5 @@
 /**
- * GOLDEN TESTS — real verification, hand-checked expected values.
+ * GOLDEN TESTS - real verification, hand-checked expected values.
  * Source: claude_pro_tasarim_/engine-golden.test.ts (verified engine design)
  *
  * 28 individual assertions across 6 test groups.
@@ -116,7 +116,7 @@ const rcBeam: ToolSchema = {
       uncertainty: { value: 0.02, relative: true, type: "B", distribution: "normal" },
     },
   ],
-  // Deliberately scrambled order — engine must topo-sort.
+  // Deliberately scrambled order - engine must topo-sort.
   formulas: [
     { id: "F8", outputVar: "M_Rd", expression: "A_s * f_yd * z / 1e6", unit: "kNm" },
     { id: "F36", outputVar: "UC_M", expression: "M_Ed / M_Rd", unit: "-" },
@@ -178,8 +178,8 @@ const areaTool: ToolSchema = {
 
 const SCOPE = { b_w: 300, d: 500, A_s: 1500, f_ck: 30, f_yk: 500, gamma_c: 1.5, gamma_s: 1.15, alpha_cc: 0.85, M_Ed: 200 };
 
-describe("golden tests — engine verification", () => {
-  describe("TEST 1: RC beam flexure — hand-verified values + topo-sort + functions", () => {
+describe("golden tests - engine verification", () => {
+  describe("TEST 1: RC beam flexure - hand-verified values + topo-sort + functions", () => {
     const prep = prepare(rcBeam);
     const r = compute(prep, SCOPE);
 
@@ -212,7 +212,7 @@ describe("golden tests — engine verification", () => {
     });
   });
 
-  describe("TEST 2: Unit conversion (mm vs m) — same physical input, same result", () => {
+  describe("TEST 2: Unit conversion (mm vs m) - same physical input, same result", () => {
     it("1000mm×2000mm = 2,000,000 mm²", () => {
       const pa = prepare(areaTool);
       const inMm = compute(pa, { w: 1000, h: 2000 });
@@ -225,7 +225,7 @@ describe("golden tests — engine verification", () => {
     });
   });
 
-  describe("TEST 3: Fail-closed — over-reinforced triggers domain guard, NO results", () => {
+  describe("TEST 3: Fail-closed - over-reinforced triggers domain guard, NO results", () => {
     it("ok === false (blocked)", () => {
       const guardSchema: ToolSchema = { ...rcBeam, validationRules: [] };
       const pg = prepare(guardSchema);
@@ -246,7 +246,7 @@ describe("golden tests — engine verification", () => {
     });
   });
 
-  describe("TEST 4: Security — no eval; malicious / invalid expressions rejected", () => {
+  describe("TEST 4: Security - no eval; malicious / invalid expressions rejected", () => {
     const tryReject = (expr: string) => {
       try {
         prepare({ ...areaTool, formulas: [{ id: "X", outputVar: "area", expression: expr, unit: "-" }] } as ToolSchema);
@@ -273,7 +273,7 @@ describe("golden tests — engine verification", () => {
     });
   });
 
-  describe("TEST 5: GUM uncertainty — finite-diff matches analytic on y = a·b", () => {
+  describe("TEST 5: GUM uncertainty - finite-diff matches analytic on y = a·b", () => {
     const gumTool: ToolSchema = {
       id: "GUM",
       version: "1",
@@ -306,7 +306,7 @@ describe("golden tests — engine verification", () => {
     });
   });
 
-  describe("TEST 6: Audit — real SHA-256, full payload, tamper-evident chain", () => {
+  describe("TEST 6: Audit - real SHA-256, full payload, tamper-evident chain", () => {
     it("hash is 64 hex chars (real SHA-256), record verifies, chain verifies, tampered fails", async () => {
       const audit = new AuditService();
       const rec1 = await audit.release({

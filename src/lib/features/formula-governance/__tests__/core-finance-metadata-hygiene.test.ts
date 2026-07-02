@@ -1,5 +1,5 @@
 /**
- * Phase 5H-D-A — core finance batch contract metadata hygiene.
+ * Phase 5H-D-A - core finance batch contract metadata hygiene.
  */
 
 import { describe, expect, test } from "vitest";

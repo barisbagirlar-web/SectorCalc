@@ -72,7 +72,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.saas_shelfware_0",
     family: "cost",
-    label: "SaaS Shelfware Maliyet — TotalLicenses",
+    label: "SaaS Shelfware Maliyet - TotalLicenses",
     fn: (inputs) => {
     const purchasedLicenses = num(inputs, "purchasedLicenses");
     return nonNegative(assertFinite(purchasedLicenses));
@@ -81,7 +81,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.saas_shelfware_1",
     family: "cost",
-    label: "SaaS Shelfware Maliyet — ActiveUsers",
+    label: "SaaS Shelfware Maliyet - ActiveUsers",
     fn: (inputs) => {
     const usersLoggedInLast30Days = num(inputs, "usersLoggedInLast30Days");
     return nonNegative(assertFinite(usersLoggedInLast30Days));
@@ -90,7 +90,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.saas_shelfware_2",
     family: "cost",
-    label: "SaaS Shelfware Maliyet — ShelfwarePct",
+    label: "SaaS Shelfware Maliyet - ShelfwarePct",
     fn: (inputs) => {
     const totalLicenses = num(inputs, "totalLicenses");
     const activeUsers = num(inputs, "activeUsers");
@@ -100,7 +100,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.saas_shelfware_3",
     family: "cost",
-    label: "SaaS Shelfware Maliyet — ShelfwareCost",
+    label: "SaaS Shelfware Maliyet - ShelfwareCost",
     fn: (inputs) => {
     const shelfwarePct = num(inputs, "shelfwarePct");
     const totalContractValue = num(inputs, "totalContractValue");
@@ -110,7 +110,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.saas_shelfware_4",
     family: "cost",
-    label: "SaaS Shelfware Maliyet — UtilizationRate",
+    label: "SaaS Shelfware Maliyet - UtilizationRate",
     fn: (inputs) => {
     const activeUsers = num(inputs, "activeUsers");
     const totalLicenses = num(inputs, "totalLicenses");
@@ -120,7 +120,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.saas_shelfware_5",
     family: "cost",
-    label: "SaaS Shelfware Maliyet — FeatureAdoption",
+    label: "SaaS Shelfware Maliyet - FeatureAdoption",
     fn: (inputs) => {
     const featuresUsed = num(inputs, "featuresUsed");
     const totalFeatures = num(inputs, "totalFeatures");
@@ -130,7 +130,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.saas_shelfware_6",
     family: "cost",
-    label: "SaaS Shelfware Maliyet — OptimizationSavings",
+    label: "SaaS Shelfware Maliyet - OptimizationSavings",
     fn: (inputs) => {
     const shelfwareCost = num(inputs, "shelfwareCost");
     const underutilizedTierPriceDiff = num(inputs, "underutilizedTierPriceDiff");
@@ -141,7 +141,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.saas_shelfware_7",
     family: "cost",
-    label: "SaaS Shelfware Maliyet — TrueUpCost",
+    label: "SaaS Shelfware Maliyet - TrueUpCost",
     fn: (inputs) => {
     const actualUsage = num(inputs, "actualUsage");
     const contractedUsage = num(inputs, "contractedUsage");
@@ -155,7 +155,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_0",
     family: "cost",
-    label: "Saatlik Ucret — GrossAnnualSalary",
+    label: "Saatlik Ucret - GrossAnnualSalary",
     fn: (inputs) => {
     const baseSalary = num(inputs, "baseSalary");
     const bonuses = num(inputs, "bonuses");
@@ -165,7 +165,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_1",
     family: "cost",
-    label: "Saatlik Ucret — EmployerTaxes",
+    label: "Saatlik Ucret - EmployerTaxes",
     fn: (inputs) => {
     const grossAnnualSalary = num(inputs, "grossAnnualSalary");
     const taxRate = num(inputs, "taxRate");
@@ -175,7 +175,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_2",
     family: "cost",
-    label: "Saatlik Ucret — Benefits",
+    label: "Saatlik Ucret - Benefits",
     fn: (inputs) => {
     const healthInsurance = num(inputs, "healthInsurance");
     const retirementMatch = num(inputs, "retirementMatch");
@@ -186,7 +186,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_3",
     family: "cost",
-    label: "Saatlik Ucret — TotalLaborCost",
+    label: "Saatlik Ucret - TotalLaborCost",
     fn: (inputs) => {
     const grossAnnualSalary = num(inputs, "grossAnnualSalary");
     const employerTaxes = num(inputs, "employerTaxes");
@@ -197,7 +197,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_4",
     family: "cost",
-    label: "Saatlik Ucret — ProductiveHours",
+    label: "Saatlik Ucret - ProductiveHours",
     fn: (inputs) => {
     const weeksPerYear = num(inputs, "weeksPerYear");
     const vacationWeeks = num(inputs, "vacationWeeks");
@@ -209,7 +209,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_5",
     family: "cost",
-    label: "Saatlik Ucret — FullyBurdenedHourlyRate",
+    label: "Saatlik Ucret - FullyBurdenedHourlyRate",
     fn: (inputs) => {
     const totalLaborCost = num(inputs, "totalLaborCost");
     const productiveHours = num(inputs, "productiveHours");
@@ -219,7 +219,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_6",
     family: "cost",
-    label: "Saatlik Ucret — MarginRate",
+    label: "Saatlik Ucret - MarginRate",
     fn: (inputs) => {
     const fullyBurdenedHourlyRate = num(inputs, "fullyBurdenedHourlyRate");
     const targetMargin = num(inputs, "targetMargin");

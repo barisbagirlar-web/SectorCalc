@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-D — smart form bridge renderer contract tests (no DOM).
+ * Phase 5H-G-D - smart form bridge renderer contract tests (no DOM).
  */
 
 import { describe, expect, test } from "vitest";

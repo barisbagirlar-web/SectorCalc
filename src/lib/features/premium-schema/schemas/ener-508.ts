@@ -18,8 +18,8 @@ export const ENERGY_SAVINGS_PACKAGE_CALCULATOR_SCHEMA: PremiumCalculatorSchema =
       warning: 4,
       critical: 7,
       direction: "higher_is_bad",
-      warningMessage: "Payback exceeds four years — verify incentive and tariff assumptions.",
-      criticalMessage: "Payback exceeds seven years — project economics need review.",
+      warningMessage: "Payback exceeds four years - verify incentive and tariff assumptions.",
+      criticalMessage: "Payback exceeds seven years - project economics need review.",
     },
   ],
 
@@ -36,7 +36,7 @@ export const ENERGY_SAVINGS_PACKAGE_CALCULATOR_SCHEMA: PremiumCalculatorSchema =
     assumptionNotes: [
       "Savings = (baseline − proposed) kWh × tariff, annualized.",
       "Payback = project cost ÷ annual savings.",
-      "Informational screening only — excludes maintenance, incentives and demand charges.",
+      "Informational screening only - excludes maintenance, incentives and demand charges.",
     ],
   },
 };

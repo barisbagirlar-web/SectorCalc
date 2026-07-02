@@ -1,5 +1,5 @@
 /**
- * Snapshot sanitizer — safely captures input/result for approved reports
+ * Snapshot sanitizer - safely captures input/result for approved reports
  */
 
 const SECRET_LIKE_PATTERNS = [

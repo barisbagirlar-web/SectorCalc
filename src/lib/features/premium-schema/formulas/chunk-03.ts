@@ -72,7 +72,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.downtime_cost_3",
     family: "cost",
-    label: "DOWNTIME COSTI — RecoveryCost",
+    label: "DOWNTIME COSTI - RecoveryCost",
     fn: (inputs) => {
     const overtimeHours = num(inputs, "overtimeHours");
     const overtimeRate = num(inputs, "overtimeRate");
@@ -83,7 +83,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.downtime_cost_4",
     family: "cost",
-    label: "DOWNTIME COSTI — TotalDowntimeCost",
+    label: "DOWNTIME COSTI - TotalDowntimeCost",
     fn: (inputs) => {
     const directLaborLoss = num(inputs, "directLaborLoss");
     const productionLoss = num(inputs, "productionLoss");
@@ -99,7 +99,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_comeback_0",
     family: "cost",
-    label: "AUTO REPAIR COMEBACK — ComebackRate",
+    label: "AUTO REPAIR COMEBACK - ComebackRate",
     fn: (inputs) => {
     const comebackOrders = num(inputs, "comebackOrders");
     const totalCompleted = num(inputs, "totalCompleted");
@@ -109,7 +109,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_comeback_1",
     family: "cost",
-    label: "AUTO REPAIR COMEBACK — ComebackCost_Direct",
+    label: "AUTO REPAIR COMEBACK - ComebackCost_Direct",
     fn: (inputs) => {
     const comebackOrders = num(inputs, "comebackOrders");
     const diagTime = num(inputs, "diagTime");
@@ -121,7 +121,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_comeback_2",
     family: "cost",
-    label: "AUTO REPAIR COMEBACK — ComebackCost_Parts",
+    label: "AUTO REPAIR COMEBACK - ComebackCost_Parts",
     fn: (inputs) => {
     const comebackOrders = num(inputs, "comebackOrders");
     const wastedPartsValue = num(inputs, "wastedPartsValue");
@@ -131,7 +131,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_comeback_3",
     family: "cost",
-    label: "AUTO REPAIR COMEBACK — ComebackCost_Opportunity",
+    label: "AUTO REPAIR COMEBACK - ComebackCost_Opportunity",
     fn: (inputs) => {
     const comebackOrders = num(inputs, "comebackOrders");
     const bayOccupancyHours = num(inputs, "bayOccupancyHours");
@@ -142,7 +142,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_comeback_4",
     family: "cost",
-    label: "AUTO REPAIR COMEBACK — DPMO",
+    label: "AUTO REPAIR COMEBACK - DPMO",
     fn: (inputs) => {
     const comebackOrders = num(inputs, "comebackOrders");
     const totalCompleted = num(inputs, "totalCompleted");
@@ -152,7 +152,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_comeback_5",
     family: "cost",
-    label: "AUTO REPAIR COMEBACK — TotalCost",
+    label: "AUTO REPAIR COMEBACK - TotalCost",
     fn: (inputs) => {
     const direct = num(inputs, "direct");
     const parts = num(inputs, "parts");
@@ -167,7 +167,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_quote_consistency_0",
     family: "cost",
-    label: "AUTO REPAIR QUOTE — QuoteVariance",
+    label: "AUTO REPAIR QUOTE - QuoteVariance",
     fn: (inputs) => {
     const quoteAmounts = num(inputs, "quoteAmounts");
     return nonNegative(assertFinite(quoteAmounts > 0 ? 1 : 0));
@@ -176,7 +176,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_quote_consistency_1",
     family: "cost",
-    label: "AUTO REPAIR QUOTE — PartPriceDeviation",
+    label: "AUTO REPAIR QUOTE - PartPriceDeviation",
     fn: (inputs) => {
     const quotedPartPrice = num(inputs, "quotedPartPrice");
     const marketAvg = num(inputs, "marketAvg");
@@ -186,7 +186,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_quote_consistency_2",
     family: "cost",
-    label: "AUTO REPAIR QUOTE — LaborTimeDeviation",
+    label: "AUTO REPAIR QUOTE - LaborTimeDeviation",
     fn: (inputs) => {
     const quotedLaborHours = num(inputs, "quotedLaborHours");
     const standardHours = num(inputs, "standardHours");
@@ -196,7 +196,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_quote_consistency_3",
     family: "cost",
-    label: "AUTO REPAIR QUOTE — ConsistencyScore",
+    label: "AUTO REPAIR QUOTE - ConsistencyScore",
     fn: (inputs) => {
     const quoteVariance = num(inputs, "quoteVariance");
     const partPriceDeviation = num(inputs, "partPriceDeviation");
@@ -208,7 +208,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_repair_quote_consistency_4",
     family: "cost",
-    label: "AUTO REPAIR QUOTE — MarginLeak",
+    label: "AUTO REPAIR QUOTE - MarginLeak",
     fn: (inputs) => {
     const marketPrice = num(inputs, "marketPrice");
     const quotedPrice = num(inputs, "quotedPrice");
@@ -221,7 +221,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_shop_margin_leak_0",
     family: "cost",
-    label: "AUTO SHOP MARGIN LEAK — GrossMargin_Parts",
+    label: "AUTO SHOP MARGIN LEAK - GrossMargin_Parts",
     fn: (inputs) => {
     const partsRevenue = num(inputs, "partsRevenue");
     const partsCOGS = num(inputs, "partsCOGS");
@@ -231,7 +231,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_shop_margin_leak_1",
     family: "cost",
-    label: "AUTO SHOP MARGIN LEAK — EffectiveLaborRate",
+    label: "AUTO SHOP MARGIN LEAK - EffectiveLaborRate",
     fn: (inputs) => {
     const totalLaborRevenue = num(inputs, "totalLaborRevenue");
     const totalFlagHours = num(inputs, "totalFlagHours");

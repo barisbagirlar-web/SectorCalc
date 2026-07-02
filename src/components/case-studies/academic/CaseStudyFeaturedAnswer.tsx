@@ -4,7 +4,7 @@ type CaseStudyFeaturedAnswerProps = {
   readonly bullets: readonly string[];
 };
 
-/** Featured-snippet block — keeps speakable CSS selectors used in JSON-LD. */
+/** Featured-snippet block - keeps speakable CSS selectors used in JSON-LD. */
 export function CaseStudyFeaturedAnswer({
   question,
   answer,

@@ -9,7 +9,7 @@ export const officeCleaningBidOptimizerDefinition: ToolDefinition = {
  shortDescription:
  "Calculate a safer cleaning bid using crew hours, supplies, travel, overhead and target margin.",
  longDescription:
- "Optimize recurring office cleaning bids by modeling monthly labor, supplies, travel and overhead against customer budget and target margin — with scenario calculation and risk verdict.",
+ "Optimize recurring office cleaning bids by modeling monthly labor, supplies, travel and overhead against customer budget and target margin - with scenario calculation and risk verdict.",
  inputs: [
  {
  id: "area",

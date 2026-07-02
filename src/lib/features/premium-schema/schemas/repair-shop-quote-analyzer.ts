@@ -10,7 +10,7 @@ export const REPAIR_SHOP_QUOTE_SCHEMA: PremiumCalculatorSchema = {
       label: "Labor Revenue",
       label_i18n: { en: "Labor Revenue" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -25,7 +25,7 @@ export const REPAIR_SHOP_QUOTE_SCHEMA: PremiumCalculatorSchema = {
     { id: "effectiveLaborRate", label: "Effective Labor Rate", label_i18n: {"en":"Effective Labor Rate"}, unit: "USD/hour", format: "currency" },
     { id: "grossProfitPct", label: "Gross Profit Margin", label_i18n: {"en":"Gross Profit Margin"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "grossProfitPct", warning: 30, critical: 15, direction: "lower_is_bad", warningMessage: "Margin < 30% — review cost structure.", warningMessage_i18n: {"en":"Margin < 30% — review cost structure."}, criticalMessage: "Margin < 15% — quote may be losing money.", criticalMessage_i18n: {"en":"Margin < 15% — quote may be losing money."} }],
+  thresholds: [{ fieldId: "grossProfitPct", warning: 30, critical: 15, direction: "lower_is_bad", warningMessage: "Margin < 30% - review cost structure.", warningMessage_i18n: {"en":"Margin < 30% - review cost structure."}, criticalMessage: "Margin < 15% - quote may be losing money.", criticalMessage_i18n: {"en":"Margin < 15% - quote may be losing money."} }],
   formulaPipeline: [
     { formulaId: "cost.quote_total", inputMap: { laborHours: "laborHours", hourlyRate: "hourlyRate", partsCost: "partsCost" ,
         laborRate: "laborRate",

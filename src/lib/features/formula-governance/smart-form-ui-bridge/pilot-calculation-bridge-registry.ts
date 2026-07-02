@@ -1,5 +1,5 @@
 /**
- * Smart form pilot calculation bridge registry — Phase 5H-G-G/H / 5H-H batch rollout.
+ * Smart form pilot calculation bridge registry - Phase 5H-G-G/H / 5H-H batch rollout.
  */
 
 import {

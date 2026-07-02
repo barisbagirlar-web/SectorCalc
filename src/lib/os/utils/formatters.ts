@@ -12,7 +12,7 @@ export function formatCurrency(
  currency = "USD"
 ): string {
  if (!Number.isFinite(value)) {
- return "—";
+ return "-";
  }
  return new Intl.NumberFormat(locale, {
  style: "currency",
@@ -28,7 +28,7 @@ export function formatNumber(
  fractionDigits = 2
 ): string {
  if (!Number.isFinite(value)) {
- return "—";
+ return "-";
  }
  return value.toLocaleString(locale, {
  minimumFractionDigits: fractionDigits,
@@ -42,7 +42,7 @@ export function formatPercent(
  fractionDigits = 2
 ): string {
  if (!Number.isFinite(value)) {
- return "—";
+ return "-";
  }
  return `${value.toLocaleString(locale, {
  minimumFractionDigits: fractionDigits,

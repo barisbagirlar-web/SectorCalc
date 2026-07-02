@@ -1,5 +1,5 @@
 /**
- * Locale Center — canonical money/number/percent/date formatters.
+ * Locale Center - canonical money/number/percent/date formatters.
  * Public UI must use these instead of ad-hoc toLocaleString / Intl calls.
  */
 
@@ -58,5 +58,5 @@ export function formatMoneyForLocaleRegion(
   return formatMoney(value, locale, undefined, resolvedRegion);
 }
 
-/** @deprecated Prefer formatNumber — kept for gradual migration */
+/** @deprecated Prefer formatNumber - kept for gradual migration */
 export const formatLocalizedNumberExport = formatLocalizedNumber;

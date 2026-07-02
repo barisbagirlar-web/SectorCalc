@@ -27,7 +27,7 @@ interface RegionProviderProps {
   children: ReactNode;
 }
 
-/** Global OS state — region from middleware geo detection. */
+/** Global OS state - region from middleware geo detection. */
 export function RegionProvider({ region, source, children }: RegionProviderProps) {
   const value = useMemo(
     () => ({ region, profile: getRegionProfile(region), source }),

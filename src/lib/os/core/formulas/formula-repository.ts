@@ -1,5 +1,5 @@
 /**
- * FormulaRepository — Logic Layer (U-Engine pattern).
+ * FormulaRepository - Logic Layer (U-Engine pattern).
  * Formulas match by registry id; sector code is not hard-coded.
  */
 
@@ -36,7 +36,7 @@ function computeVarianceRatio(target: number, actual: number): number {
   return (actual - target) / target;
 }
 
-/** Standard efficiency formula — registry can override. */
+/** Standard efficiency formula - registry can override. */
 export function standardEfficiencyFormula(inputs: FormulaInputs): number {
   if (
     !Number.isFinite(inputs.target) ||
@@ -103,10 +103,10 @@ export class FormulaRepository {
   }
 }
 
-/** Singleton — MasterOS / U-Engine entry point. */
+/** Singleton - MasterOS / U-Engine entry point. */
 export const formulaRepository = new FormulaRepository();
 
-/** Backward-compat — registry-logic Formulas map. */
+/** Backward-compat - registry-logic Formulas map. */
 export const Formulas = Object.fromEntries(
   formulaRepository.listSectorIds().map((sectorId) => [
     sectorId,

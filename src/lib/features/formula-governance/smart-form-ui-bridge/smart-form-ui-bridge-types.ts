@@ -1,5 +1,5 @@
 /**
- * Smart Form UI bridge manifest types — Phase 5H-G-C (prop contract only; no UI).
+ * Smart Form UI bridge manifest types - Phase 5H-G-C (prop contract only; no UI).
  */
 
 import type { SmartFormInputType, SmartFormRenderVisibility } from "@/lib/features/formula-governance/smart-form-rendering/smart-form-render-types";

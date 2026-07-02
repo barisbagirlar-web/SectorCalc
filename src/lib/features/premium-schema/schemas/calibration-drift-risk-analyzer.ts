@@ -1,5 +1,5 @@
 /**
- * Tool #13 — Kalibrasyon Sapma Riski
+ * Tool #13 - Kalibrasyon Sapma Riski
  * DriftRate → CurrentUncertainty → RiskScore → OptimalInterval → GuardBand
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -28,7 +28,7 @@ export const CALIBRATION_DRIFT_SCHEMA: PremiumCalculatorSchema = {
     { id: "calibrationVerdict", label: "Kalibrasyon Durumu", label_i18n: {"en":"Kalibrasyon Durumu"}, unit: "scalar", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "riskScore", warning: 3, critical: 5, direction: "higher_is_bad", warningMessage: "Risk score > 3 — shorten calibration interval.", warningMessage_i18n: {"en":"Risk score > 3 — shorten calibration interval."}, criticalMessage: "Risk score > 5 — urgent calibration required.", criticalMessage_i18n: {"en":"Risk score > 5 — urgent calibration required."} },
+    { fieldId: "riskScore", warning: 3, critical: 5, direction: "higher_is_bad", warningMessage: "Risk score > 3 - shorten calibration interval.", warningMessage_i18n: {"en":"Risk score > 3 - shorten calibration interval."}, criticalMessage: "Risk score > 5 - urgent calibration required.", criticalMessage_i18n: {"en":"Risk score > 5 - urgent calibration required."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.drift_rate", inputMap: { lastError: "lastCalibrationError", prevError: "previousCalibrationError", timeBetweenDays: "timeBetweenCalibrations" }, outputId: "driftRate" },

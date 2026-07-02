@@ -1,5 +1,5 @@
 /**
- * Phase 5H-H — smart form rollout batch H eligibility and wiring tests.
+ * Phase 5H-H - smart form rollout batch H eligibility and wiring tests.
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";
@@ -25,7 +25,7 @@ import { buildPilotUiBridgeManifestForSlug } from "@/lib/features/formula-govern
 import { resolveSmartFormPilotManifestForRoute } from "@/lib/features/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
 import { shouldUseSmartFormPilot } from "@/lib/infrastructure/feature-flags/smart-form-pilot";
 
-describe("smart form rollout batch H — Phase 5H-H", () => {
+describe("smart form rollout batch H - Phase 5H-H", () => {
   afterEach(() => {
     vi.unstubAllEnvs();
   });

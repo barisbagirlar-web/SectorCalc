@@ -1,5 +1,5 @@
 /**
- * Smart Form Architecture governance types — Phase 5H-G-A (spec only; no UI).
+ * Smart Form Architecture governance types - Phase 5H-G-A (spec only; no UI).
  */
 
 export type SmartFormReadinessStatus =

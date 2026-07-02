@@ -4,7 +4,7 @@ import { ACTIVITY_PLACEHOLDER_ROWS } from "@/lib/ui-shared/home/margincore-dashb
 
 function formatActivityTimestamp(iso: string, locale: string): string {
   if (!iso) {
-    return "—";
+    return "-";
   }
 
   const parsed = new Date(iso);

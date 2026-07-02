@@ -19,8 +19,8 @@ export const AUTO_REPAIR_COMEBACK_COST_SCHEMA: PremiumCalculatorSchema = {
       warning: 4,
       critical: 8,
       direction: "higher_is_bad",
-      warningMessage: "Comeback rate is elevated — verify diagnostic and QC assumptions.",
-      criticalMessage: "Critical comeback band — reprice flat-rate work before scaling.",
+      warningMessage: "Comeback rate is elevated - verify diagnostic and QC assumptions.",
+      criticalMessage: "Critical comeback band - reprice flat-rate work before scaling.",
     },
   ],
 

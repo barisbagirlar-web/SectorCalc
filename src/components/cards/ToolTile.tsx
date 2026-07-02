@@ -7,7 +7,7 @@ interface ToolTileProps {
   onDark?: boolean;
 }
 
-/** Text-based tool list item — name + description, no box. */
+/** Text-based tool list item - name + description, no box. */
 export function ToolTile({ tool, onDark = false }: ToolTileProps) {
   const isPremium = tool.tier === "premium";
 

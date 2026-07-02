@@ -1,5 +1,5 @@
 /**
- * Input design audit types — Phase 5H-C read-only tool input design audit.
+ * Input design audit types - Phase 5H-C read-only tool input design audit.
  */
 
 import type { BatchAlignmentStatus } from "@/lib/features/formula-governance/requirement-engine/batch-alignment-audit";

@@ -1,5 +1,5 @@
 /**
- * Smart form contract adapter tests — ADIM 2.
+ * Smart form contract adapter tests - ADIM 2.
  */
 
 import { describe, expect, test } from "vitest";

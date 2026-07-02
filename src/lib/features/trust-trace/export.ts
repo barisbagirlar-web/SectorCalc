@@ -1,5 +1,5 @@
 /**
- * Export helpers — HTML/CSV/Word for approved reports (no heavy deps)
+ * Export helpers - HTML/CSV/Word for approved reports (no heavy deps)
  */
 import type { ApprovedReportPayload } from "./types";
 import { buildQrCodeImageUrl } from "./verification";

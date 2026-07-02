@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-F — smart form pilot analytics, optional field gate, payload equivalence.
+ * Phase 5H-G-F - smart form pilot analytics, optional field gate, payload equivalence.
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";
@@ -35,7 +35,7 @@ vi.mock("@/lib/infrastructure/analytics/revenue-events", async (importOriginal) 
   };
 });
 
-describe("smart form pilot analytics and gate — Phase 5H-G-F", () => {
+describe("smart form pilot analytics and gate - Phase 5H-G-F", () => {
   afterEach(() => {
     vi.unstubAllEnvs();
     vi.mocked(trackRevenueEvent).mockClear();

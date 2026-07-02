@@ -1,5 +1,5 @@
 /**
- * P6 — Regional Benchmark Engine types.
+ * P6 - Regional Benchmark Engine types.
  *
  * Indicative decision-support bands only. These are NOT official statistics or
  * financial advice. Every band carries a sourceNote and a confidence level.

@@ -17,7 +17,7 @@ const SIZE_MAP: Record<TraceAiLogoSize, { w: number; v: number }> = {
 };
 
 /**
- * Trace AI animated logo — Firebase-inspired warm gradient (yellow → orange → coral).
+ * Trace AI animated logo - Firebase-inspired warm gradient (yellow → orange → coral).
  * Outer rotating ring + pulsing glow + inner "T" trailblazer icon.
  */
 export function TraceAiLogo({ size = "md", className }: TraceAiLogoProps) {

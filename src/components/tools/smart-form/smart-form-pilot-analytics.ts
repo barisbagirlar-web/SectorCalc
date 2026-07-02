@@ -1,5 +1,5 @@
 /**
- * Smart form pilot analytics — Phase 5H-G-F/G (aligned with REVENUE_EVENTS; no new deps).
+ * Smart form pilot analytics - Phase 5H-G-F/G (aligned with REVENUE_EVENTS; no new deps).
  */
 
 import {

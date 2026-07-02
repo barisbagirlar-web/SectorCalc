@@ -68,7 +68,7 @@ function collectInputErrors(inputs: FiveSAuditEfficiencyLossInputs): string[] {
 function collectWarnings(inputs: FiveSAuditEfficiencyLossInputs): string[] {
   const warnings: string[] = [];
   if (inputs.current5sScore > inputs.target5sScore) {
-    warnings.push("Current 5S score is already above target — review direction.");
+    warnings.push("Current 5S score is already above target - review direction.");
   }
   return warnings;
 }

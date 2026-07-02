@@ -20,9 +20,9 @@ export const MEAL_PLANNING_VERDICT_SCHEMA: PremiumCalculatorSchema = {
       critical: 10,
       direction: "higher_is_bad",
       warningMessage:
-        "Waste rate is above target — portion drift or spoilage may be eroding margin.",
+        "Waste rate is above target - portion drift or spoilage may be eroding margin.",
       criticalMessage:
-        "High waste band — stop treating spoilage as normal before repricing or rescheduling prep.",
+        "High waste band - stop treating spoilage as normal before repricing or rescheduling prep.",
     },
     {
       fieldId: "marginPressure",
@@ -30,9 +30,9 @@ export const MEAL_PLANNING_VERDICT_SCHEMA: PremiumCalculatorSchema = {
       critical: 3,
       direction: "higher_is_bad",
       warningMessage:
-        "Excess waste is pressuring revenue margin — track waste drivers next cycle.",
+        "Excess waste is pressuring revenue margin - track waste drivers next cycle.",
       criticalMessage:
-        "Margin pressure is critical — review portion control and purchasing before accepting similar volume.",
+        "Margin pressure is critical - review portion control and purchasing before accepting similar volume.",
     },
   ],
 
@@ -56,7 +56,7 @@ export const MEAL_PLANNING_VERDICT_SCHEMA: PremiumCalculatorSchema = {
     assumptionNotes: [
       "Excess waste = max(waste rate − target, 0) applied to ingredient cost.",
       "Margin pressure = excess waste cost ÷ monthly revenue.",
-      "Gross margin input is contextual — not recalculated in this pilot.",
+      "Gross margin input is contextual - not recalculated in this pilot.",
     ],
   },
 };

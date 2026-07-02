@@ -1,5 +1,5 @@
 /**
- * Offline-First readiness — audit queue (local persistence).
+ * Offline-First readiness - audit queue (local persistence).
  * Smart Module: for sectors with offline_mode active.
  */
 

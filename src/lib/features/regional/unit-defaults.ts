@@ -1,5 +1,5 @@
 /**
- * P25 — Calculator surface unit + currency defaults (display/selector layer).
+ * P25 - Calculator surface unit + currency defaults (display/selector layer).
  * Formula inputs stay canonical; conversion is display-only unless explicitly wired.
  */
 
@@ -72,7 +72,7 @@ const UNIT_GROUP_TO_QUANTITY: Partial<Record<UnitGroup, QuantityType>> = {
   fuel: "volume",
 };
 
-/** Turkish locale unit labels — these are the raw symbols (English). */
+/** Turkish locale unit labels - these are the raw symbols (English). */
 const UNIT_LABEL_TR: Record<string, string> = {
   mm: "mm",
   cm: "cm",

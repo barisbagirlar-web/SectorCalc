@@ -1,5 +1,5 @@
 /**
- * Trust trace export contract builder — Phase 5I-C (no actual export).
+ * Trust trace export contract builder - Phase 5I-C (no actual export).
  */
 
 import {
@@ -85,7 +85,7 @@ export function buildTrustTraceExportContract(report: TrustTraceReport): TrustTr
 
   return {
     slug: report.slug,
-    reportTitle: `${report.title} — Trust Trace Report`,
+    reportTitle: `${report.title} - Trust Trace Report`,
     exportFormats: ["pdf", "excel", "word"],
     sections: resolvedSections,
     requiredDataSources,

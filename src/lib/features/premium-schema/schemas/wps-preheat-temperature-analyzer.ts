@@ -10,7 +10,7 @@ export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
       label: "Cu Pct",
       label_i18n: { en: "Cu Pct" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
       label: "V Pct",
       label_i18n: { en: "V Pct" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -39,8 +39,8 @@ export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
     { id: "crackRisk", label: "Catlama Riski", label_i18n: {"en":"Catlama Riski"}, unit: "puan", format: "score" },
   ],
   thresholds: [
-    { fieldId: "carbonEquivalent", warning: 0.4, critical: 0.55, direction: "higher_is_bad", warningMessage: "CEV > 0.4 — Pre-heating is required, hydrogen control must be performed.", warningMessage_i18n: {"en":"CEV > 0.4 — Pre-heating is required, hydrogen control must be performed."}, criticalMessage: "CEV > 0.55 — High cracking risk, resource procedure must be reviewed.", criticalMessage_i18n: {"en":"CEV > 0.55 — High cracking risk, resource procedure must be reviewed."} },
-    { fieldId: "preheatEnergyCost", warning: 500, critical: 1500, direction: "higher_is_bad", warningMessage: "Pre-heating Cost > $500 — Energy efficiency should be evaluated.", warningMessage_i18n: {"en":"Pre-heating Cost > $500 — Energy efficiency should be evaluated."}, criticalMessage: "Pre-heating Cost > $1,500 — Alternative resource methods should be investigated.", criticalMessage_i18n: {"en":"Pre-heating Cost > $1,500 — Alternative resource methods should be investigated."} },
+    { fieldId: "carbonEquivalent", warning: 0.4, critical: 0.55, direction: "higher_is_bad", warningMessage: "CEV > 0.4 - Pre-heating is required, hydrogen control must be performed.", warningMessage_i18n: {"en":"CEV > 0.4 - Pre-heating is required, hydrogen control must be performed."}, criticalMessage: "CEV > 0.55 - High cracking risk, resource procedure must be reviewed.", criticalMessage_i18n: {"en":"CEV > 0.55 - High cracking risk, resource procedure must be reviewed."} },
+    { fieldId: "preheatEnergyCost", warning: 500, critical: 1500, direction: "higher_is_bad", warningMessage: "Pre-heating Cost > $500 - Energy efficiency should be evaluated.", warningMessage_i18n: {"en":"Pre-heating Cost > $500 - Energy efficiency should be evaluated."}, criticalMessage: "Pre-heating Cost > $1,500 - Alternative resource methods should be investigated.", criticalMessage_i18n: {"en":"Pre-heating Cost > $1,500 - Alternative resource methods should be investigated."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.carbon_equivalent", inputMap: {

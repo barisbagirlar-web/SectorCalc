@@ -1,5 +1,5 @@
 /**
- * Tool — Sulama Maliyet
+ * Tool - Sulama Maliyet
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const IRRIGATION_COST_CHECK_ANALYZER: PremiumCalculatorSchema = {
@@ -22,7 +22,7 @@ export const IRRIGATION_COST_CHECK_ANALYZER: PremiumCalculatorSchema = {
     { id: "irrigationEnergyCost", label: "Irrigation Energy Cost", label_i18n: {"en":"Irrigation Energy Cost"}, unit: "USD/sezon", format: "currency" },
     { id: "irrigationTotalCost", label: "Total Irrigation Cost", label_i18n: {"en":"Total Irrigation Cost"}, unit: "USD/sezon", format: "currency" },
   ],
-  thresholds: [{ fieldId: "irrigationTotalCost", warning: 20000, critical: 40000, direction: "higher_is_bad", warningMessage: "Irrigation cost > $20K — system efficiency should be questioned.", warningMessage_i18n: {"en":"Irrigation cost > $20K — system efficiency should be questioned."}, criticalMessage: "Irrigation cost > $40K — alternative irrigation methods should be evaluated.", criticalMessage_i18n: {"en":"Irrigation cost > $40K — alternative irrigation methods should be evaluated."} }],
+  thresholds: [{ fieldId: "irrigationTotalCost", warning: 20000, critical: 40000, direction: "higher_is_bad", warningMessage: "Irrigation cost > $20K - system efficiency should be questioned.", warningMessage_i18n: {"en":"Irrigation cost > $20K - system efficiency should be questioned."}, criticalMessage: "Irrigation cost > $40K - alternative irrigation methods should be evaluated.", criticalMessage_i18n: {"en":"Irrigation cost > $40K - alternative irrigation methods should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "measurement.irrigation_water_req", inputMap: {
         cropWaterNeed: "cropWaterNeed",

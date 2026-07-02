@@ -1,5 +1,5 @@
 /**
- * Tool factory state machine — Phase 5I-A deterministic skeleton.
+ * Tool factory state machine - Phase 5I-A deterministic skeleton.
  */
 
 import {
@@ -197,7 +197,7 @@ export function nextState(
         blockers.push("Human approval required before DeployReady.");
         break;
       }
-      blockers.push("Auto deploy disabled — request_deploy records intent only.");
+      blockers.push("Auto deploy disabled - request_deploy records intent only.");
       currentStage = "DeployReady";
       break;
     default:

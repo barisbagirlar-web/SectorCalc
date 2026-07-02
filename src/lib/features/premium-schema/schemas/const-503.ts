@@ -20,9 +20,9 @@ export const CONSTRUCTION_SUBCONTRACTOR_MARGIN_LEAK_SCHEMA: PremiumCalculatorSch
       critical: 7,
       direction: "higher_is_bad",
       warningMessage:
-        "Subcontractor leak is pressuring project margin — audit change orders and delay claims.",
+        "Subcontractor leak is pressuring project margin - audit change orders and delay claims.",
       criticalMessage:
-        "Critical margin leak — renegotiate subs or reprice before accepting similar contract scope.",
+        "Critical margin leak - renegotiate subs or reprice before accepting similar contract scope.",
     },
   ],
 

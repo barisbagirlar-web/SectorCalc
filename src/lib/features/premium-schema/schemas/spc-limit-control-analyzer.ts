@@ -19,7 +19,7 @@ export const SPC_LIMIT_SCHEMA: PremiumCalculatorSchema = {
     { id: "sigmaEstimate", label: "σ̂ (Sigma Estimate)", label_i18n: {"en":"σ̂ (Sigma Estimate)"}, unit: "scalar", format: "number" },
     { id: "cp", label: "Cp (Process Capability)", label_i18n: {"en":"Cp (Process Capability)"}, unit: "scalar", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "cp", warning: 1.33, critical: 1.0, direction: "lower_is_bad", warningMessage: "Cp < 1.33 — process capability is borderline.", warningMessage_i18n: {"en":"Cp < 1.33 — process capability is borderline."}, criticalMessage: "Cp < 1.0 — process is incapable.", criticalMessage_i18n: {"en":"Cp < 1.0 — process is incapable."} }],
+  thresholds: [{ fieldId: "cp", warning: 1.33, critical: 1.0, direction: "lower_is_bad", warningMessage: "Cp < 1.33 - process capability is borderline.", warningMessage_i18n: {"en":"Cp < 1.33 - process capability is borderline."}, criticalMessage: "Cp < 1.0 - process is incapable.", criticalMessage_i18n: {"en":"Cp < 1.0 - process is incapable."} }],
   formulaPipeline: [
     { formulaId: "measurement.spc_x_bar_avg", inputMap: { data: "subgroupMeans" }, outputId: "xBarAvg" },
     { formulaId: "measurement.spc_r_bar", inputMap: { data: "subgroupRanges" }, outputId: "rBar" },

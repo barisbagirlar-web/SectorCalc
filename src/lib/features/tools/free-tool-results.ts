@@ -47,7 +47,7 @@ function fmtPct(n: number): string {
   return n.toFixed(1) + "%";
 }
 
-// ─── Calculator registry — one formula per revenue free slug ─────────
+// ─── Calculator registry - one formula per revenue free slug ─────────
 
 type CalculatorFn = (
   values: FreeToolInputValues,
@@ -65,7 +65,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     const hourlyBurden = laborHours > 0 ? totalVisible / laborHours : 0;
     const risk: FreeRiskLevel = hourlyBurden > 150 ? "HIGH" : hourlyBurden > 90 ? "MEDIUM" : "LOW";
     return {
-      headline: risk === "HIGH" ? "High cost exposure — review fit-up and labor" : "Visible cost within typical range",
+      headline: risk === "HIGH" ? "High cost exposure - review fit-up and labor" : "Visible cost within typical range",
       summary: formatCurrency(totalVisible),
       riskLevel: risk,
     };
@@ -87,9 +87,9 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Tonnage-to-area ratio outside typical range — sizing risk"
+          ? "Tonnage-to-area ratio outside typical range - sizing risk"
           : risk === "MEDIUM"
-            ? "Tonnage-to-area ratio near boundary — review load calc"
+            ? "Tonnage-to-area ratio near boundary - review load calc"
             : "Tonnage-to-area ratio within normal range (400-600 sqft/ton)",
       summary: formatNumber(sqftPerTon, 0) + " sqft/ton",
       riskLevel: risk,
@@ -106,7 +106,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     const laborRatio = totalVisible > 0 ? totalLabor / totalVisible : 0;
     const risk: FreeRiskLevel = laborRatio > 0.6 ? "MEDIUM" : "LOW";
     return {
-      headline: risk === "MEDIUM" ? "Labor dominates estimate — verify against panel schedule" : "Labor-to-material ratio within typical range",
+      headline: risk === "MEDIUM" ? "Labor dominates estimate - verify against panel schedule" : "Labor-to-material ratio within typical range",
       summary: formatCurrency(totalVisible),
       riskLevel: risk,
     };
@@ -122,7 +122,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "High monthly labor cost — review crew efficiency"
+          ? "High monthly labor cost - review crew efficiency"
           : risk === "MEDIUM"
             ? "Moderate monthly labor cost"
             : "Monthly labor cost within efficient range",
@@ -146,9 +146,9 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Effective labor rate is very low — quoted price may be too tight"
+          ? "Effective labor rate is very low - quoted price may be too tight"
           : risk === "MEDIUM"
-            ? "Effective labor rate is moderate — review shop minimum"
+            ? "Effective labor rate is moderate - review shop minimum"
             : "Effective labor rate in normal range",
       summary: formatCurrency(effectiveLaborRate) + "/hr effective",
       riskLevel: risk,
@@ -164,7 +164,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     const designRatio = totalVisible > 0 ? designHours * laborRate / totalVisible : 0;
     const risk: FreeRiskLevel = designRatio > 0.5 ? "MEDIUM" : "LOW";
     return {
-      headline: risk === "MEDIUM" ? "Design time is a large share — consider fixed-price risk" : "Design and material balance within typical range",
+      headline: risk === "MEDIUM" ? "Design time is a large share - consider fixed-price risk" : "Design and material balance within typical range",
       summary: formatCurrency(totalVisible),
       riskLevel: risk,
     };
@@ -186,7 +186,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Per-fixture cost is high — review material spec and labor efficiency"
+          ? "Per-fixture cost is high - review material spec and labor efficiency"
           : risk === "MEDIUM"
             ? "Per-fixture cost is moderate"
             : "Per-fixture cost within typical range",
@@ -206,7 +206,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     const laborRatio = totalVisible > 0 ? totalLabor / totalVisible : 0;
     const risk: FreeRiskLevel = laborRatio > 0.65 ? "MEDIUM" : "LOW";
     return {
-      headline: risk === "MEDIUM" ? "Labor dominates — verify shop and install hours" : "Material-to-labor ratio within typical range",
+      headline: risk === "MEDIUM" ? "Labor dominates - verify shop and install hours" : "Material-to-labor ratio within typical range",
       summary: formatCurrency(totalVisible),
       riskLevel: risk,
     };
@@ -222,7 +222,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "High visible cost — review material takeoff and crew size"
+          ? "High visible cost - review material takeoff and crew size"
           : risk === "MEDIUM"
             ? "Moderate visible cost"
             : "Visible cost within typical range for residential roofing",
@@ -246,7 +246,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Paint cost per m2 is high — review coverage spec and waste"
+          ? "Paint cost per m2 is high - review coverage spec and waste"
           : risk === "MEDIUM"
             ? "Paint cost per m2 is moderate"
             : "Paint cost per m2 within typical range",
@@ -267,7 +267,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Setup time dominates — consider batching similar parts"
+          ? "Setup time dominates - consider batching similar parts"
           : risk === "MEDIUM"
             ? "Setup time is significant"
             : "Cut-to-setup ratio is efficient",
@@ -286,7 +286,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "High print cost — review material usage and machine rate"
+          ? "High print cost - review material usage and machine rate"
           : risk === "MEDIUM"
             ? "Moderate print cost"
             : "Print cost within typical range for custom parts",
@@ -310,7 +310,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     const risk: FreeRiskLevel = bulky ? "HIGH" : "LOW";
     return {
       headline: bulky
-        ? "Volumetric weight is high — freight cost may exceed actual weight pricing"
+        ? "Volumetric weight is high - freight cost may exceed actual weight pricing"
         : "Volumetric weight within standard range",
       summary: formatNumber(totalVolWeight, 1) + " kg (volumetric, " + modeLabel + ")",
       riskLevel: risk,
@@ -330,7 +330,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     const risk: FreeRiskLevel = nRisk ? "HIGH" : "LOW";
     return {
       headline: nRisk
-        ? "Nitrogen rate exceeds 200 kg/ha — over-fertilization risk"
+        ? "Nitrogen rate exceeds 200 kg/ha - over-fertilization risk"
         : "N-P-K load within typical agricultural range",
       summary: "N:" + formatNumber(totalN, 0) + "kg P:" + formatNumber(totalP, 0) + "kg K:" + formatNumber(totalK, 0) + "kg",
       riskLevel: risk,
@@ -347,7 +347,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     const costPerHa = area > 0 ? monthlyCost / area : 0;
     const risk: FreeRiskLevel = costPerHa > 50 ? "MEDIUM" : "LOW";
     return {
-      headline: risk === "MEDIUM" ? "Pumping cost per hectare is elevated — check pump efficiency" : "Pumping cost within typical range",
+      headline: risk === "MEDIUM" ? "Pumping cost per hectare is elevated - check pump efficiency" : "Pumping cost within typical range",
       summary: formatCurrency(monthlyCost) + "/month (" + formatCurrency(costPerHa) + "/ha)",
       riskLevel: risk,
     };
@@ -365,7 +365,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Feed cost per head is high — review ration formulation"
+          ? "Feed cost per head is high - review ration formulation"
           : risk === "MEDIUM"
             ? "Feed cost per head is moderate"
             : "Feed cost per head within typical range",
@@ -386,9 +386,9 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Yield below 20 L/cow/day — investigate herd health and feed quality"
+          ? "Yield below 20 L/cow/day - investigate herd health and feed quality"
           : risk === "MEDIUM"
-            ? "Yield moderate — room for improvement"
+            ? "Yield moderate - room for improvement"
             : "Yield within healthy range",
       summary: formatCurrency(monthlyRevenue) + "/month (" + formatNumber(litersPerCow, 1) + " L/cow/day)",
       riskLevel: risk,
@@ -407,9 +407,9 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Energy bill exceeds $10K — review load profile and demand charges"
+          ? "Energy bill exceeds $10K - review load profile and demand charges"
           : risk === "MEDIUM"
-            ? "Energy cost moderate — check for efficiency opportunities"
+            ? "Energy cost moderate - check for efficiency opportunities"
             : "Energy consumption within typical small-to-medium range",
       summary: formatNumber(totalKwh, 0) + " kWh (" + formatCurrency(bill) + ")",
       riskLevel: risk,
@@ -433,7 +433,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "High estimated CO2 — review for CBAM exposure"
+          ? "High estimated CO2 - review for CBAM exposure"
           : risk === "MEDIUM"
             ? "Moderate CO2 estimate"
             : "CO2 estimate within manageable range",
@@ -455,7 +455,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Total cost per m2 is high — review material spec and scope"
+          ? "Total cost per m2 is high - review material spec and scope"
           : risk === "MEDIUM"
             ? "Total cost per m2 is moderate"
             : "Total cost per m2 within typical range",
@@ -476,7 +476,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Fuel cost per km is high — check vehicle efficiency"
+          ? "Fuel cost per km is high - check vehicle efficiency"
           : risk === "MEDIUM"
             ? "Fuel cost per km is moderate"
             : "Fuel cost per km within efficient range",
@@ -498,9 +498,9 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Margin below 20% — ingredient cost may be too high for target price"
+          ? "Margin below 20% - ingredient cost may be too high for target price"
           : risk === "MEDIUM"
-            ? "Margin moderate — look for cost-saving substitutions"
+            ? "Margin moderate - look for cost-saving substitutions"
             : "Healthy margin at target price",
       summary: formatCurrency(costPerServing) + "/serving (margin " + fmtPct(marginPct) + ")",
       riskLevel: risk,
@@ -523,9 +523,9 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Total project cost exceeds $100K — review scope and contingencies"
+          ? "Total project cost exceeds $100K - review scope and contingencies"
           : risk === "MEDIUM"
-            ? "Moderate project cost — verify estimate assumptions"
+            ? "Moderate project cost - verify estimate assumptions"
             : "Project cost within typical small-project range",
       summary: formatCurrency(total),
       riskLevel: risk,
@@ -546,7 +546,7 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Cost per sq ft per visit is high — optimize crew size or frequency"
+          ? "Cost per sq ft per visit is high - optimize crew size or frequency"
           : risk === "MEDIUM"
             ? "Cost per sq ft is moderate"
             : "Cost per sq ft within efficient range",
@@ -571,9 +571,9 @@ const CALCULATOR_REGISTRY: Record<string, CalculatorFn> = {
     return {
       headline:
         risk === "HIGH"
-          ? "Effective margin below 15% — review pricing or return cost impact"
+          ? "Effective margin below 15% - review pricing or return cost impact"
           : risk === "MEDIUM"
-            ? "Effective margin moderate — monitor return rate"
+            ? "Effective margin moderate - monitor return rate"
             : "Effective margin healthy",
       summary: fmtPct(marginPct) + " gross / " + fmtPct(adjustedMargin) + " effective",
       riskLevel: risk,

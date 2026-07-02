@@ -23,7 +23,7 @@ export const ENERGY_CONSUMPTION_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalBill", label: "Total Bill", label_i18n: {"en":"Total Bill"}, unit: "USD", format: "currency" },
     { id: "carbonFootprint", label: "Carbon Cost", label_i18n: {"en":"Carbon Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "powerFactor", warning: 90, critical: 85, direction: "lower_is_bad", warningMessage: "PF < 90% — compensation should be improved.", warningMessage_i18n: {"en":"PF < 90% — compensation should be improved."}, criticalMessage: "PF < 85% — reactive penalty risk is high.", criticalMessage_i18n: {"en":"PF < 85% — reactive penalty risk is high."} }],
+  thresholds: [{ fieldId: "powerFactor", warning: 90, critical: 85, direction: "lower_is_bad", warningMessage: "PF < 90% - compensation should be improved.", warningMessage_i18n: {"en":"PF < 90% - compensation should be improved."}, criticalMessage: "PF < 85% - reactive penalty risk is high.", criticalMessage_i18n: {"en":"PF < 85% - reactive penalty risk is high."} }],
   formulaPipeline: [
     { formulaId: "energy.power_factor", inputMap: {
         active: "activeKwh",

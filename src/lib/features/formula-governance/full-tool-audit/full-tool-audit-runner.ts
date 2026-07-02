@@ -1,5 +1,5 @@
 /**
- * Full existing tool audit runner — Phase 5H-J read-only batch.
+ * Full existing tool audit runner - Phase 5H-J read-only batch.
  */
 
 import { FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts";

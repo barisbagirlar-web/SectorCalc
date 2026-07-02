@@ -9,13 +9,18 @@ export type PremiumToolCardProps = {
   readonly openLabel: string;
 };
 
-/** Text-based premium tool item — name + description + PRO badge. */
+/** Text-based premium tool item - name + description + PRO badge. */
 export function PremiumToolCard({
   tool,
   locale,
   openLabel,
 }: PremiumToolCardProps) {
-  const title = tool.title[locale] ?? tool.title.en ?? tool.slug;
+  // Fallback: humanize the slug if no title is available
+  const humanizedSlug = tool.slug
+    .replace(/-calculator$/i, "")
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+  const title = tool.title[locale] ?? tool.title.en ?? humanizedSlug;
   const description = tool.description[locale] ?? tool.description.en ?? "";
   const isClickable = Boolean(tool.routePath) && tool.publicStatus === "active";
 

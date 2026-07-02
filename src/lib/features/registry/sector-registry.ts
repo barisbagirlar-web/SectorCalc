@@ -1,5 +1,5 @@
 /**
- * Sector registry — single declarative source for Manufacturing OS metrics.
+ * Sector registry - single declarative source for Manufacturing OS metrics.
  * Add a sector entry here; engine + UI read from this map (no scattered edits).
  */
 
@@ -254,7 +254,7 @@ export function getSectorConfigByShortId(shortId: string): SectorConfig | null {
  return config;
 }
 
-/** Example textile module — enable when industry ships (not in 27-slug launch set). */
+/** Example textile module - enable when industry ships (not in 27-slug launch set). */
 export const TEXTILE_WASTE_SECTOR_CONFIG: SectorConfig = {
  id: "textile",
  name: "Textile Efficiency",

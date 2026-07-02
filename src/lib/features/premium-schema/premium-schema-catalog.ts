@@ -1,5 +1,5 @@
 /**
- * Premium schema catalog — public-facing adapter for premium calculator vitrines.
+ * Premium schema catalog - public-facing adapter for premium calculator vitrines.
  * No "schema", "pilot", or "migration" language in public labels.
  */
 

@@ -1,9 +1,9 @@
 /**
- * Formatting helpers — matching original HTML spec.
+ * Formatting helpers - matching original HTML spec.
  */
 
 export function fmt(v: number | null | undefined, d = 2): string {
-  if (v === null || v === undefined || !Number.isFinite(v)) return "—";
+  if (v === null || v === undefined || !Number.isFinite(v)) return "-";
   return Number(v).toLocaleString("en-US", {
     minimumFractionDigits: d,
     maximumFractionDigits: d,
@@ -11,12 +11,12 @@ export function fmt(v: number | null | undefined, d = 2): string {
 }
 
 export function money(v: number | null | undefined, ccy: string, d = 2): string {
-  if (v === null || v === undefined || !Number.isFinite(v)) return "—";
+  if (v === null || v === undefined || !Number.isFinite(v)) return "-";
   return fmt(v, d) + " " + ccy;
 }
 
 export function pctf(v: number | null | undefined, d = 1): string {
-  if (v === null || v === undefined || !Number.isFinite(v)) return "—";
+  if (v === null || v === undefined || !Number.isFinite(v)) return "-";
   return (v * 100).toFixed(d) + "%";
 }
 
@@ -41,7 +41,7 @@ export function interp(
     const m = meta ? meta(id) : undefined;
     if (v === null || v === undefined) {
       if (m?.enum_labels && typeof v === "string") return m.enum_labels[v] || v;
-      return "—";
+      return "-";
     }
     if (typeof v === "string") {
       if (m?.enum_labels && m.enum_labels[v]) return m.enum_labels[v];

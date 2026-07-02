@@ -22,9 +22,9 @@ function isClvCacSlug(slug: string): boolean {
 
 const clvCacI18n: Record<string, ToolMethodology> = {
   en: {
-    subtitle: "CLV/CAC Ratio Analysis — Customer profitability and acquisition efficiency",
+    subtitle: "CLV/CAC Ratio Analysis - Customer profitability and acquisition efficiency",
     formulaDisplay: "CLV = (AOV × PF) × GM% × Lifetime",
-    formulaDesc: "Customer Lifetime Value Model — SectorCalc Engine",
+    formulaDesc: "Customer Lifetime Value Model - SectorCalc Engine",
     methodologyTitle: "Calculation Methodology",
     methodologyBody:
       "The model calculates Customer Lifetime Value (CLV) using: Average Order Value (AOV), annual purchase frequency, gross margin percentage, and customer lifetime years. CLV/CAC ratio is CLV divided by Customer Acquisition Cost. Churn rate is derived as 100% − retention rate. Payback period: CAC divided by monthly gross profit. Healthy benchmark: CLV/CAC > 3:1.",
@@ -37,9 +37,9 @@ const clvCacI18n: Record<string, ToolMethodology> = {
     trustBoundaryDesc: "Valid under constant revenue model and steady retention rate assumptions. Does not include indirect value (referrals, brand equity).",
   },
   tr: {
-    subtitle: "CLV/CAC Orani Analizi — Musteri kârliligi ve edinme verimliligi",
+    subtitle: "CLV/CAC Orani Analizi - Musteri kârliligi ve edinme verimliligi",
     formulaDisplay: "CLV = (AOV × SF) × BM% × Omur",
-    formulaDesc: "Musteri Yasam Boyu Value Modeli — SectorCalc Motoru",
+    formulaDesc: "Musteri Yasam Boyu Value Modeli - SectorCalc Motoru",
     methodologyTitle: "Hesaplama Metodolojisi",
     methodologyBody:
       "Model, Musteri Yasam Boyu Degerini (CLV) su girdilerle hesaplar: Ortalama Siparis Degeri (AOV), yillik satin alma sikligi, brut kar marji yuzdesi ve musteri omru (yil). CLV/CAC orani, CLV'nin Musteri Edinme Maliyetine (CAC) bolunmesiyle elde edilir. Kayip orani: %100 − elde tutma orani. Geri odeme suresi: CAC / aylik brut kar. Saglikli referans: CLV/CAC > 3:1.",
@@ -52,9 +52,9 @@ const clvCacI18n: Record<string, ToolMethodology> = {
     trustBoundaryDesc: "Sabit revenue modeli ve istikrarli elde tutma orani varsayimlari altinda gecerlidir. Dolayli valuei (yonlendirmeler, marka valuei) kapsamaz.",
   },
   de: {
-    subtitle: "CLV/CAC-Verhältnisanalyse — Kundenrentabilität und Akquisitionseffizienz",
+    subtitle: "CLV/CAC-Verhältnisanalyse - Kundenrentabilität und Akquisitionseffizienz",
     formulaDisplay: "CLV = (AOV × KF) × BM% × Lebensdauer",
-    formulaDesc: "Kundenlebenszeitwert-Modell — SectorCalc Engine",
+    formulaDesc: "Kundenlebenszeitwert-Modell - SectorCalc Engine",
     methodologyTitle: "Berechnungsmethodik",
     methodologyBody:
       "Das Modell berechnet den Customer Lifetime Value (CLV) anhand von: Durchschnittlichem Bestellwert (AOV), jährlicher Kaufhäufigkeit, Bruttomarge und Kundenlebensdauer in Jahren. Das CLV/CAC-Verhältnis ist der CLV geteilt durch die Kundenakquisitionskosten (CAC). Die Abwanderungsrate ergibt sich aus: 100 % − Bindungsrate. Amortisationszeit: CAC geteilt durch monatlichen Bruttogewinn. Gesundes Benchmark: CLV/CAC > 3:1.",
@@ -67,9 +67,9 @@ const clvCacI18n: Record<string, ToolMethodology> = {
     trustBoundaryDesc: "Gultig unter Annahme konstanter Einnahmen und stabiler Bindungsrate. Beinhaltet keinen indirekten Wert (Empfehlungen, Markenwert).",
   },
   fr: {
-    subtitle: "Analyse du Ratio CLV/CAC — Rentabilité client et efficacité d'acquisition",
+    subtitle: "Analyse du Ratio CLV/CAC - Rentabilité client et efficacité d'acquisition",
     formulaDisplay: "CLV = (AOV × FA) × MB% × Durée",
-    formulaDesc: "Modèle de Valeur Vie Client — Moteur SectorCalc",
+    formulaDesc: "Modèle de Valeur Vie Client - Moteur SectorCalc",
     methodologyTitle: "Méthodologie de Calcul",
     methodologyBody:
       "Le modèle calcule la Valeur Vie Client (CLV) en utilisant : la Valeur Moyenne des Commandes (AOV), la fréquence d'achat annuelle, le pourcentage de marge brute et la durée de vie client en années. Le ratio CLV/CAC est la CLV divisée par le Coût d'Acquisition Client (CAC). Le taux d'attrition est dérivé : 100 % − taux de rétention. Période de récupération : CAC divisé par la marge brute mensuelle. Référence saine : CLV/CAC > 3:1.",
@@ -82,9 +82,9 @@ const clvCacI18n: Record<string, ToolMethodology> = {
     trustBoundaryDesc: "Valable sous hypothèses de modèle de revenus constants et de taux de rétention stable. N'inclut pas la valeur indirecte (références, marque).",
   },
   es: {
-    subtitle: "Análisis de Relación CLV/CAC — Rentabilidad del cliente y eficiencia de adquisición",
+    subtitle: "Análisis de Relación CLV/CAC - Rentabilidad del cliente y eficiencia de adquisición",
     formulaDisplay: "CLV = (AOV × FC) × MB% × Vida",
-    formulaDesc: "Modelo de Valor de Vida del Cliente — Motor SectorCalc",
+    formulaDesc: "Modelo de Valor de Vida del Cliente - Motor SectorCalc",
     methodologyTitle: "Metodología de Cálculo",
     methodologyBody:
       "El modelo calcula el Valor de Vida del Cliente (CLV) utilizando: Valor Promedio del Pedido (AOV), frecuencia de compra anual, porcentaje de margen bruto y años de vida del cliente. La relación CLV/CAC es el CLV dividido por el Costo de Adquisición de Clientes (CAC). La tasa de abandono se deriva: 100% − tasa de retención. Período de recuperación: CAC dividido por la ganancia bruta mensual. Referencia saludable: CLV/CAC > 3:1.",
@@ -97,9 +97,9 @@ const clvCacI18n: Record<string, ToolMethodology> = {
     trustBoundaryDesc: "Válido bajo supuestos de modelo de ingresos constantes y tasa de retención estable. No incluye valor indirecto (referencias, marca).",
   },
   ar: {
-    subtitle: "تحليل نسبة CLV/CAC — ربحية العملاء وكفاءة الاكتساب",
+    subtitle: "تحليل نسبة CLV/CAC - ربحية العملاء وكفاءة الاكتساب",
     formulaDisplay: "CLV = (متوسط قيمة الطلب × تكرار الشراء) × هامش الربح × عمر العميل",
-    formulaDesc: "نموذج القيمة الدائمة للعميل — محرك SectorCalc",
+    formulaDesc: "نموذج القيمة الدائمة للعميل - محرك SectorCalc",
     methodologyTitle: "منهجية الحساب",
     methodologyBody:
       "يحسب النموذج القيمة الدائمة للعميل (CLV) باستخدام: متوسط قيمة الطلب، تكرار الشراء السنوي، هامش الربح الإجمالي، وعمر العميل. تُحسب نسبة CLV/CAC بقسمة CLV على تكلفة اكتساب العميل (CAC). يُحسب معدل التوقف بالعلاقة: 100% - معدل الاحتفاظ. فترة الاسترداد: CAC مقسومة على الربح الإجمالي الشهري. المعيار الصحي: CLV/CAC > 3.",

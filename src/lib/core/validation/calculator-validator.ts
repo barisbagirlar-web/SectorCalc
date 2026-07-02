@@ -138,7 +138,7 @@ export function getValidatorForTool(
   return validator;
 }
 
-/** Strict validator for /api-public — no defaults, rejects unknown keys. */
+/** Strict validator for /api-public - no defaults, rejects unknown keys. */
 export function getApiValidatorForTool(
   slug: string,
 ): z.ZodObject<Record<string, z.ZodTypeAny>> | null {

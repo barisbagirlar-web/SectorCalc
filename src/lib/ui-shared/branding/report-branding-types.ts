@@ -1,5 +1,5 @@
 /**
- * Enterprise report branding types — data model only, no upload/storage.
+ * Enterprise report branding types - data model only, no upload/storage.
  */
 
 export type ReportBrandingPlan = "business" | "enterprise";

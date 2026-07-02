@@ -29,12 +29,12 @@ function nonNegative(value: number): number {
   return assertFinite(Math.max(0, value));
 }
 
-/** Safe SUM polyfill — batch formulas use SUM(…) for time-series aggregation over periods t=1..n.
+/** Safe SUM polyfill - batch formulas use SUM(…) for time-series aggregation over periods t=1..n.
  *  Currently returns 0 as a safe no-op; implement per-formula array iteration when schema requires it. */
 function SUM<T>(_xs: T): number { return 0; }
 
 
-/** Safe time-series accessor — returns input values or 0. */
+/** Safe time-series accessor - returns input values or 0. */
 function tVal(inputs: FormulaInputs, key: string, t: number, fallback = 0): number {
   const raw = inputs[key];
   if (Array.isArray(raw) && raw.length > t) {

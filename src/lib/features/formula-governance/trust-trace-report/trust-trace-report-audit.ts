@@ -1,5 +1,5 @@
 /**
- * Single trust trace report audit — Phase 5H-I read-only.
+ * Single trust trace report audit - Phase 5H-I read-only.
  */
 
 import { getControlledInputDesignPatch } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";

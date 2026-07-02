@@ -1,5 +1,5 @@
 /**
- * Tool #17 — Civata Torque (Bolt Torque & Preload)
+ * Tool #17 - Civata Torque (Bolt Torque & Preload)
  * d2 → d3 → A_t → Preload → Torque → YieldCheck
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -34,7 +34,7 @@ export const BOLT_TORQUE_SCHEMA: PremiumCalculatorSchema = {
     { id: "yieldCheck", label: "Akma Kontrolu", label_i18n: {"en":"Akma Kontrolu"}, unit: "scalar", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "yieldCheck", warning: 0.8, critical: 1, direction: "higher_is_bad", warningMessage: "Preload is approaching 80% of yield strength.", warningMessage_i18n: {"en":"Preload is approaching 80% of yield strength."}, criticalMessage: "Preload exceeds yield strength — connection is at risk.", criticalMessage_i18n: {"en":"Preload exceeds yield strength — connection is at risk."} },
+    { fieldId: "yieldCheck", warning: 0.8, critical: 1, direction: "higher_is_bad", warningMessage: "Preload is approaching 80% of yield strength.", warningMessage_i18n: {"en":"Preload is approaching 80% of yield strength."}, criticalMessage: "Preload exceeds yield strength - connection is at risk.", criticalMessage_i18n: {"en":"Preload exceeds yield strength - connection is at risk."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.bolt_d2", inputMap: { nominalDiameter: "nominalDiameter", pitch: "pitch" }, outputId: "pitchDiameter" },

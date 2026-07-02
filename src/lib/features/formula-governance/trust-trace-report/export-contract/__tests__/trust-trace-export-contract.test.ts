@@ -1,5 +1,5 @@
 /**
- * Trust trace export contract tests — Phase 5I-C.
+ * Trust trace export contract tests - Phase 5I-C.
  */
 
 import { describe, expect, test } from "vitest";
@@ -38,7 +38,7 @@ function buildSampleReport(overrides: Partial<TrustTraceReport>): TrustTraceRepo
   };
 }
 
-describe("trust trace export contract — Phase 5I-C", () => {
+describe("trust trace export contract - Phase 5I-C", () => {
   test("trust_trace_ready maps to export_contract_ready", () => {
     const contract = buildTrustTraceExportContract(buildSampleReport({}));
     expect(contract.status).toBe("export_contract_ready");

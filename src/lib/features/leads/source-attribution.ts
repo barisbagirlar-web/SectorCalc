@@ -137,7 +137,7 @@ function resolveCtaLabel(source: LeadSource, cta: string | undefined): string {
  }
 
  const fromSource = formatLeadSource(source);
- if (fromSource && fromSource !== "—") {
+ if (fromSource && fromSource !== "-") {
  return humanizeToken(fromSource);
  }
 

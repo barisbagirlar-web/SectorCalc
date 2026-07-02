@@ -5,13 +5,13 @@
 import type { DecisionLanguageRule, FormulaContract, ScenarioTestSpec } from "@/lib/features/formula-governance/types";
 
 export const FINANCIAL_SIMULATION_DISCLAIMER =
-  "Job check only — not ERP, accounting, tax, legal or financial advice. Review your real numbers before credit, pricing or business decisions.";
+  "Job check only - not ERP, accounting, tax, legal or financial advice. Review your real numbers before credit, pricing or business decisions.";
 
 export const FREE_TRAFFIC_PRODUCTION_FILE = "src/lib/tools/free-traffic-calculators.ts";
 
 export const PREMIUM_DECISION_PRODUCTION_FILE = "src/lib/tools/premium-decision-engine.ts";
 
-/** Phase 5H-D-A — governance ontology target alias notes (metadata only; production unchanged). */
+/** Phase 5H-D-A - governance ontology target alias notes (metadata only; production unchanged). */
 export const GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE =
   "Governance ontology target `recommendedPrice` maps to the primary numeric decision output documented in formulaSummary.";
 
@@ -88,7 +88,7 @@ export function buildCriticalContract(
   };
 }
 
-/** Phase 4/5 — critical tools with oracle, property tests, and runtime scenarios wired. */
+/** Phase 4/5 - critical tools with oracle, property tests, and runtime scenarios wired. */
 export function buildAssuredCriticalContract(
   config: Omit<
     FormulaContract,

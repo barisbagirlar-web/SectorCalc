@@ -1,5 +1,5 @@
 /**
- * Phase 5H-B-2 — contract → ontology draft bridge tests.
+ * Phase 5H-B-2 - contract → ontology draft bridge tests.
  */
 
 import { describe, expect, test } from "vitest";

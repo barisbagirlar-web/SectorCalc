@@ -32,7 +32,7 @@ export const QUALITY_COST_PAF_SCHEMA: PremiumCalculatorSchema = {
     { id: "coqRatio", label: "COQ / Income Rate", label_i18n: {"en":"COQ / Income Rate"}, unit: "%", format: "percentage" },
     { id: "pafRatio", label: "Onleme / COQ Rate", label_i18n: {"en":"Onleme / COQ Rate"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "coqRatio", warning: 0.05, critical: 0.15, direction: "higher_is_bad", warningMessage: "COQ > 5% — quality management should be reviewed.", warningMessage_i18n: {"en":"COQ > 5% — quality management should be reviewed."}, criticalMessage: "COQ > 15% — initiate urgent quality improvement program.", criticalMessage_i18n: {"en":"COQ > 15% — initiate urgent quality improvement program."} }],
+  thresholds: [{ fieldId: "coqRatio", warning: 0.05, critical: 0.15, direction: "higher_is_bad", warningMessage: "COQ > 5% - quality management should be reviewed.", warningMessage_i18n: {"en":"COQ > 5% - quality management should be reviewed."}, criticalMessage: "COQ > 15% - initiate urgent quality improvement program.", criticalMessage_i18n: {"en":"COQ > 15% - initiate urgent quality improvement program."} }],
   formulaPipeline: [
     { formulaId: "cost.paf_prevention", inputMap: {
         training: "training",

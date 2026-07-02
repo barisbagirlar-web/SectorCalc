@@ -1,5 +1,5 @@
 /**
- * Deploy ready audit runner — Phase 5I-G batch evaluation.
+ * Deploy ready audit runner - Phase 5I-G batch evaluation.
  */
 
 import { FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts";

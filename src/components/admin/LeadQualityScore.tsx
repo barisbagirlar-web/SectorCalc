@@ -50,7 +50,7 @@ export function LeadQualitySection({
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Lead Quality</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Quality score — helps determine which lead to follow up first.
+ Quality score - helps determine which lead to follow up first.
  </p>
  </div>
 
@@ -111,7 +111,7 @@ export function LeadQualityDetail({ quality }: LeadQualityDetailProps) {
  ))}
  </ul>
  ) : (
- "—"
+ "-"
  )}
  </dd>
  </div>
@@ -125,7 +125,7 @@ export function LeadQualityDetail({ quality }: LeadQualityDetailProps) {
  ))}
  </ul>
  ) : (
- "—"
+ "-"
  )}
  </dd>
  </div>

@@ -72,7 +72,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dairy_profit_detector_2",
     family: "cost",
-    label: "Sut Kâr Dedektoru — FeedCostPerLiter",
+    label: "Sut Kâr Dedektoru - FeedCostPerLiter",
     fn: (inputs) => {
     const totalFeedCost = num(inputs, "totalFeedCost");
     const milkYield = num(inputs, "milkYield");
@@ -82,7 +82,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dairy_profit_detector_3",
     family: "cost",
-    label: "Sut Kâr Dedektoru — IncomeOverFeedCost",
+    label: "Sut Kâr Dedektoru - IncomeOverFeedCost",
     fn: (inputs) => {
     const milkPrice = num(inputs, "milkPrice");
     const milkYield = num(inputs, "milkYield");
@@ -93,7 +93,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dairy_profit_detector_4",
     family: "cost",
-    label: "Sut Kâr Dedektoru — MarginPerCow",
+    label: "Sut Kâr Dedektoru - MarginPerCow",
     fn: (inputs) => {
     const incomeOverFeedCost = num(inputs, "incomeOverFeedCost");
     const vetCost = num(inputs, "vetCost");
@@ -105,7 +105,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dairy_profit_detector_5",
     family: "cost",
-    label: "Sut Kâr Dedektoru — HerdProfitability",
+    label: "Sut Kâr Dedektoru - HerdProfitability",
     fn: (inputs) => {
     const marginPerCow = num(inputs, "marginPerCow");
     const fixedOverhead = num(inputs, "fixedOverhead");
@@ -115,7 +115,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dairy_profit_detector_6",
     family: "cost",
-    label: "Sut Kâr Dedektoru — SomaticCellPenalty",
+    label: "Sut Kâr Dedektoru - SomaticCellPenalty",
     fn: (inputs) => {
     const sCC = num(inputs, "sCC");
     const threshold = num(inputs, "threshold");
@@ -129,7 +129,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.taguchi_quality_loss_0",
     family: "cost",
-    label: "Taguchi kalite kayip Fonksiyon — LossPerUnit",
+    label: "Taguchi kalite kayip Fonksiyon - LossPerUnit",
     fn: (inputs) => {
     const k = num(inputs, "k");
     const actualValue = num(inputs, "actualValue");
@@ -140,7 +140,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.taguchi_quality_loss_1",
     family: "cost",
-    label: "Taguchi kalite kayip Fonksiyon — k",
+    label: "Taguchi kalite kayip Fonksiyon - k",
     fn: (inputs) => {
     const costAtTolerance = num(inputs, "costAtTolerance");
     const tolerance = num(inputs, "tolerance");
@@ -150,7 +150,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.taguchi_quality_loss_2",
     family: "cost",
-    label: "Taguchi kalite kayip Fonksiyon — AverageLoss",
+    label: "Taguchi kalite kayip Fonksiyon - AverageLoss",
     fn: (inputs) => {
     const k = num(inputs, "k");
     const variance = num(inputs, "variance");
@@ -162,7 +162,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.taguchi_quality_loss_3",
     family: "cost",
-    label: "Taguchi kalite kayip Fonksiyon — TotalAnnualLoss",
+    label: "Taguchi kalite kayip Fonksiyon - TotalAnnualLoss",
     fn: (inputs) => {
     const averageLoss = num(inputs, "averageLoss");
     const annualProduction = num(inputs, "annualProduction");
@@ -172,7 +172,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.taguchi_quality_loss_4",
     family: "cost",
-    label: "Taguchi kalite kayip Fonksiyon — SignalToNoise_LargerBetter",
+    label: "Taguchi kalite kayip Fonksiyon - SignalToNoise_LargerBetter",
     fn: (inputs) => {
     const y = num(inputs, "y");
     const i = num(inputs, "i");
@@ -185,7 +185,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.taguchi_quality_loss_5",
     family: "cost",
-    label: "Taguchi kalite kayip Fonksiyon — SignalToNoise_SmallerBetter",
+    label: "Taguchi kalite kayip Fonksiyon - SignalToNoise_SmallerBetter",
     fn: (inputs) => {
     const y = num(inputs, "y");
     const i = num(inputs, "i");
@@ -198,7 +198,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.taguchi_quality_loss_6",
     family: "cost",
-    label: "Taguchi kalite kayip Fonksiyon — QualityImprovementSavings",
+    label: "Taguchi kalite kayip Fonksiyon - QualityImprovementSavings",
     fn: (inputs) => {
     const oldAverageLoss = num(inputs, "oldAverageLoss");
     const newAverageLoss = num(inputs, "newAverageLoss");
@@ -211,7 +211,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.tool_wear_cost_0",
     family: "cost",
-    label: "Takim Asinma Maliyeti — ToolCostPerPart",
+    label: "Takim Asinma Maliyeti - ToolCostPerPart",
     fn: (inputs) => {
     const insertCost = num(inputs, "insertCost");
     const edges = num(inputs, "edges");
@@ -223,7 +223,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.tool_wear_cost_1",
     family: "cost",
-    label: "Takim Asinma Maliyeti — ChangeCostPerPart",
+    label: "Takim Asinma Maliyeti - ChangeCostPerPart",
     fn: (inputs) => {
     const toolChangeTime = num(inputs, "toolChangeTime");
     const machineRate = num(inputs, "machineRate");
@@ -235,7 +235,7 @@ export const CHUNK_55_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.tool_wear_cost_2",
     family: "cost",
-    label: "Takim Asinma Maliyeti — TotalToolingCost",
+    label: "Takim Asinma Maliyeti - TotalToolingCost",
     fn: (inputs) => {
     const toolCostPerPart = num(inputs, "toolCostPerPart");
     const changeCostPerPart = num(inputs, "changeCostPerPart");

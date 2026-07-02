@@ -52,7 +52,7 @@ import {
 import { ALL_TOOLS_SECTOR, OTHER_SECTOR, SECTORS } from "@/lib/features/tools/taxonomy";
 
 /**
- * One unique Lucide line icon per taxonomy sector — purposeful, non-repeating.
+ * One unique Lucide line icon per taxonomy sector - purposeful, non-repeating.
  * UI: IndustriesTaxonomyGrid, CategoryCardGrid (via resolveCatalogCategoryIcon).
  */
 export const TAXONOMY_SECTOR_ICON_MAP = {
@@ -108,7 +108,7 @@ export const TAXONOMY_SECTOR_ICON_MAP = {
 
 export type TaxonomySectorIconSlug = keyof typeof TAXONOMY_SECTOR_ICON_MAP;
 
-/** PascalCase Lucide export name per sector — kept in sync with taxonomy.ts `icon` field. */
+/** PascalCase Lucide export name per sector - kept in sync with taxonomy.ts `icon` field. */
 export const TAXONOMY_SECTOR_ICON_NAMES: Readonly<Record<TaxonomySectorIconSlug, string>> = {
   all: "LayoutGrid",
   otomotiv: "CarFront",

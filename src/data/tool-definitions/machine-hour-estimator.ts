@@ -8,7 +8,7 @@ export const machineHourEstimatorDefinition: ToolDefinition = {
  title: "Machine Hour Estimator",
  shortDescription: "CNC and shop machine-hour cost estimates.",
  longDescription:
- "Estimate the true hourly cost of a production machine by spreading monthly machine, maintenance, energy, labor and overhead costs across productive hours — not just available hours.",
+ "Estimate the true hourly cost of a production machine by spreading monthly machine, maintenance, energy, labor and overhead costs across productive hours - not just available hours.",
  inputs: [
  {
  id: "monthlyMachineCost",
@@ -133,5 +133,5 @@ export const machineHourEstimatorDefinition: ToolDefinition = {
  interpretationNote:
  "Your estimated machine hour cost is based on productive hours, not total available hours. Lower utilization increases the real hourly cost because fixed costs are spread over fewer productive hours.",
  faqPlaceholder:
- "Who it is for: CNC shops, job shops and production managers estimating hourly machine cost. What to do with the result: use it as a baseline rate before quoting; open the CNC Minimum Safe Quote Calculator when a specific job’s setup, scrap and margin matter. Assumptions depend on your monthly cost and productive-hour inputs — results are indicative, not certified accounting.",
+ "Who it is for: CNC shops, job shops and production managers estimating hourly machine cost. What to do with the result: use it as a baseline rate before quoting; open the CNC Minimum Safe Quote Calculator when a specific job’s setup, scrap and margin matter. Assumptions depend on your monthly cost and productive-hour inputs - results are indicative, not certified accounting.",
 };

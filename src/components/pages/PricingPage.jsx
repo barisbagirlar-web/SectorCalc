@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * SectorCalc — Pricing Page
+ * SectorCalc - Pricing Page
  * Drop into: /app/(route)/pricing/page.jsx  OR  /pages/pricing.jsx
  *
  * Locale detection:
@@ -71,7 +71,7 @@ const UNLOCK_EXAMPLES = [
   {
     icon: '⚙️',
     titleEn: 'OEE Analysis',
-    descEn: 'Availability × Performance × Quality — with your machine data. Reveals exact downtime cost per shift.',
+    descEn: 'Availability × Performance × Quality - with your machine data. Reveals exact downtime cost per shift.',
   },
   {
     icon: '📉',
@@ -377,7 +377,7 @@ export default function PricingPage({ locale = 'en', translations }) {
 }
 
 /**
- * USAGE — Next.js App Router (src/app/(route)/pricing/page.jsx):
+ * USAGE - Next.js App Router (src/app/(route)/pricing/page.jsx):
  *
  *   import translations from '@/i18n/pricing-translations.json';
  *   import PricingPage from '@/components/pages/PricingPage';
@@ -386,7 +386,7 @@ export default function PricingPage({ locale = 'en', translations }) {
  *     return <PricingPage locale={params.locale} translations={translations} />;
  *   }
  *
- * USAGE — Pages Router (pages/pricing.jsx):
+ * USAGE - Pages Router (pages/pricing.jsx):
  *
  *   import { useRouter } from 'next/router';
  *   import translations from '../i18n/pricing-translations.json';

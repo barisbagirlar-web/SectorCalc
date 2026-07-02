@@ -9,7 +9,7 @@ export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
       label: "Months",
       label_i18n: { en: "Months" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -33,7 +33,7 @@ export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "unitCostKwh", label: "Unit kWh Cost", label_i18n: {"en":"Unit kWh Cost"}, unit: "USD/kWh", format: "currency" },
     { id: "peakShavingSavings", label: "Tepe Traslama Gain", label_i18n: {"en":"Tepe Traslama Gain"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "unitCostKwh", warning: 0.15, critical: 0.25, direction: "higher_is_bad", warningMessage: "Unit > $0.15/kWh — energy efficiency should be evaluated.", warningMessage_i18n: {"en":"Unit > $0.15/kWh — energy efficiency should be evaluated."}, criticalMessage: "Unit > $0.25/kWh — urgent energy savings program.", criticalMessage_i18n: {"en":"Unit > $0.25/kWh — urgent energy savings program."} }],
+  thresholds: [{ fieldId: "unitCostKwh", warning: 0.15, critical: 0.25, direction: "higher_is_bad", warningMessage: "Unit > $0.15/kWh - energy efficiency should be evaluated.", warningMessage_i18n: {"en":"Unit > $0.15/kWh - energy efficiency should be evaluated."}, criticalMessage: "Unit > $0.25/kWh - urgent energy savings program.", criticalMessage_i18n: {"en":"Unit > $0.25/kWh - urgent energy savings program."} }],
   formulaPipeline: [
     { formulaId: "cost.energy_charge", inputMap: {
         consumptionKwh: "activeEnergy",

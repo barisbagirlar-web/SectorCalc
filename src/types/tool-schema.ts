@@ -1,5 +1,5 @@
 /**
- * SECTORCALC PRO — TYPE DEFINITIONS (Industrial Grade v2.0)
+ * SECTORCALC PRO - TYPE DEFINITIONS (Industrial Grade v2.0)
  *
  * ISO 80000 dimensional vectors, GUM uncertainty propagation,
  * fail-closed validation, immutable audit trail.

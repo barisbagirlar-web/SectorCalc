@@ -1,5 +1,5 @@
 /**
- * Representative sector case study types — synthetic scenarios only.
+ * Representative sector case study types - synthetic scenarios only.
  * Never label as real customer names or verified savings.
  */
 
@@ -75,7 +75,7 @@ export function getCaseStudyToolHref(entry: CaseStudyEntry): string {
 }
 
 export const CASE_STUDY_REPRESENTATIVE_LABEL =
-  "Representative scenario — modeled exposure, not a verified customer outcome.";
+  "Representative scenario - modeled exposure, not a verified customer outcome.";
 
 export const CASE_STUDY_DISCLAIMER =
   "This case study illustrates how SectorCalc tools structure inputs and surface loss types. It is not financial, legal, or engineering advice. Estimated impact ranges are illustrative only.";

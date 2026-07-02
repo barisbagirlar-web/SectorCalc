@@ -1,5 +1,5 @@
 /**
- * P6 — Human-readable (English default) explanation for a benchmark verdict.
+ * P6 - Human-readable (English default) explanation for a benchmark verdict.
  * UI surfaces localize position/severity labels separately; this string is a
  * deterministic fallback for API/tests/logging.
  */

@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-A — trust trace field mapping tests.
+ * Phase 5H-G-A - trust trace field mapping tests.
  */
 
 import { describe, expect, test } from "vitest";

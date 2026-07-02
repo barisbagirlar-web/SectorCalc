@@ -1,5 +1,5 @@
 /**
- * Tool #16 — Chatter Yuzey Kalite Loss
+ * Tool #16 - Chatter Yuzey Kalite Loss
  * V_c → f_z → SurfaceRoughness → QualityLossCost
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -15,7 +15,7 @@ export const CHATTER_SCHEMA: PremiumCalculatorSchema = {
     { id: "toolNoseRadius", label: "Insert nose radius", label_i18n: {"en":"Insert nose radius"}, type: "number", unit: "mm", required: true, smartDefault: 0.8, validation: { min: 0.01 }, helper: "", expertMeaning: "Insert nose radius", expertMeaning_i18n: {"en":"Insert nose radius"} },
     { id: "chatterAmplification", label: "Chatter amplification over theoretical Ra", label_i18n: {"en":"Chatter amplification over theoretical Ra"}, type: "number", unit: "%", required: false, smartDefault: 30, validation: { min: 0, max: 500 }, helper: "", expertMeaning: "Chatter amplification over theoretical Ra", expertMeaning_i18n: {"en":"Chatter amplification over theoretical Ra"} },
     { id: "surfaceRoughnessLimitRa", label: "Maximum allowed Ra per spec", label_i18n: {"en":"Maximum allowed Ra per spec"}, type: "number", unit: "µm", required: true, smartDefault: 1.6, validation: { min: 0.01 }, helper: "", expertMeaning: "Maximum allowed Ra per spec", expertMeaning_i18n: {"en":"Maximum allowed Ra per spec"} },
-    { id: "maxToleranceRa", label: "Maksimum tolerance (Ra_max)", label_i18n: {"en":"Maksimum tolerance (Ra_max)"}, type: "number", unit: "µm", required: false, smartDefault: 3.2, validation: { min: 0.01 }, helper: "", expertMeaning: "Absolute max Ra — beyond = scrap", expertMeaning_i18n: {"en":"Absolute max Ra — beyond = scrap"} },
+    { id: "maxToleranceRa", label: "Maksimum tolerance (Ra_max)", label_i18n: {"en":"Maksimum tolerance (Ra_max)"}, type: "number", unit: "µm", required: false, smartDefault: 3.2, validation: { min: 0.01 }, helper: "", expertMeaning: "Absolute max Ra - beyond = scrap", expertMeaning_i18n: {"en":"Absolute max Ra - beyond = scrap"} },
     { id: "batchSize", label: "Batch size for scrap calculation", label_i18n: {"en":"Batch size for scrap calculation"}, type: "number", unit: "units", required: false, smartDefault: 500, validation: { min: 0 }, helper: "", expertMeaning: "Batch size for scrap calculation", expertMeaning_i18n: {"en":"Batch size for scrap calculation"} },
     { id: "reworkCostPerMicron", label: "Rework cost per micron overshoot", label_i18n: {"en":"Rework cost per micron overshoot"}, type: "number", unit: "USD/µm", required: false, smartDefault: 2, validation: { min: 0 }, helper: "", expertMeaning: "Rework cost per micron overshoot", expertMeaning_i18n: {"en":"Rework cost per micron overshoot"} },
   ],
@@ -27,7 +27,7 @@ export const CHATTER_SCHEMA: PremiumCalculatorSchema = {
     { id: "qualityLossCost", label: "Quality Loss Cost", label_i18n: {"en":"Quality Loss Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "actualRa", warning: 1.6, critical: 3.2, direction: "higher_is_bad", warningMessage: "Ra > 1.6 µm — rework risk present.", warningMessage_i18n: {"en":"Ra > 1.6 µm — rework risk present."}, criticalMessage: "Ra > 3.2 µm — Scrap risk high, cutting parameters must be corrected.", criticalMessage_i18n: {"en":"Ra > 3.2 µm — Scrap risk high, cutting parameters must be corrected."} },
+    { fieldId: "actualRa", warning: 1.6, critical: 3.2, direction: "higher_is_bad", warningMessage: "Ra > 1.6 µm - rework risk present.", warningMessage_i18n: {"en":"Ra > 1.6 µm - rework risk present."}, criticalMessage: "Ra > 3.2 µm - Scrap risk high, cutting parameters must be corrected.", criticalMessage_i18n: {"en":"Ra > 3.2 µm - Scrap risk high, cutting parameters must be corrected."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.cutting_speed", inputMap: { diameter: "cuttingSpeed", rpm: "spindleRpm" }, outputId: "cuttingSpeedResult" },

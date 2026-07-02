@@ -6,7 +6,7 @@ const steps = [
  step: "01",
  title: "Choose your sector",
  description:
- "Select an industry pack aligned with your business — construction, cleaning, restaurant, e-commerce, or CNC manufacturing.",
+ "Select an industry pack aligned with your business - construction, cleaning, restaurant, e-commerce, or CNC manufacturing.",
  },
  {
  step: "02",

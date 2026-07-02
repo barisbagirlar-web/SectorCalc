@@ -29,7 +29,7 @@ export const CNC_CYCLE_TIME_SCHEMA: PremiumCalculatorSchema = {
     { id: "dailyCapacity", label: "Daily Capacity", label_i18n: {"en":"Daily Capacity"}, unit: "units", format: "number", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "oeeAvailability", warning: 85, critical: 70, direction: "lower_is_bad", warningMessage: "OEE < 85% — downtime analysis recommended.", warningMessage_i18n: {"en":"OEE < 85% — downtime analysis recommended."}, criticalMessage: "OEE < 70% — initiate TPM program.", criticalMessage_i18n: {"en":"OEE < 70% — initiate TPM program."} },
+    { fieldId: "oeeAvailability", warning: 85, critical: 70, direction: "lower_is_bad", warningMessage: "OEE < 85% - downtime analysis recommended.", warningMessage_i18n: {"en":"OEE < 85% - downtime analysis recommended."}, criticalMessage: "OEE < 70% - initiate TPM program.", criticalMessage_i18n: {"en":"OEE < 70% - initiate TPM program."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.cnc_rpm", inputMap: { cuttingSpeed: "cuttingSpeed", toolDiameter: "toolDiameter" }, outputId: "rpm" },

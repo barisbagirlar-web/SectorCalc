@@ -1,6 +1,6 @@
 "use client";
 /**
- * UniversalProToolRenderer — Schema-driven universal PRO tool renderer
+ * UniversalProToolRenderer - Schema-driven universal PRO tool renderer
  * 
  * Central orchestrator that:
  * 1. Renders tool selector (ts-btn grid)
@@ -299,7 +299,7 @@ export default function UniversalProToolRenderer({
                 <span className="badge badge-crit">FAIL</span>
               )
             ) : (
-              <span className="badge badge-idle">— NOT CALCULATED</span>
+              <span className="badge badge-idle">- NOT CALCULATED</span>
             )}
           </div>
           {activeCalculated && activeResults?.UC !== undefined && (
@@ -406,7 +406,7 @@ export default function UniversalProToolRenderer({
           {activeSchema?.standards?.map((s: string, i: number) => (
             <span key={i}>📐 {s}</span>
           ))}
-          <span>⚠ Engineering decision support only — verify before use</span>
+          <span>⚠ Engineering decision support only - verify before use</span>
           <span>SectorCalc {activeSchema?.tool_id} v1.0.0</span>
         </div>
       </div>

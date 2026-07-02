@@ -1,5 +1,5 @@
 /**
- * Single source of truth — approved slug lists only (premium-slugs.json + free-slugs.json).
+ * Single source of truth - approved slug lists only (premium-slugs.json + free-slugs.json).
  */
 
 import freeSlugs from "../../../../free-slugs.json";

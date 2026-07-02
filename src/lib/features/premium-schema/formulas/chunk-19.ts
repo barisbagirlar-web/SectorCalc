@@ -72,7 +72,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.interest_rate_risk_4",
     family: "cost",
-    label: "INTEREST RATE RISK — NIM",
+    label: "INTEREST RATE RISK - NIM",
     fn: (inputs) => {
     const inc = num(inputs, "inc");
     const earningAssets = num(inputs, "earningAssets");
@@ -83,7 +83,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.interest_rate_risk_5",
     family: "cost",
-    label: "INTEREST RATE RISK — VaR",
+    label: "INTEREST RATE RISK - VaR",
     fn: (inputs) => {
     const portVal = num(inputs, "portVal");
     const volatility = num(inputs, "volatility");
@@ -94,7 +94,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.interest_rate_risk_6",
     family: "cost",
-    label: "INTEREST RATE RISK — HedgeCost",
+    label: "INTEREST RATE RISK - HedgeCost",
     fn: (inputs) => {
     const notional = num(inputs, "notional");
     const swapSpread = num(inputs, "swapSpread");
@@ -104,7 +104,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.interest_rate_risk_7",
     family: "cost",
-    label: "INTEREST RATE RISK — BreakEven",
+    label: "INTEREST RATE RISK - BreakEven",
     fn: (inputs) => {
     const fixed = num(inputs, "fixed");
     const floating = num(inputs, "floating");
@@ -118,7 +118,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.filament_recycling_0",
     family: "cost",
-    label: "FILAMENT RECYCLING — Cost_Virgin",
+    label: "FILAMENT RECYCLING - Cost_Virgin",
     fn: (inputs) => {
     const price = num(inputs, "price");
     const scrap = num(inputs, "scrap");
@@ -132,7 +132,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.filament_recycling_1",
     family: "cost",
-    label: "FILAMENT RECYCLING — Cost_Recyc",
+    label: "FILAMENT RECYCLING - Cost_Recyc",
     fn: (inputs) => {
     const collect = num(inputs, "collect");
     const sort = num(inputs, "sort");
@@ -144,7 +144,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.filament_recycling_2",
     family: "cost",
-    label: "FILAMENT RECYCLING — QualPenalty",
+    label: "FILAMENT RECYCLING - QualPenalty",
     fn: (inputs) => {
     const tensile = num(inputs, "tensile");
     const appFactor = num(inputs, "appFactor");
@@ -156,7 +156,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.filament_recycling_3",
     family: "cost",
-    label: "FILAMENT RECYCLING — EnergySav",
+    label: "FILAMENT RECYCLING - EnergySav",
     fn: (inputs) => {
     const energy = num(inputs, "energy");
     const energyCost = num(inputs, "energyCost");
@@ -168,7 +168,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.filament_recycling_4",
     family: "cost",
-    label: "FILAMENT RECYCLING — CarbonCred",
+    label: "FILAMENT RECYCLING - CarbonCred",
     fn: (inputs) => {
     const cO2 = num(inputs, "cO2");
     const carbonPrice = num(inputs, "carbonPrice");
@@ -180,7 +180,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.filament_recycling_5",
     family: "cost",
-    label: "FILAMENT RECYCLING — Total_R",
+    label: "FILAMENT RECYCLING - Total_R",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const Recyc = num(inputs, "Recyc");
@@ -194,7 +194,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.filament_recycling_6",
     family: "cost",
-    label: "FILAMENT RECYCLING — ROI",
+    label: "FILAMENT RECYCLING - ROI",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const total = num(inputs, "total");
@@ -210,7 +210,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_0",
     family: "cost",
-    label: "FIYAT ESNEKLIGI — Elasticity",
+    label: "FIYAT ESNEKLIGI - Elasticity",
     fn: (inputs) => {
     const pctChange = num(inputs, "pctChange");
     const Dem = num(inputs, "Dem");
@@ -223,7 +223,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_1",
     family: "cost",
-    label: "FIYAT ESNEKLIGI — NewDem",
+    label: "FIYAT ESNEKLIGI - NewDem",
     fn: (inputs) => {
     const currDem = num(inputs, "currDem");
     const elast = num(inputs, "elast");
@@ -236,7 +236,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_2",
     family: "cost",
-    label: "FIYAT ESNEKLIGI — NewRev",
+    label: "FIYAT ESNEKLIGI - NewRev",
     fn: (inputs) => {
     const newPrice = num(inputs, "newPrice");
     const newDem = num(inputs, "newDem");
@@ -246,7 +246,7 @@ export const CHUNK_19_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_3",
     family: "cost",
-    label: "FIYAT ESNEKLIGI — NewMargin",
+    label: "FIYAT ESNEKLIGI - NewMargin",
     fn: (inputs) => {
     const newPrice = num(inputs, "newPrice");
     const varCost = num(inputs, "varCost");

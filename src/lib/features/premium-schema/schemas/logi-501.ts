@@ -18,8 +18,8 @@ export const INVENTORY_CARRYING_COST_EOQ_CALCULATOR_SCHEMA: PremiumCalculatorSch
       warning: 8000,
       critical: 20000,
       direction: "higher_is_bad",
-      warningMessage: "Carrying cost is elevated — review order size and slow movers.",
-      criticalMessage: "Carrying cost is very high — reduce average inventory before reordering.",
+      warningMessage: "Carrying cost is elevated - review order size and slow movers.",
+      criticalMessage: "Carrying cost is very high - reduce average inventory before reordering.",
     },
   ],
 

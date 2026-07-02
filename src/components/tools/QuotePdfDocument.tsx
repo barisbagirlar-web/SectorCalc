@@ -188,7 +188,7 @@ export function QuotePdfDocument({
           </View>
         </View>
 
-        <Text style={styles.title}>{toolName} — {labels.quoteReport}</Text>
+        <Text style={styles.title}>{toolName} - {labels.quoteReport}</Text>
 
         <Text style={styles.sectionTitle}>{labels.inputValues}</Text>
         {inputRows.map((entry) => (

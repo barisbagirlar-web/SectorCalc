@@ -1,5 +1,5 @@
 /**
- * Contract-driven smart form field specs — ADIM 2 runtime validation bridge.
+ * Contract-driven smart form field specs - ADIM 2 runtime validation bridge.
  */
 
 import { getFormulaContractBySlug } from "@/lib/features/formula-governance/contracts";

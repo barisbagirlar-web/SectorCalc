@@ -16,7 +16,7 @@ const SIZE_CLASS: Record<TraceLivingAvatarSize, string> = {
   fab: "sc-trace-living--fab",
 };
 
-/** Displacement intensity — fab must read clearly at 72–84px. */
+/** Displacement intensity - fab must read clearly at 72–84px. */
 const LIQUID_SCALE: Record<TraceLivingAvatarSize, number> = {
   sm: 5,
   md: 14,

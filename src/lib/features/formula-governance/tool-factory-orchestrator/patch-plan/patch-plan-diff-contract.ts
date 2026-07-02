@@ -1,5 +1,5 @@
 /**
- * Patch plan diff contract — Phase 5I-B immutable safety contract.
+ * Patch plan diff contract - Phase 5I-B immutable safety contract.
  */
 
 import type { PatchPlanDiffContract, PatchPlanType } from "@/lib/features/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-types";

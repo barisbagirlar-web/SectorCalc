@@ -90,7 +90,7 @@ export function CreditWall({ toolName, hasFreeMode, onFreeMode }: Props) {
           </div>
         </form>
       ) : (
-        <p className="text-[11px] text-emerald-600 dark:text-emerald-400 mb-3">✓ Saved — we&apos;ll follow up if you don&apos;t complete checkout.</p>
+        <p className="text-[11px] text-emerald-600 dark:text-emerald-400 mb-3">✓ Saved - we&apos;ll follow up if you don&apos;t complete checkout.</p>
       )}
       {hasFreeMode && onFreeMode && (
         <button onClick={onFreeMode} className="text-[11px] text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">

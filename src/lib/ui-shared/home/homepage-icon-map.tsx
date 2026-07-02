@@ -38,10 +38,10 @@ import type {
 } from "@/lib/ui-shared/home/homepage-positioning-data";
 
 /**
- * One unique Lucide icon per homepage section — no overlap with sectors, industry slugs,
+ * One unique Lucide icon per homepage section - no overlap with sectors, industry slugs,
  * categories, overrides, or other homepage maps. Every icon below is globally unique.
  *
- * ECMI / ISO 9001 — deterministic, verifiable classification. Zero duplication.
+ * ECMI / ISO 9001 - deterministic, verifiable classification. Zero duplication.
  */
 
 export const HOMEPAGE_COVERAGE_ICON_MAP: Record<HomepageCoverageId, LucideIcon> = {

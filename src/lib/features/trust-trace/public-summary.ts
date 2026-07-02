@@ -1,5 +1,5 @@
 /**
- * Public summary builder — safe limited data for public verify endpoint
+ * Public summary builder - safe limited data for public verify endpoint
  */
 import type { ApprovedReportPayload } from "./types";
 

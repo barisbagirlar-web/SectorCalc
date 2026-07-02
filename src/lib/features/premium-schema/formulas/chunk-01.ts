@@ -72,7 +72,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.ai_token_cost_0",
     family: "cost",
-    label: "AI TOKEN COST — BasePromptCost",
+    label: "AI TOKEN COST - BasePromptCost",
     fn: (inputs) => {
     const promptTokens = num(inputs, "promptTokens");
     const promptPrice = num(inputs, "promptPrice");
@@ -82,7 +82,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.ai_token_cost_1",
     family: "cost",
-    label: "AI TOKEN COST — BaseCompletionCost",
+    label: "AI TOKEN COST - BaseCompletionCost",
     fn: (inputs) => {
     const completionTokens = num(inputs, "completionTokens");
     const completionPrice = num(inputs, "completionPrice");
@@ -92,7 +92,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.ai_token_cost_2",
     family: "cost",
-    label: "AI TOKEN COST — CacheReadCost",
+    label: "AI TOKEN COST - CacheReadCost",
     fn: (inputs) => {
     const cachedTokens = num(inputs, "cachedTokens");
     const cacheReadPrice = num(inputs, "cacheReadPrice");
@@ -102,7 +102,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.ai_token_cost_3",
     family: "cost",
-    label: "AI TOKEN COST — MonthlyProjection",
+    label: "AI TOKEN COST - MonthlyProjection",
     fn: (inputs) => {
     const dailyBaseCost = num(inputs, "dailyBaseCost");
     const growthRate = num(inputs, "growthRate");
@@ -112,7 +112,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.ai_token_cost_4",
     family: "cost",
-    label: "AI TOKEN COST — TCO",
+    label: "AI TOKEN COST - TCO",
     fn: (inputs) => {
     const monthlyProjection = num(inputs, "monthlyProjection");
     const infraOverhead = num(inputs, "infraOverhead");
@@ -125,7 +125,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.six_sigma_project_prioritizer_0",
     family: "cost",
-    label: "SIX SIGMA PROJECT PRIORITIZER — DPMO",
+    label: "SIX SIGMA PROJECT PRIORITIZER - DPMO",
     fn: (inputs) => {
     const defects = num(inputs, "defects");
     const units = num(inputs, "units");
@@ -136,7 +136,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.six_sigma_project_prioritizer_1",
     family: "cost",
-    label: "SIX SIGMA PROJECT PRIORITIZER — Yield",
+    label: "SIX SIGMA PROJECT PRIORITIZER - Yield",
     fn: (inputs) => {
     const defects = num(inputs, "defects");
     const units = num(inputs, "units");
@@ -147,7 +147,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.six_sigma_project_prioritizer_2",
     family: "cost",
-    label: "SIX SIGMA PROJECT PRIORITIZER — Z_bench",
+    label: "SIX SIGMA PROJECT PRIORITIZER - Z_bench",
     fn: (inputs) => {
       // COMPLEX: Z_bench = NORMSINV(Yield)
       // Requires external implementation
@@ -157,7 +157,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.six_sigma_project_prioritizer_3",
     family: "cost",
-    label: "SIX SIGMA PROJECT PRIORITIZER — SigmaLevel",
+    label: "SIX SIGMA PROJECT PRIORITIZER - SigmaLevel",
     fn: (inputs) => {
     const z_bench = num(inputs, "z_bench");
     return nonNegative(assertFinite(z_bench + 1.5));
@@ -166,7 +166,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.six_sigma_project_prioritizer_4",
     family: "cost",
-    label: "SIX SIGMA PROJECT PRIORITIZER — COPQ",
+    label: "SIX SIGMA PROJECT PRIORITIZER - COPQ",
     fn: (inputs) => {
     const internalFailure = num(inputs, "internalFailure");
     const externalFailure = num(inputs, "externalFailure");
@@ -178,7 +178,7 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.six_sigma_project_prioritizer_5",
     family: "cost",
-    label: "SIX SIGMA PROJECT PRIORITIZER — ProjectScore",
+    label: "SIX SIGMA PROJECT PRIORITIZER - ProjectScore",
     fn: (inputs) => {
     const cOPQ = num(inputs, "cOPQ");
     const recoveryProb = num(inputs, "recoveryProb");
@@ -193,31 +193,31 @@ export const CHUNK_01_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.aql_sampling_risk_0",
     family: "cost",
-    label: "AQL SAMPLING RISK & COST — CodeLetter",
+    label: "AQL SAMPLING RISK & COST - CodeLetter",
     fn: (inputs) => {
-    return 0; // CodeLetter = LookupCodeLetter(LotSize, InspectionLevel) — requires AQL table
+    return 0; // CodeLetter = LookupCodeLetter(LotSize, InspectionLevel) - requires AQL table
   },
   },
   {
     id: "user.aql_sampling_risk_1",
     family: "cost",
-    label: "AQL SAMPLING RISK & COST — n",
+    label: "AQL SAMPLING RISK & COST - n",
     fn: (inputs) => {
-    return 0; // n = SampleSize(CodeLetter, AQL) — requires AQL table
+    return 0; // n = SampleSize(CodeLetter, AQL) - requires AQL table
   },
   },
   {
     id: "user.aql_sampling_risk_2",
     family: "cost",
-    label: "AQL SAMPLING RISK & COST — Ac",
+    label: "AQL SAMPLING RISK & COST - Ac",
     fn: (inputs) => {
-    return 0; // Ac = AcceptanceNumber(CodeLetter, AQL) — requires AQL table
+    return 0; // Ac = AcceptanceNumber(CodeLetter, AQL) - requires AQL table
   },
   },
   {
     id: "user.aql_sampling_risk_3",
     family: "cost",
-    label: "AQL SAMPLING RISK & COST — Pa_producer",
+    label: "AQL SAMPLING RISK & COST - Pa_producer",
     fn: (inputs) => {
       // COMPLEX: Pa_producer = BINOMDIST(Ac, n, p_AQL, TRUE)
       // Requires external implementation

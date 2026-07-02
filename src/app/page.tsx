@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (locale !== "en") notFound();
 
   return createPageMetadata({
-    title: "SectorCalc — Engineering-Grade Calculation Platform",
+    title: "SectorCalc - Engineering-Grade Calculation Platform",
     description: "Standards-backed calculation models for manufacturing, engineering, and operations. Calculate, verify, and support your technical decisions.",
     path: "/",
     locale: "en",

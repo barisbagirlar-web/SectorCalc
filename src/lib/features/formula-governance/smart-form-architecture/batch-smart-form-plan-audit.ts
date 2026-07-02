@@ -1,5 +1,5 @@
 /**
- * Batch smart form plan audit — Phase 5H-G-A read-only governance audit.
+ * Batch smart form plan audit - Phase 5H-G-A read-only governance audit.
  */
 
 import type { ControlledInputDesignPatch } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-patch-types";
@@ -102,7 +102,7 @@ export function formatBatchSmartFormPlanAuditReport(
   ];
 
   if (result.recommendedFirstSmartFormBatch.length === 0) {
-    lines.push("- (none — resolve blockers first)");
+    lines.push("- (none - resolve blockers first)");
   } else {
     result.recommendedFirstSmartFormBatch.forEach((slug, index) => {
       lines.push(`${index + 1}. ${slug}`);

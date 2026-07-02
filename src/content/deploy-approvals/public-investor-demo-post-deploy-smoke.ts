@@ -1,5 +1,5 @@
 /**
- * Phase 6E post-deploy smoke record — production hosting deploy verification.
+ * Phase 6E post-deploy smoke record - production hosting deploy verification.
  */
 
 export const PUBLIC_INVESTOR_DEMO_POST_DEPLOY_SMOKE = {
@@ -15,7 +15,7 @@ export const PUBLIC_INVESTOR_DEMO_POST_DEPLOY_SMOKE = {
   rollbackRequired: true,
   status: "partial_pass",
   notes:
-    "Hosting deploy succeeded. Pricing and operating-system pages render on production. Investor-demo returns HTTP 200 but SSR body fails (RSC digest 485426391) on Cloud Run — metadata/shell only. Smart Form pilots unchanged. Hotfix required before investor-demo is launch-ready; full hosting rollback not required for pricing/OS.",
+    "Hosting deploy succeeded. Pricing and operating-system pages render on production. Investor-demo returns HTTP 200 but SSR body fails (RSC digest 485426391) on Cloud Run - metadata/shell only. Smart Form pilots unchanged. Hotfix required before investor-demo is launch-ready; full hosting rollback not required for pricing/OS.",
   liveChecks: {
     hostingUrl: "https://sectorcalc.com",
     firebaseHostingUrl: "https://sectorcalc-bf412.web.app",

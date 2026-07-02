@@ -342,7 +342,7 @@ export async function runBulkToolRepair(): Promise<{
 
   if (!config.apiKey) {
     deepseekStatus = "missing_api_key";
-    blockers.push("DEEPSEEK_API_KEY missing — DeepSeek advisory overlay skipped");
+    blockers.push("DEEPSEEK_API_KEY missing - DeepSeek advisory overlay skipped");
   } else if (planned.length > 0) {
     const batches: BulkToolRepairItem[][] = [];
     for (let i = 0; i < planned.length; i += chunkSize) {

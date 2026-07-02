@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import type { ParsedPremiumVerdict } from "@/lib/features/premium/parse-premium-verdict-txt";
 
 /**
- * Phase 2 integration slot — Stochastic Risk Engine (MarginCore P90).
+ * Phase 2 integration slot - Stochastic Risk Engine (MarginCore P90).
  * Wire `PremiumDecisionReportPanel` or inline verdict UI here when ready.
  */
 interface CncStochasticPhaseSlotProps {

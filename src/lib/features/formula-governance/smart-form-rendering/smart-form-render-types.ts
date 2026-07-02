@@ -1,5 +1,5 @@
 /**
- * Smart Form Rendering adapter types — Phase 5H-G-B (render plan only; no UI).
+ * Smart Form Rendering adapter types - Phase 5H-G-B (render plan only; no UI).
  */
 
 import type { SmartFormFieldRole, SmartFormSectionType } from "@/lib/features/formula-governance/smart-form-architecture/smart-form-types";

@@ -20,7 +20,7 @@ export type StandardSelectorProps = {
 };
 
 /**
- * Draft standard selector — prefer schema-driven ToolStandardSelector in premium forms.
+ * Draft standard selector - prefer schema-driven ToolStandardSelector in premium forms.
  */
 export function StandardSelector({ category, value, onChange }: StandardSelectorProps) {
   const options = STANDARD_GROUPS[category];

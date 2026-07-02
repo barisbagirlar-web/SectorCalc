@@ -95,8 +95,8 @@ export const HVAC_PROJECT_MARGIN_GUARD_SCHEMA: PremiumCalculatorSchema = {
       warning: 3,
       critical: 7,
       direction: "higher_is_bad",
-      warningMessage: "Callback risk is elevated — verify commissioning and duct assumptions.",
-      criticalMessage: "Critical callback exposure — reprice before accepting similar HVAC work.",
+      warningMessage: "Callback risk is elevated - verify commissioning and duct assumptions.",
+      criticalMessage: "Critical callback exposure - reprice before accepting similar HVAC work.",
     },
     {
       fieldId: "marginPressure",
@@ -104,7 +104,7 @@ export const HVAC_PROJECT_MARGIN_GUARD_SCHEMA: PremiumCalculatorSchema = {
       critical: 10,
       direction: "higher_is_bad",
       warningMessage: "Margin pressure is building on this project envelope.",
-      criticalMessage: "Critical margin pressure — hidden callback cost may erase profit.",
+      criticalMessage: "Critical margin pressure - hidden callback cost may erase profit.",
     },
   ],
 

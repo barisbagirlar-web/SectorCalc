@@ -1,5 +1,5 @@
 /**
- * Single patch plan audit — Phase 5I-B read-only validation.
+ * Single patch plan audit - Phase 5I-B read-only validation.
  */
 
 import { GLOBAL_FORBIDDEN_FILES } from "@/lib/features/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-diff-contract";

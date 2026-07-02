@@ -1,5 +1,5 @@
 /**
- * Tool factory demo flow runner — Phase 5I-N ToolIdea → DeployReady pipeline.
+ * Tool factory demo flow runner - Phase 5I-N ToolIdea → DeployReady pipeline.
  */
 
 import { DEMO_TOOL_IDEA } from "@/lib/features/formula-governance/tool-factory-orchestrator/demo-flow/demo-flow-fixture";
@@ -33,7 +33,7 @@ export function runToolFactoryDemoFlow(): ToolFactoryDemoFlowResult {
     completed: DEMO_STAGE_COMPLETION[stage] ?? false,
     blockers:
       stage === "HumanApproval"
-        ? ["Human approval pending — demo fixture stops before deploy."]
+        ? ["Human approval pending - demo fixture stops before deploy."]
         : stage === "DeployReady"
           ? ["Deploy command disabled in Phase 5I-N."]
           : [],

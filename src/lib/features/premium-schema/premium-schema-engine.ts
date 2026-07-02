@@ -1,5 +1,5 @@
 /**
- * Premium Schema Engine — resolves inputMap, runs pipeline, thresholds, report.
+ * Premium Schema Engine - resolves inputMap, runs pipeline, thresholds, report.
  * No eval / new Function / expression parsing.
  */
 
@@ -469,7 +469,7 @@ export function worstThresholdSeverity(
   return "ok";
 }
 
-/** Spec alias — schema-driven premium calculation entry point. */
+/** Spec alias - schema-driven premium calculation entry point. */
 export function calculatePremiumSchema(
   schema: PremiumCalculatorSchema,
   values: SchemaInputValues

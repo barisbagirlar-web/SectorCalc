@@ -19,7 +19,7 @@ export const FACTORY_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
     { id: "spaceUtilization", label: "Alan Utilization Rate", label_i18n: {"en":"Alan Utilization Rate"}, unit: "%", format: "percentage" },
     { id: "totalLayoutCost", label: "Total Yerlesim Cost", label_i18n: {"en":"Total Yerlesim Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "spaceUtilization", warning: 50, critical: 35, direction: "lower_is_bad", warningMessage: "Space utilization < 50% — layout optimization recommended.", warningMessage_i18n: {"en":"Space utilization < 50% — layout optimization recommended."}, criticalMessage: "Space utilization < 35% — urgent rearrangement.", criticalMessage_i18n: {"en":"Space utilization < 35% — urgent rearrangement."} }],
+  thresholds: [{ fieldId: "spaceUtilization", warning: 50, critical: 35, direction: "lower_is_bad", warningMessage: "Space utilization < 50% - layout optimization recommended.", warningMessage_i18n: {"en":"Space utilization < 50% - layout optimization recommended."}, criticalMessage: "Space utilization < 35% - urgent rearrangement.", criticalMessage_i18n: {"en":"Space utilization < 35% - urgent rearrangement."} }],
   formulaPipeline: [
     { formulaId: "measurement.layout_flow_cost", inputMap: { flowMatrix: "flowMatrix", distanceMatrix: "distanceMatrix", costPerDist: "costPerDist" }, outputId: "totalFlowCost" },
     { formulaId: "measurement.layout_space_util", inputMap: {

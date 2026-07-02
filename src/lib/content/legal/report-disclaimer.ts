@@ -1,5 +1,5 @@
 /**
- * Report disclaimer and usage agreement — decision-support language only.
+ * Report disclaimer and usage agreement - decision-support language only.
  */
 
 export type ReportDisclaimerBlock = {

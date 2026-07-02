@@ -15,7 +15,7 @@ export function generateQRData(verificationHash: string): string {
 
 /**
  * Build QR code image URL using our server-side API.
- * Previously used external api.qrserver.com — now in-house.
+ * Previously used external api.qrserver.com - now in-house.
  */
 export function buildQrCodeImageUrl(targetUrl: string, size = 140): string {
   const baseUrl = typeof window !== "undefined"

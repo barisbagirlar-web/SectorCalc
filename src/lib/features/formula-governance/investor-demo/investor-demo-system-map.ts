@@ -1,5 +1,5 @@
 /**
- * Investor demo system map — Phase 5I-O operating system layer.
+ * Investor demo system map - Phase 5I-O operating system layer.
  */
 
 import { TOOL_FACTORY_GATES, TOOL_FACTORY_PIPELINE_STAGES } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-types";

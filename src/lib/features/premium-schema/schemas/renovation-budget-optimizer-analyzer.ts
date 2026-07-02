@@ -10,7 +10,7 @@ export const RENOVATION_BUDGET_SCHEMA: PremiumCalculatorSchema = {
       label: "Design Fee",
       label_i18n: { en: "Design Fee" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -29,8 +29,8 @@ export const RENOVATION_BUDGET_SCHEMA: PremiumCalculatorSchema = {
     { id: "budgetBreakdown", label: "Budget Breakdown (Labor + Material)", label_i18n: {"en":"Budget Breakdown (Labor + Material)"}, unit: "USD", format: "currency" },
   ],
   thresholds: [
-    { fieldId: "renovationRoi", warning: 15, critical: 5, direction: "lower_is_bad", warningMessage: "ROI < 15% — renovation scope should be reduced.", warningMessage_i18n: {"en":"ROI < 15% — renovation scope should be reduced."}, criticalMessage: "ROI < 5% — renovation project should be re-evaluated.", criticalMessage_i18n: {"en":"ROI < 5% — renovation project should be re-evaluated."} },
-    { fieldId: "renovationTotalBudget", warning: 100000, critical: 250000, direction: "higher_is_bad", warningMessage: "Budget > $100K — obtain alternative quotes.", warningMessage_i18n: {"en":"Budget > $100K — obtain alternative quotes."}, criticalMessage: "Budget > $250K — feasibility study required.", criticalMessage_i18n: {"en":"Budget > $250K — feasibility study required."} },
+    { fieldId: "renovationRoi", warning: 15, critical: 5, direction: "lower_is_bad", warningMessage: "ROI < 15% - renovation scope should be reduced.", warningMessage_i18n: {"en":"ROI < 15% - renovation scope should be reduced."}, criticalMessage: "ROI < 5% - renovation project should be re-evaluated.", criticalMessage_i18n: {"en":"ROI < 5% - renovation project should be re-evaluated."} },
+    { fieldId: "renovationTotalBudget", warning: 100000, critical: 250000, direction: "higher_is_bad", warningMessage: "Budget > $100K - obtain alternative quotes.", warningMessage_i18n: {"en":"Budget > $100K - obtain alternative quotes."}, criticalMessage: "Budget > $250K - feasibility study required.", criticalMessage_i18n: {"en":"Budget > $250K - feasibility study required."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.renovation_base_cost", inputMap: {

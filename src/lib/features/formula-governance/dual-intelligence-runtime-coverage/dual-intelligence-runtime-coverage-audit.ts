@@ -1,5 +1,5 @@
 /**
- * Dual-intelligence runtime coverage audit — which tools enforce Mind 1/2 at user runtime.
+ * Dual-intelligence runtime coverage audit - which tools enforce Mind 1/2 at user runtime.
  * Read-only; no filesystem. Full loop (`runContractCalculationIntelligenceLoop`) is test/audit only today.
  */
 
@@ -79,7 +79,7 @@ function buildNotes(tier: DualIntelligenceRuntimeTier, routeSlug: string | null)
     case "governed_buildtime_only":
       return [
         "Controlled input patch drives Smart Form plan at manifest build.",
-        "Classic ToolCalculatorEngine path at runtime — no validation loop on submit.",
+        "Classic ToolCalculatorEngine path at runtime - no validation loop on submit.",
       ];
     case "audit_pipeline_only":
       return [

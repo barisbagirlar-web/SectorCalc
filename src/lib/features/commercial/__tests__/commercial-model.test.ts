@@ -1,5 +1,5 @@
 /**
- * Commercial model contract tests — Phase 6B.
+ * Commercial model contract tests - Phase 6B.
  */
 
 import { describe, expect, test } from "vitest";
@@ -9,7 +9,7 @@ import {
   PAYWALL_LOCKED_FEATURES,
 } from "@/lib/features/commercial/commercial-model";
 
-describe("commercial model — Phase 6B", () => {
+describe("commercial model - Phase 6B", () => {
   test("defines five commercial tiers", () => {
     expect(COMMERCIAL_TIERS).toHaveLength(5);
     expect(COMMERCIAL_TIERS.map((tier) => tier.id)).toContain("enterprise");

@@ -1,5 +1,5 @@
 /**
- * Trust trace field mapping — Phase 5H-G-A governance mapping (no report output).
+ * Trust trace field mapping - Phase 5H-G-A governance mapping (no report output).
  */
 
 import type {

@@ -1,5 +1,5 @@
 /**
- * Pilot payload equivalence helper — Phase 5H-G-F (payload-only; no calculator calls).
+ * Pilot payload equivalence helper - Phase 5H-G-F (payload-only; no calculator calls).
  */
 
 import type { FreeToolInputValues } from "@/lib/features/tools/free-tool-results";

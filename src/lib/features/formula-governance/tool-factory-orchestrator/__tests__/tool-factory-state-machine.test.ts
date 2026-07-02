@@ -1,12 +1,12 @@
 /**
- * Tool factory state machine tests — Phase 5I-A.
+ * Tool factory state machine tests - Phase 5I-A.
  */
 
 import { describe, expect, test } from "vitest";
 import { buildDraftToolFactoryPlan } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-fixtures";
 import { nextState } from "@/lib/features/formula-governance/tool-factory-orchestrator/tool-factory-state-machine";
 
-describe("tool factory state machine — Phase 5I-A", () => {
+describe("tool factory state machine - Phase 5I-A", () => {
   test("ToolIdea creates draft state", () => {
     const plan = buildDraftToolFactoryPlan();
     expect(plan.status).toBe("needs_fixture");

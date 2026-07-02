@@ -1,11 +1,11 @@
 /**
- * SectorCalc — Free Tool Category Registry v2.0
+ * SectorCalc - Free Tool Category Registry v2.0
  *
  * 33 premium-grade categories for free calculation tools.
  * Each category maps a field (alan), sector (sektor), and social purpose (sosyal amac).
  * Icons, titles, taglines, field, domain, and socialPurpose in all 6 supported locales.
  *
- * ECMI / ISO 9001:2015 — TUV-certifiable industrial quality.
+ * ECMI / ISO 9001:2015 - TUV-certifiable industrial quality.
  */
 
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
@@ -56,11 +56,11 @@ export type FreeToolCategoryEntry = {
   readonly symbolSvg: string;
   readonly title: Readonly<Record<SupportedLocale, string>>;
   readonly tagline: Readonly<Record<SupportedLocale, string>>;
-  /** Field domain (alan) — e.g. "Engineering", "Finance", "Health" */
+  /** Field domain (alan) - e.g. "Engineering", "Finance", "Health" */
   readonly field: Readonly<Record<SupportedLocale, string>>;
-  /** Industry sector (sektor) — e.g. "Manufacturing", "Construction" */
+  /** Industry sector (sektor) - e.g. "Manufacturing", "Construction" */
   readonly domain: Readonly<Record<SupportedLocale, string>>;
-  /** Social purpose (sosyal amac) — e.g. "Industrial Efficiency", "Public Health" */
+  /** Social purpose (sosyal amac) - e.g. "Industrial Efficiency", "Public Health" */
   readonly socialPurpose: Readonly<Record<SupportedLocale, string>>;
 };
 

@@ -151,7 +151,7 @@ function buildReport(
  executiveSummary: `For a batch of ${input.quantity} parts at ${input.targetMargin}% target margin, the minimum safe quote is ${formatCurrency(core.minimumSafeQuote)} (${formatCurrency(core.unitSafePrice)} per unit). Direct cost before margin is ${formatCurrency(core.directCost)} with ${formatCurrency(core.grossProfit)} gross profit at the target margin.`,
  keyFindings: [
  `Productive machine time totals ${core.productiveMachineHours.toFixed(1)} hours (setup ${core.setupHours.toFixed(1)} h + cycle ${core.cycleHoursTotal.toFixed(1)} h).`,
- `Setup cost represents ${core.setupCostShare.toFixed(1)}% of direct cost — small batches amplify setup exposure.`,
+ `Setup cost represents ${core.setupCostShare.toFixed(1)}% of direct cost - small batches amplify setup exposure.`,
  `Scrap at ${input.scrapRate}% adds an estimated ${formatCurrency(core.scrapCostImpact)} material impact on this job.`,
  `Break-even quote (no margin) is ${formatCurrency(core.breakEvenQuote)}; target margin requires ${formatCurrency(core.minimumSafeQuote)}.`,
  ],

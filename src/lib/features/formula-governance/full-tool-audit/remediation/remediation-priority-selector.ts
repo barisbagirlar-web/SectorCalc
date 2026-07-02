@@ -1,5 +1,5 @@
 /**
- * Remediation priority selector — Phase 5I-D deterministic ranking.
+ * Remediation priority selector - Phase 5I-D deterministic ranking.
  */
 
 import type { FullToolAuditItem } from "@/lib/features/formula-governance/full-tool-audit/full-tool-audit-types";

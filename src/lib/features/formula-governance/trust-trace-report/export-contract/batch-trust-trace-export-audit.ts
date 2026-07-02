@@ -1,5 +1,5 @@
 /**
- * Batch trust trace export audit — Phase 5I-C read-only.
+ * Batch trust trace export audit - Phase 5I-C read-only.
  */
 
 import { auditTrustTraceExportContract } from "@/lib/features/formula-governance/trust-trace-report/export-contract/trust-trace-export-audit";

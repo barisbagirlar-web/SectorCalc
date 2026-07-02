@@ -18,8 +18,8 @@ export const AUTO_REPAIR_PARTS_LABOR_QUOTE_CALCULATOR_SCHEMA: PremiumCalculatorS
       warning: 15,
       critical: 8,
       direction: "lower_is_bad",
-      warningMessage: "Quote margin is below typical shop band — review parts markup and labor time.",
-      criticalMessage: "Margin is critically thin — reprice before issuing the quote.",
+      warningMessage: "Quote margin is below typical shop band - review parts markup and labor time.",
+      criticalMessage: "Margin is critically thin - reprice before issuing the quote.",
     },
   ],
 

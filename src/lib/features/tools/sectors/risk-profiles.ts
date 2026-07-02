@@ -1,5 +1,5 @@
 /**
- * MarginCore Sector Risk Profiles — All 27 sectors
+ * MarginCore Sector Risk Profiles - All 27 sectors
  *
  * Each sector has a unique `MarginCoreRiskProfile` defining:
  * - baseVolatility (σ/μ coefficient of variation)

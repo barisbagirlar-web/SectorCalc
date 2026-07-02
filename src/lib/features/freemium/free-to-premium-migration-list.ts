@@ -16,7 +16,7 @@ export type FreeToPremiumWave2Item = {
   readonly reason: string;
 };
 
-/** Wave 2 — business-value free calculators moved to premium categories. */
+/** Wave 2 - business-value free calculators moved to premium categories. */
 export const FREE_TO_PREMIUM_WAVE_2: readonly FreeToPremiumWave2Item[] = [];
 
 export const FORCE_FREE_SIMPLE_FINANCE_SLUGS = [

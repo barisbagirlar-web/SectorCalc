@@ -4,7 +4,7 @@
  * Maps every slug from premium-slugs.json to one of the 20 premium categories
  * based on the tool's engineering domain, loss family, and business function.
  *
- * ECMI / ISO 9001 — Every assignment is reviewed against the tool's formula
+ * ECMI / ISO 9001 - Every assignment is reviewed against the tool's formula
  * purpose, not just its name. Tools that bridge multiple categories are placed
  * in the primary loss family.
  *

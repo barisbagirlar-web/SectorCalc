@@ -10,7 +10,7 @@ export const SHIFT_COST_EFFICIENCY_SCHEMA: PremiumCalculatorSchema = {
       label: "Shift Days",
       label_i18n: { en: "Shift Days" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -19,7 +19,7 @@ export const SHIFT_COST_EFFICIENCY_SCHEMA: PremiumCalculatorSchema = {
       label: "Shift Rate",
       label_i18n: { en: "Shift Rate" },
       type: "number",
-      unit: "—",
+      unit: "-",
 
       group: "General"
     },
@@ -38,8 +38,8 @@ export const SHIFT_COST_EFFICIENCY_SCHEMA: PremiumCalculatorSchema = {
     { id: "annualShiftCost", label: "Annual Shift Cost", label_i18n: {"en":"Annual Shift Cost"}, unit: "USD/year", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "shiftCostPerUnit", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Unit cost > $5 — improve shift efficiency.", warningMessage_i18n: {"en":"Unit cost > $5 — improve shift efficiency."}, criticalMessage: "Unit cost > $10 — restructure shift plan.", criticalMessage_i18n: {"en":"Unit cost > $10 — restructure shift plan."} },
-    { fieldId: "shiftEfficiency", warning: 75, critical: 60, direction: "lower_is_bad", warningMessage: "Efficiency < 75% — workload balancing recommended.", warningMessage_i18n: {"en":"Efficiency < 75% — workload balancing recommended."}, criticalMessage: "Efficiency < 60% — urgent improvement program needed.", criticalMessage_i18n: {"en":"Efficiency < 60% — urgent improvement program needed."} },
+    { fieldId: "shiftCostPerUnit", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Unit cost > $5 - improve shift efficiency.", warningMessage_i18n: {"en":"Unit cost > $5 - improve shift efficiency."}, criticalMessage: "Unit cost > $10 - restructure shift plan.", criticalMessage_i18n: {"en":"Unit cost > $10 - restructure shift plan."} },
+    { fieldId: "shiftEfficiency", warning: 75, critical: 60, direction: "lower_is_bad", warningMessage: "Efficiency < 75% - workload balancing recommended.", warningMessage_i18n: {"en":"Efficiency < 75% - workload balancing recommended."}, criticalMessage: "Efficiency < 60% - urgent improvement program needed.", criticalMessage_i18n: {"en":"Efficiency < 60% - urgent improvement program needed."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.shift_total_cost", inputMap: { shiftCount: "shiftCount", workersPerShift: "workersPerShift", hourlyWage: "hourlyWage", shiftHours: "shiftHours", shiftPremium: "shiftPremium", overtimeHours: "overtimeHours" ,

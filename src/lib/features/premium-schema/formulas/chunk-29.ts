@@ -72,7 +72,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machining_strategy_2",
     family: "cost",
-    label: "MACHINING STRATEGY SURE — ToolLife",
+    label: "MACHINING STRATEGY SURE - ToolLife",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const v = num(inputs, "v");
@@ -86,7 +86,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machining_strategy_3",
     family: "cost",
-    label: "MACHINING STRATEGY SURE — Cost",
+    label: "MACHINING STRATEGY SURE - Cost",
     fn: (inputs) => {
     const mach = num(inputs, "mach");
     const change = num(inputs, "change");
@@ -98,7 +98,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machining_strategy_4",
     family: "cost",
-    label: "MACHINING STRATEGY SURE — Opt_Vc",
+    label: "MACHINING STRATEGY SURE - Opt_Vc",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const t = num(inputs, "t");
@@ -111,7 +111,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machining_strategy_5",
     family: "cost",
-    label: "MACHINING STRATEGY SURE — T_opt",
+    label: "MACHINING STRATEGY SURE - T_opt",
     fn: (inputs) => {
     const n = num(inputs, "n");
     const changeTime = num(inputs, "changeTime");
@@ -123,7 +123,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machining_strategy_6",
     family: "cost",
-    label: "MACHINING STRATEGY SURE — Ra",
+    label: "MACHINING STRATEGY SURE - Ra",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const noseRad = num(inputs, "noseRad");
@@ -133,7 +133,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machining_strategy_7",
     family: "cost",
-    label: "MACHINING STRATEGY SURE — Check",
+    label: "MACHINING STRATEGY SURE - Check",
     fn: (inputs) => {
     const power = num(inputs, "power");
     const maxPower = num(inputs, "maxPower");
@@ -147,7 +147,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kaizen_savings_tracker_0",
     family: "cost",
-    label: "KAIZEN TASARRUF TAKIPCISI — Hard",
+    label: "KAIZEN TASARRUF TAKIPCISI - Hard",
     fn: (inputs) => {
     const baseline = num(inputs, "baseline");
     const actual = num(inputs, "actual");
@@ -158,7 +158,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kaizen_savings_tracker_1",
     family: "cost",
-    label: "KAIZEN TASARRUF TAKIPCISI — Soft",
+    label: "KAIZEN TASARRUF TAKIPCISI - Soft",
     fn: (inputs) => {
     const timeSaved = num(inputs, "timeSaved");
     const labRate = num(inputs, "labRate");
@@ -169,7 +169,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kaizen_savings_tracker_2",
     family: "cost",
-    label: "KAIZEN TASARRUF TAKIPCISI — ImpCost",
+    label: "KAIZEN TASARRUF TAKIPCISI - ImpCost",
     fn: (inputs) => {
     const lab = num(inputs, "lab");
     const mat = num(inputs, "mat");
@@ -181,7 +181,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kaizen_savings_tracker_3",
     family: "cost",
-    label: "KAIZEN TASARRUF TAKIPCISI — ROI",
+    label: "KAIZEN TASARRUF TAKIPCISI - ROI",
     fn: (inputs) => {
     const hard = num(inputs, "hard");
     const soft = num(inputs, "soft");
@@ -192,7 +192,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kaizen_savings_tracker_4",
     family: "cost",
-    label: "KAIZEN TASARRUF TAKIPCISI — Payback",
+    label: "KAIZEN TASARRUF TAKIPCISI - Payback",
     fn: (inputs) => {
     const impCost = num(inputs, "impCost");
     const monthSav = num(inputs, "monthSav");
@@ -202,7 +202,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kaizen_savings_tracker_5",
     family: "cost",
-    label: "KAIZEN TASARRUF TAKIPCISI — Sust",
+    label: "KAIZEN TASARRUF TAKIPCISI - Sust",
     fn: (inputs) => {
     const sav = num(inputs, "sav");
     const M6 = num(inputs, "M6");
@@ -215,7 +215,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kaizen_savings_tracker_6",
     family: "cost",
-    label: "KAIZEN TASARRUF TAKIPCISI — Cum",
+    label: "KAIZEN TASARRUF TAKIPCISI - Cum",
     fn: (inputs) => {
     const monthSav = num(inputs, "monthSav");
     return nonNegative(assertFinite(SUM(monthSav)));
@@ -224,7 +224,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.kaizen_savings_tracker_7",
     family: "cost",
-    label: "KAIZEN TASARRUF TAKIPCISI — Opp",
+    label: "KAIZEN TASARRUF TAKIPCISI - Opp",
     fn: (inputs) => {
     const time = num(inputs, "time");
     const prodRate = num(inputs, "prodRate");
@@ -238,7 +238,7 @@ export const CHUNK_29_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.quality_cost_paf_0",
     family: "cost",
-    label: "Kalite Maliyeti PAF — PreventionCost",
+    label: "Kalite Maliyeti PAF - PreventionCost",
     fn: (inputs) => {
     const training = num(inputs, "training");
     const qualityPlanning = num(inputs, "qualityPlanning");

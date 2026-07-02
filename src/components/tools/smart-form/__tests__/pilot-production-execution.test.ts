@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-R — smart form production deploy execution gate tests.
+ * Phase 5H-G-R - smart form production deploy execution gate tests.
  */
 
 import { execSync } from "node:child_process";
@@ -41,7 +41,7 @@ function readyExecutionGate() {
   });
 }
 
-describe("smart form production deploy execution gate — Phase 5H-G-R", () => {
+describe("smart form production deploy execution gate - Phase 5H-G-R", () => {
   test("approved production gate → execution ready_for_final_command", () => {
     const decision = readyExecutionGate();
 

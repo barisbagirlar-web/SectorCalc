@@ -1,5 +1,5 @@
 /**
- * Existing tool migration plan types — Phase 5H-E read-only migration planning.
+ * Existing tool migration plan types - Phase 5H-E read-only migration planning.
  */
 
 import type { BatchAlignmentStatus } from "@/lib/features/formula-governance/requirement-engine/batch-alignment-audit";

@@ -26,7 +26,7 @@ export const CLV_CAC_SCHEMA: PremiumCalculatorSchema = {
     { id: "ltvCac", label: "LTV/CAC Rate", label_i18n: {"en":"LTV/CAC Rate"}, unit: "scalar", format: "number", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "ltvCac", warning: 3, critical: 1, direction: "lower_is_bad", warningMessage: "LTV/CAC < 3 — marketing efficiency should be improved.", warningMessage_i18n: {"en":"LTV/CAC < 3 — marketing efficiency should be improved."}, criticalMessage: "LTV/CAC < 1 — every customer generates Loss, urgent strategy change needed.", criticalMessage_i18n: {"en":"LTV/CAC < 1 — every customer generates Loss, urgent strategy change needed."} },
+    { fieldId: "ltvCac", warning: 3, critical: 1, direction: "lower_is_bad", warningMessage: "LTV/CAC < 3 - marketing efficiency should be improved.", warningMessage_i18n: {"en":"LTV/CAC < 3 - marketing efficiency should be improved."}, criticalMessage: "LTV/CAC < 1 - every customer generates Loss, urgent strategy change needed.", criticalMessage_i18n: {"en":"LTV/CAC < 1 - every customer generates Loss, urgent strategy change needed."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.clv", inputMap: { avgOrderValue: "avgOrderValue", purchaseFreq: "purchaseFreq", lifespan: "lifespan" }, outputId: "clv" },

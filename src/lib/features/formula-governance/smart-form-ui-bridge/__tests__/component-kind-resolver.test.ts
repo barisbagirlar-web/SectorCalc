@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-C — component kind resolver tests.
+ * Phase 5H-G-C - component kind resolver tests.
  */
 
 import { describe, expect, test } from "vitest";

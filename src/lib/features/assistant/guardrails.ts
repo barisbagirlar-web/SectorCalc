@@ -1,5 +1,5 @@
 /**
- * SectorCalc Assistant — guardrails (P10).
+ * SectorCalc Assistant - guardrails (P10).
  *
  * Hard limits enforced before any topic matching. The assistant must never
  * calculate, never reveal private data, and never bypass gates.

@@ -1,5 +1,5 @@
 /**
- * Roadmap compressor — Phase 5I-Q next 3 batches.
+ * Roadmap compressor - Phase 5I-Q next 3 batches.
  */
 
 import type { RoadmapBatchSuggestion } from "@/lib/features/formula-governance/roadmap-debt-register/debt-register-types";

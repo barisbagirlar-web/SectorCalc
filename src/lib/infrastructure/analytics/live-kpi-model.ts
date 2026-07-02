@@ -1,5 +1,5 @@
 /**
- * Live KPI review model — aggregate traffic, conversion, revenue, and lead metrics.
+ * Live KPI review model - aggregate traffic, conversion, revenue, and lead metrics.
  * No PII; slugs and campaign IDs only.
  */
 

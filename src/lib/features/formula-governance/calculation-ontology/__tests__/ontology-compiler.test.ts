@@ -1,5 +1,5 @@
 /**
- * Phase 5H-B-3 — ontology draft compiler tests.
+ * Phase 5H-B-3 - ontology draft compiler tests.
  */
 
 import { describe, expect, test } from "vitest";

@@ -159,7 +159,7 @@ export function getThresholdSummary(
     const output = outputs.find((item) => item.id === rule.fieldId);
     const value = alert
       ? formatPremiumValue(alert.value, output?.format ?? "number", output?.unit ?? "", formatLocale)
-      : output?.formatted ?? "—";
+      : output?.formatted ?? "-";
 
     if (alert?.severity === "critical") {
       return {

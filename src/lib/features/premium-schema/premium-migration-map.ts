@@ -20,7 +20,7 @@ export interface PremiumMigrationMapItem {
   readonly migrationNote: string;
 }
 
-/** Controlled rollout map — legacy paidSlug → schema engine target. */
+/** Controlled rollout map - legacy paidSlug → schema engine target. */
 export const PREMIUM_MIGRATION_MAP: readonly PremiumMigrationMapItem[] = [
   {
     legacySlug: "cnc-quote-risk-analyzer",
@@ -30,7 +30,7 @@ export const PREMIUM_MIGRATION_MAP: readonly PremiumMigrationMapItem[] = [
     sectorSlug: "cnc-manufacturing",
     status: "schema_pilot",
     risk: "low",
-    migrationNote: "Batch 1 pilot — OEE, setup and scrap stack mapped from quote risk analyzer.",
+    migrationNote: "Batch 1 pilot - OEE, setup and scrap stack mapped from quote risk analyzer.",
   },
   {
     legacySlug: "change-order-impact-analyzer",
@@ -41,7 +41,7 @@ export const PREMIUM_MIGRATION_MAP: readonly PremiumMigrationMapItem[] = [
     status: "schema_pilot",
     risk: "low",
     migrationNote:
-      "Batch 1 pilot — legacy change-order slug maps to construction overrun schema (delay + budget drift).",
+      "Batch 1 pilot - legacy change-order slug maps to construction overrun schema (delay + budget drift).",
   },
   {
     legacySlug: "office-cleaning-bid-optimizer",
@@ -201,7 +201,7 @@ export const PREMIUM_MIGRATION_MAP: readonly PremiumMigrationMapItem[] = [
     sectorSlug: "logistics-transport",
     status: "schema_pilot",
     risk: "low",
-    migrationNote: "Batch 1 pilot — deadhead and freight cost stack live.",
+    migrationNote: "Batch 1 pilot - deadhead and freight cost stack live.",
   },
   {
     legacySlug: "crop-yield-loss-analyzer",
@@ -251,7 +251,7 @@ export const PREMIUM_MIGRATION_MAP: readonly PremiumMigrationMapItem[] = [
     sectorSlug: "energy-consumption",
     status: "schema_pilot",
     risk: "low",
-    migrationNote: "Batch 1 pilot — peak kWh and excess consumption stack live.",
+    migrationNote: "Batch 1 pilot - peak kWh and excess consumption stack live.",
   },
   {
     legacySlug: "cbam-compliance-verdict",
@@ -291,7 +291,7 @@ export const PREMIUM_MIGRATION_MAP: readonly PremiumMigrationMapItem[] = [
     sectorSlug: "daily-meals",
     status: "schema_pilot",
     risk: "medium",
-    migrationNote: "Batch 2 schema pilot — food waste schema bridge from meal planning slug.",
+    migrationNote: "Batch 2 schema pilot - food waste schema bridge from meal planning slug.",
   },
 ];
 

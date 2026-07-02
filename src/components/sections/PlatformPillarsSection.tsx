@@ -15,7 +15,7 @@ const PILLARS = [
  Illustration: PillarReportIllustration,
  titleLines: ["Premium", "Decision Tools"],
  description:
- "Advanced analyzers that turn inputs into risk levels, scenario paths and recommendations — designed for decisions that affect profit or operational risk.",
+ "Advanced analyzers that turn inputs into risk levels, scenario paths and recommendations - designed for decisions that affect profit or operational risk.",
  },
  {
  Illustration: PillarSecurityIllustration,

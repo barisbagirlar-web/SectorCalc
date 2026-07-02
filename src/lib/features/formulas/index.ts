@@ -1,5 +1,5 @@
 /**
- * SectorCalc Formula Engine — public facade.
+ * SectorCalc Formula Engine - public facade.
  *
  * Canonical implementation lives under `src/lib/formula-governance/` (Dual-Intelligence).
  * Mind 2: requirement / input resolution. Mind 1: oracle, scenario, property validation.

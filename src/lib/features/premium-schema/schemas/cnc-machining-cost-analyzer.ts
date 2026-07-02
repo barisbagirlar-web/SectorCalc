@@ -28,7 +28,7 @@ export const CNC_MACHINING_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalUnitCost", label: "Total Unit Cost", label_i18n: {"en":"Total Unit Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "totalUnitCost", warning: 15, critical: 30, direction: "higher_is_bad", warningMessage: "Unit cost > $15 — evaluate cost optimization.", warningMessage_i18n: {"en":"Unit cost > $15 — evaluate cost optimization."}, criticalMessage: "Unit cost > $30 — consider alternative process/material.", criticalMessage_i18n: {"en":"Unit cost > $30 — consider alternative process/material."} },
+    { fieldId: "totalUnitCost", warning: 15, critical: 30, direction: "higher_is_bad", warningMessage: "Unit cost > $15 - evaluate cost optimization.", warningMessage_i18n: {"en":"Unit cost > $15 - evaluate cost optimization."}, criticalMessage: "Unit cost > $30 - consider alternative process/material.", criticalMessage_i18n: {"en":"Unit cost > $30 - consider alternative process/material."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.cnc_material", inputMap: { rawVolume: "rawVolume", density: "density", pricePerKg: "pricePerKg", scrapRate: "scrapRate" }, outputId: "materialCost" },

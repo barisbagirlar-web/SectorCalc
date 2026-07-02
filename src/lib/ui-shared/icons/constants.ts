@@ -1,4 +1,4 @@
-/** SectorCalc premium icon system — stroke & size tokens */
+/** SectorCalc premium icon system - stroke & size tokens */
 
 export const ICON_STROKE = 1.75;
 

@@ -21,7 +21,7 @@ export const CROP_YIELD_LOSS_SCHEMA: PremiumCalculatorSchema = {
     { id: "financialLoss", label: "Financial Loss", label_i18n: {"en":"Financial Loss"}, unit: "USD/da", format: "currency" },
     { id: "roiIntervention", label: "intervention ROI", label_i18n: {"en":"intervention ROI"}, unit: "scalar", format: "number" },
   ],
-  thresholds: [{ fieldId: "yieldGap", warning: 100, critical: 300, direction: "higher_is_bad", warningMessage: "Efficiency difference > 100 kg/da — intervention should be evaluated.", warningMessage_i18n: {"en":"Efficiency difference > 100 kg/da — intervention should be evaluated."}, criticalMessage: "Efficiency difference > 300 kg/da — urgent measure required.", criticalMessage_i18n: {"en":"Efficiency difference > 300 kg/da — urgent measure required."} }],
+  thresholds: [{ fieldId: "yieldGap", warning: 100, critical: 300, direction: "higher_is_bad", warningMessage: "Efficiency difference > 100 kg/da - intervention should be evaluated.", warningMessage_i18n: {"en":"Efficiency difference > 100 kg/da - intervention should be evaluated."}, criticalMessage: "Efficiency difference > 300 kg/da - urgent measure required.", criticalMessage_i18n: {"en":"Efficiency difference > 300 kg/da - urgent measure required."} }],
   formulaPipeline: [
     { formulaId: "measurement.crop_potential_yield", inputMap: {
         area: "geneticPotential",

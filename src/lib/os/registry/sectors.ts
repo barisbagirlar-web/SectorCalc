@@ -1,5 +1,5 @@
 /**
- * Sector registry — derived from IndustrialRegistry source.
+ * Sector registry - derived from IndustrialRegistry source.
  * UI: t("sector.cnc.title") or entry.name fallback
  */
 
@@ -41,7 +41,7 @@ export type SectorParamTriple = IndustrialParamTriple;
 export type { ExpertFeatureKey, SectorExpertFeatures, SmartModuleId };
 
 export interface SectorEntry {
-  /** i18n root — e.g. sector.cnc */
+  /** i18n root - e.g. sector.cnc */
   key: string;
   /** Dynamic localized names from registry */
   names: LocalizedSectorName;
@@ -52,7 +52,7 @@ export interface SectorEntry {
   params: SectorParamTriple;
   /** Active Smart Module IDs */
   features: readonly SmartModuleId[];
-  /** Intelligence Layer UI — derived from features (backward-compat) */
+  /** Intelligence Layer UI - derived from features (backward-compat) */
   expertFeatures: SectorExpertFeatures;
 }
 

@@ -42,7 +42,7 @@ function suggestionFromSlug(slug: string, locale: string): AssistantSuggestion |
   return { slug, label, href };
 }
 
-/** Keyword + router pipeline — vector search hook point for later Pinecone/Supabase. */
+/** Keyword + router pipeline - vector search hook point for later Pinecone/Supabase. */
 export async function findBestTools(
   query: string,
   locale: string,

@@ -1,5 +1,5 @@
 /**
- * Smart Form input grouping — heuristic section assignment by canonical key.
+ * Smart Form input grouping - heuristic section assignment by canonical key.
  */
 
 import type { SmartFormGroupId, SmartFormInput } from "@/lib/features/smart-form/types";

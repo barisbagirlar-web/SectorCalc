@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-H — cabinet smart form pilot calculation bridge tests.
+ * Phase 5H-G-H - cabinet smart form pilot calculation bridge tests.
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";
@@ -39,7 +39,7 @@ vi.mock("@/lib/infrastructure/analytics/revenue-events", async (importOriginal) 
   };
 });
 
-describe("cabinet smart form pilot calculation bridge — Phase 5H-G-H", () => {
+describe("cabinet smart form pilot calculation bridge - Phase 5H-G-H", () => {
   afterEach(() => {
     vi.unstubAllEnvs();
     vi.mocked(trackRevenueEvent).mockClear();

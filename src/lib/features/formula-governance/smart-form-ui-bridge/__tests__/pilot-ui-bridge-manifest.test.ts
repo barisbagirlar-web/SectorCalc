@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-C — pilot UI bridge manifest tests.
+ * Phase 5H-G-C - pilot UI bridge manifest tests.
  */
 
 import { describe, expect, test } from "vitest";

@@ -1,5 +1,5 @@
 /**
- * Full tool audit priority and recommended action resolver — Phase 5H-J.
+ * Full tool audit priority and recommended action resolver - Phase 5H-J.
  */
 
 import type {

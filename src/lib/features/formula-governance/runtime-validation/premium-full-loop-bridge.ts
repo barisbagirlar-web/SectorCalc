@@ -1,5 +1,5 @@
 /**
- * Premium tool full-loop runtime bridge — Mind 2 → canonical calc → Mind 1 validation.
+ * Premium tool full-loop runtime bridge - Mind 2 → canonical calc → Mind 1 validation.
  */
 
 import { getFormulaContractBySlug } from "@/lib/features/formula-governance/contracts";
@@ -251,7 +251,7 @@ export function runPremiumFullLoopCalculation(
       canonicalKeys,
       rejectedKeys,
       extraBlockers: postLoop.validationResult?.errors ?? [
-        "Validation did not pass — verdict blocked.",
+        "Validation did not pass - verdict blocked.",
       ],
     });
   }

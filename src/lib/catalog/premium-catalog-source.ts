@@ -222,7 +222,7 @@ export function buildSearchablePremiumToolHaystack(tool: {
   );
 }
 
-/** Typeahead entries for premium discovery — active routable tools only. */
+/** Typeahead entries for premium discovery - active routable tools only. */
 export function buildPremiumCatalogSearchEntries(
   tools: readonly {
     readonly slug: string;

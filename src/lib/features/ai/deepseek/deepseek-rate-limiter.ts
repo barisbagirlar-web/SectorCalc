@@ -1,5 +1,5 @@
 /**
- * DeepSeek token-bucket rate limiter — industrial-grade.
+ * DeepSeek token-bucket rate limiter - industrial-grade.
  * Server/script only. Thread-safe via module-level state.
  */
 import { DEEPSEEK_RATE_LIMITS, type DeepSeekRateLimitConfig } from "./deepseek-types";

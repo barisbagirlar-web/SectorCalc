@@ -1,5 +1,5 @@
 /**
- * SectorCalc Assistant — deterministic responder (P10).
+ * SectorCalc Assistant - deterministic responder (P10).
  *
  * Pure function: message in, structured result out. No network, no AI, no
  * calculation. Used by the /api/assistant route. The client renders localized
