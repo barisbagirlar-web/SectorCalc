@@ -6,104 +6,53 @@
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "unit": "enum",
+      "options": [
+        {"value": "USD"},
+        {"value": "EUR"},
+        {"value": "TRY"},
+        {"value": "GBP"}
+      ],
+      "default": "USD"
+    },
+    {
       "id": "netKar",
-      "label": "Net Kâr (₺)",
-      "label_i18n": {
-        "en": "Net Income (USD)",
-        "tr": "Net Kâr (₺)",
-        "de": "Nettogewinn",
-        "fr": "Revenu net",
-        "es": "Ingreso neto",
-        "ar": "صافي الدخل"
-      },
+      "label": "Net Income",
       "type": "number",
-      "unit": "USD",
+      "unit": "currency",
       "default": 150000,
       "min": 0,
-      "businessContext": "Dönem net kârı.",
-      "businessContext_i18n": {
-        "en": "Net profit for the period.",
-        "tr": "Dönem net kârı.",
-        "de": "Perioden-Nettogewinn.",
-        "fr": "Bénéfice net de la période.",
-        "es": "Beneficio neto del período.",
-        "ar": "صافي الربح للفترة."
-      }
+      "businessContext": "Net profit for the period."
     },
     {
       "id": "faiz",
-      "label": "Faiz Gideri (₺)",
-      "label_i18n": {
-        "en": "Interest Expense (USD)",
-        "tr": "Faiz Gideri (₺)",
-        "de": "Zinsaufwand",
-        "fr": "Charges d'intérêts",
-        "es": "Gastos por intereses",
-        "ar": "مصروف الفائدة"
-      },
+      "label": "Interest Expense",
       "type": "number",
-      "unit": "USD",
+      "unit": "currency",
       "default": 20000,
       "min": 0,
-      "businessContext": "Dönem faiz giderleri.",
-      "businessContext_i18n": {
-        "en": "Period interest expenses.",
-        "tr": "Dönem faiz giderleri.",
-        "de": "Periodische Zinsaufwendungen.",
-        "fr": "Charges d'intérêts de la période.",
-        "es": "Gastos por intereses del período.",
-        "ar": "مصروفات الفوائد للفترة."
-      }
+      "businessContext": "Period interest expenses."
     },
     {
       "id": "vergi",
-      "label": "Vergi Gideri (₺)",
-      "label_i18n": {
-        "en": "Tax Expense (USD)",
-        "tr": "Vergi Gideri (₺)",
-        "de": "Steueraufwand",
-        "fr": "Charge fiscale",
-        "es": "Gasto fiscal",
-        "ar": "مصروف الضريبة"
-      },
+      "label": "Tax Expense",
       "type": "number",
-      "unit": "USD",
+      "unit": "currency",
       "default": 45000,
       "min": 0,
-      "businessContext": "Dönem vergi gideri.",
-      "businessContext_i18n": {
-        "en": "Period tax expense.",
-        "tr": "Dönem vergi gideri.",
-        "de": "Periodische Steueraufwendungen.",
-        "fr": "Charge d'impôt de la période.",
-        "es": "Gasto por impuestos del período.",
-        "ar": "مصروفات الضرائب للفترة."
-      }
+      "businessContext": "Period tax expense."
     },
     {
       "id": "amortisman",
-      "label": "Amortisman (₺)",
-      "label_i18n": {
-        "en": "Depreciation (USD)",
-        "tr": "Amortisman (₺)",
-        "de": "Jährliche Abschreibungsrate",
-        "fr": "Taux d'amortissement annuel",
-        "es": "Tasa de depreciación anual",
-        "ar": "معدل الاستهلاك السنوي"
-      },
+      "label": "Depreciation",
       "type": "number",
-      "unit": "USD",
+      "unit": "currency",
       "default": 30000,
       "min": 0,
-      "businessContext": "Dönem amortisman gideri.",
-      "businessContext_i18n": {
-        "en": "Period depreciation expense.",
-        "tr": "Dönem amortisman gideri.",
-        "de": "Periodische Abschreibungen.",
-        "fr": "Charge de dépréciation de la période.",
-        "es": "Gasto por depreciación del período.",
-        "ar": "مصروفات الإهلاك للفترة."
-      }
+      "businessContext": "Period depreciation expense."
     }
   ],
   "validation": {
@@ -113,27 +62,22 @@
     "thresholds": {}
   },
   "formulas": {
-    "normalized_product": "netKar * faiz * vergi * amortisman",
-    "result": "netKar * faiz * vergi * amortisman"
+    "normalized_product": "netKar + faiz + vergi + amortisman",
+    "result": "netKar + faiz + vergi + amortisman"
   },
   "outputs": {
     "primary": "result",
-    "unit": "units",
+    "unit": "currency",
     "breakdown": [
       "normalized_product"
     ],
     "breakdown_i18n": {
       "sonuc": {
-        "en": "EBITDA",
-        "tr": "EBITDA",
-        "de": "EBITDA",
-        "fr": "EBITDA",
-        "es": "EBITDA",
-        "ar": "الأرباح قبل الفوائد والضرائب والإهلاك والاستهلاك"
+        "en": "EBITDA"
       }
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "sonuc": "currency"
     },
     "hiddenLossDrivers": [
       "Model uses normalized input chain — validate units",
@@ -150,31 +94,11 @@
   "about": {
     "description": {
       "short": "Calculate earnings before interest, taxes, depreciation and amortization.",
-      "long": "Calculate earnings before interest, taxes, depreciation and amortization.",
-      "short_i18n": {
-        "en": "Calculate earnings before interest, taxes, depreciation and amortization.",
-        "tr": "Finansman ve vergi öncesi operasyonel nakit kârı (EBITDA) hesaplar.",
-        "de": "Berechnen Sie das Ergebnis vor Zinsen, Steuern, Abschreibungen und Amortisation.",
-        "fr": "Calculer le bénéfice avant intérêts, impôts, dépréciation et amortissement.",
-        "es": "Calcular las ganancias antes de intereses, impuestos, depreciación y amortización.",
-        "ar": "احسب الأرباح قبل الفوائد والضرائب والإهلاك والاستهلاك."
-      },
-      "long_i18n": {
-        "en": "Calculate earnings before interest, taxes, depreciation and amortization.",
-        "tr": "Finansman ve vergi öncesi operasyonel nakit kârı (EBITDA) hesaplar.",
-        "de": "Berechnen Sie das Ergebnis vor Zinsen, Steuern, Abschreibungen und Amortisation.",
-        "fr": "Calculer le bénéfice avant intérêts, impôts, dépréciation et amortissement.",
-        "es": "Calcular las ganancias antes de intereses, impuestos, depreciación y amortización.",
-        "ar": "احسب الأرباح قبل الفوائد والضرائب والإهلاك والاستهلاك."
-      }
+      "long": "Calculate earnings before interest, taxes, depreciation and amortization."
     }
   },
   "title_i18n": {
-    "en": "ebitda-calculator",
-    "de": "EBITDA-Rechner",
-    "fr": "Calculateur d'EBITDA",
-    "es": "Calculadora de EBITDA",
-    "ar": "حاسبة EBITDA"
+    "en": "EBITDA Calculator"
   },
-  "sectorSlug": "daily-renovation"
+  "sectorSlug": "finance-sales-working-capital"
 }

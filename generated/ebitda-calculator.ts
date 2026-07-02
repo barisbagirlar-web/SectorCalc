@@ -3,6 +3,7 @@ import * as z from 'zod';
 
 export interface Ebitda_calculatorInput {
   dataConfidence?: number;
+  currency?: string;
   netKar: number;
   faiz: number;
   vergi: number;
@@ -11,6 +12,7 @@ export interface Ebitda_calculatorInput {
 
 export const Ebitda_calculatorInputSchema = z.object({
   dataConfidence: z.number().optional(),
+  currency: z.string().optional().default("USD"),
   netKar: z.number().min(0).default(150000),
   faiz: z.number().min(0).default(20000),
   vergi: z.number().min(0).default(45000),
@@ -23,8 +25,8 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Ebitda_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input["netKar"] * input["faiz"] * input["vergi"] * input["amortisman"]; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input["netKar"] * input["faiz"] * input["vergi"] * input["amortisman"]; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input["netKar"] + input["faiz"] + input["vergi"] + input["amortisman"]; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input["netKar"] + input["faiz"] + input["vergi"] + input["amortisman"]; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -47,7 +49,7 @@ export function calculateEbitda_calculator(input: Ebitda_calculatorInput): Ebitd
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "units",
+    unit: "currency",
     premiumRequired: false,
     premiumFeatures: [],
   };
@@ -67,6 +69,6 @@ export interface Ebitda_calculatorOutput {
 
 export const Ebitda_calculatorOutputMeta = {
   primaryKey: "result",
-  unit: "units",
+  unit: "currency",
   breakdownKeys: ["normalized_product"],
 } as const;
