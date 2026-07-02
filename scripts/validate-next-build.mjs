@@ -57,16 +57,6 @@ const CRITICAL_HUB_ROUTES = [
     appPaths: ["/(english)/free-tools/page", "/free-tools/page", "/[locale]/free-tools/page"],
     legacyPageModule: join("free-tools", "page.js"),
   },
-  {
-    route: "/tr/free-tools",
-    appPaths: ["/[locale]/free-tools/page"],
-    legacyPageModule: join("[locale]", "free-tools", "page.js"),
-  },
-  {
-    route: "/tr",
-    appPaths: ["/[locale]/page"],
-    legacyPageModule: join("[locale]", "page.js"),
-  },
 ];
 
 /** @returns {string[]} */
