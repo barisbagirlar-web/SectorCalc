@@ -61,8 +61,7 @@ import { LEGAL_INTEREST_FEE_CALCULATOR_PRO_CRITICAL_FORMULA_CONTRACTS } from "@/
 import { ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/engine-modules-critical";
 import { P77_FREE_TRAFFIC_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/p77-free-traffic-batch";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/features/tools/rent-vs-buy-model";
-import { THREE_D_PRINT_JOB_MARGIN_TOOL_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/3d-print-job-margin-tool-critical";
-import { CNC_QUOTE_RISK_ANALYZER_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/cnc-quote-risk-analyzer-critical";
+
 import { INDUSTRIAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/industrial-formulas-critical";
 import { PREMIUM_152_BATCH1_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/premium-152-batch1-critical";
 
@@ -315,8 +314,7 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...LEGAL_INTEREST_FEE_CALCULATOR_PRO_CRITICAL_FORMULA_CONTRACTS,
   ...ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS,
   ...P77_FREE_TRAFFIC_FORMULA_CONTRACTS,
-  ...THREE_D_PRINT_JOB_MARGIN_TOOL_CRITICAL_FORMULA_CONTRACTS,
-  ...CNC_QUOTE_RISK_ANALYZER_CRITICAL_FORMULA_CONTRACTS,
+
   ...INDUSTRIAL_FORMULA_CONTRACTS,
   ...PREMIUM_152_BATCH1_CRITICAL_FORMULA_CONTRACTS,
 ];

@@ -1,6 +1,6 @@
 import { normalizeLocale } from "@/lib/core/format/localization";
-import type { SevenMudaEngineeringResult } from "@/lib/features/premium-schema/calculators/seven-muda-waste-cost";
-import type { SevenMudaWasteCategoryKey } from "@/lib/features/premium-schema/calculators/seven-muda-waste-decision";
+
+
 
 export type SevenMudaRev5Labels = {
   readonly quickSummaryTitle: string;
@@ -35,11 +35,11 @@ export type SevenMudaRev5Labels = {
   readonly annualSavings: string;
   readonly warnings: string;
   readonly noWarnings: string;
-  readonly categoryName: (key: SevenMudaWasteCategoryKey | "none") => string;
+  readonly categoryName: (key: string | "none") => string;
   readonly summaryLevelText: (
-    level: SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+    level: any["decisionVerdict"]["summaryLevel"],
   ) => string;
-  readonly confidenceText: (level: SevenMudaEngineeringResult["confidenceLevel"]) => string;
+  readonly confidenceText: (level: any["confidenceLevel"]) => string;
   readonly resolveWarningMessage: (rawWarning: string) => string;
 };
 
@@ -160,7 +160,7 @@ const DE_LABELS: SevenMudaRev5LabelCore = {
   confidenceText: (level) => DE_CONFIDENCE[level],
 };
 
-const DE_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+const DE_CATEGORY_NAMES: Record<string | "none", string> = {
   none: "Keine Daten eingegeben",
   overproduction: "Uberproduktion",
   waiting: "Warten",
@@ -172,7 +172,7 @@ const DE_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
 };
 
 const DE_SUMMARY_LEVELS: Record<
-  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  any["decisionVerdict"]["summaryLevel"],
   string
 > = {
   no_detected_waste: "Keine Verschwendung erkannt",
@@ -182,7 +182,7 @@ const DE_SUMMARY_LEVELS: Record<
   critical: "Kritische Exposition",
 };
 
-const DE_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+const DE_CONFIDENCE: Record<any["confidenceLevel"], string> = {
   high: "Hoch",
   medium: "Mittel",
   low: "Niedrig",
@@ -226,7 +226,7 @@ const FR_LABELS: SevenMudaRev5LabelCore = {
   confidenceText: (level) => FR_CONFIDENCE[level],
 };
 
-const FR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+const FR_CATEGORY_NAMES: Record<string | "none", string> = {
   none: "Aucune donnée saisie",
   overproduction: "Surproduction",
   waiting: "Attente",
@@ -238,7 +238,7 @@ const FR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
 };
 
 const FR_SUMMARY_LEVELS: Record<
-  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  any["decisionVerdict"]["summaryLevel"],
   string
 > = {
   no_detected_waste: "Aucun déchet détecté",
@@ -248,7 +248,7 @@ const FR_SUMMARY_LEVELS: Record<
   critical: "Exposition critique",
 };
 
-const FR_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+const FR_CONFIDENCE: Record<any["confidenceLevel"], string> = {
   high: "Élevée",
   medium: "Moyenne",
   low: "Faible",
@@ -292,7 +292,7 @@ const ES_LABELS: SevenMudaRev5LabelCore = {
   confidenceText: (level) => ES_CONFIDENCE[level],
 };
 
-const ES_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+const ES_CATEGORY_NAMES: Record<string | "none", string> = {
   none: "Sin datos ingresados",
   overproduction: "Sobreproducción",
   waiting: "Espera",
@@ -304,7 +304,7 @@ const ES_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
 };
 
 const ES_SUMMARY_LEVELS: Record<
-  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  any["decisionVerdict"]["summaryLevel"],
   string
 > = {
   no_detected_waste: "Sin desperdicio detectado",
@@ -314,7 +314,7 @@ const ES_SUMMARY_LEVELS: Record<
   critical: "Exposición crítica",
 };
 
-const ES_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+const ES_CONFIDENCE: Record<any["confidenceLevel"], string> = {
   high: "Alta",
   medium: "Media",
   low: "Baja",
@@ -358,7 +358,7 @@ const AR_LABELS: SevenMudaRev5LabelCore = {
   confidenceText: (level) => AR_CONFIDENCE[level],
 };
 
-const AR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+const AR_CATEGORY_NAMES: Record<string | "none", string> = {
   none: "لم يتم إدخال بيانات",
   overproduction: "إنتاج زائد",
   waiting: "انتظار",
@@ -370,7 +370,7 @@ const AR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
 };
 
 const AR_SUMMARY_LEVELS: Record<
-  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  any["decisionVerdict"]["summaryLevel"],
   string
 > = {
   no_detected_waste: "لا يوجد هدر مكتشف",
@@ -380,13 +380,13 @@ const AR_SUMMARY_LEVELS: Record<
   critical: "تعرض حرج",
 };
 
-const AR_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+const AR_CONFIDENCE: Record<any["confidenceLevel"], string> = {
   high: "عالية",
   medium: "متوسطة",
   low: "منخفضة",
 };
 
-const EN_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+const EN_CATEGORY_NAMES: Record<string | "none", string> = {
   none: "No data entered",
   overproduction: "Overproduction",
   waiting: "Waiting",
@@ -397,7 +397,7 @@ const EN_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
   defects: "Defects",
 };
 
-const TR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
+const TR_CATEGORY_NAMES: Record<string | "none", string> = {
   none: "Veri girilmedi",
   overproduction: "Asiri uretim",
   waiting: "Bekleme",
@@ -409,7 +409,7 @@ const TR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
 };
 
 const EN_SUMMARY_LEVELS: Record<
-  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  any["decisionVerdict"]["summaryLevel"],
   string
 > = {
   no_detected_waste: "No detected waste",
@@ -420,7 +420,7 @@ const EN_SUMMARY_LEVELS: Record<
 };
 
 const TR_SUMMARY_LEVELS: Record<
-  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  any["decisionVerdict"]["summaryLevel"],
   string
 > = {
   no_detected_waste: "Calculation icin israf surucusu girilmeli",
@@ -430,13 +430,13 @@ const TR_SUMMARY_LEVELS: Record<
   critical: "Kritik maruziyet",
 };
 
-const EN_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+const EN_CONFIDENCE: Record<any["confidenceLevel"], string> = {
   high: "High",
   medium: "Medium",
   low: "Low",
 };
 
-const TR_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+const TR_CONFIDENCE: Record<any["confidenceLevel"], string> = {
   high: "Yuksek",
   medium: "Orta",
   low: "Dusuk",
