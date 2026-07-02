@@ -1,0 +1,29 @@
+{
+  "toolId": "heat-exchanger-fouling-analyzer",
+  "cases": [
+    {
+      "name": "Standard Fouling Evaluation",
+      "inputs": {
+        "uClean": 500,
+        "uDirty": 350,
+        "area": 100,
+        "lmtd": 30,
+        "operatingHours": 8000,
+        "boilerEff": 85,
+        "fuelCost": 0.05,
+        "deltaPIncrease": 0.5,
+        "flowM3h": 200,
+        "pumpEff": 75,
+        "cleanCost": 5000,
+        "heatLoss": 150
+      },
+      "expect": {
+        "rf": 0.000857,
+        "heatLoss": 450,
+        "cost": 213246.189542,
+        "roi": 4164.923790
+      },
+      "tolerance": { "abs": 0.0001, "rel": 0.000001 }
+    }
+  ]
+}

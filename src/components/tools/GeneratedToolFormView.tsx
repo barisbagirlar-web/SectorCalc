@@ -17,6 +17,8 @@ import {
 } from "@/lib/features/generated-tools/use-tool-schema";
 import type { GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 
+import { CustomEbitdaCalculator } from "@/components/tools/custom/CustomEbitdaCalculator";
+
 export type GeneratedToolFormViewProps = {
   readonly slug: string;
   readonly schema: GeneratedToolSchema;
@@ -116,7 +118,13 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           </div>
         ) : null}
 
-        <UniversalDynamicToolForm schema={schema} slug={slug} />
+        {cleanSlug === "ebitda-calculator" ? (
+          <div className="card" style={{ marginBottom: 22, padding: 0, overflow: "hidden" }}>
+            <CustomEbitdaCalculator />
+          </div>
+        ) : (
+          <UniversalDynamicToolForm schema={schema} slug={slug} />
+        )}
 
         <div className="card" style={{ marginTop: 22 }}>
           <ToolDescription content={aboutContent} isPremium={isPremium} />

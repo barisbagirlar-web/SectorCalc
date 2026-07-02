@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { LandingPageContent } from "@/components/landing/LandingPageContent";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
@@ -10,7 +11,14 @@ import { getAllTools } from "@/lib/features/tools/all-tools-data";
 
 export const revalidate = 3600;
 
-export async function generateMetadata(): Promise<Metadata> {
+type PageProps = {
+  params: Promise<{  }>;
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const locale = "en";
+  if (locale !== "en") notFound();
+
   return createPageMetadata({
     title: "SectorCalc — Engineering-Grade Calculation Platform",
     description: "Standards-backed calculation models for manufacturing, engineering, and operations. Calculate, verify, and support your technical decisions.",
@@ -19,8 +27,10 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params }: PageProps) {
   const locale = "en";
+  if (locale !== "en") notFound();
+
   const freeCount = getFreeToolCount();
   const rawTools = getAllTools(locale);
 

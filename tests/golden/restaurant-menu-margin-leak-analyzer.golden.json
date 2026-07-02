@@ -1,0 +1,26 @@
+{
+  "toolId": "restaurant-menu-margin-leak-analyzer",
+  "cases": [
+    {
+      "name": "Standard Margin Leak Analysis",
+      "inputs": {
+        "theoreticalFoodCost": 15000,
+        "actualFoodCost": 18500,
+        "revenue": 55000,
+        "wasteAmount": 1200,
+        "theftLoss": 800
+      },
+      "expect": {
+        "restaurantTheoreticalFood": 15000,
+        "restaurantActualFood": 18500,
+        "restaurantVariance": 3500,
+        "restaurantVariancePct": 23.333333,
+        "restaurantWasteCost": 1200,
+        "restaurantTheftLoss": 800,
+        "restaurantIdealMargin": 72.727272,
+        "restaurantActualMargin": 66.363636
+      },
+      "tolerance": { "abs": 0.0001, "rel": 0.000001 }
+    }
+  ]
+}

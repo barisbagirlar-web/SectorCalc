@@ -21,20 +21,9 @@ export const STEAM_TRAP_ENERGY_LOSS_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "annualLoss", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Annual loss >$10K — identify faulty traps.", warningMessage_i18n: {"en":"Annual loss >$10K — identify faulty traps."}, criticalMessage: "Annual loss >$50K — initiate urgent steam trap maintenance program.", criticalMessage_i18n: {"en":"Annual loss >$50K — initiate urgent steam trap maintenance program."} }],
   formulaPipeline: [
-    { formulaId: "measurement.steam_loss_rate", inputMap: {
-        steamPressure: "steamPressure",
-        holeDiameter: "holeDiameter"
-      ,
-        orificeArea: "orificeArea",
-        deltaPressure: "deltaPressure",
-        steamDensity: "steamDensity"}, outputId: "steamLossRate" },
-    { formulaId: "cost.steam_trap_annual_loss", inputMap: { steamLossRate: "steamLossRate", operatingHoursPerYear: "operatingHoursPerYear", steamCost: "steamCost", faultyTraps: "faultyTraps" ,
-        steamLoss: "steamLoss",
-        operatingHours: "operatingHours"}, outputId: "annualLoss" },
-    { formulaId: "cost.steam_trap_roi", inputMap: { annualLoss: "annualLoss", faultyTraps: "faultyTraps", replacementCost: "replacementCost" ,
-        systemLoss: "systemLoss",
-        trapCost: "trapCost",
-        laborCost: "laborCost"}, outputId: "roi" },
+    { formulaId: "measurement.steam_loss_rate", inputMap: { steamPressure: "steamPressure", holeDiameter: "holeDiameter" }, outputId: "steamLossRate" },
+    { formulaId: "cost.steam_trap_annual_loss", inputMap: { steamLossRate: "steamLossRate", operatingHoursPerYear: "operatingHoursPerYear", steamCost: "steamCost", faultyTraps: "faultyTraps" }, outputId: "annualLoss" },
+    { formulaId: "cost.steam_trap_roi", inputMap: { annualLoss: "annualLoss", faultyTraps: "faultyTraps", replacementCost: "replacementCost" }, outputId: "roi" },
   ],
   reportTemplate: { title: "Steam Trap Energy Loss Report", title_i18n: {"en":"Steam Trap Energy Loss Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Steam leak rate is calculated using Napier's formula: Q = 0.525 × d² × P.", "Annual loss = leak rate × hours × cost × number of traps.", "Repair ROI = (annual loss − replacement) / replacement × 100."],assumptionNotes_i18n:[{"en":"Steam leak rate is calculated using Napier's formula: Q = 0.525 × d² × P."},{"en":"Annual loss = leak rate × hours × cost × number of traps."},{"en":"Repair ROI = (annual loss − replacement) / replacement × 100."}] },

@@ -1054,11 +1054,11 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.ltv_cac_ratio", family: "cost", label: "LTV / CAC ratio", fn: (i) => num(i,"discountedClv") / num(i,"cac") },
 
   // CNC cevrim suresi
-  { id: "measurement.cnc_rpm", family: "measurement", label: "CNC spindle RPM", fn: (i) => (1000 * num(i,"cuttingSpeed")) / (Math.PI * num(i,"toolDiameter")) },
+  { id: "measurement.cnc_rpm", family: "measurement", label: "CNC spindle RPM", fn: (i) => num(i,"cuttingSpeed") / (Math.PI * num(i,"toolDiameter")) },
   { id: "measurement.cnc_feed_speed", family: "measurement", label: "CNC feed speed", fn: (i) => num(i,"feedPerTooth") * num(i,"teeth") * num(i,"rpm") },
-  { id: "measurement.cnc_cut_time", family: "measurement", label: "CNC cut time", fn: (i) => (num(i,"length") * num(i,"depth")) / (num(i,"feedSpeed") * num(i,"axialDepth")) },
-  { id: "measurement.cnc_rapid_time", family: "measurement", label: "CNC rapid traverse time", fn: (i) => num(i,"rapidDistance") / num(i,"rapidSpeed") },
-  { id: "measurement.cnc_toolchange_time", family: "measurement", label: "CNC tool change time", fn: (i) => num(i,"changeCount") * num(i,"timePerChange") },
+  { id: "measurement.cnc_cut_time", family: "measurement", label: "CNC cut time", fn: (i) => (num(i,"length") * 1000 * num(i,"depth")) / (num(i,"feedSpeed") * num(i,"axialDepth")) },
+  { id: "measurement.cnc_rapid_time", family: "measurement", label: "CNC rapid traverse time", fn: (i) => (num(i,"rapidDistance") * 1000) / num(i,"rapidSpeed") },
+  { id: "measurement.cnc_tool_change_time", family: "measurement", label: "CNC tool change time", fn: (i) => num(i,"changeCount") * num(i,"timePerChange") },
   { id: "measurement.cnc_total_time", family: "measurement", label: "CNC total cycle time", fn: (i) => num(i,"cutTime") + num(i,"rapidTime") + num(i,"toolChangeTime") + num(i,"nonCuttingTime") + num(i,"loadUnloadTime") },
 
   // CNC isleme maliyeti
@@ -1093,7 +1093,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.roof_footprint", family: "measurement", label: "Roof footprint area", fn: (i) => num(i,"roofLength") * num(i,"roofWidth") },
   { id: "measurement.roof_gable_area", family: "measurement", label: "Roof gable area", fn: (i) => num(i,"footprint") / Math.cos(num(i,"pitchAngle") * Math.PI / 180) },
   { id: "measurement.roof_overhang_area", family: "measurement", label: "Roof overhang area", fn: (i) => (2 * (num(i,"buildingLength") + num(i,"buildingWidth"))) * num(i,"overhangWidth") },
-  { id: "measurement.roof_material_area", family: "measurement", label: "Total material area needed", fn: (i) => num(i,"gableArea") * (1 + num(i,"wasteFactor")) },
+  { id: "measurement.roof_material_area", family: "measurement", label: "Total material area needed", fn: (i) => num(i,"gableArea") * (1 + num(i,"wasteFactor") / 100) },
   { id: "measurement.roof_ridge_length", family: "measurement", label: "Ridge length", fn: (i) => num(i,"buildingLength") - num(i,"buildingWidth") + (num(i,"buildingWidth") * Math.SQRT2) },
 
   // Darbogaz yatirim
@@ -1308,7 +1308,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
 
   // Isi exchanger fouling
   { id: "energy.fouling_resistance", family: "energy", label: "Fouling resistance", fn: (i) => (1 / num(i,"uDirty")) - (1 / num(i,"uClean")) },
-  { id: "energy.heat_exchanger_loss", family: "energy", label: "Heat loss from fouling", fn: (i) => num(i,"area") * num(i,"uClean") * num(i,"lmtd") - num(i,"area") * num(i,"uDirty") * num(i,"lmtd") },
+  { id: "energy.heat_exchanger_loss", family: "energy", label: "Heat loss from fouling", fn: (i) => (num(i,"area") * num(i,"uClean") * num(i,"lmtd") - num(i,"area") * num(i,"uDirty") * num(i,"lmtd")) / 1000 },
   { id: "cost.fouling_energy_penalty", family: "cost", label: "Energy penalty cost from fouling", fn: (i) => num(i,"heatLoss") * num(i,"hours") / num(i,"boilEff") * num(i,"fuelCost") },
 
   // ISO 50001 baseline
@@ -1391,8 +1391,15 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "energy.energy_carbon_footprint", family: "energy", label: "Energy carbon footprint", fn: (i) => num(i,"active") * num(i,"emisFactor") },
   { id: "energy.energy_savings", family: "energy", label: "Energy savings", fn: (i) => num(i,"predictedConsumption") - num(i,"actualConsumption") },
   { id: "energy.energy_total_bill", family: "energy", label: "Total energy bill", fn: (i) => num(i,"baseCharge") + num(i,"touCharge") + num(i,"demandCharge") + num(i,"reactivePenalty") + num(i,"tax") },
-  { id: "energy.fouling_cost", family: "energy", label: "Fouling energy penalty cost", fn: (i) => num(i,"heatLoss") * num(i,"pumpIncrease") / num(i,"pumpIncrease") * num(i,"pumpIncrease") },
-  { id: "energy.fouling_roi", family: "energy", label: "Fouling cleaning ROI", fn: (i) => num(i,"totalCost") / num(i,"cleanCost") },
+  { id: "energy.fouling_cost", family: "energy", label: "Fouling energy penalty cost", fn: (i) => {
+      const pEff = num(i,"pumpEff") / 100 || 1;
+      const bEff = num(i,"boilerEff") / 100 || 1;
+      const pumpPowerKW = (num(i,"deltaPIncrease") * 100000 * (num(i,"flowM3h") / 3600)) / 1000 / pEff;
+      const pumpCost = pumpPowerKW * num(i,"operatingHours") * num(i,"fuelCost");
+      const heatCost = (num(i,"heatLoss") / bEff) * num(i,"operatingHours") * num(i,"fuelCost");
+      return pumpCost + heatCost;
+  } },
+  { id: "energy.fouling_roi", family: "energy", label: "Fouling cleaning ROI", fn: (i) => safeDivide(num(i,"totalCost") - num(i,"cleanCost"), num(i,"cleanCost")) * 100 },
   { id: "energy.hydraulic_cost", family: "energy", label: "Hydraulic loss energy cost", fn: (i) => num(i,"heat") * num(i,"hours") * num(i,"elecRate") },
   { id: "energy.hydraulic_eff", family: "energy", label: "Hydraulic system efficiency", fn: (i) => (num(i,"pOut") / num(i,"pIn")) * 100 },
   { id: "measurement.cnc_oee_availability", family: "measurement", label: "CNC OEE availability", fn: (i) => num(i,"plannedTime") / (num(i,"plannedTime") + num(i,"downtime")) },
@@ -1519,7 +1526,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   // Energy bill
   { id: "cost.energy_charge", family: "cost", label: "Energy charge", fn: (i) => num(i,"consumptionKwh") * num(i,"ratePerKwh") },
   { id: "cost.reactive_penalty_kwh", family: "cost", label: "Reactive penalty", fn: (i) => Math.max(0, num(i,"reactivePower") - num(i,"reactiveAllowance")) * num(i,"penaltyRate") },
-  { id: "cost.total_bill_kwh", family: "cost", label: "Total energy bill", fn: (i) => num(i,"energyCharge") + num(i,"fixedCharge") + num(i,"reactivePenalty") + num(i,"tax") },
+  { id: "cost.total_bill_kwh", family: "cost", label: "Total energy bill", fn: (i) => (num(i,"energyCharge") + num(i,"fixedCharge") + num(i,"reactivePenalty")) * (1 + num(i,"tax") / 100) },
   { id: "cost.unit_cost_kwh", family: "cost", label: "Unit cost per kWh", fn: (i) => safeDivide(num(i,"totalBill"), num(i,"totalConsumption")) },
   { id: "cost.peak_shaving_savings", family: "cost", label: "Peak shaving savings", fn: (i) => (num(i,"peakDemand") - num(i,"shavedDemand")) * num(i,"demandCharge") },
 
@@ -1531,12 +1538,12 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.route_total_loss", family: "cost", label: "Total route loss", fn: (i) => num(i,"fuelWaste") + num(i,"timeWaste") },
 
   // Shop labor
-  { id: "cost.shop_direct_labor", family: "cost", label: "Direct labor cost", fn: (i) => num(i,"technicianWages") * num(i,"technicianWages") },
-  { id: "cost.shop_indirect_labor", family: "cost", label: "Indirect labor cost", fn: (i) => num(i,"managerWages") * num(i,"adminWages") },
-  { id: "cost.shop_overhead", family: "cost", label: "Shop overhead", fn: (i) => (num(i,"directLabor") + num(i,"indirectLabor")) * num(i,"depreciation") / 100 },
+  { id: "cost.shop_direct_labor", family: "cost", label: "Direct labor cost", fn: (i) => num(i,"technicianWages") },
+  { id: "cost.shop_indirect_labor", family: "cost", label: "Indirect labor cost", fn: (i) => num(i,"managerWages") + num(i,"adminWages") },
+  { id: "cost.shop_overhead", family: "cost", label: "Shop overhead", fn: (i) => num(i,"rent") + num(i,"utilities") + num(i,"insurance") + num(i,"tools") + num(i,"depreciation") },
   { id: "cost.shop_total_cost", family: "cost", label: "Total shop cost", fn: (i) => num(i,"directLabor") + num(i,"indirectLabor") + num(i,"overhead") },
-  { id: "cost.shop_billable_hours", family: "cost", label: "Billable hours", fn: (i) => num(i,"totalAvailableHours") * num(i,"utilizationRate") / 100 },
-  { id: "cost.shop_effective_margin", family: "cost", label: "Effective margin", fn: (i) => safeDivide(num(i,"actualBillingRate") - num(i,"shopHourlyRate"), num(i,"shopRevenue")) * 100 },
+  { id: "cost.shop_billable_hours", family: "cost", label: "Billable hours", fn: (i) => num(i,"totalAvailableHours") * num(i,"utilizationRate") },
+  { id: "cost.shop_effective_margin", family: "cost", label: "Effective margin", fn: (i) => safeDivide(num(i,"actualBillingRate") - num(i,"shopHourlyRate"), num(i,"actualBillingRate")) * 100 },
 
   // Crop yield
   { id: "measurement.crop_potential_yield", family: "measurement", label: "Potential yield", fn: (i) => num(i,"area") * num(i,"potentialPerHa") },
@@ -1546,15 +1553,23 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.crop_roi_intervention", family: "cost", label: "Intervention ROI", fn: (i) => safeDivide(num(i,"financialLoss") - num(i,"interventionCost"), num(i,"interventionCost")) * 100 },
 
   // Machine EUAC
-  { id: "cost.machine_euac_capital", family: "cost", label: "EUAC capital", fn: (i) => num(i,"purchasePrice") * (num(i,"interestRate") / 100) / (1 - Math.pow(1 + num(i,"interestRate") / 100, -num(i,"lifeYears"))) },
+  { id: "cost.machine_euac_capital", family: "cost", label: "EUAC capital", fn: (i) => {
+      const p = num(i,"purchaseCost");
+      const s = num(i,"residualValue");
+      const rate = num(i,"discountRate") / 100;
+      const n = num(i,"lifeYears");
+      if (rate === 0) return safeDivide(p - s, n);
+      const ap = rate / (1 - Math.pow(1 + rate, -n));
+      return (p - s) * ap + s * rate;
+  } },
   { id: "cost.machine_euac_operating", family: "cost", label: "EUAC operating", fn: (i) => num(i,"annualOperatingCost") + num(i,"annualMaintenance") + num(i,"annualEnergy") },
   { id: "cost.machine_total_euac", family: "cost", label: "Total EUAC", fn: (i) => num(i,"euacCapital") + num(i,"euacOperating") },
 
   // TCO comparison
-  { id: "cost.tco_current", family: "cost", label: "Current TCO", fn: (i) => num(i,"currentMaterialCost") + num(i,"currentMaterialWeight") + num(i,"currentMaterialWeight") + num(i,"productionVolume") },
-  { id: "cost.tco_alternative", family: "cost", label: "Alternative TCO", fn: (i) => num(i,"alternativeMaterialCost") + num(i,"alternativeWeight") + num(i,"alternativeWeight") + num(i,"productionVolume") },
+  { id: "cost.tco_current", family: "cost", label: "Current TCO", fn: (i) => num(i,"currentMaterialCost") * num(i,"currentMaterialWeight") * num(i,"productionVolume") },
+  { id: "cost.tco_alternative", family: "cost", label: "Alternative TCO", fn: (i) => num(i,"alternativeMaterialCost") * num(i,"alternativeWeight") * num(i,"productionVolume") },
   { id: "cost.tco_weight_savings", family: "cost", label: "Weighted TCO savings", fn: (i) => (num(i,"currentMaterialWeight") - num(i,"alternativeWeight")) * num(i,"productionVolume") },
-  { id: "cost.tco_net_benefit", family: "cost", label: "Net TCO benefit", fn: (i) => num(i,"currentTco") - num(i,"alternativeTco") },
+  { id: "cost.tco_net_benefit", family: "cost", label: "Net TCO benefit", fn: (i) => num(i,"currentTco") - num(i,"alternativeTco") - num(i,"toolingCost") },
   { id: "measurement.tco_payback", family: "measurement", label: "TCO payback", fn: (i) => safeDivide(num(i,"toolingCost"), num(i,"netBenefit")) },
 
   // MOQ / EOQ
@@ -1565,10 +1580,21 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
 
   // Reliability / MTBF
   { id: "measurement.availability_mtbf", family: "measurement", label: "Availability from MTBF", fn: (i) => safeDivide(num(i,"mtbfHours"), num(i,"mtbfHours") + num(i,"mttrHours")) },
-  { id: "measurement.expected_downtime", family: "measurement", label: "Expected downtime", fn: (i) => (1 - num(i,"mttrHours")) * num(i,"operatingHours") },
+  { id: "measurement.expected_downtime", family: "measurement", label: "Expected downtime", fn: (i) => (1 - num(i,"availability")) * num(i,"operatingHours") },
   { id: "cost.downtime_cost_mtbf", family: "cost", label: "Downtime cost", fn: (i) => num(i,"expectedDowntime") * num(i,"machineHourlyCost") },
-  { id: "cost.reliability_total_cost", family: "cost", label: "Reliability total cost", fn: (i) => num(i,"downtimeCost") + num(i,"numMachines") + num(i,"numMachines") },
-  { id: "cost.reliability_roi", family: "cost", label: "Reliability improvement ROI", fn: (i) => safeDivide(num(i,"mtbfHours") - num(i,"improvedMtbf"), num(i,"downtimeCost")) * 100 },
+  { id: "cost.reliability_total_cost", family: "cost", label: "Reliability total cost", fn: (i) => num(i,"downtimeCost") },
+  { id: "cost.reliability_roi", family: "cost", label: "Reliability improvement ROI", fn: (i) => {
+      const currentDown = num(i,"downtimeCost");
+      const currentMtbf = num(i,"mtbfHours");
+      const newMtbf = num(i,"improvedMtbf");
+      if(newMtbf <= 0 || currentMtbf <= 0) return 0;
+      const ratio = currentMtbf / newMtbf;
+      const newDown = currentDown * ratio;
+      const savings = currentDown - newDown;
+      const inv = num(i,"improvementInvestment") || 0;
+      if (inv === 0) return 0;
+      return safeDivide(savings, inv) * 100;
+  } },
 
   // Muda (7 wastes)
   { id: "cost.muda_overproduction", family: "cost", label: "Overproduction waste", fn: (i) => num(i,"overproducedQty") * num(i,"unitCost") },
@@ -1720,12 +1746,12 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
 
   // Robot vs manual
   { id: "cost.manual_cost_annual", family: "cost", label: "Manual annual cost", fn: (i) => num(i,"manualLaborCost") * num(i,"numWorkers") },
-  { id: "cost.robot_cost_annual", family: "cost", label: "Robot annual cost", fn: (i) => safeDivide(num(i,"robotInvestment"), num(i,"robotLife")) + num(i,"robotMaintenance") + num(i,"robotEnergy") + num(i,"robotLease") + num(i,"robotOperatorSalary") },
-  { id: "measurement.robot_output", family: "measurement", label: "Robot annual output", fn: (i) => num(i,"robotOutput") * num(i,"robotOutput") * num(i,"robotOutput") * 60 },
-  { id: "measurement.manual_output", family: "measurement", label: "Manual annual output", fn: (i) => num(i,"manualOutput") * num(i,"manualCycleTime") * num(i,"manualUptime") * num(i,"numWorkers") * 60 },
+  { id: "cost.robot_cost_annual", family: "cost", label: "Robot annual cost", fn: (i) => safeDivide(num(i,"robotInvestment"), num(i,"robotLife")) + num(i,"robotMaintenance") + num(i,"robotEnergy") },
+  { id: "measurement.robot_output", family: "measurement", label: "Robot annual output", fn: (i) => num(i,"robotOutput") },
+  { id: "measurement.manual_output", family: "measurement", label: "Manual annual output", fn: (i) => num(i,"manualOutput") * num(i,"numWorkers") },
   { id: "cost.cost_per_unit_manual", family: "cost", label: "Manual cost per unit", fn: (i) => safeDivide(num(i,"manualCostAnnual"), num(i,"manualOutput")) },
   { id: "cost.cost_per_unit_robot", family: "cost", label: "Robot cost per unit", fn: (i) => safeDivide(num(i,"robotCostAnnual"), num(i,"robotOutput")) },
-  { id: "cost.robot_roi_analyzer", family: "cost", label: "Robot automation ROI", fn: (i) => safeDivide(num(i,"manualCostAnnual") - num(i,"robotInvestment"), num(i,"robotCostAnnual")) * 100 },
+  { id: "cost.robot_roi_analyzer", family: "cost", label: "Robot automation ROI", fn: (i) => safeDivide(num(i,"manualCostAnnual") - num(i,"robotCostAnnual"), num(i,"robotInvestment")) * 100 },
   { id: "cost.robot_payback", family: "cost", label: "Robot payback years", fn: (i) => safeDivide(num(i,"robotInvestment"), num(i,"manualCostAnnual") - num(i,"robotCostAnnual")) },
 
   // Route cost (simple)
@@ -1777,9 +1803,9 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.spc_delay_cost", family: "cost", label: "SPC delay cost", fn: (i) => num(i,"arlOutOfControl") * num(i,"sampleSize") * num(i,"productionRate") * num(i,"costPerDefect") / 100 * num(i,"costPerDefect") },
 
   // Steam Trap
-  { id: "measurement.steam_loss_rate", family: "measurement", label: "Steam loss rate", fn: (i) => num(i,"steamPressure") * Math.sqrt(2 * num(i,"holeDiameter") * num(i,"steamDensity")) * 3600 },
-  { id: "cost.steam_trap_annual_loss", family: "cost", label: "Annual steam loss cost", fn: (i) => num(i,"steamLossRate") * num(i,"operatingHoursPerYear") * num(i,"steamCost") / 1000 },
-  { id: "cost.steam_trap_roi", family: "cost", label: "Steam trap repair ROI", fn: (i) => safeDivide(num(i,"annualLoss"), num(i,"replacementCost") + num(i,"replacementCost")) },
+  { id: "measurement.steam_loss_rate", family: "measurement", label: "Steam loss rate", fn: (i) => 0.525 * (num(i,"holeDiameter") * 1000) * (num(i,"holeDiameter") * 1000) * num(i,"steamPressure") / 1000 },
+  { id: "cost.steam_trap_annual_loss", family: "cost", label: "Annual steam loss cost", fn: (i) => num(i,"steamLossRate") * num(i,"operatingHoursPerYear") * num(i,"steamCost") * num(i,"faultyTraps") },
+  { id: "cost.steam_trap_roi", family: "cost", label: "Steam trap repair ROI", fn: (i) => { const rep = num(i,"faultyTraps") * num(i,"replacementCost"); return safeDivide(num(i,"annualLoss") - rep, rep) * 100; } },
 
   // Stok Devir Hizi
   { id: "measurement.inventory_turnover_ratio", family: "measurement", label: "Inventory turnover", fn: (i) => safeDivide(num(i,"annualCogs"), num(i,"avgInventory")) },
@@ -2343,11 +2369,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     id: "cost.shop_hourly_rate",
     family: "cost",
     label: "Loaded machine shop hourly rate",
-    fn: (inputs) =>
-      assertFinite(
-        safeDivide(num(inputs, "fixedMonthlyCost"), num(inputs, "monthlyMachineHours")) +
-          num(inputs, "variableCostPerHour"),
-      ),
+    fn: (inputs) => assertFinite(safeDivide(num(inputs, "totalShopCost"), num(inputs, "billableHours"))),
   },
   {
     id: "cost.break_even_units",
@@ -3182,7 +3204,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     id: "cost.demand_charge",
     family: "cost",
     label: "Demand charge from peak kW, rate, and months",
-    fn: (inputs) => assertFinite(num(inputs, "peakDemandKW") * num(inputs, "demandRatePerKW") * num(inputs, "months")),
+    fn: (inputs) => assertFinite(num(inputs, "peakDemandKW") * num(inputs, "demandRatePerKW") * (num(inputs, "months") || 1)),
   },
   // -------------------------------------------------------------------------
   // Breakeven — breakeven-unit
@@ -3278,7 +3300,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     id: "cost.robot_roi",
     family: "cost",
     label: "Robot automation ROI including error cost",
-    fn: (inputs) => assertFinite(safeDivide((num(inputs, "manualCostAnnual") + num(inputs, "annualErrorCost")) - num(inputs, "robotCostAnnual"), num(inputs, "robotInvestment")) * 100),
+    fn: (inputs) => assertFinite(safeDivide(num(inputs, "manualCostAnnual") - num(inputs, "robotCostAnnual"), num(inputs, "robotInvestment")) * 100),
   },
   // -------------------------------------------------------------------------
   // Route cost — route-cost
@@ -3568,7 +3590,7 @@ const FORMULA_META_DETAILS: Record<
   "measurement.cnc_feed_speed": { description: "Feed speed from feed per tooth, teeth count, and RPM.", requiredInputs: ["feedPerTooth","teeth","rpm"], outputHint: "number" },
   "measurement.cnc_cut_time": { description: "Cut time from length, depth, feed speed, and axial depth.", requiredInputs: ["length","depth","feedSpeed","axialDepth"], outputHint: "duration" },
   "measurement.cnc_rapid_time": { description: "Rapid traverse time from distance and speed.", requiredInputs: ["rapidDistance","rapidSpeed"], outputHint: "duration" },
-  "measurement.cnc_toolchange_time": { description: "Total tool change time from change count and time per change.", requiredInputs: ["changeCount","timePerChange"], outputHint: "duration" },
+  "measurement.cnc_tool_change_time": { description: "Total tool change time from change count and time per change.", requiredInputs: ["changeCount","timePerChange"], outputHint: "duration" },
   "measurement.cnc_total_time": { description: "Total CNC cycle time including cutting, rapid, toolchange, non-cutting, and load/unload.", requiredInputs: ["cutTime","rapidTime","toolChangeTime","nonCuttingTime","loadUnloadTime"], outputHint: "duration" },
   "cost.cnc_material": { description: "Raw material cost per unit including scrap factor.", requiredInputs: ["rawVolume","density","pricePerKg","scrapRate"], outputHint: "currency" },
   "cost.cnc_machining": { description: "Machining cost per unit from cycle time and machine rate.", requiredInputs: ["totalCycleTime","machineRate"], outputHint: "currency" },

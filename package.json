@@ -13,7 +13,7 @@
     "lint:errors": "eslint --quiet",
     "guard:premium-contract": "node scripts/sectorcalc-premium-contract-kernel-guard.mjs",
     "audit:premium": "tsx scripts/audit-premium-formulas.ts",
-    "verify:gate": "npm run guard:removed-free-tools && npm run guard:repo && npm run guard:premium-contract && npm run guard:root-only && npm run audit:premium && npm run typecheck && npm run lint:errors && npm run build",
+    "verify:gate": "npm run guard:removed-free-tools && npm run guard:repo && npm run guard:premium-contract && npm run guard:root-only && npm run audit:premium && node scripts/smell-scanner.mjs && tsx scripts/run-golden-tests.ts && npm run typecheck && npm run lint:errors && npm run build",
     "verify:gate:test": "npm run test --if-present && npm run verify:gate",
     "guard:root-only": "node scripts/sectorcalc-root-only-route-guard.mjs",
     "smoke:root-only": "node scripts/sectorcalc-root-only-runtime-smoke.mjs",

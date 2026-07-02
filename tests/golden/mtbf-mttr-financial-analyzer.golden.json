@@ -1,0 +1,24 @@
+{
+  "toolId": "mtbf-mttr-financial-analyzer",
+  "cases": [
+    {
+      "name": "Standard Reliability Evaluation",
+      "inputs": {
+        "mtbfHours": 500,
+        "mttrHours": 4,
+        "operatingHours": 8000,
+        "machineHourlyCost": 150,
+        "numMachines": 10,
+        "improvedMtbf": 800
+      },
+      "expect": {
+        "availability": 0.992063,
+        "expectedDowntime": 63.492063,
+        "downtimeCost": 9523.809523,
+        "totalReliabilityCost": 9523.809523,
+        "roiPercent": 0
+      },
+      "tolerance": { "abs": 0.0001, "rel": 0.000001 }
+    }
+  ]
+}

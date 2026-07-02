@@ -14,7 +14,7 @@ import { absoluteUrl } from "@/lib/features/semantic/site-url";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 type PageProps = {
-  params: Promise<{ locale: string }>;
+  params: Promise<{  }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

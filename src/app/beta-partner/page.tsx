@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 type PageProps = {
-  params: Promise<{ locale: string }>;
+  params: Promise<{  }>;
 };
 
 export default async function BetaPartnerPage({ params }: PageProps) {

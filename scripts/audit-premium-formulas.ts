@@ -35,15 +35,21 @@ function runAudit() {
 
     for (const step of schema.formulaPipeline || []) {
       const { formulaId, inputMap, outputId } = step;
-      const meta = FORMULA_REGISTRY_META.find((m) => m.formulaId === formulaId);
-
-      if (!meta) {
+      const formulaDef = require("../src/lib/features/premium-schema/formula-registry").FORMULA_REGISTRY[formulaId];
+      if (!formulaDef) {
         fileFails.push(`[UNKNOWN FN] Formula ID '${formulaId}' not found in registry`);
         definedVars.add(outputId);
         continue;
       }
 
-      for (const req of meta.requiredInputs || []) {
+      // Dynamically extract required inputs from fn string
+      const fnStr = formulaDef.toString();
+      const requiredInputs = new Set<string>();
+      for (const m of fnStr.matchAll(/num\(\s*(?:inputs|i)\s*,\s*["']([^"']+)["']\s*\)/g)) {
+        requiredInputs.add(m[1]);
+      }
+
+      for (const req of Array.from(requiredInputs)) {
         const mappedVar = inputMap[req];
         if (!mappedVar) {
           fileFails.push(`[UNDEFINED VAR] Formula '${formulaId}' requires input '${req}', but it is missing from inputMap`);

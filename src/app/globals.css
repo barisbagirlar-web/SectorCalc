@@ -32,6 +32,35 @@
     --font-sans: var(--font-inter);
     --font-heading: Georgia, "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
     --font-mono-os: var(--font-jetbrains);
+
+    /* SectorCalc 10/10 Accessibility & Preference Upgrade */
+    --sc-bg: #f7f4ec;
+    --sc-surface: #fffdf8;
+    --sc-surface-strong: #ffffff;
+    --sc-text: #171717;
+    --sc-muted: #5b5f66;
+    --sc-border: #ded8cc;
+    --sc-accent: #1e40af;
+    --sc-accent-soft: #e8eefc;
+    --sc-warning: #92400e;
+    --sc-warning-bg: #fff7ed;
+    --sc-danger: #991b1b;
+    --sc-danger-bg: #fef2f2;
+    --sc-success: #166534;
+    --sc-success-bg: #f0fdf4;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--sc-accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   html {
@@ -140,6 +169,20 @@
 
   .heading-serif {
     font-family: var(--font-heading);
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-scroll table {
+    min-width: 760px;
+  }
+
+  .numeric {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
   }
 }
 

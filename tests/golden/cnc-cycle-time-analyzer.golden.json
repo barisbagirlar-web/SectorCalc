@@ -1,0 +1,31 @@
+{
+  "toolId": "cnc-cycle-time-analyzer",
+  "cases": [
+    {
+      "name": "Standard Milling Cycle",
+      "inputs": {
+        "cuttingSpeed": 150,
+        "chipLoad": 0.12,
+        "toothCount": 4,
+        "depthOfCut": 2,
+        "toolDiameter": 20,
+        "cutLength": 100,
+        "rapidDistance": 300,
+        "rapidSpeed": 15000,
+        "toolChanges": 2,
+        "timePerChange": 0.5,
+        "nonCuttingTime": 0.3,
+        "loadUnloadTime": 0.5,
+        "plannedTime": 480,
+        "downtime": 30,
+        "totalParts": 100
+      },
+      "expect": {
+        "cutTime": 0.08726,
+        "totalCycleTime": 1.90726,
+        "oeeAvailability": 0.9411
+      },
+      "tolerance": { "rel": 0.05 }
+    }
+  ]
+}

@@ -25,11 +25,11 @@ export const ROOF_AREA_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "combinedLoad", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Load > 5 kN/m² — load-bearing system must be checked.", warningMessage_i18n: {"en":"Load > 5 kN/m² — load-bearing system must be checked."}, criticalMessage: "Load > 8 kN/m² — urgent statik analiz gerekiyor.", criticalMessage_i18n: {"en":"Load > 8 kN/m² — urgent statik analiz gerekiyor."} }],
   formulaPipeline: [
-    { formulaId: "measurement.roof_material_area", inputMap: { gableArea: "gableArea", wasteFactor: "wasteFactor" }, outputId: "measurement_roof_material_area_out" },
     { formulaId: "measurement.roof_footprint", inputMap: { roofLength: "roofLength", roofWidth: "roofWidth" ,
         buildingLength: "roofLength",
         buildingWidth: "roofWidth"}, outputId: "footprint" },
     { formulaId: "measurement.roof_gable_area", inputMap: { footprint: "footprint", pitchAngle: "pitchAngle" }, outputId: "gableArea" },
+    { formulaId: "measurement.roof_material_area", inputMap: { gableArea: "gableArea", wasteFactor: "wasteFactor" }, outputId: "totalMaterialArea" },
   ],
   reportTemplate: { title: "Roof Area & Load Report", title_i18n: {"en":"Roof Area & Load Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Footprint = L×W. Gable area = Footprint/COS(pitch).", "Dead load = MaterialWeight×TotalArea. Snow load per EN 1991-1-3."],assumptionNotes_i18n:[{"en":"Footprint = L×W. Gable area = Footprint/COS(pitch)."},{"en":"Dead load = MaterialWeight×TotalArea. Snow load per EN 1991-1-3."}] },

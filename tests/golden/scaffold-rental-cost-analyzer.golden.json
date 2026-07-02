@@ -1,0 +1,25 @@
+{
+  "toolId": "scaffold-rental-cost-analyzer",
+  "cases": [
+    {
+      "name": "Standard Scaffold Optimization",
+      "inputs": {
+        "buildingPerimeter": 100,
+        "buildingHeight": 20,
+        "rentalRatePerM2": 5,
+        "rentalDuration": 3,
+        "erectionRate": 10,
+        "dismantleRate": 5,
+        "transportCost": 2000,
+        "overrunCost": 500
+      },
+      "expect": {
+        "scaffoldArea": 2000,
+        "rental": 30000,
+        "laborCost": 30000,
+        "total": 62500
+      },
+      "tolerance": { "abs": 0.0001, "rel": 0.000001 }
+    }
+  ]
+}

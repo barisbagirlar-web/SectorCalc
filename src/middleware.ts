@@ -63,35 +63,12 @@ export default function middleware(request: NextRequest) {
     return applyRegionHeaders(NextResponse.next(), request);
   }
 
-  if (pathname === "/en" || pathname.startsWith("/en/")) {
-    return new Response("Gone", {
-      status: 410,
-      headers: {
-        "content-type": "text/plain; charset=utf-8",
-        "x-sectorcalc-route-policy": "root-only-no-en-prefix",
-        "x-robots-tag": "all",
-      },
-    });
-  }
-
   if (pathname === "/sw.js") {
     return new NextResponse(SW_KILL_CODE, { headers: SW_KILL_HEADERS });
   }
 
   if (pathname.includes(".")) {
     return applyRegionHeaders(NextResponse.next(), request);
-  }
-
-  const legacyLocalePrefixes = ["/tr", "/de", "/fr", "/es", "/ar"];
-  const hasLegacyLocalePrefix = legacyLocalePrefixes.some(
-    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
-  );
-
-  if (hasLegacyLocalePrefix) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/";
-    url.search = "";
-    return applyRegionHeaders(NextResponse.redirect(url, 308), request);
   }
 
   return applyRegionHeaders(NextResponse.next(), request);

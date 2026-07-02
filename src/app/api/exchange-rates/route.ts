@@ -1,35 +1,27 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
-export const revalidate = 3600; // Cache for 1 hour
+export const revalidate = 86400; // ECB günde 1 kez (16:00 CET) güncellenir
 
 export async function GET() {
   try {
-    // Fetch rates from Frankfurter (ECB rates)
-    // Base USD for our canonical conversion
-    const res = await fetch("https://api.frankfurter.app/latest?from=USD", {
-      next: { revalidate: 3600 },
+    const res = await fetch('https://api.frankfurter.app/latest?from=USD', {
+      next: { revalidate },
+      headers: {
+        'User-Agent': 'SectorCalc/1.0',
+      },
     });
-
-    if (!res.ok) {
-      throw new Error(`Failed to fetch exchange rates: ${res.statusText}`);
-    }
-
-    const data = await res.json();
     
-    // Frankfurter doesn't include the base currency in the rates map
-    // We explicitly add USD: 1.0 to simplify client-side logic
-    const rates = { ...data.rates, USD: 1.0 };
-
+    if (!res.ok) {
+      return NextResponse.json({ error: 'ECB feed unavailable' }, { status: 502 });
+    }
+    
+    const data = await res.json();
     return NextResponse.json({
-      base: data.base,
+      base: 'USD',
       date: data.date,
-      rates,
+      rates: { USD: 1, ...data.rates },
     });
-  } catch (error) {
-    console.error("[ExchangeRatesAPI] Error:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch exchange rates" },
-      { status: 500 }
-    );
+  } catch (err) {
+    return NextResponse.json({ error: 'ECB feed unavailable' }, { status: 502 });
   }
 }

@@ -1,0 +1,28 @@
+{
+  "toolId": "project-cost-estimate-analyzer",
+  "cases": [
+    {
+      "name": "Standard Project Cost Estimate",
+      "inputs": {
+        "directLabor": 100000,
+        "directMaterial": 150000,
+        "equipment": 50000,
+        "subcontractor": 100000,
+        "overheadPercent": 10,
+        "contingencyPercent": 5,
+        "actualCost": 480000
+      },
+      "expect": {
+        "projectDirectLabor": 100000,
+        "projectDirectMaterial": 150000,
+        "projectEquipment": 50000,
+        "projectSubcontractor": 100000,
+        "projectOverhead": 40000,
+        "projectContingency": 22000,
+        "projectTotalEstimate": 462000,
+        "projectCostVariance": 18000
+      },
+      "tolerance": { "abs": 0.0001, "rel": 0.000001 }
+    }
+  ]
+}

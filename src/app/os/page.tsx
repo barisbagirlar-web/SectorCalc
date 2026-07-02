@@ -6,7 +6,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustrialHome } from "@/components/os/IndustrialHome";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
-type PageProps = { params: Promise<{ locale: string }> };
+type PageProps = { params: Promise<{  }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = "en";

@@ -1,0 +1,29 @@
+{
+  "toolId": "robot-vs-manual-analyzer",
+  "cases": [
+    {
+      "name": "Standard Automation Switch",
+      "inputs": {
+        "manualLaborCost": 55000,
+        "numWorkers": 3,
+        "robotInvestment": 120000,
+        "robotMaintenance": 8000,
+        "robotEnergy": 5000,
+        "robotLife": 10,
+        "manualOutput": 80000,
+        "robotOutput": 120000
+      },
+      "expect": {
+        "manualCostAnnual": 165000,
+        "robotCostAnnual": 25000,
+        "robotOutput": 120000,
+        "manualOutput": 240000,
+        "costPerUnitManual": 0.6875,
+        "costPerUnitRobot": 0.208333,
+        "robotRoi": 116.666666,
+        "robotPayback": 0.857142
+      },
+      "tolerance": { "abs": 0.0001, "rel": 0.000001 }
+    }
+  ]
+}

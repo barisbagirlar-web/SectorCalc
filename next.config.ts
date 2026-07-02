@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 import type { Compiler } from "webpack";
-import createNextIntlPlugin from "next-intl/plugin";
 import { withSentryConfig } from "@sentry/nextjs";
 import path from "node:path";
 import fs, { existsSync, mkdirSync, writeFileSync } from "node:fs";
@@ -10,17 +9,6 @@ import {
   X_ROBOTS_TAG_HEADER,
 } from "./src/lib/infrastructure/seo/seo-indexing-control";
 
-const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
-
-/** Paths that must not be rewritten to /en/* (static assets + locale/admin/api). */
-const LOCALE_REWRITE_EXCLUDE_PATTERN = LOCALE_REWRITE_EXCLUDE;
-
-/**
- * Webpack plugin — ensures Next.js manifest stubs exist after compilation
- * but before SSG ("Collecting page data").
- * Next.js 15 App Router does not create pages-manifest.json; without this
- * stub the build crashes during page data collection.
- */
 class EnsureManifestStubsPlugin {
   apply(compiler: Compiler): void {
     compiler.hooks.done.tap("EnsureManifestStubsPlugin", () => {
@@ -31,7 +19,6 @@ class EnsureManifestStubsPlugin {
         fs.mkdirSync(serverDir, { recursive: true });
       }
 
-      // Ensure pages directory and _document / _app exist for Pages Router fallback (Next.js 15 /404 generation bug)
       const pagesDir = path.join(serverDir, "pages");
       if (!fs.existsSync(pagesDir)) {
         fs.mkdirSync(pagesDir, { recursive: true });
@@ -58,7 +45,6 @@ class EnsureManifestStubsPlugin {
         fs.writeFileSync(appBuildManifestPath, JSON.stringify({ pages: {} }), "utf8");
       }
 
-      // Next.js 15 bug: trace collection crashes on app/_not-found/page.js.nft.json
       const notFoundDir = path.join(serverDir, "app", "_not-found");
       if (!fs.existsSync(notFoundDir)) {
         fs.mkdirSync(notFoundDir, { recursive: true });
@@ -72,9 +58,7 @@ class EnsureManifestStubsPlugin {
 }
 
 const nextConfig: NextConfig = {
-  // SECTORCALC_ROOT_ONLY_REWRITE_POLICY
-  // Public URLs stay root-domain English. The internal /en route group remains private.
-  skipTrailingSlashRedirect: true,  // SECTORCALC_ROOT_ONLY_REWRITE_POLICY
+  skipTrailingSlashRedirect: true,
   async rewrites() {
     const indexNowKey = process.env.INDEXNOW_KEY?.trim();
     const indexNowVerification = indexNowKey
@@ -87,83 +71,24 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         ...indexNowVerification,
-        { source: "/about", destination: "/en/about" },
-        { source: "/about-us", destination: "/en/about-us" },
-        { source: "/account", destination: "/en/account" },
-        { source: "/account/:path*", destination: "/en/account/:path*" },
-        { source: "/audit", destination: "/en/audit" },
-        { source: "/audit/:path*", destination: "/en/audit/:path*" },
-        { source: "/benchmarks", destination: "/en/benchmarks" },
-        { source: "/calculator-library", destination: "/en/calculator-library" },
-        { source: "/calculators/:path*", destination: "/en/calculators/:path*" },
-        { source: "/case-studies", destination: "/en/case-studies" },
-        { source: "/case-studies/:path*", destination: "/en/case-studies/:path*" },
-        { source: "/categories", destination: "/en/categories" },
-        { source: "/checkout/:path*", destination: "/en/checkout/:path*" },
-        { source: "/cleaning-contract-margin", destination: "/en/cleaning-contract-margin" },
-        { source: "/cnc-quote-risk", destination: "/en/cnc-quote-risk" },
-        { source: "/construction-bid-margin", destination: "/en/construction-bid-margin" },
-        { source: "/data", destination: "/en/data" },
-        { source: "/disclaimer", destination: "/en/disclaimer" },
-        { source: "/embed/:path*", destination: "/en/embed/:path*" },
-        { source: "/for-consultants", destination: "/en/for-consultants" },
-        { source: "/free-tools", destination: "/en/free-tools" },
-        { source: "/guides/:path*", destination: "/en/guides/:path*" },
-        { source: "/how-it-works", destination: "/en/how-it-works" },
-        { source: "/industries", destination: "/en/industries" },
-        { source: "/industries/:path*", destination: "/en/industries/:path*" },
-        { source: "/investor-demo", destination: "/en/investor-demo" },
-        { source: "/login", destination: "/en/login" },
-        { source: "/manifesto", destination: "/en/manifesto" },
-        { source: "/methodology", destination: "/en/methodology" },
-        { source: "/operating-system", destination: "/en/operating-system" },
-        { source: "/pricing", destination: "/en/pricing" },
-        { source: "/privacy", destination: "/en/privacy" },
-        { source: "/pro-tools", destination: "/en/pro-tools" },
-        { source: "/pro-tools/:path*", destination: "/en/pro-tools/:path*" },
-        { source: "/refund-policy", destination: "/en/refund-policy" },
-        { source: "/reports/:path*", destination: "/en/reports/:path*" },
-        { source: "/resources/:path*", destination: "/en/resources/:path*" },
-        { source: "/seo/:path*", destination: "/en/seo/:path*" },
-        { source: "/signup", destination: "/en/signup" },
-        { source: "/sustainability", destination: "/en/sustainability" },
-        { source: "/team/:path*", destination: "/en/team/:path*" },
-        { source: "/terms", destination: "/en/terms" },
-        { source: "/tools", destination: "/en/tools" },
-        { source: "/tools/:path*", destination: "/en/tools/:path*" },
-        { source: "/trust", destination: "/en/trust" },
-        { source: "/verify", destination: "/en/verify" },
-        { source: "/verify/:path*", destination: "/en/verify/:path*" },
       ],
     };
   },
 
   reactStrictMode: true,
-  // Firebase Hosting web frameworks adapter handles server bundling.
-  // Firebase Hosting web frameworks adapter handles server bundling.
-  // We have fixed the Next.js 15 ENOENT bugs with EnsureManifestStubsPlugin.
   output: "standalone",
   serverExternalPackages: ["@react-pdf/renderer"],
   eslint: {
-    // Firebase `next build` runs lint inline; skip here (use `npm run lint` in CI/local).
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // Generated calculator files have known type-safe arithmetic issues (boolean/string
-    // in arithmetic context) that are repaired by fix:generated-types in prebuild.
-    // The prebuild also runs a standalone typecheck (tsc --noEmit) so this is safe.
     ignoreBuildErrors: true,
   },
-  // Large generated-tool SSG can exceed the default 60s per page.
   staticPageGenerationTimeout: 300,
   webpack: (config, { dev }) => {
     if (!dev) {
       config.plugins ??= [];
       config.plugins.push(new EnsureManifestStubsPlugin());
-      // Disable webpack persistent filesystem cache for production builds.
-      // SSG worker crashes with "SyntaxError: Unexpected end of JSON input" when
-      // the cached context module for dynamic i18n JSON imports gets corrupted.
-      // Deterministic SSG > incremental build speed.
       config.cache = false;
     }
     config.resolve.alias = {
@@ -172,9 +97,6 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
-  // outputFileTracingIncludes disabled: schema JSONs are copied post-build
-  // by finalize-next-build.mjs, and trace collection crashes on stub modules
-  // (ENOENT .nft.json) that are not real server modules.
   experimental: {
     staleTimes: {
       dynamic: 30,
@@ -182,16 +104,12 @@ const nextConfig: NextConfig = {
     },
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
     staticGenerationRetryCount: 5,
-    // Use default workerThreads:true (thread-based workers) to avoid jest-worker
-    // child-process race conditions on large App Router page sets.
-    // Single SSG worker at a time prevents module-load races.
     cpus: 1,
     staticGenerationMaxConcurrency: 1,
     staticGenerationMinPagesPerWorker: 50,
   },
   async headers() {
     return [
-      // Security headers (HSTS, XSS protection, etc.) + X-Robots-Tag (SEO indexing)
       {
         source: "/(.*)",
         headers: [
@@ -221,7 +139,6 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // Sitemap cache headers
       {
         source: "/(sitemap\\.xml|sitemap-.*\\.xml)",
         headers: [
@@ -235,7 +152,6 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // AI metadata cache
       {
         source: "/(ai\\.txt|llms\\.txt|ai-.*\\.(?:json|txt|jsonl)|sectorcalc-index\\.txt|services-products\\.txt|faq-knowledge\\.txt)",
         headers: [
@@ -253,44 +169,15 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Premium → Pro rebrand redirects (301, SEO-safe)
       { source: "/premium-tools", destination: "/pro-tools", permanent: true },
       { source: "/premium-tools/:path*", destination: "/pro-tools/:path*", permanent: true },
-      {
-        source: "/:locale(en|tr|de|fr|es|ar)/premium-tools",
-        destination: "/:locale/pro-tools",
-        permanent: true,
-      },
-      {
-        source: "/:locale(en|tr|de|fr|es|ar)/premium-tools/:path*",
-        destination: "/:locale/pro-tools/:path*",
-        permanent: true,
-      },
       { source: "/tools/free/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
-      // FMEA RPN — legacy alias → canonical academic URL
       { source: "/tools/fmea-rpn-calculator", destination: "/calculators/fmea-rpn", permanent: true },
-      // /en/ paths removed — let /en/... reach middleware for proper locale cookie handling
-      // (The rewrites below handle root → /en/* internally.)
-      {
-        source: "/:locale(en|tr|de|fr|es|ar)/tools/free/:slug",
-        destination: "/:locale/tools/generated/:slug",
-        permanent: true,
-      },
-      {
-        source: "/:locale(en|tr|de|fr|es|ar)/tools/free-traffic/:slug",
-        destination: "/:locale/tools/generated/:slug",
-        permanent: true,
-      },
     ];
   },
 };
 
-/**
- * Unwrap ES module interop wrapper injected by HOCs (next-intl, Sentry)
- * in standalone/Firebase builds — strips {__esModule, default} so the
- * Next.js config validator doesn't reject them.
- */
 function unwrapNextConfig<T>(maybeWrapped: T): T {
   if (
     maybeWrapped &&
@@ -307,10 +194,8 @@ const sentryEnabled = Boolean(
   process.env.NEXT_PUBLIC_SENTRY_DSN ?? process.env.SENTRY_DSN,
 );
 
-const configWithIntl = withNextIntl(nextConfig);
-
 const finalConfig = sentryEnabled
-  ? withSentryConfig(configWithIntl, {
+  ? withSentryConfig(nextConfig, {
       org: "sectorcalc",
       project: "sectorcalc",
       authToken: process.env.SENTRY_AUTH_TOKEN,
@@ -318,6 +203,6 @@ const finalConfig = sentryEnabled
       widenClientFileUpload: true,
       disableLogger: true,
     })
-  : configWithIntl;
+  : nextConfig;
 
 export default unwrapNextConfig(finalConfig);

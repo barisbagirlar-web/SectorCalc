@@ -87,13 +87,8 @@ function getDeepSeekClient(): OpenAI {
   });
 }
 
-const FALLBACK_MESSAGE: Record<SupportedLocale, string> = {
-  en: "System is currently busy. Please describe your calculation need using the sector tools directly.",
-};
-
-function fallbackResponse(locale: string): NextResponse {
-  const resolved = isSupportedLocale(locale) ? locale : "en";
-  return NextResponse.json({ reply: FALLBACK_MESSAGE[resolved] }, { status: 200 });
+function fallbackResponse(): NextResponse {
+  return NextResponse.json({ reply: "System is currently busy. Please describe your calculation need using the sector tools directly." }, { status: 200 });
 }
 
 export async function POST(req: Request) {
@@ -169,7 +164,7 @@ export async function POST(req: Request) {
   } catch (error) {
     if (isTrace) {
       console.warn("DeepSeek trace fallback:", error instanceof Error ? error.message : "unknown");
-      return fallbackResponse(locale);
+      return fallbackResponse();
     }
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Assistant chat failed." },

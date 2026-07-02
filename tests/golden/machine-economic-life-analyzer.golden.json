@@ -1,0 +1,21 @@
+{
+  "toolId": "machine-economic-life-analyzer",
+  "cases": [
+    {
+      "name": "Standard Machine Evaluation",
+      "inputs": {
+        "purchaseCost": 100000,
+        "residualValue": 20000,
+        "annualOperatingCost": 15000,
+        "annualEnergy": 2000,
+        "discountRate": 8,
+        "lifeYears": 5
+      },
+      "expect": {
+        "euacOperating": 17000,
+        "euacCapital": 21636.51644
+      },
+      "tolerance": { "rel": 0.0001, "abs": 0.01 }
+    }
+  ]
+}

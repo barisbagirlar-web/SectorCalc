@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+/**
+ * SectorCalc — Formula Hallucination Smell Scanner
+ * YENİ SINIF: geçerli değişken + geçerli unit ama UYDURMA matematik (cost*cost + w + w).
+ *   Mevcut hiçbir gate yakalamaz; sadece golden kanıtlar. Bu scanner ŞÜPHELİ sıralar,
+ *   kanıtlamaz -> en riskliye önce golden yaz.
+ *
+ * Kokular:
+ *   [DUP ADD]   num(i,"X") + num(i,"X")   -> aynı terim kendine ekleniyor
+ *   [SELF SQ]   num(i,"X") * num(i,"X")   -> cost/time çıktısında kare çoğu kez saçma
+ *   [DEAD REQ]  requiredInputs'ta olup fn gövdesinde HİÇ referans edilmeyen arg
+ *   [TRIVIAL]   requiredInputs>=3 ama gövdede <2 farklı num(i,...) referansı
+ * Not: geometrik kareler (area = leg^2) meşru olabilir -> SELF SQ REVIEW'dir, FAIL değil.
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { globSync } from "glob";
+
+const files = globSync(path.join(process.cwd(), "src/**/formula-registry.*"));
+const text = files.map((f) => fs.readFileSync(f, "utf8")).join("\n");
+const lineAt = (idx) => text.slice(0, idx).split("\n").length;
+const nearestId = (idx) => {
+  const before = text.slice(0, idx);
+  const m = [...before.matchAll(/["']([a-z_]+\.[a-z0-9_]+)["']/gi)].pop();
+  return m ? m[1] : "(unknown fn)";
+};
+
+const hits = [];
+const push = (kind, idx, detail) => hits.push({ kind, line: lineAt(idx), id: nearestId(idx), detail });
+
+// DUP ADD
+for (const m of text.matchAll(/num\(\s*i\s*,\s*["'](\w+)["']\s*\)\s*\+\s*num\(\s*i\s*,\s*["']\1["']\s*\)/g))
+  push("DUP ADD", m.index, `${m[1]} + ${m[1]}`);
+// SELF SQ
+for (const m of text.matchAll(/num\(\s*i\s*,\s*["'](\w+)["']\s*\)\s*\*\s*num\(\s*i\s*,\s*["']\1["']\s*\)/g))
+  push("SELF SQ", m.index, `${m[1]} * ${m[1]}`);
+
+// DEAD REQ + TRIVIAL: meta ile (varsa)
+try {
+  const { FORMULA_REGISTRY_META } = await import(
+    path.join(process.cwd(), "src/lib/features/premium-schema/formula-registry.ts"));
+  // her fn gövdesini kaba yakala: id ... fn: (i) => <body> ,
+  for (const meta of FORMULA_REGISTRY_META) {
+    const re = new RegExp(`["']${meta.id.replace(".", "\\.")}["'][\\s\\S]{0,600}?fn:\\s*\\(i\\)\\s*=>([\\s\\S]{0,400}?)\\n`, "");
+    const bm = re.exec(text); if (!bm) continue;
+    const body = bm[1];
+    const refs = new Set([...body.matchAll(/num\(\s*i\s*,\s*["'](\w+)["']\s*\)/g)].map((x) => x[1]));
+    for (const req of meta.requiredInputs || [])
+      if (!refs.has(req)) push("DEAD REQ", bm.index, `${meta.id}: '${req}' required ama gövdede yok`);
+    if ((meta.requiredInputs || []).length >= 3 && refs.size < 2)
+      push("TRIVIAL", bm.index, `${meta.id}: ${meta.requiredInputs.length} required ama ${refs.size} kullanılıyor`);
+  }
+} catch (e) { console.log(`(meta yüklenemedi, DEAD REQ/TRIVIAL atlandı: ${e.message})`); }
+
+const order = { "DUP ADD": 0, "SELF SQ": 1, "TRIVIAL": 2, "DEAD REQ": 3 };
+hits.sort((a, b) => order[a.kind] - order[b.kind] || a.line - b.line);
+
+console.log(`\n=== Formula Hallucination Smell Scan ===`);
+console.log(`Registry: ${files.join(", ")} | şüpheli: ${hits.length}\n`);
+for (const h of hits) console.log(`  [${h.kind}] L${h.line}  ${h.id}\n     ${h.detail}`);
+console.log(`\nNOT: Bunlar KOKU, kanıt değil. Her şüpheliye atıflı-referanslı golden yaz.`);

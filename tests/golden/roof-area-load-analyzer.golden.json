@@ -1,0 +1,26 @@
+{
+  "toolId": "roof-area-load-analyzer",
+  "cases": [
+    {
+      "name": "Standard Roof Load",
+      "inputs": {
+        "roofLength": 20,
+        "roofWidth": 10,
+        "pitchAngle": 30,
+        "deadLoad": 50,
+        "liveLoad": 100,
+        "snowLoad": 75,
+        "windLoad": 40,
+        "wasteFactor": 10,
+        "materialPrice": 15,
+        "laborPrice": 20
+      },
+      "expect": {
+        "footprint": 200,
+        "gableArea": 230.940107,
+        "totalMaterialArea": 254.034117
+      },
+      "tolerance": { "rel": 0.05 }
+    }
+  ]
+}

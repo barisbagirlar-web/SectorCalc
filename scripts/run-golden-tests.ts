@@ -31,6 +31,11 @@ import { KWH_COST_SCHEMA } from "../src/lib/features/premium-schema/schemas/kwh-
 import { PROJECT_COST_ESTIMATE_ANALYZER_SCHEMA } from "../src/lib/features/premium-schema/schemas/project-cost-estimate-analyzer";
 import { RESTAURANT_MENU_MARGIN_LEAK_SCHEMA } from "../src/lib/features/premium-schema/schemas/restaurant-menu-margin-leak-analyzer";
 import { SCAFFOLD_RENTAL_SCHEMA } from "../src/lib/features/premium-schema/schemas/scaffold-rental-cost-analyzer";
+import { MTBF_MTTR_FINANCIAL_SCHEMA } from "../src/lib/features/premium-schema/schemas/mtbf-mttr-financial-analyzer";
+import { SHOP_HOURLY_RATE_SCHEMA } from "../src/lib/features/premium-schema/schemas/shop-hourly-rate-analyzer";
+import { MATERIAL_REPLACEMENT_COST_SCHEMA } from "../src/lib/features/premium-schema/schemas/material-replacement-cost-analyzer";
+import { HEAT_EXCHANGER_FOULING_SCHEMA } from "../src/lib/features/premium-schema/schemas/heat-exchanger-fouling-analyzer";
+import { STEAM_TRAP_ENERGY_LOSS_ANALYZER as STEAM_TRAP_ENERGY_LOSS_SCHEMA } from "../src/lib/features/premium-schema/schemas/steam-trap-energy-loss-analyzer";
 
 const PRO_SCHEMAS: Record<string, any> = {
   "oee-equipment-effectiveness-calculator": OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA,
@@ -44,7 +49,12 @@ const PRO_SCHEMAS: Record<string, any> = {
   "kwh-cost-analyzer": KWH_COST_SCHEMA,
   "project-cost-estimate-analyzer": PROJECT_COST_ESTIMATE_ANALYZER_SCHEMA,
   "restaurant-menu-margin-leak-analyzer": RESTAURANT_MENU_MARGIN_LEAK_SCHEMA,
-  "scaffold-rental-cost-analyzer": SCAFFOLD_RENTAL_SCHEMA
+  "scaffold-rental-cost-analyzer": SCAFFOLD_RENTAL_SCHEMA,
+  "mtbf-mttr-financial-analyzer": MTBF_MTTR_FINANCIAL_SCHEMA,
+  "shop-hourly-rate-analyzer": SHOP_HOURLY_RATE_SCHEMA,
+  "material-replacement-cost-analyzer": MATERIAL_REPLACEMENT_COST_SCHEMA,
+  "heat-exchanger-fouling-analyzer": HEAT_EXCHANGER_FOULING_SCHEMA,
+  "steam-trap-energy-loss-analyzer": STEAM_TRAP_ENERGY_LOSS_SCHEMA
 };
 
 // ============================================================

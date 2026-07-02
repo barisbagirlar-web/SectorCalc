@@ -16,7 +16,7 @@ export const HEAT_EXCHANGER_FOULING_SCHEMA: PremiumCalculatorSchema = {
     { id: "flowM3h", label: "Flow rate", label_i18n: {"en":"Flow rate"}, type: "number", unit: "m³/saat", required: false, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Flow rate", expertMeaning_i18n: {"en":"Flow rate"} },
     { id: "pumpEff", label: "Pump Efficiency", label_i18n: {"en":"Pump Efficiency"}, type: "number", unit: "%", required: false, smartDefault: 75, validation: { min: 1, max: 100 }, helper: "", expertMeaning: "Pump efficiency", expertMeaning_i18n: {"en":"Pump efficiency"} },
     { id: "cleanCost", label: "Temizlik Cost", label_i18n: {"en":"Temizlik Cost"}, type: "number", unit: "USD", required: false, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Cost of cleaning", expertMeaning_i18n: {"en":"Cost of cleaning"} },
-    { id: "heatLoss", label: "Heat loss due to fouling", label_i18n: {"en":"Heat loss due to fouling"}, type: "number", unit: "kW", required: true, smartDefault: 150, validation: { min: 0 }, helper: "", expertMeaning: "Heat loss due to fouling", expertMeaning_i18n: {"en":"Heat loss due to fouling"} },
+
   ],
   outputs: [
     { id: "rf", label: "Fouling Direnci (Rf)", label_i18n: {"en":"Fouling Direnci (Rf)"}, unit: "m²K/W", format: "number" },
@@ -27,9 +27,8 @@ export const HEAT_EXCHANGER_FOULING_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "cost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Energy loss > $10K/year — cleaning should be scheduled.", warningMessage_i18n: {"en":"Energy loss > $10K/year — cleaning should be scheduled."}, criticalMessage: "Loss > $30K/year — urgent cleaning is required.", criticalMessage_i18n: {"en":"Loss > $30K/year — urgent cleaning is required."} }],
   formulaPipeline: [
     { formulaId: "energy.fouling_resistance", inputMap: { uClean: "uClean", uDirty: "uDirty" }, outputId: "rf" },
-    { formulaId: "energy.fouling_cost", inputMap: { heatLoss: "heatLoss", fuelCost: "fuelCost", pumpIncrease: "deltaPIncrease" ,
-        hours: "hours",
-        boilEff: "boilEff"}, outputId: "cost" },
+    { formulaId: "energy.heat_exchanger_loss", inputMap: { area: "area", uClean: "uClean", lmtd: "lmtd", uDirty: "uDirty" }, outputId: "heatLoss" },
+    { formulaId: "energy.fouling_cost", inputMap: { heatLoss: "heatLoss", fuelCost: "fuelCost", operatingHours: "operatingHours", boilerEff: "boilerEff", deltaPIncrease: "deltaPIncrease", flowM3h: "flowM3h", pumpEff: "pumpEff" }, outputId: "cost" },
     { formulaId: "energy.fouling_roi", inputMap: { totalCost: "cost", cleanCost: "cleanCost" }, outputId: "roi" },
   ],
   reportTemplate: { title: "Heat Exchanger Fouling Report", title_i18n: {"en":"Heat Exchanger Fouling Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
