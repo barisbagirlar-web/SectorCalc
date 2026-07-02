@@ -77,6 +77,12 @@ export const FALLBACK_MAP: Record<string, string> = {
   "loginPage.meta.title": "Sign In | SectorCalc",
   "loginPage.meta.description": "Sign in to your SectorCalc account.",
 
+  // ─── Premium Access (Sign-in Panel) ──────────────────────────────
+  "premiumAccess.panelTitle": "Sign In",
+  "premiumAccess.panelDescription": "Access your reports, credits, and account settings.",
+  "premiumAccess.signInButton": "Sign in with Google",
+  "premiumAccess.signingIn": "Signing in...",
+
   // ─── Privacy ──────────────────────────────────────────────────────
   "privacy.title": "Privacy Policy",
   "privacy.heroDescription":
