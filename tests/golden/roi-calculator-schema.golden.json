@@ -1,0 +1,22 @@
+{
+  "toolId": "roi-calculator-schema",
+  "_note": "Replace the 'expect' key with the ACTUAL formula/output key in the schema. Values are calculated manually, not derived from the formula.",
+  "cases": [
+    {
+      "name": "basic_positive_return",
+      "inputs": { "maliyet": 1000, "netKar": 250 },
+      "expect": { "sonuc": 25 },
+      "tolerance": { "abs": 1e-6, "rel": 1e-6 }
+    },
+    {
+      "name": "boundary_zero_return",
+      "inputs": { "maliyet": 1000, "netKar": 0 },
+      "expect": { "sonuc": 0 }
+    },
+    {
+      "name": "negative_loss",
+      "inputs": { "maliyet": 1000, "netKar": -200 },
+      "expect": { "sonuc": -20 }
+    }
+  ]
+}
