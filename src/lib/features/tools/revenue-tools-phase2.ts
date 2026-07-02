@@ -110,10 +110,10 @@ function build(config: {
 export const phase2RevenueTools: AdditionalRevenueTool[] = [
  build({
  sector: "agriculture-crops",
- freeSlug: "fertilizer-dosage-calculator",
- paidSlug: "crop-yield-loss-analyzer",
- freeTitle: "Fertilizer Dosage Calculator",
- paidTitle: "Crop Yield Loss Analyzer",
+    freeSlug: "fertilizer-dosage-calculator",
+    paidSlug: "not-applicable",
+    freeTitle: "Fertilizer Dosage Calculator",
+    paidTitle: "Fertilizer Dosage Calculator",
  painStatement:
  "Fertilizer over-application and weather gaps can destroy crop margin before harvest.",
  freeValue: "Calculate N-P-K load and visible over-fertilization risk.",
@@ -209,10 +209,10 @@ freeInputs: [
  }),
  build({
  sector: "agriculture-dairy",
- freeSlug: "milk-yield-check",
- paidSlug: "dairy-profit-detector",
- freeTitle: "Milk Yield Check",
- paidTitle: "Dairy Profit Detector",
+    freeSlug: "milk-yield-check",
+    paidSlug: "not-applicable",
+    freeTitle: "Milk Yield Check",
+    paidTitle: "Milk Yield Check",
  painStatement: "Low yield per cow with rising feed prices destroys dairy profitability.",
  freeValue: "Compare milk revenue to visible feed cost pressure.",
  paidValue: "Detect dairy profit leaks with full cost stack verdict.",
