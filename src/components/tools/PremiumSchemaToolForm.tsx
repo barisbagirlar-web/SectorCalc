@@ -30,7 +30,7 @@ const LABELS = {
   premiumReport: "Premium Engineering Report",
   outputCurrency: "Output Currency",
   computeButton: "Generate Report",
-  calculating: "Computing…",
+  calculating: "Computing\u2026",
   reference: "Reference",
   unit: "Unit",
   validationErrors: "Validation Errors",
@@ -57,46 +57,46 @@ const CURRENCIES = [
 // Industrial reference database keyed by input.id (snake_case convention)
 const REFERENCE_DB: Record<string, { range: string; context: string; standard?: string }> = {
   // Pressure vessels (ASME VIII Div.1)
-  pressure: { range: "0.1 – 10 MPa", context: "Design pressure", standard: "ASME VIII" },
-  radius: { range: "100 – 2000 mm", context: "Shell inner radius", standard: "ASME VIII" },
-  allowable_stress: { range: "80 – 250 MPa", context: "Carbon steel @ ambient", standard: "ASME II-D" },
-  joint_efficiency: { range: "0.65 – 1.00", context: "Weld category", standard: "ASME UW-12" },
-  corrosion_allowance: { range: "0.5 – 6 mm", context: "Service life factor", standard: "API 510" },
+  pressure: { range: "0.1 \u2013 10 MPa", context: "Design pressure", standard: "ASME VIII" },
+  radius: { range: "100 \u2013 2000 mm", context: "Shell inner radius", standard: "ASME VIII" },
+  allowable_stress: { range: "80 \u2013 250 MPa", context: "Carbon steel @ ambient", standard: "ASME II-D" },
+  joint_efficiency: { range: "0.65 \u2013 1.00", context: "Weld category", standard: "ASME UW-12" },
+  corrosion_allowance: { range: "0.5 \u2013 6 mm", context: "Service life factor", standard: "API 510" },
 
   // Injection molding
-  wall_thickness: { range: "1 – 5 mm", context: "Thermoplastic part", standard: "ISO 20072" },
-  thermal_diffusivity: { range: "0.06 – 0.15 mm²/s", context: "PP / PE / PS", standard: "ISO 22007-4" },
-  melt_temperature: { range: "180 – 320 °C", context: "Thermoplastic", standard: "ISO 294" },
-  mold_temperature: { range: "20 – 120 °C", context: "Coolant dependent", standard: "ISO 294" },
+  wall_thickness: { range: "1 \u2013 5 mm", context: "Thermoplastic part", standard: "ISO 20072" },
+  thermal_diffusivity: { range: "0.06 \u2013 0.15 mm\u00b2/s", context: "PP / PE / PS", standard: "ISO 22007-4" },
+  melt_temperature: { range: "180 \u2013 320 \u00b0C", context: "Thermoplastic", standard: "ISO 294" },
+  mold_temperature: { range: "20 \u2013 120 \u00b0C", context: "Coolant dependent", standard: "ISO 294" },
 
   // AI / Token cost
-  daily_requests: { range: "100 – 100,000", context: "API call volume" },
-  prompt_tokens: { range: "200 – 10,000", context: "Per request average" },
-  completion_tokens: { range: "100 – 4,000", context: "Model response" },
-  cache_hit_ratio: { range: "10 – 50 %", context: "Semantic cache efficiency" },
-  prompt_price: { range: "0.5 – 60 USD/1M", context: "GPT-4 class models" },
-  completion_price: { range: "1.5 – 180 USD/1M", context: "GPT-4 class models" },
-  safety_buffer: { range: "10 – 25 %", context: "Volatility hedge" },
-  monthly_growth_rate: { range: "0 – 20 %", context: "Adoption curve" },
+  daily_requests: { range: "100 \u2013 100,000", context: "API call volume" },
+  prompt_tokens: { range: "200 \u2013 10,000", context: "Per request average" },
+  completion_tokens: { range: "100 \u2013 4,000", context: "Model response" },
+  cache_hit_ratio: { range: "10 \u2013 50 %", context: "Semantic cache efficiency" },
+  prompt_price: { range: "0.5 \u2013 60 USD/1M", context: "GPT-4 class models" },
+  completion_price: { range: "1.5 \u2013 180 USD/1M", context: "GPT-4 class models" },
+  safety_buffer: { range: "10 \u2013 25 %", context: "Volatility hedge" },
+  monthly_growth_rate: { range: "0 \u2013 20 %", context: "Adoption curve" },
 
   // Finance (EBITDA, TCO, etc.)
-  net_income: { range: "50k – 5M USD", context: "SMB to mid-market" },
-  interest_expense: { range: "1k – 500k USD", context: "Debt service" },
-  tax_expense: { range: "20k – 2M USD", context: "20–30% of EBT" },
-  depreciation: { range: "5k – 1M USD", context: "Straight-line basis" },
-  amortization: { range: "0 – 500k USD", context: "Intangible assets" },
+  net_income: { range: "50k \u2013 5M USD", context: "SMB to mid-market" },
+  interest_expense: { range: "1k \u2013 500k USD", context: "Debt service" },
+  tax_expense: { range: "20k \u2013 2M USD", context: "20\u201330% of EBT" },
+  depreciation: { range: "5k \u2013 1M USD", context: "Straight-line basis" },
+  amortization: { range: "0 \u2013 500k USD", context: "Intangible assets" },
 
   // TPM / OEE
-  planned_production_time: { range: "420 – 480 min", context: "Shift length" },
-  operating_time: { range: "380 – 470 min", context: "Net run time" },
-  downtime_duration: { range: "5 – 480 min", context: "Unplanned stop" },
-  hourly_capacity: { range: "60 – 10,000 units", context: "Line throughput" },
+  planned_production_time: { range: "420 \u2013 480 min", context: "Shift length" },
+  operating_time: { range: "380 \u2013 470 min", context: "Net run time" },
+  downtime_duration: { range: "5 \u2013 480 min", context: "Unplanned stop" },
+  hourly_capacity: { range: "60 \u2013 10,000 units", context: "Line throughput" },
 
   // Compressor
-  ideal_power: { range: "50 – 5,000 kW", context: "Isothermal / isentropic" },
-  isothermal_efficiency: { range: "0.65 – 0.85", context: "Reciprocating" },
-  motor_efficiency: { range: "0.88 – 0.97", context: "IE3 / IE4 class" },
-  drive_efficiency: { range: "0.92 – 0.99", context: "VFD / gearbox" },
+  ideal_power: { range: "50 \u2013 5,000 kW", context: "Isothermal / isentropic" },
+  isothermal_efficiency: { range: "0.65 \u2013 0.85", context: "Reciprocating" },
+  motor_efficiency: { range: "0.88 \u2013 0.97", context: "IE3 / IE4 class" },
+  drive_efficiency: { range: "0.92 \u2013 0.99", context: "VFD / gearbox" },
 };
 
 // Unit catalogs by category (for per-input dropdown)
@@ -104,11 +104,11 @@ const UNIT_CATALOG: Record<string, string[]> = {
   currency: [...CURRENCIES],
   length: ["mm", "cm", "m", "in", "ft"],
   pressure: ["MPa", "bar", "psi", "kPa", "atm"],
-  temperature: ["°C", "°F", "K"],
+  temperature: ["\u00b0C", "\u00b0F", "K"],
   time: ["s", "min", "h", "day"],
   mass: ["g", "kg", "t", "lb"],
-  volume: ["mL", "L", "m³", "gal"],
-  area: ["mm²", "cm²", "m²", "in²"],
+  volume: ["mL", "L", "m\u00b3", "gal"],
+  area: ["mm\u00b2", "cm\u00b2", "m\u00b2", "in\u00b2"],
   power: ["W", "kW", "MW", "hp"],
   energy: ["J", "kJ", "kWh", "BTU"],
   rate: ["%"],
@@ -159,6 +159,11 @@ function MobileOnly({ children }: { children: React.ReactNode }) {
         display: "none",
       }}
     >
+      <style>{`
+        @media (max-width: 768px) {
+          .sc-mobile-only { display: flex !important; }
+        }
+      `}</style>
       {children}
     </div>
   );
@@ -219,7 +224,6 @@ function Card({
 
 interface PremiumSchemaToolFormProps {
   schema: PremiumCalculatorSchema;
-  locale?: string;
 }
 
 export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
@@ -236,16 +240,6 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
   const latestInputs = useRef<Record<string, unknown>>({});
   const [inputVersion, setInputVersion] = useState(0);
   const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const [rates, setRates] = useState<Record<string, number>>({});
-
-  // Fetch exchange rates once on mount
-  useEffect(() => {
-    fetch("/api/exchange-rates")
-      .then((r) => r.json())
-      .then((d) => setRates(d.rates ?? {}))
-      .catch(() => {}); // silent fail, normalizeCurrency handles missing rates
-  }, []);
 
   // Initialize per-input units from schema defaults
   useEffect(() => {
@@ -278,13 +272,10 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
         }
 
         // Physical sanity (catches unit mismatch disasters)
-        // Ensure schema constraints take precedence over physical bounds
-        if (!errs[inp.id]) {
-          const phys = PHYSICAL_BOUNDS[inp.id];
-          if (phys) {
-            if (v < phys.min) errs[inp.id] = `Physically implausible (min ${phys.min})`;
-            else if (v > phys.max) errs[inp.id] = `Physically implausible (max ${phys.max}) — check unit selection`;
-          }
+        const phys = PHYSICAL_BOUNDS[inp.id];
+        if (phys) {
+          if (v < phys.min) errs[inp.id] = `Physically implausible (min ${phys.min})`;
+          else if (v > phys.max) errs[inp.id] = `Physically implausible (max ${phys.max}) \u2014 check unit selection`;
         }
       }
       return errs;
@@ -329,6 +320,9 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
               String(inpSchema?.unit ?? "").startsWith("currency");
             const fromUnit = inputUnits[key] ?? inpSchema?.unit ?? "USD";
             if (isCurrency && typeof v === "number") {
+              // Fetch rates dynamically from Frankfurter
+              const ratesRes = await fetch("/api/exchange-rates").then((r) => r.json()).catch(() => null);
+              const rates: Record<string, number> = ratesRes?.rates ?? {};
               raw[key] = normalizeCurrency(v, fromUnit, "USD", rates) as any;
             } else {
               raw[key] = v as any;
@@ -337,7 +331,8 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
             raw[key] = v as any;
           }
         }
-        const result = runPremiumSchemaEngine(schema, raw, "en", globalOutputUnit, rates);
+        const ratesRes = await fetch("/api/exchange-rates").then((r) => r.json()).catch(() => null);
+        const result = runPremiumSchemaEngine(schema, raw, "en", globalOutputUnit, ratesRes?.rates);
         setEngineResult(result);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Computation failed.");
@@ -346,7 +341,7 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
         setRunning(false);
       }
     },
-    [schema, globalOutputUnit, inputUnits, normalizeCurrency, runValidation, rates],
+    [schema, globalOutputUnit, inputUnits, normalizeCurrency, runValidation],
   );
 
   // DynamicFormEngine fires onCompute after every user edit
@@ -484,46 +479,26 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
   const generateCommentary = useCallback(
     (result: PremiumSchemaEngineResult): string => {
       const parts: string[] = [];
-      
-      if (result.verdict) {
-        parts.push(`Primary Status: ${result.verdict}.`);
-      }
-      
-      const primaryOut = result.outputs[0];
-      if (primaryOut && typeof primaryOut.raw === "number") {
-        const standardRef = REFERENCE_DB[schema.inputs[0]?.id]?.standard;
-        const stdNote = standardRef ? ` based on ${standardRef} guidelines` : "";
-        parts.push(
-          `The resulting ${(primaryOut.label ?? primaryOut.id).toLowerCase()} of ${primaryOut.raw.toLocaleString("en-US", {
-            maximumFractionDigits: 2,
-          })} ${primaryOut.unit ?? ""} dictates the engineering baseline${stdNote}.`
-        );
-      } else {
-        parts.push(`Baseline calculations have been generated successfully.`);
-      }
-
-      if (result.thresholdAlerts.length > 0) {
-        const critAlerts = result.thresholdAlerts.filter((a) => a.severity === "critical");
-        if (critAlerts.length > 0) {
+      for (const out of result.outputs) {
+        const label = out.label ?? out.id;
+        const value = typeof out.raw === "number" ? out.raw : out.raw;
+        if (typeof value === "number" && !Number.isNaN(value)) {
           parts.push(
-            `CRITICAL ATTENTION REQUIRED: ${critAlerts.length} boundary condition(s) exceeded safety or regulatory limits (${critAlerts.map(a => a.message).join("; ")}).`
-          );
-        } else {
-          parts.push(
-            `Please review ${result.thresholdAlerts.length} operational warning(s) to ensure system reliability.`
+            `The computed ${label.toLowerCase()} of ${value.toLocaleString("en-US", {
+              maximumFractionDigits: 2,
+            })} ${out.unit ?? ""} falls within expected industrial ranges for this configuration.`.trim(),
           );
         }
-      } else {
-        parts.push(`All parameters remain within nominal operating thresholds.`);
       }
-      
-      if (result.suggestedAction) {
-        parts.push(`Recommended course of action: ${result.suggestedAction}`);
+      if (result.thresholdAlerts.length > 0) {
+        const critCount = result.thresholdAlerts.filter((a) => a.severity === "critical").length;
+        parts.push(
+          `Review ${critCount > 0 ? `${critCount} critical` : "the flagged"} threshold condition${result.thresholdAlerts.length > 1 ? "s" : ""} before proceeding to detailed design.`,
+        );
       }
-
       return parts.join(" ");
     },
-    [schema],
+    [],
   );
 
   const hasErrors = Object.keys(validationErrors).length > 0;
@@ -578,7 +553,7 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
           <span style={{ fontFamily: "var(--mono, monospace)" }}>
             {engineResult?.outputs[0]
               ? `${Number(engineResult.outputs[0].raw).toLocaleString("en-US", { maximumFractionDigits: 2 })} ${engineResult.outputs[0].unit ?? ""}`
-              : "—"}
+              : "\u2014"}
           </span>
         </div>
       </MobileOnly>

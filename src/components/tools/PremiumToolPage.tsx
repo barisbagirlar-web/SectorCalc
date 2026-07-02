@@ -641,7 +641,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    <ToolSafeReviewState slug={runtimeSlug} locale={locale} findings={runtimeTrust.findings} />
   ) : showSchemaPilot ? (
   <>
-  <PremiumSchemaToolForm schema={schemaPilot!} locale={locale} />
+  <PremiumSchemaToolForm schema={schemaPilot!} />
   </>
   ) : (
   <>

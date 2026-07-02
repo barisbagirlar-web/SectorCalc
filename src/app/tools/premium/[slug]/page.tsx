@@ -100,7 +100,7 @@ export default async function PremiumGeneratedToolRoutePage({
   return (
     <PageLayout>
       {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
-      <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, resolvedSlug)} locale={locale} />
+      <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, resolvedSlug)} />
     </PageLayout>
   );
 }

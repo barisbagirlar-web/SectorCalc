@@ -161,7 +161,7 @@ export default async function GeneratedToolRoutePage({
             </Link>
           </p>
         </div>
-        <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, slug)} locale={locale} />
+        <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, slug)} />
       </article>
     </PageLayout>
   );

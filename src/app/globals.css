@@ -462,3 +462,8 @@ input[type="number"] {
   align-items: center;
   justify-content: center;
 }
+
+/* Added for PremiumSchemaToolForm MobileOnly */
+@media (max-width: 768px) {
+  .sc-mobile-only { display: flex !important; }
+}

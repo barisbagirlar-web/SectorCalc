@@ -64,7 +64,7 @@ export default async function EmbedToolPage({
       className="mx-auto max-w-4xl px-3 py-4"
       data-embed-calculator={slug}
     >
-      <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, slug)} locale={locale} />
+      <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, slug)} />
     </div>
   );
 }

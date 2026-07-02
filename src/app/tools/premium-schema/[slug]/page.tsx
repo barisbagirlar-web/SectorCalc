@@ -161,7 +161,7 @@ export default async function PremiumSchemaPilotPage({
           data-calculation-form-shell="true"
           data-testid="calculator-form"
         />
-        <PremiumSchemaToolForm schema={schema} locale={locale} />
+        <PremiumSchemaToolForm schema={schema} />
         <PremiumAnalyzerAuthorityBlock
           schema={schema}
           locale={locale}
