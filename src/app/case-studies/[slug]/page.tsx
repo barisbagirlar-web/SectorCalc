@@ -17,7 +17,6 @@ import {
 } from "@/lib/features/case-studies/published-case-study-locale";
 import { resolvePublishedCaseStudyBySlug } from "@/lib/features/case-studies/firestore-case-studies";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import { locales, type AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import "@/styles/academic-case-studies-database.css";
 
@@ -27,7 +26,7 @@ type PageProps = { params: Promise<{  slug: string }> };
 
 export function generateStaticParams() {
   const slugs = listAllCaseStudySlugs();
-  const params = locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+  const params = slugs.map((slug) => ({ slug }));
   return limitStaticParamsForPreview(params, {
     family: "case-studies",
     slugKey: "slug",

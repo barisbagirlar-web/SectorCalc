@@ -5,8 +5,6 @@ import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { AcademicTeamProfileSection } from "@/components/team/AcademicTeamProfileSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
-import { locales } from "@/i18n/routing";
 import {
   academicTeamTranslationKeys,
   DYNAMIC_ACADEMIC_TEAM_SLUGS,
@@ -18,12 +16,7 @@ import { buildAcademicTeamProfileJsonLd } from "@/lib/features/semantic/build-ac
 type PageProps = { params: Promise<{  slug: string }> };
 
 export function generateStaticParams(): Array<{  slug: string }> {
-  return locales.flatMap((locale) =>
-    DYNAMIC_ACADEMIC_TEAM_SLUGS.map((slug) => ({
-      locale,
-      slug,
-    })),
-  );
+  return DYNAMIC_ACADEMIC_TEAM_SLUGS.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
