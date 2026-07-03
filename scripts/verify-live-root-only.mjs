@@ -59,9 +59,10 @@ async function scanHomepageForIssues() {
       issues.push("Locale switcher UI found (language-selector)");
     }
     
-    // Check for hreflang
-    if (html.includes("hreflang") || html.includes("alternate")) {
-      issues.push("hreflang alternates found");
+    // Check for hreflang/locale alternates (not content-type alternate links like RSS/ai.txt)
+    const hreflangPattern = /hrefLang="(en|tr|de|fr|es|ar)"/g;
+    if (html.match(hreflangPattern)) {
+      issues.push("hreflang alternates found for locale languages");
     }
     
     // Check for Turkish text
@@ -76,8 +77,8 @@ async function scanHomepageForIssues() {
       }
     }
     
-    // Check for locale-prefixed links
-    const localeLinkPattern = /href="\/(en|tr|de|fr|es|ar)\/?/g;
+    // Check for locale-prefixed links (exact locale prefix, not just "fr" in "free-tools")
+    const localeLinkPattern = /href="\/(en|tr|de|fr|es|ar)(?:\/"|\s|")/g;
     const matches = html.match(localeLinkPattern);
     if (matches && matches.length > 0) {
       issues.push(`Locale-prefixed links found: ${matches.slice(0, 5).join(", ")}`);

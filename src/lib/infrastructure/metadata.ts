@@ -45,17 +45,9 @@ function buildLocalizedPath(path: string, locale: AppLocale): string {
   return getCanonicalPathForLocale(path, locale);
 }
 
-function buildHreflangAlternates(path: string): Metadata["alternates"] {
-  const normalized = path.startsWith("/") ? path : `/${path}`;
-  const languages: Record<string, string> = {};
-
-  for (const locale of ['en']) {
-    languages[locale] = `${SITE.url}${buildLocalizedPath(normalized, locale as AppLocale)}`;
-  }
-
-  languages["x-default"] = `${SITE.url}${buildLocalizedPath(normalized, "en" as AppLocale)}`;
-
-  return { languages };
+function buildHreflangAlternates(path: string): {} {
+  // V5.3.1 root-only: no hreflang locale alternates
+  return {};
 }
 
 export function getToolMetadata(options: ToolMetadataOptions): Metadata {
