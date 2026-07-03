@@ -36,6 +36,7 @@ import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-lo
 import { loadGeneratedCalculator } from "@/lib/features/generated-tools/load-generated-calculator";
 import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form";
 import { isIndustrialFreeToolSlug, buildIndustrialFreeToolSchema } from "@/lib/features/tools/industrial-free-schema-factory";
+import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -580,7 +581,25 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    return NextResponse.json(pass3.response, { status: 200 });
+    // Premium hook — build from normalized inputs and free outputs
+    const freeOutputs: Record<string, number> = {};
+    for (const output of pass2.outputs) {
+      if (typeof output.value === "number") {
+        freeOutputs[output.id] = output.value;
+      }
+    }
+
+    const premiumHook = buildPremiumHook({
+      toolKey: body.tool_key,
+      normalizedInputs: pass2.normalizedInputs,
+      freeOutputs,
+      displayCurrency: body.display_currency ?? null,
+    });
+
+    return NextResponse.json(
+      { ...pass3.response, premium_hook: premiumHook ?? null },
+      { status: 200 },
+    );
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown server error";
     return NextResponse.json(

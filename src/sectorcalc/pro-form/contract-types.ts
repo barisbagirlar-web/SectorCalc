@@ -479,6 +479,7 @@ export interface ExecuteResponse {
   decision_interpretation: DecisionInterpretation;
   audit_seal: AuditSeal;
   redaction_status: RedactionStatus;
+  premium_hook?: import("@/sectorcalc/monetization/monetization-types").PremiumHookPublic | null;
 }
 
 export interface UIInputGroup {

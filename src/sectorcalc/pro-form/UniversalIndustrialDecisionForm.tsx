@@ -4,7 +4,7 @@
 "use client";
 
 import type { ChangeEvent, ReactNode } from "react";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import type {
   CalcStatus,
   ExecuteResponse,
@@ -44,6 +44,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   });
 
   const { state } = machine;
+  const premiumHook = state.premiumHookState.hook;
   const response = state.serverResponseState.response;
   const decision = response?.decision_interpretation;
   const activeMode = state.profileModeState.mode;
@@ -162,6 +163,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               <ResultsPanel outputs={response?.outputs ?? []} />
               <HiddenRiskPanel response={response} />
               <BusinessImpactPanel response={response} />
+              {premiumHook ? <PremiumPanel hook={premiumHook} onCheckout={() => machine.requestCheckout()} /> : null}
               <FmeaPanel response={response} />
               <ProtectedMethodologyPanel schema={props.schema} response={response} />
               <AuditSealPanel response={response} redactionStatus={response?.redaction_status ?? null} />
@@ -474,6 +476,58 @@ function BusinessImpactPanel({ response }: { response: ExecuteResponse | null })
       ) : (
         <p className="sc-v531-empty">Business impact will appear when commercial inputs and server outputs are available.</p>
       )}
+    </section>
+  );
+}
+
+function PremiumPanel({
+  hook,
+  onCheckout,
+}: {
+  hook: import("@/sectorcalc/monetization/monetization-types").PremiumHookPublic;
+  onCheckout: () => Promise<string | null>;
+}) {
+  const [loading, setLoading] = useState(false);
+
+  const handleCheckout = async () => {
+    setLoading(true);
+    try {
+      const url = await onCheckout();
+      if (url) {
+        window.location.href = url;
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <section className="sc-v531-section" aria-label="Premium hook panel">
+      <SectionHeader
+        title="Monetary loss exposure"
+        subtitle="Estimated decision-support pain metric based on current outputs and user-entered commercial context."
+      />
+      <article className="sc-v531-result-card" data-status={hook.pain_metric.status.toLowerCase()}>
+        <strong>{hook.pain_metric.label}</strong>
+        <p className="sc-v531-result-card__value">
+          {hook.pain_metric.value !== null
+            ? `${formatValue(hook.pain_metric.value)} ${hook.pain_metric.unit}`
+            : "Insufficient input context to estimate monetary exposure."}
+        </p>
+        <p>{hook.pain_metric.explanation}</p>
+        <p className="sc-v531-legal-disclaimer">{hook.pain_metric.safety_note}</p>
+      </article>
+      <div className="sc-v531-export-row" style={{ marginTop: "1rem" }}>
+        <button
+          type="button"
+          className="sc-v531-primary-button"
+          disabled={loading}
+          onClick={handleCheckout}
+        >
+          {loading ? "Opening checkout..." : hook.cta.label}
+        </button>
+      </div>
+      <p className="sc-v531-empty">{hook.cta.subtext}</p>
     </section>
   );
 }

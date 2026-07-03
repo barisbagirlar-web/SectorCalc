@@ -3,6 +3,7 @@
  * V5.3.1 Schema Data Quality Smoke Test
  *
  * Tests every Free tool for: schema resolution, strict validation, execution path.
+ * Also validates cache behavior: first resolve, cached resolve, consistency.
  */
 
 import { readFileSync, existsSync, readdirSync, writeFileSync, unlinkSync } from "node:fs";
@@ -44,15 +45,21 @@ function runBulkValidation(slugs) {
   const slugJson = JSON.stringify(slugs);
 
   // Write a temp TS file that outputs JSON validation results to a temp file
+  // First pass: direct validation (schema adapter)
+  // Second pass: via cached resolver (resolveApprovedToolSchema)
+  // Cache stats output
   const code = [
     `import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";`,
     `import { buildIndustrialFreeToolSchema, isIndustrialFreeToolSlug } from "@/lib/features/tools/industrial-free-schema-factory";`,
     `import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter";`,
     `import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";`,
+    `import { resolveApprovedToolSchema, clearSchemaCache, getSchemaCacheStats } from "@/sectorcalc/runtime/resolve-approved-tool-schema";`,
     `import { writeFileSync } from "node:fs";`,
     ``,
     `const slugs: string[] = ${slugJson};`,
-    `const results: Record<string,{ok:boolean;missing?:boolean;errors:string[]}> = {};`,
+    `const results: Record<string,{ok:boolean;missing?:boolean;errors:string[];cachedOk?:boolean;cacheHit?:boolean}> = {};`,
+    ``,
+    `// First pass: direct validation`,
     `for (const slug of slugs) {`,
     `  let gen: any = getGeneratedToolSchema(slug);`,
     `  if (!gen && isIndustrialFreeToolSlug(slug)) {`,
@@ -67,6 +74,25 @@ function runBulkValidation(slugs) {
     `    results[slug] = { ok: false, errors: [(error as Error).message] };`,
     `  }`,
     `}`,
+    ``,
+    `// Second pass: via cached resolver`,
+    `const cacheResults: Record<string,boolean> = {};`,
+    `for (const slug of slugs) {`,
+    `  const r = resolveApprovedToolSchema(slug);`,
+    `  cacheResults[slug] = r.ok;`,
+    `}`,
+    ``,
+    `// Check cache stats`,
+    `const stats = getSchemaCacheStats();`,
+    ``,
+    `// Tag results with cache info`,
+    `for (const slug of slugs) {`,
+    `  const r = results[slug];`,
+    `  if (!r) continue;`,
+    `  r.cachedOk = cacheResults[slug] === true;`,
+    `  r.cacheHit = r.ok && cacheResults[slug];`,
+    `}`,
+    `results.__cacheStats__ = { size: stats.size, keys: stats.keys };`,
     `writeFileSync("${OUTPUT_FILE.replace(/\\/g, "\\\\")}", JSON.stringify(results), "utf-8");`,
   ].join("\n");
 
@@ -102,6 +128,7 @@ const results = {
   SCHEMA_INVALID_FAIL: 0,
   SCHEMA_MISSING_FAIL: 0,
   UNEXPECTED_EXECUTION_FAIL: 0,
+  CACHE_CONSISTENCY_FAIL: 0,
   failures: [],
 };
 
@@ -124,6 +151,10 @@ console.log(`Total: ${allSlugs.length}\n`);
 
 const validationResults = runBulkValidation(allSlugs);
 
+// Extract cache stats
+const cacheStats = validationResults.__cacheStats__;
+delete validationResults.__cacheStats__;
+
 for (const slug of allSlugs) {
   const meta = slugMeta[slug];
   const v = validationResults[slug];
@@ -132,6 +163,14 @@ for (const slug of allSlugs) {
     results.SCHEMA_MISSING_FAIL++;
     results.failures.push(`${slug}: schema not found`);
     console.error(`  M ${slug}: SCHEMA_MISSING_FAIL`);
+    continue;
+  }
+
+  // Cache consistency check: first pass OK should match cached pass
+  if (v.ok && v.cachedOk === false) {
+    results.CACHE_CONSISTENCY_FAIL++;
+    results.failures.push(`${slug}: first pass OK but cache returned FAIL`);
+    console.error(`  C ${slug}: CACHE_CONSISTENCY_FAIL`);
     continue;
   }
 
@@ -164,6 +203,11 @@ console.log(`  SCHEMA_VALID_BLOCKED_INVALID_TEST_INPUT: ${results.SCHEMA_VALID_B
 console.log(`  SCHEMA_INVALID_FAIL                   : ${results.SCHEMA_INVALID_FAIL}`);
 console.log(`  SCHEMA_MISSING_FAIL                   : ${results.SCHEMA_MISSING_FAIL}`);
 console.log(`  UNEXPECTED_EXECUTION_FAIL              : ${results.UNEXPECTED_EXECUTION_FAIL}`);
+console.log(`  CACHE_CONSISTENCY_FAIL                : ${results.CACHE_CONSISTENCY_FAIL}`);
+
+if (cacheStats) {
+  console.log(`\n  Cache entries: ${cacheStats.size}`);
+}
 
 // Cleanup temp files
 try { unlinkSync(path.join(ROOT, "_smoke-validate-temp.ts")); } catch {}
@@ -171,7 +215,8 @@ try { unlinkSync(OUTPUT_FILE); } catch {}
 
 const hasFail = results.SCHEMA_INVALID_FAIL > 0
   || results.SCHEMA_MISSING_FAIL > 0
-  || results.UNEXPECTED_EXECUTION_FAIL > 0;
+  || results.UNEXPECTED_EXECUTION_FAIL > 0
+  || results.CACHE_CONSISTENCY_FAIL > 0;
 
 if (results.failures.length > 0) {
   console.error("\nFAILURES:");
@@ -184,6 +229,6 @@ if (hasFail) {
   console.error("\nSMOKE FAILED\n");
   process.exit(1);
 } else {
-  console.log("\nSMOKE PASSED — All schemas valid\n");
+  console.log("\nSMOKE PASSED — All schemas valid, cache consistent\n");
   process.exit(0);
 }

@@ -21,12 +21,13 @@ import type { SuperV4Schema, SuperV4Input, NormalizedInputSpec, ProfileMode, UII
 /* ─────────────────────────────────────────────── */
 const TR_EN: Record<string, string> = {
   // Unit / dimension
-  uzunluk: "length", cap: "diameter", yaricap: "radius", yarçap: "radius",
+  uzunluk: "length", yaricap: "radius", yarçap: "radius",
   genislik: "width", genişlik: "width", yukseklik: "height", yükseklik: "height",
   derinlik: "depth", alan: "area", hacim: "volume", agirlik: "weight", ağırlık: "weight",
-  kutle: "mass", kütle: "mass", egim: "slope/slope", eğim: "slope", egme: "bending",
+  kutle: "mass", kütle: "mass",   egim: "slope/slope", eğim: "slope", egme: "bending",
   bukulme: "bending", bükülme: "bending", burkulma: "buckling", burulma: "torsion",
-  sehim: "deflection", dikdortgen: "rectangle", dikdörtgen: "rectangle",
+  sehim: "deflection", aci: "angle", açi: "angle", açı: "angle", acı: "angle",
+  dikdortgen: "rectangle", dikdörtgen: "rectangle",
   ucgen: "triangle", üçgen: "triangle", daire: "circle", cokgen: "polygon", çokgen: "polygon",
   dik: "vertical/perpendicular", yatay: "horizontal", dikey: "vertical",
   kare: "square", kose: "corner", köşe: "corner", kenar: "edge",
@@ -59,15 +60,15 @@ const TR_EN: Record<string, string> = {
   // Mechanical components
   yay: "spring", disli: "gear", dişli: "gear", vites: "gear",
   rulman: "bearing", yatak: "bearing", kasnak: "pulley", kayis: "belt", kayış: "belt",
-  zincir: "chain", bant: "belt", piston: "piston", silindir: "cylinder",
+  zincir: "chain", bant: "belt", silindir: "cylinder",
   valf: "valve", pompa: "pump", kompresor: "compressor", kompresör: "compressor",
-  motor: "motor", mill: "shaft", mil: "shaft", pervane: "propeller", kanat: "blade",
+  mill: "shaft", mil: "shaft", pervane: "propeller", kanat: "blade",
 
   // Manufacturing
   uretim: "production", üretim: "production", imalat: "manufacturing",
   calisma: "operation", calışma: "operation", calisan: "operator", calışan: "operator",
   iscilik: "labor", işçilik: "labor", malzeme: "material", stok: "inventory",
-  teslimat: "delivery", kalite: "quality", fire: "waste/scrap",
+  teslimat: "delivery", kalite: "quality",
   maliyet: "cost", birim: "unit", fiyat: "price", kar: "profit", kâr: "profit",
   zarar: "loss", gelir: "revenue", gider: "expense", verim: "efficiency",
   kapasite: "capacity", randiman: "efficiency", randıman: "efficiency",
@@ -86,6 +87,7 @@ const TR_EN: Record<string, string> = {
   odeme: "payment", ödeme: "payment", faiz: "interest", getiri: "return/yield",
   donem: "period", dönem: "period", kira: "rent", deger: "value", değer: "value",
   tutar: "amount", hisse: "share", tahvil: "bond", bono: "bond",
+  pay: "share", ort: "average",
   butce: "budget", bütçe: "budget", plan: "plan", proje: "project",
   yatirim: "investment", yatırım: "investment", finans: "finance",
   kredi: "credit", borc: "debt", borç: "debt", alacak: "receivable",
@@ -94,22 +96,90 @@ const TR_EN: Record<string, string> = {
 
   // Time / misc
   sure: "duration", süre: "duration", aralik: "interval", aralık: "interval",
+  yil: "year", yıl: "year", gun: "day", gün: "day", ay: "month", hafta: "week", saat: "hour",
   cizelge: "schedule", çizelge: "schedule", takvim: "calendar",
   mevcut: "current", yeni: "new", eski: "old", guncel: "current", güncel: "current",
   hesapla: "calculate", kullanici: "user", kullanıcı: "user",
   bilgi: "information", veri: "data", rapor: "report", kayit: "record", kayıt: "record",
   durum: "status", seviye: "level", tip: "type", tur: "type", tür: "type",
   ozellik: "property", özellik: "property", nitelik: "attribute",
+  // Turkish inflected forms (suffix-based: -i/-ı/-u/-ü, -si/-sı/-su/-sü)
+  aylik: "monthly", aylık: "monthly", yillik: "annual", yıllık: "annual",
+  gunluk: "daily", günlük: "daily", haftalik: "weekly", haftalık: "weekly",
+  nakit: "cash", kutupsal: "polar", atalet: "inertia",
+  saatlik: "hourly",
+  tutari: "amount", hissesi: "share", tahvili: "bond",
+  maliyeti: "cost", birimi: "unit", fiyati: "price", fiyatı: "price",
+  kari: "profit", kârı: "profit", zarari: "loss", zararı: "loss",
+  degeri: "value", değeri: "value", kapasitesi: "capacity",
+  odemesi: "payment", ödemesi: "payment", taksiti: "installment",
+  faizi: "interest", getirisi: "return",
+  stogu: "inventory", stoku: "inventory",
+  geliri: "revenue", gideri: "expense", verimi: "efficiency",
+  akimi: "current", akımı: "current", gerilimi: "voltage",
+  basinci: "pressure", basıncı: "pressure", sicakligi: "temperature", sıcaklığı: "temperature",
+  ivmesi: "acceleration", hizi: "speed", hızı: "speed",
+  alani: "area", alanı: "area", hacmi: "volume",
+  uzunlugu: "length", uzunluğu: "length",
+  genisligi: "width", genişliği: "width", yuksekligi: "height", yüksekliği: "height",
+  derinligi: "depth", derinliği: "depth", capi: "diameter", çapı: "diameter",
+  agirligi: "weight", ağırlığı: "weight", kutlesi: "mass", kütlesi: "mass",
+  kuvveti: "force", yuku: "load", yükü: "load",
+  acisi: "angle", açisi: "angle", açısı: "angle", acısı: "angle",
+  egimi: "slope", eğimi: "slope", sehimi: "deflection",
+  burkulmasi: "buckling", burkulması: "buckling",
+  burulmasi: "torsion", burulması: "torsion",
+  kolonu: "column", kirisi: "beam", kirişi: "beam",
+  temeli: "foundation", duvari: "wall", duvarı: "wall",
+  catisi: "roof", çatısı: "roof",
+  uretimi: "production", üretimi: "production",
+  orani: "ratio", oranı: "ratio", katsayisi: "coefficient", katsayısı: "coefficient",
+  standarti: "standard", standartı: "standard", sapmasi: "deviation", sapması: "deviation",
+  cozunurlugu: "resolution", çözünürlügu: "resolution", çözünürlüğü: "resolution",
+  butcesi: "budget", bütçesi: "budget",
+  yatirimi: "investment", yatırımı: "investment",
+  senedi: "security/note", senet: "bond/note",
+  toplami: "total", toplamı: "total", miktari: "quantity", miktarı: "quantity",
+  adedi: "quantity", ortalamasi: "average", ortalaması: "average",
 };
 
 function translateToEnglish(text: string): string {
   if (!text) return text;
-  // Split by uppercase boundaries (camelCase) and underscores
+  // If text contains spaces, split by word boundaries and translate each word
+  if (/\s/.test(text)) {
+    const words = text.split(/(\s+)/);
+    return words.map((word) => {
+      if (/^\s+$/.test(word)) return word;
+      // For words with punctuation (e.g. "Kâr/Zarar"), split further by non-alpha chars
+      if (/[^a-zA-ZğüşıöçĞÜŞİÖÇâîûÂÎÛ]/.test(word)) {
+        const parts = word.split(/([^a-zA-ZğüşıöçĞÜŞİÖÇâîûÂÎÛ]+)/);
+        return parts.map((part) => {
+          if (/^[^a-zA-ZğüşıöçĞÜŞİÖÇ]+$/.test(part)) return part;
+          const lower = part.toLowerCase();
+          const en = TR_EN[lower];
+          if (en) {
+            return part[0] === part[0]?.toUpperCase() && part === part[0] + part.slice(1).toLowerCase()
+              ? en.charAt(0).toUpperCase() + en.slice(1)
+              : en;
+          }
+          return part;
+        }).join("");
+      }
+      const lower = word.toLowerCase();
+      const en = TR_EN[lower];
+      if (en) {
+        return word[0] === word[0]?.toUpperCase() && word === word[0] + word.slice(1).toLowerCase()
+          ? en.charAt(0).toUpperCase() + en.slice(1)
+          : en;
+      }
+      return word;
+    }).join("");
+  }
+  // No spaces: split by camelCase and underscore boundaries, translate each part
   const parts = text.split(/(?<=[a-z])(?=[A-Z])|_|(?<=[A-Z])(?=[A-Z][a-z])/);
   const translated = parts.map((part) => {
     const lower = part.toLowerCase();
     if (TR_EN[lower]) {
-      // Preserve original casing convention
       const en = TR_EN[lower];
       if (part[0] === part[0]?.toUpperCase() && part === part[0] + part.slice(1).toLowerCase()) {
         return en.charAt(0).toUpperCase() + en.slice(1);
@@ -123,8 +193,9 @@ function translateToEnglish(text: string): string {
 
 function isTurkishWord(text: string): boolean {
   if (!text) return false;
-  const lower = text.toLowerCase();
-  return Boolean(TR_EN[lower]) || Object.keys(TR_EN).some((tr) => lower.includes(tr));
+  const lower = text.toLowerCase().replace(/[^a-zğüşıöç0-9]/g, "");
+  if (TR_EN[lower]) return true;
+  return false;
 }
 
 function sanitizeString(text: string | undefined | null, fallback: string): string {

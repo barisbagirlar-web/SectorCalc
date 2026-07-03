@@ -3,7 +3,7 @@
 
 "use client";
 
-import { useCallback, useEffect, useMemo, useReducer } from "react";
+import { useCallback, useEffect, useMemo, useReducer, useRef } from "react";
 import type {
   ExecuteRequest,
   ExecuteResponse,
@@ -45,6 +45,7 @@ export interface MachineApi {
   normalizedPreview: NormalizedPreviewItem[];
   blockers: ValidationIssue[];
   canExecute: boolean;
+  requestCheckout: () => Promise<string | null>;
 }
 
 const DEFAULT_ENDPOINT = "/api/pro-calculator/execute";
@@ -65,6 +66,8 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
 
   const executeEndpoint = options.executeEndpoint ?? DEFAULT_ENDPOINT;
   const fetcher = options.fetcher ?? fetch;
+  const currentToolKey = options.schema.tool_key;
+  const pendingToolKeyRef = useRef<string | null>(null);
 
   useEffect(() => {
     dispatch({ type: "INIT_SCHEMA", schema: options.schema, schema_hash: options.schemaHash ?? null });
@@ -102,6 +105,8 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
       return;
     }
 
+    const requestToolKey = currentToolKey;
+    pendingToolKeyRef.current = requestToolKey;
     dispatch({ type: "SUBMIT_SERVER_EXECUTION" });
 
     const request: ExecuteRequest = {
@@ -125,6 +130,11 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
         body: JSON.stringify(request),
       });
 
+      // Stale response protection: ignore if tool changed while request was in flight
+      if (pendingToolKeyRef.current !== requestToolKey || requestToolKey !== currentToolKey) {
+        return;
+      }
+
       const payload = (await response.json()) as unknown;
       const contractResult = parseExecuteResponse(payload);
 
@@ -144,12 +154,21 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
         return;
       }
 
+      // Stale response check
+      if (pendingToolKeyRef.current !== requestToolKey) {
+        return;
+      }
+
       if (contractResult.response.status === "BLOCKED") {
         dispatch({ type: "RECEIVE_SERVER_BLOCKERS", blockers: contractResult.response.warnings });
       }
 
       dispatch({ type: "RECEIVE_SERVER_RESPONSE", response: contractResult.response });
     } catch (error) {
+      // Stale: ignore error from a request for a different tool
+      if (pendingToolKeyRef.current !== requestToolKey) {
+        return;
+      }
       dispatch({
         type: "RECEIVE_SERVER_ERROR",
         message: error instanceof Error ? error.message : "Server execution failed with an unknown error.",
@@ -205,6 +224,29 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
   const toggleGroup = useCallback((groupId: string) => dispatch({ type: "TOGGLE_GROUP", group_id: groupId }), []);
   const setAdvancedVisible = useCallback((visible: boolean) => dispatch({ type: "SET_ADVANCED_VISIBLE", visible }), []);
 
+  const requestCheckout = useCallback(async (): Promise<string | null> => {
+    const hook = state.premiumHookState.hook;
+    if (!hook) return null;
+
+    try {
+      const checkoutResponse = await fetcher("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          toolKey: currentToolKey,
+          priceLookupKey: hook.cta.price_lookup_key,
+          intent: hook.cta.checkout_intent,
+        }),
+      });
+
+      if (!checkoutResponse.ok) return null;
+      const data = (await checkoutResponse.json()) as { url?: string };
+      return data.url ?? null;
+    } catch {
+      return null;
+    }
+  }, [state.premiumHookState.hook, fetcher, currentToolKey]);
+
   return {
     state,
     setProfileMode,
@@ -220,6 +262,7 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
     normalizedPreview: state.normalizedPreviewState.items,
     blockers: state.blockerState.blockers,
     canExecute: state.blockerState.can_execute && state.executionState !== "executing",
+    requestCheckout,
   };
 }
 

@@ -37,6 +37,10 @@ export interface EvidenceFieldState {
   uploaded_references: string[];
 }
 
+export interface PremiumHookState {
+  hook: import("@/sectorcalc/monetization/monetization-types").PremiumHookPublic | null;
+}
+
 export interface UniversalFormMachineState {
   schemaState: {
     schema: SuperV4Schema | null;
@@ -91,6 +95,7 @@ export interface UniversalFormMachineState {
     json_audit_available: boolean;
     copy_summary_available: boolean;
   };
+  premiumHookState: PremiumHookState;
 }
 
 export type UniversalFormMachineEvent =
@@ -157,6 +162,7 @@ export function createInitialUniversalFormState(profileMode: ProfileMode = "engi
     serverResponseState: { response: null },
     auditSealState: { seal: null },
     exportState: { pdf_available: false, json_audit_available: false, copy_summary_available: false },
+    premiumHookState: { hook: null },
   };
 }
 
@@ -211,6 +217,7 @@ export function universalFormMachineReducer(
         serverResponseState: { response: null },
         auditSealState: { seal: null },
         exportState: { pdf_available: false, json_audit_available: false, copy_summary_available: false },
+        premiumHookState: resetPremiumHook(),
       };
     }
 
@@ -223,6 +230,7 @@ export function universalFormMachineReducer(
           validation_errors: event.errors,
         },
         executionState: event.errors.length === 0 ? "schema_ready" : "schema_rejected",
+        premiumHookState: resetPremiumHook(),
       };
 
     case "SET_PROFILE_MODE":
@@ -230,6 +238,7 @@ export function universalFormMachineReducer(
         ...state,
         profileModeState: { mode: event.mode },
         executionState: state.executionState === "idle" ? "input_draft" : state.executionState,
+        premiumHookState: resetPremiumHook(),
       };
 
     case "SET_INPUT_VALUE":
@@ -244,6 +253,7 @@ export function universalFormMachineReducer(
         serverResponseState: { response: null },
         auditSealState: { seal: null },
         exportState: { pdf_available: false, json_audit_available: false, copy_summary_available: false },
+        premiumHookState: resetPremiumHook(),
       };
 
     case "SET_SELECTED_UNIT":
@@ -258,6 +268,7 @@ export function universalFormMachineReducer(
         serverResponseState: { response: null },
         auditSealState: { seal: null },
         exportState: { pdf_available: false, json_audit_available: false, copy_summary_available: false },
+        premiumHookState: resetPremiumHook(),
       };
 
     case "PRESERVE_PHYSICAL_QUANTITY_ON_UNIT_CHANGE":
@@ -266,6 +277,7 @@ export function universalFormMachineReducer(
         rawInputState: { ...state.rawInputState, [event.input_id]: event.value },
         selectedUnitState: { ...state.selectedUnitState, [event.input_id]: event.unit },
         executionState: "unit_dirty",
+        premiumHookState: resetPremiumHook(),
       };
 
     case "UPDATE_NORMALIZED_PREVIEW":
@@ -273,6 +285,7 @@ export function universalFormMachineReducer(
         ...state,
         normalizedPreviewState: { items: event.items, errors: event.errors },
         executionState: event.errors.length > 0 ? "client_precheck_blocked" : "normalized_preview_ready",
+        premiumHookState: resetPremiumHook(),
       };
 
     case "UPDATE_EVIDENCE_STATUS":
@@ -280,6 +293,7 @@ export function universalFormMachineReducer(
         ...state,
         evidenceState: { ...state.evidenceState, [event.input_id]: event.evidence },
         executionState: "input_draft",
+        premiumHookState: resetPremiumHook(),
       };
 
     case "RUN_CLIENT_PRECHECK": {
@@ -297,6 +311,7 @@ export function universalFormMachineReducer(
           can_execute: blockers.length === 0,
         },
         executionState: blockers.length === 0 ? "ready_to_execute" : "client_precheck_blocked",
+        premiumHookState: resetPremiumHook(),
       };
     }
 
@@ -306,6 +321,7 @@ export function universalFormMachineReducer(
         blockerState: { blockers: event.blockers, can_execute: false },
         validationState: { ...state.validationState, client_precheck_errors: event.blockers },
         executionState: "client_precheck_blocked",
+        premiumHookState: resetPremiumHook(),
       };
 
     case "SUBMIT_SERVER_EXECUTION":
@@ -313,6 +329,7 @@ export function universalFormMachineReducer(
         ...state,
         executionState: "executing",
         validationState: { ...state.validationState, server_blockers: [] },
+        premiumHookState: resetPremiumHook(),
       };
 
     case "RECEIVE_SERVER_RESPONSE": {
@@ -330,6 +347,7 @@ export function universalFormMachineReducer(
           json_audit_available: event.response.redaction_status === "PUBLIC_SAFE_REDACTED",
           copy_summary_available: event.response.redaction_status === "PUBLIC_SAFE_REDACTED",
         },
+        premiumHookState: { hook: event.response.premium_hook ?? null },
       };
     }
 
@@ -338,6 +356,7 @@ export function universalFormMachineReducer(
         ...state,
         validationState: { ...state.validationState, server_blockers: event.blockers },
         executionState: "server_blocked",
+        premiumHookState: resetPremiumHook(),
       };
 
     case "RECEIVE_SERVER_ERROR":
@@ -356,6 +375,7 @@ export function universalFormMachineReducer(
           ],
         },
         executionState: "error",
+        premiumHookState: resetPremiumHook(),
       };
 
     case "RESET_INPUTS":
@@ -372,6 +392,7 @@ export function universalFormMachineReducer(
         auditSealState: { seal: null },
         exportState: { pdf_available: false, json_audit_available: false, copy_summary_available: false },
         executionState: "input_draft",
+        premiumHookState: resetPremiumHook(),
       };
 
     case "TOGGLE_GROUP":
@@ -404,6 +425,10 @@ export function universalFormMachineReducer(
     default:
       return state;
   }
+}
+
+function resetPremiumHook(): PremiumHookState {
+  return { hook: null };
 }
 
 export function mapStatusToExecutionState(status: string): ExecutionState {
