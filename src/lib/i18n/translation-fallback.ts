@@ -255,6 +255,10 @@ export const FALLBACK_MAP: Record<string, string> = {
   "generatedToolCatalog.metaTitle": "Free Engineering Calculators | SectorCalc",
   "generatedToolCatalog.metaDescription":
     "Free, browser-based engineering calculators for common industrial calculations.",
+  "generatedToolCatalog.searchPlaceholder": "Search all calculators...",
+  "generatedToolCatalog.resultsCount": "Showing {count} calculators",
+  "generatedToolCatalog.noResults": "No calculators found matching your search.",
+  "generatedToolCatalog.allCategories": "← Back to all categories",
 
   // ─── About ────────────────────────────────────────────────────────
   "aboutPage.hero.title": "About SectorCalc",
