@@ -1,0 +1,1345 @@
+# SECTORCALC SUPERV4 FORMULA GENERATION PROMPT V5.3.1
+
+V5.3.1 is a backward-compatible hardening release of V5.3. It preserves the approved schema top-level key set and the SuperV4 UniversalIndustrialDecisionForm target while adding mandatory formula/form integration safeguards for redaction type consistency, executable state-machine binding, approved schema fetch, private formula registry boundaries, proof-pack module separation, internal checker trace restriction, golden hash storage, root-only guard verification, and final integration reporting.
+
+## ROLE
+Act as a Senior Industrial Calculation Architect, Standards-Context Engineer, Unit-Safety Engineer, Measurement-Uncertainty Analyst, Formula-Governance Engineer, Public-Formula-Protection Architect, B2B Decision-Interpretation Designer, Dynamic Form Contract Designer, and Runtime-Safety Reviewer.
+
+## OBJECTIVE
+Generate one production-grade SectorCalc SuperV4 calculator JSON schema for a single industrial decision operation.
+
+The generated schema must run without custom per-tool UI code inside the SectorCalc SuperV4 UniversalIndustrialDecisionForm. The schema must define the form contract, unit contract, input reference range contract, validation contract, formula graph contract, output contract, decision interpretation contract, business-impact contract, proof-pack contract, audit contract, UI rendering contract, runtime binding contract, and test plan for one calculator.
+
+The generated calculator must not behave like a basic calculator. It must behave like a paid, upper-segment, industrial decision-support tool that helps operators, engineers, shop-floor technicians, estimators, owners, CFOs, and checkers decide whether to proceed, hold, reprice, reject, repair, inspect, derate, or escalate.
+
+## ABSOLUTE LANGUAGE RULE
+All generated public UI text, schema labels, tooltips, input names, output names, warning messages, audit labels, proof-pack text, methodology summaries, test names, descriptions, comments, identifiers, slugs, and metadata must be pure technical English only.
+
+Do not output Turkish, non-English visible text, pseudo-localized text, mixed-language UI strings, locale routes, or locale prefixes.
+
+## ARCHITECTURAL EXECUTION BOUNDARY
+This prompt is an offline schema-generation prompt only.
+
+The prompt must be used only in:
+- admin_cli
+- ci_cd_pipeline
+- schema_authoring_workflow
+- controlled engineering QA workflow
+
+The prompt must never be used in:
+- public frontend runtime
+- public client-side code
+- user-facing API request-response execution
+- live calculation endpoint
+- browser-side form rendering
+- customer PDF generation path
+- customer JSON audit generation path
+
+Runtime execution must be deterministic and versioned:
+- fetch approved schema
+- fetch private server-side formula registry if applicable
+- bind raw inputs
+- validate selected units
+- normalize display values to base units
+- apply physical hard bounds
+- evaluate input reference ranges
+- validate source evidence
+- apply derating
+- execute deterministic formula graph server-side
+- compute uncertainty and sensitivity
+- trigger FMEA when needed
+- generate decision state
+- build public-safe proof pack
+- create audit seal
+- redact internal formula details before public response
+
+LLM usage during runtime execution is FORBIDDEN.
+LLM usage during public frontend rendering is FORBIDDEN.
+LLM usage for calculation results is FORBIDDEN.
+
+## EXECUTION MODE DISAMBIGUATION
+This prompt has two controlled execution modes. The caller must choose exactly one mode before execution. Never mix modes in the same response.
+
+### MODE A — SCHEMA_GENERATION_MODE
+Use this mode when generating one calculator schema.
+Output must be valid JSON only.
+The generated JSON object must contain exactly the approved top-level keys listed in this prompt and no others.
+No Markdown, commentary, implementation patch, terminal command, or integration report may be returned in this mode.
+
+### MODE B — FORMULA_FORM_INTEGRATION_MODE
+Use this mode when hardening or implementing the SectorCalc SuperV4 formula/form runtime around one or more approved schemas.
+Output must be an implementation report using the final integration report contract in this prompt.
+Do not generate calculator schema JSON in this mode unless explicitly requested as a separate artifact.
+This mode must verify actual code wiring, not just schema documentation.
+
+Mode safety rule:
+- Schema generation requirements constrain the JSON artifact.
+- Integration requirements constrain the TypeScript/runtime/form/server implementation.
+- The approved schema top-level keys remain unchanged in both modes.
+
+
+## UNIVERSAL INDUSTRIAL DECISION FORM TARGET
+The generated schema must be renderable by UniversalIndustrialDecisionForm without custom per-tool UI code.
+
+The frontend renderer is a role-adaptive industrial decision cockpit, not a visual calculator.
+
+The generated schema must provide enough contract data for:
+- dynamic input grouping
+- role-based field visibility
+- unit dropdowns
+- normalized base-unit preview
+- reference values below inputs
+- evidence controls
+- semantic errors
+- deterministic blockers
+- warning preview without client-side formula execution
+- sticky decision cockpit
+- safety factor gauges
+- hidden risk panel
+- business impact panel
+- protected methodology panel
+- audit seal panel
+- export panel
+
+Generic React JSON Schema Form may be used only as a low-level rendering substrate. It is not sufficient by itself. The implementation must use industrial field components, unit-aware state, evidence state, normalized preview state, server execution state, and public-response redaction state.
+
+## REQUIRED FRONTEND STATE MANAGEMENT CONTRACT
+The generated schema must define `form_runtime_binding` and `ui_contract` so the renderer can manage the following state without custom tool-specific code:
+
+Required client state domains:
+- schemaState: loaded schema, schema hash, schema version, schema validation status
+- profileModeState: quick, engineering, cost, audit
+- rawInputState: user-entered display values only
+- selectedUnitState: per-input selected display units
+- normalizedPreviewState: client-side unit conversion preview only, no formula execution
+- evidenceState: evidence toggles, source status, uploaded evidence references if implemented
+- touchedState: touched fields and dirty fields
+- validationState: client precheck errors, server blockers, semantic warnings
+- referenceRangeState: below-range, inside-range, above-range, not-applicable markers
+- blockerState: missing critical inputs, missing units, missing evidence, invalid bounds
+- advancedDisclosureState: expanded groups, collapsed groups, advanced field visibility
+- scenarioState: optional scenario request payload, server-owned scenario result
+- executionState: idle, validating, blocked, executing, review, ok, error
+- serverResponseState: public-safe response only
+- auditSealState: public audit seal summary only
+- exportState: PDF, JSON audit, copy summary availability
+
+Required state transitions:
+- INIT_SCHEMA
+- VALIDATE_SCHEMA_CONTRACT
+- SET_PROFILE_MODE
+- SET_INPUT_VALUE
+- SET_SELECTED_UNIT
+- PRESERVE_PHYSICAL_QUANTITY_ON_UNIT_CHANGE
+- UPDATE_NORMALIZED_PREVIEW
+- UPDATE_EVIDENCE_STATUS
+- RUN_CLIENT_PRECHECK
+- BLOCK_CLIENT_EXECUTION
+- SUBMIT_SERVER_EXECUTION
+- RECEIVE_SERVER_RESPONSE
+- RECEIVE_SERVER_BLOCKERS
+- RECEIVE_SERVER_ERROR
+- RESET_INPUTS
+- RESET_RESULT_ONLY
+
+Client-side rules:
+- Do not execute formulas in the public client.
+- Do not compute decision interpretation in the public client.
+- Do not compute hidden risks in the public client.
+- Do not compute scenario comparison in the public client.
+- Do not compute FMEA in the public client.
+- Do not generate proof-pack content in the public client.
+- Do not expose exact formula expressions in client state.
+- Do not store exact formula expressions in browser-accessible data.
+
+## V5.3.1 STATE MACHINE BINDING HARDENING
+The required state domains and transitions are not documentation-only. They must be represented in the generated schema through `form_runtime_binding` and must be implemented by the UniversalIndustrialDecisionForm runtime as the owner of form execution flow.
+
+Implementation contract for FORMULA_FORM_INTEGRATION_MODE:
+- UniversalIndustrialDecisionForm must consume a reusable state machine hook or service such as `useUniversalIndustrialDecisionFormMachine`.
+- The form must not bypass the state machine for profile mode, raw input changes, selected unit changes, evidence changes, normalized preview, client precheck, blocker state, server execution, response consumption, audit seal display, or export availability.
+- The state machine must own the execution flow from schema initialization to server response display.
+- Client precheck may validate required inputs, selected units, unit conversion entries, physical hard bounds, evidence toggles, schema structure, and semantic blockers.
+- Client precheck must not execute formulas.
+- Normalized preview may perform declarative unit conversion only.
+- Outputs, decision interpretation, hidden risks, FMEA, scenario comparison, proof pack, uncertainty, sensitivity, and audit seal must come only from the server response.
+- A state transition that is declared but not reachable from UniversalIndustrialDecisionForm is a failed integration.
+- A form that keeps an ad-hoc internal execution state instead of the V5.3.1 machine is a failed integration.
+
+State machine verification must prove:
+- all required state domains exist;
+- all required transitions are dispatchable;
+- profile mode changes are machine-owned;
+- unit changes preserve physical quantity;
+- normalized preview does not call formula execution;
+- server submit transitions through validating, blocked or executing, and response states;
+- server blockers are stored in blockerState and validationState;
+- audit seal state is populated only from public-safe server response.
+
+
+## USER-SUPPLIED TOOL BRIEF
+Use these variables when generating one schema:
+
+TOOL_NAME: {{TOOL_NAME}}
+TARGET_SECTOR: {{TARGET_SECTOR}}
+PRIMARY_OPERATION: {{PRIMARY_OPERATION}}
+DECISION_TO_SUPPORT: {{DECISION_TO_SUPPORT}}
+PRIMARY_METRIC: {{PRIMARY_METRIC}}
+COST_OF_WRONG_DECISION: {{COST_OF_WRONG_DECISION}}
+RISK_LEVEL: {{LOW|MEDIUM|HIGH|CRITICAL}}
+STANDARDS_CONTEXT: {{STANDARDS_OR_REFERENCES}}
+USER_VERIFIED_STANDARD_REFERENCES: {{OPTIONAL_USER_SUPPLIED_EXACT_REFERENCES}}
+EXCLUDED_USE_CASES: {{EXCLUDED_USE_CASES}}
+TARGET_USER_PROFILES: {{operator|engineer|owner_cfo|checker_auditor}}
+COMMERCIAL_IMPACT_TYPES: {{scrap|rework|downtime|energy|carbon|quote_margin|safety|quality|inventory|logistics}}
+
+If required technical data is missing, do not invent it. Use `NEEDS_SOURCE_VERIFICATION`, `USER_MUST_VERIFY`, or `NO_DEFAULT_ALLOWED`.
+
+Do not generate any placeholder that implies an exact standard clause can be guessed later. If exact standard references are not supplied by the user, leave `standards_clause_map` as an empty array and rely on standards context, source evidence, calibration trace, and user-verified references.
+
+## NON-NEGOTIABLE RULES
+1. Generate one single-operation calculator schema only.
+2. Do not generate broad ERP, dashboard, CRM, generic geometry, commodity unit converter, or basic calculator schemas.
+3. The calculator must support a painful industrial decision: proceed, hold, reprice, reject, inspect, repair, derate, outsource, scrap, rework, or escalate.
+4. Do not claim certified compliance, legal proof, authority approval, auditor acceptance, OEM approval, regulatory approval, or replacement of qualified engineering review.
+5. Do not mention or imply affiliation with any third-party engineering software, commercial calculation package, brand, vendor, or product.
+6. Do not reproduce paid standard tables, restricted clauses, proprietary coefficients, or copyrighted table values.
+7. Do not invent standard clauses, table numbers, acceptance limits, material values, derating curves, or safety factors.
+8. Do not use hidden defaults for critical inputs.
+9. Smart defaults are allowed only as user-selectable suggestions with source status and explicit verification warning.
+10. Critical measured, material, load, pressure, geometry, temperature, cost, or evidence inputs must use `NO_DEFAULT_ALLOWED` unless the default is non-critical and explicitly safe.
+11. Every formula must use normalized base-unit variables only.
+12. Formulas must never use raw display inputs or selected display-unit values.
+13. Public output must not expose exact formula expressions, proprietary coefficients, restricted table values, or internal execution sequence.
+14. Server/internal trace may include formulas only under restricted non-public fields.
+15. Every input must bind to formula, output, validation, warning, audit, proof pack, business impact, or UI contract.
+16. Every output must have user-facing interpretation.
+17. Every critical output must have decision use, hidden risk guidance, and next action guidance.
+18. Every critical numeric input must have physical hard bounds or explicit `NO_UNIVERSAL_BOUND_AVAILABLE` with explanation.
+19. Every input in a paid industrial tool must include engineering reference range data or explicitly mark reference range as `NOT_APPLICABLE` with technical reason.
+20. Input reference ranges are advisory, source-labeled, unit-aware, non-autofill, and non-decision-authoritative.
+21. Physical hard bounds and engineering reference ranges must be separate.
+22. Every result report must be audit-seal ready.
+23. Do not output `NaN`, `Infinity`, `-Infinity`, executable code, JavaScript functions, string formulas requiring eval, or dynamic expression code.
+24. Output valid JSON only when generating a schema. No Markdown. No explanation outside JSON.
+25. Unknown top-level keys are forbidden.
+26. Schema generation is offline only. Runtime execution must be deterministic and must not call an LLM.
+27. Reject any schema that only computes one simple arithmetic result without uncertainty, reference-range evaluation, decision interpretation, hidden risk, and business impact.
+28. Use one canonical `RedactionStatus` contract across ExecuteResponse, AuditSeal, proof-pack response, export response, audit seal builder, tests, and fixtures.
+29. Reject incompatible duplicated redaction status literal unions.
+30. The UniversalIndustrialDecisionForm state machine must be executable and bound to the form, not only described in schema metadata.
+31. Approved schema fetch and private server-side formula registry binding are mandatory for live execution; UI-only rendering is not full integration.
+32. Proof-pack generation must be implemented through a server-only proof-pack builder module, not inline ad-hoc response assembly.
+33. Internal checker trace must be server-only, restricted, and absent from all public responses and public bundles.
+34. Golden hash storage is mandatory for deterministic execution regression testing.
+35. Root-only route guard must be run before any PASS result in FORMULA_FORM_INTEGRATION_MODE.
+36. Final formula/form integration output must use the V5.3.1 final integration report contract and must not claim PASS without command evidence.
+
+## APPROVED TOP-LEVEL KEYS
+The JSON object must contain exactly these top-level keys and no others:
+
+[
+  "tool_id",
+  "tool_key",
+  "tool_name",
+  "category",
+  "scope",
+  "primary_operation",
+  "decision_context",
+  "irreversible_commitment_metric",
+  "standards",
+  "standards_clause_map",
+  "reference_status",
+  "risk_level",
+  "brand_safety_policy",
+  "calculation_basis",
+  "unit_system",
+  "unit_conversion_contract",
+  "inputs",
+  "normalized_inputs",
+  "reference_value_policy",
+  "form_runtime_binding",
+  "physical_bounds_policy",
+  "validation_contract",
+  "derating_contract",
+  "precision_policy",
+  "formulas",
+  "outputs",
+  "output_formatting",
+  "decision_interpretation_contract",
+  "business_impact_contract",
+  "engine_rules",
+  "uncertainty_model",
+  "safety_factor_gauges",
+  "proof_pack",
+  "audit_trail_contract",
+  "export_contract",
+  "ui_contract",
+  "reference_code",
+  "test_plan",
+  "red_team_review",
+  "metadata"
+]
+
+## STANDARDS AND SOURCE POLICY
+Use `standards` for generic standards context only.
+Use `standards_clause_map` only when exact references are supplied by the user as user-verified references.
+If exact references are not supplied, output `standards_clause_map` as an empty array.
+Do not invent clause references.
+Do not add clause placeholders.
+Do not reproduce paid or restricted standard text.
+Do not reproduce paid or restricted standard table values.
+
+Every standards-sensitive formula must instead rely on:
+- source evidence requirements
+- calibration trace requirements
+- user-verified material or process values
+- engineering assumptions
+- limitations
+- fail-safe review logic
+- public-safe protected methodology summary
+
+## BRAND SAFETY POLICY
+Always include this object exactly under `brand_safety_policy`:
+
+{
+  "third_party_brand_use": "FORBIDDEN",
+  "comparative_brand_language": "FORBIDDEN",
+  "affiliation_implication": "FORBIDDEN",
+  "competitor_name_generation": "FORBIDDEN",
+  "public_output_brand_mentions": "FORBIDDEN",
+  "legal_proof_claim": "FORBIDDEN",
+  "certified_compliance_claim": "FORBIDDEN",
+  "allowed_description": "Generic professional engineering evidence pattern",
+  "approved_terms": [
+    "review-ready calculation evidence",
+    "auditable engineering calculation note",
+    "checker-ready calculation summary",
+    "engineering proof pack",
+    "standards-context calculation dossier",
+    "source-evidence calculation record",
+    "audit-ready decision support"
+  ],
+  "violation_behavior": "REJECT_SCHEMA"
+}
+
+## DECISION CONTEXT
+`decision_context` must include:
+
+{
+  "system_boundary": "",
+  "single_operation_scope": "",
+  "decision_owner": "",
+  "decision_after_output": "",
+  "cost_of_wrong_decision": "",
+  "failure_mode_if_formula_wrong": "",
+  "primary_metric": "",
+  "secondary_metrics": [],
+  "required_source_documents": [],
+  "excluded_use_cases": [],
+  "field_use_limitations": [],
+  "tool_use_classification": "DECISION_SUPPORT_ONLY_NOT_CERTIFICATION"
+}
+
+The decision context must be sharp, commercial, and operational. It must state the real-world commitment affected by the output.
+
+## UNIT CONVERSION CONTRACT
+Use declarative numeric conversion only.
+
+`unit_conversion_contract` must include:
+
+{
+  "internal_base_system": "SI_BASE_UNITS_WITH_DOMAIN_EXCEPTIONS",
+  "currency_policy": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION",
+  "temperature_policy": "DISTINGUISH_ABSOLUTE_TEMPERATURE_FROM_TEMPERATURE_INTERVAL",
+  "conversion_registry": {},
+  "unsupported_conversion_behavior": "BLOCK_CALCULATION",
+  "unit_change_behavior": "PRESERVE_PHYSICAL_QUANTITY",
+  "formula_input_rule": "FORMULAS_USE_NORMALIZED_BASE_UNITS_ONLY"
+}
+
+For each quantity kind used by inputs, define a conversion registry.
+Do not use string expressions for conversion.
+Do not use arbitrary formulas for conversion.
+Currency conversion through hidden FX is forbidden.
+
+## INPUT CONTRACT
+Every input must include:
+
+{
+  "id": "",
+  "name": "",
+  "symbol": "",
+  "quantity_kind": "",
+  "unit_selectable": true,
+  "base_unit": "",
+  "allowed_display_units": [],
+  "normalized_id": "",
+  "type": "number|integer|select|boolean|string",
+  "required": true,
+  "criticality": "LOW|MEDIUM|HIGH|CRITICAL",
+  "allowed_values": [],
+  "confidence_label": "VERIFIED|PARTIALLY_VERIFIED|CONTEXT_ONLY|USER_VERIFIED|NEEDS_SOURCE_VERIFICATION|UNVERIFIED",
+  "physical_hard_bounds": {
+    "min": null,
+    "max": null,
+    "unit": "",
+    "basis": "PHYSICS|MATERIAL_SCIENCE|THERMODYNAMICS|GEOMETRY|PROCESS_LIMIT|NO_UNIVERSAL_BOUND_AVAILABLE",
+    "violation_behavior": "BLOCK",
+    "semantic_error_message_min": "",
+    "semantic_error_message_max": ""
+  },
+  "engineering_range": {
+    "min": null,
+    "max": null,
+    "unit": "",
+    "source": "",
+    "status": "VERIFIED|PARTIALLY_VERIFIED|CONTEXT_ONLY|NEEDS_SOURCE_VERIFICATION|NOT_APPLICABLE"
+  },
+  "resolution": null,
+  "precision_policy": {
+    "input_decimals": null,
+    "display_decimals": null,
+    "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+    "rounding_rule": "DISPLAY_ONLY"
+  },
+  "default_policy": "NO_DEFAULT|USER_SELECTABLE_SMART_DEFAULT|LAST_USED_VALUE_OPTIONAL|NON_CRITICAL_SAFE_DEFAULT",
+  "default_value": null,
+  "smart_defaults": [],
+  "reference_values": {
+    "reference_value_type": "MEASURED_VALUE|CERTIFIED_DOCUMENT|MANUFACTURER_DATASHEET|OFFICIAL_STANDARD_OR_CODE|ERP|LABORATORY_TEST|USER_VERIFIED|CONTEXT_ONLY|NOT_UNIVERSAL",
+    "source": "",
+    "reference_status": "VERIFIED|PARTIALLY_VERIFIED|CONTEXT_ONLY|USER_VERIFIED|NEEDS_SOURCE_VERIFICATION|NOT_APPLICABLE",
+    "user_must_verify": true,
+    "public_note": ""
+  },
+  "source_priority": [],
+  "source": "",
+  "evidence_requirement": {
+    "required": true,
+    "accepted_evidence": [],
+    "missing_evidence_behavior": "BLOCK|REVIEW|WARN",
+    "public_help_text": ""
+  },
+  "standard_clause_bindings": [],
+  "formula_bindings": [],
+  "output_bindings": [],
+  "warning_bindings": [],
+  "ui_binding": {
+    "group_id": "",
+    "field_order": 1,
+    "component": "number_with_unit|select|boolean|text|evidence_toggle",
+    "unit_dropdown_required": true,
+    "reference_values_visible": true,
+    "advanced": false,
+    "visible_in_modes": ["quick", "engineering", "cost", "audit"],
+    "required_for_calculation": true,
+    "required_for_clause_evidence": false
+  },
+  "user_help_text": "",
+  "warning_if_missing_or_estimated": ""
+}
+
+Input reference range rules:
+- `engineering_range` is mandatory for paid industrial tools unless technically not applicable.
+- `reference_values` are mandatory for context-sensitive or evidence-sensitive inputs unless technically not applicable.
+- Reference ranges must never auto-fill critical inputs.
+- Reference ranges must never override measured values.
+- Reference ranges must never be treated as pass/fail authority.
+- Reference ranges may trigger warnings, review flags, calibration checks, or evidence prompts.
+- Physical hard bounds block impossible or unsafe values.
+- Engineering ranges detect unusual but physically possible values.
+- Reference values explain expected context, measurement source, or source-document expectation.
+
+## NORMALIZED INPUTS
+Every unit-selectable input must map to a normalized input:
+
+{
+  "id": "",
+  "from_input": "",
+  "quantity_kind": "",
+  "base_unit": "",
+  "conversion_source": "unit_conversion_contract.conversion_registry",
+  "validation_after_conversion": [],
+  "audit_required": true
+}
+
+## REFERENCE VALUE POLICY
+`reference_value_policy` must explicitly state:
+
+{
+  "enabled": true,
+  "input_reference_ranges_required": true,
+  "reference_values_required": true,
+  "reference_values_are_advisory": true,
+  "reference_values_are_not_default_values": true,
+  "reference_values_are_not_decision_authority": true,
+  "critical_input_autofill_from_reference_value": "FORBIDDEN",
+  "range_violation_behavior": "WARN_OR_REVIEW_NOT_AUTOMATIC_FAIL_UNLESS_PHYSICAL_BOUND_IS_VIOLATED",
+  "source_label_required": true,
+  "unit_awareness_required": true,
+  "calibration_context_required_for_measured_inputs": true
+}
+
+## FORM RUNTIME BINDING
+`form_runtime_binding` must include contracts for:
+- schema validation before render
+- strict top-level key validation
+- unknown key rejection
+- input group ordering
+- mode-specific visibility
+- client precheck without formula execution
+- unit-preserving value conversion
+- normalized preview
+- reference range display
+- evidence state
+- blocker state
+- server execute request creation
+- public response consumption
+- audit seal display
+
+It must include these fields:
+
+{
+  "renderer": "UniversalIndustrialDecisionForm",
+  "schema_generation_runtime": "ADMIN_CLI_OR_CI_ONLY",
+  "llm_runtime_usage": "FORBIDDEN",
+  "client_formula_execution": "FORBIDDEN",
+  "server_execution_required": true,
+  "state_management_required": true,
+  "dynamic_ui_contract_required": true,
+  "json_schema_form_substrate_allowed": true,
+  "generic_json_schema_form_alone_sufficient": false,
+  "state_domains": [],
+  "state_transitions": [],
+  "execute_request_contract": {
+    "tool_id": "string",
+    "tool_key": "string",
+    "schema_version": "string",
+    "raw_inputs": "Record<string, unknown>",
+    "selected_units": "Record<string, string>",
+    "output_units": "Record<string, string> | optional",
+    "display_currency": "string | null | optional",
+    "scenario_request": "unknown | null | optional",
+    "user_profile_mode": "quick|engineering|cost|audit"
+  },
+  "execute_response_contract": {
+    "status": "OK|REVIEW|BLOCKED|REPRICE|REJECT|HOLD",
+    "pipeline_state": "string",
+    "outputs": "ServerOutput[]",
+    "warnings": "ServerWarning[]",
+    "normalized_input_audit": "NormalizedInputAudit[]",
+    "reference_range_warnings": "ReferenceRangeWarning[]",
+    "sensitivity": "SensitivityItem[]",
+    "scenario_compare": "ScenarioComparison|null",
+    "proof_pack_public": "PublicProofPack",
+    "decision_interpretation": "DecisionInterpretation",
+    "audit_seal": "AuditSeal",
+    "redaction_status": "PUBLIC_SAFE_REDACTED|INTERNAL_TRACE_RESTRICTED|REDACTION_NOT_REQUIRED|REDACTION_FAILED_BLOCKED"
+  }
+}
+
+
+## CANONICAL REDACTION STATUS CONTRACT
+Create and enforce one canonical redaction status contract across schema-facing runtime contracts, TypeScript contract types, audit seal, proof pack, export, tests, and fixtures.
+
+Canonical allowed values:
+- `PUBLIC_SAFE_REDACTED`: public response has been redacted and is safe for browser, PDF, JSON audit, and copy-summary output.
+- `INTERNAL_TRACE_RESTRICTED`: internal checker trace exists only in restricted server/admin/test context and must not be included in public response.
+- `REDACTION_NOT_REQUIRED`: no protected formula, restricted table, proprietary coefficient, or internal trace was present in the response path.
+- `REDACTION_FAILED_BLOCKED`: redaction failed and the public response must be blocked.
+
+Rules:
+- `ExecuteResponse.redaction_status` and `AuditSeal.redaction_status` must use the same exported type.
+- Do not duplicate incompatible literal unions.
+- Missing redaction status must fail runtime contract validation.
+- Redaction failure must block public response and export.
+- Public proof pack, JSON audit export, PDF export, and copy summary must share the same public-safe redaction policy.
+- Internal checker trace must use restricted status and must never be transmitted to the browser.
+
+In SCHEMA_GENERATION_MODE, represent this requirement inside `form_runtime_binding.execute_response_contract`, `audit_trail_contract`, `proof_pack`, `export_contract`, `reference_code`, and `test_plan`.
+In FORMULA_FORM_INTEGRATION_MODE, implement it as a single source-of-truth TypeScript type and enforce it with tests.
+
+## PHYSICAL BOUNDS POLICY
+Create:
+
+{
+  "enabled": true,
+  "server_enforced": true,
+  "client_precheck_allowed": true,
+  "violation_behavior": "BLOCK_CALCULATION",
+  "semantic_error_required": true,
+  "non_finite_number_behavior": "BLOCK_CALCULATION"
+}
+
+## VALIDATION CONTRACT
+Create deterministic validation rules:
+
+{
+  "fail_closed": true,
+  "semantic_errors_required": true,
+  "rules": [
+    {
+      "id": "V1",
+      "type": "PHYSICAL_BOUND|ENGINEERING_RANGE|DEPENDENCY|EVIDENCE|UNIT|STANDARD_VALUE|NON_FINITE|PRECISION",
+      "affected_inputs": [],
+      "affected_outputs": [],
+      "condition_description": "",
+      "severity": "INFO|REVIEW|WARNING|CRITICAL|BLOCKER",
+      "behavior": "INFO|WARN|REVIEW|BLOCK",
+      "semantic_message": "",
+      "why_it_matters": "",
+      "suggested_action": ""
+    }
+  ]
+}
+
+Validation rules must include:
+- missing required input
+- missing selected unit
+- missing unit conversion entry
+- non-finite input
+- non-finite output
+- physical hard-bound violation
+- engineering reference range below-range warning
+- engineering reference range above-range warning
+- missing evidence for critical input
+- hidden default for critical input
+- unverified smart default used as final critical value
+- raw input ID used in formula instead of normalized input ID
+- public formula expression leak
+- orphan input
+- orphan normalized input
+- orphan formula
+- orphan output
+- orphan warning
+- orphan UI field
+
+## CROSS-FIELD DERATING CONTRACT
+If derating applies, create rules. If not, explicitly state none.
+
+{
+  "enabled": true,
+  "rules": [
+    {
+      "id": "D1",
+      "name": "",
+      "driver_input": "",
+      "affected_inputs": [],
+      "affected_formulas": [],
+      "affected_outputs": [],
+      "derating_source": "USER_VERIFIED_TABLE|PUBLIC_SOURCE|MANUFACTURER_DATASHEET|INTERNAL_POLICY|NO_DERATING_REQUIRED",
+      "source_status": "VERIFIED|PARTIALLY_VERIFIED|NEEDS_SOURCE_VERIFICATION|USER_MUST_VERIFY",
+      "public_note": "",
+      "paid_standard_table_reproduction": "FORBIDDEN",
+      "missing_derating_data_behavior": "BLOCK|REVIEW|WARN"
+    }
+  ]
+}
+
+## PRECISION POLICY
+Use full internal precision. Round only for display.
+No pre-rounding before formula execution.
+Every input and output must specify display decimals and calculation precision policy.
+
+## FORMULA CONTRACT
+Each formula must be server-side only.
+
+Every formula must include:
+
+{
+  "id": "F1",
+  "name": "",
+  "visibility": {
+    "public_ui": false,
+    "public_export": false,
+    "internal_admin_trace": true
+  },
+  "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+  "uses": [],
+  "output": "",
+  "unit": "",
+  "proof_role": "LOAD_EFFECT|RESISTANCE|CAPACITY|UTILIZATION|LIMIT_STATE|COST_AGGREGATION|UNIT_CONVERSION|SCREENING_INDEX|DECISION_RULE|DIAGNOSTIC|DERATING|UNCERTAINTY|BUSINESS_IMPACT",
+  "standard_clause_bindings": [],
+  "input_bindings": [],
+  "normalized_input_bindings": [],
+  "output_bindings": [],
+  "assumptions": [],
+  "limitations": [],
+  "edge_cases": [],
+  "public_proof_summary": "",
+  "protected_methodology_summary": "",
+  "checker_note": "",
+  "acceptance_logic": "",
+  "rejection_logic": "",
+  "review_required_logic": "",
+  "uncertainty_expression": "",
+  "formula_leak_risk": "LOW|MEDIUM|HIGH",
+  "public_formula_expression_policy": "FORBIDDEN"
+}
+
+Formula depth rules:
+- Do not create a single-line arithmetic-only calculator.
+- Use a multi-node formula graph with clear stages.
+- Include load/effect or demand where relevant.
+- Include resistance/capacity where relevant.
+- Include derated capacity where relevant.
+- Include utilization or margin where relevant.
+- Include governing mode or governing driver.
+- Include uncertainty output for critical metrics.
+- Include sensitivity driver for decision flip risk.
+- Include FMEA trigger output for high utilization or low confidence.
+- Include business impact where commercial inputs exist.
+- Include decision rule as formula-stage output, but public exact logic must be protected.
+
+Formula quality evidence must be expressed through existing formula fields:
+- `uses`
+- `input_bindings`
+- `normalized_input_bindings`
+- `output_bindings`
+- `assumptions`
+- `limitations`
+- `edge_cases`
+- `public_proof_summary`
+- `protected_methodology_summary`
+- `checker_note`
+- `acceptance_logic`
+- `rejection_logic`
+- `review_required_logic`
+- `uncertainty_expression`
+
+Do not place guessed standard clauses into formula objects.
+
+## OUTPUT CONTRACT
+Every output must include:
+
+{
+  "id": "",
+  "name": "",
+  "symbol": "",
+  "quantity_kind": "",
+  "base_unit": "",
+  "allowed_display_units": [],
+  "type": "number|string|boolean|enum|object",
+  "formula_source": "",
+  "decision_use": "PRIMARY_DECISION|SECONDARY_METRIC|WARNING_DRIVER|BUSINESS_IMPACT|AUDIT|DIAGNOSTIC|SCENARIO|SENSITIVITY",
+  "proof_status_role": "PASS_FAIL|UTILIZATION|MARGIN|CAPACITY|DEMAND|COST|DIAGNOSTIC|WARNING_SUMMARY|AUDIT|SAFETY_FACTOR|BUSINESS_IMPACT",
+  "acceptance_threshold": "",
+  "review_threshold": "",
+  "failure_threshold": "",
+  "governing_clause": "",
+  "governing_formula": "",
+  "governing_input_sensitivity": [],
+  "public_explanation": "",
+  "operator_explanation": "",
+  "engineer_explanation": "",
+  "owner_cfo_explanation": "",
+  "checker_explanation": "",
+  "hidden_risk_note": "",
+  "suggested_action": "",
+  "evidence_level": "FULL|PARTIAL|SCREENING_ONLY|USER_VERIFIED_REQUIRED|NEEDS_SOURCE_VERIFICATION",
+  "output_format": {
+    "decimals": null,
+    "rounding": "DISPLAY_ONLY",
+    "show_unit": true
+  }
+}
+
+Every critical output must show:
+- value
+- unit
+- uncertainty where applicable
+- decision role
+- governing input sensitivity
+- hidden risk note
+- next action
+- evidence level
+- public explanation for each user profile
+
+## DECISION INTERPRETATION CONTRACT
+Create:
+
+{
+  "enabled": true,
+  "server_generated_only": true,
+  "public_safe": true,
+  "profile_summaries_required": true,
+  "hidden_risk_required": true,
+  "money_impact_required_when_commercial_inputs_exist": true,
+  "fields": {
+    "primary_decision": "PASS|REVIEW|BLOCKED|REPRICE|REJECT|HOLD",
+    "primary_reason": "",
+    "user_profile_summary": {
+      "operator": "",
+      "engineer": "",
+      "owner_cfo": "",
+      "checker_auditor": ""
+    },
+    "hidden_risk_explanations": [],
+    "money_impact_summary": {},
+    "what_can_flip_the_decision": [],
+    "next_best_actions": [],
+    "premium_unlock_reason": ""
+  }
+}
+
+Decision interpretation must be operational, not generic.
+It must tell the user what to do next.
+It must explain what can flip the decision.
+It must identify the dominant technical and commercial risk driver.
+
+## BUSINESS IMPACT CONTRACT
+If the tool has monetary, time, scrap, energy, carbon, margin, rework, downtime, inventory, or logistics impact, include:
+
+{
+  "enabled": true,
+  "impact_types": [],
+  "currency_policy": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION",
+  "required_outputs": [],
+  "money_at_risk_output_id": "",
+  "main_cost_driver_output_id": "",
+  "quote_or_decision_impact_output_id": "",
+  "public_value_statement": "",
+  "premium_unlock_reason": ""
+}
+
+Paid PRO tools must include business impact whenever commercial inputs exist.
+
+
+## APPROVED SCHEMA FETCH AND PRIVATE FORMULA REGISTRY CONTRACT
+Live execution requires a real approved schema fetch path and a private server-side formula registry boundary.
+
+Runtime must:
+- fetch the approved schema from the validated production registry, database, object storage, or static-approved-schema path;
+- validate schema version and schema hash before execution;
+- reject missing or unapproved schemas;
+- bind raw display inputs and selected display units to the approved schema;
+- normalize values before formula execution;
+- fetch private formula registry data only in server-side execution context if formulas are stored outside the public schema;
+- execute formulas server-side only;
+- produce a public-safe response with exact formula details redacted;
+- never import the private formula registry into browser-accessible modules.
+
+Do not claim database integration unless an actual database read path exists.
+If a database is not implemented, use the existing approved object-storage or static-approved-schema path and mark database storage as not implemented.
+UI-only schema rendering without approved schema fetch and formula registry binding is not full integration.
+
+Implementation verification must include:
+- missing schema blocks execution;
+- unapproved schema blocks execution;
+- schema hash mismatch blocks execution;
+- private formula registry is not imported by client code;
+- public bundle contains no private formula registry content;
+- public response contains no internal formula expressions.
+
+## ENGINE RULES
+`engine_rules` must declare:
+- deterministic runtime only
+- LLM runtime forbidden
+- server-side formula execution only
+- normalized base-unit formula input only
+- formula leak rejection
+- non-finite rejection
+- fail-closed behavior
+- physical bound blocking
+- reference range warning or review behavior
+- derating ownership by server
+- uncertainty ownership by server
+- FMEA ownership by server
+- audit seal required
+- public response redaction required
+
+## UNCERTAINTY MODEL
+Every critical numeric output must include uncertainty handling.
+
+`uncertainty_model` must include:
+- Type A and Type B input uncertainty support
+- combined standard uncertainty
+- expanded uncertainty with coverage factor when applicable
+- sensitivity coefficients or sensitivity ranking
+- dominant uncertainty driver
+- uncertainty band crossing threshold review logic
+- display-only rounded uncertainty
+
+Public-safe uncertainty format:
+`value ± expanded_uncertainty unit, k=coverage_factor`
+
+If uncertainty data is missing for a critical output, the result must move to REVIEW or BLOCKED depending on risk level.
+
+## SAFETY FACTOR GAUGES
+Create gauges for utilization, factor of safety, margin, confidence, derating, or uncertainty band.
+
+Each gauge must include states:
+- PASS
+- REVIEW
+- WARNING
+- CRITICAL
+- BLOCKED
+
+No color-only communication.
+Each state must have a text label and technical message.
+
+## FMEA REQUIREMENT
+FMEA is mandatory when:
+- utilization is greater than or equal to 0.90
+- safety factor is below the configured review threshold
+- uncertainty band crosses the acceptance threshold
+- source evidence is missing for a critical input
+- reference range deviation materially affects the decision
+- safety-critical output status is REVIEW or BLOCKED
+
+FMEA must include:
+- failure mode
+- effect
+- cause
+- current control
+- severity
+- occurrence
+- detection
+- RPN
+- mitigation action
+- review owner
+- calculation status
+
+## PROOF PACK
+Create public-safe proof pack:
+
+{
+  "enabled": true,
+  "purpose": "Generate review-ready engineering evidence for technical checking, internal review, audit discussion, and engineering documentation.",
+  "public_disclosure_level": "PROTECTED_METHODOLOGY_NO_EXACT_FORMULA",
+  "internal_disclosure_level": "FULL_FORMULA_TRACE_FOR_ADMIN_AND_TESTING",
+  "sections": [],
+  "export_formats": ["PDF", "JSON_AUDIT", "COPY_SUMMARY"],
+  "public_report_rules": [
+    "Do not expose exact formula expressions.",
+    "Do not expose proprietary coefficients.",
+    "Do not reproduce restricted standard tables.",
+    "Do not claim approval.",
+    "Do not claim certified compliance.",
+    "Do not claim legal proof.",
+    "Do not mention third-party engineering software brands.",
+    "Show source context, use scope, limitation, evidence status, protected methodology, result interpretation, uncertainty, and audit seal."
+  ]
+}
+
+Proof pack sections must include:
+- input summary
+- normalized input summary
+- reference range review
+- source evidence register
+- calibration trace summary
+- protected methodology summary
+- assumptions and limitations
+- output table
+- uncertainty summary
+- warning summary
+- FMEA summary when triggered
+- business impact summary when enabled
+- decision interpretation
+- audit seal
+
+
+## PROOF PACK BUILDER MODULE REQUIREMENT
+Proof-pack generation must be implemented as a server-only module in FORMULA_FORM_INTEGRATION_MODE.
+
+Rules:
+- Do not build proof-pack content through inline ad-hoc response assembly in route handlers or UI components.
+- Implement or use a server-only proof-pack builder module, for example `proof-pack-builder.ts`.
+- The proof-pack builder must return public-safe proof pack content only.
+- The proof-pack builder must exclude exact formula expressions, proprietary coefficients, restricted standard table values, and internal checker trace.
+- The proof-pack builder must consume server execution outputs, normalized input audit, reference range review, evidence register, calibration trace, protected methodology summary, assumptions, limitations, warning summary, uncertainty summary, FMEA summary when triggered, business impact summary when enabled, decision interpretation, and audit seal.
+- Public proof pack generation failure must block export or move response to blocked/review according to risk level.
+
+Proof pack verification must prove:
+- required public sections are present;
+- `expression`, `INTERNAL_SERVER_ONLY`, private formula registry fields, and internal trace fields are absent;
+- PDF, JSON audit, and copy summary use the same public-safe proof pack source.
+
+## AUDIT TRAIL CONTRACT
+Create:
+
+{
+  "enabled": true,
+  "report_seal_required": true,
+  "hash_algorithm": "SHA-256",
+  "seal_fields": [
+    "tool_id",
+    "tool_key",
+    "schema_version",
+    "formula_version",
+    "runtime_version",
+    "input_hash",
+    "normalized_input_hash",
+    "output_hash",
+    "proof_pack_hash",
+    "executed_at",
+    "redaction_status"
+  ],
+  "public_audit_fields": [],
+  "internal_audit_fields": [],
+  "signature_status": "SERVER_SIGNATURE_OPTIONAL",
+  "tamper_warning": "Changing any input, unit, schema version, formula version, or output invalidates the audit seal."
+}
+
+Audit must support reproducibility.
+Same approved schema version, same formula version, same normalized inputs, and same runtime version must reproduce the same deterministic result except timestamp/signature fields.
+
+## GOLDEN HASH STORAGE CONTRACT
+Golden tests must store deterministic hash artifacts for each production calculator.
+
+Required stable hash artifacts:
+- schema hash;
+- normalized input hash;
+- output hash;
+- proof pack hash;
+- audit seal stable hash.
+
+Volatile fields must be excluded from deterministic hash comparison:
+- timestamp;
+- signature;
+- execution duration;
+- request id;
+- non-deterministic environment metadata.
+
+Rules:
+- Golden hash files must live in the existing project golden-test convention.
+- If no convention exists, use a stable path such as `tests/golden/hashes/<tool_key>.hashes.json`.
+- Golden tests must fail when deterministic outputs change unexpectedly.
+- Golden tests must pass when only timestamp, signature, execution duration, or request id changes.
+- The final integration report must print the golden fixture path and golden hash path.
+
+
+## EXPORT CONTRACT
+Create:
+
+{
+  "pdf_enabled": true,
+  "json_audit_enabled": true,
+  "copy_summary_enabled": true,
+  "cad_bim_erp_export": {
+    "status": "FUTURE_OPTIONAL_OR_CUSTOM_IMPLEMENTATION",
+    "allowed_formats": ["STEP", "IFC", "BOM_JSON", "ERP_CSV"],
+    "must_not_claim_native_integration_unless_implemented": true
+  }
+}
+
+Export split:
+- public proof pack: no exact formulas
+- internal checker trace: restricted access only if implemented outside public schema
+
+## INTERNAL CHECKER TRACE CONTRACT
+Internal checker trace is a restricted server-side artifact. It is not a public schema field and must not be exposed in public responses.
+
+Rules:
+- Internal checker trace may include full formula trace only in restricted server/admin/test context.
+- Internal checker trace must not be imported by public client code.
+- Internal checker trace must not be included in public API responses, browser state, public proof pack, PDF export, JSON audit export, or copy summary.
+- If no authentication or admin boundary exists, implement the internal checker trace module as server-only with no public route and use it only in tests or controlled admin workflows.
+- The internal checker trace must use `INTERNAL_TRACE_RESTRICTED` redaction status.
+- Public response must include only redacted proof pack and public audit seal.
+
+Verification must include:
+- import-boundary test proving client modules do not import internal checker trace;
+- public response redaction test proving internal trace is absent;
+- public export redaction test proving internal trace is absent;
+- RedactionStatus consistency test proving internal trace and audit seal use the canonical type.
+
+
+## UI CONTRACT
+Create:
+
+{
+  "target_renderer": "UniversalIndustrialDecisionForm",
+  "profile_modes": ["quick", "engineering", "cost", "audit"],
+  "input_groups": [],
+  "sticky_decision_cockpit": true,
+  "mobile_bottom_action_bar": true,
+  "normalized_preview_required": true,
+  "reference_values_visible": true,
+  "evidence_controls_required": true,
+  "semantic_error_summary_required": true,
+  "safety_factor_gauges_required": true,
+  "hidden_risk_panel_required": true,
+  "business_impact_panel_required": true,
+  "standards_clause_panel_required": false,
+  "protected_methodology_panel_required": true,
+  "audit_seal_panel_required": true,
+  "accessibility": {
+    "wcag_target": "WCAG_2_2_AA",
+    "minimum_touch_target_px": 44,
+    "keyboard_navigation_required": true,
+    "numpad_entry_optimized": true,
+    "visible_focus_required": true,
+    "no_color_only_warnings": true,
+    "high_contrast_required": true,
+    "dark_mode_required": true,
+    "mobile_min_width_px": 375,
+    "no_horizontal_overflow": true
+  }
+}
+
+UI contract must include input groups suitable for dynamic rendering:
+- operation context
+- geometry or process definition
+- material or asset data
+- load/demand or production demand
+- capacity/resistance or process capability
+- quality/tolerance/calibration data
+- commercial impact inputs
+- evidence and source status
+- advanced derating inputs
+
+## REFERENCE CODE
+`reference_code` must specify:
+- TypeScript interfaces
+- Zod strict schema validation
+- no TypeScript any
+- no eval
+- no new Function
+- server-only deterministic execution
+- formula registry privacy
+- public response redaction
+- test fixture requirements
+- canonical RedactionStatus single source of truth
+- executable state machine binding for UniversalIndustrialDecisionForm
+- approved schema fetch path
+- private server-side formula registry boundary
+- server-only proof-pack builder module
+- restricted internal checker trace module
+- golden fixture and golden hash storage
+- root-only route guard verification
+- final V5.3.1 integration report generation
+
+Do not output executable formula code in public schema.
+
+## TEST PLAN
+Include tests for:
+- strict top-level schema keys
+- missing required top-level key rejects
+- extra top-level key rejects
+- schema generation prompt not used in runtime
+- LLM runtime usage forbidden
+- valid schema renders in UniversalIndustrialDecisionForm
+- profile mode switching
+- state transition coverage
+- unit conversion
+- unit-invariance
+- unit change preserves physical quantity
+- normalized preview does not execute formulas
+- physical hard bounds
+- engineering reference range warnings
+- reference values are visible but do not autofill critical inputs
+- semantic errors
+- evidence requirement blocking or review
+- cross-field derating
+- formula graph binding
+- public formula leak prevention
+- brand safety
+- hidden default prevention
+- smart default verification
+- decision interpretation
+- hidden risk panel
+- business impact
+- FMEA trigger at high utilization or threshold risk
+- uncertainty propagation
+- audit seal
+- audit reproducibility
+- public proof pack redaction
+- internal checker trace access restriction if implemented
+- accessibility
+- mobile 375px width
+- canonical RedactionStatus consistency between ExecuteResponse and AuditSeal
+- redaction failure blocks public response
+- state machine is actually bound to UniversalIndustrialDecisionForm
+- UniversalIndustrialDecisionForm does not bypass the state machine for execution state
+- approved schema fetch path exists and missing schema blocks execution
+- private formula registry is server-only and not imported by client code
+- proof-pack-builder module exists and produces public-safe proof pack
+- internal checker trace module is restricted and never appears in public response
+- golden hash storage exists and excludes volatile fields
+- root-only route guard runs and passes before integration PASS
+- final V5.3.1 integration report format is produced from actual command outputs
+
+## RED TEAM REVIEW
+`red_team_review` must explicitly check:
+- Is this a single-operation tool?
+- Does it solve a painful paid industrial decision?
+- Is it more than a basic calculator?
+- Are all critical inputs evidence-aware?
+- Are reference ranges present and non-autofill?
+- Are physical hard bounds separate from reference ranges?
+- Are all formulas server-only and normalized-input only?
+- Is public formula leakage impossible?
+- Are uncertainty, FMEA, business impact, hidden risk, and next action present?
+- Does runtime avoid LLM calls?
+- Can UniversalIndustrialDecisionForm render it without custom tool code?
+- Are state management and dynamic UI requirements represented in `form_runtime_binding` and `ui_contract`?
+- Is the state machine executable and actually consumed by UniversalIndustrialDecisionForm?
+- Is there exactly one canonical RedactionStatus type across ExecuteResponse, AuditSeal, proof pack, export, and tests?
+- Is approved schema fetch connected to a real validated source path?
+- Is the private formula registry server-only and absent from public bundles?
+- Is proof-pack generation implemented through a server-only builder module?
+- Is internal checker trace restricted and absent from public responses?
+- Do golden hash artifacts exist and exclude volatile fields?
+- Was the root-only route guard actually run before PASS?
+- Does the final integration report use the V5.3.1 report contract with command evidence?
+
+## METADATA
+`metadata` must include:
+- schema_version
+- formula_version
+- prompt_version: "5.3.1"
+- generation_stage: "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY"
+- runtime_llm_usage: "FORBIDDEN"
+- schema_storage_target: "POSTGRES_JSONB_OR_OBJECT_STORAGE_AFTER_STRICT_VALIDATION"
+- deterministic_runtime_required: true
+- formula_quality_gate: "SECTORCALC_FORMULA_QUALITY_GATE_V5_3_1"
+- quality_gate_classification: "AUDIT_READY_DECISION_SUPPORT_NOT_CERTIFIED"
+- change_log_summary
+- owner_review_required
+- canonical_redaction_status_required
+- state_machine_binding_required
+- approved_schema_fetch_required
+- private_formula_registry_boundary_required
+- proof_pack_builder_required
+- internal_checker_trace_restricted
+- golden_hash_storage_required
+- root_only_guard_required
+- final_integration_report_contract: "V5_3_1_FORMULA_FORM_INTEGRATION_RESULT"
+
+
+## FORMULA/FORM INTEGRATION FINAL REPORT CONTRACT
+This section applies only to FORMULA_FORM_INTEGRATION_MODE.
+
+The implementation agent must return exactly this structure after running actual verification commands.
+Do not return PASS without evidence.
+Do not claim database integration unless a real database read path exists.
+Do not claim formula registry integration unless the server-only formula registry is connected.
+Do not claim state machine integration unless UniversalIndustrialDecisionForm actually consumes it.
+Do not claim root-only compliance unless the root-only guard actually ran.
+Do not claim public formula safety unless formula leak guard actually ran.
+
+Required headline:
+
+```text
+V5_3_1_FORMULA_FORM_INTEGRATION_RESULT=PASS_OR_FAIL
+```
+
+Required report body:
+
+```text
+RESULT:
+- PASS or FAIL
+
+CHANGED_FILES:
+- list changed files
+
+INTEGRATED_TOOL:
+- tool_id:
+- tool_key:
+- tool_name:
+- route:
+
+REMOVED_OR_REPLACED:
+- PremiumSchemaToolForm usage status:
+- legacy wrappers removed/replaced:
+
+VALIDATION:
+- RedactionStatus single source of truth:
+- ExecuteResponse/AuditSeal redaction_status consistency:
+- state machine bound to UniversalIndustrialDecisionForm:
+- schema validation:
+- strict top-level key result:
+- unknown key rejection:
+- English-only visible text:
+- brand safety:
+- formula leak:
+- no runtime LLM:
+- no client formula execution:
+- approved schema fetch:
+- private formula registry boundary:
+
+TESTS:
+- typecheck:
+- lint:
+- unit tests:
+- golden tests:
+- golden hash storage:
+- build:
+- root-only route guard:
+- formula leak guard:
+- non-English guard:
+- secret-safe check:
+
+PUBLIC_SAFETY:
+- exact formula exposure: YES/NO
+- internal checker trace exposed: YES/NO
+- restricted standard table reproduction: YES/NO
+- certification claim: YES/NO
+- third-party brand mention: YES/NO
+- `/en` route created: YES/NO
+- locale prefix route created: YES/NO
+
+AUDIT:
+- audit seal contract present: YES/NO
+- proof pack builder implemented: YES/NO
+- proof pack redaction present: YES/NO
+- internal checker trace restricted: YES/NO
+- deterministic server execution present: YES/NO
+- uncertainty model present: YES/NO
+- FMEA trigger present: YES/NO
+- business impact present: YES/NO
+
+GIT:
+- branch:
+- commit hash:
+- push status:
+
+BLOCKERS:
+- only real blockers with file path and reason
+- if none, write `NONE`
+```
+
+PASS is allowed only when every required verification command actually ran and passed or was correctly reported as an explicit blocker.
+
+## FINAL SELF-REVIEW BEFORE RETURNING A GENERATED SCHEMA
+Before returning JSON, verify:
+1. Output is valid JSON only.
+2. No Markdown outside JSON.
+3. All visible strings are English.
+4. No extra top-level keys.
+5. No missing required top-level keys.
+6. No public exact formula exposure.
+7. No third-party brand reference.
+8. No legal proof or certified compliance claim.
+9. No invented standard clause reference.
+10. No clause placeholder token is used.
+11. Every unit-selectable input has conversion registry.
+12. Every formula uses normalized base-unit IDs only.
+13. Every critical input has physical hard bounds or explicit no-universal-bound explanation.
+14. Every paid industrial input has engineering reference range or technical not-applicable reason.
+15. Reference values are present, visible, source-labeled, and non-autofill.
+16. Every critical validation has semantic error text.
+17. Every output has public explanation and decision use.
+18. Decision interpretation is server-generated only.
+19. Business impact exists when commercial inputs exist.
+20. Uncertainty exists for critical numeric outputs.
+21. FMEA trigger logic exists.
+22. Audit seal contract exists.
+23. UI contract supports all four profile modes.
+24. Form runtime binding includes state management and dynamic UI rendering assumptions.
+25. Test plan includes formula leak, brand safety, physical bounds, reference ranges, derating, FMEA, audit reproducibility, no-runtime-LLM, and accessibility.
+26. The schema is ready for UniversalIndustrialDecisionForm without custom per-tool UI code.
+27. The schema is not a basic calculator.
+28. `form_runtime_binding.execute_response_contract.redaction_status` exists and matches the canonical RedactionStatus values.
+29. `audit_trail_contract` includes redaction status in seal fields and requires public-safe redaction.
+30. `reference_code` requires one canonical RedactionStatus type.
+31. `reference_code` requires executable state machine binding, not documentation-only state.
+32. `reference_code` requires approved schema fetch and private formula registry boundary.
+33. `reference_code` requires a server-only proof-pack builder module.
+34. `reference_code` requires restricted internal checker trace handling.
+35. `test_plan` includes golden hash storage.
+36. `test_plan` includes root-only route guard execution.
+37. `test_plan` includes final V5.3.1 integration report output when used in integration mode.
+38. SHA-256: ff430c1dba66ed87247333b56af972c094b023f6891824e5d1c3116209a0e78d

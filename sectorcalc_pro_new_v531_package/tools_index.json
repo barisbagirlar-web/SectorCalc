@@ -1,0 +1,1217 @@
+{
+  "sc_013_eurocode_steel_connection_capacity_check_calculator": {
+    "tool_id": "SC-013",
+    "tool_name": "Eurocode Steel Connection Capacity Check Calculator",
+    "category": "Construction / Structural Steel",
+    "schema_file": "schemas/001_sc_013_eurocode_steel_connection_capacity_check_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "a29419abf8780557f318166f5ca8c2d2a6344702b5a71da6024512887551211e"
+  },
+  "sc_019_cbam_covered_steel_import_cost_and_welding_haz_carbon_auditor_calculator": {
+    "tool_id": "SC-019",
+    "tool_name": "CBAM-Covered Steel Import Cost and Welding HAZ Carbon Auditor Calculator",
+    "category": "Steel / Export / Manufacturing",
+    "schema_file": "schemas/002_sc_019_cbam_covered_steel_import_cost_and_welding_haz_carbon_auditor_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "e7478f5b02cf01809d2004e709ccc24a1567c4959fbe36ee42036adc11b53476"
+  },
+  "sc_045_anchor_embedment_and_edge_breakout_evidence_calculator": {
+    "tool_id": "SC-045",
+    "tool_name": "Anchor Embedment and Edge Breakout Evidence Calculator",
+    "category": "Construction / Steel-to-Concrete",
+    "schema_file": "schemas/003_sc_045_anchor_embedment_and_edge_breakout_evidence_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "7f42776f4da01268d731cdcf525285df9c3b02f3e79db986443b2504145a122d"
+  },
+  "sc_035_press_brake_springback_and_rework_margin_calculator": {
+    "tool_id": "SC-035",
+    "tool_name": "Press Brake Springback and Rework Margin Calculator",
+    "category": "Sheet Metal / Press Brake",
+    "schema_file": "schemas/004_sc_035_press_brake_springback_and_rework_margin_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "7907e9886321d82a3207d0ec896b6d49148dead46157657d94037954b805ce56"
+  },
+  "sc_027_welding_wps_pqr_heat_input_and_distortion_rework_cost_calculator": {
+    "tool_id": "SC-027",
+    "tool_name": "Welding WPS/PQR Heat Input and Distortion Rework Cost Calculator",
+    "category": "Welding / Shipyard / Steel",
+    "schema_file": "schemas/005_sc_027_welding_wps_pqr_heat_input_and_distortion_rework_cost_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "79d522eee27db7a930d83611c7d9b468d76526f1aa219d01dc5fbc5578d02b30"
+  },
+  "sc_047_crane_outrigger_pressure_and_ground_mat_bearing_margin_calculator": {
+    "tool_id": "SC-047",
+    "tool_name": "Crane Outrigger Pressure and Ground Mat Bearing Margin Calculator",
+    "category": "Lifting / Construction",
+    "schema_file": "schemas/006_sc_047_crane_outrigger_pressure_and_ground_mat_bearing_margin_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "e7f1d63df934d6c36fa51f25e4157466b83cb9f2641708baab5294b960aa4233"
+  },
+  "sc_025_laser_cutting_nitrogen_consumption_and_kerf_dross_rework_cost_calculator": {
+    "tool_id": "SC-025",
+    "tool_name": "Laser Cutting Nitrogen Consumption and Kerf Dross Rework Cost Calculator",
+    "category": "Laser Cutting / Sheet Metal",
+    "schema_file": "schemas/007_sc_025_laser_cutting_nitrogen_consumption_and_kerf_dross_rework_cost_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "9e476e9ef956c81d8bd422bf814c8a5382bcf84f490f7faa3c79dba24adcf216"
+  },
+  "sc_020_cnc_spindle_power_and_tool_amortization_break_even_analysis_calculator": {
+    "tool_id": "SC-020",
+    "tool_name": "CNC Spindle Power and Tool Amortization Break-Even Analysis Calculator",
+    "category": "CNC / Machining Manufacturing",
+    "schema_file": "schemas/008_sc_020_cnc_spindle_power_and_tool_amortization_break_even_analysis_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "a0c06793b549a5d631a4174566c69ba931da7c412a54198106aec35d4a6e6e45"
+  },
+  "sc_046_formwork_lateral_pressure_and_tie_rod_spacing_risk_calculator": {
+    "tool_id": "SC-046",
+    "tool_name": "Formwork Lateral Pressure and Tie-Rod Spacing Risk Calculator",
+    "category": "Concrete Formwork",
+    "schema_file": "schemas/009_sc_046_formwork_lateral_pressure_and_tie_rod_spacing_risk_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "3aefead43ae8f9b86c54c78f101fce7196d30e0bb98a602abb94c7b6bbdf2aae"
+  },
+  "sc_098_cnc_setup_reuse_and_one_off_job_floor_price_calculator": {
+    "tool_id": "SC-098",
+    "tool_name": "CNC Setup Reuse and One-Off Job Floor Price Calculator",
+    "category": "CNC / Job Shop",
+    "schema_file": "schemas/010_sc_098_cnc_setup_reuse_and_one_off_job_floor_price_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "5b8cb372028b98ea6c718472979b743e688acb0e1ea3294a9fd93a2a6a4c2a14"
+  },
+  "sc_002_ion_implantation_dose_and_uniformity_margin_calculator": {
+    "tool_id": "SC-002",
+    "tool_name": "Ion Implantation Dose and Uniformity Margin Calculator",
+    "category": "Semiconductor Manufacturing / Ion Implantation",
+    "schema_file": "schemas/011_sc_002_ion_implantation_dose_and_uniformity_margin_calculator.schema.json",
+    "primary_operation": "advanced_process_window_and_yield_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "d33e5003ba200e0c52b364b08acc427d1791142d32269c58c968ef92078b89fa"
+  },
+  "sc_003_concrete_maturity_strength_margin_calculator": {
+    "tool_id": "SC-003",
+    "tool_name": "Concrete Maturity Strength Margin Calculator",
+    "category": "Precast / Bridge / General Concrete Construction",
+    "schema_file": "schemas/012_sc_003_concrete_maturity_strength_margin_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "9028f0ab3ff9f532a050847359419235c3b5307fc8028982441ea06e213e9d45"
+  },
+  "sc_007_lng_boil_off_rate_and_tank_pressure_margin_calculator": {
+    "tool_id": "SC-007",
+    "tool_name": "LNG Boil-Off Rate and Tank Pressure Margin Calculator",
+    "category": "LNG Terminal / Cryogenic Storage",
+    "schema_file": "schemas/013_sc_007_lng_boil_off_rate_and_tank_pressure_margin_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "97cf7c972e86ce7298f3ecb220ccd0b4ea1ba58832f6f46d7472afc7621ab6c9"
+  },
+  "sc_009_autoclave_degree_of_cure_and_tg_margin_calculator": {
+    "tool_id": "SC-009",
+    "tool_name": "Autoclave Degree of Cure and Tg Margin Calculator",
+    "category": "Aerospace / Defense / Motorsport / Composite Manufacturing",
+    "schema_file": "schemas/014_sc_009_autoclave_degree_of_cure_and_tg_margin_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "9ee6409edb26c164dc8965a702e535d02be6759c01e21ff4e1e378fb440116c8"
+  },
+  "sc_010_post_weld_heat_treatment_qualification_margin_calculator": {
+    "tool_id": "SC-010",
+    "tool_name": "Post-Weld Heat Treatment Qualification Margin Calculator",
+    "category": "Pressure Vessel / Boiler / Refinery Manufacturing / Post-Weld Heat Treatment",
+    "schema_file": "schemas/015_sc_010_post_weld_heat_treatment_qualification_margin_calculator.schema.json",
+    "primary_operation": "welding_process_margin_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "397d8e5a735ffe987038aae8fa4e0831e970313b83cfee924b26300749c83afd"
+  },
+  "sc_012_lyophilization_collapse_temperature_margin_calculator": {
+    "tool_id": "SC-012",
+    "tool_name": "Lyophilization Collapse Temperature Margin Calculator",
+    "category": "Biotechnology / Pharmaceutical Manufacturing / Freeze-Drying",
+    "schema_file": "schemas/016_sc_012_lyophilization_collapse_temperature_margin_calculator.schema.json",
+    "primary_operation": "advanced_process_window_and_yield_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "1ab3498cd125ec2d2a4b2c61fb1b70ad9e88e86b93661bd318fbbd8791b42797"
+  },
+  "sc_093_digital_product_passport_bom_evidence_gap_cost_calculator": {
+    "tool_id": "SC-093",
+    "tool_name": "Digital Product Passport BOM Evidence Gap Cost Calculator",
+    "category": "Export / Textile / Machinery",
+    "schema_file": "schemas/017_sc_093_digital_product_passport_bom_evidence_gap_cost_calculator.schema.json",
+    "primary_operation": "emission_evidence_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "2c3f6f6282a74316e6cdbd31b23c57c39aa7b24464667204ea6acaad537a5c68"
+  },
+  "sc_039_fixture_clamping_force_and_part_deflection_risk_calculator": {
+    "tool_id": "SC-039",
+    "tool_name": "Fixture Clamping Force and Part Deflection Risk Calculator",
+    "category": "CNC Fixtures / Milling",
+    "schema_file": "schemas/018_sc_039_fixture_clamping_force_and_part_deflection_risk_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "5282797f66b91b35d5fd63c434ccbc8ea16e0166b9bf43843f9aab48d0706c8a"
+  },
+  "sc_036_galvanizing_zinc_adhesion_and_vent_drain_risk_cost_calculator": {
+    "tool_id": "SC-036",
+    "tool_name": "Galvanizing Zinc Adhesion and Vent/Drain Risk Cost Calculator",
+    "category": "Steel Manufacturing / Galvanizing",
+    "schema_file": "schemas/019_sc_036_galvanizing_zinc_adhesion_and_vent_drain_risk_cost_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "73828056a5e825ffbd2fc547d396946582eea64b886bb6593e85f9faa5edafd5"
+  },
+  "sc_021_compressed_air_leak_cfm_peak_tariff_and_carbon_cost_calculator": {
+    "tool_id": "SC-021",
+    "tool_name": "Compressed Air Leak CFM, Peak Tariff and Carbon Cost Calculator",
+    "category": "Industrial Utilities / Energy",
+    "schema_file": "schemas/020_sc_021_compressed_air_leak_cfm_peak_tariff_and_carbon_cost_calculator.schema.json",
+    "primary_operation": "welding_process_margin_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "b0836268e6c8342c65d37885168cb2b6b6ebdd06cb2af85e5fb26b932ada5eb3"
+  },
+  "sc_111_welding_preheat_carbon_equivalent_and_hydrogen_cracking_risk_calculator": {
+    "tool_id": "SC-111",
+    "tool_name": "Welding Preheat Carbon Equivalent and Hydrogen Cracking Risk Calculator",
+    "category": "Welding / Steel",
+    "schema_file": "schemas/021_sc_111_welding_preheat_carbon_equivalent_and_hydrogen_cracking_risk_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "608259a6a74b068d777a69d62a9e18700d78e0bdcd2a5c38be7e85b505b2f46d"
+  },
+  "sc_095_bolt_preload_loss_and_slip_critical_joint_check_calculator": {
+    "tool_id": "SC-095",
+    "tool_name": "Bolt Preload Loss and Slip-Critical Joint Check Calculator",
+    "category": "Steel / Machinery",
+    "schema_file": "schemas/022_sc_095_bolt_preload_loss_and_slip_critical_joint_check_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "18f18a1d1f6b5c377e88174ed7771811a81dd7a46c65f16c737949464d1db27f"
+  },
+  "sc_094_en_1090_welding_execution_class_cost_risk_estimator_calculator": {
+    "tool_id": "SC-094",
+    "tool_name": "EN 1090 Welding Execution Class Cost-Risk Estimator Calculator",
+    "category": "Steel Manufacturing",
+    "schema_file": "schemas/023_sc_094_en_1090_welding_execution_class_cost_risk_estimator_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "c020c20d3f2c6194709e58a772fefd649f23032aa17b8d79befe287561141f3d"
+  },
+  "sc_096_welding_consumable_deposition_efficiency_and_shielding_gas_cost_pricer_calculator": {
+    "tool_id": "SC-096",
+    "tool_name": "Welding Consumable Deposition Efficiency and Shielding Gas Cost Pricer Calculator",
+    "category": "Welding / Manufacturing",
+    "schema_file": "schemas/024_sc_096_welding_consumable_deposition_efficiency_and_shielding_gas_cost_pricer_calculator.schema.json",
+    "primary_operation": "welding_process_margin_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "2b524aee2919e144ef01ebece03964b4e024a9638a2b8d7ce6aa5dfc9dadeb08"
+  },
+  "sc_056_reefer_container_temperature_deviation_and_product_spoilage_risk_calculator": {
+    "tool_id": "SC-056",
+    "tool_name": "Reefer Container Temperature Deviation and Product Spoilage Risk Calculator",
+    "category": "Cold Chain / Food Export",
+    "schema_file": "schemas/025_sc_056_reefer_container_temperature_deviation_and_product_spoilage_risk_calculator.schema.json",
+    "primary_operation": "emission_evidence_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "a737fed071fe9bc0bed294cf20c1d38cfd2100bffc8a17a32ecab6c42d4ead8c"
+  },
+  "sc_103_spare_part_criticality_and_downtime_cost_comparison_calculator": {
+    "tool_id": "SC-103",
+    "tool_name": "Spare Part Criticality and Downtime Cost Comparison Calculator",
+    "category": "Maintenance / Inventory",
+    "schema_file": "schemas/026_sc_103_spare_part_criticality_and_downtime_cost_comparison_calculator.schema.json",
+    "primary_operation": "logistics_capacity_delay_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "4b4855c18a1b5d2e28ad472134eff58e3f51b7bb9ba62b698001589e5168aa66"
+  },
+  "sc_022_textile_dye_batch_water_energy_ghg_cost_deviation_map_calculator": {
+    "tool_id": "SC-022",
+    "tool_name": "Textile Dye Batch Water-Energy-GHG Cost Deviation Map Calculator",
+    "category": "Textile / Dyehouse / ESG",
+    "schema_file": "schemas/027_sc_022_textile_dye_batch_water_energy_ghg_cost_deviation_map_calculator.schema.json",
+    "primary_operation": "emission_evidence_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "f3020243f25174c4b9db1a50ed591f03792d2d06cf71bdc31767527979402458"
+  },
+  "sc_081_steam_trap_leakage_and_condensate_recovery_roi_calculator": {
+    "tool_id": "SC-081",
+    "tool_name": "Steam Trap Leakage and Condensate Recovery ROI Calculator",
+    "category": "Boiler / Steam Systems",
+    "schema_file": "schemas/028_sc_081_steam_trap_leakage_and_condensate_recovery_roi_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "7da4a9a6e271b95c17410310b79c6be02045d47d081e8ea054fce652cb851359"
+  },
+  "sc_029_apparel_marker_efficiency_and_fabric_width_change_loss_calculator": {
+    "tool_id": "SC-029",
+    "tool_name": "Apparel Marker Efficiency and Fabric Width Change Loss Calculator",
+    "category": "Textile / Cutting Room",
+    "schema_file": "schemas/029_sc_029_apparel_marker_efficiency_and_fabric_width_change_loss_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "cb97f67f0a12232a58c9a4886af2d82038f13d6c4355e760e0754b727642b499"
+  },
+  "sc_034_industrial_capex_justification_and_hidden_opex_penalty_modeler_calculator": {
+    "tool_id": "SC-034",
+    "tool_name": "Industrial CapEx Justification and Hidden OpEx Penalty Modeler Calculator",
+    "category": "Industrial Finance / Maintenance",
+    "schema_file": "schemas/030_sc_034_industrial_capex_justification_and_hidden_opex_penalty_modeler_calculator.schema.json",
+    "primary_operation": "money_leak_and_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "542725d5d21fe5374b4c34209d9a6f6d3629e292b924fb23d5c612344542992a"
+  },
+  "sc_037_paint_booth_dft_overspray_and_repainting_margin_calculator": {
+    "tool_id": "SC-037",
+    "tool_name": "Paint Booth DFT, Overspray and Repainting Margin Calculator",
+    "category": "Coating / Auto Repair / Metal Painting",
+    "schema_file": "schemas/031_sc_037_paint_booth_dft_overspray_and_repainting_margin_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "04d1dc1076dcbe3f0473aa7714e9ebfcc7a60ed2b9b1e8a8122a329c0cb32092"
+  },
+  "sc_070_fabric_gsm_shrinkage_and_finished_roll_yield_calculator": {
+    "tool_id": "SC-070",
+    "tool_name": "Fabric GSM Shrinkage and Finished Roll Yield Calculator",
+    "category": "Textile / Finishing / Finishing",
+    "schema_file": "schemas/032_sc_070_fabric_gsm_shrinkage_and_finished_roll_yield_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "2f336c19a80e7b25317354e0001f624adbfe958fc34cd79756aa84d4ee021128"
+  },
+  "sc_076_gauge_r_and_r_decision_risk_calculator": {
+    "tool_id": "SC-076",
+    "tool_name": "Gauge R&R Decision Risk Calculator",
+    "category": "Quality / Metrology",
+    "schema_file": "schemas/033_sc_076_gauge_r_and_r_decision_risk_calculator.schema.json",
+    "primary_operation": "quality_confidence_and_disposition_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "7a87870560404b5231d751747500b34de42248d8d76105f00858f8909f86898b"
+  },
+  "sc_112_steel_column_base_plate_grout_crushing_margin_calculator": {
+    "tool_id": "SC-112",
+    "tool_name": "Steel Column Base Plate Grout Crushing Margin Calculator",
+    "category": "Structural Steel / Construction",
+    "schema_file": "schemas/034_sc_112_steel_column_base_plate_grout_crushing_margin_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "0478fbc69e6b4070d69ef5aadf1f279e8df7b3036b613ef902491f61ba020833"
+  },
+  "sc_082_boiler_excess_oxygen_fuel_penalty_and_tuning_margin_calculator": {
+    "tool_id": "SC-082",
+    "tool_name": "Boiler Excess Oxygen Fuel Penalty and Tuning Margin Calculator",
+    "category": "Boiler / Process Heat",
+    "schema_file": "schemas/035_sc_082_boiler_excess_oxygen_fuel_penalty_and_tuning_margin_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "12ae4510db977260923d425dde6538e5a0b5704ae2a1d50eb56896741b80d8af"
+  },
+  "sc_104_preventive_maintenance_interval_and_failure_cost_optimization_calculator": {
+    "tool_id": "SC-104",
+    "tool_name": "Preventive Maintenance Interval and Failure Cost Optimization Calculator",
+    "category": "Maintenance / Reliability",
+    "schema_file": "schemas/036_sc_104_preventive_maintenance_interval_and_failure_cost_optimization_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "97789d2b41a85914ec37dfed62401fef49b243b622ee806e6f4c3d13ddd0c28c"
+  },
+  "sc_119_cnc_thread_milling_cycle_and_tap_breakage_risk_calculator": {
+    "tool_id": "SC-119",
+    "tool_name": "CNC Thread Milling Cycle and Tap Breakage Risk Calculator",
+    "category": "CNC / Machining Manufacturing",
+    "schema_file": "schemas/037_sc_119_cnc_thread_milling_cycle_and_tap_breakage_risk_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "69f3403a57084f7bb4bf9c4d4a7de019e860d5f8d425978ecf0ca191cde86cba"
+  },
+  "sc_108_vibration_severity_bearing_failure_cost_estimator_calculator": {
+    "tool_id": "SC-108",
+    "tool_name": "Vibration Severity Bearing Failure Cost Estimator Calculator",
+    "category": "Rotating Equipment / Maintenance",
+    "schema_file": "schemas/038_sc_108_vibration_severity_bearing_failure_cost_estimator_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "18078cee5b0a71e7638a16e667b05dc61554967f1a0fc8923d80a7b6ce0f524c"
+  },
+  "sc_028_vfd_pump_affinity_law_and_demand_charge_overrun_estimator_calculator": {
+    "tool_id": "SC-028",
+    "tool_name": "VFD Pump Affinity Law and Demand Charge Overrun Estimator Calculator",
+    "category": "Industrial Pompalar / Water Facilities",
+    "schema_file": "schemas/039_sc_028_vfd_pump_affinity_law_and_demand_charge_overrun_estimator_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "8794095bf7edd251f5329eef279ebfbfc5ad2c98dca7883481d110e81d07e0ab"
+  },
+  "sc_038_powder_coating_cure_window_and_oven_energy_cost_calculator": {
+    "tool_id": "SC-038",
+    "tool_name": "Powder Coating Cure Window and Oven Energy Cost Calculator",
+    "category": "Powder Coating / Metal Finishing / Finishing",
+    "schema_file": "schemas/040_sc_038_powder_coating_cure_window_and_oven_energy_cost_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "5ce3f6c9587e8dcbf617ad28914179c455cff4701a1048a4183c1d36d791de49"
+  },
+  "sc_055_container_axle_load_and_road_legal_margin_calculator": {
+    "tool_id": "SC-055",
+    "tool_name": "Container Axle Load and Road Legal Margin Calculator",
+    "category": "Export Logistics / Trucking",
+    "schema_file": "schemas/041_sc_055_container_axle_load_and_road_legal_margin_calculator.schema.json",
+    "primary_operation": "emission_evidence_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "544708bb6092f2da82ce422836ee2adcba88da4a0c3ab3846ebed80a8af0d26f"
+  },
+  "sc_001_data_center_power_and_cooling_capacity_margin_with_occupancy_ramp_calculator": {
+    "tool_id": "SC-001",
+    "tool_name": "Data Center Power and Cooling Capacity Margin with Occupancy Ramp Calculator",
+    "category": "Data Center Development / Colocation Operations",
+    "schema_file": "schemas/042_sc_001_data_center_power_and_cooling_capacity_margin_with_occupancy_ramp_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "10cd3bb31b8f88e653b2a3a0e3b5ed01e577168a214f7346cc99ecee26b3d8aa"
+  },
+  "sc_004_electrolyzer_stack_degradation_and_replacement_timing_calculator": {
+    "tool_id": "SC-004",
+    "tool_name": "Electrolyzer Stack Degradation and Replacement Timing Calculator",
+    "category": "Green Hydrogen / Electrolyzer Operations",
+    "schema_file": "schemas/043_sc_004_electrolyzer_stack_degradation_and_replacement_timing_calculator.schema.json",
+    "primary_operation": "welding_process_margin_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "5576be0a214d0dd5733b04904a27db1b166e210548c509da735e0e7fc138cb2c"
+  },
+  "sc_005_metal_am_powder_reuse_risk_margin_calculator": {
+    "tool_id": "SC-005",
+    "tool_name": "Metal AM Powder Reuse Risk Margin Calculator",
+    "category": "Additive Manufacturing / Metal Powder Bed Fusion",
+    "schema_file": "schemas/044_sc_005_metal_am_powder_reuse_risk_margin_calculator.schema.json",
+    "primary_operation": "surface_treatment_window_and_rework_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "dde84bf6d84501bcab12a63923cabd2f4a735d2b7399f0bcd5e544527e931827"
+  },
+  "sc_006_grain_silo_self_heating_and_ignition_risk_index_calculator": {
+    "tool_id": "SC-006",
+    "tool_name": "Grain Silo Self-Heating and Ignition Risk Index Calculator",
+    "category": "Grain Storage / Agricultural Cooperative / Grain Insurer",
+    "schema_file": "schemas/045_sc_006_grain_silo_self_heating_and_ignition_risk_index_calculator.schema.json",
+    "primary_operation": "agricultural_process_loss_and_capacity_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "66423026e225c7a683b9e86bc0d7f0ecc1e19d25e34be62a0b5d95b0e50da8e4"
+  },
+  "sc_008_post_quench_hardness_and_microstructure_risk_margin_calculator": {
+    "tool_id": "SC-008",
+    "tool_name": "Post-Quench Hardness and Microstructure Risk Margin Calculator",
+    "category": "Heat Treatment / Forging / Steel Processing",
+    "schema_file": "schemas/046_sc_008_post_quench_hardness_and_microstructure_risk_margin_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "1dcca8789ec28a9366d35b61e5c0bfbb5874be02d837afe3503bef547ccf5d97"
+  },
+  "sc_011_battery_cell_formation_yield_and_scrap_ramp_margin_calculator": {
+    "tool_id": "SC-011",
+    "tool_name": "Battery Cell Formation Yield and Scrap Ramp Margin Calculator",
+    "category": "Battery Manufacturing / Cell Formation",
+    "schema_file": "schemas/047_sc_011_battery_cell_formation_yield_and_scrap_ramp_margin_calculator.schema.json",
+    "primary_operation": "advanced_process_window_and_yield_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "03e790afc868be7e8d22fcf464b9c6936e4fde20c7280d64812dae8616e0a335"
+  },
+  "sc_048_temporary_support_load_redistribution_margin_calculator": {
+    "tool_id": "SC-048",
+    "tool_name": "Temporary Support Load Redistribution Margin Calculator",
+    "category": "Renovation / Structural Support",
+    "schema_file": "schemas/048_sc_048_temporary_support_load_redistribution_margin_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "66033bdc4d48191234cb40e26f8947bc66cb07782c8fbf874c8564cc6c7123bb"
+  },
+  "sc_058_hazardous_material_segregated_loading_plan_check_calculator": {
+    "tool_id": "SC-058",
+    "tool_name": "Hazardous Material Segregated Loading Plan Check Calculator",
+    "category": "Logistics / Warehouse",
+    "schema_file": "schemas/049_sc_058_hazardous_material_segregated_loading_plan_check_calculator.schema.json",
+    "primary_operation": "logistics_capacity_delay_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "a8a2f768182008b0cb1ff7ec647d92db00d75831c7587a2b228cedbae2217b36"
+  },
+  "sc_087_heat_exchanger_fouling_u_value_cleaning_payback_calculator": {
+    "tool_id": "SC-087",
+    "tool_name": "Heat Exchanger Fouling U-Value Cleaning Payback Calculator",
+    "category": "Process / Maintenance",
+    "schema_file": "schemas/050_sc_087_heat_exchanger_fouling_u_value_cleaning_payback_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "ac74239daff791adab7936e37039c1e7210a46f682553d7abc4379370402bc48"
+  },
+  "sc_085_transformer_hot_spot_aging_and_overload_margin_calculator": {
+    "tool_id": "SC-085",
+    "tool_name": "Transformer Hot-Spot Aging and Overload Margin Calculator",
+    "category": "Electrical Maintenance",
+    "schema_file": "schemas/051_sc_085_transformer_hot_spot_aging_and_overload_margin_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "857a4a17def47c1c36459dc24591226cd9a132cc9f427a99935524267e5de9b4"
+  },
+  "sc_023_cold_chain_route_tco_reefer_diesel_kwh_and_door_open_loss_calculator": {
+    "tool_id": "SC-023",
+    "tool_name": "Cold Chain Route TCO: Reefer Diesel, kWh and Door-Open Loss Calculator",
+    "category": "Cold Chain / Logistics",
+    "schema_file": "schemas/052_sc_023_cold_chain_route_tco_reefer_diesel_kwh_and_door_open_loss_calculator.schema.json",
+    "primary_operation": "emission_evidence_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "1279d4119fbe10e5bda231f696f9e68dde90aefac284b24a41d7c39b4d0a9240"
+  },
+  "sc_033_container_stowage_cbm_demurrage_and_carbon_surcharge_calculator": {
+    "tool_id": "SC-033",
+    "tool_name": "Container Stowage CBM, Demurrage and Carbon Surcharge Calculator",
+    "category": "Logistics / Export",
+    "schema_file": "schemas/053_sc_033_container_stowage_cbm_demurrage_and_carbon_surcharge_calculator.schema.json",
+    "primary_operation": "welding_process_margin_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "9a263ab9480d32b0fd67458dcab0679e239560ad1a331c5aa5f3d90160374289"
+  },
+  "sc_041_grinding_wheel_wear_and_thermal_burn_risk_cost_calculator": {
+    "tool_id": "SC-041",
+    "tool_name": "Grinding Wheel Wear and Thermal Burn Risk Cost Calculator",
+    "category": "Grinding / Heat Treatment Processed Parts",
+    "schema_file": "schemas/054_sc_041_grinding_wheel_wear_and_thermal_burn_risk_cost_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "78cc054a2198008bcca854b90afbbbc348be3e4f9b28b4fb4b1ebbe9da30bda1"
+  },
+  "sc_077_cp_cpk_scrap_cost_confidence_calculator": {
+    "tool_id": "SC-077",
+    "tool_name": "Cp-Cpk Scrap Cost Confidence Calculator",
+    "category": "Quality / SPC",
+    "schema_file": "schemas/055_sc_077_cp_cpk_scrap_cost_confidence_calculator.schema.json",
+    "primary_operation": "quality_confidence_and_disposition_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "72da5a41d58eac8e42b2f3cdc29b2cd8ab2265e79e6bf247e236f064ab886e6a"
+  },
+  "sc_083_chiller_fouling_approach_temperature_cleaning_payback_calculator": {
+    "tool_id": "SC-083",
+    "tool_name": "Chiller Fouling Approach Temperature Cleaning Payback Calculator",
+    "category": "HVAC / Industrial Cooling",
+    "schema_file": "schemas/056_sc_083_chiller_fouling_approach_temperature_cleaning_payback_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "1db070cf76f3cc9ff262a9ce71d61c20ec83ce642e6212309dc0df052623e6b4"
+  },
+  "sc_118_sheet_metal_flat_pattern_bend_allowance_audit_calculator": {
+    "tool_id": "SC-118",
+    "tool_name": "Sheet Metal Flat Pattern Bend Allowance Audit Calculator",
+    "category": "Sheet Metal / Manufacturing",
+    "schema_file": "schemas/057_sc_118_sheet_metal_flat_pattern_bend_allowance_audit_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "9d1caee6cc24bb67fed7a21991b329dc147c95a418117153b5e341c308f2908c"
+  },
+  "sc_109_hydraulic_oil_contamination_iso_code_and_valve_failure_risk_calculator": {
+    "tool_id": "SC-109",
+    "tool_name": "Hydraulic Oil Contamination ISO Code and Valve Failure Risk Calculator",
+    "category": "Hydraulic / Maintenance",
+    "schema_file": "schemas/058_sc_109_hydraulic_oil_contamination_iso_code_and_valve_failure_risk_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "7a929bfba206b9d8f21459e15aeceb2bf9f44962e4bbeaafb09d6894a876512c"
+  },
+  "sc_042_surface_roughness_and_cycle_time_trade_off_calculator": {
+    "tool_id": "SC-042",
+    "tool_name": "Surface Roughness and Cycle Time Trade-Off Calculator",
+    "category": "CNC Finishing / Finishing / Grinding",
+    "schema_file": "schemas/059_sc_042_surface_roughness_and_cycle_time_trade_off_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "999499b432a6b7ae729d4108b9464d3b6771fd6eac930de2314a1d1f84cbe12b"
+  },
+  "sc_044_hydraulic_press_tonnage_and_die_deflection_margin_calculator": {
+    "tool_id": "SC-044",
+    "tool_name": "Hydraulic Press Tonnage and Die Deflection Margin Calculator",
+    "category": "Press / Die Making",
+    "schema_file": "schemas/060_sc_044_hydraulic_press_tonnage_and_die_deflection_margin_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "76549de2576dc858491b9ad68b7b5e17570e13907992f259d0cf837dc660a55b"
+  },
+  "sc_072_textile_wastewater_cod_color_chemical_dose_cost_estimator_calculator": {
+    "tool_id": "SC-072",
+    "tool_name": "Textile Wastewater COD/Color Chemical Dose Cost Estimator Calculator",
+    "category": "Textile / Wastewater",
+    "schema_file": "schemas/061_sc_072_textile_wastewater_cod_color_chemical_dose_cost_estimator_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "ce363ab4ca72c08246e7cca9454477b4886f859c150914cf8985fbf15ef784dd"
+  },
+  "sc_024_pivot_irrigation_kwh_and_drought_yield_loss_risk_calculator": {
+    "tool_id": "SC-024",
+    "tool_name": "Pivot Irrigation kWh and Drought Yield Loss Risk Calculator",
+    "category": "Agriculture / Irrigation",
+    "schema_file": "schemas/062_sc_024_pivot_irrigation_kwh_and_drought_yield_loss_risk_calculator.schema.json",
+    "primary_operation": "agricultural_process_loss_and_capacity_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "ef3bb149581324c108c0e543ee27e395c87ef25e0298db6e1e51ec8054c1d1e2"
+  },
+  "sc_026_injection_molding_cycle_time_and_heater_carbon_tax_calculator": {
+    "tool_id": "SC-026",
+    "tool_name": "Injection Molding Cycle Time and Heater Carbon Tax Calculator",
+    "category": "Plastic Injection / Mold Shops",
+    "schema_file": "schemas/063_sc_026_injection_molding_cycle_time_and_heater_carbon_tax_calculator.schema.json",
+    "primary_operation": "welding_process_margin_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "83b5667e19c6215c686695939be9109ef4a2e1f53daaeea720d8ae0256a38841"
+  },
+  "sc_031_paint_cure_oven_gas_consumption_and_voc_carbon_credit_loss_calculator": {
+    "tool_id": "SC-031",
+    "tool_name": "Paint Cure Oven Gas Consumption and VOC Carbon Credit Loss Calculator",
+    "category": "Coating / Paint Lines",
+    "schema_file": "schemas/064_sc_031_paint_cure_oven_gas_consumption_and_voc_carbon_credit_loss_calculator.schema.json",
+    "primary_operation": "welding_process_margin_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "322405e43c63626d3114abdb18bae6ef52e931fcbfff837e6e8665e4b7a7a488"
+  },
+  "sc_099_toolholder_runout_and_tool_life_loss_calculator": {
+    "tool_id": "SC-099",
+    "tool_name": "Toolholder Runout and Tool-Life Loss Calculator",
+    "category": "CNC / Precision Machining Manufacturing",
+    "schema_file": "schemas/065_sc_099_toolholder_runout_and_tool_life_loss_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "d8af457bac1cf8418575360927f8b9974d4668cabeefae352544807093abfbc7"
+  },
+  "sc_054_rebar_congestion_and_concrete_placeability_risk_index_calculator": {
+    "tool_id": "SC-054",
+    "tool_name": "Rebar Congestion and Concrete Placeability Risk Index Calculator",
+    "category": "Reinforced Concrete",
+    "schema_file": "schemas/066_sc_054_rebar_congestion_and_concrete_placeability_risk_index_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "bd3c77772f8d4e16058c0f023f99430cb63c99587ba0abfe0e0a0b17af4d0c88"
+  },
+  "sc_032_turkish_sme_cnc_hourly_cost_grant_leasing_adjusted_calculator": {
+    "tool_id": "SC-032",
+    "tool_name": "Turkish SME CNC Hourly Cost, Grant/Leasing Adjusted Calculator",
+    "category": "CNC / SME Finance",
+    "schema_file": "schemas/067_sc_032_turkish_sme_cnc_hourly_cost_grant_leasing_adjusted_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "9d79118120a96d80920d07368ba3f0bf2528787b172426501ecdb85444b1c1cb"
+  },
+  "sc_059_demurrage_free_time_risk_and_document_preparation_hours_calculator": {
+    "tool_id": "SC-059",
+    "tool_name": "Demurrage Free-Time Risk and Document Preparation Hours Calculator",
+    "category": "Import / Export Logistics",
+    "schema_file": "schemas/068_sc_059_demurrage_free_time_risk_and_document_preparation_hours_calculator.schema.json",
+    "primary_operation": "emission_evidence_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "c7119fd3ac1ece4ceb7fa93c8b3120c7f37c673a9b37847224e23a1a016b1613"
+  },
+  "sc_073_apparel_sewing_line_balance_and_wip_delay_cost_calculator": {
+    "tool_id": "SC-073",
+    "tool_name": "Apparel Sewing Line Balance and WIP Delay Cost Calculator",
+    "category": "Apparel / Lean Manufacturing",
+    "schema_file": "schemas/069_sc_073_apparel_sewing_line_balance_and_wip_delay_cost_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "f1ec1cffc6602789480ecf84536a2f37b745d5035269dfee88595c38ad0f7143"
+  },
+  "sc_088_injection_molding_residence_time_and_polymer_degradation_margin_calculator": {
+    "tool_id": "SC-088",
+    "tool_name": "Injection Molding Residence Time and Polymer Degradation Margin Calculator",
+    "category": "Plastic Injection",
+    "schema_file": "schemas/070_sc_088_injection_molding_residence_time_and_polymer_degradation_margin_calculator.schema.json",
+    "primary_operation": "plastics_process_window_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "7e91e18e54ac8a63d3ead62f6d2ff92e3737ae74e0070eccde7a45e33f620e68"
+  },
+  "sc_064_poultry_ventilation_ammonia_and_heat_stress_margin_calculator": {
+    "tool_id": "SC-064",
+    "tool_name": "Poultry Ventilation, Ammonia and Heat Stress Margin Calculator",
+    "category": "Poultry Farming / Agriculture",
+    "schema_file": "schemas/071_sc_064_poultry_ventilation_ammonia_and_heat_stress_margin_calculator.schema.json",
+    "primary_operation": "agricultural_process_loss_and_capacity_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "198523af350a259f6c2c6539b1f38953e216d6913503ff76bcfce526a4fc5304"
+  },
+  "sc_078_aql_sampling_producer_consumer_risk_calculator": {
+    "tool_id": "SC-078",
+    "tool_name": "AQL Sampling Producer-Consumer Risk Calculator",
+    "category": "Quality / Incoming Quality Control",
+    "schema_file": "schemas/072_sc_078_aql_sampling_producer_consumer_risk_calculator.schema.json",
+    "primary_operation": "quality_confidence_and_disposition_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "465833c1c64041f639c87c20b6df7d6a9ccf8c3ad8a819f3d872f5ea002af887"
+  },
+  "sc_080_calibration_interval_risk_and_cost_optimization_calculator": {
+    "tool_id": "SC-080",
+    "tool_name": "Calibration Interval Risk and Cost Optimization Calculator",
+    "category": "Metrology / Maintenance",
+    "schema_file": "schemas/073_sc_080_calibration_interval_risk_and_cost_optimization_calculator.schema.json",
+    "primary_operation": "quality_confidence_and_disposition_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "c54d66e25b3c42fc4292462d6c7404d8192badab9461e75afe27f364e5609f44"
+  },
+  "sc_120_bearing_fit_thermal_expansion_assembly_risk_calculator": {
+    "tool_id": "SC-120",
+    "tool_name": "Bearing Fit Thermal Expansion Assembly Risk Calculator",
+    "category": "Maintenance / Mechanical Assembly",
+    "schema_file": "schemas/074_sc_120_bearing_fit_thermal_expansion_assembly_risk_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "452fccf735934a7550d39e5ea32e3e478acac7ad861f0102c6f3a5cebcfe76e6"
+  },
+  "sc_016_1_1000_robust_design_reliability_calculator": {
+    "tool_id": "SC-016",
+    "tool_name": "1/1000 Robust Design Reliability Calculator",
+    "category": "Quality / Design for Six Sigma",
+    "schema_file": "schemas/075_sc_016_1_1000_robust_design_reliability_calculator.schema.json",
+    "primary_operation": "quality_confidence_and_disposition_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "b13e45ff89c1b28e68bcb42a311bf759ee51fc2a6a2901986a917c9ce09f7cc7"
+  },
+  "sc_040_edm_wire_consumption_and_kerf_accuracy_cost_calculator": {
+    "tool_id": "SC-040",
+    "tool_name": "EDM Wire Consumption and Kerf Accuracy Cost Calculator",
+    "category": "Wire EDM / Toolmaking",
+    "schema_file": "schemas/076_sc_040_edm_wire_consumption_and_kerf_accuracy_cost_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "558fbaaf1119a24b53dbfaaf3992083e1489489bcf06ecf91b2cc2ef79d46fe8"
+  },
+  "sc_052_pile_concrete_overbreak_and_tremie_loss_cost_calculator": {
+    "tool_id": "SC-052",
+    "tool_name": "Pile Concrete Overbreak and Tremie Loss Cost Calculator",
+    "category": "Foundation / Pile",
+    "schema_file": "schemas/077_sc_052_pile_concrete_overbreak_and_tremie_loss_cost_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "6481a314253e41b7d7fc28c01e97635950bec10ef3a9ee3023a439c10eca8740"
+  },
+  "sc_071_knitting_yarn_consumption_and_needle_break_defect_cost_calculator": {
+    "tool_id": "SC-071",
+    "tool_name": "Knitting Yarn Consumption and Needle Break Defect Cost Calculator",
+    "category": "Knitting / Apparel",
+    "schema_file": "schemas/078_sc_071_knitting_yarn_consumption_and_needle_break_defect_cost_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "a54b969f9e6478d95fd06dfb0bfa1f8daa6ef6fb0e2034a5e9b16b322dc8be01"
+  },
+  "sc_050_scaffold_tie_and_wind_load_pre_margin_calculator": {
+    "tool_id": "SC-050",
+    "tool_name": "Scaffold Tie and Wind Load Pre-Margin Calculator",
+    "category": "Scaffold / Site Safety",
+    "schema_file": "schemas/079_sc_050_scaffold_tie_and_wind_load_pre_margin_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "e976ce0f03855c09a1c68ac6f1b2fb5bb786cc43627483d690b632f35e96f741"
+  },
+  "sc_097_steel_plate_nesting_scrap_and_drop_off_scrap_risk_calculator": {
+    "tool_id": "SC-097",
+    "tool_name": "Steel Plate Nesting Scrap and Drop-Off Scrap Risk Calculator",
+    "category": "Steel Service Center / Cutting",
+    "schema_file": "schemas/080_sc_097_steel_plate_nesting_scrap_and_drop_off_scrap_risk_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "551dbbf99ca8c94740291e6f60316be0a6a3491ec0342a58087400b37cf26c56"
+  },
+  "sc_113_textile_roll_defect_four_point_system_claim_cost_calculator": {
+    "tool_id": "SC-113",
+    "tool_name": "Textile Roll Defect Four-Point System Claim Cost Calculator",
+    "category": "Textile QA / Export",
+    "schema_file": "schemas/081_sc_113_textile_roll_defect_four_point_system_claim_cost_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "14b0fe31a7d3a3b47d7a2bab059adc9b1506e595b982b7067b73afe428fcae25"
+  },
+  "sc_107_product_mix_bottleneck_contribution_calculator": {
+    "tool_id": "SC-107",
+    "tool_name": "Product Mix Bottleneck Contribution Calculator",
+    "category": "Manufacturing Finance",
+    "schema_file": "schemas/082_sc_107_product_mix_bottleneck_contribution_calculator.schema.json",
+    "primary_operation": "money_leak_and_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "886db9e56e20a8f240fce774e716bdee80cce7bb9faa4d809021e65c488ee5b9"
+  },
+  "sc_117_field_welding_shielding_gas_flow_and_wind_loss_calculator": {
+    "tool_id": "SC-117",
+    "tool_name": "Field Welding Shielding Gas Flow and Wind Loss Calculator",
+    "category": "Field Welding / Construction",
+    "schema_file": "schemas/083_sc_117_field_welding_shielding_gas_flow_and_wind_loss_calculator.schema.json",
+    "primary_operation": "welding_process_margin_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "5aea1615013386302dfe445d3a894321d0049685e8928758db32e2425e99148b"
+  },
+  "sc_089_mold_cooling_reynolds_cycle_time_and_warpage_balance_calculator": {
+    "tool_id": "SC-089",
+    "tool_name": "Mold Cooling Reynolds, Cycle Time and Warpage Balance Calculator",
+    "category": "Injection Mold Design",
+    "schema_file": "schemas/084_sc_089_mold_cooling_reynolds_cycle_time_and_warpage_balance_calculator.schema.json",
+    "primary_operation": "plastics_process_window_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "61e7a64086005e0fefc59ad08974b04b9cd95a5b6894f1450baab8e59faf2a22"
+  },
+  "sc_100_cnc_thermal_growth_and_tolerance_drift_calculator": {
+    "tool_id": "SC-100",
+    "tool_name": "CNC Thermal Growth and Tolerance Drift Calculator",
+    "category": "CNC / Metrology",
+    "schema_file": "schemas/085_sc_100_cnc_thermal_growth_and_tolerance_drift_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "05a881ec9fa44e279215c04b63e9e68f1acb782f7befb6ca7ad7b7ffde2631af"
+  },
+  "sc_106_customer_profitability_and_toxic_account_detection_calculator": {
+    "tool_id": "SC-106",
+    "tool_name": "Customer Profitability and Toxic Account Detection Calculator",
+    "category": "SME Finance / Sales Operations",
+    "schema_file": "schemas/086_sc_106_customer_profitability_and_toxic_account_detection_calculator.schema.json",
+    "primary_operation": "money_leak_and_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "009361c31934827ed9bb96cca5cb5139630de3f409934f178bee64dc392de30e"
+  },
+  "sc_061_grain_dryer_shrinkage_and_fuel_cost_margin_calculator": {
+    "tool_id": "SC-061",
+    "tool_name": "Grain Dryer Shrinkage and Fuel Cost Margin Calculator",
+    "category": "Agriculture / Grain Drying",
+    "schema_file": "schemas/087_sc_061_grain_dryer_shrinkage_and_fuel_cost_margin_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "cf13a9070d6b7f68914c8629cf0d7af7d1eac56a6bd24d9171e6f6bd970b8d2f"
+  },
+  "sc_017_api_based_structural_load_transfer_calculator": {
+    "tool_id": "SC-017",
+    "tool_name": "API-Based Structural Load Transfer Calculator",
+    "category": "Construction / Structural Engineering",
+    "schema_file": "schemas/088_sc_017_api_based_structural_load_transfer_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "9ad7bef4455a4fe2874ef736e04f8088e7c9f13a8338a0965da66acc533ac467"
+  },
+  "sc_065_cold_room_door_open_load_and_defrost_plan_cost_calculator": {
+    "tool_id": "SC-065",
+    "tool_name": "Cold Room Door-Open Load and Defrost Plan Cost Calculator",
+    "category": "Cold Warehouse / Restaurant",
+    "schema_file": "schemas/089_sc_065_cold_room_door_open_load_and_defrost_plan_cost_calculator.schema.json",
+    "primary_operation": "logistics_capacity_delay_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "bee61f44b22531b31736c8bfc3f42d2ba3549e6b3620c95c951252490388ac25"
+  },
+  "sc_079_rework_vs_scrap_economic_decision_calculator": {
+    "tool_id": "SC-079",
+    "tool_name": "Rework vs Scrap Economic Decision Calculator",
+    "category": "Quality / MRB",
+    "schema_file": "schemas/090_sc_079_rework_vs_scrap_economic_decision_calculator.schema.json",
+    "primary_operation": "quality_confidence_and_disposition_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "153439f60dff302759c29515844f34d184dbde6f37a4ededff7aa38e39e7819e"
+  },
+  "sc_084_power_factor_correction_capacitor_payback_and_harmonic_risk_calculator": {
+    "tool_id": "SC-084",
+    "tool_name": "Power Factor Correction Capacitor Payback and Harmonic Risk Calculator",
+    "category": "Electrical / Facility Management",
+    "schema_file": "schemas/091_sc_084_power_factor_correction_capacitor_payback_and_harmonic_risk_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "1b70ba48f80e1e06dfc3bbbd76a8792fa32b4c799b2ec7c0f855ba3c8e2c028d"
+  },
+  "sc_062_irrigation_pump_voltage_drop_and_water_shortage_cost_calculator": {
+    "tool_id": "SC-062",
+    "tool_name": "Irrigation Pump Voltage Drop and Water Shortage Cost Calculator",
+    "category": "Agriculture / Electrical",
+    "schema_file": "schemas/092_sc_062_irrigation_pump_voltage_drop_and_water_shortage_cost_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "1e257dba0fbe0a647aa3aa87ce552a3ce381ae634d54bf981cf669680911813e"
+  },
+  "sc_053_asphalt_compaction_temperature_window_and_roller_plan_calculator": {
+    "tool_id": "SC-053",
+    "tool_name": "Asphalt Compaction Temperature Window and Roller Plan Calculator",
+    "category": "Road Construction",
+    "schema_file": "schemas/093_sc_053_asphalt_compaction_temperature_window_and_roller_plan_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "0444b3da0684fda7552b66d35066b8046e133be08016ca6d64ca90b8b10bcf8e"
+  },
+  "sc_074_enzyme_wash_weight_loss_and_color_deviation_margin_calculator": {
+    "tool_id": "SC-074",
+    "tool_name": "Enzyme Wash Weight Loss and Color Deviation Margin Calculator",
+    "category": "Denim / Washing",
+    "schema_file": "schemas/094_sc_074_enzyme_wash_weight_loss_and_color_deviation_margin_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "64b4b22f16f6282092616e8abb4e53efc38136e7d89e0822238d1b1160fe053a"
+  },
+  "sc_086_motor_vfd_retrofit_savings_and_harmonic_derating_risk_calculator": {
+    "tool_id": "SC-086",
+    "tool_name": "Motor VFD Retrofit Savings and Harmonic Derating Risk Calculator",
+    "category": "Industrial Energy / Motorlar",
+    "schema_file": "schemas/095_sc_086_motor_vfd_retrofit_savings_and_harmonic_derating_risk_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "2790b40640191a2671604455fb042a8c4cb646c257f3107e21b00f68b9efc5ec"
+  },
+  "sc_063_greenhouse_heating_degree_hour_fuel_and_condensation_risk_calculator": {
+    "tool_id": "SC-063",
+    "tool_name": "Greenhouse Heating Degree-Hour Fuel and Condensation Risk Calculator",
+    "category": "Greenhouse / Agriculture",
+    "schema_file": "schemas/096_sc_063_greenhouse_heating_degree_hour_fuel_and_condensation_risk_calculator.schema.json",
+    "primary_operation": "agricultural_process_loss_and_capacity_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "000fdcf96213db275bc217185f7b3ff3bd0eaa5b8103ad4f3f18f77a086018b8"
+  },
+  "sc_043_cnc_coolant_concentration_tool_life_and_corrosion_cost_calculator": {
+    "tool_id": "SC-043",
+    "tool_name": "CNC Coolant Concentration, Tool Life and Corrosion Cost Calculator",
+    "category": "CNC Maintenance",
+    "schema_file": "schemas/097_sc_043_cnc_coolant_concentration_tool_life_and_corrosion_cost_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "d22626fd8829eba24ffb10d999772354da047f0c41b3a087cb7cfd936fffca4e"
+  },
+  "sc_049_masonry_wall_lintel_bearing_and_crack_risk_calculator": {
+    "tool_id": "SC-049",
+    "tool_name": "Masonry Wall Lintel Bearing and Crack Risk Calculator",
+    "category": "Renovation / Masonry Wall",
+    "schema_file": "schemas/098_sc_049_masonry_wall_lintel_bearing_and_crack_risk_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "a42f8b633500d1f70f5044a2d4101c4ea6e4d224603aac3014684deea2b1358c"
+  },
+  "sc_110_air_receiver_sizing_and_compressor_cycling_cost_calculator": {
+    "tool_id": "SC-110",
+    "tool_name": "Air Receiver Sizing and Compressor Cycling Cost Calculator",
+    "category": "Compressed Air / Facility Management",
+    "schema_file": "schemas/099_sc_110_air_receiver_sizing_and_compressor_cycling_cost_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "19503b55ff4b1afa39c7a4ead2a81d5122768667c73347e2bbe3ad2424f38c46"
+  },
+  "sc_115_solar_plant_soiling_loss_and_cleaning_water_cost_calculator": {
+    "tool_id": "SC-115",
+    "tool_name": "Solar Plant Soiling Loss and Cleaning Water Cost Calculator",
+    "category": "Energy / Solar Plant O&M",
+    "schema_file": "schemas/100_sc_115_solar_plant_soiling_loss_and_cleaning_water_cost_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "3c9e27f164b4b5e17d7c8f8ee7959949de6cb80c6851d57353f71bb4d8a1edb1"
+  },
+  "sc_101_restaurant_menu_engineering_real_gross_margin_calculator": {
+    "tool_id": "SC-101",
+    "tool_name": "Restaurant Menu Engineering Real Gross Margin Calculator",
+    "category": "Restaurant Finance / Operations",
+    "schema_file": "schemas/101_sc_101_restaurant_menu_engineering_real_gross_margin_calculator.schema.json",
+    "primary_operation": "food_service_margin_and_safety_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "bb2c11b8a6644000a6088dd19702a34815e4a1d158be70fef9b2b5ee25a68aaf"
+  },
+  "sc_105_supplier_delay_buffer_and_cash_tied_in_inventory_risk_calculator": {
+    "tool_id": "SC-105",
+    "tool_name": "Supplier Delay Buffer and Cash Tied in Inventory Risk Calculator",
+    "category": "Purchasing / Inventory",
+    "schema_file": "schemas/102_sc_105_supplier_delay_buffer_and_cash_tied_in_inventory_risk_calculator.schema.json",
+    "primary_operation": "logistics_capacity_delay_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "8f5851bc2373119dc72e36aaf3f2f0ff69ab0b8ae62c79a3d415dd53734e16a7"
+  },
+  "sc_075_digital_textile_printing_ink_laydown_and_curing_energy_cost_calculator": {
+    "tool_id": "SC-075",
+    "tool_name": "Digital Textile Printing Ink Laydown and Curing Energy Cost Calculator",
+    "category": "Digital Textile Printing",
+    "schema_file": "schemas/103_sc_075_digital_textile_printing_ink_laydown_and_curing_energy_cost_calculator.schema.json",
+    "primary_operation": "yield_quality_and_cost_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "e0f623eb388e528265bf2ec0123d1551c9156199cfbfdcfe9de62690fc4b9099"
+  },
+  "sc_092_lumber_drying_emc_defect_risk_calculator": {
+    "tool_id": "SC-092",
+    "tool_name": "Lumber Drying EMC Defect Risk Calculator",
+    "category": "Wood / Furniture / Sawmill",
+    "schema_file": "schemas/104_sc_092_lumber_drying_emc_defect_risk_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "df16acf86bbcc0e81f5bac99b42f44bbc4fc03ebde0cdadf426a11febc065ba2"
+  },
+  "sc_066_blast_chiller_batch_cooling_compliance_margin_calculator": {
+    "tool_id": "SC-066",
+    "tool_name": "Blast Chiller Batch Cooling Compliance Margin Calculator",
+    "category": "Restaurant / Catering",
+    "schema_file": "schemas/105_sc_066_blast_chiller_batch_cooling_compliance_margin_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "e5997a88e40e1fba77107c8ca0d1ee32897f2b66a31779747680d06b0294c2e4"
+  },
+  "sc_060_milk_cooling_tank_bacterial_growth_time_risk_calculator": {
+    "tool_id": "SC-060",
+    "tool_name": "Milk Cooling Tank Bacterial Growth Time Risk Calculator",
+    "category": "Dairy / Agriculture",
+    "schema_file": "schemas/106_sc_060_milk_cooling_tank_bacterial_growth_time_risk_calculator.schema.json",
+    "primary_operation": "agricultural_process_loss_and_capacity_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "7aa052fcc9e1a32d63013d0346d0c82e5cccf817b37b89eb290961194a72ee8b"
+  },
+  "sc_116_warehouse_picking_route_congestion_cost_calculator": {
+    "tool_id": "SC-116",
+    "tool_name": "Warehouse Picking Route Congestion Cost Calculator",
+    "category": "Warehouse / Logistics",
+    "schema_file": "schemas/107_sc_116_warehouse_picking_route_congestion_cost_calculator.schema.json",
+    "primary_operation": "emission_evidence_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "54e0f446c37b3ea3dd03ce48b972e8334c67073ef99e3279bbb05674e7aaf237"
+  },
+  "sc_090_extrusion_die_swell_and_wall_thickness_margin_calculator": {
+    "tool_id": "SC-090",
+    "tool_name": "Extrusion Die Swell and Wall Thickness Margin Calculator",
+    "category": "Plastic Extrusion",
+    "schema_file": "schemas/108_sc_090_extrusion_die_swell_and_wall_thickness_margin_calculator.schema.json",
+    "primary_operation": "plastics_process_window_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "a717c88b3af92e98ff946c31099fce75bac8ed64c594cac07e5e6f7f97336b75"
+  },
+  "sc_030_forklift_battery_charge_cycle_and_peak_grid_kw_penalty_calculator": {
+    "tool_id": "SC-030",
+    "tool_name": "Forklift Battery Charge Cycle and Peak Grid kW Penalty Calculator",
+    "category": "Warehouse / Internal Logistics",
+    "schema_file": "schemas/109_sc_030_forklift_battery_charge_cycle_and_peak_grid_kw_penalty_calculator.schema.json",
+    "primary_operation": "logistics_capacity_delay_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "d14c533fcb5799c39ad485d9a61787e9b37240f847093706cb6c5a8f6e42452f"
+  },
+  "sc_057_pallet_stretch_wrap_holding_force_and_film_cost_optimization_calculator": {
+    "tool_id": "SC-057",
+    "tool_name": "Pallet Stretch Wrap Holding Force and Film Cost Optimization Calculator",
+    "category": "Warehouse / Packaging",
+    "schema_file": "schemas/110_sc_057_pallet_stretch_wrap_holding_force_and_film_cost_optimization_calculator.schema.json",
+    "primary_operation": "emission_evidence_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "bfc48422e449f8e75cbda79e3aa112d84985cf1c2a05a2fae9b95a2a47f7e46a"
+  },
+  "sc_069_kitchen_hood_makeup_air_gap_calculator": {
+    "tool_id": "SC-069",
+    "tool_name": "Kitchen Hood Makeup Air Gap Calculator",
+    "category": "Restaurant / HVAC",
+    "schema_file": "schemas/111_sc_069_kitchen_hood_makeup_air_gap_calculator.schema.json",
+    "primary_operation": "food_service_margin_and_safety_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "44a90a45e2f37f34624cb59264c8a110f3e8407568df13a067db92755131647a"
+  },
+  "sc_091_edge_banding_glue_line_failure_and_adhesive_cost_calculator": {
+    "tool_id": "SC-091",
+    "tool_name": "Edge Banding Glue-Line Failure and Adhesive Cost Calculator",
+    "category": "Furniture / Panel Production",
+    "schema_file": "schemas/112_sc_091_edge_banding_glue_line_failure_and_adhesive_cost_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "42146babafa76695b0b2d90082e96b9a6ba741a85ac95c86249c88cd8249a607"
+  },
+  "sc_051_waterproofing_membrane_lap_and_pinhole_leakage_risk_cost_calculator": {
+    "tool_id": "SC-051",
+    "tool_name": "Waterproofing Membrane Lap and Pinhole Leakage Risk Cost Calculator",
+    "category": "Roofing / Waterproofing",
+    "schema_file": "schemas/113_sc_051_waterproofing_membrane_lap_and_pinhole_leakage_risk_cost_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "81bdc35131af3547c1813f67a75c868f814156c6393d4f226450dcb2ba8a9176"
+  },
+  "sc_114_restaurant_cold_chain_accept_reject_cost_calculator": {
+    "tool_id": "SC-114",
+    "tool_name": "Restaurant Cold Chain Accept/Reject Cost Calculator",
+    "category": "Restaurant / Food Service",
+    "schema_file": "schemas/114_sc_114_restaurant_cold_chain_accept_reject_cost_calculator.schema.json",
+    "primary_operation": "food_service_margin_and_safety_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "611c272707d4c4c64fd65d6207deb6819de23b389a93fe2a1eeefcf0519929f6"
+  },
+  "sc_102_restaurant_peak_hour_labor_and_table_turn_profit_calculator": {
+    "tool_id": "SC-102",
+    "tool_name": "Restaurant Peak-Hour Labor and Table Turn Profit Calculator",
+    "category": "Restaurant Operations",
+    "schema_file": "schemas/115_sc_102_restaurant_peak_hour_labor_and_table_turn_profit_calculator.schema.json",
+    "primary_operation": "food_service_margin_and_safety_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "40d71caec223ed2b2fecc756504faaebba75d16d54bba1ecf4f391a408f6cec5"
+  },
+  "sc_067_bakery_fermentation_window_and_dough_yield_margin_calculator": {
+    "tool_id": "SC-067",
+    "tool_name": "Bakery Fermentation Window and Dough Yield Margin Calculator",
+    "category": "Bakery / Food Production",
+    "schema_file": "schemas/116_sc_067_bakery_fermentation_window_and_dough_yield_margin_calculator.schema.json",
+    "primary_operation": "food_service_margin_and_safety_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "9d179dfb9ee2fa623fe8508b4c09e9c29c213c569cdfe252d3f3381f59376411"
+  },
+  "sc_015_designer_fea_snap_through_stress_pre_screening_calculator": {
+    "tool_id": "SC-015",
+    "tool_name": "Designer FEA Snap-Through Stress Pre-Screening Calculator",
+    "category": "Machine Design / Product Design",
+    "schema_file": "schemas/117_sc_015_designer_fea_snap_through_stress_pre_screening_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "a25d71238958d12cec8fac3f0407bb7015f42f856e6fd6456fb540aefe674af7"
+  },
+  "sc_014_automotive_aerodynamic_drag_scenario_estimator_calculator": {
+    "tool_id": "SC-014",
+    "tool_name": "Automotive Aerodynamic Drag Scenario Estimator Calculator",
+    "category": "Automotive / Motorsport / Body Kits",
+    "schema_file": "schemas/118_sc_014_automotive_aerodynamic_drag_scenario_estimator_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "e084dbc99d7c686e13b23bd8bde9bf1b4bda8ecd323bd92bac78beffb84df94d"
+  },
+  "sc_068_fryer_oil_tpm_change_cost_threshold_calculator": {
+    "tool_id": "SC-068",
+    "tool_name": "Fryer Oil TPM Change Cost Threshold Calculator",
+    "category": "Restaurant / Food Production",
+    "schema_file": "schemas/119_sc_068_fryer_oil_tpm_change_cost_threshold_calculator.schema.json",
+    "primary_operation": "food_service_margin_and_safety_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "08577d56f383be9b1c38703597fc05f127af98becc2761d399f357be1c19aa4f"
+  },
+  "sc_018_unit_aware_electrical_rlc_circuit_solver_calculator": {
+    "tool_id": "SC-018",
+    "tool_name": "Unit-Aware Electrical RLC Circuit Solver Calculator",
+    "category": "Electrical Maintenance / Training / Design",
+    "schema_file": "schemas/120_sc_018_unit_aware_electrical_rlc_circuit_solver_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "12dbbffff826c8a8944e39057991dc0328c49d41b78d9262c117c741321fb12a"
+  },
+  "sc_150_flange_bolt_torque_and_gasket_seating_stress_calculator": {
+    "tool_id": "SC-150",
+    "tool_name": "Flange Bolt torque & Gasket seating stress Calculator",
+    "category": "Mechanical / Steel Joint Integrity",
+    "schema_file": "schemas/121_sc_150_flange_bolt_torque_and_gasket_seating_stress_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "d5d6c65560bfa580ad66d99482db37029028d28f373148114efd65b5e63c7766"
+  },
+  "sc_151_rigging_sling_angle_and_multi_leg_load_calculator": {
+    "tool_id": "SC-151",
+    "tool_name": "Rigging sling angle & Multi-Leg load Calculator",
+    "category": "Lifting / Rigging",
+    "schema_file": "schemas/122_sc_151_rigging_sling_angle_and_multi_leg_load_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "04762d0676617c6b925b0b5bcb8c247550b324b83f7cb9b59633d54f96a1b183"
+  },
+  "sc_152_cnc_job_quote_builder_calculator": {
+    "tool_id": "SC-152",
+    "tool_name": "CNC Job Quote Builder Calculator",
+    "category": "CNC / Quotation",
+    "schema_file": "schemas/123_sc_152_cnc_job_quote_builder_calculator.schema.json",
+    "primary_operation": "manufacturing_quote_and_process_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "792276ce179b59ca0e1ae2c92da11bd3bf018875284ca3595d329e9792acbea0"
+  },
+  "sc_153_weld_cost_per_meter_quote_builder_calculator": {
+    "tool_id": "SC-153",
+    "tool_name": "Weld Cost per Meter Quote Builder Calculator",
+    "category": "Welding / Manufacturing",
+    "schema_file": "schemas/124_sc_153_weld_cost_per_meter_quote_builder_calculator.schema.json",
+    "primary_operation": "welding_process_margin_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "33ea1896f9c744e22a3058285ff08db298e499105d129336c027193d88316498"
+  },
+  "sc_154_sheet_metal_part_quote_builder_calculator": {
+    "tool_id": "SC-154",
+    "tool_name": "Sheet Metal Part Quote Builder Calculator",
+    "category": "Sheet Metal / Quotation",
+    "schema_file": "schemas/125_sc_154_sheet_metal_part_quote_builder_calculator.schema.json",
+    "primary_operation": "industrial_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "3cc9676ffa9f4c16aca452f6f06b1abc23f36066edcda828a022d4b27f3cf0c0"
+  },
+  "sc_155_crane_lift_plan_generator_calculator": {
+    "tool_id": "SC-155",
+    "tool_name": "Crane Lift Plan Generator Calculator",
+    "category": "Lifting / Construction",
+    "schema_file": "schemas/126_sc_155_crane_lift_plan_generator_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "5df7b8a1059a3419f5625752416959bfbe585ed39793164b352a2727b9a80d51"
+  },
+  "sc_156_bolt_torque_chart_and_tightening_record_generator_calculator": {
+    "tool_id": "SC-156",
+    "tool_name": "Bolt Torque Chart & Tightening Record Generator Calculator",
+    "category": "Mechanical / Steel Joint Integrity",
+    "schema_file": "schemas/127_sc_156_bolt_torque_chart_and_tightening_record_generator_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "856abff35afa28422328d080fc5d40f95c6827339c5fdb343385d38583e58195"
+  },
+  "sc_157_cbam_exporter_emission_data_pack_calculator": {
+    "tool_id": "SC-157",
+    "tool_name": "CBAM Exporter Emission Data Pack Calculator",
+    "category": "Export / Carbon Evidence",
+    "schema_file": "schemas/128_sc_157_cbam_exporter_emission_data_pack_calculator.schema.json",
+    "primary_operation": "emission_evidence_and_cost_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "03ab7f161b1e836b0282c72d016c775807bf7f41a8c3d6af92bc62ea47748a83"
+  },
+  "sc_158_en_1090_ndt_and_inspection_plan_generator_calculator": {
+    "tool_id": "SC-158",
+    "tool_name": "EN 1090 NDT & Inspection Plan Generator Calculator",
+    "category": "Steel Manufacturing / Inspection",
+    "schema_file": "schemas/129_sc_158_en_1090_ndt_and_inspection_plan_generator_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "0544199ff99207e28336d165c59f3ebb7fa81c7f0796e46b4e06d3f7af571a60"
+  },
+  "sc_159_mill_certificate_en_10204_3_1_verifier_calculator": {
+    "tool_id": "SC-159",
+    "tool_name": "Mill Certificate (EN 10204 3.1) Verifier Calculator",
+    "category": "Steel / Material Evidence",
+    "schema_file": "schemas/130_sc_159_mill_certificate_en_10204_3_1_verifier_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "081240c9be592a8904fbb36fb66ef41ee4585a9b734713d0d046bd48e92843c1"
+  },
+  "sc_160_concrete_pour_card_formwork_strip_decision_report_calculator": {
+    "tool_id": "SC-160",
+    "tool_name": "Concrete Pour Card / Formwork Strip Decision Report Calculator",
+    "category": "Concrete / Site QA",
+    "schema_file": "schemas/131_sc_160_concrete_pour_card_formwork_strip_decision_report_calculator.schema.json",
+    "primary_operation": "capacity_margin_screening",
+    "risk_level": "CRITICAL",
+    "schema_sha256": "8591c64b80f12f59896ecf688ba3aa752d43a2de22b326ec1326f42d38d5dffd"
+  },
+  "sc_161_quote_margin_leak_counter_calculator": {
+    "tool_id": "SC-161",
+    "tool_name": "Quote Margin Leak Counter Calculator",
+    "category": "Manufacturing Finance / Quote Control",
+    "schema_file": "schemas/132_sc_161_quote_margin_leak_counter_calculator.schema.json",
+    "primary_operation": "money_leak_and_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "0a67a0c7cb17b5d27306d86e2242cc011486fcb48cb2945eb223eccadef114b4"
+  },
+  "sc_162_facility_bleed_score_calculator": {
+    "tool_id": "SC-162",
+    "tool_name": "Facility Bleed Score Calculator",
+    "category": "Facility Management / Energy and Maintenance",
+    "schema_file": "schemas/133_sc_162_facility_bleed_score_calculator.schema.json",
+    "primary_operation": "utility_capacity_energy_and_payback_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "50ac9947cc53239d84e9e865fdb915992e8d5f6f8219808bbe33f3ae975b5812"
+  },
+  "sc_163_old_machine_bleeding_cash_counter_calculator": {
+    "tool_id": "SC-163",
+    "tool_name": "Old Machine Bleeding-Cash Counter Calculator",
+    "category": "Maintenance Finance / CapEx Decision",
+    "schema_file": "schemas/134_sc_163_old_machine_bleeding_cash_counter_calculator.schema.json",
+    "primary_operation": "money_leak_and_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "d9f4f4f1067693530af1948553bf1af24e9a1c14dfa459721c8b64454247bd63"
+  },
+  "sc_164_customer_profit_leak_detector_calculator": {
+    "tool_id": "SC-164",
+    "tool_name": "Customer Profit Leak Detector Calculator",
+    "category": "SME Finance / Customer Profitability",
+    "schema_file": "schemas/135_sc_164_customer_profit_leak_detector_calculator.schema.json",
+    "primary_operation": "money_leak_and_decision_margin_screening",
+    "risk_level": "HIGH",
+    "schema_sha256": "fc0d686b7846f2c27f39f9e88382df087bd5ebb3249197c75ea1055243985b26"
+  }
+}

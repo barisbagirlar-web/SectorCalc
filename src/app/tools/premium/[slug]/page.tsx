@@ -4,8 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { UniversalIndustrialDecisionForm, buildSuperV4SchemaFromPremiumSchema } from "@/sectorcalc/pro-form";
-import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
+import { UniversalIndustrialDecisionForm, generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import {
@@ -100,7 +99,7 @@ export default async function PremiumGeneratedToolRoutePage({
   return (
     <PageLayout>
       {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
-      <UniversalIndustrialDecisionForm schema={buildSuperV4SchemaFromPremiumSchema(adaptLegacyJsonToPremiumSchema(schema as any, resolvedSlug) as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
+      <UniversalIndustrialDecisionForm schema={generatedToolSchemaToSuperV4Schema(schema as any, resolvedSlug)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
     </PageLayout>
   );
 }

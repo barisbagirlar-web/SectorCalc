@@ -3,7 +3,8 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "@/lib/i18n-stub";
-import { UniversalIndustrialDecisionForm, buildSuperV4SchemaFromPremiumSchema } from "@/sectorcalc/pro-form";
+import { UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
+import { premiumSchemaToSuperV4Schema } from "@/lib/features/premium-schema/premium-schema-to-superv4-adapter";
 import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
 import { getTranslations } from "@/lib/i18n-stub";
@@ -161,7 +162,7 @@ export default async function PremiumSchemaPilotPage({
           data-calculation-form-shell="true"
           data-testid="calculator-form"
         />
-        <UniversalIndustrialDecisionForm schema={buildSuperV4SchemaFromPremiumSchema(schema as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
+        <UniversalIndustrialDecisionForm schema={premiumSchemaToSuperV4Schema(schema as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
         <PremiumAnalyzerAuthorityBlock
           schema={schema}
           locale={locale}

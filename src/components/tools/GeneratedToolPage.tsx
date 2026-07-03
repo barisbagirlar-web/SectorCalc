@@ -3,8 +3,7 @@
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { CarbonFootprintReport } from "@/components/tools/CarbonFootprintReport";
-import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
-import { buildSuperV4SchemaFromPremiumSchema, UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
+import { UniversalIndustrialDecisionForm, generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form";
 import { EOQOptimizer } from "@/components/tools/EOQOptimizer";
 import { GeneratedToolExportActions } from "@/components/tools/GeneratedToolExportActions";
 import { QuoteBuilder } from "@/components/tools/QuoteBuilder";
@@ -89,8 +88,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
 
   // Bridge GeneratedToolSchema to SuperV4Schema for UniversalIndustrialDecisionForm
   const superV4Schema = useMemo(() => {
-    const premiumSchema = adaptLegacyJsonToPremiumSchema(schema, slug);
-    return buildSuperV4SchemaFromPremiumSchema(premiumSchema as any);
+    return generatedToolSchemaToSuperV4Schema(schema as any, slug);
   }, [schema, slug]);
 
   const primaryValue = useMemo(() => {

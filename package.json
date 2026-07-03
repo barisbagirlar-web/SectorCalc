@@ -16,6 +16,8 @@
     "verify:gate": "npm run guard:removed-free-tools && npm run guard:repo && npm run guard:premium-contract && npm run guard:root-only && npm run audit:premium && node scripts/smell-scanner.mjs && tsx scripts/run-golden-tests.ts && npm run typecheck && npm run lint:errors && npm run build",
     "verify:gate:test": "npm run test --if-present && npm run verify:gate",
     "guard:root-only": "node scripts/guard-root-only.mjs",
+    "guard:v531": "node scripts/guard-v531-architecture.mjs",
+    "smoke:v531": "node scripts/smoke-all-v531-tools.mjs",
     "smoke:root-only": "node scripts/sectorcalc-root-only-runtime-smoke.mjs",
     "verify:global-root-only": "npm run verify:gate && git restore -- next-env.d.ts firebase-debug.log 2>/dev/null || true && npm run smoke:root-only",
     "verify:root-only-hard": "npm run guard:root-only && npm run verify:gate && npm run smoke:root-only",

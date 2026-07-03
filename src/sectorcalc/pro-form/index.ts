@@ -20,4 +20,4 @@ export type {
 export { useUniversalIndustrialDecisionFormMachine } from "./useUniversalIndustrialDecisionFormMachine";
 export type { MachineApi, MachineOptions } from "./useUniversalIndustrialDecisionFormMachine";
 export * from "./contract-types";
-export { buildSuperV4SchemaFromPremiumSchema } from "./premium-schema-bridge";
+export { generatedToolSchemaToSuperV4Schema } from "./generated-tool-to-superv4-adapter";

@@ -32,6 +32,10 @@ import { evaluateAllReferenceRanges } from "@/sectorcalc/pro-form/reference-rang
 import { SchemaRegistry, schemaRegistry } from "@/sectorcalc/pro-form/schema-registry";
 import { formulaRegistry } from "@/sectorcalc/pro-runtime/formula-registry";
 import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-formula-engine";
+import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
+import { loadGeneratedCalculator } from "@/lib/features/generated-tools/load-generated-calculator";
+import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form";
+import { isIndustrialFreeToolSlug, buildIndustrialFreeToolSchema } from "@/lib/features/tools/industrial-free-schema-factory";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -76,10 +80,10 @@ interface Pass2Result {
   errors: string[];
 }
 
-function pass2RuntimeExecution(
+async function pass2RuntimeExecution(
   body: ExecuteRequest,
   validatedSchema: SuperV4Schema,
-): Pass2Result {
+): Promise<Pass2Result> {
   const warnings: ServerWarning[] = [];
   const errors: string[] = [];
 
@@ -259,7 +263,7 @@ function pass2RuntimeExecution(
     });
   }
 
-  // S11: Formula execution — V5.3.1 deterministic engine
+  // S11: Formula execution — V5.3.1 deterministic engine or generated calculator fallback
   let outputs: ServerOutput[];
   let formulaEngineErrors: string[] = [];
 
@@ -278,10 +282,10 @@ function pass2RuntimeExecution(
 
   // Look up formula registry for this tool
   const schemaMetadata = validatedSchema.metadata;
-  const registryKey = `${validatedSchema.tool_id}::${schemaMetadata?.formula_version ?? "1.0.0"}`;
   const registryRecord = formulaRegistry.fetch(validatedSchema.tool_id, schemaMetadata?.formula_version ?? "1.0.0");
 
   if (registryRecord && registryRecord.nodes.length > 0) {
+    // Path A: Use V5.3.1 formula registry engine
     const engineResult = executeFormulaGraph(registryRecord.nodes, {
       normalizedInputs: engineNormInputs,
       formulaVersion: registryRecord.formula_version,
@@ -289,7 +293,6 @@ function pass2RuntimeExecution(
 
     formulaEngineErrors = engineResult.errors;
 
-    // Map engine outputs to ServerOutput format
     const engineOutputMap = new Map(engineResult.outputs.map((o) => [o.id, o]));
     outputs = (validatedSchema.outputs || []).map((o) => {
       const engineOut = engineOutputMap.get(o.id);
@@ -313,22 +316,55 @@ function pass2RuntimeExecution(
       });
     }
   } else {
-    // Registry not found — output values from schema defaults
-    outputs = (validatedSchema.outputs || []).map((o) => ({
-      id: o.id,
-      name: o.name,
-      value: o.value ?? "No formula registered. Configure registry first.",
-      status: "REVIEW" as CalcStatus,
-      public_explanation: o.public_explanation ?? "",
-      decision_use: o.decision_use ?? "",
-    }));
+    // Path B: Use generated calculator module (free tools)
+    const calculatorModule = await loadGeneratedCalculator(validatedSchema.tool_key);
+    if (calculatorModule) {
+      try {
+        const calcResult = calculatorModule.calculate(body.raw_inputs as Record<string, unknown>);
+        const brk = calcResult.breakdown as Readonly<Record<string, number | undefined>> | undefined;
+        outputs = validatedSchema.outputs.map((o) => {
+          const raw = brk?.[o.id];
+          const val = typeof raw === "number" ? raw : null;
+          return {
+            id: o.id,
+            name: o.name,
+            value: val,
+            status: "OK" as CalcStatus,
+            public_explanation: o.public_explanation ?? "",
+            decision_use: o.decision_use ?? "",
+          };
+        });
+      } catch (calcErr) {
+        formulaEngineErrors.push(`Calculator module error: ${calcErr instanceof Error ? calcErr.message : String(calcErr)}`);
+        outputs = (validatedSchema.outputs || []).map((o) => ({
+          id: o.id,
+          name: o.name,
+          value: "Calculation error",
+          status: "BLOCKED" as CalcStatus,
+          public_explanation: o.public_explanation ?? "",
+          decision_use: o.decision_use ?? "",
+        }));
+      }
+    } else {
+      // Path C: No registry, no calculator module — use schema defaults
+      outputs = (validatedSchema.outputs || []).map((o) => ({
+        id: o.id,
+        name: o.name,
+        value: o.value ?? "No formula registered. Configure registry first.",
+        status: "REVIEW" as CalcStatus,
+        public_explanation: o.public_explanation ?? "",
+        decision_use: o.decision_use ?? "",
+      }));
 
-    warnings.push({
-      id: "formula_registry_missing", severity: "WARNING",
-      message: `No formula registry found for tool ${validatedSchema.tool_id} version ${schemaMetadata?.formula_version ?? "unknown"}. Schema output defaults used.`,
-      why_it_matters: "Formula engine requires registered formulas to produce calculated outputs.",
-      suggested_action: "Register formula nodes in FormulaRegistry before production use.",
-    });
+      if (body.tool_key.slice(0, 1) >= "a" && body.tool_key.slice(0, 1) <= "z") {
+        warnings.push({
+          id: "formula_registry_missing", severity: "WARNING",
+          message: `No formula registry or calculator module found for tool ${validatedSchema.tool_id} version ${schemaMetadata?.formula_version ?? "unknown"}. Schema output defaults used.`,
+          why_it_matters: "Formula engine requires registered formulas to produce calculated outputs.",
+          suggested_action: "Register formula nodes in FormulaRegistry before production use.",
+        });
+      }
+    }
   }
 
   // S12: Sensitivity analysis
@@ -502,8 +538,20 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const body: ExecuteRequest = await request.json();
 
     // PASS 1 — Static Schema / Binding Control
-    const schema = null; // In production, load from database by tool_key
-    const pass1 = pass1StaticControl(body, schema);
+    // Load schema from generated schemas or premium-schema registry
+    let schemaSource: SuperV4Schema | null = null;
+
+    const genSchema = getGeneratedToolSchema(body.tool_key);
+    if (genSchema) {
+      schemaSource = generatedToolSchemaToSuperV4Schema(genSchema, body.tool_key);
+    } else if (isIndustrialFreeToolSlug(body.tool_key)) {
+      const indSchema = buildIndustrialFreeToolSchema(body.tool_key);
+      if (indSchema) {
+        schemaSource = generatedToolSchemaToSuperV4Schema(indSchema, body.tool_key);
+      }
+    }
+
+    const pass1 = pass1StaticControl(body, schemaSource);
     if (!pass1.ok) {
       const errorResponse = buildFullBlockedResponse(
         pass1.errors[0] === "Missing tool_key or tool_id" ? "VALIDATION_FAILED" : "SCHEMA_NOT_FOUND",
@@ -516,7 +564,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const validatedSchema = pass1.schema!;
 
     // PASS 2 — Runtime Determinism / Calculation
-    const pass2 = pass2RuntimeExecution(body, validatedSchema);
+    const pass2 = await pass2RuntimeExecution(body, validatedSchema);
     if (!pass2.ok) {
       const errorResponse = buildFullBlockedResponse(pass2.pipelineState, pass2.errors.join("; "));
       const { response: safeResponse } = redactPublicResponse(errorResponse);

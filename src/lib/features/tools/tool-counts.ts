@@ -5,10 +5,16 @@
 import { GENERATED_CALCULATOR_SLUGS } from "@/lib/features/generated-tools/calculator-registry";
 import { listPremiumSchemaIds } from "@/lib/features/premium-schema/schema-registry";
 import { CANONICAL_FREE_SLUGS } from "@/lib/features/tools/canonical-tool-slugs";
+import { industrialFormulaTools } from "@/lib/features/tools/revenue-tools-industrial-formulas";
 
 let _cachedTotal: number | null = null;
 let _cachedFree: number | null = null;
 let _cachedPremium: number | null = null;
+
+/** Industrial formula freeSlugs that have no generated schema file */
+const INDUSTRIAL_FREE_SLUGS: readonly string[] = industrialFormulaTools
+  .map((t) => t.freeSlug)
+  .filter((s): s is string => Boolean(s));
 
 export function getTotalToolCount(): number {
   if (_cachedTotal !== null) return _cachedTotal;
@@ -34,7 +40,14 @@ function compute(): void {
   const activeFree = CANONICAL_FREE_SLUGS.filter((slug) => activeAll.has(slug));
   const freeSchemaSet = new Set(activeFree);
 
-  _cachedFree = activeFree.length;
+  // Add industrial freeSlugs that aren't already counted via generated schemas
+  for (const slug of INDUSTRIAL_FREE_SLUGS) {
+    if (!freeSchemaSet.has(slug)) {
+      freeSchemaSet.add(slug);
+    }
+  }
+
+  _cachedFree = freeSchemaSet.size;
   _cachedPremium = activePremium.filter((id) => !freeSchemaSet.has(id)).length;
   _cachedTotal = _cachedFree + _cachedPremium;
 }

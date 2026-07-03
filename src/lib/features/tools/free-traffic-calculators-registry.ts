@@ -1162,52 +1162,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Property tax rates", "Maintenance cost inflation", "Mortgage rates"]
     };
   },
-  "mean-median-mode-averages": (values) => {
-    const parseNumericArray = (val: any): number[] => {
-      if (Array.isArray(val)) return val.map(Number).filter(Number.isFinite);
-      if (typeof val === "number") return [val];
-      if (!val) return [];
-      return String(val).split(/[\s,]+/).map(x => Number(x.trim())).filter(Number.isFinite);
-    };
-    const arr = parseNumericArray(values.dataSet || values.veriseti);
-    if (arr.length === 0) {
-      return {
-        headline: "No data points",
-        primaryLabel: "Mean",
-        primaryValue: "0",
-        secondaryValues: [{ label: "Median", value: "0" }, { label: "Mode", value: "0" }],
-        explanation: "Please enter a valid dataset as comma-separated numbers.",
-        missingFactors: []
-      };
-    }
-    const sum = arr.reduce((a, b) => a + b, 0);
-    const mean = sum / arr.length;
-    const sorted = [...arr].sort((a, b) => a - b);
-    const mid = Math.floor(sorted.length / 2);
-    const median = sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
-    const freq: Record<number, number> = {};
-    let maxFreq = 0;
-    let mode = sorted[0];
-    for (const x of sorted) {
-      freq[x] = (freq[x] || 0) + 1;
-      if (freq[x] > maxFreq) {
-        maxFreq = freq[x];
-        mode = x;
-      }
-    }
-    return {
-      headline: `Mean: ${formatNumber(mean)}`,
-      primaryLabel: "Mean",
-      primaryValue: formatNumber(mean),
-      secondaryValues: [
-        { label: "Median", value: formatNumber(median) },
-        { label: "Mode", value: formatNumber(mode) },
-        { label: "Sample Size (N)", value: String(arr.length) }
-      ],
-      explanation: `The mean of the ${arr.length} data points is ${formatNumber(mean)}, median is ${formatNumber(median)}, and mode is ${formatNumber(mode)}.`,
-      missingFactors: ["Outliers", "Weighted averages"]
-    };
-  },
   "variance-standard-deviation-pop": (values) => {
     const parseNumericArray = (val: any): number[] => {
       if (Array.isArray(val)) return val.map(Number).filter(Number.isFinite);
@@ -1295,58 +1249,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Non-linear relationships", "Influence of outliers"]
     };
   },
-  "anova-f-statistic-variance": (values) => {
-    const parseMatrix = (val: any): number[][] => {
-      if (!val) return [];
-      const parts = String(val).split(";");
-      return parts.map(p => 
-        p.split(/[\s,]+/).map(x => Number(x.trim())).filter(Number.isFinite)
-      ).filter(g => g.length > 0);
-    };
-    const groups = parseMatrix(values.groups);
-    if (groups.length < 2) {
-      return {
-        headline: "Need at least 2 groups with 2 points each",
-        primaryLabel: "F-Statistic",
-        primaryValue: "0",
-        secondaryValues: [],
-        explanation: "Please enter at least two numbers per group, separated by semicolons, to perform ANOVA test.",
-        missingFactors: []
-      };
-    }
-    const allData = groups.flat();
-    const grandMean = allData.reduce((a, b) => a + b, 0) / allData.length;
-    let ssb = 0;
-    let ssw = 0;
-    for (const g of groups) {
-      const gMean = g.reduce((a, b) => a + b, 0) / g.length;
-      ssb += g.length * Math.pow(gMean - grandMean, 2);
-      ssw += g.reduce((a, b) => a + Math.pow(b - gMean, 2), 0);
-    }
-    const dfBetween = groups.length - 1;
-    const dfWithin = allData.length - groups.length;
-    const msBetween = ssb / Math.max(1, dfBetween);
-    const msWithin = ssw / Math.max(1, dfWithin);
-    const fStat = msWithin === 0 ? 0 : msBetween / msWithin;
-    return {
-      headline: `F-Statistic: ${formatNumber(fStat)}`,
-      primaryLabel: "F-Value",
-      primaryValue: formatNumber(fStat),
-      secondaryValues: [
-        { label: "df (Between)", value: String(dfBetween) },
-        { label: "df (Within)", value: String(dfWithin) },
-        { label: "Sum of Squares (Between)", value: formatNumber(ssb) },
-        { label: "Sum of Squares (Within)", value: formatNumber(ssw) }
-      ],
-      explanation: `The F-statistic representing the ratio of between-group variance to within-group variance is calculated as ${formatNumber(fStat)}.`,
-      missingFactors: ["Critical F-value verification", "Variance homogeneity assumption (Levene's test)"]
-    };
-  },
   "mortgage-monthly-payment": (values) => {
     const loanAmount = normalizeNumber(values.loanAmount);
     const interestRate = normalizeNumber(values.interestRate);
     const term = normalizeNumber(values.term);
-
 
      
     let resultValue: any = 0;
@@ -1375,7 +1281,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate2 = normalizeNumber(values.interestRate2);
     const term = normalizeNumber(values.term);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1400,7 +1305,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const loanAmount = normalizeNumber(values.loanAmount);
     const pointsRate = normalizeNumber(values.pointsRate);
     const monthlySavings = normalizeNumber(values.monthlySavings);
-
 
      
     let resultValue: any = 0;
@@ -1428,7 +1332,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const newPayment = normalizeNumber(values.newPayment);
     const closingCost = normalizeNumber(values.closingCost);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1454,7 +1357,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const remainingDebt = normalizeNumber(values.remainingDebt);
     const newLoan = normalizeNumber(values.newLoan);
     const fees = normalizeNumber(values.fees);
-
 
      
     let resultValue: any = 0;
@@ -1483,7 +1385,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
     const term = normalizeNumber(values.term);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1509,7 +1410,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const annualNetIncome = normalizeNumber(values.annualNetIncome);
     const propertyValue = normalizeNumber(values.propertyValue);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1534,7 +1434,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const annualCashFlow = normalizeNumber(values.annualCashFlow);
     const totalCashInvestment = normalizeNumber(values.totalCashInvestment);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1555,41 +1454,11 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "brrrr-investment-strategy": (values) => {
-    const purchase = normalizeNumber(values.purchase);
-    const rehab = normalizeNumber(values.rehab);
-    const value = normalizeNumber(values.value);
-    const loanAmount = normalizeNumber(values.loanAmount);
-    const rent = normalizeNumber(values.rent);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const ZorunluSermaye = purchase + rehab - loanAmount;
-    const ROI = (rent*12) / Math.max(1, ZorunluSermaye) * 100;
-    resultValue = ROI;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "ROI",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Brrrr Investment Strategy calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "rental-property-net-cashflow": (values) => {
     const grossRent = normalizeNumber(values.grossRent);
     const vacancy = normalizeNumber(values.vacancy);
     const operating = normalizeNumber(values.operating);
     const loanAmount = normalizeNumber(values.loanAmount);
-
 
      
     let resultValue: any = 0;
@@ -1614,7 +1483,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "real-estate-broker-commission": (values) => {
     const salesPrice = normalizeNumber(values.salesPrice);
     const commissionRate = normalizeNumber(values.commissionRate);
-
 
      
     let resultValue: any = 0;
@@ -1641,7 +1509,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const rate = normalizeNumber(values.rate);
     const fixedFees = normalizeNumber(values.fixedFees);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1667,7 +1534,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const remainingDebt = normalizeNumber(values.remainingDebt);
     const maxRate = normalizeNumber(values.maxRate);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1691,7 +1557,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "pmi-monthly-cost-estimator": (values) => {
     const loanAmount = normalizeNumber(values.loanAmount);
     const pmiRate = normalizeNumber(values.pmiRate);
-
 
      
     let resultValue: any = 0;
@@ -1718,7 +1583,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const upfrontPremium = normalizeNumber(values.upfrontPremium);
     const annualPremium = normalizeNumber(values.annualPremium);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1743,7 +1607,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "va-loan-funding-fee": (values) => {
     const loanAmount = normalizeNumber(values.loanAmount);
     const fundingFee = normalizeNumber(values.fundingFee);
-
 
      
     let resultValue: any = 0;
@@ -1770,7 +1633,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
     const term = normalizeNumber(values.term);
     const fees = normalizeNumber(values.fees);
-
 
      
     let resultValue: any = 0;
@@ -1799,7 +1661,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
     const term = normalizeNumber(values.term);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1826,7 +1687,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const downPayment = normalizeNumber(values.downPayment);
     const interestRate = normalizeNumber(values.interestRate);
     const term = normalizeNumber(values.term);
-
 
      
     let resultValue: any = 0;
@@ -1855,7 +1715,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
     const term = normalizeNumber(values.term);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1882,7 +1741,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const downPayment = normalizeNumber(values.downPayment);
     const interestRate = normalizeNumber(values.interestRate);
     const term = normalizeNumber(values.term);
-
 
      
     let resultValue: any = 0;
@@ -1911,7 +1769,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
     const gracePeriod = normalizeNumber(values.gracePeriod);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1938,7 +1795,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const newInterest = normalizeNumber(values.newInterest);
     const term = normalizeNumber(values.term);
 
-
      
     let resultValue: any = 0;
     try {
@@ -1963,7 +1819,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const balance = normalizeNumber(values.balance);
     const annualInterest = normalizeNumber(values.annualInterest);
     const days = normalizeNumber(values.days);
-
 
      
     let resultValue: any = 0;
@@ -1990,7 +1845,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const minimumRate = normalizeNumber(values.minimumRate);
     const interestRate = normalizeNumber(values.interestRate);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2015,7 +1869,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const sale = normalizeNumber(values.sale);
     const percent = normalizeNumber(values.percent);
     const fixed = normalizeNumber(values.fixed);
-
 
      
     let resultValue: any = 0;
@@ -2074,7 +1927,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const newInterest = normalizeNumber(values.newInterest);
     const term = normalizeNumber(values.term);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2100,7 +1952,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const monthlyDebt = normalizeNumber(values.monthlyDebt);
     const grossIncome = normalizeNumber(values.grossIncome);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2124,7 +1975,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "debt-service-coverage-dscr": (values) => {
     const noi = normalizeNumber(values.noi);
     const annualDebtService = normalizeNumber(values.annualDebtService);
-
 
      
     let resultValue: any = 0;
@@ -2150,7 +2000,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const netIncome = normalizeNumber(values.netIncome);
     const livingExpense = normalizeNumber(values.livingExpense);
     const maxPaymentRatio = normalizeNumber(values.maxPaymentRatio);
-
 
      
     let resultValue: any = 0;
@@ -2203,7 +2052,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ebitda = normalizeNumber(values.ebitda);
     const multiplier = normalizeNumber(values.multiplier);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2227,7 +2075,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "startup-pre-post-valuation": (values) => {
     const investment = normalizeNumber(values.investment);
     const equityPercent = normalizeNumber(values.equityPercent);
-
 
      
     let resultValue: any = 0;
@@ -2309,7 +2156,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const discount = normalizeNumber(values.discount);
     const interestRate = normalizeNumber(values.interestRate);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2336,7 +2182,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const capValue = normalizeNumber(values.capValue);
     const totalShares = normalizeNumber(values.totalShares);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2361,7 +2206,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "equity-share-dilution-percent": (values) => {
     const currentShares = normalizeNumber(values.currentShares);
     const newShares = normalizeNumber(values.newShares);
-
 
      
     let resultValue: any = 0;
@@ -2415,7 +2259,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const salesExpense = normalizeNumber(values.salesExpense);
     const newCustomers = normalizeNumber(values.newCustomers);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2442,7 +2285,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const usefulLife = normalizeNumber(values.usefulLife);
     const margin = normalizeNumber(values.margin);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2466,7 +2308,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "clv-to-cac-efficiency-ratio": (values) => {
     const CLV = normalizeNumber(values.clv);
     const CAC = normalizeNumber(values.cac);
-
 
      
     let resultValue: any = 0;
@@ -2492,7 +2333,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const campaignRevenue = normalizeNumber(values.campaignRevenue);
     const campaignCost = normalizeNumber(values.campaignCost);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2516,7 +2356,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "conversion-rate-optimization-cro": (values) => {
     const visitors = normalizeNumber(values.visitors);
     const conversion = normalizeNumber(values.conversion);
-
 
      
     let resultValue: any = 0;
@@ -2542,7 +2381,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const clicks = normalizeNumber(values.clicks);
     const impressions = normalizeNumber(values.impressions);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2566,7 +2404,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "cost-per-click-cpc": (values) => {
     const totalSpend = normalizeNumber(values.totalSpend);
     const clicks = normalizeNumber(values.clicks);
-
 
      
     let resultValue: any = 0;
@@ -2592,7 +2429,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const adCost = normalizeNumber(values.adCost);
     const impressions = normalizeNumber(values.impressions);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2616,7 +2452,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "customer-churn-rate-percent": (values) => {
     const startCustomers = normalizeNumber(values.startCustomers);
     const lostCustomers = normalizeNumber(values.lostCustomers);
-
 
      
     let resultValue: any = 0;
@@ -2643,7 +2478,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const endCash = normalizeNumber(values.endCash);
     const Ay = normalizeNumber(values.ay);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2669,7 +2503,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const currentAssets = normalizeNumber(values.currentAssets);
     const currentLiabilities = normalizeNumber(values.currentLiabilities);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2693,7 +2526,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "receivables-turnover-days": (values) => {
     const annualSales = normalizeNumber(values.annualSales);
     const avgReceivables = normalizeNumber(values.avgReceivables);
-
 
      
     let resultValue: any = 0;
@@ -2720,7 +2552,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const annualCogs = normalizeNumber(values.annualCogs);
     const avgPayables = normalizeNumber(values.avgPayables);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2745,7 +2576,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "inventory-turnover-days": (values) => {
     const annualCogs = normalizeNumber(values.annualCogs);
     const avgInventory = normalizeNumber(values.avgInventory);
-
 
      
     let resultValue: any = 0;
@@ -2773,7 +2603,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const daysReceivables = normalizeNumber(values.daysReceivables);
     const daysPayables = normalizeNumber(values.daysPayables);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2797,7 +2626,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "unit-contribution-margin": (values) => {
     const sellingPrice = normalizeNumber(values.sellingPrice);
     const DegiskenMaliyet = normalizeNumber(values.degiskenmaliyet);
-
 
      
     let resultValue: any = 0;
@@ -2826,7 +2654,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const operatingExpense = normalizeNumber(values.operatingExpense);
     const tax = normalizeNumber(values.tax);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2851,7 +2678,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "operating-ebitda-margin-percent": (values) => {
     const ebitda = normalizeNumber(values.ebitda);
     const revenue = normalizeNumber(values.revenue);
-
 
      
     let resultValue: any = 0;
@@ -2878,7 +2704,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const annualExpense = normalizeNumber(values.annualExpense);
     const billableHours = normalizeNumber(values.billableHours);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2904,7 +2729,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const tax = normalizeNumber(values.tax);
     const Gider = normalizeNumber(values.gider);
     const workingHours = normalizeNumber(values.workingHours);
-
 
      
     let resultValue: any = 0;
@@ -2933,7 +2757,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const fbaFee = normalizeNumber(values.fbaFee);
     const commission = normalizeNumber(values.commission);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2961,7 +2784,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const platform = normalizeNumber(values.platform);
     const fixed = normalizeNumber(values.fixed);
 
-
      
     let resultValue: any = 0;
     try {
@@ -2988,7 +2810,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const transaction = normalizeNumber(values.transaction);
     const payment = normalizeNumber(values.payment);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3013,7 +2834,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const sale = normalizeNumber(values.sale);
     const category = normalizeNumber(values.category);
     const fixed = normalizeNumber(values.fixed);
-
 
      
     let resultValue: any = 0;
@@ -3041,7 +2861,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const shipping = normalizeNumber(values.shipping);
     const ads = normalizeNumber(values.ads);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3068,7 +2887,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const marketing = normalizeNumber(values.marketing);
     const operations = normalizeNumber(values.operations);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3094,7 +2912,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const volume = normalizeNumber(values.volume);
     const distance = normalizeNumber(values.distance);
     const unitPrice = normalizeNumber(values.unitPrice);
-
 
      
     let resultValue: any = 0;
@@ -3123,7 +2940,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const height = normalizeNumber(values.height);
     const divisor = normalizeNumber(values.divisor);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3148,7 +2964,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const cifValue = normalizeNumber(values.cifValue);
     const dutyRate = normalizeNumber(values.dutyRate);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3172,7 +2987,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "additional-origin-import-tax": (values) => {
     const productValue = normalizeNumber(values.productValue);
     const additionalTax = normalizeNumber(values.additionalTax);
-
 
      
     let resultValue: any = 0;
@@ -3199,7 +3013,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const shipping = normalizeNumber(values.shipping);
     const countryVat = normalizeNumber(values.countryVat);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3224,7 +3037,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const sale = normalizeNumber(values.sale);
     const percent = normalizeNumber(values.percent);
     const fixed = normalizeNumber(values.fixed);
-
 
      
     let resultValue: any = 0;
@@ -3252,7 +3064,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const orderingCost = normalizeNumber(values.orderingCost);
     const holdingCost = normalizeNumber(values.holdingCost);
 
-
     // Static Analysis Test: Input: annualDemand = 1200, orderingCost = 50, holdingCost = 3 => Output: EOQ = 200
     let resultValue: any = 0;
     try {
@@ -3279,7 +3090,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const leadTime = normalizeNumber(values.leadTime);
     const zScore = normalizeNumber(values.zScore);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3305,7 +3115,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const annualCogs = normalizeNumber(values.annualCogs);
     const avgInventory = normalizeNumber(values.avgInventory);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3329,7 +3138,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "abc-inventory-classification": (values) => {
     const annualDemand = normalizeNumber(values.annualDemand);
     const unitCost = normalizeNumber(values.birimmaliyet);
-
 
      
     let resultValue: any = 0;
@@ -3357,7 +3165,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KutuHacim = normalizeNumber(values.kutuhacim);
     const Istifleme = normalizeNumber(values.istifleme);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3382,7 +3189,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ToplamAlan = normalizeNumber(values.toplamalan);
     const RafKullanimi = normalizeNumber(values.rafkullanimi);
     const PaletAlani = normalizeNumber(values.paletalani);
-
 
      
     let resultValue: any = 0;
@@ -3409,7 +3215,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Tonaj = normalizeNumber(values.tonaj);
     const unitPrice = normalizeNumber(values.unitPrice);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3435,7 +3240,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Tuketim = normalizeNumber(values.tuketim);
     const LitreFiyati = normalizeNumber(values.litrefiyati);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3460,7 +3264,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const distance = normalizeNumber(values.distance);
     const YolcuSayisi = normalizeNumber(values.yolcusayisi);
     const KoltukMaliyeti = normalizeNumber(values.koltukmaliyeti);
-
 
      
     let resultValue: any = 0;
@@ -3490,7 +3293,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const distance = normalizeNumber(values.distance);
     const duration = normalizeNumber(values.duration);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3516,7 +3318,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const performance = normalizeNumber(values.performance);
     const quality = normalizeNumber(values.quality);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3541,7 +3342,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const internalSetup = normalizeNumber(values.internalSetup);
     const externalSetup = normalizeNumber(values.externalSetup);
     const conversion = normalizeNumber(values.conversion);
-
 
      
     let resultValue: any = 0;
@@ -3569,7 +3369,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const learningRate = normalizeNumber(values.learningRate);
     const unitsProduced = normalizeNumber(values.unitsProduced);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3595,7 +3394,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const observedTime = normalizeNumber(values.observedTime);
     const performance = normalizeNumber(values.performance);
     const allowanceTime = normalizeNumber(values.allowanceTime);
-
 
      
     let resultValue: any = 0;
@@ -3623,7 +3421,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const taktTime = normalizeNumber(values.taktTime);
     const IstasyonSayisi = normalizeNumber(values.istasyonsayisi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3646,7 +3443,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "assembly-line-bottleneck-capacity": (values) => {
     const stationTimes = normalizeNumber(values.stationTimes);
-
 
      
     let resultValue: any = 0;
@@ -3674,7 +3470,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const scrap = normalizeNumber(values.scrap);
     const unitCost = normalizeNumber(values.birimmaliyet);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3700,7 +3495,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const finalError = normalizeNumber(values.finalError);
     const prevError = normalizeNumber(values.prevError);
     const elapsedTime = normalizeNumber(values.elapsedTime);
-
 
      
     let resultValue: any = 0;
@@ -3728,7 +3522,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const usefulLife = normalizeNumber(values.usefulLife);
     const capacity = normalizeNumber(values.capacity);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3753,7 +3546,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const totalInvestment = normalizeNumber(values.totalInvestment);
     const totalOperating = normalizeNumber(values.totalOperating);
     const totalGeneration = normalizeNumber(values.totalGeneration);
-
 
      
     let resultValue: any = 0;
@@ -3780,7 +3572,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const taktTime = normalizeNumber(values.taktTime);
     const operators = normalizeNumber(values.operators);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3804,7 +3595,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "measurement-gage-rr-percentage": (values) => {
     const partVariance = normalizeNumber(values.partVariance);
     const gageVariance = normalizeNumber(values.gageVariance);
-
 
      
     let resultValue: any = 0;
@@ -3833,7 +3623,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const debts = normalizeNumber(values.debts);
     const savings = normalizeNumber(values.savings);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3858,7 +3647,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const annualPremium = normalizeNumber(values.annualPremium);
     const interestRate = normalizeNumber(values.interestRate);
     const years = normalizeNumber(values.years);
-
 
      
     let resultValue: any = 0;
@@ -3885,7 +3673,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const OlumOlasiligi = normalizeNumber(values.olumolasiligi);
     const GiderMarji = normalizeNumber(values.gidermarji);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3911,7 +3698,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const monthlyIncome = normalizeNumber(values.monthlyIncome);
     const OdemeYuzdesi = normalizeNumber(values.odemeyuzdesi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -3935,7 +3721,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "hsa-tax-saving-advantage": (values) => {
     const annualContribution = normalizeNumber(values.annualContribution);
     const marginalTax = normalizeNumber(values.marginalTax);
-
 
      
     let resultValue: any = 0;
@@ -3988,7 +3773,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const higherPremium = normalizeNumber(values.higherPremium);
     const deductibleDifference = normalizeNumber(values.deductibleDifference);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4015,7 +3799,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
     const years = normalizeNumber(values.years);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4041,7 +3824,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const currentSavings = normalizeNumber(values.currentSavings);
     const monthlyContribution = normalizeNumber(values.monthlyContribution);
     const interestRate = normalizeNumber(values.interestRate);
-
 
      
     let resultValue: any = 0;
@@ -4070,7 +3852,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
     const years = normalizeNumber(values.years);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4098,7 +3879,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const growthRate = normalizeNumber(values.growthRate);
     const years = normalizeNumber(values.years);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4125,7 +3905,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const conversionAmount = normalizeNumber(values.conversionAmount);
     const taxRate = normalizeNumber(values.taxRate);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4151,7 +3930,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const balance = normalizeNumber(values.balance);
     const lifeExpectancy = normalizeNumber(values.lifeExpectancy);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4176,7 +3954,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const aime = normalizeNumber(values.aime);
     const retirementAge = normalizeNumber(values.retirementAge);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4198,39 +3975,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "confidence-interval-bounds": (values) => {
-    const mean = normalizeNumber(values.mean);
-    const stdError = normalizeNumber(values.stdError);
-    const confidenceLevel = normalizeNumber(values.confidenceLevel);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const zScore = NORMSINV(confidenceLevel);
-    const Alt = mean - zScore * stdError;
-    const Ust = mean + zScore * stdError;
-    resultValue = Ust;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Ust",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Confidence Interval Bounds calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "sample-size-estimation-stats": (values) => {
     const zScore = normalizeNumber(values.zScore);
     const stdDev = normalizeNumber(values.stdDev);
     const marginOfError = normalizeNumber(values.marginOfError);
-
 
      
     let resultValue: any = 0;
@@ -4255,7 +4003,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "body-mass-index-bmi": (values) => {
     const weight = normalizeNumber(values.weight);
     const length = normalizeNumber(values.length);
-
 
      
     let resultValue: any = 0;
@@ -4283,7 +4030,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const neck = normalizeNumber(values.neck);
     const gender = normalizeNumber(values.gender);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4310,7 +4056,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Yas = normalizeNumber(values.yas);
     const gender = normalizeNumber(values.gender);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4334,7 +4079,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "daily-calorie-expenditure-tdee": (values) => {
     const BMR = normalizeNumber(values.bmr);
     const activityLevel = normalizeNumber(values.activityLevel);
-
 
      
     let resultValue: any = 0;
@@ -4361,7 +4105,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const restingHeartRate = normalizeNumber(values.restingHeartRate);
     const density = normalizeNumber(values.density);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4386,7 +4129,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "vo2max-aerobic-capacity-cooper": (values) => {
     const runDistance = normalizeNumber(values.runDistance);
     const duration = normalizeNumber(values.duration);
-
 
      
     let resultValue: any = 0;
@@ -4414,7 +4156,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Yag = normalizeNumber(values.yag);
     const Karb = normalizeNumber(values.karb);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4441,7 +4182,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const weight = normalizeNumber(values.weight);
     const activityDuration = normalizeNumber(values.activityDuration);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4465,7 +4205,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "hookes-law-axial-stress": (values) => {
     const elasticModulus = normalizeNumber(values.elasticModulus);
     const strain = normalizeNumber(values.strain);
-
 
      
     let resultValue: any = 0;
@@ -4493,7 +4232,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const e1 = normalizeNumber(values.e1);
     const e2 = normalizeNumber(values.e2);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4519,7 +4257,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const diameter = normalizeNumber(values.diameter);
     const thickness = normalizeNumber(values.thickness);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4544,7 +4281,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const load = normalizeNumber(values.load);
     const weldLength = normalizeNumber(values.weldLength);
     const weldStress = normalizeNumber(values.weldStress);
-
 
      
     let resultValue: any = 0;
@@ -4572,7 +4308,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const elasticModulus = normalizeNumber(values.elasticModulus);
     const momentOfInertia = normalizeNumber(values.momentOfInertia);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4598,7 +4333,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const cuttingSpeed = normalizeNumber(values.cuttingSpeed);
     const focusDistance = normalizeNumber(values.focusDistance);
     const materialThickness = normalizeNumber(values.materialThickness);
-
 
      
     let resultValue: any = 0;
@@ -4626,7 +4360,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const width = normalizeNumber(values.width);
     const height = normalizeNumber(values.height);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4653,7 +4386,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const sigmaY = normalizeNumber(values.sigmaY);
     const tauXY = normalizeNumber(values.tauXY);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4679,7 +4411,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const width = normalizeNumber(values.width);
     const height = normalizeNumber(values.height);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4700,40 +4431,12 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "normal-shock-wave-relations": (values) => {
-    const mach = normalizeNumber(values.mach);
-    const pressure1 = normalizeNumber(values.pressure1);
-    const temperature1 = normalizeNumber(values.temperature1);
-    const specificHeatRatio = normalizeNumber(values.strikePrice);
-
-
-
-    let resultValue: any = 0;
-    try {
-    const Basinc2 = pressure1 * (1 + (2*specificHeatRatio/(specificHeatRatio+1)) * (mach**2 - 1));
-    resultValue = Basinc2;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Basinc2",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Normal Shock Wave Relations calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "pump-npsh-cavitation-margin": (values) => {
     const pressure = normalizeNumber(values.pressure);
     const vaporPressure = normalizeNumber(values.vaporPressure);
     const density = normalizeNumber(values.density);
     const height = normalizeNumber(values.height);
     const loss = normalizeNumber(values.loss);
-
 
      
     let resultValue: any = 0;
@@ -4759,7 +4462,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const elasticModulus = normalizeNumber(values.elasticModulus);
     const expansionCoefficient = normalizeNumber(values.expansionCoefficient);
     const temperatureDifference = normalizeNumber(values.temperatureDifference);
-
 
      
     let resultValue: any = 0;
@@ -4787,7 +4489,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const wrapAngle = normalizeNumber(values.wrapAngle);
     const friction = normalizeNumber(values.friction);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4812,7 +4513,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "natural-resonance-frequency": (values) => {
     const mass = normalizeNumber(values.mass);
     const springConstant = normalizeNumber(values.springConstant);
-
 
      
     let resultValue: any = 0;
@@ -4839,7 +4539,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const torque = normalizeNumber(values.torque);
     const yieldStrength = normalizeNumber(values.yieldStrength);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4865,7 +4564,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const radius = normalizeNumber(values.radius);
     const polarInertia = normalizeNumber(values.polarInertia);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4890,7 +4588,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const springConstant = normalizeNumber(values.springConstant);
     const displacement = normalizeNumber(values.displacement);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4914,7 +4611,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "mass-spring-angular-frequency": (values) => {
     const mass = normalizeNumber(values.mass);
     const springConstant = normalizeNumber(values.springConstant);
-
 
      
     let resultValue: any = 0;
@@ -4942,7 +4638,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const width = normalizeNumber(values.width);
     const FormFaktoru = normalizeNumber(values.formfaktoru);
 
-
      
     let resultValue: any = 0;
     try {
@@ -4966,7 +4661,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "hydrostatic-fluid-pressure-depth": (values) => {
     const density = normalizeNumber(values.density);
     const depth = normalizeNumber(values.depth);
-
 
      
     let resultValue: any = 0;
@@ -4992,7 +4686,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const moment = normalizeNumber(values.moment);
     const KesitModulu = normalizeNumber(values.kesitmodulu);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5016,7 +4709,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "strain-calculator": (values) => {
     const IlkBoy = normalizeNumber(values.ilkboy);
     const SonBoy = normalizeNumber(values.sonboy);
-
 
      
     let resultValue: any = 0;
@@ -5042,7 +4734,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Kuvvet = normalizeNumber(values.kuvvet);
     const Alan = normalizeNumber(values.alan);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5066,7 +4757,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "tolerance-and-fit": (values) => {
     const DelikCap = normalizeNumber(values.delikcap);
     const MilCap = normalizeNumber(values.milcap);
-
 
      
     let resultValue: any = 0;
@@ -5097,7 +4787,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Nq = normalizeNumber(values.nq);
     const Ng = normalizeNumber(values.ng);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5121,7 +4810,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "torque-converter": (values) => {
     const value = normalizeNumber(values.value);
     const Kaynak = String(values.kaynak ?? "");
-
 
      
     let resultValue: any = 0;
@@ -5149,7 +4837,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KaymaModulu = normalizeNumber(values.kaymamodulu);
     const polarInertia = normalizeNumber(values.polarInertia);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5173,7 +4860,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "torsion-spring": (values) => {
     const moment = normalizeNumber(values.moment);
     const springConstant = normalizeNumber(values.springConstant);
-
 
      
     let resultValue: any = 0;
@@ -5199,7 +4885,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const sigmaX = normalizeNumber(values.sigmaX);
     const sigmaY = normalizeNumber(values.sigmaY);
     const tauXY = normalizeNumber(values.tauXY);
-
 
      
     let resultValue: any = 0;
@@ -5227,7 +4912,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const advanceSpeed = normalizeNumber(values.ilerlemehiz);
     const efficiency = normalizeNumber(values.verim);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5253,7 +4937,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const width = normalizeNumber(values.width);
     const height = normalizeNumber(values.height);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5277,7 +4960,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "worm-gear-efficiency": (values) => {
     const HelisAcisi = normalizeNumber(values.helisacisi);
     const SuratmaAcisi = normalizeNumber(values.suratmaacisi);
-
 
      
     let resultValue: any = 0;
@@ -5303,7 +4985,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const load = normalizeNumber(values.load);
     const DuvarAlani = normalizeNumber(values.duvaralani);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5327,7 +5008,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "surface-roughness-ra": (values) => {
     const Ilerleme = normalizeNumber(values.feedRate);
     const UcYariCap = normalizeNumber(values.noseRadius);
-
 
      
     let resultValue: any = 0;
@@ -5355,7 +5035,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const elasticModulus = normalizeNumber(values.elasticModulus);
     const momentOfInertia = normalizeNumber(values.momentOfInertia);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5380,7 +5059,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KesitModulu = normalizeNumber(values.kesitmodulu);
     const EgilmeDayanimi = normalizeNumber(values.egilmedayanimi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5404,7 +5082,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "ridge-beam-calculator": (values) => {
     const ridgeLoad = normalizeNumber(values.ridgeLoad);
     const span = normalizeNumber(values.span);
-
 
      
     let resultValue: any = 0;
@@ -5431,7 +5108,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const distance = normalizeNumber(values.distance);
     const length = normalizeNumber(values.length);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5455,7 +5131,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "archimedes-principle": (values) => {
     const density = normalizeNumber(values.density);
     const volume = normalizeNumber(values.volume);
-
 
      
     let resultValue: any = 0;
@@ -5485,7 +5160,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const h2 = normalizeNumber(values.h2);
     const density = normalizeNumber(values.density);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5509,7 +5183,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "brinell-rockwell-conversion": (values) => {
     const HB = normalizeNumber(values.hb);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5530,40 +5203,11 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "capillary-action": (values) => {
-    const YuzeyGerilimi = normalizeNumber(values.yuzeygerilimi);
-    const TemasAcisi = normalizeNumber(values.temasacisi);
-    const radius = normalizeNumber(values.radius);
-    const density = normalizeNumber(values.density);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const h = (2 * YuzeyGerilimi * Math.cos(TemasAcisi)) / Math.max(0.0001, (density * 9.81 * radius));
-    resultValue = h;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "h",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Capillary Action calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "heat-conduction-fourier": (values) => {
     const Alan = normalizeNumber(values.alan);
     const thermalConductivity = normalizeNumber(values.strikePrice);
     const thickness = normalizeNumber(values.thickness);
     const temperatureDifference = normalizeNumber(values.temperatureDifference);
-
-
 
     let resultValue: any = 0;
     try {
@@ -5587,7 +5231,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "energy-density": (values) => {
     const Enerji = normalizeNumber(values.enerji);
     const volume = normalizeNumber(values.volume);
-
 
      
     let resultValue: any = 0;
@@ -5614,7 +5257,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Cl = normalizeNumber(values.cl);
     const Cs = normalizeNumber(values.cs);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5635,35 +5277,9 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "photoelectric-effect": (values) => {
-    const frequency = normalizeNumber(values.frequency);
-    const EsikEnerji = normalizeNumber(values.esikenerji);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const KE = Math.max(0, (6.626e-34 * frequency) - EsikEnerji);
-    resultValue = KE;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "KE",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Photoelectric Effect calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "porosity-calculator": (values) => {
     const BoslukHacim = normalizeNumber(values.boslukhacim);
     const ToplamHacim = normalizeNumber(values.toplamhacim);
-
 
      
     let resultValue: any = 0;
@@ -5685,64 +5301,9 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "stokes-law": (values) => {
-    const radius = normalizeNumber(values.radius);
-    const ParcacikYogunluk = normalizeNumber(values.parcacikyogunluk);
-    const AkiskanYogunluk = normalizeNumber(values.akiskanyogunluk);
-    const Viskozite = normalizeNumber(values.viskozite);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const Hiz = (2 * radius**2 * (ParcacikYogunluk - AkiskanYogunluk) * 9.81) / Math.max(0.0001, (9 * Viskozite));
-    resultValue = Hiz;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Speed",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Stokes Law calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
-  "terminal-velocity": (values) => {
-    const mass = normalizeNumber(values.mass);
-    const density = normalizeNumber(values.density);
-    const DirencKatsayisi = normalizeNumber(values.direnckatsayisi);
-    const Alan = normalizeNumber(values.alan);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const Hiz = Math.sqrt(Math.max(0, (2 * mass * 9.81) / Math.max(0.0001, (density * DirencKatsayisi * Alan))));
-    resultValue = Hiz;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Speed",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Terminal Velocity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "wavelength-frequency-speed": (values) => {
     const Hiz = normalizeNumber(values.hiz);
     const frequency = normalizeNumber(values.frequency);
-
 
      
     let resultValue: any = 0;
@@ -5768,7 +5329,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const value = normalizeNumber(values.value);
     const Kaynak = String(values.kaynak ?? "");
 
-
      
     let resultValue: any = 0;
     try {
@@ -5789,35 +5349,9 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "surface-tension": (values) => {
-    const Kuvvet = normalizeNumber(values.kuvvet);
-    const length = normalizeNumber(values.length);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const Sigma = Kuvvet / Math.max(0.0001, length);
-    resultValue = Sigma;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Sigma",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Surface Tension calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "thermal-conductivity-converter": (values) => {
     const value = normalizeNumber(values.value);
     const Kaynak = String(values.kaynak ?? "");
-
 
      
     let resultValue: any = 0;
@@ -5842,7 +5376,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "adhesive-amount": (values) => {
     const Alan = normalizeNumber(values.alan);
     const Sarfiyat = normalizeNumber(values.sarfiyat);
-
 
      
     let resultValue: any = 0;
@@ -5869,7 +5402,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const TahtaEn = normalizeNumber(values.tahtaen);
     const TahtaBoy = normalizeNumber(values.tahtaboy);
     const Fire = normalizeNumber(values.fire);
-
 
      
     let resultValue: any = 0;
@@ -5928,7 +5460,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Alan = normalizeNumber(values.alan);
     const Sarfiyat = normalizeNumber(values.sarfiyat);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5955,7 +5486,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const PanelBoy = normalizeNumber(values.panelboy);
     const Fire = normalizeNumber(values.fire);
 
-
      
     let resultValue: any = 0;
     try {
@@ -5979,7 +5509,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "soffit-calculator": (values) => {
     const Cevre = normalizeNumber(values.cevre);
     const width = normalizeNumber(values.width);
-
 
      
     let resultValue: any = 0;
@@ -6006,7 +5535,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KatSayisi = normalizeNumber(values.katsayisi);
     const OrtimeOrani = normalizeNumber(values.ortimeorani);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6030,7 +5558,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "wood-stain-calculator": (values) => {
     const Alan = normalizeNumber(values.alan);
     const Sarfiyat = normalizeNumber(values.sarfiyat);
-
 
      
     let resultValue: any = 0;
@@ -6057,7 +5584,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const thickness = normalizeNumber(values.thickness);
     const density = normalizeNumber(values.density);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6083,7 +5609,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KapiGenisligi = normalizeNumber(values.kapigenisligi);
     const KapiSayisi = normalizeNumber(values.kapisayisi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6106,7 +5631,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "chair-rail-calculator": (values) => {
     const DuvarUzunlugu = normalizeNumber(values.duvaruzunlugu);
-
 
      
     let resultValue: any = 0;
@@ -6134,7 +5658,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const RuloBoy = normalizeNumber(values.ruloboy);
     const DesenTekrari = normalizeNumber(values.desentekrari);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6158,7 +5681,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "tile-layout-calculator": (values) => {
     const AlanEn = normalizeNumber(values.alanen);
     const FayansEn = normalizeNumber(values.fayansen);
-
 
      
     let resultValue: any = 0;
@@ -6185,7 +5707,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const RuloEn = normalizeNumber(values.ruloen);
     const Fire = normalizeNumber(values.fire);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6210,7 +5731,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Alan = normalizeNumber(values.alan);
     const TahtaEn = normalizeNumber(values.tahtaen);
     const BindirmePayi = normalizeNumber(values.bindirmepayi);
-
 
      
     let resultValue: any = 0;
@@ -6238,7 +5758,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const TasBoy = normalizeNumber(values.tasboy);
     const Fire = normalizeNumber(values.fire);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6263,7 +5782,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Alan = normalizeNumber(values.alan);
     const thickness = normalizeNumber(values.thickness);
     const density = normalizeNumber(values.density);
-
 
      
     let resultValue: any = 0;
@@ -6290,7 +5808,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const YillikYagis = normalizeNumber(values.yillikyagis);
     const Verim = normalizeNumber(values.verim);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6316,7 +5833,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const height = normalizeNumber(values.height);
     const Verim = normalizeNumber(values.verim);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6340,7 +5856,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "building-load-factor": (values) => {
     const MaksTalep = normalizeNumber(values.makstalep);
     const KuruluGuc = normalizeNumber(values.kuruluguc);
-
 
      
     let resultValue: any = 0;
@@ -6367,7 +5882,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Su = normalizeNumber(values.su);
     const Malzeme = normalizeNumber(values.malzeme);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6392,7 +5906,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Yakit = normalizeNumber(values.yakit);
     const Elektrik = normalizeNumber(values.elektrik);
     const supply = normalizeNumber(values.supply);
-
 
      
     let resultValue: any = 0;
@@ -6421,7 +5934,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Sosyal = normalizeNumber(values.sosyal);
     const Yonetisim = normalizeNumber(values.yonetisim);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6446,7 +5958,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const GeriKazanilan = normalizeNumber(values.gerikazanilan);
     const ToplamGirdi = normalizeNumber(values.toplamgirdi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6470,7 +5981,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "water-footprint": (values) => {
     const UretimHacmi = normalizeNumber(values.uretimhacmi);
     const TuketilenSu = normalizeNumber(values.tuketilensu);
-
 
      
     let resultValue: any = 0;
@@ -6497,7 +6007,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Sikistirma = normalizeNumber(values.sikistirma);
     const depth = normalizeNumber(values.depth);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6521,7 +6030,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "recycling-rate": (values) => {
     const GeriDonusen = normalizeNumber(values.geridonusen);
     const ToplamAtik = normalizeNumber(values.toplamatik);
-
 
      
     let resultValue: any = 0;
@@ -6548,7 +6056,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Yagis = normalizeNumber(values.yagis);
     const AkisKatsayisi = normalizeNumber(values.akiskatsayisi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6574,7 +6081,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const AritmaMaliyet = normalizeNumber(values.aritmamaliyet);
     const SebekeFiyat = normalizeNumber(values.sebekefiyat);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6595,39 +6101,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "quantum-tunneling": (values) => {
-    const EngelGenisligi = normalizeNumber(values.engelgenisligi);
-    const EngelYuksekligi = normalizeNumber(values.engelyuksekligi);
-    const Enerji = normalizeNumber(values.enerji);
-    const mass = normalizeNumber(values.mass);
-
-
-
-    let resultValue: any = 0;
-    try {
-    const waveNumber = Math.sqrt(Math.max(0, 2 * mass * (EngelYuksekligi - Enerji))) / 1.054e-34;
-    const Olasilik = Math.exp(-2 * waveNumber * EngelGenisligi);
-    resultValue = Olasilik;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Olasilik",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Quantum Tunneling calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "schrodinger-equation-1d": (values) => {
     const KuyuGenisligi = normalizeNumber(values.kuyugenisligi);
     const mass = normalizeNumber(values.mass);
     const KuantumSayisi = normalizeNumber(values.kuantumsayisi);
-
 
      
     let resultValue: any = 0;
@@ -6649,58 +6126,9 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "compton-scattering": (values) => {
-    const SacilmaAcisi = normalizeNumber(values.sacilmaacisi);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const Kayma = 2.426e-12 * (1 - Math.cos(SacilmaAcisi * Math.PI / 180));
-    resultValue = Kayma;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Kayma",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Compton Scattering calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
-  "chandrasekhar-limit": (values) => {
-    const GunesKutlesi = normalizeNumber(values.guneskutlesi);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const Limit = 1.44;
-    resultValue = Limit;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Limit",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Chandrasekhar Limit calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "electrical-load-factor": (values) => {
     const OrtalamaGuc = normalizeNumber(values.ortalamaguc);
     const PikGuc = normalizeNumber(values.pikguc);
-
 
      
     let resultValue: any = 0;
@@ -6727,7 +6155,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BirimKayip = normalizeNumber(values.birimkayip);
     const EkKayip = normalizeNumber(values.ekkayip);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6751,7 +6178,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "rf-antenna-sizing": (values) => {
     const frequency = normalizeNumber(values.frequency);
     const Tip = normalizeNumber(values.tip);
-
 
      
     let resultValue: any = 0;
@@ -6778,7 +6204,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const load = normalizeNumber(values.load);
     const length = normalizeNumber(values.length);
     const YukKonum = normalizeNumber(values.yukkonum);
-
 
      
     let resultValue: any = 0;
@@ -6807,7 +6232,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BinTaneAgirlik = normalizeNumber(values.bintaneagirlik);
     const Cimlenme = normalizeNumber(values.cimlenme);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6832,7 +6256,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DamaticiDebi = normalizeNumber(values.damaticidebi);
     const DamaticiSayisi = normalizeNumber(values.damaticisayisi);
     const MaxHiz = normalizeNumber(values.maxhiz);
-
 
      
     let resultValue: any = 0;
@@ -6862,7 +6285,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HavaDebi = normalizeNumber(values.havadebi);
     const NemFarki = normalizeNumber(values.nemfarki);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6888,7 +6310,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SiloHacim = normalizeNumber(values.silohacim);
     const SikistirmaYogunlugu = normalizeNumber(values.sikistirmayogunlugu);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6913,7 +6334,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Alan = normalizeNumber(values.alan);
     const height = normalizeNumber(values.height);
     const HavaDegisimSayisi = normalizeNumber(values.havadegisimsayisi);
-
 
      
     let resultValue: any = 0;
@@ -6942,7 +6362,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const width = normalizeNumber(values.width);
     const BlokKatsayi = normalizeNumber(values.blokkatsayi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6968,7 +6387,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BM = normalizeNumber(values.bm);
     const KG = normalizeNumber(values.kg);
 
-
      
     let resultValue: any = 0;
     try {
@@ -6993,7 +6411,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HalatCapi = normalizeNumber(values.halatcapi);
     const MalzemeKatsayisi = normalizeNumber(values.malzemekatsayisi);
     const GuvenlikFaktoru = normalizeNumber(values.guvenlikfaktoru);
-
 
      
     let resultValue: any = 0;
@@ -7021,7 +6438,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const RuzgarHizi = normalizeNumber(values.ruzgarhizi);
     const DipKatsayisi = normalizeNumber(values.dipkatsayisi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7046,7 +6462,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const TankHacim = normalizeNumber(values.tankhacim);
     const PompaDebi = normalizeNumber(values.pompadebi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7070,7 +6485,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "bottom-hole-pressure": (values) => {
     const CamurYogunlugu = normalizeNumber(values.camuryogunlugu);
     const depth = normalizeNumber(values.depth);
-
 
      
     let resultValue: any = 0;
@@ -7097,7 +6511,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KayaDayanim = normalizeNumber(values.kayadayanim);
     const KesiciKatsayi = normalizeNumber(values.kesicikatsayi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7122,7 +6535,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const CamurDebi = normalizeNumber(values.camurdebi);
     const KuyuCapi = normalizeNumber(values.kuyucapi);
     const MatkapCapi = normalizeNumber(values.matkapcapi);
-
 
      
     let resultValue: any = 0;
@@ -7149,7 +6561,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const length = normalizeNumber(values.length);
     const Kohezyon = normalizeNumber(values.kohezyon);
     const friction = normalizeNumber(values.friction);
-
 
      
     let resultValue: any = 0;
@@ -7179,7 +6590,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const IcSuratmaAcisi = normalizeNumber(values.icsuratmaacisi);
     const KaymaGerilmesi = normalizeNumber(values.kaymagerilmesi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7204,7 +6614,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "fabric-weight": (values) => {
     const width = normalizeNumber(values.width);
     const Gramaj = normalizeNumber(values.gramaj);
-
 
      
     let resultValue: any = 0;
@@ -7231,7 +6640,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DevirSayisi = normalizeNumber(values.devirsayisi);
     const DikisSikligi = normalizeNumber(values.dikissikligi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7256,7 +6664,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BobinAgirlik = normalizeNumber(values.bobinagirlik);
     const IplikNumara = normalizeNumber(values.ipliknumara);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7280,7 +6687,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "fabric-shrinkage": (values) => {
     const HamOlcu = normalizeNumber(values.hamolcu);
     const BitmisOlcu = normalizeNumber(values.bitmisolcu);
-
 
      
     let resultValue: any = 0;
@@ -7307,7 +6713,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DurusSure = normalizeNumber(values.durussure);
     const VardiyaSure = normalizeNumber(values.vardiyasure);
     const KumasSikligi = normalizeNumber(values.kumassikligi);
-
 
      
     let resultValue: any = 0;
@@ -7336,7 +6741,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DisSicaklik = normalizeNumber(values.dissicaklik);
     const IcSicaklik = normalizeNumber(values.icsicaklik);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7362,7 +6766,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BasincDusumu = normalizeNumber(values.basincdusumu);
     const PompaVerim = normalizeNumber(values.pompaverim);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7386,7 +6789,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "pasteurization-time": (values) => {
     const volume = normalizeNumber(values.volume);
     const Debi = normalizeNumber(values.debi);
-
 
      
     let resultValue: any = 0;
@@ -7414,7 +6816,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BaslangicBasinc = normalizeNumber(values.baslangicbasinc);
     const HedefBasinc = normalizeNumber(values.hedefbasinc);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7440,7 +6841,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const TavaKapasite = normalizeNumber(values.tavakapasite);
     const PismeSure = normalizeNumber(values.pismesure);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7464,7 +6864,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "injection-clamping-tonnage": (values) => {
     const ProjeksiyonAlani = normalizeNumber(values.projeksiyonalani);
     const KalipIcBasinc = normalizeNumber(values.kalipicbasinc);
-
 
      
     let resultValue: any = 0;
@@ -7493,7 +6892,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KalipSicaklik = normalizeNumber(values.kalipsicaklik);
     const FirinSicaklik = normalizeNumber(values.firinsicaklik);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7519,7 +6917,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const NemOrani = normalizeNumber(values.nemorani);
     const HavaDebi = normalizeNumber(values.havadebi);
     const NemAlmaKapasite = normalizeNumber(values.nemalmakapasite);
-
 
      
     let resultValue: any = 0;
@@ -7547,7 +6944,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const EriyikYogunluk = normalizeNumber(values.eriyikyogunluk);
     const Verim = normalizeNumber(values.verim);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7572,7 +6968,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ParcaDerinlik = normalizeNumber(values.parcaderinlik);
     const BuzulmeOrani = normalizeNumber(values.buzulmeorani);
     const YanYuzeyUzunluk = normalizeNumber(values.yanyuzeyuzunluk);
-
 
      
     let resultValue: any = 0;
@@ -7599,7 +6994,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const pressure = normalizeNumber(values.pressure);
     const PompaVerim = normalizeNumber(values.pompaverim);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7625,7 +7019,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const IsilDeger = normalizeNumber(values.isildeger);
     const KatAlani = normalizeNumber(values.katalani);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7650,7 +7043,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const K_Faktoru = normalizeNumber(values.k_faktoru);
     const pressure = normalizeNumber(values.pressure);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7674,7 +7066,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "adc-resolution": (values) => {
     const BitSayisi = normalizeNumber(values.bitsayisi);
     const RefVoltaj = normalizeNumber(values.refvoltaj);
-
 
      
     let resultValue: any = 0;
@@ -7701,7 +7092,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Akim = normalizeNumber(values.akim);
     const distance = normalizeNumber(values.distance);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7722,37 +7112,9 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "biot-savart-law": (values) => {
-    const Akim = normalizeNumber(values.akim);
-    const length = normalizeNumber(values.length);
-    const distance = normalizeNumber(values.distance);
-    const Aci = normalizeNumber(values.aci);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const dB = (4 * Math.PI * 10**-7 * Akim * length * Math.sin(Aci * Math.PI / 180)) / Math.max(0.0001, (4 * Math.PI * distance**2));
-    resultValue = dB;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "dB",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Biot Savart Law calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "capacitive-reactance": (values) => {
     const frequency = normalizeNumber(values.frequency);
     const Kapasite = normalizeNumber(values.kapasite);
-
 
      
     let resultValue: any = 0;
@@ -7778,7 +7140,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const frequency = normalizeNumber(values.frequency);
     const Induktans = normalizeNumber(values.induktans);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7802,7 +7163,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "rc-time-constant": (values) => {
     const interestRate = normalizeNumber(values.interestRate);
     const C = normalizeNumber(values.c);
-
 
      
     let resultValue: any = 0;
@@ -7846,7 +7206,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const YukEmpedans = normalizeNumber(values.yukempedans);
     const HatEmpedans = normalizeNumber(values.hatempedans);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7871,7 +7230,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "signal-to-noise-ratio": (values) => {
     const SinyalGuc = normalizeNumber(values.sinyalguc);
     const GurultuGuc = normalizeNumber(values.gurultuguc);
-
 
      
     let resultValue: any = 0;
@@ -7898,7 +7256,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const torque = normalizeNumber(values.torque);
     const CekisKatsayisi = normalizeNumber(values.cekiskatsayisi);
     const HavaDirenci = normalizeNumber(values.havadirenci);
-
 
      
     let resultValue: any = 0;
@@ -7927,7 +7284,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Adim = normalizeNumber(values.adim);
     const MerkezC = normalizeNumber(values.merkezc);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7954,7 +7310,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SarjGuc = normalizeNumber(values.sarjguc);
     const Verim = normalizeNumber(values.verim);
 
-
      
     let resultValue: any = 0;
     try {
@@ -7980,7 +7335,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Tuketim = normalizeNumber(values.tuketim);
     const Verim = normalizeNumber(values.verim);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8004,7 +7358,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "horsepower-converter": (values) => {
     const value = normalizeNumber(values.value);
     const Kaynak = String(values.kaynak ?? "");
-
 
      
     let resultValue: any = 0;
@@ -8032,7 +7385,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Alan = normalizeNumber(values.alan);
     const Devir = normalizeNumber(values.devir);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8057,7 +7409,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const power = normalizeNumber(values.power);
     const Devir = normalizeNumber(values.devir);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8081,7 +7432,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "motor-efficiency": (values) => {
     const CikisGuc = normalizeNumber(values.cikisguc);
     const GirisGuc = normalizeNumber(values.girisguc);
-
 
      
     let resultValue: any = 0;
@@ -8109,7 +7459,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SuratmaKatsayi = normalizeNumber(values.suratmakatsayi);
     const HavaDirencKatsayi = normalizeNumber(values.havadirenckatsayi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8135,7 +7484,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Ivme = normalizeNumber(values.ivme);
     const RuzgarHiz = normalizeNumber(values.ruzgarhiz);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8157,59 +7505,8 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "de-broglie-wavelength": (values) => {
-    const mass = normalizeNumber(values.mass);
-    const Hiz = normalizeNumber(values.hiz);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const Lambda = 6.626e-34 / Math.max(0.0001, (mass * Hiz));
-    resultValue = Lambda;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Lambda",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `De Broglie Wavelength calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
-  "decibel-converter": (values) => {
-    const rate = normalizeNumber(values.rate);
-    const Tip = normalizeNumber(values.tip);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const dB = ((Tip=== ("power" as any)) ? ( 10*Math.log10(Math.max(0.0001, rate))) : ( 20*Math.log10(Math.max(0.0001, rate))));
-    resultValue = dB;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "dB",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Decibel Converter calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "diopter-lens-power": (values) => {
     const OdakUzaklik = normalizeNumber(values.odakuzaklik);
-
 
      
     let resultValue: any = 0;
@@ -8237,7 +7534,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const EsdegerAgirlik = normalizeNumber(values.esdegeragirlik);
     const ElektronSayisi = normalizeNumber(values.elektronsayisi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8258,39 +7554,12 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "magnetic-field-solenoid": (values) => {
-    const Akim = normalizeNumber(values.akim);
-    const SarimSayisi = normalizeNumber(values.sarimsayisi);
-    const length = normalizeNumber(values.length);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const B = (4 * Math.PI * 10**-7 * SarimSayisi * Akim) / Math.max(0.0001, length);
-    resultValue = B;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "B",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Magnetic Field Solenoid calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "propagation-constant": (values) => {
     const Direnc = normalizeNumber(values.direnc);
     const Induktans = normalizeNumber(values.induktans);
     const Kapasite = normalizeNumber(values.kapasite);
     const Iletkenlik = normalizeNumber(values.iletkenlik);
     const frequency = normalizeNumber(values.frequency);
-
 
      
     let resultValue: any = 0;
@@ -8317,7 +7586,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const RezonansFrekans = normalizeNumber(values.rezonansfrekans);
     const BantGenislik = normalizeNumber(values.bantgenislik);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8341,7 +7609,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "quantization-noise-sqnr": (values) => {
     const BitSayisi = normalizeNumber(values.bitsayisi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8362,37 +7629,11 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "tesla-unit-converter": (values) => {
-    const value = normalizeNumber(values.value);
-    const Kaynak = String(values.kaynak ?? "");
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const time = ((Kaynak=== ("G" as any)) ? ( value*10**-4) : ( ((Kaynak=== ("Wb" as any)) ? ( value) : ( value))));
-    resultValue = time;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Time (Years)",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Tesla Unit Converter calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "battery-backup-capacity": (values) => {
     const AkuKapasite = normalizeNumber(values.akukapasite);
     const YukGucu = normalizeNumber(values.yukgucu);
     const DCVoltaj = normalizeNumber(values.dcvoltaj);
     const DesarjDerinligi = normalizeNumber(values.desarjderinligi);
-
 
      
     let resultValue: any = 0;
@@ -8418,7 +7659,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Debi = normalizeNumber(values.debi);
     const DusuYuksekligi = normalizeNumber(values.dusuyuksekligi);
     const TurbinVerim = normalizeNumber(values.turbinverim);
-
 
      
     let resultValue: any = 0;
@@ -8446,7 +7686,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HavaYogunlugu = normalizeNumber(values.havayogunlugu);
     const Cp = normalizeNumber(values.cp);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8472,7 +7711,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SicakKaynak = normalizeNumber(values.sicakkaynak);
     const SogukKaynak = normalizeNumber(values.sogukkaynak);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8493,38 +7731,9 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "ideal-gas-law": (values) => {
-    const pressure = normalizeNumber(values.pressure);
-    const volume = normalizeNumber(values.volume);
-    const Mol = normalizeNumber(values.mol);
-    const Sicaklik = normalizeNumber(values.sicaklik);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const interestRate = 8.314;
-    const Eksik = (pressure * volume) / Math.max(0.0001, (n * Sicaklik * 8.314));
-    resultValue = Eksik;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Eksik",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Ideal Gas Law calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "carbon-offset": (values) => {
     const Emisyon = normalizeNumber(values.emisyon);
     const AgacYillikYutak = normalizeNumber(values.agacyillikyutak);
-
 
      
     let resultValue: any = 0;
@@ -8551,7 +7760,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SikistirmaOrani = normalizeNumber(values.sikistirmaorani);
     const AgHizi = normalizeNumber(values.aghizi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8575,7 +7783,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "rsa-encryption-security": (values) => {
     const RSA_AnahtarUzunlugu = normalizeNumber(values.rsa_anahtaruzunlugu);
-
 
      
     let resultValue: any = 0;
@@ -8602,7 +7809,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HataliIstek = normalizeNumber(values.hataliistek);
     const ToplamGecikme = normalizeNumber(values.toplamgecikme);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8624,37 +7830,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "drug-half-life": (values) => {
-    const YarilanmaOmru = normalizeNumber(values.yarilanmaomru);
-    const DozAraligi = normalizeNumber(values.dozaraligi);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const eliminationRate = 0.693 / Math.max(0.0001, YarilanmaOmru);
-    const BirikimFaktoru = 1 / Math.max(0.0001, (1 - Math.exp(-eliminationRate * DozAraligi)));
-    resultValue = BirikimFaktoru;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "BirikimFaktoru",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Drug Half Life calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "effective-radiation-dose": (values) => {
     const SogurulanDoz = normalizeNumber(values.sogurulandoz);
     const DokuAgirlikFaktoru = normalizeNumber(values.dokuagirlikfaktoru);
     const RadyasyonTuruFaktoru = normalizeNumber(values.radyasyonturufaktoru);
-
 
      
     let resultValue: any = 0;
@@ -8678,7 +7857,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "biosignal-sampling": (values) => {
     const MaksSinyalFrekansi = normalizeNumber(values.makssinyalfrekansi);
-
 
      
     let resultValue: any = 0;
@@ -8705,7 +7883,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const CevherYogunlugu = normalizeNumber(values.cevheryogunlugu);
     const Tenor = normalizeNumber(values.tenor);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8730,7 +7907,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "drilling-well-pressure": (values) => {
     const DikeyDerinlik = normalizeNumber(values.dikeyderinlik);
     const CamurYogunlugu = normalizeNumber(values.camuryogunlugu);
-
 
      
     let resultValue: any = 0;
@@ -8757,7 +7933,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const distance = normalizeNumber(values.distance);
     const ZeminKatsayisi = normalizeNumber(values.zeminkatsayisi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8781,7 +7956,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "joint-angular-velocity-torque": (values) => {
     const EylemsizlikMomenti = normalizeNumber(values.eylemsizlikmomenti);
     const AcisalIvme = normalizeNumber(values.acisalivme);
-
 
      
     let resultValue: any = 0;
@@ -8810,7 +7984,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const MaksNabiz = normalizeNumber(values.maksnabiz);
     const gender = normalizeNumber(values.gender);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8835,7 +8008,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "injury-risk-asymmetry": (values) => {
     const SagKuvvet = normalizeNumber(values.sagkuvvet);
     const SolKuvvet = normalizeNumber(values.solkuvvet);
-
 
      
     let resultValue: any = 0;
@@ -8862,7 +8034,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const GunSayisi = normalizeNumber(values.gunsayisi);
     const EngelYukseklik = normalizeNumber(values.engelyukseklik);
     const distance = normalizeNumber(values.distance);
-
 
      
     let resultValue: any = 0;
@@ -8891,7 +8062,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const AkisHizi = normalizeNumber(values.akishizi);
     const DoygunAkis = normalizeNumber(values.doygunakis);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8917,7 +8087,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const distance = normalizeNumber(values.distance);
     const ZeminZayiflama = normalizeNumber(values.zeminzayiflama);
     const EngelZayiflama = normalizeNumber(values.engelzayiflama);
-
 
      
     let resultValue: any = 0;
@@ -8945,7 +8114,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Kol1Uzunluk = normalizeNumber(values.kol1uzunluk);
     const Kol2Uzunluk = normalizeNumber(values.kol2uzunluk);
 
-
      
     let resultValue: any = 0;
     try {
@@ -8970,7 +8138,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "pid-controller-ziegler": (values) => {
     const KritikKazanc = normalizeNumber(values.kritikkazanc);
     const KritikPeriyot = normalizeNumber(values.kritikperiyot);
-
 
      
     let resultValue: any = 0;
@@ -9002,8 +8169,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Girdi = normalizeNumber(values.girdi);
     const ProsesGurultusu = normalizeNumber(values.prosesgurultusu);
 
-
-
     let resultValue: any = 0;
     try {
     const YeniDurum = (DurumGecis * OncekiDurum) + (KontrolGirdisi * Girdi);
@@ -9024,65 +8189,11 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
-  "h-index": (values) => {
-    const AtifSayisi = normalizeNumber(values.atifsayisi);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const h = AtifSayisi * 0.1;
-    resultValue = h;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "h",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `H Index calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
-  "item-difficulty-discrimination": (values) => {
-    const DogruCevap = normalizeNumber(values.dogrucevap);
-    const ToplamOgrenci = normalizeNumber(values.toplamogrenci);
-    const UstGrupDogru = normalizeNumber(values.ustgrupdogru);
-    const AltGrupDogru = normalizeNumber(values.altgrupdogru);
-    const GrupBoyutu = normalizeNumber(values.grupboyutu);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const p = DogruCevap / Math.max(1, ToplamOgrenci);
-    const interestRate = (UstGrupDogru - AltGrupDogru) / Math.max(1, GrupBoyutu);
-    resultValue = interestRate;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "interestRate",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Item Difficulty Discrimination calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
   "sample-weighting": (values) => {
     const TabakaPopulasyon = normalizeNumber(values.tabakapopulasyon);
     const ToplamPopulasyon = normalizeNumber(values.toplampopulasyon);
     const TabakaOrneklem = normalizeNumber(values.tabakaorneklem);
     const ToplamOrneklem = normalizeNumber(values.toplamorneklem);
-
 
      
     let resultValue: any = 0;
@@ -9108,7 +8219,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BeklenenHasar = normalizeNumber(values.beklenenhasar);
     const GiderYuklemesi = normalizeNumber(values.gideryuklemesi);
     const KarMarji = normalizeNumber(values.karmarji);
-
 
      
     let resultValue: any = 0;
@@ -9136,7 +8246,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const GecikmeGun = normalizeNumber(values.gecikmegun);
     const BilesimSikligi = normalizeNumber(values.bilesimsikligi);
 
-
      
     let resultValue: any = 0;
     try {
@@ -9154,31 +8263,6 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
       explanation: `Compound Default Interest calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
-    };
-  },
-  "statute-of-limitations-period": (values) => {
-    const YasalSure = normalizeNumber(values.yasalsure);
-    const KesintiDurumu = normalizeNumber(values.kesintidurumu);
-
-
-     
-    let resultValue: any = 0;
-    try {
-    const KalanGun = ((KesintiDurumu===1) ? ( 0) : ( YasalSure * 365));
-    resultValue = KalanGun;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
-    return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "KalanGun",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Statute Of Limitations Period calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },

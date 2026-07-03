@@ -55,7 +55,8 @@ import { buildSmartFormForTool } from "@/lib/features/smart-form/smart-form-adap
 import { hasPremiumSmartFormDefinition } from "@/lib/features/smart-form/premium-smart-form-definitions";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
-import { UniversalIndustrialDecisionForm, buildSuperV4SchemaFromPremiumSchema } from "@/sectorcalc/pro-form";
+import { UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
+import { premiumSchemaToSuperV4Schema } from "@/lib/features/premium-schema/premium-schema-to-superv4-adapter";
 import {
  isPremiumFullLoopRuntimeSlug,
  runPremiumFullLoopCalculation,
@@ -636,7 +637,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    <ToolSafeReviewState slug={runtimeSlug} locale={locale} findings={runtimeTrust.findings} />
   ) : showSchemaPilot ? (
   <>
-  <UniversalIndustrialDecisionForm schema={buildSuperV4SchemaFromPremiumSchema(schemaPilot! as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
+  <UniversalIndustrialDecisionForm schema={premiumSchemaToSuperV4Schema(schemaPilot! as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
   </>
   ) : (
   <>

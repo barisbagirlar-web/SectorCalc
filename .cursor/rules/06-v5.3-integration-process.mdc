@@ -1,0 +1,99 @@
+---
+description: V5.3.1 Formula + Form Full Integration Process — mandatory for pro-form, pro-runtime, and execute route
+globs: ["src/sectorcalc/pro-form/**", "src/sectorcalc/pro-runtime/**", "src/app/api/pro-calculator/**"]
+---
+# V5.3.1 Formula + Form Integration Process
+
+**Full documents:** `docs/sectorcalc/v5_3_1/V5_3_1_APPLICATION_INSTRUCTION.txt` and `docs/sectorcalc/v5_3_1/FORM_STYLE_STANDARD.txt`
+
+## Hard Separation
+
+```
+Offline schema generation ≠ Runtime execution
+```
+
+- Schema generation → only `admin_cli`, `ci_cd_pipeline`, `controlled_schema_authoring`
+- Runtime → only approved schema + private formula registry + server-side deterministic execution
+
+## Forbidden in Runtime
+
+- LLM call, prompt execution, schema/formula generation
+- Client-side formula execution
+- Public exact formula rendering
+- Hidden defaults for critical inputs
+- Non-finite numeric output
+
+## One-Body Data Contract
+
+Every element must be bound end-to-end:
+
+```
+input.id → normalized_id → normalized_inputs.id → formula.normalized_input_bindings
+→ formula.output → outputs.id → decision_interpretation_contract
+→ business_impact_contract → safety_factor_gauges
+→ proof_pack.sections → audit_trail_contract → ui_contract.input_groups
+```
+
+**Reject schema if orphan:** input, normalized_input, formula, output, warning, evidence field, reference range, UI field, audit field, proof-pack field, business-impact output, safety gauge, FMEA trigger, uncertainty output.
+
+## Server Execution Order (exact)
+
+1. Validate request shape
+2. Fetch approved schema by tool_id + schema_version
+3. Reject if schema approval not active
+4. Fetch private formula registry
+5. Verify schema_hash matches formula_registry.schema_hash_binding
+6. Validate selected units
+7. Normalize all unit-selectable inputs to base units
+8. Reject missing conversion entries
+9. Reject non-finite raw inputs
+10. Reject non-finite normalized inputs
+11. Apply physical hard bounds
+12. Evaluate engineering reference ranges
+13. Validate evidence requirements
+14. Apply derating rules
+15. Execute deterministic private formula graph
+16. Reject non-finite formula outputs
+17. Compute uncertainty and sensitivity
+18. Trigger FMEA when thresholds require it
+19. Compute decision state
+20. Build public-safe proof pack
+21. Create audit seal
+22. Redact internal formula details
+23. Return public response only
+
+## Three-Pass Control
+
+### PASS 1 — Static Schema + Binding
+- Strict top-level keys, no unknown keys
+- Unit conversion registry for every unit-selectable input
+- All inputs → normalized inputs → formulas → outputs
+- Critical inputs: physical_hard_bounds + engineering_reference_range + evidence_requirement
+- No raw input in formula bindings, no hidden default for critical, no public formula expression
+
+### PASS 2 — Runtime Determinism
+- No LLM, no client-side execution
+- Schema hash stable, formula registry hash stable
+- Unit conversion deterministic, physical quantity preserved
+- Server rejects NaN/Infinity, applies bounds, evaluates ranges
+- Deterministic decision state
+
+### PASS 3 — Public Output + Audit
+- Public response redacted (no exact formula, no restricted table values, no proprietary coefficients)
+- Audit seal: schema_hash + formula_version + runtime_version + input_hash + output_hash
+- Changing input → changes seal; changing formula version → changes seal
+- No third-party brand, no certified approval claim, no legal proof claim
+
+## Reference Range Policy
+- Advisory, source-labeled, unit-aware, non-autofill, non-authoritative
+- Below range → WARN/REVIEW; above range → WARN/REVIEW; outside physical bounds → BLOCK
+- CRITICAL inputs must have engineering_reference_range or NOT_APPLICABLE with reason
+
+## Build Gate
+```bash
+npm run typecheck  # npx tsc --noEmit
+npm run lint
+npm run build
+npm test -- --run tests/pro-form
+npm test -- --run tests/pro-runtime
+```

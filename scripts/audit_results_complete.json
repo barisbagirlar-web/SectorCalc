@@ -2,72 +2,6 @@
   "engineFailures": [],
   "trustAudits": [
     {
-      "slug": "0-100-kmh-acceleration-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "1031-exchange-cash-out-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "2d-inverse-kinematics-calculator",
       "free": {
         "status": "blocked",
@@ -568,39 +502,6 @@
       }
     },
     {
-      "slug": "anova-f-statistic-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "antenna-length-calculator",
       "free": {
         "status": "blocked",
@@ -1059,72 +960,6 @@
       }
     },
     {
-      "slug": "biological-signal-sampling-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "biot-savart-field-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "black-scholes-calculator",
       "free": {
         "status": "blocked",
@@ -1277,39 +1112,6 @@
     },
     {
       "slug": "breeam-leed-score-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "brrrr-investment-calculator",
       "free": {
         "status": "blocked",
         "findings": [
@@ -1705,35 +1507,6 @@
       }
     },
     {
-      "slug": "capillary-rise-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "capital-gains-tax-calculator",
       "free": {
         "status": "blocked",
@@ -2083,39 +1856,6 @@
       }
     },
     {
-      "slug": "chandrasekhar-limit-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "circular-economy-ratio-calculator",
       "free": {
         "status": "blocked",
@@ -2367,72 +2107,6 @@
     },
     {
       "slug": "compound-late-interest-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "compton-shift-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "confidence-interval-calculator",
       "free": {
         "status": "blocked",
         "findings": [
@@ -3128,73 +2802,7 @@
       }
     },
     {
-      "slug": "de-broglie-wavelength-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "debt-service-coverage-ratio-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "decibel-converter-calculator",
       "free": {
         "status": "blocked",
         "findings": [
@@ -3534,39 +3142,6 @@
           "missing_form_schema",
           "missing_required_inputs",
           "audit_status_not_pass",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "drug-half-life-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
           "formula_gate_not_safe",
           "payment_not_safe"
         ],
@@ -4906,39 +4481,6 @@
       }
     },
     {
-      "slug": "h-index-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "hardness-conversion-calculator",
       "free": {
         "status": "blocked",
@@ -5133,39 +4675,6 @@
       }
     },
     {
-      "slug": "ideal-gas-law-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "indicated-horsepower-calculator",
       "free": {
         "status": "blocked",
@@ -5223,35 +4732,6 @@
           "audit_status_not_pass",
           "generic_input_guide",
           "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "infinite-well-energy-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
           "formula_gate_not_safe",
           "payment_not_safe"
         ],
@@ -5500,39 +4980,6 @@
         "formulaGateEligible": false,
         "paymentEligible": false,
         "calculationEligible": false
-      }
-    },
-    {
-      "slug": "item-difficulty-discrimination-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
       }
     },
     {
@@ -6211,39 +5658,6 @@
       }
     },
     {
-      "slug": "mean-median-mode-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "metacentric-height-calculator",
       "free": {
         "status": "blocked",
@@ -6538,39 +5952,6 @@
     },
     {
       "slug": "noise-propagation-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "normal-shock-wave-pressure-jump-calculator",
       "free": {
         "status": "blocked",
         "findings": [
@@ -7114,35 +6495,6 @@
       }
     },
     {
-      "slug": "photoelectric-effect-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "pid-controller-ziegler-calculator",
       "free": {
         "status": "blocked",
@@ -7535,39 +6887,6 @@
       }
     },
     {
-      "slug": "quantum-tunneling-probability-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "rainwater-harvest-calculator",
       "free": {
         "status": "blocked",
@@ -7602,39 +6921,6 @@
     },
     {
       "slug": "rc-time-constant-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "real-estate-commission-calculator",
       "free": {
         "status": "blocked",
         "findings": [
@@ -8106,39 +7392,6 @@
     },
     {
       "slug": "roic-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "rsa-key-strength-calculator",
       "free": {
         "status": "blocked",
         "findings": [
@@ -8923,39 +8176,6 @@
       }
     },
     {
-      "slug": "solenoid-magnetic-field-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "sortino-ratio-calculator",
       "free": {
         "status": "blocked",
@@ -9019,39 +8239,6 @@
     },
     {
       "slug": "spring-force-hookes-law-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "spring-mass-resonant-frequency-calculator",
       "free": {
         "status": "blocked",
         "findings": [
@@ -9249,39 +8436,6 @@
       }
     },
     {
-      "slug": "statute-of-limitations-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "steel-beam-maximum-bending-stress-calculator",
       "free": {
         "status": "blocked",
@@ -9312,39 +8466,6 @@
     },
     {
       "slug": "stock-return-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "stokes-law-calculator",
       "free": {
         "status": "blocked",
         "findings": [
@@ -9433,39 +8554,6 @@
       }
     },
     {
-      "slug": "surface-tension-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "taguchi-quality-loss-analyzer",
       "free": {
         "status": "review",
@@ -9494,105 +8582,6 @@
     },
     {
       "slug": "tariff-extra-duty-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "taxi-fare-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "terminal-velocity-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "tesla-unit-converter-calculator",
       "free": {
         "status": "blocked",
         "findings": [
@@ -9958,39 +8947,6 @@
       }
     },
     {
-      "slug": "undamped-spring-mass-angular-frequency-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
       "slug": "usd-loan-cost-calculator",
       "free": {
         "status": "blocked",
@@ -10087,39 +9043,6 @@
     },
     {
       "slug": "viscous-pump-power-calculator",
-      "free": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      },
-      "premium": {
-        "status": "blocked",
-        "findings": [
-          "missing_form_schema",
-          "missing_required_inputs",
-          "audit_status_not_pass",
-          "generic_input_guide",
-          "bad_input_guide",
-          "formula_gate_not_safe",
-          "payment_not_safe"
-        ],
-        "formulaGateEligible": false,
-        "paymentEligible": false,
-        "calculationEligible": true
-      }
-    },
-    {
-      "slug": "vo2-max-cooper-test-calculator",
       "free": {
         "status": "blocked",
         "findings": [
