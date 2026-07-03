@@ -10,7 +10,6 @@
       "label": "Year 1 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 1 Cash Flow (USD)",
-        "tr": "1. Yil Nakit Akisi (₺)",
         "de": "Jahr 1 Cashflow (USD)",
         "fr": "Flux de trésorerie de l'année 1 (USD)",
         "es": "Flujo de Caja Año 1 (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "First year cash flow.",
       "businessContext_i18n": {
         "en": "First year cash flow.",
-        "tr": "Projenin ilk yil nakit akisi.",
         "de": "Cashflow des ersten Jahres.",
         "fr": "Flux de trésorerie de la première année.",
         "es": "Flujo de efectivo del primer año.",
@@ -35,7 +33,6 @@
       "label": "Year 2 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 2 Cash Flow (USD)",
-        "tr": "2. Yil Nakit Akisi (₺)",
         "de": "Jahr 2 Cashflow (USD)",
         "fr": "Flux de trésorerie de l'année 2 (USD)",
         "es": "Flujo de Caja Año 2 (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Second year cash flow.",
       "businessContext_i18n": {
         "en": "Second year cash flow.",
-        "tr": "Projenin ikinci yil nakit akisi.",
         "de": "Cashflow des zweiten Jahres.",
         "fr": "Flux de trésorerie de la deuxième année.",
         "es": "Flujo de efectivo del segundo año.",
@@ -60,7 +56,6 @@
       "label": "Year 3 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 3 Cash Flow (USD)",
-        "tr": "3. Yil Nakit Akisi (₺)",
         "de": "Jahr 3 Cashflow (USD)",
         "fr": "Flux de trésorerie de l'année 3 (USD)",
         "es": "Flujo de Caja Año 3 (USD)",
@@ -73,7 +68,6 @@
       "businessContext": "Third year cash flow.",
       "businessContext_i18n": {
         "en": "Third year cash flow.",
-        "tr": "Projenin ucuncu yil nakit akisi.",
         "de": "Cashflow des dritten Jahres.",
         "fr": "Flux de trésorerie de la troisième année.",
         "es": "Flujo de efectivo del tercer año.",
@@ -85,7 +79,6 @@
       "label": "Year 4 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 4 Cash Flow (USD)",
-        "tr": "4. Yil Nakit Akisi (₺)",
         "de": "Cashflow Jahr 4 (USD)",
         "fr": "Flux de trésorerie de l'année 4 (USD)",
         "es": "Flujo de Efectivo Año 4 (USD)",
@@ -98,7 +91,6 @@
       "businessContext": "Fourth year cash flow.",
       "businessContext_i18n": {
         "en": "Fourth year cash flow.",
-        "tr": "Projenin dorduncu yil nakit akisi.",
         "de": "Cashflow des vierten Jahres.",
         "fr": "Flux de trésorerie de la quatrième année.",
         "es": "Flujo de efectivo del cuarto año.",
@@ -110,7 +102,6 @@
       "label": "Year 5 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 5 Cash Flow (USD)",
-        "tr": "5. Yil Nakit Akisi (₺)",
         "de": "Cashflow Jahr 5 (USD)",
         "fr": "Flux de trésorerie de l'année 5 (USD)",
         "es": "Flujo de Efectivo Año 5 (USD)",
@@ -123,7 +114,6 @@
       "businessContext": "Fifth year cash flow.",
       "businessContext_i18n": {
         "en": "Fifth year cash flow.",
-        "tr": "Projenin besinci yil nakit akisi.",
         "de": "Cashflow des funften Jahres.",
         "fr": "Flux de trésorerie de la cinquième année.",
         "es": "Flujo de efectivo del quinto año.",
@@ -135,7 +125,6 @@
       "label": "Discount Rate (%)",
       "label_i18n": {
         "en": "Discount Rate (%)",
-        "tr": "Discount Rate (%)",
         "de": "Diskontsatz (%)",
         "fr": "Taux d'actualisation (%)",
         "es": "Tasa de descuento (%)",
@@ -148,7 +137,6 @@
       "businessContext": "Discount rate reflecting cost of capital.",
       "businessContext_i18n": {
         "en": "Discount rate reflecting cost of capital.",
-        "tr": "Sermaye Costini yansitan iskonto Ratioi.",
         "de": "Diskontsatz, der die Kapitalkosten widerspiegelt.",
         "fr": "Taux d'actualisation reflétant le coût du capital.",
         "es": "Tasa de descuento que refleja el costo de capital.",
@@ -156,11 +144,10 @@
       }
     },
     {
-      "id": "yatirim",
+      "id": "investment",
       "label": "Initial Investment (USD)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
-        "tr": "Initial Investment (₺)",
         "de": "Anfangsinvestition",
         "fr": "Investissement initial",
         "es": "Inversión Inicial",
@@ -173,7 +160,6 @@
       "businessContext": "Initial project investment.",
       "businessContext_i18n": {
         "en": "Initial project investment.",
-        "tr": "Projenin Baslangic Investment Amount.",
         "de": "Anfängliche Projektinvestition.",
         "fr": "Investissement initial du projet.",
         "es": "Inversión inicial del proyecto.",
@@ -193,18 +179,17 @@
     "bugun3": "nakit3 / Math.pow(1 + iskonto / 100, 3)",
     "bugun4": "nakit4 / Math.pow(1 + iskonto / 100, 4)",
     "bugun5": "nakit5 / Math.pow(1 + iskonto / 100, 5)",
-    "sonuc": "(nakit1 / Math.pow(1 + iskonto / 100, 1) + nakit2 / Math.pow(1 + iskonto / 100, 2) + nakit3 / Math.pow(1 + iskonto / 100, 3) + nakit4 / Math.pow(1 + iskonto / 100, 4) + nakit5 / Math.pow(1 + iskonto / 100, 5)) - yatirim"
+    "result": "(nakit1 / Math.pow(1 + iskonto / 100, 1) + nakit2 / Math.pow(1 + iskonto / 100, 2) + nakit3 / Math.pow(1 + iskonto / 100, 3) + nakit4 / Math.pow(1 + iskonto / 100, 4) + nakit5 / Math.pow(1 + iskonto / 100, 5)) - investment"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Net Present Value (NPV)"
+      "result": "Net Present Value (NPV)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Net Present Value (NPV)",
-        "tr": "Net Present Value (NPV)",
         "de": "Nettobarwert (NPV)",
         "fr": "Valeur actuelle nette (VAN)",
         "es": "Valor Presente Neto (NPV)",
@@ -229,7 +214,6 @@
       "long": "Calculate net present value (NPV) of a series of cash flows.",
       "short_i18n": {
         "en": "Calculate net present value (NPV) of a series of cash flows.",
-        "tr": "Projenin bugunku Value cinsinden Net Profitliligini (NPV) hesaplar.",
         "de": "Nettobarwert (NPV) einer Reihe von Zahlungsstromen berechnen.",
         "fr": "Calculer la valeur actuelle nette (VAN) d'une série de flux de trésorerie.",
         "es": "Calcular el valor presente neto (VPN) de una serie de flujos de efectivo.",
@@ -237,7 +221,6 @@
       },
       "long_i18n": {
         "en": "Calculate net present value (NPV) of a series of cash flows.",
-        "tr": "Projenin bugunku Value cinsinden Net Profitliligini (NPV) hesaplar.",
         "de": "Nettobarwert (NPV) einer Reihe von Zahlungsstromen berechnen.",
         "fr": "Calculer la valeur actuelle nette (VAN) d'une série de flux de trésorerie.",
         "es": "Calcular el valor presente neto (VPN) de una serie de flujos de efectivo.",

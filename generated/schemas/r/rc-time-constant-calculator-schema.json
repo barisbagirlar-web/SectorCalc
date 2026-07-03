@@ -10,7 +10,6 @@
       "label": "Resistance (Ω)",
       "label_i18n": {
         "en": "Resistance (Ω)",
-        "tr": "Resistance (Ω)",
         "de": "Widerstand (R)",
         "fr": "Résistance (R)",
         "es": "Resistencia (R)",
@@ -23,7 +22,6 @@
       "businessContext": "Circuit resistance.",
       "businessContext_i18n": {
         "en": "Circuit resistance.",
-        "tr": "Devre direnci.",
         "de": "Schaltungswiderstand.",
         "fr": "Résistance du circuit.",
         "es": "Resistencia del circuito.",
@@ -35,7 +33,6 @@
       "label": "Capacitance (F)",
       "label_i18n": {
         "en": "Capacitance (F)",
-        "tr": "Kapasite (F)",
         "de": "Kapazität (F)",
         "fr": "Capacité (F)",
         "es": "Capacitancia (F)",
@@ -48,7 +45,6 @@
       "businessContext": "Circuit capacitance.",
       "businessContext_i18n": {
         "en": "Circuit capacitance.",
-        "tr": "Devre kapasitesi.",
         "de": "Schaltungskapazität.",
         "fr": "Capacité du circuit.",
         "es": "Capacitancia del circuito.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "R * C"
+    "result": "R * C"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Zaman Sabiti (τ)"
+      "result": "Zaman Sabiti (τ)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Zaman Sabiti (τ)",
-        "tr": "Zaman Sabiti (τ)",
         "de": "Zeitkonstante (τ)",
         "fr": "Constante de temps (τ)",
         "es": "Constante de Tiempo (τ)",
@@ -101,7 +96,6 @@
       "long": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
       "short_i18n": {
         "en": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "tr": "Kapasitorun %63,2 sarj/desarj olmasi icin gecen sureyi (RC zaman sabiti) hesaplar.",
         "de": "Berechnung der RC-Zeitkonstante — Zeit bis 63,2% Ladung/Entladung.",
         "fr": "Calculer la constante de temps RC — temps pour atteindre 63,2 % de charge/décharge.",
         "es": "Calcular la constante de tiempo RC — tiempo para alcanzar el 63.2% de carga/descarga.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "tr": "Kapasitorun %63,2 sarj/desarj olmasi icin gecen sureyi (RC zaman sabiti) hesaplar.",
         "de": "Berechnung der RC-Zeitkonstante — Zeit bis 63,2% Ladung/Entladung.",
         "fr": "Calculer la constante de temps RC — temps pour atteindre 63,2 % de charge/décharge.",
         "es": "Calcular la constante de tiempo RC — tiempo para alcanzar el 63.2% de carga/descarga.",

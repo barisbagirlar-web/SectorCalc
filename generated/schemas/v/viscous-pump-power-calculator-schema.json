@@ -6,11 +6,10 @@
   "sectorId": "textile-print-lab",
   "inputs": [
     {
-      "id": "debi",
+      "id": "flow",
       "label": "Flow Rate (m³/s)",
       "label_i18n": {
         "en": "Flow Rate (m³/s)",
-        "tr": "Debi (m³/s)",
         "de": "Kompressordurchflussrate",
         "fr": "Débit du compresseur",
         "es": "Caudal del compresor",
@@ -23,7 +22,6 @@
       "businessContext": "Liquid flow rate.",
       "businessContext_i18n": {
         "en": "Liquid flow rate.",
-        "tr": "Sivinin akis Flow Ratesi.",
         "de": "Flussigkeitsdurchflussrate.",
         "fr": "Débit du liquide.",
         "es": "Caudal del líquido.",
@@ -35,7 +33,6 @@
       "label": "Pressure Drop (Pa)",
       "label_i18n": {
         "en": "Pressure Drop (Pa)",
-        "tr": "Pressure Drop (Pa)",
         "de": "Gesamtdruckabfall",
         "fr": "Perte de charge totale",
         "es": "Caída de presión total",
@@ -48,7 +45,6 @@
       "businessContext": "Total pipe pressure loss.",
       "businessContext_i18n": {
         "en": "Total pipe pressure loss.",
-        "tr": "Borudaki Total Pressure kaybi.",
         "de": "Gesamter Rohrleitungsdruckverlust.",
         "fr": "Perte de charge totale dans la canalisation.",
         "es": "Pérdida total de presión en la tubería.",
@@ -60,7 +56,6 @@
       "label": "Pump Efficiency (%)",
       "label_i18n": {
         "en": "Pump Efficiency (%)",
-        "tr": "Pompa Verimi (%)",
         "de": "Pumpenwirkungsgrad (%)",
         "fr": "Rendement de la pompe (%)",
         "es": "Eficiencia de la Bomba (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Pump efficiency.",
       "businessContext_i18n": {
         "en": "Pump efficiency.",
-        "tr": "Pompa Efficiency yuzdesi.",
         "de": "Pumpenwirkungsgrad.",
         "fr": "Rendement de la pompe.",
         "es": "Eficiencia de la bomba.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(debi * basincDusumu) / Math.max(0.0001, (pompaVerim / 100))"
+    "result": "(flow * basincDusumu) / Math.max(0.0001, (pompaVerim / 100))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Gerekmost Pump Power"
+      "result": "Gerekmost Pump Power"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekmost Pump Power",
-        "tr": "Gerekmost Pump Power",
         "de": "Required Pump Power",
         "fr": "Puissance de pompe requise",
         "es": "Potencia de Bomba Requerida",
@@ -126,7 +119,6 @@
       "long": "Calculate pump power for viscous food liquid transfer.",
       "short_i18n": {
         "en": "Calculate pump power for viscous food liquid transfer.",
-        "tr": "Viskoz siviyi boruda ilerletmek icin gereken pompa mil gucunu hesaplar.",
         "de": "Berechnen Sie die Pumpenleistung fur den Transport von viskosen Lebensmittelflussigkeiten.",
         "fr": "Calculer la puissance de la pompe pour le transfert de liquide alimentaire visqueux.",
         "es": "Calcular la potencia de la bomba para la transferencia de líquido alimenticio viscoso.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate pump power for viscous food liquid transfer.",
-        "tr": "Viskoz siviyi boruda ilerletmek icin gereken pompa mil gucunu hesaplar.",
         "de": "Berechnen Sie die Pumpenleistung fur den Transport von viskosen Lebensmittelflussigkeiten.",
         "fr": "Calculer la puissance de la pompe pour le transfert de liquide alimentaire visqueux.",
         "es": "Calcular la potencia de la bomba para la transferencia de líquido alimenticio viscoso.",

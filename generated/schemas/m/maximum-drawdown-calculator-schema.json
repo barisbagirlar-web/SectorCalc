@@ -10,7 +10,6 @@
       "label": "Peak Value (USD)",
       "label_i18n": {
         "en": "Peak Value (USD)",
-        "tr": "Zirand Value (TRY)",
         "de": "Hochstwert",
         "fr": "Valeur maximale",
         "es": "Valor máximo",
@@ -23,7 +22,6 @@
       "businessContext": "Highest portfolio value.",
       "businessContext_i18n": {
         "en": "Highest portfolio value.",
-        "tr": "Portfoyun en yuksek Valuei.",
         "de": "Hochster Portfoliowert.",
         "fr": "Valeur la plus élevée du portefeuille.",
         "es": "Valor más alto de la cartera.",
@@ -35,7 +33,6 @@
       "label": "Trough Value (USD)",
       "label_i18n": {
         "en": "Trough Value (USD)",
-        "tr": "Dip Value (TRY)",
         "de": "Tiefstwert",
         "fr": "Valeur minimale",
         "es": "Valor mínimo",
@@ -48,7 +45,6 @@
       "businessContext": "Lowest portfolio value.",
       "businessContext_i18n": {
         "en": "Lowest portfolio value.",
-        "tr": "Portfoyun en dusuk Valuei.",
         "de": "Niedrigster Portfoliowert.",
         "fr": "Valeur la plus basse du portefeuille.",
         "es": "Valor más bajo de la cartera.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "((zirveDeger - dipDeger) / Math.max(1, zirveDeger)) * 100"
+    "result": "((zirveDeger - dipDeger) / Math.max(1, zirveDeger)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Maximum Dusus (MDD)"
+      "result": "Maximum Dusus (MDD)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maximum Dusus (MDD)",
-        "tr": "Maximum Dusus (MDD)",
         "de": "Maximaler Drawdown (MDD)",
         "fr": "Drawdown maximum (MDD)",
         "es": "Reducción máxima (MDD)",
@@ -99,7 +94,6 @@
       "long": "Calculate the maximum drawdown (MDD) from peak to trough.",
       "short_i18n": {
         "en": "Calculate the maximum drawdown (MDD) from peak to trough.",
-        "tr": "Portfoyun zirveden dibe yasadigi en buyuk yuzde kaybini (MDD) hesaplar.",
         "de": "Berechnen Sie den maximalen Drawdown (MDD) vom Hochst- zum Tiefststand.",
         "fr": "Calculer le drawdown maximum (MDD) du pic au creux.",
         "es": "Calcular la reducción máxima (MDD) desde el pico hasta el valle.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate the maximum drawdown (MDD) from peak to trough.",
-        "tr": "Portfoyun zirveden dibe yasadigi en buyuk yuzde kaybini (MDD) hesaplar.",
         "de": "Berechnen Sie den maximalen Drawdown (MDD) vom Hochst- zum Tiefststand.",
         "fr": "Calculer le drawdown maximum (MDD) du pic au creux.",
         "es": "Calcular la reducción máxima (MDD) desde el pico hasta el valle.",

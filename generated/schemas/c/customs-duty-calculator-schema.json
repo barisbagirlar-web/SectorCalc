@@ -10,7 +10,6 @@
       "label": "CIF Value (USD)",
       "label_i18n": {
         "en": "CIF Value (USD)",
-        "tr": "CIF Bedel (TL)",
         "de": "CIF-Wert (USD)",
         "fr": "Valeur CIF (USD)",
         "es": "Valor CIF (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Cost, insurance, freight inclusive value.",
       "businessContext_i18n": {
         "en": "Cost, insurance, freight inclusive value.",
-        "tr": "Sigorta ve navlun dahil toplam mal bedeli.",
         "de": "Kosten-, Versicherungs- und Fracht-inklusiver Wert.",
         "fr": "Valeur incluant le coût, l'assurance et le fret.",
         "es": "Valor que incluye costo, seguro y flete.",
@@ -35,7 +33,6 @@
       "label": "Customs Duty Rate (%)",
       "label_i18n": {
         "en": "Customs Duty Rate (%)",
-        "tr": "Gumruk Ratioi (%)",
         "de": "Zollsatz (%)",
         "fr": "Taux de droit de douane (%)",
         "es": "Tasa de Arancel Aduanero (%)",
@@ -48,7 +45,6 @@
       "businessContext": "HS code based duty rate.",
       "businessContext_i18n": {
         "en": "HS code based duty rate.",
-        "tr": "GTIP bazli Customs Duty Ratioi.",
         "de": "HS-Code-basierter Zollsatz.",
         "fr": "Taux de droit basé sur le code SH.",
         "es": "Tasa arancelaria basada en el código SA.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "cifBedel * (gumrukOrani / 100)"
+    "result": "cifBedel * (gumrukOrani / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Customs Duty"
+      "result": "Customs Duty"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Customs Duty",
-        "tr": "Customs Duty",
         "de": "Zollgebuhr",
         "fr": "Droit de douane",
         "es": "Impuesto de Aduana",
@@ -99,7 +94,6 @@
       "long": "Calculate customs duty on imports.",
       "short_i18n": {
         "en": "Calculate customs duty on imports.",
-        "tr": "Ithalatta Calculated Customs Dutyni hesaplar.",
         "de": "Berechnen Sie den Zoll auf Importe.",
         "fr": "Calculer les droits de douane sur les importations.",
         "es": "Calcular el arancel de importación sobre las importaciones.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate customs duty on imports.",
-        "tr": "Ithalatta Calculated Customs Dutyni hesaplar.",
         "de": "Berechnen Sie den Zoll auf Importe.",
         "fr": "Calculer les droits de douane sur les importations.",
         "es": "Calcular el arancel de importación sobre las importaciones.",

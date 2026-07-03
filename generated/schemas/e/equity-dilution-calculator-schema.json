@@ -10,7 +10,6 @@
       "label": "Current Shares",
       "label_i18n": {
         "en": "Current Shares",
-        "tr": "Mevcut Hisse (Adet)",
         "de": "Aktuell ausstehende Aktien",
         "fr": "Actions en circulation actuelles",
         "es": "Acciones en circulación actuales",
@@ -23,7 +22,6 @@
       "businessContext": "Current total shares.",
       "businessContext_i18n": {
         "en": "Current total shares.",
-        "tr": "Mevcut toplam hisse.",
         "de": "Aktuelle Gesamtaktien.",
         "fr": "Nombre total d'actions actuel.",
         "es": "Total de acciones actuales.",
@@ -35,7 +33,6 @@
       "label": "New Shares",
       "label_i18n": {
         "en": "New Shares",
-        "tr": "Yeni Hisse (Adet)",
         "de": "Neu ausgegebene Aktien",
         "fr": "Nouvelles actions émises",
         "es": "Nuevas Acciones Emitidas",
@@ -48,7 +45,6 @@
       "businessContext": "Newly issued shares.",
       "businessContext_i18n": {
         "en": "Newly issued shares.",
-        "tr": "Yeni ihrac edilen hisse.",
         "de": "Neu ausgegebene Aktien.",
         "fr": "Nouvelles actions émises.",
         "es": "Acciones recién emitidas.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "yeniHisse / Math.max(1, (mevcutHisse + yeniHisse)) * 100"
+    "result": "yeniHisse / Math.max(1, (mevcutHisse + yeniHisse)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Sulandirma Ratioi"
+      "result": "Sulandirma Ratioi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Sulandirma Ratioi",
-        "tr": "Sulandirma Ratioi",
         "de": "Verwässerungsrate",
         "fr": "Taux de dilution",
         "es": "Tasa de Dilución",
@@ -99,7 +94,6 @@
       "long": "Calculate equity dilution percentage for existing shareholders.",
       "short_i18n": {
         "en": "Calculate equity dilution percentage for existing shareholders.",
-        "tr": "Mevcut hissedarlarin mulkiyet Ratioindaki azalmayi (sulandirma) hesaplar.",
         "de": "Berechnen Sie den Verwässerungsprozentsatz des Eigenkapitals fur bestehende Aktionäre.",
         "fr": "Calculer le pourcentage de dilution des capitaux propres pour les actionnaires existants.",
         "es": "Calcular el porcentaje de dilución del capital para los accionistas existentes.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate equity dilution percentage for existing shareholders.",
-        "tr": "Mevcut hissedarlarin mulkiyet Ratioindaki azalmayi (sulandirma) hesaplar.",
         "de": "Berechnen Sie den Verwässerungsprozentsatz des Eigenkapitals fur bestehende Aktionäre.",
         "fr": "Calculer le pourcentage de dilution des capitaux propres pour les actionnaires existants.",
         "es": "Calcular el porcentaje de dilución del capital para los accionistas existentes.",

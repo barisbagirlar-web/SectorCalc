@@ -6,11 +6,10 @@
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "tutar",
+      "id": "amount",
       "label": "Loan Amount (USD)",
       "label_i18n": {
         "en": "Loan Amount (USD)",
-        "tr": "Kredi Tutari (USD)",
         "de": "Darlehensbetrag",
         "fr": "Montant du prêt",
         "es": "Monto del préstamo",
@@ -23,7 +22,6 @@
       "businessContext": "Loan principal in USD.",
       "businessContext_i18n": {
         "en": "Loan principal in USD.",
-        "tr": "USD cinsinden kredi Principalsi.",
         "de": "Darlehensbetrag in USD.",
         "fr": "Principal du prêt en USD.",
         "es": "Principal del préstamo en USD.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "faiz",
+      "id": "interest",
       "label": "Annual Interest (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
-        "tr": "Annual Interest (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -48,7 +45,6 @@
       "businessContext": "Loan interest rate.",
       "businessContext_i18n": {
         "en": "Loan interest rate.",
-        "tr": "Kredi Interest Rate.",
         "de": "Darlehenszinssatz.",
         "fr": "Taux d'intérêt du prêt.",
         "es": "Tasa de interés del préstamo.",
@@ -60,7 +56,6 @@
       "label": "Term (Months)",
       "label_i18n": {
         "en": "Term (Months)",
-        "tr": "Vade (Ay)",
         "de": "Kreditlaufzeit",
         "fr": "Durée du prêt",
         "es": "Plazo del préstamo",
@@ -73,7 +68,6 @@
       "businessContext": "Loan term.",
       "businessContext_i18n": {
         "en": "Loan term.",
-        "tr": "Kredi vadesi.",
         "de": "Kreditlaufzeit.",
         "fr": "Durée du prêt.",
         "es": "Plazo del préstamo.",
@@ -85,7 +79,6 @@
       "label": "FX Expected Change (%)",
       "label_i18n": {
         "en": "FX Expected Change (%)",
-        "tr": "Kur Beklentisi (%)",
         "de": "FX Erwartete Änderung (%)",
         "fr": "Variation attendue du taux de change (%)",
         "es": "Cambio Esperado en FX (%)",
@@ -98,7 +91,6 @@
       "businessContext": "Expected annual FX rate increase.",
       "businessContext_i18n": {
         "en": "Expected annual FX rate increase.",
-        "tr": "Kurun yillik artis beklentisi.",
         "de": "Erwarteter jährlicher Wechselkursanstieg.",
         "fr": "Augmentation annuelle attendue du taux de change.",
         "es": "Incremento anual esperado del tipo de cambio.",
@@ -110,7 +102,6 @@
       "label": "Current FX Rate (USD/USD)",
       "label_i18n": {
         "en": "Current FX Rate (USD/USD)",
-        "tr": "Mevcut Kur (₺/$)",
         "de": "Aktueller Wechselkurs (USD/USD)",
         "fr": "Taux de change actuel (USD/USD)",
         "es": "Tipo de Cambio Actual (USD/USD)",
@@ -123,7 +114,6 @@
       "businessContext": "Current USD/TRY rate.",
       "businessContext_i18n": {
         "en": "Current USD/TRY rate.",
-        "tr": "Daycel dolar kuru.",
         "de": "Aktueller USD/TRY-Kurs.",
         "fr": "Taux actuel USD/TRY.",
         "es": "Tipo de cambio actual USD/TRY.",
@@ -138,19 +128,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "usdTaksit": "faiz === 0 ? tutar / Math.max(1, vade) : tutar * ((faiz / 1200) * Math.pow(1 + faiz / 1200, vade)) / (Math.pow(1 + faiz / 1200, vade) - 1)",
-    "sonuc": "(faiz === 0 ? tutar / Math.max(1, vade) : tutar * ((faiz / 1200) * Math.pow(1 + faiz / 1200, vade)) / (Math.pow(1 + faiz / 1200, vade) - 1)) * mevcutKur * Math.pow(1 + kurBeklentisi / 100, vade / 12)"
+    "usdInstallment": "interest === 0 ? amount / Math.max(1, vade) : amount * ((interest / 1200) * Math.pow(1 + interest / 1200, vade)) / (Math.pow(1 + interest / 1200, vade) - 1)",
+    "result": "(interest === 0 ? amount / Math.max(1, vade) : amount * ((interest / 1200) * Math.pow(1 + interest / 1200, vade)) / (Math.pow(1 + interest / 1200, vade) - 1)) * mevcutKur * Math.pow(1 + kurBeklentisi / 100, vade / 12)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Tahmini TRY Monthly Taksit"
+      "result": "Tahmini TRY Monthly Taksit"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tahmini TRY Monthly Taksit",
-        "tr": "Tahmini TRY Monthly Taksit",
         "de": "Estimated Monthly Installment in TRY",
         "fr": "Mensualité estimée en TL",
         "es": "Cuota Mensual Estimada en TL",
@@ -175,7 +164,6 @@
       "long": "Calculate estimated TRY cost of a USD loan with FX risk.",
       "short_i18n": {
         "en": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "tr": "Doviz kredisinin kur riskiyle artirilmis tahmini TL Costini hesaplar.",
         "de": "Berechnen Sie die geschätzten TRY-Kosten eines USD-Darlehens mit Wechselkursrisiko.",
         "fr": "Calculer le coût estimé en TRY d'un prêt en USD avec risque de change.",
         "es": "Calcular el costo estimado en TRY de un préstamo en USD con riesgo cambiario.",
@@ -183,7 +171,6 @@
       },
       "long_i18n": {
         "en": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "tr": "Doviz kredisinin kur riskiyle artirilmis tahmini TL Costini hesaplar.",
         "de": "Berechnen Sie die geschätzten TRY-Kosten eines USD-Darlehens mit Wechselkursrisiko.",
         "fr": "Calculer le coût estimé en TRY d'un prêt en USD avec risque de change.",
         "es": "Calcular el costo estimado en TRY de un préstamo en USD con riesgo cambiario.",

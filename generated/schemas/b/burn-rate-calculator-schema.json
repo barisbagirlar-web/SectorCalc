@@ -10,7 +10,6 @@
       "label": "Start Cash (USD)",
       "label_i18n": {
         "en": "Start Cash (USD)",
-        "tr": "Donem Basi Nakit (TL)",
         "de": "Anfangsbestand (USD)",
         "fr": "Trésorerie de départ (USD)",
         "es": "Efectivo Inicial (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Cash at period start.",
       "businessContext_i18n": {
         "en": "Cash at period start.",
-        "tr": "Donem basi nakit bakiyesi.",
         "de": "Bargeld zu Periodenbeginn.",
         "fr": "Trésorerie en début de période.",
         "es": "Efectivo al inicio del período.",
@@ -35,7 +33,6 @@
       "label": "End Cash (USD)",
       "label_i18n": {
         "en": "End Cash (USD)",
-        "tr": "Donem Sonu Nakit (TL)",
         "de": "Endbestand (USD)",
         "fr": "Trésorerie de fin (USD)",
         "es": "Efectivo Final (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Cash at period end.",
       "businessContext_i18n": {
         "en": "Cash at period end.",
-        "tr": "Donem sonu nakit bakiyesi.",
         "de": "Bargeld am Periodenende.",
         "fr": "Trésorerie en fin de période.",
         "es": "Efectivo al final del período.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "ay",
+      "id": "month",
       "label": "Period (Months)",
       "label_i18n": {
         "en": "Period (Months)",
-        "tr": "Donem (Ay)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -73,7 +68,6 @@
       "businessContext": "Calculation period.",
       "businessContext_i18n": {
         "en": "Calculation period.",
-        "tr": "Calculation donemi.",
         "de": "Berechnungszeitraum.",
         "fr": "Période de calcul.",
         "es": "Período de cálculo.",
@@ -88,19 +82,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "burnRate": "(baslangicNakit - bitisNakit) / Math.max(1, ay)",
-    "sonuc": "bitisNakit / Math.max(0.0001, ((baslangicNakit - bitisNakit) / Math.max(1, ay)))"
+    "burnRate": "(baslangicNakit - bitisNakit) / Math.max(1, month)",
+    "result": "bitisNakit / Math.max(0.0001, ((baslangicNakit - bitisNakit) / Math.max(1, month)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "months",
     "breakdown": {
-      "sonuc": "KArea Duration (Runway)"
+      "result": "KArea Duration (Runway)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "KArea Duration (Runway)",
-        "tr": "KArea Duration (Runway)",
         "de": "Verbleibende Zeit (Runway)",
         "fr": "Temps restant (Runway)",
         "es": "Tiempo Restante (Pista)",
@@ -125,7 +118,6 @@
       "long": "Calculate runway (months until cash runs out) from burn rate.",
       "short_i18n": {
         "en": "Calculate runway (months until cash runs out) from burn rate.",
-        "tr": "Sirketin iflas etmeden once yasayabilecegi tahmini sureyi hesaplar.",
         "de": "Berechnen Sie die Start- und Landebahn (Monate bis zur Bargelderschopfung) aus der Burn-Rate.",
         "fr": "Calculer la piste (mois jusqu'à épuisement de la trésorerie) à partir du taux de consommation.",
         "es": "Calcular la pista (meses hasta que se agote el efectivo) a partir de la tasa de consumo.",
@@ -133,7 +125,6 @@
       },
       "long_i18n": {
         "en": "Calculate runway (months until cash runs out) from burn rate.",
-        "tr": "Sirketin iflas etmeden once yasayabilecegi tahmini sureyi hesaplar.",
         "de": "Berechnen Sie die Start- und Landebahn (Monate bis zur Bargelderschopfung) aus der Burn-Rate.",
         "fr": "Calculer la piste (mois jusqu'à épuisement de la trésorerie) à partir du taux de consommation.",
         "es": "Calcular la pista (meses hasta que se agote el efectivo) a partir de la tasa de consumo.",

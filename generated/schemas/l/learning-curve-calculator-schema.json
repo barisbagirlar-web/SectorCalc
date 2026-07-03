@@ -10,7 +10,6 @@
       "label": "First Unit Time (Min)",
       "label_i18n": {
         "en": "First Unit Time (Min)",
-        "tr": "Ilk Unit Suresi (Dk)",
         "de": "Zeit fur erste Einheit (Stunden)",
         "fr": "Temps de la première unité (heures)",
         "es": "Tiempo de la primera unidad (horas)",
@@ -23,7 +22,6 @@
       "businessContext": "Time for first unit.",
       "businessContext_i18n": {
         "en": "Time for first unit.",
-        "tr": "Ilk uretilen Unitin suresi.",
         "de": "Zeit fur das erste Stuck.",
         "fr": "Temps pour la première unité.",
         "es": "Tiempo para la primera unidad.",
@@ -35,7 +33,6 @@
       "label": "Learning Rate (%)",
       "label_i18n": {
         "en": "Learning Rate (%)",
-        "tr": "Ogrenme Ratioi (%)",
         "de": "Lernrate (%)",
         "fr": "Taux d'apprentissage (%)",
         "es": "Tasa de aprendizaje (%)",
@@ -49,7 +46,6 @@
       "businessContext": "Time reduction per doubling of output.",
       "businessContext_i18n": {
         "en": "Time reduction per doubling of output.",
-        "tr": "Her iki kat uretimde sure dusus Ratioi.",
         "de": "Zeitreduktion pro Verdopplung der Ausbringungsmenge.",
         "fr": "Réduction de temps par doublement de la production.",
         "es": "Reducción de tiempo por duplicación de la producción.",
@@ -61,7 +57,6 @@
       "label": "Units Produced",
       "label_i18n": {
         "en": "Units Produced",
-        "tr": "Uretilen Quantity",
         "de": "Produzierte Einheiten",
         "fr": "Unités produites",
         "es": "Unidades producidas",
@@ -74,7 +69,6 @@
       "businessContext": "Total units produced.",
       "businessContext_i18n": {
         "en": "Total units produced.",
-        "tr": "Total Production adedi.",
         "de": "Gesamtzahl der produzierten Einheiten.",
         "fr": "Nombre total d'unités produites.",
         "es": "Total de unidades producidas.",
@@ -90,18 +84,17 @@
   },
   "formulas": {
     "faktor": "Math.log(Math.max(0.0001, ogrenmeOrani / 100)) / Math.log(2)",
-    "sonuc": "ilkSure * Math.pow(uretilenAdet, (Math.log(Math.max(0.0001, ogrenmeOrani / 100)) / Math.log(2)))"
+    "result": "ilkSure * Math.pow(uretilenAdet, (Math.log(Math.max(0.0001, ogrenmeOrani / 100)) / Math.log(2)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "min",
     "breakdown": {
-      "sonuc": "Son Unit Time"
+      "result": "Son Unit Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Son Unit Time",
-        "tr": "Son Unit Time",
         "de": "Zeit der letzten Einheit",
         "fr": "Last Unit Time",
         "es": "Tiempo de la Última Unidad",
@@ -126,7 +119,6 @@
       "long": "Calculate unit production time using the learning curve theory.",
       "short_i18n": {
         "en": "Calculate unit production time using the learning curve theory.",
-        "tr": "Tecrube arttikca azArea Unit basi uretim suresini hesaplar.",
         "de": "Berechnen Sie die Stuckproduktionszeit mithilfe der Lernkurventheorie.",
         "fr": "Calculer le temps de production unitaire en utilisant la théorie de la courbe d'apprentissage.",
         "es": "Calcular el tiempo de producción unitario usando la teoría de la curva de aprendizaje.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate unit production time using the learning curve theory.",
-        "tr": "Tecrube arttikca azArea Unit basi uretim suresini hesaplar.",
         "de": "Berechnen Sie die Stuckproduktionszeit mithilfe der Lernkurventheorie.",
         "fr": "Calculer le temps de production unitaire en utilisant la théorie de la courbe d'apprentissage.",
         "es": "Calcular el tiempo de producción unitario usando la teoría de la curva de aprendizaje.",

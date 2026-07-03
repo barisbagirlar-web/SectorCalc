@@ -10,7 +10,6 @@
       "label": "Total Spend (USD)",
       "label_i18n": {
         "en": "Total Spend (USD)",
-        "tr": "Toplam Harcama (TL)",
         "de": "Gesamtausgaben (USD)",
         "fr": "Dépenses totales (USD)",
         "es": "Gasto Total (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Ad budget spent.",
       "businessContext_i18n": {
         "en": "Ad budget spent.",
-        "tr": "Reklam butcesi.",
         "de": "Ausgegebenes Werbebudget.",
         "fr": "Budget publicitaire dépensé.",
         "es": "Presupuesto publicitario gastado.",
@@ -35,7 +33,6 @@
       "label": "Clicks",
       "label_i18n": {
         "en": "Clicks",
-        "tr": "Tiklama (Quantity)",
         "de": "Klicks",
         "fr": "Clics",
         "es": "Clics",
@@ -48,7 +45,6 @@
       "businessContext": "Total clicks.",
       "businessContext_i18n": {
         "en": "Total clicks.",
-        "tr": "Total tiklama.",
         "de": "Gesamtklicks.",
         "fr": "Nombre total de clics.",
         "es": "Total de clics.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "toplamHarcama / Math.max(1, tiklama)"
+    "result": "toplamHarcama / Math.max(1, tiklama)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Tiklama Basi Cost (CPC)"
+      "result": "Tiklama Basi Cost (CPC)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tiklama Basi Cost (CPC)",
-        "tr": "Tiklama Basi Cost (CPC)",
         "de": "Kosten pro Klick (CPC)",
         "fr": "Coût par clic (CPC)",
         "es": "Costo por Clic (CPC)",
@@ -99,7 +94,6 @@
       "long": "Calculate cost per click (CPC) for advertising.",
       "short_i18n": {
         "en": "Calculate cost per click (CPC) for advertising.",
-        "tr": "Her bir reklam tiklamasi icin odenen Mean bedeli (CPC) hesaplar.",
         "de": "Cost-per-Click (CPC) fur Werbung berechnen.",
         "fr": "Calculer le coût par clic (CPC) pour la publicité.",
         "es": "Calcular el costo por clic (CPC) para publicidad.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate cost per click (CPC) for advertising.",
-        "tr": "Her bir reklam tiklamasi icin odenen Mean bedeli (CPC) hesaplar.",
         "de": "Cost-per-Click (CPC) fur Werbung berechnen.",
         "fr": "Calculer le coût par clic (CPC) pour la publicité.",
         "es": "Calcular el costo por clic (CPC) para publicidad.",

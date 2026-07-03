@@ -10,7 +10,6 @@
       "label": "Room Perimeter (m)",
       "label_i18n": {
         "en": "Room Perimeter (m)",
-        "tr": "Oda Cevresi (m)",
         "de": "Raumumfang (m)",
         "fr": "Périmètre de la pièce (m)",
         "es": "Perímetro de la Habitación (m)",
@@ -23,7 +22,6 @@
       "businessContext": "Total room perimeter.",
       "businessContext_i18n": {
         "en": "Total room perimeter.",
-        "tr": "Odanin Total cevre uzunlugu.",
         "de": "Gesamtraumumfang.",
         "fr": "Périmètre total de la pièce.",
         "es": "Perímetro total de la habitación.",
@@ -35,7 +33,6 @@
       "label": "Door Width (m)",
       "label_i18n": {
         "en": "Door Width (m)",
-        "tr": "Kapi Genisligi (m)",
         "de": "Turbreite (m)",
         "fr": "Largeur de porte (m)",
         "es": "Ancho de Puerta (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Standard door width.",
       "businessContext_i18n": {
         "en": "Standard door width.",
-        "tr": "Standart kapi genisligi.",
         "de": "Standardturbreite.",
         "fr": "Largeur standard de porte.",
         "es": "Ancho estándar de puerta.",
@@ -60,7 +56,6 @@
       "label": "Number of Doors",
       "label_i18n": {
         "en": "Number of Doors",
-        "tr": "Kapi Numbersi",
         "de": "Anzahl der Turen",
         "fr": "Nombre de portes",
         "es": "Número de Puertas",
@@ -73,7 +68,6 @@
       "businessContext": "Number of doors.",
       "businessContext_i18n": {
         "en": "Number of doors.",
-        "tr": "Odadaki Kapi Numbersi.",
         "de": "Anzahl der Turen.",
         "fr": "Nombre de portes.",
         "es": "Número de puertas.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "odaCevresi - (kapiGenisligi * kapiSayisi)"
+    "result": "odaCevresi - (kapiGenisligi * kapiSayisi)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Gerekli Supurgelik"
+      "result": "Gerekli Supurgelik"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Supurgelik",
-        "tr": "Gerekli Supurgelik",
         "de": "Erforderliche Fußleiste",
         "fr": "Plinthe nécessaire",
         "es": "Zócalo Requerido",
@@ -124,7 +117,6 @@
       "long": "Calculate baseboard length needed excluding door openings.",
       "short_i18n": {
         "en": "Calculate baseboard length needed excluding door openings.",
-        "tr": "Duvar dibine dosenecek Net supurgelik metreajini hesaplar.",
         "de": "Erforderliche Sockelleistenlänge ohne Turoffnungen berechnen.",
         "fr": "Calculer la longueur de plinthe nécessaire en excluant les ouvertures de portes.",
         "es": "Calcular la longitud de rodapié necesaria excluyendo las aberturas de puertas.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate baseboard length needed excluding door openings.",
-        "tr": "Duvar dibine dosenecek Net supurgelik metreajini hesaplar.",
         "de": "Erforderliche Sockelleistenlänge ohne Turoffnungen berechnen.",
         "fr": "Calculer la longueur de plinthe nécessaire en excluant les ouvertures de portes.",
         "es": "Calcular la longitud de rodapié necesaria excluyendo las aberturas de puertas.",

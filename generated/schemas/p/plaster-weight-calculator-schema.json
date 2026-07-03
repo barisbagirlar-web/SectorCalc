@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Plaster Area (m²)",
       "label_i18n": {
         "en": "Plaster Area (m²)",
-        "tr": "Siva Areai (m²)",
         "de": "Putzfläche (m²)",
         "fr": "Surface de plâtre (m²)",
         "es": "Área de Yeso (m²)",
@@ -23,7 +22,6 @@
       "businessContext": "Facade area to plaster.",
       "businessContext_i18n": {
         "en": "Facade area to plaster.",
-        "tr": "Sivanacak Facade Area.",
         "de": "Zu verputzende Fassadenfläche.",
         "fr": "Surface de facade à plâtrer.",
         "es": "Área de fachada a enyesar.",
@@ -35,7 +33,6 @@
       "label": "Plaster Thickness (cm)",
       "label_i18n": {
         "en": "Plaster Thickness (cm)",
-        "tr": "Siva Kalinligi (cm)",
         "de": "Putzstärke",
         "fr": "Épaisseur du plâtre",
         "es": "Espesor del yeso",
@@ -48,7 +45,6 @@
       "businessContext": "Application thickness.",
       "businessContext_i18n": {
         "en": "Application thickness.",
-        "tr": "Uygulama kalinligi.",
         "de": "Auftragsdicke.",
         "fr": "Épaisseur d'application.",
         "es": "Espesor de aplicación.",
@@ -60,7 +56,6 @@
       "label": "Mortar Density (kg/m³)",
       "label_i18n": {
         "en": "Mortar Density (kg/m³)",
-        "tr": "Harc Yogunlugu (kg/m³)",
         "de": "Morteldichte (kg/m³)",
         "fr": "Densité du mortier (kg/m³)",
         "es": "Densidad del Mortero (kg/m³)",
@@ -73,7 +68,6 @@
       "businessContext": "Dry mortar density.",
       "businessContext_i18n": {
         "en": "Dry mortar density.",
-        "tr": "Kuru harc yogunlugu.",
         "de": "Trockenmorteldichte.",
         "fr": "Densité du mortier sec.",
         "es": "Densidad del mortero seco.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "alan * (kalinlik / 100) * yogunluk"
+    "result": "area * (kalinlik / 100) * yogunluk"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kg",
     "breakdown": {
-      "sonuc": "Gerekli Siva Harci"
+      "result": "Gerekli Siva Harci"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Siva Harci",
-        "tr": "Gerekli Siva Harci",
         "de": "Erforderlicher Putzmortel",
         "fr": "Mortier de plâtre requis",
         "es": "Mortero de Yeso Requerido",
@@ -124,7 +117,6 @@
       "long": "Calculate dry plaster weight needed for facade application.",
       "short_i18n": {
         "en": "Calculate dry plaster weight needed for facade application.",
-        "tr": "Cepheye uygulanacak kuru siva harci agirligini hesaplar.",
         "de": "Berechnen Sie das benotigte Trockenputzgewicht fur die Fassadenanwendung.",
         "fr": "Calculer le poids de plâtre sec nécessaire pour l'application en facade.",
         "es": "Calcular el peso de yeso seco necesario para la aplicación en fachada.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate dry plaster weight needed for facade application.",
-        "tr": "Cepheye uygulanacak kuru siva harci agirligini hesaplar.",
         "de": "Berechnen Sie das benotigte Trockenputzgewicht fur die Fassadenanwendung.",
         "fr": "Calculer le poids de plâtre sec nécessaire pour l'application en facade.",
         "es": "Calcular el peso de yeso seco necesario para la aplicación en fachada.",

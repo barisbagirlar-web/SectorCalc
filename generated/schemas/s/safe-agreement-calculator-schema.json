@@ -6,11 +6,10 @@
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "yatirim",
+      "id": "investment",
       "label": "Investment (USD)",
       "label_i18n": {
         "en": "Investment (USD)",
-        "tr": "Inandstmmostt (TRY)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -23,7 +22,6 @@
       "businessContext": "SAFE investment.",
       "businessContext_i18n": {
         "en": "SAFE investment.",
-        "tr": "SAFE Investment Amount.",
         "de": "SAFE-Investition.",
         "fr": "Investissement SAFE.",
         "es": "Inversión SAFE.",
@@ -35,7 +33,6 @@
       "label": "Valuation Cap (USD)",
       "label_i18n": {
         "en": "Valuation Cap (USD)",
-        "tr": "Valueleme Tavani (TL)",
         "de": "Bewertungsobergrenze ($)",
         "fr": "Plafond de valorisation ($)",
         "es": "Tope de valoración ($)",
@@ -48,7 +45,6 @@
       "businessContext": "Valuation cap.",
       "businessContext_i18n": {
         "en": "Valuation cap.",
-        "tr": "Maximum Valueleme.",
         "de": "Bewertungsobergrenze.",
         "fr": "Plafond de valorisation.",
         "es": "Tope de valoración.",
@@ -60,7 +56,6 @@
       "label": "Total Shares",
       "label_i18n": {
         "en": "Total Shares",
-        "tr": "Toplam Hisse (Adet)",
         "de": "Gesamtaktien",
         "fr": "Nombre total d'actions",
         "es": "Acciones totales",
@@ -73,7 +68,6 @@
       "businessContext": "Total shares outstanding.",
       "businessContext_i18n": {
         "en": "Total shares outstanding.",
-        "tr": "Sirketin Total hisse adedi.",
         "de": "Gesamtzahl der ausstehenden Aktien.",
         "fr": "Nombre total d'actions en circulation.",
         "es": "Total de acciones en circulación.",
@@ -89,18 +83,17 @@
   },
   "formulas": {
     "donusumFiyati": "tavanDeger / Math.max(1, toplamHisse)",
-    "sonuc": "yatirim / Math.max(0.0001, (tavanDeger / Math.max(1, toplamHisse)))"
+    "result": "investment / Math.max(0.0001, (tavanDeger / Math.max(1, toplamHisse)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "shares",
     "breakdown": {
-      "sonuc": "Yeni Hisse Adedi"
+      "result": "Yeni Hisse Adedi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Yeni Hisse Adedi",
-        "tr": "Yeni Hisse Adedi",
         "de": "Anzahl neuer Aktien",
         "fr": "Nombre de nouvelles actions",
         "es": "Número de nuevas acciones",
@@ -125,7 +118,6 @@
       "long": "Calculate shares issued under a SAFE agreement.",
       "short_i18n": {
         "en": "Calculate shares issued under a SAFE agreement.",
-        "tr": "SAFE anlasmasiyla yatirimciya verilecek hisse adedini hesaplar.",
         "de": "Berechnen Sie die im Rahmen einer SAFE-Vereinbarung ausgegebenen Aktien.",
         "fr": "Calculer les actions émises dans le cadre d'un accord SAFE.",
         "es": "Calcular las acciones emitidas bajo un acuerdo SAFE.",
@@ -133,7 +125,6 @@
       },
       "long_i18n": {
         "en": "Calculate shares issued under a SAFE agreement.",
-        "tr": "SAFE anlasmasiyla yatirimciya verilecek hisse adedini hesaplar.",
         "de": "Berechnen Sie die im Rahmen einer SAFE-Vereinbarung ausgegebenen Aktien.",
         "fr": "Calculer les actions émises dans le cadre d'un accord SAFE.",
         "es": "Calcular las acciones emitidas bajo un acuerdo SAFE.",

@@ -10,7 +10,6 @@
       "label": "Bending Moment (N.m)",
       "label_i18n": {
         "en": "Bending Moment (N.m)",
-        "tr": "Bmostding Mommostti (N.m)",
         "de": "Biegemoment",
         "fr": "Moment de flexion",
         "es": "Momento flector",
@@ -23,7 +22,6 @@
       "businessContext": "Bending moment on shaft.",
       "businessContext_i18n": {
         "en": "Bending moment on shaft.",
-        "tr": "Mile etkiyen Bending Moment.",
         "de": "Biegemoment auf der Welle.",
         "fr": "Moment de flexion sur l'arbre.",
         "es": "Momento flector sobre el eje.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "tork",
+      "id": "torque",
       "label": "Torque (N.m)",
       "label_i18n": {
         "en": "Torque (N.m)",
-        "tr": "Burulma Momenti (N.m)",
         "de": "Drehmoment",
         "fr": "Couple",
         "es": "Par motor",
@@ -48,7 +45,6 @@
       "businessContext": "Torque on shaft.",
       "businessContext_i18n": {
         "en": "Torque on shaft.",
-        "tr": "Mile etkiyen tork.",
         "de": "Drehmoment auf der Welle.",
         "fr": "Couple sur l'arbre.",
         "es": "Par en el eje.",
@@ -60,7 +56,6 @@
       "label": "Yield Stress (Pa)",
       "label_i18n": {
         "en": "Yield Stress (Pa)",
-        "tr": "Akma Gerilmesi (Pa)",
         "de": "Streckgrenze (Pa)",
         "fr": "Contrainte d'élasticité (Pa)",
         "es": "Esfuerzo de Fluencia (Pa)",
@@ -73,7 +68,6 @@
       "businessContext": "Shaft material yield strength.",
       "businessContext_i18n": {
         "en": "Shaft material yield strength.",
-        "tr": "Mil malzemesinin Yield Strength.",
         "de": "Streckgrenze des Wellenmaterials.",
         "fr": "Limite d'élasticité du matériau de l'arbre.",
         "es": "Resistencia a la fluencia del material del eje.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "Math.pow((16 / (Math.PI * akmaGerilmesi)) * Math.sqrt(Math.max(0, moment*moment + 0.75*tork*tork)), 1/3)"
+    "result": "Math.pow((16 / (Math.PI * akmaGerilmesi)) * Math.sqrt(Math.max(0, moment*moment + 0.75*torque*torque)), 1/3)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Min. Mil Diameter"
+      "result": "Min. Mil Diameter"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Min. Mil Diameter",
-        "tr": "Min. Mil Diameter",
         "de": "Min. Wellendurchmesser",
         "fr": "Diamètre minimal de l'arbre",
         "es": "Diámetro Mínimo del Eje",
@@ -124,7 +117,6 @@
       "long": "Calculate minimum shaft diameter under bending and torsion (ASME).",
       "short_i18n": {
         "en": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "tr": "Egilme ve burulma altindaki milin Minimum Diameterini ASME formulu ile hesaplar.",
         "de": "Berechnen Sie den minimalen Wellendurchmesser unter Biegung und Torsion (ASME).",
         "fr": "Calculer le diamètre minimal de l'arbre sous flexion et torsion (ASME).",
         "es": "Calcular el diámetro mínimo del eje bajo flexión y torsión (ASME).",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "tr": "Egilme ve burulma altindaki milin Minimum Diameterini ASME formulu ile hesaplar.",
         "de": "Berechnen Sie den minimalen Wellendurchmesser unter Biegung und Torsion (ASME).",
         "fr": "Calculer le diamètre minimal de l'arbre sous flexion et torsion (ASME).",
         "es": "Calcular el diámetro mínimo del eje bajo flexión y torsión (ASME).",

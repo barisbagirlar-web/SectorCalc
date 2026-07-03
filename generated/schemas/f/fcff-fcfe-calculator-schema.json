@@ -10,7 +10,6 @@
       "label": "Net Income (USD)",
       "label_i18n": {
         "en": "Net Income (USD)",
-        "tr": "Net Kâr (₺)",
         "de": "Nettogewinn",
         "fr": "Revenu net",
         "es": "Ingreso neto",
@@ -23,7 +22,6 @@
       "businessContext": "Net profit for the period.",
       "businessContext_i18n": {
         "en": "Net profit for the period.",
-        "tr": "Donem Net Profiti.",
         "de": "Perioden-Nettogewinn.",
         "fr": "Bénéfice net de la période.",
         "es": "Beneficio neto del período.",
@@ -35,7 +33,6 @@
       "label": "Depreciation (USD)",
       "label_i18n": {
         "en": "Depreciation (USD)",
-        "tr": "Amortisman (₺)",
         "de": "Jährliche Abschreibungsrate",
         "fr": "Taux d'amortissement annuel",
         "es": "Tasa de depreciación anual",
@@ -48,7 +45,6 @@
       "businessContext": "Period depreciation expense.",
       "businessContext_i18n": {
         "en": "Period depreciation expense.",
-        "tr": "Donem Amortization Expense.",
         "de": "Periodische Abschreibungen.",
         "fr": "Charge de dépréciation de la période.",
         "es": "Gasto por depreciación del período.",
@@ -60,7 +56,6 @@
       "label": "Working Capital Change (USD)",
       "label_i18n": {
         "en": "Working Capital Change (USD)",
-        "tr": "Workletme Sermayesi Degisimi (₺)",
         "de": "Veränderung des Betriebskapitals (USD)",
         "fr": "Variation du fonds de roulement (USD)",
         "es": "Cambio en el Capital de Trabajo (USD)",
@@ -73,7 +68,6 @@
       "businessContext": "Increase in net working capital.",
       "businessContext_i18n": {
         "en": "Increase in net working capital.",
-        "tr": "Net isletme sermayesindeki artis.",
         "de": "Erhohung des NettoUmlaufvermogens.",
         "fr": "Augmentation du besoin en fonds de roulement.",
         "es": "Aumento en el capital de trabajo neto.",
@@ -85,7 +79,6 @@
       "label": "CapEx (USD)",
       "label_i18n": {
         "en": "CapEx (USD)",
-        "tr": "Sermaye Harcamasi (₺)",
         "de": "Anfangsinvestition (CAPEX)",
         "fr": "Investissement initial (CAPEX)",
         "es": "Inversión inicial (CAPEX)",
@@ -98,7 +91,6 @@
       "businessContext": "Capital expenditures on fixed assets.",
       "businessContext_i18n": {
         "en": "Capital expenditures on fixed assets.",
-        "tr": "Duran varlik yatirimlari.",
         "de": "Investitionsausgaben fur Anlagevermogen.",
         "fr": "Dépenses d'investissement en immobilisations.",
         "es": "Gastos de capital en activos fijos.",
@@ -106,11 +98,10 @@
       }
     },
     {
-      "id": "borc",
+      "id": "debt",
       "label": "Net Debt Change (USD)",
       "label_i18n": {
         "en": "Net Debt Change (USD)",
-        "tr": "Net Borc Degisimi (₺)",
         "de": "Veränderung der Nettoverschuldung (USD)",
         "fr": "Variation de la dette nette (USD)",
         "es": "Cambio Neto en Deuda (USD)",
@@ -123,7 +114,6 @@
       "businessContext": "New debt issuance minus principal payments.",
       "businessContext_i18n": {
         "en": "New debt issuance minus principal payments.",
-        "tr": "Yeni borc - Principal odemesi.",
         "de": "Neue Schuldenemission abzuglich Tilgungszahlungen.",
         "fr": "Nouvelles émissions de dette moins remboursements de principal.",
         "es": "Nueva emisión de deuda menos pagos de principal.",
@@ -139,27 +129,25 @@
   },
   "formulas": {
     "fcff": "netKar + amortisman - isletmeSermayesi - capex",
-    "sonuc": "netKar + amortisman - isletmeSermayesi - capex + borc"
+    "result": "netKar + amortisman - isletmeSermayesi - capex + debt"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
       "fcff": "FCFF (Firmaya)",
-      "sonuc": "FCFE (Hissedara)"
+      "result": "FCFE (Hissedara)"
     },
     "breakdown_i18n": {
       "fcff": {
         "en": "FCFF (Firmaya)",
-        "tr": "FCFF (Firmaya)",
         "de": "FCFF (Unternehmen)",
         "fr": "FCFF (Entreprise)",
         "es": "FCFF (Flujo de Caja Libre para la Empresa)",
         "ar": "FCFF (للشركة)"
       },
-      "sonuc": {
+      "result": {
         "en": "FCFE (Hissedara)",
-        "tr": "FCFE (Hissedara)",
         "de": "FCFE (Aktionär)",
         "fr": "FCFE (Actionnaire)",
         "es": "FCFE (Flujo de Caja Libre para el Accionista)",
@@ -185,7 +173,6 @@
       "long": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
       "short_i18n": {
         "en": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
-        "tr": "Firma ve hissedar serbest nakit akislarini (FCFF/FCFE) hesaplar.",
         "de": "Berechnen Sie den Free Cash Flow to Firm (FCFF) und to Equity (FCFE).",
         "fr": "Calculer le flux de trésorerie disponible pour l'entreprise (FCFF) et pour les actionnaires (FCFE).",
         "es": "Calcular el flujo de caja libre para la empresa (FCFF) y para el patrimonio (FCFE).",
@@ -193,7 +180,6 @@
       },
       "long_i18n": {
         "en": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
-        "tr": "Firma ve hissedar serbest nakit akislarini (FCFF/FCFE) hesaplar.",
         "de": "Berechnen Sie den Free Cash Flow to Firm (FCFF) und to Equity (FCFE).",
         "fr": "Calculer le flux de trésorerie disponible pour l'entreprise (FCFF) et pour les actionnaires (FCFE).",
         "es": "Calcular el flujo de caja libre para la empresa (FCFF) y para el patrimonio (FCFE).",

@@ -10,7 +10,6 @@
       "label": "K Factor (L/min/bar^0.5)",
       "label_i18n": {
         "en": "K Factor (L/min/bar^0.5)",
-        "tr": "K Faktoru (L/dk/bar^0.5)",
         "de": "Implementierungsrisikofaktor",
         "fr": "Facteur de risque de mise en œuvre",
         "es": "Factor de Riesgo de Implementación",
@@ -23,7 +22,6 @@
       "businessContext": "Sprinkler K factor.",
       "businessContext_i18n": {
         "en": "Sprinkler K factor.",
-        "tr": "Sprinkler K faktoru.",
         "de": "Sprinkler-K-Faktor.",
         "fr": "Facteur K de l'arroseur.",
         "es": "Factor K del aspersor.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "basinc",
+      "id": "pressure",
       "label": "Pressure (bar)",
       "label_i18n": {
         "en": "Pressure (bar)",
-        "tr": "Pressure (bar)",
         "de": "Druck (bar)",
         "fr": "Pression (bar)",
         "es": "Presión (bar)",
@@ -48,7 +45,6 @@
       "businessContext": "Sprinkler inlet pressure.",
       "businessContext_i18n": {
         "en": "Sprinkler inlet pressure.",
-        "tr": "Sprinkler Input basinci.",
         "de": "Sprinklereingangsdruck.",
         "fr": "Pression d'entrée de l'arroseur.",
         "es": "Presión de entrada del aspersor.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "K_Faktoru * Math.sqrt(Math.max(0, basinc))"
+    "result": "K_Faktoru * Math.sqrt(Math.max(0, pressure))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "L/min",
     "breakdown": {
-      "sonuc": "Sprinkler Debisi"
+      "result": "Sprinkler Debisi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Sprinkler Debisi",
-        "tr": "Sprinkler Debisi",
         "de": "Sprinklerdurchfluss",
         "fr": "Débit du gicleur",
         "es": "Caudal del Aspersor",
@@ -101,7 +96,6 @@
       "long": "Calculate flow rate from a single sprinkler head.",
       "short_i18n": {
         "en": "Calculate flow rate from a single sprinkler head.",
-        "tr": "Tek bir sprinkler basligindan akacak Water Flow Rateni hesaplar.",
         "de": "Berechnen Sie die Durchflussrate eines einzelnen Sprinklerkopfes.",
         "fr": "Calculer le débit d'une seule tête d'arroseur.",
         "es": "Calcular el caudal de un solo aspersor.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate flow rate from a single sprinkler head.",
-        "tr": "Tek bir sprinkler basligindan akacak Water Flow Rateni hesaplar.",
         "de": "Berechnen Sie die Durchflussrate eines einzelnen Sprinklerkopfes.",
         "fr": "Calculer le débit d'une seule tête d'arroseur.",
         "es": "Calcular el caudal de un solo aspersor.",

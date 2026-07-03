@@ -6,11 +6,10 @@
   "sectorId": "textile-print-lab",
   "inputs": [
     {
-      "id": "hacim",
+      "id": "volume",
       "label": "Pasteurization Volume (m³)",
       "label_i18n": {
         "en": "Pasteurization Volume (m³)",
-        "tr": "Pastorizasyon Hacmi (m³)",
         "de": "Pasteurisierungsvolumen (m³)",
         "fr": "Volume de pasteurisation (m³)",
         "es": "Volumen de pasteurización (m³)",
@@ -23,7 +22,6 @@
       "businessContext": "Pasteurizer volume.",
       "businessContext_i18n": {
         "en": "Pasteurizer volume.",
-        "tr": "Pastorizator hacmi.",
         "de": "Pasteurisierungsvolumen.",
         "fr": "Volume du pasteurisateur.",
         "es": "Volumen del pasteurizador.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "debi",
+      "id": "flow",
       "label": "Flow Rate (m³/s)",
       "label_i18n": {
         "en": "Flow Rate (m³/s)",
-        "tr": "Debi (m³/s)",
         "de": "Kompressordurchflussrate",
         "fr": "Débit du compresseur",
         "es": "Caudal del compresor",
@@ -48,7 +45,6 @@
       "businessContext": "Liquid flow rate.",
       "businessContext_i18n": {
         "en": "Liquid flow rate.",
-        "tr": "Sivi Input Flow Ratesi.",
         "de": "Flussigkeitsdurchflussrate.",
         "fr": "Débit du liquide.",
         "es": "Caudal del líquido.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "hacim / Math.max(0.0001, debi)"
+    "result": "volume / Math.max(0.0001, flow)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Alikonma Suresi"
+      "result": "Alikonma Suresi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Alikonma Suresi",
-        "tr": "Alikonma Suresi",
         "de": "Verweilzeit",
         "fr": "Temps de rétention",
         "es": "Tiempo de Retención",
@@ -101,7 +96,6 @@
       "long": "Calculate minimum hold time for pasteurization.",
       "short_i18n": {
         "en": "Calculate minimum hold time for pasteurization.",
-        "tr": "Sivinin Pasteurization Temperaturenda kalmasi gereken Minimum Alikonma Suresini hesaplar.",
         "de": "Berechnen Sie die minimale Haltezeit fur die Pasteurisierung.",
         "fr": "Calculer le temps de maintien minimum pour la pasteurisation.",
         "es": "Calcular el tiempo mínimo de retención para la pasteurización.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum hold time for pasteurization.",
-        "tr": "Sivinin Pasteurization Temperaturenda kalmasi gereken Minimum Alikonma Suresini hesaplar.",
         "de": "Berechnen Sie die minimale Haltezeit fur die Pasteurisierung.",
         "fr": "Calculer le temps de maintien minimum pour la pasteurisation.",
         "es": "Calcular el tiempo mínimo de retención para la pasteurización.",

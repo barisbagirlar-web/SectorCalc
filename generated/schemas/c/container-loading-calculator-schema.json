@@ -10,7 +10,6 @@
       "label": "Container Volume (m³)",
       "label_i18n": {
         "en": "Container Volume (m³)",
-        "tr": "Konteyner Hacmi (m³)",
         "de": "Containervolumen (m³)",
         "fr": "Volume du conteneur (m³)",
         "es": "Volumen del Contenedor (m³)",
@@ -23,7 +22,6 @@
       "businessContext": "Container internal volume.",
       "businessContext_i18n": {
         "en": "Container internal volume.",
-        "tr": "Konteynerin ic hacmi.",
         "de": "Innenvolumen des Containers.",
         "fr": "Volume interne du conteneur.",
         "es": "Volumen interno del contenedor.",
@@ -35,7 +33,6 @@
       "label": "Box Volume (m³)",
       "label_i18n": {
         "en": "Box Volume (m³)",
-        "tr": "Kutu Hacmi (m³)",
         "de": "Kartonvolumen (m³)",
         "fr": "Volume de la boîte (m³)",
         "es": "Volumen de la Caja (m³)",
@@ -48,7 +45,6 @@
       "businessContext": "Volume per box.",
       "businessContext_i18n": {
         "en": "Volume per box.",
-        "tr": "Bir kutunun hacmi.",
         "de": "Volumen pro Karton.",
         "fr": "Volume par boîte.",
         "es": "Volumen por caja.",
@@ -60,7 +56,6 @@
       "label": "Stacking Efficiency (%)",
       "label_i18n": {
         "en": "Stacking Efficiency (%)",
-        "tr": "Istifleme Efficiencyi (%)",
         "de": "Stapelwirkungsgrad (%)",
         "fr": "Efficacité d'empilage (%)",
         "es": "Eficiencia de Apilamiento (%)",
@@ -74,7 +69,6 @@
       "businessContext": "Usable volume percentage.",
       "businessContext_i18n": {
         "en": "Usable volume percentage.",
-        "tr": "Kullanilabilir Volume yuzdesi.",
         "de": "Prozentsatz des nutzbaren Volumens.",
         "fr": "Pourcentage de volume utilisable.",
         "es": "Porcentaje de volumen utilizable.",
@@ -89,18 +83,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "Math.floor((konteynerHacim * (istifleme / 100)) / Math.max(0.0001, kutuHacim))"
+    "result": "Math.floor((konteynerHacim * (istifleme / 100)) / Math.max(0.0001, kutuHacim))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "boxes",
     "breakdown": {
-      "sonuc": "Maximum Kutu Count"
+      "result": "Maximum Kutu Count"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maximum Kutu Count",
-        "tr": "Maximum Kutu Count",
         "de": "Maximale Anzahl Kartons",
         "fr": "Nombre maximum de boîtes",
         "es": "Número Máximo de Cajas",
@@ -125,7 +118,6 @@
       "long": "Calculate maximum boxes that fit in a shipping container.",
       "short_i18n": {
         "en": "Calculate maximum boxes that fit in a shipping container.",
-        "tr": "Konteynere sigabilecek Maximum Kutu Countni hesaplar.",
         "de": "Maximale Anzahl von Kartons berechnen, die in einen Versandcontainer passen.",
         "fr": "Calculer le nombre maximum de boîtes pouvant tenir dans un conteneur maritime.",
         "es": "Calcular el número máximo de cajas que caben en un contenedor de envío.",
@@ -133,7 +125,6 @@
       },
       "long_i18n": {
         "en": "Calculate maximum boxes that fit in a shipping container.",
-        "tr": "Konteynere sigabilecek Maximum Kutu Countni hesaplar.",
         "de": "Maximale Anzahl von Kartons berechnen, die in einen Versandcontainer passen.",
         "fr": "Calculer le nombre maximum de boîtes pouvant tenir dans un conteneur maritime.",
         "es": "Calcular el número máximo de cajas que caben en un contenedor de envío.",

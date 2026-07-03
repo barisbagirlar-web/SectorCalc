@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Area (m²)",
       "label_i18n": {
         "en": "Area (m²)",
-        "tr": "Alan (m²)",
         "de": "Gesamtfläche (ft²)",
         "fr": "Surface totale (pi²)",
         "es": "Área total (ft²)",
@@ -23,7 +22,6 @@
       "businessContext": "Area to cover.",
       "businessContext_i18n": {
         "en": "Area to cover.",
-        "tr": "Serilecek alan.",
         "de": "Zu bedeckende Fläche.",
         "fr": "Surface à couvrir.",
         "es": "Área a cubrir.",
@@ -35,7 +33,6 @@
       "label": "Layer Thickness (cm)",
       "label_i18n": {
         "en": "Layer Thickness (cm)",
-        "tr": "Tabaka Thickness (cm)",
         "de": "Schichtdicke (cm)",
         "fr": "Épaisseur de la couche (cm)",
         "es": "Espesor de Capa (cm)",
@@ -48,7 +45,6 @@
       "businessContext": "Compacted thickness.",
       "businessContext_i18n": {
         "en": "Compacted thickness.",
-        "tr": "Sikistirilmis kalinlik.",
         "de": "Verdichtete Dicke.",
         "fr": "Épaisseur compactée.",
         "es": "Espesor compactado.",
@@ -60,7 +56,6 @@
       "label": "Density (ton/m³)",
       "label_i18n": {
         "en": "Density (ton/m³)",
-        "tr": "Dmostsity (ton/m³)",
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
@@ -73,7 +68,6 @@
       "businessContext": "Aggregate density.",
       "businessContext_i18n": {
         "en": "Aggregate density.",
-        "tr": "Agreganin yogunlugu.",
         "de": "Gesteinsdichte.",
         "fr": "Densité des granulats.",
         "es": "Densidad del agregado.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "alan * (kalinlik / 100) * yogunluk"
+    "result": "area * (kalinlik / 100) * yogunluk"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "tons",
     "breakdown": {
-      "sonuc": "Gerekli Agrega"
+      "result": "Gerekli Agrega"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Agrega",
-        "tr": "Gerekli Agrega",
         "de": "Erforderliches Aggregat",
         "fr": "Granulats requis",
         "es": "Agregado Requerido",
@@ -124,7 +117,6 @@
       "long": "Calculate gravel or sand weight needed for base course.",
       "short_i18n": {
         "en": "Calculate gravel or sand weight needed for base course.",
-        "tr": "Alt temel icin gereken agrega (cakil/kum) agirligini hesaplar.",
         "de": "Berechnen Sie das benotigte Kies- oder Sandgewicht fur die Tragschicht.",
         "fr": "Calculer le poids de gravier ou de sable nécessaire pour la couche de base.",
         "es": "Calcular el peso de grava o arena necesario para la base.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate gravel or sand weight needed for base course.",
-        "tr": "Alt temel icin gereken agrega (cakil/kum) agirligini hesaplar.",
         "de": "Berechnen Sie das benotigte Kies- oder Sandgewicht fur die Tragschicht.",
         "fr": "Calculer le poids de gravier ou de sable nécessaire pour la couche de base.",
         "es": "Calcular el peso de grava o arena necesario para la base.",

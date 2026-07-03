@@ -10,7 +10,6 @@
       "label": "Net Income (USD)",
       "label_i18n": {
         "en": "Net Income (USD)",
-        "tr": "Net Kâr (₺)",
         "de": "Nettogewinn",
         "fr": "Revenu net",
         "es": "Ingreso neto",
@@ -23,7 +22,6 @@
       "businessContext": "Net income for the period.",
       "businessContext_i18n": {
         "en": "Net income for the period.",
-        "tr": "Donem Net Profiti.",
         "de": "Periodenuberschuss.",
         "fr": "Résultat net de la période.",
         "es": "Ingreso neto del período.",
@@ -35,7 +33,6 @@
       "label": "Sales (USD)",
       "label_i18n": {
         "en": "Sales (USD)",
-        "tr": "Satislar (₺)",
         "de": "Umsatzsteuersatz",
         "fr": "Taux de taxe de vente",
         "es": "Tasa de impuesto a las ventas",
@@ -48,7 +45,6 @@
       "businessContext": "Total sales revenue.",
       "businessContext_i18n": {
         "en": "Total sales revenue.",
-        "tr": "Total Revenue.",
         "de": "Gesamtumsatzerlose.",
         "fr": "Chiffre d'affaires total.",
         "es": "Ingresos totales por ventas.",
@@ -60,7 +56,6 @@
       "label": "Total Assets (USD)",
       "label_i18n": {
         "en": "Total Assets (USD)",
-        "tr": "Total Assetslar (₺)",
         "de": "Gesamtvermogen",
         "fr": "Actif total",
         "es": "Activos totales",
@@ -73,7 +68,6 @@
       "businessContext": "Total assets.",
       "businessContext_i18n": {
         "en": "Total assets.",
-        "tr": "Sirketin Total aktif buyuklugu.",
         "de": "Gesamtvermogen.",
         "fr": "Total des actifs.",
         "es": "Activos totales.",
@@ -85,7 +79,6 @@
       "label": "Equity (USD)",
       "label_i18n": {
         "en": "Equity (USD)",
-        "tr": "Ozsermaye (₺)",
         "de": "Gesamter Eigenkapitalwert ($)",
         "fr": "Valeur totale des capitaux propres ($)",
         "es": "Valor total del patrimonio ($)",
@@ -98,7 +91,6 @@
       "businessContext": "Total shareholders equity.",
       "businessContext_i18n": {
         "en": "Total shareholders equity.",
-        "tr": "Total ozsermaye.",
         "de": "Gesamtes Eigenkapital der Aktionäre.",
         "fr": "Capitaux propres totaux.",
         "es": "Patrimonio neto total de los accionistas.",
@@ -113,21 +105,20 @@
     "thresholds": {}
   },
   "formulas": {
-    "karMarji": "netKar / Math.max(1, satislar)",
+    "profitMarji": "netKar / Math.max(1, satislar)",
     "varlikDevri": "satislar / Math.max(1, varliklar)",
     "kaldirac": "varliklar / Math.max(1, ozsermaye)",
-    "sonuc": "(netKar / Math.max(1, satislar)) * (satislar / Math.max(1, varliklar)) * (varliklar / Math.max(1, ozsermaye)) * 100"
+    "result": "(netKar / Math.max(1, satislar)) * (satislar / Math.max(1, varliklar)) * (varliklar / Math.max(1, ozsermaye)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "DuPont ROE"
+      "result": "DuPont ROE"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "DuPont ROE",
-        "tr": "DuPont ROE",
         "de": "DuPont-ROE",
         "fr": "ROE DuPont",
         "es": "ROE de DuPont",
@@ -152,7 +143,6 @@
       "long": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
       "short_i18n": {
         "en": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
-        "tr": "Kârlilik, Efficiencylilik ve kaldiracin ozsermaye getirisine etkisini (DuPont ROE) hesaplar.",
         "de": "Berechnen Sie die DuPont-ROE-Zerlegung – Rentabilität, Effizienz, Verschuldung.",
         "fr": "Calculer la décomposition DuPont du ROE — rentabilité, efficacité, levier.",
         "es": "Calcular la descomposición ROE de DuPont — rentabilidad, eficiencia, apalancamiento.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
-        "tr": "Kârlilik, Efficiencylilik ve kaldiracin ozsermaye getirisine etkisini (DuPont ROE) hesaplar.",
         "de": "Berechnen Sie die DuPont-ROE-Zerlegung – Rentabilität, Effizienz, Verschuldung.",
         "fr": "Calculer la décomposition DuPont du ROE — rentabilité, efficacité, levier.",
         "es": "Calcular la descomposición ROE de DuPont — rentabilidad, eficiencia, apalancamiento.",

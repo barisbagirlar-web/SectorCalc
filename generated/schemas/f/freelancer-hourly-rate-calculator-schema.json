@@ -10,7 +10,6 @@
       "label": "Target Net Income (USD)",
       "label_i18n": {
         "en": "Target Net Income (USD)",
-        "tr": "Hedef Net Gelir (TL)",
         "de": "Ziel-Nettoeinkommen (USD)",
         "fr": "Revenu net cible (USD)",
         "es": "Ingreso neto objetivo (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "After-tax target income.",
       "businessContext_i18n": {
         "en": "After-tax target income.",
-        "tr": "Vergi sonrasi hedef gelir.",
         "de": "Zieleinkommen nach Steuern.",
         "fr": "Revenu cible après impôt.",
         "es": "Ingreso objetivo después de impuestos.",
@@ -35,7 +33,6 @@
       "label": "Tax Rate (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Tax Ratio (%)",
         "de": "Steuersatz (%)",
         "fr": "Taux d'imposition (%)",
         "es": "Tasa Impositiva (%)",
@@ -49,7 +46,6 @@
       "businessContext": "Average tax burden.",
       "businessContext_i18n": {
         "en": "Average tax burden.",
-        "tr": "Mean vergi yuku.",
         "de": "Durchschnittliche Steuerbelastung.",
         "fr": "Charge fiscale moyenne.",
         "es": "Carga fiscal promedio.",
@@ -57,11 +53,10 @@
       }
     },
     {
-      "id": "gider",
+      "id": "expense",
       "label": "Annual Expense (USD)",
       "label_i18n": {
         "en": "Annual Expense (USD)",
-        "tr": "Annual Expmostse (TRY)",
         "de": "Jährliche Ausgaben im Ruhestand",
         "fr": "Dépenses annuelles à la retraite",
         "es": "Gastos Anuales en el Retiro",
@@ -74,7 +69,6 @@
       "businessContext": "Business expenses.",
       "businessContext_i18n": {
         "en": "Business expenses.",
-        "tr": "Workletme giderleri.",
         "de": "Geschäftsausgaben.",
         "fr": "Dépenses professionnelles.",
         "es": "Gastos comerciales.",
@@ -86,7 +80,6 @@
       "label": "Annual Work Hours",
       "label_i18n": {
         "en": "Annual Work Hours",
-        "tr": "Yillik Calisma Saati",
         "de": "Jährliche Arbeitsstunden",
         "fr": "Heures de travail annuelles",
         "es": "Horas de trabajo anuales",
@@ -99,7 +92,6 @@
       "businessContext": "Total work hours.",
       "businessContext_i18n": {
         "en": "Total work hours.",
-        "tr": "Total calisma saati.",
         "de": "Gesamtarbeitsstunden.",
         "fr": "Total des heures de travail.",
         "es": "Horas totales de trabajo.",
@@ -114,19 +106,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "brutHedef": "(hedefNet + gider) / Math.max(0.0001, (1 - vergi / 100))",
-    "sonuc": "((hedefNet + gider) / Math.max(0.0001, (1 - vergi / 100))) / Math.max(1, calismaSaati)"
+    "brutHedef": "(hedefNet + expense) / Math.max(0.0001, (1 - vergi / 100))",
+    "result": "((hedefNet + expense) / Math.max(0.0001, (1 - vergi / 100))) / Math.max(1, calismaSaati)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "TRY/hour",
     "breakdown": {
-      "sonuc": "Saatlik Serbest Calisan Ucreti"
+      "result": "Saatlik Serbest Calisan Ucreti"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Saatlik Serbest Calisan Ucreti",
-        "tr": "Saatlik Serbest Calisan Ucreti",
         "de": "Stundlicher Honorarsatz fur Freiberufler",
         "fr": "Taux horaire freelance",
         "es": "Tarifa por hora del freelancer",
@@ -151,7 +142,6 @@
       "long": "Calculate freelancer hourly rate including tax and overhead.",
       "short_i18n": {
         "en": "Calculate freelancer hourly rate including tax and overhead.",
-        "tr": "Vergi ve giderler dahil edilmesi gereken Saatlik Serbest Calisan Ucretini hesaplar.",
         "de": "Berechnen Sie den Stundensatz fur Freiberufler inklusive Steuern und Gemeinkosten.",
         "fr": "Calculer le taux horaire du freelance incluant les taxes et les frais généraux.",
         "es": "Calcular tarifa por hora de freelancer incluyendo impuestos y gastos generales.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate freelancer hourly rate including tax and overhead.",
-        "tr": "Vergi ve giderler dahil edilmesi gereken Saatlik Serbest Calisan Ucretini hesaplar.",
         "de": "Berechnen Sie den Stundensatz fur Freiberufler inklusive Steuern und Gemeinkosten.",
         "fr": "Calculer le taux horaire du freelance incluant les taxes et les frais généraux.",
         "es": "Calcular tarifa por hora de freelancer incluyendo impuestos y gastos generales.",

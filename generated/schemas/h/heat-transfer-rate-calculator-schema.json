@@ -6,11 +6,10 @@
   "sectorId": "process-chemical",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Area (m²)",
       "label_i18n": {
         "en": "Area (m²)",
-        "tr": "Alan (m²)",
         "de": "Gesamtfläche (ft²)",
         "fr": "Surface totale (pi²)",
         "es": "Área total (ft²)",
@@ -23,7 +22,6 @@
       "businessContext": "Heat transfer area.",
       "businessContext_i18n": {
         "en": "Heat transfer area.",
-        "tr": "Isi transfer yuzey Areai.",
         "de": "Wärmeubertragungsfläche.",
         "fr": "Surface de transfert de chaleur.",
         "es": "Área de transferencia de calor.",
@@ -35,7 +33,6 @@
       "label": "Thermal Conductivity (W/mK)",
       "label_i18n": {
         "en": "Thermal Conductivity (W/mK)",
-        "tr": "Isi Iletim KatNumbersi (W/mK)",
         "de": "Wärmeleitfähigkeit (W/mK)",
         "fr": "Conductivité thermique (W/mK)",
         "es": "Conductividad Térmica (W/mK)",
@@ -48,7 +45,6 @@
       "businessContext": "Material thermal conductivity.",
       "businessContext_i18n": {
         "en": "Material thermal conductivity.",
-        "tr": "Malzemenin isil iletkenligi.",
         "de": "Wärmeleitfähigkeit des Materials.",
         "fr": "Conductivité thermique du matériau.",
         "es": "Conductividad térmica del material.",
@@ -60,7 +56,6 @@
       "label": "Wall Thickness (m)",
       "label_i18n": {
         "en": "Wall Thickness (m)",
-        "tr": "Wall Thickness (m)",
         "de": "Wanddicke",
         "fr": "Épaisseur du mur",
         "es": "Espesor de pared",
@@ -73,7 +68,6 @@
       "businessContext": "Wall thickness.",
       "businessContext_i18n": {
         "en": "Wall thickness.",
-        "tr": "Duvar Wall Thickness.",
         "de": "Wanddicke.",
         "fr": "Épaisseur de la paroi.",
         "es": "Espesor de la pared.",
@@ -85,7 +79,6 @@
       "label": "Temperature Difference (K)",
       "label_i18n": {
         "en": "Temperature Difference (K)",
-        "tr": "Temperature Difference (K)",
         "de": "Temperaturdifferenz",
         "fr": "Différence de température",
         "es": "Diferencia de temperatura",
@@ -98,7 +91,6 @@
       "businessContext": "Temperature difference between surfaces.",
       "businessContext_i18n": {
         "en": "Temperature difference between surfaces.",
-        "tr": "Iki yuzey arasi Temperature Difference.",
         "de": "Temperaturdifferenz zwischen den Oberflächen.",
         "fr": "Différence de température entre les surfaces.",
         "es": "Diferencia de temperatura entre las superficies.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(K * alan * sicaklikFarki) / Math.max(0.0001, kalinlik)"
+    "result": "(K * area * sicaklikFarki) / Math.max(0.0001, kalinlik)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Isi Transfer Speedi"
+      "result": "Isi Transfer Speedi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Isi Transfer Speedi",
-        "tr": "Isi Transfer Speedi",
         "de": "Wärmeubertragungsrate",
         "fr": "Taux de transfert de chaleur",
         "es": "Tasa de Transferencia de Calor",
@@ -149,7 +140,6 @@
       "long": "Calculate heat transfer rate through a plane wall using Fourier's law.",
       "short_i18n": {
         "en": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "tr": "Duzlem duvardan gecen isi transfer Speedini Fourier yasasi ile hesaplar.",
         "de": "Berechnen Sie die Wärmeubertragungsrate durch eine ebene Wand mit dem Fourier'schen Gesetz.",
         "fr": "Calculer le taux de transfert de chaleur à travers une paroi plane en utilisant la loi de Fourier.",
         "es": "Calcular la tasa de transferencia de calor a través de una pared plana usando la ley de Fourier.",
@@ -157,7 +147,6 @@
       },
       "long_i18n": {
         "en": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "tr": "Duzlem duvardan gecen isi transfer Speedini Fourier yasasi ile hesaplar.",
         "de": "Berechnen Sie die Wärmeubertragungsrate durch eine ebene Wand mit dem Fourier'schen Gesetz.",
         "fr": "Calculer le taux de transfert de chaleur à travers une paroi plane en utilisant la loi de Fourier.",
         "es": "Calcular la tasa de transferencia de calor a través de una pared plana usando la ley de Fourier.",

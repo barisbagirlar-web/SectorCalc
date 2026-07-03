@@ -10,7 +10,6 @@
       "label": "Latest Error",
       "label_i18n": {
         "en": "Latest Error",
-        "tr": "Son Kalibrasyon Hatasi (Unit)",
         "de": "Letzter Fehler",
         "fr": "Erreur la plus récente",
         "es": "Último Error",
@@ -23,7 +22,6 @@
       "businessContext": "Error at last calibration.",
       "businessContext_i18n": {
         "en": "Error at last calibration.",
-        "tr": "Son kalibrasyondaki hata.",
         "de": "Fehler bei der letzten Kalibrierung.",
         "fr": "Erreur lors du dernier étalonnage.",
         "es": "Error en la última calibración.",
@@ -35,7 +33,6 @@
       "label": "Previous Error",
       "label_i18n": {
         "en": "Previous Error",
-        "tr": "Onceki Hata (Unit)",
         "de": "Vorheriger Fehler",
         "fr": "Erreur précédente",
         "es": "Error Anterior",
@@ -48,7 +45,6 @@
       "businessContext": "Previous calibration error.",
       "businessContext_i18n": {
         "en": "Previous calibration error.",
-        "tr": "Bir onceki kalibrasyon hatasi.",
         "de": "Vorheriger Kalibrierungsfehler.",
         "fr": "Erreur d'étalonnage précédente.",
         "es": "Error de calibración anterior.",
@@ -60,7 +56,6 @@
       "label": "Elapsed Time (Days)",
       "label_i18n": {
         "en": "Elapsed Time (Days)",
-        "tr": "Gecen Sure (Gun)",
         "de": "Verstrichene Zeit (Days)",
         "fr": "Temps écoulé (Days)",
         "es": "Tiempo Transcurrido (Días)",
@@ -73,7 +68,6 @@
       "businessContext": "Time between calibrations.",
       "businessContext_i18n": {
         "en": "Time between calibrations.",
-        "tr": "Iki kalibrasyon arasi sure.",
         "de": "Zeit zwischen Kalibrierungen.",
         "fr": "Temps entre les étalonnages.",
         "es": "Tiempo entre calibraciones.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(sonHata - oncekiHata) / Math.max(1, gecenSure)"
+    "result": "(sonHata - oncekiHata) / Math.max(1, gecenSure)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "unit/day",
     "breakdown": {
-      "sonuc": "Sapma Speed"
+      "result": "Sapma Speed"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Sapma Speed",
-        "tr": "Sapma Speed",
         "de": "Abweichungsrate",
         "fr": "Taux de déviation",
         "es": "Tasa de Desviación",
@@ -124,7 +117,6 @@
       "long": "Calculate measurement instrument drift rate over time.",
       "short_i18n": {
         "en": "Calculate measurement instrument drift rate over time.",
-        "tr": "Olcum cihazinin zamanla bozulma Speedini (sapma) hesaplar.",
         "de": "Berechnen Sie die Driftrate eines Messgeräts im Zeitverlauf.",
         "fr": "Calculer le taux de dérive d'un instrument de mesure au fil du temps.",
         "es": "Calcular la tasa de deriva del instrumento de medición a lo largo del tiempo.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate measurement instrument drift rate over time.",
-        "tr": "Olcum cihazinin zamanla bozulma Speedini (sapma) hesaplar.",
         "de": "Berechnen Sie die Driftrate eines Messgeräts im Zeitverlauf.",
         "fr": "Calculer le taux de dérive d'un instrument de mesure au fil du temps.",
         "es": "Calcular la tasa de deriva del instrumento de medición a lo largo del tiempo.",

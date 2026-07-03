@@ -10,7 +10,6 @@
       "label": "Campaign Revenue (USD)",
       "label_i18n": {
         "en": "Campaign Revenue (USD)",
-        "tr": "Kampanya Geliri (TL)",
         "de": "Kampagneneinnahmen (USD)",
         "fr": "Revenu de la campagne (USD)",
         "es": "Ingresos de la campaña (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Revenue generated.",
       "businessContext_i18n": {
         "en": "Revenue generated.",
-        "tr": "Kampanyadan elde edilen gelir.",
         "de": "Generierte Einnahmen.",
         "fr": "Revenu généré.",
         "es": "Ingresos generados.",
@@ -35,7 +33,6 @@
       "label": "Campaign Cost (USD)",
       "label_i18n": {
         "en": "Campaign Cost (USD)",
-        "tr": "Kampanya Maliyeti (TL)",
         "de": "Kampagnenkosten (USD)",
         "fr": "Coût de la campagne (USD)",
         "es": "Costo de la campaña (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Total campaign spend.",
       "businessContext_i18n": {
         "en": "Total campaign spend.",
-        "tr": "Total kampanya harcamasi.",
         "de": "Gesamtausgaben der Kampagne.",
         "fr": "Dépenses totales de la campagne.",
         "es": "Gasto total de la campaña.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "((kampanyaGeliri - kampanyaMaliyeti) / Math.max(0.0001, kampanyaMaliyeti)) * 100"
+    "result": "((kampanyaGeliri - kampanyaMaliyeti) / Math.max(0.0001, kampanyaMaliyeti)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Pazarlama ROI"
+      "result": "Pazarlama ROI"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Pazarlama ROI",
-        "tr": "Pazarlama ROI",
         "de": "Marketing-ROI",
         "fr": "ROI marketing",
         "es": "ROI de marketing",
@@ -99,7 +94,6 @@
       "long": "Calculate marketing ROI from campaign revenue and cost.",
       "short_i18n": {
         "en": "Calculate marketing ROI from campaign revenue and cost.",
-        "tr": "Pazarlama harcamasinin getirdigi Net Profit Ratioini hesaplar.",
         "de": "Berechnen Sie den Marketing-ROI aus Kampagneneinnahmen und -kosten.",
         "fr": "Calculer le ROI marketing à partir des revenus et des coûts de la campagne.",
         "es": "Calcular el ROI de marketing a partir de los ingresos y costos de la campaña.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate marketing ROI from campaign revenue and cost.",
-        "tr": "Pazarlama harcamasinin getirdigi Net Profit Ratioini hesaplar.",
         "de": "Berechnen Sie den Marketing-ROI aus Kampagneneinnahmen und -kosten.",
         "fr": "Calculer le ROI marketing à partir des revenus et des coûts de la campagne.",
         "es": "Calcular el ROI de marketing a partir de los ingresos y costos de la campaña.",

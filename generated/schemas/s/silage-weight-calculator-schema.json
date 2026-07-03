@@ -10,7 +10,6 @@
       "label": "Silo Volume (m³)",
       "label_i18n": {
         "en": "Silo Volume (m³)",
-        "tr": "Silo Hacmi (m³)",
         "de": "Silovolumen (m³)",
         "fr": "Volume du silo (m³)",
         "es": "Volumen del Silo (m³)",
@@ -23,7 +22,6 @@
       "businessContext": "Total silo volume.",
       "businessContext_i18n": {
         "en": "Total silo volume.",
-        "tr": "Silonun toplam hacmi.",
         "de": "Gesamtsilovolumen.",
         "fr": "Volume total du silo.",
         "es": "Volumen total del silo.",
@@ -35,7 +33,6 @@
       "label": "Packing Density (kg/m³)",
       "label_i18n": {
         "en": "Packing Density (kg/m³)",
-        "tr": "Compression Dmostsity (kg/m³)",
         "de": "Packungsdichte (kg/m³)",
         "fr": "Densité de tassement (kg/m³)",
         "es": "Densidad de Empaque (kg/m³)",
@@ -48,7 +45,6 @@
       "businessContext": "Packed silage density.",
       "businessContext_i18n": {
         "en": "Packed silage density.",
-        "tr": "Sikistirilmis yem yogunlugu.",
         "de": "Dichte der gepressten Silage.",
         "fr": "Densité de l'ensilage tassé.",
         "es": "Densidad del ensilaje compactado.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "siloHacim * sikistirmaYogunlugu"
+    "result": "siloHacim * sikistirmaYogunlugu"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kg",
     "breakdown": {
-      "sonuc": "Depolanan Silaj Yem"
+      "result": "Depolanan Silaj Yem"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Depolanan Silaj Yem",
-        "tr": "Depolanan Silaj Yem",
         "de": "Gelagerte Silage",
         "fr": "Fourrage ensilé stocké",
         "es": "Ensilage Almacenado",
@@ -101,7 +96,6 @@
       "long": "Calculate net dry matter weight stored in silo.",
       "short_i18n": {
         "en": "Calculate net dry matter weight stored in silo.",
-        "tr": "Siloya depolanan Net kuru madde agirligini hesaplar.",
         "de": "Berechnen Sie das im Silo gelagerte Netto-Trockenmassegewicht.",
         "fr": "Calculer le poids net de matière sèche stocké dans le silo.",
         "es": "Calcular el peso neto de materia seca almacenado en el silo.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate net dry matter weight stored in silo.",
-        "tr": "Siloya depolanan Net kuru madde agirligini hesaplar.",
         "de": "Berechnen Sie das im Silo gelagerte Netto-Trockenmassegewicht.",
         "fr": "Calculer le poids net de matière sèche stocké dans le silo.",
         "es": "Calcular el peso neto de materia seca almacenado en el silo.",

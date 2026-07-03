@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "tork",
+      "id": "torque",
       "label": "Torque (N.m)",
       "label_i18n": {
         "en": "Torque (N.m)",
-        "tr": "Burulma Momenti (N.m)",
         "de": "Drehmoment",
         "fr": "Couple",
         "es": "Par motor",
@@ -23,7 +22,6 @@
       "businessContext": "Torque on shaft.",
       "businessContext_i18n": {
         "en": "Torque on shaft.",
-        "tr": "Mile etkiyen tork.",
         "de": "Drehmoment auf der Welle.",
         "fr": "Couple sur l'arbre.",
         "es": "Par en el eje.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "uzunluk",
+      "id": "length",
       "label": "Shaft Length (m)",
       "label_i18n": {
         "en": "Shaft Length (m)",
-        "tr": "Mil Boyu (m)",
         "de": "Wellenlänge (m)",
         "fr": "Longueur de l'arbre (m)",
         "es": "Longitud del Eje (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Shaft length under torsion.",
       "businessContext_i18n": {
         "en": "Shaft length under torsion.",
-        "tr": "Burulmaya maruz mil uzunlugu.",
         "de": "Wellenlänge unter Torsion.",
         "fr": "Longueur de l'arbre sous torsion.",
         "es": "Longitud del eje bajo torsión.",
@@ -60,7 +56,6 @@
       "label": "Shear Modulus (Pa)",
       "label_i18n": {
         "en": "Shear Modulus (Pa)",
-        "tr": "Shear Modeulus (Pa)",
         "de": "Schubmodul (Pa)",
         "fr": "Module de cisaillement (Pa)",
         "es": "Módulo de Corte (Pa)",
@@ -73,7 +68,6 @@
       "businessContext": "Material shear modulus.",
       "businessContext_i18n": {
         "en": "Material shear modulus.",
-        "tr": "Malzemenin Shear Modeulus.",
         "de": "Schubmodul des Materials.",
         "fr": "Module de cisaillement du matériau.",
         "es": "Módulo de corte del material.",
@@ -85,7 +79,6 @@
       "label": "Polar Moment (m⁴)",
       "label_i18n": {
         "en": "Polar Moment (m⁴)",
-        "tr": "Kutupsal Atalet Momenti (m⁴)",
         "de": "Polares Trägheitsmoment (m⁴)",
         "fr": "Moment polaire (m⁴)",
         "es": "Momento Polar (m⁴)",
@@ -98,7 +91,6 @@
       "businessContext": "J = πR⁴/2.",
       "businessContext_i18n": {
         "en": "J = πR⁴/2.",
-        "tr": "J = πR⁴/2",
         "de": "J = πR⁴/2.",
         "fr": "J = πR⁴/2.",
         "es": "J = πR⁴/2.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(tork * uzunluk) / Math.max(0.0001, (kaymaModulu * kutupsalAtalet))"
+    "result": "(torque * length) / Math.max(0.0001, (kaymaModulu * kutupsalAtalet))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "rad",
     "breakdown": {
-      "sonuc": "Burulma Acisi (θ)"
+      "result": "Burulma Acisi (θ)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Burulma Acisi (θ)",
-        "tr": "Burulma Acisi (θ)",
         "de": "Verdrehwinkel (θ)",
         "fr": "Angle de torsion (θ)",
         "es": "Ángulo de Torsión (θ)",
@@ -149,7 +140,6 @@
       "long": "Calculate total angle of twist in a shaft under torsion.",
       "short_i18n": {
         "en": "Calculate total angle of twist in a shaft under torsion.",
-        "tr": "Milin Heightunda olusan Total burulma (donme) Amountini hesaplar.",
         "de": "Berechnen Sie den gesamten Verdrehwinkel einer Welle unter Torsion.",
         "fr": "Calculer l'angle de torsion total dans un arbre sous torsion.",
         "es": "Calcular el ángulo total de torsión en un eje bajo torsión.",
@@ -157,7 +147,6 @@
       },
       "long_i18n": {
         "en": "Calculate total angle of twist in a shaft under torsion.",
-        "tr": "Milin Heightunda olusan Total burulma (donme) Amountini hesaplar.",
         "de": "Berechnen Sie den gesamten Verdrehwinkel einer Welle unter Torsion.",
         "fr": "Calculer l'angle de torsion total dans un arbre sous torsion.",
         "es": "Calcular el ángulo total de torsión en un eje bajo torsión.",

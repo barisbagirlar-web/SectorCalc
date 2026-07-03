@@ -10,7 +10,6 @@
       "label": "Total Floor Area (m²)",
       "label_i18n": {
         "en": "Total Floor Area (m²)",
-        "tr": "Total Depo Area (m²)",
         "de": "Gesamtfläche",
         "fr": "Surface totale",
         "es": "Superficie total",
@@ -23,7 +22,6 @@
       "businessContext": "Total warehouse floor area.",
       "businessContext_i18n": {
         "en": "Total warehouse floor area.",
-        "tr": "Deponun Total taban Areai.",
         "de": "Gesamte Lagerhallenfläche.",
         "fr": "Surface totale de l'entrepôt.",
         "es": "Área total del piso del almacén.",
@@ -35,7 +33,6 @@
       "label": "Rack Utilization (%)",
       "label_i18n": {
         "en": "Rack Utilization (%)",
-        "tr": "Raf Kullanim Ratioi (%)",
         "de": "Regalnutzung (%)",
         "fr": "Utilisation des rayonnages (%)",
         "es": "Utilización de estanterías (%)",
@@ -49,7 +46,6 @@
       "businessContext": "Rack space to total floor ratio.",
       "businessContext_i18n": {
         "en": "Rack space to total floor ratio.",
-        "tr": "Raf Areainin Total Areaa Ratioi.",
         "de": "Verhältnis von Regalfläche zu Gesamtfläche.",
         "fr": "Rapport surface de rayonnage / surface totale.",
         "es": "Relación entre espacio de estanterías y superficie total.",
@@ -61,7 +57,6 @@
       "label": "Pallet Footprint (m²)",
       "label_i18n": {
         "en": "Pallet Footprint (m²)",
-        "tr": "Palet Area (m²)",
         "de": "Palettenfußabdruck (m²)",
         "fr": "Emprise au sol d'une palette (m²)",
         "es": "Huella del palé (m²)",
@@ -74,7 +69,6 @@
       "businessContext": "Area per pallet.",
       "businessContext_i18n": {
         "en": "Area per pallet.",
-        "tr": "Bir paletin kapladigi Area.",
         "de": "Fläche pro Palette.",
         "fr": "Surface par palette.",
         "es": "Área por palé.",
@@ -89,18 +83,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "Math.floor((toplamAlan * (rafKullanimi / 100)) / Math.max(0.0001, paletAlani))"
+    "result": "Math.floor((toplamAlan * (rafKullanimi / 100)) / Math.max(0.0001, paletAlani))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "pallets",
     "breakdown": {
-      "sonuc": "Maksimum Palet Kapasitesi"
+      "result": "Maksimum Palet Kapasitesi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maksimum Palet Kapasitesi",
-        "tr": "Maksimum Palet Kapasitesi",
         "de": "Maximale Palettenkapazität",
         "fr": "Capacité maximale de palettes",
         "es": "Capacidad Máxima del Palé",
@@ -125,7 +118,6 @@
       "long": "Calculate maximum pallet capacity in a warehouse.",
       "short_i18n": {
         "en": "Calculate maximum pallet capacity in a warehouse.",
-        "tr": "Depoda barindirilabilecek Maximum palet Numbersini hesaplar.",
         "de": "Berechnen Sie die maximale Palettenkapazität in einem Lager.",
         "fr": "Calculer la capacité maximale de palettes dans un entrepôt.",
         "es": "Calcular la capacidad máxima de palés en un almacén.",
@@ -133,7 +125,6 @@
       },
       "long_i18n": {
         "en": "Calculate maximum pallet capacity in a warehouse.",
-        "tr": "Depoda barindirilabilecek Maximum palet Numbersini hesaplar.",
         "de": "Berechnen Sie die maximale Palettenkapazität in einem Lager.",
         "fr": "Calculer la capacité maximale de palettes dans un entrepôt.",
         "es": "Calcular la capacidad máxima de palés en un almacén.",

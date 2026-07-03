@@ -10,7 +10,6 @@
       "label": "Combustible Mass (kg)",
       "label_i18n": {
         "en": "Combustible Mass (kg)",
-        "tr": "Yanici Malzeme Masssi (kg)",
         "de": "Brennbare Masse (kg)",
         "fr": "Masse combustible (kg)",
         "es": "Masa Combustible (kg)",
@@ -23,7 +22,6 @@
       "businessContext": "Combustible material on floor.",
       "businessContext_i18n": {
         "en": "Combustible material on floor.",
-        "tr": "Kat planinda yanici Mass.",
         "de": "Brennbare Masse auf dem Boden.",
         "fr": "Matériau combustible au sol.",
         "es": "Material combustible en el piso.",
@@ -35,7 +33,6 @@
       "label": "Calorific Value (MJ/kg)",
       "label_i18n": {
         "en": "Calorific Value (MJ/kg)",
-        "tr": "Isil Value (MJ/kg)",
         "de": "Brennwert (MJ/kg)",
         "fr": "Pouvoir calorifique (MJ/kg)",
         "es": "Valor Calorífico (MJ/kg)",
@@ -48,7 +45,6 @@
       "businessContext": "Material energy per kg.",
       "businessContext_i18n": {
         "en": "Material energy per kg.",
-        "tr": "Malzemenin Unit Mass Energysi.",
         "de": "Energie des Materials pro kg.",
         "fr": "Énergie du matériau par kg.",
         "es": "Energía del material por kg.",
@@ -60,7 +56,6 @@
       "label": "Floor Area (m²)",
       "label_i18n": {
         "en": "Floor Area (m²)",
-        "tr": "Kat Area (m²)",
         "de": "Gesamtfläche",
         "fr": "Surface totale",
         "es": "Superficie total",
@@ -73,7 +68,6 @@
       "businessContext": "Fire compartment area.",
       "businessContext_i18n": {
         "en": "Fire compartment area.",
-        "tr": "Yangin kompartmani Areai.",
         "de": "Brandabschnittsfläche.",
         "fr": "Surface du compartiment coupe-feu.",
         "es": "Área del compartimento de incendio.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(yaniciKutle * isilDeger) / Math.max(0.0001, katAlani)"
+    "result": "(yaniciKutle * isilDeger) / Math.max(0.0001, katAlani)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "MJ/m2",
     "breakdown": {
-      "sonuc": "Scrap Load"
+      "result": "Scrap Load"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Scrap Load",
-        "tr": "Scrap Load",
         "de": "Brandlast",
         "fr": "Charge calorifique",
         "es": "Carga de incendio",
@@ -126,7 +119,6 @@
       "long": "Calculate building fire load per unit area.",
       "short_i18n": {
         "en": "Calculate building fire load per unit area.",
-        "tr": "Yangin aninda aciga cikacak Unit Areadaki Total isi Energysini (Scrap Load) hesaplar.",
         "de": "Berechnen Sie die Brandlast pro Flächeneinheit eines Gebäudes.",
         "fr": "Calculer la charge calorifique d'un bâtiment par unité de surface.",
         "es": "Calcular la carga de incendio del edificio por unidad de área.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate building fire load per unit area.",
-        "tr": "Yangin aninda aciga cikacak Unit Areadaki Total isi Energysini (Scrap Load) hesaplar.",
         "de": "Berechnen Sie die Brandlast pro Flächeneinheit eines Gebäudes.",
         "fr": "Calculer la charge calorifique d'un bâtiment par unité de surface.",
         "es": "Calcular la carga de incendio del edificio por unidad de área.",

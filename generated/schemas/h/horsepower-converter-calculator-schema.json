@@ -6,11 +6,10 @@
   "sectorId": "automotive-transport",
   "inputs": [
     {
-      "id": "deger",
+      "id": "value",
       "label": "Power Value",
       "label_i18n": {
         "en": "Power Value",
-        "tr": "Power Value",
         "de": "Leistungswert",
         "fr": "Valeur de puissance",
         "es": "Valor de potencia",
@@ -23,7 +22,6 @@
       "businessContext": "Power to convert.",
       "businessContext_i18n": {
         "en": "Power to convert.",
-        "tr": "Donusturulecek Power.",
         "de": "Umzurechnende Leistung.",
         "fr": "Puissance à convertir.",
         "es": "Potencia a convertir.",
@@ -35,7 +33,6 @@
       "label": "Source Unit (0=HP, 1=kW, 2=PS)",
       "label_i18n": {
         "en": "Source Unit (0=HP, 1=kW, 2=PS)",
-        "tr": "Kaynak Birim (0=HP, 1=kW, 2=PS)",
         "de": "Quelleinheit",
         "fr": "Unité source",
         "es": "Unidad de origen",
@@ -48,7 +45,6 @@
       "businessContext": "Input unit.",
       "businessContext_i18n": {
         "en": "Input unit.",
-        "tr": "Girilen birim.",
         "de": "Eingabeeinheit.",
         "fr": "Unité d'entrée.",
         "es": "Unidad de entrada.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "kaynak === 0 ? deger * 0.7457 : kaynak === 2 ? deger * 0.7355 : deger"
+    "result": "kaynak === 0 ? value * 0.7457 : kaynak === 2 ? value * 0.7355 : value"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kW",
     "breakdown": {
-      "sonuc": "kW Karsiligi"
+      "result": "kW Karsiligi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "kW Karsiligi",
-        "tr": "kW Karsiligi",
         "de": "kW-Äquivalent",
         "fr": "Équivalent kW",
         "es": "Equivalente en kW",
@@ -101,7 +96,6 @@
       "long": "Convert horsepower (HP/PS) to kilowatts (kW).",
       "short_i18n": {
         "en": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "tr": "Farkli Unitlerdeki Power Valueni standart kW Unitine donusturur.",
         "de": "Wandeln Sie Pferdestärken (HP/PS) in Kilowatt (kW) um.",
         "fr": "Convertir la puissance en chevaux (HP/PS) en kilowatts (kW).",
         "es": "Convertir caballos de fuerza (HP/PS) a kilovatios (kW).",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "tr": "Farkli Unitlerdeki Power Valueni standart kW Unitine donusturur.",
         "de": "Wandeln Sie Pferdestärken (HP/PS) in Kilowatt (kW) um.",
         "fr": "Convertir la puissance en chevaux (HP/PS) en kilowatts (kW).",
         "es": "Convertir caballos de fuerza (HP/PS) a kilovatios (kW).",

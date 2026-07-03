@@ -10,7 +10,6 @@
       "label": "Annual Sales (USD)",
       "label_i18n": {
         "en": "Annual Sales (USD)",
-        "tr": "Yillik Satis (TL)",
         "de": "Jahresumsatz (USD)",
         "fr": "Ventes annuelles (USD)",
         "es": "Ventas Anuales (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Total annual revenue.",
       "businessContext_i18n": {
         "en": "Total annual revenue.",
-        "tr": "Total yillik satis.",
         "de": "Gesamter Jahresumsatz.",
         "fr": "Revenu annuel total.",
         "es": "Ingresos anuales totales.",
@@ -35,7 +33,6 @@
       "label": "Avg Receivables (USD)",
       "label_i18n": {
         "en": "Avg Receivables (USD)",
-        "tr": "Ortalama Alacak (TL)",
         "de": "Durchschnittliche Forderungen (USD)",
         "fr": "Créances moyennes (USD)",
         "es": "Promedio de Cuentas por Cobrar (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Average accounts receivable.",
       "businessContext_i18n": {
         "en": "Average accounts receivable.",
-        "tr": "Donem Mean ticari alacak.",
         "de": "Durchschnittliche Forderungen aus Lieferungen und Leistungen.",
         "fr": "Comptes clients moyens.",
         "es": "Promedio de cuentas por cobrar.",
@@ -64,18 +60,17 @@
   },
   "formulas": {
     "devirHizi": "yillikSatis / Math.max(0.0001, ortAlacak)",
-    "sonuc": "365 / Math.max(0.0001, yillikSatis / Math.max(0.0001, ortAlacak))"
+    "result": "365 / Math.max(0.0001, yillikSatis / Math.max(0.0001, ortAlacak))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "days",
     "breakdown": {
-      "sonuc": "Aandrage Tahsilat Time"
+      "result": "Aandrage Tahsilat Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Aandrage Tahsilat Time",
-        "tr": "Aandrage Tahsilat Time",
         "de": "Durchschnittliche Inkassofrist",
         "fr": "Période moyenne de recouvrement",
         "es": "Período Promedio de Cobro",
@@ -100,7 +95,6 @@
       "long": "Calculate accounts receivable turnover in days.",
       "short_i18n": {
         "en": "Calculate accounts receivable turnover in days.",
-        "tr": "Alacaklarin nakde donusme Mean suresini (gun) hesaplar.",
         "de": "Berechnen Sie die Debitorenumschlagshäufigkeit in Tagen.",
         "fr": "Calculer le délai de rotation des créances clients en jours.",
         "es": "Calcular la rotación de cuentas por cobrar en días.",
@@ -108,7 +102,6 @@
       },
       "long_i18n": {
         "en": "Calculate accounts receivable turnover in days.",
-        "tr": "Alacaklarin nakde donusme Mean suresini (gun) hesaplar.",
         "de": "Berechnen Sie die Debitorenumschlagshäufigkeit in Tagen.",
         "fr": "Calculer le délai de rotation des créances clients en jours.",
         "es": "Calcular la rotación de cuentas por cobrar en días.",

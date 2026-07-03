@@ -6,11 +6,10 @@
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Barn Area (m²)",
       "label_i18n": {
         "en": "Barn Area (m²)",
-        "tr": "Ahir Areai (m²)",
         "de": "Stallfläche (m²)",
         "fr": "Surface du bâtiment (m²)",
         "es": "Área del Establo (m²)",
@@ -23,7 +22,6 @@
       "businessContext": "Barn floor area.",
       "businessContext_i18n": {
         "en": "Barn floor area.",
-        "tr": "Ahir taban Areai.",
         "de": "Stallgrundfläche.",
         "fr": "Surface au sol du bâtiment.",
         "es": "Área del piso del establo.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "yukseklik",
+      "id": "height",
       "label": "Barn Height (m)",
       "label_i18n": {
         "en": "Barn Height (m)",
-        "tr": "Ahir Yuksekligi (m)",
         "de": "Stallhohe (m)",
         "fr": "Hauteur du bâtiment (m)",
         "es": "Altura del Establo (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Barn height.",
       "businessContext_i18n": {
         "en": "Barn height.",
-        "tr": "Ahir yuksekligi.",
         "de": "Stallhohe.",
         "fr": "Hauteur du bâtiment.",
         "es": "Altura del establo.",
@@ -60,7 +56,6 @@
       "label": "Air Changes (per hour)",
       "label_i18n": {
         "en": "Air Changes (per hour)",
-        "tr": "Hava Degisim Numbersi (Quantity/saat)",
         "de": "Luftwechsel (pro Stunde)",
         "fr": "Renouvellements d'air (par heure)",
         "es": "Cambios de Aire (por hora)",
@@ -73,7 +68,6 @@
       "businessContext": "Hourly air change rate.",
       "businessContext_i18n": {
         "en": "Hourly air change rate.",
-        "tr": "Saatlik hava degisim adedi.",
         "de": "Stundliche Luftwechselrate.",
         "fr": "Taux de renouvellement d'air horaire.",
         "es": "Tasa de cambio de aire por hora.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(alan * yukseklik * havaDegisimSayisi) / 3600"
+    "result": "(area * height * havaDegisimSayisi) / 3600"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m3/s",
     "breakdown": {
-      "sonuc": "HavAreadirma Flow Ratesi"
+      "result": "HavAreadirma Flow Ratesi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "HavAreadirma Flow Ratesi",
-        "tr": "HavAreadirma Flow Ratesi",
         "de": "Luftungsvolumenstrom",
         "fr": "Débit de ventilation",
         "es": "Caudal de Ventilación",
@@ -126,7 +119,6 @@
       "long": "Calculate ventilation air flow rate needed for animal barn.",
       "short_i18n": {
         "en": "Calculate ventilation air flow rate needed for animal barn.",
-        "tr": "Ahirdan atilmasi gereken kirli Air Flow Rateni hesaplar.",
         "de": "Luftungsvolumenstrom fur Tierstall berechnen.",
         "fr": "Calculer le débit d'air de ventilation nécessaire pour un bâtiment d'élevage.",
         "es": "Calcular el caudal de aire de ventilación necesario para un establo de animales.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate ventilation air flow rate needed for animal barn.",
-        "tr": "Ahirdan atilmasi gereken kirli Air Flow Rateni hesaplar.",
         "de": "Luftungsvolumenstrom fur Tierstall berechnen.",
         "fr": "Calculer le débit d'air de ventilation nécessaire pour un bâtiment d'élevage.",
         "es": "Calcular el caudal de aire de ventilación necesario para un establo de animales.",

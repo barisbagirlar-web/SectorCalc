@@ -6,11 +6,10 @@
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
-      "id": "frekans",
+      "id": "frequency",
       "label": "Frequency (Hz)",
       "label_i18n": {
         "en": "Frequency (Hz)",
-        "tr": "Frekans (Hz)",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de Capitalización",
@@ -23,7 +22,6 @@
       "businessContext": "AC signal frequency.",
       "businessContext_i18n": {
         "en": "AC signal frequency.",
-        "tr": "AC Signal Frequency.",
         "de": "Frequenz des Wechselstromsignals.",
         "fr": "Fréquence du signal AC.",
         "es": "Frecuencia de la señal de CA.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "kapasite",
+      "id": "capacity",
       "label": "Capacitance (F)",
       "label_i18n": {
         "en": "Capacitance (F)",
-        "tr": "Kapasite (F)",
         "de": "Kapazität (F)",
         "fr": "Capacité (F)",
         "es": "Capacitancia (F)",
@@ -48,7 +45,6 @@
       "businessContext": "Capacitor value.",
       "businessContext_i18n": {
         "en": "Capacitor value.",
-        "tr": "Kapasitor Valuei.",
         "de": "Kondensatorwert.",
         "fr": "Valeur du condensateur.",
         "es": "Valor del capacitor.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "1 / Math.max(0.0001, (2 * Math.PI * frekans * kapasite))"
+    "result": "1 / Math.max(0.0001, (2 * Math.PI * frequency * capacity))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "ohms",
     "breakdown": {
-      "sonuc": "Kapasitif Reaktans (Xc)"
+      "result": "Kapasitif Reaktans (Xc)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Kapasitif Reaktans (Xc)",
-        "tr": "Kapasitif Reaktans (Xc)",
         "de": "Kapazitiver Blindwiderstand (Xc)",
         "fr": "Réactance capacitive (Xc)",
         "es": "Reactancia Capacitiva (Xc)",
@@ -101,7 +96,6 @@
       "long": "Calculate capacitive reactance of a capacitor at given frequency.",
       "short_i18n": {
         "en": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "tr": "Kapasitorun alternatif Currenta gosterdigi direnci (kapasitif reaktans) hesaplar.",
         "de": "Berechnen Sie den kapazitiven Blindwiderstand eines Kondensators bei gegebener Frequenz.",
         "fr": "Calculer la réactance capacitive d'un condensateur à une fréquence donnée.",
         "es": "Calcular la reactancia capacitiva de un capacitor a una frecuencia dada.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "tr": "Kapasitorun alternatif Currenta gosterdigi direnci (kapasitif reaktans) hesaplar.",
         "de": "Berechnen Sie den kapazitiven Blindwiderstand eines Kondensators bei gegebener Frequenz.",
         "fr": "Calculer la réactance capacitive d'un condensateur à une fréquence donnée.",
         "es": "Calcular la reactancia capacitiva de un capacitor a una frecuencia dada.",

@@ -10,7 +10,6 @@
       "label": "RSU Shares Granted",
       "label_i18n": {
         "en": "RSU Shares Granted",
-        "tr": "Verilen Hisse (Adet)",
         "de": "Gewährte RSU-Aktien",
         "fr": "Actions RSU attribuées",
         "es": "Acciones RSU Concedidas",
@@ -23,7 +22,6 @@
       "businessContext": "Vested RSU shares.",
       "businessContext_i18n": {
         "en": "Vested RSU shares.",
-        "tr": "Hak kazanilan RSU hisse adedi.",
         "de": "Unverfallbare RSU-Aktien.",
         "fr": "Actions RSU acquises.",
         "es": "Acciones RSU adquiridas.",
@@ -35,7 +33,6 @@
       "label": "Vesting Percentage (%)",
       "label_i18n": {
         "en": "Vesting Percentage (%)",
-        "tr": "Hak Kazanma (%)",
         "de": "Unverfallbarkeitsprozentsatz (%)",
         "fr": "Pourcentage d'acquisition (%)",
         "es": "Porcentaje de Adquisición (%)",
@@ -49,7 +46,6 @@
       "businessContext": "Vesting percentage.",
       "businessContext_i18n": {
         "en": "Vesting percentage.",
-        "tr": "Donemde hak kazanilan yuzde.",
         "de": "Unverfallbarkeitsprozentsatz.",
         "fr": "Pourcentage d'acquisition.",
         "es": "Porcentaje de adquisición.",
@@ -61,7 +57,6 @@
       "label": "Tax Withholding (%)",
       "label_i18n": {
         "en": "Tax Withholding (%)",
-        "tr": "Vergi Kesintisi (%)",
         "de": "Steuereinbehalt (%)",
         "fr": "Retenue d'impôt (%)",
         "es": "Retención de Impuestos (%)",
@@ -75,7 +70,6 @@
       "businessContext": "Withholding tax rate.",
       "businessContext_i18n": {
         "en": "Withholding tax rate.",
-        "tr": "Withholding Rate.",
         "de": "Steuereinbehaltssatz.",
         "fr": "Taux de retenue d'impôt.",
         "es": "Tasa de retención de impuestos.",
@@ -90,18 +84,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(hisseSayisi * hakKazanma / 100) * (1 - vergi / 100)"
+    "result": "(hisseSayisi * hakKazanma / 100) * (1 - vergi / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "shares",
     "breakdown": {
-      "sonuc": "Net Hisse"
+      "result": "Net Hisse"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Net Hisse",
-        "tr": "Net Hisse",
         "de": "Nettoaktien",
         "fr": "Actions nettes",
         "es": "Acciones Netas",
@@ -126,7 +119,6 @@
       "long": "Calculate net RSU shares after tax withholding.",
       "short_i18n": {
         "en": "Calculate net RSU shares after tax withholding.",
-        "tr": "Vergi kesintisi sonrasi ele gecen Net hisse Numbersini hesaplar.",
         "de": "Berechnen Sie die Netto-RSU-Aktien nach Steuereinbehalt.",
         "fr": "Calculer les actions RSU nettes après retenue d'impôt.",
         "es": "Calcular las acciones netas de RSU después de la retención de impuestos.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate net RSU shares after tax withholding.",
-        "tr": "Vergi kesintisi sonrasi ele gecen Net hisse Numbersini hesaplar.",
         "de": "Berechnen Sie die Netto-RSU-Aktien nach Steuereinbehalt.",
         "fr": "Calculer les actions RSU nettes après retenue d'impôt.",
         "es": "Calcular las acciones netas de RSU después de la retención de impuestos.",

@@ -10,7 +10,6 @@
       "label": "Sound Power Level (dB)",
       "label_i18n": {
         "en": "Sound Power Level (dB)",
-        "tr": "Ses Power Seviyesi (dB)",
         "de": "Schallleistungspegel (dB)",
         "fr": "Niveau de puissance acoustique (dB)",
         "es": "Nivel de Potencia Sonora (dB)",
@@ -23,7 +22,6 @@
       "businessContext": "Source sound power.",
       "businessContext_i18n": {
         "en": "Source sound power.",
-        "tr": "Kaynagin Sound Power.",
         "de": "Quellenschallleistung.",
         "fr": "Puissance acoustique de la source.",
         "es": "Potencia sonora de la fuente.",
@@ -35,7 +33,6 @@
       "label": "Distance from Source (m)",
       "label_i18n": {
         "en": "Distance from Source (m)",
-        "tr": "Kaynaga Uzaklik (m)",
         "de": "Entfernung von der Quelle (m)",
         "fr": "Distance de la source (m)",
         "es": "Distancia desde la Fuente (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Measurement distance.",
       "businessContext_i18n": {
         "en": "Measurement distance.",
-        "tr": "Olcum noktasi uzakligi.",
         "de": "Messabstand.",
         "fr": "Distance de mesure.",
         "es": "Distancia de medición.",
@@ -60,7 +56,6 @@
       "label": "Ground Attenuation (dB)",
       "label_i18n": {
         "en": "Ground Attenuation (dB)",
-        "tr": "Zemin Zayiflamasi (dB)",
         "de": "Bodendämpfung (dB)",
         "fr": "Atténuation par le sol (dB)",
         "es": "Atenuación del Suelo (dB)",
@@ -73,7 +68,6 @@
       "businessContext": "Ground absorption.",
       "businessContext_i18n": {
         "en": "Ground absorption.",
-        "tr": "Zemin emilimi.",
         "de": "Bodenabsorption.",
         "fr": "Absorption par le sol.",
         "es": "Absorción del suelo.",
@@ -85,7 +79,6 @@
       "label": "Barrier Attenuation (dB)",
       "label_i18n": {
         "en": "Barrier Attenuation (dB)",
-        "tr": "Engel Zayiflamasi (dB)",
         "de": "Barrierendämpfung (dB)",
         "fr": "Atténuation par obstacle (dB)",
         "es": "Atenuación de Barrera (dB)",
@@ -98,7 +91,6 @@
       "businessContext": "Wall/barrier screening.",
       "businessContext_i18n": {
         "en": "Wall/barrier screening.",
-        "tr": "Duvar/bina perdelemesi.",
         "de": "Wand-/Barriereabschirmung.",
         "fr": "Écran mural/barrière.",
         "es": "Apantallamiento de pared/barrera.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "sesGucu - 20 * Math.log10(Math.max(1, mesafe)) - 11 - zeminZayiflama - engelZayiflama"
+    "result": "sesGucu - 20 * Math.log10(Math.max(1, mesafe)) - 11 - zeminZayiflama - engelZayiflama"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "dB",
     "breakdown": {
-      "sonuc": "Ses Pressure Seviyesi"
+      "result": "Ses Pressure Seviyesi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Ses Pressure Seviyesi",
-        "tr": "Ses Pressure Seviyesi",
         "de": "Schalldruckpegel",
         "fr": "Niveau de pression acoustique",
         "es": "Nivel de Presión Sonora",
@@ -152,7 +143,6 @@
       "long": "Calculate sound pressure level at a distance from noise source.",
       "short_i18n": {
         "en": "Calculate sound pressure level at a distance from noise source.",
-        "tr": "Kaynaktan belirli Distancedeki tahmini Ses Pressure Seviyesini (gurultu yayilimi) hesaplar.",
         "de": "Schalldruckpegel in einer Entfernung von der Lärmquelle berechnen.",
         "fr": "Calculer le niveau de pression acoustique à une distance de la source de bruit.",
         "es": "Calcular el nivel de presión sonora a una distancia de la fuente de ruido.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Calculate sound pressure level at a distance from noise source.",
-        "tr": "Kaynaktan belirli Distancedeki tahmini Ses Pressure Seviyesini (gurultu yayilimi) hesaplar.",
         "de": "Schalldruckpegel in einer Entfernung von der Lärmquelle berechnen.",
         "fr": "Calculer le niveau de pression acoustique à une distance de la source de bruit.",
         "es": "Calcular el nivel de presión sonora a una distancia de la fuente de ruido.",

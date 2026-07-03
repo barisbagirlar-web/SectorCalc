@@ -10,7 +10,6 @@
       "label": "Emitter Flow (L/h)",
       "label_i18n": {
         "en": "Emitter Flow (L/h)",
-        "tr": "Damlatici Flow Rate (L/h)",
         "de": "Tropferdurchfluss (L/h)",
         "fr": "Débit de l'Émetteur (L/h)",
         "es": "Caudal del Emisor (L/h)",
@@ -23,7 +22,6 @@
       "businessContext": "Flow per emitter.",
       "businessContext_i18n": {
         "en": "Flow per emitter.",
-        "tr": "Her bir damlaticinin Flow Ratesi.",
         "de": "Durchfluss pro Tropfer.",
         "fr": "Débit par émetteur.",
         "es": "Caudal por emisor.",
@@ -35,7 +33,6 @@
       "label": "Number of Emitters",
       "label_i18n": {
         "en": "Number of Emitters",
-        "tr": "Damlatici Numbersi",
         "de": "Anzahl der Tropfer",
         "fr": "Nombre d'Émetteurs",
         "es": "Número de Emisores",
@@ -48,7 +45,6 @@
       "businessContext": "Total emitters on line.",
       "businessContext_i18n": {
         "en": "Total emitters on line.",
-        "tr": "Hatta bagli Total damlatici.",
         "de": "Gesamttropfer auf der Leitung.",
         "fr": "Nombre total d'émetteurs sur la ligne.",
         "es": "Total de emisores en la línea.",
@@ -60,7 +56,6 @@
       "label": "Max. Flow Velocity (m/s)",
       "label_i18n": {
         "en": "Max. Flow Velocity (m/s)",
-        "tr": "Maks. Flow Speed (m/s)",
         "de": "Max. Fließgeschwindigkeit (m/s)",
         "fr": "Vitesse d'Écoulement Max. (m/s)",
         "es": "Velocidad Máx. del Flujo (m/s)",
@@ -73,7 +68,6 @@
       "businessContext": "Max permissible velocity.",
       "businessContext_i18n": {
         "en": "Max permissible velocity.",
-        "tr": "Boruda izin verilen azami Speed.",
         "de": "Maximal zulässige Geschwindigkeit.",
         "fr": "Vitesse maximale admissible.",
         "es": "Velocidad máxima permitida.",
@@ -88,19 +82,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "toplamDebi": "(damaticiDebi * damaticiSayisi) / 3600000",
-    "sonuc": "Math.sqrt(Math.max(0, (4 * toplamDebi) / Math.max(0.0001, (Math.PI * maxHiz)))) * 1000"
+    "totalFlow": "(damaticiDebi * damaticiSayisi) / 3600000",
+    "result": "Math.sqrt(Math.max(0, (4 * toplamDebi) / Math.max(0.0001, (Math.PI * maxHiz)))) * 1000"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "mm",
     "breakdown": {
-      "sonuc": "Min. Boru Ic Diameteri"
+      "result": "Min. Boru Ic Diameteri"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Min. Boru Ic Diameteri",
-        "tr": "Min. Boru Ic Diameteri",
         "de": "Min. Rohrinnendurchmesser",
         "fr": "Diamètre Intérieur Min. du Tuyau",
         "es": "Diámetro Interior Mínimo de la Tubería",
@@ -127,7 +120,6 @@
       "long": "Calculate minimum mainline pipe diameter for drip irrigation.",
       "short_i18n": {
         "en": "Calculate minimum mainline pipe diameter for drip irrigation.",
-        "tr": "Pressure kaybini onleyen Minimum Drip Irrigation ana boru ic Diameterini hesaplar.",
         "de": "Berechnen Sie den minimalen Hauptleitungsdurchmesser fur die Tropfchenbewässerung.",
         "fr": "Calculez le diamètre minimal de la conduite principale pour l'irrigation goutte à goutte.",
         "es": "Calcular el diámetro mínimo de la tubería principal para riego por goteo.",
@@ -135,7 +127,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum mainline pipe diameter for drip irrigation.",
-        "tr": "Pressure kaybini onleyen Minimum Drip Irrigation ana boru ic Diameterini hesaplar.",
         "de": "Berechnen Sie den minimalen Hauptleitungsdurchmesser fur die Tropfchenbewässerung.",
         "fr": "Calculez le diamètre minimal de la conduite principale pour l'irrigation goutte à goutte.",
         "es": "Calcular el diámetro mínimo de la tubería principal para riego por goteo.",

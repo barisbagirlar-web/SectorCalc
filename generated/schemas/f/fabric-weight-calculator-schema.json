@@ -10,7 +10,6 @@
       "label": "Fabric Width (m)",
       "label_i18n": {
         "en": "Fabric Width (m)",
-        "tr": "Fabric Width (m)",
         "de": "Stoffbreite (cm)",
         "fr": "Largeur du tissu (cm)",
         "es": "Ancho de la tela (cm)",
@@ -23,7 +22,6 @@
       "businessContext": "Fabric width.",
       "businessContext_i18n": {
         "en": "Fabric width.",
-        "tr": "Kumasin eni.",
         "de": "Stoffbreite.",
         "fr": "Largeur du tissu.",
         "es": "Ancho de la tela.",
@@ -35,7 +33,6 @@
       "label": "Fabric Weight (g/m²)",
       "label_i18n": {
         "en": "Fabric Weight (g/m²)",
-        "tr": "Gramaj (g/m²)",
         "de": "Stoffgewicht (kg)",
         "fr": "Poids du tissu (kg)",
         "es": "Peso de la tela (kg)",
@@ -48,7 +45,6 @@
       "businessContext": "GSM - grams per square meter.",
       "businessContext_i18n": {
         "en": "GSM - grams per square meter.",
-        "tr": "Metrekare gramaji.",
         "de": "GSM - Gramm pro Quadratmeter.",
         "fr": "GSM - grammes par mètre carré.",
         "es": "GSM - gramos por metro cuadrado.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(en * gramaj) / 1000"
+    "result": "(en * gramaj) / 1000"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kg/m",
     "breakdown": {
-      "sonuc": "Metre Weight"
+      "result": "Metre Weight"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Metre Weight",
-        "tr": "Metre Weight",
         "de": "Metergewicht",
         "fr": "Poids au mètre",
         "es": "Peso por metro",
@@ -101,7 +96,6 @@
       "long": "Calculate fabric weight per meter using GSM and width.",
       "short_i18n": {
         "en": "Calculate fabric weight per meter using GSM and width.",
-        "tr": "1 metre kumasin agirligini gramaj ve en bilgisine gore hesaplar.",
         "de": "Berechnen Sie das Stoffgewicht pro Meter mit GSM und Breite.",
         "fr": "Calculer le poids du tissu par mètre à l'aide du GSM et de la largeur.",
         "es": "Calcular el peso de la tela por metro usando GSM y ancho.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate fabric weight per meter using GSM and width.",
-        "tr": "1 metre kumasin agirligini gramaj ve en bilgisine gore hesaplar.",
         "de": "Berechnen Sie das Stoffgewicht pro Meter mit GSM und Breite.",
         "fr": "Calculer le poids du tissu par mètre à l'aide du GSM et de la largeur.",
         "es": "Calcular el peso de la tela por metro usando GSM y ancho.",

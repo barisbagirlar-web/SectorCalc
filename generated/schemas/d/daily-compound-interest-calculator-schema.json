@@ -10,7 +10,6 @@
       "label": "Principal (USD)",
       "label_i18n": {
         "en": "Principal (USD)",
-        "tr": "Anapara (₺)",
         "de": "Anfangskapital",
         "fr": "Capital initial",
         "es": "Capital inicial",
@@ -23,7 +22,6 @@
       "businessContext": "Initial investment amount.",
       "businessContext_i18n": {
         "en": "Initial investment amount.",
-        "tr": "Baslangic Investment Amount.",
         "de": "Anfänglicher Anlagebetrag.",
         "fr": "Montant de l'investissement initial.",
         "es": "Monto de inversión inicial.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "faiz",
+      "id": "interest",
       "label": "Annual Interest (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
-        "tr": "Annual Interest (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -48,7 +45,6 @@
       "businessContext": "Annual interest rate.",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
-        "tr": "Yillik nominal Interest Rate.",
         "de": "Nominaler jährlicher Zinssatz.",
         "fr": "Taux d'intérêt annuel nominal.",
         "es": "Tasa de interés anual nominal.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "gun",
+      "id": "day",
       "label": "Number of Days",
       "label_i18n": {
         "en": "Number of Days",
-        "tr": "Day Count",
         "de": "Anzahl der Tage",
         "fr": "Nombre de jours",
         "es": "Número de días",
@@ -73,7 +68,6 @@
       "businessContext": "Number of days for the term.",
       "businessContext_i18n": {
         "en": "Number of days for the term.",
-        "tr": "Maturityye kArea Day Count.",
         "de": "Anzahl der Tage fur die Laufzeit.",
         "fr": "Nombre de jours pour la durée.",
         "es": "Número de días del plazo.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "anapara * Math.pow(1 + faiz / 36500, gun)"
+    "result": "anapara * Math.pow(1 + interest / 36500, day)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Gunluk Bilesik Value"
+      "result": "Gunluk Bilesik Value"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gunluk Bilesik Value",
-        "tr": "Gunluk Bilesik Value",
         "de": "Täglicher Zinseszinswert",
         "fr": "Valeur composée quotidienne",
         "es": "Valor Compuesto Diario",
@@ -124,7 +117,6 @@
       "long": "Calculate daily compound interest future value.",
       "short_i18n": {
         "en": "Calculate daily compound interest future value.",
-        "tr": "Gunluk bazda bilesik getirinin Maturity Sonu Valueini hesaplar.",
         "de": "Berechnen Sie den zukunftigen Wert bei täglicher Zinseszinsrechnung.",
         "fr": "Calculer la valeur future des intérêts composés quotidiens.",
         "es": "Calcular el valor futuro del interés compuesto diario.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate daily compound interest future value.",
-        "tr": "Gunluk bazda bilesik getirinin Maturity Sonu Valueini hesaplar.",
         "de": "Berechnen Sie den zukunftigen Wert bei täglicher Zinseszinsrechnung.",
         "fr": "Calculer la valeur future des intérêts composés quotidiens.",
         "es": "Calcular el valor futuro del interés compuesto diario.",

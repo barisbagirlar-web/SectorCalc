@@ -10,7 +10,6 @@
       "label": "Revenue (USD)",
       "label_i18n": {
         "en": "Revenue (USD)",
-        "tr": "Ciro (TL)",
         "de": "Tagesumsatz",
         "fr": "Revenu quotidien",
         "es": "Ingreso Diario",
@@ -23,7 +22,6 @@
       "businessContext": "Total revenue.",
       "businessContext_i18n": {
         "en": "Total revenue.",
-        "tr": "Total Revenue.",
         "de": "Gesamtumsatz.",
         "fr": "Revenu total.",
         "es": "Ingresos totales.",
@@ -35,7 +33,6 @@
       "label": "COGS (USD)",
       "label_i18n": {
         "en": "COGS (USD)",
-        "tr": "SMM (TL)",
         "de": "Gesamte Teilekosten (COGS)",
         "fr": "Coût total des pièces (COGS)",
         "es": "Costo total de piezas (COGS)",
@@ -48,7 +45,6 @@
       "businessContext": "Cost of goods sold.",
       "businessContext_i18n": {
         "en": "Cost of goods sold.",
-        "tr": "Satilan mal Costi.",
         "de": "Kosten der verkauften Waren.",
         "fr": "Coût des marchandises vendues.",
         "es": "Costo de los bienes vendidos.",
@@ -60,7 +56,6 @@
       "label": "Operating Expense (USD)",
       "label_i18n": {
         "en": "Operating Expense (USD)",
-        "tr": "Workletme Gideri (TL)",
         "de": "Tägliche Betriebsausgaben",
         "fr": "Dépenses d'exploitation quotidiennes",
         "es": "Gastos operativos diarios",
@@ -73,7 +68,6 @@
       "businessContext": "Operating expenses.",
       "businessContext_i18n": {
         "en": "Operating expenses.",
-        "tr": "Faaliyet giderleri.",
         "de": "Betriebsausgaben.",
         "fr": "Dépenses d'exploitation.",
         "es": "Gastos operativos.",
@@ -85,7 +79,6 @@
       "label": "Tax (USD)",
       "label_i18n": {
         "en": "Tax (USD)",
-        "tr": "Vergi (TL)",
         "de": "Steuersatz auf Gewinne",
         "fr": "Taux d'imposition sur les gains",
         "es": "Tasa impositiva sobre ganancias",
@@ -98,7 +91,6 @@
       "businessContext": "Tax expense.",
       "businessContext_i18n": {
         "en": "Tax expense.",
-        "tr": "Vergi gideri.",
         "de": "Steueraufwand.",
         "fr": "Charge fiscale.",
         "es": "Gasto de impuestos.",
@@ -114,27 +106,25 @@
   },
   "formulas": {
     "brut": "ciro - cogs",
-    "sonuc": "(ciro - cogs) - isletmeGideri - vergi"
+    "result": "(ciro - cogs) - isletmeGideri - vergi"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
       "brut": "Gross Profit",
-      "sonuc": "Net Kâr"
+      "result": "Net Kâr"
     },
     "breakdown_i18n": {
       "brut": {
         "en": "Gross Profit",
-        "tr": "Gross Profit",
         "de": "Bruttogewinn",
         "fr": "Bénéfice brut",
         "es": "Ganancia Bruta",
         "ar": "الربح الإجمالي"
       },
-      "sonuc": {
+      "result": {
         "en": "Net Kâr",
-        "tr": "Net Kâr",
         "de": "Nettogewinn",
         "fr": "Bénéfice net",
         "es": "Ganancia Neta",
@@ -160,7 +150,6 @@
       "long": "Calculate gross profit and net profit after all expenses.",
       "short_i18n": {
         "en": "Calculate gross profit and net profit after all expenses.",
-        "tr": "Uretim ve tum giderler sonrasi Gross ve Net Profiti hesaplar.",
         "de": "Berechnen Sie den Bruttogewinn und den Nettogewinn nach allen Ausgaben.",
         "fr": "Calculer le bénéfice brut et le bénéfice net après toutes les dépenses.",
         "es": "Calcular la ganancia bruta y la ganancia neta después de todos los gastos.",
@@ -168,7 +157,6 @@
       },
       "long_i18n": {
         "en": "Calculate gross profit and net profit after all expenses.",
-        "tr": "Uretim ve tum giderler sonrasi Gross ve Net Profiti hesaplar.",
         "de": "Berechnen Sie den Bruttogewinn und den Nettogewinn nach allen Ausgaben.",
         "fr": "Calculer le bénéfice brut et le bénéfice net après toutes les dépenses.",
         "es": "Calcular la ganancia bruta y la ganancia neta después de todos los gastos.",

@@ -10,7 +10,6 @@
       "label": "Shear Force (N)",
       "label_i18n": {
         "en": "Shear Force (N)",
-        "tr": "Kesme Kuvveti (N)",
         "de": "Querkraft (N)",
         "fr": "Effort tranchant (N)",
         "es": "Fuerza Cortante (N)",
@@ -23,7 +22,6 @@
       "businessContext": "Beam shear force.",
       "businessContext_i18n": {
         "en": "Beam shear force.",
-        "tr": "Beame etkiymost kesme kuvandti.",
         "de": "Querkraft des Balkens.",
         "fr": "Effort tranchant de la poutre.",
         "es": "Fuerza cortante de la viga.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "genislik",
+      "id": "width",
       "label": "Section Width (m)",
       "label_i18n": {
         "en": "Section Width (m)",
-        "tr": "Kesit Width (m)",
         "de": "Querschnittsbreite (m)",
         "fr": "Largeur de la section (m)",
         "es": "Ancho de la Sección (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Timber section width.",
       "businessContext_i18n": {
         "en": "Timber section width.",
-        "tr": "Ahsap kesit genisligi.",
         "de": "Breite des Holzquerschnitts.",
         "fr": "Largeur de la section de bois.",
         "es": "Ancho de la sección de madera.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "yukseklik",
+      "id": "height",
       "label": "Section Height (m)",
       "label_i18n": {
         "en": "Section Height (m)",
-        "tr": "Kesit Height (m)",
         "de": "Querschnittshohe (m)",
         "fr": "Hauteur de la section (m)",
         "es": "Altura de la Sección (m)",
@@ -73,7 +68,6 @@
       "businessContext": "Timber section height.",
       "businessContext_i18n": {
         "en": "Timber section height.",
-        "tr": "Ahsap kesit yuksekligi.",
         "de": "Hohe des Holzquerschnitts.",
         "fr": "Hauteur de la section de bois.",
         "es": "Altura de la sección de madera.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(1.5 * kesmeKuvveti) / Math.max(0.0001, (genislik * yukseklik))"
+    "result": "(1.5 * kesmeKuvveti) / Math.max(0.0001, (width * height))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Maks. Kayma Gerilmesi (τ)"
+      "result": "Maks. Kayma Gerilmesi (τ)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maks. Kayma Gerilmesi (τ)",
-        "tr": "Maks. Kayma Gerilmesi (τ)",
         "de": "Max. Schubspannung (τ)",
         "fr": "Contrainte de cisaillement max. (τ)",
         "es": "Esfuerzo cortante máximo (τ)",
@@ -124,7 +117,6 @@
       "long": "Calculate maximum shear stress in a rectangular timber beam.",
       "short_i18n": {
         "en": "Calculate maximum shear stress in a rectangular timber beam.",
-        "tr": "Dikdortgen ahsap kesitteki Maximum Shear Stressni hesaplar.",
         "de": "Berechnen Sie die maximale Schubspannung in einem rechteckigen Holzbalken.",
         "fr": "Calculer la contrainte de cisaillement maximale dans une poutre rectangulaire en bois.",
         "es": "Calcular el esfuerzo cortante máximo en una viga rectangular de madera.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate maximum shear stress in a rectangular timber beam.",
-        "tr": "Dikdortgen ahsap kesitteki Maximum Shear Stressni hesaplar.",
         "de": "Berechnen Sie die maximale Schubspannung in einem rechteckigen Holzbalken.",
         "fr": "Calculer la contrainte de cisaillement maximale dans une poutre rectangulaire en bois.",
         "es": "Calcular el esfuerzo cortante máximo en una viga rectangular de madera.",

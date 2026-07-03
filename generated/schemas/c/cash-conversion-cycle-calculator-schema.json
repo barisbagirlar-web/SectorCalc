@@ -10,7 +10,6 @@
       "label": "DIO (Days)",
       "label_i18n": {
         "en": "DIO (Days)",
-        "tr": "Stok Day",
         "de": "Tage des Lagerbestands (DIO)",
         "fr": "Délai de rotation des stocks (DIO)",
         "es": "Días de inventario pendiente (DIO)",
@@ -23,7 +22,6 @@
       "businessContext": "Days inventory outstanding.",
       "businessContext_i18n": {
         "en": "Days inventory outstanding.",
-        "tr": "Stokta Kalma Time.",
         "de": "Tage des Lagerbestands (Days inventory outstanding).",
         "fr": "Jours de stock en cours.",
         "es": "Días de inventario pendiente.",
@@ -35,7 +33,6 @@
       "label": "DSO (Days)",
       "label_i18n": {
         "en": "DSO (Days)",
-        "tr": "Alacak Day",
         "de": "Durchschnittliche Forderungslaufzeit (DSO)",
         "fr": "Délai moyen de recouvrement (DSO)",
         "es": "Días promedio de cuentas por cobrar (DSO)",
@@ -48,7 +45,6 @@
       "businessContext": "Days sales outstanding.",
       "businessContext_i18n": {
         "en": "Days sales outstanding.",
-        "tr": "Tahsilat suresi.",
         "de": "Tage der ausstehenden Forderungen (Days sales outstanding).",
         "fr": "Jours de ventes en cours.",
         "es": "Días de ventas pendientes.",
@@ -60,7 +56,6 @@
       "label": "DPO (Days)",
       "label_i18n": {
         "en": "DPO (Days)",
-        "tr": "Debt Day",
         "de": "Durchschnittliche Verbindlichkeitslaufzeit (DPO)",
         "fr": "Délai moyen de paiement (DPO)",
         "es": "Días promedio de cuentas por pagar (DPO)",
@@ -73,7 +68,6 @@
       "businessContext": "Days payable outstanding.",
       "businessContext_i18n": {
         "en": "Days payable outstanding.",
-        "tr": "Odeme suresi.",
         "de": "Tage der ausstehenden Verbindlichkeiten (Days payable outstanding).",
         "fr": "Jours de dettes fournisseurs en cours.",
         "es": "Días de cuentas por pagar pendientes.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "stokGun + alacakGun - borcGun"
+    "result": "stokGun + alacakGun - borcGun"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "days",
     "breakdown": {
-      "sonuc": "Nakit Donusum Dongusu (CCC)"
+      "result": "Nakit Donusum Dongusu (CCC)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Nakit Donusum Dongusu (CCC)",
-        "tr": "Nakit Donusum Dongusu (CCC)",
         "de": "Cash-Conversion-Cycle (CCC)",
         "fr": "Cycle de conversion de trésorerie (CCC)",
         "es": "Ciclo de Conversión de Efectivo (CCC)",
@@ -124,7 +117,6 @@
       "long": "Calculate cash conversion cycle (CCC).",
       "short_i18n": {
         "en": "Calculate cash conversion cycle (CCC).",
-        "tr": "Cash Outflow ile tahsilat arasindaki gecen sureyi (CCC) hesaplar.",
         "de": "Berechnen Sie den Cash Conversion Cycle (CCC).",
         "fr": "Calculer le cycle de conversion de trésorerie (CCC).",
         "es": "Calcular el ciclo de conversión de efectivo (CCC).",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate cash conversion cycle (CCC).",
-        "tr": "Cash Outflow ile tahsilat arasindaki gecen sureyi (CCC) hesaplar.",
         "de": "Berechnen Sie den Cash Conversion Cycle (CCC).",
         "fr": "Calculer le cycle de conversion de trésorerie (CCC).",
         "es": "Calcular el ciclo de conversión de efectivo (CCC).",

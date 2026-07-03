@@ -10,7 +10,6 @@
       "label": "Daily Greywater (m³/day)",
       "label_i18n": {
         "en": "Daily Greywater (m³/day)",
-        "tr": "Gunluk Gri Su Hacmi (m³/gun)",
         "de": "Tägliches Grauwasser (m³/Tag)",
         "fr": "Eaux grises quotidiennes (m³/jour)",
         "es": "Aguas Grises Diarias (m³/día)",
@@ -23,7 +22,6 @@
       "businessContext": "Daily greywater volume.",
       "businessContext_i18n": {
         "en": "Daily greywater volume.",
-        "tr": "Gunluk olusan gri su.",
         "de": "Tägliches Grauwasservolumen.",
         "fr": "Volume quotidien d'eaux grises.",
         "es": "Volumen diario de aguas grises.",
@@ -35,7 +33,6 @@
       "label": "Treatment Cost (TL/m³)",
       "label_i18n": {
         "en": "Treatment Cost (TL/m³)",
-        "tr": "Aritma Costi (TL/m³)",
         "de": "Behandlungskosten (TL/m³)",
         "fr": "Coût de traitement (TL/m³)",
         "es": "Costo de Tratamiento (TL/m³)",
@@ -48,7 +45,6 @@
       "businessContext": "Greywater treatment unit cost.",
       "businessContext_i18n": {
         "en": "Greywater treatment unit cost.",
-        "tr": "Gri su aritma Unit Costi.",
         "de": "Stuckkosten der Grauwasserbehandlung.",
         "fr": "Coût unitaire de traitement des eaux grises.",
         "es": "Costo unitario del tratamiento de aguas grises.",
@@ -60,7 +56,6 @@
       "label": "Mains Water Price (TL/m³)",
       "label_i18n": {
         "en": "Mains Water Price (TL/m³)",
-        "tr": "Sebeke Su Fiyati (TL/m³)",
         "de": "Wasserpreis der offentlichen Versorgung (TL/m³)",
         "fr": "Prix de l'eau du réseau (TL/m³)",
         "es": "Precio del Agua de Red (TL/m³)",
@@ -73,7 +68,6 @@
       "businessContext": "Municipal water unit price.",
       "businessContext_i18n": {
         "en": "Municipal water unit price.",
-        "tr": "Sebekeden alinan su Unit fiyati.",
         "de": "Stuckpreis des kommunalen Wassers.",
         "fr": "Prix unitaire de l'eau municipale.",
         "es": "Precio unitario del agua municipal.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "griSuHacmi * (sebekeFiyat - aritmaMaliyet) * 365"
+    "result": "griSuHacmi * (sebekeFiyat - aritmaMaliyet) * 365"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "TL/year",
     "breakdown": {
-      "sonuc": "Annual Net Tasarruf"
+      "result": "Annual Net Tasarruf"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Annual Net Tasarruf",
-        "tr": "Annual Net Tasarruf",
         "de": "Jährliche Nettoeinsparung",
         "fr": "Économies nettes annuelles",
         "es": "Ahorro Neto Anual",
@@ -127,7 +120,6 @@
       "long": "Calculate annual net financial savings from greywater system.",
       "short_i18n": {
         "en": "Calculate annual net financial savings from greywater system.",
-        "tr": "Gri su sisteminin yillik Net finansal kazancini hesaplar.",
         "de": "Berechnen Sie die jährlichen Netto-Finanzersparnisse aus dem Grauwassersystem.",
         "fr": "Calculer les économies financières nettes annuelles d'un système d'eaux grises.",
         "es": "Calcular el ahorro financiero neto anual del sistema de aguas grises.",
@@ -135,7 +127,6 @@
       },
       "long_i18n": {
         "en": "Calculate annual net financial savings from greywater system.",
-        "tr": "Gri su sisteminin yillik Net finansal kazancini hesaplar.",
         "de": "Berechnen Sie die jährlichen Netto-Finanzersparnisse aus dem Grauwassersystem.",
         "fr": "Calculer les économies financières nettes annuelles d'un système d'eaux grises.",
         "es": "Calcular el ahorro financiero neto anual del sistema de aguas grises.",

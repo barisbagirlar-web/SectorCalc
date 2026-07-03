@@ -6,11 +6,10 @@
   "sectorId": "automotive-transport",
   "inputs": [
     {
-      "id": "guc",
+      "id": "power",
       "label": "Engine Power (kW)",
       "label_i18n": {
         "en": "Engine Power (kW)",
-        "tr": "Motor Power (kW)",
         "de": "Motorleistung",
         "fr": "Puissance du moteur",
         "es": "Potencia del motor",
@@ -23,7 +22,6 @@
       "businessContext": "Engine output power.",
       "businessContext_i18n": {
         "en": "Engine output power.",
-        "tr": "Motorun urettigi Power.",
         "de": "Motorausgangsleistung.",
         "fr": "Puissance de sortie du moteur.",
         "es": "Potencia de salida del motor.",
@@ -35,7 +33,6 @@
       "label": "Engine Speed (RPM)",
       "label_i18n": {
         "en": "Engine Speed (RPM)",
-        "tr": "Motor Devri (devir/dk)",
         "de": "Motordrehzahl (RPM)",
         "fr": "Régime moteur (RPM)",
         "es": "Velocidad del Motor (RPM)",
@@ -48,7 +45,6 @@
       "businessContext": "Crankshaft speed.",
       "businessContext_i18n": {
         "en": "Crankshaft speed.",
-        "tr": "Krank mili devri.",
         "de": "Kurbelwellendrehzahl.",
         "fr": "Vitesse du vilebrequin.",
         "es": "Velocidad del cigueñal.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(guc * 9550) / Math.max(0.0001, devir)"
+    "result": "(power * 9550) / Math.max(0.0001, devir)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "N.m",
     "breakdown": {
-      "sonuc": "Motor Torku"
+      "result": "Motor Torku"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Motor Torku",
-        "tr": "Motor Torku",
         "de": "Motordrehmoment",
         "fr": "Couple moteur",
         "es": "Par Motor",
@@ -101,7 +96,6 @@
       "long": "Calculate engine torque at a given power and RPM.",
       "short_i18n": {
         "en": "Calculate engine torque at a given power and RPM.",
-        "tr": "Motorun belirli bir devirde urettigi dondurme momentini (Torque) hesaplar.",
         "de": "Berechnen Sie das Motordrehmoment bei gegebener Leistung und Drehzahl.",
         "fr": "Calculer le couple moteur à une puissance et un régime donnés.",
         "es": "Calcular el par motor a una potencia y RPM dadas.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate engine torque at a given power and RPM.",
-        "tr": "Motorun belirli bir devirde urettigi dondurme momentini (Torque) hesaplar.",
         "de": "Berechnen Sie das Motordrehmoment bei gegebener Leistung und Drehzahl.",
         "fr": "Calculer le couple moteur à une puissance et un régime donnés.",
         "es": "Calcular el par motor a una potencia y RPM dadas.",

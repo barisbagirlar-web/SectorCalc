@@ -6,11 +6,10 @@
   "sectorId": "other",
   "inputs": [
     {
-      "id": "agirlik",
+      "id": "weight",
       "label": "Actual Weight (kg)",
       "label_i18n": {
         "en": "Actual Weight (kg)",
-        "tr": "Gercek Weight (kg)",
         "de": "Tatsächliches Gewicht (kg)",
         "fr": "Poids réel (kg)",
         "es": "Peso Real (kg)",
@@ -23,7 +22,6 @@
       "businessContext": "Actual shipment weight.",
       "businessContext_i18n": {
         "en": "Actual shipment weight.",
-        "tr": "Kargonun gercek agirligi.",
         "de": "Tatsächliches Versandgewicht.",
         "fr": "Poids réel de l'envoi.",
         "es": "Peso real del envío.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "hacim",
+      "id": "volume",
       "label": "Volume (m³)",
       "label_i18n": {
         "en": "Volume (m³)",
-        "tr": "Hacim (m³)",
         "de": "Produktionsvolumen (N)",
         "fr": "Volume de production (N)",
         "es": "Volumen de producción (N)",
@@ -48,7 +45,6 @@
       "businessContext": "Package volume.",
       "businessContext_i18n": {
         "en": "Package volume.",
-        "tr": "Kargonun kapladigi Volume.",
         "de": "Paketvolumen.",
         "fr": "Volume du colis.",
         "es": "Volumen del paquete.",
@@ -60,7 +56,6 @@
       "label": "Distance (km)",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Mesafe (km)",
         "de": "Entfernung (km)",
         "fr": "Distance (km)",
         "es": "Distancia (km)",
@@ -73,7 +68,6 @@
       "businessContext": "Transport distance.",
       "businessContext_i18n": {
         "en": "Transport distance.",
-        "tr": "Bearing Distancesi.",
         "de": "Transportentfernung.",
         "fr": "Distance de transport.",
         "es": "Distancia de transporte.",
@@ -85,7 +79,6 @@
       "label": "Unit Price (USD)",
       "label_i18n": {
         "en": "Unit Price (USD)",
-        "tr": "Birim Fiyat (TL)",
         "de": "Stuckpreis ($)",
         "fr": "Prix unitaire ($)",
         "es": "Precio unitario ($)",
@@ -98,7 +91,6 @@
       "businessContext": "Unit freight price.",
       "businessContext_i18n": {
         "en": "Unit freight price.",
-        "tr": "Unit basi navlun fiyati.",
         "de": "Einheitsfrachtpreis.",
         "fr": "Prix unitaire du fret.",
         "es": "Precio unitario del flete.",
@@ -113,19 +105,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "desi": "hacim * 167",
-    "sonuc": "Math.max(agirlik, (hacim * 167)) * mesafe * birimFiyat"
+    "desi": "volume * 167",
+    "result": "Math.max(weight, (volume * 167)) * mesafe * birimFiyat"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Toplam Navlun Maliyeti"
+      "result": "Toplam Navlun Maliyeti"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Toplam Navlun Maliyeti",
-        "tr": "Toplam Navlun Maliyeti",
         "de": "Gesamtfrachtkosten",
         "fr": "Coût total du fret",
         "es": "Costo Total de Flete",
@@ -150,7 +141,6 @@
       "long": "Calculate shipping cost comparing volumetric weight and actual weight.",
       "short_i18n": {
         "en": "Calculate shipping cost comparing volumetric weight and actual weight.",
-        "tr": "Desi ve Weight karsilastirmali Total tasima bedelini hesaplar.",
         "de": "Berechnen Sie die Versandkosten durch Vergleich von Volumengewicht und tatsächlichem Gewicht.",
         "fr": "Calculer le coût d'expédition en comparant le poids volumétrique et le poids réel.",
         "es": "Calcular el costo de envío comparando el peso volumétrico y el peso real.",
@@ -158,7 +148,6 @@
       },
       "long_i18n": {
         "en": "Calculate shipping cost comparing volumetric weight and actual weight.",
-        "tr": "Desi ve Weight karsilastirmali Total tasima bedelini hesaplar.",
         "de": "Berechnen Sie die Versandkosten durch Vergleich von Volumengewicht und tatsächlichem Gewicht.",
         "fr": "Calculer le coût d'expédition en comparant le poids volumétrique et le poids réel.",
         "es": "Calcular el costo de envío comparando el peso volumétrico y el peso real.",

@@ -10,7 +10,6 @@
       "label": "Flight Distance (km)",
       "label_i18n": {
         "en": "Flight Distance (km)",
-        "tr": "Ucus Distancesi (km)",
         "de": "Flugstrecke (km)",
         "fr": "Distance de vol (km)",
         "es": "Distancia del Vuelo (km)",
@@ -23,7 +22,6 @@
       "businessContext": "Flight length.",
       "businessContext_i18n": {
         "en": "Flight length.",
-        "tr": "Ucus uzunlugu.",
         "de": "Fluglänge.",
         "fr": "Longueur du vol.",
         "es": "Longitud de vuelo.",
@@ -35,7 +33,6 @@
       "label": "Passenger Count",
       "label_i18n": {
         "en": "Passenger Count",
-        "tr": "Yolcu Count",
         "de": "Passagierzahl",
         "fr": "Nombre de passagers",
         "es": "Recuento de pasajeros",
@@ -48,7 +45,6 @@
       "businessContext": "Number of passengers.",
       "businessContext_i18n": {
         "en": "Number of passengers.",
-        "tr": "Ucaktaki Yolcu Count.",
         "de": "Anzahl der Passagiere.",
         "fr": "Nombre de passagers.",
         "es": "Número de pasajeros.",
@@ -60,7 +56,6 @@
       "label": "Cost per Seat-km (USD)",
       "label_i18n": {
         "en": "Cost per Seat-km (USD)",
-        "tr": "Koltuk km Maliyeti (TL)",
         "de": "Kosten pro Sitzplatz-km (USD)",
         "fr": "Coût par siège-km (USD)",
         "es": "Costo por asiento-km (USD)",
@@ -73,7 +68,6 @@
       "businessContext": "Cost per seat-km.",
       "businessContext_i18n": {
         "en": "Cost per seat-km.",
-        "tr": "Her koltuk-km'nin maliyeti.",
         "de": "Kosten pro Sitzplatz-km.",
         "fr": "Coût par siège-km.",
         "es": "Costo por asiento-km.",
@@ -88,19 +82,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "toplam": "mesafe * koltukMaliyeti",
-    "sonuc": "(mesafe * koltukMaliyeti) / Math.max(1, yolcuSayisi)"
+    "total": "mesafe * koltukMaliyeti",
+    "result": "(mesafe * koltukMaliyeti) / Math.max(1, yolcuSayisi)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Yolcu Basi Cost"
+      "result": "Yolcu Basi Cost"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Yolcu Basi Cost",
-        "tr": "Yolcu Basi Cost",
         "de": "Kosten pro Passagier",
         "fr": "Coût par passager",
         "es": "Costo por pasajero",
@@ -125,7 +118,6 @@
       "long": "Calculate per-passenger operational cost for a flight.",
       "short_i18n": {
         "en": "Calculate per-passenger operational cost for a flight.",
-        "tr": "Havayolunda yolcu basina dusen operasyonel Costi hesaplar.",
         "de": "Berechnen Sie die Betriebskosten pro Passagier fur einen Flug.",
         "fr": "Calculer le coût opérationnel par passager pour un vol.",
         "es": "Calcular el costo operativo por pasajero para un vuelo.",
@@ -133,7 +125,6 @@
       },
       "long_i18n": {
         "en": "Calculate per-passenger operational cost for a flight.",
-        "tr": "Havayolunda yolcu basina dusen operasyonel Costi hesaplar.",
         "de": "Berechnen Sie die Betriebskosten pro Passagier fur einen Flug.",
         "fr": "Calculer le coût opérationnel par passager pour un vol.",
         "es": "Calcular el costo operativo por pasajero para un vuelo.",

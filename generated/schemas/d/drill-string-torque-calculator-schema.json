@@ -10,7 +10,6 @@
       "label": "Bit Diameter (m)",
       "label_i18n": {
         "en": "Bit Diameter (m)",
-        "tr": "Matkap Ucu Diameter (m)",
         "de": "Bohrmeißeldurchmesser (m)",
         "fr": "Diamètre du Trépan (m)",
         "es": "Diámetro de la Broca (m)",
@@ -23,7 +22,6 @@
       "businessContext": "Drill bit diameter.",
       "businessContext_i18n": {
         "en": "Drill bit diameter.",
-        "tr": "Sondaj matkabinin Diameteri.",
         "de": "Bohrmeißeldurchmesser.",
         "fr": "Diamètre du trépan.",
         "es": "Diámetro de la broca de perforación.",
@@ -35,7 +33,6 @@
       "label": "Rock Compressive Strength (MPa)",
       "label_i18n": {
         "en": "Rock Compressive Strength (MPa)",
-        "tr": "Kaya Basma Dayanimi (MPa)",
         "de": "Gesteinsdruckfestigkeit (MPa)",
         "fr": "Résistance à la Compression de la Roche (MPa)",
         "es": "Resistencia a la Compresión de la Roca (MPa)",
@@ -48,7 +45,6 @@
       "businessContext": "Uniaxial compressive strength.",
       "businessContext_i18n": {
         "en": "Uniaxial compressive strength.",
-        "tr": "Kayanin tek eksenli basma dayanimi.",
         "de": "Einaxiale Druckfestigkeit.",
         "fr": "Résistance à la compression uniaxiale.",
         "es": "Resistencia a la compresión uniaxial.",
@@ -60,7 +56,6 @@
       "label": "Cutter Coefficient",
       "label_i18n": {
         "en": "Cutter Coefficient",
-        "tr": "Kesici Coefficimostt",
         "de": "Schneidkoeffizient",
         "fr": "Coefficient de l'Outil de Coupe",
         "es": "Coeficiente de Corte",
@@ -73,7 +68,6 @@
       "businessContext": "Bit type coefficient.",
       "businessContext_i18n": {
         "en": "Bit type coefficient.",
-        "tr": "Matkap tipine bagli katNumber.",
         "de": "Bohrmeißeltypkoeffizient.",
         "fr": "Coefficient du type de trépan.",
         "es": "Coeficiente del tipo de broca.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(Math.PI * Math.pow(matkapCapi, 3) * kayaDayanim * 1000000 * kesiciKatsayi) / 12"
+    "result": "(Math.PI * Math.pow(matkapCapi, 3) * kayaDayanim * 1000000 * kesiciKatsayi) / 12"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "N.m",
     "breakdown": {
-      "sonuc": "Gerekli Tork"
+      "result": "Gerekli Tork"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Tork",
-        "tr": "Gerekli Tork",
         "de": "Erforderliches Drehmoment",
         "fr": "Couple Requis",
         "es": "Torque Requerido",
@@ -126,7 +119,6 @@
       "long": "Calculate minimum drill string torque for rotary drilling.",
       "short_i18n": {
         "en": "Calculate minimum drill string torque for rotary drilling.",
-        "tr": "Kayaci kirmak icin matkap miline uygulanmasi gereken Minimum Torqueu hesaplar.",
         "de": "Berechnen Sie das minimale Bohrstrangdrehmoment fur das Rotarybohren.",
         "fr": "Calculez le couple minimal du train de tiges pour le forage rotatif.",
         "es": "Calcular el torque mínimo de la sarta de perforación para perforación rotatoria.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum drill string torque for rotary drilling.",
-        "tr": "Kayaci kirmak icin matkap miline uygulanmasi gereken Minimum Torqueu hesaplar.",
         "de": "Berechnen Sie das minimale Bohrstrangdrehmoment fur das Rotarybohren.",
         "fr": "Calculez le couple minimal du train de tiges pour le forage rotatif.",
         "es": "Calcular el torque mínimo de la sarta de perforación para perforación rotatoria.",

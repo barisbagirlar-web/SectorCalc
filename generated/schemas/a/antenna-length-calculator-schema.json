@@ -6,11 +6,10 @@
   "sectorId": "other",
   "inputs": [
     {
-      "id": "frekans",
+      "id": "frequency",
       "label": "Frequency (MHz)",
       "label_i18n": {
         "en": "Frequency (MHz)",
-        "tr": "Frekans (MHz)",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de Capitalización",
@@ -23,7 +22,6 @@
       "businessContext": "Operating frequency.",
       "businessContext_i18n": {
         "en": "Operating frequency.",
-        "tr": "Calisma Frequencyi.",
         "de": "Betriebsfrequenz.",
         "fr": "Fréquence de fonctionnement.",
         "es": "Frecuencia de operación.",
@@ -35,7 +33,6 @@
       "label": "Antenna Type (1=Dipole, 2=Yagi)",
       "label_i18n": {
         "en": "Antenna Type (1=Dipole, 2=Yagi)",
-        "tr": "Anten Tipi (1=Dipole, 2=Yagi)",
         "de": "Antennentyp (1=Dipol, 2=Yagi)",
         "fr": "Type d'antenne (1=Dipôle, 2=Yagi)",
         "es": "Tipo de Antena (1=Dipolo, 2=Yagi)",
@@ -48,7 +45,6 @@
       "businessContext": "Antenna type.",
       "businessContext_i18n": {
         "en": "Antenna type.",
-        "tr": "Anten turu.",
         "de": "Antennentyp.",
         "fr": "Type d'antenne.",
         "es": "Tipo de antena.",
@@ -63,19 +59,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "dalgaBoyu": "300 / Math.max(0.0001, frekans)",
-    "sonuc": "tip === 1 ? 300 / Math.max(0.0001, frekans) / 2 : 300 / Math.max(0.0001, frekans) * 0.45"
+    "dalgaBoyu": "300 / Math.max(0.0001, frequency)",
+    "result": "tip === 1 ? 300 / Math.max(0.0001, frequency) / 2 : 300 / Math.max(0.0001, frequency) * 0.45"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Antmost Lmostgth"
+      "result": "Antmost Lmostgth"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Antmost Lmostgth",
-        "tr": "Antmost Lmostgth",
         "de": "Antennenlänge",
         "fr": "Longueur de l'antenne",
         "es": "Longitud de la Antena",
@@ -100,7 +95,6 @@
       "long": "Calculate physical antenna element length for resonance at given frequency.",
       "short_i18n": {
         "en": "Calculate physical antenna element length for resonance at given frequency.",
-        "tr": "Rezonans required for fiziksel antmost eleman Heightunu calculates.",
         "de": "Berechnen Sie die physikalische Antennenelementlänge fur Resonanz bei einer gegebenen Frequenz.",
         "fr": "Calculer la longueur de l'élément d'antenne physique pour la résonance à une fréquence donnée.",
         "es": "Calcular la longitud del elemento de antena física para resonancia a una frecuencia dada.",
@@ -108,7 +102,6 @@
       },
       "long_i18n": {
         "en": "Calculate physical antenna element length for resonance at given frequency.",
-        "tr": "Rezonans required for fiziksel antmost eleman Heightunu calculates.",
         "de": "Berechnen Sie die physikalische Antennenelementlänge fur Resonanz bei einer gegebenen Frequenz.",
         "fr": "Calculer la longueur de l'élément d'antenne physique pour la résonance à une fréquence donnée.",
         "es": "Calcular la longitud del elemento de antena física para resonancia a una frecuencia dada.",

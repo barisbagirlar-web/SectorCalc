@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "yuk",
+      "id": "load",
       "label": "Uniform Load (N/m)",
       "label_i18n": {
         "en": "Uniform Load (N/m)",
-        "tr": "Yayili Yuk (N/m)",
         "de": "Gleichlast (N/m)",
         "fr": "Charge uniforme (N/m)",
         "es": "Carga uniforme (N/m)",
@@ -23,7 +22,6 @@
       "businessContext": "Load per unit length.",
       "businessContext_i18n": {
         "en": "Load per unit length.",
-        "tr": "Unit Heighta gelen yuk.",
         "de": "Last pro Längeneinheit.",
         "fr": "Charge par unité de longueur.",
         "es": "Carga por unidad de longitud.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "uzunluk",
+      "id": "length",
       "label": "Span (m)",
       "label_i18n": {
         "en": "Span (m)",
-        "tr": "Aciklik (m)",
         "de": "Cobot-Lebensdauer",
         "fr": "Durée de vie du cobot",
         "es": "Vida útil del cobot",
@@ -48,7 +45,6 @@
       "businessContext": "Beam span between supports.",
       "businessContext_i18n": {
         "en": "Beam span between supports.",
-        "tr": "Kiris MesNetler arasi Distance.",
         "de": "Trägerspannweite zwischen den Auflagern.",
         "fr": "Portée de la poutre entre les appuis.",
         "es": "Luz de la viga entre apoyos.",
@@ -60,7 +56,6 @@
       "label": "Young's Modulus (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
-        "tr": "Modeulus of Elasticity (Pa)",
         "de": "Elastizitätsmodul (E)",
         "fr": "Module de Young (E)",
         "es": "Módulo de Young (E)",
@@ -73,7 +68,6 @@
       "businessContext": "Material modulus.",
       "businessContext_i18n": {
         "en": "Material modulus.",
-        "tr": "Malzeme Modeuleu.",
         "de": "Materialmodul.",
         "fr": "Module du matériau.",
         "es": "Módulo del material.",
@@ -85,7 +79,6 @@
       "label": "Moment of Inertia (m⁴)",
       "label_i18n": {
         "en": "Moment of Inertia (m⁴)",
-        "tr": "Atalet Momenti (m⁴)",
         "de": "Flächenträgheitsmoment (I)",
         "fr": "Moment d'inertie (I)",
         "es": "Momento de Inercia (I)",
@@ -98,7 +91,6 @@
       "businessContext": "Section moment of inertia.",
       "businessContext_i18n": {
         "en": "Section moment of inertia.",
-        "tr": "Kesitin atalet momenti.",
         "de": "Flächenträgheitsmoment des Querschnitts.",
         "fr": "Moment d'inertie de la section.",
         "es": "Momento de inercia de la sección.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(5 * yuk * Math.pow(uzunluk, 4)) / Math.max(0.0001, (384 * elastisiteModulu * ataletMomenti))"
+    "result": "(5 * load * Math.pow(length, 4)) / Math.max(0.0001, (384 * elastisiteModulu * ataletMomenti))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Maksimum Sehim"
+      "result": "Maksimum Sehim"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maksimum Sehim",
-        "tr": "Maksimum Sehim",
         "de": "Maximale Durchbiegung",
         "fr": "Flèche maximale",
         "es": "Deflexión Máxima",
@@ -149,7 +140,6 @@
       "long": "Calculate maximum deflection of a simply supported beam under uniform load.",
       "short_i18n": {
         "en": "Calculate maximum deflection of a simply supported beam under uniform load.",
-        "tr": "Yayili yuk altindaki basit kirisin Maximum cokmesini (Deflection) hesaplar.",
         "de": "Berechnen Sie die maximale Durchbiegung eines einfach gelagerten Trägers unter gleichmäßiger Last.",
         "fr": "Calculer la flèche maximale d'une poutre simplement appuyée sous charge uniforme.",
         "es": "Calcular la deflexión máxima de una viga simplemente apoyada bajo carga uniforme.",
@@ -157,7 +147,6 @@
       },
       "long_i18n": {
         "en": "Calculate maximum deflection of a simply supported beam under uniform load.",
-        "tr": "Yayili yuk altindaki basit kirisin Maximum cokmesini (Deflection) hesaplar.",
         "de": "Berechnen Sie die maximale Durchbiegung eines einfach gelagerten Trägers unter gleichmäßiger Last.",
         "fr": "Calculer la flèche maximale d'une poutre simplement appuyée sous charge uniforme.",
         "es": "Calcular la deflexión máxima de una viga simplemente apoyada bajo carga uniforme.",

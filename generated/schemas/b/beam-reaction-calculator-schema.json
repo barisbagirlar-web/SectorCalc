@@ -6,11 +6,10 @@
   "sectorId": "other",
   "inputs": [
     {
-      "id": "yuk",
+      "id": "load",
       "label": "Point Load (N)",
       "label_i18n": {
         "en": "Point Load (N)",
-        "tr": "Tekil Load (N)",
         "de": "Punktlast (P)",
         "fr": "Charge ponctuelle (P)",
         "es": "Carga Puntual (P)",
@@ -23,7 +22,6 @@
       "businessContext": "Point force on beam.",
       "businessContext_i18n": {
         "en": "Point force on beam.",
-        "tr": "Beame uygulanan tekil kuvandt.",
         "de": "Einzelkraft auf den Träger.",
         "fr": "Force ponctuelle sur la poutre.",
         "es": "Fuerza puntual sobre la viga.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "uzunluk",
+      "id": "length",
       "label": "Beam Length (m)",
       "label_i18n": {
         "en": "Beam Length (m)",
-        "tr": "Beam Heightu (m)",
         "de": "Balkenlänge (L)",
         "fr": "Longueur de la poutre (L)",
         "es": "Longitud de la viga (L)",
@@ -48,7 +45,6 @@
       "businessContext": "Span between supports.",
       "businessContext_i18n": {
         "en": "Span between supports.",
-        "tr": "MesNetler arasi Distance.",
         "de": "Stutzweite.",
         "fr": "Portée entre appuis.",
         "es": "Vano entre apoyos.",
@@ -60,7 +56,6 @@
       "label": "Load Distance from A (m)",
       "label_i18n": {
         "en": "Load Distance from A (m)",
-        "tr": "Yukun A Konumuna Uzakligi (m)",
         "de": "Lastabstand von A (m)",
         "fr": "Distance de la charge depuis A (m)",
         "es": "Distancia de la carga desde A (m)",
@@ -73,7 +68,6 @@
       "businessContext": "Distance from left support to load.",
       "businessContext_i18n": {
         "en": "Distance from left support to load.",
-        "tr": "Yukun sol mesNete uzakligi.",
         "de": "Abstand vom linken Auflager zur Last.",
         "fr": "Distance de l'appui gauche à la charge.",
         "es": "Distancia desde el apoyo izquierdo hasta la carga.",
@@ -88,28 +82,26 @@
     "thresholds": {}
   },
   "formulas": {
-    "RA": "yuk * Math.max(0, (uzunluk - yukKonum)) / Math.max(0.0001, uzunluk)",
-    "sonuc": "yuk - yuk * Math.max(0, (uzunluk - yukKonum)) / Math.max(0.0001, uzunluk)"
+    "RA": "load * Math.max(0, (length - loadKonum)) / Math.max(0.0001, length)",
+    "result": "load - load * Math.max(0, (length - loadKonum)) / Math.max(0.0001, length)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "N",
     "breakdown": {
       "RA": "Tepki A (Rₐ)",
-      "sonuc": "Tepki B (Rᵦ)"
+      "result": "Tepki B (Rᵦ)"
     },
     "breakdown_i18n": {
       "RA": {
         "en": "Tepki A (Rₐ)",
-        "tr": "Tepki A (Rₐ)",
         "de": "Reaction A (Rₐ)",
         "fr": "Réaction A (Rₐ)",
         "es": "Respuesta A (Rₐ)",
         "ar": "رد الفعل A (Rₐ)"
       },
-      "sonuc": {
+      "result": {
         "en": "Tepki B (Rᵦ)",
-        "tr": "Tepki B (Rᵦ)",
         "de": "Reaction B (Rᵦ)",
         "fr": "Réaction B (Rᵦ)",
         "es": "Respuesta B (Rᵦ)",
@@ -135,7 +127,6 @@
       "long": "Calculate vertical reaction forces at simple beam supports.",
       "short_i18n": {
         "en": "Calculate vertical reaction forces at simple beam supports.",
-        "tr": "Basit kiris mesNetlerindeki dusey tepki Forcelerini hesaplar.",
         "de": "Berechnen Sie die vertikalen Auflagerreaktionen an den Auflagern eines Einfeldträgers.",
         "fr": "Calculer les réactions verticales aux appuis d'une poutre simple.",
         "es": "Calcular las fuerzas de reacción vertical en los apoyos de una viga simple.",
@@ -143,7 +134,6 @@
       },
       "long_i18n": {
         "en": "Calculate vertical reaction forces at simple beam supports.",
-        "tr": "Basit kiris mesNetlerindeki dusey tepki Forcelerini hesaplar.",
         "de": "Berechnen Sie die vertikalen Auflagerreaktionen an den Auflagern eines Einfeldträgers.",
         "fr": "Calculer les réactions verticales aux appuis d'une poutre simple.",
         "es": "Calcular las fuerzas de reacción vertical en los apoyos de una viga simple.",

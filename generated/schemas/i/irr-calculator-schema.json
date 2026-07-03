@@ -6,11 +6,10 @@
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "yatirim",
+      "id": "investment",
       "label": "Initial Investment (USD)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
-        "tr": "Initial Investment (₺)",
         "de": "Anfangsinvestition",
         "fr": "Investissement initial",
         "es": "Inversión Inicial",
@@ -23,7 +22,6 @@
       "businessContext": "Initial project cost.",
       "businessContext_i18n": {
         "en": "Initial project cost.",
-        "tr": "Projenin baslangic yatirim Costi.",
         "de": "Anfängliche Projektkosten.",
         "fr": "Coût initial du projet.",
         "es": "Costo inicial del proyecto.",
@@ -35,7 +33,6 @@
       "label": "Avg Annual Cash Flow (USD)",
       "label_i18n": {
         "en": "Avg Annual Cash Flow (USD)",
-        "tr": "Mean Yillik Nakit Akisi (₺)",
         "de": "Durchschnittlicher jährlicher Cashflow (USD)",
         "fr": "Flux de trésorerie annuel moyen (USD)",
         "es": "Flujo de Caja Promedio Anual (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Average annual cash inflow.",
       "businessContext_i18n": {
         "en": "Average annual cash inflow.",
-        "tr": "Projenin Mean yillik Cash Inflow.",
         "de": "Durchschnittlicher jährlicher Mittelzufluss.",
         "fr": "Entrée de trésorerie annuelle moyenne.",
         "es": "Entrada de efectivo anual promedio.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "yil",
+      "id": "year",
       "label": "Project Life (Years)",
       "label_i18n": {
         "en": "Project Life (Years)",
-        "tr": "Proje Time (Year)",
         "de": "Projektlaufzeit (Jahre)",
         "fr": "Durée de vie du projet (années)",
         "es": "Vida del proyecto (años)",
@@ -73,7 +68,6 @@
       "businessContext": "Project's economic life.",
       "businessContext_i18n": {
         "en": "Project's economic life.",
-        "tr": "Projenin ekonomik omru.",
         "de": "Wirtschaftliche Nutzungsdauer des Projekts.",
         "fr": "Durée de vie économique du projet.",
         "es": "Vida económica del proyecto.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(Math.pow(1 + ortalamaNakit / Math.max(1, yatirim), 1 / Math.max(1, yil)) - 1) * 100"
+    "result": "(Math.pow(1 + ortalamaNakit / Math.max(1, investment), 1 / Math.max(1, year)) - 1) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "IRR (Internal Rate of Return - Yaklasik)"
+      "result": "IRR (Internal Rate of Return - Yaklasik)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "IRR (Internal Rate of Return - Yaklasik)",
-        "tr": "IRR (Internal Rate of Return - Yaklasik)",
         "de": "IRR (interner Zinsfuß - Näherungswert)",
         "fr": "IRR (Internal Rate of Return - Approximate)",
         "es": "TIR (Tasa Interna de Retorno - Aproximada)",
@@ -124,7 +117,6 @@
       "long": "Estimate the internal rate of return (IRR) that zeroes NPV.",
       "short_i18n": {
         "en": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "tr": "NPV'yi sifira esitleyen proje ic getiri Ratioini (IRR) tahmin eder.",
         "de": "Schätzen Sie den internen Zinsfuß (IRR), der den NPV auf null setzt.",
         "fr": "Estimer le taux de rendement interne (TRI) qui annule la VAN.",
         "es": "Estimar la tasa interna de retorno (IRR) que hace cero el VAN.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "tr": "NPV'yi sifira esitleyen proje ic getiri Ratioini (IRR) tahmin eder.",
         "de": "Schätzen Sie den internen Zinsfuß (IRR), der den NPV auf null setzt.",
         "fr": "Estimer le taux de rendement interne (TRI) qui annule la VAN.",
         "es": "Estimar la tasa interna de retorno (IRR) que hace cero el VAN.",

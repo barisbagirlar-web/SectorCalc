@@ -6,11 +6,10 @@
   "sectorId": "other",
   "inputs": [
     {
-      "id": "debi",
+      "id": "flow",
       "label": "Flow Rate (m³/s)",
       "label_i18n": {
         "en": "Flow Rate (m³/s)",
-        "tr": "Debi (m³/s)",
         "de": "Kompressordurchflussrate",
         "fr": "Débit du compresseur",
         "es": "Caudal del compresor",
@@ -23,7 +22,6 @@
       "businessContext": "Turbine water flow.",
       "businessContext_i18n": {
         "en": "Turbine water flow.",
-        "tr": "Turbine giren Water Flow Rate.",
         "de": "Wasserfluss durch die Turbine.",
         "fr": "Débit d'eau de la turbine.",
         "es": "Flujo de agua de la turbina.",
@@ -35,7 +33,6 @@
       "label": "Head (m)",
       "label_i18n": {
         "en": "Head (m)",
-        "tr": "Head Height (m)",
         "de": "Gemeinkostenmultiplikator",
         "fr": "Multiplicateur de frais généraux",
         "es": "Multiplicador de Gastos Generales",
@@ -48,7 +45,6 @@
       "businessContext": "Water level difference.",
       "businessContext_i18n": {
         "en": "Water level difference.",
-        "tr": "Su seviyeleri arasindaki dusu.",
         "de": "Wasserspiegeldifferenz.",
         "fr": "Différence de niveau d'eau.",
         "es": "Diferencia de nivel de agua.",
@@ -60,7 +56,6 @@
       "label": "Turbine Efficiency (%)",
       "label_i18n": {
         "en": "Turbine Efficiency (%)",
-        "tr": "Turbin Efficiencyi (%)",
         "de": "Turbinenwirkungsgrad (%)",
         "fr": "Rendement de la turbine (%)",
         "es": "Eficiencia de la turbina (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Turbine efficiency.",
       "businessContext_i18n": {
         "en": "Turbine efficiency.",
-        "tr": "Turbin Efficiencyi.",
         "de": "Turbinenwirkungsgrad.",
         "fr": "Rendement de la turbine.",
         "es": "Eficiencia de la turbina.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "1000 * 9.81 * debi * dusuYuksekligi * (turbinVerim / 100)"
+    "result": "1000 * 9.81 * flow * dusuYuksekligi * (turbinVerim / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Hydroelectric Power"
+      "result": "Hydroelectric Power"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Hydroelectric Power",
-        "tr": "Hydroelectric Power",
         "de": "Wasserkraft",
         "fr": "Puissance hydroélectrique",
         "es": "Potencia hidroeléctrica",
@@ -127,7 +120,6 @@
       "long": "Calculate hydroelectric power from water flow and head.",
       "short_i18n": {
         "en": "Calculate hydroelectric power from water flow and head.",
-        "tr": "Suyun potansiyel Energysinden uretilen elektrik gucunu hesaplar.",
         "de": "Berechnen Sie die Wasserkraft aus Wasserfluss und Fallhohe.",
         "fr": "Calculer la puissance hydroélectrique à partir du débit d'eau et de la hauteur de chute.",
         "es": "Calcular la energía hidroeléctrica a partir del flujo de agua y la altura.",
@@ -135,7 +127,6 @@
       },
       "long_i18n": {
         "en": "Calculate hydroelectric power from water flow and head.",
-        "tr": "Suyun potansiyel Energysinden uretilen elektrik gucunu hesaplar.",
         "de": "Berechnen Sie die Wasserkraft aus Wasserfluss und Fallhohe.",
         "fr": "Calculer la puissance hydroélectrique à partir du débit d'eau et de la hauteur de chute.",
         "es": "Calcular la energía hidroeléctrica a partir del flujo de agua y la altura.",

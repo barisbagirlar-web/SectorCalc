@@ -10,7 +10,6 @@
       "label": "Mud Flow Rate (m³/s)",
       "label_i18n": {
         "en": "Mud Flow Rate (m³/s)",
-        "tr": "Camur Flow Ratesi (m³/s)",
         "de": "Spulungsdurchflussrate (m³/s)",
         "fr": "Débit de la boue (m³/s)",
         "es": "Caudal de Lodo (m³/s)",
@@ -23,7 +22,6 @@
       "businessContext": "Mud flow rate.",
       "businessContext_i18n": {
         "en": "Mud flow rate.",
-        "tr": "Sondaj camuru Flow Ratesi.",
         "de": "Spulungsdurchflussrate.",
         "fr": "Débit de la boue.",
         "es": "Caudal de lodo.",
@@ -35,7 +33,6 @@
       "label": "Wellbore Diameter (m)",
       "label_i18n": {
         "en": "Wellbore Diameter (m)",
-        "tr": "Kuyu Diameter (m)",
         "de": "Bohrlochdurchmesser (m)",
         "fr": "Diamètre du puits (m)",
         "es": "Diámetro del Pozo (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Hole diameter.",
       "businessContext_i18n": {
         "en": "Hole diameter.",
-        "tr": "Kuyu delik Diameteri.",
         "de": "Lochdurchmesser.",
         "fr": "Diamètre du trou.",
         "es": "Diámetro del agujero.",
@@ -60,7 +56,6 @@
       "label": "Drill Pipe OD (m)",
       "label_i18n": {
         "en": "Drill Pipe OD (m)",
-        "tr": "Matkap Borusu Dis Diameteri (m)",
         "de": "Bohrgestänge-Außendurchmesser (m)",
         "fr": "Diamètre extérieur de la tige de forage (m)",
         "es": "DE de la Tubería de Perforación (m)",
@@ -73,7 +68,6 @@
       "businessContext": "Drill pipe outer diameter.",
       "businessContext_i18n": {
         "en": "Drill pipe outer diameter.",
-        "tr": "Sondaj borusu dis Diameteri.",
         "de": "Außendurchmesser des Bohrgestänges.",
         "fr": "Diamètre extérieur de la tige de forage.",
         "es": "Diámetro exterior de la tubería de perforación.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(4 * camurDebi) / Math.max(0.0001, (Math.PI * (kuyuCapi * kuyuCapi - matkapCapi * matkapCapi)))"
+    "result": "(4 * camurDebi) / Math.max(0.0001, (Math.PI * (kuyuCapi * kuyuCapi - matkapCapi * matkapCapi)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m/s",
     "breakdown": {
-      "sonuc": "Halkasal Speed"
+      "result": "Halkasal Speed"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Halkasal Speed",
-        "tr": "Halkasal Speed",
         "de": "Ringgeschwindigkeit",
         "fr": "Vitesse angulaire",
         "es": "Velocidad Angular",
@@ -126,7 +119,6 @@
       "long": "Calculate mud annular velocity in wellbore.",
       "short_i18n": {
         "en": "Calculate mud annular velocity in wellbore.",
-        "tr": "Kuyu-matkap arasi halkasal kesitte camurun yukselme Speedini hesaplar.",
         "de": "Berechnen Sie die Ringraumgeschwindigkeit der Bohrspulung im Bohrloch.",
         "fr": "Calculer la vitesse annulaire de la boue dans le puits.",
         "es": "Calcular la velocidad anular del lodo en el pozo.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate mud annular velocity in wellbore.",
-        "tr": "Kuyu-matkap arasi halkasal kesitte camurun yukselme Speedini hesaplar.",
         "de": "Berechnen Sie die Ringraumgeschwindigkeit der Bohrspulung im Bohrloch.",
         "fr": "Calculer la vitesse annulaire de la boue dans le puits.",
         "es": "Calcular la velocidad anular del lodo en el pozo.",

@@ -10,7 +10,6 @@
       "label": "Average Power (kW)",
       "label_i18n": {
         "en": "Average Power (kW)",
-        "tr": "Aandrage Power (kW)",
         "de": "Durchschnittsleistung (kW)",
         "fr": "Puissance moyenne (kW)",
         "es": "Potencia promedio (kW)",
@@ -23,7 +22,6 @@
       "businessContext": "Average power drawn.",
       "businessContext_i18n": {
         "en": "Average power drawn.",
-        "tr": "Donem Heightunca Mean cekilen Power.",
         "de": "Durchschnittliche Leistungsaufnahme.",
         "fr": "Puissance moyenne consommée.",
         "es": "Potencia promedio consumida.",
@@ -35,7 +33,6 @@
       "label": "Peak Power (kW)",
       "label_i18n": {
         "en": "Peak Power (kW)",
-        "tr": "Pik Power (kW)",
         "de": "Spitzenleistung (kW)",
         "fr": "Puissance de pointe (kW)",
         "es": "Potencia pico (kW)",
@@ -48,7 +45,6 @@
       "businessContext": "Peak power demand.",
       "businessContext_i18n": {
         "en": "Peak power demand.",
-        "tr": "Donemdeki en yuksek Power talebi.",
         "de": "Spitzenleistungsbedarf.",
         "fr": "Demande de puissance de pointe.",
         "es": "Demanda de potencia pico.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(ortalamaGuc / Math.max(0.0001, pikGuc)) * 100"
+    "result": "(ortalamaGuc / Math.max(0.0001, pikGuc)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Load Factor"
+      "result": "Load Factor"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Load Factor",
-        "tr": "Load Factor",
         "de": "Load Factor",
         "fr": "Facteur de charge",
         "es": "Factor de Carga",
@@ -99,7 +94,6 @@
       "long": "Calculate electrical load factor — average vs peak power usage ratio.",
       "short_i18n": {
         "en": "Calculate electrical load factor — average vs peak power usage ratio.",
-        "tr": "Tuketicinin Energyyi ne kadar dengeli kullandiginin gostergesini (Load Factor) hesaplar.",
         "de": "Berechnen Sie den elektrischen Lastfaktor – das Verhältnis von Durchschnitts- zu Spitzenleistung.",
         "fr": "Calculer le facteur de charge électrique — rapport entre la puissance moyenne et la puissance de pointe.",
         "es": "Calcular el factor de carga eléctrica — relación de uso de potencia promedio vs pico.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate electrical load factor — average vs peak power usage ratio.",
-        "tr": "Tuketicinin Energyyi ne kadar dengeli kullandiginin gostergesini (Load Factor) hesaplar.",
         "de": "Berechnen Sie den elektrischen Lastfaktor – das Verhältnis von Durchschnitts- zu Spitzenleistung.",
         "fr": "Calculer le facteur de charge électrique — rapport entre la puissance moyenne et la puissance de pointe.",
         "es": "Calcular el factor de carga eléctrica — relación de uso de potencia promedio vs pico.",

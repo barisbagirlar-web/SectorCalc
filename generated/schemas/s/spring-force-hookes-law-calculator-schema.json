@@ -10,7 +10,6 @@
       "label": "Spring Constant (N/m)",
       "label_i18n": {
         "en": "Spring Constant (N/m)",
-        "tr": "Yay Sabiti (N/m)",
         "de": "Federkonstante (N/m)",
         "fr": "Constante de raideur (N/m)",
         "es": "Constante del resorte (N/m)",
@@ -23,7 +22,6 @@
       "businessContext": "Spring stiffness.",
       "businessContext_i18n": {
         "en": "Spring stiffness.",
-        "tr": "Yayin rijitligi.",
         "de": "Federsteifigkeit.",
         "fr": "Raideur du ressort.",
         "es": "Rigidez del resorte.",
@@ -35,7 +33,6 @@
       "label": "Spring Displacement (m)",
       "label_i18n": {
         "en": "Spring Displacement (m)",
-        "tr": "Yaydaki Deplasman (m)",
         "de": "Federauslenkung (m)",
         "fr": "Déplacement du ressort (m)",
         "es": "Desplazamiento del resorte (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Spring compression/extension.",
       "businessContext_i18n": {
         "en": "Spring compression/extension.",
-        "tr": "Yayin sikisma/gerilme Amounti.",
         "de": "Federkompression/-extension.",
         "fr": "Compression/extension du ressort.",
         "es": "Compresión/extensión del resorte.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "yayKatsayisi * deplasman"
+    "result": "yayKatsayisi * deplasman"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "N",
     "breakdown": {
-      "sonuc": "Yay Kuvveti (F)"
+      "result": "Yay Kuvveti (F)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Yay Kuvveti (F)",
-        "tr": "Yay Kuvveti (F)",
         "de": "Federkraft (F)",
         "fr": "Force du ressort (F)",
         "es": "Fuerza del Resorte (F)",
@@ -99,7 +94,6 @@
       "long": "Calculate spring force using Hooke's law (F=kx).",
       "short_i18n": {
         "en": "Calculate spring force using Hooke's law (F=kx).",
-        "tr": "Yayda depolanan elastik potansiyel Forcei Hooke yasasi ile hesaplar.",
         "de": "Berechnen Sie die Federkraft mit dem Hookeschen Gesetz (F=kx).",
         "fr": "Calculer la force du ressort en utilisant la loi de Hooke (F=kx).",
         "es": "Calcular la fuerza del resorte usando la ley de Hooke (F=kx).",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate spring force using Hooke's law (F=kx).",
-        "tr": "Yayda depolanan elastik potansiyel Forcei Hooke yasasi ile hesaplar.",
         "de": "Berechnen Sie die Federkraft mit dem Hookeschen Gesetz (F=kx).",
         "fr": "Calculer la force du ressort en utilisant la loi de Hooke (F=kx).",
         "es": "Calcular la fuerza del resorte usando la ley de Hooke (F=kx).",

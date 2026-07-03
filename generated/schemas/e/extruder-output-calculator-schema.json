@@ -10,7 +10,6 @@
       "label": "Screw Volume (cm³/rev)",
       "label_i18n": {
         "en": "Screw Volume (cm³/rev)",
-        "tr": "Vida Hacmi (cm³/devir)",
         "de": "Schneckenvolumen (cm³/U)",
         "fr": "Volume de la vis (cm³/tr)",
         "es": "Volumen del tornillo (cm³/rev)",
@@ -23,7 +22,6 @@
       "businessContext": "Screw channel volume.",
       "businessContext_i18n": {
         "en": "Screw channel volume.",
-        "tr": "Vida kanal hacmi.",
         "de": "Schneckenkanalvolumen.",
         "fr": "Volume du canal de la vis.",
         "es": "Volumen del canal del tornillo.",
@@ -35,7 +33,6 @@
       "label": "Screw Speed (RPM)",
       "label_i18n": {
         "en": "Screw Speed (RPM)",
-        "tr": "Vida Devri (devir/dk)",
         "de": "Schneckendrehzahl (RPM)",
         "fr": "Vitesse de la vis (tr/min)",
         "es": "Velocidad del tornillo (RPM)",
@@ -48,7 +45,6 @@
       "businessContext": "Screw rotational speed.",
       "businessContext_i18n": {
         "en": "Screw rotational speed.",
-        "tr": "Vida donus Speedi.",
         "de": "Rotationsgeschwindigkeit der Schnecke.",
         "fr": "Vitesse de rotation de la vis.",
         "es": "Velocidad de rotación del tornillo.",
@@ -60,7 +56,6 @@
       "label": "Melt Density (g/cm³)",
       "label_i18n": {
         "en": "Melt Density (g/cm³)",
-        "tr": "Eriyik Dmostsity (g/cm³)",
         "de": "Schmelzdichte (g/cm³)",
         "fr": "Densité du fondu (g/cm³)",
         "es": "Densidad del fundido (g/cm³)",
@@ -73,7 +68,6 @@
       "businessContext": "Melt polymer density.",
       "businessContext_i18n": {
         "en": "Melt polymer density.",
-        "tr": "Eriyik polimer yogunlugu.",
         "de": "Dichte der Polymerschmelze.",
         "fr": "Densité du polymère fondu.",
         "es": "Densidad del polímero fundido.",
@@ -81,11 +75,10 @@
       }
     },
     {
-      "id": "verim",
+      "id": "efficiency",
       "label": "Efficiency (%)",
       "label_i18n": {
         "en": "Efficiency (%)",
-        "tr": "Verim (%)",
         "de": "Produktionseffizienzindex",
         "fr": "Indice d'efficacité de production",
         "es": "Índice de eficiencia de producción",
@@ -98,7 +91,6 @@
       "businessContext": "Extruder efficiency.",
       "businessContext_i18n": {
         "en": "Extruder efficiency.",
-        "tr": "Ekstruder Efficiencyi.",
         "de": "Extrudereffizienz.",
         "fr": "Efficacité de l'extrudeuse.",
         "es": "Eficiencia de la extrusora.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(vidaHacim * devir * eriyikYogunluk * (verim / 100) * 60) / 1000"
+    "result": "(vidaHacim * devir * eriyikYogunluk * (efficiency / 100) * 60) / 1000"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kg/h",
     "breakdown": {
-      "sonuc": "Ekstruder Kapasitesi"
+      "result": "Ekstruder Kapasitesi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Ekstruder Kapasitesi",
-        "tr": "Ekstruder Kapasitesi",
         "de": "Extruderkapazität",
         "fr": "Capacité de l'extrudeuse",
         "es": "Capacidad de la extrusora",
@@ -151,7 +142,6 @@
       "long": "Calculate extruder hourly polymer melt output capacity.",
       "short_i18n": {
         "en": "Calculate extruder hourly polymer melt output capacity.",
-        "tr": "Ekstruderin saatlik Net polimer eriyik ciktisini (kapasite) hesaplar.",
         "de": "Berechnen Sie die stundliche Polymerschmelzleistung eines Extruders.",
         "fr": "Calculer la capacité de production horaire de polymère fondu d'une extrudeuse.",
         "es": "Calcule la capacidad de producción de polímero fundido por hora de la extrusora.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate extruder hourly polymer melt output capacity.",
-        "tr": "Ekstruderin saatlik Net polimer eriyik ciktisini (kapasite) hesaplar.",
         "de": "Berechnen Sie die stundliche Polymerschmelzleistung eines Extruders.",
         "fr": "Calculer la capacité de production horaire de polymère fondu d'une extrudeuse.",
         "es": "Calcule la capacidad de producción de polímero fundido por hora de la extrusora.",

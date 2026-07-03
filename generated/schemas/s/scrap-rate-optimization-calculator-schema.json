@@ -6,11 +6,10 @@
   "sectorId": "lean-production",
   "inputs": [
     {
-      "id": "uretim",
+      "id": "production",
       "label": "Total Production",
       "label_i18n": {
         "en": "Total Production",
-        "tr": "Total Production (Quantity)",
         "de": "Gesamtproduktionseinheiten",
         "fr": "Unités de production totales",
         "es": "Unidades de Producción Totales",
@@ -23,7 +22,6 @@
       "businessContext": "Total units produced.",
       "businessContext_i18n": {
         "en": "Total units produced.",
-        "tr": "Uretilen Total urun.",
         "de": "Gesamtzahl der produzierten Einheiten.",
         "fr": "Nombre total d'unités produites.",
         "es": "Total de unidades producidas.",
@@ -35,7 +33,6 @@
       "label": "Scrap Quantity",
       "label_i18n": {
         "en": "Scrap Quantity",
-        "tr": "Hurda Quantity (Quantity)",
         "de": "Ausschussmenge",
         "fr": "Quantité de rebut",
         "es": "Cantidad de desechos",
@@ -48,7 +45,6 @@
       "businessContext": "Defective units.",
       "businessContext_i18n": {
         "en": "Defective units.",
-        "tr": "Hatali urun Numbersi.",
         "de": "Fehlerhafte Einheiten.",
         "fr": "Unités défectueuses.",
         "es": "Unidades defectuosas.",
@@ -60,7 +56,6 @@
       "label": "Unit Cost (USD)",
       "label_i18n": {
         "en": "Unit Cost (USD)",
-        "tr": "Birim Maliyet (TL)",
         "de": "Stuckkosten",
         "fr": "Coût unitaire",
         "es": "Costo unitario",
@@ -73,7 +68,6 @@
       "businessContext": "Product unit cost.",
       "businessContext_i18n": {
         "en": "Product unit cost.",
-        "tr": "Urunun Costi.",
         "de": "Stuckkosten des Produkts.",
         "fr": "Coût unitaire du produit.",
         "es": "Costo unitario del producto.",
@@ -88,19 +82,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "oran": "(hurda / Math.max(1, uretim)) * 100",
-    "sonuc": "hurda * birimMaliyet"
+    "ratio": "(hurda / Math.max(1, production)) * 100",
+    "result": "hurda * birimMaliyet"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Hurda Kaybi"
+      "result": "Hurda Kaybi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Hurda Kaybi",
-        "tr": "Hurda Kaybi",
         "de": "Ausschussverlust",
         "fr": "Perte due aux rebuts",
         "es": "Pérdida por desechos",
@@ -125,7 +118,6 @@
       "long": "Calculate total financial loss from scrap and rework.",
       "short_i18n": {
         "en": "Calculate total financial loss from scrap and rework.",
-        "tr": "Defective Productionden kaynaklanan Total finansal kaybi hesaplar.",
         "de": "Berechnen Sie den gesamten finanziellen Verlust durch Ausschuss und Nacharbeit.",
         "fr": "Calculer la perte financière totale due aux rebuts et aux reprises.",
         "es": "Calcular la pérdida financiera total por desechos y retrabajos.",
@@ -133,7 +125,6 @@
       },
       "long_i18n": {
         "en": "Calculate total financial loss from scrap and rework.",
-        "tr": "Defective Productionden kaynaklanan Total finansal kaybi hesaplar.",
         "de": "Berechnen Sie den gesamten finanziellen Verlust durch Ausschuss und Nacharbeit.",
         "fr": "Calculer la perte financière totale due aux rebuts et aux reprises.",
         "es": "Calcular la pérdida financiera total por desechos y retrabajos.",

@@ -10,7 +10,6 @@
       "label": "Principal (USD)",
       "label_i18n": {
         "en": "Principal (USD)",
-        "tr": "Anapara (₺)",
         "de": "Anfangskapital",
         "fr": "Capital initial",
         "es": "Capital inicial",
@@ -23,7 +22,6 @@
       "businessContext": "Initial investment amount.",
       "businessContext_i18n": {
         "en": "Initial investment amount.",
-        "tr": "Baslangic Investment Amount.",
         "de": "Anfänglicher Anlagebetrag.",
         "fr": "Montant de l'investissement initial.",
         "es": "Monto de inversión inicial.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "faiz",
+      "id": "interest",
       "label": "Annual Interest (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
-        "tr": "Annual Interest (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -48,7 +45,6 @@
       "businessContext": "Annual nominal interest rate.",
       "businessContext_i18n": {
         "en": "Annual nominal interest rate.",
-        "tr": "Yillik nominal Interest Rate.",
         "de": "Jährlicher nominaler Zinssatz.",
         "fr": "Taux d'intérêt nominal annuel.",
         "es": "Tasa de interés nominal anual.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "yil",
+      "id": "year",
       "label": "Term (Years)",
       "label_i18n": {
         "en": "Term (Years)",
-        "tr": "Maturity (Year)",
         "de": "Kreditlaufzeit",
         "fr": "Durée du prêt",
         "es": "Plazo del préstamo",
@@ -73,7 +68,6 @@
       "businessContext": "Total investment period.",
       "businessContext_i18n": {
         "en": "Total investment period.",
-        "tr": "Total Yatirim suresi.",
         "de": "Gesamter Anlagezeitraum.",
         "fr": "Période totale d'investissement.",
         "es": "Período total de inversión.",
@@ -85,7 +79,6 @@
       "label": "Compounding Frequency",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Bilesim Sikligi (Quantity/Yil)",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de Capitalización",
@@ -98,7 +91,6 @@
       "businessContext": "Number of compounding periods per year (12=monthly).",
       "businessContext_i18n": {
         "en": "Number of compounding periods per year (12=monthly).",
-        "tr": "Faizin yilda kac kez eklendigi (12: aylik).",
         "de": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich).",
         "fr": "Nombre de périodes de composition par an (par exemple, 1=annuel, 12=mensuel, 365=quotidien).",
         "es": "Número de períodos de capitalización por año (por ejemplo, 1=anual, 12=mensual, 365=diario).",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "anapara * Math.pow(1 + (faiz / 100) / Math.max(1, siklik), siklik * yil)"
+    "result": "anapara * Math.pow(1 + (interest / 100) / Math.max(1, siklik), siklik * year)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Maturity Sonu Value"
+      "result": "Maturity Sonu Value"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maturity Sonu Value",
-        "tr": "Maturity Sonu Value",
         "de": "Endwert bei Fälligkeit",
         "fr": "Valeur à l'échéance",
         "es": "Valor al Vencimiento",
@@ -149,7 +140,6 @@
       "long": "Calculate compound interest future value with periodic compounding.",
       "short_i18n": {
         "en": "Calculate compound interest future value with periodic compounding.",
-        "tr": "Faizin Principalya eklendigi bilesik faizin Maturity Sonu Valueini hesaplar.",
         "de": "Berechnen Sie den zukunftigen Wert bei Zinseszins mit periodischer Verzinsung.",
         "fr": "Calculer la valeur future d'un intérêt composé avec capitalisation périodique.",
         "es": "Calcular el valor futuro de interés compuesto con capitalización periódica.",
@@ -157,7 +147,6 @@
       },
       "long_i18n": {
         "en": "Calculate compound interest future value with periodic compounding.",
-        "tr": "Faizin Principalya eklendigi bilesik faizin Maturity Sonu Valueini hesaplar.",
         "de": "Berechnen Sie den zukunftigen Wert bei Zinseszins mit periodischer Verzinsung.",
         "fr": "Calculer la valeur future d'un intérêt composé avec capitalisation périodique.",
         "es": "Calcular el valor futuro de interés compuesto con capitalización periódica.",

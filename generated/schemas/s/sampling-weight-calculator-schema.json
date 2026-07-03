@@ -10,7 +10,6 @@
       "label": "Stratum Population (N_h)",
       "label_i18n": {
         "en": "Stratum Population (N_h)",
-        "tr": "Tabaka Populasyonu (N_h)",
         "de": "Schichtpopulation (N_h)",
         "fr": "Population de la strate (N_h)",
         "es": "Población del estrato (N_h)",
@@ -23,7 +22,6 @@
       "businessContext": "Total individuals in stratum.",
       "businessContext_i18n": {
         "en": "Total individuals in stratum.",
-        "tr": "Tabakadaki toplam birey.",
         "de": "Gesamtzahl der Personen in der Schicht.",
         "fr": "Nombre total d'individus dans la strate.",
         "es": "Total de individuos en el estrato.",
@@ -35,7 +33,6 @@
       "label": "Total Population (N)",
       "label_i18n": {
         "en": "Total Population (N)",
-        "tr": "Total Populasyon (N)",
         "de": "Gesamtpopulation (N)",
         "fr": "Population totale (N)",
         "es": "Población total (N)",
@@ -48,7 +45,6 @@
       "businessContext": "Population size.",
       "businessContext_i18n": {
         "en": "Population size.",
-        "tr": "Evren buyuklugu.",
         "de": "Populationsgroße.",
         "fr": "Taille de la population.",
         "es": "Tamaño de la población.",
@@ -60,7 +56,6 @@
       "label": "Stratum Sample (n_h)",
       "label_i18n": {
         "en": "Stratum Sample (n_h)",
-        "tr": "Tabaka Orneklemi (n_h)",
         "de": "Schichtstichprobe (n_h)",
         "fr": "Échantillon de la strate (n_h)",
         "es": "Muestra del estrato (n_h)",
@@ -73,7 +68,6 @@
       "businessContext": "Sample drawn from stratum.",
       "businessContext_i18n": {
         "en": "Sample drawn from stratum.",
-        "tr": "Tabakadan alinan orneklem.",
         "de": "Aus der Schicht gezogene Stichprobe.",
         "fr": "Échantillon prélevé dans la strate.",
         "es": "Muestra extraída del estrato.",
@@ -85,7 +79,6 @@
       "label": "Total Sample (n)",
       "label_i18n": {
         "en": "Total Sample (n)",
-        "tr": "Total Orneklem (n)",
         "de": "Gesamtstichprobe (n)",
         "fr": "Échantillon total (n)",
         "es": "Muestra total (n)",
@@ -98,7 +91,6 @@
       "businessContext": "Total sample size.",
       "businessContext_i18n": {
         "en": "Total sample size.",
-        "tr": "Tum Sample Size.",
         "de": "Gesamtstichprobengroße.",
         "fr": "Taille totale de l'échantillon.",
         "es": "Tamaño total de la muestra.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(tabakaPopulasyon / Math.max(1, toplamPopulasyon)) / Math.max(0.0001, (tabakaOrneklem / Math.max(1, toplamOrneklem)))"
+    "result": "(tabakaPopulasyon / Math.max(1, toplamPopulasyon)) / Math.max(0.0001, (tabakaOrneklem / Math.max(1, toplamOrneklem)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "weight",
     "breakdown": {
-      "sonuc": "Weight Coefficimostt"
+      "result": "Weight Coefficimostt"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Weight Coefficimostt",
-        "tr": "Weight Coefficimostt",
         "de": "Gewichtungskoeffizient",
         "fr": "Coefficient de pondération",
         "es": "Coeficiente de ponderación",
@@ -152,7 +143,6 @@
       "long": "Calculate sampling weight for each stratum in stratified sampling.",
       "short_i18n": {
         "en": "Calculate sampling weight for each stratum in stratified sampling.",
-        "tr": "Tabakali orneklemede her tabakanin Weightlandirma katNumbersini hesaplar.",
         "de": "Berechnen Sie das Stichprobengewicht fur jede Schicht bei geschichteter Stichprobenziehung.",
         "fr": "Calculer le poids d'échantillonnage pour chaque strate dans un échantillonnage stratifié.",
         "es": "Calcular el peso de muestreo para cada estrato en el muestreo estratificado.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Calculate sampling weight for each stratum in stratified sampling.",
-        "tr": "Tabakali orneklemede her tabakanin Weightlandirma katNumbersini hesaplar.",
         "de": "Berechnen Sie das Stichprobengewicht fur jede Schicht bei geschichteter Stichprobenziehung.",
         "fr": "Calculer le poids d'échantillonnage pour chaque strate dans un échantillonnage stratifié.",
         "es": "Calcular el peso de muestreo para cada estrato en el muestreo estratificado.",

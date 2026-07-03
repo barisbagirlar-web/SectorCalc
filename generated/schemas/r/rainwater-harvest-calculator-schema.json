@@ -10,7 +10,6 @@
       "label": "Roof Area (m²)",
       "label_i18n": {
         "en": "Roof Area (m²)",
-        "tr": "Roof Area (m²)",
         "de": "Dachfläche (m²)",
         "fr": "Surface du toit (m²)",
         "es": "Área del Techo (m²)",
@@ -23,7 +22,6 @@
       "businessContext": "Collection roof area.",
       "businessContext_i18n": {
         "en": "Collection roof area.",
-        "tr": "Toplanan Roof Area.",
         "de": "Sammelfläche des Daches.",
         "fr": "Surface de collecte du toit.",
         "es": "Área de captación del techo.",
@@ -35,7 +33,6 @@
       "label": "Annual Rainfall (mm)",
       "label_i18n": {
         "en": "Annual Rainfall (mm)",
-        "tr": "Yillik Yagis (mm)",
         "de": "Jährlicher Niederschlag (mm)",
         "fr": "Précipitations annuelles (mm)",
         "es": "Precipitación Anual (mm)",
@@ -48,7 +45,6 @@
       "businessContext": "Annual precipitation.",
       "businessContext_i18n": {
         "en": "Annual precipitation.",
-        "tr": "Bolgenin yillik yagis Amounti.",
         "de": "Jährliche Niederschlagsmenge.",
         "fr": "Précipitations annuelles.",
         "es": "Precipitación anual.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "verim",
+      "id": "efficiency",
       "label": "Collection Efficiency (%)",
       "label_i18n": {
         "en": "Collection Efficiency (%)",
-        "tr": "Toplama Verimi (%)",
         "de": "Sammeleffizienz (%)",
         "fr": "Efficacité de collecte (%)",
         "es": "Eficiencia de Captación (%)",
@@ -73,7 +68,6 @@
       "businessContext": "System efficiency.",
       "businessContext_i18n": {
         "en": "System efficiency.",
-        "tr": "Sistem verimi.",
         "de": "Systemeffizienz.",
         "fr": "Efficacité du système.",
         "es": "Eficiencia del sistema.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(catiAlani * (yillikYagis / 1000)) * (verim / 100)"
+    "result": "(catiAlani * (yillikYagis / 1000)) * (efficiency / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m3",
     "breakdown": {
-      "sonuc": "Annual Toplanan Su"
+      "result": "Annual Toplanan Su"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Annual Toplanan Su",
-        "tr": "Annual Toplanan Su",
         "de": "Jährlich gesammeltes Wasser",
         "fr": "Eau collectée annuellement",
         "es": "Agua Recolectada Anual",
@@ -124,7 +117,6 @@
       "long": "Calculate annual rainwater harvest volume from roof area.",
       "short_i18n": {
         "en": "Calculate annual rainwater harvest volume from roof area.",
-        "tr": "Yilda biriktirilebilecek Net yagmur suyu Amountini hesaplar.",
         "de": "Berechnen Sie das jährliche Regenwassersammelvolumen von der Dachfläche.",
         "fr": "Calculer le volume annuel de récupération d'eau de pluie à partir de la surface du toit.",
         "es": "Calcular el volumen anual de cosecha de agua de lluvia desde el área del techo.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate annual rainwater harvest volume from roof area.",
-        "tr": "Yilda biriktirilebilecek Net yagmur suyu Amountini hesaplar.",
         "de": "Berechnen Sie das jährliche Regenwassersammelvolumen von der Dachfläche.",
         "fr": "Calculer le volume annuel de récupération d'eau de pluie à partir de la surface du toit.",
         "es": "Calcular el volumen anual de cosecha de agua de lluvia desde el área del techo.",

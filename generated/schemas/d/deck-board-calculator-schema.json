@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Deck Area (m²)",
       "label_i18n": {
         "en": "Deck Area (m²)",
-        "tr": "Deck Area (m²)",
         "de": "Terrassenfläche (m²)",
         "fr": "Surface de la terrasse (m²)",
         "es": "Área de la Cubierta (m²)",
@@ -23,7 +22,6 @@
       "businessContext": "Area to cover.",
       "businessContext_i18n": {
         "en": "Area to cover.",
-        "tr": "Dosenecek Area.",
         "de": "Zu bedeckende Fläche.",
         "fr": "Surface à couvrir.",
         "es": "Área a cubrir.",
@@ -35,7 +33,6 @@
       "label": "Board Width (m)",
       "label_i18n": {
         "en": "Board Width (m)",
-        "tr": "Tahta Eni (m)",
         "de": "Brettbreite (m)",
         "fr": "Largeur de la lame (m)",
         "es": "Ancho de la Tabla (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Board width.",
       "businessContext_i18n": {
         "en": "Board width.",
-        "tr": "Tek tahtanin eni.",
         "de": "Brettbreite.",
         "fr": "Largeur de la lame.",
         "es": "Ancho de la tabla.",
@@ -60,7 +56,6 @@
       "label": "Board Length (m)",
       "label_i18n": {
         "en": "Board Length (m)",
-        "tr": "Tahta Boyu (m)",
         "de": "Brettlänge (m)",
         "fr": "Longueur de la lame (m)",
         "es": "Longitud de la Tabla (m)",
@@ -73,7 +68,6 @@
       "businessContext": "Board length.",
       "businessContext_i18n": {
         "en": "Board length.",
-        "tr": "Tek tahtanin Heightu.",
         "de": "Brettlänge.",
         "fr": "Longueur de la lame.",
         "es": "Longitud de la tabla.",
@@ -81,11 +75,10 @@
       }
     },
     {
-      "id": "fire",
+      "id": "scrap",
       "label": "Waste Factor (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Scrap Ratio (%)",
         "de": "Abfallfaktor (%)",
         "fr": "Facteur de déchet (%)",
         "es": "Factor de desperdicio (%)",
@@ -98,7 +91,6 @@
       "businessContext": "Cutting waste.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
-        "tr": "Kesim kaybi.",
         "de": "Schnittverschnitt.",
         "fr": "Perte de coupe.",
         "es": "Desperdicio de corte.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "Math.ceil((alan / Math.max(0.0001, (tahtaEn * tahtaBoy))) * (1 + fire / 100))"
+    "result": "Math.ceil((area / Math.max(0.0001, (tahtaEn * tahtaBoy))) * (1 + scrap / 100))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "boards",
     "breakdown": {
-      "sonuc": "Gerekli Deck Tahtasi"
+      "result": "Gerekli Deck Tahtasi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Deck Tahtasi",
-        "tr": "Gerekli Deck Tahtasi",
         "de": "Erforderliche Terrassendielen",
         "fr": "Lames de terrasse nécessaires",
         "es": "Tablas de Cubierta Necesarias",
@@ -149,7 +140,6 @@
       "long": "Calculate number of deck boards needed including waste factor.",
       "short_i18n": {
         "en": "Calculate number of deck boards needed including waste factor.",
-        "tr": "Kesim payi dahil gereken deck tahtasi Numbersini hesaplar.",
         "de": "Berechnen Sie die Anzahl der benotigten Terrassendielen unter Berucksichtigung des Verschnittfaktors.",
         "fr": "Calculer le nombre de lames de terrasse nécessaires, y compris le facteur de perte.",
         "es": "Calcular el número de tablas de cubierta necesarias incluyendo el factor de desperdicio.",
@@ -157,7 +147,6 @@
       },
       "long_i18n": {
         "en": "Calculate number of deck boards needed including waste factor.",
-        "tr": "Kesim payi dahil gereken deck tahtasi Numbersini hesaplar.",
         "de": "Berechnen Sie die Anzahl der benotigten Terrassendielen unter Berucksichtigung des Verschnittfaktors.",
         "fr": "Calculer le nombre de lames de terrasse nécessaires, y compris le facteur de perte.",
         "es": "Calcular el número de tablas de cubierta necesarias incluyendo el factor de desperdicio.",

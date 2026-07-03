@@ -10,7 +10,6 @@
       "label": "Home Price (USD)",
       "label_i18n": {
         "en": "Home Price (USD)",
-        "tr": "Ev Fiyati (₺)",
         "de": "Hauspreis",
         "fr": "Prix de la maison",
         "es": "Precio de la Vivienda",
@@ -23,7 +22,6 @@
       "businessContext": "Home purchase price.",
       "businessContext_i18n": {
         "en": "Home purchase price.",
-        "tr": "Satin alinacak evin fiyati.",
         "de": "Kaufpreis des Hauses.",
         "fr": "Prix d'achat du logement.",
         "es": "Precio de compra de la vivienda.",
@@ -35,7 +33,6 @@
       "label": "Annual Rent (USD)",
       "label_i18n": {
         "en": "Annual Rent (USD)",
-        "tr": "Annual Kira (TRY)",
         "de": "Jährliches Mieteinkommen",
         "fr": "Revenu Locatif Annuel",
         "es": "Ingreso Anual por Alquiler",
@@ -48,7 +45,6 @@
       "businessContext": "Annual rent for same property.",
       "businessContext_i18n": {
         "en": "Annual rent for same property.",
-        "tr": "Ayni evin yillik kira bedeli.",
         "de": "Jahresmiete fur dieselbe Immobilie.",
         "fr": "Loyer annuel pour le même bien.",
         "es": "Alquiler anual de la misma propiedad.",
@@ -63,19 +59,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "oran": "evFiyati / Math.max(1, yillikKira)",
-    "sonuc": "evFiyati / Math.max(1, yillikKira)"
+    "ratio": "evFiyati / Math.max(1, yillikKira)",
+    "result": "evFiyati / Math.max(1, yillikKira)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Price/Kira Ratio"
+      "result": "Price/Kira Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Price/Kira Ratio",
-        "tr": "Price/Kira Ratio",
         "de": "Preis-Miet-Verhältnis",
         "fr": "Ratio prix/loyer",
         "es": "Relación Precio/Alquiler",
@@ -100,7 +95,6 @@
       "long": "Compare renting vs buying based on price-to-rent ratio.",
       "short_i18n": {
         "en": "Compare renting vs buying based on price-to-rent ratio.",
-        "tr": "Price/Kira Rationa gore optimal barinma stratejisini hesaplar.",
         "de": "Vergleich von Mieten vs. Kaufen basierend auf dem Preis-Miet-Verhältnis.",
         "fr": "Comparer la location et l'achat en fonction du ratio prix/loyer.",
         "es": "Comparar alquilar vs comprar basado en la relación precio-alquiler.",
@@ -108,7 +102,6 @@
       },
       "long_i18n": {
         "en": "Compare renting vs buying based on price-to-rent ratio.",
-        "tr": "Price/Kira Rationa gore optimal barinma stratejisini hesaplar.",
         "de": "Vergleich von Mieten vs. Kaufen basierend auf dem Preis-Miet-Verhältnis.",
         "fr": "Comparer la location et l'achat en fonction du ratio prix/loyer.",
         "es": "Comparar alquilar vs comprar basado en la relación precio-alquiler.",

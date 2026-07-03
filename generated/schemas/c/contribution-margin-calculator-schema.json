@@ -10,7 +10,6 @@
       "label": "Selling Price (USD)",
       "label_i18n": {
         "en": "Selling Price (USD)",
-        "tr": "Satis Fiyati (TL)",
         "de": "Verkaufspreis pro Einheit",
         "fr": "Prix de vente par unité",
         "es": "Precio de venta por unidad",
@@ -23,7 +22,6 @@
       "businessContext": "Unit selling price.",
       "businessContext_i18n": {
         "en": "Unit selling price.",
-        "tr": "Urunun Unit satis fiyati.",
         "de": "Verkaufspreis pro Einheit.",
         "fr": "Prix de vente unitaire.",
         "es": "Precio de venta unitario.",
@@ -35,7 +33,6 @@
       "label": "Variable Cost (USD)",
       "label_i18n": {
         "en": "Variable Cost (USD)",
-        "tr": "Variable Cost (TRY)",
         "de": "Variable Kosten pro Einheit",
         "fr": "Coût variable par unité",
         "es": "Costo variable por unidad",
@@ -48,7 +45,6 @@
       "businessContext": "Unit variable cost.",
       "businessContext_i18n": {
         "en": "Unit variable cost.",
-        "tr": "Unit basi Variable Cost.",
         "de": "Variable Kosten pro Einheit.",
         "fr": "Coût variable unitaire.",
         "es": "Costo variable unitario.",
@@ -64,18 +60,17 @@
   },
   "formulas": {
     "katki": "satisFiyati - degiskenMaliyet",
-    "sonuc": "((satisFiyati - degiskenMaliyet) / Math.max(0.0001, satisFiyati)) * 100"
+    "result": "((satisFiyati - degiskenMaliyet) / Math.max(0.0001, satisFiyati)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Katki Marji Ratioi"
+      "result": "Katki Marji Ratioi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Katki Marji Ratioi",
-        "tr": "Katki Marji Ratioi",
         "de": "Deckungsbeitragsquote",
         "fr": "Ratio de marge de contribution",
         "es": "Relación de Margen de Contribución",
@@ -100,7 +95,6 @@
       "long": "Calculate contribution margin per unit and ratio.",
       "short_i18n": {
         "en": "Calculate contribution margin per unit and ratio.",
-        "tr": "Sabit giderleri karsilayan Unit basina katki payini hesaplar.",
         "de": "Deckungsbeitrag pro Einheit und Deckungsbeitragsverhältnis berechnen.",
         "fr": "Calculer la marge de contribution par unité et le ratio.",
         "es": "Calcular el margen de contribución por unidad y la razón.",
@@ -108,7 +102,6 @@
       },
       "long_i18n": {
         "en": "Calculate contribution margin per unit and ratio.",
-        "tr": "Sabit giderleri karsilayan Unit basina katki payini hesaplar.",
         "de": "Deckungsbeitrag pro Einheit und Deckungsbeitragsverhältnis berechnen.",
         "fr": "Calculer la marge de contribution par unité et le ratio.",
         "es": "Calcular el margen de contribución por unidad y la razón.",

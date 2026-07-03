@@ -10,7 +10,6 @@
       "label": "Asset Cost (USD)",
       "label_i18n": {
         "en": "Asset Cost (USD)",
-        "tr": "Varlik Bedeli (₺)",
         "de": "Anschaffungskosten",
         "fr": "Coût de l'actif",
         "es": "Costo del activo",
@@ -23,7 +22,6 @@
       "businessContext": "Purchase cost of asset.",
       "businessContext_i18n": {
         "en": "Purchase cost of asset.",
-        "tr": "Varligin satin alma Costi.",
         "de": "Anschaffungskosten des Vermogenswerts.",
         "fr": "Coût d'acquisition de l'actif.",
         "es": "Costo de compra del activo.",
@@ -35,7 +33,6 @@
       "label": "Salvage Value (USD)",
       "label_i18n": {
         "en": "Salvage Value (USD)",
-        "tr": "Kalinti Value (₺)",
         "de": "Restwert am Ende der Nutzungsdauer",
         "fr": "Valeur de récupération en fin de vie",
         "es": "Valor residual al final de la vida útil",
@@ -48,7 +45,6 @@
       "businessContext": "Estimated end-of-life value.",
       "businessContext_i18n": {
         "en": "Estimated end-of-life value.",
-        "tr": "Varligin omur sonu tahmini Valuei.",
         "de": "Geschätzter Restwert am Ende der Nutzungsdauer.",
         "fr": "Valeur résiduelle estimée en fin de vie.",
         "es": "Valor estimado al final de la vida útil.",
@@ -60,7 +56,6 @@
       "label": "Useful Life (Years)",
       "label_i18n": {
         "en": "Useful Life (Years)",
-        "tr": "Ekonomik Omur (Yil)",
         "de": "Nutzungsdauer (Jahre)",
         "fr": "Durée de vie utile (années)",
         "es": "Vida útil (años)",
@@ -73,7 +68,6 @@
       "businessContext": "Useful economic life.",
       "businessContext_i18n": {
         "en": "Useful economic life.",
-        "tr": "Varligin faydali omru.",
         "de": "Nutzungsdauer.",
         "fr": "Durée de vie économique utile.",
         "es": "Vida económica útil.",
@@ -89,19 +83,18 @@
   },
   "formulas": {
     "dogrusal": "(bedel - kalinti) / Math.max(1, omur)",
-    "sonuc": "(bedel - kalinti) / Math.max(1, omur)"
+    "result": "(bedel - kalinti) / Math.max(1, omur)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Annual Depreciation",
+      "result": "Annual Depreciation",
       "dogrusal": "Dogrusal Gider"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Annual Depreciation",
-        "tr": "Annual Depreciation",
         "de": "Jährliche Abschreibung",
         "fr": "Amortissement annuel",
         "es": "Depreciación Anual",
@@ -109,7 +102,6 @@
       },
       "dogrusal": {
         "en": "Dogrusal Gider",
-        "tr": "Dogrusal Gider",
         "de": "Lineare Abschreibung",
         "fr": "Charge linéaire",
         "es": "Gasto Lineal",
@@ -135,7 +127,6 @@
       "long": "Calculate annual depreciation using straight-line, declining balance, or sum-of-years-digits.",
       "short_i18n": {
         "en": "Calculate annual depreciation using straight-line, declining balance, or sum-of-years-digits.",
-        "tr": "Varliklarin yillik Amortization Expenseni dogrusal, azArea bakiye veya SYD yontemiyle hesaplar.",
         "de": "Berechnen Sie die jährliche Abschreibung mit linearer, degressiver oder Sum-of-the-years'-digits-Methode.",
         "fr": "Calculer l'amortissement annuel selon le mode linéaire, dégressif ou par somme des années.",
         "es": "Calcular la depreciación anual usando línea recta, saldo decreciente o suma de dígitos de los años.",
@@ -143,7 +134,6 @@
       },
       "long_i18n": {
         "en": "Calculate annual depreciation using straight-line, declining balance, or sum-of-years-digits.",
-        "tr": "Varliklarin yillik Amortization Expenseni dogrusal, azArea bakiye veya SYD yontemiyle hesaplar.",
         "de": "Berechnen Sie die jährliche Abschreibung mit linearer, degressiver oder Sum-of-the-years'-digits-Methode.",
         "fr": "Calculer l'amortissement annuel selon le mode linéaire, dégressif ou par somme des années.",
         "es": "Calcular la depreciación anual usando línea recta, saldo decreciente o suma de dígitos de los años.",

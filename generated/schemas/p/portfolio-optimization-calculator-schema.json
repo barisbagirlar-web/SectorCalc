@@ -10,7 +10,6 @@
       "label": "Expected Return (%)",
       "label_i18n": {
         "en": "Expected Return (%)",
-        "tr": "Beklenen Getiri (%)",
         "de": "Erwartete Rendite",
         "fr": "Rendement attendu",
         "es": "Rendimiento esperado",
@@ -23,7 +22,6 @@
       "businessContext": "Target portfolio return expectation.",
       "businessContext_i18n": {
         "en": "Target portfolio return expectation.",
-        "tr": "Portfoyun hedef getiri beklentisi.",
         "de": "Erwartete Portfoliorendite.",
         "fr": "Espérance de rendement du portefeuille cible.",
         "es": "Expectativa de rendimiento objetivo de la cartera.",
@@ -35,7 +33,6 @@
       "label": "Expected Risk (%)",
       "label_i18n": {
         "en": "Expected Risk (%)",
-        "tr": "Beklenen Risk (%)",
         "de": "Erwartetes Risiko (%)",
         "fr": "Risque attendu (%)",
         "es": "Riesgo Esperado (%)",
@@ -48,7 +45,6 @@
       "businessContext": "Estimated portfolio risk/volatility.",
       "businessContext_i18n": {
         "en": "Estimated portfolio risk/volatility.",
-        "tr": "Portfoyun tahmini volatilitesi.",
         "de": "Geschätztes Portfoliorisiko/Volatilität.",
         "fr": "Risque/volatilité estimé du portefeuille.",
         "es": "Riesgo/volatilidad estimada de la cartera.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "beklenenGetiri / Math.max(0.0001, beklenenRisk)"
+    "result": "beklenenGetiri / Math.max(0.0001, beklenenRisk)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Getiri/Risk Ratio"
+      "result": "Getiri/Risk Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Getiri/Risk Ratio",
-        "tr": "Getiri/Risk Ratio",
         "de": "Rendite/Risiko-Verhältnis",
         "fr": "Ratio rendement/risque",
         "es": "Relación Retorno/Riesgo",
@@ -99,7 +94,6 @@
       "long": "Simple portfolio optimization along the efficient frontier.",
       "short_i18n": {
         "en": "Simple portfolio optimization along the efficient frontier.",
-        "tr": "Efficiencyli sinir uzerinde basit portfoy optimizasyonu yapar.",
         "de": "Einfache Portfoliooptimierung entlang der Effizienzgrenze.",
         "fr": "Optimisation simple de portefeuille le long de la frontière efficiente.",
         "es": "Optimización simple de cartera a lo largo de la frontera eficiente.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Simple portfolio optimization along the efficient frontier.",
-        "tr": "Efficiencyli sinir uzerinde basit portfoy optimizasyonu yapar.",
         "de": "Einfache Portfoliooptimierung entlang der Effizienzgrenze.",
         "fr": "Optimisation simple de portefeuille le long de la frontière efficiente.",
         "es": "Optimización simple de cartera a lo largo de la frontera eficiente.",

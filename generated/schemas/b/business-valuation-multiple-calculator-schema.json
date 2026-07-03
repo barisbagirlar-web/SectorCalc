@@ -10,7 +10,6 @@
       "label": "EBITDA (USD)",
       "label_i18n": {
         "en": "EBITDA (USD)",
-        "tr": "FAVOK (TL)",
         "de": "EBITDA-Marge (%)",
         "fr": "Marge d'EBITDA (%)",
         "es": "Margen EBITDA (%)",
@@ -23,7 +22,6 @@
       "businessContext": "Earnings before interest, tax, depreciation.",
       "businessContext_i18n": {
         "en": "Earnings before interest, tax, depreciation.",
-        "tr": "Vergi ve faiz oncesi kâr.",
         "de": "Gewinn vor Zinsen, Steuern und Abschreibungen.",
         "fr": "Bénéfice avant intérêts, impôts et amortissements.",
         "es": "Ganancias antes de intereses, impuestos, depreciación.",
@@ -35,7 +33,6 @@
       "label": "Industry Multiple",
       "label_i18n": {
         "en": "Industry Multiple",
-        "tr": "Sektor Carpani",
         "de": "Branchenmultiplikator",
         "fr": "Multiple sectoriel",
         "es": "Múltiplo de la Industria",
@@ -48,7 +45,6 @@
       "businessContext": "Industry average EBITDA multiple.",
       "businessContext_i18n": {
         "en": "Industry average EBITDA multiple.",
-        "tr": "Sektorun Mean FAVOK carpani.",
         "de": "Branchendurchschnittliches EBITDA-Multiple.",
         "fr": "Multiple d'EBITDA moyen du secteur.",
         "es": "Múltiplo promedio de EBITDA de la industria.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "favok * carpan"
+    "result": "favok * carpan"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Tahmini Workletme Valuei"
+      "result": "Tahmini Workletme Valuei"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tahmini Workletme Valuei",
-        "tr": "Tahmini Workletme Valuei",
         "de": "Geschätzter Unternehmenswert",
         "fr": "Valeur d'exploitation estimée",
         "es": "Valor Operativo Estimado",
@@ -99,7 +94,6 @@
       "long": "Estimate business valuation based on EBITDA multiples.",
       "short_i18n": {
         "en": "Estimate business valuation based on EBITDA multiples.",
-        "tr": "Piyasa emsallerine gore tahmini satis Valueini hesaplar.",
         "de": "Schätzen Sie die Unternehmensbewertung auf Basis von EBITDA-Multiplikatoren.",
         "fr": "Estimer la valorisation de l'entreprise basée sur les multiples d'EBITDA.",
         "es": "Estimar la valoración del negocio basada en múltiplos de EBITDA.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Estimate business valuation based on EBITDA multiples.",
-        "tr": "Piyasa emsallerine gore tahmini satis Valueini hesaplar.",
         "de": "Schätzen Sie die Unternehmensbewertung auf Basis von EBITDA-Multiplikatoren.",
         "fr": "Estimer la valorisation de l'entreprise basée sur les multiples d'EBITDA.",
         "es": "Estimar la valoración del negocio basada en múltiplos de EBITDA.",

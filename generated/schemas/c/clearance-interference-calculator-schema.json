@@ -10,7 +10,6 @@
       "label": "Hole Diameter (m)",
       "label_i18n": {
         "en": "Hole Diameter (m)",
-        "tr": "Delik Diameter (m)",
         "de": "Lochdurchmesser",
         "fr": "Diamètre du trou",
         "es": "Diámetro del agujero",
@@ -23,7 +22,6 @@
       "businessContext": "Hole nominal diameter.",
       "businessContext_i18n": {
         "en": "Hole nominal diameter.",
-        "tr": "Delik nominal Diameteri.",
         "de": "Nenndurchmesser der Bohrung.",
         "fr": "Diamètre nominal de l'alésage.",
         "es": "Diámetro nominal del agujero.",
@@ -35,7 +33,6 @@
       "label": "Shaft Diameter (m)",
       "label_i18n": {
         "en": "Shaft Diameter (m)",
-        "tr": "Mil Diameter (m)",
         "de": "Wellendurchmesser (m)",
         "fr": "Diamètre de l'arbre (m)",
         "es": "Diámetro del Eje (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Shaft nominal diameter.",
       "businessContext_i18n": {
         "en": "Shaft nominal diameter.",
-        "tr": "Mil nominal Diameteri.",
         "de": "Nenndurchmesser der Welle.",
         "fr": "Diamètre nominal de l'arbre.",
         "es": "Diámetro nominal del eje.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "delikCap - milCap"
+    "result": "delikCap - milCap"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Gecme/Bosluk Amounti"
+      "result": "Gecme/Bosluk Amounti"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gecme/Bosluk Amounti",
-        "tr": "Gecme/Bosluk Amounti",
         "de": "Ubermaß/Spielbetrag",
         "fr": "Quantité de jeu/interférence",
         "es": "Cantidad de Interferencia/Holgura",
@@ -99,7 +94,6 @@
       "long": "Calculate clearance or interference between hole and shaft.",
       "short_i18n": {
         "en": "Calculate clearance or interference between hole and shaft.",
-        "tr": "Delik ve mil arasindaki bosluk/gecme Amountini hesaplar.",
         "de": "Berechnen Sie das Spiel oder Ubermaß zwischen Bohrung und Welle.",
         "fr": "Calculer le jeu ou l'interférence entre un alésage et un arbre.",
         "es": "Calcular la holgura o interferencia entre agujero y eje.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate clearance or interference between hole and shaft.",
-        "tr": "Delik ve mil arasindaki bosluk/gecme Amountini hesaplar.",
         "de": "Berechnen Sie das Spiel oder Ubermaß zwischen Bohrung und Welle.",
         "fr": "Calculer le jeu ou l'interférence entre un alésage et un arbre.",
         "es": "Calcular la holgura o interferencia entre agujero y eje.",

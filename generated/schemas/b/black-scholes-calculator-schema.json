@@ -10,7 +10,6 @@
       "label": "Spot Price (USD)",
       "label_i18n": {
         "en": "Spot Price (USD)",
-        "tr": "Spot Fiyat (₺)",
         "de": "Spotpreis",
         "fr": "Prix au comptant",
         "es": "Precio spot",
@@ -23,7 +22,6 @@
       "businessContext": "Current underlying asset price.",
       "businessContext_i18n": {
         "en": "Current underlying asset price.",
-        "tr": "Dayanak varligin guncel fiyati.",
         "de": "Aktueller Preis des Basiswerts.",
         "fr": "Prix actuel de l'actif sous-jacent.",
         "es": "Precio actual del activo subyacente.",
@@ -35,7 +33,6 @@
       "label": "Strike Price (USD)",
       "label_i18n": {
         "en": "Strike Price (USD)",
-        "tr": "Kullanim Fiyati (₺)",
         "de": "Ausubungspreis",
         "fr": "Prix d'exercice",
         "es": "Precio de ejercicio",
@@ -48,7 +45,6 @@
       "businessContext": "Option strike price.",
       "businessContext_i18n": {
         "en": "Option strike price.",
-        "tr": "Opsiyonun kullanim fiyati.",
         "de": "Ausubungspreis der Option.",
         "fr": "Prix d'exercice de l'option.",
         "es": "Precio de ejercicio de la opción.",
@@ -60,7 +56,6 @@
       "label": "Risk-Free Rate (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
-        "tr": "Risksiz Faiz (%)",
         "de": "Risikofreier Zinssatz (%)",
         "fr": "Taux sans risque (%)",
         "es": "Tasa libre de riesgo (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Risk-free interest rate.",
       "businessContext_i18n": {
         "en": "Risk-free interest rate.",
-        "tr": "Risksiz Interest Rate.",
         "de": "Risikofreier Zinssatz.",
         "fr": "Taux d'intérêt sans risque.",
         "es": "Tasa de interés libre de riesgo.",
@@ -85,7 +79,6 @@
       "label": "Time to Maturity (Years)",
       "label_i18n": {
         "en": "Time to Maturity (Years)",
-        "tr": "Maturity (Year)",
         "de": "Restlaufzeit (Jahre)",
         "fr": "Temps jusqu'à l'échéance (années)",
         "es": "Tiempo hasta el vencimiento (años)",
@@ -98,7 +91,6 @@
       "businessContext": "Time remaining to expiry.",
       "businessContext_i18n": {
         "en": "Time remaining to expiry.",
-        "tr": "Maturityye kArea sure.",
         "de": "Verbleibende Zeit bis zum Verfall.",
         "fr": "Temps restant jusqu'à l'échéance.",
         "es": "Tiempo restante hasta el vencimiento.",
@@ -110,7 +102,6 @@
       "label": "Volatility (%)",
       "label_i18n": {
         "en": "Volatility (%)",
-        "tr": "Volatilite (%)",
         "de": "Volatilität (%)",
         "fr": "Volatilité (%)",
         "es": "Volatilidad (%)",
@@ -123,7 +114,6 @@
       "businessContext": "Annualized volatility.",
       "businessContext_i18n": {
         "en": "Annualized volatility.",
-        "tr": "Annual volatilite.",
         "de": "Annualisierte Volatilität.",
         "fr": "Volatilité annualisée.",
         "es": "Volatilidad anualizada.",
@@ -139,18 +129,17 @@
   },
   "formulas": {
     "d1": "(Math.log(S / Math.max(1, K)) + (r / 100 + Math.pow(v / 100, 2) / 2) * t) / (Math.max(0.0001, v / 100) * Math.sqrt(Math.max(0.0001, t)))",
-    "sonuc": "S * 0.5 - K * Math.exp(-(r / 100) * t) * 0.5"
+    "result": "S * 0.5 - K * Math.exp(-(r / 100) * t) * 0.5"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Opsiyon Primi (Call)"
+      "result": "Opsiyon Primi (Call)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Opsiyon Primi (Call)",
-        "tr": "Opsiyon Primi (Call)",
         "de": "Option Premium (Call)",
         "fr": "Prime d'option (Call)",
         "es": "Prima de la Opción (Call)",
@@ -175,7 +164,6 @@
       "long": "Calculate European call option theoretical price using Black-Scholes.",
       "short_i18n": {
         "en": "Calculate European call option theoretical price using Black-Scholes.",
-        "tr": "Avrupa tipi alim opsiyonunun teorik prim Valueini (Black-Scholes) hesaplar.",
         "de": "Berechnung des theoretischen Preises einer europäischen Call-Option mittels Black-Scholes.",
         "fr": "Calculer le prix théorique de l'option d'achat européenne à l'aide de Black-Scholes.",
         "es": "Calcular el precio teórico de una opción de compra europea utilizando Black-Scholes.",
@@ -183,7 +171,6 @@
       },
       "long_i18n": {
         "en": "Calculate European call option theoretical price using Black-Scholes.",
-        "tr": "Avrupa tipi alim opsiyonunun teorik prim Valueini (Black-Scholes) hesaplar.",
         "de": "Berechnung des theoretischen Preises einer europäischen Call-Option mittels Black-Scholes.",
         "fr": "Calculer le prix théorique de l'option d'achat européenne à l'aide de Black-Scholes.",
         "es": "Calcular el precio teórico de una opción de compra europea utilizando Black-Scholes.",

@@ -10,7 +10,6 @@
       "label": "Cohesion (kPa)",
       "label_i18n": {
         "en": "Cohesion (kPa)",
-        "tr": "Kohezyon (kPa)",
         "de": "Kohäsion",
         "fr": "Cohésion",
         "es": "Cohesión",
@@ -23,7 +22,6 @@
       "businessContext": "Soil cohesion.",
       "businessContext_i18n": {
         "en": "Soil cohesion.",
-        "tr": "Zemin kohezyonu.",
         "de": "Bodenkohäsion.",
         "fr": "Cohésion du sol.",
         "es": "Cohesión del suelo.",
@@ -35,7 +33,6 @@
       "label": "Normal Stress (kPa)",
       "label_i18n": {
         "en": "Normal Stress (kPa)",
-        "tr": "Normal Gerilme (kPa)",
         "de": "Normalspannung (kPa)",
         "fr": "Contrainte normale (kPa)",
         "es": "Esfuerzo Normal (kPa)",
@@ -48,7 +45,6 @@
       "businessContext": "Normal stress on slip plane.",
       "businessContext_i18n": {
         "en": "Normal stress on slip plane.",
-        "tr": "Kayma duzlemine dik gerilme.",
         "de": "Normalspannung auf der Gleitebene.",
         "fr": "Contrainte normale sur le plan de glissement.",
         "es": "Esfuerzo normal en el plano de deslizamiento.",
@@ -60,7 +56,6 @@
       "label": "Internal Friction Angle (Deg)",
       "label_i18n": {
         "en": "Internal Friction Angle (Deg)",
-        "tr": "Icsel Surtunme Acisi (Derece)",
         "de": "Innerer Reibungswinkel (Grad)",
         "fr": "Angle de frottement interne (Deg)",
         "es": "Ángulo de Fricción Interna (Deg)",
@@ -73,7 +68,6 @@
       "businessContext": "Soil friction angle.",
       "businessContext_i18n": {
         "en": "Soil friction angle.",
-        "tr": "Zeminin icsel surtunme acisi.",
         "de": "Bodenreibungswinkel.",
         "fr": "Angle de frottement du sol.",
         "es": "Ángulo de fricción del suelo.",
@@ -85,7 +79,6 @@
       "label": "Shear Stress (kPa)",
       "label_i18n": {
         "en": "Shear Stress (kPa)",
-        "tr": "Kayma Gerilmesi (kPa)",
         "de": "Schubspannung (kPa)",
         "fr": "Contrainte de cisaillement (kPa)",
         "es": "Esfuerzo Cortante (kPa)",
@@ -98,7 +91,6 @@
       "businessContext": "Driving shear stress on slip plane.",
       "businessContext_i18n": {
         "en": "Driving shear stress on slip plane.",
-        "tr": "Kayma duzlemindeki surukleyici gerilme.",
         "de": "Treibende Schubspannung auf der Gleitebene.",
         "fr": "Contrainte de cisaillement motrice sur le plan de glissement.",
         "es": "Esfuerzo cortante impulsor en el plano de deslizamiento.",
@@ -114,18 +106,17 @@
   },
   "formulas": {
     "dayanim": "kohezyon + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))",
-    "sonuc": "(kohezyon + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))) / Math.max(0.0001, kaymaGerilmesi)"
+    "result": "(kohezyon + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))) / Math.max(0.0001, kaymaGerilmesi)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "safety",
     "breakdown": {
-      "sonuc": "Emniyet Faktoru (FS)"
+      "result": "Emniyet Faktoru (FS)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Emniyet Faktoru (FS)",
-        "tr": "Emniyet Faktoru (FS)",
         "de": "Sicherheitsfaktor (SF)",
         "fr": "Facteur de sécurité (FS)",
         "es": "Factor de Seguridad (FS)",
@@ -152,7 +143,6 @@
       "long": "Calculate slope stability factor of safety against sliding.",
       "short_i18n": {
         "en": "Calculate slope stability factor of safety against sliding.",
-        "tr": "Sevin kaymaya karsi Safety Factorni (FS) hesaplar.",
         "de": "Berechnen Sie den Standsicherheitsfaktor gegen Gleiten.",
         "fr": "Calculer le facteur de sécurité de stabilité des pentes contre le glissement.",
         "es": "Calcular el factor de seguridad de estabilidad de taludes contra deslizamiento.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Calculate slope stability factor of safety against sliding.",
-        "tr": "Sevin kaymaya karsi Safety Factorni (FS) hesaplar.",
         "de": "Berechnen Sie den Standsicherheitsfaktor gegen Gleiten.",
         "fr": "Calculer le facteur de sécurité de stabilité des pentes contre le glissement.",
         "es": "Calcular el factor de seguridad de estabilidad de taludes contra deslizamiento.",

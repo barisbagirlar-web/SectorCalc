@@ -10,7 +10,6 @@
       "label": "Equity (USD)",
       "label_i18n": {
         "en": "Equity (USD)",
-        "tr": "Ozsermaye (₺)",
         "de": "Gesamter Eigenkapitalwert ($)",
         "fr": "Valeur totale des capitaux propres ($)",
         "es": "Valor total del patrimonio ($)",
@@ -23,7 +22,6 @@
       "businessContext": "Total equity value.",
       "businessContext_i18n": {
         "en": "Total equity value.",
-        "tr": "Sirketin Total ozsermayesi.",
         "de": "Gesamter Eigenkapitalwert.",
         "fr": "Valeur totale des capitaux propres.",
         "es": "Valor total del patrimonio.",
@@ -35,7 +33,6 @@
       "label": "Debt (USD)",
       "label_i18n": {
         "en": "Debt (USD)",
-        "tr": "Debt (TRY)",
         "de": "Bestehende monatliche Schuldenzahlungen",
         "fr": "Paiements mensuels de dettes existants",
         "es": "Pagos de Deuda Mensuales Existentes",
@@ -48,7 +45,6 @@
       "businessContext": "Total debt.",
       "businessContext_i18n": {
         "en": "Total debt.",
-        "tr": "Sirketin Total borcu.",
         "de": "Gesamtschulden.",
         "fr": "Dette totale.",
         "es": "Deuda total.",
@@ -60,7 +56,6 @@
       "label": "Cost of Equity (%)",
       "label_i18n": {
         "en": "Cost of Equity (%)",
-        "tr": "Ozsermaye Costi (%)",
         "de": "Eigenkapitalkosten (%)",
         "fr": "Coût des capitaux propres (%)",
         "es": "Costo del capital (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Expected return for shareholders.",
       "businessContext_i18n": {
         "en": "Expected return for shareholders.",
-        "tr": "Hissedarlarin bekledigi getiri.",
         "de": "Erwartete Rendite fur Aktionäre.",
         "fr": "Rendement attendu pour les actionnaires.",
         "es": "Rendimiento esperado para los accionistas.",
@@ -85,7 +79,6 @@
       "label": "Cost of Debt (%)",
       "label_i18n": {
         "en": "Cost of Debt (%)",
-        "tr": "Debt Costi (%)",
         "de": "Fremdkapitalkosten (%)",
         "fr": "Coût de la dette (%)",
         "es": "Costo de la deuda (%)",
@@ -98,7 +91,6 @@
       "businessContext": "Company's borrowing cost.",
       "businessContext_i18n": {
         "en": "Company's borrowing cost.",
-        "tr": "Sirketin borclanma Costi.",
         "de": "Fremdkapitalkosten des Unternehmens.",
         "fr": "Coût d'emprunt de l'entreprise.",
         "es": "Costo de endeudamiento de la empresa.",
@@ -110,7 +102,6 @@
       "label": "Tax Rate (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Tax Ratio (%)",
         "de": "Steuersatz (%)",
         "fr": "Taux d'imposition (%)",
         "es": "Tasa Impositiva (%)",
@@ -123,7 +114,6 @@
       "businessContext": "Corporate tax rate.",
       "businessContext_i18n": {
         "en": "Corporate tax rate.",
-        "tr": "Corporate Tax Ratioi.",
         "de": "Korperschaftsteuersatz.",
         "fr": "Taux d'imposition des sociétés.",
         "es": "Tasa impositiva corporativa.",
@@ -139,18 +129,17 @@
   },
   "formulas": {
     "V": "E + D",
-    "sonuc": "(E / Math.max(1, E + D) * Re) + (D / Math.max(1, E + D) * Rd * (1 - vergi / 100))"
+    "result": "(E / Math.max(1, E + D) * Re) + (D / Math.max(1, E + D) * Rd * (1 - vergi / 100))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "WACC (Weightli Mean Sermaye Costi)"
+      "result": "WACC (Weightli Mean Sermaye Costi)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "WACC (Weightli Mean Sermaye Costi)",
-        "tr": "AOSM (Weightli Mean Sermaye Costi)",
         "de": "WACC (Weighted Average Cost of Capital)",
         "fr": "WACC (Coût moyen pondéré du capital)",
         "es": "WACC (Costo Promedio Ponderado del Capital)",
@@ -175,7 +164,6 @@
       "long": "Calculate weighted average cost of capital (WACC).",
       "short_i18n": {
         "en": "Calculate weighted average cost of capital (WACC).",
-        "tr": "Sirketin borc ve ozsermaye Weightli Mean fon Costini (WACC) hesaplar.",
         "de": "Berechnen Sie die gewichteten durchschnittlichen Kapitalkosten (WACC).",
         "fr": "Calculer le coût moyen pondéré du capital (CMPC).",
         "es": "Calcular el costo promedio ponderado del capital (WACC).",
@@ -183,7 +171,6 @@
       },
       "long_i18n": {
         "en": "Calculate weighted average cost of capital (WACC).",
-        "tr": "Sirketin borc ve ozsermaye Weightli Mean fon Costini (WACC) hesaplar.",
         "de": "Berechnen Sie die gewichteten durchschnittlichen Kapitalkosten (WACC).",
         "fr": "Calculer le coût moyen pondéré du capital (CMPC).",
         "es": "Calcular el costo promedio ponderado del capital (WACC).",

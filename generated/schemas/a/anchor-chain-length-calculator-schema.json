@@ -10,7 +10,6 @@
       "label": "Water Depth (m)",
       "label_i18n": {
         "en": "Water Depth (m)",
-        "tr": "Su Depth (m)",
         "de": "Wassertiefe (m)",
         "fr": "Profondeur d'eau (m)",
         "es": "Profundidad del Agua (m)",
@@ -23,7 +22,6 @@
       "businessContext": "Depth at anchorage.",
       "businessContext_i18n": {
         "en": "Depth at anchorage.",
-        "tr": "Demirleme noktasindaki Depth.",
         "de": "Tiefe am Ankerplatz.",
         "fr": "Profondeur au mouillage.",
         "es": "Profundidad en el fondeadero.",
@@ -35,7 +33,6 @@
       "label": "Expected Wind Speed (m/s)",
       "label_i18n": {
         "en": "Expected Wind Speed (m/s)",
-        "tr": "Tahmini Wind Speed (m/s)",
         "de": "Erwartete Windgeschwindigkeit (m/s)",
         "fr": "Vitesse du vent attendue (m/s)",
         "es": "Velocidad del Viento Esperada (m/s)",
@@ -48,7 +45,6 @@
       "businessContext": "Worst-case wind speed.",
       "businessContext_i18n": {
         "en": "Worst-case wind speed.",
-        "tr": "En kotu senaryo Wind Speed.",
         "de": "Windgeschwindigkeit im schlimmsten Fall.",
         "fr": "Vitesse du vent dans le pire des cas.",
         "es": "Velocidad del viento en el peor caso.",
@@ -60,7 +56,6 @@
       "label": "Bottom Coefficient",
       "label_i18n": {
         "en": "Bottom Coefficient",
-        "tr": "Dip Coefficimostt",
         "de": "Bodenkoeffizient",
         "fr": "Coefficient de fond",
         "es": "Coeficiente de Fondo",
@@ -73,7 +68,6 @@
       "businessContext": "Seabed type correction.",
       "businessContext_i18n": {
         "en": "Seabed type correction.",
-        "tr": "Zemin tipine bagli duzeltme.",
         "de": "Korrektur des Meeresbodentyps.",
         "fr": "Correction du type de fond marin.",
         "es": "Corrección por tipo de lecho marino.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(suDerinligi * (3 + (ruzgarHizi / 10))) * dipKatsayisi"
+    "result": "(suDerinligi * (3 + (ruzgarHizi / 10))) * dipKatsayisi"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Min. Zincir Boyu"
+      "result": "Min. Zincir Boyu"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Min. Zincir Boyu",
-        "tr": "Min. Zincir Boyu",
         "de": "Min. Kettenlänge",
         "fr": "Longueur min. de chaîne",
         "es": "Longitud Mínima de la Cadena",
@@ -126,7 +119,6 @@
       "long": "Calculate minimum anchor chain length to prevent dragging.",
       "short_i18n": {
         "en": "Calculate minimum anchor chain length to prevent dragging.",
-        "tr": "Demirin taramasini onlemek icin gereken Minimum zincir Heightunu hesaplar.",
         "de": "Berechnen Sie die minimale Ankerkettenlänge, um ein Schleifen zu verhindern.",
         "fr": "Calculer la longueur minimale de chaîne d'ancre pour éviter le dragage.",
         "es": "Calcular la longitud mínima de la cadena del ancla para evitar el arrastre.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum anchor chain length to prevent dragging.",
-        "tr": "Demirin taramasini onlemek icin gereken Minimum zincir Heightunu hesaplar.",
         "de": "Berechnen Sie die minimale Ankerkettenlänge, um ein Schleifen zu verhindern.",
         "fr": "Calculer la longueur minimale de chaîne d'ancre pour éviter le dragage.",
         "es": "Calcular la longitud mínima de la cadena del ancla para evitar el arrastre.",

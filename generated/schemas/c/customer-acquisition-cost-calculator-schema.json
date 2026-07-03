@@ -10,7 +10,6 @@
       "label": "Marketing Spend (USD)",
       "label_i18n": {
         "en": "Marketing Spend (USD)",
-        "tr": "Pazarlama Gideri (TL)",
         "de": "Marketingausgaben (USD)",
         "fr": "Dépenses marketing (USD)",
         "es": "Gasto en Marketing (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Marketing expenses.",
       "businessContext_i18n": {
         "en": "Marketing expenses.",
-        "tr": "Donem pazarlama harcamasi.",
         "de": "Marketingausgaben.",
         "fr": "Dépenses marketing.",
         "es": "Gastos de marketing.",
@@ -35,7 +33,6 @@
       "label": "Sales Cost (USD)",
       "label_i18n": {
         "en": "Sales Cost (USD)",
-        "tr": "Satis Gideri (TL)",
         "de": "Kosten fur Haftung und entgangene Verkäufe bei externem Fehler",
         "fr": "Coût de responsabilité et de perte de ventes dû à un défaut externe",
         "es": "Costo de responsabilidad y pérdida de ventas por falla externa",
@@ -48,7 +45,6 @@
       "businessContext": "Sales team costs.",
       "businessContext_i18n": {
         "en": "Sales team costs.",
-        "tr": "Satis ekibi giderleri.",
         "de": "Vertriebsteamkosten.",
         "fr": "Coûts de l'équipe commerciale.",
         "es": "Costos del equipo de ventas.",
@@ -60,7 +56,6 @@
       "label": "New Customers",
       "label_i18n": {
         "en": "New Customers",
-        "tr": "Yeni Musteri (Quantity)",
         "de": "Neue Kunden",
         "fr": "Nouveaux clients",
         "es": "Nuevos Clientes",
@@ -73,7 +68,6 @@
       "businessContext": "New customers acquired.",
       "businessContext_i18n": {
         "en": "New customers acquired.",
-        "tr": "Kazanilan yeni musteri Numbersi.",
         "de": "Neue gewonnene Kunden.",
         "fr": "Nouveaux clients acquis.",
         "es": "Nuevos clientes adquiridos.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(pazarlama + satisGideri) / Math.max(1, yeniMusteri)"
+    "result": "(pazarlama + satisGideri) / Math.max(1, yeniMusteri)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Musteri Edinim Costi (CAC)"
+      "result": "Musteri Edinim Costi (CAC)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Musteri Edinim Costi (CAC)",
-        "tr": "Musteri Edinim Costi (CAC)",
         "de": "Kundenakquisitionskosten (CAC)",
         "fr": "Coût d'acquisition client (CAC)",
         "es": "Costo de Adquisición de Cliente (CAC)",
@@ -124,7 +117,6 @@
       "long": "Calculate customer acquisition cost (CAC).",
       "short_i18n": {
         "en": "Calculate customer acquisition cost (CAC).",
-        "tr": "Bir yeni musteriyi kazanmanin Mean Costini (CAC) hesaplar.",
         "de": "Kundenakquisitionskosten (CAC) berechnen.",
         "fr": "Calculer le coût d'acquisition client (CAC).",
         "es": "Calcular el costo de adquisición de clientes (CAC).",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate customer acquisition cost (CAC).",
-        "tr": "Bir yeni musteriyi kazanmanin Mean Costini (CAC) hesaplar.",
         "de": "Kundenakquisitionskosten (CAC) berechnen.",
         "fr": "Calculer le coût d'acquisition client (CAC).",
         "es": "Calcular el costo de adquisición de clientes (CAC).",

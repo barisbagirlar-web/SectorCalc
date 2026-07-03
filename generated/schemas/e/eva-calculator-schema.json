@@ -10,7 +10,6 @@
       "label": "NOPAT (USD)",
       "label_i18n": {
         "en": "NOPAT (USD)",
-        "tr": "NOPAT (₺)",
         "de": "NOPAT (USD)",
         "fr": "NOPAT (USD)",
         "es": "NOPAT (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Net operating profit after tax.",
       "businessContext_i18n": {
         "en": "Net operating profit after tax.",
-        "tr": "Vergi sonrasi Net faaliyet kâri.",
         "de": "Netto-Betriebsgewinn nach Steuern.",
         "fr": "Bénéfice net d'exploitation après impôts.",
         "es": "Beneficio operativo neto después de impuestos.",
@@ -35,7 +33,6 @@
       "label": "Invested Capital (USD)",
       "label_i18n": {
         "en": "Invested Capital (USD)",
-        "tr": "Yatirilan Sermaye (₺)",
         "de": "Investiertes Kapital (USD)",
         "fr": "Capital investi (USD)",
         "es": "Capital invertido (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Total capital employed.",
       "businessContext_i18n": {
         "en": "Total capital employed.",
-        "tr": "Total yatirilmis sermaye.",
         "de": "Gesamtes eingesetztes Kapital.",
         "fr": "Capital total employé.",
         "es": "Capital total empleado.",
@@ -60,7 +56,6 @@
       "label": "WACC (%)",
       "label_i18n": {
         "en": "WACC (%)",
-        "tr": "WACC (%)",
         "de": "GKM (%)",
         "fr": "CMPC (%)",
         "es": "WACC (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Weighted average cost of capital.",
       "businessContext_i18n": {
         "en": "Weighted average cost of capital.",
-        "tr": "Weightli Mean sermaye Costi.",
         "de": "Gewichtete durchschnittliche Kapitalkosten.",
         "fr": "Coût moyen pondéré du capital.",
         "es": "Costo promedio ponderado del capital.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "nopat - (sermaye * wacc / 100)"
+    "result": "nopat - (sermaye * wacc / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "EVA (Ekonomik Katma Value)"
+      "result": "EVA (Ekonomik Katma Value)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "EVA (Ekonomik Katma Value)",
-        "tr": "EVA (Ekonomik Katma Value)",
         "de": "EVA (Economic Value Added)",
         "fr": "EVA (Valeur Économique Ajoutée)",
         "es": "EVA (Valor Económico Agregado)",
@@ -124,7 +117,6 @@
       "long": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
       "short_i18n": {
         "en": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
-        "tr": "Sermaye Costi dusuldukten sonra kArea reel ekonomik kâri (EVA) hesaplar.",
         "de": "Berechnen Sie den Economic Value Added (EVA) – Restvermogen nach Kapitalkosten.",
         "fr": "Calculer la valeur économique ajoutée (EVA) — richesse résiduelle après le coût du capital.",
         "es": "Calcule el valor económico agregado (EVA) — riqueza residual después del costo de capital.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
-        "tr": "Sermaye Costi dusuldukten sonra kArea reel ekonomik kâri (EVA) hesaplar.",
         "de": "Berechnen Sie den Economic Value Added (EVA) – Restvermogen nach Kapitalkosten.",
         "fr": "Calculer la valeur économique ajoutée (EVA) — richesse résiduelle après le coût du capital.",
         "es": "Calcule el valor económico agregado (EVA) — riqueza residual después del costo de capital.",

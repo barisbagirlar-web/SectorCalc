@@ -10,7 +10,6 @@
       "label": "Buy Price (USD)",
       "label_i18n": {
         "en": "Buy Price (USD)",
-        "tr": "Alis Fiyati (₺)",
         "de": "Kaufpreis",
         "fr": "Prix d'achat",
         "es": "Precio de compra",
@@ -23,7 +22,6 @@
       "businessContext": "Purchase price per share.",
       "businessContext_i18n": {
         "en": "Purchase price per share.",
-        "tr": "Hisse senedinin satin alma fiyati.",
         "de": "Kaufpreis pro Aktie.",
         "fr": "Prix d'achat par action.",
         "es": "Precio de compra por acción.",
@@ -35,7 +33,6 @@
       "label": "Sell Price (USD)",
       "label_i18n": {
         "en": "Sell Price (USD)",
-        "tr": "Satis Fiyati (₺)",
         "de": "Verkaufspreis",
         "fr": "Prix de vente",
         "es": "Precio de venta",
@@ -48,7 +45,6 @@
       "businessContext": "Sale price per share.",
       "businessContext_i18n": {
         "en": "Sale price per share.",
-        "tr": "Hisse senedinin satis fiyati.",
         "de": "Verkaufspreis pro Aktie.",
         "fr": "Prix de vente par action.",
         "es": "Precio de venta por acción.",
@@ -60,7 +56,6 @@
       "label": "Dividends Received (USD)",
       "label_i18n": {
         "en": "Dividends Received (USD)",
-        "tr": "Alinan Temettu (₺)",
         "de": "Erhaltene Dividenden ($)",
         "fr": "Dividendes recus ($)",
         "es": "Dividendos recibidos ($)",
@@ -73,7 +68,6 @@
       "businessContext": "Dividends received during holding period.",
       "businessContext_i18n": {
         "en": "Dividends received during holding period.",
-        "tr": "Donem Heightunca alinan temettu.",
         "de": "Während der Haltedauer erhaltene Dividenden.",
         "fr": "Dividendes recus pendant la période de détention.",
         "es": "Dividendos recibidos durante el período de tenencia.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "((satis - alis) + temettu) / Math.max(1, alis) * 100"
+    "result": "((satis - alis) + temettu) / Math.max(1, alis) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Toplam Hisse Getirisi"
+      "result": "Toplam Hisse Getirisi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Toplam Hisse Getirisi",
-        "tr": "Toplam Hisse Getirisi",
         "de": "Gesamte Aktienrendite",
         "fr": "Rendement total des actions",
         "es": "Rendimiento Total de la Acción",
@@ -124,7 +117,6 @@
       "long": "Calculate total stock return including capital gains and dividends.",
       "short_i18n": {
         "en": "Calculate total stock return including capital gains and dividends.",
-        "tr": "Sermaye kazanci ve temettu dahil Total hisse getirisini hesaplar.",
         "de": "Berechnen Sie die Gesamtrendite einer Aktie einschließlich Kursgewinnen und Dividenden.",
         "fr": "Calculer le rendement total de l'action incluant les gains en capital et les dividendes.",
         "es": "Calcular el rendimiento total de la acción incluyendo ganancias de capital y dividendos.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate total stock return including capital gains and dividends.",
-        "tr": "Sermaye kazanci ve temettu dahil Total hisse getirisini hesaplar.",
         "de": "Berechnen Sie die Gesamtrendite einer Aktie einschließlich Kursgewinnen und Dividenden.",
         "fr": "Calculer le rendement total de l'action incluant les gains en capital et les dividendes.",
         "es": "Calcular el rendimiento total de la acción incluyendo ganancias de capital y dividendos.",

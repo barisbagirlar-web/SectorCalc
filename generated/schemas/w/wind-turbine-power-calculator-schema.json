@@ -10,7 +10,6 @@
       "label": "Rotor Diameter (m)",
       "label_i18n": {
         "en": "Rotor Diameter (m)",
-        "tr": "Rotor Diameter (m)",
         "de": "Rotordurchmesser (m)",
         "fr": "Diamètre du rotor (m)",
         "es": "Diámetro del Rotor (m)",
@@ -23,7 +22,6 @@
       "businessContext": "Turbine blade diameter.",
       "businessContext_i18n": {
         "en": "Turbine blade diameter.",
-        "tr": "Turbin kanat Diameteri.",
         "de": "Durchmesser der Turbinenschaufel.",
         "fr": "Diamètre des pales de la turbine.",
         "es": "Diámetro de la pala de la turbina.",
@@ -35,7 +33,6 @@
       "label": "Wind Speed (m/s)",
       "label_i18n": {
         "en": "Wind Speed (m/s)",
-        "tr": "Wind Speed (m/s)",
         "de": "Basiswindgeschwindigkeit (V)",
         "fr": "Vitesse de vent de base (V)",
         "es": "Velocidad Básica del Viento (V)",
@@ -48,7 +45,6 @@
       "businessContext": "Average wind speed.",
       "businessContext_i18n": {
         "en": "Average wind speed.",
-        "tr": "Mean Wind Speed.",
         "de": "Durchschnittliche Windgeschwindigkeit.",
         "fr": "Vitesse moyenne du vent.",
         "es": "Velocidad media del viento.",
@@ -60,7 +56,6 @@
       "label": "Air Density (kg/m³)",
       "label_i18n": {
         "en": "Air Density (kg/m³)",
-        "tr": "Hava Dmostsity (kg/m³)",
         "de": "Luftdichte (ρ)",
         "fr": "Densité de l'air (ρ)",
         "es": "Densidad del aire (ρ)",
@@ -73,7 +68,6 @@
       "businessContext": "Sea-level air density.",
       "businessContext_i18n": {
         "en": "Sea-level air density.",
-        "tr": "Deniz seviyesi hava yogunlugu.",
         "de": "Luftdichte auf Meereshohe.",
         "fr": "Densité de l'air au niveau de la mer.",
         "es": "Densidad del aire a nivel del mar.",
@@ -85,7 +79,6 @@
       "label": "Power Coefficient (Cp)",
       "label_i18n": {
         "en": "Power Coefficient (Cp)",
-        "tr": "Power Coefficimostt (Cp)",
         "de": "Leistungsbeiwert (Cp)",
         "fr": "Coefficient de puissance (Cp)",
         "es": "Coeficiente de Potencia (Cp)",
@@ -98,7 +91,6 @@
       "businessContext": "Efficiency below Betz limit.",
       "businessContext_i18n": {
         "en": "Efficiency below Betz limit.",
-        "tr": "Betz limiti altindaki Efficiency.",
         "de": "Wirkungsgrad unterhalb der Betz-Grenze.",
         "fr": "Rendement en dessous de la limite de Betz.",
         "es": "Eficiencia por debajo del límite de Betz.",
@@ -113,19 +105,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "alan": "Math.PI * Math.pow(kanatCapi / 2, 2)",
-    "sonuc": "0.5 * havaYogunlugu * (Math.PI * Math.pow(kanatCapi / 2, 2)) * Math.pow(ruzgarHizi, 3) * Cp"
+    "area": "Math.PI * Math.pow(kanatCapi / 2, 2)",
+    "result": "0.5 * havaYogunlugu * (Math.PI * Math.pow(kanatCapi / 2, 2)) * Math.pow(ruzgarHizi, 3) * Cp"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Turbine Power"
+      "result": "Turbine Power"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Turbine Power",
-        "tr": "Turbine Power",
         "de": "Turbine Power",
         "fr": "Puissance de la turbine",
         "es": "Potencia de la Turbina",
@@ -153,7 +144,6 @@
       "long": "Calculate wind turbine instantaneous power output.",
       "short_i18n": {
         "en": "Calculate wind turbine instantaneous power output.",
-        "tr": "Ruzgar turbininin ruzgardan mekanik guce donusturdugu anlik Energyyi hesaplar.",
         "de": "Berechnen Sie die momentane Leistungsabgabe einer Windturbine.",
         "fr": "Calculer la puissance instantanée de l'éolienne.",
         "es": "Calcular la potencia instantánea de salida de una turbina eólica.",
@@ -161,7 +151,6 @@
       },
       "long_i18n": {
         "en": "Calculate wind turbine instantaneous power output.",
-        "tr": "Ruzgar turbininin ruzgardan mekanik guce donusturdugu anlik Energyyi hesaplar.",
         "de": "Berechnen Sie die momentane Leistungsabgabe einer Windturbine.",
         "fr": "Calculer la puissance instantanée de l'éolienne.",
         "es": "Calcular la potencia instantánea de salida de una turbina eólica.",

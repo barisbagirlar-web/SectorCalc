@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Facade Area (m²)",
       "label_i18n": {
         "en": "Facade Area (m²)",
-        "tr": "Cephe Area (m²)",
         "de": "Fassadenfläche (m²)",
         "fr": "Surface de la facade (m²)",
         "es": "Área de Fachada (m²)",
@@ -23,7 +22,6 @@
       "businessContext": "Facade surface area.",
       "businessContext_i18n": {
         "en": "Facade surface area.",
-        "tr": "Kaplanacak Facade Area.",
         "de": "Fassadenoberfläche.",
         "fr": "Surface de la facade.",
         "es": "Área de la superficie de la fachada.",
@@ -35,7 +33,6 @@
       "label": "Panel Width (m)",
       "label_i18n": {
         "en": "Panel Width (m)",
-        "tr": "Panel Eni (m)",
         "de": "Gipskartonplattenbreite",
         "fr": "Largeur du panneau de placoplâtre",
         "es": "Ancho del panel de yeso",
@@ -48,7 +45,6 @@
       "businessContext": "Siding panel width.",
       "businessContext_i18n": {
         "en": "Siding panel width.",
-        "tr": "Kaplama panel eni.",
         "de": "Breite der Verkleidungsplatte.",
         "fr": "Largeur du panneau de revêtement.",
         "es": "Ancho del panel de revestimiento.",
@@ -60,7 +56,6 @@
       "label": "Panel Length (m)",
       "label_i18n": {
         "en": "Panel Length (m)",
-        "tr": "Panel Boyu (m)",
         "de": "Gipskartonplattenlänge",
         "fr": "Longueur du panneau de placoplâtre",
         "es": "Largo del panel de yeso",
@@ -73,7 +68,6 @@
       "businessContext": "Panel length.",
       "businessContext_i18n": {
         "en": "Panel length.",
-        "tr": "Panel boyu.",
         "de": "Plattenlänge.",
         "fr": "Longueur du panneau.",
         "es": "Longitud del panel.",
@@ -81,11 +75,10 @@
       }
     },
     {
-      "id": "fire",
+      "id": "scrap",
       "label": "Waste Factor (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Scrap Ratio (%)",
         "de": "Abfallfaktor (%)",
         "fr": "Facteur de déchet (%)",
         "es": "Factor de desperdicio (%)",
@@ -98,7 +91,6 @@
       "businessContext": "Cutting waste.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
-        "tr": "Kesim payi.",
         "de": "Schnittverschnitt.",
         "fr": "Perte de coupe.",
         "es": "Desperdicio de corte.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "Math.ceil((alan * (1 + fire / 100)) / Math.max(0.0001, (panelEn * panelBoy)))"
+    "result": "Math.ceil((area * (1 + scrap / 100)) / Math.max(0.0001, (panelEn * panelBoy)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "panels",
     "breakdown": {
-      "sonuc": "Gerekli Panel Count"
+      "result": "Gerekli Panel Count"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Panel Count",
-        "tr": "Gerekli Panel Count",
         "de": "Erforderliche Anzahl Paneele",
         "fr": "Nombre de panneaux requis",
         "es": "Número de Paneles Necesarios",
@@ -149,7 +140,6 @@
       "long": "Calculate exterior siding panel count needed.",
       "short_i18n": {
         "en": "Calculate exterior siding panel count needed.",
-        "tr": "Cepheyi kaplayacak siding Number of Panelsni hesaplar.",
         "de": "Berechnen Sie die benotigte Anzahl an Außenverkleidungsplatten.",
         "fr": "Calculer le nombre de panneaux de revêtement extérieur nécessaires.",
         "es": "Calcular la cantidad necesaria de paneles de revestimiento exterior.",
@@ -157,7 +147,6 @@
       },
       "long_i18n": {
         "en": "Calculate exterior siding panel count needed.",
-        "tr": "Cepheyi kaplayacak siding Number of Panelsni hesaplar.",
         "de": "Berechnen Sie die benotigte Anzahl an Außenverkleidungsplatten.",
         "fr": "Calculer le nombre de panneaux de revêtement extérieur nécessaires.",
         "es": "Calcular la cantidad necesaria de paneles de revestimiento exterior.",

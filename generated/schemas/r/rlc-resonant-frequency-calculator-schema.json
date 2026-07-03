@@ -10,7 +10,6 @@
       "label": "Inductance (H)",
       "label_i18n": {
         "en": "Inductance (H)",
-        "tr": "Induktans (H)",
         "de": "Induktivität (H)",
         "fr": "Inductance (H)",
         "es": "Inductancia (H)",
@@ -23,7 +22,6 @@
       "businessContext": "Inductor value.",
       "businessContext_i18n": {
         "en": "Inductor value.",
-        "tr": "Bobin Inductancei.",
         "de": "Spulenwert.",
         "fr": "Valeur de l'inductance.",
         "es": "Valor del inductor.",
@@ -35,7 +33,6 @@
       "label": "Capacitance (F)",
       "label_i18n": {
         "en": "Capacitance (F)",
-        "tr": "Kapasite (F)",
         "de": "Kapazität (F)",
         "fr": "Capacité (F)",
         "es": "Capacitancia (F)",
@@ -48,7 +45,6 @@
       "businessContext": "Capacitor value.",
       "businessContext_i18n": {
         "en": "Capacitor value.",
-        "tr": "Kapasitor Valuei.",
         "de": "Kondensatorwert.",
         "fr": "Valeur du condensateur.",
         "es": "Valor del capacitor.",
@@ -60,7 +56,6 @@
       "label": "Resistance (Ω)",
       "label_i18n": {
         "en": "Resistance (Ω)",
-        "tr": "Resistance (Ω)",
         "de": "Widerstand (R)",
         "fr": "Résistance (R)",
         "es": "Resistencia (R)",
@@ -73,7 +68,6 @@
       "businessContext": "Circuit resistance.",
       "businessContext_i18n": {
         "en": "Circuit resistance.",
-        "tr": "Devre direnci.",
         "de": "Schaltungswiderstand.",
         "fr": "Résistance du circuit.",
         "es": "Resistencia del circuito.",
@@ -89,27 +83,25 @@
   },
   "formulas": {
     "f0": "1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, L * C))))",
-    "sonuc": "(1 / Math.max(0.0001, R)) * Math.sqrt(Math.max(0.0001, L / Math.max(0.0001, C)))"
+    "result": "(1 / Math.max(0.0001, R)) * Math.sqrt(Math.max(0.0001, L / Math.max(0.0001, C)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Q",
     "breakdown": {
       "f0": "Resonant Frequency (Hz)",
-      "sonuc": "Kalite Faktoru (Q)"
+      "result": "Kalite Faktoru (Q)"
     },
     "breakdown_i18n": {
       "f0": {
         "en": "Resonant Frequency (Hz)",
-        "tr": "Resonant Frequency (Hz)",
         "de": "Resonanzfrequenz (Hz)",
         "fr": "Fréquence de résonance (Hz)",
         "es": "Frecuencia de Resonancia (Hz)",
         "ar": "تردد الرنين (Hz)"
       },
-      "sonuc": {
+      "result": {
         "en": "Kalite Faktoru (Q)",
-        "tr": "Kalite Faktoru (Q)",
         "de": "Gutefaktor (Q)",
         "fr": "Facteur de qualité (Q)",
         "es": "Factor de Calidad (Q)",
@@ -137,7 +129,6 @@
       "long": "Calculate RLC circuit resonant frequency and Q factor.",
       "short_i18n": {
         "en": "Calculate RLC circuit resonant frequency and Q factor.",
-        "tr": "RLC devresinin Maximum genlikte titrestigi Frequencyi (rezonans) ve Q faktorunu hesaplar.",
         "de": "Berechnen Sie die Resonanzfrequenz und den Gutefaktor eines RLC-Schwingkreises.",
         "fr": "Calculer la fréquence de résonance et le facteur Q d'un circuit RLC.",
         "es": "Calcular la frecuencia de resonancia y el factor Q de un circuito RLC.",
@@ -145,7 +136,6 @@
       },
       "long_i18n": {
         "en": "Calculate RLC circuit resonant frequency and Q factor.",
-        "tr": "RLC devresinin Maximum genlikte titrestigi Frequencyi (rezonans) ve Q faktorunu hesaplar.",
         "de": "Berechnen Sie die Resonanzfrequenz und den Gutefaktor eines RLC-Schwingkreises.",
         "fr": "Calculer la fréquence de résonance et le facteur Q d'un circuit RLC.",
         "es": "Calcular la frecuencia de resonancia y el factor Q de un circuito RLC.",

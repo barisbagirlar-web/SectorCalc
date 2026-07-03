@@ -10,7 +10,6 @@
       "label": "Share Price (USD)",
       "label_i18n": {
         "en": "Share Price (USD)",
-        "tr": "Hisse Fiyati (₺)",
         "de": "Aktueller Aktienkurs ($)",
         "fr": "Cours actuel de l'action ($)",
         "es": "Precio actual de la acción ($)",
@@ -23,7 +22,6 @@
       "businessContext": "Current market price per share.",
       "businessContext_i18n": {
         "en": "Current market price per share.",
-        "tr": "Hisse senedinin guncel piyasa fiyati.",
         "de": "Aktueller Marktpreis pro Aktie.",
         "fr": "Prix actuel du marché par action.",
         "es": "Precio actual de mercado por acción.",
@@ -35,7 +33,6 @@
       "label": "Earnings Per Share (USD)",
       "label_i18n": {
         "en": "Earnings Per Share (USD)",
-        "tr": "Hisse Basi Kâr (₺)",
         "de": "Gewinn pro Aktie (EPS)",
         "fr": "Bénéfice par action (BPA)",
         "es": "Ganancias por acción (EPS)",
@@ -48,7 +45,6 @@
       "businessContext": "Net earnings per share.",
       "businessContext_i18n": {
         "en": "Net earnings per share.",
-        "tr": "Sirketin hisse basina dusen Net Profiti.",
         "de": "Nettogewinn pro Aktie.",
         "fr": "Bénéfice net par action.",
         "es": "Ganancias netas por acción.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "hisseFiyati / Math.max(0.0001, hisseBasiKar)"
+    "result": "hisseFiyati / Math.max(0.0001, hisseBasiKar)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "F/K (P/E) Ratio"
+      "result": "F/K (P/E) Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "F/K (P/E) Ratio",
-        "tr": "F/K (P/E) Ratio",
         "de": "Kurs-Gewinn-Verhältnis (KGV)",
         "fr": "Ratio P/E (Price/Earnings)",
         "es": "Relación P/E (Precio/Ganancias)",
@@ -99,7 +94,6 @@
       "long": "Calculate the price-to-earnings (P/E) ratio.",
       "short_i18n": {
         "en": "Calculate the price-to-earnings (P/E) ratio.",
-        "tr": "Yatirimin kâr uzerinden kendini amorti etme suresini (F/K) hesaplar.",
         "de": "Berechnen Sie das Kurs-Gewinn-Verhältnis (KGV).",
         "fr": "Calculer le ratio cours/bénéfice (P/E).",
         "es": "Calcular la relación precio/ganancias (P/E).",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate the price-to-earnings (P/E) ratio.",
-        "tr": "Yatirimin kâr uzerinden kendini amorti etme suresini (F/K) hesaplar.",
         "de": "Berechnen Sie das Kurs-Gewinn-Verhältnis (KGV).",
         "fr": "Calculer le ratio cours/bénéfice (P/E).",
         "es": "Calcular la relación precio/ganancias (P/E).",

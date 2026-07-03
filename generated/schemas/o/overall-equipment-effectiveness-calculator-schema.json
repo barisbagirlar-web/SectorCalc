@@ -10,7 +10,6 @@
       "label": "Availability (%)",
       "label_i18n": {
         "en": "Availability (%)",
-        "tr": "Availability (%)",
         "de": "Verfugbarkeitsziel",
         "fr": "Objectif de disponibilité",
         "es": "Objetivo de disponibilidad",
@@ -24,7 +23,6 @@
       "businessContext": "Machine uptime vs planned time.",
       "businessContext_i18n": {
         "en": "Machine uptime vs planned time.",
-        "tr": "Makinenin planli surede calistigi zaman.",
         "de": "Maschinenbetriebszeit vs. geplante Zeit.",
         "fr": "Temps de fonctionnement de la machine par rapport au temps planifié.",
         "es": "Tiempo de actividad de la máquina vs. tiempo planificado.",
@@ -36,7 +34,6 @@
       "label": "Performance (%)",
       "label_i18n": {
         "en": "Performance (%)",
-        "tr": "Performans (%)",
         "de": "Kostenleistungsindex (Uberschreibung)",
         "fr": "Indice de performance des coûts (remplacement)",
         "es": "Índice de rendimiento de costos (anulación)",
@@ -50,7 +47,6 @@
       "businessContext": "Speed efficiency vs ideal.",
       "businessContext_i18n": {
         "en": "Speed efficiency vs ideal.",
-        "tr": "Makinenin ideal Speeda gore Performancei.",
         "de": "Geschwindigkeitseffizienz vs. Ideal.",
         "fr": "Efficacité de vitesse par rapport à l'idéal.",
         "es": "Eficiencia de velocidad vs. ideal.",
@@ -58,11 +54,10 @@
       }
     },
     {
-      "id": "kalite",
+      "id": "quality",
       "label": "Quality (%)",
       "label_i18n": {
         "en": "Quality (%)",
-        "tr": "Kalite (%)",
         "de": "Qualitätsausbeute am Engpass (%)",
         "fr": "Rendement qualité au goulot (%)",
         "es": "Rendimiento de Calidad en Cuello de Botella (%)",
@@ -76,7 +71,6 @@
       "businessContext": "First-pass yield.",
       "businessContext_i18n": {
         "en": "First-pass yield.",
-        "tr": "Ilk seferde hatasiz urun Ratioi.",
         "de": "Erstausbeute.",
         "fr": "Rendement de premier passage.",
         "es": "Rendimiento de primera pasada.",
@@ -91,18 +85,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(kullanilabilirlik / 100) * (performans / 100) * (kalite / 100) * 100"
+    "result": "(kullanilabilirlik / 100) * (performans / 100) * (quality / 100) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "OEE Skoru"
+      "result": "OEE Skoru"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "OEE Skoru",
-        "tr": "OEE Skoru",
         "de": "OEE-Score",
         "fr": "Score OEE",
         "es": "Puntaje OEE",
@@ -127,7 +120,6 @@
       "long": "Calculate overall equipment effectiveness (OEE) score.",
       "short_i18n": {
         "en": "Calculate overall equipment effectiveness (OEE) score.",
-        "tr": "Uretim hattinin Total Efficiencylilik skorunu (OEE) hesaplar.",
         "de": "Berechnen Sie die Gesamtanlageneffektivität (OEE).",
         "fr": "Calculer le score d'efficacité globale des équipements (OEE).",
         "es": "Calcular la puntuación de eficiencia general del equipo (OEE).",
@@ -135,7 +127,6 @@
       },
       "long_i18n": {
         "en": "Calculate overall equipment effectiveness (OEE) score.",
-        "tr": "Uretim hattinin Total Efficiencylilik skorunu (OEE) hesaplar.",
         "de": "Berechnen Sie die Gesamtanlageneffektivität (OEE).",
         "fr": "Calculer le score d'efficacité globale des équipements (OEE).",
         "es": "Calcular la puntuación de eficiencia general del equipo (OEE).",

@@ -6,11 +6,10 @@
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "baslangic",
+      "id": "initial",
       "label": "Starting Value (USD)",
       "label_i18n": {
         "en": "Starting Value (USD)",
-        "tr": "Baslangic Valuei (₺)",
         "de": "Starting Wert",
         "fr": "Starting Valeur",
         "es": "Starting Valor",
@@ -23,7 +22,6 @@
       "businessContext": "Investment value at start of period.",
       "businessContext_i18n": {
         "en": "Investment value at start of period.",
-        "tr": "Donem basi yatirim Valuei.",
         "de": "Anlagewert zu Beginn des Zeitraums.",
         "fr": "Valeur de l'investissement au début de la période.",
         "es": "Valor de la inversión al inicio del período.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "bitis",
+      "id": "final",
       "label": "Ending Value (USD)",
       "label_i18n": {
         "en": "Ending Value (USD)",
-        "tr": "Bitis Valuei (₺)",
         "de": "Endwert",
         "fr": "Valeur finale",
         "es": "Valor final",
@@ -48,7 +45,6 @@
       "businessContext": "Investment value at end of period.",
       "businessContext_i18n": {
         "en": "Investment value at end of period.",
-        "tr": "Donem sonu yatirim Valuei.",
         "de": "Anlagewert am Ende des Zeitraums.",
         "fr": "Valeur de l'investissement à la fin de la période.",
         "es": "Valor de la inversión al final del período.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "yil",
+      "id": "year",
       "label": "Period (Years)",
       "label_i18n": {
         "en": "Period (Years)",
-        "tr": "Duration (Year)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -73,7 +68,6 @@
       "businessContext": "Total investment period.",
       "businessContext_i18n": {
         "en": "Total investment period.",
-        "tr": "Total Yatirim suresi.",
         "de": "Gesamter Anlagezeitraum.",
         "fr": "Période totale d'investissement.",
         "es": "Período total de inversión.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(Math.pow(bitis / Math.max(1, baslangic), 1 / Math.max(1, yil)) - 1) * 100"
+    "result": "(Math.pow(final / Math.max(1, initial), 1 / Math.max(1, year)) - 1) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Yilliklandirilmis Getiri"
+      "result": "Yilliklandirilmis Getiri"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Yilliklandirilmis Getiri",
-        "tr": "Yilliklandirilmis Getiri",
         "de": "Annualisierte Rendite",
         "fr": "Rendement annualisé",
         "es": "Rendimiento Anualizado",
@@ -124,7 +117,6 @@
       "long": "Calculate the annualized rate of return on an investment.",
       "short_i18n": {
         "en": "Calculate the annualized rate of return on an investment.",
-        "tr": "Yatirimin yilliklandirilmis Mean buyume Speedini hesaplar.",
         "de": "Berechnen Sie die annualisierte Rendite einer Investition.",
         "fr": "Calculer le taux de rendement annualisé d'un investissement.",
         "es": "Calcular la tasa de rendimiento anualizada de una inversión.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate the annualized rate of return on an investment.",
-        "tr": "Yatirimin yilliklandirilmis Mean buyume Speedini hesaplar.",
         "de": "Berechnen Sie die annualisierte Rendite einer Investition.",
         "fr": "Calculer le taux de rendement annualisé d'un investissement.",
         "es": "Calcular la tasa de rendimiento anualizada de una inversión.",

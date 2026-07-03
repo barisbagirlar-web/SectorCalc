@@ -10,7 +10,6 @@
       "label": "Recovered Material (tons)",
       "label_i18n": {
         "en": "Recovered Material (tons)",
-        "tr": "Geri Kazanilan Malzeme (ton)",
         "de": "Ruckgewonnenes Material (tons)",
         "fr": "Matériau récupéré (tonnes)",
         "es": "Material Recuperado (tons)",
@@ -23,7 +22,6 @@
       "businessContext": "Secondary raw material.",
       "businessContext_i18n": {
         "en": "Secondary raw material.",
-        "tr": "Ikincil hammadde Amounti.",
         "de": "Sekundärrohstoff.",
         "fr": "Matière première secondaire.",
         "es": "Materia prima secundaria.",
@@ -35,7 +33,6 @@
       "label": "Total Material Input (tons)",
       "label_i18n": {
         "en": "Total Material Input (tons)",
-        "tr": "Toplam Hammadde Girdisi (ton)",
         "de": "Gesamter Materialeinsatz (tons)",
         "fr": "Entrée totale de matière (tonnes)",
         "es": "Entrada Total de Material (tons)",
@@ -48,7 +45,6 @@
       "businessContext": "All production material input.",
       "businessContext_i18n": {
         "en": "All production material input.",
-        "tr": "Uretimde kullanilan tum malzeme.",
         "de": "Gesamter Produktionsmaterialeinsatz.",
         "fr": "Toute entrée de matière de production.",
         "es": "Entrada de material de toda la producción.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(geriKazanilan / Math.max(0.0001, toplamGirdi)) * 100"
+    "result": "(geriKazanilan / Math.max(0.0001, toplamGirdi)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Dongusel Ekonomi Ratioi"
+      "result": "Dongusel Ekonomi Ratioi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Dongusel Ekonomi Ratioi",
-        "tr": "Dongusel Ekonomi Ratioi",
         "de": "Kreislaufwirtschaftsquote",
         "fr": "Taux d'économie circulaire",
         "es": "Relación de Economía Circular",
@@ -102,7 +97,6 @@
       "long": "Calculate circular economy material reuse ratio.",
       "short_i18n": {
         "en": "Calculate circular economy material reuse ratio.",
-        "tr": "Uretimde kullanilan ikincil hammadde Ratioini (Dongusel Ekonomi Ratioi) hesaplar.",
         "de": "Berechnen Sie die Wiederverwendungsquote von Materialien in der Kreislaufwirtschaft.",
         "fr": "Calculer le taux de réutilisation des matières dans l'économie circulaire.",
         "es": "Calcular la relación de reutilización de materiales en economía circular.",
@@ -110,7 +104,6 @@
       },
       "long_i18n": {
         "en": "Calculate circular economy material reuse ratio.",
-        "tr": "Uretimde kullanilan ikincil hammadde Ratioini (Dongusel Ekonomi Ratioi) hesaplar.",
         "de": "Berechnen Sie die Wiederverwendungsquote von Materialien in der Kreislaufwirtschaft.",
         "fr": "Calculer le taux de réutilisation des matières dans l'économie circulaire.",
         "es": "Calcular la relación de reutilización de materiales en economía circular.",

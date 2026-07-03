@@ -10,7 +10,6 @@
       "label": "Purchase Price (USD)",
       "label_i18n": {
         "en": "Purchase Price (USD)",
-        "tr": "Alis Fiyati (₺)",
         "de": "Kaufpreis (USD)",
         "fr": "Prix d'achat (USD)",
         "es": "Precio de Compra (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "ETF purchase price.",
       "businessContext_i18n": {
         "en": "ETF purchase price.",
-        "tr": "ETF alis fiyati.",
         "de": "ETF-Kaufpreis.",
         "fr": "Prix d'achat de l'ETF.",
         "es": "Precio de compra del ETF.",
@@ -35,7 +33,6 @@
       "label": "Sell Price (USD)",
       "label_i18n": {
         "en": "Sell Price (USD)",
-        "tr": "Satis Fiyati (₺)",
         "de": "Verkaufspreis",
         "fr": "Prix de vente",
         "es": "Precio de venta",
@@ -48,7 +45,6 @@
       "businessContext": "ETF sell price.",
       "businessContext_i18n": {
         "en": "ETF sell price.",
-        "tr": "ETF satis fiyati.",
         "de": "ETF-Verkaufspreis.",
         "fr": "Prix de vente de l'ETF.",
         "es": "Precio de venta del ETF.",
@@ -60,7 +56,6 @@
       "label": "Dividend (USD)",
       "label_i18n": {
         "en": "Dividend (USD)",
-        "tr": "Temettu (₺)",
         "de": "Jährliche Dividende pro Aktie ($)",
         "fr": "Dividende annuel par action ($)",
         "es": "Dividendo anual por acción ($)",
@@ -73,7 +68,6 @@
       "businessContext": "Dividend distributed.",
       "businessContext_i18n": {
         "en": "Dividend distributed.",
-        "tr": "Donem Heightunca dagitilan temettu.",
         "de": "Ausgeschuttete Dividende.",
         "fr": "Dividende distribué.",
         "es": "Dividendo distribuido.",
@@ -85,7 +79,6 @@
       "label": "Expense Ratio (%)",
       "label_i18n": {
         "en": "Expense Ratio (%)",
-        "tr": "Expmostse Ratio (%)",
         "de": "Kostenquote (%)",
         "fr": "Ratio des frais (%)",
         "es": "Ratio de gastos (%)",
@@ -98,7 +91,6 @@
       "businessContext": "Annual management fee.",
       "businessContext_i18n": {
         "en": "Annual management fee.",
-        "tr": "ETF'in yillik yoNetim ucreti.",
         "de": "Jährliche Verwaltungsgebuhr.",
         "fr": "Frais de gestion annuels.",
         "es": "Tarifa anual de gestión.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "((satisFiyati + temettu - alisFiyati) / Math.max(1, alisFiyati) * 100) - giderOrani"
+    "result": "((satisFiyati + temettu - alisFiyati) / Math.max(1, alisFiyati) * 100) - giderOrani"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Net ETF Getirisi"
+      "result": "Net ETF Getirisi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Net ETF Getirisi",
-        "tr": "Net ETF Getirisi",
         "de": "Netto-ETF-Rendite",
         "fr": "Rendement net de l'ETF",
         "es": "Rendimiento neto del ETF",
@@ -149,7 +140,6 @@
       "long": "Calculate net ETF return after management expense ratio.",
       "short_i18n": {
         "en": "Calculate net ETF return after management expense ratio.",
-        "tr": "YoNetim ucreti dusulmus Net ETF getirisini hesaplar.",
         "de": "Berechnen Sie die Netto-ETF-Rendite nach Abzug der Verwaltungsgebuhrenquote.",
         "fr": "Calculer le rendement net de l'ETF après le ratio des frais de gestion.",
         "es": "Calcular el rendimiento neto del ETF después del índice de gastos de gestión.",
@@ -157,7 +147,6 @@
       },
       "long_i18n": {
         "en": "Calculate net ETF return after management expense ratio.",
-        "tr": "YoNetim ucreti dusulmus Net ETF getirisini hesaplar.",
         "de": "Berechnen Sie die Netto-ETF-Rendite nach Abzug der Verwaltungsgebuhrenquote.",
         "fr": "Calculer le rendement net de l'ETF après le ratio des frais de gestion.",
         "es": "Calcular el rendimiento neto del ETF después del índice de gastos de gestión.",

@@ -10,7 +10,6 @@
       "label": "Wall Length (m)",
       "label_i18n": {
         "en": "Wall Length (m)",
-        "tr": "Wall Lmostgth (m)",
         "de": "Wandlänge",
         "fr": "Longueur du mur",
         "es": "Longitud de la pared",
@@ -23,7 +22,6 @@
       "businessContext": "Wall length for chair rail.",
       "businessContext_i18n": {
         "en": "Wall length for chair rail.",
-        "tr": "Korkuluk cekilecek duvar.",
         "de": "Wandlänge fur Sockelleiste.",
         "fr": "Longueur du mur pour la cimaise.",
         "es": "Longitud de la pared para la barandilla.",
@@ -38,18 +36,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "duvarUzunlugu"
+    "result": "duvarUzunlugu"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Gerekli Korkuluk Boyu"
+      "result": "Gerekli Korkuluk Boyu"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Korkuluk Boyu",
-        "tr": "Gerekli Korkuluk Boyu",
         "de": "Erforderliche Geländerlänge",
         "fr": "Longueur de garde-corps nécessaire",
         "es": "Longitud Requerida de Barandilla",
@@ -74,7 +71,6 @@
       "long": "Calculate chair rail length needed for room.",
       "short_i18n": {
         "en": "Calculate chair rail length needed for room.",
-        "tr": "Duvar ortasina monte edilecek dekoratif profil Heightunu hesaplar.",
         "de": "Berechnen Sie die benotigte Länge der Sockelleiste fur den Raum.",
         "fr": "Calculer la longueur de la cimaise nécessaire pour la pièce.",
         "es": "Calcular la longitud de la barandilla necesaria para la habitación.",
@@ -82,7 +78,6 @@
       },
       "long_i18n": {
         "en": "Calculate chair rail length needed for room.",
-        "tr": "Duvar ortasina monte edilecek dekoratif profil Heightunu hesaplar.",
         "de": "Berechnen Sie die benotigte Länge der Sockelleiste fur den Raum.",
         "fr": "Calculer la longueur de la cimaise nécessaire pour la pièce.",
         "es": "Calcular la longitud de la barandilla necesaria para la habitación.",

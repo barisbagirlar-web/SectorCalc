@@ -6,11 +6,10 @@
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "hisse",
+      "id": "share",
       "label": "Shares Held",
       "label_i18n": {
         "en": "Shares Held",
-        "tr": "Mevcut Hisse (Adet)",
         "de": "Gehaltene Aktien",
         "fr": "Actions Détenues",
         "es": "Acciones en Cartera",
@@ -23,7 +22,6 @@
       "businessContext": "Number of shares owned.",
       "businessContext_i18n": {
         "en": "Number of shares owned.",
-        "tr": "Sahip olunan hisse adedi.",
         "de": "Anzahl der gehaltenen Aktien.",
         "fr": "Nombre d'actions possédées.",
         "es": "Número de acciones en propiedad.",
@@ -35,7 +33,6 @@
       "label": "Dividend Per Share (USD)",
       "label_i18n": {
         "en": "Dividend Per Share (USD)",
-        "tr": "Hisse Basi Temettu (₺)",
         "de": "Jährliche Dividende pro Aktie ($)",
         "fr": "Dividende annuel par action ($)",
         "es": "Dividendo anual por acción ($)",
@@ -48,7 +45,6 @@
       "businessContext": "Annual dividend per share.",
       "businessContext_i18n": {
         "en": "Annual dividend per share.",
-        "tr": "Hisse basina odenen yillik temettu.",
         "de": "Jährliche Dividende pro Aktie.",
         "fr": "Dividende annuel par action.",
         "es": "Dividendo anual por acción.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "fiyat",
+      "id": "price",
       "label": "Share Price (USD)",
       "label_i18n": {
         "en": "Share Price (USD)",
-        "tr": "Hisse Fiyati (₺)",
         "de": "Aktueller Aktienkurs ($)",
         "fr": "Cours actuel de l'action ($)",
         "es": "Precio actual de la acción ($)",
@@ -73,7 +68,6 @@
       "businessContext": "Current share price.",
       "businessContext_i18n": {
         "en": "Current share price.",
-        "tr": "Hisse senedinin guncel fiyati.",
         "de": "Aktueller Aktienkurs.",
         "fr": "Prix actuel de l'action.",
         "es": "Precio actual de la acción.",
@@ -81,11 +75,10 @@
       }
     },
     {
-      "id": "yil",
+      "id": "year",
       "label": "Number of Years",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Year Count",
         "de": "Anzahl der Jahre",
         "fr": "Nombre d'années",
         "es": "Número de años",
@@ -98,7 +91,6 @@
       "businessContext": "DRIP strategy duration.",
       "businessContext_i18n": {
         "en": "DRIP strategy duration.",
-        "tr": "DRIP stratejisinin uygulanacagi sure.",
         "de": "DRIP-Strategiedauer.",
         "fr": "Durée de la stratégie DRIP.",
         "es": "Duración de la estrategia DRIP.",
@@ -110,7 +102,6 @@
       "label": "Expected Annual Return (%)",
       "label_i18n": {
         "en": "Expected Annual Return (%)",
-        "tr": "Beklmostmost Annual Getiri (%)",
         "de": "Erwartete jährliche Rendite (%)",
         "fr": "Rendement annuel attendu (%)",
         "es": "Rendimiento anual esperado (%)",
@@ -123,7 +114,6 @@
       "businessContext": "Expected annual price appreciation.",
       "businessContext_i18n": {
         "en": "Expected annual price appreciation.",
-        "tr": "Hisse fiyatinin yillik buyume beklentisi.",
         "de": "Erwartete jährliche Kurssteigerung.",
         "fr": "Appréciation annuelle attendue du prix.",
         "es": "Apreciación anual esperada del precio.",
@@ -138,19 +128,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "yeniHisse": "hisse + ((temettu * hisse) / Math.max(1, fiyat))",
-    "sonuc": "(hisse + ((temettu * hisse) / Math.max(1, fiyat))) * Math.pow(1 + getiri / 100, yil) * fiyat"
+    "newShare": "share + ((temettu * share) / Math.max(1, price))",
+    "result": "(share + ((temettu * share) / Math.max(1, price))) * Math.pow(1 + getiri / 100, year) * price"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "DRIP Portfoy Valuei"
+      "result": "DRIP Portfoy Valuei"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "DRIP Portfoy Valuei",
-        "tr": "DRIP Portfoy Valuei",
         "de": "DRIP-Portfoliowert",
         "fr": "Valeur du Portefeuille DRIP",
         "es": "Valor de la Cartera DRIP",
@@ -175,7 +164,6 @@
       "long": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
       "short_i18n": {
         "en": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "tr": "Temettulerin hisseye donusmesiyle olusan kartopu etkisini hesaplar.",
         "de": "Berechnen Sie den Zinseszinseffekt der Dividendenwiederanlage (DRIP).",
         "fr": "Calculez l'effet de croissance composée du réinvestissement des dividendes (DRIP).",
         "es": "Calcular el efecto de crecimiento compuesto de la reinversión de dividendos (DRIP).",
@@ -183,7 +171,6 @@
       },
       "long_i18n": {
         "en": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "tr": "Temettulerin hisseye donusmesiyle olusan kartopu etkisini hesaplar.",
         "de": "Berechnen Sie den Zinseszinseffekt der Dividendenwiederanlage (DRIP).",
         "fr": "Calculez l'effet de croissance composée du réinvestissement des dividendes (DRIP).",
         "es": "Calcular el efecto de crecimiento compuesto de la reinversión de dividendos (DRIP).",

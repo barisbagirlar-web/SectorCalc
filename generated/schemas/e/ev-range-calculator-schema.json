@@ -10,7 +10,6 @@
       "label": "Battery Energy (kWh)",
       "label_i18n": {
         "en": "Battery Energy (kWh)",
-        "tr": "Batarya Enerjisi (kWh)",
         "de": "Batterieenergie (kWh)",
         "fr": "Énergie de la batterie (kWh)",
         "es": "Energía de la batería (kWh)",
@@ -23,7 +22,6 @@
       "businessContext": "Usable battery capacity.",
       "businessContext_i18n": {
         "en": "Usable battery capacity.",
-        "tr": "Kullanilabilir Battery Capacity.",
         "de": "Nutzbare Batteriekapazität.",
         "fr": "Capacité utilisable de la batterie.",
         "es": "Capacidad utilizable de la batería.",
@@ -35,7 +33,6 @@
       "label": "Energy Consumption (Wh/km)",
       "label_i18n": {
         "en": "Energy Consumption (Wh/km)",
-        "tr": "Energy Consumption (Wh/km)",
         "de": "Gesamtenergieverbrauch",
         "fr": "Consommation totale d'énergie",
         "es": "Consumo total de energía",
@@ -48,7 +45,6 @@
       "businessContext": "Energy consumption per km.",
       "businessContext_i18n": {
         "en": "Energy consumption per km.",
-        "tr": "km basi Energy Consumption.",
         "de": "Energieverbrauch pro km.",
         "fr": "Consommation d'énergie par km.",
         "es": "Consumo de energía por km.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "verim",
+      "id": "efficiency",
       "label": "Drivetrain Efficiency (%)",
       "label_i18n": {
         "en": "Drivetrain Efficiency (%)",
-        "tr": "Aktarma Verimi (%)",
         "de": "Antriebsstrangwirkungsgrad",
         "fr": "Rendement de la transmission",
         "es": "Eficiencia del tren motriz",
@@ -73,7 +68,6 @@
       "businessContext": "Motor-to-wheel efficiency.",
       "businessContext_i18n": {
         "en": "Motor-to-wheel efficiency.",
-        "tr": "Motordan tekerlege Efficiency.",
         "de": "Motor-zu-Rad-Effizienz.",
         "fr": "Efficacité du moteur aux roues.",
         "es": "Eficiencia del motor a la rueda.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(bataryaEnerji * 1000 * (verim / 100)) / Math.max(0.0001, tuketim)"
+    "result": "(bataryaEnerji * 1000 * (efficiency / 100)) / Math.max(0.0001, tuketim)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "km",
     "breakdown": {
-      "sonuc": "Tahmini Menzil"
+      "result": "Tahmini Menzil"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tahmini Menzil",
-        "tr": "Tahmini Menzil",
         "de": "Geschätzte Reichweite",
         "fr": "Autonomie estimée",
         "es": "Autonomía estimada",
@@ -126,7 +119,6 @@
       "long": "Calculate EV range on a full charge.",
       "short_i18n": {
         "en": "Calculate EV range on a full charge.",
-        "tr": "Elektrikli aracin tam sarjla giFlow Ratelecegi teorik Maximum Rangei hesaplar.",
         "de": "Berechnen Sie die Reichweite eines Elektrofahrzeugs bei voller Ladung.",
         "fr": "Calculer l'autonomie d'un véhicule électrique avec une batterie pleine.",
         "es": "Calcule la autonomía del vehículo eléctrico con carga completa.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate EV range on a full charge.",
-        "tr": "Elektrikli aracin tam sarjla giFlow Ratelecegi teorik Maximum Rangei hesaplar.",
         "de": "Berechnen Sie die Reichweite eines Elektrofahrzeugs bei voller Ladung.",
         "fr": "Calculer l'autonomie d'un véhicule électrique avec une batterie pleine.",
         "es": "Calcule la autonomía del vehículo eléctrico con carga completa.",

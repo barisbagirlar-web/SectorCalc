@@ -10,7 +10,6 @@
       "label": "Principal (USD)",
       "label_i18n": {
         "en": "Principal (USD)",
-        "tr": "Anapara (₺)",
         "de": "Anfangskapital",
         "fr": "Capital initial",
         "es": "Capital inicial",
@@ -23,7 +22,6 @@
       "businessContext": "Initial investment.",
       "businessContext_i18n": {
         "en": "Initial investment.",
-        "tr": "Baslangic Investment Amount.",
         "de": "Anfangsinvestition.",
         "fr": "Investissement initial.",
         "es": "Inversión inicial.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "faiz",
+      "id": "interest",
       "label": "Annual Interest (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
-        "tr": "Annual Interest (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -48,7 +45,6 @@
       "businessContext": "Continuous compounding interest rate.",
       "businessContext_i18n": {
         "en": "Continuous compounding interest rate.",
-        "tr": "Surekli bilesik Interest Rate.",
         "de": "Kontinuierlicher Verzinsungssatz.",
         "fr": "Taux d'intérêt à capitalisation continue.",
         "es": "Tasa de interés con capitalización continua.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "yil",
+      "id": "year",
       "label": "Term (Years)",
       "label_i18n": {
         "en": "Term (Years)",
-        "tr": "Maturity (Year)",
         "de": "Kreditlaufzeit",
         "fr": "Durée du prêt",
         "es": "Plazo del préstamo",
@@ -73,7 +68,6 @@
       "businessContext": "Investment period.",
       "businessContext_i18n": {
         "en": "Investment period.",
-        "tr": "Yatirim suresi.",
         "de": "Anlagezeitraum.",
         "fr": "Période d'investissement.",
         "es": "Período de inversión.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "anapara * Math.exp((faiz / 100) * yil)"
+    "result": "anapara * Math.exp((interest / 100) * year)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Surekli Bilesik Value"
+      "result": "Surekli Bilesik Value"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Surekli Bilesik Value",
-        "tr": "Surekli Bilesik Value",
         "de": "Stetiger Zinseszinswert",
         "fr": "Valeur composée continue",
         "es": "Valor de Capitalización Continua",
@@ -124,7 +117,6 @@
       "long": "Calculate continuous compounding future value — the theoretical maximum.",
       "short_i18n": {
         "en": "Calculate continuous compounding future value — the theoretical maximum.",
-        "tr": "Sonsuz Frequencyta bilesiklesen teorik Maximum Maturity Sonu Valueini hesaplar.",
         "de": "Zukunftswert bei kontinuierlicher Verzinsung berechnen – das theoretische Maximum.",
         "fr": "Calculer la valeur future avec capitalisation continue — le maximum théorique.",
         "es": "Calcular el valor futuro con capitalización continua — el máximo teórico.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate continuous compounding future value — the theoretical maximum.",
-        "tr": "Sonsuz Frequencyta bilesiklesen teorik Maximum Maturity Sonu Valueini hesaplar.",
         "de": "Zukunftswert bei kontinuierlicher Verzinsung berechnen – das theoretische Maximum.",
         "fr": "Calculer la valeur future avec capitalisation continue — le maximum théorique.",
         "es": "Calcular el valor futuro con capitalización continua — el máximo teórico.",

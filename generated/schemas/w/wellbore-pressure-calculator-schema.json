@@ -10,7 +10,6 @@
       "label": "Vertical Depth (m)",
       "label_i18n": {
         "en": "Vertical Depth (m)",
-        "tr": "Dikey Derinlik (m)",
         "de": "Vertikale Tiefe (m)",
         "fr": "Profondeur verticale (m)",
         "es": "Profundidad vertical (m)",
@@ -23,7 +22,6 @@
       "businessContext": "True vertical depth.",
       "businessContext_i18n": {
         "en": "True vertical depth.",
-        "tr": "Kuyunun dikey boyu.",
         "de": "Wahre vertikale Tiefe.",
         "fr": "Profondeur verticale réelle.",
         "es": "Profundidad vertical verdadera.",
@@ -35,7 +33,6 @@
       "label": "Mud Density (kg/m³)",
       "label_i18n": {
         "en": "Mud Density (kg/m³)",
-        "tr": "Drilling Mud Density (kg/m³)",
         "de": "Schlammdichte (kg/m³)",
         "fr": "Densité de la boue (kg/m³)",
         "es": "Densidad del lodo (kg/m³)",
@@ -48,7 +45,6 @@
       "businessContext": "Mud weight.",
       "businessContext_i18n": {
         "en": "Mud weight.",
-        "tr": "Camur yogunlugu.",
         "de": "Schlammgewicht.",
         "fr": "Poids de la boue.",
         "es": "Peso del lodo.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(camurYogunlugu * 9.81 * dikeyDerinlik) / 1000000"
+    "result": "(camurYogunlugu * 9.81 * dikeyDerinlik) / 1000000"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "MPa",
     "breakdown": {
-      "sonuc": "Hidrostatik Pressure"
+      "result": "Hidrostatik Pressure"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Hidrostatik Pressure",
-        "tr": "Hidrostatik Pressure",
         "de": "Hydrostatischer Druck",
         "fr": "Pression hydrostatique",
         "es": "Presión hidrostática",
@@ -102,7 +97,6 @@
       "long": "Calculate hydrostatic pressure of mud column at well depth.",
       "short_i18n": {
         "en": "Calculate hydrostatic pressure of mud column at well depth.",
-        "tr": "Kuyu tabanindaki camur sutununun olusturdugu hidrostatik basinci hesaplar.",
         "de": "Berechnen Sie den hydrostatischen Druck der Schlammspalte in der Bohrtiefe.",
         "fr": "Calculer la pression hydrostatique de la colonne de boue à la profondeur du puits.",
         "es": "Calcular la presión hidrostática de la columna de lodo a la profundidad del pozo.",
@@ -110,7 +104,6 @@
       },
       "long_i18n": {
         "en": "Calculate hydrostatic pressure of mud column at well depth.",
-        "tr": "Kuyu tabanindaki camur sutununun olusturdugu hidrostatik basinci hesaplar.",
         "de": "Berechnen Sie den hydrostatischen Druck der Schlammspalte in der Bohrtiefe.",
         "fr": "Calculer la pression hydrostatique de la colonne de boue à la profondeur du puits.",
         "es": "Calcular la presión hidrostática de la columna de lodo a la profundidad del pozo.",

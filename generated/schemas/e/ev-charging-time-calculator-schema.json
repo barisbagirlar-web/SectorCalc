@@ -10,7 +10,6 @@
       "label": "Battery Capacity (kWh)",
       "label_i18n": {
         "en": "Battery Capacity (kWh)",
-        "tr": "Batarya Kapasitesi (kWh)",
         "de": "Batteriekapazität (Ah)",
         "fr": "Capacité de la batterie (Ah)",
         "es": "Capacidad de la batería (Ah)",
@@ -23,7 +22,6 @@
       "businessContext": "Total battery energy.",
       "businessContext_i18n": {
         "en": "Total battery energy.",
-        "tr": "Toplam batarya enerjisi.",
         "de": "Gesamtbatterieenergie.",
         "fr": "Énergie totale de la batterie.",
         "es": "Energía total de la batería.",
@@ -35,7 +33,6 @@
       "label": "Charging Power (kW)",
       "label_i18n": {
         "en": "Charging Power (kW)",
-        "tr": "Sarj Gucu (kW)",
         "de": "Ladeleistung (kW)",
         "fr": "Puissance de charge (kW)",
         "es": "Potencia de carga (kW)",
@@ -48,7 +45,6 @@
       "businessContext": "Charger power.",
       "businessContext_i18n": {
         "en": "Charger power.",
-        "tr": "Sarj istasyonu gucu.",
         "de": "Ladegerätleistung.",
         "fr": "Puissance du chargeur.",
         "es": "Potencia del cargador.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "verim",
+      "id": "efficiency",
       "label": "Charging Efficiency (%)",
       "label_i18n": {
         "en": "Charging Efficiency (%)",
-        "tr": "Sarj Efficiencyi (%)",
         "de": "Ladeeffizienz (%)",
         "fr": "Efficacité de charge (%)",
         "es": "Eficiencia de carga (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Charging losses.",
       "businessContext_i18n": {
         "en": "Charging losses.",
-        "tr": "Sarj kayiplari.",
         "de": "Ladeverluste.",
         "fr": "Pertes de charge.",
         "es": "Pérdidas de carga.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "bataryaKapasite / Math.max(0.0001, (sarjGuc * (verim / 100)))"
+    "result": "bataryaKapasite / Math.max(0.0001, (sarjGuc * (efficiency / 100)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "hours",
     "breakdown": {
-      "sonuc": "Charging Time"
+      "result": "Charging Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Charging Time",
-        "tr": "Charging Time",
         "de": "Ladezeit",
         "fr": "Temps de charge",
         "es": "Tiempo de carga",
@@ -126,7 +119,6 @@
       "long": "Calculate EV battery charging time from 0 to 100%.",
       "short_i18n": {
         "en": "Calculate EV battery charging time from 0 to 100%.",
-        "tr": "Elektrikli arac bataryasinin %0'dan %100'e dolum suresini hesaplar.",
         "de": "Berechnen Sie die Ladezeit eines Elektrofahrzeug-Akkus von 0 auf 100 %.",
         "fr": "Calculer le temps de charge de la batterie d'un véhicule électrique de 0 à 100%.",
         "es": "Calcule el tiempo de carga de la batería del vehículo eléctrico del 0 al 100%.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate EV battery charging time from 0 to 100%.",
-        "tr": "Elektrikli arac bataryasinin %0'dan %100'e dolum suresini hesaplar.",
         "de": "Berechnen Sie die Ladezeit eines Elektrofahrzeug-Akkus von 0 auf 100 %.",
         "fr": "Calculer le temps de charge de la batterie d'un véhicule électrique de 0 à 100%.",
         "es": "Calcule el tiempo de carga de la batería del vehículo eléctrico del 0 al 100%.",

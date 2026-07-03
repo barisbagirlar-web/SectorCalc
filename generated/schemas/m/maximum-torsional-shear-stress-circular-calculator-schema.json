@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "tork",
+      "id": "torque",
       "label": "Torque (N.m)",
       "label_i18n": {
         "en": "Torque (N.m)",
-        "tr": "Burulma Momenti (N.m)",
         "de": "Drehmoment",
         "fr": "Couple",
         "es": "Par motor",
@@ -23,7 +22,6 @@
       "businessContext": "Torque on shaft.",
       "businessContext_i18n": {
         "en": "Torque on shaft.",
-        "tr": "Mile etkiyen tork.",
         "de": "Drehmoment auf der Welle.",
         "fr": "Couple sur l'arbre.",
         "es": "Par en el eje.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "yariCap",
+      "id": "yariDiameter",
       "label": "Section Radius (m)",
       "label_i18n": {
         "en": "Section Radius (m)",
-        "tr": "Kesit Radiusi (m)",
         "de": "Querschnittsradius (m)",
         "fr": "Rayon de la section (m)",
         "es": "Radio de la sección (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Shaft outer radius.",
       "businessContext_i18n": {
         "en": "Shaft outer radius.",
-        "tr": "Milin dis Radiusi.",
         "de": "Außenradius der Welle.",
         "fr": "Rayon extérieur de l'arbre.",
         "es": "Radio exterior del eje.",
@@ -60,7 +56,6 @@
       "label": "Polar Moment of Inertia (m⁴)",
       "label_i18n": {
         "en": "Polar Moment of Inertia (m⁴)",
-        "tr": "Kutupsal Atalet Momenti (m⁴)",
         "de": "Polares Flächenträgheitsmoment (m⁴)",
         "fr": "Moment d'inertie polaire (m⁴)",
         "es": "Momento polar de inercia (m⁴)",
@@ -73,7 +68,6 @@
       "businessContext": "J = πR⁴/2.",
       "businessContext_i18n": {
         "en": "J = πR⁴/2.",
-        "tr": "J = πR⁴/2",
         "de": "J = πR⁴/2.",
         "fr": "J = πR⁴/2.",
         "es": "J = πR⁴/2.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(tork * yariCap) / Math.max(0.0001, kutupsalAtalet)"
+    "result": "(torque * yariDiameter) / Math.max(0.0001, kutupsalAtalet)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Maks. Kayma Gerilmesi (τ)"
+      "result": "Maks. Kayma Gerilmesi (τ)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maks. Kayma Gerilmesi (τ)",
-        "tr": "Maks. Kayma Gerilmesi (τ)",
         "de": "Max. Schubspannung (τ)",
         "fr": "Contrainte de cisaillement max. (τ)",
         "es": "Esfuerzo cortante máximo (τ)",
@@ -124,7 +117,6 @@
       "long": "Calculate maximum torsional shear stress in a circular section.",
       "short_i18n": {
         "en": "Calculate maximum torsional shear stress in a circular section.",
-        "tr": "Dairesel kesitteki maksimum burulma (torsiyonel) kayma gerilmesini hesaplar.",
         "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisformigen Querschnitt.",
         "fr": "Calculer la contrainte de cisaillement de torsion maximale dans une section circulaire.",
         "es": "Calcular el esfuerzo cortante torsional máximo en una sección circular.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate maximum torsional shear stress in a circular section.",
-        "tr": "Dairesel kesitteki maksimum burulma (torsiyonel) kayma gerilmesini hesaplar.",
         "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisformigen Querschnitt.",
         "fr": "Calculer la contrainte de cisaillement de torsion maximale dans une section circulaire.",
         "es": "Calcular el esfuerzo cortante torsional máximo en una sección circular.",

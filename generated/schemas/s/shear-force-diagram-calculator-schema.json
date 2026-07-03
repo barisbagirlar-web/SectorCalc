@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "yuk",
+      "id": "load",
       "label": "Total Load (N)",
       "label_i18n": {
         "en": "Total Load (N)",
-        "tr": "Total Load (N)",
         "de": "Gesamtlast (N)",
         "fr": "Charge totale (N)",
         "es": "Carga Total (N)",
@@ -23,7 +22,6 @@
       "businessContext": "Total distributed load.",
       "businessContext_i18n": {
         "en": "Total distributed load.",
-        "tr": "Kirise gelen Total yayili yuk.",
         "de": "Gesamte verteilte Last.",
         "fr": "Charge totale répartie.",
         "es": "Carga distribuida total.",
@@ -35,7 +33,6 @@
       "label": "Distance from Support (m)",
       "label_i18n": {
         "en": "Distance from Support (m)",
-        "tr": "Mesafe (m)",
         "de": "Abstand vom Auflager (m)",
         "fr": "Distance depuis l'appui (m)",
         "es": "Distancia desde el Apoyo (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Distance from left support.",
       "businessContext_i18n": {
         "en": "Distance from left support.",
-        "tr": "Olcum noktasinin sol mesNete uzakligi.",
         "de": "Abstand vom linken Auflager.",
         "fr": "Distance depuis l'appui gauche.",
         "es": "Distancia desde el apoyo izquierdo.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "uzunluk",
+      "id": "length",
       "label": "Beam Length (m)",
       "label_i18n": {
         "en": "Beam Length (m)",
-        "tr": "Beam Heightu (m)",
         "de": "Balkenlänge (L)",
         "fr": "Longueur de la poutre (L)",
         "es": "Longitud de la viga (L)",
@@ -73,7 +68,6 @@
       "businessContext": "Total span.",
       "businessContext_i18n": {
         "en": "Total span.",
-        "tr": "Total aciklik.",
         "de": "Gesamtspannweite.",
         "fr": "Portée totale.",
         "es": "Luz total.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "mesafe < uzunluk / 2 ? yuk / 2 : -yuk / 2"
+    "result": "mesafe < length / 2 ? load / 2 : -load / 2"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "N",
     "breakdown": {
-      "sonuc": "Kesme Kuvveti (V)"
+      "result": "Kesme Kuvveti (V)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Kesme Kuvveti (V)",
-        "tr": "Kesme Kuvveti (V)",
         "de": "Querkraft (V)",
         "fr": "Effort tranchant (V)",
         "es": "Fuerza Cortante (V)",
@@ -124,7 +117,6 @@
       "long": "Calculate shear force at a given section along a beam.",
       "short_i18n": {
         "en": "Calculate shear force at a given section along a beam.",
-        "tr": "Kiris kesitindeki anlik Shear Forceni konuma bagli olarak hesaplar.",
         "de": "Berechnen Sie die Scherkraft an einem gegebenen Abschnitt entlang eines Balkens.",
         "fr": "Calculer l'effort tranchant à une section donnée le long d'une poutre.",
         "es": "Calcular la fuerza cortante en una sección dada a lo largo de una viga.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate shear force at a given section along a beam.",
-        "tr": "Kiris kesitindeki anlik Shear Forceni konuma bagli olarak hesaplar.",
         "de": "Berechnen Sie die Scherkraft an einem gegebenen Abschnitt entlang eines Balkens.",
         "fr": "Calculer l'effort tranchant à une section donnée le long d'une poutre.",
         "es": "Calcular la fuerza cortante en una sección dada a lo largo de una viga.",

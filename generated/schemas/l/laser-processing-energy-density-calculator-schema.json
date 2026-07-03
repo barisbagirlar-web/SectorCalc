@@ -10,7 +10,6 @@
       "label": "Laser Power (W)",
       "label_i18n": {
         "en": "Laser Power (W)",
-        "tr": "Llesser Power (W)",
         "de": "Laserleistung (W)",
         "fr": "Puissance laser (W)",
         "es": "Potencia del Láser (W)",
@@ -23,7 +22,6 @@
       "businessContext": "Laser source power.",
       "businessContext_i18n": {
         "en": "Laser source power.",
-        "tr": "Lazer kaynaginin gucu.",
         "de": "Leistung der Laserquelle.",
         "fr": "Puissance de la source laser.",
         "es": "Potencia de la fuente láser.",
@@ -35,7 +33,6 @@
       "label": "Cutting Speed (m/s)",
       "label_i18n": {
         "en": "Cutting Speed (m/s)",
-        "tr": "Shear Speed (m/s)",
         "de": "Schnittgeschwindigkeit (Vc)",
         "fr": "Vitesse de coupe (Vc)",
         "es": "Velocidad de corte (Vc)",
@@ -48,7 +45,6 @@
       "businessContext": "Laser travel speed.",
       "businessContext_i18n": {
         "en": "Laser travel speed.",
-        "tr": "Lazerin ilerleme Speedi.",
         "de": "Laservorschubgeschwindigkeit.",
         "fr": "Vitesse de déplacement du laser.",
         "es": "Velocidad de desplazamiento del láser.",
@@ -60,7 +56,6 @@
       "label": "Material Thickness (m)",
       "label_i18n": {
         "en": "Material Thickness (m)",
-        "tr": "Material Thickness (m)",
         "de": "Materialdicke (mm)",
         "fr": "Épaisseur du matériau (mm)",
         "es": "Espesor del material (mm)",
@@ -73,7 +68,6 @@
       "businessContext": "Material thickness.",
       "businessContext_i18n": {
         "en": "Material thickness.",
-        "tr": "Kesilen malzemenin kalinligi.",
         "de": "Temperaturgradient uber die Materialdicke. Treibt den Wärmetransport durch Leitung an.",
         "fr": "Gradient de température à travers l'épaisseur du matériau. Entraîne le transfert de chaleur par conduction.",
         "es": "Gradiente de temperatura a través del espesor del material. Impulsa la transferencia de calor por conducción.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "lazerGuc / Math.max(0.0001, (kesmeHiz * malzemeKalinlik))"
+    "result": "lazerGuc / Math.max(0.0001, (kesmeHiz * malzemeKalinlik))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "J/m2",
     "breakdown": {
-      "sonuc": "Energy Dmostsity"
+      "result": "Energy Dmostsity"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Energy Dmostsity",
-        "tr": "Energy Dmostsity",
         "de": "Energiedichte",
         "fr": "Densité énergétique",
         "es": "Densidad de Energía",
@@ -124,7 +117,6 @@
       "long": "Calculate laser processing energy density for cutting.",
       "short_i18n": {
         "en": "Calculate laser processing energy density for cutting.",
-        "tr": "Lazer kesimde malzeme yuzeyine uygulanan Net termal Energy Dmostsitynu hesaplar.",
         "de": "Berechnen Sie die Laser-Energiedichte fur das Schneiden.",
         "fr": "Calculer la densité d'énergie de traitement laser pour la découpe.",
         "es": "Calcular la densidad de energía del procesamiento láser para corte.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate laser processing energy density for cutting.",
-        "tr": "Lazer kesimde malzeme yuzeyine uygulanan Net termal Energy Dmostsitynu hesaplar.",
         "de": "Berechnen Sie die Laser-Energiedichte fur das Schneiden.",
         "fr": "Calculer la densité d'énergie de traitement laser pour la découpe.",
         "es": "Calcular la densidad de energía del procesamiento láser para corte.",

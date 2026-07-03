@@ -6,6 +6,7 @@ import type {
   ConversionRegistryItem,
 } from "./contract-types";
 import { V531_APPROVED_TOP_LEVEL_KEYS } from "./contract-types";
+import { assertPureEnglishV531Schema } from "../governance/assert-pure-english-schema";
 
 const REQUIRED_TOP_LEVEL_KEYS = [
   "tool_id",
@@ -560,6 +561,15 @@ export function validateSuperV4Schema(
   }
 
   if (errors.length > 0) {
+    return { ok: false, errors };
+  }
+
+  // V5.3.1 Pure English assertion — reject schema if Turkish tokens present
+  const englishCheck = assertPureEnglishV531Schema(s as Record<string, unknown>);
+  if (!englishCheck.ok) {
+    for (const e of englishCheck.errors) {
+      errors.push(`PURE_ENGLISH_VIOLATION at ${e.path}: "${e.token}"`);
+    }
     return { ok: false, errors };
   }
 

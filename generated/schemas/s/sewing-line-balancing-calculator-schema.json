@@ -10,7 +10,6 @@
       "label": "Total SMV (Min)",
       "label_i18n": {
         "en": "Total SMV (Min)",
-        "tr": "Toplam SMV (Dk)",
         "de": "Gesamte SMV (Min)",
         "fr": "SMV total (Min)",
         "es": "SMV total (Min)",
@@ -23,7 +22,6 @@
       "businessContext": "Total standard minutes per product.",
       "businessContext_i18n": {
         "en": "Total standard minutes per product.",
-        "tr": "Urunun Total standart dakikasi.",
         "de": "Gesamte Standardminuten pro Produkt.",
         "fr": "Total des minutes standard par produit.",
         "es": "Total de minutos estándar por producto.",
@@ -35,7 +33,6 @@
       "label": "Target Takt Time (Min)",
       "label_i18n": {
         "en": "Target Takt Time (Min)",
-        "tr": "Hedef Takt Time (min)",
         "de": "Ziel-Taktzeit (Min)",
         "fr": "Temps de Takt cible (Min)",
         "es": "Tiempo Takt Objetivo (Min)",
@@ -48,7 +45,6 @@
       "businessContext": "Target time per unit.",
       "businessContext_i18n": {
         "en": "Target time per unit.",
-        "tr": "Unit uretim icin hedef sure.",
         "de": "Zielzeit pro Einheit.",
         "fr": "Temps cible par unité.",
         "es": "Tiempo objetivo por unidad.",
@@ -60,7 +56,6 @@
       "label": "Operator Count",
       "label_i18n": {
         "en": "Operator Count",
-        "tr": "Operator Numbersi",
         "de": "Anzahl der Bediener",
         "fr": "Nombre d'opérateurs",
         "es": "Número de Operadores",
@@ -73,7 +68,6 @@
       "businessContext": "Total operators on line.",
       "businessContext_i18n": {
         "en": "Total operators on line.",
-        "tr": "Hattaki Total operator.",
         "de": "Gesamtzahl der Bediener in der Linie.",
         "fr": "Nombre total d'opérateurs sur la ligne.",
         "es": "Total de operadores en la línea.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(smvToplam / Math.max(0.0001, (operator * taktTime))) * 100"
+    "result": "(smvToplam / Math.max(0.0001, (operator * taktTime))) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Dikis Hatti Efficiencyliligi"
+      "result": "Dikis Hatti Efficiencyliligi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Dikis Hatti Efficiencyliligi",
-        "tr": "Dikis Hatti Efficiencyliligi",
         "de": "Nahtlinien-Effizienz",
         "fr": "Efficacité de la ligne de couture",
         "es": "Eficiencia de la Línea de Costura",
@@ -124,7 +117,6 @@
       "long": "Calculate sewing line balancing efficiency per operator.",
       "short_i18n": {
         "en": "Calculate sewing line balancing efficiency per operator.",
-        "tr": "Konfeksiyon dikim hattinin operator bazli Efficiencyliligini hesaplar.",
         "de": "Berechnen Sie die Effizienz der Nählinienabstimmung pro Bediener.",
         "fr": "Calculer l'efficacité de l'équilibrage de la ligne de couture par opérateur.",
         "es": "Calcular la eficiencia del balanceo de la línea de costura por operario.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate sewing line balancing efficiency per operator.",
-        "tr": "Konfeksiyon dikim hattinin operator bazli Efficiencyliligini hesaplar.",
         "de": "Berechnen Sie die Effizienz der Nählinienabstimmung pro Bediener.",
         "fr": "Calculer l'efficacité de l'équilibrage de la ligne de couture par opérateur.",
         "es": "Calcular la eficiencia del balanceo de la línea de costura por operario.",

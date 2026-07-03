@@ -6,11 +6,10 @@
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
-      "id": "cap",
+      "id": "diameter",
       "label": "Pile Diameter (m)",
       "label_i18n": {
         "en": "Pile Diameter (m)",
-        "tr": "Kazik Diameteri (m)",
         "de": "Pfahldurchmesser (m)",
         "fr": "Diamètre du pieu (m)",
         "es": "Diámetro del Pilote (m)",
@@ -23,7 +22,6 @@
       "businessContext": "Pile diameter.",
       "businessContext_i18n": {
         "en": "Pile diameter.",
-        "tr": "Fore kazik Diameteri.",
         "de": "Pfahldurchmesser.",
         "fr": "Diamètre du pieu.",
         "es": "Diámetro del pilote.",
@@ -35,7 +33,6 @@
       "label": "Pile Length (m)",
       "label_i18n": {
         "en": "Pile Length (m)",
-        "tr": "Kazik Heightu (m)",
         "de": "Pfahllänge (m)",
         "fr": "Longueur du pieu (m)",
         "es": "Longitud del Pilote (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Pile length.",
       "businessContext_i18n": {
         "en": "Pile length.",
-        "tr": "Kazik Heightu.",
         "de": "Pfahllänge.",
         "fr": "Longueur du pieu.",
         "es": "Longitud del pilote.",
@@ -60,7 +56,6 @@
       "label": "Cohesion (kPa)",
       "label_i18n": {
         "en": "Cohesion (kPa)",
-        "tr": "Kohezyon (kPa)",
         "de": "Kohäsion",
         "fr": "Cohésion",
         "es": "Cohesión",
@@ -73,7 +68,6 @@
       "businessContext": "Soil cohesion.",
       "businessContext_i18n": {
         "en": "Soil cohesion.",
-        "tr": "Zemin kohezyonu.",
         "de": "Bodenkohäsion.",
         "fr": "Cohésion du sol.",
         "es": "Cohesión del suelo.",
@@ -85,7 +79,6 @@
       "label": "Skin Friction (kPa)",
       "label_i18n": {
         "en": "Skin Friction (kPa)",
-        "tr": "Cevre Surtunmesi (kPa)",
         "de": "Mantelreibung (kPa)",
         "fr": "Frottement latéral (kPa)",
         "es": "Fricción Superficial (kPa)",
@@ -98,7 +91,6 @@
       "businessContext": "Pile-soil skin friction.",
       "businessContext_i18n": {
         "en": "Pile-soil skin friction.",
-        "tr": "Kazik-zemin arasi surtunme.",
         "de": "Mantelreibung zwischen Pfahl und Boden.",
         "fr": "Frottement latéral pieu-sol.",
         "es": "Fricción superficial pilote-suelo.",
@@ -113,20 +105,19 @@
     "thresholds": {}
   },
   "formulas": {
-    "ucDayanimi": "(Math.PI * Math.pow(cap / 2, 2)) * (9 * kohezyon)",
-    "yuzeySuratmesi": "Math.PI * cap * boy * suratme",
-    "sonuc": "((Math.PI * Math.pow(cap / 2, 2)) * (9 * kohezyon)) + (Math.PI * cap * boy * suratme)"
+    "ucDayanimi": "(Math.PI * Math.pow(diameter / 2, 2)) * (9 * kohezyon)",
+    "yuzeySuratmesi": "Math.PI * diameter * boy * suratme",
+    "result": "((Math.PI * Math.pow(diameter / 2, 2)) * (9 * kohezyon)) + (Math.PI * diameter * boy * suratme)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kN",
     "breakdown": {
-      "sonuc": "Nihai Bearing Power"
+      "result": "Nihai Bearing Power"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Nihai Bearing Power",
-        "tr": "Nihai Bearing Power",
         "de": "Grenztragfähigkeit",
         "fr": "Capacité portante ultime",
         "es": "Capacidad de Carga Última",
@@ -153,7 +144,6 @@
       "long": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
       "short_i18n": {
         "en": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "tr": "Kazigin gocmeden tasiyabilecegi Maximum Axial Loadu hesaplar.",
         "de": "Berechnen Sie die axiale Grenztragfähigkeit eines Ortbetonpfahls.",
         "fr": "Calculer la capacité portante axiale ultime d'un pieu coulé en place.",
         "es": "Calcular la capacidad de carga axial última de un pilote colado in situ.",
@@ -161,7 +151,6 @@
       },
       "long_i18n": {
         "en": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "tr": "Kazigin gocmeden tasiyabilecegi Maximum Axial Loadu hesaplar.",
         "de": "Berechnen Sie die axiale Grenztragfähigkeit eines Ortbetonpfahls.",
         "fr": "Calculer la capacité portante axiale ultime d'un pieu coulé en place.",
         "es": "Calcular la capacidad de carga axial última de un pilote colado in situ.",

@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "cevre",
+      "id": "environment",
       "label": "Building Perimeter (m)",
       "label_i18n": {
         "en": "Building Perimeter (m)",
-        "tr": "Bina Cevresi (m)",
         "de": "Gebäudeumfang (m)",
         "fr": "Périmètre du bâtiment (m)",
         "es": "Perímetro del Edificio (m)",
@@ -23,7 +22,6 @@
       "businessContext": "Building perimeter.",
       "businessContext_i18n": {
         "en": "Building perimeter.",
-        "tr": "Binanin Total cevresi.",
         "de": "Gebäudeumfang.",
         "fr": "Périmètre du bâtiment.",
         "es": "Perímetro del edificio.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "genislik",
+      "id": "width",
       "label": "Eave Width (m)",
       "label_i18n": {
         "en": "Eave Width (m)",
-        "tr": "Sacak Genisligi (m)",
         "de": "Traufbreite (m)",
         "fr": "Largeur de l'avant-toit (m)",
         "es": "Ancho del Alero (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Eave overhang width.",
       "businessContext_i18n": {
         "en": "Eave overhang width.",
-        "tr": "Sacak cikinti genisligi.",
         "de": "Traufuberstandsbreite.",
         "fr": "Largeur du débord de l'avant-toit.",
         "es": "Ancho del voladizo del alero.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "cevre * genislik"
+    "result": "environment * width"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m2",
     "breakdown": {
-      "sonuc": "Sacak Alti Areai"
+      "result": "Sacak Alti Areai"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Sacak Alti Areai",
-        "tr": "Sacak Alti Areai",
         "de": "Traufbereichsfläche",
         "fr": "Surface sous l'avant-toit",
         "es": "Área Bajo el Alero",
@@ -99,7 +94,6 @@
       "long": "Calculate soffit area under roof eaves for cladding.",
       "short_i18n": {
         "en": "Calculate soffit area under roof eaves for cladding.",
-        "tr": "Cati sacak altinin kaplanacak Net yuzey Areaini hesaplar.",
         "de": "Berechnen Sie die Untersichtsfläche unter der Dachtraufe fur die Verkleidung.",
         "fr": "Calculer la surface de sous-face sous les avant-toits pour le revêtement.",
         "es": "Calcular el área de sofito bajo los aleros del techo para revestimiento.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate soffit area under roof eaves for cladding.",
-        "tr": "Cati sacak altinin kaplanacak Net yuzey Areaini hesaplar.",
         "de": "Berechnen Sie die Untersichtsfläche unter der Dachtraufe fur die Verkleidung.",
         "fr": "Calculer la surface de sous-face sous les avant-toits pour le revêtement.",
         "es": "Calcular el área de sofito bajo los aleros del techo para revestimiento.",

@@ -10,7 +10,6 @@
       "label": "X1",
       "label_i18n": {
         "en": "X1",
-        "tr": "X1",
         "de": "X1",
         "fr": "X1",
         "es": "X1",
@@ -23,7 +22,6 @@
       "businessContext": "X variable.",
       "businessContext_i18n": {
         "en": "X variable.",
-        "tr": "X degiskeni.",
         "de": "X-Variable.",
         "fr": "Variable X.",
         "es": "Variable X.",
@@ -35,7 +33,6 @@
       "label": "Y1",
       "label_i18n": {
         "en": "Y1",
-        "tr": "Y1",
         "de": "Y1",
         "fr": "Y1",
         "es": "Y1",
@@ -48,7 +45,6 @@
       "businessContext": "Y variable.",
       "businessContext_i18n": {
         "en": "Y variable.",
-        "tr": "Y degiskeni.",
         "de": "Y-Variable.",
         "fr": "Variable Y.",
         "es": "Variable Y.",
@@ -60,7 +56,6 @@
       "label": "X2",
       "label_i18n": {
         "en": "X2",
-        "tr": "X2",
         "de": "X2",
         "fr": "X2",
         "es": "X2",
@@ -73,7 +68,6 @@
       "businessContext": "X variable.",
       "businessContext_i18n": {
         "en": "X variable.",
-        "tr": "X degiskeni.",
         "de": "X-Variable.",
         "fr": "Variable X.",
         "es": "Variable X.",
@@ -85,7 +79,6 @@
       "label": "Y2",
       "label_i18n": {
         "en": "Y2",
-        "tr": "Y2",
         "de": "Y2",
         "fr": "Y2",
         "es": "Y2",
@@ -98,7 +91,6 @@
       "businessContext": "Y variable.",
       "businessContext_i18n": {
         "en": "Y variable.",
-        "tr": "Y degiskeni.",
         "de": "Y-Variable.",
         "fr": "Variable Y.",
         "es": "Variable Y.",
@@ -110,7 +102,6 @@
       "label": "X3",
       "label_i18n": {
         "en": "X3",
-        "tr": "X3",
         "de": "X3",
         "fr": "X3",
         "es": "X3",
@@ -123,7 +114,6 @@
       "businessContext": "X variable.",
       "businessContext_i18n": {
         "en": "X variable.",
-        "tr": "X degiskeni.",
         "de": "X-Variable.",
         "fr": "Variable X.",
         "es": "Variable X.",
@@ -135,7 +125,6 @@
       "label": "Y3",
       "label_i18n": {
         "en": "Y3",
-        "tr": "Y3",
         "de": "Y3",
         "fr": "Y3",
         "es": "Y3",
@@ -148,7 +137,6 @@
       "businessContext": "Y variable.",
       "businessContext_i18n": {
         "en": "Y variable.",
-        "tr": "Y degiskeni.",
         "de": "Y-Variable.",
         "fr": "Variable Y.",
         "es": "Variable Y.",
@@ -169,18 +157,17 @@
     "sxy": "x1*y1+x2*y2+x3*y3",
     "sxx": "x1*x1+x2*x2+x3*x3",
     "syy": "y1*y1+y2*y2+y3*y3",
-    "sonuc": "(3*(x1*y1+x2*y2+x3*y3)-(x1+x2+x3)*(y1+y2+y3))/Math.sqrt(Math.max(0.0001,(3*(x1*x1+x2*x2+x3*x3)-(x1+x2+x3)*(x1+x2+x3))*(3*(y1*y1+y2*y2+y3*y3)-(y1+y2+y3)*(y1+y2+y3))))"
+    "result": "(3*(x1*y1+x2*y2+x3*y3)-(x1+x2+x3)*(y1+y2+y3))/Math.sqrt(Math.max(0.0001,(3*(x1*x1+x2*x2+x3*x3)-(x1+x2+x3)*(x1+x2+x3))*(3*(y1*y1+y2*y2+y3*y3)-(y1+y2+y3)*(y1+y2+y3))))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "r-value",
     "breakdown": {
-      "sonuc": "Korelasyon (r)"
+      "result": "Korelasyon (r)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Korelasyon (r)",
-        "tr": "Korelasyon (r)",
         "de": "Korrelation (r)",
         "fr": "Corrélation (r)",
         "es": "Correlación (r)",
@@ -205,7 +192,6 @@
       "long": "Calculate correlation coefficient and linear regression slope.",
       "short_i18n": {
         "en": "Calculate correlation coefficient and linear regression slope.",
-        "tr": "Iki degisken arasi iliski gucunu (korelasyon) ve dogrusal regresyon egimini hesaplar.",
         "de": "Korrelationskoeffizient und lineare Regressionssteigung berechnen.",
         "fr": "Calculer le coefficient de corrélation et la pente de régression linéaire.",
         "es": "Calcular el coeficiente de correlación y la pendiente de regresión lineal.",
@@ -213,7 +199,6 @@
       },
       "long_i18n": {
         "en": "Calculate correlation coefficient and linear regression slope.",
-        "tr": "Iki degisken arasi iliski gucunu (korelasyon) ve dogrusal regresyon egimini hesaplar.",
         "de": "Korrelationskoeffizient und lineare Regressionssteigung berechnen.",
         "fr": "Calculer le coefficient de corrélation et la pente de régression linéaire.",
         "es": "Calcular el coeficiente de correlación y la pendiente de regresión lineal.",

@@ -10,7 +10,6 @@
       "label": "Projected Area (cm²)",
       "label_i18n": {
         "en": "Projected Area (cm²)",
-        "tr": "Projeksiyon Area (cm²)",
         "de": "Projizierte Fläche (cm²)",
         "fr": "Surface projetée (cm²)",
         "es": "Área Proyectada (cm²)",
@@ -23,7 +22,6 @@
       "businessContext": "Part projected area on mold.",
       "businessContext_i18n": {
         "en": "Part projected area on mold.",
-        "tr": "Parcanin kalip ayrisma yuzeyindeki izdusum Areai.",
         "de": "Projizierte Fläche des Teils auf der Form.",
         "fr": "Surface projetée de la pièce sur le moule.",
         "es": "Área proyectada de la pieza en el molde.",
@@ -35,7 +33,6 @@
       "label": "Cavity Pressure (bar)",
       "label_i18n": {
         "en": "Cavity Pressure (bar)",
-        "tr": "Kalip Ici Basinc (bar)",
         "de": "Kavitätsdruck (bar)",
         "fr": "Pression en cavité (bar)",
         "es": "Presión de Cavidad (bar)",
@@ -48,7 +45,6 @@
       "businessContext": "Melt cavity pressure.",
       "businessContext_i18n": {
         "en": "Melt cavity pressure.",
-        "tr": "Ergiyik plastigin kalip icindeki basinci.",
         "de": "Schmelzedruck in der Kavität.",
         "fr": "Pression de la cavité de matière fondue.",
         "es": "Presión de la cavidad del fundido.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(projeksiyonAlani * kalipIcBasinc) / 1000"
+    "result": "(projeksiyonAlani * kalipIcBasinc) / 1000"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "tons",
     "breakdown": {
-      "sonuc": "Gerekli Kilit Tonaji"
+      "result": "Gerekli Kilit Tonaji"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Kilit Tonaji",
-        "tr": "Gerekli Kilit Tonaji",
         "de": "Erforderliche Schließkraft",
         "fr": "Tonage de verrouillage requis",
         "es": "Tonelaje de Cierre Requerido",
@@ -101,7 +96,6 @@
       "long": "Calculate minimum clamping force for injection molding press.",
       "short_i18n": {
         "en": "Calculate minimum clamping force for injection molding press.",
-        "tr": "Kalibin acilmasini onlemek icin gereken Minimum pres baglama Forceini hesaplar.",
         "de": "Berechnen Sie die minimale Schließkraft fur eine Spritzgießmaschine.",
         "fr": "Calculer la force de serrage minimale pour une presse d'injection plastique.",
         "es": "Calcular la fuerza de cierre mínima para una prensa de moldeo por inyección.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum clamping force for injection molding press.",
-        "tr": "Kalibin acilmasini onlemek icin gereken Minimum pres baglama Forceini hesaplar.",
         "de": "Berechnen Sie die minimale Schließkraft fur eine Spritzgießmaschine.",
         "fr": "Calculer la force de serrage minimale pour une presse d'injection plastique.",
         "es": "Calcular la fuerza de cierre mínima para una prensa de moldeo por inyección.",

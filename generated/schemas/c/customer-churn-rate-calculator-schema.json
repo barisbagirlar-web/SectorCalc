@@ -10,7 +10,6 @@
       "label": "Start Customers",
       "label_i18n": {
         "en": "Start Customers",
-        "tr": "Donem Basi Musteri",
         "de": "Startkunden",
         "fr": "Clients de départ",
         "es": "Clientes Iniciales",
@@ -23,7 +22,6 @@
       "businessContext": "Active customers at start.",
       "businessContext_i18n": {
         "en": "Active customers at start.",
-        "tr": "Donem basi aktif musteri.",
         "de": "Aktive Kunden zu Beginn.",
         "fr": "Clients actifs au début.",
         "es": "Clientes activos al inicio.",
@@ -35,7 +33,6 @@
       "label": "Lost Customers",
       "label_i18n": {
         "en": "Lost Customers",
-        "tr": "Kaybedilen Musteri",
         "de": "Verlorene Kunden",
         "fr": "Clients perdus",
         "es": "Clientes Perdidos",
@@ -48,7 +45,6 @@
       "businessContext": "Customers lost during period.",
       "businessContext_i18n": {
         "en": "Customers lost during period.",
-        "tr": "Donemde Kaybedilen Musteri.",
         "de": "Im Zeitraum verlorene Kunden.",
         "fr": "Clients perdus pendant la période.",
         "es": "Clientes perdidos durante el período.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(kaybedilen / Math.max(1, donemBasi)) * 100"
+    "result": "(kaybedilen / Math.max(1, donemBasi)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Musteri Kaybi (Churn)"
+      "result": "Musteri Kaybi (Churn)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Musteri Kaybi (Churn)",
-        "tr": "Musteri Kaybi (Churn)",
         "de": "Kundenabwanderung (Churn)",
         "fr": "Taux d'attrition client (Churn)",
         "es": "Tasa de Abandono (Churn)",
@@ -99,7 +94,6 @@
       "long": "Calculate customer churn rate.",
       "short_i18n": {
         "en": "Calculate customer churn rate.",
-        "tr": "Aboneligini iptal eden musteri Ratioini (churn) hesaplar.",
         "de": "Kundenabwanderungsrate berechnen.",
         "fr": "Calculer le taux d'attrition client.",
         "es": "Calcular la tasa de abandono de clientes.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate customer churn rate.",
-        "tr": "Aboneligini iptal eden musteri Ratioini (churn) hesaplar.",
         "de": "Kundenabwanderungsrate berechnen.",
         "fr": "Calculer le taux d'attrition client.",
         "es": "Calcular la tasa de abandono de clientes.",

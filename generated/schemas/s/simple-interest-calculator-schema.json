@@ -10,7 +10,6 @@
       "label": "Principal (USD)",
       "label_i18n": {
         "en": "Principal (USD)",
-        "tr": "Anapara (₺)",
         "de": "Anfangskapital",
         "fr": "Capital initial",
         "es": "Capital inicial",
@@ -23,7 +22,6 @@
       "businessContext": "Principal amount for interest calculation.",
       "businessContext_i18n": {
         "en": "Principal amount for interest calculation.",
-        "tr": "Faiz hesaplanacak ana para.",
         "de": "Kapitalbetrag fur die Zinsberechnung.",
         "fr": "Montant du capital pour le calcul des intérêts.",
         "es": "Monto principal para el cálculo de intereses.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "faiz",
+      "id": "interest",
       "label": "Interest Rate (%)",
       "label_i18n": {
         "en": "Interest Rate (%)",
-        "tr": "Interest Ratio (%)",
         "de": "Zinssatz (%)",
         "fr": "Taux d'intérêt (%)",
         "es": "Tasa de Interés (%)",
@@ -48,7 +45,6 @@
       "businessContext": "Annual interest rate.",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
-        "tr": "Annual Interest Rate.",
         "de": "Nominaler jährlicher Zinssatz.",
         "fr": "Taux d'intérêt annuel nominal.",
         "es": "Tasa de interés anual nominal.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "sure",
+      "id": "duration",
       "label": "Time (Years)",
       "label_i18n": {
         "en": "Time (Years)",
-        "tr": "Duration (Year)",
         "de": "Uberstundenzuschlag einbeziehen",
         "fr": "Inclure la pénalité pour heures supplémentaires",
         "es": "Incluir Penalización por Horas Extra",
@@ -73,7 +68,6 @@
       "businessContext": "Number of years for interest accrual.",
       "businessContext_i18n": {
         "en": "Number of years for interest accrual.",
-        "tr": "Faiz uygulanacak Year Count.",
         "de": "Anzahl der Jahre fur die Zinsabgrenzung.",
         "fr": "Nombre d'années pour l'accumulation des intérêts.",
         "es": "Número de años para la acumulación de intereses.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "anapara * (faiz / 100) * sure"
+    "result": "anapara * (interest / 100) * duration"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Basit Faiz Tutari"
+      "result": "Basit Faiz Tutari"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Basit Faiz Tutari",
-        "tr": "Basit Faiz Tutari",
         "de": "Einfacher Zinsbetrag",
         "fr": "Montant des intérêts simples",
         "es": "Monto de Interés Simple",
@@ -124,7 +117,6 @@
       "long": "Calculate simple interest earned on principal only.",
       "short_i18n": {
         "en": "Calculate simple interest earned on principal only.",
-        "tr": "Sadece Principal uzerinden Calculated basit faiz gelirini hesaplar.",
         "de": "Berechnen Sie die einfachen Zinsen, die nur auf das Kapital anfallen.",
         "fr": "Calculer les intérêts simples gagnés sur le capital uniquement.",
         "es": "Calcular el interés simple ganado solo sobre el capital.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate simple interest earned on principal only.",
-        "tr": "Sadece Principal uzerinden Calculated basit faiz gelirini hesaplar.",
         "de": "Berechnen Sie die einfachen Zinsen, die nur auf das Kapital anfallen.",
         "fr": "Calculer les intérêts simples gagnés sur le capital uniquement.",
         "es": "Calcular el interés simple ganado solo sobre el capital.",

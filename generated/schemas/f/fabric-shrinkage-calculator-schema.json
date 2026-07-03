@@ -10,7 +10,6 @@
       "label": "Greige Dimension (cm)",
       "label_i18n": {
         "en": "Greige Dimension (cm)",
-        "tr": "Ham Olcu (cm)",
         "de": "Rohmaß (cm)",
         "fr": "Dimension grège (cm)",
         "es": "Dimensión en crudo (cm)",
@@ -23,7 +22,6 @@
       "businessContext": "Pre-processing fabric size.",
       "businessContext_i18n": {
         "en": "Pre-processing fabric size.",
-        "tr": "Worklem oncesi kumas olcusu.",
         "de": "Stoffgroße vor der Verarbeitung.",
         "fr": "Taille du tissu avant traitement.",
         "es": "Tamaño de la tela antes del procesamiento.",
@@ -35,7 +33,6 @@
       "label": "Finished Dimension (cm)",
       "label_i18n": {
         "en": "Finished Dimension (cm)",
-        "tr": "Bitmis Olcu (cm)",
         "de": "Endmaß (cm)",
         "fr": "Dimension finie (cm)",
         "es": "Dimensión acabada (cm)",
@@ -48,7 +45,6 @@
       "businessContext": "Post-processing fabric size.",
       "businessContext_i18n": {
         "en": "Post-processing fabric size.",
-        "tr": "Worklem sonrasi kumas olcusu.",
         "de": "Stoffgroße nach der Verarbeitung.",
         "fr": "Taille du tissu après traitement.",
         "es": "Tamaño de la tela después del procesamiento.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "((hamOlcu - bitmisOlcu) / Math.max(0.0001, hamOlcu)) * 100"
+    "result": "((hamOlcu - bitmisOlcu) / Math.max(0.0001, hamOlcu)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Tmostsion Ratio"
+      "result": "Tmostsion Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tmostsion Ratio",
-        "tr": "Tmostsion Ratio",
         "de": "Ziehverhältnis",
         "fr": "Taux de retrait",
         "es": "Relación de estirado",
@@ -101,7 +96,6 @@
       "long": "Calculate fabric shrinkage percentage after processing.",
       "short_i18n": {
         "en": "Calculate fabric shrinkage percentage after processing.",
-        "tr": "Proses sonrasi kumastaki Dimensionsal daralma Ratioini (cekme) hesaplar.",
         "de": "Berechnen Sie den Stoffschrumpfprozentsatz nach der Verarbeitung.",
         "fr": "Calculer le pourcentage de retrait du tissu après traitement.",
         "es": "Calcule el porcentaje de encogimiento de la tela después del procesamiento.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate fabric shrinkage percentage after processing.",
-        "tr": "Proses sonrasi kumastaki Dimensionsal daralma Ratioini (cekme) hesaplar.",
         "de": "Berechnen Sie den Stoffschrumpfprozentsatz nach der Verarbeitung.",
         "fr": "Calculer le pourcentage de retrait du tissu après traitement.",
         "es": "Calcule el porcentaje de encogimiento de la tela después del procesamiento.",

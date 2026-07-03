@@ -10,7 +10,6 @@
       "label": "Wall Thickness (mm)",
       "label_i18n": {
         "en": "Wall Thickness (mm)",
-        "tr": "Et Thickness (mm)",
         "de": "Wanddicke",
         "fr": "Épaisseur du mur",
         "es": "Espesor de pared",
@@ -23,7 +22,6 @@
       "businessContext": "Average part wall thickness.",
       "businessContext_i18n": {
         "en": "Average part wall thickness.",
-        "tr": "Parcanin Mean Wall Thickness.",
         "de": "Durchschnittliche Wanddicke des Teils.",
         "fr": "Épaisseur moyenne de la paroi de la pièce.",
         "es": "Espesor promedio de la pared de la pieza.",
@@ -35,7 +33,6 @@
       "label": "Thermal Diffusivity (mm²/s)",
       "label_i18n": {
         "en": "Thermal Diffusivity (mm²/s)",
-        "tr": "Thermal Diffusivity (mm²/s)",
         "de": "Temperaturleitfähigkeit (mm²/s)",
         "fr": "Diffusivité thermique (mm²/s)",
         "es": "Difusividad Térmica (mm²/s)",
@@ -48,7 +45,6 @@
       "businessContext": "Polymer thermal diffusivity.",
       "businessContext_i18n": {
         "en": "Polymer thermal diffusivity.",
-        "tr": "Polimerin Thermal Diffusivityu.",
         "de": "Temperaturleitfähigkeit des Polymers.",
         "fr": "Diffusivité thermique du polymère.",
         "es": "Difusividad térmica del polímero.",
@@ -60,7 +56,6 @@
       "label": "Melt Temperature (°C)",
       "label_i18n": {
         "en": "Melt Temperature (°C)",
-        "tr": "Erime Temperature (°C)",
         "de": "Schmelztemperatur (°C)",
         "fr": "Température de fusion (°C)",
         "es": "Temperatura de Fusión (°C)",
@@ -73,7 +68,6 @@
       "businessContext": "Melt temperature.",
       "businessContext_i18n": {
         "en": "Melt temperature.",
-        "tr": "Polimerin ergime sicakligi.",
         "de": "Schmelztemperatur.",
         "fr": "Température de fusion.",
         "es": "Temperatura de fusión.",
@@ -85,7 +79,6 @@
       "label": "Mold Temperature (°C)",
       "label_i18n": {
         "en": "Mold Temperature (°C)",
-        "tr": "Formwork Temperature (°C)",
         "de": "Werkzeugtemperatur (°C)",
         "fr": "Température du moule (°C)",
         "es": "Temperatura del Molde (°C)",
@@ -98,7 +91,6 @@
       "businessContext": "Mold surface temperature.",
       "businessContext_i18n": {
         "en": "Mold surface temperature.",
-        "tr": "Kalip yuzey sicakligi.",
         "de": "Werkzeugoberflächentemperatur.",
         "fr": "Température de surface du moule.",
         "es": "Temperatura de la superficie del molde.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(Math.pow(etKalinlik, 2) / (Math.pow(Math.PI, 2) * Math.max(0.0001, termalDifuzyon))) * Math.log(Math.max(0.0001, (4 / Math.PI) * (erimeSicaklik - kalipSicaklik) / Math.max(0.0001, (50 - kalipSicaklik))))"
+    "result": "(Math.pow(etKalinlik, 2) / (Math.pow(Math.PI, 2) * Math.max(0.0001, termalDifuzyon))) * Math.log(Math.max(0.0001, (4 / Math.PI) * (erimeSicaklik - kalipSicaklik) / Math.max(0.0001, (50 - kalipSicaklik))))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Cooling Time"
+      "result": "Cooling Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Cooling Time",
-        "tr": "Cooling Time",
         "de": "Kuhlzeit",
         "fr": "Temps de refroidissement",
         "es": "Tiempo de Enfriamiento",
@@ -151,7 +142,6 @@
       "long": "Calculate cooling time for plastic part to reach ejection temperature.",
       "short_i18n": {
         "en": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "tr": "Parcanin kaliptan cikarilabilir sicakliga inme suresini hesaplar.",
         "de": "Berechnen Sie die Kuhlzeit fur ein Kunststoffteil bis zur Entformungstemperatur.",
         "fr": "Calculer le temps de refroidissement d'une pièce en plastique pour atteindre la température d'éjection.",
         "es": "Calcular el tiempo de enfriamiento para que una pieza de plástico alcance la temperatura de expulsión.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "tr": "Parcanin kaliptan cikarilabilir sicakliga inme suresini hesaplar.",
         "de": "Berechnen Sie die Kuhlzeit fur ein Kunststoffteil bis zur Entformungstemperatur.",
         "fr": "Calculer le temps de refroidissement d'une pièce en plastique pour atteindre la température d'éjection.",
         "es": "Calcular el tiempo de enfriamiento para que una pieza de plástico alcance la temperatura de expulsión.",

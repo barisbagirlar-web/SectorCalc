@@ -10,7 +10,6 @@
       "label": "Number of Trays",
       "label_i18n": {
         "en": "Number of Trays",
-        "tr": "Tava Count (Quantity/lot)",
         "de": "Anzahl der Tabletts",
         "fr": "Nombre de plateaux",
         "es": "Número de bandejas",
@@ -23,7 +22,6 @@
       "businessContext": "Trays per batch.",
       "businessContext_i18n": {
         "en": "Trays per batch.",
-        "tr": "Firina giren tava Numbersi.",
         "de": "Tabletts pro Charge.",
         "fr": "Plateaux par lot.",
         "es": "Bandejas por lote.",
@@ -35,7 +33,6 @@
       "label": "Tray Capacity (kg)",
       "label_i18n": {
         "en": "Tray Capacity (kg)",
-        "tr": "Tava Kapasitesi (kg)",
         "de": "Tablettkapazität (kg)",
         "fr": "Capacité du plateau (kg)",
         "es": "Capacidad de la bandeja (kg)",
@@ -48,7 +45,6 @@
       "businessContext": "Product per tray.",
       "businessContext_i18n": {
         "en": "Product per tray.",
-        "tr": "Her tavadaki Crop Yield.",
         "de": "Produkt pro Tablett.",
         "fr": "Produit par plateau.",
         "es": "Producto por bandeja.",
@@ -60,7 +56,6 @@
       "label": "Baking Time (min)",
       "label_i18n": {
         "en": "Baking Time (min)",
-        "tr": "Pisme Suresi (dk)",
         "de": "Backzeit (min)",
         "fr": "Temps de cuisson (min)",
         "es": "Tiempo de horneado (min)",
@@ -73,7 +68,6 @@
       "businessContext": "Baking time per batch.",
       "businessContext_i18n": {
         "en": "Baking time per batch.",
-        "tr": "Bir lot pisme suresi.",
         "de": "Backzeit pro Charge.",
         "fr": "Temps de cuisson par lot.",
         "es": "Tiempo de horneado por lote.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(tavaSayisi * tavaKapasite * 60) / Math.max(0.0001, pismeSure)"
+    "result": "(tavaSayisi * tavaKapasite * 60) / Math.max(0.0001, pismeSure)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kg/h",
     "breakdown": {
-      "sonuc": "Oven Capacity"
+      "result": "Oven Capacity"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Oven Capacity",
-        "tr": "Oven Capacity",
         "de": "Ofenkapazität",
         "fr": "Capacité du four",
         "es": "Capacidad del Horno",
@@ -126,7 +119,6 @@
       "long": "Calculate oven hourly baking capacity.",
       "short_i18n": {
         "en": "Calculate oven hourly baking capacity.",
-        "tr": "Firinin saatlik Net pisirme ciktisini (kapasite) hesaplar.",
         "de": "Berechnen Sie die stundliche Backkapazität des Ofens.",
         "fr": "Calculer la capacité horaire de cuisson du four.",
         "es": "Calcular la capacidad horaria de horneado del horno.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate oven hourly baking capacity.",
-        "tr": "Firinin saatlik Net pisirme ciktisini (kapasite) hesaplar.",
         "de": "Berechnen Sie die stundliche Backkapazität des Ofens.",
         "fr": "Calculer la capacité horaire de cuisson du four.",
         "es": "Calcular la capacidad horaria de horneado del horno.",

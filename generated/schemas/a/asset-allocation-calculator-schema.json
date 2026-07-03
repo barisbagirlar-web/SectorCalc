@@ -10,7 +10,6 @@
       "label": "Total Portfolio (USD)",
       "label_i18n": {
         "en": "Total Portfolio (USD)",
-        "tr": "Total Portfoy (₺)",
         "de": "Gesamtportfolio (USD)",
         "fr": "Portefeuille total (USD)",
         "es": "Cartera Total (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Total investment portfolio value.",
       "businessContext_i18n": {
         "en": "Total investment portfolio value.",
-        "tr": "Yatirim portfoyunun Total Valuei.",
         "de": "Gesamtwert des Anlageportfolios.",
         "fr": "Valeur totale du portefeuille d'investissement.",
         "es": "Valor total de la cartera de inversiones.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "hisse",
+      "id": "share",
       "label": "Stocks (%)",
       "label_i18n": {
         "en": "Stocks (%)",
-        "tr": "Hisse Senedi (%)",
         "de": "Aktien (%)",
         "fr": "Actions (%)",
         "es": "Acciones (%)",
@@ -49,7 +46,6 @@
       "businessContext": "Target stock allocation percentage.",
       "businessContext_i18n": {
         "en": "Target stock allocation percentage.",
-        "tr": "Portfoydeki hisse senedi hedef Ratioi.",
         "de": "Zielprozentsatz der Aktienallokation.",
         "fr": "Pourcentage d'allocation cible en actions.",
         "es": "Porcentaje objetivo de asignación de acciones.",
@@ -57,11 +53,10 @@
       }
     },
     {
-      "id": "tahvil",
+      "id": "bond",
       "label": "Bonds (%)",
       "label_i18n": {
         "en": "Bonds (%)",
-        "tr": "Tahvil/Bono (%)",
         "de": "Anleihen (%)",
         "fr": "Obligations (%)",
         "es": "Bonos (%)",
@@ -75,7 +70,6 @@
       "businessContext": "Target bond allocation percentage.",
       "businessContext_i18n": {
         "en": "Target bond allocation percentage.",
-        "tr": "Portfoydeki tahvil hedef Ratioi.",
         "de": "Zielprozentsatz der Anleihenallokation.",
         "fr": "Pourcentage d'allocation cible en obligations.",
         "es": "Porcentaje objetivo de asignación de bonos.",
@@ -87,7 +81,6 @@
       "label": "Cash (%)",
       "label_i18n": {
         "en": "Cash (%)",
-        "tr": "Nakit (%)",
         "de": "Jährlicher Mittelzufluss",
         "fr": "Entrée de trésorerie annuelle",
         "es": "Entrada de efectivo anual",
@@ -101,7 +94,6 @@
       "businessContext": "Target cash allocation percentage.",
       "businessContext_i18n": {
         "en": "Target cash allocation percentage.",
-        "tr": "Portfoydeki nakit hedef Ratioi.",
         "de": "Zielprozentsatz der Bargeldallokation.",
         "fr": "Pourcentage d'allocation cible en liquidités.",
         "es": "Porcentaje objetivo de asignación de efectivo.",
@@ -116,38 +108,35 @@
     "thresholds": {}
   },
   "formulas": {
-    "hisseTutar": "portfoy * (hisse / 100)",
-    "tahvilTutar": "portfoy * (tahvil / 100)",
-    "sonuc": "portfoy * (nakit / 100)"
+    "shareAmount": "portfoy * (share / 100)",
+    "bondAmount": "portfoy * (bond / 100)",
+    "result": "portfoy * (nakit / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "hisseTutar": "Hisse Senedi Tutari",
-      "tahvilTutar": "Tahvil Tutari",
-      "sonuc": "Nakit Tutari"
+      "shareAmount": "Hisse Senedi Tutari",
+      "bondAmount": "Tahvil Tutari",
+      "result": "Nakit Tutari"
     },
     "breakdown_i18n": {
-      "hisseTutar": {
+      "shareAmount": {
         "en": "Hisse Senedi Tutari",
-        "tr": "Hisse Senedi Tutari",
         "de": "Aktienbetrag",
         "fr": "Montant des actions",
         "es": "Monto en Acciones",
         "ar": "قيمة الأسهم"
       },
-      "tahvilTutar": {
+      "bondAmount": {
         "en": "Tahvil Tutari",
-        "tr": "Tahvil Tutari",
         "de": "Anleihebetrag",
         "fr": "Montant des obligations",
         "es": "Monto en Bonos",
         "ar": "قيمة السندات"
       },
-      "sonuc": {
+      "result": {
         "en": "Nakit Tutari",
-        "tr": "Nakit Tutari",
         "de": "Bargeldbetrag",
         "fr": "Montant des liquidités",
         "es": "Monto en Efectivo",
@@ -174,7 +163,6 @@
       "long": "Allocate portfolio across asset classes based on target percentages.",
       "short_i18n": {
         "en": "Allocate portfolio across asset classes based on target percentages.",
-        "tr": "Portfoyun hedeflenen varlik siniflarina bolunmesini hesaplar.",
         "de": "Portfolio auf Anlageklassen basierend auf Zielprozentsätzen aufteilen.",
         "fr": "Allouer le portefeuille entre les classes d'actifs en fonction des pourcentages cibles.",
         "es": "Asignar la cartera entre clases de activos según porcentajes objetivo.",
@@ -182,7 +170,6 @@
       },
       "long_i18n": {
         "en": "Allocate portfolio across asset classes based on target percentages.",
-        "tr": "Portfoyun hedeflenen varlik siniflarina bolunmesini hesaplar.",
         "de": "Portfolio auf Anlageklassen basierend auf Zielprozentsätzen aufteilen.",
         "fr": "Allouer le portefeuille entre les classes d'actifs en fonction des pourcentages cibles.",
         "es": "Asignar la cartera entre clases de activos según porcentajes objetivo.",

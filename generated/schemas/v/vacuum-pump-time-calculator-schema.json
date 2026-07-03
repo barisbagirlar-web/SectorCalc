@@ -10,7 +10,6 @@
       "label": "Bag Volume (m³)",
       "label_i18n": {
         "en": "Bag Volume (m³)",
-        "tr": "Poset Hacmi (m³)",
         "de": "Beutelvolumen (m³)",
         "fr": "Volume du sac (m³)",
         "es": "Volumen de la Bolsa (m³)",
@@ -23,7 +22,6 @@
       "businessContext": "Package volume.",
       "businessContext_i18n": {
         "en": "Package volume.",
-        "tr": "Paket hacmi.",
         "de": "Paketvolumen.",
         "fr": "Volume du colis.",
         "es": "Volumen del paquete.",
@@ -35,7 +33,6 @@
       "label": "Pump Flow (m³/s)",
       "label_i18n": {
         "en": "Pump Flow (m³/s)",
-        "tr": "Pompa Debisi (m³/s)",
         "de": "Pumpenfluss (m³/s)",
         "fr": "Débit de la pompe (m³/s)",
         "es": "Caudal de la Bomba (m³/s)",
@@ -48,7 +45,6 @@
       "businessContext": "Vacuum pump flow.",
       "businessContext_i18n": {
         "en": "Vacuum pump flow.",
-        "tr": "Vakum pompasi Flow Ratesi.",
         "de": "Vakuumpumpenfluss.",
         "fr": "Débit de la pompe à vide.",
         "es": "Flujo de la bomba de vacío.",
@@ -60,7 +56,6 @@
       "label": "Initial Pressure (Pa)",
       "label_i18n": {
         "en": "Initial Pressure (Pa)",
-        "tr": "Baslangic Basinci (Pa)",
         "de": "Anfangsdruck (Pa)",
         "fr": "Pression initiale (Pa)",
         "es": "Presión Inicial (Pa)",
@@ -73,7 +68,6 @@
       "businessContext": "Atmospheric pressure.",
       "businessContext_i18n": {
         "en": "Atmospheric pressure.",
-        "tr": "Atmosfer basinci.",
         "de": "Atmosphärendruck.",
         "fr": "Pression atmosphérique.",
         "es": "Presión atmosférica.",
@@ -85,7 +79,6 @@
       "label": "Target Pressure (Pa)",
       "label_i18n": {
         "en": "Target Pressure (Pa)",
-        "tr": "Hedef Pressure (Pa)",
         "de": "Zieldruck (Pa)",
         "fr": "Pression cible (Pa)",
         "es": "Presión objetivo (Pa)",
@@ -98,7 +91,6 @@
       "businessContext": "Target vacuum pressure.",
       "businessContext_i18n": {
         "en": "Target vacuum pressure.",
-        "tr": "Hedef vakum basinci.",
         "de": "Zielvakuumdruck.",
         "fr": "Pression de vide cible.",
         "es": "Presión de vacío objetivo.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(posetHacim / Math.max(0.0001, pompaDebi)) * Math.log(Math.max(0.0001, baslangicBasinc / Math.max(0.0001, hedefBasinc)))"
+    "result": "(posetHacim / Math.max(0.0001, pompaDebi)) * Math.log(Math.max(0.0001, baslangicBasinc / Math.max(0.0001, hedefBasinc)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Vakum Time"
+      "result": "Vakum Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Vakum Time",
-        "tr": "Vakum Time",
         "de": "Vacuum Time",
         "fr": "Durée de vide",
         "es": "Tiempo de Vacío",
@@ -151,7 +142,6 @@
       "long": "Calculate vacuum pump time to reach target pressure.",
       "short_i18n": {
         "en": "Calculate vacuum pump time to reach target pressure.",
-        "tr": "Istenen vakum seviyesine ulasmak icin gereken pompa Operating Timeni hesaplar.",
         "de": "Berechnen Sie die Zeit der Vakuumpumpe, um den Zieldruck zu erreichen.",
         "fr": "Calculer le temps de pompage sous vide pour atteindre la pression cible.",
         "es": "Calcular el tiempo de la bomba de vacío para alcanzar la presión objetivo.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate vacuum pump time to reach target pressure.",
-        "tr": "Istenen vakum seviyesine ulasmak icin gereken pompa Operating Timeni hesaplar.",
         "de": "Berechnen Sie die Zeit der Vakuumpumpe, um den Zieldruck zu erreichen.",
         "fr": "Calculer le temps de pompage sous vide pour atteindre la pression cible.",
         "es": "Calcular el tiempo de la bomba de vacío para alcanzar la presión objetivo.",

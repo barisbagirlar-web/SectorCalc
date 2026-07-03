@@ -10,7 +10,6 @@
       "label": "Ultimate Gain (Ku)",
       "label_i18n": {
         "en": "Ultimate Gain (Ku)",
-        "tr": "Kritik Gain (Ku)",
         "de": "Grenzverstärkung (Ku)",
         "fr": "Gain ultime (Ku)",
         "es": "Ganancia Última (Ku)",
@@ -23,7 +22,6 @@
       "businessContext": "Gain at onset of oscillation.",
       "businessContext_i18n": {
         "en": "Gain at onset of oscillation.",
-        "tr": "Salinim basladigi andaki Gain.",
         "de": "Verstärkung beim Einsetzen der Schwingung.",
         "fr": "Gain au début de l'oscillation.",
         "es": "Ganancia al inicio de la oscilación.",
@@ -35,7 +33,6 @@
       "label": "Ultimate Period (Tu sec)",
       "label_i18n": {
         "en": "Ultimate Period (Tu sec)",
-        "tr": "Kritik Periyot (Tu sn)",
         "de": "Grenzperiode (Tu sec)",
         "fr": "Période ultime (Tu sec)",
         "es": "Período Último (Tu seg)",
@@ -48,7 +45,6 @@
       "businessContext": "Oscillation period.",
       "businessContext_i18n": {
         "en": "Oscillation period.",
-        "tr": "Salinim periyodu.",
         "de": "Schwingungsperiode.",
         "fr": "Période d'oscillation.",
         "es": "Período de oscilación.",
@@ -65,7 +61,7 @@
   "formulas": {
     "Kp": "0.6 * kritikKazanc",
     "Ki": "2 * (0.6 * kritikKazanc) / Math.max(0.0001, kritikPeriyot)",
-    "sonuc": "(0.6 * kritikKazanc) * kritikPeriyot / 8"
+    "result": "(0.6 * kritikKazanc) * kritikPeriyot / 8"
   },
   "outputs": {
     "primary": "sonuc",
@@ -73,12 +69,11 @@
     "breakdown": {
       "Kp": "Oransal (Kp)",
       "Ki": "Integral (Ki)",
-      "sonuc": "Turev (Kd)"
+      "result": "Turev (Kd)"
     },
     "breakdown_i18n": {
       "Kp": {
         "en": "Oransal (Kp)",
-        "tr": "Oransal (Kp)",
         "de": "Proportional (Kp)",
         "fr": "Proportionnel (Kp)",
         "es": "Proporcional (Kp)",
@@ -86,15 +81,13 @@
       },
       "Ki": {
         "en": "Integral (Ki)",
-        "tr": "Integral (Ki)",
         "de": "Integral (Ki)",
         "fr": "Intégral (Ki)",
         "es": "Integral (Ki)",
         "ar": "تكامل (Ki)"
       },
-      "sonuc": {
+      "result": {
         "en": "Turev (Kd)",
-        "tr": "Turev (Kd)",
         "de": "Differential (Kd)",
         "fr": "Dérivé (Kd)",
         "es": "Derivativo (Kd)",
@@ -124,7 +117,6 @@
       "long": "Calculate PID controller gains using Ziegler-Nichols method.",
       "short_i18n": {
         "en": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "tr": "Ziegler-Nichols yontemine gore PID kontrolor katNumberlarini (Kp, Ki, Kd) hesaplar.",
         "de": "Berechnen Sie die PID-Reglerverstärkungen mit der Ziegler-Nichols-Methode.",
         "fr": "Calculer les gains du régulateur PID en utilisant la méthode de Ziegler-Nichols.",
         "es": "Calcular las ganancias del controlador PID utilizando el método de Ziegler-Nichols.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "tr": "Ziegler-Nichols yontemine gore PID kontrolor katNumberlarini (Kp, Ki, Kd) hesaplar.",
         "de": "Berechnen Sie die PID-Reglerverstärkungen mit der Ziegler-Nichols-Methode.",
         "fr": "Calculer les gains du régulateur PID en utilisant la méthode de Ziegler-Nichols.",
         "es": "Calcular las ganancias del controlador PID utilizando el método de Ziegler-Nichols.",

@@ -10,7 +10,6 @@
       "label": "Takeoff Speed (m/s)",
       "label_i18n": {
         "en": "Takeoff Speed (m/s)",
-        "tr": "Kalkis Speedi (m/s)",
         "de": "Startgeschwindigkeit (m/s)",
         "fr": "Vitesse de décollage (m/s)",
         "es": "Velocidad de despegue (m/s)",
@@ -23,7 +22,6 @@
       "businessContext": "Aircraft rotation speed.",
       "businessContext_i18n": {
         "en": "Aircraft rotation speed.",
-        "tr": "Ucagin yerden kesilme Speedi.",
         "de": "Drehgeschwindigkeit des Flugzeugs.",
         "fr": "Vitesse de rotation de l'aéronef.",
         "es": "Velocidad de rotación de la aeronave.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "ivme",
+      "id": "acceleration",
       "label": "Average Acceleration (m/s²)",
       "label_i18n": {
         "en": "Average Acceleration (m/s²)",
-        "tr": "Mean Acceleration (m/s²)",
         "de": "Durchschnittliche Beschleunigung (m/s²)",
         "fr": "Accélération moyenne (m/s²)",
         "es": "Aceleración media (m/s²)",
@@ -48,7 +45,6 @@
       "businessContext": "Engine thrust acceleration.",
       "businessContext_i18n": {
         "en": "Engine thrust acceleration.",
-        "tr": "Engine Thrustyle Speedlanma.",
         "de": "Schubbeschleunigung des Triebwerks.",
         "fr": "Accélération de la poussée du moteur.",
         "es": "Aceleración del empuje del motor.",
@@ -60,7 +56,6 @@
       "label": "Headwind Speed (m/s)",
       "label_i18n": {
         "en": "Headwind Speed (m/s)",
-        "tr": "Karsi Wind Speed (m/s)",
         "de": "Gegenwindgeschwindigkeit (m/s)",
         "fr": "Vitesse du vent de face (m/s)",
         "es": "Velocidad del viento en contra (m/s)",
@@ -73,7 +68,6 @@
       "businessContext": "Runway headwind component.",
       "businessContext_i18n": {
         "en": "Runway headwind component.",
-        "tr": "Pist basi ruzgar.",
         "de": "Gegenwindkomponente der Startbahn.",
         "fr": "Composante du vent de face sur la piste.",
         "es": "Componente de viento en contra en la pista.",
@@ -88,19 +82,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "etkiliHiz": "kalkisHiz - ruzgarHiz",
-    "sonuc": "(etkiliHiz * etkiliHiz) / Math.max(0.0001, (2 * ivme))"
+    "etkiliSpeed": "kalkisHiz - ruzgarHiz",
+    "result": "(etkiliHiz * etkiliHiz) / Math.max(0.0001, (2 * acceleration))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Gerekli Pist Lmostgth"
+      "result": "Gerekli Pist Lmostgth"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Pist Lmostgth",
-        "tr": "Gerekli Pist Lmostgth",
         "de": "Erforderliche Startbahnlänge",
         "fr": "Longueur de piste requise",
         "es": "Longitud de pista requerida",
@@ -127,7 +120,6 @@
       "long": "Calculate minimum runway length required for takeoff.",
       "short_i18n": {
         "en": "Calculate minimum runway length required for takeoff.",
-        "tr": "Ucagin havAreamasi icin gereken Minimum pist Distancesini hesaplar.",
         "de": "Berechnen Sie die erforderliche Mindeststartbahnlänge.",
         "fr": "Calculer la longueur minimale de piste requise pour le décollage.",
         "es": "Calcular la longitud mínima de pista requerida para el despegue.",
@@ -135,7 +127,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum runway length required for takeoff.",
-        "tr": "Ucagin havAreamasi icin gereken Minimum pist Distancesini hesaplar.",
         "de": "Berechnen Sie die erforderliche Mindeststartbahnlänge.",
         "fr": "Calculer la longueur minimale de piste requise pour le décollage.",
         "es": "Calcular la longitud mínima de pista requerida para el despegue.",

@@ -10,7 +10,6 @@
       "label": "Distance (km)",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Mesafe (km)",
         "de": "Entfernung (km)",
         "fr": "Distance (km)",
         "es": "Distancia (km)",
@@ -23,7 +22,6 @@
       "businessContext": "Total distance.",
       "businessContext_i18n": {
         "en": "Total distance.",
-        "tr": "Toplam mesafe.",
         "de": "Gesamtentfernung.",
         "fr": "Distance totale.",
         "es": "Distancia total.",
@@ -35,7 +33,6 @@
       "label": "Fuel Consumption (L/100km)",
       "label_i18n": {
         "en": "Fuel Consumption (L/100km)",
-        "tr": "Fuel Consumption (L/100km)",
         "de": "Kraftstoffverbrauch (L/100km)",
         "fr": "Consommation de carburant (L/100km)",
         "es": "Consumo de combustible (L/100km)",
@@ -48,7 +45,6 @@
       "businessContext": "Fuel per 100 km.",
       "businessContext_i18n": {
         "en": "Fuel per 100 km.",
-        "tr": "100 km'de tuketilen yakit.",
         "de": "Kraftstoff pro 100 km.",
         "fr": "Carburant aux 100 km.",
         "es": "Combustible por cada 100 km.",
@@ -60,7 +56,6 @@
       "label": "Fuel Price/Liter (USD)",
       "label_i18n": {
         "en": "Fuel Price/Liter (USD)",
-        "tr": "Litre Fiyati (TL)",
         "de": "Kraftstoffpreis/Liter (USD)",
         "fr": "Prix du carburant/litre (USD)",
         "es": "Precio del combustible/litro (USD)",
@@ -73,7 +68,6 @@
       "businessContext": "Price per liter.",
       "businessContext_i18n": {
         "en": "Price per liter.",
-        "tr": "Litre basi yakit fiyati.",
         "de": "Preis pro Liter.",
         "fr": "Prix par litre.",
         "es": "Precio por litro.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(mesafe / 100) * tuketim * litreFiyati"
+    "result": "(mesafe / 100) * tuketim * litreFiyati"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Total Fuel Cost"
+      "result": "Total Fuel Cost"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Total Fuel Cost",
-        "tr": "Total Fuel Cost",
         "de": "Gesamtkraftstoffkosten",
         "fr": "Coût total du carburant",
         "es": "Costo total de combustible",
@@ -124,7 +117,6 @@
       "long": "Calculate total fuel cost for a trip.",
       "short_i18n": {
         "en": "Calculate total fuel cost for a trip.",
-        "tr": "Gidilen yol icin gereken Total yakit giderini hesaplar.",
         "de": "Berechnen Sie die gesamten Treibstoffkosten fur eine Reise.",
         "fr": "Calculer le coût total du carburant pour un trajet.",
         "es": "Calcular el costo total de combustible para un viaje.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate total fuel cost for a trip.",
-        "tr": "Gidilen yol icin gereken Total yakit giderini hesaplar.",
         "de": "Berechnen Sie die gesamten Treibstoffkosten fur eine Reise.",
         "fr": "Calculer le coût total du carburant pour un trajet.",
         "es": "Calcular el costo total de combustible para un viaje.",

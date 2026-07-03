@@ -10,7 +10,6 @@
       "label": "Nominal Return (%)",
       "label_i18n": {
         "en": "Nominal Return (%)",
-        "tr": "Nominal Getiri (%)",
         "de": "Nominale Rendite (%)",
         "fr": "Rendement nominal (%)",
         "es": "Rendimiento Nominal (%)",
@@ -23,7 +22,6 @@
       "businessContext": "Nominal investment return.",
       "businessContext_i18n": {
         "en": "Nominal investment return.",
-        "tr": "Yatirimin nominal getirisi.",
         "de": "Nominale Kapitalrendite.",
         "fr": "Rendement nominal de l'investissement.",
         "es": "Rendimiento nominal de la inversión.",
@@ -35,7 +33,6 @@
       "label": "Inflation (%)",
       "label_i18n": {
         "en": "Inflation (%)",
-        "tr": "Enflasyon (%)",
         "de": "Erwartete Inflationsrate",
         "fr": "Taux d'inflation attendu",
         "es": "Tasa de inflación esperada",
@@ -48,7 +45,6 @@
       "businessContext": "Period inflation rate.",
       "businessContext_i18n": {
         "en": "Period inflation rate.",
-        "tr": "Donem enflasyon Ratioi.",
         "de": "Periodeninflationsrate.",
         "fr": "Taux d'inflation de la période.",
         "es": "Tasa de inflación del período.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "((1 + nominalGetiri / 100) / Math.max(0.0001, (1 + enflasyon / 100)) - 1) * 100"
+    "result": "((1 + nominalGetiri / 100) / Math.max(0.0001, (1 + enflasyon / 100)) - 1) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Reel Getiri"
+      "result": "Reel Getiri"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Reel Getiri",
-        "tr": "Reel Getiri",
         "de": "Realrendite",
         "fr": "Rendement réel",
         "es": "Rendimiento Real",
@@ -99,7 +94,6 @@
       "long": "Calculate real return — nominal return adjusted for inflation.",
       "short_i18n": {
         "en": "Calculate real return — nominal return adjusted for inflation.",
-        "tr": "Enflasyon etkisi cikarilmis Net satin alma gucu artisini (reel getiri) hesaplar.",
         "de": "Berechnung der realen Rendite — nominale Rendite inflationsbereinigt.",
         "fr": "Calculer le rendement réel — rendement nominal ajusté de l'inflation.",
         "es": "Calcular el rendimiento real — rendimiento nominal ajustado por inflación.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate real return — nominal return adjusted for inflation.",
-        "tr": "Enflasyon etkisi cikarilmis Net satin alma gucu artisini (reel getiri) hesaplar.",
         "de": "Berechnung der realen Rendite — nominale Rendite inflationsbereinigt.",
         "fr": "Calculer le rendement réel — rendement nominal ajusté de l'inflation.",
         "es": "Calcular el rendimiento real — rendimiento nominal ajustado por inflación.",

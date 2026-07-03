@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "kuvvet",
+      "id": "force",
       "label": "Axial Force (N)",
       "label_i18n": {
         "en": "Axial Force (N)",
-        "tr": "Eksenel Kuvvet (N)",
         "de": "Axialkraft (N)",
         "fr": "Force axiale (N)",
         "es": "Fuerza Axial (N)",
@@ -23,7 +22,6 @@
       "businessContext": "Force perpendicular to section.",
       "businessContext_i18n": {
         "en": "Force perpendicular to section.",
-        "tr": "Kesite dik etkiyen kuvvet.",
         "de": "Kraft senkrecht zum Querschnitt.",
         "fr": "Force perpendiculaire à la section.",
         "es": "Fuerza perpendicular a la sección.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "alan",
+      "id": "area",
       "label": "Cross-Sectional Area (m²)",
       "label_i18n": {
         "en": "Cross-Sectional Area (m²)",
-        "tr": "Kesit Area (m²)",
         "de": "Querschnittsfläche",
         "fr": "Aire de la section transversale",
         "es": "Área de la sección transversal",
@@ -48,7 +45,6 @@
       "businessContext": "Area over which force acts.",
       "businessContext_i18n": {
         "en": "Area over which force acts.",
-        "tr": "Forcein etki ettigi Area.",
         "de": "Fläche, auf die die Kraft wirkt.",
         "fr": "Surface sur laquelle la force agit.",
         "es": "Área sobre la que actúa la fuerza.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "kuvvet / Math.max(0.0001, alan)"
+    "result": "force / Math.max(0.0001, area)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Normal Gerilme (σ)"
+      "result": "Normal Gerilme (σ)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Normal Gerilme (σ)",
-        "tr": "Normal Gerilme (σ)",
         "de": "Normalspannung (σ)",
         "fr": "Contrainte normale (σ)",
         "es": "Esfuerzo normal (σ)",
@@ -99,7 +94,6 @@
       "long": "Calculate normal stress as force divided by cross-sectional area.",
       "short_i18n": {
         "en": "Calculate normal stress as force divided by cross-sectional area.",
-        "tr": "Unit Areaa etkiyen ic Force yogunlugunu (gerilme/Stress) hesaplar.",
         "de": "Normalspannung als Kraft geteilt durch Querschnittsfläche berechnen.",
         "fr": "Calculer la contrainte normale comme la force divisée par la section transversale.",
         "es": "Calcular el esfuerzo normal como fuerza dividida por el área de la sección transversal.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate normal stress as force divided by cross-sectional area.",
-        "tr": "Unit Areaa etkiyen ic Force yogunlugunu (gerilme/Stress) hesaplar.",
         "de": "Normalspannung als Kraft geteilt durch Querschnittsfläche berechnen.",
         "fr": "Calculer la contrainte normale comme la force divisée par la section transversale.",
         "es": "Calcular el esfuerzo normal como fuerza dividida por el área de la sección transversal.",

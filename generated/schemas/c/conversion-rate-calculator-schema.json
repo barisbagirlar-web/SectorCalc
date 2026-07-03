@@ -10,7 +10,6 @@
       "label": "Visitors",
       "label_i18n": {
         "en": "Visitors",
-        "tr": "Ziyaretci (Quantity)",
         "de": "Besucher der Kontrollgruppe",
         "fr": "Visiteurs du groupe de contrôle",
         "es": "Visitantes del grupo de control",
@@ -23,7 +22,6 @@
       "businessContext": "Total website visitors.",
       "businessContext_i18n": {
         "en": "Total website visitors.",
-        "tr": "Total web sitesi ziyaretcisi.",
         "de": "Gesamtzahl der Website-Besucher.",
         "fr": "Nombre total de visiteurs du site web.",
         "es": "Total de visitantes del sitio web.",
@@ -35,7 +33,6 @@
       "label": "Conversions",
       "label_i18n": {
         "en": "Conversions",
-        "tr": "Donusum (Quantity)",
         "de": "Konversionen der Kontrollgruppe",
         "fr": "Conversions du groupe de contrôle",
         "es": "Conversiones del grupo de control",
@@ -48,7 +45,6 @@
       "businessContext": "Completed target actions.",
       "businessContext_i18n": {
         "en": "Completed target actions.",
-        "tr": "Hedef eylemi gerceklestiren Numbersi.",
         "de": "Abgeschlossene Zielaktionen.",
         "fr": "Actions cibles complétées.",
         "es": "Acciones objetivo completadas.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(donusum / Math.max(1, ziyaretci)) * 100"
+    "result": "(donusum / Math.max(1, ziyaretci)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Conversion Rate (CRO)"
+      "result": "Conversion Rate (CRO)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Conversion Rate (CRO)",
-        "tr": "Conversion Rate (CRO)",
         "de": "Konversionsrate (CRO)",
         "fr": "Taux de conversion (CRO)",
         "es": "Tasa de Conversión (CRO)",
@@ -99,7 +94,6 @@
       "long": "Calculate conversion rate optimization (CRO) percentage.",
       "short_i18n": {
         "en": "Calculate conversion rate optimization (CRO) percentage.",
-        "tr": "Siteye girenlerin hedeflenen eylemi gerceklestirme yuzdesini hesaplar.",
         "de": "Conversion-Rate-Optimierung (CRO) in Prozent berechnen.",
         "fr": "Calculer le pourcentage d'optimisation du taux de conversion (CRO).",
         "es": "Calcular el porcentaje de optimización de la tasa de conversión (CRO).",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate conversion rate optimization (CRO) percentage.",
-        "tr": "Siteye girenlerin hedeflenen eylemi gerceklestirme yuzdesini hesaplar.",
         "de": "Conversion-Rate-Optimierung (CRO) in Prozent berechnen.",
         "fr": "Calculer le pourcentage d'optimisation du taux de conversion (CRO).",
         "es": "Calcular el porcentaje de optimización de la tasa de conversión (CRO).",

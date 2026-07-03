@@ -10,7 +10,6 @@
       "label": "Ore Block Volume (m³)",
       "label_i18n": {
         "en": "Ore Block Volume (m³)",
-        "tr": "Cevher Blok Hacmi (m³)",
         "de": "Erzblockvolumen (m³)",
         "fr": "Volume du bloc de minerai (m³)",
         "es": "Volumen del Bloque de Mineral (m³)",
@@ -23,7 +22,6 @@
       "businessContext": "Ore body volume.",
       "businessContext_i18n": {
         "en": "Ore body volume.",
-        "tr": "Cevher Masssinin hacmi.",
         "de": "Erzkorpervolumen.",
         "fr": "Volume du corps minéralisé.",
         "es": "Volumen del cuerpo mineral.",
@@ -35,7 +33,6 @@
       "label": "Ore Density (ton/m³)",
       "label_i18n": {
         "en": "Ore Density (ton/m³)",
-        "tr": "Cevher Dmostsity (ton/m³)",
         "de": "Erzdichte (ton/m³)",
         "fr": "Densité du minerai (ton/m³)",
         "es": "Densidad del Mineral (ton/m³)",
@@ -48,7 +45,6 @@
       "businessContext": "Ore density.",
       "businessContext_i18n": {
         "en": "Ore density.",
-        "tr": "Cevherin yogunlugu.",
         "de": "Erzdichte.",
         "fr": "Densité du minerai.",
         "es": "Densidad del mineral.",
@@ -60,7 +56,6 @@
       "label": "Grade (%)",
       "label_i18n": {
         "en": "Grade (%)",
-        "tr": "Tenor (%)",
         "de": "Schraubenfestigkeitsklasse / Eigenschaftsklasse",
         "fr": "Classe de qualité de boulon / Classe de propriété",
         "es": "Grado de perno / Clase de propiedad",
@@ -73,7 +68,6 @@
       "businessContext": "Metal grade in ore.",
       "businessContext_i18n": {
         "en": "Metal grade in ore.",
-        "tr": "Cevherin metal icerigi.",
         "de": "Metallgehalt im Erz.",
         "fr": "Teneur en métal dans le minerai.",
         "es": "Ley del metal en el mineral.",
@@ -89,27 +83,25 @@
   },
   "formulas": {
     "tonaj": "blokHacim * cevherYogunlugu",
-    "sonuc": "(blokHacim * cevherYogunlugu) * (tenor / 100)"
+    "result": "(blokHacim * cevherYogunlugu) * (tenor / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "tons",
     "breakdown": {
       "tonaj": "Toplam Cevher (ton)",
-      "sonuc": "Metal Quantity (ton)"
+      "result": "Metal Quantity (ton)"
     },
     "breakdown_i18n": {
       "tonaj": {
         "en": "Toplam Cevher (ton)",
-        "tr": "Toplam Cevher (ton)",
         "de": "Gesamterz (t)",
         "fr": "Minerai total (tonne)",
         "es": "Mineral Total (ton)",
         "ar": "إجمالي الخام (طن)"
       },
-      "sonuc": {
+      "result": {
         "en": "Metal Quantity (ton)",
-        "tr": "Metal Quantity (ton)",
         "de": "Metallmenge (t)",
         "fr": "Quantité de métal (tonne)",
         "es": "Cantidad de Metal (ton)",
@@ -138,7 +130,6 @@
       "long": "Calculate ore tonnage and metal content in a mining block.",
       "short_i18n": {
         "en": "Calculate ore tonnage and metal content in a mining block.",
-        "tr": "Sahadaki Net cevher ve saf metal agirligini (rezerv Volume) hesaplar.",
         "de": "Erztonnage und Metallgehalt in einem Bergbaublock berechnen.",
         "fr": "Calculer le tonnage de minerai et la teneur en métal dans un bloc minier.",
         "es": "Calcular el tonelaje de mineral y el contenido metálico en un bloque minero.",
@@ -146,7 +137,6 @@
       },
       "long_i18n": {
         "en": "Calculate ore tonnage and metal content in a mining block.",
-        "tr": "Sahadaki Net cevher ve saf metal agirligini (rezerv Volume) hesaplar.",
         "de": "Erztonnage und Metallgehalt in einem Bergbaublock berechnen.",
         "fr": "Calculer le tonnage de minerai et la teneur en métal dans un bloc minier.",
         "es": "Calcular el tonelaje de mineral y el contenido metálico en un bloque minero.",

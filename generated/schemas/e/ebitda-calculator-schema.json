@@ -11,10 +11,18 @@
       "type": "select",
       "unit": "enum",
       "options": [
-        {"value": "USD"},
-        {"value": "EUR"},
-        {"value": "TRY"},
-        {"value": "GBP"}
+        {
+          "value": "USD"
+        },
+        {
+          "value": "EUR"
+        },
+        {
+          "value": "TRY"
+        },
+        {
+          "value": "GBP"
+        }
       ],
       "default": "USD"
     },
@@ -28,7 +36,7 @@
       "businessContext": "Net profit for the period."
     },
     {
-      "id": "faiz",
+      "id": "interest",
       "label": "Interest Expense",
       "type": "number",
       "unit": "currency",
@@ -62,17 +70,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "normalized_product": "netKar + faiz + vergi + amortisman",
-    "result": "netKar + faiz + vergi + amortisman"
+    "normalizedproduct": "netKar + interest + vergi + amortisman",
+    "result": "netKar + interest + vergi + amortisman"
   },
   "outputs": {
     "primary": "result",
     "unit": "currency",
-    "breakdown": [
-      "normalized_product"
-    ],
+    "breakdown": {
+      "0": "normalized_product"
+    },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "EBITDA"
       }
     },

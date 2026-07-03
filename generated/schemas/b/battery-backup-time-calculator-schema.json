@@ -10,7 +10,6 @@
       "label": "Battery Capacity (Ah)",
       "label_i18n": {
         "en": "Battery Capacity (Ah)",
-        "tr": "Aku Kapasitesi (Ah)",
         "de": "Batteriekapazität (Ah)",
         "fr": "Capacité de la batterie (Ah)",
         "es": "Capacidad de la batería (Ah)",
@@ -23,7 +22,6 @@
       "businessContext": "Battery rated capacity.",
       "businessContext_i18n": {
         "en": "Battery rated capacity.",
-        "tr": "Aku nominal kapasitesi.",
         "de": "Nennkapazität der Batterie.",
         "fr": "Capacité nominale de la batterie.",
         "es": "Capacidad nominal de la batería.",
@@ -35,7 +33,6 @@
       "label": "Load Power (W)",
       "label_i18n": {
         "en": "Load Power (W)",
-        "tr": "Load Power (W)",
         "de": "Lastleistung (W)",
         "fr": "Puissance de charge (W)",
         "es": "Potencia de carga (W)",
@@ -48,7 +45,6 @@
       "businessContext": "Total connected load power.",
       "businessContext_i18n": {
         "en": "Total connected load power.",
-        "tr": "Beslenecek cihazlarin Total gucu.",
         "de": "Gesamtleistung der angeschlossenen Last.",
         "fr": "Puissance totale de la charge connectée.",
         "es": "Potencia total de la carga conectada.",
@@ -60,7 +56,6 @@
       "label": "DC System Voltage (V)",
       "label_i18n": {
         "en": "DC System Voltage (V)",
-        "tr": "DC Sistem Voltaji (V)",
         "de": "DC-Systemspannung (V)",
         "fr": "Tension du système CC (V)",
         "es": "Tensión del Sistema DC (V)",
@@ -73,7 +68,6 @@
       "businessContext": "Battery system voltage.",
       "businessContext_i18n": {
         "en": "Battery system voltage.",
-        "tr": "Aku sistemi voltaji.",
         "de": "Batteriesystemspannung.",
         "fr": "Tension du système de batterie.",
         "es": "Tensión del sistema de baterías.",
@@ -85,7 +79,6 @@
       "label": "Depth of Discharge (%)",
       "label_i18n": {
         "en": "Depth of Discharge (%)",
-        "tr": "Desarj Derinligi (%)",
         "de": "Entladetiefe (%)",
         "fr": "Profondeur de décharge (%)",
         "es": "Profundidad de descarga (%)",
@@ -98,7 +91,6 @@
       "businessContext": "Maximum allowed discharge.",
       "businessContext_i18n": {
         "en": "Maximum allowed discharge.",
-        "tr": "Izin verilen Maximum desarj.",
         "de": "Maximal zulässige Entladung.",
         "fr": "Décharge maximale autorisée.",
         "es": "Descarga máxima permitida.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(akuKapasite * dcVoltaj * (desarjDerinligi / 100)) / Math.max(0.0001, yukGucu)"
+    "result": "(akuKapasite * dcVoltaj * (desarjDerinligi / 100)) / Math.max(0.0001, yukGucu)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "hours",
     "breakdown": {
-      "sonuc": "Yedekleme Time"
+      "result": "Yedekleme Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Yedekleme Time",
-        "tr": "Yedekleme Time",
         "de": "Sicherungszeit",
         "fr": "Durée de sauvegarde",
         "es": "Tiempo de Respaldo",
@@ -152,7 +143,6 @@
       "long": "Calculate battery backup time for a given load.",
       "short_i18n": {
         "en": "Calculate battery backup time for a given load.",
-        "tr": "Akunun yuku besleyebilecegi Maximum kesintisiz sureyi hesaplar.",
         "de": "Batterieuberbruckungszeit fur eine gegebene Last berechnen.",
         "fr": "Calculer le temps de secours de la batterie pour une charge donnée.",
         "es": "Calcular el tiempo de respaldo de la batería para una carga determinada.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Calculate battery backup time for a given load.",
-        "tr": "Akunun yuku besleyebilecegi Maximum kesintisiz sureyi hesaplar.",
         "de": "Batterieuberbruckungszeit fur eine gegebene Last berechnen.",
         "fr": "Calculer le temps de secours de la batterie pour une charge donnée.",
         "es": "Calcular el tiempo de respaldo de la batería para una carga determinada.",

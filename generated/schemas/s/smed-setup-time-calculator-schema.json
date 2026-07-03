@@ -10,7 +10,6 @@
       "label": "Internal Setup (Min)",
       "label_i18n": {
         "en": "Internal Setup (Min)",
-        "tr": "Ic Ayar Suresi (Dk)",
         "de": "Interne Rustzeit pro Rustvorgang (Minuten)",
         "fr": "Temps de réglage interne par changement (minutes)",
         "es": "Tiempo de configuración interna por cambio (minutos)",
@@ -23,7 +22,6 @@
       "businessContext": "Setup done while machine stopped.",
       "businessContext_i18n": {
         "en": "Setup done while machine stopped.",
-        "tr": "Makine dururken yapilan ayar.",
         "de": "Rusten bei stillstehender Maschine.",
         "fr": "Réglage effectué pendant l'arrêt de la machine.",
         "es": "Preparación realizada mientras la máquina está detenida.",
@@ -35,7 +33,6 @@
       "label": "External Setup (Min)",
       "label_i18n": {
         "en": "External Setup (Min)",
-        "tr": "Dis Ayar Suresi (Dk)",
         "de": "Externe Rustzeit pro Rustvorgang (Minuten)",
         "fr": "Temps de réglage externe par changement (minutes)",
         "es": "Tiempo de configuración externa por cambio (minutos)",
@@ -48,7 +45,6 @@
       "businessContext": "Setup done while machine runs.",
       "businessContext_i18n": {
         "en": "Setup done while machine runs.",
-        "tr": "Makine calisirken yapilan ayar.",
         "de": "Rusten bei laufender Maschine.",
         "fr": "Réglage effectué pendant le fonctionnement de la machine.",
         "es": "Preparación realizada mientras la máquina funciona.",
@@ -60,7 +56,6 @@
       "label": "Conversion Rate (%)",
       "label_i18n": {
         "en": "Conversion Rate (%)",
-        "tr": "Ic-Dis Conversion Rate (%)",
         "de": "Currency Conversion Satz (to EUR)",
         "fr": "Currency Conversion Taux (to EUR)",
         "es": "Currency Conversion Tasa (to EUR)",
@@ -74,7 +69,6 @@
       "businessContext": "Percentage of internal converted to external.",
       "businessContext_i18n": {
         "en": "Percentage of internal converted to external.",
-        "tr": "Ic ayarin ne kadarinin disa donustugu.",
         "de": "Prozentsatz der internen in externe umgewandelten Vorgänge.",
         "fr": "Pourcentage d'internes convertis en externes.",
         "es": "Porcentaje de interno convertido a externo.",
@@ -89,19 +83,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "hedefIc": "icAyar * (1 - donusum / 100)",
-    "sonuc": "(icAyar * (1 - donusum / 100)) + disAyar"
+    "hedefInner": "icAyar * (1 - donusum / 100)",
+    "result": "(icAyar * (1 - donusum / 100)) + disAyar"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "min",
     "breakdown": {
-      "sonuc": "Ymosti Setup Time"
+      "result": "Ymosti Setup Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Ymosti Setup Time",
-        "tr": "Ymosti Setup Time",
         "de": "Neue Rustzeit",
         "fr": "Temps de nouveau réglage",
         "es": "Tiempo de Nueva Configuración",
@@ -126,7 +119,6 @@
       "long": "Calculate reduced setup time by converting internal to external SMED adjustments.",
       "short_i18n": {
         "en": "Calculate reduced setup time by converting internal to external SMED adjustments.",
-        "tr": "Ic ayarlarin dis ayara cevrilmesiyle kisaltilmis setup suresini hesaplar.",
         "de": "Berechnen Sie die reduzierte Rustzeit durch Umwandlung interner in externe SMED-Anpassungen.",
         "fr": "Calculer le temps de réglage réduit en convertissant les réglages internes en externes SMED.",
         "es": "Calcular el tiempo de preparación reducido convirtiendo ajustes internos a externos SMED.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate reduced setup time by converting internal to external SMED adjustments.",
-        "tr": "Ic ayarlarin dis ayara cevrilmesiyle kisaltilmis setup suresini hesaplar.",
         "de": "Berechnen Sie die reduzierte Rustzeit durch Umwandlung interner in externe SMED-Anpassungen.",
         "fr": "Calculer le temps de réglage réduit en convertissant les réglages internes en externes SMED.",
         "es": "Calcular el tiempo de preparación reducido convirtiendo ajustes internos a externos SMED.",

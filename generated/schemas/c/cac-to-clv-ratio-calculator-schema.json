@@ -10,7 +10,6 @@
       "label": "CLV (USD)",
       "label_i18n": {
         "en": "CLV (USD)",
-        "tr": "CLV (TL)",
         "de": "Kundenlebenszeitwert (CLV)",
         "fr": "Valeur à vie du client (CLV)",
         "es": "Valor de vida del cliente (CLV)",
@@ -23,7 +22,6 @@
       "businessContext": "Customer lifetime value.",
       "businessContext_i18n": {
         "en": "Customer lifetime value.",
-        "tr": "Customer Lifetime Value.",
         "de": "Kundenlebenszeitwert.",
         "fr": "Valeur vie client.",
         "es": "Valor de vida del cliente.",
@@ -35,7 +33,6 @@
       "label": "CAC (USD)",
       "label_i18n": {
         "en": "CAC (USD)",
-        "tr": "CAC (TL)",
         "de": "Gesamte Kundenakquisitionskosten (CAC)",
         "fr": "Coût total d'acquisition client (CAC)",
         "es": "Costo total de adquisición de clientes (CAC)",
@@ -48,7 +45,6 @@
       "businessContext": "Customer acquisition cost.",
       "businessContext_i18n": {
         "en": "Customer acquisition cost.",
-        "tr": "Musteri edinim Costi.",
         "de": "Kundenakquisitionskosten.",
         "fr": "Coût d'acquisition client.",
         "es": "Costo de adquisición del cliente.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "clv / Math.max(0.0001, cac)"
+    "result": "clv / Math.max(0.0001, cac)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "CLV/CAC Ratio"
+      "result": "CLV/CAC Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "CLV/CAC Ratio",
-        "tr": "CLV/CAC Ratio",
         "de": "CLV/CAC-Verhältnis",
         "fr": "Ratio CLV/CAC",
         "es": "Relación CLV/CAC",
@@ -99,7 +94,6 @@
       "long": "Calculate CAC to CLV ratio for acquisition efficiency.",
       "short_i18n": {
         "en": "Calculate CAC to CLV ratio for acquisition efficiency.",
-        "tr": "Musteri edinim Efficiencyliligini (CAC/CLV Ratioi) hesaplar.",
         "de": "Berechnen Sie das CAC-zu-CLV-Verhältnis fur die Akquise-Effizienz.",
         "fr": "Calculer le ratio CAC/CLV pour l'efficacité d'acquisition.",
         "es": "Calcular la relación CAC a CLV para la eficiencia de adquisición.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate CAC to CLV ratio for acquisition efficiency.",
-        "tr": "Musteri edinim Efficiencyliligini (CAC/CLV Ratioi) hesaplar.",
         "de": "Berechnen Sie das CAC-zu-CLV-Verhältnis fur die Akquise-Effizienz.",
         "fr": "Calculer le ratio CAC/CLV pour l'efficacité d'acquisition.",
         "es": "Calcular la relación CAC a CLV para la eficiencia de adquisición.",

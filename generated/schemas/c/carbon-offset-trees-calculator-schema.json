@@ -10,7 +10,6 @@
       "label": "Total Emissions (ton CO₂)",
       "label_i18n": {
         "en": "Total Emissions (ton CO₂)",
-        "tr": "Toplam Emisyon (ton CO₂)",
         "de": "Gesamtemissionen (ton CO₂)",
         "fr": "Émissions totales (ton CO₂)",
         "es": "Emisiones Totales (ton CO₂)",
@@ -23,7 +22,6 @@
       "businessContext": "Carbon to offset.",
       "businessContext_i18n": {
         "en": "Carbon to offset.",
-        "tr": "Notrelenmek istenen karbon.",
         "de": "Zu kompensierender Kohlenstoff.",
         "fr": "Carbone à compenser.",
         "es": "Carbono a compensar.",
@@ -35,7 +33,6 @@
       "label": "Tree Annual Uptake (kg CO₂)",
       "label_i18n": {
         "en": "Tree Annual Uptake (kg CO₂)",
-        "tr": "Agac Basi Yillik Yutak (kg CO₂)",
         "de": "Jährliche Baumaufnahme (kg CO₂)",
         "fr": "Absorption annuelle par arbre (kg CO₂)",
         "es": "Captura Anual por Árbol (kg CO₂)",
@@ -48,7 +45,6 @@
       "businessContext": "Annual carbon capture per tree.",
       "businessContext_i18n": {
         "en": "Annual carbon capture per tree.",
-        "tr": "Bir agacin yillik karbon tutma kapasitesi.",
         "de": "Jährliche Kohlenstoffbindung pro Baum.",
         "fr": "Captage annuel de carbone par arbre.",
         "es": "Captura anual de carbono por árbol.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(emisyon * 1000) / Math.max(0.0001, agacYillikYutak)"
+    "result": "(emisyon * 1000) / Math.max(0.0001, agacYillikYutak)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "trees",
     "breakdown": {
-      "sonuc": "Gerekli Agac Numbersi"
+      "result": "Gerekli Agac Numbersi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Agac Numbersi",
-        "tr": "Gerekli Agac Numbersi",
         "de": "Erforderliche Anzahl Bäume",
         "fr": "Nombre d'arbres nécessaires",
         "es": "Número de Árboles Requeridos",
@@ -102,7 +97,6 @@
       "long": "Calculate number of trees needed to offset carbon emissions.",
       "short_i18n": {
         "en": "Calculate number of trees needed to offset carbon emissions.",
-        "tr": "Salinan karbonu notralize etmek icin dikilmesi gereken agac Numbersini hesaplar.",
         "de": "Berechnen Sie die Anzahl der Bäume, die zur Kompensation der Kohlenstoffemissionen erforderlich sind.",
         "fr": "Calculer le nombre d'arbres nécessaires pour compenser les émissions de carbone.",
         "es": "Calcular el número de árboles necesarios para compensar las emisiones de carbono.",
@@ -110,7 +104,6 @@
       },
       "long_i18n": {
         "en": "Calculate number of trees needed to offset carbon emissions.",
-        "tr": "Salinan karbonu notralize etmek icin dikilmesi gereken agac Numbersini hesaplar.",
         "de": "Berechnen Sie die Anzahl der Bäume, die zur Kompensation der Kohlenstoffemissionen erforderlich sind.",
         "fr": "Calculer le nombre d'arbres nécessaires pour compenser les émissions de carbone.",
         "es": "Calcular el número de árboles necesarios para compensar las emisiones de carbono.",

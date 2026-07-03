@@ -10,7 +10,6 @@
       "label": "Station 1 Time (Min)",
       "label_i18n": {
         "en": "Station 1 Time (Min)",
-        "tr": "1. Istasyon Suresi (Dk)",
         "de": "Station 1 Zeit (Min)",
         "fr": "Temps au poste 1 (Min)",
         "es": "Tiempo en la Estación 1 (min)",
@@ -23,7 +22,6 @@
       "businessContext": "First station operation time.",
       "businessContext_i18n": {
         "en": "First station operation time.",
-        "tr": "Birinci istasyonun islem suresi.",
         "de": "Bearbeitungszeit der ersten Station.",
         "fr": "Temps d'opération au premier poste.",
         "es": "Tiempo de operación de la primera estación.",
@@ -35,7 +33,6 @@
       "label": "Station 2 Time (Min)",
       "label_i18n": {
         "en": "Station 2 Time (Min)",
-        "tr": "2. Istasyon Suresi (Dk)",
         "de": "Station 2 Zeit (Min)",
         "fr": "Temps au poste 2 (Min)",
         "es": "Tiempo en la Estación 2 (min)",
@@ -48,7 +45,6 @@
       "businessContext": "Second station time.",
       "businessContext_i18n": {
         "en": "Second station time.",
-        "tr": "Ikinci istasyon suresi.",
         "de": "Bearbeitungszeit der zweiten Station.",
         "fr": "Temps au deuxième poste.",
         "es": "Tiempo de la segunda estación.",
@@ -60,7 +56,6 @@
       "label": "Station 3 Time (Min)",
       "label_i18n": {
         "en": "Station 3 Time (Min)",
-        "tr": "3. Istasyon Suresi (Dk)",
         "de": "Station 3 Zeit (Min)",
         "fr": "Temps au poste 3 (Min)",
         "es": "Tiempo en la Estación 3 (min)",
@@ -73,7 +68,6 @@
       "businessContext": "Third station time.",
       "businessContext_i18n": {
         "en": "Third station time.",
-        "tr": "Ucuncu istasyon suresi.",
         "de": "Bearbeitungszeit der dritten Station.",
         "fr": "Temps au troisième poste.",
         "es": "Tiempo de la tercera estación.",
@@ -89,18 +83,17 @@
   },
   "formulas": {
     "darbogaz": "Math.max(istasyon1, istasyon2, istasyon3)",
-    "sonuc": "60 / Math.max(0.0001, Math.max(istasyon1, istasyon2, istasyon3))"
+    "result": "60 / Math.max(0.0001, Math.max(istasyon1, istasyon2, istasyon3))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "units/hour",
     "breakdown": {
-      "sonuc": "Maximum Production Speed"
+      "result": "Maximum Production Speed"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maximum Production Speed",
-        "tr": "Maximum Production Speed",
         "de": "Maximum Production Rate",
         "fr": "Taux de production maximal",
         "es": "Velocidad Máxima de Producción",
@@ -125,7 +118,6 @@
       "long": "Identify bottleneck and calculate maximum production rate.",
       "short_i18n": {
         "en": "Identify bottleneck and calculate maximum production rate.",
-        "tr": "Hattin en yavas istasyonuna gore Maximum Production Speedni hesaplar.",
         "de": "Identifizierung des Engpasses und Berechnung der maximalen Produktionsrate.",
         "fr": "Identifier le goulot d'étranglement et calculer le taux de production maximal.",
         "es": "Identificar el cuello de botella y calcular la tasa máxima de producción.",
@@ -133,7 +125,6 @@
       },
       "long_i18n": {
         "en": "Identify bottleneck and calculate maximum production rate.",
-        "tr": "Hattin en yavas istasyonuna gore Maximum Production Speedni hesaplar.",
         "de": "Identifizierung des Engpasses und Berechnung der maximalen Produktionsrate.",
         "fr": "Identifier le goulot d'étranglement et calculer le taux de production maximal.",
         "es": "Identificar el cuello de botella y calcular la tasa máxima de producción.",

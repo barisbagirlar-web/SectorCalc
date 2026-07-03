@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Drywall Area (m²)",
       "label_i18n": {
         "en": "Drywall Area (m²)",
-        "tr": "Alcipan Areai (m²)",
         "de": "Total dryWall Fläche",
         "fr": "Total dryWall Surface",
         "es": "Total dryWall Área",
@@ -23,7 +22,6 @@
       "businessContext": "Total drywall area.",
       "businessContext_i18n": {
         "en": "Total drywall area.",
-        "tr": "Total alcipan yuzeyi.",
         "de": "Gesamte Trockenbaufläche.",
         "fr": "Surface totale de plaques de plâtre.",
         "es": "Área total de paneles de yeso.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "sarfiyat",
+      "id": "consumption",
       "label": "Consumption (kg/m²)",
       "label_i18n": {
         "en": "Consumption (kg/m²)",
-        "tr": "Sarfiyat (kg/m²)",
         "de": "Stromverbrauch",
         "fr": "Consommation d'électricité",
         "es": "Consumo de electricidad",
@@ -48,7 +45,6 @@
       "businessContext": "Joint compound per m².",
       "businessContext_i18n": {
         "en": "Joint compound per m².",
-        "tr": "m² basi macun tuketimi.",
         "de": "Fugenmasse pro m².",
         "fr": "Composé à joints par m².",
         "es": "Compuesto para juntas por m².",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "alan * sarfiyat"
+    "result": "area * consumption"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kg",
     "breakdown": {
-      "sonuc": "Gerekli Derz Macunu"
+      "result": "Gerekli Derz Macunu"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Derz Macunu",
-        "tr": "Gerekli Derz Macunu",
         "de": "Erforderliche Fugenmasse",
         "fr": "Required Joint Compound",
         "es": "Masa de Juntas Requerida",
@@ -99,7 +94,6 @@
       "long": "Calculate joint compound weight for drywall seams.",
       "short_i18n": {
         "en": "Calculate joint compound weight for drywall seams.",
-        "tr": "Alcipan ek yerlerini dolduracak toz macun agirligini hesaplar.",
         "de": "Berechnen Sie das Gewicht der Fugenmasse fur Trockenbaunähte.",
         "fr": "Calculer le poids du composé à joints pour les joints de plaques de plâtre.",
         "es": "Calcular el peso del compuesto para juntas en juntas de paneles de yeso.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate joint compound weight for drywall seams.",
-        "tr": "Alcipan ek yerlerini dolduracak toz macun agirligini hesaplar.",
         "de": "Berechnen Sie das Gewicht der Fugenmasse fur Trockenbaunähte.",
         "fr": "Calculer le poids du composé à joints pour les joints de plaques de plâtre.",
         "es": "Calcular el peso del compuesto para juntas en juntas de paneles de yeso.",

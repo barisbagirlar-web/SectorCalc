@@ -10,7 +10,6 @@
       "label": "Output Power (W)",
       "label_i18n": {
         "en": "Output Power (W)",
-        "tr": "Output Power (W)",
         "de": "Ausgangsleistung (W)",
         "fr": "Puissance de sortie (W)",
         "es": "Potencia de Salida (W)",
@@ -23,7 +22,6 @@
       "businessContext": "Shaft mechanical power.",
       "businessContext_i18n": {
         "en": "Shaft mechanical power.",
-        "tr": "Milin urettigi mekanik Power.",
         "de": "Mechanische Wellenleistung.",
         "fr": "Puissance mécanique de l'arbre.",
         "es": "Potencia mecánica del eje.",
@@ -35,7 +33,6 @@
       "label": "Input Power (W)",
       "label_i18n": {
         "en": "Input Power (W)",
-        "tr": "Input Power (W)",
         "de": "Eingangsleistung (W)",
         "fr": "Puissance d'entrée (W)",
         "es": "Potencia de Entrada (W)",
@@ -48,7 +45,6 @@
       "businessContext": "Motor electrical power.",
       "businessContext_i18n": {
         "en": "Motor electrical power.",
-        "tr": "Motorun cektigi elektrik gucu.",
         "de": "Elektrische Motorleistung.",
         "fr": "Puissance électrique du moteur.",
         "es": "Potencia eléctrica del motor.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(cikisGuc / Math.max(0.0001, girisGuc)) * 100"
+    "result": "(cikisGuc / Math.max(0.0001, girisGuc)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Motor Verimi"
+      "result": "Motor Verimi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Motor Verimi",
-        "tr": "Motor Verimi",
         "de": "Motorwirkungsgrad",
         "fr": "Rendement du moteur",
         "es": "Eficiencia del Motor",
@@ -101,7 +96,6 @@
       "long": "Calculate electric motor efficiency.",
       "short_i18n": {
         "en": "Calculate electric motor efficiency.",
-        "tr": "Elektrik Energysinin mekanik Energyye donusum basarisini (Motor Efficiency) hesaplar.",
         "de": "Berechnen Sie den Wirkungsgrad eines Elektromotors.",
         "fr": "Calculer l'efficacité du moteur électrique.",
         "es": "Calcular la eficiencia del motor eléctrico.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate electric motor efficiency.",
-        "tr": "Elektrik Energysinin mekanik Energyye donusum basarisini (Motor Efficiency) hesaplar.",
         "de": "Berechnen Sie den Wirkungsgrad eines Elektromotors.",
         "fr": "Calculer l'efficacité du moteur électrique.",
         "es": "Calcular la eficiencia del motor eléctrico.",

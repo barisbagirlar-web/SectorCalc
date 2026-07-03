@@ -10,7 +10,6 @@
       "label": "Annual COGS (USD)",
       "label_i18n": {
         "en": "Annual COGS (USD)",
-        "tr": "Annual SMM (TRY)",
         "de": "Jährliche COGS (USD)",
         "fr": "COGS annuel (USD)",
         "es": "COGS anual (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Annual cost of goods sold.",
       "businessContext_i18n": {
         "en": "Annual cost of goods sold.",
-        "tr": "Yillik Satilan mal Costi.",
         "de": "Jährliche Kosten der verkauften Waren.",
         "fr": "Coût annuel des marchandises vendues.",
         "es": "Costo anual de los bienes vendidos.",
@@ -35,7 +33,6 @@
       "label": "Avg Payables (USD)",
       "label_i18n": {
         "en": "Avg Payables (USD)",
-        "tr": "Aandrage Debt (TRY)",
         "de": "Durchschnittliche Verbindlichkeiten (USD)",
         "fr": "Dettes fournisseurs moyennes (USD)",
         "es": "Promedio de cuentas por pagar (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Average accounts payable.",
       "businessContext_i18n": {
         "en": "Average accounts payable.",
-        "tr": "Mean ticari borc.",
         "de": "Durchschnittliche Kreditorenbuchhaltung.",
         "fr": "Moyenne des dettes fournisseurs.",
         "es": "Promedio de cuentas por pagar.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "365 / Math.max(0.0001, yillikCOGS / Math.max(0.0001, ortBorc))"
+    "result": "365 / Math.max(0.0001, yillikCOGS / Math.max(0.0001, ortBorc))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "days",
     "breakdown": {
-      "sonuc": "Aandrage Paymmostt Time"
+      "result": "Aandrage Paymmostt Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Aandrage Paymmostt Time",
-        "tr": "Aandrage Paymmostt Time",
         "de": "Durchschnittliche Zahlungsfrist",
         "fr": "Délai de paiement moyen",
         "es": "Período promedio de pago",
@@ -99,7 +94,6 @@
       "long": "Calculate accounts payable turnover in days.",
       "short_i18n": {
         "en": "Calculate accounts payable turnover in days.",
-        "tr": "Tedarikcilere borclarin odenme Mean suresini hesaplar.",
         "de": "Berechnen Sie die Kreditorenumschlagshäufigkeit in Tagen.",
         "fr": "Calculer le délai de rotation des dettes fournisseurs en jours.",
         "es": "Calcular la rotación de cuentas por pagar en días.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate accounts payable turnover in days.",
-        "tr": "Tedarikcilere borclarin odenme Mean suresini hesaplar.",
         "de": "Berechnen Sie die Kreditorenumschlagshäufigkeit in Tagen.",
         "fr": "Calculer le délai de rotation des dettes fournisseurs en jours.",
         "es": "Calcular la rotación de cuentas por pagar en días.",

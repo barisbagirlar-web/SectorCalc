@@ -10,7 +10,6 @@
       "label": "Seam Length (mm)",
       "label_i18n": {
         "en": "Seam Length (mm)",
-        "tr": "Dikis Uzunlugu (mm)",
         "de": "Nahtlänge (mm)",
         "fr": "Longueur de couture (mm)",
         "es": "Longitud de la costura (mm)",
@@ -23,7 +22,6 @@
       "businessContext": "Seam length.",
       "businessContext_i18n": {
         "en": "Seam length.",
-        "tr": "Dikilecek dikis Heightu.",
         "de": "Nahtlänge.",
         "fr": "Longueur de la couture.",
         "es": "Longitud de la costura.",
@@ -35,7 +33,6 @@
       "label": "Machine Speed (stitches/min)",
       "label_i18n": {
         "en": "Machine Speed (stitches/min)",
-        "tr": "Makine Devri (dikis/dk)",
         "de": "Maschinengeschwindigkeit (Stiche/min)",
         "fr": "Vitesse de la machine (points/min)",
         "es": "Velocidad de la máquina (puntadas/min)",
@@ -48,7 +45,6 @@
       "businessContext": "Sewing machine speed.",
       "businessContext_i18n": {
         "en": "Sewing machine speed.",
-        "tr": "Dikis makinesinin devir Speedi.",
         "de": "Nähmaschinengeschwindigkeit.",
         "fr": "Vitesse de la machine à coudre.",
         "es": "Velocidad de la máquina de coser.",
@@ -60,7 +56,6 @@
       "label": "Stitch Density (stitches/mm)",
       "label_i18n": {
         "en": "Stitch Density (stitches/mm)",
-        "tr": "Dikis Sikligi (dikis/mm)",
         "de": "Stichdichte (Stiche/mm)",
         "fr": "Densité de points (points/mm)",
         "es": "Densidad de puntadas (puntadas/mm)",
@@ -73,7 +68,6 @@
       "businessContext": "Stitches per mm.",
       "businessContext_i18n": {
         "en": "Stitches per mm.",
-        "tr": "mm basina dusen dikis Numbersi.",
         "de": "Stiche pro mm.",
         "fr": "Points par mm.",
         "es": "Puntadas por mm.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(dikisUzunluk * dikisSikligi) / Math.max(0.0001, (devirSayisi / 60))"
+    "result": "(dikisUzunluk * dikisSikligi) / Math.max(0.0001, (devirSayisi / 60))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Sewing Time"
+      "result": "Sewing Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Sewing Time",
-        "tr": "Sewing Time",
         "de": "Nähzeit",
         "fr": "Temps de couture",
         "es": "Tiempo de costura",
@@ -126,7 +119,6 @@
       "long": "Calculate sewing machine cycle time for a seam operation.",
       "short_i18n": {
         "en": "Calculate sewing machine cycle time for a seam operation.",
-        "tr": "Bir dikis operasyonunun saf makine suresini hesaplar.",
         "de": "Berechnen Sie die Nähmaschinenzykluszeit fur einen Nahtvorgang.",
         "fr": "Calculer le temps de cycle de la machine à coudre pour une opération de couture.",
         "es": "Calcular el tiempo de ciclo de la máquina de coser para una operación de costura.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate sewing machine cycle time for a seam operation.",
-        "tr": "Bir dikis operasyonunun saf makine suresini hesaplar.",
         "de": "Berechnen Sie die Nähmaschinenzykluszeit fur einen Nahtvorgang.",
         "fr": "Calculer le temps de cycle de la machine à coudre pour une opération de couture.",
         "es": "Calcular el tiempo de ciclo de la máquina de coser para una operación de costura.",

@@ -10,7 +10,6 @@
       "label": "Data Size (TB)",
       "label_i18n": {
         "en": "Data Size (TB)",
-        "tr": "Veri Boyutu (TB)",
         "de": "Datengroße",
         "fr": "Taille des données",
         "es": "Tamaño de datos",
@@ -23,7 +22,6 @@
       "businessContext": "Raw backup data size.",
       "businessContext_i18n": {
         "en": "Raw backup data size.",
-        "tr": "Yedeklenecek ham veri boyutu.",
         "de": "Rohdaten-Backup-Große.",
         "fr": "Taille brute des données de sauvegarde.",
         "es": "Tamaño bruto de los datos de respaldo.",
@@ -35,7 +33,6 @@
       "label": "Compression Ratio",
       "label_i18n": {
         "en": "Compression Ratio",
-        "tr": "Compression Ratio",
         "de": "Kompressionsverhältnis",
         "fr": "Taux de compression",
         "es": "Relación de Compresión",
@@ -48,7 +45,6 @@
       "businessContext": "Compression factor.",
       "businessContext_i18n": {
         "en": "Compression factor.",
-        "tr": "Sikistirma faktoru (2:1=2).",
         "de": "Kompressionsfaktor.",
         "fr": "Facteur de compression.",
         "es": "Factor de compresión.",
@@ -60,7 +56,6 @@
       "label": "Network Speed (Gbps)",
       "label_i18n": {
         "en": "Network Speed (Gbps)",
-        "tr": "Ag Speedi (Gbps)",
         "de": "Netzwerkgeschwindigkeit (Gbps)",
         "fr": "Vitesse du réseau (Gbps)",
         "es": "Velocidad de Red (Gbps)",
@@ -73,7 +68,6 @@
       "businessContext": "Data transfer speed.",
       "businessContext_i18n": {
         "en": "Data transfer speed.",
-        "tr": "Veri aktarim Speedi.",
         "de": "Datenubertragungsgeschwindigkeit.",
         "fr": "Vitesse de transfert des données.",
         "es": "Velocidad de transferencia de datos.",
@@ -89,27 +83,25 @@
   },
   "formulas": {
     "hedefBoyut": "veriBoyutu / Math.max(0.0001, sikistirmaOrani)",
-    "sonuc": "((veriBoyutu / Math.max(0.0001, sikistirmaOrani)) * 8192) / Math.max(0.0001, agHizi)"
+    "result": "((veriBoyutu / Math.max(0.0001, sikistirmaOrani)) * 8192) / Math.max(0.0001, agHizi)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
       "hedefBoyut": "Sikistirilmis Dimension (TB)",
-      "sonuc": "Aktarim Suresi (s)"
+      "result": "Aktarim Suresi (s)"
     },
     "breakdown_i18n": {
       "hedefBoyut": {
         "en": "Sikistirilmis Dimension (TB)",
-        "tr": "Sikistirilmis Dimension (TB)",
         "de": "Komprimierte Große (TB)",
         "fr": "Taille compressée (TB)",
         "es": "Tamaño Comprimido (TB)",
         "ar": "الحجم المضغوط (TB)"
       },
-      "sonuc": {
+      "result": {
         "en": "Aktarim Suresi (s)",
-        "tr": "Aktarim Suresi (s)",
         "de": "Ubertragungszeit (s)",
         "fr": "Temps de transfert (s)",
         "es": "Tiempo de Transferencia (s)",
@@ -138,7 +130,6 @@
       "long": "Calculate backup time based on data size, compression, and network speed.",
       "short_i18n": {
         "en": "Calculate backup time based on data size, compression, and network speed.",
-        "tr": "Sikistirma ve ag Speedina gore veri yedekleme icin gereken sureyi hesaplar.",
         "de": "Berechnen Sie die Backup-Zeit basierend auf Datengroße, Kompression und Netzwerkgeschwindigkeit.",
         "fr": "Calculer le temps de sauvegarde en fonction de la taille des données, de la compression et de la vitesse du réseau.",
         "es": "Calcular el tiempo de respaldo según el tamaño de los datos, la compresión y la velocidad de la red.",
@@ -146,7 +137,6 @@
       },
       "long_i18n": {
         "en": "Calculate backup time based on data size, compression, and network speed.",
-        "tr": "Sikistirma ve ag Speedina gore veri yedekleme icin gereken sureyi hesaplar.",
         "de": "Berechnen Sie die Backup-Zeit basierend auf Datengroße, Kompression und Netzwerkgeschwindigkeit.",
         "fr": "Calculer le temps de sauvegarde en fonction de la taille des données, de la compression et de la vitesse du réseau.",
         "es": "Calcular el tiempo de respaldo según el tamaño de los datos, la compresión y la velocidad de la red.",

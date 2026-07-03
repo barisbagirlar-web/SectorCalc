@@ -10,7 +10,6 @@
       "label": "Sale Proceeds (USD)",
       "label_i18n": {
         "en": "Sale Proceeds (USD)",
-        "tr": "Satis Bedeli (₺)",
         "de": "Verkaufserlos (USD)",
         "fr": "Produit de la vente (USD)",
         "es": "Ingresos por Venta (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Asset sale proceeds.",
       "businessContext_i18n": {
         "en": "Asset sale proceeds.",
-        "tr": "Varligin satis bedeli.",
         "de": "Verkaufserlos des Vermogenswerts.",
         "fr": "Produit de la vente d'actifs.",
         "es": "Ingresos por venta de activos.",
@@ -35,7 +33,6 @@
       "label": "Cost Basis (USD)",
       "label_i18n": {
         "en": "Cost Basis (USD)",
-        "tr": "Alis Bedeli (₺)",
         "de": "Anpassungen der Kostenbasis",
         "fr": "Ajustements de la base de coût",
         "es": "Ajustes de base de costo",
@@ -48,7 +45,6 @@
       "businessContext": "Asset purchase cost.",
       "businessContext_i18n": {
         "en": "Asset purchase cost.",
-        "tr": "Varligin satin alma Costi.",
         "de": "Anschaffungskosten des Vermogenswerts.",
         "fr": "Coût d'achat de l'actif.",
         "es": "Costo de compra del activo.",
@@ -60,7 +56,6 @@
       "label": "Tax Rate (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Tax Ratio (%)",
         "de": "Steuersatz (%)",
         "fr": "Taux d'imposition (%)",
         "es": "Tasa Impositiva (%)",
@@ -74,7 +69,6 @@
       "businessContext": "Capital gains tax rate.",
       "businessContext_i18n": {
         "en": "Capital gains tax rate.",
-        "tr": "Sermaye kazanci Tax Rate.",
         "de": "Kapitalertragssteuersatz.",
         "fr": "Taux d'imposition des plus-values.",
         "es": "Tasa impositiva sobre ganancias de capital.",
@@ -86,7 +80,6 @@
       "label": "Exemption Amount (USD)",
       "label_i18n": {
         "en": "Exemption Amount (USD)",
-        "tr": "Istisna Tutari (₺)",
         "de": "Freibetragsbetrag",
         "fr": "Montant de l'exonération",
         "es": "Monto de exención",
@@ -99,7 +92,6 @@
       "businessContext": "Tax-free allowance.",
       "businessContext_i18n": {
         "en": "Tax-free allowance.",
-        "tr": "Vergiden muaf kisim.",
         "de": "Steuerfreibetrag.",
         "fr": "Abattement fiscal.",
         "es": "Exención fiscal.",
@@ -115,18 +107,17 @@
   },
   "formulas": {
     "matrah": "Math.max(0, satis - alis - istisna)",
-    "sonuc": "Math.max(0, (satis - alis - istisna)) * vergiOrani / 100"
+    "result": "Math.max(0, (satis - alis - istisna)) * vergiOrani / 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Odenecek Capital Gains Tax"
+      "result": "Odenecek Capital Gains Tax"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Odenecek Capital Gains Tax",
-        "tr": "Odenecek Capital Gains Tax",
         "de": "Zahlbare Kapitalertragssteuer",
         "fr": "Impôt sur les plus-values à payer",
         "es": "Impuesto a Pagar sobre Ganancias de Capital",
@@ -151,7 +142,6 @@
       "long": "Calculate capital gains tax liability from asset sales.",
       "short_i18n": {
         "en": "Calculate capital gains tax liability from asset sales.",
-        "tr": "Varlik satisindan dogan yasal vergi yukumlulugunu hesaplar.",
         "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermogensverkäufen.",
         "fr": "Calculer l'impôt sur les plus-values provenant de la vente d'actifs.",
         "es": "Calcular la obligación tributaria por ganancias de capital por venta de activos.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate capital gains tax liability from asset sales.",
-        "tr": "Varlik satisindan dogan yasal vergi yukumlulugunu hesaplar.",
         "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermogensverkäufen.",
         "fr": "Calculer l'impôt sur les plus-values provenant de la vente d'actifs.",
         "es": "Calcular la obligación tributaria por ganancias de capital por venta de activos.",

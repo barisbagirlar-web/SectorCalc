@@ -10,7 +10,6 @@
       "label": "σx (Pa)",
       "label_i18n": {
         "en": "σx (Pa)",
-        "tr": "σx (Pa)",
         "de": "σx (Pa)",
         "fr": "σx (Pa)",
         "es": "σx (Pa)",
@@ -23,7 +22,6 @@
       "businessContext": "Normal stress in x.",
       "businessContext_i18n": {
         "en": "Normal stress in x.",
-        "tr": "X yonu Normal Stress.",
         "de": "Normalspannung in x.",
         "fr": "Contrainte normale en x.",
         "es": "Esfuerzo normal en x.",
@@ -35,7 +33,6 @@
       "label": "σy (Pa)",
       "label_i18n": {
         "en": "σy (Pa)",
-        "tr": "σy (Pa)",
         "de": "σy (Pa)",
         "fr": "σy (Pa)",
         "es": "σy (Pa)",
@@ -48,7 +45,6 @@
       "businessContext": "Normal stress in y.",
       "businessContext_i18n": {
         "en": "Normal stress in y.",
-        "tr": "Y yonu Normal Stress.",
         "de": "Normalspannung in y.",
         "fr": "Contrainte normale en y.",
         "es": "Esfuerzo normal en y.",
@@ -60,7 +56,6 @@
       "label": "τxy (Pa)",
       "label_i18n": {
         "en": "τxy (Pa)",
-        "tr": "τxy (Pa)",
         "de": "τxy (Pa)",
         "fr": "τxy (Pa)",
         "es": "τxy (Pa)",
@@ -73,7 +68,6 @@
       "businessContext": "Shear stress in xy.",
       "businessContext_i18n": {
         "en": "Shear stress in xy.",
-        "tr": "Kayma gerilmesi.",
         "de": "Schubspannung in xy.",
         "fr": "Contrainte de cisaillement en xy.",
         "es": "Esfuerzo cortante en xy.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "Math.sqrt(Math.max(0, sigmaX*sigmaX - sigmaX*sigmaY + sigmaY*sigmaY + 3*tauXY*tauXY))"
+    "result": "Math.sqrt(Math.max(0, sigmaX*sigmaX - sigmaX*sigmaY + sigmaY*sigmaY + 3*tauXY*tauXY))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Von Mises Gerilmesi (σᵥ)"
+      "result": "Von Mises Gerilmesi (σᵥ)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Von Mises Gerilmesi (σᵥ)",
-        "tr": "Von Mises Gerilmesi (σᵥ)",
         "de": "Von Mises Stress (σᵥ)",
         "fr": "Contrainte de Von Mises (σᵥ)",
         "es": "Esfuerzo de Von Mises (σᵥ)",
@@ -124,7 +117,6 @@
       "long": "Calculate Von Mises equivalent stress for multiaxial loading.",
       "short_i18n": {
         "en": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "tr": "Cok eksenli yuklemedeki esValue akma gerilmesini (Von Mises) hesaplar.",
         "de": "Berechnen Sie die Von-Mises-Vergleichsspannung fur mehrachsige Belastung.",
         "fr": "Calculer la contrainte équivalente de Von Mises pour un chargement multiaxial.",
         "es": "Calcular el esfuerzo equivalente de Von Mises para carga multiaxial.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "tr": "Cok eksenli yuklemedeki esValue akma gerilmesini (Von Mises) hesaplar.",
         "de": "Berechnen Sie die Von-Mises-Vergleichsspannung fur mehrachsige Belastung.",
         "fr": "Calculer la contrainte équivalente de Von Mises pour un chargement multiaxial.",
         "es": "Calcular el esfuerzo equivalente de Von Mises para carga multiaxial.",

@@ -10,7 +10,6 @@
       "label": "Annual Demand",
       "label_i18n": {
         "en": "Annual Demand",
-        "tr": "Annual Talep (Quantity)",
         "de": "Jährliche Nachfrage",
         "fr": "Demande annuelle",
         "es": "Demanda anual",
@@ -23,7 +22,6 @@
       "businessContext": "Annual total demand.",
       "businessContext_i18n": {
         "en": "Annual total demand.",
-        "tr": "Annual Total talep.",
         "de": "Jährlicher Gesamtbedarf.",
         "fr": "Demande totale annuelle.",
         "es": "Demanda total anual.",
@@ -35,7 +33,6 @@
       "label": "Order Cost (USD)",
       "label_i18n": {
         "en": "Order Cost (USD)",
-        "tr": "Siparis Costi (TL)",
         "de": "Fehlmengenkosten pro Einheit",
         "fr": "Coût de rupture par unité",
         "es": "Costo de rotura de stock por unidad",
@@ -48,7 +45,6 @@
       "businessContext": "Fixed cost per order.",
       "businessContext_i18n": {
         "en": "Fixed cost per order.",
-        "tr": "Her siparisin Fixed Costi.",
         "de": "Fixkosten pro Bestellung.",
         "fr": "Coût fixe par commande.",
         "es": "Costo fijo por pedido.",
@@ -60,7 +56,6 @@
       "label": "Holding Cost (USD/Unit/yr)",
       "label_i18n": {
         "en": "Holding Cost (USD/Unit/yr)",
-        "tr": "Bearing Costi (TRY/Quantity-Year)",
         "de": "Jährlicher Lagerhaltungskostensatz (%)",
         "fr": "Taux annuel des coûts de détention (%)",
         "es": "Tasa anual de costo de mantenimiento (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Annual holding cost per unit.",
       "businessContext_i18n": {
         "en": "Annual holding cost per unit.",
-        "tr": "Unit basi yillik depolama Costi.",
         "de": "Jährliche Lagerkosten pro Einheit.",
         "fr": "Coût de détention annuel par unité.",
         "es": "Costo anual de mantenimiento por unidad.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "Math.sqrt(Math.max(0, (2 * yillikTalep * siparisMaliyeti) / Math.max(0.0001, tasimaMaliyeti)))"
+    "result": "Math.sqrt(Math.max(0, (2 * yillikTalep * siparisMaliyeti) / Math.max(0.0001, tasimaMaliyeti)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "units",
     "breakdown": {
-      "sonuc": "EOQ (Optimum Siparis Amounti)"
+      "result": "EOQ (Optimum Siparis Amounti)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "EOQ (Optimum Siparis Amounti)",
-        "tr": "EOQ (Optimum Siparis Amounti)",
         "de": "EOQ (Optimale Bestellmenge)",
         "fr": "EOQ (Quantité économique de commande)",
         "es": "EOQ (Cantidad Óptima de Pedido)",
@@ -124,7 +117,6 @@
       "long": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
       "short_i18n": {
         "en": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
-        "tr": "Total envanter Costini minimize eden optimum siparis Amountini (EOQ) hesaplar.",
         "de": "Berechnen Sie die wirtschaftliche Bestellmenge (EOQ) unter Minimierung der gesamten Lagerkosten.",
         "fr": "Calculer la quantité économique de commande (EOQ) minimisant les coûts totaux de stock.",
         "es": "Calcular la cantidad económica de pedido (EOQ) minimizando los costos totales de inventario.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
-        "tr": "Total envanter Costini minimize eden optimum siparis Amountini (EOQ) hesaplar.",
         "de": "Berechnen Sie die wirtschaftliche Bestellmenge (EOQ) unter Minimierung der gesamten Lagerkosten.",
         "fr": "Calculer la quantité économique de commande (EOQ) minimisant les coûts totaux de stock.",
         "es": "Calcular la cantidad económica de pedido (EOQ) minimizando los costos totales de inventario.",

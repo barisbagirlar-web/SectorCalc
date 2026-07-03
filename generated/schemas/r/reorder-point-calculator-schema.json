@@ -10,7 +10,6 @@
       "label": "Avg Daily Demand",
       "label_i18n": {
         "en": "Avg Daily Demand",
-        "tr": "Aandrage Daily Talep",
         "de": "Durchschnittlicher Tagesbedarf",
         "fr": "Demande quotidienne moyenne",
         "es": "Demanda Diaria Promedio",
@@ -23,7 +22,6 @@
       "businessContext": "Average daily demand.",
       "businessContext_i18n": {
         "en": "Average daily demand.",
-        "tr": "Daily Mean talep.",
         "de": "Durchschnittlicher täglicher Bedarf.",
         "fr": "Demande quotidienne moyenne.",
         "es": "Demanda diaria promedio.",
@@ -35,7 +33,6 @@
       "label": "Demand Std Dev",
       "label_i18n": {
         "en": "Demand Std Dev",
-        "tr": "Talep Standart Sapma",
         "de": "Standardabweichung des Bedarfs",
         "fr": "Écart type de la demande",
         "es": "Desviación Estándar de la Demanda",
@@ -48,7 +45,6 @@
       "businessContext": "Demand variability.",
       "businessContext_i18n": {
         "en": "Demand variability.",
-        "tr": "Talep degiskenligi.",
         "de": "Tägliche Nachfrageschwankung. Kritisch fur den Sicherheitsbestand bei Six Sigma-Servicegraden.",
         "fr": "Variabilité de la demande quotidienne. Critique pour le stock de sécurité sous les niveaux de service Six Sigma.",
         "es": "Variabilidad de la demanda diaria. Crítica para el stock de seguridad bajo niveles de servicio Six Sigma.",
@@ -60,7 +56,6 @@
       "label": "Lead Time (Days)",
       "label_i18n": {
         "en": "Lead Time (Days)",
-        "tr": "Tedarik Time (Day)",
         "de": "Vorlaufzeit (Tage)",
         "fr": "Délai de livraison (jours)",
         "es": "Tiempo de entrega (días)",
@@ -73,7 +68,6 @@
       "businessContext": "Order-to-delivery time.",
       "businessContext_i18n": {
         "en": "Order-to-delivery time.",
-        "tr": "Siparisten teslimata kadar gecen sure.",
         "de": "Bestell- bis Lieferzeit.",
         "fr": "Délai de commande à livraison.",
         "es": "Tiempo de entrega desde el pedido.",
@@ -85,7 +79,6 @@
       "label": "Z Score (Service Level)",
       "label_i18n": {
         "en": "Z Score (Service Level)",
-        "tr": "Z Skoru (Servis Seviyesi)",
         "de": "Z-Wert",
         "fr": "Score Z",
         "es": "Puntuación Z",
@@ -98,7 +91,6 @@
       "businessContext": "Z value for target service level (1.65=95%).",
       "businessContext_i18n": {
         "en": "Z value for target service level (1.65=95%).",
-        "tr": "Servis seviyesine karsilik gelen Z Value (1.65=%95).",
         "de": "Z-Wert fur das angestrebte Servicelevel (1,65=95%).",
         "fr": "Valeur Z pour le niveau de service cible (1,65=95%).",
         "es": "Valor Z para el nivel de servicio objetivo (1.65=95%).",
@@ -114,18 +106,17 @@
   },
   "formulas": {
     "ss": "Z * stdSapma * Math.sqrt(Math.max(0, tedarikSure))",
-    "sonuc": "(ortTalep * tedarikSure) + (Z * stdSapma * Math.sqrt(Math.max(0, tedarikSure)))"
+    "result": "(ortTalep * tedarikSure) + (Z * stdSapma * Math.sqrt(Math.max(0, tedarikSure)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "units",
     "breakdown": {
-      "sonuc": "ROP (Yeniden Siparis Seviyesi)"
+      "result": "ROP (Yeniden Siparis Seviyesi)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "ROP (Yeniden Siparis Seviyesi)",
-        "tr": "ROP (Yeniden Siparis Seviyesi)",
         "de": "ROP (Wiederbestellpunkt)",
         "fr": "ROP (Niveau de réapprovisionnement)",
         "es": "ROP (Nivel de Reorden)",
@@ -150,7 +141,6 @@
       "long": "Calculate reorder point (ROP) with safety stock to prevent stockouts.",
       "short_i18n": {
         "en": "Calculate reorder point (ROP) with safety stock to prevent stockouts.",
-        "tr": "Stoksuz kalmayi onleyen yeniden siparis seviyesini (ROP) hesaplar.",
         "de": "Berechnung des Meldebestands (ROP) mit Sicherheitsbestand zur Vermeidung von Fehlbeständen.",
         "fr": "Calculer le point de commande (ROP) avec stock de sécurité pour éviter les ruptures de stock.",
         "es": "Calcular el punto de reorden (ROP) con stock de seguridad para evitar desabastecimientos.",
@@ -158,7 +148,6 @@
       },
       "long_i18n": {
         "en": "Calculate reorder point (ROP) with safety stock to prevent stockouts.",
-        "tr": "Stoksuz kalmayi onleyen yeniden siparis seviyesini (ROP) hesaplar.",
         "de": "Berechnung des Meldebestands (ROP) mit Sicherheitsbestand zur Vermeidung von Fehlbeständen.",
         "fr": "Calculer le point de commande (ROP) avec stock de sécurité pour éviter les ruptures de stock.",
         "es": "Calcular el punto de reorden (ROP) con stock de seguridad para evitar desabastecimientos.",

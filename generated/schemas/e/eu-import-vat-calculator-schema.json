@@ -10,7 +10,6 @@
       "label": "Net Price (EUR)",
       "label_i18n": {
         "en": "Net Price (EUR)",
-        "tr": "Net Fiyat (EUR)",
         "de": "Nettopreis (EUR)",
         "fr": "Prix net (EUR)",
         "es": "Precio neto (EUR)",
@@ -23,7 +22,6 @@
       "businessContext": "Product net price.",
       "businessContext_i18n": {
         "en": "Product net price.",
-        "tr": "Urunun Net fiyati.",
         "de": "Produktnettopreis.",
         "fr": "Prix net du produit.",
         "es": "Precio neto del producto.",
@@ -35,7 +33,6 @@
       "label": "Shipping (EUR)",
       "label_i18n": {
         "en": "Shipping (EUR)",
-        "tr": "Kargo (EUR)",
         "de": "Versandkosten pro kg",
         "fr": "Coût d'expédition par kg",
         "es": "Costo de envío por kg",
@@ -48,7 +45,6 @@
       "businessContext": "Shipping cost.",
       "businessContext_i18n": {
         "en": "Shipping cost.",
-        "tr": "Kargo ucreti.",
         "de": "Versandkosten.",
         "fr": "Frais d'expédition.",
         "es": "Costo de envío.",
@@ -60,7 +56,6 @@
       "label": "Country VAT Rate (%)",
       "label_i18n": {
         "en": "Country VAT Rate (%)",
-        "tr": "Ulke VAT Rate (%)",
         "de": "Landes-Mehrwertsteuersatz (%)",
         "fr": "Taux de TVA du pays (%)",
         "es": "Tasa de IVA del país (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Destination country VAT rate.",
       "businessContext_i18n": {
         "en": "Destination country VAT rate.",
-        "tr": "Hedef ulkenin VAT Rate.",
         "de": "Mehrwertsteuersatz des Bestimmungslandes.",
         "fr": "Taux de TVA du pays de destination.",
         "es": "Tasa de IVA del país de destino.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(netFiyat + kargo) * (ulkeKDV / 100)"
+    "result": "(netFiyat + kargo) * (ulkeKDV / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "EUR",
     "breakdown": {
-      "sonuc": "Odenecek KDV (IOSS)"
+      "result": "Odenecek KDV (IOSS)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Odenecek KDV (IOSS)",
-        "tr": "Odenecek KDV (IOSS)",
         "de": "Zu zahlende MwSt. (IOSS)",
         "fr": "TVA à payer (IOSS)",
         "es": "IVA a pagar (IOSS)",
@@ -124,7 +117,6 @@
       "long": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
       "short_i18n": {
         "en": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
-        "tr": "AB ithalatinda alici ulkeye odenen KDV'yi (IOSS) hesaplar.",
         "de": "Berechnen Sie die EU-Einfuhrumsatzsteuer (IOSS) fur Waren unter 150 EUR.",
         "fr": "Calculer la TVA à l'importation de l'UE (IOSS) pour les marchandises de moins de 150 EUR.",
         "es": "Calcule el IVA de importación de la UE (IOSS) para bienes menores de 150 EUR.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
-        "tr": "AB ithalatinda alici ulkeye odenen KDV'yi (IOSS) hesaplar.",
         "de": "Berechnen Sie die EU-Einfuhrumsatzsteuer (IOSS) fur Waren unter 150 EUR.",
         "fr": "Calculer la TVA à l'importation de l'UE (IOSS) pour les marchandises de moins de 150 EUR.",
         "es": "Calcule el IVA de importación de la UE (IOSS) para bienes menores de 150 EUR.",

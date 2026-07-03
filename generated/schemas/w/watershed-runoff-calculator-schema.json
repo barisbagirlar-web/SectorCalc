@@ -10,7 +10,6 @@
       "label": "Watershed Area (km²)",
       "label_i18n": {
         "en": "Watershed Area (km²)",
-        "tr": "Havza Area (km²)",
         "de": "Einzugsgebietsfläche (km²)",
         "fr": "Superficie du bassin versant (km²)",
         "es": "Área de la cuenca (km²)",
@@ -23,7 +22,6 @@
       "businessContext": "Catchment area.",
       "businessContext_i18n": {
         "en": "Catchment area.",
-        "tr": "Totala havzasi Areai.",
         "de": "Einzugsgebiet.",
         "fr": "Zone de captage.",
         "es": "Área de captación.",
@@ -35,7 +33,6 @@
       "label": "Rainfall (mm)",
       "label_i18n": {
         "en": "Rainfall (mm)",
-        "tr": "Yagis Amounti (mm)",
         "de": "Niederschlagsvorhersage (nächste 7 Tage)",
         "fr": "Prévisions de précipitations (7 prochains jours)",
         "es": "Pronóstico de lluvia (próximos 7 días)",
@@ -48,7 +45,6 @@
       "businessContext": "Single rainfall depth.",
       "businessContext_i18n": {
         "en": "Single rainfall depth.",
-        "tr": "Unit yagis yuksekligi.",
         "de": "Einzelne Niederschlagshohe.",
         "fr": "Hauteur de pluie unique.",
         "es": "Profundidad de una sola lluvia.",
@@ -60,7 +56,6 @@
       "label": "Runoff Coefficient (0-1)",
       "label_i18n": {
         "en": "Runoff Coefficient (0-1)",
-        "tr": "Flow Coefficimostt (0-1)",
         "de": "Abflussbeiwert (0-1)",
         "fr": "Coefficient de ruissellement (0-1)",
         "es": "Coeficiente de escorrentía (0-1)",
@@ -73,7 +68,6 @@
       "businessContext": "Surface permeability coefficient.",
       "businessContext_i18n": {
         "en": "Surface permeability coefficient.",
-        "tr": "Zeminin gecirgenligine bagli katNumber.",
         "de": "Oberflächendurchlässigkeitskoeffizient.",
         "fr": "Coefficient de perméabilité de surface.",
         "es": "Coeficiente de permeabilidad superficial.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "havzaAlani * 1000000 * (yagis / 1000) * akisKatsayisi"
+    "result": "havzaAlani * 1000000 * (yagis / 1000) * akisKatsayisi"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m3",
     "breakdown": {
-      "sonuc": "Total Yuzey Akis Hacmi"
+      "result": "Total Yuzey Akis Hacmi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Total Yuzey Akis Hacmi",
-        "tr": "Total Yuzey Akis Hacmi",
         "de": "Gesamtes Oberflächenabflussvolumen",
         "fr": "Volume total de ruissellement de surface",
         "es": "Volumen Total de Escorrentía Superficial",
@@ -127,7 +120,6 @@
       "long": "Calculate surface runoff volume from a watershed after rainfall.",
       "short_i18n": {
         "en": "Calculate surface runoff volume from a watershed after rainfall.",
-        "tr": "Yagis sonrasi havzadan cikacak yuzey akis suyu Amountini hesaplar.",
         "de": "Berechnen Sie das Oberflächenabflussvolumen aus einem Einzugsgebiet nach Regenfall.",
         "fr": "Calculer le volume de ruissellement de surface d'un bassin versant après une pluie.",
         "es": "Calcular el volumen de escorrentía superficial de una cuenca después de la lluvia.",
@@ -135,7 +127,6 @@
       },
       "long_i18n": {
         "en": "Calculate surface runoff volume from a watershed after rainfall.",
-        "tr": "Yagis sonrasi havzadan cikacak yuzey akis suyu Amountini hesaplar.",
         "de": "Berechnen Sie das Oberflächenabflussvolumen aus einem Einzugsgebiet nach Regenfall.",
         "fr": "Calculer le volume de ruissellement de surface d'un bassin versant après une pluie.",
         "es": "Calcular el volumen de escorrentía superficial de una cuenca después de la lluvia.",

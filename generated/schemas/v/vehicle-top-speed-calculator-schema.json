@@ -6,11 +6,10 @@
   "sectorId": "automotive-transport",
   "inputs": [
     {
-      "id": "guc",
+      "id": "power",
       "label": "Engine Power (W)",
       "label_i18n": {
         "en": "Engine Power (W)",
-        "tr": "Motor Power (W)",
         "de": "Motorleistung",
         "fr": "Puissance du moteur",
         "es": "Potencia del motor",
@@ -23,7 +22,6 @@
       "businessContext": "Maximum engine power.",
       "businessContext_i18n": {
         "en": "Maximum engine power.",
-        "tr": "Maximum Motor Power.",
         "de": "Maximale Motorleistung.",
         "fr": "Puissance maximale du moteur.",
         "es": "Potencia máxima del motor.",
@@ -35,7 +33,6 @@
       "label": "Vehicle Mass (kg)",
       "label_i18n": {
         "en": "Vehicle Mass (kg)",
-        "tr": "Arac Masssi (kg)",
         "de": "Fahrzeugmasse",
         "fr": "Masse du véhicule",
         "es": "Masa del vehículo",
@@ -48,7 +45,6 @@
       "businessContext": "Vehicle weight.",
       "businessContext_i18n": {
         "en": "Vehicle weight.",
-        "tr": "Arac agirligi.",
         "de": "Fahrzeuggewicht.",
         "fr": "Poids du véhicule.",
         "es": "Peso del vehículo.",
@@ -60,7 +56,6 @@
       "label": "Rolling Friction Coefficient",
       "label_i18n": {
         "en": "Rolling Friction Coefficient",
-        "tr": "Yuvarlanma Friction Factor",
         "de": "Rollreibungskoeffizient",
         "fr": "Coefficient de frottement de roulement",
         "es": "Coeficiente de fricción de rodadura",
@@ -73,7 +68,6 @@
       "businessContext": "Tire rolling resistance.",
       "businessContext_i18n": {
         "en": "Tire rolling resistance.",
-        "tr": "Lastik-yol Friction Factor.",
         "de": "Rollwiderstand der Reifen.",
         "fr": "Résistance au roulement des pneus.",
         "es": "Resistencia a la rodadura del neumático.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "Math.pow((guc / suratmeKatsayi), 1/3)"
+    "result": "Math.pow((power / suratmeKatsayi), 1/3)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m/s",
     "breakdown": {
-      "sonuc": "Maximum Speed"
+      "result": "Maximum Speed"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maximum Speed",
-        "tr": "Maximum Speed",
         "de": "Maximum Speed",
         "fr": "Vitesse maximale",
         "es": "Velocidad Máxima",
@@ -126,7 +119,6 @@
       "long": "Calculate vehicle top speed where engine power equals total drag.",
       "short_i18n": {
         "en": "Calculate vehicle top speed where engine power equals total drag.",
-        "tr": "Motor Powernun Resistance Forcelerini yendigi denge Speedini (Maximum Speed) hesaplar.",
         "de": "Berechnen Sie die Hochstgeschwindigkeit des Fahrzeugs, bei der die Motorleistung dem Gesamtwiderstand entspricht.",
         "fr": "Calculer la vitesse maximale du véhicule lorsque la puissance du moteur égale la traînée totale.",
         "es": "Calcular la velocidad máxima del vehículo donde la potencia del motor iguala la resistencia total.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate vehicle top speed where engine power equals total drag.",
-        "tr": "Motor Powernun Resistance Forcelerini yendigi denge Speedini (Maximum Speed) hesaplar.",
         "de": "Berechnen Sie die Hochstgeschwindigkeit des Fahrzeugs, bei der die Motorleistung dem Gesamtwiderstand entspricht.",
         "fr": "Calculer la vitesse maximale du véhicule lorsque la puissance du moteur égale la traînée totale.",
         "es": "Calcular la velocidad máxima del vehículo donde la potencia del motor iguala la resistencia total.",

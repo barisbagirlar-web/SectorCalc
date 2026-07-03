@@ -6,11 +6,10 @@
   "sectorId": "other",
   "inputs": [
     {
-      "id": "uzunluk",
+      "id": "length",
       "label": "Fiber Length (km)",
       "label_i18n": {
         "en": "Fiber Length (km)",
-        "tr": "Fiber Lmostgth (km)",
         "de": "Faserlänge (km)",
         "fr": "Longueur de fibre (km)",
         "es": "Longitud de Fibra (km)",
@@ -23,7 +22,6 @@
       "businessContext": "Fiber cable length.",
       "businessContext_i18n": {
         "en": "Fiber cable length.",
-        "tr": "Fiber kablo boyu.",
         "de": "Länge des Glasfaserkabels.",
         "fr": "Longueur du câble à fibre optique.",
         "es": "Longitud del cable de fibra.",
@@ -35,7 +33,6 @@
       "label": "Attenuation (dB/km)",
       "label_i18n": {
         "en": "Attenuation (dB/km)",
-        "tr": "Unit Kayip (dB/km)",
         "de": "Dämpfung (dB/km)",
         "fr": "Atténuation (dB/km)",
         "es": "Atenuación (dB/km)",
@@ -48,7 +45,6 @@
       "businessContext": "Loss per km.",
       "businessContext_i18n": {
         "en": "Loss per km.",
-        "tr": "Fiberin km basina zayiflamasi.",
         "de": "Verlust pro km.",
         "fr": "Perte par km.",
         "es": "Pérdida por km.",
@@ -60,7 +56,6 @@
       "label": "Splice Losses (dB)",
       "label_i18n": {
         "en": "Splice Losses (dB)",
-        "tr": "Ek Kayiplar (dB)",
         "de": "Spleißverluste (dB)",
         "fr": "Pertes d'épissure (dB)",
         "es": "Pérdidas por Empalme (dB)",
@@ -73,7 +68,6 @@
       "businessContext": "Connector and splice losses.",
       "businessContext_i18n": {
         "en": "Connector and splice losses.",
-        "tr": "Konnektor ve ek kayiplari.",
         "de": "Stecker- und Spleißverluste.",
         "fr": "Pertes de connecteurs et d'épissures.",
         "es": "Pérdidas por conectores y empalmes.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(uzunluk * birimKayip) + ekKayip"
+    "result": "(length * birimKayip) + ekKayip"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "dB",
     "breakdown": {
-      "sonuc": "Total Zayiflama"
+      "result": "Total Zayiflama"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Total Zayiflama",
-        "tr": "Total Zayiflama",
         "de": "Gesamtdämpfung",
         "fr": "Atténuation totale",
         "es": "Atenuación total",
@@ -124,7 +117,6 @@
       "long": "Calculate total optical power loss in fiber optic link.",
       "short_i18n": {
         "en": "Calculate total optical power loss in fiber optic link.",
-        "tr": "Isik sinyalinin hat sonundaki Total Power kaybini (fiber optik zayiflama) hesaplar.",
         "de": "Berechnen Sie den gesamten optischen Leistungsverlust in einer Glasfaserverbindung.",
         "fr": "Calculer la perte de puissance optique totale dans une liaison par fibre optique.",
         "es": "Calcular la pérdida total de potencia óptica en un enlace de fibra óptica.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate total optical power loss in fiber optic link.",
-        "tr": "Isik sinyalinin hat sonundaki Total Power kaybini (fiber optik zayiflama) hesaplar.",
         "de": "Berechnen Sie den gesamten optischen Leistungsverlust in einer Glasfaserverbindung.",
         "fr": "Calculer la perte de puissance optique totale dans une liaison par fibre optique.",
         "es": "Calcular la pérdida total de potencia óptica en un enlace de fibra óptica.",

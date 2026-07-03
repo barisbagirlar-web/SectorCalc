@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Wood Surface (m²)",
       "label_i18n": {
         "en": "Wood Surface (m²)",
-        "tr": "Ahsap Yuzey (m²)",
         "de": "Holzoberfläche (m²)",
         "fr": "Surface en bois (m²)",
         "es": "Superficie de Madera (m²)",
@@ -23,7 +22,6 @@
       "businessContext": "Area to treat.",
       "businessContext_i18n": {
         "en": "Area to treat.",
-        "tr": "Emprenye edilecek alan.",
         "de": "Zu behandelnde Fläche.",
         "fr": "Surface à traiter.",
         "es": "Área a tratar.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "sarfiyat",
+      "id": "consumption",
       "label": "Coverage (m²/L)",
       "label_i18n": {
         "en": "Coverage (m²/L)",
-        "tr": "Sarfiyat (m²/L)",
         "de": "Reservierte Instanzabdeckung",
         "fr": "Couverture d'instances réservées",
         "es": "Cobertura de instancias reservadas",
@@ -48,7 +45,6 @@
       "businessContext": "Coverage per liter.",
       "businessContext_i18n": {
         "en": "Coverage per liter.",
-        "tr": "Litre basina kaplanan Area.",
         "de": "Deckungsbereich pro Liter.",
         "fr": "Couverture par litre.",
         "es": "Cobertura por litro.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "alan / Math.max(0.0001, sarfiyat)"
+    "result": "area / Math.max(0.0001, consumption)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "L",
     "breakdown": {
-      "sonuc": "Gerekli Vernik/Leke"
+      "result": "Gerekli Vernik/Leke"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Vernik/Leke",
-        "tr": "Gerekli Vernik/Leke",
         "de": "Required Varnish/Stain",
         "fr": "Vernis / teinte nécessaire",
         "es": "Barniz/Tinte Requerido",
@@ -99,7 +94,6 @@
       "long": "Calculate wood stain or varnish quantity needed.",
       "short_i18n": {
         "en": "Calculate wood stain or varnish quantity needed.",
-        "tr": "Ahsabi emprenye etmek icin gereken vernik/leke Amountini hesaplar.",
         "de": "Berechnen Sie die benotigte Menge an Holzbeize oder -lack.",
         "fr": "Calculer la quantité de teinture ou de vernis pour bois nécessaire.",
         "es": "Calcular la cantidad necesaria de tinte o barniz para madera.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate wood stain or varnish quantity needed.",
-        "tr": "Ahsabi emprenye etmek icin gereken vernik/leke Amountini hesaplar.",
         "de": "Berechnen Sie die benotigte Menge an Holzbeize oder -lack.",
         "fr": "Calculer la quantité de teinture ou de vernis pour bois nécessaire.",
         "es": "Calcular la cantidad necesaria de tinte o barniz para madera.",

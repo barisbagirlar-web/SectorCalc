@@ -10,7 +10,6 @@
       "label": "Resonant Frequency (Hz)",
       "label_i18n": {
         "en": "Resonant Frequency (Hz)",
-        "tr": "Resonant Frequency (Hz)",
         "de": "Resonanzfrequenz (Hz)",
         "fr": "Fréquence de résonance (Hz)",
         "es": "Frecuencia de Resonancia (Hz)",
@@ -23,7 +22,6 @@
       "businessContext": "Circuit resonant frequency.",
       "businessContext_i18n": {
         "en": "Circuit resonant frequency.",
-        "tr": "Devrenin Resonant Frequency.",
         "de": "Resonanzfrequenz des Schwingkreises.",
         "fr": "Fréquence de résonance du circuit.",
         "es": "Frecuencia de resonancia del circuito.",
@@ -35,7 +33,6 @@
       "label": "Bandwidth (Hz)",
       "label_i18n": {
         "en": "Bandwidth (Hz)",
-        "tr": "Bant Width (Hz)",
         "de": "Bandbreite",
         "fr": "Largeur de bande",
         "es": "Ancho de banda",
@@ -48,7 +45,6 @@
       "businessContext": "-3 dB bandwidth.",
       "businessContext_i18n": {
         "en": "-3 dB bandwidth.",
-        "tr": "-3 dB Bandwidth.",
         "de": "-3-dB-Bandbreite.",
         "fr": "Bande passante à -3 dB.",
         "es": "Ancho de banda de -3 dB.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "rezonansFrekans / Math.max(0.0001, bantGenislik)"
+    "result": "rezonansFrekans / Math.max(0.0001, bantGenislik)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Q",
     "breakdown": {
-      "sonuc": "Kalite Faktoru (Q)"
+      "result": "Kalite Faktoru (Q)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Kalite Faktoru (Q)",
-        "tr": "Kalite Faktoru (Q)",
         "de": "Gutefaktor (Q)",
         "fr": "Facteur de qualité (Q)",
         "es": "Factor de Calidad (Q)",
@@ -102,7 +97,6 @@
       "long": "Calculate resonant circuit quality factor (Q).",
       "short_i18n": {
         "en": "Calculate resonant circuit quality factor (Q).",
-        "tr": "Rezonans devresinin Frequency seciciligini (Q faktoru) hesaplar.",
         "de": "Berechnen Sie den Gutefaktor (Q) eines Schwingkreises.",
         "fr": "Calculer le facteur de qualité (Q) du circuit résonant.",
         "es": "Calcular el factor de calidad del circuito resonante (Q).",
@@ -110,7 +104,6 @@
       },
       "long_i18n": {
         "en": "Calculate resonant circuit quality factor (Q).",
-        "tr": "Rezonans devresinin Frequency seciciligini (Q faktoru) hesaplar.",
         "de": "Berechnen Sie den Gutefaktor (Q) eines Schwingkreises.",
         "fr": "Calculer le facteur de qualité (Q) du circuit résonant.",
         "es": "Calcular el factor de calidad del circuito resonante (Q).",

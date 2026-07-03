@@ -10,7 +10,6 @@
       "label": "Portfolio Return (%)",
       "label_i18n": {
         "en": "Portfolio Return (%)",
-        "tr": "Portfoy Getirisi (%)",
         "de": "Portfoliorendite (%)",
         "fr": "Rendement du portefeuille (%)",
         "es": "Rendimiento de la cartera (%)",
@@ -23,7 +22,6 @@
       "businessContext": "Portfolio return.",
       "businessContext_i18n": {
         "en": "Portfolio return.",
-        "tr": "Portfoyun donemsel getirisi.",
         "de": "Portfoliorendite.",
         "fr": "Rendement du portefeuille.",
         "es": "Rendimiento de la cartera.",
@@ -35,7 +33,6 @@
       "label": "Risk-Free Rate (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
-        "tr": "Risksiz Faiz (%)",
         "de": "Risikofreier Zinssatz (%)",
         "fr": "Taux sans risque (%)",
         "es": "Tasa libre de riesgo (%)",
@@ -48,7 +45,6 @@
       "businessContext": "Risk-free rate.",
       "businessContext_i18n": {
         "en": "Risk-free rate.",
-        "tr": "Risksiz varlik getirisi.",
         "de": "Risikofreier Zinssatz.",
         "fr": "Taux sans risque.",
         "es": "Tasa libre de riesgo.",
@@ -60,7 +56,6 @@
       "label": "Beta (Number)",
       "label_i18n": {
         "en": "Beta (Number)",
-        "tr": "Beta (Number)",
         "de": "Beta (Anzahl)",
         "fr": "Bêta",
         "es": "Beta (Número)",
@@ -73,7 +68,6 @@
       "businessContext": "Portfolio market sensitivity.",
       "businessContext_i18n": {
         "en": "Portfolio market sensitivity.",
-        "tr": "Portfoyun piyasa duyarliligi.",
         "de": "Marktsensitivität des Portfolios.",
         "fr": "Sensibilité du portefeuille au marché.",
         "es": "Sensibilidad del portafolio al mercado.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(portfoyGetirisi - risksizFaiz) / Math.max(0.0001, beta)"
+    "result": "(portfoyGetirisi - risksizFaiz) / Math.max(0.0001, beta)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Treynor Ratio"
+      "result": "Treynor Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Treynor Ratio",
-        "tr": "Treynor Ratio",
         "de": "Treynor Ratio",
         "fr": "Ratio de Treynor",
         "es": "Ratio de Treynor",
@@ -124,7 +117,6 @@
       "long": "Calculate the Treynor ratio — excess return per unit of systematic risk (beta).",
       "short_i18n": {
         "en": "Calculate the Treynor ratio — excess return per unit of systematic risk (beta).",
-        "tr": "Sistematik risk (Beta) basina uretilen fazla getiriyi (Treynor) hesaplar.",
         "de": "Berechnen Sie die Treynor-Ratio — Uberschussrendite pro Einheit systematischen Risikos (Beta).",
         "fr": "Calculer le ratio de Treynor — rendement excédentaire par unité de risque systématique (bêta).",
         "es": "Calcular el ratio Treynor — exceso de rendimiento por unidad de riesgo sistemático (beta).",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate the Treynor ratio — excess return per unit of systematic risk (beta).",
-        "tr": "Sistematik risk (Beta) basina uretilen fazla getiriyi (Treynor) hesaplar.",
         "de": "Berechnen Sie die Treynor-Ratio — Uberschussrendite pro Einheit systematischen Risikos (Beta).",
         "fr": "Calculer le ratio de Treynor — rendement excédentaire par unité de risque systématique (bêta).",
         "es": "Calcular el ratio Treynor — exceso de rendimiento por unidad de riesgo sistemático (beta).",

@@ -10,7 +10,6 @@
       "label": "Principal (TL)",
       "label_i18n": {
         "en": "Principal (TL)",
-        "tr": "Anapara (TL)",
         "de": "Anfangskapital",
         "fr": "Capital initial",
         "es": "Capital inicial",
@@ -23,7 +22,6 @@
       "businessContext": "Principal debt amount.",
       "businessContext_i18n": {
         "en": "Principal debt amount.",
-        "tr": "Ana borc tutari.",
         "de": "Hauptschuldbetrag.",
         "fr": "Montant de la dette principale.",
         "es": "Monto de la deuda principal.",
@@ -35,7 +33,6 @@
       "label": "Annual Late Interest (%)",
       "label_i18n": {
         "en": "Annual Late Interest (%)",
-        "tr": "Annual Gecikme Interesti (%)",
         "de": "Jährlicher Verzugszins (%)",
         "fr": "Intérêt annuel de retard (%)",
         "es": "Interés Anual por Mora (%)",
@@ -48,7 +45,6 @@
       "businessContext": "Legal default interest rate.",
       "businessContext_i18n": {
         "en": "Legal default interest rate.",
-        "tr": "Yasal temerrut Interest Rate.",
         "de": "Gesetzlicher Verzugszinssatz.",
         "fr": "Taux d'intérêt légal par défaut.",
         "es": "Tasa de interés legal por defecto.",
@@ -60,7 +56,6 @@
       "label": "Days Overdue",
       "label_i18n": {
         "en": "Days Overdue",
-        "tr": "Gecikme Gunu",
         "de": "Uberfällige Tage",
         "fr": "Jours de retard",
         "es": "Días de Vencimiento",
@@ -73,7 +68,6 @@
       "businessContext": "Days past due.",
       "businessContext_i18n": {
         "en": "Days past due.",
-        "tr": "Maturity asimi suresi.",
         "de": "Tage nach Fälligkeit.",
         "fr": "Jours de dépassement de l'échéance.",
         "es": "Días vencidos.",
@@ -85,7 +79,6 @@
       "label": "Compounding Frequency (Days)",
       "label_i18n": {
         "en": "Compounding Frequency (Days)",
-        "tr": "Bilesim Sikligi (Gun)",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de Capitalización",
@@ -98,7 +91,6 @@
       "businessContext": "Interest capitalization period.",
       "businessContext_i18n": {
         "en": "Interest capitalization period.",
-        "tr": "Faizin Principalya eklendigi periyot.",
         "de": "Zinskapitalisierungszeitraum.",
         "fr": "Période de capitalisation des intérêts.",
         "es": "Período de capitalización de intereses.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "anapara * Math.pow((1 + (yillikFaiz / 100) * (bilesimSikligi / 365)), gecikmeGun / Math.max(1, bilesimSikligi))"
+    "result": "anapara * Math.pow((1 + (yillikFaiz / 100) * (bilesimSikligi / 365)), gecikmeGun / Math.max(1, bilesimSikligi))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "TL",
     "breakdown": {
-      "sonuc": "Total Liabilities"
+      "result": "Total Liabilities"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Total Liabilities",
-        "tr": "Total Liabilities",
         "de": "Gesamtschuld",
         "fr": "Dette totale",
         "es": "Deuda Total",
@@ -152,7 +143,6 @@
       "long": "Calculate compound late payment interest on principal debt.",
       "short_i18n": {
         "en": "Calculate compound late payment interest on principal debt.",
-        "tr": "Temerrut faizinin Principalya eklendigi yasal Total Liabilities tutarini hesaplar.",
         "de": "Berechnen Sie die Verzugszinsen auf die Hauptschuld bei Zinseszins.",
         "fr": "Calculer les intérêts de retard composés sur la dette principale.",
         "es": "Calcular el interés compuesto por mora sobre la deuda principal.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Calculate compound late payment interest on principal debt.",
-        "tr": "Temerrut faizinin Principalya eklendigi yasal Total Liabilities tutarini hesaplar.",
         "de": "Berechnen Sie die Verzugszinsen auf die Hauptschuld bei Zinseszins.",
         "fr": "Calculer les intérêts de retard composés sur la dette principale.",
         "es": "Calcular el interés compuesto por mora sobre la deuda principal.",

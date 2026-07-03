@@ -10,7 +10,6 @@
       "label": "Total Investment (USD)",
       "label_i18n": {
         "en": "Total Investment (USD)",
-        "tr": "Total Inandstmmostt (TRY)",
         "de": "Gesamtinvestitionsbetrag",
         "fr": "Montant total de l'investissement",
         "es": "Monto Total de Inversión",
@@ -23,7 +22,6 @@
       "businessContext": "Plant installation cost.",
       "businessContext_i18n": {
         "en": "Plant installation cost.",
-        "tr": "Santralin kurulum maliyeti.",
         "de": "Anlageninstallationskosten.",
         "fr": "Coût d'installation de l'usine.",
         "es": "Costo de instalación de la planta.",
@@ -35,7 +33,6 @@
       "label": "Lifetime O&M (USD)",
       "label_i18n": {
         "en": "Lifetime O&M (USD)",
-        "tr": "Omur Heightu Workletme (TL)",
         "de": "Lebensdauer O&M (USD)",
         "fr": "O&M sur la durée de vie (USD)",
         "es": "O&M de por vida (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Operation and maintenance costs.",
       "businessContext_i18n": {
         "en": "Operation and maintenance costs.",
-        "tr": "BCurrent ve isletme giderleri.",
         "de": "Betriebs- und Wartungskosten.",
         "fr": "Coûts d'exploitation et de maintenance.",
         "es": "Costos de operación y mantenimiento.",
@@ -60,7 +56,6 @@
       "label": "Lifetime Production (kWh)",
       "label_i18n": {
         "en": "Lifetime Production (kWh)",
-        "tr": "Omur Heightu Uretim (kWh)",
         "de": "Lebensdauerproduktion (kWh)",
         "fr": "Production sur la durée de vie (kWh)",
         "es": "Producción de por vida (kWh)",
@@ -73,7 +68,6 @@
       "businessContext": "Total electricity generation.",
       "businessContext_i18n": {
         "en": "Total electricity generation.",
-        "tr": "Total elektrik uretimi.",
         "de": "Gesamte Stromerzeugung.",
         "fr": "Production totale d'électricité.",
         "es": "Generación total de electricidad.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(toplamYatirim + toplamIsletme) / Math.max(1, toplamUretim)"
+    "result": "(toplamYatirim + toplamIsletme) / Math.max(1, toplamUretim)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "TRY/kWh",
     "breakdown": {
-      "sonuc": "LCOE (Birim Enerji Maliyeti)"
+      "result": "LCOE (Birim Enerji Maliyeti)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "LCOE (Birim Enerji Maliyeti)",
-        "tr": "LCOE (Birim Enerji Maliyeti)",
         "de": "LCOE (Stromgestehungskosten)",
         "fr": "LCOE (Levelized Cost of Energy)",
         "es": "LCOE (Costo de Energía Unitaria)",
@@ -124,7 +117,6 @@
       "long": "Calculate levelized cost of energy (LCOE).",
       "short_i18n": {
         "en": "Calculate levelized cost of energy (LCOE).",
-        "tr": "Energy santralinin omru Heightunca urettigi elektrigin Unit Costini (LCOE) hesaplar.",
         "de": "Berechnen Sie die Stromgestehungskosten (LCOE).",
         "fr": "Calculer le coût actualisé de l'énergie (LCOE).",
         "es": "Calcular el costo nivelado de la energía (LCOE).",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate levelized cost of energy (LCOE).",
-        "tr": "Energy santralinin omru Heightunca urettigi elektrigin Unit Costini (LCOE) hesaplar.",
         "de": "Berechnen Sie die Stromgestehungskosten (LCOE).",
         "fr": "Calculer le coût actualisé de l'énergie (LCOE).",
         "es": "Calcular el costo nivelado de la energía (LCOE).",

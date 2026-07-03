@@ -10,7 +10,6 @@
       "label": "Overall Composition (%)",
       "label_i18n": {
         "en": "Overall Composition (%)",
-        "tr": "Total Bilesim (%)",
         "de": "Gesamtzusammensetzung (%)",
         "fr": "Composition globale (%)",
         "es": "Composición General (%)",
@@ -23,7 +22,6 @@
       "businessContext": "Alloy overall composition.",
       "businessContext_i18n": {
         "en": "Alloy overall composition.",
-        "tr": "Alasimin Total bilesimi.",
         "de": "Gesamtzusammensetzung der Legierung.",
         "fr": "Composition globale de l'alliage.",
         "es": "Composición general de la aleación.",
@@ -35,7 +33,6 @@
       "label": "Liquid Composition (%)",
       "label_i18n": {
         "en": "Liquid Composition (%)",
-        "tr": "Sivi Bilesimi (%)",
         "de": "Flussigzusammensetzung (%)",
         "fr": "Composition de la phase liquide (%)",
         "es": "Composición del Líquido (%)",
@@ -48,7 +45,6 @@
       "businessContext": "Liquid phase composition.",
       "businessContext_i18n": {
         "en": "Liquid phase composition.",
-        "tr": "Sivi fazin bilesimi.",
         "de": "Zusammensetzung der flussigen Phase.",
         "fr": "Composition de la phase liquide.",
         "es": "Composición de la fase líquida.",
@@ -60,7 +56,6 @@
       "label": "Solid Composition (%)",
       "label_i18n": {
         "en": "Solid Composition (%)",
-        "tr": "Kati Bilesimi (%)",
         "de": "Festzusammensetzung (%)",
         "fr": "Composition de la phase solide (%)",
         "es": "Composición del Sólido (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Solid phase composition.",
       "businessContext_i18n": {
         "en": "Solid phase composition.",
-        "tr": "Kati fazin bilesimi.",
         "de": "Zusammensetzung der festen Phase.",
         "fr": "Composition de la phase solide.",
         "es": "Composición de la fase sólida.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(C0 - Cl) / Math.max(0.0001, (Cs - Cl))"
+    "result": "(C0 - Cl) / Math.max(0.0001, (Cs - Cl))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "fraction",
     "breakdown": {
-      "sonuc": "Kati Faz Ratioi"
+      "result": "Kati Faz Ratioi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Kati Faz Ratioi",
-        "tr": "Kati Faz Ratioi",
         "de": "Festphasenanteil",
         "fr": "Solid Phase Ratio",
         "es": "Fracción de Fase Sólida",
@@ -124,7 +117,6 @@
       "long": "Calculate solid phase fraction using the lever rule on a phase diagram.",
       "short_i18n": {
         "en": "Calculate solid phase fraction using the lever rule on a phase diagram.",
-        "tr": "Faz diyagraminda kati fazin Mass Ratioini (lever kurali) hesaplar.",
         "de": "Berechnen Sie den Festphasenanteil mithilfe des Hebelgesetzes an einem Phasendiagramm.",
         "fr": "Calculer la fraction de phase solide en utilisant la règle du levier sur un diagramme de phases.",
         "es": "Calcular la fracción de fase sólida usando la regla de la palanca en un diagrama de fases.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate solid phase fraction using the lever rule on a phase diagram.",
-        "tr": "Faz diyagraminda kati fazin Mass Ratioini (lever kurali) hesaplar.",
         "de": "Berechnen Sie den Festphasenanteil mithilfe des Hebelgesetzes an einem Phasendiagramm.",
         "fr": "Calculer la fraction de phase solide en utilisant la règle du levier sur un diagramme de phases.",
         "es": "Calcular la fracción de fase sólida usando la regla de la palanca en un diagrama de fases.",

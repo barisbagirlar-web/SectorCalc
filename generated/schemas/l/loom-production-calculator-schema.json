@@ -10,7 +10,6 @@
       "label": "Picks per Minute (ppm)",
       "label_i18n": {
         "en": "Picks per Minute (ppm)",
-        "tr": "Atim Numbersi (atim/dk)",
         "de": "Schussfaden pro Minute (ppm)",
         "fr": "Coups par minute (ppm)",
         "es": "Picks por minuto (ppm)",
@@ -23,7 +22,6 @@
       "businessContext": "Loom picks per minute.",
       "businessContext_i18n": {
         "en": "Loom picks per minute.",
-        "tr": "Tezgahin dakikadaki atim adedi.",
         "de": "Schussfaden pro Minute der Webmaschine.",
         "fr": "Coups par minute du métier à tisser.",
         "es": "Picks por minuto del telar.",
@@ -35,7 +33,6 @@
       "label": "Downtime (min)",
       "label_i18n": {
         "en": "Downtime (min)",
-        "tr": "Downtime (dk)",
         "de": "Versteckte Kosten einbeziehen (Goodwill, Verwaltung, Ausfallzeit)",
         "fr": "Inclure les coûts cachés (Goodwill, Administration, Temps d'arrêt)",
         "es": "Incluir costos ocultos (Buena voluntad, Administración, Tiempo de inactividad)",
@@ -48,7 +45,6 @@
       "businessContext": "Total downtime per shift.",
       "businessContext_i18n": {
         "en": "Total downtime per shift.",
-        "tr": "Vardiya basi Total durus.",
         "de": "Gesamtstillstandszeit pro Schicht.",
         "fr": "Temps d'arrêt total par poste.",
         "es": "Tiempo de inactividad total por turno.",
@@ -60,7 +56,6 @@
       "label": "Shift Duration (min)",
       "label_i18n": {
         "en": "Shift Duration (min)",
-        "tr": "Vardiya Time (min)",
         "de": "Schichtdauer (Stunden)",
         "fr": "Durée du poste (heures)",
         "es": "Duración del turno (horas)",
@@ -73,7 +68,6 @@
       "businessContext": "Total shift duration.",
       "businessContext_i18n": {
         "en": "Total shift duration.",
-        "tr": "Total Shift Duration.",
         "de": "Gesamte Schichtdauer.",
         "fr": "Durée totale du poste.",
         "es": "Duración total del turno.",
@@ -85,7 +79,6 @@
       "label": "Fabric Density (picks/cm)",
       "label_i18n": {
         "en": "Fabric Density (picks/cm)",
-        "tr": "Kumas Sikligi (atim/cm)",
         "de": "Gewebedichte (Schussfäden/cm)",
         "fr": "Densité du tissu (coups/cm)",
         "es": "Densidad de la tela (picks/cm)",
@@ -98,7 +91,6 @@
       "businessContext": "Picks per cm.",
       "businessContext_i18n": {
         "en": "Picks per cm.",
-        "tr": "cm basina atim sikligi.",
         "de": "Schussfäden pro cm.",
         "fr": "Coups par cm.",
         "es": "Picks por cm.",
@@ -113,19 +105,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "verimliSure": "vardiyaSure - durusSure",
-    "sonuc": "(atimSayisi * (vardiyaSure - durusSure)) / Math.max(0.0001, (kumasSikligi * 100))"
+    "verimliDuration": "vardiyaSure - durusSure",
+    "result": "(atimSayisi * (vardiyaSure - durusSure)) / Math.max(0.0001, (kumasSikligi * 100))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Net Kumas Uretimi"
+      "result": "Net Kumas Uretimi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Net Kumas Uretimi",
-        "tr": "Net Kumas Uretimi",
         "de": "Nettostoffproduktion",
         "fr": "Production nette de tissu",
         "es": "Producción Neta de Tela",
@@ -152,7 +143,6 @@
       "long": "Calculate loom net fabric production per shift.",
       "short_i18n": {
         "en": "Calculate loom net fabric production per shift.",
-        "tr": "Tezgahin bir vardiyada urettigi Net kumas uzunlugunu hesaplar.",
         "de": "Berechnen Sie die Netto-Stoffproduktion pro Schicht einer Webmaschine.",
         "fr": "Calculer la production nette de tissu par poste pour un métier à tisser.",
         "es": "Calcular la producción neta de tela por turno en un telar.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Calculate loom net fabric production per shift.",
-        "tr": "Tezgahin bir vardiyada urettigi Net kumas uzunlugunu hesaplar.",
         "de": "Berechnen Sie die Netto-Stoffproduktion pro Schicht einer Webmaschine.",
         "fr": "Calculer la production nette de tissu par poste pour un métier à tisser.",
         "es": "Calcular la producción neta de tela por turno en un telar.",

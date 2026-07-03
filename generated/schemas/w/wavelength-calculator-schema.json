@@ -6,11 +6,10 @@
   "sectorId": "process-chemical",
   "inputs": [
     {
-      "id": "hiz",
+      "id": "speed",
       "label": "Wave Speed (m/s)",
       "label_i18n": {
         "en": "Wave Speed (m/s)",
-        "tr": "Dalga Speed (m/s)",
         "de": "Wellengeschwindigkeit (m/s)",
         "fr": "Vitesse de l'onde (m/s)",
         "es": "Velocidad de la onda (m/s)",
@@ -23,7 +22,6 @@
       "businessContext": "Wave propagation speed.",
       "businessContext_i18n": {
         "en": "Wave propagation speed.",
-        "tr": "Dalganin yayilma Speedi.",
         "de": "Wellenausbreitungsgeschwindigkeit.",
         "fr": "Vitesse de propagation de l'onde.",
         "es": "Velocidad de propagación de la onda.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "frekans",
+      "id": "frequency",
       "label": "Frequency (Hz)",
       "label_i18n": {
         "en": "Frequency (Hz)",
-        "tr": "Frekans (Hz)",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de Capitalización",
@@ -48,7 +45,6 @@
       "businessContext": "Wave frequency.",
       "businessContext_i18n": {
         "en": "Wave frequency.",
-        "tr": "Dalganin Frequencyi.",
         "de": "Wellenfrequenz.",
         "fr": "Fréquence de l'onde.",
         "es": "Frecuencia de la onda.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "hiz / Math.max(0.0001, frekans)"
+    "result": "speed / Math.max(0.0001, frequency)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Dalga Boyu"
+      "result": "Dalga Boyu"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Dalga Boyu",
-        "tr": "Dalga Boyu",
         "de": "Wellenlänge",
         "fr": "Longueur d'onde",
         "es": "Longitud de Onda",
@@ -99,7 +94,6 @@
       "long": "Calculate wavelength from wave speed and frequency.",
       "short_i18n": {
         "en": "Calculate wavelength from wave speed and frequency.",
-        "tr": "Dalganin Speed ve Frequencyindan Wavelengthnu hesaplar.",
         "de": "Berechnen Sie die Wellenlänge aus Wellengeschwindigkeit und Frequenz.",
         "fr": "Calculer la longueur d'onde à partir de la vitesse et de la fréquence de l'onde.",
         "es": "Calcular la longitud de onda a partir de la velocidad y frecuencia de la onda.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate wavelength from wave speed and frequency.",
-        "tr": "Dalganin Speed ve Frequencyindan Wavelengthnu hesaplar.",
         "de": "Berechnen Sie die Wellenlänge aus Wellengeschwindigkeit und Frequenz.",
         "fr": "Calculer la longueur d'onde à partir de la vitesse et de la fréquence de l'onde.",
         "es": "Calcular la longitud de onda a partir de la velocidad y frecuencia de la onda.",

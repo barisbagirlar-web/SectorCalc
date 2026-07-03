@@ -10,7 +10,6 @@
       "label": "Fuel Consumption (L)",
       "label_i18n": {
         "en": "Fuel Consumption (L)",
-        "tr": "Fuel Consumption (L)",
         "de": "Dieselkraftstoffverbrauch (Flotte)",
         "fr": "Consommation de carburant diesel (Flotte)",
         "es": "Consumo de combustible diésel (Flota)",
@@ -23,7 +22,6 @@
       "businessContext": "Annual diesel consumption.",
       "businessContext_i18n": {
         "en": "Annual diesel consumption.",
-        "tr": "Annual Fuel Consumption (motorin).",
         "de": "Jährlicher Dieselverbrauch.",
         "fr": "Consommation annuelle de diesel.",
         "es": "Consumo anual de diésel.",
@@ -35,7 +33,6 @@
       "label": "Electricity (kWh)",
       "label_i18n": {
         "en": "Electricity (kWh)",
-        "tr": "Electricity Consumption (kWh)",
         "de": "Stromverbrauch",
         "fr": "Consommation d'électricité",
         "es": "Consumo de electricidad",
@@ -48,7 +45,6 @@
       "businessContext": "Annual electricity consumption.",
       "businessContext_i18n": {
         "en": "Annual electricity consumption.",
-        "tr": "Annual Electricity Consumption.",
         "de": "Jährlicher Stromverbrauch.",
         "fr": "Consommation annuelle d'électricité.",
         "es": "Consumo anual de electricidad.",
@@ -60,7 +56,6 @@
       "label": "Supply Chain (kgCO₂)",
       "label_i18n": {
         "en": "Supply Chain (kgCO₂)",
-        "tr": "Tedarik Emisyonu (kgCO₂)",
         "de": "Lieferkette (kgCO₂)",
         "fr": "Chaîne d'approvisionnement (kgCO₂)",
         "es": "Cadena de Suministro (kgCO₂)",
@@ -73,7 +68,6 @@
       "businessContext": "Purchased goods emissions.",
       "businessContext_i18n": {
         "en": "Purchased goods emissions.",
-        "tr": "Emissions from Purchased Goods/Services.",
         "de": "Emissionen aus eingekauften Gutern.",
         "fr": "Émissions des biens achetés.",
         "es": "Emisiones de bienes comprados.",
@@ -90,18 +84,17 @@
   "formulas": {
     "scope1": "yakit * 2.31",
     "scope2": "elektrik * 0.45",
-    "sonuc": "(yakit * 2.31) + (elektrik * 0.45) + tedarik"
+    "result": "(yakit * 2.31) + (elektrik * 0.45) + tedarik"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kgCO2",
     "breakdown": {
-      "sonuc": "Total Carbon Footprint"
+      "result": "Total Carbon Footprint"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Total Carbon Footprint",
-        "tr": "Total Carbon Footprint",
         "de": "Gesamter CO2-Fußabdruck",
         "fr": "Empreinte carbone totale",
         "es": "Huella de Carbono Total",
@@ -129,7 +122,6 @@
       "long": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
       "short_i18n": {
         "en": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
-        "tr": "Kurumun Total Greenhouse Gas Emissionsnu (karbon ayak izi) hesaplar.",
         "de": "Berechnen Sie die gesamten Treibhausgasemissionen des Unternehmens (CO2-Fußabdruck).",
         "fr": "Calculer les émissions totales de gaz à effet de serre de l'entreprise (empreinte carbone).",
         "es": "Calcular las emisiones totales de gases de efecto invernadero corporativas (huella de carbono).",
@@ -137,7 +129,6 @@
       },
       "long_i18n": {
         "en": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
-        "tr": "Kurumun Total Greenhouse Gas Emissionsnu (karbon ayak izi) hesaplar.",
         "de": "Berechnen Sie die gesamten Treibhausgasemissionen des Unternehmens (CO2-Fußabdruck).",
         "fr": "Calculer les émissions totales de gaz à effet de serre de l'entreprise (empreinte carbone).",
         "es": "Calcular las emisiones totales de gases de efecto invernadero corporativas (huella de carbono).",

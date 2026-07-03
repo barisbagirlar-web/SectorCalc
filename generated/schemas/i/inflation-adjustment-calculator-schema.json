@@ -10,7 +10,6 @@
       "label": "Nominal Value (USD)",
       "label_i18n": {
         "en": "Nominal Value (USD)",
-        "tr": "Nominal Value (TRY)",
         "de": "Nennwert (USD)",
         "fr": "Valeur nominale (USD)",
         "es": "Valor Nominal (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Current nominal money value.",
       "businessContext_i18n": {
         "en": "Current nominal money value.",
-        "tr": "Bugunku para Valuei.",
         "de": "Aktueller Nennwert des Geldes.",
         "fr": "Valeur nominale actuelle de l'argent.",
         "es": "Valor nominal actual del dinero.",
@@ -35,7 +33,6 @@
       "label": "Annual Inflation (%)",
       "label_i18n": {
         "en": "Annual Inflation (%)",
-        "tr": "Annual Enflasyon (%)",
         "de": "Jährliche Inflationsrate",
         "fr": "Taux d'inflation annuel",
         "es": "Tasa de inflación anual",
@@ -48,7 +45,6 @@
       "businessContext": "Average annual inflation rate.",
       "businessContext_i18n": {
         "en": "Average annual inflation rate.",
-        "tr": "Mean yillik enflasyon Ratioi.",
         "de": "Erwartete durchschnittliche jährliche Inflationsrate. Inflation verringert die Kaufkraft im Laufe der Zeit, daher mussen die Entnahmen moglicherweise erhoht werden. Keine Finanzberatung.",
         "fr": "Taux d'inflation annuel moyen attendu. L'inflation réduit le pouvoir d'achat au fil du temps, donc les retraits peuvent devoir augmenter. Ce n'est pas un conseil financier.",
         "es": "Tasa de inflación anual promedio esperada. La inflación reduce el poder adquisitivo con el tiempo, por lo que los retiros pueden necesitar aumentar. No es asesoramiento financiero.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "yil",
+      "id": "year",
       "label": "Number of Years",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Year Count",
         "de": "Anzahl der Jahre",
         "fr": "Nombre d'années",
         "es": "Número de años",
@@ -73,7 +68,6 @@
       "businessContext": "Future period in years.",
       "businessContext_i18n": {
         "en": "Future period in years.",
-        "tr": "Gelecek donem.",
         "de": "Zukunftiger Zeitraum in Jahren.",
         "fr": "Période future en années.",
         "es": "Período futuro en años.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "nominalDeger / Math.pow(1 + enflasyon / 100, yil)"
+    "result": "nominalDeger / Math.pow(1 + enflasyon / 100, year)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Enflasyon Duzeltilmis Value"
+      "result": "Enflasyon Duzeltilmis Value"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Enflasyon Duzeltilmis Value",
-        "tr": "Enflasyon Duzeltilmis Value",
         "de": "Inflationsbereinigter Wert",
         "fr": "Valeur ajustée à l'inflation",
         "es": "Valor Ajustado por Inflación",
@@ -124,7 +117,6 @@
       "long": "Calculate inflation-adjusted purchasing power of money.",
       "short_i18n": {
         "en": "Calculate inflation-adjusted purchasing power of money.",
-        "tr": "Paranin enflasyondan arindirilmis bugunku alim gucunu hesaplar.",
         "de": "Inflationsbereinigte Kaufkraft von Geld berechnen.",
         "fr": "Calculer le pouvoir d'achat ajusté à l'inflation.",
         "es": "Calcular el poder adquisitivo ajustado por inflación del dinero.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate inflation-adjusted purchasing power of money.",
-        "tr": "Paranin enflasyondan arindirilmis bugunku alim gucunu hesaplar.",
         "de": "Inflationsbereinigte Kaufkraft von Geld berechnen.",
         "fr": "Calculer le pouvoir d'achat ajusté à l'inflation.",
         "es": "Calcular el poder adquisitivo ajustado por inflación del dinero.",

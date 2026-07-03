@@ -6,11 +6,10 @@
   "sectorId": "other",
   "inputs": [
     {
-      "id": "direnc",
+      "id": "resistance",
       "label": "Unit Resistance (Ω/m)",
       "label_i18n": {
         "en": "Unit Resistance (Ω/m)",
-        "tr": "Unit Resistance (Ω/m)",
         "de": "Widerstand pro Längeneinheit (Ω/m)",
         "fr": "Résistance linéique (Ω/m)",
         "es": "Resistencia Unitaria (Ω/m)",
@@ -23,7 +22,6 @@
       "businessContext": "Line resistance.",
       "businessContext_i18n": {
         "en": "Line resistance.",
-        "tr": "Hat direnci.",
         "de": "Leitungswiderstand.",
         "fr": "Résistance de la ligne.",
         "es": "Resistencia de línea.",
@@ -35,7 +33,6 @@
       "label": "Unit Inductance (H/m)",
       "label_i18n": {
         "en": "Unit Inductance (H/m)",
-        "tr": "Unit Induktans (H/m)",
         "de": "Induktivität pro Längeneinheit (H/m)",
         "fr": "Inductance linéique (H/m)",
         "es": "Inductancia Unitaria (H/m)",
@@ -48,7 +45,6 @@
       "businessContext": "Line inductance.",
       "businessContext_i18n": {
         "en": "Line inductance.",
-        "tr": "Hat Inductancei.",
         "de": "Leitungsinduktivität.",
         "fr": "Inductance de la ligne.",
         "es": "Inductancia de línea.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "kapasite",
+      "id": "capacity",
       "label": "Unit Capacitance (F/m)",
       "label_i18n": {
         "en": "Unit Capacitance (F/m)",
-        "tr": "Birim Kapasite (F/m)",
         "de": "Kapazität pro Längeneinheit (F/m)",
         "fr": "Capacité linéique (F/m)",
         "es": "Capacitancia Unitaria (F/m)",
@@ -73,7 +68,6 @@
       "businessContext": "Line capacitance.",
       "businessContext_i18n": {
         "en": "Line capacitance.",
-        "tr": "Hat kapasitesi.",
         "de": "Leitungskapazität.",
         "fr": "Capacité de la ligne.",
         "es": "Capacitancia de línea.",
@@ -81,11 +75,10 @@
       }
     },
     {
-      "id": "frekans",
+      "id": "frequency",
       "label": "Frequency (Hz)",
       "label_i18n": {
         "en": "Frequency (Hz)",
-        "tr": "Frekans (Hz)",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de Capitalización",
@@ -98,7 +91,6 @@
       "businessContext": "Operating frequency.",
       "businessContext_i18n": {
         "en": "Operating frequency.",
-        "tr": "Calisma Frequencyi.",
         "de": "Betriebsfrequenz.",
         "fr": "Fréquence de fonctionnement.",
         "es": "Frecuencia de operación.",
@@ -113,19 +105,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "w": "2 * Math.PI * frekans",
-    "sonuc": "Math.sqrt(Math.max(0, (direnc + 0 + induktans * 2 * Math.PI * frekans) * (0 + 0 + kapasite * 2 * Math.PI * frekans)))"
+    "w": "2 * Math.PI * frequency",
+    "result": "Math.sqrt(Math.max(0, (resistance + 0 + induktans * 2 * Math.PI * frequency) * (0 + 0 + capacity * 2 * Math.PI * frequency)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Np/m",
     "breakdown": {
-      "sonuc": "Zayiflama Sabiti (α)"
+      "result": "Zayiflama Sabiti (α)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Zayiflama Sabiti (α)",
-        "tr": "Zayiflama Sabiti (α)",
         "de": "Dämpfungskonstante (α)",
         "fr": "Constante d'atténuation (α)",
         "es": "Constante de Atenuación (α)",
@@ -153,7 +144,6 @@
       "long": "Calculate transmission line propagation constant (gamma).",
       "short_i18n": {
         "en": "Calculate transmission line propagation constant (gamma).",
-        "tr": "Iletim hattindaki zayiflama ve faz degisim katNumbersini (yayilma sabiti) hesaplar.",
         "de": "Berechnen Sie die Ausbreitungskonstante (gamma) einer Ubertragungsleitung.",
         "fr": "Calculer la constante de propagation de la ligne de transmission (gamma).",
         "es": "Calcular la constante de propagación de la línea de transmisión (gamma).",
@@ -161,7 +151,6 @@
       },
       "long_i18n": {
         "en": "Calculate transmission line propagation constant (gamma).",
-        "tr": "Iletim hattindaki zayiflama ve faz degisim katNumbersini (yayilma sabiti) hesaplar.",
         "de": "Berechnen Sie die Ausbreitungskonstante (gamma) einer Ubertragungsleitung.",
         "fr": "Calculer la constante de propagation de la ligne de transmission (gamma).",
         "es": "Calcular la constante de propagación de la línea de transmisión (gamma).",

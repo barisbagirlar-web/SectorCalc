@@ -10,7 +10,6 @@
       "label": "Fluid Density (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
-        "tr": "Fluid Dmostsity (kg/m³)",
         "de": "Fluiddichte",
         "fr": "Densité du fluide",
         "es": "Densidad del fluido",
@@ -23,7 +22,6 @@
       "businessContext": "Fluid density.",
       "businessContext_i18n": {
         "en": "Fluid density.",
-        "tr": "Akiskanin yogunlugu.",
         "de": "Fluiddichte.",
         "fr": "Masse volumique du fluide.",
         "es": "Densidad del fluido.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "derinlik",
+      "id": "depth",
       "label": "Depth (m)",
       "label_i18n": {
         "en": "Depth (m)",
-        "tr": "Derinlik (m)",
         "de": "Schnitttiefe (ap)",
         "fr": "Profondeur de coupe (ap)",
         "es": "Profundidad de corte (ap)",
@@ -48,7 +45,6 @@
       "businessContext": "Depth below fluid surface.",
       "businessContext_i18n": {
         "en": "Depth below fluid surface.",
-        "tr": "Sivi yuzeyinden Depth.",
         "de": "Tiefe unter der Fluidoberfläche.",
         "fr": "Profondeur sous la surface du fluide.",
         "es": "Profundidad bajo la superficie del fluido.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "yogunluk * 9.81 * derinlik"
+    "result": "yogunluk * 9.81 * depth"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Hidrostatik Pressure"
+      "result": "Hidrostatik Pressure"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Hidrostatik Pressure",
-        "tr": "Hidrostatik Pressure",
         "de": "Hydrostatischer Druck",
         "fr": "Pression hydrostatique",
         "es": "Presión hidrostática",
@@ -99,7 +94,6 @@
       "long": "Calculate hydrostatic pressure at the bottom of a fluid column.",
       "short_i18n": {
         "en": "Calculate hydrostatic pressure at the bottom of a fluid column.",
-        "tr": "Akiskan sutununun tabaninda olusturdugu hidrostatik basinci hesaplar.",
         "de": "Berechnen Sie den hydrostatischen Druck am Boden einer Fluidsäule.",
         "fr": "Calculer la pression hydrostatique au fond d'une colonne de fluide.",
         "es": "Calcular la presión hidrostática en el fondo de una columna de fluido.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate hydrostatic pressure at the bottom of a fluid column.",
-        "tr": "Akiskan sutununun tabaninda olusturdugu hidrostatik basinci hesaplar.",
         "de": "Berechnen Sie den hydrostatischen Druck am Boden einer Fluidsäule.",
         "fr": "Calculer la pression hydrostatique au fond d'une colonne de fluide.",
         "es": "Calcular la presión hidrostática en el fondo de una columna de fluido.",

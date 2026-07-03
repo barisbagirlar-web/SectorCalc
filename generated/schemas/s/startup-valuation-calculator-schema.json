@@ -6,11 +6,10 @@
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "yatirim",
+      "id": "investment",
       "label": "Investment Amount (USD)",
       "label_i18n": {
         "en": "Investment Amount (USD)",
-        "tr": "Investment Amount (TL)",
         "de": "Investitionsbetrag ($)",
         "fr": "Montant de l'investissement ($)",
         "es": "Monto de inversión ($)",
@@ -23,7 +22,6 @@
       "businessContext": "Investor capital contribution.",
       "businessContext_i18n": {
         "en": "Investor capital contribution.",
-        "tr": "Yatirimcinin koydugu tutar.",
         "de": "Investorenkapitalbeitrag.",
         "fr": "Apport en capital de l'investisseur.",
         "es": "Aporte de capital del inversor.",
@@ -35,7 +33,6 @@
       "label": "Equity Given (%)",
       "label_i18n": {
         "en": "Equity Given (%)",
-        "tr": "Verwithn Hisse Ratio (%)",
         "de": "Eigenkapital gegeben (%)",
         "fr": "Pourcentage d'équité donné (%)",
         "es": "Capital Social Otorgado (%)",
@@ -49,7 +46,6 @@
       "businessContext": "Percentage equity given to investor.",
       "businessContext_i18n": {
         "en": "Percentage equity given to investor.",
-        "tr": "Yatirimciya verilen hisse yuzdesi.",
         "de": "Prozentsatz des an den Investor gegebenen Eigenkapitals.",
         "fr": "Pourcentage d'équité donné à l'investisseur.",
         "es": "Porcentaje de capital entregado al inversor.",
@@ -64,19 +60,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "degerlemeSonrasi": "yatirim / Math.max(0.0001, hisseOrani / 100)",
-    "sonuc": "(yatirim / Math.max(0.0001, hisseOrani / 100)) - yatirim"
+    "valuationSonrasi": "investment / Math.max(0.0001, hisseOrani / 100)",
+    "result": "(investment / Math.max(0.0001, hisseOrani / 100)) - investment"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Yatirim Oncesi Valueleme"
+      "result": "Yatirim Oncesi Valueleme"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Yatirim Oncesi Valueleme",
-        "tr": "Yatirim Oncesi Valueleme",
         "de": "Pre-Money-Bewertung",
         "fr": "Valorisation pré-investissement",
         "es": "Valoración Pre-Inversión",
@@ -101,7 +96,6 @@
       "long": "Calculate pre-money and post-money startup valuation.",
       "short_i18n": {
         "en": "Calculate pre-money and post-money startup valuation.",
-        "tr": "Yatirim oncesi ve sonrasi Inputim Valueini hesaplar.",
         "de": "Berechnen Sie die Pre-Money- und Post-Money-Bewertung eines Startups.",
         "fr": "Calculer la valorisation pré-money et post-money d'une startup.",
         "es": "Calcular la valoración pre-money y post-money de una startup.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate pre-money and post-money startup valuation.",
-        "tr": "Yatirim oncesi ve sonrasi Inputim Valueini hesaplar.",
         "de": "Berechnen Sie die Pre-Money- und Post-Money-Bewertung eines Startups.",
         "fr": "Calculer la valorisation pré-money et post-money d'une startup.",
         "es": "Calcular la valoración pre-money y post-money de una startup.",

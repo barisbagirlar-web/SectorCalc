@@ -10,7 +10,6 @@
       "label": "Section Modulus (m³)",
       "label_i18n": {
         "en": "Section Modulus (m³)",
-        "tr": "Section Modeulus (m³)",
         "de": "Widerstandsmoment",
         "fr": "Module de section",
         "es": "Módulo de sección",
@@ -23,7 +22,6 @@
       "businessContext": "LVL beam section modulus.",
       "businessContext_i18n": {
         "en": "LVL beam section modulus.",
-        "tr": "LVL kirisin Section Modeulus.",
         "de": "Widerstandsmoment des LVL-Trägerquerschnitts.",
         "fr": "Module de section de la poutre en LVL.",
         "es": "Módulo de sección de la viga LVL.",
@@ -35,7 +33,6 @@
       "label": "Bending Strength (Pa)",
       "label_i18n": {
         "en": "Bending Strength (Pa)",
-        "tr": "Egilme Dayanimi (Pa)",
         "de": "Biegefestigkeit (Pa)",
         "fr": "Résistance à la flexion (Pa)",
         "es": "Resistencia a la flexión (Pa)",
@@ -48,7 +45,6 @@
       "businessContext": "LVL allowable bending stress.",
       "businessContext_i18n": {
         "en": "LVL allowable bending stress.",
-        "tr": "LVL'nin izin verilen Bending Stress.",
         "de": "Zulässige Biegespannung von LVL.",
         "fr": "Contrainte de flexion admissible du LVL.",
         "es": "Esfuerzo admisible de flexión del LVL.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "kesitModulu * egilmeDayanimi"
+    "result": "kesitModulu * egilmeDayanimi"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "N.m",
     "breakdown": {
-      "sonuc": "Maks. Bmostding Mommostti"
+      "result": "Maks. Bmostding Mommostti"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maks. Bmostding Mommostti",
-        "tr": "Maks. Bmostding Mommostti",
         "de": "Max. Biegemoment",
         "fr": "Moment de flexion maximal",
         "es": "Momento Máximo de Flexión",
@@ -99,7 +94,6 @@
       "long": "Calculate maximum bending moment capacity of an LVL beam.",
       "short_i18n": {
         "en": "Calculate maximum bending moment capacity of an LVL beam.",
-        "tr": "Lamine ahsap (LVL) kirisin tasiyabilecegi Maximum Bending Momentni hesaplar.",
         "de": "Berechnen Sie das maximale Biegemoment eines LVL-Trägers.",
         "fr": "Calculer la capacité de moment de flexion maximale d'une poutre en LVL.",
         "es": "Calcular la capacidad máxima de momento flector de una viga LVL.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate maximum bending moment capacity of an LVL beam.",
-        "tr": "Lamine ahsap (LVL) kirisin tasiyabilecegi Maximum Bending Momentni hesaplar.",
         "de": "Berechnen Sie das maximale Biegemoment eines LVL-Trägers.",
         "fr": "Calculer la capacité de moment de flexion maximale d'une poutre en LVL.",
         "es": "Calcular la capacidad máxima de momento flector de una viga LVL.",

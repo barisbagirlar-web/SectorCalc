@@ -10,7 +10,6 @@
       "label": "Property Value (USD)",
       "label_i18n": {
         "en": "Property Value (USD)",
-        "tr": "Mulk Valuei (₺)",
         "de": "Immobilienwert",
         "fr": "Valeur de la propriété",
         "es": "Valor de la propiedad",
@@ -23,7 +22,6 @@
       "businessContext": "Current property value.",
       "businessContext_i18n": {
         "en": "Current property value.",
-        "tr": "Evin guncel piyasa Valuei.",
         "de": "Aktueller Immobilienwert.",
         "fr": "Valeur actuelle du bien.",
         "es": "Valor actual de la propiedad.",
@@ -35,7 +33,6 @@
       "label": "Remaining Debt (USD)",
       "label_i18n": {
         "en": "Remaining Debt (USD)",
-        "tr": "KArea Debt (TRY)",
         "de": "Restverschuldung (USD)",
         "fr": "Dette restante (USD)",
         "es": "Deuda restante (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Current mortgage balance.",
       "businessContext_i18n": {
         "en": "Current mortgage balance.",
-        "tr": "Mevcut kredi bakiyesi.",
         "de": "Aktueller Hypothekensaldo.",
         "fr": "Solde hypothécaire actuel.",
         "es": "Saldo actual de la hipoteca.",
@@ -60,7 +56,6 @@
       "label": "New Loan Amount (USD)",
       "label_i18n": {
         "en": "New Loan Amount (USD)",
-        "tr": "Yeni Kredi Tutari (₺)",
         "de": "Neuer Darlehensbetrag (USD)",
         "fr": "Montant du nouveau prêt (USD)",
         "es": "Monto del Nuevo Préstamo (USD)",
@@ -73,7 +68,6 @@
       "businessContext": "Total new loan to draw.",
       "businessContext_i18n": {
         "en": "Total new loan to draw.",
-        "tr": "Yeni cekilen Total kredi.",
         "de": "Gesamter neuer Kreditbetrag zur Auszahlung.",
         "fr": "Total du nouveau prêt à tirer.",
         "es": "Total del nuevo préstamo a retirar.",
@@ -85,7 +79,6 @@
       "label": "Closing Costs (USD)",
       "label_i18n": {
         "en": "Closing Costs (USD)",
-        "tr": "Masraflar (₺)",
         "de": "Abschlusskosten (%)",
         "fr": "Frais de clôture (%)",
         "es": "Costos de cierre (%)",
@@ -98,7 +91,6 @@
       "businessContext": "Closing and processing costs.",
       "businessContext_i18n": {
         "en": "Closing and processing costs.",
-        "tr": "Kapatma ve islem masraflari.",
         "de": "Abschluss- und Bearbeitungskosten.",
         "fr": "Frais de clôture et de traitement.",
         "es": "Costos de cierre y procesamiento.",
@@ -114,27 +106,25 @@
   },
   "formulas": {
     "ltv": "(yeniKredi / Math.max(1, mulkDegeri)) * 100",
-    "sonuc": "yeniKredi - kalanBorc - masraf"
+    "result": "yeniKredi - kalanBorc - masraf"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
       "ltv": "LTV Ratio (%)",
-      "sonuc": "Net Cash Output"
+      "result": "Net Cash Output"
     },
     "breakdown_i18n": {
       "ltv": {
         "en": "LTV Ratio (%)",
-        "tr": "LTV Ratio (%)",
         "de": "LTV-Verhältnis (%)",
         "fr": "Ratio LTV (%)",
         "es": "Relación LTV (%)",
         "ar": "نسبة LTV (%)"
       },
-      "sonuc": {
+      "result": {
         "en": "Net Cash Output",
-        "tr": "Net Cash Output",
         "de": "Netto-Cash-Abfluss",
         "fr": "Sortie nette de trésorerie",
         "es": "Salida Neta de Efectivo",
@@ -160,7 +150,6 @@
       "long": "Calculate net cash-out from a cash-out refinance.",
       "short_i18n": {
         "en": "Calculate net cash-out from a cash-out refinance.",
-        "tr": "Ev sermayesinin nakde cevrilerek ele gecen Net tutari hesaplar.",
         "de": "Berechnen Sie den Netto-Cash-Abfluss aus einer Cash-Out-Refinanzierung.",
         "fr": "Calculer la sortie nette de trésorerie d'un refinancement avec retrait.",
         "es": "Calcular la salida neta de efectivo de un refinanciamiento con retiro de efectivo.",
@@ -168,7 +157,6 @@
       },
       "long_i18n": {
         "en": "Calculate net cash-out from a cash-out refinance.",
-        "tr": "Ev sermayesinin nakde cevrilerek ele gecen Net tutari hesaplar.",
         "de": "Berechnen Sie den Netto-Cash-Abfluss aus einer Cash-Out-Refinanzierung.",
         "fr": "Calculer la sortie nette de trésorerie d'un refinancement avec retrait.",
         "es": "Calcular la salida neta de efectivo de un refinanciamiento con retiro de efectivo.",

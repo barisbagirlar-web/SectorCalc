@@ -10,7 +10,6 @@
       "label": "Target X (m)",
       "label_i18n": {
         "en": "Target X (m)",
-        "tr": "Hedef X (m)",
         "de": "Ziel-X (m)",
         "fr": "Cible X (m)",
         "es": "Objetivo X (m)",
@@ -23,7 +22,6 @@
       "businessContext": "End effector x position.",
       "businessContext_i18n": {
         "en": "End effector x position.",
-        "tr": "Uc noktanin x koordinati.",
         "de": "Endeffektor x-Position.",
         "fr": "Position x de l'effecteur.",
         "es": "Posición x del efector final.",
@@ -35,7 +33,6 @@
       "label": "Target Y (m)",
       "label_i18n": {
         "en": "Target Y (m)",
-        "tr": "Hedef Y (m)",
         "de": "Zielertrag",
         "fr": "Rendement cible",
         "es": "Rendimiento objetivo",
@@ -48,7 +45,6 @@
       "businessContext": "End effector y position.",
       "businessContext_i18n": {
         "en": "End effector y position.",
-        "tr": "Uc noktanin y koordinati.",
         "de": "Endeffektor y-Position.",
         "fr": "Position y de l'effecteur.",
         "es": "Posición y del efector final.",
@@ -60,7 +56,6 @@
       "label": "Link 1 Length (m)",
       "label_i18n": {
         "en": "Link 1 Length (m)",
-        "tr": "Kol 1 Lmostgth (m)",
         "de": "Glied 1 Länge (m)",
         "fr": "Longueur du lien 1 (m)",
         "es": "Longitud del eslabón 1 (m)",
@@ -73,7 +68,6 @@
       "businessContext": "First arm segment.",
       "businessContext_i18n": {
         "en": "First arm segment.",
-        "tr": "Birinci kol segmenti.",
         "de": "Erstes Armsegment.",
         "fr": "Premier segment du bras.",
         "es": "Primer segmento del brazo.",
@@ -85,7 +79,6 @@
       "label": "Link 2 Length (m)",
       "label_i18n": {
         "en": "Link 2 Length (m)",
-        "tr": "Kol 2 Lmostgth (m)",
         "de": "Glied 2 Länge (m)",
         "fr": "Longueur du lien 2 (m)",
         "es": "Longitud del eslabón 2 (m)",
@@ -98,7 +91,6 @@
       "businessContext": "Second arm segment.",
       "businessContext_i18n": {
         "en": "Second arm segment.",
-        "tr": "Second kol segmmostti.",
         "de": "Zweites Armsegment.",
         "fr": "Deuxième segment du bras.",
         "es": "Segundo segmento del brazo.",
@@ -114,27 +106,25 @@
   },
   "formulas": {
     "aci2": "Math.acos(Math.max(-1, Math.min(1, (hedefX*hedefX + hedefY*hedefY - kol1Uzunluk*kol1Uzunluk - kol2Uzunluk*kol2Uzunluk) / Math.max(0.0001, (2 * kol1Uzunluk * kol2Uzunluk)))))",
-    "sonuc": "Math.atan2(hedefY, hedefX) - Math.atan2(kol2Uzunluk*Math.sin(aci2), kol1Uzunluk + kol2Uzunluk*Math.cos(aci2))"
+    "result": "Math.atan2(hedefY, hedefX) - Math.atan2(kol2Uzunluk*Math.sin(aci2), kol1Uzunluk + kol2Uzunluk*Math.cos(aci2))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "rad",
     "breakdown": {
       "aci2": "Eklem 2 (θ₂)",
-      "sonuc": "Eklem 1 (θ₁)"
+      "result": "Eklem 1 (θ₁)"
     },
     "breakdown_i18n": {
       "aci2": {
         "en": "Eklem 2 (θ₂)",
-        "tr": "Eklem 2 (θ₂)",
         "de": "Gelenk 2 (θ₂)",
         "fr": "Articulation 2 (θ₂)",
         "es": "Articulación 2 (θ₂)",
         "ar": "المفصل 2 (θ₂)"
       },
-      "sonuc": {
+      "result": {
         "en": "Eklem 1 (θ₁)",
-        "tr": "Eklem 1 (θ₁)",
         "de": "Gelenk 1 (θ₁)",
         "fr": "Articulation 1 (θ₁)",
         "es": "Articulación 1 (θ₁)",
@@ -163,7 +153,6 @@
       "long": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
       "short_i18n": {
         "en": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "tr": "2D robot kolun uc noktaya ulasmasi icin gereken eklem acilarini (ters kinematik) hesaplar.",
         "de": "Berechnen Sie die 2D-inversen kinematischen Gelenkwinkel fur einen Roboterarm.",
         "fr": "Calculer les angles articulaires de cinématique inverse 2D pour un bras robotique.",
         "es": "Calcular los ángulos de las articulaciones de cinemática inversa 2D para un brazo robótico.",
@@ -171,7 +160,6 @@
       },
       "long_i18n": {
         "en": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "tr": "2D robot kolun uc noktaya ulasmasi icin gereken eklem acilarini (ters kinematik) hesaplar.",
         "de": "Berechnen Sie die 2D-inversen kinematischen Gelenkwinkel fur einen Roboterarm.",
         "fr": "Calculer les angles articulaires de cinématique inverse 2D pour un bras robotique.",
         "es": "Calcular los ángulos de las articulaciones de cinemática inversa 2D para un brazo robótico.",

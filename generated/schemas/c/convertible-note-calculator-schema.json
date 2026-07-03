@@ -6,11 +6,10 @@
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "yatirim",
+      "id": "investment",
       "label": "Investment (USD)",
       "label_i18n": {
         "en": "Investment (USD)",
-        "tr": "Investment Amount (TL)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -23,7 +22,6 @@
       "businessContext": "Note investment amount.",
       "businessContext_i18n": {
         "en": "Note investment amount.",
-        "tr": "Nota yatirilan tutar.",
         "de": "Investitionsbetrag der Anleihe.",
         "fr": "Montant de l'investissement en note.",
         "es": "Monto de inversión del pagaré.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "degerleme",
+      "id": "valuation",
       "label": "Valuation Cap (USD)",
       "label_i18n": {
         "en": "Valuation Cap (USD)",
-        "tr": "Valueleme Tavani (TL)",
         "de": "Bewertungsobergrenze ($)",
         "fr": "Plafond de valorisation ($)",
         "es": "Tope de valoración ($)",
@@ -48,7 +45,6 @@
       "businessContext": "Conversion valuation cap.",
       "businessContext_i18n": {
         "en": "Conversion valuation cap.",
-        "tr": "Donusumdeki tavan Valueleme.",
         "de": "Bewertungsobergrenze fur die Wandlung.",
         "fr": "Plafond de valorisation de conversion.",
         "es": "Tope de valoración de conversión.",
@@ -60,7 +56,6 @@
       "label": "Discount (%)",
       "label_i18n": {
         "en": "Discount (%)",
-        "tr": "Iskonto (%)",
         "de": "Rabatt (%)",
         "fr": "Remise (%)",
         "es": "Descuento (%)",
@@ -74,7 +69,6 @@
       "businessContext": "Conversion discount.",
       "businessContext_i18n": {
         "en": "Conversion discount.",
-        "tr": "Donusum iskontosu.",
         "de": "Wandlungsabschlag.",
         "fr": "Remise de conversion.",
         "es": "Descuento de conversión.",
@@ -82,11 +76,10 @@
       }
     },
     {
-      "id": "faiz",
+      "id": "interest",
       "label": "Interest (%)",
       "label_i18n": {
         "en": "Interest (%)",
-        "tr": "Faiz (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -99,7 +92,6 @@
       "businessContext": "Accrued interest.",
       "businessContext_i18n": {
         "en": "Accrued interest.",
-        "tr": "Notun birikmis faizi.",
         "de": "Aufgelaufene Zinsen.",
         "fr": "Intérêts courus.",
         "es": "Interés acumulado.",
@@ -114,19 +106,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "donusumFiyati": "degerleme * (1 - iskonto / 100)",
-    "sonuc": "(yatirim * (1 + faiz / 100)) / Math.max(0.0001, (degerleme * (1 - iskonto / 100)))"
+    "donusumFiyati": "valuation * (1 - iskonto / 100)",
+    "result": "(investment * (1 + interest / 100)) / Math.max(0.0001, (valuation * (1 - iskonto / 100)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "shares",
     "breakdown": {
-      "sonuc": "Donusum Sonrasi Hisse"
+      "result": "Donusum Sonrasi Hisse"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Donusum Sonrasi Hisse",
-        "tr": "Donusum Sonrasi Hisse",
         "de": "Aktie nach Konversion",
         "fr": "Action après conversion",
         "es": "Acción Posterior a la Conversión",
@@ -151,7 +142,6 @@
       "long": "Calculate shares received from convertible note conversion.",
       "short_i18n": {
         "en": "Calculate shares received from convertible note conversion.",
-        "tr": "Borc senedinin hisseye donusmesiyle alinan hisse adedini hesaplar.",
         "de": "Anzahl der Aktien aus der Wandlung einer Wandelanleihe berechnen.",
         "fr": "Calculer les actions recues de la conversion d'une note convertible.",
         "es": "Calcular las acciones recibidas de la conversión de pagarés convertibles.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate shares received from convertible note conversion.",
-        "tr": "Borc senedinin hisseye donusmesiyle alinan hisse adedini hesaplar.",
         "de": "Anzahl der Aktien aus der Wandlung einer Wandelanleihe berechnen.",
         "fr": "Calculer les actions recues de la conversion d'une note convertible.",
         "es": "Calcular las acciones recibidas de la conversión de pagarés convertibles.",

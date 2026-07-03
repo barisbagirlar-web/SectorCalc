@@ -6,11 +6,10 @@
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
-      "id": "debi",
+      "id": "flow",
       "label": "Flow Rate (L/min)",
       "label_i18n": {
         "en": "Flow Rate (L/min)",
-        "tr": "Debi (L/dk)",
         "de": "Kompressordurchflussrate",
         "fr": "Débit du compresseur",
         "es": "Caudal del compresor",
@@ -23,7 +22,6 @@
       "businessContext": "System flow rate.",
       "businessContext_i18n": {
         "en": "System flow rate.",
-        "tr": "Sistem debisi.",
         "de": "Systemdurchflussrate.",
         "fr": "Débit du système.",
         "es": "Caudal del sistema.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "basinc",
+      "id": "pressure",
       "label": "Pressure (bar)",
       "label_i18n": {
         "en": "Pressure (bar)",
-        "tr": "Pressure (bar)",
         "de": "Druck (bar)",
         "fr": "Pression (bar)",
         "es": "Presión (bar)",
@@ -48,7 +45,6 @@
       "businessContext": "Required pressure.",
       "businessContext_i18n": {
         "en": "Required pressure.",
-        "tr": "Gerekli Pressure.",
         "de": "Erforderlicher Druck.",
         "fr": "Pression requise.",
         "es": "Presión requerida.",
@@ -60,7 +56,6 @@
       "label": "Pump Efficiency (%)",
       "label_i18n": {
         "en": "Pump Efficiency (%)",
-        "tr": "Pompa Verimi (%)",
         "de": "Pumpenwirkungsgrad (%)",
         "fr": "Rendement de la pompe (%)",
         "es": "Eficiencia de la Bomba (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Pump efficiency.",
       "businessContext_i18n": {
         "en": "Pump efficiency.",
-        "tr": "Pompa verimi.",
         "de": "Pumpenwirkungsgrad.",
         "fr": "Rendement de la pompe.",
         "es": "Eficiencia de la bomba.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(debi * basinc * 100) / Math.max(0.0001, (600 * (pompaVerim / 100) * 746))"
+    "result": "(flow * pressure * 100) / Math.max(0.0001, (600 * (pompaVerim / 100) * 746))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "HP",
     "breakdown": {
-      "sonuc": "Pump Motor Power"
+      "result": "Pump Motor Power"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Pump Motor Power",
-        "tr": "Pump Motor Power",
         "de": "Pumpenmotorleistung",
         "fr": "Puissance du moteur de la pompe",
         "es": "Potencia del motor de la bomba",
@@ -126,7 +119,6 @@
       "long": "Calculate minimum fire pump motor power for hydrant system.",
       "short_i18n": {
         "en": "Calculate minimum fire pump motor power for hydrant system.",
-        "tr": "Hidrant sistemini besleyecek pompanin Minimum Motor Powernu hesaplar.",
         "de": "Berechnen Sie die Mindestmotorleistung der Feuerloschpumpe fur das Hydrantensystem.",
         "fr": "Calculer la puissance minimale du moteur de la pompe à incendie pour un système de poteaux d'incendie.",
         "es": "Calcular la potencia mínima del motor de la bomba contra incendios para el sistema de hidrantes.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum fire pump motor power for hydrant system.",
-        "tr": "Hidrant sistemini besleyecek pompanin Minimum Motor Powernu hesaplar.",
         "de": "Berechnen Sie die Mindestmotorleistung der Feuerloschpumpe fur das Hydrantensystem.",
         "fr": "Calculer la puissance minimale du moteur de la pompe à incendie pour un système de poteaux d'incendie.",
         "es": "Calcular la potencia mínima del motor de la bomba contra incendios para el sistema de hidrantes.",

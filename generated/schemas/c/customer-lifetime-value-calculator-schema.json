@@ -10,7 +10,6 @@
       "label": "Avg Order Value (USD)",
       "label_i18n": {
         "en": "Avg Order Value (USD)",
-        "tr": "Mean Siparis (TL)",
         "de": "Durchschnittlicher Bestellwert (USD)",
         "fr": "Valeur moyenne de commande (USD)",
         "es": "Valor Promedio del Pedido (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Average order value.",
       "businessContext_i18n": {
         "en": "Average order value.",
-        "tr": "Musteri basina Mean siparis.",
         "de": "Durchschnittlicher Bestellwert.",
         "fr": "Valeur moyenne de commande.",
         "es": "Valor promedio del pedido.",
@@ -35,7 +33,6 @@
       "label": "Orders per Year",
       "label_i18n": {
         "en": "Orders per Year",
-        "tr": "Yillik Siparis Sikligi",
         "de": "Bestellungen pro Jahr",
         "fr": "Commandes par an",
         "es": "Pedidos por Año",
@@ -48,7 +45,6 @@
       "businessContext": "Purchase frequency per year.",
       "businessContext_i18n": {
         "en": "Purchase frequency per year.",
-        "tr": "Musterinin yillik alisveris Numbersi.",
         "de": "Kauffrequenz pro Jahr.",
         "fr": "Fréquence d'achat par an.",
         "es": "Frecuencia de compra por año.",
@@ -60,7 +56,6 @@
       "label": "Customer Lifetime (Years)",
       "label_i18n": {
         "en": "Customer Lifetime (Years)",
-        "tr": "Musteri Omru (Yil)",
         "de": "Kundenlebensdauer (Jahre)",
         "fr": "Durée de vie client (années)",
         "es": "Vida útil del cliente (años)",
@@ -73,7 +68,6 @@
       "businessContext": "Average customer retention.",
       "businessContext_i18n": {
         "en": "Average customer retention.",
-        "tr": "Mean musteri sadakat suresi.",
         "de": "Durchschnittliche Kundenbindung.",
         "fr": "Rétention moyenne des clients.",
         "es": "Retención promedio de clientes.",
@@ -85,7 +79,6 @@
       "label": "Profit Margin (%)",
       "label_i18n": {
         "en": "Profit Margin (%)",
-        "tr": "Profit Margin (%)",
         "de": "Zielgewinnmarge (%)",
         "fr": "Marge bénéficiaire cible (%)",
         "es": "Margen de beneficio objetivo (%)",
@@ -99,7 +92,6 @@
       "businessContext": "Net profit margin.",
       "businessContext_i18n": {
         "en": "Net profit margin.",
-        "tr": "Net Profit Margin.",
         "de": "Nettogewinnmarge.",
         "fr": "Marge bénéficiaire nette.",
         "es": "Margen de beneficio neto.",
@@ -114,18 +106,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "ortSiparis * siklik * omur * (marj / 100)"
+    "result": "ortSiparis * siklik * omur * (marj / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Customer Lifetime Value (CLV)"
+      "result": "Customer Lifetime Value (CLV)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Customer Lifetime Value (CLV)",
-        "tr": "Customer Lifetime Value (CLV)",
         "de": "Kundenlebenszeitwert (CLV)",
         "fr": "Valeur à vie du client (CLV)",
         "es": "Valor de Vida del Cliente (CLV)",
@@ -150,7 +141,6 @@
       "long": "Calculate customer lifetime value (CLV).",
       "short_i18n": {
         "en": "Calculate customer lifetime value (CLV).",
-        "tr": "Musterinin omru Heightunca kazandirdigi Net Profiti (CLV) hesaplar.",
         "de": "Kundenlebenszeitwert (CLV) berechnen.",
         "fr": "Calculer la valeur à vie du client (CLV).",
         "es": "Calcular el valor de vida del cliente (CLV).",
@@ -158,7 +148,6 @@
       },
       "long_i18n": {
         "en": "Calculate customer lifetime value (CLV).",
-        "tr": "Musterinin omru Heightunca kazandirdigi Net Profiti (CLV) hesaplar.",
         "de": "Kundenlebenszeitwert (CLV) berechnen.",
         "fr": "Calculer la valeur à vie du client (CLV).",
         "es": "Calcular el valor de vida del cliente (CLV).",

@@ -10,7 +10,6 @@
       "label": "Target Annual Income (USD)",
       "label_i18n": {
         "en": "Target Annual Income (USD)",
-        "tr": "Hedef Annual Income (TRY)",
         "de": "Ziel-Jahreseinkommen (USD)",
         "fr": "Revenu annuel cible (USD)",
         "es": "Ingreso Anual Objetivo (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Consultant's target income.",
       "businessContext_i18n": {
         "en": "Consultant's target income.",
-        "tr": "Danismanin hedef geliri.",
         "de": "Zieleinkommen des Beraters.",
         "fr": "Revenu cible du consultant.",
         "es": "Ingreso objetivo del consultor.",
@@ -35,7 +33,6 @@
       "label": "Annual Overhead (USD)",
       "label_i18n": {
         "en": "Annual Overhead (USD)",
-        "tr": "Yillik Workletme Gideri (TL)",
         "de": "Jährliche Gemeinkosten insgesamt",
         "fr": "Coûts indirects annuels totaux",
         "es": "Costos indirectos anuales totales",
@@ -48,7 +45,6 @@
       "businessContext": "Office, insurance, travel costs.",
       "businessContext_i18n": {
         "en": "Office, insurance, travel costs.",
-        "tr": "Ofis, sigorta, seyahat giderleri.",
         "de": "Buro-, Versicherungs- und Reisekosten.",
         "fr": "Frais de bureau, assurance, déplacements.",
         "es": "Costos de oficina, seguros y viajes.",
@@ -60,7 +56,6 @@
       "label": "Billable Hours/Year",
       "label_i18n": {
         "en": "Billable Hours/Year",
-        "tr": "Faturalanabilir Saat",
         "de": "Abrechenbare Stunden/Jahr",
         "fr": "Heures facturables/An",
         "es": "Horas Facturables/Año",
@@ -73,7 +68,6 @@
       "businessContext": "Annual billable hours.",
       "businessContext_i18n": {
         "en": "Annual billable hours.",
-        "tr": "Annual faturAreaabilir h.",
         "de": "Jährliche abrechenbare Stunden.",
         "fr": "Heures facturables annuelles.",
         "es": "Horas facturables anuales.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(hedefGelir + yillikGider) / Math.max(1, faturaliSaat)"
+    "result": "(hedefGelir + yillikGider) / Math.max(1, faturaliSaat)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "TRY/hour",
     "breakdown": {
-      "sonuc": "Saatlik Danismanlik Ucreti"
+      "result": "Saatlik Danismanlik Ucreti"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Saatlik Danismanlik Ucreti",
-        "tr": "Saatlik Danismanlik Ucreti",
         "de": "Stundlicher Beratungssatz",
         "fr": "Tarif horaire de conseil",
         "es": "Tarifa de Consultoría por Hora",
@@ -124,7 +117,6 @@
       "long": "Calculate minimum hourly consulting rate covering costs and profit.",
       "short_i18n": {
         "en": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "tr": "Giderleri ve kâri karsilayan Minimum saatlik danismanlik bedelini hesaplar.",
         "de": "Mindeststundensatz fur Beratung unter Berucksichtigung von Kosten und Gewinn berechnen.",
         "fr": "Calculer le taux horaire minimal de conseil couvrant les coûts et le profit.",
         "es": "Calcular la tarifa mínima por hora de consultoría que cubra costos y ganancias.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "tr": "Giderleri ve kâri karsilayan Minimum saatlik danismanlik bedelini hesaplar.",
         "de": "Mindeststundensatz fur Beratung unter Berucksichtigung von Kosten und Gewinn berechnen.",
         "fr": "Calculer le taux horaire minimal de conseil couvrant les coûts et le profit.",
         "es": "Calcular la tarifa mínima por hora de consultoría que cubra costos y ganancias.",

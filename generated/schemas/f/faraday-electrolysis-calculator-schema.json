@@ -6,11 +6,10 @@
   "sectorId": "other",
   "inputs": [
     {
-      "id": "akim",
+      "id": "current",
       "label": "Current (A)",
       "label_i18n": {
         "en": "Current (A)",
-        "tr": "Currmostt (A)",
         "de": "CBAM-Zertifikatspreis (aktuelle Auktion)",
         "fr": "Prix du certificat CBAM (enchère en cours)",
         "es": "Precio del certificado CBAM (subasta actual)",
@@ -23,7 +22,6 @@
       "businessContext": "Electrolysis current.",
       "businessContext_i18n": {
         "en": "Electrolysis current.",
-        "tr": "Elektroliz Currenti.",
         "de": "Elektrolysestrom.",
         "fr": "Courant d'électrolyse.",
         "es": "Corriente de electrólisis.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "sure",
+      "id": "duration",
       "label": "Time (s)",
       "label_i18n": {
         "en": "Time (s)",
-        "tr": "Duration (s)",
         "de": "Uberstundenzuschlag einbeziehen",
         "fr": "Inclure la pénalité pour heures supplémentaires",
         "es": "Incluir Penalización por Horas Extra",
@@ -48,7 +45,6 @@
       "businessContext": "Time current applied.",
       "businessContext_i18n": {
         "en": "Time current applied.",
-        "tr": "Currentin uygulandigi sure.",
         "de": "Zeit, in der der Strom angelegt wird.",
         "fr": "Durée d'application du courant.",
         "es": "Tiempo de aplicación de la corriente.",
@@ -60,7 +56,6 @@
       "label": "Equivalent Weight (g/mol)",
       "label_i18n": {
         "en": "Equivalent Weight (g/mol)",
-        "tr": "EsValue Weight (g/mol)",
         "de": "Äquivalentgewicht (g/mol)",
         "fr": "Poids équivalent (g/mol)",
         "es": "Peso Equivalente (g/mol)",
@@ -73,7 +68,6 @@
       "businessContext": "Element equivalent mass.",
       "businessContext_i18n": {
         "en": "Element equivalent mass.",
-        "tr": "Maddenin esValue Masssi.",
         "de": "Äquivalente Masse des Elements.",
         "fr": "Masse équivalente de l'élément.",
         "es": "Masa equivalente del elemento.",
@@ -85,7 +79,6 @@
       "label": "Electron Count (n)",
       "label_i18n": {
         "en": "Electron Count (n)",
-        "tr": "Elektron Count (n)",
         "de": "Elektronenzahl (n)",
         "fr": "Nombre d'électrons (n)",
         "es": "Número de Electrones (n)",
@@ -98,7 +91,6 @@
       "businessContext": "Number of electrons transferred.",
       "businessContext_i18n": {
         "en": "Number of electrons transferred.",
-        "tr": "Reaksiyona giren elektron Numbersi.",
         "de": "Anzahl der ubertragenen Elektronen.",
         "fr": "Nombre d'électrons transférés.",
         "es": "Número de electrones transferidos.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(akim * sure * esdegerAgirlik) / Math.max(0.0001, (96485 * elektronSayisi))"
+    "result": "(current * duration * esdegerAgirlik) / Math.max(0.0001, (96485 * elektronSayisi))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "g",
     "breakdown": {
-      "sonuc": "Biriken Madde"
+      "result": "Biriken Madde"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Biriken Madde",
-        "tr": "Biriken Madde",
         "de": "Akkumulierte Substanz",
         "fr": "Masse déposée",
         "es": "Materia acumulada",
@@ -152,7 +143,6 @@
       "long": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
       "short_i18n": {
         "en": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "tr": "Elektrotta biriken veya cozunen madde Amountini Faraday elektroliz yasasiyla hesaplar.",
         "de": "Berechnen Sie die an der Elektrode abgeschiedene oder geloste Masse mit dem Faradayschen Gesetz.",
         "fr": "Calculer la masse déposée ou dissoute à l'électrode en utilisant la loi de Faraday.",
         "es": "Calcular la masa depositada o disuelta en el electrodo usando la ley de Faraday.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "tr": "Elektrotta biriken veya cozunen madde Amountini Faraday elektroliz yasasiyla hesaplar.",
         "de": "Berechnen Sie die an der Elektrode abgeschiedene oder geloste Masse mit dem Faradayschen Gesetz.",
         "fr": "Calculer la masse déposée ou dissoute à l'électrode en utilisant la loi de Faraday.",
         "es": "Calcular la masa depositada o disuelta en el electrodo usando la ley de Faraday.",

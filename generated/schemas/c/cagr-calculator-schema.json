@@ -10,7 +10,6 @@
       "label": "Initial Value (USD)",
       "label_i18n": {
         "en": "Initial Value (USD)",
-        "tr": "Ilk Value (₺)",
         "de": "Anfangswert",
         "fr": "Valeur initiale",
         "es": "Valor inicial",
@@ -23,7 +22,6 @@
       "businessContext": "Value at the beginning of the period.",
       "businessContext_i18n": {
         "en": "Value at the beginning of the period.",
-        "tr": "Donem basindaki yatirim Valuei.",
         "de": "Wert zu Beginn des Zeitraums.",
         "fr": "Valeur en début de période.",
         "es": "Valor al inicio del período.",
@@ -35,7 +33,6 @@
       "label": "Final Value (USD)",
       "label_i18n": {
         "en": "Final Value (USD)",
-        "tr": "Son Value (TRY)",
         "de": "Endwert",
         "fr": "Valeur finale",
         "es": "Valor final",
@@ -48,7 +45,6 @@
       "businessContext": "Value at the end of the period.",
       "businessContext_i18n": {
         "en": "Value at the end of the period.",
-        "tr": "Donem sonundaki yatirim Valuei.",
         "de": "Wert am Ende des Zeitraums.",
         "fr": "Valeur en fin de période.",
         "es": "Valor al final del período.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "yil",
+      "id": "year",
       "label": "Period (Years)",
       "label_i18n": {
         "en": "Period (Years)",
-        "tr": "Donem (Yil)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -73,7 +68,6 @@
       "businessContext": "Total investment period.",
       "businessContext_i18n": {
         "en": "Total investment period.",
-        "tr": "Yatirimin Total Timesi.",
         "de": "Gesamter Anlagezeitraum.",
         "fr": "Période totale d'investissement.",
         "es": "Período total de inversión.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(Math.pow(sonDeger / Math.max(1, ilkDeger), 1 / Math.max(1, yil)) - 1) * 100"
+    "result": "(Math.pow(sonDeger / Math.max(1, ilkDeger), 1 / Math.max(1, year)) - 1) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "CAGR (Bilesik Yillik Buyume)"
+      "result": "CAGR (Bilesik Yillik Buyume)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "CAGR (Bilesik Yillik Buyume)",
-        "tr": "CAGR (Bilesik Yillik Buyume)",
         "de": "CAGR (Jährliche Wachstumsrate)",
         "fr": "CAGR (Croissance annuelle composée)",
         "es": "CAGR (Tasa de Crecimiento Anual Compuesta)",
@@ -124,7 +117,6 @@
       "long": "Calculate the compound annual growth rate (CAGR) over time.",
       "short_i18n": {
         "en": "Calculate the compound annual growth rate (CAGR) over time.",
-        "tr": "Zaman icindeki puruzsuz yillik bilesik buyume Ratioini (CAGR) hesaplar.",
         "de": "Berechnen Sie die durchschnittliche jährliche Wachstumsrate (CAGR) im Zeitverlauf.",
         "fr": "Calculer le taux de croissance annuel composé (TCAC) sur une période.",
         "es": "Calcular la tasa de crecimiento anual compuesta (CAGR) a lo largo del tiempo.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate the compound annual growth rate (CAGR) over time.",
-        "tr": "Zaman icindeki puruzsuz yillik bilesik buyume Ratioini (CAGR) hesaplar.",
         "de": "Berechnen Sie die durchschnittliche jährliche Wachstumsrate (CAGR) im Zeitverlauf.",
         "fr": "Calculer le taux de croissance annuel composé (TCAC) sur une période.",
         "es": "Calcular la tasa de crecimiento anual compuesta (CAGR) a lo largo del tiempo.",

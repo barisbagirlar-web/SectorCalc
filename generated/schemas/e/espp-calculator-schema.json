@@ -10,7 +10,6 @@
       "label": "Market Price (USD)",
       "label_i18n": {
         "en": "Market Price (USD)",
-        "tr": "Piyasa Fiyati (TL)",
         "de": "Marktpreis fur reines Filament",
         "fr": "Prix du marché du filament vierge",
         "es": "Precio de mercado del filamento virgen",
@@ -23,7 +22,6 @@
       "businessContext": "Stock market price.",
       "businessContext_i18n": {
         "en": "Stock market price.",
-        "tr": "Hisse senedinin piyasa fiyati.",
         "de": "Aktienmarktkurs.",
         "fr": "Prix du marché de l'action.",
         "es": "Precio de mercado de la acción.",
@@ -35,7 +33,6 @@
       "label": "Discount Rate (%)",
       "label_i18n": {
         "en": "Discount Rate (%)",
-        "tr": "Discount Rate (%)",
         "de": "Diskontsatz (%)",
         "fr": "Taux d'actualisation (%)",
         "es": "Tasa de descuento (%)",
@@ -49,7 +46,6 @@
       "businessContext": "ESPP purchase discount.",
       "businessContext_i18n": {
         "en": "ESPP purchase discount.",
-        "tr": "ESPP indirim Ratioi.",
         "de": "ESPP-Kaufrabatt.",
         "fr": "Remise sur l'achat ESPP.",
         "es": "Descuento de compra del ESPP.",
@@ -61,7 +57,6 @@
       "label": "Monthly Contribution (USD)",
       "label_i18n": {
         "en": "Monthly Contribution (USD)",
-        "tr": "Aylik Katki (TL)",
         "de": "Monatlicher Beitrag ($)",
         "fr": "Contribution mensuelle ($)",
         "es": "Contribución Mensual ($)",
@@ -74,7 +69,6 @@
       "businessContext": "Employee monthly contribution.",
       "businessContext_i18n": {
         "en": "Employee monthly contribution.",
-        "tr": "Calisanin aylik katkisi.",
         "de": "Monatlicher Mitarbeiterbeitrag.",
         "fr": "Contribution mensuelle de l'employé.",
         "es": "Contribución mensual del empleado.",
@@ -90,18 +84,17 @@
   },
   "formulas": {
     "alimFiyati": "piyasaFiyati * (1 - iskonto / 100)",
-    "sonuc": "katki / Math.max(0.0001, (piyasaFiyati * (1 - iskonto / 100)))"
+    "result": "katki / Math.max(0.0001, (piyasaFiyati * (1 - iskonto / 100)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "shares",
     "breakdown": {
-      "sonuc": "Alinabilecek Hisse"
+      "result": "Alinabilecek Hisse"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Alinabilecek Hisse",
-        "tr": "Alinabilecek Hisse",
         "de": "Erwerbbare Aktien",
         "fr": "Actions pouvant être achetées",
         "es": "Acciones Comprables",
@@ -126,7 +119,6 @@
       "long": "Calculate shares purchasable through employee stock purchase plan.",
       "short_i18n": {
         "en": "Calculate shares purchasable through employee stock purchase plan.",
-        "tr": "Indirimli fiyatla Alinabilecek Hisse adedini hesaplar.",
         "de": "Berechnen Sie die Anzahl der Aktien, die uber einen Mitarbeiteraktienkaufplan erworben werden konnen.",
         "fr": "Calculer le nombre d'actions pouvant être achetées via un plan d'achat d'actions pour les employés.",
         "es": "Calcular las acciones comprables a través del plan de compra de acciones para empleados.",
@@ -134,7 +126,6 @@
       },
       "long_i18n": {
         "en": "Calculate shares purchasable through employee stock purchase plan.",
-        "tr": "Indirimli fiyatla Alinabilecek Hisse adedini hesaplar.",
         "de": "Berechnen Sie die Anzahl der Aktien, die uber einen Mitarbeiteraktienkaufplan erworben werden konnen.",
         "fr": "Calculer le nombre d'actions pouvant être achetées via un plan d'achat d'actions pour les employés.",
         "es": "Calcular las acciones comprables a través del plan de compra de acciones para empleados.",

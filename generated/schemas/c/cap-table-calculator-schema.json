@@ -10,7 +10,6 @@
       "label": "Founder Shares",
       "label_i18n": {
         "en": "Founder Shares",
-        "tr": "Kurucu Hisse (Adet)",
         "de": "Grunderanteile",
         "fr": "Actions des fondateurs",
         "es": "Acciones del Fundador",
@@ -23,7 +22,6 @@
       "businessContext": "Founder shares.",
       "businessContext_i18n": {
         "en": "Founder shares.",
-        "tr": "Kurucuya ait hisse.",
         "de": "Grunderanteile.",
         "fr": "Actions des fondateurs.",
         "es": "Acciones del fundador.",
@@ -35,7 +33,6 @@
       "label": "Investor Shares",
       "label_i18n": {
         "en": "Investor Shares",
-        "tr": "Yatirimci Hisse (Quantity)",
         "de": "Investoranteile",
         "fr": "Actions des investisseurs",
         "es": "Acciones del Inversor",
@@ -48,7 +45,6 @@
       "businessContext": "Investor shares.",
       "businessContext_i18n": {
         "en": "Investor shares.",
-        "tr": "Yatirimciya ait hisse.",
         "de": "Investoranteile.",
         "fr": "Actions des investisseurs.",
         "es": "Acciones del inversor.",
@@ -60,7 +56,6 @@
       "label": "Option Pool",
       "label_i18n": {
         "en": "Option Pool",
-        "tr": "Opsiyon Havuzu (Adet)",
         "de": "Aktien aus dem Optionspool",
         "fr": "Actions du pool d'options",
         "es": "Acciones del pool de opciones",
@@ -73,7 +68,6 @@
       "businessContext": "Employee option pool.",
       "businessContext_i18n": {
         "en": "Employee option pool.",
-        "tr": "Calisan opsiyon havuzu.",
         "de": "Mitarbeiteroptionspool.",
         "fr": "Pool d'options pour employés.",
         "es": "Fondo de opciones para empleados.",
@@ -88,19 +82,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "toplam": "kurucu + yatirimci + opsiyon",
-    "sonuc": "(kurucu / Math.max(1, (kurucu + yatirimci + opsiyon))) * 100"
+    "total": "kurucu + yatirimci + opsiyon",
+    "result": "(kurucu / Math.max(1, (kurucu + yatirimci + opsiyon))) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Kurucu Ratio"
+      "result": "Kurucu Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Kurucu Ratio",
-        "tr": "Kurucu Ratio",
         "de": "Grunderquote",
         "fr": "Taux de fondateur",
         "es": "Tasa de Fundador",
@@ -125,7 +118,6 @@
       "long": "Calculate ownership percentages in a cap table.",
       "short_i18n": {
         "en": "Calculate ownership percentages in a cap table.",
-        "tr": "Her paydasin guncel mulkiyet Ratioini hesaplar.",
         "de": "Berechnen Sie die Eigentumsanteile in einer Cap-Tabelle.",
         "fr": "Calculer les pourcentages de propriété dans un tableau de capitalisation.",
         "es": "Calcular los porcentajes de propiedad en una tabla de capitalización.",
@@ -133,7 +125,6 @@
       },
       "long_i18n": {
         "en": "Calculate ownership percentages in a cap table.",
-        "tr": "Her paydasin guncel mulkiyet Ratioini hesaplar.",
         "de": "Berechnen Sie die Eigentumsanteile in einer Cap-Tabelle.",
         "fr": "Calculer les pourcentages de propriété dans un tableau de capitalisation.",
         "es": "Calcular los porcentajes de propiedad en una tabla de capitalización.",

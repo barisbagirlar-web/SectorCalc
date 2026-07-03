@@ -10,7 +10,6 @@
       "label": "Total Work Content (Min)",
       "label_i18n": {
         "en": "Total Work Content (Min)",
-        "tr": "Total Work Icerigi (Dk)",
         "de": "Gesamtarbeitsinhalt (TWC)",
         "fr": "Contenu travail total (TWC)",
         "es": "Contenido Total de Trabajo (TWC)",
@@ -23,7 +22,6 @@
       "businessContext": "Sum of all operation times.",
       "businessContext_i18n": {
         "en": "Sum of all operation times.",
-        "tr": "Tum operasyonlarin Total Timesi.",
         "de": "Summe aller Bearbeitungszeiten.",
         "fr": "Somme de tous les temps d'opération.",
         "es": "Suma de todos los tiempos de operación.",
@@ -35,7 +33,6 @@
       "label": "Takt Time (Min)",
       "label_i18n": {
         "en": "Takt Time (Min)",
-        "tr": "Takt Time (min)",
         "de": "Taktzeit",
         "fr": "Temps de cycle",
         "es": "Tiempo takt",
@@ -48,7 +45,6 @@
       "businessContext": "Maximum cycle time to meet demand.",
       "businessContext_i18n": {
         "en": "Maximum cycle time to meet demand.",
-        "tr": "Musteri talebini karsilayan Maximum Cycle Time.",
         "de": "Maximale Taktzeit zur Deckung der Nachfrage.",
         "fr": "Temps de cycle maximum pour répondre à la demande.",
         "es": "Tiempo de ciclo máximo para satisfacer la demanda.",
@@ -60,7 +56,6 @@
       "label": "Number of Stations",
       "label_i18n": {
         "en": "Number of Stations",
-        "tr": "Istasyon Numbersi",
         "de": "Anzahl der Stationen",
         "fr": "Nombre de postes de travail",
         "es": "Número de Estaciones",
@@ -73,7 +68,6 @@
       "businessContext": "Total workstations on the line.",
       "businessContext_i18n": {
         "en": "Total workstations on the line.",
-        "tr": "Hattaki Total is istasyonu.",
         "de": "Gesamtzahl der Arbeitsstationen am Band.",
         "fr": "Nombre total de postes de travail sur la chaîne.",
         "es": "Total de estaciones de trabajo en la línea.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(toplamIs / Math.max(0.0001, (istasyonSayisi * taktTime))) * 100"
+    "result": "(toplamIs / Math.max(0.0001, (istasyonSayisi * taktTime))) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Bant Dengeleme Efficiencyliligi"
+      "result": "Bant Dengeleme Efficiencyliligi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Bant Dengeleme Efficiencyliligi",
-        "tr": "Bant Dengeleme Efficiencyliligi",
         "de": "Bandabstimmungseffizienz",
         "fr": "Line Balancing Efficiency",
         "es": "Eficiencia del Balanceo de Línea",
@@ -124,7 +117,6 @@
       "long": "Calculate assembly line balancing efficiency.",
       "short_i18n": {
         "en": "Calculate assembly line balancing efficiency.",
-        "tr": "Work yuku dagiliminin dengelilik Ratioini (Bant Dengeleme Efficiencyliligi) hesaplar.",
         "de": "Berechnen Sie die Effizienz der Fließbandabstimmung.",
         "fr": "Calculer l'efficacité de l'équilibrage de la chaîne d'assemblage.",
         "es": "Calcular la eficiencia del balanceo de la línea de ensamblaje.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate assembly line balancing efficiency.",
-        "tr": "Work yuku dagiliminin dengelilik Ratioini (Bant Dengeleme Efficiencyliligi) hesaplar.",
         "de": "Berechnen Sie die Effizienz der Fließbandabstimmung.",
         "fr": "Calculer l'efficacité de l'équilibrage de la chaîne d'assemblage.",
         "es": "Calcular la eficiencia del balanceo de la línea de ensamblaje.",

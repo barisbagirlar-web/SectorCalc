@@ -10,7 +10,6 @@
       "label": "Revenue (USD)",
       "label_i18n": {
         "en": "Revenue (USD)",
-        "tr": "Ciro (TL)",
         "de": "Tagesumsatz",
         "fr": "Revenu quotidien",
         "es": "Ingreso Diario",
@@ -23,7 +22,6 @@
       "businessContext": "Total revenue.",
       "businessContext_i18n": {
         "en": "Total revenue.",
-        "tr": "Total Revenue.",
         "de": "Gesamtumsatz.",
         "fr": "Revenu total.",
         "es": "Ingresos totales.",
@@ -35,7 +33,6 @@
       "label": "COGS (USD)",
       "label_i18n": {
         "en": "COGS (USD)",
-        "tr": "SMM (TL)",
         "de": "Gesamte Teilekosten (COGS)",
         "fr": "Coût total des pièces (COGS)",
         "es": "Costo total de piezas (COGS)",
@@ -48,7 +45,6 @@
       "businessContext": "Cost of goods sold.",
       "businessContext_i18n": {
         "en": "Cost of goods sold.",
-        "tr": "Satilan mal Costi.",
         "de": "Kosten der verkauften Waren.",
         "fr": "Coût des marchandises vendues.",
         "es": "Costo de los bienes vendidos.",
@@ -60,7 +56,6 @@
       "label": "Marketing (USD)",
       "label_i18n": {
         "en": "Marketing (USD)",
-        "tr": "Pazarlama (TL)",
         "de": "Marketingkosten pro Verkauf ($)",
         "fr": "Coût marketing par vente ($)",
         "es": "Costo de marketing por venta ($)",
@@ -73,7 +68,6 @@
       "businessContext": "Marketing expense.",
       "businessContext_i18n": {
         "en": "Marketing expense.",
-        "tr": "Reklam ve pazarlama gideri.",
         "de": "Marketingausgaben.",
         "fr": "Dépenses marketing.",
         "es": "Gasto de marketing.",
@@ -85,7 +79,6 @@
       "label": "Operations (USD)",
       "label_i18n": {
         "en": "Operations (USD)",
-        "tr": "Operasyon (TL)",
         "de": "Interne Vorgänge (% der Gesamtzeit)",
         "fr": "Opérations internes (% du temps total)",
         "es": "Operaciones internas (% del tiempo total)",
@@ -98,7 +91,6 @@
       "businessContext": "Warehouse, shipping, software costs.",
       "businessContext_i18n": {
         "en": "Warehouse, shipping, software costs.",
-        "tr": "Depo, kargo, yazilim giderleri.",
         "de": "Lager-, Versand- und Softwarekosten.",
         "fr": "Coûts d'entrepôt, d'expédition et de logiciel.",
         "es": "Costos de almacén, envío y software.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "ciro - cogs - pazarlama - operasyon"
+    "result": "ciro - cogs - pazarlama - operasyon"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Net E-Ticaret Kâri"
+      "result": "Net E-Ticaret Kâri"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Net E-Ticaret Kâri",
-        "tr": "Net E-Ticaret Kâri",
         "de": "Nettogewinn E-Commerce",
         "fr": "Bénéfice net e-commerce",
         "es": "Ganancia Neta del Comercio Electrónico",
@@ -149,7 +140,6 @@
       "long": "Calculate overall ecommerce net profit.",
       "short_i18n": {
         "en": "Calculate overall ecommerce net profit.",
-        "tr": "Genel e-ticaret operasyonunun nihai Net Profitini hesaplar.",
         "de": "Berechnen Sie den gesamten E-Commerce-Nettogewinn.",
         "fr": "Calculer le bénéfice net global du e-commerce.",
         "es": "Calcular el beneficio neto general del comercio electrónico.",
@@ -157,7 +147,6 @@
       },
       "long_i18n": {
         "en": "Calculate overall ecommerce net profit.",
-        "tr": "Genel e-ticaret operasyonunun nihai Net Profitini hesaplar.",
         "de": "Berechnen Sie den gesamten E-Commerce-Nettogewinn.",
         "fr": "Calculer le bénéfice net global du e-commerce.",
         "es": "Calcular el beneficio neto general del comercio electrónico.",

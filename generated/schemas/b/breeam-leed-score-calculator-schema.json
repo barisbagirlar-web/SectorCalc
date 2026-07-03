@@ -6,11 +6,10 @@
   "sectorId": "sustainability-resource-esg",
   "inputs": [
     {
-      "id": "enerji",
+      "id": "energy",
       "label": "Energy Score (0-100)",
       "label_i18n": {
         "en": "Energy Score (0-100)",
-        "tr": "Energy Kriter Puani (0-100)",
         "de": "Energiebewertung (0-100)",
         "fr": "Score énergétique (0-100)",
         "es": "Puntuación Energética (0-100)",
@@ -24,7 +23,6 @@
       "businessContext": "Energy efficiency score.",
       "businessContext_i18n": {
         "en": "Energy efficiency score.",
-        "tr": "Energy Efficiencyliligi puani.",
         "de": "Energieeffizienzpunktzahl.",
         "fr": "Score d'efficacité énergétique.",
         "es": "Puntuación de eficiencia energética.",
@@ -36,7 +34,6 @@
       "label": "Water Score (0-100)",
       "label_i18n": {
         "en": "Water Score (0-100)",
-        "tr": "Su Kriter Puani (0-100)",
         "de": "Wasserbewertung (0-100)",
         "fr": "Score eau (0-100)",
         "es": "Puntuación del Agua (0-100)",
@@ -50,7 +47,6 @@
       "businessContext": "Water management score.",
       "businessContext_i18n": {
         "en": "Water management score.",
-        "tr": "Su yoNetimi puani.",
         "de": "Wassermanagementpunktzahl.",
         "fr": "Score de gestion de l'eau.",
         "es": "Puntuación de gestión del agua.",
@@ -62,7 +58,6 @@
       "label": "Materials Score (0-100)",
       "label_i18n": {
         "en": "Materials Score (0-100)",
-        "tr": "Malzeme Kriter Puani (0-100)",
         "de": "Materialbewertung (0-100)",
         "fr": "Score matériaux (0-100)",
         "es": "Puntuación de Materiales (0-100)",
@@ -76,7 +71,6 @@
       "businessContext": "Materials selection score.",
       "businessContext_i18n": {
         "en": "Materials selection score.",
-        "tr": "Malzeme secimi puani.",
         "de": "Materialauswahlpunktzahl.",
         "fr": "Score de sélection des matériaux.",
         "es": "Puntuación de selección de materiales.",
@@ -91,18 +85,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(enerji * 0.4) + (su * 0.3) + (malzeme * 0.3)"
+    "result": "(energy * 0.4) + (su * 0.3) + (malzeme * 0.3)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "score",
     "breakdown": {
-      "sonuc": "Tahmini Sertifika Puani"
+      "result": "Tahmini Sertifika Puani"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tahmini Sertifika Puani",
-        "tr": "Tahmini Sertifika Puani",
         "de": "Estimated Certification Score",
         "fr": "Score de certification estimé",
         "es": "Puntuación Estimada del Certificado",
@@ -130,7 +123,6 @@
       "long": "Estimate BREEAM/LEED sustainability certification score.",
       "short_i18n": {
         "en": "Estimate BREEAM/LEED sustainability certification score.",
-        "tr": "Binanin surdurulebilirlik sertifikasi (BREEAM/LEED) tahmini puanini hesaplar.",
         "de": "Schätzung der BREEAM/LEED-Nachhaltigkeitszertifizierungspunktzahl.",
         "fr": "Estimer le score de certification de durabilité BREEAM/LEED.",
         "es": "Estimar la puntuación de certificación de sostenibilidad BREEAM/LEED.",
@@ -138,7 +130,6 @@
       },
       "long_i18n": {
         "en": "Estimate BREEAM/LEED sustainability certification score.",
-        "tr": "Binanin surdurulebilirlik sertifikasi (BREEAM/LEED) tahmini puanini hesaplar.",
         "de": "Schätzung der BREEAM/LEED-Nachhaltigkeitszertifizierungspunktzahl.",
         "fr": "Estimer le score de certification de durabilité BREEAM/LEED.",
         "es": "Estimar la puntuación de certificación de sostenibilidad BREEAM/LEED.",

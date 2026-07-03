@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Surface Area (m²)",
       "label_i18n": {
         "en": "Surface Area (m²)",
-        "tr": "Yuzey Areai (m²)",
         "de": "Surface Fläche to paint",
         "fr": "Surface Surface to paint",
         "es": "Surface Área to paint",
@@ -23,7 +22,6 @@
       "businessContext": "Area to paint.",
       "businessContext_i18n": {
         "en": "Area to paint.",
-        "tr": "Boyanacak alan.",
         "de": "Zu lackierende Fläche.",
         "fr": "Surface à peindre.",
         "es": "Área a pintar.",
@@ -35,7 +33,6 @@
       "label": "Number of Coats",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Kat Count",
         "de": "Anzahl der Anstriche",
         "fr": "Nombre de couches",
         "es": "Número de capas",
@@ -48,7 +45,6 @@
       "businessContext": "Number of paint coats.",
       "businessContext_i18n": {
         "en": "Number of paint coats.",
-        "tr": "Uygulanacak Heighta kati.",
         "de": "Anzahl der Farbschichten.",
         "fr": "Nombre de couches de peinture.",
         "es": "Número de capas de pintura.",
@@ -60,7 +56,6 @@
       "label": "Coverage Rate (m²/L)",
       "label_i18n": {
         "en": "Coverage Rate (m²/L)",
-        "tr": "Ortme Ratioi (m²/L)",
         "de": "Abdeckungsrate",
         "fr": "Taux de couverture",
         "es": "Tasa de cobertura",
@@ -73,7 +68,6 @@
       "businessContext": "Coverage per liter.",
       "businessContext_i18n": {
         "en": "Coverage per liter.",
-        "tr": "1 litrenin orttugu Area.",
         "de": "Deckungsbereich pro Liter.",
         "fr": "Couverture par litre.",
         "es": "Cobertura por litro.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(alan * katSayisi) / Math.max(0.0001, ortmeOrani)"
+    "result": "(area * katSayisi) / Math.max(0.0001, ortmeOrani)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "L",
     "breakdown": {
-      "sonuc": "Gerekli Sprey Boya"
+      "result": "Gerekli Sprey Boya"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Sprey Boya",
-        "tr": "Gerekli Sprey Boya",
         "de": "Erforderliche Spruhfarbe",
         "fr": "Peinture en spray requise",
         "es": "Pintura en Spray Necesaria",
@@ -124,7 +117,6 @@
       "long": "Calculate spray paint volume needed for a surface.",
       "short_i18n": {
         "en": "Calculate spray paint volume needed for a surface.",
-        "tr": "Yuzeyi Heightamak icin gereken sprey Heighta hacmini hesaplar.",
         "de": "Berechnen Sie das benotigte Spruhfarbvolumen fur eine Oberfläche.",
         "fr": "Calculer le volume de peinture en aérosol nécessaire pour une surface.",
         "es": "Calcular el volumen de pintura en aerosol necesario para una superficie.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate spray paint volume needed for a surface.",
-        "tr": "Yuzeyi Heightamak icin gereken sprey Heighta hacmini hesaplar.",
         "de": "Berechnen Sie das benotigte Spruhfarbvolumen fur eine Oberfläche.",
         "fr": "Calculer le volume de peinture en aérosol nécessaire pour une surface.",
         "es": "Calcular el volumen de pintura en aerosol necesario para una superficie.",

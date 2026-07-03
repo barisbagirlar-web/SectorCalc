@@ -10,7 +10,6 @@
       "label": "Material Mass (kg)",
       "label_i18n": {
         "en": "Material Mass (kg)",
-        "tr": "Malzeme Masssi (kg)",
         "de": "Materialmasse (kg)",
         "fr": "Masse de matériau (kg)",
         "es": "Masa del Material (kg)",
@@ -23,7 +22,6 @@
       "businessContext": "Polymer to dry.",
       "businessContext_i18n": {
         "en": "Polymer to dry.",
-        "tr": "Kurutulacak polimer.",
         "de": "Zu trocknendes Polymer.",
         "fr": "Polymère à sécher.",
         "es": "Polímero a secar.",
@@ -35,7 +33,6 @@
       "label": "Moisture Content (%)",
       "label_i18n": {
         "en": "Moisture Content (%)",
-        "tr": "Nem Ratio (%)",
         "de": "Bodenfeuchte",
         "fr": "Teneur en humidité du sol",
         "es": "Contenido de humedad del suelo",
@@ -48,7 +45,6 @@
       "businessContext": "Polymer moisture percentage.",
       "businessContext_i18n": {
         "en": "Polymer moisture percentage.",
-        "tr": "Polimerin nem yuzdesi.",
         "de": "Feuchtegehalt des Polymers in Prozent.",
         "fr": "Pourcentage d'humidité du polymère.",
         "es": "Porcentaje de humedad del polímero.",
@@ -60,7 +56,6 @@
       "label": "Air Flow (kg/s)",
       "label_i18n": {
         "en": "Air Flow (kg/s)",
-        "tr": "Hava Debisi (kg/s)",
         "de": "Luftstrom (kg/s)",
         "fr": "Débit d'air (kg/s)",
         "es": "Flujo de Aire (kg/s)",
@@ -73,7 +68,6 @@
       "businessContext": "Drying air flow.",
       "businessContext_i18n": {
         "en": "Drying air flow.",
-        "tr": "Kurutma havasi Flow Ratesi.",
         "de": "Trocknungsluftstrom.",
         "fr": "Débit d'air de séchage.",
         "es": "Flujo de aire de secado.",
@@ -85,7 +79,6 @@
       "label": "Moisture Removal Capacity (kg/kg)",
       "label_i18n": {
         "en": "Moisture Removal Capacity (kg/kg)",
-        "tr": "Nem Alma Kapasitesi (kg/kg)",
         "de": "Feuchteentfernungsvermogen (kg/kg)",
         "fr": "Capacité d'élimination d'humidité (kg/kg)",
         "es": "Capacidad de Eliminación de Humedad (kg/kg)",
@@ -98,7 +91,6 @@
       "businessContext": "Air moisture removal capacity.",
       "businessContext_i18n": {
         "en": "Air moisture removal capacity.",
-        "tr": "Havanin nem alma kapasitesi.",
         "de": "Feuchteentfernungsvermogen der Luft.",
         "fr": "Capacité d'élimination d'humidité de l'air.",
         "es": "Capacidad de eliminación de humedad del aire.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(malzemeKutle * (nemOrani / 100)) / Math.max(0.0001, (havaDebi * nemAlmaKapasite))"
+    "result": "(malzemeKutle * (nemOrani / 100)) / Math.max(0.0001, (havaDebi * nemAlmaKapasite))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Drying Time"
+      "result": "Drying Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Drying Time",
-        "tr": "Drying Time",
         "de": "Trocknungszeit",
         "fr": "Temps de séchage",
         "es": "Tiempo de Secado",
@@ -151,7 +142,6 @@
       "long": "Calculate drying time for hygroscopic polymer to reach processable moisture.",
       "short_i18n": {
         "en": "Calculate drying time for hygroscopic polymer to reach processable moisture.",
-        "tr": "Higroskopik polimerin islenebilir neme dusme suresini hesaplar.",
         "de": "Berechnen Sie die Trocknungszeit fur ein hygroskopisches Polymer bis zur verarbeitbaren Feuchte.",
         "fr": "Calculer le temps de séchage d'un polymère hygroscopique pour atteindre une humidité transformable.",
         "es": "Calcular el tiempo de secado para que un polímero higroscópico alcance la humedad procesable.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate drying time for hygroscopic polymer to reach processable moisture.",
-        "tr": "Higroskopik polimerin islenebilir neme dusme suresini hesaplar.",
         "de": "Berechnen Sie die Trocknungszeit fur ein hygroskopisches Polymer bis zur verarbeitbaren Feuchte.",
         "fr": "Calculer le temps de séchage d'un polymère hygroscopique pour atteindre une humidité transformable.",
         "es": "Calcular el tiempo de secado para que un polímero higroscópico alcance la humedad procesable.",

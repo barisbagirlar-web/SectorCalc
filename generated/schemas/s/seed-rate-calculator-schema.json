@@ -10,7 +10,6 @@
       "label": "Row Spacing (m)",
       "label_i18n": {
         "en": "Row Spacing (m)",
-        "tr": "Sira Araligi (m)",
         "de": "Reihenabstand (cm)",
         "fr": "Espacement des rangs (cm)",
         "es": "Espaciado entre hileras (cm)",
@@ -23,7 +22,6 @@
       "businessContext": "Distance between rows.",
       "businessContext_i18n": {
         "en": "Distance between rows.",
-        "tr": "Siralar arasi Distance.",
         "de": "Reihenabstand.",
         "fr": "Distance entre les rangs.",
         "es": "Distancia entre hileras.",
@@ -35,7 +33,6 @@
       "label": "In-Row Spacing (m)",
       "label_i18n": {
         "en": "In-Row Spacing (m)",
-        "tr": "Sira Uzeri Distance (m)",
         "de": "Pflanzenabstand in der Reihe (m)",
         "fr": "Espacement sur le rang (m)",
         "es": "Espaciado entre plantas (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Distance between plants.",
       "businessContext_i18n": {
         "en": "Distance between plants.",
-        "tr": "Bitkiler arasi Distance.",
         "de": "Abstand zwischen den Pflanzen.",
         "fr": "Distance entre les plants.",
         "es": "Distancia entre plantas.",
@@ -60,7 +56,6 @@
       "label": "Thousand Grain Weight (g)",
       "label_i18n": {
         "en": "Thousand Grain Weight (g)",
-        "tr": "Bin Tane Weight (g)",
         "de": "Tausendkorngewicht (g)",
         "fr": "Poids de mille grains (g)",
         "es": "Peso de mil granos (g)",
@@ -73,7 +68,6 @@
       "businessContext": "Weight of 1000 seeds.",
       "businessContext_i18n": {
         "en": "Weight of 1000 seeds.",
-        "tr": "1000 Quantity tohumun agirligi.",
         "de": "Gewicht von 1000 Samen.",
         "fr": "Poids de 1000 graines.",
         "es": "Peso de 1000 semillas.",
@@ -85,7 +79,6 @@
       "label": "Germination Rate (%)",
       "label_i18n": {
         "en": "Germination Rate (%)",
-        "tr": "Cimlenme Ratioi (%)",
         "de": "Keimrate (%)",
         "fr": "Taux de germination (%)",
         "es": "Tasa de germinación (%)",
@@ -98,7 +91,6 @@
       "businessContext": "Germination percentage.",
       "businessContext_i18n": {
         "en": "Germination percentage.",
-        "tr": "Tohumun cimlenme yuzdesi.",
         "de": "Keimprozentsatz.",
         "fr": "Pourcentage de germination.",
         "es": "Porcentaje de germinación.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(10000 / Math.max(0.0001, (siraAraligi * uzeriMesafe))) * (binTaneAgirlik / 1000) / Math.max(0.0001, (cimlenme / 100))"
+    "result": "(10000 / Math.max(0.0001, (siraAraligi * uzeriMesafe))) * (binTaneAgirlik / 1000) / Math.max(0.0001, (cimlenme / 100))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kg/da",
     "breakdown": {
-      "sonuc": "Tohum Ihtiyaci"
+      "result": "Tohum Ihtiyaci"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tohum Ihtiyaci",
-        "tr": "Tohum Ihtiyaci",
         "de": "Saatgutbedarf",
         "fr": "Besoin en semences",
         "es": "Requerimiento de semilla",
@@ -151,7 +142,6 @@
       "long": "Calculate seed rate per decare (kg/da) for planting.",
       "short_i18n": {
         "en": "Calculate seed rate per decare (kg/da) for planting.",
-        "tr": "Dekara dusen Net tohumluk ihtiyacini hesaplar.",
         "de": "Berechnen Sie die Saatgutmenge pro Dekar (kg/da) fur die Aussaat.",
         "fr": "Calculer le taux de semis par décare (kg/da) pour la plantation.",
         "es": "Calcular la tasa de siembra por decárea (kg/da) para la plantación.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate seed rate per decare (kg/da) for planting.",
-        "tr": "Dekara dusen Net tohumluk ihtiyacini hesaplar.",
         "de": "Berechnen Sie die Saatgutmenge pro Dekar (kg/da) fur die Aussaat.",
         "fr": "Calculer le taux de semis par décare (kg/da) pour la plantation.",
         "es": "Calcular la tasa de siembra por decárea (kg/da) para la plantación.",

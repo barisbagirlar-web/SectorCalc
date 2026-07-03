@@ -10,7 +10,6 @@
       "label": "Sale Amount (USD)",
       "label_i18n": {
         "en": "Sale Amount (USD)",
-        "tr": "Satis Tutari (₺)",
         "de": "Verkaufsbetrag",
         "fr": "Montant de la vente",
         "es": "Monto de venta",
@@ -23,7 +22,6 @@
       "businessContext": "Transaction amount.",
       "businessContext_i18n": {
         "en": "Transaction amount.",
-        "tr": "Worklem tutari.",
         "de": "Transaktionsbetrag.",
         "fr": "Montant de la transaction.",
         "es": "Monto de la transacción.",
@@ -35,7 +33,6 @@
       "label": "Percentage Fee (%)",
       "label_i18n": {
         "en": "Percentage Fee (%)",
-        "tr": "Yuzde Komisyon (%)",
         "de": "Prozentsatzgebuhr (%)",
         "fr": "Frais en pourcentage (%)",
         "es": "Tarifa de Porcentaje (%)",
@@ -48,7 +45,6 @@
       "businessContext": "Per-transaction percentage fee.",
       "businessContext_i18n": {
         "en": "Per-transaction percentage fee.",
-        "tr": "Worklem basi yuzde komisyon.",
         "de": "Prozentsatzgebuhr pro Transaktion.",
         "fr": "Frais de pourcentage par transaction.",
         "es": "Comisión porcentual por transacción.",
@@ -60,7 +56,6 @@
       "label": "Fixed Fee (USD)",
       "label_i18n": {
         "en": "Fixed Fee (USD)",
-        "tr": "Sabit Ucret (₺)",
         "de": "Feste Gebuhr (USD)",
         "fr": "Frais fixes (USD)",
         "es": "Tarifa fija (USD)",
@@ -73,7 +68,6 @@
       "businessContext": "Per-transaction fixed fee.",
       "businessContext_i18n": {
         "en": "Per-transaction fixed fee.",
-        "tr": "Worklem basi sabit ucret.",
         "de": "Feste Gebuhr pro Transaktion.",
         "fr": "Frais fixes par transaction.",
         "es": "Comisión fija por transacción.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(satis * yuzde / 100) + sabit"
+    "result": "(satis * yuzde / 100) + sabit"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Worklem Ucreti"
+      "result": "Worklem Ucreti"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Worklem Ucreti",
-        "tr": "Worklem Ucreti",
         "de": "Transaktionsgebuhr",
         "fr": "Frais de transaction",
         "es": "Tarifa de Transacción",
@@ -124,7 +117,6 @@
       "long": "Calculate credit card processing fee for POS or online payments.",
       "short_i18n": {
         "en": "Calculate credit card processing fee for POS or online payments.",
-        "tr": "POS cihazi veya sanal odeme altyapisi kesintisini hesaplar.",
         "de": "Kreditkartenabwicklungsgebuhr fur POS- oder Online-Zahlungen berechnen.",
         "fr": "Calculer les frais de traitement de la carte de crédit pour les paiements POS ou en ligne.",
         "es": "Calcular la comisión de procesamiento de tarjeta de crédito para pagos POS o en línea.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate credit card processing fee for POS or online payments.",
-        "tr": "POS cihazi veya sanal odeme altyapisi kesintisini hesaplar.",
         "de": "Kreditkartenabwicklungsgebuhr fur POS- oder Online-Zahlungen berechnen.",
         "fr": "Calculer les frais de traitement de la carte de crédit pour les paiements POS ou en ligne.",
         "es": "Calcular la comisión de procesamiento de tarjeta de crédito para pagos POS o en línea.",

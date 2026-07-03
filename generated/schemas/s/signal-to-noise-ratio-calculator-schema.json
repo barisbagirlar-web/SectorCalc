@@ -10,7 +10,6 @@
       "label": "Signal Power (W)",
       "label_i18n": {
         "en": "Signal Power (W)",
-        "tr": "Sinyal Power (W)",
         "de": "Signalleistung (W)",
         "fr": "Puissance du signal (W)",
         "es": "Potencia de la Señal (W)",
@@ -23,7 +22,6 @@
       "businessContext": "Desired signal power.",
       "businessContext_i18n": {
         "en": "Desired signal power.",
-        "tr": "Istenen sinyalin gucu.",
         "de": "Gewunschte Signalleistung.",
         "fr": "Puissance du signal désiré.",
         "es": "Potencia de la señal deseada.",
@@ -35,7 +33,6 @@
       "label": "Noise Power (W)",
       "label_i18n": {
         "en": "Noise Power (W)",
-        "tr": "Gurultu Gucu (W)",
         "de": "Rauschleistung (W)",
         "fr": "Puissance sonore (W)",
         "es": "Potencia de Ruido (W)",
@@ -48,7 +45,6 @@
       "businessContext": "Background noise power.",
       "businessContext_i18n": {
         "en": "Background noise power.",
-        "tr": "Arka plan gurultu gucu.",
         "de": "Hintergrundrauschleistung.",
         "fr": "Puissance du bruit de fond.",
         "es": "Potencia de ruido de fondo.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "10 * Math.log10(Math.max(0.0001, sinyalGuc / Math.max(0.0001, gurultuGuc)))"
+    "result": "10 * Math.log10(Math.max(0.0001, sinyalGuc / Math.max(0.0001, gurultuGuc)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "dB",
     "breakdown": {
-      "sonuc": "SNR"
+      "result": "SNR"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "SNR",
-        "tr": "Sinyal-Gurultu Ratioi",
         "de": "SNR (Signal-Rausch-Verhältnis)",
         "fr": "Rapport signal sur bruit (SNR)",
         "es": "SNR",
@@ -101,7 +96,6 @@
       "long": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
       "short_i18n": {
         "en": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
-        "tr": "Istenen sinyalin arka plan gurultusune baskinligini (SNR) Decibel cinsinden hesaplar.",
         "de": "Berechnen Sie das Signal-Rausch-Verhältnis (SNR) in dB.",
         "fr": "Calculer le rapport signal sur bruit (SNR) en dB.",
         "es": "Calcular la Relación Señal-Ruido (SNR) en dB.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
-        "tr": "Istenen sinyalin arka plan gurultusune baskinligini (SNR) Decibel cinsinden hesaplar.",
         "de": "Berechnen Sie das Signal-Rausch-Verhältnis (SNR) in dB.",
         "fr": "Calculer le rapport signal sur bruit (SNR) en dB.",
         "es": "Calcular la Relación Señal-Ruido (SNR) en dB.",

@@ -10,7 +10,6 @@
       "label": "Portfolio Return (%)",
       "label_i18n": {
         "en": "Portfolio Return (%)",
-        "tr": "Portfoy Getirisi (%)",
         "de": "Portfoliorendite (%)",
         "fr": "Rendement du portefeuille (%)",
         "es": "Rendimiento de la cartera (%)",
@@ -23,7 +22,6 @@
       "businessContext": "Portfolio's periodic return.",
       "businessContext_i18n": {
         "en": "Portfolio's periodic return.",
-        "tr": "Portfoyun donemsel getirisi.",
         "de": "Periodische Rendite des Portfolios.",
         "fr": "Rendement périodique du portefeuille.",
         "es": "Rendimiento periódico de la cartera.",
@@ -35,7 +33,6 @@
       "label": "Risk-Free Rate (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
-        "tr": "Risksiz Faiz (%)",
         "de": "Risikofreier Zinssatz (%)",
         "fr": "Taux sans risque (%)",
         "es": "Tasa libre de riesgo (%)",
@@ -48,7 +45,6 @@
       "businessContext": "Risk-free asset return.",
       "businessContext_i18n": {
         "en": "Risk-free asset return.",
-        "tr": "Risksiz varlik getirisi.",
         "de": "Rendite des risikofreien Vermogenswerts.",
         "fr": "Rendement de l'actif sans risque.",
         "es": "Rendimiento del activo libre de riesgo.",
@@ -60,7 +56,6 @@
       "label": "Volatility (%)",
       "label_i18n": {
         "en": "Volatility (%)",
-        "tr": "Volatilite (%)",
         "de": "Volatilität (%)",
         "fr": "Volatilité (%)",
         "es": "Volatilidad (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Portfolio standard deviation.",
       "businessContext_i18n": {
         "en": "Portfolio standard deviation.",
-        "tr": "Portfoyun Standard Deviationsi.",
         "de": "Standardabweichung des Portfolios.",
         "fr": "Écart type du portefeuille.",
         "es": "Desviación estándar de la cartera.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(portfoyGetirisi - risksizFaiz) / Math.max(0.0001, volatilite)"
+    "result": "(portfoyGetirisi - risksizFaiz) / Math.max(0.0001, volatilite)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Sharpe Ratio"
+      "result": "Sharpe Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Sharpe Ratio",
-        "tr": "Sharpe Ratio",
         "de": "Sharpe Ratio",
         "fr": "Ratio de Sharpe",
         "es": "Ratio de Sharpe",
@@ -124,7 +117,6 @@
       "long": "Calculate the Sharpe ratio — excess return per unit of total risk.",
       "short_i18n": {
         "en": "Calculate the Sharpe ratio — excess return per unit of total risk.",
-        "tr": "Total risk (volatilite) basina uretilen fazla getiriyi (Sharpe Ratio) hesaplar.",
         "de": "Berechnen Sie die Sharpe-Ratio — Uberschussrendite pro Einheit des Gesamtrisikos.",
         "fr": "Calculer le ratio de Sharpe — rendement excédentaire par unité de risque total.",
         "es": "Calcular el ratio de Sharpe — exceso de rendimiento por unidad de riesgo total.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate the Sharpe ratio — excess return per unit of total risk.",
-        "tr": "Total risk (volatilite) basina uretilen fazla getiriyi (Sharpe Ratio) hesaplar.",
         "de": "Berechnen Sie die Sharpe-Ratio — Uberschussrendite pro Einheit des Gesamtrisikos.",
         "fr": "Calculer le ratio de Sharpe — rendement excédentaire par unité de risque total.",
         "es": "Calcular el ratio de Sharpe — exceso de rendimiento por unidad de riesgo total.",

@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Floor Area (m²)",
       "label_i18n": {
         "en": "Floor Area (m²)",
-        "tr": "Slab Area (m²)",
         "de": "Gesamtfläche",
         "fr": "Surface totale",
         "es": "Superficie total",
@@ -23,7 +22,6 @@
       "businessContext": "Area to cover.",
       "businessContext_i18n": {
         "en": "Area to cover.",
-        "tr": "Kaplanacak alan.",
         "de": "Zu bedeckende Fläche.",
         "fr": "Surface à couvrir.",
         "es": "Área a cubrir.",
@@ -35,7 +33,6 @@
       "label": "Roll Width (m)",
       "label_i18n": {
         "en": "Roll Width (m)",
-        "tr": "Rulo Eni (m)",
         "de": "Rollenbreite (m)",
         "fr": "Largeur du rouleau (m)",
         "es": "Ancho del Rollo (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Roll width.",
       "businessContext_i18n": {
         "en": "Roll width.",
-        "tr": "Rulo genisligi.",
         "de": "Rollenbreite.",
         "fr": "Largeur du rouleau.",
         "es": "Ancho del rollo.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "fire",
+      "id": "scrap",
       "label": "Waste Factor (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Scrap Ratio (%)",
         "de": "Abfallfaktor (%)",
         "fr": "Facteur de déchet (%)",
         "es": "Factor de desperdicio (%)",
@@ -73,7 +68,6 @@
       "businessContext": "Cutting waste.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
-        "tr": "Kesim kaybi.",
         "de": "Schnittverschnitt.",
         "fr": "Perte de coupe.",
         "es": "Desperdicio de corte.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(alan / Math.max(0.0001, ruloEn)) * (1 + fire / 100)"
+    "result": "(area / Math.max(0.0001, ruloEn)) * (1 + scrap / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Gerekli Rulo Boyu"
+      "result": "Gerekli Rulo Boyu"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gerekli Rulo Boyu",
-        "tr": "Gerekli Rulo Boyu",
         "de": "Erforderliche Rollenlänge",
         "fr": "Longueur de rouleau requise",
         "es": "Longitud de Bobina Requerida",
@@ -124,7 +117,6 @@
       "long": "Calculate linoleum/vinyl length to cut from roll.",
       "short_i18n": {
         "en": "Calculate linoleum/vinyl length to cut from roll.",
-        "tr": "Rulodan kesilecek Net linolyum/vinil Height uzunlugunu hesaplar.",
         "de": "Berechnen Sie die Länge von Linoleum/Vinyl, die von der Rolle geschnitten werden soll.",
         "fr": "Calculer la longueur de linoléum/vinyle à couper du rouleau.",
         "es": "Calcular la longitud de linóleo/vinilo a cortar del rollo.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate linoleum/vinyl length to cut from roll.",
-        "tr": "Rulodan kesilecek Net linolyum/vinil Height uzunlugunu hesaplar.",
         "de": "Berechnen Sie die Länge von Linoleum/Vinyl, die von der Rolle geschnitten werden soll.",
         "fr": "Calculer la longueur de linoléum/vinyle à couper du rouleau.",
         "es": "Calcular la longitud de linóleo/vinilo a cortar del rollo.",

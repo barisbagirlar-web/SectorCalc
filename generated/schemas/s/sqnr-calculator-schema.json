@@ -10,7 +10,6 @@
       "label": "Number of Bits (N)",
       "label_i18n": {
         "en": "Number of Bits (N)",
-        "tr": "Bit Count (N)",
         "de": "Anzahl der Bits (N)",
         "fr": "Nombre de bits (N)",
         "es": "Número de Bits (N)",
@@ -24,7 +23,6 @@
       "businessContext": "ADC resolution.",
       "businessContext_i18n": {
         "en": "ADC resolution.",
-        "tr": "ADC Resolution.",
         "de": "ADC-Auflosung.",
         "fr": "Résolution du CAN.",
         "es": "Resolución del ADC.",
@@ -39,18 +37,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "6.02 * bitSayisi + 1.76"
+    "result": "6.02 * bitSayisi + 1.76"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "dB",
     "breakdown": {
-      "sonuc": "SQNR"
+      "result": "SQNR"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "SQNR",
-        "tr": "Niceleme Sinyal-Gurultu Ratioi",
         "de": "SQNR (Signal-Quantisierungs-Rausch-Verhältnis)",
         "fr": "Rapport signal sur bruit de quantification (SQNR)",
         "es": "SQNR",
@@ -78,7 +75,6 @@
       "long": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
       "short_i18n": {
         "en": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
-        "tr": "ADC donusumundeki teorik sinyal/gurultu Ratioini (SQNR) hesaplar.",
         "de": "Berechnen Sie das theoretische SQNR (Signal-zu-Quantisierungsrausch-Verhältnis).",
         "fr": "Calculer le SQNR théorique (rapport signal sur bruit de quantification).",
         "es": "Calcular la SQNR teórica (relación señal-ruido de cuantificación).",
@@ -86,7 +82,6 @@
       },
       "long_i18n": {
         "en": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
-        "tr": "ADC donusumundeki teorik sinyal/gurultu Ratioini (SQNR) hesaplar.",
         "de": "Berechnen Sie das theoretische SQNR (Signal-zu-Quantisierungsrausch-Verhältnis).",
         "fr": "Calculer le SQNR théorique (rapport signal sur bruit de quantification).",
         "es": "Calcular la SQNR teórica (relación señal-ruido de cuantificación).",

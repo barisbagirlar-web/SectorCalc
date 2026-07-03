@@ -10,7 +10,6 @@
       "label": "Young's Modulus (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
-        "tr": "Modeulus of Elasticity (Pa)",
         "de": "Elastizitätsmodul (E)",
         "fr": "Module de Young (E)",
         "es": "Módulo de Young (E)",
@@ -23,7 +22,6 @@
       "businessContext": "Pipe material modulus.",
       "businessContext_i18n": {
         "en": "Pipe material modulus.",
-        "tr": "Boru malzemesi Modeuleu.",
         "de": "Elastizitätsmodul des Rohrmaterials.",
         "fr": "Module du matériau du tuyau.",
         "es": "Módulo del material de la tubería.",
@@ -35,7 +33,6 @@
       "label": "Thermal Expansion Coeff (1/K)",
       "label_i18n": {
         "en": "Thermal Expansion Coeff (1/K)",
-        "tr": "Isil Expansion Coefficient (1/K)",
         "de": "Wärmeausdehnungskoeffizient",
         "fr": "Coefficient de dilatation thermique",
         "es": "Coeficiente de expansión térmica",
@@ -48,7 +45,6 @@
       "businessContext": "Linear expansion coefficient.",
       "businessContext_i18n": {
         "en": "Linear expansion coefficient.",
-        "tr": "Malzemenin lineer Expansion Coefficient.",
         "de": "Linearer Ausdehnungskoeffizient.",
         "fr": "Coefficient de dilatation linéaire.",
         "es": "Coeficiente de expansión lineal.",
@@ -60,7 +56,6 @@
       "label": "Temperature Difference (K)",
       "label_i18n": {
         "en": "Temperature Difference (K)",
-        "tr": "Temperature Difference (K)",
         "de": "Temperaturdifferenz",
         "fr": "Différence de température",
         "es": "Diferencia de temperatura",
@@ -73,7 +68,6 @@
       "businessContext": "Installation vs operating temperature difference.",
       "businessContext_i18n": {
         "en": "Installation vs operating temperature difference.",
-        "tr": "Montaj ve isletme Temperature Difference.",
         "de": "Temperaturdifferenz zwischen Einbau- und Betriebszustand.",
         "fr": "Différence de température entre installation et fonctionnement.",
         "es": "Diferencia de temperatura entre instalación y operación.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "elastisiteModulu * genlesmeKatsayisi * sicaklikFarki"
+    "result": "elastisiteModulu * genlesmeKatsayisi * sicaklikFarki"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Termal Gerilme"
+      "result": "Termal Gerilme"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Termal Gerilme",
-        "tr": "Termal Gerilme",
         "de": "Thermische Spannung",
         "fr": "Contrainte thermique",
         "es": "Esfuerzo Térmico",
@@ -124,7 +117,6 @@
       "long": "Calculate axial thermal stress in a constrained pipe.",
       "short_i18n": {
         "en": "Calculate axial thermal stress in a constrained pipe.",
-        "tr": "Temperature degisiminin sabit boruda yarattigi eksenel termal gerilmeyi hesaplar.",
         "de": "Axiale thermische Spannung in einem eingespannten Rohr berechnen.",
         "fr": "Calculer la contrainte thermique axiale dans un tuyau contraint.",
         "es": "Calcular la tensión térmica axial en una tubería restringida.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate axial thermal stress in a constrained pipe.",
-        "tr": "Temperature degisiminin sabit boruda yarattigi eksenel termal gerilmeyi hesaplar.",
         "de": "Axiale thermische Spannung in einem eingespannten Rohr berechnen.",
         "fr": "Calculer la contrainte thermique axiale dans un tuyau contraint.",
         "es": "Calcular la tensión térmica axial en una tubería restringida.",

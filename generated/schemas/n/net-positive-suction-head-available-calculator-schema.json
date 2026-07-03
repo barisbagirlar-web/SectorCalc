@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "basinc",
+      "id": "pressure",
       "label": "Liquid Surface Pressure (Pa)",
       "label_i18n": {
         "en": "Liquid Surface Pressure (Pa)",
-        "tr": "Sivi Yuzey Basinci (Pa)",
         "de": "Flussigkeitsoberflächendruck (Pa)",
         "fr": "Pression à la surface du liquide (Pa)",
         "es": "Presión Superficial del Líquido (Pa)",
@@ -23,7 +22,6 @@
       "businessContext": "Tank or atmospheric pressure.",
       "businessContext_i18n": {
         "en": "Tank or atmospheric pressure.",
-        "tr": "Tank ici veya Atmosfer basinci.",
         "de": "Tank- oder Atmosphärendruck.",
         "fr": "Pression du réservoir ou atmosphérique.",
         "es": "Presión del tanque o atmosférica.",
@@ -35,7 +33,6 @@
       "label": "Vapor Pressure (Pa)",
       "label_i18n": {
         "en": "Vapor Pressure (Pa)",
-        "tr": "Sivinin Vapor Pressure (Pa)",
         "de": "Dampfdruck (Pa)",
         "fr": "Pression de vapeur (Pa)",
         "es": "Presión de Vapor (Pa)",
@@ -48,7 +45,6 @@
       "businessContext": "Vapor pressure at pumping temperature.",
       "businessContext_i18n": {
         "en": "Vapor pressure at pumping temperature.",
-        "tr": "Pompalama sicakligindaki Vapor Pressure.",
         "de": "Dampfdruck bei Pumptemperatur.",
         "fr": "Pression de vapeur à la température de pompage.",
         "es": "Presión de vapor a la temperatura de bombeo.",
@@ -60,7 +56,6 @@
       "label": "Liquid Density (kg/m³)",
       "label_i18n": {
         "en": "Liquid Density (kg/m³)",
-        "tr": "Sivi Yogunlugu (kg/m³)",
         "de": "Flussigkeitsdichte (kg/m³)",
         "fr": "Masse volumique du liquide (kg/m³)",
         "es": "Densidad del Líquido (kg/m³)",
@@ -73,7 +68,6 @@
       "businessContext": "Pumped fluid density.",
       "businessContext_i18n": {
         "en": "Pumped fluid density.",
-        "tr": "PompAreaan Sivinin yogunlugu.",
         "de": "Dichte der gepumpten Flussigkeit.",
         "fr": "Densité du fluide pompé.",
         "es": "Densidad del fluido bombeado.",
@@ -81,11 +75,10 @@
       }
     },
     {
-      "id": "yukseklik",
+      "id": "height",
       "label": "Liquid Level to Pump (m)",
       "label_i18n": {
         "en": "Liquid Level to Pump (m)",
-        "tr": "Sivi Seviyesi-Pompa Kot Farki (m)",
         "de": "Flussigkeitsstand bis Pumpe (m)",
         "fr": "Niveau de liquide à la pompe (m)",
         "es": "Nivel de Líquido a la Bomba (m)",
@@ -98,7 +91,6 @@
       "businessContext": "Positive if suction lift.",
       "businessContext_i18n": {
         "en": "Positive if suction lift.",
-        "tr": "Pozitifse emme yuksekligi.",
         "de": "Positiv bei Saughub.",
         "fr": "Positif si hauteur d'aspiration.",
         "es": "Positivo si es altura de succión.",
@@ -110,7 +102,6 @@
       "label": "Suction Line Loss (m)",
       "label_i18n": {
         "en": "Suction Line Loss (m)",
-        "tr": "Emme Hatti Kaybi (m)",
         "de": "Saugleitungsverlust (m)",
         "fr": "Perte de ligne d'aspiration (m)",
         "es": "Pérdida en la Línea de Succión (m)",
@@ -123,7 +114,6 @@
       "businessContext": "Friction loss in suction pipe.",
       "businessContext_i18n": {
         "en": "Friction loss in suction pipe.",
-        "tr": "Friction Loss.",
         "de": "Reibungsverlust in der Saugleitung.",
         "fr": "Perte par frottement dans la conduite d'aspiration.",
         "es": "Pérdida por fricción en la tubería de succión.",
@@ -138,18 +128,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(basinc - buharBasinci) / Math.max(0.0001, (yogunluk * 9.81)) + yukseklik - kayip"
+    "result": "(pressure - buharBasinci) / Math.max(0.0001, (yogunluk * 9.81)) + height - kayip"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "NPSH (Net Pozitif Emme Height)"
+      "result": "NPSH (Net Pozitif Emme Height)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "NPSH (Net Pozitif Emme Height)",
-        "tr": "NPSH (Net Pozitif Emme Height)",
         "de": "NPSH (Net Positive Suction Head)",
         "fr": "NPSH (Hauteur d'aspiration nette positive)",
         "es": "NPSH (Altura de Succión Positiva Neta)",
@@ -174,7 +163,6 @@
       "long": "Calculate Net Positive Suction Head (NPSH) available for pump.",
       "short_i18n": {
         "en": "Calculate Net Positive Suction Head (NPSH) available for pump.",
-        "tr": "Kavitasyonu onlemek icin pompa Inputindeki Net pozitif emme yuksekligini (NPSH) hesaplar.",
         "de": "Berechnen Sie die verfugbare Netto-Positiv-Saughohe (NPSH) fur die Pumpe.",
         "fr": "Calculer la hauteur nette d'aspiration positive (NPSH) disponible pour la pompe.",
         "es": "Calcular la Altura Neta de Succión Positiva (NPSH) disponible para la bomba.",
@@ -182,7 +170,6 @@
       },
       "long_i18n": {
         "en": "Calculate Net Positive Suction Head (NPSH) available for pump.",
-        "tr": "Kavitasyonu onlemek icin pompa Inputindeki Net pozitif emme yuksekligini (NPSH) hesaplar.",
         "de": "Berechnen Sie die verfugbare Netto-Positiv-Saughohe (NPSH) fur die Pumpe.",
         "fr": "Calculer la hauteur nette d'aspiration positive (NPSH) disponible pour la pompe.",
         "es": "Calcular la Altura Neta de Succión Positiva (NPSH) disponible para la bomba.",

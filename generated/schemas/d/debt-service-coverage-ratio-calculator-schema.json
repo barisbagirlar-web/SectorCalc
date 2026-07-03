@@ -10,7 +10,6 @@
       "label": "Net Operating Income (USD)",
       "label_i18n": {
         "en": "Net Operating Income (USD)",
-        "tr": "Net Workletme Geliri (₺)",
         "de": "Nettoertrag aus Betriebstätigkeit",
         "fr": "Résultat net d'exploitation",
         "es": "Ingreso operativo neto",
@@ -23,7 +22,6 @@
       "businessContext": "Annual net operating income.",
       "businessContext_i18n": {
         "en": "Annual net operating income.",
-        "tr": "Yillik Net isletme geliri.",
         "de": "Jährlicher Nettoertrag aus Betrieb.",
         "fr": "Revenu net d'exploitation annuel.",
         "es": "Ingreso neto operativo anual.",
@@ -35,7 +33,6 @@
       "label": "Annual Debt Service (USD)",
       "label_i18n": {
         "en": "Annual Debt Service (USD)",
-        "tr": "Annual Debt Paymmosttsi (TRY)",
         "de": "Jährlicher Schuldendienst (USD)",
         "fr": "Service annuel de la dette (USD)",
         "es": "Servicio Anual de la Deuda (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Annual principal + interest payment.",
       "businessContext_i18n": {
         "en": "Annual principal + interest payment.",
-        "tr": "Yillik Principal+faiz odemesi.",
         "de": "Jährliche Tilgungs- und Zinszahlung.",
         "fr": "Paiement annuel du principal + intérêts.",
         "es": "Pago anual de capital + intereses.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "netIsletmeGeliri / Math.max(1, yillikBorcOdemesi)"
+    "result": "netIsletmeGeliri / Math.max(1, yillikBorcOdemesi)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "DSCR Ratio"
+      "result": "DSCR Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "DSCR Ratio",
-        "tr": "DSCR Ratio",
         "de": "DSCR-Verhältnis",
         "fr": "Ratio DSCR",
         "es": "Índice DSCR",
@@ -99,7 +94,6 @@
       "long": "Calculate debt service coverage ratio (DSCR).",
       "short_i18n": {
         "en": "Calculate debt service coverage ratio (DSCR).",
-        "tr": "Workletmenin borc taksitlerini odeme kapasitesini (DSCR) hesaplar.",
         "de": "Berechnen Sie den Schuldendienstdeckungsgrad (DSCR).",
         "fr": "Calculer le ratio de couverture du service de la dette (DSCR).",
         "es": "Calcular el índice de cobertura del servicio de la deuda (DSCR).",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate debt service coverage ratio (DSCR).",
-        "tr": "Workletmenin borc taksitlerini odeme kapasitesini (DSCR) hesaplar.",
         "de": "Berechnen Sie den Schuldendienstdeckungsgrad (DSCR).",
         "fr": "Calculer le ratio de couverture du service de la dette (DSCR).",
         "es": "Calcular el índice de cobertura del servicio de la deuda (DSCR).",

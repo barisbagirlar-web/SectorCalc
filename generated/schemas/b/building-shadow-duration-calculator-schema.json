@@ -10,7 +10,6 @@
       "label": "Latitude (Deg)",
       "label_i18n": {
         "en": "Latitude (Deg)",
-        "tr": "Enlem (Derece)",
         "de": "Breitengrad (Grad)",
         "fr": "Latitude (degrés)",
         "es": "Latitud (grados)",
@@ -23,7 +22,6 @@
       "businessContext": "Building latitude.",
       "businessContext_i18n": {
         "en": "Building latitude.",
-        "tr": "Binanin bulundugu enlem.",
         "de": "Geografische Breite des Gebäudes.",
         "fr": "Latitude du bâtiment.",
         "es": "Latitud del edificio.",
@@ -35,7 +33,6 @@
       "label": "Day of Year (1-365)",
       "label_i18n": {
         "en": "Day of Year (1-365)",
-        "tr": "Yilin Gunu (1-365)",
         "de": "Tag des Jahres (1-365)",
         "fr": "Jour de l'année (1-365)",
         "es": "Día del año (1-365)",
@@ -49,7 +46,6 @@
       "businessContext": "Target day.",
       "businessContext_i18n": {
         "en": "Target day.",
-        "tr": "Calculated gun.",
         "de": "Zieltag.",
         "fr": "Jour cible.",
         "es": "Día objetivo.",
@@ -61,7 +57,6 @@
       "label": "Obstacle Height (m)",
       "label_i18n": {
         "en": "Obstacle Height (m)",
-        "tr": "Engel Height (m)",
         "de": "Hindernishohe (m)",
         "fr": "Hauteur de l'obstacle (m)",
         "es": "Altura del Obstáculo (m)",
@@ -74,7 +69,6 @@
       "businessContext": "Neighboring building height.",
       "businessContext_i18n": {
         "en": "Neighboring building height.",
-        "tr": "Komsu bina/engel yuksekligi.",
         "de": "Hohe des Nachbargebäudes.",
         "fr": "Hauteur du bâtiment voisin.",
         "es": "Altura del edificio vecino.",
@@ -86,7 +80,6 @@
       "label": "Obstacle-Building Distance (m)",
       "label_i18n": {
         "en": "Obstacle-Building Distance (m)",
-        "tr": "Engel-Bina Mesafesi (m)",
         "de": "Hindernis-Gebäude-Abstand (m)",
         "fr": "Distance obstacle-bâtiment (m)",
         "es": "Distancia Obstáculo-Edificio (m)",
@@ -99,7 +92,6 @@
       "businessContext": "Distance between buildings.",
       "businessContext_i18n": {
         "en": "Distance between buildings.",
-        "tr": "Iki bina arasi Distance.",
         "de": "Abstand zwischen Gebäuden.",
         "fr": "Distance entre les bâtiments.",
         "es": "Distancia entre edificios.",
@@ -115,18 +107,17 @@
   },
   "formulas": {
     "golgeAcisi": "Math.atan(engelYukseklik / Math.max(0.0001, mesafe))",
-    "sonuc": "(Math.atan(engelYukseklik / Math.max(0.0001, mesafe)) * 180 / Math.PI) / 15 * 2"
+    "result": "(Math.atan(engelYukseklik / Math.max(0.0001, mesafe)) * 180 / Math.PI) / 15 * 2"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "hours",
     "breakdown": {
-      "sonuc": "Tahmini Shade Duration"
+      "result": "Tahmini Shade Duration"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tahmini Shade Duration",
-        "tr": "Tahmini Shade Duration",
         "de": "Geschätzte Schattenzeit",
         "fr": "Durée d'ombre estimée",
         "es": "Duración Estimada de la Sombra",
@@ -154,7 +145,6 @@
       "long": "Calculate daily shadow duration on building facade due to obstacles.",
       "short_i18n": {
         "en": "Calculate daily shadow duration on building facade due to obstacles.",
-        "tr": "Engel nedeniyle cephenin gunessiz kaldigi Total Timeyi (gunisigi analizi) hesaplar.",
         "de": "Berechnen Sie die tägliche Schattendauer auf der Gebäudefassade aufgrund von Hindernissen.",
         "fr": "Calculer la durée quotidienne d'ombre sur la facade du bâtiment due aux obstacles.",
         "es": "Calcular la duración diaria de sombra en la fachada del edificio debido a obstáculos.",
@@ -162,7 +152,6 @@
       },
       "long_i18n": {
         "en": "Calculate daily shadow duration on building facade due to obstacles.",
-        "tr": "Engel nedeniyle cephenin gunessiz kaldigi Total Timeyi (gunisigi analizi) hesaplar.",
         "de": "Berechnen Sie die tägliche Schattendauer auf der Gebäudefassade aufgrund von Hindernissen.",
         "fr": "Calculer la durée quotidienne d'ombre sur la facade du bâtiment due aux obstacles.",
         "es": "Calcular la duración diaria de sombra en la fachada del edificio debido a obstáculos.",

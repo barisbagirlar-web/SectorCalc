@@ -10,7 +10,6 @@
       "label": "Clicks",
       "label_i18n": {
         "en": "Clicks",
-        "tr": "Tiklama (Quantity)",
         "de": "Klicks",
         "fr": "Clics",
         "es": "Clics",
@@ -23,7 +22,6 @@
       "businessContext": "Ad clicks.",
       "businessContext_i18n": {
         "en": "Ad clicks.",
-        "tr": "Reklama yapilan tiklamalar.",
         "de": "Anzeigenklicks.",
         "fr": "Clics sur l'annonce.",
         "es": "Clics en anuncios.",
@@ -35,7 +33,6 @@
       "label": "Impressions",
       "label_i18n": {
         "en": "Impressions",
-        "tr": "Gosterim (Quantity)",
         "de": "Impressionen",
         "fr": "Impressions",
         "es": "Impresiones",
@@ -48,7 +45,6 @@
       "businessContext": "Ad display count.",
       "businessContext_i18n": {
         "en": "Ad display count.",
-        "tr": "Reklamin goruntulenme Numbersi.",
         "de": "Anzeigenanzahl der Ausspielungen.",
         "fr": "Nombre d'affichages de l'annonce.",
         "es": "Recuento de visualizaciones del anuncio.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(tiklama / Math.max(1, gosterim)) * 100"
+    "result": "(tiklama / Math.max(1, gosterim)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Tiklama Ratioi (CTR)"
+      "result": "Tiklama Ratioi (CTR)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tiklama Ratioi (CTR)",
-        "tr": "Tiklama Ratioi (CTR)",
         "de": "Klickrate (CTR)",
         "fr": "Taux de clics (CTR)",
         "es": "Tasa de Clics (CTR)",
@@ -99,7 +94,6 @@
       "long": "Calculate click-through rate (CTR) for ads.",
       "short_i18n": {
         "en": "Calculate click-through rate (CTR) for ads.",
-        "tr": "Reklamin ne kadar ilgi cektigini gosteren tiklama Ratioini hesaplar.",
         "de": "Berechnen Sie die Klickrate (CTR) fur Anzeigen.",
         "fr": "Calculer le taux de clics (CTR) pour les annonces.",
         "es": "Calcular la tasa de clics (CTR) para anuncios.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate click-through rate (CTR) for ads.",
-        "tr": "Reklamin ne kadar ilgi cektigini gosteren tiklama Ratioini hesaplar.",
         "de": "Berechnen Sie die Klickrate (CTR) fur Anzeigen.",
         "fr": "Calculer le taux de clics (CTR) pour les annonces.",
         "es": "Calcular la tasa de clics (CTR) para anuncios.",

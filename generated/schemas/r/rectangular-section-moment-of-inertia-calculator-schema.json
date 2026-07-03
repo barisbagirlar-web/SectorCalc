@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "genislik",
+      "id": "width",
       "label": "Section Width (m)",
       "label_i18n": {
         "en": "Section Width (m)",
-        "tr": "Kesit Width (m)",
         "de": "Querschnittsbreite (m)",
         "fr": "Largeur de la section (m)",
         "es": "Ancho de la Sección (m)",
@@ -23,7 +22,6 @@
       "businessContext": "Rectangle section width.",
       "businessContext_i18n": {
         "en": "Rectangle section width.",
-        "tr": "Dikdortgen kesitin genisligi.",
         "de": "Breite des Rechteckquerschnitts.",
         "fr": "Largeur de la section rectangulaire.",
         "es": "Ancho de la sección rectangular.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "yukseklik",
+      "id": "height",
       "label": "Section Height (m)",
       "label_i18n": {
         "en": "Section Height (m)",
-        "tr": "Kesit Height (m)",
         "de": "Querschnittshohe (m)",
         "fr": "Hauteur de la section (m)",
         "es": "Altura de la Sección (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Rectangle section height.",
       "businessContext_i18n": {
         "en": "Rectangle section height.",
-        "tr": "Dikdortgen kesitin yuksekligi.",
         "de": "Hohe des Rechteckquerschnitts.",
         "fr": "Hauteur de la section rectangulaire.",
         "es": "Altura de la sección rectangular.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(genislik * Math.pow(yukseklik, 3)) / 12"
+    "result": "(width * Math.pow(height, 3)) / 12"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m4",
     "breakdown": {
-      "sonuc": "Atalet Momenti (I)"
+      "result": "Atalet Momenti (I)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Atalet Momenti (I)",
-        "tr": "Atalet Momenti (I)",
         "de": "Trägheitsmoment (I)",
         "fr": "Moment d'inertie (I)",
         "es": "Momento de Inercia (I)",
@@ -99,7 +94,6 @@
       "long": "Calculate rectangular section moment of inertia.",
       "short_i18n": {
         "en": "Calculate rectangular section moment of inertia.",
-        "tr": "Dikdortgen kesitin egilmeye karsi gosterdigi geometrik direnci (Moment of Inertia) hesaplar.",
         "de": "Berechnung des Flächenträgheitsmoments eines rechteckigen Querschnitts.",
         "fr": "Calculer le moment d'inertie d'une section rectangulaire.",
         "es": "Calcular el momento de inercia de una sección rectangular.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate rectangular section moment of inertia.",
-        "tr": "Dikdortgen kesitin egilmeye karsi gosterdigi geometrik direnci (Moment of Inertia) hesaplar.",
         "de": "Berechnung des Flächenträgheitsmoments eines rechteckigen Querschnitts.",
         "fr": "Calculer le moment d'inertie d'une section rectangulaire.",
         "es": "Calcular el momento de inercia de una sección rectangular.",

@@ -6,11 +6,10 @@
   "sectorId": "process-chemical",
   "inputs": [
     {
-      "id": "enerji",
+      "id": "energy",
       "label": "Total Energy (J)",
       "label_i18n": {
         "en": "Total Energy (J)",
-        "tr": "Toplam Enerji (J)",
         "de": "Gesamtenergieverbrauch",
         "fr": "Consommation totale d'énergie",
         "es": "Consumo total de energía",
@@ -23,7 +22,6 @@
       "businessContext": "Total stored energy.",
       "businessContext_i18n": {
         "en": "Total stored energy.",
-        "tr": "Depolanan toplam enerji.",
         "de": "Gespeicherte Gesamtenergie.",
         "fr": "Énergie totale stockée.",
         "es": "Energía total almacenada.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "hacim",
+      "id": "volume",
       "label": "Volume (m³)",
       "label_i18n": {
         "en": "Volume (m³)",
-        "tr": "Hacim (m³)",
         "de": "Produktionsvolumen (N)",
         "fr": "Volume de production (N)",
         "es": "Volumen de producción (N)",
@@ -48,7 +45,6 @@
       "businessContext": "Storage volume.",
       "businessContext_i18n": {
         "en": "Storage volume.",
-        "tr": "Depolama hacmi.",
         "de": "Speichervolumen.",
         "fr": "Volume de stockage.",
         "es": "Volumen de almacenamiento.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "enerji / Math.max(0.0001, hacim)"
+    "result": "energy / Math.max(0.0001, volume)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "J/m3",
     "breakdown": {
-      "sonuc": "Energy Dmostsity"
+      "result": "Energy Dmostsity"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Energy Dmostsity",
-        "tr": "Energy Dmostsity",
         "de": "Energiedichte",
         "fr": "Densité énergétique",
         "es": "Densidad de Energía",
@@ -99,7 +94,6 @@
       "long": "Calculate energy density per unit volume.",
       "short_i18n": {
         "en": "Calculate energy density per unit volume.",
-        "tr": "Unit Volumedeki depolanan Energy Amountini (Energy Dmostsity) hesaplar.",
         "de": "Berechnen Sie die Energiedichte pro Volumeneinheit.",
         "fr": "Calculer la densité énergétique par unité de volume.",
         "es": "Calcular la densidad de energía por unidad de volumen.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate energy density per unit volume.",
-        "tr": "Unit Volumedeki depolanan Energy Amountini (Energy Dmostsity) hesaplar.",
         "de": "Berechnen Sie die Energiedichte pro Volumeneinheit.",
         "fr": "Calculer la densité énergétique par unité de volume.",
         "es": "Calcular la densidad de energía por unidad de volumen.",

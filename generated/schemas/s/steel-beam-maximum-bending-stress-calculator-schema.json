@@ -10,7 +10,6 @@
       "label": "Bending Moment (N.m)",
       "label_i18n": {
         "en": "Bending Moment (N.m)",
-        "tr": "Bmostding Mommostti (N.m)",
         "de": "Biegemoment",
         "fr": "Moment de flexion",
         "es": "Momento flector",
@@ -23,7 +22,6 @@
       "businessContext": "Bending moment on beam.",
       "businessContext_i18n": {
         "en": "Bending moment on beam.",
-        "tr": "Kirise etkiyen Bending Moment.",
         "de": "Biegemoment am Träger.",
         "fr": "Moment de flexion sur la poutre.",
         "es": "Momento flector en la viga.",
@@ -35,7 +33,6 @@
       "label": "Section Modulus (m³)",
       "label_i18n": {
         "en": "Section Modulus (m³)",
-        "tr": "Section Modeulus (m³)",
         "de": "Widerstandsmoment",
         "fr": "Module de section",
         "es": "Módulo de sección",
@@ -48,7 +45,6 @@
       "businessContext": "Elastic section modulus.",
       "businessContext_i18n": {
         "en": "Elastic section modulus.",
-        "tr": "Profilin elastik Section Modeulus.",
         "de": "Elastisches Widerstandsmoment.",
         "fr": "Module de section élastique.",
         "es": "Módulo de sección elástico.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "moment / Math.max(0.0001, kesitModulu)"
+    "result": "moment / Math.max(0.0001, kesitModulu)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Maks. Bmostding Gerilmesi"
+      "result": "Maks. Bmostding Gerilmesi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Maks. Bmostding Gerilmesi",
-        "tr": "Maks. Bmostding Gerilmesi",
         "de": "Maximale Biegespannung",
         "fr": "Contrainte de flexion maximale",
         "es": "Esfuerzo Máximo de Flexión",
@@ -99,7 +94,6 @@
       "long": "Calculate maximum bending stress in a steel beam section.",
       "short_i18n": {
         "en": "Calculate maximum bending stress in a steel beam section.",
-        "tr": "Celik profilin dis liflerindeki Maximum egilme (normal) gerilmesini hesaplar.",
         "de": "Berechnen Sie die maximale Biegespannung in einem Stahlträgerquerschnitt.",
         "fr": "Calculer la contrainte de flexion maximale dans une section de poutre en acier.",
         "es": "Calcular el esfuerzo máximo de flexión en una sección de viga de acero.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate maximum bending stress in a steel beam section.",
-        "tr": "Celik profilin dis liflerindeki Maximum egilme (normal) gerilmesini hesaplar.",
         "de": "Berechnen Sie die maximale Biegespannung in einem Stahlträgerquerschnitt.",
         "fr": "Calculer la contrainte de flexion maximale dans une section de poutre en acier.",
         "es": "Calcular el esfuerzo máximo de flexión en una sección de viga de acero.",

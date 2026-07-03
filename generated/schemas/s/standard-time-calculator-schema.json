@@ -10,7 +10,6 @@
       "label": "Observed Time (Min)",
       "label_i18n": {
         "en": "Observed Time (Min)",
-        "tr": "Gozlenen Duration (min)",
         "de": "Beobachtete Zeit (Sekunden)",
         "fr": "Temps observé (secondes)",
         "es": "Tiempo observado (segundos)",
@@ -23,7 +22,6 @@
       "businessContext": "Measured operation time.",
       "businessContext_i18n": {
         "en": "Measured operation time.",
-        "tr": "Operasyonda olculen sure.",
         "de": "Gemessene Betriebszeit.",
         "fr": "Temps d'opération mesuré.",
         "es": "Tiempo de operación medido.",
@@ -35,7 +33,6 @@
       "label": "Performance Rating (%)",
       "label_i18n": {
         "en": "Performance Rating (%)",
-        "tr": "Performance Speed (%)",
         "de": "Leistungsbewertung (%)",
         "fr": "Évaluation de performance (%)",
         "es": "Calificación de rendimiento (%)",
@@ -49,7 +46,6 @@
       "businessContext": "Operator speed vs standard.",
       "businessContext_i18n": {
         "en": "Operator speed vs standard.",
-        "tr": "Operatorun standart Speeda gore Performancei.",
         "de": "Bedienergeschwindigkeit vs. Standard.",
         "fr": "Vitesse de l'opérateur par rapport à la norme.",
         "es": "Velocidad del operador vs estándar.",
@@ -61,7 +57,6 @@
       "label": "Allowance (%)",
       "label_i18n": {
         "en": "Allowance (%)",
-        "tr": "Ek Sure Payi (%)",
         "de": "Toleranzprozentsatz (%)",
         "fr": "Pourcentage de tolérance (%)",
         "es": "Porcentaje de tolerancia (%)",
@@ -75,7 +70,6 @@
       "businessContext": "Fatigue and personal allowance.",
       "businessContext_i18n": {
         "en": "Fatigue and personal allowance.",
-        "tr": "Yorgunluk, kisisel ihtiyaclar icin ek sure.",
         "de": "Ermudungs- und personlicher Zuschlag.",
         "fr": "Allocation pour fatigue et besoins personnels.",
         "es": "Margen por fatiga y necesidades personales.",
@@ -91,18 +85,17 @@
   },
   "formulas": {
     "normal": "gozlenenSure * (performans / 100)",
-    "sonuc": "(gozlenenSure * (performans / 100)) * (1 + ekSure / 100)"
+    "result": "(gozlenenSure * (performans / 100)) * (1 + ekSure / 100)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "min",
     "breakdown": {
-      "sonuc": "Standart Duration"
+      "result": "Standart Duration"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Standart Duration",
-        "tr": "Standart Duration",
         "de": "Standardzeit",
         "fr": "Durée standard",
         "es": "Duración Estándar",
@@ -127,7 +120,6 @@
       "long": "Calculate standard time with allowance for fatigue.",
       "short_i18n": {
         "en": "Calculate standard time with allowance for fatigue.",
-        "tr": "Yorgunluk payi eklenmis hedef standart uretim suresini hesaplar.",
         "de": "Berechnen Sie die Standardzeit mit Ermudungszuschlag.",
         "fr": "Calculer le temps standard avec allocation pour la fatigue.",
         "es": "Calcular el tiempo estándar con margen por fatiga.",
@@ -135,7 +127,6 @@
       },
       "long_i18n": {
         "en": "Calculate standard time with allowance for fatigue.",
-        "tr": "Yorgunluk payi eklenmis hedef standart uretim suresini hesaplar.",
         "de": "Berechnen Sie die Standardzeit mit Ermudungszuschlag.",
         "fr": "Calculer le temps standard avec allocation pour la fatigue.",
         "es": "Calcular el tiempo estándar con margen por fatiga.",

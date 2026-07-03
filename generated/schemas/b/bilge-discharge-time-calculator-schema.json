@@ -10,7 +10,6 @@
       "label": "Bilge Tank Volume (m³)",
       "label_i18n": {
         "en": "Bilge Tank Volume (m³)",
-        "tr": "Sintine Tank Hacmi (m³)",
         "de": "Bilgetankvolumen (m³)",
         "fr": "Volume du réservoir de cale (m³)",
         "es": "Volumen del Tanque de Sentina (m³)",
@@ -23,7 +22,6 @@
       "businessContext": "Total bilge water volume.",
       "businessContext_i18n": {
         "en": "Total bilge water volume.",
-        "tr": "Toplam sintine suyu hacmi.",
         "de": "Gesamtvolumen des Bilgewassers.",
         "fr": "Volume total d'eau de cale.",
         "es": "Volumen total de agua de sentina.",
@@ -35,7 +33,6 @@
       "label": "Pump Flow (m³/h)",
       "label_i18n": {
         "en": "Pump Flow (m³/h)",
-        "tr": "Pompa Debisi (m³/saat)",
         "de": "Pumpenforderstrom (m³/h)",
         "fr": "Débit de la pompe (m³/h)",
         "es": "Caudal de la Bomba (m³/h)",
@@ -48,7 +45,6 @@
       "businessContext": "Bilge pump flow rate.",
       "businessContext_i18n": {
         "en": "Bilge pump flow rate.",
-        "tr": "Sintine pompasinin Flow Ratesi.",
         "de": "Forderstrom der Bilgepumpe.",
         "fr": "Débit de la pompe de cale.",
         "es": "Caudal de la bomba de sentina.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "tankHacim / Math.max(0.0001, pompaDebi)"
+    "result": "tankHacim / Math.max(0.0001, pompaDebi)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "hours",
     "breakdown": {
-      "sonuc": "Tahliye Time"
+      "result": "Tahliye Time"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tahliye Time",
-        "tr": "Tahliye Time",
         "de": "Discharge Time",
         "fr": "Durée d'évacuation",
         "es": "Tiempo de Evacuación",
@@ -101,7 +96,6 @@
       "long": "Calculate time required to discharge bilge water.",
       "short_i18n": {
         "en": "Calculate time required to discharge bilge water.",
-        "tr": "Sintine suyunun tahliyesi icin gereken sureyi hesaplar.",
         "de": "Berechnen Sie die erforderliche Zeit zum Abpumpen von Bilgewasser.",
         "fr": "Calculer le temps nécessaire pour évacuer l'eau de cale.",
         "es": "Calcular el tiempo necesario para descargar el agua de sentina.",
@@ -109,7 +103,6 @@
       },
       "long_i18n": {
         "en": "Calculate time required to discharge bilge water.",
-        "tr": "Sintine suyunun tahliyesi icin gereken sureyi hesaplar.",
         "de": "Berechnen Sie die erforderliche Zeit zum Abpumpen von Bilgewasser.",
         "fr": "Calculer le temps nécessaire pour évacuer l'eau de cale.",
         "es": "Calcular el tiempo necesario para descargar el agua de sentina.",

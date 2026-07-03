@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "deger",
+      "id": "value",
       "label": "Torque Value",
       "label_i18n": {
         "en": "Torque Value",
-        "tr": "Torque Value",
         "de": "Drehmomentwert",
         "fr": "Valeur de couple",
         "es": "Valor de Torque",
@@ -23,7 +22,6 @@
       "businessContext": "Torque to convert.",
       "businessContext_i18n": {
         "en": "Torque to convert.",
-        "tr": "Donusturulecek Torque.",
         "de": "Zu konvertierendes Drehmoment.",
         "fr": "Couple à convertir.",
         "es": "Torque a convertir.",
@@ -35,7 +33,6 @@
       "label": "Source (0=N.m, 1=lbft, 2=kgfm)",
       "label_i18n": {
         "en": "Source (0=N.m, 1=lbft, 2=kgfm)",
-        "tr": "Kaynak (0=N.m, 1=lbft, 2=kgfm)",
         "de": "Primärenergiequelle",
         "fr": "Source d'énergie primaire",
         "es": "Fuente de energía primaria",
@@ -48,7 +45,6 @@
       "businessContext": "Input unit.",
       "businessContext_i18n": {
         "en": "Input unit.",
-        "tr": "Girilen birim.",
         "de": "Eingabeeinheit.",
         "fr": "Unité d'entrée.",
         "es": "Unidad de entrada.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "kaynak === 1 ? deger * 1.3558 : kaynak === 2 ? deger * 9.8066 : deger"
+    "result": "kaynak === 1 ? value * 1.3558 : kaynak === 2 ? value * 9.8066 : value"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "N.m",
     "breakdown": {
-      "sonuc": "N.m Karsiligi"
+      "result": "N.m Karsiligi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "N.m Karsiligi",
-        "tr": "N.m Karsiligi",
         "de": "Entsprechung in N.m",
         "fr": "Équivalent en N.m",
         "es": "Equivalente en N.m",
@@ -99,7 +94,6 @@
       "long": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
       "short_i18n": {
         "en": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
-        "tr": "Farkli Unitlerdeki Torque Valueni standart N.m Unitine donusturur.",
         "de": "Konvertieren Sie Drehmomentwerte (lbft/kgfm) in N.m (SI-Einheit).",
         "fr": "Convertir les valeurs de couple (lbft/kgfm) en N.m (unité SI).",
         "es": "Convertir valores de torque (lbft/kgfm) a N.m (unidad SI).",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
-        "tr": "Farkli Unitlerdeki Torque Valueni standart N.m Unitine donusturur.",
         "de": "Konvertieren Sie Drehmomentwerte (lbft/kgfm) in N.m (SI-Einheit).",
         "fr": "Convertir les valeurs de couple (lbft/kgfm) en N.m (unité SI).",
         "es": "Convertir valores de torque (lbft/kgfm) a N.m (unidad SI).",

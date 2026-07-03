@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "akim",
+      "id": "current",
       "label": "Welding Current (A)",
       "label_i18n": {
         "en": "Welding Current (A)",
-        "tr": "Welding Currmostt (A)",
         "de": "Schweißstrom (A)",
         "fr": "Courant de soudage (A)",
         "es": "Corriente de soldadura (A)",
@@ -23,7 +22,6 @@
       "businessContext": "Arc current.",
       "businessContext_i18n": {
         "en": "Arc current.",
-        "tr": "Ark Currenti.",
         "de": "Lichtbogenstrom.",
         "fr": "Courant d'arc.",
         "es": "Corriente del arco.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "gerilim",
+      "id": "voltage",
       "label": "Arc Voltage (V)",
       "label_i18n": {
         "en": "Arc Voltage (V)",
-        "tr": "Ark Gerilimi (V)",
         "de": "Lichtbogenspannung (V)",
         "fr": "Tension d'arc (V)",
         "es": "Tensión del arco (V)",
@@ -48,7 +45,6 @@
       "businessContext": "Arc voltage.",
       "businessContext_i18n": {
         "en": "Arc voltage.",
-        "tr": "Ark voltaji.",
         "de": "Lichtbogenspannung.",
         "fr": "Tension d'arc.",
         "es": "Tensión del arco.",
@@ -60,7 +56,6 @@
       "label": "Travel Speed (mm/s)",
       "label_i18n": {
         "en": "Travel Speed (mm/s)",
-        "tr": "Ilerleme Speedi (mm/s)",
         "de": "Vorschubgeschwindigkeit (mm/s)",
         "fr": "Vitesse de déplacement (mm/s)",
         "es": "Velocidad de avance (mm/s)",
@@ -73,7 +68,6 @@
       "businessContext": "Welding speed.",
       "businessContext_i18n": {
         "en": "Welding speed.",
-        "tr": "Kaynak Speedi.",
         "de": "Schweißgeschwindigkeit.",
         "fr": "Vitesse de soudage.",
         "es": "Velocidad de soldadura.",
@@ -81,11 +75,10 @@
       }
     },
     {
-      "id": "verim",
+      "id": "efficiency",
       "label": "Thermal Efficiency",
       "label_i18n": {
         "en": "Thermal Efficiency",
-        "tr": "Isil Efficiency",
         "de": "Thermischer Wirkungsgrad",
         "fr": "Rendement thermique",
         "es": "Eficiencia térmica",
@@ -98,7 +91,6 @@
       "businessContext": "Arc efficiency (0.6-0.9).",
       "businessContext_i18n": {
         "en": "Arc efficiency (0.6-0.9).",
-        "tr": "Ark verimi (0.6-0.9).",
         "de": "Lichtbogenwirkungsgrad (0,6-0,9).",
         "fr": "Rendement d'arc (0,6-0,9).",
         "es": "Eficiencia del arco (0.6-0.9).",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(akim * gerilim * verim) / Math.max(0.0001, ilerlemeHiz)"
+    "result": "(current * voltage * efficiency) / Math.max(0.0001, ilerlemeHiz)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "J/mm",
     "breakdown": {
-      "sonuc": "Heat Input"
+      "result": "Heat Input"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Heat Input",
-        "tr": "Heat Input",
         "de": "Wärmeeintrag",
         "fr": "Apport de chaleur",
         "es": "Aporte de Calor",
@@ -149,7 +140,6 @@
       "long": "Calculate weld heat input per unit length.",
       "short_i18n": {
         "en": "Calculate weld heat input per unit length.",
-        "tr": "Kaynak dikisine aktarilan Unit Energy Amountini (isi girdisi) hesaplar.",
         "de": "Berechnen Sie den Wärmeeintrag pro Längeneinheit beim Schweißen.",
         "fr": "Calculer l'apport de chaleur de soudage par unité de longueur.",
         "es": "Calcular el aporte térmico de soldadura por unidad de longitud.",
@@ -157,7 +147,6 @@
       },
       "long_i18n": {
         "en": "Calculate weld heat input per unit length.",
-        "tr": "Kaynak dikisine aktarilan Unit Energy Amountini (isi girdisi) hesaplar.",
         "de": "Berechnen Sie den Wärmeeintrag pro Längeneinheit beim Schweißen.",
         "fr": "Calculer l'apport de chaleur de soudage par unité de longueur.",
         "es": "Calcular el aporte térmico de soldadura por unidad de longitud.",

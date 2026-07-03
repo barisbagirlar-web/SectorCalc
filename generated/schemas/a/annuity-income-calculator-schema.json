@@ -10,7 +10,6 @@
       "label": "Principal (USD)",
       "label_i18n": {
         "en": "Principal (USD)",
-        "tr": "Anapara (₺)",
         "de": "Anfangskapital",
         "fr": "Capital initial",
         "es": "Capital inicial",
@@ -23,7 +22,6 @@
       "businessContext": "Total principal invested.",
       "businessContext_i18n": {
         "en": "Total principal invested.",
-        "tr": "Anuiteye yatirilan Total ana para.",
         "de": "Investiertes Gesamtkapital.",
         "fr": "Principal total investi.",
         "es": "Capital total invertido.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "faiz",
+      "id": "interest",
       "label": "Annual Interest (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
-        "tr": "Annual Interest (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -48,7 +45,6 @@
       "businessContext": "Annual interest rate.",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
-        "tr": "Annual Interest Rate.",
         "de": "Nominaler jährlicher Zinssatz.",
         "fr": "Taux d'intérêt annuel nominal.",
         "es": "Tasa de interés anual nominal.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "donem",
+      "id": "period",
       "label": "Period (Months)",
       "label_i18n": {
         "en": "Period (Months)",
-        "tr": "Donem (Ay)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -73,7 +68,6 @@
       "businessContext": "Total income withdrawal months.",
       "businessContext_i18n": {
         "en": "Total income withdrawal months.",
-        "tr": "Gelir cekilecek Total ay.",
         "de": "Monate des Einkommensbezugs.",
         "fr": "Mois de retrait de revenu total.",
         "es": "Meses de retiro de ingresos totales.",
@@ -88,19 +82,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "aylikOran": "faiz / 12 / 100",
-    "sonuc": "anapara * ((faiz/12/100) / Math.max(0.0001, (1 - Math.pow(1 + faiz/12/100, -donem))))"
+    "monthlyRatio": "interest / 12 / 100",
+    "result": "anapara * ((interest/12/100) / Math.max(0.0001, (1 - Math.pow(1 + interest/12/100, -period))))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Aylik Anuite Geliri"
+      "result": "Aylik Anuite Geliri"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Aylik Anuite Geliri",
-        "tr": "Aylik Anuite Geliri",
         "de": "Monatliche Annuitäteneinnahme",
         "fr": "Revenu de rente mensuelle",
         "es": "Ingreso de Anualidad Mensual",
@@ -125,7 +118,6 @@
       "long": "Calculate fixed periodic income from a principal amount at a given interest rate.",
       "short_i18n": {
         "en": "Calculate fixed periodic income from a principal amount at a given interest rate.",
-        "tr": "Birikmis Principalnin belirli Interest Ratenda duzenli cekilebilecek sabit gelirini hesaplar.",
         "de": "Berechnen Sie ein festes periodisches Einkommen aus einem Kapitalbetrag bei einem gegebenen Zinssatz.",
         "fr": "Calculer le revenu périodique fixe à partir d'un montant principal à un taux d'intérêt donné.",
         "es": "Calcular el ingreso periódico fijo a partir de un monto principal a una tasa de interés dada.",
@@ -133,7 +125,6 @@
       },
       "long_i18n": {
         "en": "Calculate fixed periodic income from a principal amount at a given interest rate.",
-        "tr": "Birikmis Principalnin belirli Interest Ratenda duzenli cekilebilecek sabit gelirini hesaplar.",
         "de": "Berechnen Sie ein festes periodisches Einkommen aus einem Kapitalbetrag bei einem gegebenen Zinssatz.",
         "fr": "Calculer le revenu périodique fixe à partir d'un montant principal à un taux d'intérêt donné.",
         "es": "Calcular el ingreso periódico fijo a partir de un monto principal a una tasa de interés dada.",

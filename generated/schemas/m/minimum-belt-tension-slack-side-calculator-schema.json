@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "guc",
+      "id": "power",
       "label": "Power Transmitted (W)",
       "label_i18n": {
         "en": "Power Transmitted (W)",
-        "tr": "Iletilen Power (W)",
         "de": "Ubertragene Leistung (W)",
         "fr": "Puissance transmise (W)",
         "es": "Potencia transmitida (W)",
@@ -23,7 +22,6 @@
       "businessContext": "Belt power transmission.",
       "businessContext_i18n": {
         "en": "Belt power transmission.",
-        "tr": "Kayisla iletilen Power.",
         "de": "Riemenleistungsubertragung.",
         "fr": "Transmission de puissance par courroie.",
         "es": "Transmisión de potencia por correa.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "hiz",
+      "id": "speed",
       "label": "Belt Speed (m/s)",
       "label_i18n": {
         "en": "Belt Speed (m/s)",
-        "tr": "Kayis Speedi (m/s)",
         "de": "Riemengeschwindigkeit (m/s)",
         "fr": "Vitesse de la courroie (m/s)",
         "es": "Velocidad de la correa (m/s)",
@@ -48,7 +45,6 @@
       "businessContext": "Belt linear speed.",
       "businessContext_i18n": {
         "en": "Belt linear speed.",
-        "tr": "Kayisin lineer Speedi.",
         "de": "Lineare Riemengeschwindigkeit.",
         "fr": "Vitesse linéaire de la courroie.",
         "es": "Velocidad lineal de la correa.",
@@ -60,7 +56,6 @@
       "label": "Wrap Angle (Rad)",
       "label_i18n": {
         "en": "Wrap Angle (Rad)",
-        "tr": "Sarilma Acisi (Rad)",
         "de": "Umschlingungswinkel (Rad)",
         "fr": "Angle d'enroulement (Rad)",
         "es": "Ángulo de contacto (Rad)",
@@ -73,7 +68,6 @@
       "businessContext": "Small pulley wrap angle.",
       "businessContext_i18n": {
         "en": "Small pulley wrap angle.",
-        "tr": "Kucuk kasnaga sarilma acisi.",
         "de": "Umschlingungswinkel der kleinen Riemenscheibe.",
         "fr": "Angle d'enroulement de la petite poulie.",
         "es": "Ángulo de contacto de la polea pequeña.",
@@ -85,7 +79,6 @@
       "label": "Friction Coefficient",
       "label_i18n": {
         "en": "Friction Coefficient",
-        "tr": "Friction Factor",
         "de": "Reibungskoeffizient",
         "fr": "Coefficient de frottement",
         "es": "Coeficiente de fricción",
@@ -98,7 +91,6 @@
       "businessContext": "Belt-pulley friction.",
       "businessContext_i18n": {
         "en": "Belt-pulley friction.",
-        "tr": "Kayis-kasnak surtunmesi.",
         "de": "Riemen-Scheiben-Reibung.",
         "fr": "Frottement courroie-poulie.",
         "es": "Fricción correa-polea.",
@@ -113,19 +105,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "F1_F2": "Math.exp(suratme * sarilmaAcisi)",
-    "sonuc": "guc / Math.max(0.0001, (hiz * (Math.exp(suratme * sarilmaAcisi) - 1)))"
+    "F1F2": "Math.exp(suratme * sarilmaAcisi)",
+    "result": "power / Math.max(0.0001, (speed * (Math.exp(suratme * sarilmaAcisi) - 1)))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "N",
     "breakdown": {
-      "sonuc": "Gevsek Kol Voltagei (F₂)"
+      "result": "Gevsek Kol Voltagei (F₂)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gevsek Kol Voltagei (F₂)",
-        "tr": "Gevsek Kol Voltagei (F₂)",
         "de": "Leerlaufseilspannung (F₂)",
         "fr": "Tension du côté mou (F₂)",
         "es": "Tensión del lado flojo (F₂)",
@@ -150,7 +141,6 @@
       "long": "Calculate minimum belt tension on the slack side.",
       "short_i18n": {
         "en": "Calculate minimum belt tension on the slack side.",
-        "tr": "Kayisin gevsek kolundaki Minimum gerilme Forceini hesaplar.",
         "de": "Berechnen Sie die minimale Riemenspannung auf der losen Seite.",
         "fr": "Calculer la tension minimale de la courroie du côté mou.",
         "es": "Calcular la tensión mínima de la correa en el lado flojo.",
@@ -158,7 +148,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum belt tension on the slack side.",
-        "tr": "Kayisin gevsek kolundaki Minimum gerilme Forceini hesaplar.",
         "de": "Berechnen Sie die minimale Riemenspannung auf der losen Seite.",
         "fr": "Calculer la tension minimale de la courroie du côté mou.",
         "es": "Calcular la tensión mínima de la correa en el lado flojo.",

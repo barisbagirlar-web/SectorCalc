@@ -10,7 +10,6 @@
       "label": "Start NAV (USD)",
       "label_i18n": {
         "en": "Start NAV (USD)",
-        "tr": "Donem Basi NAV (₺)",
         "de": "Start-NAV (USD)",
         "fr": "VNI de départ (USD)",
         "es": "NAV inicial (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Fund unit price at period start.",
       "businessContext_i18n": {
         "en": "Fund unit price at period start.",
-        "tr": "Donem basindaki fon pay fiyati.",
         "de": "Fondspreis zu Periodenbeginn.",
         "fr": "Prix unitaire du fonds en début de période.",
         "es": "Precio de la unidad del fondo al inicio del período.",
@@ -35,7 +33,6 @@
       "label": "End NAV (USD)",
       "label_i18n": {
         "en": "End NAV (USD)",
-        "tr": "Donem Sonu NAV (₺)",
         "de": "End-NAV (USD)",
         "fr": "VNI de fin (USD)",
         "es": "NAV final (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Fund unit price at period end.",
       "businessContext_i18n": {
         "en": "Fund unit price at period end.",
-        "tr": "Donem sonundaki fon pay fiyati.",
         "de": "Fondspreis am Periodenende.",
         "fr": "Prix unitaire du fonds en fin de période.",
         "es": "Precio de la unidad del fondo al final del período.",
@@ -60,7 +56,6 @@
       "label": "Distribution (USD)",
       "label_i18n": {
         "en": "Distribution (USD)",
-        "tr": "Dagitim (₺)",
         "de": "Verteilungstyp",
         "fr": "Type de distribution",
         "es": "Tipo de Distribución",
@@ -73,7 +68,6 @@
       "businessContext": "Dividend distributed during period.",
       "businessContext_i18n": {
         "en": "Dividend distributed during period.",
-        "tr": "Donem Heightunca dagitilan temettu.",
         "de": "Während der Periode Ausgeschuttete Dividende.",
         "fr": "Dividende distribué pendant la période.",
         "es": "Dividendo distribuido durante el período.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "((bitisNAV + dagitim - baslangicNAV) / Math.max(1, baslangicNAV)) * 100"
+    "result": "((bitisNAV + dagitim - baslangicNAV) / Math.max(1, baslangicNAV)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Fon Getirisi"
+      "result": "Fon Getirisi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Fon Getirisi",
-        "tr": "Fon Getirisi",
         "de": "Fondsrendite",
         "fr": "Rendement du fonds",
         "es": "Rendimiento del fondo",
@@ -124,7 +117,6 @@
       "long": "Calculate total investor return of a mutual fund.",
       "short_i18n": {
         "en": "Calculate total investor return of a mutual fund.",
-        "tr": "Fonun donemsel Total yatirimci getirisini hesaplar.",
         "de": "Berechnen Sie die Gesamtrendite eines Investmentfonds fur Anleger.",
         "fr": "Calculer le rendement total d'un investisseur dans un fonds commun de placement.",
         "es": "Calcular el rendimiento total de un inversor de un fondo mutuo.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate total investor return of a mutual fund.",
-        "tr": "Fonun donemsel Total yatirimci getirisini hesaplar.",
         "de": "Berechnen Sie die Gesamtrendite eines Investmentfonds fur Anleger.",
         "fr": "Calculer le rendement total d'un investisseur dans un fonds commun de placement.",
         "es": "Calcular el rendimiento total de un inversor de un fondo mutuo.",

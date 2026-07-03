@@ -10,7 +10,6 @@
       "label": "Z Value",
       "label_i18n": {
         "en": "Z Value",
-        "tr": "Z Value",
         "de": "Z-Wert",
         "fr": "Valeur Z",
         "es": "Valor Z",
@@ -23,7 +22,6 @@
       "businessContext": "Z-score for confidence level.",
       "businessContext_i18n": {
         "en": "Z-score for confidence level.",
-        "tr": "Guven seviyesine karsilik Z (1.96=%95).",
         "de": "Z-Score fur das Konfidenzniveau.",
         "fr": "Score Z pour le niveau de confiance.",
         "es": "Puntuación Z para el nivel de confianza.",
@@ -35,7 +33,6 @@
       "label": "Estimated Std Dev",
       "label_i18n": {
         "en": "Estimated Std Dev",
-        "tr": "Tahmini Standart Sapma",
         "de": "Geschätzte Standardabweichung",
         "fr": "Écart-type estimé",
         "es": "Desviación Estándar Estimada",
@@ -48,7 +45,6 @@
       "businessContext": "Population standard deviation.",
       "businessContext_i18n": {
         "en": "Population standard deviation.",
-        "tr": "Populasyon Standard Deviationsi.",
         "de": "Standardabweichung der Grundgesamtheit.",
         "fr": "Écart type de la population.",
         "es": "Desviación estándar de la población.",
@@ -60,7 +56,6 @@
       "label": "Margin of Error",
       "label_i18n": {
         "en": "Margin of Error",
-        "tr": "Kabul Edilebilir Margin of Error",
         "de": "Fehlermarge",
         "fr": "Marge d'erreur",
         "es": "Margen de error",
@@ -73,7 +68,6 @@
       "businessContext": "Maximum allowable error.",
       "businessContext_i18n": {
         "en": "Maximum allowable error.",
-        "tr": "Izin verilen Maximum hata.",
         "de": "Maximal zulässiger Fehler.",
         "fr": "Erreur maximale admissible.",
         "es": "Error máximo permitido.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "Math.ceil(Math.pow((Z * stdSapma / Math.max(0.0001, hataPayi)), 2))"
+    "result": "Math.ceil(Math.pow((Z * stdSapma / Math.max(0.0001, hataPayi)), 2))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "samples",
     "breakdown": {
-      "sonuc": "Gereken Minimum Orneklem"
+      "result": "Gereken Minimum Orneklem"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Gereken Minimum Orneklem",
-        "tr": "Gereken Minimum Orneklem",
         "de": "Erforderliche Mindeststichprobe",
         "fr": "Required Minimum Sample",
         "es": "Muestra Mínima Requerida",
@@ -124,7 +117,6 @@
       "long": "Calculate minimum sample size for statistical significance.",
       "short_i18n": {
         "en": "Calculate minimum sample size for statistical significance.",
-        "tr": "Istatistiksel anlamlilik icin Gereken Minimum Orneklem Numbersini hesaplar.",
         "de": "Berechnen Sie die minimale Stichprobengroße fur statistische Signifikanz.",
         "fr": "Calculer la taille minimale de l'échantillon pour la signification statistique.",
         "es": "Calcular el tamaño mínimo de muestra para significancia estadística.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum sample size for statistical significance.",
-        "tr": "Istatistiksel anlamlilik icin Gereken Minimum Orneklem Numbersini hesaplar.",
         "de": "Berechnen Sie die minimale Stichprobengroße fur statistische Signifikanz.",
         "fr": "Calculer la taille minimale de l'échantillon pour la signification statistique.",
         "es": "Calcular el tamaño mínimo de muestra para significancia estadística.",

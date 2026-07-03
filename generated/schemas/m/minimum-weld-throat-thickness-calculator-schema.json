@@ -6,11 +6,10 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "yuk",
+      "id": "load",
       "label": "Applied Load (N)",
       "label_i18n": {
         "en": "Applied Load (N)",
-        "tr": "Uygulanan Load (N)",
         "de": "Angewandte Last",
         "fr": "Charge appliquée",
         "es": "Carga Aplicada",
@@ -23,7 +22,6 @@
       "businessContext": "Force on weld.",
       "businessContext_i18n": {
         "en": "Force on weld.",
-        "tr": "Kaynaga etkiyen Force.",
         "de": "Kraft auf die Schweißnaht.",
         "fr": "Force sur la soudure.",
         "es": "Fuerza sobre la soldadura.",
@@ -35,7 +33,6 @@
       "label": "Weld Length (m)",
       "label_i18n": {
         "en": "Weld Length (m)",
-        "tr": "Kaynak Boyu (m)",
         "de": "Schweißnahtlänge",
         "fr": "Longueur de soudure",
         "es": "Longitud de soldadura",
@@ -48,7 +45,6 @@
       "businessContext": "Weld seam length.",
       "businessContext_i18n": {
         "en": "Weld seam length.",
-        "tr": "Kaynak dikis uzunlugu.",
         "de": "Schweißnahtlänge.",
         "fr": "Longueur du cordon de soudure.",
         "es": "Longitud del cordón de soldadura.",
@@ -60,7 +56,6 @@
       "label": "Allowable Weld Stress (Pa)",
       "label_i18n": {
         "en": "Allowable Weld Stress (Pa)",
-        "tr": "Izin Verilen Kaynak Gerilmesi (Pa)",
         "de": "Zulässige Schweißspannung (Pa)",
         "fr": "Contrainte de soudure admissible (Pa)",
         "es": "Esfuerzo Admisible de Soldadura (Pa)",
@@ -73,7 +68,6 @@
       "businessContext": "Weld metal allowable stress.",
       "businessContext_i18n": {
         "en": "Weld metal allowable stress.",
-        "tr": "Kaynak metalinin emniyet gerilmesi.",
         "de": "Zulässige Spannung des Schweißmetalls.",
         "fr": "Contrainte admissible du métal de soudure.",
         "es": "Esfuerzo admisible del metal de soldadura.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "yuk / Math.max(0.0001, (kaynakBoyu * kaynakGerilmesi))"
+    "result": "load / Math.max(0.0001, (kaynakBoyu * kaynakGerilmesi))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Min. Kaynak Bogaz Kalinligi"
+      "result": "Min. Kaynak Bogaz Kalinligi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Min. Kaynak Bogaz Kalinligi",
-        "tr": "Min. Kaynak Bogaz Kalinligi",
         "de": "Min. Schweißnahtdicke",
         "fr": "Min. Weld Throat Thickness",
         "es": "Grosor Mínimo de Garganta de Soldadura",
@@ -124,7 +117,6 @@
       "long": "Calculate minimum weld throat thickness for given load.",
       "short_i18n": {
         "en": "Calculate minimum weld throat thickness for given load.",
-        "tr": "Calisma yukunu tasiyacak Minimum kaynak bogaz kalinligini hesaplar.",
         "de": "Berechnen Sie die minimale Schweißnahtdicke fur eine gegebene Belastung.",
         "fr": "Calculer l'épaisseur minimale de la gorge de soudure pour une charge donnée.",
         "es": "Calcular el espesor mínimo de garganta de soldadura para una carga dada.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate minimum weld throat thickness for given load.",
-        "tr": "Calisma yukunu tasiyacak Minimum kaynak bogaz kalinligini hesaplar.",
         "de": "Berechnen Sie die minimale Schweißnahtdicke fur eine gegebene Belastung.",
         "fr": "Calculer l'épaisseur minimale de la gorge de soudure pour une charge donnée.",
         "es": "Calcular el espesor mínimo de garganta de soldadura para una carga dada.",

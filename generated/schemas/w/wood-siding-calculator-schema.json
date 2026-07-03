@@ -6,11 +6,10 @@
   "sectorId": "project-construction-management",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Siding Area (m²)",
       "label_i18n": {
         "en": "Siding Area (m²)",
-        "tr": "Coating Area (m²)",
         "de": "Verkleidungsfläche (m²)",
         "fr": "Surface de bardage (m²)",
         "es": "Área de Revestimiento (m²)",
@@ -23,7 +22,6 @@
       "businessContext": "Area to cover.",
       "businessContext_i18n": {
         "en": "Area to cover.",
-        "tr": "Kaplanacak alan.",
         "de": "Zu bedeckende Fläche.",
         "fr": "Surface à couvrir.",
         "es": "Área a cubrir.",
@@ -35,7 +33,6 @@
       "label": "Board Width (m)",
       "label_i18n": {
         "en": "Board Width (m)",
-        "tr": "Tahta Eni (m)",
         "de": "Brettbreite (m)",
         "fr": "Largeur de la lame (m)",
         "es": "Ancho de la Tabla (m)",
@@ -48,7 +45,6 @@
       "businessContext": "Board total width.",
       "businessContext_i18n": {
         "en": "Board total width.",
-        "tr": "Tahtanin Total eni.",
         "de": "Gesamtbreite des Bretts.",
         "fr": "Largeur totale de la planche.",
         "es": "Ancho total del tablero.",
@@ -60,7 +56,6 @@
       "label": "Overlap (m)",
       "label_i18n": {
         "en": "Overlap (m)",
-        "tr": "Bindirme Payi (m)",
         "de": "Uberlappung (m)",
         "fr": "Chevauchement (m)",
         "es": "Superposición (m)",
@@ -73,7 +68,6 @@
       "businessContext": "Overlap between boards.",
       "businessContext_i18n": {
         "en": "Overlap between boards.",
-        "tr": "Tahtalarin ust uste binme Amounti.",
         "de": "Uberlappung zwischen den Brettern.",
         "fr": "Chevauchement entre les planches.",
         "es": "Superposición entre tableros.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "alan / Math.max(0.0001, (tahtaEn - bindirmePayi))"
+    "result": "area / Math.max(0.0001, (tahtaEn - bindirmePayi))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Toplam Kaplama Boyu"
+      "result": "Toplam Kaplama Boyu"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Toplam Kaplama Boyu",
-        "tr": "Toplam Kaplama Boyu",
         "de": "Total Coating Length",
         "fr": "Longueur totale de revêtement",
         "es": "Longitud Total del Revestimiento",
@@ -124,7 +117,6 @@
       "long": "Calculate wood siding length needed accounting for overlap.",
       "short_i18n": {
         "en": "Calculate wood siding length needed accounting for overlap.",
-        "tr": "Ust uste binme paylari dusulmus Total kaplama uzunlugunu hesaplar.",
         "de": "Berechnen Sie die benotigte Länge der Holzverkleidung unter Berucksichtigung der Uberlappung.",
         "fr": "Calculer la longueur de bardage en bois nécessaire en tenant compte du chevauchement.",
         "es": "Calcular la longitud necesaria de revestimiento de madera considerando la superposición.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate wood siding length needed accounting for overlap.",
-        "tr": "Ust uste binme paylari dusulmus Total kaplama uzunlugunu hesaplar.",
         "de": "Berechnen Sie die benotigte Länge der Holzverkleidung unter Berucksichtigung der Uberlappung.",
         "fr": "Calculer la longueur de bardage en bois nécessaire en tenant compte du chevauchement.",
         "es": "Calcular la longitud necesaria de revestimiento de madera considerando la superposición.",

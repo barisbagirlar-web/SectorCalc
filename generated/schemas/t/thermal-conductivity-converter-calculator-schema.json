@@ -6,11 +6,10 @@
   "sectorId": "process-chemical",
   "inputs": [
     {
-      "id": "deger",
+      "id": "value",
       "label": "Thermal Conductivity",
       "label_i18n": {
         "en": "Thermal Conductivity",
-        "tr": "Isi Iletkenlik Valuei",
         "de": "Wärmeleitfähigkeit",
         "fr": "Conductivité thermique",
         "es": "Conductividad Térmica",
@@ -23,7 +22,6 @@
       "businessContext": "Value to convert.",
       "businessContext_i18n": {
         "en": "Value to convert.",
-        "tr": "Donusturulecek Value.",
         "de": "Zu konvertierender Wert.",
         "fr": "Valeur à convertir.",
         "es": "Valor a convertir.",
@@ -35,7 +33,6 @@
       "label": "Source (0=W/mK, 1=kcal/mhC)",
       "label_i18n": {
         "en": "Source (0=W/mK, 1=kcal/mhC)",
-        "tr": "Kaynak (0=W/mK, 1=kcal/mhC)",
         "de": "Primärenergiequelle",
         "fr": "Source d'énergie primaire",
         "es": "Fuente de energía primaria",
@@ -48,7 +45,6 @@
       "businessContext": "Input unit.",
       "businessContext_i18n": {
         "en": "Input unit.",
-        "tr": "Girilen birim.",
         "de": "Eingabeeinheit.",
         "fr": "Unité d'entrée.",
         "es": "Unidad de entrada.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "kaynak === 0 ? deger : deger * 1.163"
+    "result": "kaynak === 0 ? value : value * 1.163"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "W/mK",
     "breakdown": {
-      "sonuc": "Isi Iletkenligi (W/mK)"
+      "result": "Isi Iletkenligi (W/mK)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Isi Iletkenligi (W/mK)",
-        "tr": "Isi Iletkenligi (W/mK)",
         "de": "Wärmeleitfähigkeit (W/mK)",
         "fr": "Conductivité thermique (W/mK)",
         "es": "Conductividad Térmica (W/mK)",
@@ -99,7 +94,6 @@
       "long": "Convert thermal conductivity values to W/mK (SI unit).",
       "short_i18n": {
         "en": "Convert thermal conductivity values to W/mK (SI unit).",
-        "tr": "Farkli Unitlerdeki isi iletkenlik Valueini W/mK SI Unitine donusturur.",
         "de": "Konvertieren Sie Wärmeleitfähigkeitswerte in W/mK (SI-Einheit).",
         "fr": "Convertir les valeurs de conductivité thermique en W/mK (unité SI).",
         "es": "Convertir valores de conductividad térmica a W/mK (unidad SI).",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Convert thermal conductivity values to W/mK (SI unit).",
-        "tr": "Farkli Unitlerdeki isi iletkenlik Valueini W/mK SI Unitine donusturur.",
         "de": "Konvertieren Sie Wärmeleitfähigkeitswerte in W/mK (SI-Einheit).",
         "fr": "Convertir les valeurs de conductivité thermique en W/mK (unité SI).",
         "es": "Convertir valores de conductividad térmica a W/mK (unidad SI).",

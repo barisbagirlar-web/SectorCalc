@@ -10,7 +10,6 @@
       "label": "Inherent Risk (%)",
       "label_i18n": {
         "en": "Inherent Risk (%)",
-        "tr": "Dogustan Risk (%)",
         "de": "Inhärentes Risiko (%)",
         "fr": "Risque inhérent (%)",
         "es": "Riesgo Inherente (%)",
@@ -24,7 +23,6 @@
       "businessContext": "Risk inherent in the business operations.",
       "businessContext_i18n": {
         "en": "Risk inherent in the business operations.",
-        "tr": "Workletmenin yapisindan kaynaklanan hata riski.",
         "de": "Risiko, das in den Geschäftsabläufen inhärent ist.",
         "fr": "Risque inhérent aux opérations commerciales.",
         "es": "Riesgo inherente en las operaciones del negocio.",
@@ -36,7 +34,6 @@
       "label": "Control Risk (%)",
       "label_i18n": {
         "en": "Control Risk (%)",
-        "tr": "Kontrol Riski (%)",
         "de": "Kontrollrisiko (%)",
         "fr": "Risque de contrôle (%)",
         "es": "Riesgo de Control (%)",
@@ -50,7 +47,6 @@
       "businessContext": "Risk that internal controls fail to prevent errors.",
       "businessContext_i18n": {
         "en": "Risk that internal controls fail to prevent errors.",
-        "tr": "Ic kontrollerin hatayi onleyememe riski.",
         "de": "Risiko, dass interne Kontrollen Fehler nicht verhindern.",
         "fr": "Risque que les contrôles internes ne parviennent pas à prévenir les erreurs.",
         "es": "Riesgo de que los controles internos no prevengan errores.",
@@ -62,7 +58,6 @@
       "label": "Detection Risk (%)",
       "label_i18n": {
         "en": "Detection Risk (%)",
-        "tr": "Tespit Riski (%)",
         "de": "Entdeckungsrisiko (%)",
         "fr": "Risque de détection (%)",
         "es": "Riesgo de Detección (%)",
@@ -76,7 +71,6 @@
       "businessContext": "Risk that the auditor fails to detect errors.",
       "businessContext_i18n": {
         "en": "Risk that the auditor fails to detect errors.",
-        "tr": "DeNetcinin hatayi bulamama riski.",
         "de": "Risiko, dass der Prufer Fehler nicht erkennt.",
         "fr": "Risque que l'auditeur ne parvienne pas à détecter les erreurs.",
         "es": "Riesgo de que el auditor no detecte errores.",
@@ -91,18 +85,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(dogustan / 100) * (kontrol / 100) * (tespit / 100) * 100"
+    "result": "(dogustan / 100) * (kontrol / 100) * (tespit / 100) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Toplam Denetim Riski"
+      "result": "Toplam Denetim Riski"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Toplam Denetim Riski",
-        "tr": "Toplam Denetim Riski",
         "de": "Gesamtprufungsrisiko",
         "fr": "Risque d'audit total",
         "es": "Riesgo Total de Auditoría",
@@ -127,7 +120,6 @@
       "long": "Calculate audit risk — the probability of not detecting material misstatement.",
       "short_i18n": {
         "en": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "tr": "Mali tabloda maddi hata bulunamama olasiligini (deNetim riski) hesaplar.",
         "de": "Prufungsrisiko berechnen – die Wahrscheinlichkeit, wesentliche falsche Darstellungen nicht zu erkennen.",
         "fr": "Calculer le risque d'audit — la probabilité de ne pas détecter une anomalie significative.",
         "es": "Calcular el riesgo de auditoría: la probabilidad de no detectar una incorrección material.",
@@ -135,7 +127,6 @@
       },
       "long_i18n": {
         "en": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "tr": "Mali tabloda maddi hata bulunamama olasiligini (deNetim riski) hesaplar.",
         "de": "Prufungsrisiko berechnen – die Wahrscheinlichkeit, wesentliche falsche Darstellungen nicht zu erkennen.",
         "fr": "Calculer le risque d'audit — la probabilité de ne pas détecter une anomalie significative.",
         "es": "Calcular el riesgo de auditoría: la probabilidad de no detectar una incorrección material.",

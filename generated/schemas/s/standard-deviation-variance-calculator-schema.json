@@ -10,7 +10,6 @@
       "label": "Value 1",
       "label_i18n": {
         "en": "Value 1",
-        "tr": "Value 1",
         "de": "Wert 1",
         "fr": "Valeur 1",
         "es": "Valor 1",
@@ -23,7 +22,6 @@
       "businessContext": "Data value.",
       "businessContext_i18n": {
         "en": "Data value.",
-        "tr": "Veri seti elemani.",
         "de": "Datenwert.",
         "fr": "Valeur de la donnée.",
         "es": "Valor del dato.",
@@ -35,7 +33,6 @@
       "label": "Value 2",
       "label_i18n": {
         "en": "Value 2",
-        "tr": "Value 2",
         "de": "Wert 2",
         "fr": "Valeur 2",
         "es": "Valor 2",
@@ -48,7 +45,6 @@
       "businessContext": "Data value.",
       "businessContext_i18n": {
         "en": "Data value.",
-        "tr": "Veri seti elemani.",
         "de": "Datenwert.",
         "fr": "Valeur de la donnée.",
         "es": "Valor del dato.",
@@ -60,7 +56,6 @@
       "label": "Value 3",
       "label_i18n": {
         "en": "Value 3",
-        "tr": "Value 3",
         "de": "Wert 3",
         "fr": "Valeur 3",
         "es": "Valor 3",
@@ -73,7 +68,6 @@
       "businessContext": "Data value.",
       "businessContext_i18n": {
         "en": "Data value.",
-        "tr": "Veri seti elemani.",
         "de": "Datenwert.",
         "fr": "Valeur de la donnée.",
         "es": "Valor del dato.",
@@ -85,7 +79,6 @@
       "label": "Value 4",
       "label_i18n": {
         "en": "Value 4",
-        "tr": "Value 4",
         "de": "Wert 4",
         "fr": "Valeur 4",
         "es": "Valor 4",
@@ -98,7 +91,6 @@
       "businessContext": "Data value.",
       "businessContext_i18n": {
         "en": "Data value.",
-        "tr": "Veri seti elemani.",
         "de": "Datenwert.",
         "fr": "Valeur de la donnée.",
         "es": "Valor del dato.",
@@ -110,7 +102,6 @@
       "label": "Value 5",
       "label_i18n": {
         "en": "Value 5",
-        "tr": "Value 5",
         "de": "Wert 5",
         "fr": "Valeur 5",
         "es": "Valor 5",
@@ -123,7 +114,6 @@
       "businessContext": "Data value.",
       "businessContext_i18n": {
         "en": "Data value.",
-        "tr": "Veri seti elemani.",
         "de": "Datenwert.",
         "fr": "Valeur de la donnée.",
         "es": "Valor del dato.",
@@ -139,18 +129,17 @@
   },
   "formulas": {
     "ort": "(deger1 + deger2 + deger3 + deger4 + deger5) / 5",
-    "sonuc": "Math.sqrt((Math.pow(deger1 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger2 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger3 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger4 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger5 - (deger1+deger2+deger3+deger4+deger5)/5, 2)) / 4)"
+    "result": "Math.sqrt((Math.pow(deger1 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger2 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger3 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger4 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger5 - (deger1+deger2+deger3+deger4+deger5)/5, 2)) / 4)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "number",
     "breakdown": {
-      "sonuc": "Standart Sapma"
+      "result": "Standart Sapma"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Standart Sapma",
-        "tr": "Standart Sapma",
         "de": "Standardabweichung",
         "fr": "Écart type",
         "es": "Desviación Estándar",
@@ -175,7 +164,6 @@
       "long": "Calculate standard deviation and variance of a data set.",
       "short_i18n": {
         "en": "Calculate standard deviation and variance of a data set.",
-        "tr": "Verilerin Meanya gore yayilim derecesini (Standard Deviation ve Variance) hesaplar.",
         "de": "Berechnen Sie Standardabweichung und Varianz eines Datensatzes.",
         "fr": "Calculer l'écart type et la variance d'un ensemble de données.",
         "es": "Calcular la desviación estándar y la varianza de un conjunto de datos.",
@@ -183,7 +171,6 @@
       },
       "long_i18n": {
         "en": "Calculate standard deviation and variance of a data set.",
-        "tr": "Verilerin Meanya gore yayilim derecesini (Standard Deviation ve Variance) hesaplar.",
         "de": "Berechnen Sie Standardabweichung und Varianz eines Datensatzes.",
         "fr": "Calculer l'écart type et la variance d'un ensemble de données.",
         "es": "Calcular la desviación estándar y la varianza de un conjunto de datos.",

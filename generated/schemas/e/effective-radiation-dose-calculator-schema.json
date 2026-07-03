@@ -10,7 +10,6 @@
       "label": "Absorbed Dose (mGy)",
       "label_i18n": {
         "en": "Absorbed Dose (mGy)",
-        "tr": "Sogurulan Doz (mGy)",
         "de": "Absorbierte Dosis (Gy)",
         "fr": "Dose absorbée (Gy)",
         "es": "Dosis absorbida (Gy)",
@@ -23,7 +22,6 @@
       "businessContext": "Energy absorbed by tissue.",
       "businessContext_i18n": {
         "en": "Energy absorbed by tissue.",
-        "tr": "Doku by emwithn mosterji.",
         "de": "Vom Gewebe absorbierte Energie.",
         "fr": "Énergie absorbée par le tissu.",
         "es": "Energía absorbida por el tejido.",
@@ -35,7 +33,6 @@
       "label": "Tissue Weighting Factor",
       "label_i18n": {
         "en": "Tissue Weighting Factor",
-        "tr": "Doku Weight Faktoru",
         "de": "Gewebe-Wichtungsfaktor",
         "fr": "Facteur de pondération tissulaire",
         "es": "Factor de Ponderación del Tejido",
@@ -48,7 +45,6 @@
       "businessContext": "Tissue radiation sensitivity.",
       "businessContext_i18n": {
         "en": "Tissue radiation sensitivity.",
-        "tr": "Dokunun radyasyon hassasiyeti.",
         "de": "Strahlungsempfindlichkeit des Gewebes.",
         "fr": "Sensibilité du tissu aux rayonnements.",
         "es": "Sensibilidad del tejido a la radiación.",
@@ -60,7 +56,6 @@
       "label": "Radiation Type Factor",
       "label_i18n": {
         "en": "Radiation Type Factor",
-        "tr": "Radyasyon Turu Faktoru",
         "de": "Strahlungsartfaktor",
         "fr": "Facteur de type de rayonnement",
         "es": "Factor de Tipo de Radiación",
@@ -73,7 +68,6 @@
       "businessContext": "Radiation type effectiveness.",
       "businessContext_i18n": {
         "en": "Radiation type effectiveness.",
-        "tr": "Radyasyon turunun biyolojik etkinligi.",
         "de": "Wirksamkeit der Strahlungsart.",
         "fr": "Efficacité du type de rayonnement.",
         "es": "Efectividad del tipo de radiación.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "sozurulenDoz * dokuAgirlikFaktoru * radyasyonTuruFaktoru"
+    "result": "sozurulenDoz * dokuAgirlikFaktoru * radyasyonTuruFaktoru"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "mSv",
     "breakdown": {
-      "sonuc": "Etkin Doz (mSv)"
+      "result": "Etkin Doz (mSv)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Etkin Doz (mSv)",
-        "tr": "Etkin Doz (mSv)",
         "de": "Effektive Dosis (mSv)",
         "fr": "Dose effective (mSv)",
         "es": "Dosis Efectiva (mSv)",
@@ -127,7 +120,6 @@
       "long": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
       "short_i18n": {
         "en": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
-        "tr": "Biyolojik hasar riskini yansitan Total esValue Radiation Dosenu (mSv) hesaplar.",
         "de": "Berechnen Sie die effektive Strahlendosis in mSv unter Berucksichtigung von Gewebe- und Strahlungswichtungsfaktoren.",
         "fr": "Calculer la dose de rayonnement effective en mSv en tenant compte des facteurs de pondération tissulaire et de rayonnement.",
         "es": "Calcular la dosis de radiación efectiva en mSv considerando la ponderación de tejido y radiación.",
@@ -135,7 +127,6 @@
       },
       "long_i18n": {
         "en": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
-        "tr": "Biyolojik hasar riskini yansitan Total esValue Radiation Dosenu (mSv) hesaplar.",
         "de": "Berechnen Sie die effektive Strahlendosis in mSv unter Berucksichtigung von Gewebe- und Strahlungswichtungsfaktoren.",
         "fr": "Calculer la dose de rayonnement effective en mSv en tenant compte des facteurs de pondération tissulaire et de rayonnement.",
         "es": "Calcular la dosis de radiación efectiva en mSv considerando la ponderación de tejido y radiación.",

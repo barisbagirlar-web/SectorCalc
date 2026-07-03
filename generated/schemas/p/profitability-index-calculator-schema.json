@@ -10,7 +10,6 @@
       "label": "Future Cash Flows PV (USD)",
       "label_i18n": {
         "en": "Future Cash Flows PV (USD)",
-        "tr": "Gelecek Nakit BD (₺)",
         "de": "Barwert zukunftiger Cashflows (USD)",
         "fr": "VA des flux de trésorerie futurs (USD)",
         "es": "VP de Flujos de Caja Futuros (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Present value of all future cash flows.",
       "businessContext_i18n": {
         "en": "Present value of all future cash flows.",
-        "tr": "Tum gelecek nakit akislarinin bugunku Valuei.",
         "de": "Barwert aller zukunftigen Cashflows.",
         "fr": "Valeur actuelle de tous les flux de trésorerie futurs.",
         "es": "Valor presente de todos los flujos de caja futuros.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "yatirim",
+      "id": "investment",
       "label": "Initial Investment (USD)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
-        "tr": "Initial Investment (₺)",
         "de": "Anfangsinvestition",
         "fr": "Investissement initial",
         "es": "Inversión Inicial",
@@ -48,7 +45,6 @@
       "businessContext": "Initial project cost.",
       "businessContext_i18n": {
         "en": "Initial project cost.",
-        "tr": "Projenin baslangic Costi.",
         "de": "Anfängliche Projektkosten.",
         "fr": "Coût initial du projet.",
         "es": "Costo inicial del proyecto.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "gelecekNakitBD / Math.max(1, yatirim)"
+    "result": "gelecekNakitBD / Math.max(1, investment)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "PI (Kârlilik Endeksi)"
+      "result": "PI (Kârlilik Endeksi)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "PI (Kârlilik Endeksi)",
-        "tr": "PI (Kârlilik Endeksi)",
         "de": "PI (Rentabilitätsindex)",
         "fr": "PI (Indice de rentabilité)",
         "es": "PI (Índice de Rentabilidad)",
@@ -99,7 +94,6 @@
       "long": "Calculate the profitability index (PI) — value created per unit invested.",
       "short_i18n": {
         "en": "Calculate the profitability index (PI) — value created per unit invested.",
-        "tr": "1 Unit yatirimin yarattigi bugunku Valuei (Kârlilik Endeksi) hesaplar.",
         "de": "Berechnen Sie den Rentabilitätsindex (PI) – Wertschopfung pro investierter Einheit.",
         "fr": "Calculer l'indice de rentabilité (PI) — valeur créée par unité investie.",
         "es": "Calcular el índice de rentabilidad (PI) — valor creado por unidad invertida.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate the profitability index (PI) — value created per unit invested.",
-        "tr": "1 Unit yatirimin yarattigi bugunku Valuei (Kârlilik Endeksi) hesaplar.",
         "de": "Berechnen Sie den Rentabilitätsindex (PI) – Wertschopfung pro investierter Einheit.",
         "fr": "Calculer l'indice de rentabilité (PI) — valeur créée par unité investie.",
         "es": "Calcular el índice de rentabilidad (PI) — valor creado por unidad invertida.",

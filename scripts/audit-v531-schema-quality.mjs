@@ -124,9 +124,11 @@ for (const [slug, r] of Object.entries(results)) {
   }
 }
 
-// Turkish scan
+// Turkish scan — now derived from validation errors (PURE_ENGLISH_VIOLATION)
 for (const [slug, r] of Object.entries(results)) {
-  if (r.hasTurkish) turkishList.push(slug);
+  if (!r.ok && r.errors && r.errors.some((e) => e.includes("PURE_ENGLISH_VIOLATION"))) {
+    turkishList.push(slug);
+  }
 }
 for (const [slug, r] of Object.entries(results)) {
   if (r.needsConversion) conversionMissing.push(slug);

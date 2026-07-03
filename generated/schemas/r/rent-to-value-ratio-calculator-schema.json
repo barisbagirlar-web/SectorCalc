@@ -10,7 +10,6 @@
       "label": "Monthly Rent (USD)",
       "label_i18n": {
         "en": "Monthly Rent (USD)",
-        "tr": "Monthly Kira (TRY)",
         "de": "Monatsmiete",
         "fr": "Loyer mensuel",
         "es": "Alquiler mensual",
@@ -23,7 +22,6 @@
       "businessContext": "Monthly gross rental income from the property.",
       "businessContext_i18n": {
         "en": "Monthly gross rental income from the property.",
-        "tr": "Mulkten elde edilen aylik Gross kira geliri.",
         "de": "Monatliches Bruttomieteinkommen aus der Immobilie.",
         "fr": "Revenu locatif brut mensuel du bien.",
         "es": "Ingreso bruto mensual por alquiler de la propiedad.",
@@ -35,7 +33,6 @@
       "label": "Property Value (USD)",
       "label_i18n": {
         "en": "Property Value (USD)",
-        "tr": "Mulk Valuei (₺)",
         "de": "Immobilienwert",
         "fr": "Valeur de la propriété",
         "es": "Valor de la propiedad",
@@ -48,7 +45,6 @@
       "businessContext": "Current market value of the real estate property.",
       "businessContext_i18n": {
         "en": "Current market value of the real estate property.",
-        "tr": "Gayrimenkulun guncel piyasa Valuei.",
         "de": "Aktueller Marktwert der Immobilie.",
         "fr": "Valeur marchande actuelle du bien immobilier.",
         "es": "Valor de mercado actual de la propiedad inmobiliaria.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(aylikKira / Math.max(1, mulkDegeri)) * 100"
+    "result": "(aylikKira / Math.max(1, mulkDegeri)) * 100"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Kira / Value Ratio"
+      "result": "Kira / Value Ratio"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Kira / Value Ratio",
-        "tr": "Kira / Value Ratio",
         "de": "Mietwertverhältnis",
         "fr": "Ratio loyer/valeur",
         "es": "Relación Alquiler / Valor",
@@ -99,7 +94,6 @@
       "long": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
       "short_i18n": {
         "en": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
-        "tr": "Aylik kira gelirinin mulk Valueine Ratioini hesaplar. Gayrimenkul yatiriminin getiri potansiyelini Valuelendirir.",
         "de": "Berechnung des Verhältnisses von monatlicher Miete zum Immobilienwert fur die Immobilieninvestitionsbewertung.",
         "fr": "Calculer le ratio du loyer mensuel par rapport à la valeur du bien pour l'évaluation d'un investissement immobilier.",
         "es": "Calcular la relación entre el alquiler mensual y el valor de la propiedad para la evaluación de inversiones inmobiliarias.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
-        "tr": "Aylik kira gelirinin mulk Valueine Ratioini hesaplar. Gayrimenkul yatiriminin getiri potansiyelini Valuelendirir.",
         "de": "Berechnung des Verhältnisses von monatlicher Miete zum Immobilienwert fur die Immobilieninvestitionsbewertung.",
         "fr": "Calculer le ratio du loyer mensuel par rapport à la valeur du bien pour l'évaluation d'un investissement immobilier.",
         "es": "Calcular la relación entre el alquiler mensual y el valor de la propiedad para la evaluación de inversiones inmobiliarias.",

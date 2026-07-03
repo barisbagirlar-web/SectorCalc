@@ -6,11 +6,10 @@
   "sectorId": "automotive-transport",
   "inputs": [
     {
-      "id": "basinc",
+      "id": "pressure",
       "label": "Mean Indicated Pressure (Pa)",
       "label_i18n": {
         "en": "Mean Indicated Pressure (Pa)",
-        "tr": "Mean Indike Basinc (Pa)",
         "de": "Mittlerer indizierter Druck (Pa)",
         "fr": "Pression moyenne indiquée (Pa)",
         "es": "Presión Media Indicada (Pa)",
@@ -23,7 +22,6 @@
       "businessContext": "Average cylinder pressure.",
       "businessContext_i18n": {
         "en": "Average cylinder pressure.",
-        "tr": "Silindir ici Mean Pressure.",
         "de": "Mittlerer Zylinderdruck.",
         "fr": "Pression moyenne dans le cylindre.",
         "es": "Presión promedio del cilindro.",
@@ -35,7 +33,6 @@
       "label": "Stroke (m)",
       "label_i18n": {
         "en": "Stroke (m)",
-        "tr": "Strok (m)",
         "de": "Hublänge (mm)",
         "fr": "Longueur de course (mm)",
         "es": "Longitud de carrera (mm)",
@@ -48,7 +45,6 @@
       "businessContext": "Piston stroke length.",
       "businessContext_i18n": {
         "en": "Piston stroke length.",
-        "tr": "Pistonun alt-ust olu nokta Distancesi.",
         "de": "Kolbenhublänge.",
         "fr": "Longueur de la course du piston.",
         "es": "Longitud de carrera del pistón.",
@@ -56,11 +52,10 @@
       }
     },
     {
-      "id": "alan",
+      "id": "area",
       "label": "Piston Area (m²)",
       "label_i18n": {
         "en": "Piston Area (m²)",
-        "tr": "Piston Area (m²)",
         "de": "Kolbenfläche (m²)",
         "fr": "Surface du piston (m²)",
         "es": "Área del Pistón (m²)",
@@ -73,7 +68,6 @@
       "businessContext": "Piston cross-section area.",
       "businessContext_i18n": {
         "en": "Piston cross-section area.",
-        "tr": "Piston yuzey Areai.",
         "de": "Kolbenquerschnittsfläche.",
         "fr": "Section transversale du piston.",
         "es": "Área de la sección transversal del pistón.",
@@ -85,7 +79,6 @@
       "label": "Engine Speed (RPM)",
       "label_i18n": {
         "en": "Engine Speed (RPM)",
-        "tr": "Motor Devri (devir/dk)",
         "de": "Motordrehzahl (RPM)",
         "fr": "Régime moteur (RPM)",
         "es": "Velocidad del Motor (RPM)",
@@ -98,7 +91,6 @@
       "businessContext": "Crankshaft speed.",
       "businessContext_i18n": {
         "en": "Crankshaft speed.",
-        "tr": "Krank mili donus Speedi.",
         "de": "Kurbelwellendrehzahl.",
         "fr": "Vitesse du vilebrequin.",
         "es": "Velocidad del cigueñal.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(basinc * strok * alan * devir) / 60000"
+    "result": "(pressure * strok * area * devir) / 60000"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "kW",
     "breakdown": {
-      "sonuc": "Indike Beygir Gucu (IHP)"
+      "result": "Indike Beygir Gucu (IHP)"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Indike Beygir Gucu (IHP)",
-        "tr": "Indike Beygir Gucu (IHP)",
         "de": "Indizierte Leistung (IHP)",
         "fr": "Puissance indiquée (IHP)",
         "es": "Potencia Indicada (IHP)",
@@ -151,7 +142,6 @@
       "long": "Calculate indicated horsepower (IHP) from cylinder parameters.",
       "short_i18n": {
         "en": "Calculate indicated horsepower (IHP) from cylinder parameters.",
-        "tr": "Motor silindirleri icinde uretilen Gross teorik gucu (IHP) hesaplar.",
         "de": "Indizierte Leistung (IHP) aus Zylinderparametern berechnen.",
         "fr": "Calculer la puissance indiquée (IHP) à partir des paramètres du cylindre.",
         "es": "Calcular la potencia indicada (IHP) a partir de parámetros del cilindro.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate indicated horsepower (IHP) from cylinder parameters.",
-        "tr": "Motor silindirleri icinde uretilen Gross teorik gucu (IHP) hesaplar.",
         "de": "Indizierte Leistung (IHP) aus Zylinderparametern berechnen.",
         "fr": "Calculer la puissance indiquée (IHP) à partir des paramètres du cylindre.",
         "es": "Calcular la potencia indicada (IHP) a partir de parámetros del cilindro.",

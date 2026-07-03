@@ -10,7 +10,6 @@
       "label": "Chosen Return (USD)",
       "label_i18n": {
         "en": "Chosen Return (USD)",
-        "tr": "Tercih Edilen Getiri (₺)",
         "de": "Gewählte Rendite (USD)",
         "fr": "Rendement choisi (USD)",
         "es": "Rendimiento Elegido (USD)",
@@ -23,7 +22,6 @@
       "businessContext": "Return of the chosen investment.",
       "businessContext_i18n": {
         "en": "Return of the chosen investment.",
-        "tr": "Secilen yatirimin getirisi.",
         "de": "Rendite der gewählten Investition.",
         "fr": "Rendement de l'investissement choisi.",
         "es": "Rendimiento de la inversión elegida.",
@@ -35,7 +33,6 @@
       "label": "Foregone Return (USD)",
       "label_i18n": {
         "en": "Foregone Return (USD)",
-        "tr": "Vazgecilen Getiri (₺)",
         "de": "Verzichtete Rendite (USD)",
         "fr": "Rendement abandonné (USD)",
         "es": "Rendimiento Perdido (USD)",
@@ -48,7 +45,6 @@
       "businessContext": "Return of the alternative investment.",
       "businessContext_i18n": {
         "en": "Return of the alternative investment.",
-        "tr": "Alternatif yatirimin getirisi.",
         "de": "Rendite der alternativen Investition.",
         "fr": "Rendement de l'investissement alternatif.",
         "es": "Rendimiento de la inversión alternativa.",
@@ -63,18 +59,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "vazgecilenGetiri - tercihEdilenGetiri"
+    "result": "vazgecilenGetiri - tercihEdilenGetiri"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Firsat Costi"
+      "result": "Firsat Costi"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Firsat Costi",
-        "tr": "Firsat Costi",
         "de": "Opportunitätskosten",
         "fr": "Coût d'opportunité",
         "es": "Costo de Oportunidad",
@@ -99,7 +94,6 @@
       "long": "Calculate the opportunity cost of choosing one investment over another.",
       "short_i18n": {
         "en": "Calculate the opportunity cost of choosing one investment over another.",
-        "tr": "Alternatif yatirimin kacirilan Net getirisini (Firsat Costi) hesaplar.",
         "de": "Opportunitätskosten der Wahl einer Investition gegenuber einer anderen berechnen.",
         "fr": "Calculer le coût d'opportunité de choisir un investissement plutôt qu'un autre.",
         "es": "Calcular el costo de oportunidad de elegir una inversión sobre otra.",
@@ -107,7 +101,6 @@
       },
       "long_i18n": {
         "en": "Calculate the opportunity cost of choosing one investment over another.",
-        "tr": "Alternatif yatirimin kacirilan Net getirisini (Firsat Costi) hesaplar.",
         "de": "Opportunitätskosten der Wahl einer Investition gegenuber einer anderen berechnen.",
         "fr": "Calculer le coût d'opportunité de choisir un investissement plutôt qu'un autre.",
         "es": "Calcular el costo de oportunidad de elegir una inversión sobre otra.",

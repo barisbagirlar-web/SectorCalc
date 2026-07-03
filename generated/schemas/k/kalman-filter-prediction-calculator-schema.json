@@ -10,7 +10,6 @@
       "label": "Previous Position (m)",
       "label_i18n": {
         "en": "Previous Position (m)",
-        "tr": "Onceki Konum (m)",
         "de": "Vorherige Position (m)",
         "fr": "Position précédente (m)",
         "es": "Posición Anterior (m)",
@@ -23,7 +22,6 @@
       "businessContext": "Previous state estimate.",
       "businessContext_i18n": {
         "en": "Previous state estimate.",
-        "tr": "Bir onceki adimdaki tahmin.",
         "de": "Vorherige Zustandsschätzung.",
         "fr": "Estimation d'état précédente.",
         "es": "Estimación del estado anterior.",
@@ -35,7 +33,6 @@
       "label": "Previous Velocity (m/s)",
       "label_i18n": {
         "en": "Previous Velocity (m/s)",
-        "tr": "Onceki Speed (m/s)",
         "de": "Vorherige Geschwindigkeit (m/s)",
         "fr": "Vitesse précédente (m/s)",
         "es": "Velocidad Anterior (m/s)",
@@ -48,7 +45,6 @@
       "businessContext": "Previous velocity.",
       "businessContext_i18n": {
         "en": "Previous velocity.",
-        "tr": "Onceki adim Speedi.",
         "de": "Vorherige Geschwindigkeit.",
         "fr": "Vitesse précédente.",
         "es": "Velocidad anterior.",
@@ -60,7 +56,6 @@
       "label": "Control Acceleration (m/s²)",
       "label_i18n": {
         "en": "Control Acceleration (m/s²)",
-        "tr": "Kontrol Accelerationsi (m/s²)",
         "de": "Steuerbeschleunigung (m/s²)",
         "fr": "Accélération de commande (m/s²)",
         "es": "Aceleración de Control (m/s²)",
@@ -73,7 +68,6 @@
       "businessContext": "System acceleration input.",
       "businessContext_i18n": {
         "en": "System acceleration input.",
-        "tr": "Sisteme uygulanan ivme.",
         "de": "Systembeschleunigungseingabe.",
         "fr": "Entrée d'accélération du système.",
         "es": "Entrada de aceleración del sistema.",
@@ -85,7 +79,6 @@
       "label": "Time Step (s)",
       "label_i18n": {
         "en": "Time Step (s)",
-        "tr": "Zaman Adimi (s)",
         "de": "Zeitschritt (s)",
         "fr": "Pas de temps (s)",
         "es": "Paso de Tiempo (s)",
@@ -98,7 +91,6 @@
       "businessContext": "Sampling period.",
       "businessContext_i18n": {
         "en": "Sampling period.",
-        "tr": "Ornekleme zamani.",
         "de": "Abtastperiode.",
         "fr": "Période d'échantillonnage.",
         "es": "Período de muestreo.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "oncekiKonum + oncekiHiz * dt + 0.5 * kontrolIvme * dt * dt"
+    "result": "oncekiKonum + oncekiHiz * dt + 0.5 * kontrolIvme * dt * dt"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Tahmini Konum"
+      "result": "Tahmini Konum"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Tahmini Konum",
-        "tr": "Tahmini Konum",
         "de": "Geschätzte Position",
         "fr": "Estimated Position",
         "es": "Posición Estimada",
@@ -152,7 +143,6 @@
       "long": "Estimate filtered position using Kalman filter prediction step.",
       "short_i18n": {
         "en": "Estimate filtered position using Kalman filter prediction step.",
-        "tr": "Gurultulu sensor verileriyle filtrelenmis tahmini konumu Kalman filtresi ile hesaplar.",
         "de": "Schätzen Sie die gefilterte Position mithilfe des Kalman-Filter-Prädiktionsschritts.",
         "fr": "Estimer la position filtrée à l'aide de l'étape de prédiction du filtre de Kalman.",
         "es": "Estimar la posición filtrada usando el paso de predicción del filtro de Kalman.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Estimate filtered position using Kalman filter prediction step.",
-        "tr": "Gurultulu sensor verileriyle filtrelenmis tahmini konumu Kalman filtresi ile hesaplar.",
         "de": "Schätzen Sie die gefilterte Position mithilfe des Kalman-Filter-Prädiktionsschritts.",
         "fr": "Estimer la position filtrée à l'aide de l'étape de prédiction du filtre de Kalman.",
         "es": "Estimar la posición filtrada usando el paso de predicción del filtro de Kalman.",

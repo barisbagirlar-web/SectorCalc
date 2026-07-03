@@ -10,7 +10,6 @@
       "label": "Distance (km)",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Mesafe (km)",
         "de": "Entfernung (km)",
         "fr": "Distance (km)",
         "es": "Distancia (km)",
@@ -23,7 +22,6 @@
       "businessContext": "Transport distance.",
       "businessContext_i18n": {
         "en": "Transport distance.",
-        "tr": "Bearing Distancesi.",
         "de": "Transportentfernung.",
         "fr": "Distance de transport.",
         "es": "Distancia de transporte.",
@@ -35,7 +33,6 @@
       "label": "Weight (Tons)",
       "label_i18n": {
         "en": "Weight (Tons)",
-        "tr": "Tonaj (Ton)",
         "de": "Beschichtungsgewicht einbeziehen",
         "fr": "Inclure le poids du revêtement",
         "es": "Incluir peso del recubrimiento",
@@ -48,7 +45,6 @@
       "businessContext": "Cargo weight.",
       "businessContext_i18n": {
         "en": "Cargo weight.",
-        "tr": "Tasinan yuk Amounti.",
         "de": "Frachtgewicht.",
         "fr": "Poids de la cargaison.",
         "es": "Peso de la carga.",
@@ -60,7 +56,6 @@
       "label": "Unit Price (USD/ton-km)",
       "label_i18n": {
         "en": "Unit Price (USD/ton-km)",
-        "tr": "Birim Fiyat (TL/Ton-km)",
         "de": "Stuckpreis ($)",
         "fr": "Prix unitaire ($)",
         "es": "Precio unitario ($)",
@@ -73,7 +68,6 @@
       "businessContext": "Rate per ton-km.",
       "businessContext_i18n": {
         "en": "Rate per ton-km.",
-        "tr": "Ton-km basi navlun fiyati.",
         "de": "Satz pro Tonnen-km.",
         "fr": "Tarif par tonne-km.",
         "es": "Tarifa por tonelada-km.",
@@ -88,18 +82,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "mesafe * tonaj * birimFiyat"
+    "result": "mesafe * tonaj * birimFiyat"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Toplam Navlun"
+      "result": "Toplam Navlun"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Toplam Navlun",
-        "tr": "Toplam Navlun",
         "de": "Gesamtfracht",
         "fr": "Fret total",
         "es": "Flete total",
@@ -124,7 +117,6 @@
       "long": "Calculate total road freight cost based on distance and tonnage.",
       "short_i18n": {
         "en": "Calculate total road freight cost based on distance and tonnage.",
-        "tr": "Karayolu tasimaciliginin Total navlun bedelini hesaplar.",
         "de": "Berechnen Sie die gesamten Straßengutertransportkosten basierend auf Entfernung und Tonnage.",
         "fr": "Calculer le coût total du fret routier en fonction de la distance et du tonnage.",
         "es": "Calcular el costo total de flete por carretera basado en distancia y tonelaje.",
@@ -132,7 +124,6 @@
       },
       "long_i18n": {
         "en": "Calculate total road freight cost based on distance and tonnage.",
-        "tr": "Karayolu tasimaciliginin Total navlun bedelini hesaplar.",
         "de": "Berechnen Sie die gesamten Straßengutertransportkosten basierend auf Entfernung und Tonnage.",
         "fr": "Calculer le coût total du fret routier en fonction de la distance et du tonnage.",
         "es": "Calcular el costo total de flete por carretera basado en distancia y tonelaje.",

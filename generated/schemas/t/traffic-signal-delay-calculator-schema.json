@@ -10,7 +10,6 @@
       "label": "Cycle Length (s)",
       "label_i18n": {
         "en": "Cycle Length (s)",
-        "tr": "Sinyal Dongu Suresi (s)",
         "de": "Durchschnittliche Zykluslänge (Tage)",
         "fr": "Longueur moyenne du cycle (jours)",
         "es": "Longitud media del ciclo (días)",
@@ -23,7 +22,6 @@
       "businessContext": "Signal cycle length.",
       "businessContext_i18n": {
         "en": "Signal cycle length.",
-        "tr": "Trafik sinyal dongu suresi.",
         "de": "Signalumlaufzeit.",
         "fr": "Durée du cycle de signalisation.",
         "es": "Duración del ciclo del semáforo.",
@@ -35,7 +33,6 @@
       "label": "Green Time (s)",
       "label_i18n": {
         "en": "Green Time (s)",
-        "tr": "Yesil Duration (s)",
         "de": "Grunzeit (s)",
         "fr": "Temps de vert (s)",
         "es": "Tiempo en Verde (s)",
@@ -48,7 +45,6 @@
       "businessContext": "Green signal duration.",
       "businessContext_i18n": {
         "en": "Green signal duration.",
-        "tr": "Yesil isik suresi.",
         "de": "Grunsignaldauer.",
         "fr": "Durée du feu vert.",
         "es": "Duración de la señal verde.",
@@ -60,7 +56,6 @@
       "label": "Traffic Flow (veh/s)",
       "label_i18n": {
         "en": "Traffic Flow (veh/s)",
-        "tr": "Trafik Flow Velocity (arac/s)",
         "de": "Verkehrsfluss (veh/s)",
         "fr": "Débit de trafic (veh/s)",
         "es": "Flujo de Tráfico (veh/s)",
@@ -73,7 +68,6 @@
       "businessContext": "Arrival flow rate.",
       "businessContext_i18n": {
         "en": "Arrival flow rate.",
-        "tr": "Gelen trafik Speedi.",
         "de": "Ankunftsflussrate.",
         "fr": "Débit d'arrivée.",
         "es": "Tasa de flujo de llegada.",
@@ -85,7 +79,6 @@
       "label": "Saturation Flow (veh/s)",
       "label_i18n": {
         "en": "Saturation Flow (veh/s)",
-        "tr": "Doygun Flow Velocity (arac/s)",
         "de": "Sättigungsfluss (veh/s)",
         "fr": "Débit de saturation (veh/s)",
         "es": "Flujo de Saturación (veh/s)",
@@ -98,7 +91,6 @@
       "businessContext": "Maximum discharge rate.",
       "businessContext_i18n": {
         "en": "Maximum discharge rate.",
-        "tr": "Maximum gecis kapasitesi.",
         "de": "Maximale Abflussrate.",
         "fr": "Taux de décharge maximal.",
         "es": "Tasa máxima de descarga.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "(donguSuresi * Math.pow((1 - yesilSure/Math.max(1,donguSuresi)), 2)) / Math.max(0.0001, (2 * (1 - (akisHizi/Math.max(0.0001, doygunAkis)))))"
+    "result": "(donguSuresi * Math.pow((1 - yesilSure/Math.max(1,donguSuresi)), 2)) / Math.max(0.0001, (2 * (1 - (akisHizi/Math.max(0.0001, doygunAkis)))))"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "s/veh",
     "breakdown": {
-      "sonuc": "Ortalama Gecikme"
+      "result": "Ortalama Gecikme"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Ortalama Gecikme",
-        "tr": "Ortalama Gecikme",
         "de": "Durchschnittliche Latenz",
         "fr": "Latence moyenne",
         "es": "Retardo Promedio",
@@ -152,7 +143,6 @@
       "long": "Calculate average vehicle delay at a signalized intersection.",
       "short_i18n": {
         "en": "Calculate average vehicle delay at a signalized intersection.",
-        "tr": "Kavsaktaki Mean arac Waiting Timeni (trafik sinyal gecikmesi) hesaplar.",
         "de": "Berechnen Sie die durchschnittliche Fahrzeugverzogerung an einer signalisierten Kreuzung.",
         "fr": "Calculer le retard moyen des véhicules à une intersection avec feux de signalisation.",
         "es": "Calcular el retardo promedio de vehículos en una intersección semaforizada.",
@@ -160,7 +150,6 @@
       },
       "long_i18n": {
         "en": "Calculate average vehicle delay at a signalized intersection.",
-        "tr": "Kavsaktaki Mean arac Waiting Timeni (trafik sinyal gecikmesi) hesaplar.",
         "de": "Berechnen Sie die durchschnittliche Fahrzeugverzogerung an einer signalisierten Kreuzung.",
         "fr": "Calculer le retard moyen des véhicules à une intersection avec feux de signalisation.",
         "es": "Calcular el retardo promedio de vehículos en una intersección semaforizada.",

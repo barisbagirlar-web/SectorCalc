@@ -6,11 +6,10 @@
   "sectorId": "textile-print-lab",
   "inputs": [
     {
-      "id": "alan",
+      "id": "area",
       "label": "Total Surface Area (m²)",
       "label_i18n": {
         "en": "Total Surface Area (m²)",
-        "tr": "Total Yuzey Areai (m²)",
         "de": "Gesamtoberfläche (m²)",
         "fr": "Surface totale (m²)",
         "es": "Área de Superficie Total (m²)",
@@ -23,7 +22,6 @@
       "businessContext": "Heat transfer area.",
       "businessContext_i18n": {
         "en": "Heat transfer area.",
-        "tr": "Isi transferine maruz Area.",
         "de": "Wärmeubertragungsfläche.",
         "fr": "Surface de transfert de chaleur.",
         "es": "Área de transferencia de calor.",
@@ -31,11 +29,10 @@
       }
     },
     {
-      "id": "U_Katsayi",
+      "id": "UCoefficient",
       "label": "U-Value (W/m²K)",
       "label_i18n": {
         "en": "U-Value (W/m²K)",
-        "tr": "Isi Gecis KatNumbersi (W/m²K)",
         "de": "U-Wert",
         "fr": "U-Valeur",
         "es": "U-Valor",
@@ -48,7 +45,6 @@
       "businessContext": "Insulation U-value.",
       "businessContext_i18n": {
         "en": "Insulation U-value.",
-        "tr": "Yalitimin isi gecis katNumbersi.",
         "de": "U-Wert der Isolierung.",
         "fr": "Valeur U de l'isolation.",
         "es": "Valor U del aislamiento.",
@@ -60,7 +56,6 @@
       "label": "Ambient Temperature (°C)",
       "label_i18n": {
         "en": "Ambient Temperature (°C)",
-        "tr": "Dis Ambient Temperature (°C)",
         "de": "Umgebungstemperatur (°C)",
         "fr": "Température ambiante (°C)",
         "es": "Temperatura Ambiente (°C)",
@@ -73,7 +68,6 @@
       "businessContext": "Outside air temperature.",
       "businessContext_i18n": {
         "en": "Outside air temperature.",
-        "tr": "Dis hava sicakligi.",
         "de": "Außenlufttemperatur.",
         "fr": "Température de l'air extérieur.",
         "es": "Temperatura del aire exterior.",
@@ -85,7 +79,6 @@
       "label": "Storage Temperature (°C)",
       "label_i18n": {
         "en": "Storage Temperature (°C)",
-        "tr": "Depo Ici Temperature (°C)",
         "de": "Lagertemperatur (°C)",
         "fr": "Température de stockage (°C)",
         "es": "Temperatura de Almacenamiento (°C)",
@@ -98,7 +91,6 @@
       "businessContext": "Cold storage temperature.",
       "businessContext_i18n": {
         "en": "Cold storage temperature.",
-        "tr": "Soguk depo sicakligi.",
         "de": "Kuhllagertemperatur.",
         "fr": "Température de l'entrepôt frigorifique.",
         "es": "Temperatura de almacenamiento en frío.",
@@ -113,18 +105,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "sonuc": "alan * U_Katsayi * (disSicaklik - icSicaklik)"
+    "result": "area * UCoefficient * (disSicaklik - icSicaklik)"
   },
   "outputs": {
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Sogutma Heat Load"
+      "result": "Sogutma Heat Load"
     },
     "breakdown_i18n": {
-      "sonuc": {
+      "result": {
         "en": "Sogutma Heat Load",
-        "tr": "Sogutma Heat Load",
         "de": "Kuhllast",
         "fr": "Charge thermique de refroidissement",
         "es": "Carga de Calor de Refrigeración",
@@ -151,7 +142,6 @@
       "long": "Calculate heat gain through cold storage insulation.",
       "short_i18n": {
         "en": "Calculate heat gain through cold storage insulation.",
-        "tr": "Soguk depo yalitimindan sizan ve sogutma sistemi tarafindan atilmasi gereken isi yukunu hesaplar.",
         "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kuhllagers.",
         "fr": "Calculer le gain de chaleur à travers l'isolation d'un entrepôt frigorifique.",
         "es": "Calcular la ganancia de calor a través del aislamiento de almacenamiento en frío.",
@@ -159,7 +149,6 @@
       },
       "long_i18n": {
         "en": "Calculate heat gain through cold storage insulation.",
-        "tr": "Soguk depo yalitimindan sizan ve sogutma sistemi tarafindan atilmasi gereken isi yukunu hesaplar.",
         "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kuhllagers.",
         "fr": "Calculer le gain de chaleur à travers l'isolation d'un entrepôt frigorifique.",
         "es": "Calcular la ganancia de calor a través del aislamiento de almacenamiento en frío.",
