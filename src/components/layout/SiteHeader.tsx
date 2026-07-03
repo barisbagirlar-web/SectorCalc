@@ -205,7 +205,7 @@ export function SiteHeader({
                       <div className="pd">{t.products_free_desc}</div>
                       <div className="pcount">{freeToolsCount}+ {t.tools}</div>
                     </Link>
-                    <Link href="/pro-tools" className="sc-mega-panel">
+                    <Link href="/free-tools" className="sc-mega-panel">
                       <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
                       <div className="pcount">{proToolsCount} {t.tools}</div>
@@ -270,7 +270,7 @@ export function SiteHeader({
             {mobileSection==='products' && (
               <div className="sc-draw-body">
                 <Link href="/free-tools" onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">{freeToolsCount}+</span></Link>
-                <Link href="/pro-tools" onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
+                <Link href="/free-tools" onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
               </div>
             )}
           </div>

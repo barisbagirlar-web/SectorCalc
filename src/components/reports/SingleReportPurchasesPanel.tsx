@@ -64,7 +64,7 @@ export function SingleReportPurchaseSuccessBanner({
  toolSlug,
 }: SingleReportPurchaseSuccessBannerProps) {
  const tool = toolSlug ? getRevenueToolByPaidSlug(toolSlug) : null;
- const analyzerHref = tool ? `/tools/premium/${tool.paidSlug}` : "/pro-tools";
+ const analyzerHref = tool ? `/tools/premium/${tool.paidSlug}` : "/free-tools";
 
  return (
  <aside className="mb-8 rounded-sm border border-emerald/30 bg-bg-subtle p-5 sm:p-6">

@@ -16,6 +16,5 @@ import "../styles/sectorcalc-hud-footer.css";
 import "../styles/sectorcalc-hero.css";
 import "../styles/guided-reference-graphics.css";
 import "../styles/premium-calculator-shell.css";
-import "../styles/premium-dynamic-tool-form.css";
 import "../styles/premium-category-catalog.css";
 import "../styles/sectorcalc-calculator-cards.css";

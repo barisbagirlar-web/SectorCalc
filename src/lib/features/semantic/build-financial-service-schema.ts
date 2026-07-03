@@ -93,7 +93,7 @@ export function buildPlatformFinancialServiceSchema(locale: string): JsonLdRecor
     name: "SectorCalc financial calculators",
     description:
       "Sector-specific pricing, margin, personnel, and decision-support calculators covering cost estimation, break-even analysis, margin analysis, cash flow forecasting, working capital assessment, ROI calculation, and financial ratio analysis across 17 industry categories.",
-    url: absoluteLocalizedUrl(locale, "/pro-tools"),
+    url: absoluteLocalizedUrl(locale, "/free-tools"),
     provider: {
       "@type": "Organization",
       name: "SectorCalc",

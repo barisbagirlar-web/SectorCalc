@@ -8,7 +8,7 @@ export function PricingPreview() {
         <div className="ind-os-panel flex items-center justify-between gap-2 px-4 py-3">
           <p className="text-xs font-medium text-body-charcoal">Intelligence Layer · Pro gate</p>
           <Link
-            href="/pro-tools"
+            href="/free-tools"
             className="text-xs font-semibold text-premium-velvet transition-colors hover:text-body-charcoal"
           >
             Open →

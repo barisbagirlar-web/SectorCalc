@@ -50,7 +50,7 @@ export function ToolSafeReviewState({
       ) : null}
       <div className="mt-5 flex flex-col gap-3">
         <Link
-          href="/pro-tools"
+          href="/free-tools"
           className="sc-cta-primary inline-flex min-h-[44px] w-full items-center justify-center px-4 text-sm sm:w-auto"
         >
           {t("browsePremiumCta")}

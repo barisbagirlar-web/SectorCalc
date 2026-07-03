@@ -375,7 +375,7 @@ export function NewLandingContent({
                   <li>Engineering authority where available</li>
                   <li>Decision summary and report-ready output where supported</li>
                 </ul>
-                <Link href="/pro-tools" className="btn-secondary">Explore Pro Calculators</Link>
+                <Link href="/free-tools" className="btn-secondary">Explore Free Tools</Link>
               </div>
             </div>
           </div>
@@ -499,7 +499,7 @@ export function NewLandingContent({
             
             <div className="cta-row main-actions center">
               <Link href="/free-tools" className="btn-primary">Start Free Calculations</Link>
-              <Link href="/pro-tools" className="btn-secondary">Explore Pro Calculators</Link>
+              <Link href="/free-tools" className="btn-secondary">Explore Calculators</Link>
             </div>
           </div>
         </section>

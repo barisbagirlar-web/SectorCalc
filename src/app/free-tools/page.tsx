@@ -72,7 +72,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
     ),
   ];
 
-  const proToolsHref = locale === "en" ? "/pro-tools" : `/${locale}/pro-tools`;
+  const proToolsHref = locale === "en" ? "/free-tools" : `/${locale}/free-tools`;
 
   return (
     <PageLayout>

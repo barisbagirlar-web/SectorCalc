@@ -48,7 +48,7 @@ export function getFreeToolsHref(): string {
 }
 
 export function getPremiumToolsHref(): string {
- return "/pro-tools";
+ return "/free-tools";
 }
 
 /** @deprecated Use getPremiumToolsHref */

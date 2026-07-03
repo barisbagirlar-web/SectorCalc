@@ -123,7 +123,7 @@ export async function HomePremiumVerdictSection() {
  </p>
  <h2 id="home-premium-heading">{t("premiumStep.title")}</h2>
  <p className="mc-home-conversion-lead">{t("premiumStep.subtitle")}</p>
- <Link href="/pro-tools" className="mc-btn-hero-secondary mc-home-conversion-cta">
+ <Link href="/free-tools" className="mc-btn-hero-secondary mc-home-conversion-cta">
  {t("premiumStep.cta")}
  </Link>
  </div>
@@ -236,7 +236,7 @@ export async function HomeFreeVsProSection() {
  {t("compare.proItem4")}
  </IconListItem>
  </ul>
- <Link href="/pro-tools" className="sc-btn-primary mt-6 w-full sm:w-auto">
+ <Link href="/free-tools" className="sc-btn-primary mt-6 w-full sm:w-auto">
  {t("compare.proCta")}
  </Link>
  </article>

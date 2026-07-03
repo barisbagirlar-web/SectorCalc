@@ -53,7 +53,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                   <Link href="/calculator-library">All Calculators</Link>
                 </li>
                 <li>
-                  <Link href="/pro-tools">Pro Calculators</Link>
+                  <Link href="/free-tools">Pro Calculators</Link>
                 </li>
                 <li>
                   <Link href="/free-tools">Free Calculators</Link>

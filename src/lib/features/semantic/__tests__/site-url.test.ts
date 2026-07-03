@@ -11,7 +11,7 @@ describe("absoluteLocalizedUrl", () => {
     expect(absoluteLocalizedUrl("de", "/free-tools")).toBe(
       "https://sectorcalc.com/de/free-tools",
     );
-    expect(absoluteLocalizedUrl("ar", "/pro-tools")).toBe(
+    expect(absoluteLocalizedUrl("ar", "/free-tools")).toBe(
       "https://sectorcalc.com/ar/pro-tools",
     );
   });

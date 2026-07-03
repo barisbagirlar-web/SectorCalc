@@ -57,7 +57,7 @@ export async function IndustryPageContent({ industry, locale }: IndustryPageCont
             <Link href="/free-tools" className="font-medium text-deep-navy hover:underline">
               {t("freeToolsLink")}
             </Link>
-            <Link href="/pro-tools" className="font-medium text-deep-navy hover:underline">
+            <Link href="/free-tools" className="font-medium text-deep-navy hover:underline">
               {t("premiumToolsLink")}
             </Link>
           </nav>

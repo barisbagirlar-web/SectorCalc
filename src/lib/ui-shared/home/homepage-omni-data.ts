@@ -30,7 +30,7 @@ export const HOMEPAGE_CATEGORY_HREFS: Record<HomepageCategoryId, string> = {
   constructionField: "/free-tools",
   financeBusiness: "/free-tools",
   dailyPractical: "/free-tools",
-  premium: "/pro-tools",
+  premium: "/free-tools",
 };
 
 const CATEGORY_TAB_MAP: Partial<Record<HomepageCategoryId, string>> = {

@@ -170,8 +170,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/premium-tools", destination: "/pro-tools", permanent: true },
-      { source: "/premium-tools/:path*", destination: "/pro-tools/:path*", permanent: true },
+      { source: "/premium-tools", destination: "/free-tools", permanent: true },
+      { source: "/premium-tools/:path*", destination: "/free-tools/:path*", permanent: true },
       { source: "/tools/free/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/tools/fmea-rpn-calculator", destination: "/calculators/fmea-rpn", permanent: true },

@@ -86,7 +86,7 @@ export default async function IndustriesPage({ params }: PageProps) {
           searchPlaceholder={t("searchPlaceholder")}
           categoryTitle={t("categoryTitle")}
           freeToolsHref={locale === "en" ? "/free-tools" : `/${locale}/free-tools`}
-          proToolsHref={locale === "en" ? "/pro-tools" : `/${locale}/pro-tools`}
+          proToolsHref={locale === "en" ? "/free-tools" : `/${locale}/free-tools`}
         />
       </section>
     </PageLayout>

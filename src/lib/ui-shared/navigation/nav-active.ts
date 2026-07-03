@@ -24,9 +24,9 @@ export function isNavLinkActive(pathname: string, href: string): boolean {
   switch (href) {
     case "/free-tools":
       return path === "/free-tools" || path.startsWith("/tools/free/") || path.startsWith("/tools/generated/");
-    case "/pro-tools":
+    case "/free-tools":
       return (
-        path === "/pro-tools" ||
+        path === "/free-tools" ||
         path.startsWith("/tools/premium-schema/") ||
         path.startsWith("/tools/premium/")
       );

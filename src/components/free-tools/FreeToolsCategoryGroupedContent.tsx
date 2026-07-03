@@ -142,7 +142,7 @@ export function FreeToolsCategoryGroupedContent({
             {t("discoveryFooter.freeToolsLead")}
           </p>
           <Link
-            href="/pro-tools"
+            href="/free-tools"
             prefetch={false}
             className="sc-discovery-footer__link"
           >

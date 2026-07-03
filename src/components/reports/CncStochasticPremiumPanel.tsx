@@ -151,7 +151,7 @@ Z-score (P90). View base cost, risk buffer, and safe quote price.
  </dl>
  </div>
  <Button
- href="/pro-tools"
+ href="/free-tools"
  variant="secondary"
  size="sm"
  className="mt-3 w-full"

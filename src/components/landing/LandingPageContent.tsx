@@ -374,7 +374,7 @@ export function LandingPageContent({
                   <li>Engineering authority and standards validation</li>
                   <li>Decision summaries and exportable reports</li>
                 </ul>
-                <Link href="/pro-tools" className="btn-secondary">Explore Pro Platform</Link>
+                <Link href="/free-tools" className="btn-secondary">Explore Free Tools</Link>
               </div>
             </div>
           </div>
@@ -498,7 +498,7 @@ export function LandingPageContent({
             
             <div className="cta-row main-actions center">
               <Link href="/free-tools" className="btn-primary">Browse Free Tools</Link>
-              <Link href="/pro-tools" className="btn-secondary">Explore Pro Platform</Link>
+              <Link href="/free-tools" className="btn-secondary">Explore Free Tools</Link>
             </div>
           </div>
         </section>

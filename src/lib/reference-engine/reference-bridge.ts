@@ -76,7 +76,7 @@ export function hasBinding(toolId: string, inputKey: string): boolean {
 
 /**
  * ISO 513 Cutting Tool Material Database (loaded from registry).
- * Returns the material data map used by ProToolForm and ProToolPremiumRenderer.
+ * Returns the material data map from the reference registry.
  *
  * Format matches the existing inline MAT_DB structure for backward compatibility.
  */

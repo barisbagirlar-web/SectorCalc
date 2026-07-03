@@ -21,7 +21,7 @@ export function SeoHeadLinks() {
 
       {/* Prefetch core entrypoint pages for faster navigation */}
       <link rel="prefetch" href="/free-tools" as="document" />
-      <link rel="prefetch" href="/pro-tools" as="document" />
+      <link rel="prefetch" href="/free-tools" as="document" />
       <link rel="prefetch" href="/industries" as="document" />
 
       {/* Canonical and alternate links for AI text knowledge bases */}

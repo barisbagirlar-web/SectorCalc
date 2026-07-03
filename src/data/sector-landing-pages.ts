@@ -52,7 +52,7 @@ function buildConfig(
     path,
     sectorSlug,
     freeToolHref: tool ? getFreeToolHref(tool) : "/free-tools",
-    premiumToolHref: tool ? getPremiumToolHref(tool) : "/pro-tools",
+    premiumToolHref: tool ? getPremiumToolHref(tool) : "/free-tools",
     pricingHref: tool ? getPricingHref(tool) : "/pricing",
     ...overrides,
   };

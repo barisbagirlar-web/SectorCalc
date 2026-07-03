@@ -27,7 +27,7 @@ import { DynamicToolFormWrapper } from "@/lib/features/dynamic-form-v2";
 import { ToolFeedbackTrigger } from "@/components/tools/ToolFeedbackTrigger";
 import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
-import { getProToolSchemaBySlug } from "@/lib/features/dynamic-engine/schema-loader";
+import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
 
 export async function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShellProps) {
   const definition = applyRevenueToolDisplay(rawDefinition);
@@ -35,7 +35,7 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
   const isPremium = definition.tier === "premium";
   const t = await getTranslations({ locale, namespace: "toolPageShell" });
 
-  const schema = getProToolSchemaBySlug(definition.slug, isPremium ? "premium" : "free");
+  const schema = getGeneratedToolSchema(definition.slug);
 
   const tierLabel = isPremium ? t("premiumVerdicts") : t("freePreChecks");
   const tierHref = isPremium ? "/pricing" : "/free-tools";

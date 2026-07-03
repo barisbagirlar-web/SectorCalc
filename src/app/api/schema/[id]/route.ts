@@ -12,11 +12,9 @@ export async function GET(
   const { id } = await params;
   const schemaId = id.replace(/-schema$/, ""); // normalize: strip trailing -schema
 
-  // Search order: generated/schemas → data/pro-tools → data/pro-tools-universal
+  // Search order: generated/schemas
   const searchPaths = [
     "generated/schemas",
-    "data/pro-tools",
-    "data/pro-tools-universal",
   ];
 
   for (const dirPath of searchPaths) {
@@ -47,8 +45,6 @@ export async function POST(
 
   const searchPaths = [
     "generated/schemas",
-    "data/pro-tools",
-    "data/pro-tools-universal",
   ];
 
   // Try to load the schema; if found, it's already translated

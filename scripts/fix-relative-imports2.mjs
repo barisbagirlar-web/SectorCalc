@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 const files = [
-  "src/lib/features/tools/pro-tools-registry.ts",
   "src/lib/features/tools/revenue-tools.ts"
 ];
 

@@ -14,7 +14,3 @@ export { compileSafe, dependencies, ALLOWED_FUNCTIONS, ALLOWED_CONSTANTS } from 
 export { toCanonical, canonicalUnitOf, UNIT_REGISTRY } from './units';
 export { AuditService } from './audit';
 export type { AuditRecord, AuditComment } from './audit';
-export {
-  adaptProTool, calculateWithRawTool,
-  normalizeExpression, parseFormulaExpressionFull, parseUncertaintyString,
-} from './pro-tool-adapter';

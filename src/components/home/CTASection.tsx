@@ -15,7 +15,7 @@ export async function CTASection() {
           <Link href="/free-tools" className="sc-cta-primary">
             {t("finalCta.ctaPrimary")}
           </Link>
-          <Link href="/pro-tools" className="sc-cta-secondary">
+          <Link href="/free-tools" className="sc-cta-secondary">
             {t("finalCta.ctaSecondary")}
           </Link>
         </div>

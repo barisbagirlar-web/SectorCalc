@@ -165,7 +165,7 @@ describe("launch-readiness", () => {
     for (const locale of SUPPORTED_LOCALES) {
       expect(urls).toContain(buildLocalizedUrl("/categories", locale, SITE_BASE_URL));
       expect(urls).toContain(buildLocalizedUrl("/free-tools", locale, SITE_BASE_URL));
-      expect(urls).toContain(buildLocalizedUrl("/pro-tools", locale, SITE_BASE_URL));
+      expect(urls).toContain(buildLocalizedUrl("/free-tools", locale, SITE_BASE_URL));
       expect(urls).toContain(buildLocalizedUrl("/industries", locale, SITE_BASE_URL));
       expect(urls).toContain(buildLocalizedUrl("/pricing", locale, SITE_BASE_URL));
     }

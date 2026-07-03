@@ -400,7 +400,7 @@ export function buildCategoryPageCatalogGroups(
 export function resolvePremiumAnalyzerHref(legacyOrSchemaSlug: string): string {
   const trimmed = legacyOrSchemaSlug.trim();
   if (!trimmed) {
-    return "/pro-tools";
+    return "/free-tools";
   }
 
   const mappedSchemaId = PREMIUM_SCHEMA_SLUG_MAP[trimmed];
@@ -417,7 +417,7 @@ export function resolvePremiumAnalyzerHref(legacyOrSchemaSlug: string): string {
     return resolvePremiumToolHref(trimmed);
   }
 
-  return "/pro-tools";
+  return "/free-tools";
 }
 
 export function containsForbiddenPublicCatalogTerm(value: string): boolean {

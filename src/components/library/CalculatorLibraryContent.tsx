@@ -81,7 +81,7 @@ export function CalculatorLibraryContent({
                 </Link>
               </li>
               <li>
-                <Link className="text-premium-copper hover:underline" href="/pro-tools">
+                <Link className="text-premium-copper hover:underline" href="/free-tools">
                   {premiumToolsLabel}
                 </Link>
               </li>

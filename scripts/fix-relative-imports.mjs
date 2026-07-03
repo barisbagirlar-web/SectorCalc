@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 const files = [
-  "src/lib/features/tools/universal-tools-registry.ts",
   "src/lib/infrastructure/i18n/free-tool-form-i18n.ts",
   "src/lib/infrastructure/i18n/free-tool-i18n.ts",
   "src/lib/infrastructure/i18n/smart-form-validation-i18n.ts",

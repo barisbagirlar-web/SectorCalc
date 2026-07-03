@@ -37,7 +37,7 @@ function tierLabel(tier: string, locale: string): string {
 
 function buildToolBreadcrumbSchema(tool: SemanticToolContract, locale: string): JsonLdRecord {
   const tierLabelStr = tierLabel(tool.tier, locale);
-  const tierPath = tool.tier === "free" ? "/free-tools" : "/pro-tools";
+  const tierPath = tool.tier === "free" ? "/free-tools" : "/free-tools";
 
   return sanitizeJsonLd({
     "@context": "https://schema.org",
