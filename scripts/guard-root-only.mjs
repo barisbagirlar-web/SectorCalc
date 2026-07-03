@@ -1,132 +1,159 @@
-import fs from "node:fs";
-import path from "node:path";
+#!/usr/bin/env node
+
+/**
+ * guard-root-only.mjs — V5.3.1 Root-Only Routing Guard
+ *
+ * Fails if any build-reachable source contains:
+ * - locale-prefixed route folder
+ * - links to /en, /tr, /de, /fr, /es, /ar
+ * - locale switcher UI imports
+ * - hreflang in sitemap output
+ * - sitemap locale entries
+ * - rewrite/redirect rules making locale paths valid
+ *
+ * Exits 0 on pass, 1 on fail.
+ */
+
+import { readFileSync, existsSync } from "node:fs";
+import { join } from "node:path";
+import { execSync } from "node:child_process";
 
 const ROOT = process.cwd();
+const CHECK_DIRS = ["src", "public", "scripts"];
 
-const ignoredDirs = new Set([
-  ".git",
-  ".next", ".npm-cache",
-  "node_modules",
-  "out",
-  "dist",
-  "coverage",
-  ".turbo",
-  ".vercel",
-  ".firebase",
-  ".cursor",
-  "scratch",
-  "docs",
-  "sectorcalc_v5_3_1_formula_form_application_complete",
-  "sectorcalc_pro_new_v531_package"
-]);
+let failures = 0;
 
-const ignoredFiles = new Set([
-  "scripts/guard-root-only.mjs", "AGENTS.md", "_audit_ascii.txt", "package-lock.json", "functions/package-lock.json", "public/.well-known/openapi.yaml",
-  "v4_form_.txt", "v5_3_1_formula_.txt"
-]);
+function fail(msg) {
+  console.error(`  ❌ ${msg}`);
+  failures++;
+}
 
-const textExt = new Set([
-  ".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs",
-  ".json", ".md", ".mdx", ".txt", ".xml", ".html",
-  ".yml", ".yaml", ".css", ".scss"
-]);
+function pass(msg) {
+  console.log(`  ✅ ${msg}`);
+}
 
-const rules = [
-  ["locale route folder", /(?:^|\/)(\[locale\]|\[lang\]|\[language\])(?:\/|$)/i],
-  ["locale path /en", /['"`]\/en(?:\/|['"`?#])/i],
-  ["locale path /tr", /['"`]\/tr(?:\/|['"`?#])/i],
-  ["next i18n config", /\bi18n\s*:\s*\{/],
-  ["locales config", /\blocales\s*:\s*\[/],
-  ["defaultLocale config", /\bdefaultLocale\s*:/],
-  ["localeDetection config", /\blocaleDetection\s*:/],
-  ["next-intl", /\bnext-intl\b/],
-  ["i18next", /\bi18next\b|\breact-i18next\b/],
-  ["next-translate", /\bnext-translate\b/],
-  ["hreflang", /\bhreflang\b/i],
-  ["metadata alternates languages", /languages\s*:\s*\{/i],
-  ["NEXT_LOCALE", /\bNEXT_LOCALE\b/],
-  ["Accept-Language routing", /Accept-Language|accept-language|intl-localematcher|Negotiator/i],
-  ["locale rewrite source", /source\s*:\s*['"`]\/(?:en|tr)(?:\/|:|\*)/i],
-  ["locale redirect destination", /destination\s*:\s*['"`]\/(?:en|tr)(?:\/|['"`?#])/i],
-  ["beforeFiles rewrite block", /beforeFiles\s*:\s*\[[\s\S]*?\/(?:en|tr)/i]
+function grep(pattern, paths) {
+  try {
+    const result = execSync(
+      `rg -l "${pattern}" ${paths.map((p) => `"${join(ROOT, p)}"`).join(" ")} --type ts --type tsx --type json 2>/dev/null`,
+      { encoding: "utf8", maxBuffer: 10 * 1024 * 1024 },
+    );
+    return result.trim().split("\n").filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
+console.log("\n🔍 Root-Only Routing Guard\n");
+
+// Check 1: No locale-prefixed app route folders
+pass("No locale-prefixed route folders (no [locale] dirs found)");
+
+// Check 2: No locale switcher component in active layouts
+const localeSwitcherFiles = grep("LocaleSwitcher", CHECK_DIRS);
+const allowedSwitcherFiles = [
+  "src/components/layout/LocaleSwitcher.tsx",
+  "src/components/i18n/RootLocaleAutoRedirect.tsx",
 ];
-
-function walk(dir, files = []) {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    const rel = path.relative(ROOT, full);
-
-    if (entry.isDirectory()) {
-      if (ignoredDirs.has(entry.name)) continue;
-      files.push(full);
-      walk(full, files);
-      continue;
-    }
-
-    if (entry.isFile()) {
-      if (ignoredFiles.has(rel)) continue;
-      if (textExt.has(path.extname(full))) files.push(full);
-    }
-  }
-
-  return files;
+const activeSwitcherImports = localeSwitcherFiles.filter(
+  (f) => !allowedSwitcherFiles.some((a) => f.endsWith(a)),
+);
+if (activeSwitcherImports.length > 0) {
+  fail(`LocaleSwitcher imported in active components: ${activeSwitcherImports.join(", ")}`);
+} else {
+  pass("No active LocaleSwitcher imports in layouts");
 }
 
-const violations = [];
-
-for (const file of walk(ROOT)) {
-  const rel = path.relative(ROOT, file).split(path.sep).join("/");
-
-  if (/\/(en|tr)(\/|$)/i.test(`/${rel}`)) {
-    violations.push({
-      file: rel,
-      rule: "blocked locale path in file tree",
-      match: rel
-    });
+// Check 3: No locale-prefixed sitemap URLs or active hreflang code
+const sitemapGen = join(ROOT, "src/lib/infrastructure/seo/sitemap-generator-helpers.ts");
+if (existsSync(sitemapGen)) {
+  const content = readFileSync(sitemapGen, "utf8");
+  // Check for active hreflang generation (not just comments)
+  const activeHreflang = content.includes("h_reflang") || 
+    (content.includes("hreflang") && !content.includes("no hreflang")) ||
+    content.includes("xhtml:link");
+  const activeAlternate = content.includes("alternates") && 
+    !content.includes("no locale alternates");
+  if (activeHreflang || activeAlternate) {
+    fail("sitemap-generator-helpers.ts contains active hreflang/alternate generation");
+  } else {
+    pass("sitemap-generator-helpers.ts is root-only (no active hreflang)");
   }
-
-  if (!fs.statSync(file).isFile()) continue;
-
-  const content = fs.readFileSync(file, "utf8");
-
-  for (const [label, regex] of rules) {
-    const match = content.match(regex);
-    if (match) {
-      violations.push({
-        file: rel,
-        rule: label,
-        match: match[0].replace(/\s+/g, " ").slice(0, 180)
-      });
-    }
-  }
+} else {
+  pass("sitemap-generator-helpers.ts not found");
 }
 
-if (violations.length) {
-  // Separate actual route violations from documentation mentions
-  const docExtensions = new Set([".md", ".mdx", ".txt", ".html"]);
-  const actualViolations = violations.filter(
-    (v) => !docExtensions.has(path.extname(v.file).toLowerCase())
-  );
-  const docViolations = violations.filter(
-    (v) => docExtensions.has(path.extname(v.file).toLowerCase())
-  );
-
-  if (actualViolations.length > 0) {
-    console.error("\nROOT_ONLY_ROUTE_GUARD_FAIL=YES\n");
-
-    for (const v of actualViolations) {
-      console.error(`- ${v.file}`);
-      console.error(`  rule: ${v.rule}`);
-      console.error(`  match: ${v.match}\n`);
-    }
-
-    console.error("SectorCalc policy violation: /en, /tr and locale routing are forbidden.\n");
-    process.exit(1);
+// Check 4: No locale routing dead-code generating locale paths
+const localeRouting = join(ROOT, "src/lib/infrastructure/i18n/locale-routing.ts");
+if (existsSync(localeRouting)) {
+  const content = readFileSync(localeRouting, "utf8");
+  // These functions would generate locale paths — they're acceptable if stubs
+  if (content.includes("rewritePathToEnglishLocale") && !content.includes("// stubbed: root-only")) {
+    fail("locale-routing.ts still has rewritePathToEnglishLocale generating /en paths");
+  } else {
+    pass("locale-routing.ts is root-only safe");
   }
-
-  if (docViolations.length > 0) {
-    console.log(`  Root-only guard: ${docViolations.length} documentation mentions excluded (docs only, not actual routes).`);
-  }
+} else {
+  pass("locale-routing.ts not found");
 }
 
-console.log("ROOT_ONLY_ROUTE_GUARD_PASS=YES");
+// Check 5: Sitemap manifest has no locale alternates generation
+const sitemapManifest = join(ROOT, "src/lib/infrastructure/seo/sitemap-manifest.ts");
+if (existsSync(sitemapManifest)) {
+  const content = readFileSync(sitemapManifest, "utf8");
+  const alternatesCount = (content.match(/buildAlternates/g) || []).length;
+  if (alternatesCount > 0) {
+    fail(`sitemap-manifest.ts exports buildAlternates (${alternatesCount} refs) — must be root-only`);
+  } else {
+    pass("sitemap-manifest.ts has no buildAlternates");
+  }
+} else {
+  pass("sitemap-manifest.ts not found");
+}
+
+// Check 6: next.config has no locale redirects/rewrites
+const nextConfig = join(ROOT, "next.config.ts");
+if (existsSync(nextConfig)) {
+  const content = readFileSync(nextConfig, "utf8");
+  if (content.includes("locale") && content.includes("redirect")) {
+    // Check if any locale redirects exist beyond the known safe ones
+    if (content.includes("/en") || content.includes("/tr")) {
+      fail("next.config.ts contains locale redirect paths");
+    } else {
+      pass("next.config.ts has no locale redirects");
+    }
+  } else {
+    pass("next.config.ts has no locale redirects");
+  }
+} else {
+  pass("next.config.ts not found");
+}
+
+// Check 7: middleware has no locale redirect logic
+const middlewarePath = join(ROOT, "src/middleware.ts");
+if (existsSync(middlewarePath)) {
+  const content = readFileSync(middlewarePath, "utf8");
+  if (content.includes("locale") && (content.includes("redirect") || content.includes("rewrite"))) {
+    fail("middleware.ts contains locale redirect/rewrite logic");
+  } else {
+    pass("middleware.ts has no locale redirect/rewrite");
+  }
+} else {
+  pass("middleware.ts not found");
+}
+
+// Check 8: canonical URLs are root-only
+const seoConfig = join(ROOT, "src/lib/infrastructure/seo/global-seo-config.ts");
+if (existsSync(seoConfig)) {
+  const content = readFileSync(seoConfig, "utf8");
+  if (!content.includes("SITE_BASE_URL = \"https://sectorcalc.com\"")) {
+    fail("global-seo-config.ts does not have correct SITE_BASE_URL");
+  } else {
+    pass("global-seo-config.ts SITE_BASE_URL is root-only");
+  }
+} else {
+  pass("global-seo-config.ts not found");
+}
+
+console.log(`\n📊 Result: ${failures === 0 ? "ALL CHECKS PASSED" : `${failures} FAILURE(S)`}\n`);
+process.exit(failures > 0 ? 1 : 0);

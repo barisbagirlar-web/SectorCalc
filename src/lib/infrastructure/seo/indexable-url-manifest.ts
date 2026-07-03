@@ -8,6 +8,7 @@ import {
   SUPPORTED_LOCALES,
   type SupportedLocale,
 } from "@/lib/infrastructure/seo/global-seo-config";
+// V5.3.1 root-only: no locale-prefixed imports needed; buildLocalizedPath is a no-op stub.
 import {
   buildLocalizedPath,
   getSitemapManifest,
@@ -40,34 +41,21 @@ export const INDEXABLE_LOCALES: readonly IndexableLocale[] = SUPPORTED_LOCALES.f
   (locale) => INDEXABLE_LOCALE_ROUTES[locale],
 );
 
-/** GSC-critical paths - used to seed inspectionOrder (English root + Turkish). */
+/** GSC-critical paths - used to seed inspectionOrder. */
 const CRITICAL_INSPECTION_PATHS: readonly string[] = [
   "/",
-  "/t_r",
   "/free-tools",
-  "/t_r/free-tools",
   "/premium-tools",
-  "/t_r/premium-tools",
   "/categories",
-  "/t_r/categories",
   "/industries",
-  "/t_r/industries",
   "/pricing",
-  "/t_r/pricing",
   "/seo/manufacturing-cost-calculators",
-  "/t_r/seo/manufacturing-cost-calculators",
   "/guides/what-is-oee-and-how-to-calculate-it",
-  "/t_r/guides/what-is-oee-and-how-to-calculate-it",
   "/tools/free/area-converter",
-  "/t_r/tools/free/area-converter",
   "/tools/free/oee-calculator",
-  "/t_r/tools/free/oee-calculator",
   "/tools/free/concrete-volume-calculator",
-  "/t_r/tools/free/concrete-volume-calculator",
   "/tools/premium-schema/cnc-oee-loss",
-  "/t_r/tools/premium-schema/cnc-oee-loss",
   "/tools/premium-schema/carbon-footprint-compliance-risk",
-  "/t_r/tools/premium-schema/carbon-footprint-compliance-risk",
 ] as const;
 
 const HIGH_PRIORITY_FREE_SLUGS = new Set([
@@ -193,24 +181,18 @@ export function getIndexableUrlManifest(): IndexableUrlItem[] {
   const items: IndexableUrlItem[] = [];
 
   for (const manifestItem of getSitemapManifest()) {
-    for (const locale of manifestItem.locales) {
-      if (!INDEXABLE_LOCALE_ROUTES[locale]) {
-        continue;
-      }
-
-      const path = buildLocalizedPath(manifestItem.path, locale);
-      if (!isPathIndexable(path)) {
-        continue;
-      }
-
-      items.push({
-        path,
-        type: mapManifestType(manifestItem.type),
-        priority: mapManifestPriority(manifestItem),
-        locale,
-        inspectionOrder: 0,
-      });
+    const path = buildLocalizedPath(manifestItem.path);
+    if (!isPathIndexable(path)) {
+      continue;
     }
+
+    items.push({
+      path,
+      type: mapManifestType(manifestItem.type),
+      priority: mapManifestPriority(manifestItem),
+      locale: "en",
+      inspectionOrder: 0,
+    });
   }
 
   const deduped = dedupeManifestItems(items);

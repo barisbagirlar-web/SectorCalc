@@ -4,11 +4,11 @@ import {
   resolveSitemapLastModified,
   getCaseStudyLastModMap,
 } from "@/lib/infrastructure/seo/resolve-sitemap-lastmod";
-import { buildAlternates } from "@/lib/infrastructure/seo/sitemap-manifest";
 import type { SitemapManifestItem } from "@/lib/infrastructure/seo/sitemap-manifest";
 
+// V5.3.1 root-only: no locale alternates, no hreflang, single URL per item.
+
 export async function buildSitemapXmlString(items: readonly SitemapManifestItem[]): Promise<string> {
-  const now = new Date();
   const caseStudyLastMod = await getCaseStudyLastModMap();
   
   const urls: string[] = [];
@@ -20,25 +20,16 @@ export async function buildSitemapXmlString(items: readonly SitemapManifestItem[
     const changefreq = item.changeFrequency;
     const priority = item.priority.toFixed(2);
 
-    const alternates = buildAlternates(item.path, item.locales, SITE_BASE_URL);
-    const h_reflangTags = Object.entries(alternates.languages)
-      .map(([lang, url]) => `\n    <xhtml:link rel="alternate" h_reflang="${lang}" href="${url}"/>`)
-      .join("");
-
-    // Create a <url> block for every locale of this item
-    for (const locale of item.locales) {
-      const locUrl = alternates.languages[locale];
-      urls.push(`  <url>
-    <loc>${locUrl}</loc>${lastmodTag}
+    // Root-only: single <url> entry per item, no locale prefix, no hreflang
+    urls.push(`  <url>
+    <loc>${SITE_BASE_URL}${item.path}</loc>${lastmodTag}
     <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>${h_reflangTags}
+    <priority>${priority}</priority>
   </url>`);
-    }
   }
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.join("\n")}
 </urlset>`;
 }

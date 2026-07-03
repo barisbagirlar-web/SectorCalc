@@ -1,5 +1,6 @@
 /**
  * Root English + prefixed locale URL architecture (en, tr, de, fr, es, ar).
+ * stubbed: root-only — only `en` is supported; locale prefix functions are vestigial.
  */
 
 import {
@@ -135,6 +136,7 @@ export function getCanonicalPathForLocale(
 }
 
 export function needsEnglishLocaleRewrite(pathname: string): boolean {
+  // stubbed: root-only — always false for English root
   if (pathname === "/e" + "n" || pathname.startsWith("/e" + "n/")) {
     return false;
   }

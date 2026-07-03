@@ -4,17 +4,7 @@
 
 import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
 import { getAuthorityGuideRoutePath } from "@/lib/content/authority-links";
-import {
-  DEFAULT_LOCALE,
-  getActiveSitemapLocales,
-  SITE_BASE_URL,
-  type SupportedLocale,
-} from "@/lib/infrastructure/seo/global-seo-config";
-import {
-  addLocaleToPath,
-  getCanonicalPathForLocale,
-  stripLocaleFromPath,
-} from "@/lib/infrastructure/i18n/locale-routing";
+import { SITE_BASE_URL } from "@/lib/infrastructure/seo/global-seo-config";
 import { listProgrammaticSeoSlugs } from "@/lib/infrastructure/seo/programmatic-seo-pages";
 import { listPremiumToolSeoLandingSlugs } from "@/lib/infrastructure/seo/premium-tool-seo-landings";
 import { listCaseStudySlugs } from "@/lib/features/case-studies/case-study-registry";
@@ -40,21 +30,14 @@ export type SitemapRouteType =
 
 export type SitemapChangeFrequency = "daily" | "weekly" | "monthly" | "yearly";
 
+// V5.3.1 root-only: no locale alternates, single-en locale only.
 export type SitemapManifestItem = {
   readonly path: string;
   readonly type: SitemapRouteType;
   readonly priority: number;
   readonly changeFrequency: SitemapChangeFrequency;
-  readonly locales: readonly SupportedLocale[];
-  /**
-   * Real lastmod date from the data source (tool registry, CMS, etc.).
-   * When absent the sitemap builder falls back to build time - which is
-   * legitimate for dynamic pages regenerated at every build.
-   */
   readonly updatedAt?: Date;
 };
-
-const DEFAULT_LOCALES = getActiveSitemapLocales();
 
 const EXCLUDED_PATH_PATTERNS: readonly RegExp[] = [
   /\/admin(?:\/|$)/,
@@ -63,7 +46,6 @@ const EXCLUDED_PATH_PATTERNS: readonly RegExp[] = [
   /^\/checkout(?:\/|$)/,
   /\/debug(?:\/|$)/,
   /\/preview(?:\/|$)/,
-  /^\/en(?:\/|$)/,
 ];
 
 function normalizePath(path: string): string {
@@ -78,7 +60,6 @@ function createItem(
   type: SitemapRouteType,
   priority: number,
   changeFrequency: SitemapChangeFrequency,
-  locales: readonly SupportedLocale[] = DEFAULT_LOCALES,
   updatedAt?: Date,
 ): SitemapManifestItem {
   return {
@@ -86,7 +67,6 @@ function createItem(
     type,
     priority,
     changeFrequency,
-    locales,
     ...(updatedAt !== undefined ? { updatedAt } : {}),
   };
 }
@@ -173,7 +153,7 @@ export function getAiIndexSitemapRoutes(): readonly SitemapManifestItem[] {
     "/ai-search-manifest.json",
     "/ai-embedding-source.jsonl",
   ];
-  return files.map((path) => createItem(path, "ai_index", 0.55, "weekly", ["en"]));
+  return files.map((path) => createItem(path, "ai_index", 0.55, "weekly"));
 }
 
 export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[] {
@@ -233,43 +213,28 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
   ]);
 }
 
+// V5.3.1 root-only stub: returns path as-is, no locale prefix.
 export function buildLocalizedUrl(
   path: string,
-  locale: SupportedLocale,
+  _locale: string,
   baseUrl: string = SITE_BASE_URL,
 ): string {
-  const localizedPath = getCanonicalPathForLocale(stripLocaleFromPath(path), locale);
   const base = baseUrl.replace(/\/$/, "");
-  return `${base}${localizedPath}`;
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${cleanPath}`;
 }
 
-export function buildLocalizedPath(path: string, locale: SupportedLocale): string {
-  return getCanonicalPathForLocale(stripLocaleFromPath(path), locale);
+// V5.3.1 root-only stub: returns path as-is, no locale prefix.
+export function buildLocalizedPath(path: string, _locale?: string): string {
+  return path.startsWith("/") ? path : `/${path}`;
 }
-
-export function buildAlternates(
-  path: string,
-  locales: readonly SupportedLocale[],
-  baseUrl: string = SITE_BASE_URL,
-): { languages: Record<string, string> } {
-  const basePath = stripLocaleFromPath(path);
-  const languages: Record<string, string> = {};
-  for (const locale of locales) {
-    languages[locale] = buildLocalizedUrl(basePath, locale, baseUrl);
-  }
-  languages["x-default"] = buildLocalizedUrl(basePath, DEFAULT_LOCALE, baseUrl);
-  return { languages };
-}
-
-/** @internal re-export for tests that assert locale path helpers */
-export { addLocaleToPath };
 
 export function countSitemapEntries(): number {
-  return getSitemapManifest().reduce((sum, item) => sum + item.locales.length, 0);
+  return getSitemapManifest().length;
 }
 
 export function countAuthorityGuideSitemapEntries(): number {
-  return getAuthorityGuideSitemapRoutes().reduce((sum, item) => sum + item.locales.length, 0);
+  return getAuthorityGuideSitemapRoutes().length;
 }
 
 /** @deprecated Use getSitemapManifest - legacy static route list for tests. */
