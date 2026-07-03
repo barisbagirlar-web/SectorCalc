@@ -44,8 +44,6 @@ import { ProDecisionPanel } from "@/components/tools/ProDecisionPanel";
 import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
 import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { buildGuidanceFieldsFromKeys } from "@/lib/content/guidance/build-guidance-fields";
-import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
-import { SmartResultPanel } from "@/components/smart-form/SmartResultPanel";
 import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
 import {
   buildPremiumSchemaExperienceFields,
@@ -53,14 +51,11 @@ import {
   resolveCalculatorExperience,
 } from "@/lib/ui-shared/calculator-experience/resolve-calculator-experience";
 import type { CalculatorExperienceMode } from "@/lib/ui-shared/calculator-experience/calculator-experience-types";
-import { DynamicSmartFormPilot } from "@/components/smart-form/DynamicSmartFormPilot";
 import { buildSmartFormForTool } from "@/lib/features/smart-form/smart-form-adapter";
 import { hasPremiumSmartFormDefinition } from "@/lib/features/smart-form/premium-smart-form-definitions";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
-import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
-import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
-import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
+import { UniversalIndustrialDecisionForm, buildSuperV4SchemaFromPremiumSchema } from "@/sectorcalc/pro-form";
 import {
  isPremiumFullLoopRuntimeSlug,
  runPremiumFullLoopCalculation,
@@ -85,7 +80,6 @@ import {
 } from "@/lib/features/tools/revenue-tools";
 import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
-import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 import { formatTitle } from "@/lib/utils/formatTitle";
 
 const DownloadVerdictPdfButton = dynamic(
@@ -564,7 +558,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
 
  return (
  <PageLayout>
-  <style>{HMI_CSS}</style>
+  {/* HMI_CSS removed - consolidated */}
   <section className="sc-craft-section">
   <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
   {loading ? (
@@ -642,7 +636,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    <ToolSafeReviewState slug={runtimeSlug} locale={locale} findings={runtimeTrust.findings} />
   ) : showSchemaPilot ? (
   <>
-  <PremiumSchemaToolForm schema={schemaPilot!} />
+  <UniversalIndustrialDecisionForm schema={buildSuperV4SchemaFromPremiumSchema(schemaPilot! as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
   </>
   ) : (
   <>
@@ -711,29 +705,30 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
                  );
                })}
              </>
-           ) : usePremiumSmartForm ? (
-             <div className="group">
-               <div className="group-head">
-                 <span className="led ok group-led" />
-                 <span className="group-letter">SMART</span>
-                 <span className="group-title">Smart Form Inputs</span>
-                 <span className="group-count">AUTO</span>
-               </div>
-               <div className="fields">
-                 <div className="field span">
-                   <DynamicSmartFormPilot
-                     slug={runtimeSlug}
-                     values={values}
-                     errors={errors}
-                     onChange={handleChange}
-                     onSubmit={handleSubmit}
-                     calculateLabel={submitText}
-                     isCalculating={isCalculating}
-                     disabled={submitDisabled}
-                   />
-                 </div>
-               </div>
-             </div>
+          ) : usePremiumSmartForm ? (
+            <div className="group">
+              <div className="group-head">
+                <span className="led ok group-led" />
+                <span className="group-letter">INPUTS</span>
+                <span className="group-title">Calculation Inputs</span>
+                <span className="group-count">AUTO</span>
+              </div>
+              <div className="fields">
+                {visiblePaidInputs.map((input, idx) => {
+                  const value = values[input.key] ?? (input.type === "select" ? "" : 0);
+                  return (
+                    <div key={input.key}>
+                      <PremiumToolInputField
+                        input={input}
+                        value={value}
+                        error={errors[input.key]}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
            ) : (
              <>
                {visiblePaidInputs.map((input, idx) => {

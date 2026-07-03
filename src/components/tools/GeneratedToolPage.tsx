@@ -3,7 +3,8 @@
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { CarbonFootprintReport } from "@/components/tools/CarbonFootprintReport";
-import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
+import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
+import { buildSuperV4SchemaFromPremiumSchema, UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
 import { EOQOptimizer } from "@/components/tools/EOQOptimizer";
 import { GeneratedToolExportActions } from "@/components/tools/GeneratedToolExportActions";
 import { QuoteBuilder } from "@/components/tools/QuoteBuilder";
@@ -85,6 +86,12 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
   const primaryKey = resolvePrimaryOutputKey(schema);
   const hasDiagram = Boolean(diagramSrc);
   const primaryUnit = resolvePrimaryOutputUnit(schema);
+
+  // Bridge GeneratedToolSchema to SuperV4Schema for UniversalIndustrialDecisionForm
+  const superV4Schema = useMemo(() => {
+    const premiumSchema = adaptLegacyJsonToPremiumSchema(schema, slug);
+    return buildSuperV4SchemaFromPremiumSchema(premiumSchema as any);
+  }, [schema, slug]);
 
   const primaryValue = useMemo(() => {
     if (!result) {
@@ -225,25 +232,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
       </div>
 
       <div className="sc-form-shell sc-industrial-form sc-ledger-panel sc-industrial-panel rounded-lg p-4 sm:p-5">
-        <DynamicToolForm
-          slug={slug}
-          schema={schema}
-          zodSchema={zodSchema}
-          toolTitle={title}
-          primaryOutputKey={primaryKey}
-          result={result}
-          onSubmit={handleCalculate}
-          breakdown={result?.breakdown ?? null}
-          breakdownInputs={lastInputs}
-          breakdownLabelMap={schema.outputs.breakdown}
-          scenarioComparison={{
-            calculateFn: (values) => runGeneratedToolCalculation(calculator, values),
-            primaryOutputKey: primaryKey,
-            enabled: schema.premiumFeatures.some((feature) =>
-              /scenario|what-if/i.test(feature),
-            ),
-          }}
-        />
+        <UniversalIndustrialDecisionForm schema={superV4Schema} />
       </div>
 
       {result ? (

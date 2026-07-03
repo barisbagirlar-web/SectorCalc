@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-console.log("=== PremiumSchemaToolForm KULLANAN ARAÇLAR (Premium Schema) ===");
+console.log("=== UniversalIndustrialDecisionForm KULLANAN ARAÇLAR (Premium Schema) ===");
 const premiumDir = "src/lib/features/premium-schema/schemas";
 const premiumFiles = fs.readdirSync(premiumDir).filter(f => f.endsWith('.ts') && f !== 'index.ts');
 const premiumSlugs = [];

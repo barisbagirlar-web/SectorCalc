@@ -10,7 +10,6 @@ import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySect
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
 import { getPremiumCatalogCategoryDetail } from "@/lib/features/premium/premium-category-resolver";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
-import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
 import { FreeToolPremiumCalculator } from "@/components/tools/FreeToolPremiumCalculator";
 import type { PremiumInputDef, PremiumFormulaRow, PremiumValidationRule, PremiumResultRow, PremiumWarning } from "@/components/tools/FreeToolPremiumCalculator";
 import { stripLocalePrefix } from "@/i18n/locales";
@@ -34,21 +33,18 @@ import { riskLevelToStatus, STATUS_TEXT_CLASS } from "@/lib/ui-shared/ui/status-
 import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import {
- REVENUE_EVENTS,
- trackRevenueEvent,
+  REVENUE_EVENTS,
+  trackRevenueEvent,
 } from "@/lib/infrastructure/analytics/revenue-events";
 import {
- areFreeToolInputsValid,
- calculateFreeToolResult,
- type FreeToolInputValues,
- type FreeToolResult,
+  areFreeToolInputsValid,
+  calculateFreeToolResult,
+  type FreeToolInputValues,
+  type FreeToolResult,
 } from "@/lib/features/tools/free-tool-results";
 import type { SmartFormUiBridgeManifest } from "@/lib/features/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 import { type RevenueTool, type RevenueToolInput } from "@/lib/features/tools/revenue-tools";
 import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
-import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
-import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
-import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/features/formula-governance/runtime-validation/free-full-loop-bridge";
 import { isFreeFullLoopRuntimeSlug } from "@/lib/features/formula-governance/runtime-validation/full-loop-runtime-registry";
 import {
@@ -57,7 +53,6 @@ import {
 } from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
 import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
-import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 import { formatTitle } from "@/lib/utils/formatTitle";
 
 
@@ -407,7 +402,7 @@ export function FreeToolPage({
 
  return (
  <PageLayout>
-  <style>{HMI_CSS}</style>
+  {/* HMI_CSS removed - consolidated to UniversalIndustrialDecisionForm */}
   <section className="sc-craft-section">
   <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
    {surfaceTier === "premium" && (
@@ -557,10 +552,14 @@ export function FreeToolPage({
          <div className="card readout">
            <h3>VALIDATION SUMMARY</h3>
            <div className="readout">
-             <SmartFormValidationSummary
-               title={tUi("analysisBlockedTitle")}
-               blockers={fullLoopResult.blockers}
-             />
+             <div className="sv4-section sv4-section-warnings" role="alert">
+               <h4>{tUi("analysisBlockedTitle")}</h4>
+               {(fullLoopResult.blockers as string[]).map((b: string, i: number) => (
+                 <div key={i} className="sv4-warning-card sv4-warning-critical">
+                   <div className="sv4-warning-message">{b}</div>
+                 </div>
+               ))}
+             </div>
            </div>
          </div>
        ) : null}

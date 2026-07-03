@@ -36,12 +36,7 @@ import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 import { resolveFreeToolDisplayTitle } from "@/lib/infrastructure/i18n/free-tool-form-i18n";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
-import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
-import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
-import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
-import { FreeToolForm } from "@/components/tools/FreeToolForm";
-import type { PremiumInputDef, PremiumResultRow } from "@/components/tools/FreeToolForm";
 import {
   CalculatorCurrencyPrefix,
   CalculatorUnitSelect,
@@ -52,7 +47,6 @@ import {
   buildSmartFormInitialValues,
   validateSmartFormFieldValues,
 } from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
-import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 import { formatTitle } from "@/lib/utils/formatTitle";
 
 function buildInitialValues(tool: FreeTrafficTool): FreeTrafficInputValues {
@@ -323,7 +317,7 @@ export function FreeTrafficToolPage({
 
   return (
     <PageLayout>
-      <style>{HMI_CSS}</style>
+      {/* HMI_CSS removed - consolidated */}
       <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide">
           {surfaceTier === "premium" && (
@@ -517,10 +511,12 @@ export function FreeTrafficToolPage({
                   <div className="card readout">
                     <h3>VALIDATION</h3>
                     <div className="readout">
-                      <SmartFormValidationSummary
-                        title={t("tool.resultBlocked")}
-                        blockers={fullLoopResult.blockers}
-                      />
+                      <div className="sv4-warning-card sv4-warning-critical" role="alert">
+                        <div className="sv4-warning-message">{t("tool.resultBlocked")}</div>
+                        {(fullLoopResult.blockers as string[]).map((b: string, i: number) => (
+                          <div key={i} className="sv4-warning-why">{b}</div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ) : null}

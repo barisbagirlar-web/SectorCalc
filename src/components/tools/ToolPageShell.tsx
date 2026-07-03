@@ -16,18 +16,17 @@ import {
   CALC_TOOL_PAGE_CHROME_CLASS,
   CALC_TOOL_PAGE_CLASS,
 } from "@/lib/ui-shared/layout/calculation-tool-mobile-layout";
-import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
+import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
+import { GeneratedToolFormClient } from "@/components/tools/GeneratedToolFormClient";
 
 interface ToolPageShellProps {
   definition: ToolDefinition;
   locale: string;
 }
 
-import { DynamicToolFormWrapper } from "@/lib/features/dynamic-form-v2";
 import { ToolFeedbackTrigger } from "@/components/tools/ToolFeedbackTrigger";
 import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
-import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
 
 export async function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShellProps) {
   const definition = applyRevenueToolDisplay(rawDefinition);
@@ -52,7 +51,6 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
 
   return (
     <PageLayout>
-      <style>{HMI_CSS}</style>
       <div id="sector-product">
         <div className={CALC_TOOL_PAGE_CLASS}>
           {!isPremium && (
@@ -89,7 +87,7 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
                   </div>
                   {schema ? (
                     <div className="wrap" style={{ padding: "20px 0" }}>
-                      <DynamicToolFormWrapper schema={schema} slug={definition.slug} showMasthead={false} />
+                      <GeneratedToolFormClient schema={schema} slug={definition.slug} />
                     </div>
                   ) : (
                     <div className="p-8 border border-red-500 text-red-700 bg-red-50">
@@ -121,7 +119,7 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
           ) : (
             <div className="wrap" style={{ padding: "20px 0" }}>
               {schema ? (
-                <DynamicToolFormWrapper schema={schema} slug={definition.slug} showMasthead={false} />
+                <GeneratedToolFormClient schema={schema} slug={definition.slug} />
               ) : (
                 <div className="card" style={{ borderLeft: "3px solid var(--danger)", padding: 20, color: "var(--ink)" }}>
                   Form schema could not be loaded for this tool.

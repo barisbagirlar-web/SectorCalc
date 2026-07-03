@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 import { useTranslations } from "@/lib/i18n-stub";
-import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
+import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
+import { buildSuperV4SchemaFromPremiumSchema, UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
 import { extractShopRateSavedRates } from "@/lib/features/shop-rate/extract-rates";
 import { runGeneratedToolCalculation } from "@/lib/features/generated-tools/use-tool-schema";
 import type { ShopRateSavedRates } from "@/lib/features/shop-rate/types";
@@ -91,13 +92,11 @@ export function ShopRateCalculatorModal({
               {error ?? t("loadError")}
             </p>
           ) : (
-            <DynamicToolForm
-              slug={SHOP_RATE_MODAL_SLUG}
-              schema={schema}
-              zodSchema={zodSchema}
-              layout="standard"
-              calculateLabel={t("applyToForm")}
-              onSubmit={handleSubmit}
+            <UniversalIndustrialDecisionForm
+              schema={(() => {
+                const premium = adaptLegacyJsonToPremiumSchema(schema as any, SHOP_RATE_MODAL_SLUG);
+                return buildSuperV4SchemaFromPremiumSchema(premium as any);
+              })()}
             />
           )}
         </div>

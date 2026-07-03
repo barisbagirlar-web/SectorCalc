@@ -3,7 +3,7 @@ import path from 'path';
 
 let md = "# SectorCalc Form Kullanım Listesi\n\nBu dokümanda projede bulunan tüm hesaplama araçlarının hangi form motorunu kullandığı eksiksiz olarak listelenmiştir.\n\n";
 
-md += "## 1. PremiumSchemaToolForm Kullanan Araçlar (Premium Schema)\n\n";
+md += "## 1. UniversalIndustrialDecisionForm Kullanan Araçlar (Premium Schema)\n\n";
 md += "Bu araçlar `src/lib/features/premium-schema/schemas/` dizini altında tanımlanmıştır.\n\n";
 const premiumDir = "src/lib/features/premium-schema/schemas";
 const premiumFiles = fs.readdirSync(premiumDir).filter(f => f.endsWith('.ts') && f !== 'index.ts');

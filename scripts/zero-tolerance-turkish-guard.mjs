@@ -58,7 +58,7 @@ const ALLOWED_PATHS = [
 const ALLOWED_SOURCE_FILES = [
   "schema-loader.ts",
   "schema-loader-core.ts",
-  "PremiumSchemaToolForm.tsx",
+  "UniversalIndustrialDecisionForm.tsx",
 ];
 
 // Turkish ASCII words that are NOT allowed in schema labels/sectors

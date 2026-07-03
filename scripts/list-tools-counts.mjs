@@ -3,7 +3,7 @@ import path from 'path';
 
 const premiumDir = "src/lib/features/premium-schema/schemas";
 const premiumFiles = fs.readdirSync(premiumDir).filter(f => f.endsWith('.ts') && f !== 'index.ts');
-console.log(`PremiumSchemaToolForm Kullanan Araç Sayısı: ${premiumFiles.length}`);
+console.log(`UniversalIndustrialDecisionForm Kullanan Araç Sayısı: ${premiumFiles.length}`);
 
 const generatedDir = "generated/schemas";
 const generatedSlugs = [];
@@ -22,7 +22,7 @@ if (fs.existsSync(generatedDir)) {
 console.log(`GeneratedToolFormView Kullanan Araç Sayısı: ${generatedSlugs.length}`);
 
 // Yazdır
-console.log("\n=== PremiumSchemaToolForm Kullananlar (Örnek İlk 5) ===");
+console.log("\n=== UniversalIndustrialDecisionForm Kullananlar (Örnek İlk 5) ===");
 premiumFiles.slice(0, 5).forEach(f => console.log(f.replace('.ts', '')));
 
 console.log("\n=== GeneratedToolFormView Kullananlar (Örnek İlk 5) ===");

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
+import { UniversalIndustrialDecisionForm, buildSuperV4SchemaFromPremiumSchema } from "@/sectorcalc/pro-form";
 import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
@@ -100,7 +100,7 @@ export default async function PremiumGeneratedToolRoutePage({
   return (
     <PageLayout>
       {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
-      <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, resolvedSlug)} />
+      <UniversalIndustrialDecisionForm schema={buildSuperV4SchemaFromPremiumSchema(adaptLegacyJsonToPremiumSchema(schema as any, resolvedSlug) as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
     </PageLayout>
   );
 }

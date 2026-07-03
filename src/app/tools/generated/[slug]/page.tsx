@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "@/lib/i18n-stub";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
+import { UniversalIndustrialDecisionForm, buildSuperV4SchemaFromPremiumSchema } from "@/sectorcalc/pro-form";
 import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import {
@@ -161,7 +161,7 @@ export default async function GeneratedToolRoutePage({
             </Link>
           </p>
         </div>
-        <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, slug)} />
+        <UniversalIndustrialDecisionForm schema={buildSuperV4SchemaFromPremiumSchema(adaptLegacyJsonToPremiumSchema(schema as any, slug) as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
       </article>
     </PageLayout>
   );

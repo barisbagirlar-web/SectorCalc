@@ -27,7 +27,10 @@
     "generate:sitemap-static": "tsx scripts/generate-sitemap-static.ts",
     "validate:translations": "node scripts/validate-schema-translations.mjs",
     "prebuild": "node scripts/zero-tolerance-turkish-guard.mjs && npm run guard:i18n-keys && npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && npm run validate:translations && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts",
-    "audit:runtime": "tsx scripts/audit-premium-runtime.ts"
+    "audit:runtime": "tsx scripts/audit-premium-runtime.ts",
+    "test:v5-form": "vitest run src/sectorcalc/pro-form/__tests__/",
+    "test:v5-runtime": "vitest run src/sectorcalc/pro-runtime/__tests__/",
+    "guard:v5-integration": "npm run test:v5-form && npm run test:v5-runtime && npm run guard:root-only"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

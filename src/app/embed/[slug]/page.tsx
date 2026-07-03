@@ -8,7 +8,7 @@ import {
 } from "@/lib/features/generated-tools/schema-loader";
 import { resolveGeneratedToolTitle } from "@/lib/features/generated-tools/resolve-tool-display";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
+import { UniversalIndustrialDecisionForm, buildSuperV4SchemaFromPremiumSchema } from "@/sectorcalc/pro-form";
 import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
 
 type EmbedRouteParams = {
@@ -64,7 +64,7 @@ export default async function EmbedToolPage({
       className="mx-auto max-w-4xl px-3 py-4"
       data-embed-calculator={slug}
     >
-      <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, slug)} />
+      <UniversalIndustrialDecisionForm schema={buildSuperV4SchemaFromPremiumSchema(adaptLegacyJsonToPremiumSchema(schema as any, slug) as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
     </div>
   );
 }
