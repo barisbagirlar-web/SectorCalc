@@ -261,12 +261,36 @@ export const FALLBACK_MAP: Record<string, string> = {
   "generatedToolCatalog.allCategories": "← Back to all categories",
 
   // ─── About ────────────────────────────────────────────────────────
+  "aboutPage.hero.eyebrow": "About SectorCalc",
   "aboutPage.hero.title": "About SectorCalc",
   "aboutPage.hero.lead":
     "We are building the world's most comprehensive platform for sector-specific engineering calculations.",
   "aboutPage.seoTitle": "About Us | SectorCalc",
   "aboutPage.seoDescription":
     "Learn about SectorCalc's mission, team, and approach to industrial calculation tools.",
+  "aboutPage.why.title": "Why SectorCalc Exists",
+  "aboutPage.why.body":
+    "Operational and engineering calculations are the bedrock of industrial decisions, yet they are often trapped in fragmented spreadsheets, legacy macros, or complex ERP systems. SectorCalc exists to democratize and standardize these calculation models, bringing auditable precision, speed, and trust directly to Web-based decision support.",
+  "aboutPage.what.title": "What SectorCalc Is",
+  "aboutPage.what.body":
+    "SectorCalc is an engineering-grade industrial calculation and decision support platform. We provide instant sector-specific checks and verified premium reports, helping consultants, process engineers, and operations managers expose hidden inefficiencies and calculate business cases with verified mathematical models.",
+  "aboutPage.problem.title": "The Problem We Solve",
+  "aboutPage.problem.body":
+    "Hidden operational losses—from energy waste and manufacturing bottlenecks to chemical dosage errors and logistics inefficiencies—silently drain corporate margins. We solve this by translating complex VDI, ISO, and DIN engineering standards into clear, actionable inputs, enabling rapid loss detection and audit-proof verification.",
+  "aboutPage.how.title": "How Our System Works",
+  "aboutPage.how.body":
+    "Our platform leverages a dual-tier approach: browser-based free tools for rapid initial checks, and premium universal analyzers that run comprehensive sensitivity analyses, uncertainty models, and risk factor reports. Every calculation generates a unique, verifiable trace hash to ensure compliance and prevent tampering.",
+  "aboutPage.different.title": "How We Are Different",
+  "aboutPage.different.body":
+    "Unlike generic calculator websites or high-cost enterprise software, SectorCalc combines deep domain physics with modern web usability. We do not require long integration cycles or store sensitive operational data. We deliver instant, peer-reviewed accuracy with complete methodology transparency.",
+  "aboutPage.who.title": "Who It Is Built For",
+  "aboutPage.who.body":
+    "We build for industrial consultants, process engineers, energy auditors, facilities managers, and operations leaders who need to justify investment decisions, verify vendor claims, or optimize resource efficiency with verified math, not guesswork.",
+  "aboutPage.building.title": "What We Are Building",
+  "aboutPage.building.body":
+    "We are building the definitive global standard for sector-specific calculation intelligence. By expanding our catalog across 27 industrial sectors and continuous curation by our academic advisory board, we are creating a trusted utility for global engineering verification.",
+  "aboutPage.manifesto.primary": "A platform to expose hidden losses,",
+  "aboutPage.manifesto.secondary": "and transform computation into reliable decision support.",
 
   // ─── How It Works ─────────────────────────────────────────────────
   "howItWorks.meta.title": "How It Works | SectorCalc",

@@ -6,6 +6,26 @@ import { BRAND_ASSETS } from "@/config/brand";
 export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
   return (
     <>
+      {!hideCta && (
+        <section className="footer-cta gradient">
+          <div className="content-wrapper">
+            <h2 className="cta-text">
+              Ready to streamline your calculations?
+            </h2>
+            <p className="description">
+              Start with a free sector check or unlock the full premium library of calculators and decision reports.
+            </p>
+            <div className="cta-buttons">
+              <Link href="/free-tools" className="btn btn-primary">
+                Browse Free Tools
+              </Link>
+              <Link href="/pricing" className="btn btn-secondary">
+                View Pricing
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       <footer className="site-footer">
         <div className="footer-container">
@@ -44,6 +64,9 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                 <li>
                   <Link href="/how-it-works">How it Works</Link>
                 </li>
+                <li>
+                  <Link href="/verify">Report Verification</Link>
+                </li>
               </ul>
             </div>
 
@@ -65,6 +88,9 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                 <li>
                   <Link href="/industries">Industry Data</Link>
                 </li>
+                <li>
+                  <Link href="/beta-partner">Beta Partner Program</Link>
+                </li>
               </ul>
             </div>
 
@@ -72,7 +98,10 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
               <h4 className="footer-heading">Company</h4>
               <ul className="footer-links">
                 <li>
-                  <Link href="/about">About Us</Link>
+                  <Link href="/about-us">About Us</Link>
+                </li>
+                <li>
+                  <Link href="/about">Our Manifesto</Link>
                 </li>
                 <li>
                   <Link href="/trust">Trust & Security</Link>
@@ -84,7 +113,10 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                   <Link href="/terms">Terms of Service</Link>
                 </li>
                 <li>
-                  <Link href="/disclaimer">Disclaimer</Link>
+                  <Link href="/refund-policy">Refund Policy</Link>
+                </li>
+                <li>
+                  <Link href="/disclaimer">Legal Disclaimer</Link>
                 </li>
               </ul>
             </div>
@@ -130,6 +162,12 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
               </span>
               <span className="origin">
                 Stuttgart, Germany · Global Engineering Standards
+              </span>
+              <span className="sep" aria-hidden="true">
+                ·
+              </span>
+              <span>
+                <a href="mailto:hello@sectorcalc.com" style={{ textDecoration: "none", color: "inherit" }} className="footer-email-link">hello@sectorcalc.com</a>
               </span>
             </div>
           </div>
@@ -223,6 +261,8 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             text-overflow: ellipsis;
             max-width: 100%;
           }
+          .bottom-row-legal a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+          .bottom-row-legal a:hover { opacity: 1; color: var(--accent-terracotta); text-decoration: underline; }
 
           .sep { opacity: 0.3; user-select: none; }
           .origin { letter-spacing: 0.02em; }
