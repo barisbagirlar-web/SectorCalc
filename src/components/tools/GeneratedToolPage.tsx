@@ -230,7 +230,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
       </div>
 
       <div className="sc-form-shell sc-industrial-form sc-ledger-panel sc-industrial-panel rounded-lg p-4 sm:p-5">
-        <UniversalIndustrialDecisionForm schema={superV4Schema} />
+        <UniversalIndustrialDecisionForm schema={superV4Schema} toolKey={slug} />
       </div>
 
       {result ? (

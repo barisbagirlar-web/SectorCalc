@@ -197,8 +197,8 @@ export function universalFormMachineReducer(
         expandedGroups[group.id] = !group.advanced;
       }
 
+      // V5.3.1: Full state reset on schema change — no stale data from previous tool
       return {
-        ...state,
         schemaState: {
           schema: event.schema,
           schema_hash: event.schema_hash ?? null,
@@ -206,13 +206,20 @@ export function universalFormMachineReducer(
           validation_status: "idle",
           validation_errors: [],
         },
+        profileModeState: state.profileModeState,
         rawInputState,
         selectedUnitState,
+        normalizedPreviewState: { items: [], errors: [] },
         evidenceState,
+        touchedState: { touched_fields: {}, dirty_fields: {} },
+        validationState: { client_precheck_errors: [], server_blockers: [], semantic_warnings: [] },
+        referenceRangeState: { markers: [] },
+        blockerState: { blockers: [], can_execute: false },
         advancedDisclosureState: {
-          ...state.advancedDisclosureState,
           expanded_groups: expandedGroups,
+          advanced_visible: false,
         },
+        scenarioState: { request: null, result: null },
         executionState: "schema_loading",
         serverResponseState: { response: null },
         auditSealState: { seal: null },

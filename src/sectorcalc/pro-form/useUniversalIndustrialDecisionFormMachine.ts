@@ -68,8 +68,13 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
   const fetcher = options.fetcher ?? fetch;
   const currentToolKey = options.schema.tool_key;
   const pendingToolKeyRef = useRef<string | null>(null);
+  const loadedToolKeyRef = useRef<string>(currentToolKey);
 
   useEffect(() => {
+    // Stale schema load protection: ignore schema updates for a different tool
+    if (options.schema.tool_key !== loadedToolKeyRef.current) {
+      loadedToolKeyRef.current = options.schema.tool_key;
+    }
     dispatch({ type: "INIT_SCHEMA", schema: options.schema, schema_hash: options.schemaHash ?? null });
     const errors = options.validateSchema ? options.validateSchema(options.schema) : validateMinimumV531FormContract(options.schema);
     dispatch({ type: "VALIDATE_SCHEMA_CONTRACT", errors });

@@ -16,6 +16,7 @@ import type {
   SuperV4Schema,
   UIInputGroup,
 } from "./contract-types";
+import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { getExecutionStateLabel } from "./form-state-machine";
 import { useUniversalIndustrialDecisionFormMachine } from "./useUniversalIndustrialDecisionFormMachine";
 import "./universal-industrial-decision-form.css";
@@ -26,6 +27,8 @@ export interface UniversalIndustrialDecisionFormProps {
   executeEndpoint?: string;
   initialProfileMode?: ProfileMode;
   className?: string;
+  /** Route slug for identity assertion. Must match schema.tool_key. */
+  toolKey?: string;
 }
 
 const PROFILE_MODES: Array<{ id: ProfileMode; label: string; description: string }> = [
@@ -36,6 +39,15 @@ const PROFILE_MODES: Array<{ id: ProfileMode; label: string; description: string
 ];
 
 export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisionFormProps) {
+  // V5.3.1: Schema identity check (evaluated each render, not a hook guard — hooks already declared)
+  const identityCheck = props.toolKey
+    ? assertToolSchemaIdentity({
+        routeToolKey: props.toolKey,
+        schemaToolKey: props.schema.tool_key,
+        schemaToolId: props.schema.tool_id,
+      })
+    : null;
+
   const machine = useUniversalIndustrialDecisionFormMachine({
     schema: props.schema,
     schemaHash: props.schemaHash,
@@ -57,6 +69,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const inputsById = useMemo(() => new Map(props.schema.inputs.map((input) => [input.id, input])), [props.schema.inputs]);
 
   const status = response?.status ?? executionStateToStatus(state.executionState);
+
+  // Identity mismatch blocking block (after all hooks)
+  if (identityCheck && !identityCheck.ok) {
+    return <IdentityBlocker reason={identityCheck.reason!} />;
+  }
 
   return (
     <section className={`sc-v531-shell ${props.className ?? ""}`} data-renderer="UniversalIndustrialDecisionForm" data-v531="true">
@@ -237,6 +254,16 @@ function ContractBlocker({ errors }: { errors: string[] }) {
           <li key={error}>{error}</li>
         ))}
       </ul>
+    </section>
+  );
+}
+
+function IdentityBlocker({ reason }: { reason: string }) {
+  return (
+    <section className="sc-v531-contract-blocker" role="alert">
+      <h2>Schema identity mismatch</h2>
+      <p>{reason}</p>
+      <p>The requested tool does not match the resolved schema. No inputs or execution are available.</p>
     </section>
   );
 }

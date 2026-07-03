@@ -10,6 +10,8 @@
 //   - Invalid schemas are never stored.
 //   - Unknown tools do not poison the cache.
 //   - Hash/version changes produce a new key (natural invalidation).
+//   - Every cache return verifies schema.tool_key === requestedToolKey.
+//   - Cached schemas are frozen to prevent mutation across requests.
 
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
@@ -17,10 +19,11 @@ import { getGeneratedToolSchema, listGeneratedToolSchemaSlugs } from "@/lib/feat
 import { buildIndustrialFreeToolSchema, isIndustrialFreeToolSlug } from "@/lib/features/tools/industrial-free-schema-factory";
 import { industrialFormulaTools } from "@/lib/features/tools/revenue-tools-industrial-formulas";
 import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter";
+import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 
 export type ApprovedSchemaResult =
   | { ok: true; schema: SuperV4Schema; source: "generated_free" | "industrial_free" }
-  | { ok: false; reason: "SCHEMA_NOT_FOUND" | "VALIDATION_FAILED"; errors: string[] };
+  | { ok: false; reason: "SCHEMA_NOT_FOUND" | "VALIDATION_FAILED" | "SCHEMA_IDENTITY_MISMATCH"; errors: string[] };
 
 // ── Server-side schema cache ─────────────────────────────────────────────
 // Module-scoped, never imported by client components.
@@ -37,7 +40,6 @@ const MAX_CACHE_SIZE = 500;
 
 function trimCache(): void {
   if (schemaCache.size <= MAX_CACHE_SIZE) return;
-  // Remove oldest entries (Map iteration order is insertion order)
   const toDelete = schemaCache.size - MAX_CACHE_SIZE;
   let deleted = 0;
   for (const key of schemaCache.keys()) {
@@ -48,7 +50,6 @@ function trimCache(): void {
 }
 
 function computeSchemaHash(schema: SuperV4Schema): string {
-  // Deterministic hash from key fields that define the schema contract
   const payload = [
     schema.tool_id,
     schema.metadata?.schema_version || "",
@@ -84,12 +85,20 @@ function cacheKey(toolKey: string, schema: SuperV4Schema): string {
  * Every returned schema is validated against the strict V5.3.1 contract.
  * Validated schemas are cached server-side. Cache key includes schema version + hash,
  * so version/hash changes create a new key and invalidate naturally.
+ *
+ * Identity invariant: every cache return verifies schema.tool_key === requestedToolKey.
+ * Cached schemas are frozen to prevent cross-request mutation.
  */
 export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult {
-  // 1. Try cache first (fast path)
-  const cacheKeyStr = toolKey; // partial key; full key computed after schema built
-  // We can only cache after validation, so warm cache on first resolve.
-  // For lookup we iterate since we don't have the full key yet.
+  if (!toolKey || typeof toolKey !== "string") {
+    return {
+      ok: false,
+      reason: "SCHEMA_NOT_FOUND",
+      errors: [`Invalid tool key: ${toolKey}`],
+    };
+  }
+
+  const normalizedKey = toolKey.trim();
 
   // Helper: build and validate a SuperV4 schema, cache if valid
   function buildAndCache(
@@ -99,12 +108,13 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     const superV4 = buildFn();
     const validation = validateSuperV4Schema(superV4);
     if (validation.ok) {
-      const key = cacheKey(toolKey, validation.schema);
+      const frozen = freezeSchemaGuard(validation.schema);
+      const key = cacheKey(normalizedKey, frozen);
       if (!schemaCache.has(key)) {
-        schemaCache.set(key, { schema: validation.schema, source });
+        schemaCache.set(key, { schema: frozen, source });
         trimCache();
       }
-      return { ok: true, schema: validation.schema, source };
+      return { ok: true, schema: frozen, source };
     }
     return {
       ok: false,
@@ -115,26 +125,37 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
 
   // Check cache by iterating (fast path for previously cached schemas)
   for (const [key, entry] of schemaCache.entries()) {
-    if (key.startsWith(`${toolKey}:`)) {
+    if (key.startsWith(`${normalizedKey}:`)) {
+      // Identity invariant: verify cached schema.tool_key matches requested key
+      const identityCheck = assertToolSchemaIdentity({
+        routeToolKey: normalizedKey,
+        schemaToolKey: entry.schema.tool_key,
+        schemaToolId: entry.schema.tool_id,
+      });
+      if (!identityCheck.ok) {
+        // Cache poison detected — remove bad entry and fall through to rebuild
+        schemaCache.delete(key);
+        continue;
+      }
       return { ok: true, schema: entry.schema, source: entry.source };
     }
   }
 
   // 2. Generated Free Tool schema
-  const genSchema = getGeneratedToolSchema(toolKey);
+  const genSchema = getGeneratedToolSchema(normalizedKey);
   if (genSchema) {
     return buildAndCache(
-      () => generatedToolSchemaToSuperV4Schema(genSchema, toolKey),
+      () => generatedToolSchemaToSuperV4Schema(genSchema, normalizedKey),
       "generated_free",
     );
   }
 
   // 3. Industrial Free Tool schema builder
-  if (isIndustrialFreeToolSlug(toolKey)) {
-    const indSchema = buildIndustrialFreeToolSchema(toolKey);
+  if (isIndustrialFreeToolSlug(normalizedKey)) {
+    const indSchema = buildIndustrialFreeToolSchema(normalizedKey);
     if (indSchema) {
       return buildAndCache(
-        () => generatedToolSchemaToSuperV4Schema(indSchema, toolKey),
+        () => generatedToolSchemaToSuperV4Schema(indSchema, normalizedKey),
         "industrial_free",
       );
     }
@@ -144,7 +165,7 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   return {
     ok: false,
     reason: "SCHEMA_NOT_FOUND",
-    errors: [`No schema found for tool key: ${toolKey}`],
+    errors: [`No schema found for tool key: ${normalizedKey}`],
   };
 }
 

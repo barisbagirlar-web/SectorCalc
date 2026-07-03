@@ -160,7 +160,7 @@ export default async function GeneratedToolRoutePage({
             </Link>
           </p>
         </div>
-        <UniversalIndustrialDecisionForm schema={generatedToolSchemaToSuperV4Schema(schema, slug)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
+        <UniversalIndustrialDecisionForm schema={generatedToolSchemaToSuperV4Schema(schema, slug)} toolKey={slug} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
       </article>
     </PageLayout>
   );

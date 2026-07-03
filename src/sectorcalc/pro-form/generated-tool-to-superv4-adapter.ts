@@ -604,7 +604,11 @@ export function generatedToolSchemaToSuperV4Schema(
       state_domains: [],
       state_transitions: [],
       execute_request_contract: {},
-      execute_response_contract: {},
+      execute_response_contract: {
+        redaction_status: "REDACTION_NOT_REQUIRED",
+        status: "OK",
+        pipeline_state: "init",
+      },
     },
     precision_policy: {
       default_significant_digits: 4,
@@ -673,6 +677,19 @@ export function generatedToolSchemaToSuperV4Schema(
         include_formula_version: true,
       },
       redaction_status: "PUBLIC_SAFE_REDACTED",
+      seal_fields: [
+        "tool_id",
+        "tool_key",
+        "schema_version",
+        "formula_version",
+        "runtime_version",
+        "input_hash",
+        "normalized_input_hash",
+        "output_hash",
+        "proof_pack_hash",
+        "executed_at",
+        "redaction_status",
+      ],
     },
     export_contract: {
       enabled: false,

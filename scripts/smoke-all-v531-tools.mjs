@@ -4,6 +4,8 @@
  *
  * Tests every Free tool for: schema resolution, strict validation, execution path.
  * Also validates cache behavior: first resolve, cached resolve, consistency.
+ * V5.3.1 identity check: requestedToolKey === resolved schema.tool_key
+ * V5.3.1 contract check: execute_response_contract.redaction_status exists
  */
 
 import { readFileSync, existsSync, readdirSync, writeFileSync, unlinkSync } from "node:fs";
@@ -44,10 +46,6 @@ function runBulkValidation(slugs) {
   const scriptPath = path.join(ROOT, "_smoke-validate-temp.ts");
   const slugJson = JSON.stringify(slugs);
 
-  // Write a temp TS file that outputs JSON validation results to a temp file
-  // First pass: direct validation (schema adapter)
-  // Second pass: via cached resolver (resolveApprovedToolSchema)
-  // Cache stats output
   const code = [
     `import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";`,
     `import { buildIndustrialFreeToolSchema, isIndustrialFreeToolSlug } from "@/lib/features/tools/industrial-free-schema-factory";`,
@@ -57,7 +55,7 @@ function runBulkValidation(slugs) {
     `import { writeFileSync } from "node:fs";`,
     ``,
     `const slugs: string[] = ${slugJson};`,
-    `const results: Record<string,{ok:boolean;missing?:boolean;errors:string[];cachedOk?:boolean;cacheHit?:boolean}> = {};`,
+    `const results: Record<string,{ok:boolean;missing?:boolean;errors:string[];cachedOk?:boolean;cacheHit?:boolean;identityOk?:boolean;contractOk?:boolean}> = {};`,
     ``,
     `// First pass: direct validation`,
     `for (const slug of slugs) {`,
@@ -69,28 +67,41 @@ function runBulkValidation(slugs) {
     `  try {`,
     `    const sv4 = generatedToolSchemaToSuperV4Schema(gen, slug);`,
     `    const v = validateSuperV4Schema(sv4);`,
-    `    results[slug] = v.ok ? { ok: true, errors: [] } : { ok: false, errors: v.errors };`,
+    `    if (v.ok) {`,
+    `      // V5.3.1: Schema identity check - requested slug === schema.tool_key`,
+    `      const identityOk = sv4.tool_key === slug;`,
+    `      // V5.3.1: Redaction status contract check`,
+    `      const redactionStatus = sv4.form_runtime_binding.execute_response_contract?.redaction_status;`,
+    `      const contractOk = typeof redactionStatus === "string" && redactionStatus.length > 0;`,
+    `      results[slug] = { ok: true, errors: [], identityOk, contractOk };`,
+    `    } else {`,
+    `      results[slug] = { ok: false, errors: v.errors, identityOk: false, contractOk: false };`,
+    `    }`,
     `  } catch (error) {`,
-    `    results[slug] = { ok: false, errors: [(error as Error).message] };`,
+    `    results[slug] = { ok: false, errors: [(error as Error).message], identityOk: false, contractOk: false };`,
     `  }`,
     `}`,
     ``,
     `// Second pass: via cached resolver`,
-    `const cacheResults: Record<string,boolean> = {};`,
+    `const cacheResults: Record<string,{ok:boolean;identityOk:boolean}> = {};`,
     `for (const slug of slugs) {`,
     `  const r = resolveApprovedToolSchema(slug);`,
-    `  cacheResults[slug] = r.ok;`,
+    `  if (r.ok) {`,
+    `    const identityOk = r.schema.tool_key === slug;`,
+    `    cacheResults[slug] = { ok: true, identityOk };`,
+    `  } else {`,
+    `    cacheResults[slug] = { ok: false, identityOk: false };`,
+    `  }`,
     `}`,
     ``,
-    `// Check cache stats`,
     `const stats = getSchemaCacheStats();`,
     ``,
-    `// Tag results with cache info`,
     `for (const slug of slugs) {`,
     `  const r = results[slug];`,
     `  if (!r) continue;`,
-    `  r.cachedOk = cacheResults[slug] === true;`,
-    `  r.cacheHit = r.ok && cacheResults[slug];`,
+    `  r.cachedOk = cacheResults[slug]?.ok === true;`,
+    `  r.cacheHit = r.ok && cacheResults[slug]?.ok;`,
+    `  r.cacheIdentityOk = cacheResults[slug]?.identityOk === true;`,
     `}`,
     `results.__cacheStats__ = { size: stats.size, keys: stats.keys };`,
     `writeFileSync("${OUTPUT_FILE.replace(/\\/g, "\\\\")}", JSON.stringify(results), "utf-8");`,
@@ -108,7 +119,6 @@ function runBulkValidation(slugs) {
     // tsx error — check if output file was still written
   }
 
-  // Read output file
   try {
     const output = readFileSync(OUTPUT_FILE, "utf-8");
     return JSON.parse(output);
@@ -125,6 +135,8 @@ const results = {
   SCHEMA_VALID_REAL_EXECUTION: 0,
   SCHEMA_VALID_REVIEW_MODULE_MISSING: 0,
   SCHEMA_VALID_BLOCKED_INVALID_TEST_INPUT: 0,
+  SCHEMA_IDENTITY_MISMATCH_FAIL: 0,
+  SCHEMA_CONTRACT_FAIL: 0,
   SCHEMA_INVALID_FAIL: 0,
   SCHEMA_MISSING_FAIL: 0,
   UNEXPECTED_EXECUTION_FAIL: 0,
@@ -151,7 +163,6 @@ console.log(`Total: ${allSlugs.length}\n`);
 
 const validationResults = runBulkValidation(allSlugs);
 
-// Extract cache stats
 const cacheStats = validationResults.__cacheStats__;
 delete validationResults.__cacheStats__;
 
@@ -182,6 +193,30 @@ for (const slug of allSlugs) {
     continue;
   }
 
+  // V5.3.1: Schema identity check
+  if (v.identityOk === false) {
+    results.SCHEMA_IDENTITY_MISMATCH_FAIL++;
+    results.failures.push(`${slug}: schema.tool_key does not match requested slug`);
+    console.error(`  ID ${slug}: SCHEMA_IDENTITY_MISMATCH_FAIL`);
+    continue;
+  }
+
+  // V5.3.1: Cache identity check
+  if (v.cacheIdentityOk === false) {
+    results.SCHEMA_IDENTITY_MISMATCH_FAIL++;
+    results.failures.push(`${slug}: cached schema identity mismatch`);
+    console.error(`  ID ${slug}: CACHE_SCHEMA_IDENTITY_MISMATCH_FAIL`);
+    continue;
+  }
+
+  // V5.3.1: Redaction status contract check
+  if (v.contractOk === false) {
+    results.SCHEMA_CONTRACT_FAIL++;
+    results.failures.push(`${slug}: execute_response_contract.redaction_status is missing`);
+    console.error(`  CR ${slug}: SCHEMA_CONTRACT_FAIL (missing redaction_status)`);
+    continue;
+  }
+
   if (meta.type === "generated") {
     if (hasCalculatorModule(slug)) {
       results.SCHEMA_VALID_REAL_EXECUTION++;
@@ -200,6 +235,8 @@ console.log("\n\n=== RESULTS ===");
 console.log(`  SCHEMA_VALID_REAL_EXECUTION           : ${results.SCHEMA_VALID_REAL_EXECUTION}`);
 console.log(`  SCHEMA_VALID_REVIEW_MODULE_MISSING    : ${results.SCHEMA_VALID_REVIEW_MODULE_MISSING}`);
 console.log(`  SCHEMA_VALID_BLOCKED_INVALID_TEST_INPUT: ${results.SCHEMA_VALID_BLOCKED_INVALID_TEST_INPUT}`);
+console.log(`  SCHEMA_IDENTITY_MISMATCH_FAIL          : ${results.SCHEMA_IDENTITY_MISMATCH_FAIL}`);
+console.log(`  SCHEMA_CONTRACT_FAIL                   : ${results.SCHEMA_CONTRACT_FAIL}`);
 console.log(`  SCHEMA_INVALID_FAIL                   : ${results.SCHEMA_INVALID_FAIL}`);
 console.log(`  SCHEMA_MISSING_FAIL                   : ${results.SCHEMA_MISSING_FAIL}`);
 console.log(`  UNEXPECTED_EXECUTION_FAIL              : ${results.UNEXPECTED_EXECUTION_FAIL}`);
@@ -216,7 +253,9 @@ try { unlinkSync(OUTPUT_FILE); } catch {}
 const hasFail = results.SCHEMA_INVALID_FAIL > 0
   || results.SCHEMA_MISSING_FAIL > 0
   || results.UNEXPECTED_EXECUTION_FAIL > 0
-  || results.CACHE_CONSISTENCY_FAIL > 0;
+  || results.CACHE_CONSISTENCY_FAIL > 0
+  || results.SCHEMA_IDENTITY_MISMATCH_FAIL > 0
+  || results.SCHEMA_CONTRACT_FAIL > 0;
 
 if (results.failures.length > 0) {
   console.error("\nFAILURES:");
@@ -229,6 +268,6 @@ if (hasFail) {
   console.error("\nSMOKE FAILED\n");
   process.exit(1);
 } else {
-  console.log("\nSMOKE PASSED — All schemas valid, cache consistent\n");
+  console.log("\nSMOKE PASSED — All schemas valid, identity OK, contract OK, cache consistent\n");
   process.exit(0);
 }
