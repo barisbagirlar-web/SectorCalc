@@ -1,0 +1,491 @@
+// SectorCalc SuperV4 Universal Industrial Decision Form — React State Machine Hook V5.3.1
+// The public client performs unit preview and client precheck only. It never executes formulas.
+
+"use client";
+
+import { useCallback, useEffect, useMemo, useReducer } from "react";
+import type {
+  ExecuteRequest,
+  ExecuteResponse,
+  ProfileMode,
+  RedactionStatus,
+  SuperV4Input,
+  SuperV4Schema,
+} from "./contract-types";
+import {
+  createInitialUniversalFormState,
+  universalFormMachineReducer,
+  type EvidenceFieldState,
+  type NormalizedPreviewItem,
+  type UniversalFormMachineState,
+  type ValidationIssue,
+} from "./form-state-machine";
+
+export interface MachineOptions {
+  schema: SuperV4Schema;
+  schemaHash?: string | null;
+  initialProfileMode?: ProfileMode;
+  executeEndpoint?: string;
+  fetcher?: (url: string, init: RequestInit) => Promise<Response>;
+  validateSchema?: (schema: SuperV4Schema) => string[];
+}
+
+export interface MachineApi {
+  state: UniversalFormMachineState;
+  setProfileMode: (mode: ProfileMode) => void;
+  setInputValue: (inputId: string, value: string | number | boolean | null) => void;
+  setSelectedUnit: (inputId: string, unit: string) => void;
+  updateEvidence: (inputId: string, patch: Partial<EvidenceFieldState>) => void;
+  runClientPrecheck: () => ValidationIssue[];
+  submitServerExecution: () => Promise<void>;
+  resetInputs: () => void;
+  resetResultOnly: () => void;
+  toggleGroup: (groupId: string) => void;
+  setAdvancedVisible: (visible: boolean) => void;
+  normalizedPreview: NormalizedPreviewItem[];
+  blockers: ValidationIssue[];
+  canExecute: boolean;
+}
+
+const DEFAULT_ENDPOINT = "/api/pro-calculator/execute";
+
+const REDACTION_STATUSES: ReadonlySet<RedactionStatus> = new Set([
+  "PUBLIC_SAFE_REDACTED",
+  "INTERNAL_TRACE_RESTRICTED",
+  "REDACTION_NOT_REQUIRED",
+  "REDACTION_FAILED_BLOCKED",
+]);
+
+export function useUniversalIndustrialDecisionFormMachine(options: MachineOptions): MachineApi {
+  const [state, dispatch] = useReducer(
+    universalFormMachineReducer,
+    options.initialProfileMode ?? "engineering",
+    createInitialUniversalFormState,
+  );
+
+  const executeEndpoint = options.executeEndpoint ?? DEFAULT_ENDPOINT;
+  const fetcher = options.fetcher ?? fetch;
+
+  useEffect(() => {
+    dispatch({ type: "INIT_SCHEMA", schema: options.schema, schema_hash: options.schemaHash ?? null });
+    const errors = options.validateSchema ? options.validateSchema(options.schema) : validateMinimumV531FormContract(options.schema);
+    dispatch({ type: "VALIDATE_SCHEMA_CONTRACT", errors });
+  }, [options.schema, options.schemaHash, options.validateSchema]);
+
+  const normalizedPreview = useMemo(
+    () => buildNormalizedPreview(options.schema, state.rawInputState, state.selectedUnitState),
+    [options.schema, state.rawInputState, state.selectedUnitState],
+  );
+
+  const normalizedPreviewErrors = useMemo(
+    () => validateNormalizedPreview(options.schema, normalizedPreview),
+    [options.schema, normalizedPreview],
+  );
+
+  useEffect(() => {
+    dispatch({ type: "UPDATE_NORMALIZED_PREVIEW", items: normalizedPreview, errors: normalizedPreviewErrors });
+  }, [normalizedPreview, normalizedPreviewErrors]);
+
+  const runClientPrecheck = useCallback((): ValidationIssue[] => {
+    const issues = runV531ClientPrecheck(options.schema, state.rawInputState, state.selectedUnitState, state.evidenceState);
+    dispatch({ type: "RUN_CLIENT_PRECHECK", issues });
+    return issues;
+  }, [options.schema, state.evidenceState, state.rawInputState, state.selectedUnitState]);
+
+  const submitServerExecution = useCallback(async (): Promise<void> => {
+    const issues = runV531ClientPrecheck(options.schema, state.rawInputState, state.selectedUnitState, state.evidenceState);
+    const blockers = issues.filter((issue) => issue.severity === "BLOCKER" || issue.severity === "CRITICAL");
+    dispatch({ type: "RUN_CLIENT_PRECHECK", issues });
+
+    if (blockers.length > 0) {
+      dispatch({ type: "BLOCK_CLIENT_EXECUTION", blockers });
+      return;
+    }
+
+    dispatch({ type: "SUBMIT_SERVER_EXECUTION" });
+
+    const request: ExecuteRequest = {
+      tool_id: options.schema.tool_id,
+      tool_key: options.schema.tool_key,
+      schema_version: options.schema.metadata.schema_version,
+      raw_inputs: state.rawInputState,
+      selected_units: state.selectedUnitState,
+      output_units: {},
+      display_currency: null,
+      scenario_request: state.scenarioState.request,
+      user_profile_mode: state.profileModeState.mode,
+      evidence_state: serializeEvidenceState(state.evidenceState),
+      client_schema_hash: state.schemaState.schema_hash ?? undefined,
+    };
+
+    try {
+      const response = await fetcher(executeEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(request),
+      });
+
+      const payload = (await response.json()) as unknown;
+      const contractResult = parseExecuteResponse(payload);
+
+      if (!response.ok || !contractResult.ok) {
+        dispatch({
+          type: "RECEIVE_SERVER_ERROR",
+          message: contractResult.ok ? `Server execution failed with HTTP ${response.status}.` : contractResult.error,
+        });
+        return;
+      }
+
+      if (contractResult.response.redaction_status === "REDACTION_FAILED_BLOCKED") {
+        dispatch({
+          type: "RECEIVE_SERVER_ERROR",
+          message: "Public response redaction failed and was blocked by the V5.3.1 contract.",
+        });
+        return;
+      }
+
+      if (contractResult.response.status === "BLOCKED") {
+        dispatch({ type: "RECEIVE_SERVER_BLOCKERS", blockers: contractResult.response.warnings });
+      }
+
+      dispatch({ type: "RECEIVE_SERVER_RESPONSE", response: contractResult.response });
+    } catch (error) {
+      dispatch({
+        type: "RECEIVE_SERVER_ERROR",
+        message: error instanceof Error ? error.message : "Server execution failed with an unknown error.",
+      });
+    }
+  }, [executeEndpoint, fetcher, options.schema, state.evidenceState, state.profileModeState.mode, state.rawInputState, state.scenarioState.request, state.schemaState.schema_hash, state.selectedUnitState]);
+
+  const setProfileMode = useCallback((mode: ProfileMode) => {
+    dispatch({ type: "SET_PROFILE_MODE", mode });
+  }, []);
+
+  const setInputValue = useCallback((inputId: string, value: string | number | boolean | null) => {
+    dispatch({ type: "SET_INPUT_VALUE", input_id: inputId, value });
+  }, []);
+
+  const setSelectedUnit = useCallback((inputId: string, unit: string) => {
+    const input = options.schema.inputs.find((candidate) => candidate.id === inputId);
+    const currentValue = state.rawInputState[inputId];
+    const currentUnit = state.selectedUnitState[inputId];
+
+    if (input && typeof currentValue === "number" && currentUnit && unit !== currentUnit) {
+      const preserved = preserveDisplayQuantity(
+        currentValue,
+        currentUnit,
+        unit,
+        input.quantity_kind,
+        options.schema.unit_conversion_contract.conversion_registry,
+      );
+      dispatch({
+        type: "PRESERVE_PHYSICAL_QUANTITY_ON_UNIT_CHANGE",
+        input_id: inputId,
+        value: preserved.ok ? preserved.value : currentValue,
+        unit,
+      });
+      return;
+    }
+
+    dispatch({ type: "SET_SELECTED_UNIT", input_id: inputId, unit });
+  }, [options.schema.inputs, options.schema.unit_conversion_contract.conversion_registry, state.rawInputState, state.selectedUnitState]);
+
+  const updateEvidence = useCallback((inputId: string, patch: Partial<EvidenceFieldState>) => {
+    const current = state.evidenceState[inputId] ?? {
+      enabled: false,
+      source_verified: false,
+      user_verified: false,
+      uploaded_references: [],
+    };
+    dispatch({ type: "UPDATE_EVIDENCE_STATUS", input_id: inputId, evidence: { ...current, ...patch } });
+  }, [state.evidenceState]);
+
+  const resetInputs = useCallback(() => dispatch({ type: "RESET_INPUTS" }), []);
+  const resetResultOnly = useCallback(() => dispatch({ type: "RESET_RESULT_ONLY" }), []);
+  const toggleGroup = useCallback((groupId: string) => dispatch({ type: "TOGGLE_GROUP", group_id: groupId }), []);
+  const setAdvancedVisible = useCallback((visible: boolean) => dispatch({ type: "SET_ADVANCED_VISIBLE", visible }), []);
+
+  return {
+    state,
+    setProfileMode,
+    setInputValue,
+    setSelectedUnit,
+    updateEvidence,
+    runClientPrecheck,
+    submitServerExecution,
+    resetInputs,
+    resetResultOnly,
+    toggleGroup,
+    setAdvancedVisible,
+    normalizedPreview: state.normalizedPreviewState.items,
+    blockers: state.blockerState.blockers,
+    canExecute: state.blockerState.can_execute && state.executionState !== "executing",
+  };
+}
+
+function validateMinimumV531FormContract(schema: SuperV4Schema): string[] {
+  const errors: string[] = [];
+
+  if (schema.form_runtime_binding.renderer !== "UniversalIndustrialDecisionForm") {
+    errors.push("form_runtime_binding.renderer must be UniversalIndustrialDecisionForm.");
+  }
+  if (schema.form_runtime_binding.llm_runtime_usage !== "FORBIDDEN") {
+    errors.push("Runtime LLM usage must be forbidden.");
+  }
+  if (schema.form_runtime_binding.client_formula_execution !== "FORBIDDEN") {
+    errors.push("Client formula execution must be forbidden.");
+  }
+  if (!schema.form_runtime_binding.server_execution_required) {
+    errors.push("Server execution is required.");
+  }
+  if (!schema.form_runtime_binding.state_management_required) {
+    errors.push("State management is required.");
+  }
+  if (schema.ui_contract.target_renderer !== "UniversalIndustrialDecisionForm") {
+    errors.push("ui_contract.target_renderer must be UniversalIndustrialDecisionForm.");
+  }
+  if (!schema.form_runtime_binding.execute_response_contract.redaction_status) {
+    errors.push("execute_response_contract.redaction_status is required by V5.3.1.");
+  }
+
+  const normalizedIds = new Set(schema.normalized_inputs.map((input) => input.id));
+  for (const input of schema.inputs) {
+    if (input.unit_selectable && input.normalized_id && !normalizedIds.has(input.normalized_id)) {
+      errors.push(`Input ${input.id} references missing normalized input ${input.normalized_id}.`);
+    }
+    if (input.criticality === "CRITICAL" && input.default_policy !== "NO_DEFAULT") {
+      errors.push(`Critical input ${input.id} must not use a hidden or automatic default.`);
+    }
+  }
+
+  return errors;
+}
+
+function buildNormalizedPreview(
+  schema: SuperV4Schema,
+  rawInputs: Record<string, string | number | boolean | null>,
+  selectedUnits: Record<string, string>,
+): NormalizedPreviewItem[] {
+  return schema.inputs.map((input) => {
+    const rawValue = rawInputs[input.id] ?? null;
+    const displayUnit = input.unit_selectable ? selectedUnits[input.id] ?? input.allowed_display_units[0] ?? null : null;
+    const baseUnit = input.base_unit;
+    const normalizedId = input.normalized_id ?? input.id;
+
+    if (!input.unit_selectable || typeof rawValue !== "number" || !displayUnit || !baseUnit) {
+      return {
+        input_id: input.id,
+        normalized_id: normalizedId,
+        display_value: rawValue,
+        display_unit: displayUnit,
+        base_value: rawValue,
+        base_unit: baseUnit,
+      };
+    }
+
+    const conversion = convertDisplayToBase(rawValue, displayUnit, baseUnit, input.quantity_kind, schema.unit_conversion_contract.conversion_registry);
+
+    return {
+      input_id: input.id,
+      normalized_id: normalizedId,
+      display_value: rawValue,
+      display_unit: displayUnit,
+      base_value: conversion.ok ? conversion.value : null,
+      base_unit: baseUnit,
+    };
+  });
+}
+
+function validateNormalizedPreview(schema: SuperV4Schema, preview: NormalizedPreviewItem[]): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+
+  for (const item of preview) {
+    const input = schema.inputs.find((candidate) => candidate.id === item.input_id);
+    if (!input) continue;
+    if (input.unit_selectable && typeof item.display_value === "number" && item.base_value === null) {
+      issues.push({
+        id: `UNIT_CONVERSION_${input.id}`,
+        severity: "BLOCKER",
+        input_id: input.id,
+        message: `No supported conversion exists for ${input.name}.`,
+        suggested_action: "Select a supported display unit or update the schema conversion registry.",
+      });
+    }
+  }
+
+  return issues;
+}
+
+function runV531ClientPrecheck(
+  schema: SuperV4Schema,
+  rawInputs: Record<string, string | number | boolean | null>,
+  selectedUnits: Record<string, string>,
+  evidenceState: Record<string, EvidenceFieldState>,
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+
+  if (schema.schemaContainsPublicFormulaLeak) {
+    issues.push({
+      id: "PUBLIC_FORMULA_LEAK",
+      severity: "BLOCKER",
+      message: "Schema contains a public formula leak marker.",
+      suggested_action: "Reject this schema and regenerate it with protected methodology only.",
+    });
+  }
+
+  for (const input of schema.inputs) {
+    const value = rawInputs[input.id];
+    const selectedUnit = selectedUnits[input.id];
+    const evidence = evidenceState[input.id];
+
+    if (input.required && isEmptyValue(value)) {
+      issues.push({
+        id: `MISSING_REQUIRED_${input.id}`,
+        severity: input.criticality === "CRITICAL" ? "BLOCKER" : "WARNING",
+        input_id: input.id,
+        message: `${input.name} is required before server execution.`,
+        suggested_action: "Enter the measured or verified value.",
+      });
+    }
+
+    if (input.unit_selectable && !selectedUnit) {
+      issues.push({
+        id: `MISSING_UNIT_${input.id}`,
+        severity: "BLOCKER",
+        input_id: input.id,
+        message: `${input.name} requires a selected display unit.`,
+        suggested_action: "Select a supported unit from the unit dropdown.",
+      });
+    }
+
+    if (typeof value === "number" && !Number.isFinite(value)) {
+      issues.push({
+        id: `NON_FINITE_${input.id}`,
+        severity: "BLOCKER",
+        input_id: input.id,
+        message: `${input.name} must be a finite numeric value.`,
+        suggested_action: "Replace the value with a finite measured number.",
+      });
+    }
+
+    const bounds = input.physical_hard_bounds;
+    if (typeof value === "number" && bounds) {
+      if (bounds.min !== null && value < bounds.min) {
+        issues.push({
+          id: `PHYSICAL_BOUND_MIN_${input.id}`,
+          severity: bounds.violation_behavior === "BLOCK" ? "BLOCKER" : "WARNING",
+          input_id: input.id,
+          message: bounds.semantic_error_message_min || bounds.semantic_error_message || `${input.name} is below the physical hard bound.`,
+          suggested_action: "Check the entered value, unit, measurement source, or schema hard bound.",
+        });
+      }
+      if (bounds.max !== null && value > bounds.max) {
+        issues.push({
+          id: `PHYSICAL_BOUND_MAX_${input.id}`,
+          severity: bounds.violation_behavior === "BLOCK" ? "BLOCKER" : "WARNING",
+          input_id: input.id,
+          message: bounds.semantic_error_message_max || bounds.semantic_error_message || `${input.name} is above the physical hard bound.`,
+          suggested_action: "Check the entered value, unit, measurement source, or schema hard bound.",
+        });
+      }
+    }
+
+    if (requiresEvidence(input) && (!evidence || !evidence.user_verified)) {
+      issues.push({
+        id: `EVIDENCE_GAP_${input.id}`,
+        severity: input.criticality === "CRITICAL" ? "BLOCKER" : "REVIEW",
+        input_id: input.id,
+        message: `${input.name} requires source evidence before server execution.`,
+        suggested_action: "Confirm source evidence or upload/record the supporting reference.",
+      });
+    }
+  }
+
+  return issues;
+}
+
+function requiresEvidence(input: SuperV4Input): boolean {
+  if (typeof input.evidence_requirement === "string") {
+    return input.evidence_requirement.toLowerCase().includes("required");
+  }
+  return input.evidence_requirement.required;
+}
+
+function serializeEvidenceState(state: Record<string, EvidenceFieldState>): Record<string, unknown> {
+  return Object.entries(state).reduce<Record<string, unknown>>((accumulator, [inputId, evidence]) => {
+    accumulator[inputId] = {
+      enabled: evidence.enabled,
+      source_verified: evidence.source_verified,
+      user_verified: evidence.user_verified,
+      uploaded_references: evidence.uploaded_references,
+    };
+    return accumulator;
+  }, {});
+}
+
+function parseExecuteResponse(payload: unknown): { ok: true; response: ExecuteResponse } | { ok: false; error: string } {
+  if (!isRecord(payload)) return { ok: false, error: "Execute response is not an object." };
+  if (typeof payload.status !== "string") return { ok: false, error: "Execute response status is missing." };
+  if (typeof payload.redaction_status !== "string" || !REDACTION_STATUSES.has(payload.redaction_status as RedactionStatus)) {
+    return { ok: false, error: "Execute response redaction_status is missing or invalid." };
+  }
+  if (!isRecord(payload.audit_seal)) return { ok: false, error: "Execute response audit_seal is missing." };
+  if (payload.audit_seal.redaction_status !== payload.redaction_status) {
+    return { ok: false, error: "ExecuteResponse.redaction_status and AuditSeal.redaction_status must match." };
+  }
+
+  return { ok: true, response: payload as unknown as ExecuteResponse };
+}
+
+function isEmptyValue(value: string | number | boolean | null | undefined): boolean {
+  return value === null || value === undefined || value === "";
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function convertDisplayToBase(
+  value: number,
+  displayUnit: string,
+  baseUnit: string,
+  quantityKind: string,
+  registry: SuperV4Schema["unit_conversion_contract"]["conversion_registry"],
+): { ok: true; value: number } | { ok: false; reason: string } {
+  const item = registry[quantityKind];
+  if (!item) return { ok: false, reason: `Missing conversion registry for ${quantityKind}.` };
+  const display = item.units.find((entry) => entry.unit === displayUnit);
+  const base = item.units.find((entry) => entry.unit === baseUnit) ?? { unit: item.base_unit, factor: 1, offset: 0 };
+  if (!display) return { ok: false, reason: `Unsupported display unit ${displayUnit}.` };
+  if (!base) return { ok: false, reason: `Unsupported base unit ${baseUnit}.` };
+
+  const registryBaseValue = (value + (display.offset ?? 0)) * display.factor;
+  const targetValue = registryBaseValue / base.factor - (base.offset ?? 0);
+  if (!Number.isFinite(targetValue)) return { ok: false, reason: "Non-finite conversion result." };
+  return { ok: true, value: targetValue };
+}
+
+function preserveDisplayQuantity(
+  value: number,
+  oldUnit: string,
+  newUnit: string,
+  quantityKind: string,
+  registry: SuperV4Schema["unit_conversion_contract"]["conversion_registry"],
+): { ok: true; value: number } | { ok: false; reason: string } {
+  const item = registry[quantityKind];
+  if (!item) return { ok: false, reason: `Missing conversion registry for ${quantityKind}.` };
+  const oldEntry = item.units.find((entry) => entry.unit === oldUnit);
+  const newEntry = item.units.find((entry) => entry.unit === newUnit);
+  if (!oldEntry || !newEntry) return { ok: false, reason: "Unsupported unit change." };
+
+  const registryBaseValue = (value + (oldEntry.offset ?? 0)) * oldEntry.factor;
+  const nextValue = registryBaseValue / newEntry.factor - (newEntry.offset ?? 0);
+  if (!Number.isFinite(nextValue)) return { ok: false, reason: "Non-finite unit preservation result." };
+  return { ok: true, value: nextValue };
+}
+
+declare module "./contract-types" {
+  interface SuperV4Schema {
+    schemaContainsPublicFormulaLeak?: boolean;
+  }
+}

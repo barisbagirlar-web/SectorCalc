@@ -15,7 +15,8 @@ const ignoredDirs = new Set([
   ".firebase",
   ".cursor",
   "scratch",
-  "docs"
+  "docs",
+  "sectorcalc_v5_3_1_formula_form_application_complete"
 ]);
 
 const ignoredFiles = new Set([

@@ -1,0 +1,168 @@
+CURSOR FULL APPLICATION PROMPT — SECTORCALC V5.3.1 FORMULA + FORM + APPLICATION PACKAGE
+
+TASK:
+Apply this package to update the existing SectorCalc V5.3 form structure to V5.3.1 compatibility without changing the main architecture, route policy, product structure, or locked visual identity.
+
+THIS PACKAGE CONTAINS:
+1. formula_prompt_v5_3_1_hardened.txt
+2. src/sectorcalc/pro-form/contract-types.ts
+3. src/sectorcalc/pro-form/form-state-machine.ts
+4. src/sectorcalc/pro-form/useUniversalIndustrialDecisionFormMachine.ts
+5. src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx
+6. src/sectorcalc/pro-form/universal-industrial-decision-form.css
+7. src/sectorcalc/pro-form/index.ts
+8. CURSOR_APPLY_PROMPT.txt
+9. V5_3_1_APPLICATION_INSTRUCTION.txt
+10. PACKAGE_MANIFEST.json
+
+LOCKED SOURCE HASH TO PRESERVE IN REPORTS:
+SHA-256:
+e847fa8eb41895184bb130f383d273f207b1d2617c5acd32bd9046cb6ca332cf
+
+NON-NEGOTIABLE ARCHITECTURE RULES:
+- Do not create a new UI system.
+- Do not change the existing SectorCalc architecture.
+- Do not change payment, mail, hosting, keys, secrets, or unrelated infrastructure.
+- Do not create /en routes.
+- Do not create locale-prefixed routes.
+- Do not move formula execution into the public client.
+- Do not expose exact formula expressions in public UI, public PDF, public JSON audit, or copy summary.
+- Do not call an LLM during public runtime or user-facing API execution.
+- Do not use eval.
+- Do not use new Function.
+- Do not add TypeScript any.
+
+LOCKED VISUAL SYSTEM:
+Use only this website palette and typography for the form CSS.
+
+Palette:
+- Background: #F0EEE6
+- Surface: #FAF9F5
+- Text: #1A1915
+- Accent: #BD5D3A
+- Thin lines: rgba(26, 25, 21, 0.10)
+
+Typography:
+- Headings: Georgia, Times New Roman, Times, serif
+- Body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif
+- Data and numeric values: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace
+
+CSS RULES:
+- Use the provided universal-industrial-decision-form.css exactly as the base.
+- Keep all CSS scoped under .sc-v531-shell or .sc-v531-* classes.
+- Do not add global button/input/table/card selectors.
+- Do not add :root global theme variables for this form.
+- Do not add dark mode overrides.
+- Do not add navy/dark palettes.
+- Do not add additional accent colors.
+- Border radius must remain 0.
+- No pill radius.
+- No rounded cards.
+- No color-only status communication.
+- Keep mobile width support at 375px without horizontal overflow.
+
+V5.3.1 FORM REQUIREMENTS:
+- One canonical RedactionStatus type.
+- ExecuteResponse.redaction_status and AuditSeal.redaction_status must use the same type.
+- UniversalIndustrialDecisionForm must consume useUniversalIndustrialDecisionFormMachine.
+- State machine must own profile mode, raw inputs, selected units, evidence state, normalized preview, client precheck, blockers, execution state, server response, audit seal, and export availability.
+- Client may only perform unit preview and client precheck.
+- Server response must be the only source for outputs, decision interpretation, hidden risks, FMEA, proof pack, uncertainty, sensitivity, audit seal, and redaction status.
+- Public client must not import private formula registry or internal checker trace.
+
+REQUIRED FILE PLACEMENT:
+Place form files under:
+src/sectorcalc/pro-form/
+
+Do not move files unless the repository already uses a different path and imports require path-only adaptation. If path adaptation is required, report it explicitly.
+
+REQUIRED VERIFICATION:
+Run the actual repository gates or closest available equivalents:
+1. npm run typecheck
+2. npm run lint
+3. npm run build
+4. npm run guard:root-only
+5. npm test -- --run src/sectorcalc/pro-form
+6. npm test -- --run src/sectorcalc/pro-runtime
+7. formula leak guard
+8. non-English visible text guard
+9. no-client-formula-execution guard
+10. secret-safe check
+
+CSS VERIFICATION:
+Run checks proving:
+- no border-radius value above 0 remains in universal-industrial-decision-form.css
+- no prefers-color-scheme dark block exists
+- no navy/dark palette exists
+- no non-approved accent colors exist
+- no global selector leak exists outside .sc-v531-shell or .sc-v531-* classes
+- Georgia heading rule exists
+- sans body rule exists
+- mono numeric/data rule exists
+- mobile 375px media rule exists
+
+FINAL RESPONSE FORMAT:
+Return exactly:
+
+V5_3_1_FORMULA_FORM_APPLICATION_RESULT=PASS|FAIL
+
+RESULT:
+- PASS or FAIL
+
+CHANGED_FILES:
+- list files
+
+HASH_LOCK:
+- embedded_sha256: e847fa8eb41895184bb130f383d273f207b1d2617c5acd32bd9046cb6ca332cf
+
+FORM_COMPATIBILITY:
+- canonical RedactionStatus: PASS|FAIL
+- ExecuteResponse/AuditSeal consistency: PASS|FAIL
+- state machine hook present: PASS|FAIL
+- UniversalIndustrialDecisionForm consumes machine: PASS|FAIL
+- client formula execution absent: PASS|FAIL
+- public formula exposure absent: PASS|FAIL
+
+CSS_LOCK:
+- background #F0EEE6: PASS|FAIL
+- surface #FAF9F5: PASS|FAIL
+- text #1A1915: PASS|FAIL
+- accent #BD5D3A: PASS|FAIL
+- thin lines rgba(26, 25, 21, 0.10): PASS|FAIL
+- serif headings: PASS|FAIL
+- sans body: PASS|FAIL
+- mono data: PASS|FAIL
+- border radius zero: PASS|FAIL
+- no dark mode override: PASS|FAIL
+- scoped selectors only: PASS|FAIL
+- 375px mobile no overflow: PASS|FAIL
+
+TESTS:
+- typecheck: PASS|FAIL|SCRIPT_MISSING
+- lint: PASS|FAIL|SCRIPT_MISSING
+- build: PASS|FAIL|SCRIPT_MISSING
+- root-only guard: PASS|FAIL|SCRIPT_MISSING
+- pro-form tests: PASS|FAIL|SCRIPT_MISSING
+- pro-runtime tests: PASS|FAIL|SCRIPT_MISSING
+- formula leak guard: PASS|FAIL|SCRIPT_MISSING
+- non-English guard: PASS|FAIL|SCRIPT_MISSING
+- no-client-formula-execution guard: PASS|FAIL|SCRIPT_MISSING
+- secret-safe check: PASS|FAIL|SCRIPT_MISSING
+
+PUBLIC_SAFETY:
+- exact formula exposure: YES|NO
+- client-side formula execution: YES|NO
+- private formula registry imported by client: YES|NO
+- internal checker trace imported by client: YES|NO
+- /en route created: YES|NO
+- locale prefix route created: YES|NO
+
+BLOCKERS:
+- path + reason, or NONE
+
+IMPORTANT:
+Do not return PASS if typecheck/build were not run.
+Do not return PASS if root-only guard was not run.
+Do not return PASS if UniversalIndustrialDecisionForm does not consume the machine.
+Do not return PASS if RedactionStatus has incompatible duplicate definitions.
+Do not return PASS if CSS violates the locked palette, typography, zero-radius, no-dark-mode, or scoped-selector rules.

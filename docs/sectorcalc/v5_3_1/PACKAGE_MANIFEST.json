@@ -1,0 +1,40 @@
+{
+  "package_name": "sectorcalc_v5_3_1_formula_form_application_complete",
+  "package_version": "5.3.1-style-locked-1",
+  "embedded_prior_sha256": "e847fa8eb41895184bb130f383d273f207b1d2617c5acd32bd9046cb6ca332cf",
+  "purpose": "Update the existing V5.3 form structure to V5.3.1 compatibility while preserving SectorCalc locked warm clay visual system.",
+  "locked_palette": {
+    "background": "#F0EEE6",
+    "surface": "#FAF9F5",
+    "text": "#1A1915",
+    "accent": "#BD5D3A",
+    "thin_lines": "rgba(26, 25, 21, 0.10)"
+  },
+  "locked_typography": {
+    "headings": "Georgia, Times New Roman, Times, serif",
+    "body": "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+    "data_numeric": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace"
+  },
+  "included_files": [
+    "CURSOR_APPLY_PROMPT.txt",
+    "FORM_STYLE_STANDARD.txt",
+    "V5_3_1_APPLICATION_INSTRUCTION.txt",
+    "formula_prompt_v5_3_1_hardened.txt",
+    "src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx",
+    "src/sectorcalc/pro-form/contract-types.ts",
+    "src/sectorcalc/pro-form/form-state-machine.ts",
+    "src/sectorcalc/pro-form/index.ts",
+    "src/sectorcalc/pro-form/universal-industrial-decision-form.css",
+    "src/sectorcalc/pro-form/useUniversalIndustrialDecisionFormMachine.ts"
+  ],
+  "v531_hardening_requirements": [
+    "canonical_redaction_status",
+    "state_machine_binding",
+    "approved_schema_fetch_boundary",
+    "private_formula_registry_boundary",
+    "proof_pack_builder_separation",
+    "internal_checker_trace_restriction",
+    "golden_hash_storage",
+    "root_only_guard_verification"
+  ]
+}
