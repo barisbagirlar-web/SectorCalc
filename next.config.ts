@@ -3,7 +3,6 @@ import type { Compiler } from "webpack";
 import { withSentryConfig } from "@sentry/nextjs";
 import path from "node:path";
 import fs, { existsSync, mkdirSync, writeFileSync } from "node:fs";
-import { LOCALE_REWRITE_EXCLUDE } from "./src/lib/infrastructure/i18n/locale-rewrite-exclude";
 import {
   xRobotsTagValue,
   X_ROBOTS_TAG_HEADER,

@@ -1,14 +1,21 @@
 // SectorCalc SuperV4 V5.3.1 — Private Formula Registry
 // Server-side only. Never exposed to client.
 
+export type FormulaOperation =
+  | "ADD" | "SUBTRACT" | "MULTIPLY" | "DIVIDE"
+  | "MIN" | "MAX" | "ABS"
+  | "RATIO" | "MARGIN" | "UTILIZATION" | "CAPACITY_REDUCTION"
+  | "WEIGHTED_SUM" | "THRESHOLD_DECISION" | "PASS_THROUGH";
+
 export interface FormulaRegistryNode {
   formula_id: string;
   formula_version: string;
   schema_hash_binding: string;
   formula_registry_hash: string;
-  exact_expression: string;
-  normalized_input_ids: string[];
-  intermediate_outputs: string[];
+  operation: FormulaOperation;
+  constant_refs: number[];
+  input_refs: string[];
+  output_ref: string;
   unit_dimension_rule: string;
   uncertainty_rule: "ANALYTICAL" | "MONTE_CARLO" | "NONE";
   sensitivity_rule: "DERIVATIVE" | "PERTURBATION" | "NONE";

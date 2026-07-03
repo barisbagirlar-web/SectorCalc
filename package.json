@@ -30,6 +30,7 @@
     "audit:runtime": "tsx scripts/audit-premium-runtime.ts",
     "test:v5-form": "vitest run src/sectorcalc/pro-form/__tests__/",
     "test:v5-runtime": "vitest run src/sectorcalc/pro-runtime/__tests__/",
+    "check:secrets": "node scripts/check-secrets.mjs",
     "guard:v5-integration": "npm run test:v5-form && npm run test:v5-runtime && npm run guard:root-only"
   },
   "dependencies": {

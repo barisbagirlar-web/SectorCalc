@@ -31,6 +31,7 @@ import { computeDecision } from "@/sectorcalc/pro-runtime/decision-engine";
 import { evaluateAllReferenceRanges } from "@/sectorcalc/pro-form/reference-range-evaluator";
 import { SchemaRegistry, schemaRegistry } from "@/sectorcalc/pro-form/schema-registry";
 import { formulaRegistry } from "@/sectorcalc/pro-runtime/formula-registry";
+import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-formula-engine";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -258,16 +259,77 @@ function pass2RuntimeExecution(
     });
   }
 
-  // S11: Formula execution (stub — V5.3.1 production engine replaces this)
-  // V531_FORMULA_ENGINE_NOT_WIRED=YES
-  const outputs: ServerOutput[] = (validatedSchema.outputs || []).map((o) => ({
-    id: o.id,
-    name: o.id,
-    value: "Pending formula engine wiring",
-    status: "OK" as CalcStatus,
-    public_explanation: o.public_explanation || "",
-    decision_use: o.decision_use || "",
-  }));
+  // S11: Formula execution — V5.3.1 deterministic engine
+  let outputs: ServerOutput[];
+  let formulaEngineErrors: string[] = [];
+
+  // Build normalized input map for engine from raw numeric inputs
+  const engineNormInputs: Record<string, { baseValue: number; baseUnit: string; quantityKind: string }> = {};
+  for (const inp of validatedSchema.inputs) {
+    const rawVal = getNum(inp.id);
+    if (typeof rawVal === "number" && Number.isFinite(rawVal) && inp.normalized_id) {
+      engineNormInputs[inp.normalized_id] = {
+        baseValue: rawVal,
+        baseUnit: inp.base_unit ?? "",
+        quantityKind: inp.quantity_kind ?? "DIMENSIONLESS",
+      };
+    }
+  }
+
+  // Look up formula registry for this tool
+  const schemaMetadata = validatedSchema.metadata;
+  const registryKey = `${validatedSchema.tool_id}::${schemaMetadata?.formula_version ?? "1.0.0"}`;
+  const registryRecord = formulaRegistry.fetch(validatedSchema.tool_id, schemaMetadata?.formula_version ?? "1.0.0");
+
+  if (registryRecord && registryRecord.nodes.length > 0) {
+    const engineResult = executeFormulaGraph(registryRecord.nodes, {
+      normalizedInputs: engineNormInputs,
+      formulaVersion: registryRecord.formula_version,
+    });
+
+    formulaEngineErrors = engineResult.errors;
+
+    // Map engine outputs to ServerOutput format
+    const engineOutputMap = new Map(engineResult.outputs.map((o) => [o.id, o]));
+    outputs = (validatedSchema.outputs || []).map((o) => {
+      const engineOut = engineOutputMap.get(o.id);
+      const val = engineOut?.value;
+      return {
+        id: o.id,
+        name: o.name,
+        value: typeof val === "number" ? val : (val ?? "Calculation pending"),
+        status: engineOut?.status === "OK" ? "OK" as CalcStatus : "REVIEW" as CalcStatus,
+        public_explanation: o.public_explanation ?? "",
+        decision_use: o.decision_use ?? "",
+      };
+    });
+
+    for (const err of engineResult.errors) {
+      warnings.push({
+        id: "formula_engine", severity: "WARNING",
+        message: err,
+        why_it_matters: "Formula engine error may affect result validity.",
+        suggested_action: "Review input values and contact support if issue persists.",
+      });
+    }
+  } else {
+    // Registry not found — output values from schema defaults
+    outputs = (validatedSchema.outputs || []).map((o) => ({
+      id: o.id,
+      name: o.name,
+      value: o.value ?? "No formula registered. Configure registry first.",
+      status: "REVIEW" as CalcStatus,
+      public_explanation: o.public_explanation ?? "",
+      decision_use: o.decision_use ?? "",
+    }));
+
+    warnings.push({
+      id: "formula_registry_missing", severity: "WARNING",
+      message: `No formula registry found for tool ${validatedSchema.tool_id} version ${schemaMetadata?.formula_version ?? "unknown"}. Schema output defaults used.`,
+      why_it_matters: "Formula engine requires registered formulas to produce calculated outputs.",
+      suggested_action: "Register formula nodes in FormulaRegistry before production use.",
+    });
+  }
 
   // S12: Sensitivity analysis
   const sensInputs = validatedSchema.inputs
