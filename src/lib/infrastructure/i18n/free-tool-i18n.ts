@@ -6,6 +6,6 @@ export function resolveFreeToolDisplayTitle(_slug: string, _locale: string, fall
   return fallback;
 }
 
-export function resolveFreeToolLocalizedCopy(_slug: string, _locale: string): { title?: string; description?: string } {
+export function resolveFreeToolLocalizedCopy(_slug: string, _locale: string): { title?: string; description?: string; seoDescription?: string } {
   return {};
 }
