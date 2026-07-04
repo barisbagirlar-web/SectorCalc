@@ -10,7 +10,7 @@ import { listProgrammaticSeoSlugs } from "@/lib/infrastructure/seo/programmatic-
 import { listPremiumToolSeoLandingSlugs } from "@/lib/infrastructure/seo/premium-tool-seo-landings";
 import { listCaseStudySlugs } from "@/lib/features/case-studies/case-study-registry";
 import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
-import { listFreeToolSchemaSlugs } from "@/sectorcalc/runtime/free-schema-loader";
+import { listFreeToolSlugs } from "@/sectorcalc/runtime/public-free-tool-manifest";
 import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonomy";
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
@@ -148,7 +148,7 @@ export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
   const hubItems: SitemapManifestItem[] = [
     createItem("/free-tools", "hub", 0.85, "weekly"),
   ];
-  const toolItems = listFreeToolSchemaSlugs().map((slug) =>
+  const toolItems = listFreeToolSlugs().map((slug) =>
     createItem("/tools/free/" + slug, "free_tool", 0.7, "monthly"),
   );
   return [...hubItems, ...toolItems];

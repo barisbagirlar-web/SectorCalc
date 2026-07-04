@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join, extname, basename } from "node:path";
 import { execFileSync } from "node:child_process";
 
@@ -69,14 +69,15 @@ const failures = [];
 let totalSchemas = 0;
 let schemasWithFormula = 0;
 
-// ── Helper: list .schema.json files from a directory ───────────────
+// ── Helper: list schema files from a directory ────────────────────
+// Pro schemas use .schema.json extension; free schemas use .json.
 function listSchemaFiles(dir) {
   const abs = join(ROOT, dir);
   if (!existsSync(abs)) return [];
   return execFileSync("ls", [abs], { cwd: ROOT, encoding: "utf8" })
     .trim()
     .split("\n")
-    .filter((f) => f.endsWith(".schema.json"))
+    .filter((f) => f.endsWith(".schema.json") || f.endsWith(".json"))
     .map((f) => join(dir, f))
     .sort();
 }
@@ -210,13 +211,28 @@ function checkOutputFormatting(schema, file) {
 }
 
 // ── Check 8: tool_key maps to a formula module ─────────────────────
-function checkFormulaBinding(schema, file) {
+// Pro schemas must have individual .formula.ts files.
+// Free schemas embed formulas in their JSON schema (central registry).
+function checkFormulaBinding(schema, file, tier) {
   const toolKey = schema.tool_key;
   if (!toolKey) return;
 
+  if (tier === "free") {
+    // Free schemas embed formulas in JSON; no separate .formula.ts required.
+    // Verify the schema has a formulas array with at least one entry.
+    const formulas = schema.formulas || [];
+    if (formulas.length === 0) {
+      failures.push(`${file}: FREE schema "${toolKey}" has no formulas array in schema JSON`);
+    } else {
+      schemasWithFormula++;
+    }
+    return;
+  }
+
+  // Pro schemas: require individual .formula.ts files
   const formulaToolKey = extractToolKeyFromFormula(toolKey);
   if (!formulaToolKey) {
-    failures.push(`${file}: tool_key "${toolKey}" has no corresponding formula module (.formula.ts) in pro-v531/ or free-v531/`);
+    failures.push(`${file}: tool_key "${toolKey}" has no corresponding formula module (.formula.ts) in pro-v531/`);
     return;
   }
 
@@ -285,7 +301,7 @@ for (const sd of SCHEMA_DIRS) {
     checkNormalizedIds(schema, schemaFile);
     checkUiGroupFields(schema, schemaFile);
     checkOutputFormatting(schema, schemaFile);
-    checkFormulaBinding(schema, schemaFile);
+    checkFormulaBinding(schema, schemaFile, sd.tier);
     checkFormulaLeaks(schema, schemaFile);
   }
 }
@@ -293,6 +309,23 @@ for (const sd of SCHEMA_DIRS) {
 // ── Summary ────────────────────────────────────────────────────────
 console.log(`\n  Total schemas scanned:     ${totalSchemas}`);
 console.log(`  Schemas with formula:      ${schemasWithFormula}`);
+
+// FAIL if FREE schemas directory exists but no FREE schemas were scanned
+const freeDir = join(ROOT, "src/sectorcalc/schemas/free-v531");
+if (existsSync(freeDir)) {
+  const freeCount = readdirSync(freeDir).filter((f) => f.endsWith(".json")).length;
+  let freeScanned = 0;
+  for (const sd of SCHEMA_DIRS) {
+    if (sd.tier === "free") {
+      freeScanned += listSchemaFiles(sd.path).length;
+    }
+  }
+  if (freeCount > 0 && freeScanned === 0) {
+    console.error(`\n  ❌ V531_SCHEMA_FORMULA_BINDING=FAIL`);
+    console.error(`  FREE schema dir has ${freeCount} files but zero were scanned (wrong extension filter?)`);
+    process.exit(1);
+  }
+}
 
 if (failures.length > 0) {
   console.error(`\n  ❌ V531_SCHEMA_FORMULA_BINDING=FAIL`);

@@ -1,7 +1,7 @@
 import "server-only";
 import type { AccessTier, ToolSource } from "./build-tool-render-contract";
 import { listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
-import { listFreeToolSchemaSlugs } from "@/sectorcalc/runtime/free-schema-loader";
+import { listFreeToolSlugs } from "@/sectorcalc/runtime/public-free-tool-manifest";
 
 export interface PublicToolManifestEntry {
   toolKey: string; slug: string; toolName: string; categoryLabel: string;
@@ -15,13 +15,13 @@ function isProSlug(slug: string): boolean { return slug.startsWith("sc_") || slu
 
 export function getToolAccessTier(slug: string): AccessTier {
   if (isProSlug(slug)) return "PRO";
-  if (listFreeToolSchemaSlugs().includes(slug)) return "FREE";
+  if (listFreeToolSlugs().includes(slug)) return "FREE";
   return "FREE";
 }
 
 export function getToolRoute(slug: string): string {
   if (isProSlug(slug)) return "/tools/pro/" + slug;
-  if (listFreeToolSchemaSlugs().includes(slug)) return "/tools/free/" + slug;
+  if (listFreeToolSlugs().includes(slug)) return "/tools/free/" + slug;
   return "/tools/generated/" + slug;
 }
 
@@ -33,7 +33,7 @@ function buildManifest(): Map<string, PublicToolManifestEntry> {
   for (const slug of listProToolSchemaSlugs()) {
     entries.push({ slug, entry: { toolKey: slug, slug, toolName: "", categoryLabel: "", source: "pro_v531" as ToolSource, accessTier: "PRO" as AccessTier, route: "/tools/pro/" + slug, renderMode: "V531_UNIVERSAL_FORM", formulaMode: "SERVER_ONLY", sitemap: true, public: true } });
   }
-  for (const slug of listFreeToolSchemaSlugs()) {
+  for (const slug of listFreeToolSlugs()) {
     entries.push({ slug, entry: { toolKey: slug, slug, toolName: "", categoryLabel: "", source: "free_v531" as ToolSource, accessTier: "FREE" as AccessTier, route: "/tools/free/" + slug, renderMode: "V531_UNIVERSAL_FORM", formulaMode: "SERVER_ONLY", sitemap: true, public: true } });
   }
   const manifest = new Map<string, PublicToolManifestEntry>();
