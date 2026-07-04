@@ -154,7 +154,7 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "effective-radiation-dose-calculator": "QUARANTINE",
   "energy-density-calculator": "QUARANTINE",
   "energy-monitoring-system-investment-and-savings-forecasting-calculator": "QUARANTINE",
-  "engine-torque-calculator": "QUARANTINE",
+  "engine-torque-calculator": "PASS",
   "engineering-strain-calculator": "QUARANTINE",
   "equity-dilution-calculator": "QUARANTINE",
   "ergonomics-and-musculoskeletal-disorder-lost-cost-calculator": "QUARANTINE",

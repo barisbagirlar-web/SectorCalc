@@ -131,7 +131,7 @@ const CALCULATOR_LOADERS: Readonly<Record<string, CalculatorLoader>> = {
   "effective-annual-rate-calculator": createLoader("effective-annual-rate-calculator", "WARN"),
   "effective-radiation-dose-calculator": createLoader("effective-radiation-dose-calculator", "WARN"),
   "energy-density-calculator": createLoader("energy-density-calculator", "WARN"),
-  "engine-torque-calculator": createLoader("engine-torque-calculator", "WARN"),
+  "engine-torque-calculator": createLoader("engine-torque-calculator", "PASS"),
   "engineering-strain-calculator": createLoader("engineering-strain-calculator", "WARN"),
   "equity-dilution-calculator": createLoader("equity-dilution-calculator", "WARN"),
   "esg-score-calculator": createLoader("esg-score-calculator", "WARN"),

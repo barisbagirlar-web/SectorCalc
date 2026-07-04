@@ -581,18 +581,25 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // Load schema from generated schemas or premium-schema registry
     let schemaSource: SuperV4Schema | null = null;
 
-    const genSchema = getGeneratedToolSchema(body.tool_key);
-    if (genSchema) {
-      schemaSource = generatedToolSchemaToSuperV4Schema(genSchema, body.tool_key);
-    } else if (isIndustrialFreeToolSlug(body.tool_key)) {
-      const indSchema = buildIndustrialFreeToolSchema(body.tool_key);
-      if (indSchema) {
-        schemaSource = generatedToolSchemaToSuperV4Schema(indSchema, body.tool_key);
-      }
-    } else if (isFreeV531ToolSlug(body.tool_key)) {
+    // Priority order: V5.3.1 native schemas > legacy generated schemas > industrial free schemas
+    if (isFreeV531ToolSlug(body.tool_key)) {
       const freeSchema = getFreeV531Schema(body.tool_key);
       if (freeSchema) {
         schemaSource = freeSchema;
+      }
+    }
+
+    if (!schemaSource) {
+      const genSchema = getGeneratedToolSchema(body.tool_key);
+      if (genSchema) {
+        schemaSource = generatedToolSchemaToSuperV4Schema(genSchema, body.tool_key);
+      }
+    }
+
+    if (!schemaSource && isIndustrialFreeToolSlug(body.tool_key)) {
+      const indSchema = buildIndustrialFreeToolSchema(body.tool_key);
+      if (indSchema) {
+        schemaSource = generatedToolSchemaToSuperV4Schema(indSchema, body.tool_key);
       }
     }
 
