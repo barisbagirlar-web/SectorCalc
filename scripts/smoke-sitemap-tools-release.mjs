@@ -1,7 +1,8 @@
 // SectorCalc Sitemap Tools Release Smoke Test
 // Verifies sitemap contains valid tool URLs.
 
-import { request } from "http";
+import { request as httpRequest } from "http";
+import { request as httpsRequest } from "https";
 
 const BASE_URL = process.env.BASE_URL;
 if (!BASE_URL) {
@@ -13,7 +14,9 @@ function fetchUrl(urlPath) {
   return new Promise((resolve, reject) => {
     const parsed = new URL(`${BASE_URL}${urlPath}`);
 
-    const req = request(
+    const requestFn = parsed.protocol === "https:" ? httpsRequest : httpRequest;
+
+    const req = requestFn(
       {
         hostname: parsed.hostname,
         port: parsed.port,

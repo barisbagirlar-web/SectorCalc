@@ -2,7 +2,8 @@
 // Tests live pages for correct rendering.
 // Usage: BASE_URL=http://localhost:3000 node scripts/smoke-page-runtime.mjs
 
-import { request } from "http";
+import { request as httpRequest } from "http";
+import { request as httpsRequest } from "https";
 
 const BASE_URL = process.env.BASE_URL;
 if (!BASE_URL) {
@@ -26,7 +27,9 @@ function fetchPage(urlPath) {
     const fullUrl = `${BASE_URL}${urlPath}`;
     const parsed = new URL(fullUrl);
 
-    const req = request(
+    const requestFn = parsed.protocol === "https:" ? httpsRequest : httpRequest;
+
+    const req = requestFn(
       {
         hostname: parsed.hostname,
         port: parsed.port,
@@ -89,8 +92,10 @@ async function run() {
         continue;
       }
 
-      // Check for RSC error
-      if (body.includes("Error:") || body.includes("error") || body.includes("notFound()")) {
+      // Check for RSC error (specific patterns, not generic "error" which appears in bundles)
+      const errorPatterns = ["Error: Application error", "notFound()", "Application error"];
+      const hasRealError = errorPatterns.some((p) => body.includes(p));
+      if (hasRealError) {
         console.error(`    ❌ Page contains error markers`);
         results.push({ url: test.url, passed: false, status: statusCode, error: "Page contains error" });
         exitCode = 1;
