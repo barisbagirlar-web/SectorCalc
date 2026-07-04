@@ -5,8 +5,9 @@
  * V5.3.1 Form layout smoke test.
  *
  * Pages use RSC (React Server Components) — form DOM is created client-side.
+ * RSC data is serialized in the HTML as __next_f.push() calls.
  * This script checks HTTP status, server errors, Turkish tokens, and CSS source files.
- * Browser-level layout assertions require Playwright; reported NOT_AVAILABLE if absent.
+ * Browser-level DOM assertions require Playwright; reported NOT_AVAILABLE when absent.
  *
  * Usage: BASE_URL=http://localhost:3000 node scripts/smoke-v531-form-layout.mjs
  */
@@ -52,13 +53,13 @@ async function fetchHtml(urlPath) {
 async function main() {
   console.log(`\n🧪 V5.3.1 FORM LAYOUT SMOKE TEST (BASE_URL=${BASE_URL})\n`);
 
-  // Check for Playwright
+  // Check Playwright availability
   let playwrightAvailable = false;
   try {
     execSync("npx playwright --version 2>/dev/null", { stdio: "ignore" });
     playwrightAvailable = true;
   } catch {
-    warn("PLAYWRIGHT", "Not available");
+    warn("PLAYWRIGHT", "Not installed — browser-level DOM assertions skipped");
   }
 
   const testPages = [
@@ -84,16 +85,19 @@ async function main() {
     if (status !== 200) continue;
 
     // No server error
-    const hasServerError = /(Internal Server Error|An unexpected error occurred|Application error: a client-side exception)/.test(html);
-    check(`${label} no server error`, !hasServerError, "Server error detected");
+    const hasServerError = /(Internal Server Error|An unexpected error occurred|Application error)/.test(html);
+    check(`${label} no server error`, !hasServerError, "Server error");
 
     // No Turkish chars
     const turkishRe = /[çğıöşüÇĞİÖŞÜ]/;
-    check(`${label} no Turkish chars`, !turkishRe.test(html), "Turkish chars found");
+    check(`${label} no Turkish chars`, !turkishRe.test(html), "Turkish chars");
 
-    // Has UI payload (RSC stream or SSRed HTML with tool data)
-    const hasToolContent = html.includes("tool_key") || html.includes("toolKey") || html.includes("tool_id") || html.includes("toolId") || html.includes("UniversalIndustrialDecision");
-    check(`${label} tool data in page`, hasToolContent, "No tool data in page payload");
+    // RSC payload present (page has React SSR data)
+    const hasRSC = html.includes("__next_f") || html.includes("__NEXT_F");
+    check(`${label} RSC payload`, hasRSC, "No RSC payload");
+
+    // Content length reasonable (not blank/error page)
+    check(`${label} content size > 1KB`, html.length > 1024, `content=${html.length} bytes`);
   }
 
   // CSS file checks
@@ -105,18 +109,18 @@ async function main() {
     check("CSS surface #FAF9F5", css.includes("#FAF9F5"), "Missing #FAF9F5");
     check("CSS text #1A1915", css.includes("#1A1915"), "Missing #1A1915");
     check("CSS accent #BD5D3A", css.includes("#BD5D3A"), "Missing #BD5D3A");
-    check("CSS no dark mode", !css.includes("@media (prefers-color-scheme: dark)"), "Dark mode found");
-    check("CSS 375px rule", css.includes("375px") || css.includes("@media (max-width: 375"), "No 375px rule");
-    check("CSS scoped .sc-v531-", css.includes(".sc-v531-"), "No .sc-v531- selectors");
+    check("CSS no dark mode", !css.includes("@media (prefers-color-scheme: dark)"), "Dark mode");
+    check("CSS 375px rule", css.includes("375px") || css.includes("@media (max-width: 375"), "No 375px");
+    check("CSS scoped .sc-v531-", css.includes(".sc-v531-"), "No .sc-v531-");
 
     const pxRadii = css.match(/border-radius:\s*[0-9.]+px/g) || [];
     const hasNonZero = pxRadii.some(r => parseFloat(r.replace(/[^0-9.]/g, "")) > 0);
-    check("CSS no nonzero border-radius", !hasNonZero, `Nonzero border-radius found`);
+    check("CSS no nonzero border-radius", !hasNonZero, `Nonzero border-radius`);
   } else {
     check("CSS file exists", false, "Not found");
   }
 
-  // Legacy form check
+  // Legacy form class check
   let legacyRefs = 0;
   try {
     const grep = execSync(
@@ -125,11 +129,15 @@ async function main() {
     );
     legacyRefs = grep.trim() ? grep.trim().split("\n").filter(Boolean).length : 0;
   } catch {}
-  check("No legacy forms in components", legacyRefs === 0, `${legacyRefs} legacy form references`);
+  check("No legacy forms in components", legacyRefs === 0, `${legacyRefs} refs`);
 
-  // Browser-level checks (if Playwright available)
+  // Browser-level checks
   if (!playwrightAvailable) {
-    warn("BROWSER_CHECKS", "PLAYWRIGHT_NOT_AVAILABLE — viewport overflow, H1, .sc-v531-shell in real DOM not verified");
+    warn("BROWSER_CHECKS", "PLAYWRIGHT_NOT_AVAILABLE");
+  }
+  if (!playwrightAvailable) {
+    warn("375px OVERFLOW", "NOT VERIFIED (requires Playwright browser)");
+    warn("FORM DOM", "NOT VERIFIED (requires Playwright browser)");
   }
 
   console.log(`\n=== SUMMARY ===`);

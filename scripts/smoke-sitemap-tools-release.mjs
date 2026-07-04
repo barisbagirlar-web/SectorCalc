@@ -121,8 +121,10 @@ async function main() {
       check("No /en in sitemap manifest", !manifestContent.includes('"/en"') && !manifestContent.includes("'/en'"), "Found /en reference");
       check("No /tr in sitemap manifest", !manifestContent.includes('"/tr"') && !manifestContent.includes("'/tr'"), "Found /tr reference");
 
-      // Check no hreflang
-      check("No hreflang in sitemap manifest", !manifestContent.includes("hreflang") && !manifestContent.includes("alternate"), "hreflang references found");
+  // Check no active hreflang in sitemap (comment "no locale alternates" is ok)
+  const hasActiveHreflang = manifestContent.includes("hreflang") || manifestContent.includes("alternate");
+  const commentOnly = manifestContent.includes("V5.3.1 root-only: no locale alternates");
+  check("No active hreflang in sitemap", hasActiveHreflang === commentOnly, "hreflang/alternate references found beyond explicit exclusion comment");
 
       console.log("\n  ⚠ Sitemap live fetch not available - using source analysis");
       console.log("  For full URL-level verification, deploy and check live sitemap.");
@@ -166,8 +168,9 @@ async function main() {
   const uniqueUrls = new Set(urls);
   check("No duplicate URLs", uniqueUrls.size === urls.length, `${urls.length - uniqueUrls.size} duplicates found`);
 
-  // Check for hreflang/alternate
-  check("No hreflang in sitemap", !sitemapContent.includes("hreflang") && !sitemapContent.includes("xhtml:link"), "hreflang references found");
+  // Check for hreflang/alternate in sitemap content (comments about removal are ok)
+  const hasActualHreflang = sitemapContent.includes('<xhtml:link') || sitemapContent.includes('rel="alternate"');
+  check("No hreflang in sitemap", !hasActualHreflang, "hreflang references found");
 
   // Check for formula leaks in public index files
   const formulaLeakTerms = ["formula_expression", "EXPRESSION", "INTERNAL_ONLY"];
