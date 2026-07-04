@@ -1,20 +1,15 @@
 /**
  * Dynamic tool counter - computes total tools at build/render time.
- * Uses static imports (resolved by Next.js/webpack at build time).
+ *
+ * Uses V5.3.1 PRO schema loader for pro count (matches /pro-tools page)
+ * and free tool data from all-tools-data for free count (matches /free-tools page).
  */
-import { GENERATED_CALCULATOR_SLUGS } from "@/lib/features/generated-tools/calculator-registry";
-import { listPremiumSchemaIds } from "@/lib/features/premium-schema/schema-registry";
-import { CANONICAL_FREE_SLUGS } from "@/lib/features/tools/canonical-tool-slugs";
-import { industrialFormulaTools } from "@/lib/features/tools/revenue-tools-industrial-formulas";
+import { getAllProToolSchemas } from "@/sectorcalc/runtime/pro-schema-loader";
+import { getFreeTools } from "@/lib/features/tools/all-tools-data";
 
 let _cachedTotal: number | null = null;
 let _cachedFree: number | null = null;
 let _cachedPremium: number | null = null;
-
-/** Industrial formula freeSlugs that have no generated schema file */
-const INDUSTRIAL_FREE_SLUGS: readonly string[] = industrialFormulaTools
-  .map((t) => t.freeSlug)
-  .filter((s): s is string => Boolean(s));
 
 export function getTotalToolCount(): number {
   if (_cachedTotal !== null) return _cachedTotal;
@@ -35,20 +30,11 @@ export function getPremiumToolCount(): number {
 }
 
 function compute(): void {
-  const activePremium = listPremiumSchemaIds();
-  const activeAll = new Set([...GENERATED_CALCULATOR_SLUGS, ...activePremium]);
-  const activeFree = CANONICAL_FREE_SLUGS.filter((slug) => activeAll.has(slug));
-  const freeSchemaSet = new Set(activeFree);
+  const proEntries = getAllProToolSchemas();
+  const freeEntries = getFreeTools("en");
 
-  // Add industrial freeSlugs that aren't already counted via generated schemas
-  for (const slug of INDUSTRIAL_FREE_SLUGS) {
-    if (!freeSchemaSet.has(slug)) {
-      freeSchemaSet.add(slug);
-    }
-  }
-
-  _cachedFree = freeSchemaSet.size;
-  _cachedPremium = activePremium.filter((id) => !freeSchemaSet.has(id)).length;
+  _cachedFree = freeEntries.length;
+  _cachedPremium = proEntries.length;
   _cachedTotal = _cachedFree + _cachedPremium;
 }
 
