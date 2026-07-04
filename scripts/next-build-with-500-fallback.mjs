@@ -226,6 +226,11 @@ function runNextBuild() {
     cwd: ROOT,
     env: {
       ...process.env,
+      // Break the re-entrant shim: SECTORCALC_SHIM_REAL_NEXT tells the
+      // next-firebase-deploy-shim.mjs to forward directly to the real
+      // Next.js binary, avoiding the custom fallback script and its
+      // global build lock.
+      SECTORCALC_SHIM_REAL_NEXT: "1",
       // DNS resolution order: force IPv4 first to avoid intermittent
       // "getaddrinfo ENOTFOUND" failures on Vercel builders (Node.js 17+
       // defaults to verbatim/ipv6first, which can fail for Google Fonts
