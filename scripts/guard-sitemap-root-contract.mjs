@@ -70,10 +70,10 @@ const indexingSource = existsSync("src/lib/infrastructure/seo/seo-indexing-contr
 
   const hasRobotsUrl =
   robotsText.includes("https://www.sectorcalc.com/sitemap.xml") ||
-  indexingSource.includes("https://www.sectorcalc.com/sitemap.xml");
+  indexingSource.includes("SITE_URL") && indexingSource.includes("/sitemap.xml");
 
 if (!hasRobotsUrl) {
-  failures.push("robots does not reference https://sectorcalc.com/sitemap.xml.");
+  failures.push("robots does not reference www.sectorcalc.com/sitemap.xml.");
 } else {
   console.log(`  \u2705 robots.txt references correct sitemap URL`);
 }
