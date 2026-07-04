@@ -1,41 +1,70 @@
-// SectorCalc V5.3.1 — Public Tool Manifest
-// Single source of truth for all route-visible calculator tools.
-// Server-only. Used by routes, sitemap, guards, and execution policy.
-//
-// Rules:
-// - route slug must equal toolKey
-// - no duplicate toolKey, slug, route, or sitemap URL
-// - Free tools must have accessTier FREE
-// - Pro tools must have accessTier PRO
-// - legacy tools must not bypass render contract
-
 import "server-only";
 
-export type AccessTier = "FREE" | "PRO";
-
-export type ToolSource = "free_v531" | "pro_v531" | "industrial_free" | "legacy_generated";
-
-export type RenderMode = "V531_UNIVERSAL_FORM";
-
-export type FormulaMode = "SERVER_ONLY";
-
-export interface PublicToolManifestEntry {
-  toolKey: string;
-  slug: string;
-  accessTier: AccessTier;
-  renderMode: RenderMode;
-  formulaMode: FormulaMode;
-  source: ToolSource;
-}
-
-// ── Load all schemas ──────────────────────────────────────────────
+import type { AccessTier, ToolSource } from "./build-tool-render-contract";
 
 import { listGeneratedToolSchemaSlugs } from "@/lib/features/generated-tools/schema-loader";
 import { industrialFormulaTools } from "@/lib/features/tools/revenue-tools-industrial-formulas";
 import { listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
 import { listFreeToolSchemaSlugs } from "@/sectorcalc/runtime/free-schema-loader";
 
-// ── Build manifest ────────────────────────────────────────────────
+export interface PublicToolManifestEntry {
+  toolKey: string;
+  slug: string;
+  toolName: string;
+  categoryLabel: string;
+  source: ToolSource;
+  accessTier: AccessTier;
+  route: string;
+  renderMode: "V531_UNIVERSAL_FORM";
+  formulaMode: "SERVER_ONLY" | "REVIEW_ONLY";
+  sitemap: boolean;
+  public: boolean;
+}
+
+function normalizeSlug(value: string): string {
+  return value.trim().toLowerCase();
+}
+
+function isProSlug(slug: string): boolean {
+  return slug.startsWith("sc_") || slug.startsWith("pro_");
+}
+
+export function getToolAccessTier(slug: string): AccessTier {
+  return isProSlug(slug) ? "PRO" : "FREE";
+}
+
+export function getToolRoute(slug: string): string {
+  return isProSlug(slug)
+    ? `/tools/pro/${slug}`
+    : `/tools/generated/${slug}`;
+}
+
+export function createManifestEntry(input: {
+  slug: string;
+  toolName: string;
+  categoryLabel: string;
+  source: ToolSource;
+  formulaMode?: "SERVER_ONLY" | "REVIEW_ONLY";
+}): PublicToolManifestEntry {
+  const slug = normalizeSlug(input.slug);
+  const accessTier = getToolAccessTier(slug);
+
+  return {
+    toolKey: slug,
+    slug,
+    toolName: input.toolName,
+    categoryLabel: input.categoryLabel,
+    source: input.source,
+    accessTier,
+    route: getToolRoute(slug),
+    renderMode: "V531_UNIVERSAL_FORM",
+    formulaMode: input.formulaMode ?? "SERVER_ONLY",
+    sitemap: true,
+    public: true,
+  };
+}
+
+// ── Existing manifest builder (preserved for backward compatibility) ──
 
 let _manifest: Map<string, PublicToolManifestEntry> | null = null;
 
@@ -44,73 +73,75 @@ function buildManifest(): Map<string, PublicToolManifestEntry> {
 
   const entries: Array<{ slug: string; entry: PublicToolManifestEntry }> = [];
 
-  // Generated Free Tools
   for (const slug of listGeneratedToolSchemaSlugs()) {
     entries.push({
       slug,
       entry: {
-        toolKey: slug,
-        slug,
-        accessTier: "FREE" as AccessTier,
-        renderMode: "V531_UNIVERSAL_FORM" as RenderMode,
-        formulaMode: "SERVER_ONLY" as FormulaMode,
+        toolKey: slug, slug,
+        toolName: "", categoryLabel: "",
         source: "legacy_generated" as ToolSource,
+        accessTier: "FREE" as AccessTier,
+        route: `/tools/generated/${slug}`,
+        renderMode: "V531_UNIVERSAL_FORM",
+        formulaMode: "SERVER_ONLY",
+        sitemap: true, public: true,
       },
     });
   }
 
-  // Industrial Free Tools
   for (const tool of industrialFormulaTools) {
     const slug = tool.freeSlug;
     if (!slug) continue;
     entries.push({
       slug,
       entry: {
-        toolKey: slug,
-        slug,
-        accessTier: "FREE" as AccessTier,
-        renderMode: "V531_UNIVERSAL_FORM" as RenderMode,
-        formulaMode: "SERVER_ONLY" as FormulaMode,
+        toolKey: slug, slug,
+        toolName: "", categoryLabel: "",
         source: "industrial_free" as ToolSource,
+        accessTier: "FREE" as AccessTier,
+        route: `/tools/generated/${slug}`,
+        renderMode: "V531_UNIVERSAL_FORM",
+        formulaMode: "SERVER_ONLY",
+        sitemap: true, public: true,
       },
     });
   }
 
-  // Pro V5.3.1 Tools
   for (const slug of listProToolSchemaSlugs()) {
     entries.push({
       slug,
       entry: {
-        toolKey: slug,
-        slug,
-        accessTier: "PRO" as AccessTier,
-        renderMode: "V531_UNIVERSAL_FORM" as RenderMode,
-        formulaMode: "SERVER_ONLY" as FormulaMode,
+        toolKey: slug, slug,
+        toolName: "", categoryLabel: "",
         source: "pro_v531" as ToolSource,
+        accessTier: "PRO" as AccessTier,
+        route: `/tools/pro/${slug}`,
+        renderMode: "V531_UNIVERSAL_FORM",
+        formulaMode: "SERVER_ONLY",
+        sitemap: true, public: true,
       },
     });
   }
 
-  // Free V5.3.1 Tools
   for (const slug of listFreeToolSchemaSlugs()) {
     entries.push({
       slug,
       entry: {
-        toolKey: slug,
-        slug,
-        accessTier: "FREE" as AccessTier,
-        renderMode: "V531_UNIVERSAL_FORM" as RenderMode,
-        formulaMode: "SERVER_ONLY" as FormulaMode,
+        toolKey: slug, slug,
+        toolName: "", categoryLabel: "",
         source: "free_v531" as ToolSource,
+        accessTier: "FREE" as AccessTier,
+        route: `/tools/generated/${slug}`,
+        renderMode: "V531_UNIVERSAL_FORM",
+        formulaMode: "SERVER_ONLY",
+        sitemap: true, public: true,
       },
     });
   }
 
-  // Deduplicate by slug (PRO overrides FREE for same slug)
   const manifest = new Map<string, PublicToolManifestEntry>();
   const seen = new Set<string>();
 
-  // Process PRO entries first so they take priority
   const sorted = [...entries].sort((a, b) => {
     const tierOrder = { PRO: 0, FREE: 1 };
     const aOrder = tierOrder[a.entry.accessTier] ?? 1;
@@ -133,7 +164,7 @@ export function getPublicToolManifest(): PublicToolManifestEntry[] {
 }
 
 export function getPublicToolBySlug(slug: string): PublicToolManifestEntry | null {
-  return buildManifest().get(slug) ?? null;
+  return buildManifest().get(normalizeSlug(slug)) ?? null;
 }
 
 export function getPublicToolAccessTier(slug: string): AccessTier | null {

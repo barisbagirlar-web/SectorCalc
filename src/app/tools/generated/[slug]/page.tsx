@@ -30,12 +30,9 @@ import {
   buildIndustrialFreeToolSchema,
   isIndustrialFreeToolSlug,
 } from "@/lib/features/tools/industrial-free-schema-factory";
-import { isFreeV531ToolSlug } from "@/lib/features/tools/free-v531-tool-registry";
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
 import { buildToolRenderContract } from "@/sectorcalc/runtime/build-tool-render-contract";
-import type { ResolvedToolSource } from "@/sectorcalc/runtime/resolved-tool-source";
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
-import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form";
 
 interface GeneratedToolRouteParams {
   slug: string;
@@ -63,7 +60,6 @@ export async function generateMetadata({
   const slug = rawSlug.replace(/\.$/, "").trim();
   const locale = "en";
 
-  // Use resolveApprovedToolSchema for all tool types (covers free_v531, generated_free, industrial_free, pro_v531)
   const resolved = resolveApprovedToolSchema(slug);
   if (resolved.ok && resolved.schema) {
     return createPageMetadata({
@@ -74,7 +70,6 @@ export async function generateMetadata({
     });
   }
 
-  // Fallback for legacy tools not found by resolveApprovedToolSchema
   let schema = getGeneratedToolSchema(slug);
   if (!schema) {
     if (isIndustrialFreeToolSlug(slug)) {
@@ -108,36 +103,35 @@ export default async function GeneratedToolRoutePage({
   setRequestLocale(locale);
 
   // ── Phase 1: Resolve schema through approved resolver ──────────
-  // This covers: free_v531, generated_free, industrial_free, pro_v531
   const resolved = resolveApprovedToolSchema(slug);
 
   if (!resolved.ok || !resolved.schema) {
-    // If approved resolution fails, redirect to notFound
     notFound();
   }
 
-  const sv4Schema = resolved.schema as SuperV4Schema;
-  const source = resolved.source as ResolvedToolSource;
-
   // ── Phase 2: Build safe render contract ────────────────────────
-  const contract = buildToolRenderContract({
-    source,
+  const built = buildToolRenderContract({
+    source: resolved.source ?? "legacy_generated",
+    accessTier: "FREE",
     slug,
-    schema: sv4Schema,
+    route: `/tools/generated/${slug}`,
+    schema: resolved.schema,
   });
 
-  if (!contract.ok) {
-    // Contract invalid — log diagnostic and render controlled unavailable
-    console.error(
-      `[GeneratedToolRoutePage] Render contract invalid for ${slug}: ${contract.reason} — ${contract.detail}`,
-    );
-    return renderContractInaccessible(slug, contract.reason);
+  if (!built.ok) {
+    console.error("TOOL_RENDER_CONTRACT_BLOCKED", {
+      slug: built.slug,
+      source: built.source,
+      reason: built.reason,
+      detail: built.detail,
+    });
+
+    notFound();
   }
 
   // ── Phase 3: Build SEO/JSON-LD data from the resolved schema ──
-  const displayName = contract.contract.toolName;
+  const displayName = built.contract.toolName;
 
-  // Legacy SEO components still need GeneratedToolSchema for JSON-LD
   const legacySchema = getGeneratedToolSchema(slug)
     ?? (isIndustrialFreeToolSlug(slug) ? buildIndustrialFreeToolSchema(slug) : null);
 
@@ -196,27 +190,13 @@ export default async function GeneratedToolRoutePage({
           ) : null}
         </div>
         <UniversalIndustrialDecisionForm
-          schema={sv4Schema}
+          schema={built.contract.schemaForForm as unknown as SuperV4Schema}
+          renderContract={built.contract}
           toolKey={slug}
           executeEndpoint="/api/tool-execute"
           initialProfileMode="quick"
           accessTier="FREE"
         />
-      </article>
-    </PageLayout>
-  );
-}
-
-function renderContractInaccessible(slug: string, reason: string) {
-  return (
-    <PageLayout>
-      <article aria-label="Tool unavailable">
-        <div className="container mx-auto max-w-6xl px-4 pt-6">
-          <h1 className="text-2xl font-semibold text-[#1A1915] mb-2">Tool Temporarily Unavailable</h1>
-          <p className="text-sm text-[#6B6B6B] mb-4">
-            This calculator is undergoing maintenance. Please try again later.
-          </p>
-        </div>
       </article>
     </PageLayout>
   );

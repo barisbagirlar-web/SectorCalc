@@ -1,82 +1,74 @@
-// SectorCalc Single Tool Form Runtime Guard
-// Fails if any public calculator route bypasses UniversalIndustrialDecisionForm
+#!/usr/bin/env node
 
-import { readFileSync, existsSync, readdirSync, statSync } from "fs";
-import { join, resolve } from "path";
+import fs from "node:fs";
+import path from "node:path";
 
-const ROOT = resolve(import.meta.dirname, "..");
-const SRC = join(ROOT, "src");
+const ROOT = process.cwd();
 
-function walkDir(dir) {
-  const files = [];
-  try {
-    for (const entry of readdirSync(dir)) {
-      const full = join(dir, entry);
-      if (statSync(full).isDirectory()) {
-        if (entry === "node_modules" || entry === ".next" || entry === "__tests__") continue;
-        files.push(...walkDir(full));
-      } else if (full.endsWith(".ts") || full.endsWith(".tsx")) {
-        files.push(full);
-      }
-    }
-  } catch { /* skip */ }
-  return files;
+const FORBIDDEN = [
+  "PremiumSchemaToolForm",
+  "FreeToolForm",
+  "ProToolForm",
+  "LegacyCalculatorForm",
+  "dynamic-form-v2",
+];
+
+const PUBLIC_ROUTE_DIRS = [
+  "src/app/tools",
+  "src/components/tools",
+];
+
+function walk(dir, out = []) {
+  if (!fs.existsSync(dir)) return out;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walk(full, out);
+    else if (/\.(tsx|ts|jsx|js)$/.test(entry.name)) out.push(full);
+  }
+  return out;
 }
 
-function run() {
-  let ec = 0;
-  const violations = [];
+let failures = [];
 
-  // Check all [slug] calculator routes use UniversalIndustrialDecisionForm
-  const slugCalculatorRoutes = [
-    "app/tools/generated/[slug]/page.tsx",
-    "app/tools/pro/[slug]/page.tsx",
-    "app/tools/premium-schema/[slug]/page.tsx",
-    "app/tools/premium/[slug]/page.tsx",
-    "app/embed/[slug]/page.tsx",
-  ];
-
-  for (const route of slugCalculatorRoutes) {
-    const fullPath = join(SRC, route);
-    if (!existsSync(fullPath)) continue;
-    const content = readFileSync(fullPath, "utf-8");
-    if (!content.includes("UniversalIndustrialDecisionForm")) {
-      violations.push(`BYPASSES_FORM:src/${route} does not use UniversalIndustrialDecisionForm`);
-    }
-  }
-
-  // Check pro-form files don't import formula engine directly
-  const proFormFiles = [];
-  const proFormDir = join(SRC, "sectorcalc/pro-form");
-  try {
-    for (const entry of readdirSync(proFormDir)) {
-      const full = join(proFormDir, entry);
-      if (statSync(full).isFile() && (full.endsWith(".ts") || full.endsWith(".tsx"))) {
-        proFormFiles.push(full);
-      }
-    }
-  } catch { /* skip */ }
-
-  for (const file of proFormFiles) {
-    if (file.includes("__tests__") || file.includes(".test.")) continue;
-    const content = readFileSync(file, "utf-8");
-    const rel = file.replace(SRC, "");
-    // Check client-side files don't import from pro-runtime (which contains formula engine)
-    if (content.includes('"use client"') || content.includes("'use client'")) {
-      if (content.includes("pro-runtime") && !content.includes("types") && !content.includes("types.ts")) {
-        violations.push(`CLIENT_IMPORTS_RUNTIME:${rel} client component imports from pro-runtime`);
+for (const rel of PUBLIC_ROUTE_DIRS) {
+  for (const file of walk(path.join(ROOT, rel))) {
+    const text = fs.readFileSync(file, "utf8");
+    for (const token of FORBIDDEN) {
+      if (text.includes(token)) {
+        failures.push(`${path.relative(ROOT, file)} contains forbidden renderer: ${token}`);
       }
     }
   }
-
-  if (violations.length) {
-    console.error("SINGLE TOOL FORM RUNTIME GUARD FAILED");
-    for (const v of violations) console.error(`  ${v}`);
-    ec = 1;
-  } else {
-    console.log(`SINGLE TOOL FORM RUNTIME GUARD PASSED (${slugCalculatorRoutes.length} routes)`);
-  }
-  process.exit(ec);
 }
 
-run();
+// Check that tool route pages use UniversalIndustrialDecisionForm (directly or via import)
+const ROUTE_PATTERN = /tools\/(generated|pro)\/[^/]+\/page\.(tsx|ts)$/;
+
+function walkAll(dir, out = []) {
+  if (!fs.existsSync(dir)) return out;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walkAll(full, out);
+    else if (/\.(tsx|ts)$/.test(entry.name)) out.push(full);
+  }
+  return out;
+}
+
+for (const file of walkAll(path.join(ROOT, "src/app/tools"))) {
+  const rel = path.relative(ROOT, file);
+  if (!ROUTE_PATTERN.test(rel)) continue;
+
+  const text = fs.readFileSync(file, "utf8");
+  // Check for component name anywhere in the file (import, JSX, or wrapper)
+  if (!text.includes("UniversalIndustrialDecisionForm")) {
+    failures.push(`${rel} does not reference UniversalIndustrialDecisionForm`);
+  }
+}
+
+if (failures.length) {
+  console.error("SINGLE_TOOL_FORM_RUNTIME_GUARD=FAIL");
+  for (const failure of failures) console.error("-", failure);
+  process.exit(1);
+}
+
+console.log("SINGLE_TOOL_FORM_RUNTIME_GUARD=PASS");

@@ -852,3 +852,256 @@
     align-items: flex-start;
   }
 }
+
+/* ── V5.3.1 Render Contract CSS (added by guard) ── */
+
+.sc-v531-shell,
+.sc-v531-shell * {
+  box-sizing: border-box;
+}
+
+.sc-v531-shell {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.sc-v531-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 24px;
+  align-items: start;
+  width: 100%;
+  max-width: 100%;
+}
+
+.sc-v531-main {
+  min-width: 0;
+  width: 100%;
+}
+
+.sc-v531-sidebar,
+.sc-v531-cockpit {
+  min-width: 0;
+  width: 100%;
+  max-width: 380px;
+}
+
+.sc-v531-title {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #1A1915;
+  overflow-wrap: anywhere;
+}
+
+.sc-v531-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.sc-v531-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid rgba(26, 25, 21, 0.10);
+  background: #FAF9F5;
+  color: #1A1915;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
+  border-radius: 0;
+}
+
+.sc-v531-input-groups,
+.sc-v531-field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+  min-width: 0;
+  width: 100%;
+}
+
+.sc-v531-field,
+.sc-v531-input-card {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid rgba(26, 25, 21, 0.10);
+  background: #FAF9F5;
+  color: #1A1915;
+  padding: 16px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.sc-v531-field-label,
+.sc-v531-input-label {
+  display: block;
+  color: #1A1915;
+  font-weight: 650;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.sc-v531-field-help,
+.sc-v531-input-help {
+  margin-top: 6px;
+  color: #1A1915;
+  opacity: 0.78;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.sc-v531-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(96px, 140px);
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  min-width: 0;
+}
+
+.sc-v531-input-row input,
+.sc-v531-input-row select {
+  min-width: 0;
+  width: 100%;
+}
+
+.sc-v531-base-preview {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: baseline;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.sc-v531-base-preview-label {
+  font-weight: 650;
+}
+
+.sc-v531-field-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: 8px;
+  margin-top: 12px;
+  min-width: 0;
+}
+
+.sc-v531-field-meta-item {
+  min-width: 0;
+  border: 1px solid rgba(26, 25, 21, 0.10);
+  background: #F0EEE6;
+  padding: 10px;
+  border-radius: 0;
+}
+
+.sc-v531-field-meta-label {
+  display: block;
+  color: #1A1915;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+
+.sc-v531-field-meta-value {
+  display: block;
+  margin-top: 4px;
+  color: #1A1915;
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.sc-v531-checkbox-row,
+.sc-v531-evidence-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 12px;
+  min-width: 0;
+}
+
+.sc-v531-checkbox-row input,
+.sc-v531-evidence-row input {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.sc-v531-checkbox-row label,
+.sc-v531-evidence-row label {
+  min-width: 0;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.sc-v531-panel-empty {
+  border: 1px solid rgba(26, 25, 21, 0.10);
+  background: #FAF9F5;
+  color: #1A1915;
+  padding: 16px;
+  border-radius: 0;
+}
+
+.sc-v531-panel-empty-title {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+  line-height: 1.25;
+  color: #1A1915;
+}
+
+.sc-v531-panel-empty-text {
+  margin-top: 6px;
+  color: #1A1915;
+  opacity: 0.78;
+  line-height: 1.45;
+}
+
+.sc-v531-cta-separator {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(26, 25, 21, 0.10);
+}
+
+@media (max-width: 1180px) {
+  .sc-v531-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sc-v531-sidebar,
+  .sc-v531-cockpit {
+    max-width: none;
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .sc-v531-shell {
+    overflow-x: hidden;
+  }
+
+  .sc-v531-input-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sc-v531-field,
+  .sc-v531-input-card {
+    padding: 14px;
+  }
+
+  .sc-v531-meta-row {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 375px) {
+  .sc-v531-field-meta-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

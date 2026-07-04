@@ -33,6 +33,8 @@
     "guard:no-deploy-needed": "node scripts/guard-deploy-policy.mjs --require-clean --assert-no-deploy-needed",
     "guard:deploy-required": "node scripts/guard-deploy-policy.mjs --require-clean --assert-deploy-required",
     "guard:final-release": "node scripts/guard-final-release-acceptance.mjs",
+    "guard:single-tool-form": "node scripts/guard-single-tool-form-runtime.mjs",
+    "guard:public-tool-contracts": "node scripts/guard-public-tool-render-contracts.mjs",
     "guard:i18n-keys": "node scripts/guard-i18n-keys.mjs",
     "guard:payment-integrity": "node scripts/guard-payment-integrity.mjs",
     "smoke:payment-paddle": "node scripts/smoke-payment-paddle.mjs",

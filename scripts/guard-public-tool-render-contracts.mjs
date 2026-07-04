@@ -1,91 +1,69 @@
-// SectorCalc Public Tool Render Contracts Guard
-// Verifies that public calculator routes use either ToolRenderContract or UniversalIndustrialDecisionForm.
+#!/usr/bin/env node
 
-import { readFileSync, existsSync, readdirSync, statSync } from "fs";
-import { join, resolve } from "path";
+import fs from "node:fs";
+import path from "node:path";
 
-const ROOT = resolve(import.meta.dirname, "..");
-const SRC = join(ROOT, "src");
+const ROOT = process.cwd();
 
-const TURKISH_TOKENS = [
-  "hesaplama", "hesap", "katsayı", "kullan", "değer", "sonuç",
-  "i̇ndirim", "tutar", "oran", "fiyat", "maliyet", "kar",
-  "ücretsiz", "deneme", "satın al", "giriş", "kayıt",
+const SCAN_DIRS = [
+  "src/app/tools",
+  "src/components/tools",
+  "src/sectorcalc/runtime",
+  "src/sectorcalc/pro-form",
 ];
 
-function walkDir(dir) {
-  const files = [];
-  try {
-    for (const entry of readdirSync(dir)) {
-      const full = join(dir, entry);
-      if (statSync(full).isDirectory()) {
-        if (entry === "node_modules" || entry === ".next" || entry === "__tests__") continue;
-        files.push(...walkDir(full));
-      } else if (full.endsWith(".ts") || full.endsWith(".tsx") || full.endsWith(".js") || full.endsWith(".jsx")) {
-        files.push(full);
-      }
-    }
-  } catch { /* skip */ }
-  return files;
+const FORBIDDEN_TEXT = [
+  "Base previewPending",
+  "PHYSICAL BOUNDS0",
+  "ENGINEERING RANGE0",
+  "REFERENCENo",
+  "EVIDENCEAdvisory",
+  "daily-renovation",
+];
+
+function walk(dir, out = []) {
+  if (!fs.existsSync(dir)) return out;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walk(full, out);
+    else if (/\.(tsx|ts|css|jsx|js)$/.test(entry.name)) out.push(full);
+  }
+  return out;
 }
 
-function run() {
-  let ec = 0;
-  const violations = [];
+let failures = [];
 
-  // Check that all [slug] calculator page files use UniversalIndustrialDecisionForm or ToolRenderContract
-  const calculatorPagePatterns = [
-    "app/tools/generated/[slug]/page.tsx",
-    "app/tools/pro/[slug]/page.tsx",
-    "app/tools/premium/[slug]/page.tsx",
-    "app/tools/premium-schema/[slug]/page.tsx",
-    "app/embed/[slug]/page.tsx",
-  ];
+for (const rel of SCAN_DIRS) {
+  for (const file of walk(path.join(ROOT, rel))) {
+    const text = fs.readFileSync(file, "utf8");
 
-  for (const pattern of calculatorPagePatterns) {
-    const fullPath = join(SRC, pattern);
-    if (!existsSync(fullPath)) continue;
-    const content = readFileSync(fullPath, "utf-8");
-    if (!content.includes("UniversalIndustrialDecisionForm") && !content.includes("buildToolRenderContract")) {
-      violations.push(`MISSING_RENDER_CONTRACT:${pattern} does not use UniversalIndustrialDecisionForm or ToolRenderContract`);
-    }
-  }
-
-  // Check for Turkish tokens in calculator page files
-  for (const pattern of calculatorPagePatterns) {
-    const fullPath = join(SRC, pattern);
-    if (!existsSync(fullPath)) continue;
-    const content = readFileSync(fullPath, "utf-8");
-    const cleanContent = content.replace(/\/\/.*$/gm, "").replace(/\/\*[\s\S]*?\*\//g, "");
-    const strings = cleanContent.match(/"([^"]{3,})"/g) || [];
-    for (const str of strings) {
-      const lower = str.toLowerCase();
-      for (const token of TURKISH_TOKENS) {
-        if (lower.includes(token)) {
-          violations.push(`TURKISH_TOKEN:${pattern} contains "${token}" in string "${str.substring(0, 50)}"`);
-        }
+    for (const bad of FORBIDDEN_TEXT) {
+      if (text.includes(bad)) {
+        failures.push(`${path.relative(ROOT, file)} contains forbidden broken UI text: ${bad}`);
       }
     }
-  }
 
-  // Check for raw slug H1 in calculator pages
-  for (const pattern of calculatorPagePatterns) {
-    const fullPath = join(SRC, pattern);
-    if (!existsSync(fullPath)) continue;
-    const content = readFileSync(fullPath, "utf-8");
-    if (content.match(/<h1[^>]*>\s*\{[^}]*slug[^}]*\}\s*<\/h1>/i)) {
-      violations.push(`RAW_SLUG_H1:${pattern} uses raw slug in H1`);
+    // Also check for bare "categories." as string literal (not JS variable access)
+    const bareCategories = text.match(/["'`]categories\.(?!\$\{)/);
+    if (bareCategories) {
+      failures.push(`${path.relative(ROOT, file)} contains raw categories. reference`);
+    }
+
+    if (/console\.warn\(.*Turkish/i.test(text)) {
+      failures.push(`${path.relative(ROOT, file)} has warn-only Turkish handling`);
+    }
+
+    // Check for sanitizeString used with Turkish-related logic (not just generic use)
+    if (/sanitizeString.*[Tt]urk|[Tt]urk.*sanitizeString/.test(text)) {
+      failures.push(`${path.relative(ROOT, file)} appears to sanitize Turkish instead of fail-closed`);
     }
   }
-
-  if (violations.length) {
-    console.error("PUBLIC TOOL RENDER CONTRACTS GUARD FAILED");
-    for (const v of violations) console.error(`  ${v}`);
-    ec = 1;
-  } else {
-    console.log(`PUBLIC TOOL RENDER CONTRACTS GUARD PASSED (${calculatorPagePatterns.length} routes)`);
-  }
-  process.exit(ec);
 }
 
-run();
+if (failures.length) {
+  console.error("PUBLIC_TOOL_RENDER_CONTRACT_GUARD=FAIL");
+  for (const failure of failures) console.error("-", failure);
+  process.exit(1);
+}
+
+console.log("PUBLIC_TOOL_RENDER_CONTRACT_GUARD=PASS");

@@ -16,6 +16,7 @@ import type {
   SuperV4Schema,
   UIInputGroup,
 } from "./contract-types";
+import type { ToolRenderContract } from "@/sectorcalc/runtime/build-tool-render-contract";
 import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { getExecutionStateLabel } from "./form-state-machine";
 import { useUniversalIndustrialDecisionFormMachine } from "./useUniversalIndustrialDecisionFormMachine";
@@ -45,6 +46,8 @@ export interface UniversalIndustrialDecisionFormProps {
   onRequestCreditSession?: (toolKey: string) => void;
   /** Whether a credit session is being created. */
   creditSessionLoading?: boolean;
+  /** Pre-validated render contract from buildToolRenderContract. */
+  renderContract?: ToolRenderContract;
 }
 
 const PROFILE_MODES: Array<{ id: ProfileMode; label: string; description: string }> = [
@@ -262,7 +265,18 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     void machine.submitServerExecution();
   };
 
-  // Display-safe labels
+  // Display-safe labels (prefer renderContract when available)
+  const schemaRecord = props.schema as unknown as Record<string, unknown>;
+  const toolName =
+    props.renderContract?.toolName ??
+    String(schemaRecord.tool_name ?? schemaRecord.toolName ?? "");
+  const categoryLabel =
+    props.renderContract?.categoryLabel ??
+    String(schemaRecord.category_label ?? schemaRecord.categoryLabel ?? schemaRecord.category ?? "General");
+  const operationLabel =
+    props.renderContract?.operationLabel ??
+    String(schemaRecord.primary_operation ?? "Calculate");
+
   const displayToolName = getDisplayToolName(
     props.schema?.tool_name as string | null | undefined,
     props.schema?.tool_key as string || props.toolKey || "",
@@ -286,7 +300,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         <div className="sc-v531-hero__eyebrow">SectorCalc SuperV4 · V5.3.1 Industrial Decision Form</div>
         <div className="sc-v531-hero__main">
           <div>
-            <h1 className="sc-v531-hero__title">{displayToolName}</h1>
+            <h1 className="sc-v531-title">{toolName}</h1>
             <p className="sc-v531-hero__scope">{props.schema.scope}</p>
           </div>
           <div className="sc-v531-status-card" data-status={status.toLowerCase()}>
@@ -295,16 +309,20 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
             <span>{status}</span>
           </div>
         </div>
-        <div className="sc-v531-hero__meta" aria-label="Tool metadata">
-          <span title={props.schema.category}>{displayCategory}</span>
-          <span title={props.schema.primary_operation}>{displayOperation}</span>
-          <span>Access: {isPro ? "Pro tool" : "Free tool"}</span>
+        <div className="sc-v531-meta-row" aria-label="Tool metadata">
+          <span className="sc-v531-chip">{categoryLabel}</span>
+          <span className="sc-v531-chip">{operationLabel}</span>
+          {props.renderContract?.accessTier === "FREE" ? (
+            <span className="sc-v531-chip">Free tool</span>
+          ) : (
+            <span className="sc-v531-chip">Pro tool</span>
+          )}
           {isPro && hasSession ? (
-            <span>Runs remaining: {runsRemaining} / 10</span>
+            <span className="sc-v531-chip">Runs remaining: {runsRemaining} / 10</span>
           ) : null}
-          <span>Risk: {props.schema.risk_level}</span>
-          <span>Schema: {props.schema.metadata.schema_version}</span>
-          <span>Formula: {props.schema.metadata.formula_version}</span>
+          <span className="sc-v531-chip">Risk: {props.schema.risk_level}</span>
+          <span className="sc-v531-chip">Schema: {props.schema.metadata.schema_version}</span>
+          <span className="sc-v531-chip">Formula: {props.schema.metadata.formula_version}</span>
         </div>
       </header>
 
