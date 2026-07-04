@@ -59,6 +59,7 @@
     "purge:legacy-forms": "node scripts/purge-legacy-form-files.mjs",
     "purge:legacy-forms:apply": "node scripts/purge-legacy-form-files.mjs --apply",
     "guard:v531-form-architecture": "node scripts/guard-v531-form-architecture-lock.mjs",
+    "guard:v531-schema-formula-binding": "node scripts/guard-v531-schema-formula-binding.mjs",
     "guard:v531-form-ux": "node scripts/guard-v531-form-ux-contract.mjs",
     "guard:header-navigation": "node scripts/guard-header-navigation-contract.mjs",
     "smoke:header-navigation": "node scripts/smoke-header-navigation.mjs",
