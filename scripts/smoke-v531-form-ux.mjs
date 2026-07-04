@@ -25,7 +25,12 @@ const FORBIDDEN_PATTERNS = [
   "sc-universal-dtf-shell",
   "sc-premium-dtf-container",
 ];
-const SOURCE_SKIP = new Set(["display_currency"]);
+// Patterns skipped in source/build mode (legitimate server data, never user-visible UI):
+const SOURCE_SKIP = new Set([
+  "display_currency",    // valid unit key in data structures, mapped to "Currency" for display
+  "exact_formula",       // server response field, never shown as raw text
+  "internal_checker_trace", // server response field, never shown as raw text
+]);
 
 // ── Required UX patterns ──
 const REQUIRED_UX = [
