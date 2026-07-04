@@ -25,6 +25,18 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
   return response;
 }
 
+/**
+ * Known ISO 639-1 locale paths at root level — return 404.
+ * These are not active routes; they exist only as legacy/misguided URL patterns.
+ */
+const LEGACY_LOCALE_ROUTES = new Set([
+  "/en", "/tr", "/de", "/fr", "/es", "/ar",
+  "/ru", "/zh", "/ja", "/ko", "/pt", "/it",
+  "/nl", "/pl", "/sv", "/da", "/fi", "/nb",
+  "/cs", "/hu", "/ro", "/uk", "/el", "/he",
+  "/hi", "/th", "/vi", "/id", "/ms",
+]);
+
 const SW_KILL_CODE = [
   `self.addEventListener("install",()=>self.skipWaiting())`,
   `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister();(await self.clients.matchAll({type:"window"})).forEach(c=>c.navigate(c.url))})())})`,
@@ -54,6 +66,17 @@ export default function middleware(request: NextRequest) {
   if (pathname.startsWith("/sitemap/")) {
     return new Response("Gone", {
       status: 410,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "x-robots-tag": "noindex, nofollow",
+      },
+    });
+  }
+
+  // Legacy locale-only paths at root — return 404
+  if (LEGACY_LOCALE_ROUTES.has(pathname)) {
+    return new Response("Not Found", {
+      status: 404,
       headers: {
         "content-type": "text/plain; charset=utf-8",
         "x-robots-tag": "noindex, nofollow",
