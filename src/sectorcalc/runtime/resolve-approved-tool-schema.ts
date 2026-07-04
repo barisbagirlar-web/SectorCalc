@@ -20,6 +20,7 @@ import { buildIndustrialFreeToolSchema, isIndustrialFreeToolSlug } from "@/lib/f
 import { industrialFormulaTools } from "@/lib/features/tools/revenue-tools-industrial-formulas";
 import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter";
 import { getProToolSchema, listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
+import { getFreeToolSchema, listFreeToolSchemaSlugs } from "@/sectorcalc/runtime/free-schema-loader";
 import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 
 export type ApprovedSchemaResult =
@@ -30,7 +31,7 @@ export type ApprovedSchemaResult =
 // Module-scoped, never imported by client components.
 // Key format: `${toolKey}:${schemaVersion}:${schemaHash}`
 
-type ResolvedSource = "generated_free" | "industrial_free" | "pro_v531";
+type ResolvedSource = "generated_free" | "industrial_free" | "pro_v531" | "free_v531";
 
 interface CacheEntry {
   schema: SuperV4Schema;
@@ -173,7 +174,16 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     );
   }
 
-  // 5. Unknown tool — do not cache
+  // 5. Free V5.3.1 schema
+  const freeV531Schema = getFreeToolSchema(normalizedKey);
+  if (freeV531Schema) {
+    return buildAndCache(
+      () => freeV531Schema,
+      "free_v531",
+    );
+  }
+
+  // 6. Unknown tool — do not cache
   return {
     ok: false,
     reason: "SCHEMA_NOT_FOUND",
@@ -208,6 +218,7 @@ export function listAllResolvableToolKeys(): string[] {
     .map((t) => t.freeSlug)
     .filter((s): s is string => Boolean(s));
   const proSlugs = listProToolSchemaSlugs();
+  const freeSlugs = listFreeToolSchemaSlugs();
 
-  return [...new Set([...genSlugs, ...indSlugs, ...proSlugs])];
+  return [...new Set([...genSlugs, ...indSlugs, ...proSlugs, ...freeSlugs])];
 }

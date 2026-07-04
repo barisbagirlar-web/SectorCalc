@@ -36,7 +36,9 @@ import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-lo
 import { loadGeneratedCalculator } from "@/lib/features/generated-tools/load-generated-calculator";
 import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form";
 import { isIndustrialFreeToolSlug, buildIndustrialFreeToolSchema } from "@/lib/features/tools/industrial-free-schema-factory";
+import { isFreeV531ToolSlug, getFreeV531Schema } from "@/lib/features/tools/free-v531-tool-registry";
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
+import { loadFreeFormulaModule } from "@/sectorcalc/formulas/free-v531/free-v531-formula-registry";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -317,7 +319,7 @@ async function pass2RuntimeExecution(
       });
     }
   } else {
-    // Path B: Use generated calculator module (free tools)
+    // Path B (fallback): Generated calculator module
     const calculatorModule = await loadGeneratedCalculator(validatedSchema.tool_key);
     if (calculatorModule) {
       try {
@@ -347,26 +349,63 @@ async function pass2RuntimeExecution(
         }));
       }
     } else {
-      // Path C: No registry, no calculator module — use schema defaults
-      outputs = (validatedSchema.outputs || []).map((o) => ({
-        id: o.id,
-        name: o.name,
-        value: o.value ?? "No formula registered. Configure registry first.",
-        status: "REVIEW" as CalcStatus,
-        public_explanation: o.public_explanation ?? "",
-        decision_use: o.decision_use ?? "",
-      }));
+      // Path B2: Try Free V5.3.1 formula module
+      const freeFormulaModule = await loadFreeFormulaModule(validatedSchema.tool_key);
+      if (freeFormulaModule) {
+        try {
+          const calcResult = freeFormulaModule.calculate(body.raw_inputs as Record<string, number>);
+          outputs = validatedSchema.outputs.map((o) => {
+            const val = calcResult.outputs[o.id];
+            return {
+              id: o.id,
+              name: o.name,
+              value: typeof val === "number" ? val : null,
+              status: calcResult.status === "OK" ? "OK" as CalcStatus : "REVIEW" as CalcStatus,
+              public_explanation: o.public_explanation ?? "",
+              decision_use: o.decision_use ?? "",
+            };
+          });
+          for (const w of calcResult.warnings) {
+            warnings.push({
+              id: "free_formula", severity: "WARNING",
+              message: w,
+              why_it_matters: "Free formula module warning.",
+              suggested_action: "Review input values.",
+            });
+          }
+        } catch (calcErr) {
+          formulaEngineErrors.push(`Free formula module error: ${calcErr instanceof Error ? calcErr.message : String(calcErr)}`);
+          outputs = (validatedSchema.outputs || []).map((o) => ({
+            id: o.id,
+            name: o.name,
+            value: "Calculation error",
+            status: "BLOCKED" as CalcStatus,
+            public_explanation: o.public_explanation ?? "",
+            decision_use: o.decision_use ?? "",
+          }));
+        }
+      } else {
+        // Path C: No registry, no calculator module — use schema defaults
+        outputs = (validatedSchema.outputs || []).map((o) => ({
+          id: o.id,
+          name: o.name,
+          value: o.value ?? "No formula registered. Configure registry first.",
+          status: "REVIEW" as CalcStatus,
+          public_explanation: o.public_explanation ?? "",
+          decision_use: o.decision_use ?? "",
+        }));
 
-      if (body.tool_key.slice(0, 1) >= "a" && body.tool_key.slice(0, 1) <= "z") {
-        warnings.push({
-          id: "formula_registry_missing", severity: "WARNING",
-          message: `No formula registry or calculator module found for tool ${validatedSchema.tool_id} version ${schemaMetadata?.formula_version ?? "unknown"}. Schema output defaults used.`,
-          why_it_matters: "Formula engine requires registered formulas to produce calculated outputs.",
-          suggested_action: "Register formula nodes in FormulaRegistry before production use.",
-        });
-      }
-    }
-  }
+        if (body.tool_key.slice(0, 1) >= "a" && body.tool_key.slice(0, 1) <= "z") {
+          warnings.push({
+            id: "formula_registry_missing", severity: "WARNING",
+            message: `No formula registry or calculator module found for tool ${validatedSchema.tool_id} version ${schemaMetadata?.formula_version ?? "unknown"}. Schema output defaults used.`,
+            why_it_matters: "Formula engine requires registered formulas to produce calculated outputs.",
+            suggested_action: "Register formula nodes in FormulaRegistry before production use.",
+          });
+        }
+      }  // close else (no free formula module)
+    }  // close else (no calculator module)
+  }  // close else (no registry record)
 
   // S12: Sensitivity analysis
   const sensInputs = validatedSchema.inputs
@@ -549,6 +588,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       const indSchema = buildIndustrialFreeToolSchema(body.tool_key);
       if (indSchema) {
         schemaSource = generatedToolSchemaToSuperV4Schema(indSchema, body.tool_key);
+      }
+    } else if (isFreeV531ToolSlug(body.tool_key)) {
+      const freeSchema = getFreeV531Schema(body.tool_key);
+      if (freeSchema) {
+        schemaSource = freeSchema;
       }
     }
 

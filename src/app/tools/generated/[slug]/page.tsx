@@ -30,6 +30,9 @@ import {
   buildIndustrialFreeToolSchema,
   isIndustrialFreeToolSlug,
 } from "@/lib/features/tools/industrial-free-schema-factory";
+import { isFreeV531ToolSlug } from "@/lib/features/tools/free-v531-tool-registry";
+import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
+import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 
 interface GeneratedToolRouteParams {
   slug: string;
@@ -56,6 +59,21 @@ export async function generateMetadata({
   const { slug: rawSlug } = await params;
   const slug = rawSlug.replace(/\.$/, "").trim();
   const locale = "en";
+
+  // Free V5.3.1: use resolveApprovedToolSchema directly
+  if (isFreeV531ToolSlug(slug)) {
+    const resolved = resolveApprovedToolSchema(slug);
+    if (resolved.ok && resolved.schema) {
+      return createPageMetadata({
+        title: `${resolved.schema.tool_name} | SectorCalc`,
+        description: `Calculate ${resolved.schema.tool_name} online — free engineering calculator`,
+        path: `/tools/generated/${slug}`,
+        locale: locale as AppLocale,
+      });
+    }
+    return {};
+  }
+
   let schema = getGeneratedToolSchema(slug);
   if (!schema) {
     if (isIndustrialFreeToolSlug(slug)) {
@@ -87,6 +105,28 @@ export default async function GeneratedToolRoutePage({
   const slug = rawSlug.replace(/\.$/, "").trim();
   const locale = "en";
   setRequestLocale(locale);
+
+  // Free V5.3.1: use resolveApprovedToolSchema directly
+  if (isFreeV531ToolSlug(slug)) {
+    const resolved = resolveApprovedToolSchema(slug);
+    if (!resolved.ok || !resolved.schema) {
+      notFound();
+    }
+    const sv4Schema = resolved.schema;
+    const displayName = sv4Schema.tool_name || slug;
+
+    return (
+      <PageLayout>
+        <article aria-label={displayName}>
+          <div className="container mx-auto max-w-6xl px-4 pt-6">
+            <h1 className="text-2xl font-semibold text-[#1A1915] mb-2">{displayName}</h1>
+            <p className="text-sm text-[#6B6B6B] mb-4">{displayName} — free online calculator</p>
+          </div>
+          <UniversalIndustrialDecisionForm schema={sv4Schema} toolKey={slug} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
+        </article>
+      </PageLayout>
+    );
+  }
 
   let schema = getGeneratedToolSchema(slug);
   if (!schema) {

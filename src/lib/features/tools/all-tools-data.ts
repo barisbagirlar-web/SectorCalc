@@ -31,6 +31,7 @@ import {
   SLUG_TOKEN_SECTOR_HINTS,
   SECTORS,
 } from "@/lib/features/tools/taxonomy";
+import { getFreeToolSchema, listFreeToolSchemaSlugs } from "@/sectorcalc/runtime/free-schema-loader";
 
 /** Resolve generated schemas directory - tries multiple deployment paths. */
 function resolveSchemasDir(): string {
@@ -361,6 +362,32 @@ export function getAllTools(_locale = "en"): ToolData[] {
     if (!toolsMap.has(schema.id)) {
       toolsMap.set(schema.id, schemaToToolData(schema, locale));
     }
+  }
+
+  // Supplement with Free V5.3.1 schemas
+  const FREE_V531_CATEGORIES: Record<string, string> = {
+    "field-service": "Field Service",
+    "small-workshop": "Small Workshop",
+  };
+  const freeV531Slugs = listFreeToolSchemaSlugs();
+  for (const slug of freeV531Slugs) {
+    if (toolsMap.has(slug)) continue;
+    const schema = getFreeToolSchema(slug);
+    if (!schema) continue;
+    const cat = schema.category || "Free Tools";
+    const catKey = cat.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "").replace(/^free-tools-?/, "");
+    const catLabel = FREE_V531_CATEGORIES[catKey] || cat;
+    toolsMap.set(slug, {
+      slug,
+      name: schema.tool_name || slug,
+      category: catLabel,
+      categoryKey: `free-${catKey}`,
+      sector: catLabel,
+      sectorKey: `free-${catKey}`,
+      description: schema.tool_name || "",
+      premiumRequired: false,
+      href: `/tools/generated/${slug}`,
+    });
   }
 
   const tools = [...toolsMap.values()].sort((left, right) => left.name.localeCompare(right.name, locale));
