@@ -12,6 +12,17 @@ function resolveSchemasDir(): string {
 const SCHEMAS_DIR = resolveSchemasDir();
 
 function resolveGeneratedSchemasDir(): string {
+  // Next.js standalone output (Firebase Cloud Function production)
+  const standalonePath = path.join(process.cwd(), ".next", "standalone", "generated", "schemas");
+  if (fs.existsSync(standalonePath)) {
+    return standalonePath;
+  }
+  // Next.js server output (alt production bundle path)
+  const serverPath = path.join(process.cwd(), ".next", "server", "generated", "schemas");
+  if (fs.existsSync(serverPath)) {
+    return serverPath;
+  }
+  // Local dev / project root
   return path.join(process.cwd(), "generated", "schemas");
 }
 
