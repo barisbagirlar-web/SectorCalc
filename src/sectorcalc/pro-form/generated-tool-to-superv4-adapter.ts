@@ -20,6 +20,7 @@ import type { SuperV4Schema, SuperV4Input, NormalizedInputSpec, ProfileMode, UII
 /*  Turkish Rejection & Validation                 */
 /* ─────────────────────────────────────────────── */
 import { hasTurkishToken } from "@/sectorcalc/governance/forbidden-locale-token-detector";
+import { getDisplayToolName, getDisplayCategoryLabel } from "./display-labels";
 
 export function assertNoTurkishString(text: string, path: string): void {
   if (!text) return;
@@ -398,9 +399,9 @@ export function generatedToolSchemaToSuperV4Schema(
   return {
     tool_id: slug,
     tool_key: slug,
-    tool_name: sanitizeString(legacy.toolName, slug),
-    category: sanitizeString(legacy.categorySlug || legacy.sectorSlug, "General"),
-    scope: sanitizeString(legacy.sectorSlug, "general"),
+    tool_name: getDisplayToolName(sanitizeString(legacy.toolName, slug), slug),
+    category: getDisplayCategoryLabel(legacy.categorySlug || legacy.sectorSlug),
+    scope: getDisplayCategoryLabel(legacy.sectorSlug),
     primary_operation: "calculate",
     decision_context: {
       engineering_discipline: legacy.sectorSlug ? sanitizeString(legacy.sectorSlug, "") : "",

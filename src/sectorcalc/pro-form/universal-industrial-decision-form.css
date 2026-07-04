@@ -62,7 +62,8 @@
 .sc-v531-metric strong,
 .sc-v531-status-card span,
 .sc-v531-status-card__label,
-.sc-v531-info-chip span,
+.sc-v531-info-chip strong,
+.sc-v531-info-chip__value,
 .sc-v531-hero__meta span {
   font-family: var(--sc-v531-mono);
 }
@@ -116,6 +117,8 @@
   font-size: clamp(2rem, 4vw, 3.75rem);
   line-height: 0.98;
   letter-spacing: -0.055em;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .sc-v531-hero__scope {
@@ -159,7 +162,7 @@
 .sc-v531-status-card__label,
 .sc-v531-status-card span,
 .sc-v531-metric span,
-.sc-v531-info-chip span {
+.sc-v531-info-chip__label {
   color: var(--sc-v531-muted);
   font-size: 0.72rem;
   font-weight: 750;
@@ -170,6 +173,8 @@
 .sc-v531-status-card strong {
   font-size: 1.08rem;
 }
+
+/* ── Profile mode panel ── */
 
 .sc-v531-mode-panel {
   display: grid;
@@ -218,12 +223,14 @@
   font-size: 0.82rem;
 }
 
+/* ── Main layout grid (desktop: form + sidebar) ── */
+
 .sc-v531-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
   gap: 1.25rem;
   align-items: start;
-  padding: 0 clamp(0rem, 2vw, 1rem) 6rem;
+  padding: 0 clamp(0rem, 2vw, 1rem) 2rem;
 }
 
 .sc-v531-main,
@@ -232,7 +239,10 @@
 .sc-v531-proof-stack {
   display: grid;
   gap: 1rem;
+  min-width: 0;
 }
+
+/* ── Sections ── */
 
 .sc-v531-section {
   padding: clamp(1rem, 2vw, 1.35rem);
@@ -260,7 +270,6 @@
 .sc-v531-section__header p,
 .sc-v531-group__header p,
 .sc-v531-field__help,
-.sc-v531-field__preview,
 .sc-v531-field__issues,
 .sc-v531-guidance,
 .sc-v531-cockpit__reason,
@@ -279,6 +288,8 @@
   margin: 0.25rem 0 0;
 }
 
+/* ── Input groups ── */
+
 .sc-v531-group {
   border: 1px solid var(--sc-v531-line);
   border-radius: 0;
@@ -296,6 +307,14 @@
   padding: 1rem;
 }
 
+/* ── Input field grid: auto-fit with min 320px for readability ── */
+
+.sc-v531-field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0.75rem;
+}
+
 .sc-v531-field {
   display: grid;
   gap: 0.65rem;
@@ -303,24 +322,29 @@
   border: 1px solid var(--sc-v531-line);
   border-radius: 0;
   background: var(--sc-v531-surface);
-}
-
-.sc-v531-field-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 148px;
-  gap: 0.75rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .sc-v531-field__head label,
 .sc-v531-field__head strong {
   color: var(--sc-v531-text);
   font-weight: 700;
+  word-break: break-word;
 }
 
 .sc-v531-field__head span {
   color: var(--sc-v531-muted);
   font-family: var(--sc-v531-mono);
   font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.sc-v531-field__control-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .sc-v531-input,
@@ -334,6 +358,13 @@
   padding: 0.72rem 0.78rem;
   font-size: 0.95rem;
   outline: none;
+  min-width: 0;
+}
+
+.sc-v531-unit-select {
+  width: auto;
+  min-width: 80px;
+  flex-shrink: 0;
 }
 
 .sc-v531-input:focus,
@@ -354,12 +385,36 @@
   box-shadow: inset 4px 0 0 var(--sc-v531-accent);
 }
 
-.sc-v531-field__preview,
-.sc-v531-field__issues,
-.sc-v531-guidance {
+/* ── Base preview row — structured label + value with colon separator ── */
+
+.sc-v531-field__preview {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
   border-left: 2px solid var(--sc-v531-line-strong);
   padding-left: 0.75rem;
+  color: var(--sc-v531-muted);
+  font-size: 0.92rem;
 }
+
+.sc-v531-field__preview > span {
+  color: var(--sc-v531-muted);
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.sc-v531-field__preview > span::after {
+  content: ":";
+  margin-left: 0.1rem;
+}
+
+.sc-v531-field__preview strong {
+  color: var(--sc-v531-text);
+  font-family: var(--sc-v531-mono);
+  font-weight: 600;
+}
+
+/* ── Reference metadata grid ── */
 
 .sc-v531-reference-grid,
 .sc-v531-context-grid,
@@ -370,7 +425,10 @@
   gap: 0.75rem;
 }
 
-.sc-v531-reference-grid,
+.sc-v531-reference-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
 .sc-v531-result-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -380,6 +438,76 @@
 .sc-v531-cockpit__metrics {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+
+/* ── Info chip: label and value on separate rows ── */
+
+.sc-v531-info-chip {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.65rem 0.75rem;
+  min-width: 0;
+}
+
+.sc-v531-info-chip__label {
+  display: block;
+  color: var(--sc-v531-muted);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sc-v531-info-chip__value,
+.sc-v531-info-chip strong {
+  display: block;
+  color: var(--sc-v531-text);
+  font-family: var(--sc-v531-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+/* ── Evidence checkbox row: structured flex with gap ── */
+
+.sc-v531-evidence-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.75rem;
+  border: 1px solid var(--sc-v531-line);
+  border-radius: 0;
+  flex-wrap: wrap;
+}
+
+.sc-v531-evidence-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--sc-v531-text);
+  white-space: nowrap;
+}
+
+.sc-v531-evidence-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--sc-v531-accent);
+}
+
+/* ── Field issues ── */
+
+.sc-v531-field__issues {
+  border-left: 2px solid var(--sc-v531-line-strong);
+  padding-left: 0.75rem;
+  list-style: none;
+  margin: 0;
+}
+
+/* ── Context items ── */
 
 .sc-v531-context-item,
 .sc-v531-result-card,
@@ -394,6 +522,26 @@
   border-radius: 0;
   background: var(--sc-v531-surface);
   padding: 0.95rem;
+}
+
+.sc-v531-context-item {
+  min-width: 0;
+}
+
+.sc-v531-context-item dt {
+  color: var(--sc-v531-muted);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+.sc-v531-context-item dd {
+  margin: 0;
+  color: var(--sc-v531-text);
+  font-size: 0.92rem;
+  word-break: break-word;
 }
 
 .sc-v531-result-card {
@@ -421,6 +569,8 @@
   margin-bottom: 0.35rem;
   color: var(--sc-v531-text);
 }
+
+/* ── Decision cockpit ── */
 
 .sc-v531-cockpit {
   position: sticky;
@@ -468,6 +618,8 @@
   color: var(--sc-v531-text);
   font-size: 1rem;
 }
+
+/* ── Buttons ── */
 
 .sc-v531-primary-button,
 .sc-v531-secondary-button,
@@ -523,18 +675,34 @@
   box-shadow: inset 4px 0 0 var(--sc-v531-accent);
 }
 
+/* ── Export row ── */
+
 .sc-v531-export-row {
   align-items: center;
   border-top: 1px solid var(--sc-v531-line);
   padding-top: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.sc-v531-evidence-row {
-  align-items: center;
-  padding: 0.75rem;
+/* ── Bottom CTA separation (spacer after export panel) ── */
+
+.sc-v531-cta-spacer {
+  height: 0;
+  margin: 0;
+}
+
+/* ── Empty / placeholder panel states ── */
+
+.sc-v531-empty {
   border: 1px solid var(--sc-v531-line);
   border-radius: 0;
+  padding: 1rem;
+  background: rgba(250, 249, 245, 0.54);
+  color: var(--sc-v531-muted);
+  font-size: 0.92rem;
 }
+
+/* ── Mobile action bar ── */
 
 .sc-v531-mobile-action-bar {
   position: fixed;
@@ -563,12 +731,7 @@
   font-size: 0.82rem;
 }
 
-.sc-v531-empty {
-  border: 1px dashed var(--sc-v531-line-strong);
-  border-radius: 0;
-  padding: 1rem;
-  background: rgba(250, 249, 245, 0.54);
-}
+/* ── Status colors ── */
 
 .sc-v531-shell [data-status="OK"],
 .sc-v531-shell [data-status="PASS"],
@@ -595,6 +758,8 @@
   box-shadow: inset 4px 0 0 var(--sc-v531-accent);
 }
 
+/* ── Responsive breakpoints ── */
+
 @media (max-width: 980px) {
   .sc-v531-hero__main,
   .sc-v531-layout {
@@ -620,11 +785,17 @@
   }
 
   .sc-v531-mode-panel,
-  .sc-v531-reference-grid,
   .sc-v531-result-grid,
   .sc-v531-context-grid,
   .sc-v531-fmea-grid,
-  .sc-v531-cockpit__metrics,
+  .sc-v531-cockpit__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-v531-reference-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
   .sc-v531-field-grid {
     grid-template-columns: 1fr;
   }
@@ -637,6 +808,11 @@
   .sc-v531-evidence-row {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .sc-v531-field__control-row {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .sc-v531-layout {
@@ -661,5 +837,18 @@
 
   .sc-v531-hero__title {
     font-size: 1.86rem;
+  }
+
+  .sc-v531-field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-v531-reference-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-v531-evidence-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

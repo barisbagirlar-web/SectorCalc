@@ -19,6 +19,12 @@ import type {
 import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { getExecutionStateLabel } from "./form-state-machine";
 import { useUniversalIndustrialDecisionFormMachine } from "./useUniversalIndustrialDecisionFormMachine";
+import {
+  getDisplayToolName,
+  getDisplayCategoryLabel,
+  getDisplayOperationLabel,
+  formatDisplayKey,
+} from "./display-labels";
 import "./universal-industrial-decision-form.css";
 
 export interface UniversalIndustrialDecisionFormProps {
@@ -70,6 +76,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
   const status = response?.status ?? executionStateToStatus(state.executionState);
 
+  // Display-safe labels
+  const displayToolName = getDisplayToolName(props.schema.tool_name, props.schema.tool_key);
+  const displayCategory = getDisplayCategoryLabel(props.schema.category);
+  const displayOperation = getDisplayOperationLabel(props.schema.primary_operation);
+
   // Identity mismatch blocking block (after all hooks)
   if (identityCheck && !identityCheck.ok) {
     return <IdentityBlocker reason={identityCheck.reason!} />;
@@ -81,7 +92,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         <div className="sc-v531-hero__eyebrow">SectorCalc SuperV4 · V5.3.1 Industrial Decision Form</div>
         <div className="sc-v531-hero__main">
           <div>
-            <h1 className="sc-v531-hero__title">{props.schema.tool_name}</h1>
+            <h1 className="sc-v531-hero__title">{displayToolName}</h1>
             <p className="sc-v531-hero__scope">{props.schema.scope}</p>
           </div>
           <div className="sc-v531-status-card" data-status={status.toLowerCase()}>
@@ -91,8 +102,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
           </div>
         </div>
         <div className="sc-v531-hero__meta" aria-label="Tool metadata">
-          <span>{props.schema.category}</span>
-          <span>{props.schema.primary_operation}</span>
+          <span title={props.schema.category}>{displayCategory}</span>
+          <span title={props.schema.primary_operation}>{displayOperation}</span>
           <span>Risk: {props.schema.risk_level}</span>
           <span>Schema: {props.schema.metadata.schema_version}</span>
           <span>Formula: {props.schema.metadata.formula_version}</span>
@@ -344,7 +355,7 @@ function IndustrialInputField(props: {
             checked={props.evidence?.user_verified ?? false}
             onChange={(event: ChangeEvent<HTMLInputElement>) => props.onEvidenceChange({ user_verified: event.target.checked, enabled: true })}
           />
-          User verified
+          <span>User verified</span>
         </label>
         <label>
           <input
@@ -352,7 +363,7 @@ function IndustrialInputField(props: {
             checked={props.evidence?.source_verified ?? false}
             onChange={(event: ChangeEvent<HTMLInputElement>) => props.onEvidenceChange({ source_verified: event.target.checked, enabled: true })}
           />
-          Source verified
+          <span>Source verified</span>
         </label>
       </div>
 
@@ -442,7 +453,7 @@ function WarningsPanel({ warnings, clientIssues }: { warnings: ServerWarning[]; 
           ))}
         </div>
       ) : (
-        <p className="sc-v531-empty">No warnings are available yet.</p>
+        <p className="sc-v531-empty">No warnings to review. Run the server calculation to generate public-safe outputs.</p>
       )}
     </section>
   );
@@ -464,7 +475,7 @@ function ResultsPanel({ outputs }: { outputs: ServerOutput[] }) {
           ))}
         </div>
       ) : (
-        <p className="sc-v531-empty">Server outputs will appear after execution.</p>
+        <p className="sc-v531-empty">Run the server calculation to generate public-safe outputs.</p>
       )}
     </section>
   );
@@ -482,7 +493,7 @@ function HiddenRiskPanel({ response }: { response: ExecuteResponse | null }) {
           ))}
         </div>
       ) : (
-        <p className="sc-v531-empty">Hidden risk explanations will appear after server execution.</p>
+        <p className="sc-v531-empty">Risk explanations are generated after server execution.</p>
       )}
     </section>
   );
@@ -501,7 +512,7 @@ function BusinessImpactPanel({ response }: { response: ExecuteResponse | null })
           <ContextItem label="Currency" value={impact.currency ?? "User-entered display currency only"} />
         </dl>
       ) : (
-        <p className="sc-v531-empty">Business impact will appear when commercial inputs and server outputs are available.</p>
+        <p className="sc-v531-empty">Commercial impact appears when required inputs and server outputs are available.</p>
       )}
     </section>
   );
@@ -578,7 +589,7 @@ function FmeaPanel({ response }: { response: ExecuteResponse | null }) {
           ))}
         </div>
       ) : (
-        <p className="sc-v531-empty">No FMEA summary is available yet.</p>
+        <p className="sc-v531-empty">FMEA appears when utilization, uncertainty, evidence, or risk thresholds require review.</p>
       )}
     </section>
   );
@@ -622,7 +633,7 @@ function AuditSealPanel({ response, redactionStatus }: { response: ExecuteRespon
           <ContextItem label="Hash algorithm" value={seal.hash_algorithm} />
         </dl>
       ) : (
-        <p className="sc-v531-empty">Audit seal will appear after server execution.</p>
+        <p className="sc-v531-empty">Audit seal appears after deterministic server execution.</p>
       )}
     </section>
   );
@@ -637,7 +648,10 @@ function ExportPanel(props: { pdfAvailable: boolean; jsonAuditAvailable: boolean
         <button type="button" className="sc-v531-secondary-button" disabled={!props.jsonAuditAvailable}>JSON audit</button>
         <button type="button" className="sc-v531-secondary-button" disabled={!props.copySummaryAvailable}>Copy summary</button>
       </div>
-      <p className="sc-v531-empty">Redaction status: {formatRedaction(props.redactionStatus)}</p>
+      <p className="sc-v531-empty">Exports unlock after a public-safe redacted server response.</p>
+      <p style={{ marginTop: "0.5rem", color: "var(--sc-v531-muted)", fontSize: "0.82rem" }}>
+        Redaction status: {formatRedaction(props.redactionStatus)}
+      </p>
     </section>
   );
 }
@@ -663,8 +677,8 @@ function ContextItem({ label, value }: { label: string; value: string }) {
 function InfoChip({ label, value }: { label: string; value: string }) {
   return (
     <div className="sc-v531-info-chip">
-      <span>{label}</span>
-      <strong>{value}</strong>
+      <span className="sc-v531-info-chip__label">{label}</span>
+      <strong className="sc-v531-info-chip__value">{value}</strong>
     </div>
   );
 }
