@@ -87,7 +87,7 @@
 /* ── Hero ── */
 
 .sc-v531-hero {
-  padding: clamp(1.25rem, 3vw, 2.5rem);
+  padding: 32px 28px 26px !important;
   margin-bottom: 1.25rem;
   border-left: 0;
   border-right: 0;
@@ -120,18 +120,20 @@
 
 .sc-v531-title {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.75rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  font-size: clamp(28px, 3.4vw, 44px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.04em;
   word-break: break-word;
   overflow-wrap: anywhere;
+  max-width: 980px;
 }
 
 .sc-v531-hero__scope {
-  max-width: 74ch;
+  max-width: 860px;
   margin: 0.85rem 0 0;
   color: var(--sc-v531-muted);
-  font-size: 1.02rem;
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 .sc-v531-meta-row {
@@ -233,8 +235,8 @@
 
 .sc-v531-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
-  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 330px);
+  gap: 28px;
   align-items: start;
   padding: 0 clamp(0rem, 2vw, 1rem) 2rem;
 }
@@ -351,7 +353,16 @@
   border-top: 1px solid rgba(26, 25, 21, 0.10);
 }
 
-.sc-v531-group-body[hidden] {
+.sc-v531-group[data-state="collapsed"] {
+  min-height: 0 !important;
+}
+
+.sc-v531-group[data-state="collapsed"] .sc-v531-group-header {
+  min-height: 50px !important;
+  padding: 13px 18px !important;
+}
+
+.sc-v531-group[data-state="collapsed"] .sc-v531-group-body {
   display: none !important;
 }
 
@@ -368,17 +379,17 @@
 
 .sc-v531-field-card {
   background: #FAF9F5;
-  border: 1px solid rgba(26, 25, 21, 0.10);
-  padding: 18px;
+  border: 1px solid rgba(26,25,21,.10);
+  padding: 16px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
   min-width: 0;
 }
 
 .sc-v531-field-title {
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 750;
   color: #1A1915;
-  font-size: 16px;
   margin: 0;
 }
 
@@ -391,28 +402,28 @@
 }
 
 .sc-v531-field-help {
-  color: rgba(26, 25, 21, 0.68);
-  line-height: 1.45;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.42;
+  color: rgba(26,25,21,.68);
   margin: 0;
 }
 
 /* Input + unit row */
 .sc-v531-input-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 132px;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) 120px;
+  gap: 8px;
 }
 
 .sc-v531-input,
 .sc-v531-unit-select {
-  height: 44px;
-  border: 1px solid rgba(26, 25, 21, 0.16);
+  height: 42px;
+  border: 1px solid rgba(26,25,21,.16);
   background: #fff;
   color: #1A1915;
   padding: 0 12px;
   outline: none;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .sc-v531-input:focus,
@@ -466,25 +477,26 @@
 /* ── Evidence box ── */
 
 .sc-v531-field-evidence {
-  border: 1px solid rgba(189, 93, 58, 0.24);
-  background: rgba(189, 93, 58, 0.05);
-  padding: 12px;
+  padding: 8px 10px !important;
+  margin-top: 2px;
+  border: 1px solid rgba(189,93,58,.22);
+  background: rgba(189,93,58,.045);
 }
 
 .sc-v531-evidence-title {
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  margin: 0 0 5px !important;
+  font-size: 10px !important;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: #BD5D3A;
-  font-weight: 700;
-  margin: 0;
+  font-weight: 750;
 }
 
 .sc-v531-evidence-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 10px;
+  font-size: 12px !important;
 }
 
 .sc-v531-evidence-options label {
@@ -558,9 +570,10 @@
 
 .sc-v531-side-panel {
   position: sticky;
-  top: 112px;
+  top: 128px;
   align-self: start;
-  z-index: 2;
+  z-index: 1;
+  max-width: 330px;
 }
 
 .sc-v531-side-panel-inner {
@@ -645,8 +658,8 @@
 }
 
 .sc-v531-primary-action:disabled {
-  background: rgba(189, 93, 58, 0.30);
-  color: rgba(26, 25, 21, 0.45);
+  background: rgba(189,93,58,.28);
+  color: rgba(26,25,21,.48);
   cursor: not-allowed;
 }
 

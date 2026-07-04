@@ -26,6 +26,7 @@ import {
   getDisplayToolName,
   getDisplayCategoryLabel,
   getDisplayOperationLabel,
+  humanizeEnum,
 } from "./display-labels";
 import {
   hasServerResponse,
@@ -397,47 +398,50 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
               <section className="sc-v531-section" aria-label="Guided input flow">
                 <div className="sc-v531-section__topline">
-                  <SectionHeader title="Guided input flow" subtitle="Enter measured values, select units, and confirm source evidence." />
+                  <SectionHeader title="Primary inputs" subtitle="Enter measured values, select units, and confirm source evidence." />
                   <button
                     type="button"
                     className="sc-v531-secondary-button"
                     onClick={() => machine.setAdvancedVisible(!state.advancedDisclosureState.advanced_visible)}
                   >
-                    {state.advancedDisclosureState.advanced_visible ? "Hide engineering details" : "Show engineering details"}
+                    {state.advancedDisclosureState.advanced_visible ? "Hide additional inputs" : "Additional inputs"}
                   </button>
                 </div>
 
                 <div className="sc-v531-group-stack">
-                  {visibleGroups.map((group) => (
-                    <InputGroupPanel
-                      key={group.id}
-                      group={group}
-                      expanded={state.advancedDisclosureState.expanded_groups[group.id] ?? true}
-                      onToggle={() => machine.toggleGroup(group.id)}
-                    >
-                      <div className="sc-v531-field-grid">
-                        {group.fields
-                          .map((fieldId) => inputsById.get(fieldId))
-                          .filter(isDefined)
-                          .filter((input) => isInputVisibleInMode(input, activeMode, state.advancedDisclosureState.advanced_visible))
-                          .map((input) => (
-                            <IndustrialInputField
-                              key={input.id}
-                              input={input}
-                              value={state.rawInputState[input.id] ?? null}
-                              selectedUnit={state.selectedUnitState[input.id] ?? ""}
-                              normalizedPreview={machine.normalizedPreview.find((item) => item.input_id === input.id) ?? null}
-                              evidence={state.evidenceState[input.id]}
-                              blockers={state.validationState.client_precheck_errors.filter((issue) => issue.input_id === input.id)}
-                              showAdvanced={state.advancedDisclosureState.advanced_visible}
-                              onValueChange={(value) => machine.setInputValue(input.id, value)}
-                              onUnitChange={(unit) => machine.setSelectedUnit(input.id, unit)}
-                              onEvidenceChange={(patch) => machine.updateEvidence(input.id, patch)}
-                            />
-                          ))}
-                      </div>
-                    </InputGroupPanel>
-                  ))}
+                  {visibleGroups.map((group) => {
+                    const isExpanded = state.advancedDisclosureState.expanded_groups[group.id] ?? !group.advanced;
+                    return (
+                      <InputGroupPanel
+                        key={group.id}
+                        group={group}
+                        expanded={isExpanded}
+                        onToggle={() => machine.toggleGroup(group.id)}
+                      >
+                        <div className="sc-v531-field-grid">
+                          {group.fields
+                            .map((fieldId) => inputsById.get(fieldId))
+                            .filter(isDefined)
+                            .filter((input) => isInputVisibleInMode(input, activeMode, state.advancedDisclosureState.advanced_visible))
+                            .map((input) => (
+                              <IndustrialInputField
+                                key={input.id}
+                                input={input}
+                                value={state.rawInputState[input.id] ?? null}
+                                selectedUnit={state.selectedUnitState[input.id] ?? ""}
+                                normalizedPreview={machine.normalizedPreview.find((item) => item.input_id === input.id) ?? null}
+                                evidence={state.evidenceState[input.id]}
+                                blockers={state.validationState.client_precheck_errors.filter((issue) => issue.input_id === input.id)}
+                                showAdvanced={state.advancedDisclosureState.advanced_visible}
+                                onValueChange={(value) => machine.setInputValue(input.id, value)}
+                                onUnitChange={(unit) => machine.setSelectedUnit(input.id, unit)}
+                                onEvidenceChange={(patch) => machine.updateEvidence(input.id, patch)}
+                              />
+                            ))}
+                        </div>
+                      </InputGroupPanel>
+                    );
+                  })}
                 </div>
               </section>
 
@@ -661,7 +665,7 @@ function IdentityBlocker({ reason }: { reason: string }) {
 function InputGroupPanel({ group, expanded, onToggle, children }: { group: UIInputGroup; expanded: boolean; onToggle: () => void; children: ReactNode }) {
   const fieldCount = group.fields?.length ?? 0;
   return (
-    <article className="sc-v531-group" data-advanced={group.advanced === true}>
+    <article className="sc-v531-group" data-advanced={group.advanced === true} data-state={expanded ? "expanded" : "collapsed"}>
       <button type="button" className="sc-v531-group-header" aria-expanded={expanded} onClick={onToggle}>
         <div className="sc-v531-group-header__info">
           <span className="sc-v531-group-header__title">{group.title}</span>
@@ -676,9 +680,11 @@ function InputGroupPanel({ group, expanded, onToggle, children }: { group: UIInp
           <span className={`sc-v531-group-chevron${expanded ? " sc-v531-group-chevron--expanded" : ""}`} aria-hidden="true">▾</span>
         </div>
       </button>
-      <div className="sc-v531-group-body" hidden={!expanded}>
-        {children}
-      </div>
+      {expanded ? (
+        <div className="sc-v531-group-body">
+          {children}
+        </div>
+      ) : null}
     </article>
   );
 }
@@ -813,7 +819,7 @@ function renderValueInput(
     return (
       <label className="sc-v531-toggle">
         <input type="checkbox" checked={value === true} onChange={(event: ChangeEvent<HTMLInputElement>) => onValueChange(event.target.checked)} />
-        <span>Enabled</span>
+        <span>{humanizeEnum(input.name) || "Confirmed"}</span>
       </label>
     );
   }
@@ -823,7 +829,7 @@ function renderValueInput(
       <select id={inputId} className="sc-v531-input" value={typeof value === "string" ? value : ""} onChange={(event: ChangeEvent<HTMLSelectElement>) => onValueChange(event.target.value)}>
         <option value="">Select value</option>
         {(input.allowed_values ?? []).map((option) => (
-          <option key={option} value={option}>{option}</option>
+          <option key={option} value={option}>{humanizeEnum(option)}</option>
         ))}
       </select>
     );

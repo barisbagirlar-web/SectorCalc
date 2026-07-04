@@ -18,8 +18,11 @@ const PRO_FORM_DIR = join(PROJECT_ROOT, "src", "sectorcalc", "pro-form");
 // ── Forbidden patterns (must not appear in user-facing surfaces) ──
 const FORBIDDEN_PATTERNS = [
   "display_currency",
-  "exact_formula",
+  "DECISION_SUPPORT_ONLY_NOT_CERTIFICATION",
+  "manufacturing_quote_and_process_margin_screening",
+  "normalized_inputs",
   "internal_checker_trace",
+  "exact_formula",
   "FreeToolPage",
   "FreeToolPremiumCalculator",
   "sc-universal-dtf-shell",
@@ -28,23 +31,27 @@ const FORBIDDEN_PATTERNS = [
 // Patterns skipped in source/build mode (legitimate server data, never user-visible UI):
 const SOURCE_SKIP = new Set([
   "display_currency",    // valid unit key in data structures, mapped to "Currency" for display
+  "DECISION_SUPPORT_ONLY_NOT_CERTIFICATION", // schema enum value, humanized via humanizeEnum for display
+  "manufacturing_quote_and_process_margin_screening", // schema enum value, humanized for display
+  "normalized_inputs",   // schema field name, never shown as raw text in UI
   "exact_formula",       // server response field, never shown as raw text
   "internal_checker_trace", // server response field, never shown as raw text
 ]);
 
 // ── Required UX patterns ──
 const REQUIRED_UX = [
+  "sc-v531-shell",
+  "sc-v531-primary-action",
+  "sc-v531-field-card",
+  "sc-v531-side-panel",
   "sc-v531-group-header",
   "sc-v531-group-chevron",
-  "sc-v531-field-card",
   "sc-v531-field-title",
   "sc-v531-field-help",
   "sc-v531-input-row",
   "sc-v531-field-evidence",
   "sc-v531-evidence-title",
   "sc-v531-evidence-options",
-  "sc-v531-side-panel",
-  "sc-v531-primary-action",
   "No result yet",
   "Protected methodology",
 ];
@@ -86,7 +93,7 @@ function checkPatterns(content, isBuild, isLive) {
   const fails = [];
   const passes = [];
   for (const p of FORBIDDEN_PATTERNS) {
-    if ((!isBuild || isLive) && SOURCE_SKIP.has(p)) {
+    if (!isLive && SOURCE_SKIP.has(p)) {
       passes.push(`forbidden token skipped: ${p} (server data, not UI)`); continue;
     }
     const re = new RegExp(p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");

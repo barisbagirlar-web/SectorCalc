@@ -171,6 +171,18 @@ export function getDisplayUnitLabel(unit: string): string {
 }
 
 /**
+ * Transform a raw enum value into human-readable text.
+ * Special-cases known long enum keys like DECISION_SUPPORT_ONLY_NOT_CERTIFICATION.
+ */
+export function humanizeEnum(value: string): string {
+  if (!value) return "";
+  return value
+    .replace(/^DECISION_SUPPORT_ONLY_NOT_CERTIFICATION$/, "Decision support only \u2014 not certification")
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+/**
  * Check if a string is a known raw internal key (kebab-case, snake_case).
  */
 export function isRawInternalKey(value: string): boolean {
