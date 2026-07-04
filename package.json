@@ -54,7 +54,9 @@
     "mark:free-tools-v531-live": "node scripts/mark-free-tools-v531-live-verified.mjs",
     "guard:v531-form-ux": "node scripts/guard-v531-form-ux-contract.mjs",
     "guard:header-navigation": "node scripts/guard-header-navigation-contract.mjs",
-    "smoke:header-navigation": "node scripts/smoke-header-navigation.mjs"
+    "smoke:header-navigation": "node scripts/smoke-header-navigation.mjs",
+    "guard:sitemap-root": "node scripts/guard-sitemap-root-contract.mjs",
+    "smoke:sitemap-root": "node scripts/smoke-sitemap-root.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
