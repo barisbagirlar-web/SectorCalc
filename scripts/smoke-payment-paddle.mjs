@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 /**
- * Smoke test for Paddle payment integration.
- * Tests invariant logic (request validation) without external API calls.
- * Uses structural analysis + simulation instead of live Paddle API calls.
+ * SectorCalc Paddle Payment Smoke Test — structural + invariant checks.
+ *
+ * Tests route existence, contract compliance, security properties, and
+ * backward compatibility. Does NOT call live Paddle API (requires sandbox
+ * credentials for full integration test).
  *
  * Run: node scripts/smoke-payment-paddle.mjs
+ *
+ * All checks are static/structural except where noted (mocked).
  */
 
 import fs from "node:fs";
@@ -24,40 +28,39 @@ function assert(label, condition, detail = "") {
   }
 }
 
-function assertFile(label, filePath) {
-  const exists = fs.existsSync(path.join(ROOT, filePath));
-  assert(label, exists, `(${filePath} not found)`);
+function read(filePath) {
+  const abs = path.join(ROOT, filePath);
+  if (!fs.existsSync(abs)) return null;
+  return fs.readFileSync(abs, "utf8");
 }
 
 // ── 1. No duplicate webhook route ───────────────────────────────────────
 
 console.log("\n📦 DUPLICATE WEBHOOK ROUTE:");
-assertFile("Canonical webhook route exists", "src/app/api/paddle-webhook/route.ts");
+assert("Canonical webhook route exists", !!read("src/app/api/paddle-webhook/route.ts"));
 assert(
   "No duplicate webhook at /api/webhooks/paddle",
-  !fs.existsSync(path.join(ROOT, "src/app/api/webhooks/paddle/route.ts")),
-  "Remove duplicate route at src/app/api/webhooks/paddle/route.ts",
+  !read("src/app/api/webhooks/paddle/route.ts"),
+  "Remove duplicate route",
 );
 
-// ── 2. Checkout route exists ───────────────────────────────────────────
+// ── 2. Checkout routes exist ────────────────────────────────────────────
 
-console.log("\n📦 CHECKOUT ROUTE:");
-assertFile("Paddle checkout route exists", "src/app/api/checkout/paddle/route.ts");
-assertFile("Stripe checkout route preserved", "src/app/api/checkout/route.ts");
+console.log("\n📦 CHECKOUT ROUTES:");
+assert("Paddle checkout route exists", !!read("src/app/api/checkout/paddle/route.ts"));
+assert("Stripe checkout route preserved", !!read("src/app/api/checkout/route.ts"));
 
-// ── 3. Contract files ───────────────────────────────────────────────────
+// ── 3. Contract files exist ─────────────────────────────────────────────
 
 console.log("\n📦 PADDLE CONTRACT FILES:");
-assertFile("Custom data contract", "src/lib/payments/paddle-custom-data.ts");
-assertFile("Price lookup", "src/lib/payments/paddle-price-lookup.server.ts");
+assert("Custom data contract", !!read("src/lib/payments/paddle-custom-data.ts"));
+assert("Price lookup", !!read("src/lib/payments/paddle-price-lookup.server.ts"));
 
 // ── 4. customData contract analysis ─────────────────────────────────────
 
-console.log("\n📦 customData CONTRACT:");
-const customDataContent = fs.readFileSync(
-  path.join(ROOT, "src/lib/payments/paddle-custom-data.ts"),
-  "utf8",
-);
+console.log("\n📦 CUSTOMDATA CONTRACT:");
+
+const customDataContent = read("src/lib/payments/paddle-custom-data.ts");
 
 assert(
   "Allowed intents defined",
@@ -66,127 +69,185 @@ assert(
 );
 assert(
   "Credit pack keys defined",
-  customDataContent.includes("credit_pack_1") &&
-    customDataContent.includes("credit_pack_100"),
+  customDataContent.includes("credit_pack_1") && customDataContent.includes("credit_pack_100"),
 );
 assert(
   "Subscription keys defined",
-  customDataContent.includes("pro_monthly") &&
-    customDataContent.includes("pro_annual"),
+  customDataContent.includes("pro_monthly") && customDataContent.includes("pro_annual"),
 );
 assert(
-  "validateCustomData function",
+  "validateCustomData function exists",
   customDataContent.includes("validateCustomData"),
 );
 assert(
-  "buildPaddleCustomData function",
+  "buildPaddleCustomData function exists",
   customDataContent.includes("buildPaddleCustomData"),
 );
 assert(
-  "isAllowedIntent function rejects unknown intents",
+  "parseLegacyCustomData function exists",
+  customDataContent.includes("parseLegacyCustomData"),
+);
+assert(
+  "isAllowedIntent rejects unknown intents",
   customDataContent.includes("isAllowedIntent"),
 );
 assert(
-  "Credits by product key mapping",
+  "Credits by product key mapping (server-authoritative)",
   customDataContent.includes("CREDITS_BY_PRODUCT_KEY"),
+);
+assert(
+  "purchaseType field in contract",
+  customDataContent.includes("purchaseType: PurchaseType"),
+);
+assert(
+  "Server-authoritative credits override",
+  customDataContent.includes("serverCredits"),
 );
 
 // ── 5. Price lookup analysis ────────────────────────────────────────────
 
 console.log("\n📦 PRICE LOOKUP:");
-const priceLookupContent = fs.readFileSync(
-  path.join(ROOT, "src/lib/payments/paddle-price-lookup.server.ts"),
-  "utf8",
-);
 
-assert("resolvePaddlePriceId exists", priceLookupContent.includes("resolvePaddlePriceId"));
-assert("resolveCreditAmount exists", priceLookupContent.includes("resolveCreditAmount"));
-assert("Uses env vars for price IDs", priceLookupContent.includes("PADDLE_PRICE_ID_"));
-assert("Has server-only import", priceLookupContent.includes("server-only"));
+const priceLookupContent = read("src/lib/payments/paddle-price-lookup.server.ts");
+
+assert("resolvePaddlePriceId exists", !!priceLookupContent?.includes("resolvePaddlePriceId"));
+assert("resolveCreditAmount exists", !!priceLookupContent?.includes("resolveCreditAmount"));
+assert("Uses env vars for price IDs", !!priceLookupContent?.includes("PADDLE_PRICE_ID_"));
+assert("Has server-only import", !!priceLookupContent?.includes("server-only"));
 
 // ── 6. Webhook analysis ─────────────────────────────────────────────────
 
 console.log("\n📦 WEBHOOK:");
-const webhookContent = fs.readFileSync(
-  path.join(ROOT, "src/app/api/paddle-webhook/route.ts"),
-  "utf8",
-);
 
-assert("Signature verification", webhookContent.includes("verifyPaddleSignature"));
-assert("No second verification method competing", !webhookContent.includes("Webhooks.unmarshal"));
-assert("Custom data validation", webhookContent.includes("validateCustomData"));
-assert("Legacy credits field preserved", webhookContent.includes("customDataRaw?.credits"));
-assert("Legacy planId field preserved", webhookContent.includes("customDataRaw?.planId"));
-assert("Idempotency check", webhookContent.includes("isAlreadyProcessed"));
-assert("Idempotency write", webhookContent.includes("markProcessed"));
-assert("Credit fulfillment", webhookContent.includes("addUserCredits"));
-assert("Subscription fulfillment", webhookContent.includes("fulfillSubscription"));
-assert("Duplicate prevention", webhookContent.includes("deduplicated"));
-assert("Event type routing", webhookContent.includes("event_type"));
-assert("Malformed customData handled", webhookContent.includes("customDataRaw?.credits"));
+const webhookContent = read("src/app/api/paddle-webhook/route.ts");
 
-// ── 7. Backward compatibility ────────────────────────────────────────────
+assert("Signature verification", !!webhookContent?.includes("verifyPaddleSignature"));
+assert("Missing signature rejected", !!webhookContent?.includes("Missing signature header"));
+assert("No competing verification method", !webhookContent?.includes("Webhooks.unmarshal"));
+assert("Custom data validation (validateCustomData)", !!webhookContent?.includes("validateCustomData"));
+assert("Legacy credits field preserved", !!webhookContent?.includes("parseLegacyCustomData"));
+assert("Legacy planId field preserved", !!webhookContent?.includes("legacy.planId"));
+assert("Event type routing (transaction.completed)", !!webhookContent?.includes("transaction.completed"));
+assert("Unknown event safe acknowledgement", !!webhookContent?.includes("received: true, event: eventType"));
+assert("No userId → no fulfillment", !!webhookContent?.includes("No userId for event"));
+assert("Missing event data handled", !!webhookContent?.includes("Missing transaction data"));
+
+// ── 7. Atomic idempotency ────────────────────────────────────────────────
+
+console.log("\n📦 ATOMIC IDEMPOTENCY:");
+
+assert("Uses Firestore runTransaction", !!webhookContent?.includes("runTransaction"));
+assert("No isolated isAlreadyProcessed function", !webhookContent?.includes("async function isAlreadyProcessed"));
+assert("No isolated markProcessed function", !webhookContent?.includes("async function markProcessed"));
+assert("Idempotency doc created via txn.create", !!webhookContent?.includes("txn.create(idempotencyRef"));
+assert("Credit increment inside transaction", !!webhookContent?.includes("txn.set"));
+assert("Billing event written in same transaction", !!webhookContent?.includes("billingEventRef"));
+assert("IdempotencySkip thrown on duplicate", !!webhookContent?.includes("IdempotencySkip"));
+assert("Duplicate event returns deduplicated: true", !!webhookContent?.includes("deduplicated: true"));
+assert("Transaction failure returns 500", !!webhookContent?.includes("Fulfillment failed"));
+
+// ── 8. Backward compatibility ────────────────────────────────────────────
 
 console.log("\n📦 BACKWARD COMPATIBILITY:");
-assert(
-  "Stripe checkout route intact",
-  fs.existsSync(path.join(ROOT, "src/app/api/checkout/route.ts")),
-);
-assert(
-  "Stripe Cloud Function checkout intact",
-  fs.existsSync(path.join(ROOT, "functions/src/createStripeCheckout.ts")),
-);
-assert(
-  "Stripe Cloud Function webhook intact",
-  fs.existsSync(path.join(ROOT, "functions/src/stripeWebhook.ts")),
-);
-assert(
-  "Stripe credit checkout intact",
-  fs.existsSync(path.join(ROOT, "functions/src/creditCheckout.ts")),
-);
-assert(
-  "Plans config intact",
-  fs.existsSync(path.join(ROOT, "src/lib/features/plans.ts")),
-);
-assert(
-  "Paddle provider intact",
-  fs.existsSync(path.join(ROOT, "src/lib/ui-shared/paddle-provider.tsx")),
-);
 
-// ── 8. Checkout route validation analysis ───────────────────────────────
+assert("Stripe checkout route intact", !!read("src/app/api/checkout/route.ts"));
+assert("Stripe CF createStripeCheckout", !!read("functions/src/createStripeCheckout.ts"));
+assert("Stripe CF stripeWebhook", !!read("functions/src/stripeWebhook.ts"));
+assert("Stripe CF creditCheckout", !!read("functions/src/creditCheckout.ts"));
+assert("Plans config intact", !!read("src/lib/features/plans.ts"));
+assert("Paddle provider (CreditWall) intact", !!read("src/lib/ui-shared/paddle-provider.tsx"));
+assert("CreditWall component intact", !!read("src/components/pricing/CreditWall.tsx"));
+
+// ── 9. Checkout route validation ────────────────────────────────────────
 
 console.log("\n📦 CHECKOUT ROUTE VALIDATION:");
-const checkoutContent = fs.readFileSync(
-  path.join(ROOT, "src/app/api/checkout/paddle/route.ts"),
-  "utf8",
+
+const checkoutContent = read("src/app/api/checkout/paddle/route.ts");
+
+assert("POST method handler", !!checkoutContent?.includes("export async function POST"));
+assert("GET method rejected (405)", !!checkoutContent?.includes("Method not allowed"));
+assert("Invalid JSON rejected", !!checkoutContent?.includes("Invalid JSON body"));
+assert("Intent validation via isAllowedIntent", !!checkoutContent?.includes("isAllowedIntent"));
+assert("Product key validation", !!checkoutContent?.includes("productKey"));
+assert("Raw priceId rejected", !!checkoutContent?.includes("Client-supplied priceId is not accepted"));
+assert("userId required", !!checkoutContent?.includes("userId is required"));
+assert("Server-side price resolution", !!checkoutContent?.includes("resolvePaddlePriceId"));
+assert("Custom data building", !!checkoutContent?.includes("buildPaddleCustomData"));
+assert("Paddle SDK transaction.create", !!checkoutContent?.includes("transactions.create"));
+assert("Intent/productKey compatibility check",
+  !!checkoutContent?.includes("Credit pack intent requires") &&
+  !!checkoutContent?.includes("Subscription intent requires")
 );
+assert("requestId in customData", !!checkoutContent?.includes("requestId"));
 
-assert("Intent validation", checkoutContent.includes("isAllowedIntent"));
-assert("Product key validation", checkoutContent.includes("productKey"));
-  assert("Raw priceId rejected by server-side validation", checkoutContent.includes("Client-supplied priceId"));
-  assert("Server-side price resolution", checkoutContent.includes("resolvePaddlePriceId"));
-  assert("Custom data building", checkoutContent.includes("buildPaddleCustomData"));
-  assert("Paddle SDK transaction.create", checkoutContent.includes("transactions.create"));
-  assert("No client-supplied raw priceId accepted", !checkoutContent.includes("body.priceId ==") && !checkoutContent.includes("body.priceId = "));
-  assert("Response fields present", checkoutContent.includes("checkoutUrl:") && checkoutContent.includes("purchaseType:"));
-
-// ── 9. No raw priceId in response ───────────────────────────────────────
+// ── 10. Response safety ─────────────────────────────────────────────────
 
 console.log("\n📦 RESPONSE SAFETY:");
-assert("Response uses checkoutUrl not raw priceId", checkoutContent.includes("checkoutUrl:") && checkoutContent.includes("purchaseType:"));
-assert("Server validates and rejects client-supplied priceId", checkoutContent.includes("error:") && checkoutContent.includes("productKey:"));
 
-// ── 10. SDK installed ───────────────────────────────────────────────────
+assert("Response has checkoutUrl, purchaseType, productKey only",
+  checkoutContent?.includes("checkoutUrl") &&
+  checkoutContent?.includes("purchaseType") &&
+  checkoutContent?.includes("productKey")
+);
+assert("Response does NOT include priceId", !checkoutContent?.includes('"priceId"'));
+
+// ── 11. Secrets safety ──────────────────────────────────────────────────
+
+console.log("\n📦 SECRETS SAFETY:");
+
+const paymentFiles = [
+  "src/app/api/paddle-webhook/route.ts",
+  "src/app/api/checkout/paddle/route.ts",
+  "src/lib/payments/paddle-custom-data.ts",
+  "src/lib/payments/paddle-price-lookup.server.ts",
+  "src/lib/features/plans.ts",
+];
+
+for (const file of paymentFiles) {
+  const content = read(file);
+  if (!content) continue;
+  assert(
+    `No secret string literals in ${path.basename(file)}`,
+    !content.includes("sk_test") && !content.includes("sk_live_"),
+    `Found literal secret key in ${file}`,
+  );
+}
+
+// ── 12. SDK installed ───────────────────────────────────────────────────
 
 console.log("\n📦 DEPENDENCIES:");
-const pkg = JSON.parse(
-  fs.readFileSync(path.join(ROOT, "package.json"), "utf8"),
-);
-const hasPaddleSDK = pkg.dependencies?.["@paddle/paddle-node-sdk"];
+
+const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, "package.json"), "utf8"));
 assert(
   "@paddle/paddle-node-sdk installed",
-  !!hasPaddleSDK,
+  !!pkg.dependencies?.["@paddle/paddle-node-sdk"],
   "Run: npm install @paddle/paddle-node-sdk",
+);
+
+// ── 13. No TypeScript 'any' in payment files ─────────────────────────────
+
+console.log("\n📦 TYPE SAFETY:");
+
+for (const file of paymentFiles) {
+  const content = read(file);
+  if (!content) continue;
+  const anyCount = (content.match(/\bany\b/g) || []).length;
+  assert(
+    `No TypeScript 'any' in ${path.basename(file)}`,
+    anyCount === 0,
+    `Found ${anyCount}x 'any' in ${file}`,
+  );
+}
+
+// ── 14. Env var validation present ──────────────────────────────────────
+
+console.log("\n📦 ENV CONFIG SAFETY:");
+
+assert("Webhook checks PADDLE_WEBHOOK_SECRET",
+  !!webhookContent?.includes("PADDLE_WEBHOOK_SECRET is not configured")
+);
+assert("Checkout checks paddle client available",
+  !!checkoutContent?.includes("Payment system not configured")
 );
 
 // ── Summary ─────────────────────────────────────────────────────────────

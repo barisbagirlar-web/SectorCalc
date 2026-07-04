@@ -3,8 +3,10 @@
  * Route: POST /api/checkout/paddle
  *
  * Creates a Paddle transaction with validated customData.
- * Never accepts raw Paddle price IDs from the client.
- * Only allows intents and product keys from the canonical contract.
+ * - Never accepts raw Paddle price IDs from the client.
+ * - Only allows intents and product keys from the canonical contract.
+ * - Requires authenticated userId or stable customer reference.
+ * - Credits amount is server-resolved from product key, never from client.
  */
 
 import { NextRequest, NextResponse } from "next/server";
@@ -20,13 +22,12 @@ import { resolvePaddlePriceId } from "@/lib/payments/paddle-price-lookup.server"
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+// ── Client factory with env guard ────────────────────────────────────────
+
 function getPaddleClient(): Paddle | null {
   const apiKey = process.env.PADDLE_SECRET_KEY;
   if (!apiKey) return null;
-  return new Paddle(apiKey, {
-    // Paddle Node SDK v3 uses environment setting differently
-    // Default is production; no explicit env opt needed
-  });
+  return new Paddle(apiKey);
 }
 
 function getPublicAppUrl(): string {
@@ -37,23 +38,27 @@ function getPublicAppUrl(): string {
   );
 }
 
+// ── POST handler ─────────────────────────────────────────────────────────
+
 export async function POST(req: NextRequest) {
   try {
-    const body = (await req.json()) as Record<string, unknown>;
-
-    const rawIntent = String(body.intent ?? "");
-    const rawProductKey = String(body.productKey ?? "");
-    const rawToolKey = String(body.toolKey ?? "");
-
-    // ── Validate intent ────────────────────────────────────────────────
-    if (!rawIntent || !isAllowedIntent(rawIntent)) {
+    // ── Parse body ───────────────────────────────────────────────────
+    let body: Record<string, unknown>;
+    try {
+      body = (await req.json()) as Record<string, unknown>;
+    } catch {
       return NextResponse.json(
-        { error: `Invalid intent: ${rawIntent}` },
+        { error: "Invalid JSON body" },
         { status: 400 },
       );
     }
 
-    // ── Validate product key (no raw priceId accepted) ─────────────────
+    const rawIntent = String(body.intent ?? "").trim();
+    const rawProductKey = String(body.productKey ?? "").trim();
+    const rawToolKey = String(body.toolKey ?? "").trim();
+    const rawUserId = String(body.userId ?? "").trim();
+
+    // ── Reject client-supplied raw priceId ────────────────────────────
     if (body.priceId) {
       return NextResponse.json(
         { error: "Client-supplied priceId is not accepted" },
@@ -61,6 +66,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // ── Require intent ────────────────────────────────────────────────
+    if (!rawIntent || !isAllowedIntent(rawIntent)) {
+      return NextResponse.json(
+        { error: `Invalid intent: "${rawIntent}"` },
+        { status: 400 },
+      );
+    }
+
+    // ── Require productKey ────────────────────────────────────────────
     if (!rawProductKey) {
       return NextResponse.json(
         { error: "productKey is required" },
@@ -68,29 +82,70 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── Resolve Paddle price server-side ───────────────────────────────
-    let priceLookup;
+    // ── Require stable user reference ─────────────────────────────────
+    if (!rawUserId) {
+      return NextResponse.json(
+        {
+          error:
+            "userId is required. Authenticate before creating a checkout session.",
+        },
+        { status: 401 },
+      );
+    }
+
+    // ── Resolve Paddle price server-side ──────────────────────────────
+    let priceLookup: { priceId: string; credits: number; purchaseType: string };
     try {
       priceLookup = resolvePaddlePriceId(rawProductKey);
     } catch {
       return NextResponse.json(
-        { error: `Invalid productKey: ${rawProductKey}` },
+        { error: `Invalid productKey: "${rawProductKey}"` },
         { status: 400 },
       );
     }
 
-    // ── Build customData ───────────────────────────────────────────────
+    // ── Verify intent/productKey compatibility ────────────────────────
+    if (
+      rawIntent === "SECTORCALC_CREDIT_PACK_PURCHASE" &&
+      priceLookup.purchaseType !== "credit_pack"
+    ) {
+      return NextResponse.json(
+        { error: "Credit pack intent requires a credit pack product key" },
+        { status: 400 },
+      );
+    }
+    if (
+      rawIntent === "SECTORCALC_PRO_SUBSCRIPTION_PURCHASE" &&
+      priceLookup.purchaseType !== "subscription"
+    ) {
+      return NextResponse.json(
+        {
+          error:
+            "Subscription intent requires a subscription product key",
+        },
+        { status: 400 },
+      );
+    }
+
+    // ── Build customData with canonical contract fields ────────────────
     const customDataFields: PaddleCustomData = {
       intent: rawIntent as PaddlePurchaseIntent,
       productKey: rawProductKey as PaddleCustomData["productKey"],
-      credits: priceLookup.credits || undefined,
+      purchaseType: priceLookup.purchaseType as PaddleCustomData["purchaseType"],
+      credits:
+        priceLookup.purchaseType === "credit_pack"
+          ? priceLookup.credits
+          : undefined,
+      planId:
+        priceLookup.purchaseType === "subscription" ? rawProductKey : undefined,
       toolKey: rawToolKey || undefined,
-      planId: priceLookup.purchaseType === "subscription" ? rawProductKey : undefined,
+      userId: rawUserId,
       source: "checkout_paddle",
+      requestId: cryptoRandomId(),
     };
     const customData = buildPaddleCustomData(customDataFields);
 
-    // ── Create Paddle transaction ──────────────────────────────────────
+    // ── Create Paddle transaction ─────────────────────────────────────
     const paddle = getPaddleClient();
     if (!paddle) {
       return NextResponse.json(
@@ -114,7 +169,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // ── Build public-safe response ─────────────────────────────────────
+    // ── Public-safe response only ─────────────────────────────────────
     return NextResponse.json({
       checkoutUrl: transaction.checkout?.url ?? null,
       purchaseType: priceLookup.purchaseType,
@@ -129,4 +184,24 @@ export async function POST(req: NextRequest) {
       { status: 502 },
     );
   }
+}
+
+// ── Non-POST rejection ──────────────────────────────────────────────────
+
+export async function GET() {
+  return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+}
+
+export async function PUT() {
+  return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+}
+
+export async function DELETE() {
+  return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────
+
+function cryptoRandomId(): string {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
 }

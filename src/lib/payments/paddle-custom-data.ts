@@ -1,6 +1,11 @@
 /**
- * Paddle customData contract — single source of truth for all Paddle checkout metadata shapes.
- * Both CreditWall (client-side Paddle.js) and server-side checkout route use this contract.
+ * SectorCalc Paddle customData contract — single source of truth.
+ *
+ * Both client-side Paddle.js (CreditWall, CheckoutButton) and server-side
+ * checkout route emit this shape. The webhook validates against it.
+ *
+ * Legacy customData.credits and customData.planId are still supported
+ * for old completed transactions but new checkout emits canonical fields.
  */
 
 import "server-only";
@@ -8,11 +13,8 @@ import "server-only";
 // ── Allowed purchase intents ──────────────────────────────────────────────
 
 export type PaddlePurchaseIntent =
-  /** One-time credit pack purchase (1, 5, 15, 30, 100 credits) */
   | "SECTORCALC_CREDIT_PACK_PURCHASE"
-  /** Pro subscription purchase (monthly/annual) */
   | "SECTORCALC_PRO_SUBSCRIPTION_PURCHASE"
-  /** Premium tool unlock tied to a specific tool slug */
   | "SECTORCALC_PREMIUM_UNLOCK";
 
 export const ALLOWED_INTENTS: readonly PaddlePurchaseIntent[] = [
@@ -57,15 +59,20 @@ export function isSubscriptionPackKey(key: string): key is PaddleProductKey {
   return SUBSCRIPTION_PACK_KEYS.includes(key as PaddleProductKey);
 }
 
+/** Server-authoritative credit counts per credit-pack product key. */
 export const CREDITS_BY_PRODUCT_KEY: Record<PaddleProductKey, number> = {
   credit_pack_1: 1,
   credit_pack_5: 5,
   credit_pack_15: 15,
   credit_pack_30: 30,
   credit_pack_100: 100,
-  pro_monthly: 0, // Subscription — credits not applicable
+  pro_monthly: 0,
   pro_annual: 0,
 };
+
+// ── Purchase types ───────────────────────────────────────────────────────
+
+export type PurchaseType = "credit_pack" | "subscription" | "premium_unlock";
 
 // ── customData contract type ─────────────────────────────────────────────
 
@@ -74,7 +81,9 @@ export interface PaddleCustomData {
   intent: PaddlePurchaseIntent;
   /** Product key identifying what was purchased */
   productKey: PaddleProductKey;
-  /** Number of credits (for credit pack purchases only) */
+  /** Purchase type classification — derived from product */
+  purchaseType: PurchaseType;
+  /** Number of credits (server-resolved, never from client for new checkouts) */
   credits?: number;
   /** Plan identifier (for subscription/plan unlock) — preserved for backward compat */
   planId?: string;
@@ -82,62 +91,135 @@ export interface PaddleCustomData {
   toolKey?: string;
   /** User identifier (Firebase UID or customer reference) */
   userId?: string;
-  /** Source of checkout — for tracing */
+  /** Source of checkout for tracing */
   source?: string;
-  /** Unique request identifier to de-duplicate checkout creation */
+  /** Unique request/checkout-attempt identifier */
   requestId?: string;
 }
 
+// ── Validation ───────────────────────────────────────────────────────────
+
 /**
- * Validate and normalize a raw customData object against the contract.
- * Returns the validated PaddleCustomData or throws with a public-safe error message.
+ * Validate a raw customData object against the contract.
+ * Throws with a public-safe error message if invalid.
  */
-export function validateCustomData(raw: Record<string, unknown>): PaddleCustomData {
+export function validateCustomData(
+  raw: Record<string, unknown>,
+): PaddleCustomData {
   const intent = String(raw.intent ?? "");
   if (!isAllowedIntent(intent)) {
     throw new Error(`Invalid purchase intent: ${intent}`);
   }
 
   const productKey = String(raw.productKey ?? "");
-  const isKnownCreditKey = isCreditPackKey(productKey);
-  const isKnownSubscriptionKey = isSubscriptionPackKey(productKey);
+  const isCreditKey = isCreditPackKey(productKey);
+  const isSubKey = isSubscriptionPackKey(productKey);
 
-  if (!isKnownCreditKey && !isKnownSubscriptionKey && productKey !== "") {
+  if (!isCreditKey && !isSubKey) {
     throw new Error(`Unknown product key: ${productKey}`);
   }
 
-  const customData: PaddleCustomData = {
+  // Resolve purchase type server-side
+  let purchaseType: PurchaseType;
+  if (isCreditKey) {
+    purchaseType = "credit_pack";
+  } else if (intent === "SECTORCALC_CREDIT_PACK_PURCHASE") {
+    // Subscription key with credit-pack intent is a mismatch
+    throw new Error(
+      `Intent ${intent} is not valid for product key ${productKey}`,
+    );
+  } else {
+    purchaseType = "subscription";
+  }
+
+  // Intent/productKey compatibility
+  if (intent === "SECTORCALC_CREDIT_PACK_PURCHASE" && !isCreditKey) {
+    throw new Error(
+      `Credit pack purchase requires a credit pack product key, got: ${productKey}`,
+    );
+  }
+  if (intent === "SECTORCALC_PRO_SUBSCRIPTION_PURCHASE" && !isSubKey) {
+    throw new Error(
+      `Subscription purchase requires a subscription product key, got: ${productKey}`,
+    );
+  }
+  if (intent === "SECTORCALC_PREMIUM_UNLOCK" && !isSubKey) {
+    throw new Error(
+      `Premium unlock requires a subscription product key, got: ${productKey}`,
+    );
+  }
+
+  const credits: number | undefined =
+    typeof raw.credits === "number"
+      ? raw.credits
+      : typeof raw.credits === "string" && raw.credits !== ""
+        ? Number(raw.credits)
+        : undefined;
+  const planId =
+    typeof raw.planId === "string" ? raw.planId : undefined;
+  const toolKey =
+    typeof raw.toolKey === "string" ? raw.toolKey : undefined;
+  const userId =
+    typeof raw.userId === "string" ? raw.userId : undefined;
+  const source =
+    typeof raw.source === "string" ? raw.source : undefined;
+  const requestId =
+    typeof raw.requestId === "string" ? raw.requestId : undefined;
+
+  // Server-authoritative credits override: for credit packs, use our own value
+  const serverCredits = isCreditKey
+    ? CREDITS_BY_PRODUCT_KEY[productKey as PaddleProductKey]
+    : 0;
+
+  // If client supplied credits don't match server definition, trust server
+  const resolvedCredits =
+    intent === "SECTORCALC_CREDIT_PACK_PURCHASE" ? serverCredits : credits;
+
+  return {
     intent,
     productKey: productKey as PaddleProductKey,
-    credits: typeof raw.credits === "number" ? raw.credits : undefined,
-    planId: typeof raw.planId === "string" ? raw.planId : undefined,
-    toolKey: typeof raw.toolKey === "string" ? raw.toolKey : undefined,
-    userId: typeof raw.userId === "string" ? raw.userId : undefined,
-    source: typeof raw.source === "string" ? raw.source : undefined,
-    requestId: typeof raw.requestId === "string" ? raw.requestId : undefined,
+    purchaseType,
+    credits: resolvedCredits,
+    planId,
+    toolKey,
+    userId,
+    source,
+    requestId,
   };
-
-  // Validate credit pack intent has matching product key
-  if (intent === "SECTORCALC_CREDIT_PACK_PURCHASE" && !isCreditPackKey(productKey)) {
-    throw new Error(`Credit pack purchase requires a valid credit pack product key, got: ${productKey}`);
-  }
-
-  // Validate subscription intent
-  if (intent === "SECTORCALC_PRO_SUBSCRIPTION_PURCHASE" && !isSubscriptionPackKey(productKey)) {
-    throw new Error(`Subscription purchase requires a valid subscription product key, got: ${productKey}`);
-  }
-
-  return customData;
 }
 
 /**
- * Build customData for a checkout session from validated fields.
- * Converts all values to strings (Paddle SDK requirement).
+ * Build customData for a Paddle checkout session.
+ * All values are converted to strings (Paddle.js SDK requirement).
  */
-export function buildPaddleCustomData(fields: PaddleCustomData): Record<string, string> {
+export function buildPaddleCustomData(
+  fields: PaddleCustomData,
+): Record<string, string> {
   const result: Record<string, string> = {};
   for (const [key, value] of Object.entries(fields)) {
     result[key] = value !== undefined ? String(value) : "";
   }
+  // Always include purchaseType string
+  result.purchaseType = fields.purchaseType;
   return result;
+}
+
+/**
+ * Safely parse a legacy raw customData that may lack canonical fields.
+ * Returns null if no recognizable fields exist.
+ * Does NOT throw — logs and returns null on failure for safe fallback.
+ */
+export function parseLegacyCustomData(
+  raw: Record<string, unknown> | undefined | null,
+): { credits: number; planId: string; userId: string } | null {
+  if (!raw) return null;
+  try {
+    const credits = Number(raw.credits ?? 0);
+    const planId = String(raw.planId ?? "");
+    const userId = String(raw.userId ?? "");
+    if (!credits && !planId) return null;
+    return { credits: Number.isFinite(credits) ? credits : 0, planId, userId };
+  } catch {
+    return null;
+  }
 }

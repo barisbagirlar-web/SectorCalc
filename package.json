@@ -29,6 +29,8 @@
     "guard:turkish": "node scripts/zero-tolerance-turkish-guard.mjs",
     "guard:zero-turkish": "node scripts/guard-zero-turkish-build.mjs",
     "guard:i18n-keys": "node scripts/guard-i18n-keys.mjs",
+    "guard:payment-integrity": "node scripts/guard-payment-integrity.mjs",
+    "smoke:payment-paddle": "node scripts/smoke-payment-paddle.mjs",
     "generate:sitemap-static": "tsx scripts/generate-sitemap-static.ts",
     "validate:translations": "node scripts/validate-schema-translations.mjs",
     "prebuild": "npm run guard:zero-turkish && node scripts/zero-tolerance-turkish-guard.mjs && npm run guard:i18n-keys && npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && npm run validate:translations && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts",
