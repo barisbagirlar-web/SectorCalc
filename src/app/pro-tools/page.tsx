@@ -175,7 +175,9 @@ function proSchemaToToolListItem(
   const sectorKey = resolveProSectorKey(toolKey);
   return {
     slug: toolKey,
+    name: schema.tool_name,
     title: schema.tool_name,
+    tier: "premium",
     href: `/tools/pro/${toolKey}`,
     isPremium: true,
     categorySlug: "pro-tools",

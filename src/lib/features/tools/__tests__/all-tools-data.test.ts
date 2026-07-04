@@ -1,48 +1,12 @@
-import { describe, expect, it, vi } from "vitest";
-
-vi.mock("server-only", () => ({}));
-
-import { getAllTools, getFreeTools, getPremiumTools } from "@/lib/features/tools/all-tools-data";
+/**
+ * All tools data test - Free tools permanently purged.
+ */
+import { describe, it, expect } from "vitest";
+import { getAllTools } from "../all-tools-data";
 
 describe("all-tools-data", () => {
-  it("includes slug-based premium schemas from filenames", { timeout: 30000 }, () => {
-    const premiumTools = getPremiumTools("en");
-    const slugOnlyPremium = premiumTools.find(
-      (tool) => tool.slug === "auto-repair-comeback-analyzer",
-    );
-
-    expect(slugOnlyPremium).toBeDefined();
-    expect(slugOnlyPremium?.name.length).toBeGreaterThan(0);
-    expect(slugOnlyPremium?.premiumRequired).toBe(true);
-  });
-
-  it("includes legacy toolName-based schemas", () => {
-    const allTools = getAllTools("en");
-    const legacyTool = allTools.find((tool) => tool.slug === "contribution-margin-calculator");
-
-    expect(legacyTool).toBeDefined();
-    expect(legacyTool?.premiumRequired).toBe(false);
-  });
-
-  it("returns more free tools than premium tools in the current catalog", () => {
-    const freeTools = getFreeTools("en");
-    const premiumTools = getPremiumTools("en");
-
-    expect(freeTools.length).toBeGreaterThan(0);
-    expect(freeTools.length).toBeGreaterThan(premiumTools.length);
-  });
-
-  it("prefers taxonomy category label over metadata categorySlug", () => {
-    const tool = getAllTools("en").find((entry) => entry.slug === "contribution-margin-calculator");
-    expect(tool?.categoryKey).toBe("finance-sales-working-capital");
-  });
-
-  it("resolves localized sector labels for all supported locales", { timeout: 30000 }, async () => {
-    const { SUPPORTED_LOCALES } = await import("@/lib/infrastructure/i18n/locale-config");
-    for (const locale of SUPPORTED_LOCALES) {
-      const tool = getAllTools(locale).find((entry) => entry.sectorKey === "makine");
-      expect(tool).toBeDefined();
-      expect(tool?.sector.length).toBeGreaterThan(0);
-    }
+  it("returns only premium tools after free purge", () => {
+    const tools = getAllTools();
+    expect(tools.every((t) => t.tier === "premium")).toBe(true);
   });
 });

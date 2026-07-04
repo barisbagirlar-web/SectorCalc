@@ -1,13 +1,15 @@
 /**
- * Free traffic categories - permanently purged. All exports return empty.
+ * Free traffic categories - permanently purged.
  */
 
-export const FREE_TRAFFIC_CATEGORY_SLUGS: readonly string[] = [];
-export const FREE_TRAFFIC_CATEGORY_IDS: readonly string[] = [];
-
-export type FreeTrafficCategoryMeta = Record<string, never>;
-
-export function listFreeTrafficCategorySlugs(): string[] { return []; }
-export function isFreeTrafficCategorySlug(_slug: string): boolean { return false; }
-export function getOrderedFreeTrafficCategories(): readonly any[] { return []; }
 export const DEFAULT_FREE_TRAFFIC_CATEGORY = "";
+
+export type FreeTrafficCategoryMeta = Record<string, any>;
+
+export function countToolsInCategory(_category: string): number {
+  return 0;
+}
+
+export function getOrderedFreeTrafficCategories(): FreeTrafficCategoryMeta[] {
+  return [];
+}
