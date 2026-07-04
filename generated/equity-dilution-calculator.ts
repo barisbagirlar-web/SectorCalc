@@ -3,14 +3,14 @@ import * as z from 'zod';
 
 export interface Equity_dilution_calculatorInput {
   dataConfidence?: number;
-  mevcutHisse: number;
-  yeniHisse: number;
+  currentShares: number;
+  newShares: number;
 }
 
 export const Equity_dilution_calculatorInputSchema = z.object({
   dataConfidence: z.number().optional(),
-  mevcutHisse: z.number().min(0).default(1000000),
-  yeniHisse: z.number().min(0).default(200000),
+  currentShares: z.number().min(0).default(1000000),
+  newShares: z.number().min(0).default(200000),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -19,13 +19,13 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Equity_dilution_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input["yeniHisse"] / Math.max(1, (input["mevcutHisse"] + input["yeniHisse"])) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["newShares"] / Math.max(1, (input["currentShares"] + input["newShares"])) * 100; results["dilutionRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dilutionRatio"] = Number.NaN; }
   return results;
 }
 
 export function calculateEquity_dilution_calculator(input: Equity_dilution_calculatorInput): Equity_dilution_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
+  const totalWasteCost = toNumericFormulaValue(values["dilutionRatio"]);
   const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify financial projections with actual data.","Review assumptions quarterly."];
@@ -35,7 +35,7 @@ export function calculateEquity_dilution_calculator(input: Equity_dilution_calcu
       : totalWasteCost;
   return {
     totalWasteCost,
-    ["sonuc"]: totalWasteCost,
+    ["dilutionRatio"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -59,7 +59,7 @@ export interface Equity_dilution_calculatorOutput {
 }
 
 export const Equity_dilution_calculatorOutputMeta = {
-  primaryKey: "sonuc",
+  primaryKey: "dilutionRatio",
   unit: "%",
   breakdownKeys: [],
 } as const;

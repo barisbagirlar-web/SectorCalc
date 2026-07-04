@@ -8,10 +8,8 @@ import {
 describe("equity-dilution-calculator", () => {
   it("calculates with schema default inputs", () => {
     const input = {
-    "totalOutstandingShares": 1000000,
-    "newSharesIssued": 200000,
-    "investorCurrentShares": 100000,
-    "investorNewShares": 1
+    "currentShares": 1000000,
+    "newShares": 200000
   } as unknown as Equity_dilution_calculatorInput;
     const result = calculateEquity_dilution_calculator(input);
     expect(result).toBeDefined();

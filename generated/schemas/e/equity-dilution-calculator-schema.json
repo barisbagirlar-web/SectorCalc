@@ -2,53 +2,36 @@
   "toolName": "equity-dilution-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "mevcutHisse",
-      "label": "Current Shares",
+      "id": "currentShares",
+      "label": "Current Shares Outstanding",
       "label_i18n": {
-        "en": "Current Shares",
-        "de": "Aktuell ausstehende Aktien",
-        "fr": "Actions en circulation actuelles",
-        "es": "Acciones en circulación actuales",
-        "ar": "الأسهم القائمة الحالية"
+        "en": "Current Shares Outstanding"
       },
       "type": "number",
       "unit": "shares",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Current total shares.",
+      "businessContext": "Total number of shares currently outstanding before new issuance.",
       "businessContext_i18n": {
-        "en": "Current total shares.",
-        "de": "Aktuelle Gesamtaktien.",
-        "fr": "Nombre total d'actions actuel.",
-        "es": "Total de acciones actuales.",
-        "ar": "إجمالي الأسهم الحالية."
+        "en": "Total number of shares currently outstanding before new issuance."
       }
     },
     {
-      "id": "yeniHisse",
-      "label": "New Shares",
+      "id": "newShares",
+      "label": "New Shares Issued",
       "label_i18n": {
-        "en": "New Shares",
-        "de": "Neu ausgegebene Aktien",
-        "fr": "Nouvelles actions émises",
-        "es": "Nuevas Acciones Emitidas",
-        "ar": "الأسهم الجديدة المصدرة"
+        "en": "New Shares Issued"
       },
       "type": "number",
       "unit": "shares",
       "default": 200000,
       "min": 0,
-      "businessContext": "Newly issued shares.",
+      "businessContext": "Number of new shares to be issued in the current round.",
       "businessContext_i18n": {
-        "en": "Newly issued shares.",
-        "de": "Neu ausgegebene Aktien.",
-        "fr": "Nouvelles actions émises.",
-        "es": "Acciones recién emitidas.",
-        "ar": "الأسهم المصدرة حديثًا."
+        "en": "Number of new shares to be issued in the current round."
       }
     }
   ],
@@ -59,61 +42,34 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "yeniHisse / Math.max(1, (mevcutHisse + yeniHisse)) * 100"
+    "dilutionRatio": "newShares / Math.max(1, (currentShares + newShares)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "dilutionRatio",
     "unit": "%",
     "breakdown": {
-      "result": "Sulandirma Ratioi"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Sulandirma Ratioi",
-        "de": "Verwässerungsrate",
-        "fr": "Taux de dilution",
-        "es": "Tasa de Dilución",
-        "ar": "نسبة التخفيف"
-      }
+      "dilutionRatio": "Dilution Ratio"
     },
     "breakdownUnits": {
-      "sonuc": "%"
+      "dilutionRatio": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "dilutionRatio"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate equity dilution percentage for existing shareholders.",
-      "long": "Calculate equity dilution percentage for existing shareholders.",
-      "short_i18n": {
-        "en": "Calculate equity dilution percentage for existing shareholders.",
-        "de": "Berechnen Sie den Verwässerungsprozentsatz des Eigenkapitals fur bestehende Aktionäre.",
-        "fr": "Calculer le pourcentage de dilution des capitaux propres pour les actionnaires existants.",
-        "es": "Calcular el porcentaje de dilución del capital para los accionistas existentes.",
-        "ar": "حساب نسبة تخفيف حقوق المساهمين الحاليين."
-      },
-      "long_i18n": {
-        "en": "Calculate equity dilution percentage for existing shareholders.",
-        "de": "Berechnen Sie den Verwässerungsprozentsatz des Eigenkapitals fur bestehende Aktionäre.",
-        "fr": "Calculer le pourcentage de dilution des capitaux propres pour les actionnaires existants.",
-        "es": "Calcular el porcentaje de dilución del capital para los accionistas existentes.",
-        "ar": "حساب نسبة تخفيف حقوق المساهمين الحاليين."
-      }
+      "long": "Calculate equity dilution percentage for existing shareholders when new shares are issued. This tool shows the dilution effect on existing shareholders as a percentage of total shares after issuance."
     }
   },
   "title_i18n": {
-    "en": "equity-dilution-calculator",
-    "de": "Aktienverwässerungsrechner",
-    "fr": "Calculateur de dilution des actions",
-    "es": "Calculadora de dilución de acciones",
-    "ar": "حاسبة تخفيف الأسهم"
+    "en": "Equity Dilution Calculator"
   },
   "sectorSlug": "daily-renovation"
 }

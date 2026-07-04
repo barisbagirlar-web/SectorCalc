@@ -21,6 +21,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import http from "node:http";
+import https from "node:https";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -281,7 +282,8 @@ heading("9. HTTP Endpoint Tests");
 function httpGet(urlPath) {
   return new Promise((resolve) => {
     const url = new URL(urlPath, BASE_URL);
-    const req = http.get(url, { timeout: 15000 }, (res) => {
+    const transport = url.protocol === "https:" ? https : http;
+    const req = transport.get(url, { timeout: 15000 }, (res) => {
       let body = "";
       res.on("data", (chunk) => { body += chunk; });
       res.on("end", () => {
@@ -298,7 +300,8 @@ function httpGet(urlPath) {
   });
 }
 
-const localOnly = BASE_URL.includes("localhost") || BASE_URL.includes("127.0.0.1");
+const baseHost = new URL(BASE_URL).hostname;
+const localOnly = baseHost === "localhost" || baseHost === "127.0.0.1";
 
 async function runHttpTests() {
   // Test /tools/generated/equity-dilution-calculator
