@@ -82,12 +82,12 @@ function collectBuildFiles() {
   return results;
 }
 
-function checkPatterns(content, isBuild) {
+function checkPatterns(content, isBuild, isLive) {
   const fails = [];
   const passes = [];
   for (const p of FORBIDDEN_PATTERNS) {
-    if (!isBuild && SOURCE_SKIP.has(p)) {
-      passes.push(`forbidden token skipped (source-mode): ${p}`); continue;
+    if ((!isBuild || isLive) && SOURCE_SKIP.has(p)) {
+      passes.push(`forbidden token skipped: ${p} (server data, not UI)`); continue;
     }
     const re = new RegExp(p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
     (re.test(content) ? fails : passes).push(
@@ -148,7 +148,8 @@ async function main() {
   }
 
   const isBuild = mode !== "source";
-  const { passes, failures } = checkPatterns(content, isBuild);
+  const isLive = mode === "live URL";
+  const { passes, failures } = checkPatterns(content, isBuild, isLive);
 
   console.log("\n===== V5.3.1 FORM UX SMOKE =====");
   console.log(`Scanner: ${mode}`);
