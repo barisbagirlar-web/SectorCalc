@@ -10,15 +10,18 @@ import {
 } from "@/lib/ui-shared/home/homepage-coverage-tool-map";
 import type { ToolData } from "@/lib/features/tools/all-tools-data";
 
-function makeTool(partial: Partial<ToolData> & Pick<ToolData, "categoryKey" | "sectorKey">): ToolData {
+function makeTool(partial: Record<string, any> & { categoryKey: string; sectorKey: string }): ToolData {
   return {
     slug: partial.slug ?? "sample-tool",
     name: partial.name ?? "Sample Tool",
+    title: partial.title ?? "Sample Tool",
     description: partial.description ?? "Sample tool description",
     category: partial.category ?? "Category",
     categoryKey: partial.categoryKey,
+    categorySlug: partial.categorySlug ?? partial.categoryKey,
     sector: partial.sector ?? "Sector",
-    sectorKey: partial.sectorKey,
+    sectorKey: partial.sectorKey as any,
+    tier: "premium",
     premiumRequired: partial.premiumRequired ?? false,
     href: partial.href ?? "/tools/sample-tool",
   };
@@ -39,9 +42,9 @@ describe("homepage-coverage-tool-map", () => {
       makeTool({ categoryKey: "finance-sales-working-capital", sectorKey: "diger" }),
     ];
 
-    expect(countToolsForHomepageCoverage("production", tools)).toBe(1);   // quality-six-sigma
-    expect(countToolsForHomepageCoverage("construction", tools)).toBe(0); // daily-renovation is sectorKey, not categoryKey
-    expect(countToolsForHomepageCoverage("finance", tools)).toBe(1);      // finance-sales-working-capital
+    expect(countToolsForHomepageCoverage("production", tools)).toBe(1);
+    expect(countToolsForHomepageCoverage("construction", tools)).toBe(0);
+    expect(countToolsForHomepageCoverage("finance", tools)).toBe(1);
     expect(countToolsForHomepageCoverage("foodRetail", tools)).toBe(0);
   });
 });

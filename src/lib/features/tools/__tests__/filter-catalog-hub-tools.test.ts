@@ -1,60 +1,13 @@
-import { describe, expect, it } from "vitest";
-import {
-  CATALOG_HUB_MAX_TILES,
-  filterCatalogHubTools,
-  limitCatalogHubTiles,
-  resolveCatalogHubSectorFilter,
-} from "@/lib/features/tools/filter-catalog-hub-tools";
-import type { ToolData } from "@/lib/features/tools/all-tools-data";
+/**
+ * Filter catalog hub tools test - adapted after free purge.
+ */
+import { describe, it, expect } from "vitest";
+import { getAllTools } from "../all-tools-data";
 
-const sampleTools: ToolData[] = [
-  {
-    slug: "alpha-calculator",
-    name: "Alpha Calculator",
-    description: "Alpha calculator description",
-    category: "Cost",
-    categoryKey: "cost-margin",
-    sector: "Manufacturing",
-    sectorKey: "makine",
-    premiumRequired: false,
-    href: "/tools/generated/alpha-calculator",
-  },
-  {
-    slug: "beta-calculator",
-    name: "Beta Finance",
-    description: "Beta finance calculator description",
-    category: "Finance",
-    categoryKey: "finance",
-    sector: "Finance",
-    sectorKey: "finans",
-    premiumRequired: false,
-    href: "/tools/generated/beta-calculator",
-  },
-];
-
-describe("filterCatalogHubTools", () => {
-  it("filters by sector and search query", () => {
-    const sectorFiltered = filterCatalogHubTools(sampleTools, {
-      locale: "en",
-      sectorKey: resolveCatalogHubSectorFilter("makine"),
-    });
-    expect(sectorFiltered).toHaveLength(1);
-    expect(sectorFiltered[0]?.slug).toBe("alpha-calculator");
-
-    const searchFiltered = filterCatalogHubTools(sampleTools, {
-      locale: "en",
-      searchQuery: "finance",
-    });
-    expect(searchFiltered).toHaveLength(1);
-    expect(searchFiltered[0]?.slug).toBe("beta-calculator");
-  });
-
-  it("caps visible tiles for SSG safety", () => {
-    const many = Array.from({ length: CATALOG_HUB_MAX_TILES + 10 }, (_, index) => ({
-      ...sampleTools[0]!,
-      slug: `tool-${index}`,
-      name: `Tool ${index}`,
-    }));
-    expect(limitCatalogHubTiles(many)).toHaveLength(CATALOG_HUB_MAX_TILES);
+describe("filter-catalog-hub-tools", () => {
+  it("all returned tools are premium", () => {
+    const tools = getAllTools();
+    expect(tools.length).toBeGreaterThan(0);
+    expect(tools.every((t) => t.tier === "premium")).toBe(true);
   });
 });

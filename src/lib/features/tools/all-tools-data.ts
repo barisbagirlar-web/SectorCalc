@@ -49,14 +49,14 @@ export function getToolBySlug(slug: string): ToolEntry | undefined {
   return getAllTools().find((t) => t.slug === slug);
 }
 
-export function getPremiumTools(): ToolEntry[] {
-  return getAllTools();
+export function getPremiumTools(_locale?: string): ToolEntry[] {
+  return getAllTools(_locale);
 }
 
 export function getFreeTools(): ToolEntry[] {
   return [];
 }
 
-export function getToolsByCategory(_category: string): ToolEntry[] {
+export function getToolsByCategory(_category: string, _locale?: string): ToolEntry[] {
   return [];
 }

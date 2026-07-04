@@ -4,4 +4,8 @@
 
 export type CategoryCard = Record<string, any>;
 
-export function buildTaxonomyCategoryCards(): CategoryCard[] { return []; }
+export function buildTaxonomyCategoryCards(
+  _locale?: string,
+  _tier?: string,
+  _slugs?: Set<string>,
+): CategoryCard[] { return []; }

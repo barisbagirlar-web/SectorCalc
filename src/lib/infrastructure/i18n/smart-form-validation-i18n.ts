@@ -1,4 +1,4 @@
-import staticMessages from "@/data/static-free-tool-messages.json";
+import staticMessages from "@/data/static-free-tool-messages.json" assert { type: "json" };
 
 type ValidationMessages = {
   readonly required: string;
@@ -9,7 +9,13 @@ type ValidationMessages = {
 };
 
 const LOCALE_VALIDATION: Record<string, ValidationMessages> = {
-  en: (staticMessages.en?.freeToolUi?.fieldValidation ?? {}) as ValidationMessages,
+  en: {
+    required: (staticMessages as any)?.en?.freeToolUi?.fieldValidation?.required ?? "This field is required",
+    invalidNumber: (staticMessages as any)?.en?.freeToolUi?.fieldValidation?.invalidNumber ?? "Invalid number",
+    min: (staticMessages as any)?.en?.freeToolUi?.fieldValidation?.min ?? "Minimum value is {min}",
+    max: (staticMessages as any)?.en?.freeToolUi?.fieldValidation?.max ?? "Maximum value is {max}",
+    contractNotFound: (staticMessages as any)?.en?.freeToolUi?.fieldValidation?.contractNotFound ?? "Validation contract not found",
+  },
 };
 
 function interpolate(template: string, values: Record<string, string | number>): string {

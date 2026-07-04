@@ -1,6 +1,7 @@
 /**
  * Catalog hub tool tile - Free tools permanently purged.
  */
+import type { ToolTier } from "@/data/tools";
 
 export interface CatalogHubToolTile {
   slug: string;
@@ -11,7 +12,7 @@ export interface CatalogHubToolTile {
   href: string;
   name: string;
   shortDescription: string;
-  tier: string;
+  tier: ToolTier;
   industrySlug: string;
 }
 
