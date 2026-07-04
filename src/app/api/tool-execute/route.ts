@@ -4,6 +4,7 @@
 // Execution policy:
 // - Free tools: no credit required, no session required, execute server-side
 // - Pro tools: require valid usage session, decrement remainingRuns atomically
+// - Owner bypass: unlimited access, no credit deduction, skip session validation
 // - No client-side formula execution
 // - No payment provider called during execution
 
@@ -16,10 +17,13 @@ import {
 } from "@/lib/credits/tool-usage-session.server";
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
+import { isProBypassEmail } from "@/lib/features/billing/subscription";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
+
+const BYPASS_SESSION_ID = "bypass-unlimited";
 
 interface ToolExecuteRequest {
   toolKey: string;
@@ -65,33 +69,39 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
       userId = user.uid;
 
-      // ── Enforce Pro usage session ─────────────────────────────
-      const validation = await validateProExecution(
-        userId,
-        body.toolKey,
-        body.usageSessionId ?? null,
-      );
-      if (!validation.ok) {
-        return NextResponse.json({ error: validation.reason }, { status: 403 });
+      // ── Owner bypass: skip session validation, unlimited runs ─
+      if (body.usageSessionId === BYPASS_SESSION_ID && user.email && isProBypassEmail(user.email)) {
+        remainingRuns = 999;
+        sessionExhausted = false;
+      } else {
+        // ── Enforce Pro usage session ─────────────────────────────
+        const validation = await validateProExecution(
+          userId,
+          body.toolKey,
+          body.usageSessionId ?? null,
+        );
+        if (!validation.ok) {
+          return NextResponse.json({ error: validation.reason }, { status: 403 });
+        }
+
+        // ── Decrement remainingRuns atomically (idempotent) ────────
+        const clientRequestId =
+          typeof body.clientRequestId === "string" && body.clientRequestId.trim()
+            ? body.clientRequestId.trim()
+            : null;
+
+        const decrementResult = await decrementProSessionRuns({
+          userId,
+          toolKey: body.toolKey,
+          usageSessionId: body.usageSessionId!,
+          clientRequestId,
+          rawInputs: body.rawInputs,
+          selectedUnits: body.selectedUnits,
+        });
+
+        remainingRuns = decrementResult.remainingRuns;
+        sessionExhausted = decrementResult.status === "EXHAUSTED";
       }
-
-      // ── Decrement remainingRuns atomically (idempotent) ────────
-      const clientRequestId =
-        typeof body.clientRequestId === "string" && body.clientRequestId.trim()
-          ? body.clientRequestId.trim()
-          : null;
-
-      const decrementResult = await decrementProSessionRuns({
-        userId,
-        toolKey: body.toolKey,
-        usageSessionId: body.usageSessionId!,
-        clientRequestId,
-        rawInputs: body.rawInputs,
-        selectedUnits: body.selectedUnits,
-      });
-
-      remainingRuns = decrementResult.remainingRuns;
-      sessionExhausted = decrementResult.status === "EXHAUSTED";
     }
 
     // ── Resolve and validate schema ─────────────────────────────
