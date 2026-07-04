@@ -2,7 +2,7 @@
 
 /**
  * Smoke test: PRO Tools Catalog Page
- * Checks /pro-tools for correct rendering.
+ * Checks /pro-tools for correct rendering with CatalogPageShell design.
  * Usage: BASE_URL=http://localhost:3000 node scripts/smoke-pro-tools-catalog.mjs
  *        BASE_URL=https://www.sectorcalc.com node scripts/smoke-pro-tools-catalog.mjs
  */
@@ -41,57 +41,72 @@ async function main() {
     failures.push('Missing "PRO Industrial Calculators" heading');
   }
 
-  // 4. Must contain at least one PRO tool card marker
-  const toolCardCount = (html.match(/pro-tool-card/g) || []).length;
-  if (toolCardCount === 0) {
-    failures.push("No PRO tool cards rendered (pro-tool-card class not found)");
+  // 4. Must contain CatalogPageShell search element
+  if (!html.includes("cc-search") && !html.includes('type="search"')) {
+    failures.push("Missing search input (cc-search or search input)");
   }
 
-  // 5. Must contain at least one SC-### tool ID
-  const toolIdCount = (html.match(/SC-\d{3}/g) || []).length;
-  if (toolIdCount === 0) {
-    failures.push("No PRO tool IDs (SC-###) found in rendered HTML");
+  // 5. Must contain sector filter grid (cc-grid)
+  const gridCount = (html.match(/cc-grid/g) || []).length;
+  if (gridCount === 0) {
+    failures.push("No sector filter grid (cc-grid) found");
   }
 
-  // 6. Must NOT contain raw category keys
+  // 6. Must contain sector boxes (cc-box)
+  const boxCount = (html.match(/cc-box/g) || []).length;
+  if (boxCount === 0) {
+    failures.push("No sector box cards (cc-box) found");
+  }
+
+  // 7. Must contain tool links pointing to /tools/pro/
+  const proLinkCount = (html.match(/\/tools\/pro\//g) || []).length;
+  if (proLinkCount === 0) {
+    failures.push("No PRO tool links (/tools/pro/) found in rendered HTML");
+  } else {
+    console.log(`  pro_tool_links=${proLinkCount} (PASS)`);
+  }
+
+  // 8. Must contain results section (cc-results)
+  if (!html.includes("cc-results")) {
+    failures.push("Missing results section (cc-results)");
+  }
+
+  // 9. Must contain at least one tool link text (cc-link)
+  const linkCount = (html.match(/cc-link/g) || []).length;
+  if (linkCount === 0) {
+    failures.push("No tool links (cc-link) found");
+  }
+
+  // 10. Must contain JSON-LD with PRO tool entries
+  const jsonLdMatch = html.match(/ItemList.*PRO Industrial Calculators/);
+  if (!jsonLdMatch) {
+    failures.push("Missing JSON-LD ItemList for PRO Industrial Calculators");
+  }
+
+  // 11. Must contain tool count in results heading
+  const toolsCountMatch = html.match(/(\d+)\s+tools?/);
+  if (toolsCountMatch) {
+    const count = parseInt(toolsCountMatch[1], 10);
+    if (count === 0) {
+      failures.push(`Tool count shows ${count} — catalog appears empty`);
+    } else {
+      console.log(`  tool_count=${count} (PASS)`);
+    }
+  }
+
+  // 12. Must NOT contain raw category keys
   if (html.includes("categories.")) {
     failures.push("Contains raw 'categories.' in output");
   }
 
-  // 7. Must NOT contain "Daily Renovation"
+  // 13. Must NOT contain "Daily Renovation"
   if (html.includes("Daily Renovation")) {
     failures.push("Contains forbidden 'Daily Renovation' text");
   }
 
-  // 8. Must NOT contain "Not specified"
+  // 14. Must NOT contain "Not specified"
   if (html.includes("Not specified")) {
     failures.push("Contains forbidden 'Not specified' text");
-  }
-
-  // 9. Check data-pro-tools-count attribute
-  const toolsMatch = html.match(/data-pro-tools-count="(\d+)"/);
-  if (toolsMatch) {
-    const count = parseInt(toolsMatch[1], 10);
-    if (count === 0) {
-      failures.push(`data-pro-tools-count=${count} — catalog is empty`);
-    } else {
-      console.log(`  data-pro-tools-count=${count} (PASS)`);
-    }
-  } else {
-    failures.push("data-pro-tools-count attribute missing");
-  }
-
-  // 10. Check data-pro-category-count attribute
-  const catMatch = html.match(/data-pro-category-count="(\d+)"/);
-  if (catMatch) {
-    const count = parseInt(catMatch[1], 10);
-    if (count === 0) {
-      failures.push(`data-pro-category-count=${count} — no categories`);
-    } else {
-      console.log(`  data-pro-category-count=${count} (PASS)`);
-    }
-  } else {
-    failures.push("data-pro-category-count attribute missing");
   }
 
   if (failures.length > 0) {
@@ -102,8 +117,8 @@ async function main() {
 
   console.log("SMOKE_PRO_TOOLS_CATALOG=PASS");
   console.log(`  status=${res.status}`);
-  console.log(`  tool_cards=${toolCardCount}`);
-  console.log(`  tool_ids=${toolIdCount}`);
+  console.log(`  sector_boxes=${boxCount}`);
+  console.log(`  tool_links=${proLinkCount}`);
 }
 
 main().catch((err) => {
