@@ -4,7 +4,7 @@
 
 export interface LocalizedFieldDisplay {
   label: string;
-  placeholder: string | undefined;
+  placeholder: string;
   helper: string | undefined;
 }
 

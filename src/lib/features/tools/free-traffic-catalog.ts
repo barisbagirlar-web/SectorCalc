@@ -8,7 +8,7 @@ export interface FreeTrafficInput {
   type: string;
   unit: string;
   required: boolean;
-  helper?: string;
+  helper: string;
   min?: number;
   max?: number;
   defaultValue?: string | number;
