@@ -9,26 +9,26 @@ export function resolveFreeFormLabel(_key: string, _locale: string, fallback: st
 export function resolveFreeToolFieldDisplay(
   _key: string,
   _locale: string,
-  _fallbackLabel?: string,
+  fallback = "",
   _fallbackPlaceholder?: string,
-): { label: string; placeholder: string; helper: string } {
-  return { label: _fallbackLabel ?? "", placeholder: _fallbackPlaceholder ?? "", helper: "" };
+): string | { label: string; placeholder: string; helper: string } {
+  return fallback;
 }
 
 export function resolveSmartFormDecisionGoal(
   _key: string,
   _locale: string,
-  _fallbackLabel?: string,
+  fallback = "",
   _fallbackPlaceholder?: string,
-): { label: string; placeholder: string; helper: string } {
-  return { label: _fallbackLabel ?? "", placeholder: _fallbackPlaceholder ?? "", helper: "" };
+): string | { label: string; placeholder: string; helper: string } {
+  return fallback;
 }
 
 export function readFreeToolUiString(
   _key: string,
   _locale: string,
-  _fallbackLabel?: string,
+  fallback = "",
   _fallbackPlaceholder?: string,
-): { label: string; placeholder: string; helper: string } {
-  return { label: _fallbackLabel ?? "", placeholder: _fallbackPlaceholder ?? "", helper: "" };
+): string | { label: string; placeholder: string; helper: string } {
+  return fallback;
 }
