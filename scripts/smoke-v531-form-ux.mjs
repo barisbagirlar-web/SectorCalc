@@ -6,7 +6,7 @@
 //
 // Modes:
 //   node scripts/smoke-v531-form-ux.mjs              — source / build output
-//   BASE_URL=https://www.sectorcalc.com node scripts/smoke-v531-form-ux.mjs  — live URL
+//   BASE_URL=https://sectorcalc.com node scripts/smoke-v531-form-ux.mjs  — live URL
 
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
@@ -27,6 +27,10 @@ const FORBIDDEN_PATTERNS = [
   "FreeToolPremiumCalculator",
   "sc-universal-dtf-shell",
   "sc-premium-dtf-container",
+  "Machine recipe or process sheet",
+  "machine recipe",
+  "process sheet",
+  "generic source",
 ];
 // Patterns skipped in source/build mode (legitimate server data, never user-visible UI):
 const SOURCE_SKIP = new Set([
@@ -49,9 +53,15 @@ const REQUIRED_UX = [
   "sc-v531-input-row",
   "sc-v531-mode-tab",
   "sc-v531-field-header",
-  "sc-v531-result-section",
+  "sc-v531-results",
+  // sc-v531-result-section replaced by sc-v531-results
   "sc-v531-placeholder",
   "sc-v531-advanced-summary",
+  "sc-v531-field-evidence",
+  "sc-v531-evidence-title",
+  "sc-v531-evidence-options",
+  "sc-v531-field-tolerance",
+  "sc-v531-field-reference",
   "No result yet",
   "Protected methodology",
 ];

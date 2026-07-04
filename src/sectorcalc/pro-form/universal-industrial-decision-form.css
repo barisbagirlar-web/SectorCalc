@@ -1,6 +1,6 @@
 /* SectorCalc SuperV4 Universal Industrial Decision Form — V5.3.1 Locked Theme */
 /* Calculator-first layout. No schema/debug visual hierarchy. */
-/* Public-safe theme: warm clay background, ivory surface, near-black text, single terracotta accent. */
+/* Public-safe: warm clay background, ivory surface, near-black text, single terracotta accent. */
 
 .sc-v531-shell {
   --sc-v531-bg: #E8E6DE;
@@ -17,6 +17,7 @@
   --sc-v531-serif: Georgia, "Times New Roman", Times, serif;
   --sc-v531-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --sc-v531-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --sc-v531-bg-alt: #F0EEE6;
 
   width: 100%;
   min-height: 100%;
@@ -59,7 +60,7 @@
 .sc-v531-input,
 .sc-v531-unit-select,
 .sc-v531-result-value,
-.sc-v531-metric-value {
+.sc-v531-side-metric-value {
   font-family: var(--sc-v531-mono);
 }
 
@@ -75,7 +76,9 @@
   box-shadow: var(--sc-v531-shadow);
 }
 
-/* ── Compact hero ── */
+/* ═══════════════════════════════════════════════════════
+   HERO — Compact, no eyebrow, no status card
+   ═══════════════════════════════════════════════════════ */
 
 .sc-v531-hero {
   padding: 22px 28px 18px !important;
@@ -115,14 +118,16 @@
   min-height: 26px;
   padding: 4px 10px;
   border: 1px solid var(--sc-v531-line);
-  background: #FAF9F5;
+  background: var(--sc-v531-surface);
   color: #1A1915;
   font-family: var(--sc-v531-sans);
   font-size: 12px;
   line-height: 1.35;
 }
 
-/* ── Mode tabs (subtle, not 4 cards) ── */
+/* ═══════════════════════════════════════════════════════
+   MODE TABS — Subtle row, not 4 cards
+   ═══════════════════════════════════════════════════════ */
 
 .sc-v531-mode-tabs {
   display: flex;
@@ -153,7 +158,9 @@
   border-bottom-color: var(--sc-v531-accent);
 }
 
-/* ── Main layout grid: inputs left, action right ── */
+/* ═══════════════════════════════════════════════════════
+   MAIN LAYOUT — Inputs left, action right
+   ═══════════════════════════════════════════════════════ */
 
 .sc-v531-layout {
   display: grid;
@@ -162,13 +169,15 @@
   align-items: start;
 }
 
-.sc-v531-main {
+.sc-v531-main-panel {
   display: grid;
   gap: 16px;
   min-width: 0;
 }
 
-/* ── Input field cards ── */
+/* ═══════════════════════════════════════════════════════
+   INPUT FIELD CARDS
+   ═══════════════════════════════════════════════════════ */
 
 .sc-v531-field-grid {
   display: grid;
@@ -178,7 +187,7 @@
 }
 
 .sc-v531-field-card {
-  background: #FAF9F5;
+  background: var(--sc-v531-surface);
   border: 1px solid rgba(26,25,21,.10);
   padding: 14px;
   display: grid;
@@ -227,6 +236,20 @@
   font-size: 11px;
   font-weight: 700;
   line-height: 1;
+}
+
+.sc-v531-field-tolerance {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--sc-v531-bg-alt);
+  color: var(--sc-v531-muted-strong);
+  font-family: var(--sc-v531-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-left: auto;
 }
 
 .sc-v531-field-help {
@@ -284,6 +307,16 @@
   accent-color: var(--sc-v531-accent);
 }
 
+/* Reference source label */
+.sc-v531-field-reference {
+  font-size: 12px;
+  color: var(--sc-v531-muted-strong);
+  margin: 0;
+  line-height: 1.4;
+  padding: 2px 0;
+  border-top: 1px dashed rgba(26, 25, 21, 0.08);
+}
+
 /* Base preview */
 .sc-v531-field-preview {
   display: flex;
@@ -319,7 +352,57 @@
   margin-bottom: 4px;
 }
 
-/* ── Side panel (action panel) ── */
+/* ═══════════════════════════════════════════════════════
+   EVIDENCE — Compact verification row
+   ═══════════════════════════════════════════════════════ */
+
+.sc-v531-field-evidence {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 5px 0 !important;
+  border: none !important;
+  background: transparent !important;
+  margin-top: 2px;
+  border-top: 1px solid rgba(26, 25, 21, 0.08);
+}
+
+.sc-v531-evidence-title {
+  margin: 0 !important;
+  font-size: 10px !important;
+  color: #BD5D3A;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 750;
+}
+
+.sc-v531-evidence-options {
+  display: flex;
+  gap: 10px;
+  font-size: 12px !important;
+}
+
+.sc-v531-evidence-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--sc-v531-text);
+}
+
+.sc-v531-evidence-options input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--sc-v531-accent);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SIDE PANEL — Action panel (sticky on desktop)
+   ═══════════════════════════════════════════════════════ */
 
 .sc-v531-side-panel {
   position: sticky;
@@ -438,7 +521,7 @@
   color: var(--sc-v531-text);
 }
 
-/* Legacy button aliases (for PremiumPanel, ExportPanel, mobile bar) */
+/* Legacy button aliases */
 .sc-v531-primary-button {
   width: 100%;
   height: 48px;
@@ -484,17 +567,21 @@
   cursor: not-allowed;
 }
 
-/* ── Section (result section) ── */
+/* ═══════════════════════════════════════════════════════
+   RESULTS
+   ═══════════════════════════════════════════════════════ */
 
 .sc-v531-section {
   padding: clamp(14px, 2vw, 18px);
 }
 
-.sc-v531-result-section {
+.sc-v531-results {
   border-left: 3px solid var(--sc-v531-accent);
+  background: var(--sc-v531-surface);
+  border: 1px solid var(--sc-v531-line);
+  box-shadow: var(--sc-v531-shadow);
 }
 
-/* Result */
 .sc-v531-result-content {
   display: grid;
   gap: 14px;
@@ -530,6 +617,7 @@
 .sc-v531-result-decision {
   padding: 12px;
   border: 1px solid var(--sc-v531-line);
+  background: var(--sc-v531-bg-alt);
 }
 
 .sc-v531-decision-label {
@@ -602,7 +690,9 @@
   margin-right: auto;
 }
 
-/* ── Warnings ── */
+/* ═══════════════════════════════════════════════════════
+   WARNINGS
+   ═══════════════════════════════════════════════════════ */
 
 .sc-v531-warning-stack {
   display: grid;
@@ -639,7 +729,9 @@
   line-height: 1.4;
 }
 
-/* ── Advanced details (collapsed) ── */
+/* ═══════════════════════════════════════════════════════
+   ADVANCED DETAILS — Collapsed
+   ═══════════════════════════════════════════════════════ */
 
 .sc-v531-advanced {
   margin-top: 16px;
@@ -786,7 +878,7 @@
 .sc-v531-methodology-item {
   padding: 10px;
   border: 1px solid var(--sc-v531-line);
-  background: #F0EEE6;
+  background: var(--sc-v531-bg-alt);
 }
 
 .sc-v531-methodology-item strong {
@@ -882,7 +974,9 @@
   font-size: 0.82rem;
 }
 
-/* ── Responsive ── */
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
 
 @media (max-width: 1100px) {
   .sc-v531-layout {

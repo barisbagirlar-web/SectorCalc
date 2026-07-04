@@ -22,6 +22,8 @@ const FORBIDDEN_FILES = [
 
 // Tokens that must NOT appear in any public route file
 const FORBIDDEN_IMPORT_TOKENS = [
+  "Machine recipe or process sheet",
+  "generic source",
   "FreeToolPage",
   "FreeToolPremiumCalculator",
   "FreeTrafficToolPage",

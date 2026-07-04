@@ -1,5 +1,6 @@
 // SectorCalc SuperV4 Universal Industrial Decision Form — V5.3.1
-// Calculator-first renderer. The public client never executes formulas.
+// Calculator-first renderer (V2). Temporary build-and-verify file.
+// The public client never executes formulas.
 
 "use client";
 
@@ -47,6 +48,13 @@ import "./universal-industrial-decision-form.css";
 
 // ── ViewModel types ────────────────────────────────────────────────────────────
 
+interface EvidenceRow {
+  valueVerified: boolean;
+  sourceVerified: boolean;
+  evidenceRequired: boolean;
+  evidenceLabel: string;
+}
+
 interface FieldViewModel {
   id: string;
   label: string;
@@ -61,8 +69,10 @@ interface FieldViewModel {
   criticality: string;
   blockers: Array<{ id: string; message: string; severity: string; suggested_action?: string }>;
   basePreview: string | null;
-  referenceLabel: string;
-  hasReference: boolean;
+  /** Public-safe reference source label, tool-characteristic. Never generic placeholder. */
+  referenceSource: string | null;
+  tolerancePct: string | null;
+  evidence: EvidenceRow;
 }
 
 interface ActionViewModel {
@@ -154,7 +164,12 @@ function buildCalculatorViewModel(
     badges.push({ label: `${runsRemaining}/10 runs`, type: "runs" });
   }
 
-  // Build flat field list from schema inputs
+  // Compute tool-characteristic reference source label based on category
+  const referenceSourceLabel = getReferenceSourceLabel(
+    schema.category,
+    schema.reference_status,
+  );
+
   const fields: FieldViewModel[] = schema.inputs
     .filter((input) => {
       const binding = input.ui_binding;
@@ -167,6 +182,20 @@ function buildCalculatorViewModel(
         if (!preview || preview.base_value === null || preview.base_value === undefined) return null;
         return safeBasePreview(preview.base_value, preview.base_unit ?? input.base_unit ?? null);
       })();
+
+      // Compute evidence row state
+      const evState = state.evidenceState[input.id];
+      const evReq = input.evidence_requirement;
+      const evidenceRequired = typeof evReq === "string"
+        ? evReq.toLowerCase().includes("required")
+        : evReq?.required === true;
+      const evidenceLabel = evidenceRequired ? "Source verification required" : "Source verification (optional)";
+
+      // Tolerance
+      const tolPct = computeTolerancePct(input);
+
+      // Reference source: per-input if available, else tool-characteristic default
+      const inputRefSource = computeInputReferenceSource(input, referenceSourceLabel);
 
       return {
         id: input.id,
@@ -182,8 +211,14 @@ function buildCalculatorViewModel(
         criticality: input.criticality,
         blockers: state.validationState.client_precheck_errors.filter((issue) => issue.input_id === input.id),
         basePreview: basePreviewVal,
-        referenceLabel: safeReferenceLabel(input.reference_values),
-        hasReference: hasUsefulReferenceValues(input.reference_values),
+        referenceSource: inputRefSource,
+        tolerancePct: tolPct,
+        evidence: {
+          valueVerified: evState?.user_verified === true || evState?.enabled === true,
+          sourceVerified: evState?.source_verified === true,
+          evidenceRequired,
+          evidenceLabel,
+        },
       };
     });
 
@@ -247,10 +282,79 @@ function buildCalculatorViewModel(
   return { title: toolName, purpose: displayScope, badges, fields, action, secondaryActions, resultState, warnings };
 }
 
+// ── Reference source helper ────────────────────────────────────────────────────
+
+function getReferenceSourceLabel(
+  category: string | null | undefined,
+  referenceStatus: string | null | undefined,
+): string {
+  const cat = (category ?? "").toLowerCase();
+
+  if (cat.includes("manufactur") || cat.includes("production") || cat.includes("shop")) {
+    return "Datasheet, routing, standard, or measured baseline";
+  }
+  if (cat.includes("finance") || cat.includes("sales") || cat.includes("working") || cat.includes("business") || cat.includes("commercial")) {
+    return "Quote, invoice, ERP, or user benchmark";
+  }
+  if (cat.includes("construction") || cat.includes("structural") || cat.includes("measurement")) {
+    return "Project specification, standard, or measured baseline";
+  }
+  if (cat.includes("energy") || cat.includes("electrical") || cat.includes("power")) {
+    return "Nameplate, datasheet, standard, or measured baseline";
+  }
+  if (cat.includes("logistics") || cat.includes("supply") || cat.includes("transport")) {
+    return "ERP/WMS/TMS record or measured baseline";
+  }
+  if (cat.includes("automotive") || cat.includes("engine") || cat.includes("vehicle")) {
+    return "Engine spec sheet, data plate, service manual, or dyno report";
+  }
+  if (cat.includes("hvac") || cat.includes("mechanical") || cat.includes("thermal")) {
+    return "Nameplate, datasheet, standard, or measured baseline";
+  }
+  if (cat.includes("agriculture") || cat.includes("food")) {
+    return "Equipment spec, standard, or measured baseline";
+  }
+  if (cat.includes("quality") || cat.includes("six") || cat.includes("sigma")) {
+    return "Process record, standard, or measured baseline";
+  }
+  if (cat.includes("textile") || cat.includes("printing") || cat.includes("lab")) {
+    return "Specification sheet, standard, or measured baseline";
+  }
+  if (cat.includes("hse") || cat.includes("ergonomics") || cat.includes("safety")) {
+    return "Standard, assessment record, or measured baseline";
+  }
+
+  return "User benchmark / datasheet reference";
+}
+
+function computeInputReferenceSource(
+  input: SuperV4Input,
+  fallbackSource: string,
+): string {
+  const ref = input.reference_values;
+  if (ref) {
+    if (typeof ref === "object" && "source" in ref && typeof (ref as { source?: string }).source === "string") {
+      const s = (ref as { source: string }).source.trim();
+      if (s && s.length > 0) return s;
+    }
+  }
+  return fallbackSource;
+}
+
+function computeTolerancePct(input: SuperV4Input): string | null {
+  // If input has a tolerance defined via physical bounds or precision policy
+  // This is a display helper; actual tolerance is server-side
+  const bounds = input.physical_hard_bounds;
+  if (bounds && bounds.min !== null && bounds.max !== null && bounds.min !== bounds.max) {
+    return `±${((bounds.max - bounds.min) / (bounds.max + bounds.min) * 100).toFixed(1)}%`;
+  }
+  return null;
+}
+
 // ── Component ──────────────────────────────────────────────────────────────────
 
 export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisionFormProps) {
-  // ── V5.3.1: Defensive contract invariants (evaluated each render, before hooks) ──
+  // ── V5.3.1: Defensive contract invariants ──
   const contractErrors: string[] = [];
   if (!props.schema || typeof props.schema !== "object") {
     contractErrors.push("FORM_CONTRACT_SCHEMA_NULL");
@@ -284,7 +388,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       })
     : null;
 
-  // Provide a minimal valid schema for the machine when contract is broken
+  // Minimal fallback schema for machine
   const machineSchema: SuperV4Schema = contractErrors.length
     ? ({
         tool_id: props.toolKey || "",
@@ -344,24 +448,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         output_formatting: {},
         decision_interpretation_contract: {},
         business_impact_contract: {},
-        engine_rules: {
-          client_formula_execution: false,
-          llm_enabled: false,
-          server_execution_required: true,
-          fmea: null,
-        },
+        engine_rules: { client_formula_execution: false, llm_enabled: false, server_execution_required: true, fmea: null },
         uncertainty_model: { method: "NONE", confidence_level: null },
         safety_factor_gauges: [],
         proof_pack: { enabled: false, redaction_status: "PUBLIC_SAFE_REDACTED" as const, sections: [] },
         audit_trail_contract: {
           hash_algorithm: "SHA-256",
-          seal_config: {
-            enabled: false,
-            include_input_hash: true,
-            include_output_hash: true,
-            include_schema_hash: true,
-            include_formula_version: true,
-          },
+          seal_config: { enabled: false, include_input_hash: true, include_output_hash: true, include_schema_hash: true, include_formula_version: true },
           redaction_status: "PUBLIC_SAFE_REDACTED",
           seal_fields: [],
         },
@@ -370,20 +463,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         test_plan: { test_cases: [], coverage_requirement: "NONE" },
         red_team_review: { review_status: "NOT_REVIEWED", issues: [] },
         risk_level: "MEDIUM",
-        brand_safety_policy: {
-          third_party_brand_references: [],
-          legal_proof_claims: [],
-          paid_standard_table_reproductions: [],
-          policy_enforced: true,
-          policy_version: "5.3.1",
-        },
+        brand_safety_policy: { third_party_brand_references: [], legal_proof_claims: [], paid_standard_table_reproductions: [], policy_enforced: true, policy_version: "5.3.1" },
         calculation_basis: { method: "Fallback", assumptions: [], limitations: [] },
         unit_system: { preferred: "GLOBAL", strict: false },
-        standards: [],
-        standards_clause_map: [],
-        reference_status: "UNVERIFIED",
-        irreversible_commitment_metric: "result",
-        decision_context: {},
+        standards: [], standards_clause_map: [], reference_status: "UNVERIFIED",
+        irreversible_commitment_metric: "result", decision_context: {},
       } as SuperV4Schema)
     : props.schema;
 
@@ -476,26 +560,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   // ── ViewModel ──
   const vm = useMemo(
     () => buildCalculatorViewModel(
-      props.schema,
-      state,
-      machine,
-      props,
-      activeMode,
-      response,
-      accessTier,
-      hasSession,
-      runsRemaining,
-      isExecuting,
-      hasResult,
-      primaryButtonDisabled,
-      primaryButtonLabel,
-      primaryButtonAction,
-      clientBlockerCount,
-      clientWarningCount,
-      toolName,
-      displayScope,
-      displayCategory,
-      displayOperation,
+      props.schema, state, machine, props, activeMode, response,
+      accessTier, hasSession, runsRemaining, isExecuting, hasResult,
+      primaryButtonDisabled, primaryButtonLabel, primaryButtonAction,
+      clientBlockerCount, clientWarningCount, toolName, displayScope,
+      displayCategory, displayOperation,
       identityCheck as { ok: boolean; reason?: string } | null,
     ),
     [
@@ -507,7 +576,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     ],
   );
 
-  // ── State for collapsed advanced section (unconditional, before guards) ──
+  // ── State for collapsed advanced section ──
   const [advancedOpen, setAdvancedOpen] = useState(false);
 
   // ── Guard blocks (after hooks) ──
@@ -536,7 +605,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         </div>
       </header>
 
-      {/* ── Mode selector (subtle row, not dominant) ── */}
+      {/* ── Mode selector (subtle row) ── */}
       <div className="sc-v531-mode-tabs" role="tablist" aria-label="Profile mode">
         {PROFILE_MODE_OPTIONS.map((mode) => (
           <button
@@ -554,9 +623,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
       {/* ── 2. Main workspace: inputs + action panel ── */}
       <div className="sc-v531-layout">
-        {/* Left: inputs */}
-        <main className="sc-v531-main">
-          {/* Warnings inline */}
+        <main className="sc-v531-main-panel">
+          {/* Warnings */}
           {vm.warnings.length > 0 && (
             <div className="sc-v531-warning-stack">
               {vm.warnings.map((w, i) => (
@@ -565,7 +633,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
             </div>
           )}
 
-          {/* Input field cards */}
+          {/* Input cards */}
           {vm.fields.length === 0 && (
             <p className="sc-v531-empty">No inputs defined for this tool.</p>
           )}
@@ -576,12 +644,19 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 field={field}
                 onValueChange={(value) => machine.setInputValue(field.id, value)}
                 onUnitChange={(unit) => machine.setSelectedUnit(field.id, unit)}
+                onEvidenceChange={(valueVerified, sourceVerified) => {
+                  machine.updateEvidence(field.id, {
+                    enabled: valueVerified || sourceVerified,
+                    user_verified: valueVerified,
+                    source_verified: sourceVerified,
+                  });
+                }}
               />
             ))}
           </div>
 
-          {/* Result section */}
-          <section className="sc-v531-section sc-v531-result-section" aria-label="Results">
+          {/* Results */}
+          <section className="sc-v531-section sc-v531-results" aria-label="Results">
             {vm.resultState.hasResult ? (
               <div className="sc-v531-result-content">
                 {vm.resultState.primaryOutput && (
@@ -619,7 +694,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
             )}
           </section>
 
-          {/* Premium hook (inline) */}
+          {/* Premium hook */}
           {premiumHook && (
             <PremiumPanel hook={premiumHook} onCheckout={() => machine.requestCheckout()} />
           )}
@@ -628,7 +703,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         {/* Right: action panel */}
         <aside className="sc-v531-side-panel" aria-label="Action panel">
           <div className="sc-v531-side-panel-inner">
-            {/* Primary CTA */}
             <button
               type="button"
               className="sc-v531-primary-action"
@@ -645,7 +719,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               </p>
             )}
 
-            {/* Status summary */}
             <div className="sc-v531-side-metrics">
               <div className="sc-v531-side-metric">
                 <span className="sc-v531-side-metric-label">Blockers</span>
@@ -661,7 +734,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               </div>
             </div>
 
-            {/* Secondary buttons */}
             <button type="button" className="sc-v531-side-secondary" onClick={machine.runClientPrecheck}>
               Check inputs
             </button>
@@ -717,7 +789,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         )}
       </details>
 
-      {/* ── Mobile bottom bar ── */}
+      {/* Mobile bar */}
       <div className="sc-v531-mobile-action-bar">
         <span>
           {hasResult
@@ -739,7 +811,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   );
 }
 
-// ── Profile mode tabs (subtle, not hero cards) ────────────────────────────────
+// ── Profile mode tabs ─────────────────────────────────────────────────────────
 
 const PROFILE_MODE_OPTIONS: Array<{ id: ProfileMode; label: string }> = [
   { id: "quick", label: "Quick" },
@@ -748,28 +820,33 @@ const PROFILE_MODE_OPTIONS: Array<{ id: ProfileMode; label: string }> = [
   { id: "audit", label: "Audit" },
 ];
 
-// ── Simplified input field ─────────────────────────────────────────────────────
+// ── Input field with full reference/evidence structure ──────────────────────────
 
 function CalculatorInputField({
   field,
   onValueChange,
   onUnitChange,
+  onEvidenceChange,
 }: {
   field: FieldViewModel;
   onValueChange: (value: string | number | boolean | null) => void;
   onUnitChange: (unit: string) => void;
+  onEvidenceChange: (valueVerified: boolean, sourceVerified: boolean) => void;
 }) {
   const inputId = `sc-v531-input-${field.id}`;
   const hasBlocker = field.blockers.length > 0;
 
   return (
     <div className="sc-v531-field-card" data-criticality={field.criticality.toLowerCase()} data-error={hasBlocker}>
-      {/* Header: label + symbol + criticality */}
+      {/* Header: label + symbol + tolerance */}
       <div className="sc-v531-field-header">
         <label htmlFor={inputId} className="sc-v531-field-title">{field.label}</label>
         {field.symbol && <span className="sc-v531-field-symbol">({field.symbol})</span>}
         {field.criticality === "CRITICAL" && (
           <span className="sc-v531-field-critical" title="Critical input">!</span>
+        )}
+        {field.tolerancePct && (
+          <span className="sc-v531-field-tolerance" title="Expected tolerance range">{field.tolerancePct}</span>
         )}
       </div>
 
@@ -793,6 +870,11 @@ function CalculatorInputField({
         )}
       </div>
 
+      {/* Reference source label */}
+      {field.referenceSource && (
+        <p className="sc-v531-field-reference">{field.referenceSource}</p>
+      )}
+
       {/* Base preview */}
       {field.basePreview && (
         <div className="sc-v531-field-preview">
@@ -800,6 +882,33 @@ function CalculatorInputField({
           <span>{field.basePreview}</span>
         </div>
       )}
+
+      {/* Evidence row (compact) */}
+      <div className="sc-v531-field-evidence" aria-label={`${field.label} evidence`}>
+        <span className="sc-v531-evidence-title">{field.evidence.evidenceLabel}</span>
+        <div className="sc-v531-evidence-options">
+          <label>
+            <input
+              type="checkbox"
+              checked={field.evidence.valueVerified}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                onEvidenceChange(e.target.checked, field.evidence.sourceVerified)
+              }
+            />
+            <span>Verified</span>
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={field.evidence.sourceVerified}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                onEvidenceChange(field.evidence.valueVerified, e.target.checked)
+              }
+            />
+            <span>Source verified</span>
+          </label>
+        </div>
+      </div>
 
       {/* Validation blockers */}
       {hasBlocker && (
@@ -849,7 +958,6 @@ function renderValueInput(
     );
   }
 
-  // number | integer | string
   return (
     <input
       id={inputId}
@@ -860,10 +968,7 @@ function renderValueInput(
       value={field.type === "number" || field.type === "integer" ? (typeof field.value === "number" ? String(field.value) : "") : (typeof field.value === "string" ? field.value : "")}
       onChange={(e: ChangeEvent<HTMLInputElement>) => {
         if (field.type === "number" || field.type === "integer") {
-          if (e.target.value === "") {
-            onValueChange(null);
-            return;
-          }
+          if (e.target.value === "") { onValueChange(null); return; }
           const next = Number(e.target.value);
           onValueChange(Number.isFinite(next) ? next : null);
         } else {
@@ -924,15 +1029,9 @@ function BusinessImpactPanel({ response }: { response: ExecuteResponse | null })
     <section className="sc-v531-advanced-section" aria-label="Business impact">
       <h3 className="sc-v531-advanced-title">Business impact</h3>
       <dl className="sc-v531-advanced-grid">
-        {impact?.money_at_risk_formatted ? (
-          <ContextItem label="Money at risk" value={impact.money_at_risk_formatted} />
-        ) : null}
-        {impact?.main_cost_driver ? (
-          <ContextItem label="Main cost driver" value={impact.main_cost_driver} />
-        ) : null}
-        {impact?.quote_or_decision_impact ? (
-          <ContextItem label="Decision impact" value={impact.quote_or_decision_impact} />
-        ) : null}
+        {impact?.money_at_risk_formatted ? <ContextItem label="Money at risk" value={impact.money_at_risk_formatted} /> : null}
+        {impact?.main_cost_driver ? <ContextItem label="Main cost driver" value={impact.main_cost_driver} /> : null}
+        {impact?.quote_or_decision_impact ? <ContextItem label="Decision impact" value={impact.quote_or_decision_impact} /> : null}
       </dl>
     </section>
   );
@@ -951,9 +1050,7 @@ function PremiumPanel({
     try {
       const url = await onCheckout();
       if (url) window.location.href = url;
-    } finally {
-      setLoading(false);
-    }
+    } finally { setLoading(false); }
   };
   return (
     <section className="sc-v531-advanced-section" aria-label="Premium hook">
