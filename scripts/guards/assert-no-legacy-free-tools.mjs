@@ -8,11 +8,8 @@
  * Checks:
  * 1. free-v531 schema/formula directories
  * 2. pro-runtime/free-formulas directory or files
- * 3. generated/public AI tool indices for old free slugs
- * 4. sitemap files for old free slugs
- * 5. route maps for old free slugs
- * 6. Forbidden function references in src
- * 7. Engine Torque old free route
+ * 3. Forbidden function definitions/imports/invocations (not string literals)
+ * 4. Engine Torque old free route files
  */
 
 import { existsSync, readFileSync, readdirSync } from "fs";
@@ -64,7 +61,7 @@ if (existsSync(REGISTRY)) {
   pass("free-formula-registry.ts — absent");
 }
 
-// ── 3. Forbidden function references ─────────────────────────────────
+// ── 3. Forbidden functions — only flag actual definitions/imports/calls ──
 
 const FORBIDDEN_FUNCTIONS = [
   "calculateFreeToolResult",
@@ -72,22 +69,34 @@ const FORBIDDEN_FUNCTIONS = [
   "runFreeFullLoopCalculation",
 ];
 
+// Regex patterns:
+//   - import ... from "..." (import statement)
+//   - function name( (definition)
+//   - name( (call — but not inside a string literal)
+//   - export function name (export)
+//   - export const name (export const)
+const FORBIDDEN_PATTERNS = FORBIDDEN_FUNCTIONS.map(
+  (fn) => new RegExp(
+    `(?:import\\s+.*\\b${fn}\\b|function\\s+${fn}\\s*\\(|export\\s+(?:function|const)\\s+${fn}|[^"'\`]\\b${fn}\\s*\\()`,
+  ),
+);
+
 const SRC_DIR = join(ROOT, "src");
-function scanDir(dir, depth = 0) {
+
+function scanForForbidden(dir, depth = 0) {
   if (depth > 6 || !existsSync(dir)) return;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
-      // skip node_modules, .git, generated
       if (entry.name === "node_modules" || entry.name === ".git" || entry.name === "generated")
         continue;
-      scanDir(full, depth + 1);
+      scanForForbidden(full, depth + 1);
     } else if (entry.name.endsWith(".ts") || entry.name.endsWith(".tsx")) {
       try {
         const content = readFileSync(full, "utf-8");
-        for (const fn of FORBIDDEN_FUNCTIONS) {
-          if (content.includes(fn)) {
-            fail(`Forbidden reference "${fn}"`, `found in ${full}`);
+        for (let i = 0; i < FORBIDDEN_FUNCTIONS.length; i++) {
+          if (FORBIDDEN_PATTERNS[i].test(content)) {
+            fail(`Forbidden function "${FORBIDDEN_FUNCTIONS[i]}"`, `active reference in ${full}`);
           }
         }
       } catch {
@@ -96,7 +105,7 @@ function scanDir(dir, depth = 0) {
     }
   }
 }
-scanDir(SRC_DIR);
+scanForForbidden(SRC_DIR);
 
 // ── 4. Engine Torque old free route ──────────────────────────────────
 

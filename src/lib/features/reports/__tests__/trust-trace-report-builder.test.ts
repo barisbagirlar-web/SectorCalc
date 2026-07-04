@@ -3,7 +3,6 @@
  */
 
 import { describe, expect, test } from "vitest";
-import { runFreeFullLoopCalculation } from "@/lib/features/formula-governance/runtime-validation/free-full-loop-bridge";
 import { runPremiumFullLoopCalculation } from "@/lib/features/formula-governance/runtime-validation/premium-full-loop-bridge";
 import {
   buildTrustTraceReportFileName,
@@ -20,14 +19,6 @@ const WELDING_INPUTS = {
   fitUpHours: 2,
   reworkRiskPercent: 10,
   targetMargin: 25,
-} as const;
-
-const REPAIR_FREE_SLUG = "repair-time-vs-price-check";
-const REPAIR_FREE_TITLE = "Repair Time vs Price Check";
-const REPAIR_FREE_INPUTS = {
-  quotedPrice: 850,
-  repairHours: 2.5,
-  partsCost: 180,
 } as const;
 
 describe("buildTrustTraceReportPayload", () => {
@@ -84,30 +75,6 @@ describe("buildTrustTraceReportPayload", () => {
     expect(payload.exportStatus).toBe("blocked");
     expect(payload.blockers).toEqual([]);
     expect(payload.mind2Precalc.requiredMissingInputs).toEqual([]);
-  });
-
-  test("builds payload from free stub (pending status)", () => {
-    const loopResult = runFreeFullLoopCalculation(REPAIR_FREE_SLUG, { ...REPAIR_FREE_INPUTS });
-    expect(loopResult.status).toBe("pending");
-
-    const payload = buildTrustTraceReportPayload({
-      toolSlug: REPAIR_FREE_SLUG,
-      toolTitle: REPAIR_FREE_TITLE,
-      tier: "free",
-      fullLoopResult: loopResult,
-      canonicalInputValues: {
-        quotedPrice: 850,
-        repairHours: 2.5,
-        partsCost: 180,
-      },
-    });
-
-    expect(payload.tier).toBe("free");
-    expect(payload.calculationStatus).toBe("blocked");
-    expect(payload.formulaContract.slug).toBe(REPAIR_FREE_SLUG);
-    expect(payload.mind1Postcalc.validationSources).toEqual([]);
-    expect(payload.assumptions).toEqual([]);
-    expect(payload.limitations).toEqual([]);
   });
 
   test("rejected keys are empty from stub (no input processing)", () => {
