@@ -1,36 +1,20 @@
-/**
- * Free schema loader — loads SuperV4 V5.3.1 Free Tool schemas.
- * Uses lazy initialization guarded by runtime environment check so the module
- * can be imported from any context (server builds, client bundles, tsx scripts).
- */
+import "server-only";
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
+import { readFileSync, existsSync, readdirSync } from "fs";
+import { join } from "path";
 
 interface LoadedSchema { schema: SuperV4Schema; errors: string[]; }
 let loadedSchemas: Map<string, LoadedSchema> | null = null;
 let loadErrors: string[] = [];
 
-function ensureFs(): boolean {
-  try {
-    if (typeof process === "undefined" || typeof process.cwd !== "function") return false;
-    require("fs");
-    require("path");
-    return true;
-  } catch { return false; }
-}
-
-function getSchemasDir(): string | null {
-  try {
-    if (!ensureFs()) return null;
-    const fs = require("fs");
-    const path = require("path");
-    const cwd = process.cwd();
-    const fnBundle = path.join(cwd, ".next/standalone/src/sectorcalc/schemas/free-v531");
-    if (fs.existsSync(fnBundle)) return fnBundle;
-    const direct = path.join(cwd, "src/sectorcalc/schemas/free-v531");
-    if (fs.existsSync(direct)) return direct;
-    return direct;
-  } catch { return null; }
+function getSchemasDir(): string {
+  const cwd = process.cwd();
+  const fnBundle = join(cwd, ".next/standalone/src/sectorcalc/schemas/free-v531");
+  if (existsSync(fnBundle)) return fnBundle;
+  const direct = join(cwd, "src/sectorcalc/schemas/free-v531");
+  if (existsSync(direct)) return direct;
+  return direct;
 }
 
 /**
@@ -117,17 +101,13 @@ function loadAllSchemas(): void {
   if (loadedSchemas) return;
   loadedSchemas = new Map(); loadErrors = [];
   try {
-    if (!ensureFs()) { loadErrors.push("File system not available (client context)"); return; }
-    const fs = require("fs");
-    const path = require("path");
     const schemasDir = getSchemasDir();
-    if (!schemasDir) { loadErrors.push("Free schemas dir not found"); return; }
-    if (!fs.existsSync(schemasDir)) { loadErrors.push("Dir not found: " + schemasDir); return; }
-    const files = fs.readdirSync(schemasDir).filter((f: string) => f.endsWith(".json")).sort();
+    if (!existsSync(schemasDir)) { loadErrors.push("Dir not found: " + schemasDir); return; }
+    const files = readdirSync(schemasDir).filter((f: string) => f.endsWith(".json")).sort();
     if (files.length === 0) { loadErrors.push("No schema files"); return; }
     for (const file of files) {
       try {
-        const raw = JSON.parse(fs.readFileSync(path.join(schemasDir, file), "utf8")) as Record<string, unknown>;
+        const raw = JSON.parse(readFileSync(join(schemasDir, file), "utf8")) as Record<string, unknown>;
         if (!raw.tool_key) { loadErrors.push("Missing tool_key in " + file); continue; }
         const schema = normalizeFreeSchema(raw);
         const v = validateSuperV4Schema(schema);
