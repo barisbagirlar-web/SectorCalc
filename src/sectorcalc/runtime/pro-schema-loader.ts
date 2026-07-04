@@ -19,7 +19,18 @@ let loadedSchemas: Map<string, LoadedSchema> | null = null;
 let loadErrors: string[] = [];
 
 function getSchemasDir(): string {
-  return join(process.cwd(), "src/sectorcalc/schemas/v531");
+  const cwd = process.cwd();
+
+  // Try .next/standalone path first (Firebase Cloud Functions bundle)
+  const fnBundle = join(cwd, ".next/standalone/src/sectorcalc/schemas/v531");
+  if (existsSync(fnBundle)) return fnBundle;
+
+  // Direct path (local dev, standalone server)
+  const direct = join(cwd, "src/sectorcalc/schemas/v531");
+  if (existsSync(direct)) return direct;
+
+  // Fallback — will produce a clear error in loadAllSchemas
+  return direct;
 }
 
 /**
