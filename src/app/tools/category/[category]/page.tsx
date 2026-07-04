@@ -87,7 +87,7 @@ export default async function ToolsCategoryLandingPage({ params }: PageProps) {
   if (taxonomyLanding) {
     const t = await getTranslations("generatedToolCatalog");
     const categoryTitle = resolveTaxonomyCategoryTitle(taxonomyLanding, locale, category);
-    const categoryDescription = `${categoryTitle} - ${taxonomyLanding.tools.length} ${locale === "tr" ? "hesaplama aracı" : "calculators"}.`;
+    const categoryDescription = `${categoryTitle} - ${taxonomyLanding.tools.length} calculators.`;
 
     const jsonLd = [
       await buildLocalizedBreadcrumbJsonLd(
