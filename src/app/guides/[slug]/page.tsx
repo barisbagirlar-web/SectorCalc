@@ -20,7 +20,7 @@ import {
   getIndustryPathForGuide,
   getSeoHubSlugForGuide,
 } from "@/lib/content/authority-links";
-import { getFreeTrafficToolBySlugLocalized } from "@/lib/features/tools/free-traffic-catalog";
+
 import { getPremiumSchemaBySlug } from "@/lib/features/premium-schema/schemas/index";
 import {
   buildBreadcrumbJsonLd,
@@ -74,15 +74,8 @@ export async function generateMetadata({
 
 function buildGuideJsonLd(guide: AuthorityGuide, homeLabel: string, guidesLabel: string): JsonLdRecord[] {
   const locale = "en";
-  const freeItems = guide.relatedFreeToolSlugs
-    .map((slug) => {
-      const tool = getFreeTrafficToolBySlugLocalized(slug, locale);
-      if (!tool) {
-        return null;
-      }
-      return { name: tool.title, path: getToolHref("free", tool.slug) };
-    })
-    .filter((item): item is { name: string; path: string } => item !== null);
+  // Free tool references have been permanently removed.
+  const freeItems: Array<{ name: string; path: string }> = [];
 
   const premiumItems = guide.relatedPremiumSchemaSlugs
     .map((slug) => {
@@ -204,34 +197,12 @@ export default async function AuthorityGuidePage({
         </section>
       ))}
 
-      <section className="sc-pro-section sc-pro-section--border">
-        <Container className="sc-pro-container min-w-0">
-          <h2 className="sc-pro-headline text-lg">{tGuides("relatedFreeCalculators")}</h2>
-          <ul className="mt-3 flex flex-wrap gap-3">
-            {guide.relatedFreeToolSlugs.map((toolSlug) => {
-              const tool = getFreeTrafficToolBySlugLocalized(toolSlug, locale);
-              if (!tool) {
-                return null;
-              }
-              return (
-                <li key={toolSlug}>
-                  <Link
-                    href={getToolHref("free", tool.slug)}
-                    className="sc-crawl-index__link text-sm"
-                  >
-                    {tool.title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </Container>
-      </section>
-
-      <section className="sc-pro-section">
-        <Container className="sc-pro-container min-w-0">
-          <h2 className="sc-pro-headline text-lg">{tGuides("relatedPremiumCalculators")}</h2>
-          <ul className="mt-3 flex flex-wrap gap-3">
+      {/* Free tool references have been permanently removed. */}
+      {guide.relatedPremiumSchemaSlugs.length > 0 && (
+        <section className="sc-pro-section">
+          <Container className="sc-pro-container min-w-0">
+            <h2 className="sc-pro-headline text-lg">{tGuides("relatedPremiumCalculators")}</h2>
+            <ul className="mt-3 flex flex-wrap gap-3">
             {guide.relatedPremiumSchemaSlugs.map((premiumSlug) => {
               const schema = getPremiumSchemaBySlug(premiumSlug);
               if (!schema) {
@@ -251,6 +222,7 @@ export default async function AuthorityGuidePage({
           </ul>
         </Container>
       </section>
+      )}
 
       <section className="sc-pro-section sc-pro-section--alt">
         <Container className="sc-pro-container min-w-0">

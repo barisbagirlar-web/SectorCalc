@@ -1,5 +1,6 @@
 /**
  * Sitemap source of truth - all public indexable routes derived from catalogs.
+ * Free tool routes have been permanently removed (purge).
  */
 
 import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
@@ -9,11 +10,6 @@ import { listProgrammaticSeoSlugs } from "@/lib/infrastructure/seo/programmatic-
 import { listPremiumToolSeoLandingSlugs } from "@/lib/infrastructure/seo/premium-tool-seo-landings";
 import { listCaseStudySlugs } from "@/lib/features/case-studies/case-study-registry";
 import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
-import {
-  getFreeToolRoutePath,
-  getPremiumToolRoutePath,
-  listPublicFreeToolSlugs,
-} from "@/lib/features/tools/free-traffic-routes";
 import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonomy";
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
@@ -99,7 +95,6 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
 export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/categories", "hub", 0.9, "weekly"),
-    createItem("/free-tools", "hub", 0.9, "weekly"),
     createItem("/premium-tools", "hub", 0.9, "weekly"),
     createItem("/calculator-library", "hub", 0.85, "monthly"),
     createItem("/industries", "hub", 0.9, "monthly"),
@@ -109,15 +104,9 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
   ];
 }
 
-export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
-  return listPublicFreeToolSlugs().map((slug) =>
-    createItem(getFreeToolRoutePath(slug), "free_tool", 0.75, "monthly"),
-  );
-}
-
 export function getMigratedPremiumToolSitemapRoutes(): readonly SitemapManifestItem[] {
   return listMigratedPremiumRouteSlugs().map((slug) =>
-    createItem(getPremiumToolRoutePath(slug), "premium_analyzer", 0.8, "monthly"),
+    createItem(`/tools/premium/${slug}`, "premium_analyzer", 0.8, "monthly"),
   );
 }
 
@@ -127,8 +116,8 @@ export function getActiveCategorizedToolSitemapRoutes(): readonly SitemapManifes
     .map((item) =>
       createItem(
         item.routePath!,
-        item.tier === "free" ? "free_tool" : "premium_analyzer",
-        item.tier === "free" ? 0.75 : 0.8,
+        "premium_analyzer",
+        0.8,
         "monthly",
       ),
     );
@@ -136,12 +125,11 @@ export function getActiveCategorizedToolSitemapRoutes(): readonly SitemapManifes
 
 export function getPremiumRevenueToolSitemapRoutes(): readonly SitemapManifestItem[] {
   return getPremiumRevenueRouteSlugs().map((slug) =>
-    createItem(getPremiumToolRoutePath(slug), "premium_analyzer", 0.8, "monthly"),
+    createItem(`/tools/premium/${slug}`, "premium_analyzer", 0.8, "monthly"),
   );
 }
 
 export function getAiIndexSitemapRoutes(): readonly SitemapManifestItem[] {
-  // Only HTML/text AI-facing pages — exclude raw JSON/jsonl/xml data files
   const files = [
     "/llms.txt",
     "/ai.txt",
@@ -233,7 +221,6 @@ export function countAuthorityGuideSitemapEntries(): number {
 /** @deprecated Use getSitemapManifest - legacy static route list for tests. */
 export const SITEMAP_STATIC_ROUTES = [
   "/",
-  "/free-tools",
   "/premium-tools",
   "/categories",
   "/industries",

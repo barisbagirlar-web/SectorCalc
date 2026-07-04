@@ -21,4 +21,4 @@ export type {
 export { useUniversalIndustrialDecisionFormMachine } from "./useUniversalIndustrialDecisionFormMachine";
 export type { MachineApi, MachineOptions } from "./useUniversalIndustrialDecisionFormMachine";
 export * from "./contract-types";
-export { generatedToolSchemaToSuperV4Schema } from "./generated-tool-to-superv4-adapter";
+// generatedToolSchemaToSuperV4Schema has been permanently removed with free tools.

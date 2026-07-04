@@ -1,26 +1,24 @@
 /**
- * Single source of truth - approved slug lists only (premium-slugs.json + free-slugs.json).
+ * Single source of truth - approved slug lists only (premium-slugs.json).
+ * Free tool slugs have been permanently purged.
  */
 
-import freeSlugs from "../../../../free-slugs.json";
 import premiumSlugs from "../../../../premium-slugs.json";
 
 export const CANONICAL_PREMIUM_SLUGS = Object.freeze([...(premiumSlugs as readonly string[])]);
-export const CANONICAL_FREE_SLUGS = Object.freeze([...(freeSlugs as readonly string[])]);
+export const CANONICAL_FREE_SLUGS = Object.freeze([] as readonly string[]);
 
 const premiumSlugSet = new Set<string>(CANONICAL_PREMIUM_SLUGS);
 
-/** Free-only slugs (excludes overlap with premium list). */
-export const CANONICAL_TRAFFIC_FREE_SLUGS = Object.freeze(
-  CANONICAL_FREE_SLUGS.filter((slug) => !premiumSlugSet.has(slug)),
-);
+/** Free-only slugs (excludes overlap with premium list). Now always empty. */
+export const CANONICAL_TRAFFIC_FREE_SLUGS = Object.freeze([] as readonly string[]);
 
 export function isCanonicalPremiumSlug(slug: string): boolean {
   return premiumSlugSet.has(slug.replace(/-premium$/, ""));
 }
 
-export function isCanonicalFreeSlug(slug: string): boolean {
-  return (CANONICAL_FREE_SLUGS as readonly string[]).includes(slug);
+export function isCanonicalFreeSlug(_slug: string): boolean {
+  return false;
 }
 
 export function humanizeCanonicalSlug(slug: string): string {
@@ -35,7 +33,7 @@ export function humanizeCanonicalSlug(slug: string): string {
 }
 
 export function countCanonicalCatalogTools(): number {
-  return new Set([...CANONICAL_PREMIUM_SLUGS, ...CANONICAL_FREE_SLUGS]).size;
+  return new Set(CANONICAL_PREMIUM_SLUGS).size;
 }
 
 export function hasCanonicalToolCatalog(): boolean {

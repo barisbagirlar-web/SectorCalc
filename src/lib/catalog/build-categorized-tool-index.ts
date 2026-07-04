@@ -4,17 +4,12 @@ import {
   type GlobalToolCategorySlug,
 } from "@/lib/catalog/global-tool-category-taxonomy";
 import { resolveToolCategory, MANUAL_CATEGORY_OVERRIDES, type ToolCategoryResolutionInput } from "@/lib/catalog/resolve-tool-category";
-import type { FreeTrafficCategory } from "@/lib/features/tools/free-traffic-infer";
 import { getFormulaContractBySlug } from "@/lib/features/formula-governance/contracts";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
-import { resolveFreeToolLocalizedCopy } from "@/lib/infrastructure/i18n/free-tool-i18n";
 import {
-  CANONICAL_FREE_SLUGS,
   CANONICAL_PREMIUM_SLUGS,
-  CANONICAL_TRAFFIC_FREE_SLUGS,
   humanizeCanonicalSlug,
 } from "@/lib/features/tools/canonical-tool-slugs";
-import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
 import { getRevenueToolByFreeSlug } from "@/lib/features/tools/revenue-tools";
 import { getPremium152Tools } from "@/lib/features/premium/premium-152-seed-reader";
 import { SUPPORTED_LOCALES } from "@/lib/infrastructure/i18n/locale-config";
@@ -79,10 +74,6 @@ function resolveFormulaContractStatus(slug: string): CategorizedToolFormulaStatu
   return getFormulaContractBySlug(slug) ? "ready" : "missing";
 }
 
-const SCHEMA_CATALOG_MAP = schemaCatalogMetadata as Readonly<
-  Record<string, { readonly categorySlug?: string; readonly catalogCategory?: string }>
->;
-
 function resolveCategorySlugForSlug(
   slug: string,
   title: string,
@@ -90,23 +81,17 @@ function resolveCategorySlugForSlug(
   tier: "free" | "premium",
   source: CategorizedToolSource,
 ): GlobalToolCategorySlug {
-  // Check manual overrides FIRST - these are expert-reviewed, highest authority
   const manual = MANUAL_CATEGORY_OVERRIDES[slug];
   if (manual) {
     return manual;
   }
 
-  const fromSchema = SCHEMA_CATALOG_MAP[slug]?.categorySlug;
-  if (fromSchema) {
-    return fromSchema as GlobalToolCategorySlug;
-  }
   return resolveToolCategory({
     slug,
     title,
     description,
     tier,
     source,
-    freeTrafficCategory: SCHEMA_CATALOG_MAP[slug]?.catalogCategory as FreeTrafficCategory | undefined,
   });
 }
 
@@ -117,7 +102,6 @@ function buildPremium152SeedItems(): CategorizedToolItem[] {
 
     const batchRoute = resolvePremium152BatchRoute(tool.slug);
     const isBatchActive = batchRoute !== null;
-    const isFree = CANONICAL_FREE_SLUGS.includes(tool.slug);
 
     return {
       slug: tool.slug,
@@ -125,13 +109,13 @@ function buildPremium152SeedItems(): CategorizedToolItem[] {
         locale === "tr" ? tool.trTitle : humanizeCanonicalSlug(tool.slug),
       ),
       description: fillLocaleRecord((locale) => (locale === "tr" ? description : description)),
-      tier: isFree ? "free" : (isBatchActive ? "premium-schema" : "premium"),
+      tier: isBatchActive ? "premium-schema" : "premium",
       categorySlug,
       source: "user-premium-152",
-      routePath: isFree ? `/tools/premium-schema/${tool.slug}` : batchRoute,
+      routePath: batchRoute,
       formulaContractStatus:
-        tool.formulaStatus === "source-formula-provided" || isBatchActive || isFree ? "ready" : "missing",
-      publicStatus: isBatchActive || isFree ? "active" : (tool.publicStatus as CategorizedToolPublicStatus),
+        tool.formulaStatus === "source-formula-provided" || isBatchActive ? "ready" : "missing",
+      publicStatus: isBatchActive ? "active" : (tool.publicStatus as CategorizedToolPublicStatus),
       seedId: tool.id,
     };
   });
@@ -161,37 +145,6 @@ function buildPremiumItems(): CategorizedToolItem[] {
       tier: "premium",
       categorySlug,
       source: "existing-premium",
-      routePath: `/tools/generated/${slug}`,
-      formulaContractStatus: resolveFormulaContractStatus(slug),
-      publicStatus: "active",
-    };
-  });
-}
-
-function buildFreeItems(): CategorizedToolItem[] {
-  return CANONICAL_TRAFFIC_FREE_SLUGS.map((slug) => {
-    const title = humanizeCanonicalSlug(slug);
-    const copyEn = resolveFreeToolLocalizedCopy(slug, "en");
-    const categorySlug = resolveCategorySlugForSlug(
-      slug,
-      copyEn.title || title,
-      copyEn.description ?? copyEn.title ?? title,
-      "free",
-      "existing-free",
-    );
-
-    return {
-      slug,
-      title: fillLocaleRecord(
-        (locale) => resolveFreeToolLocalizedCopy(slug, locale).title || title,
-      ),
-      description: fillLocaleRecord((locale) => {
-        const copy = resolveFreeToolLocalizedCopy(slug, locale);
-        return copy.description ?? copy.title ?? title;
-      }),
-      tier: "free",
-      categorySlug,
-      source: "existing-free",
       routePath: `/tools/generated/${slug}`,
       formulaContractStatus: resolveFormulaContractStatus(slug),
       publicStatus: "active",
@@ -231,7 +184,6 @@ export function buildCategorizedToolIndex(): readonly CategorizedToolItem[] {
   const merged = mergeBySlug([
     ...buildPremiumItems(),
     ...buildPremium152SeedItems(),
-    ...buildFreeItems(),
   ]);
 
   const uncategorized = merged.filter((item) =>
@@ -259,9 +211,9 @@ export function listPremiumToolsByCategory(
 }
 
 export function listRelatedFreeToolsByCategory(
-  categorySlug: GlobalToolCategorySlug,
+  _categorySlug: GlobalToolCategorySlug,
 ): readonly CategorizedToolItem[] {
-  return listCategorizedToolsByCategory(categorySlug).filter((item) => item.tier === "free");
+  return [];
 }
 
 export function getCategorizedToolBySlug(slug: string): CategorizedToolItem | undefined {
@@ -276,31 +228,11 @@ export function listCategorizedCategorySummaries(): readonly CategorizedCategory
   return listGlobalCategories().map((category) => {
     const tools = index.filter((item) => item.categorySlug === category.slug);
     const premiumToolCount = tools.filter((item) => item.tier === "premium").length;
-    const relatedFreeToolCount = tools.filter((item) => item.tier === "free").length;
     return {
       slug: category.slug,
       premiumToolCount,
-      relatedFreeToolCount,
+      relatedFreeToolCount: 0,
       totalToolCount: tools.length,
     };
   });
-}
-
-export function assertAllToolsCategorized(): void {
-  buildCategorizedToolIndex();
-}
-
-export function getUncategorizedToolCount(): number {
-  return buildCategorizedToolIndex().filter((item) =>
-    ["uncategorized", "misc", "other", "genel"].includes(item.categorySlug),
-  ).length;
-}
-
-/** @deprecated Kept for import stability - canonical lists are validated at build time. */
-export function listCanonicalFreeSlugs(): readonly string[] {
-  return CANONICAL_FREE_SLUGS;
-}
-
-export function listCanonicalPremiumSlugs(): readonly string[] {
-  return CANONICAL_PREMIUM_SLUGS;
 }

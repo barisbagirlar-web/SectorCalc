@@ -1,37 +1,23 @@
-// SectorCalc V5.3.1 Canonical Schema Resolver
+// SectorCalc V5.3.1 Canonical Schema Resolver (Pro-only)
 // Server-only. Single entry point for all tool schema resolution.
 // Resolution order:
-//   1. Generated Free Tool schema registry
-//   2. Industrial Free Tool schema builder
-//   3. Safe null for unknown tool
-//
-// Cache: server-side module-scope LRU-like map keyed by toolKey:version:hash.
-//   - Only validated schemas are cached.
-//   - Invalid schemas are never stored.
-//   - Unknown tools do not poison the cache.
-//   - Hash/version changes produce a new key (natural invalidation).
-//   - Every cache return verifies schema.tool_key === requestedToolKey.
-//   - Cached schemas are frozen to prevent mutation across requests.
+//   1. Pro V5.3.1 schema (highest priority)
+//   2. Safe null for unknown tool
 
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
-import { getGeneratedToolSchema, listGeneratedToolSchemaSlugs } from "@/lib/features/generated-tools/schema-loader";
-import { buildIndustrialFreeToolSchema, isIndustrialFreeToolSlug } from "@/lib/features/tools/industrial-free-schema-factory";
-import { industrialFormulaTools } from "@/lib/features/tools/revenue-tools-industrial-formulas";
-import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter";
 import { getProToolSchema, listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
-import { getFreeToolSchema, listFreeToolSchemaSlugs } from "@/sectorcalc/runtime/free-schema-loader";
 import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 
 export type ApprovedSchemaResult =
-  | { ok: true; schema: SuperV4Schema; source: ResolvedSource }
+  | { ok: true; schema: SuperV4Schema; source: "pro_v531" }
   | { ok: false; reason: "SCHEMA_NOT_FOUND" | "VALIDATION_FAILED" | "SCHEMA_IDENTITY_MISMATCH" | "CAUGHT_EXCEPTION"; errors: string[] };
 
 // ── Server-side schema cache ─────────────────────────────────────────────
 // Module-scoped, never imported by client components.
 // Key format: `${toolKey}:${schemaVersion}:${schemaHash}`
 
-type ResolvedSource = "generated_free" | "industrial_free" | "pro_v531" | "free_v531";
+type ResolvedSource = "pro_v531";
 
 interface CacheEntry {
   schema: SuperV4Schema;
@@ -81,10 +67,8 @@ function cacheKey(toolKey: string, schema: SuperV4Schema): string {
 /**
  * Resolve and validate a tool schema to the approved V5.3.1 SuperV4Schema format.
  *
- * Resolution order:
- *   1. Generated Free Tool schema (generated/schemas/*.json)
- *   2. Industrial Free Tool schema builder (runtime-built from revenue-tools-industrial-formulas)
- *   3. Safe null for unknown tool
+ * Pro-only: only Pro V5.3.1 schemas are resolved. Free tool schemas
+ * have been permanently removed from the active source tree.
  *
  * Every returned schema is validated against the strict V5.3.1 contract.
  * Validated schemas are cached server-side. Cache key includes schema version + hash,
@@ -155,7 +139,7 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     }
   }
 
-  // 2. PRO V5.3.1 schema (native V5.3.1 — highest priority)
+  // 1. PRO V5.3.1 schema (native V5.3.1 — highest priority)
   const proSchema = getProToolSchema(normalizedKey);
   if (proSchema) {
     return buildAndCache(
@@ -164,36 +148,7 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     );
   }
 
-  // 3. Free V5.3.1 schema (native V5.3.1 — second priority)
-  const freeV531Schema = getFreeToolSchema(normalizedKey);
-  if (freeV531Schema) {
-    return buildAndCache(
-      () => freeV531Schema,
-      "free_v531",
-    );
-  }
-
-  // 4. Generated Free Tool schema (legacy — converted via adapter)
-  const genSchema = getGeneratedToolSchema(normalizedKey);
-  if (genSchema) {
-    return buildAndCache(
-      () => generatedToolSchemaToSuperV4Schema(genSchema, normalizedKey),
-      "generated_free",
-    );
-  }
-
-  // 5. Industrial Free Tool schema builder
-  if (isIndustrialFreeToolSlug(normalizedKey)) {
-    const indSchema = buildIndustrialFreeToolSchema(normalizedKey);
-    if (indSchema) {
-      return buildAndCache(
-        () => generatedToolSchemaToSuperV4Schema(indSchema, normalizedKey),
-        "industrial_free",
-      );
-    }
-  }
-
-  // 6. Unknown tool — do not cache
+  // 2. Unknown tool — do not cache
   return {
     ok: false,
     reason: "SCHEMA_NOT_FOUND",
@@ -223,12 +178,5 @@ export function clearSchemaCache(): void {
  * List all known tool keys that can be resolved.
  */
 export function listAllResolvableToolKeys(): string[] {
-  const genSlugs = listGeneratedToolSchemaSlugs();
-  const indSlugs = industrialFormulaTools
-    .map((t) => t.freeSlug)
-    .filter((s): s is string => Boolean(s));
-  const proSlugs = listProToolSchemaSlugs();
-  const freeSlugs = listFreeToolSchemaSlugs();
-
-  return [...new Set([...genSlugs, ...indSlugs, ...proSlugs, ...freeSlugs])];
+  return listProToolSchemaSlugs();
 }
