@@ -58,7 +58,8 @@
     "smoke:header-navigation": "node scripts/smoke-header-navigation.mjs",
     "guard:sitemap-root": "node scripts/guard-sitemap-root-contract.mjs",
     "smoke:sitemap-root": "node scripts/smoke-sitemap-root.mjs",
-    "guard:working-tree-clean": "node scripts/guard-working-tree-clean.mjs"
+    "guard:working-tree-clean": "node scripts/guard-working-tree-clean.mjs",
+    "resolve:pro-schema-loader-dirty": "node scripts/resolve-pro-schema-loader-dirty-file.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
