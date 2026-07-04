@@ -27,7 +27,7 @@ interface ApiTool {
 }
 
 export function NewLandingContent({
-  freeCount = 358,
+  freeCount = 0,
   sectors = [],
   tools = [],
 }: {
@@ -165,7 +165,7 @@ export function NewLandingContent({
             <p className="eyebrow">Trusted by engineers in 40+ countries</p>
             <h1>Engineering Calculators for Mechanical, Civil &amp; Electrical Teams</h1>
             <p className="subhead">
-              {freeCount}+ standards-based calculators. ISO, ASME, VDI, DIN, IEC, EN references.
+              {freeCount} standards-based calculators. ISO, ASME, VDI, DIN, IEC, EN references.
               Free to use, auditable, exportable.
             </p>
 

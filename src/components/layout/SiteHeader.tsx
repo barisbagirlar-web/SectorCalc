@@ -203,7 +203,7 @@ export function SiteHeader({
                     <Link href="/free-tools" className="sc-mega-panel">
                       <div className="pt"><span className="pico">🧮</span><span className="ph">{t.col_free}</span></div>
                       <div className="pd">{t.products_free_desc}</div>
-                      <div className="pcount">{freeToolsCount}+ {t.tools}</div>
+                      <div className="pcount">{freeToolsCount} {t.tools}</div>
                     </Link>
                     <Link href="/pro-tools" className="sc-mega-panel">
                       <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>

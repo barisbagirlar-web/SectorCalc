@@ -27,7 +27,7 @@ interface ApiTool {
 }
 
 export function LandingPageContent({
-  freeCount = 358,
+  freeCount = 0,
   sectors = [],
   tools = [],
 }: {
@@ -165,7 +165,7 @@ export function LandingPageContent({
             <p className="eyebrow">Trusted by industrial engineering teams</p>
             <h1>Engineering-Grade Calculation &amp; Decision Platform</h1>
             <p className="subhead">
-              {freeCount}+ standards-backed models for manufacturing, engineering, and operations. Built on ISO, ASME, VDI, and DIN references. Calculate, verify, and document your technical decisions.
+              {freeCount} standards-backed models for manufacturing, engineering, and operations. Built on ISO, ASME, VDI, and DIN references. Calculate, verify, and document your technical decisions.
             </p>
 
             <div className="search-wrapper" id="searchWrapper" ref={wrapperRef}>
@@ -173,7 +173,7 @@ export function LandingPageContent({
                 ref={inputRef}
                 type="text"
                 id="searchInput"
-                placeholder={`Search ${freeCount}+ engineering calculators...`}
+                placeholder={`Search ${freeCount} engineering calculators...`}
                 autoComplete="off"
                 aria-label="Search calculators"
                 value={query}
