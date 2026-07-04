@@ -28,6 +28,8 @@
     "guard:header-clickability": "node scripts/sectorcalc-header-controls-clickability-guard.mjs",
     "guard:turkish": "node scripts/zero-tolerance-turkish-guard.mjs",
     "guard:zero-turkish": "node scripts/guard-zero-turkish-build.mjs",
+    "guard:generated-schema-bindings": "node scripts/guard-generated-schema-bindings.mjs",
+    "guard:final-release": "node scripts/guard-final-release-acceptance.mjs",
     "guard:i18n-keys": "node scripts/guard-i18n-keys.mjs",
     "guard:payment-integrity": "node scripts/guard-payment-integrity.mjs",
     "smoke:payment-paddle": "node scripts/smoke-payment-paddle.mjs",

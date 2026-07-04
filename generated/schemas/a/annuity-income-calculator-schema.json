@@ -2,11 +2,11 @@
   "toolName": "annuity-income-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Finans",
+  "sector": "Finance",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "anapara",
+      "id": "principalAmount",
       "label": "Principal (USD)",
       "type": "number",
       "unit": "USD",
@@ -41,7 +41,7 @@
   },
   "formulas": {
     "monthlyRatio": "interest / 12 / 100",
-    "result": "anapara * ((interest/12/100) / Math.max(0.0001, (1 - Math.pow(1 + interest/12/100, -period))))"
+    "result": "principalAmount * ((interest/12/100) / Math.max(0.0001, (1 - Math.pow(1 + interest/12/100, -period))))"
   },
   "outputs": {
     "primary": "result",

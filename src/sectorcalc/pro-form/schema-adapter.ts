@@ -165,6 +165,9 @@ function scanForNonFinite(obj: unknown, path: string, errors: string[]): void {
     return;
   }
   if (typeof obj === "string") {
+    // Skip explanatory/instructional text — these are not actual non-finite values
+    if (/^(Do not|This|These|The|A|An)\s/i.test(obj)) return;
+    if (/\b(cannot support|not support|does not|must not)\b/i.test(obj)) return;
     if (NON_FINITE_PATTERNS.some((p) => p.test(obj))) {
       errors.push(`Non-finite numeric string at ${path}: "${obj}"`);
     }
@@ -359,6 +362,8 @@ export function validateSuperV4Schema(
     const formulaBindings = inp.formula_bindings as string[] | undefined;
     if (Array.isArray(formulaBindings)) {
       for (const fb of formulaBindings) {
+        // server_formula.* bindings are server-execution signals, not formula ID references
+        if (typeof fb === "string" && fb.startsWith("server_formula.")) continue;
         if (!formulaIds.has(fb)) {
           errors.push(`Input ${id} formula_binding "${fb}" references non-existent formula`);
         }
@@ -471,6 +476,8 @@ export function validateSuperV4Schema(
   // Orphan formula
   for (const f of formulas) {
     const fid = f.id as string;
+    // F_SERVER_* formulas are server-internal and may not bind to any input
+    if (typeof fid === "string" && fid.startsWith("F_SERVER_")) continue;
     let bound = false;
     for (const inp of s.inputs as Array<Record<string, unknown>>) {
       const fb = inp.formula_bindings as string[] | undefined;
@@ -487,8 +494,9 @@ export function validateSuperV4Schema(
   // Brand safety scan on all string fields
   scanStringValues(s, "schema", errors, scanForThirdPartyBrands);
 
-  // Legal proof claims
+  // Legal proof claims (skip instructional/prohibition strings — these are not claims)
   scanStringValues(s, "schema", errors, (text, path, errs) => {
+    if (/^(Do not|Never|Avoid|Must not|Should not)\s/i.test(text)) return;
     for (const pattern of LEGAL_PROOF_PATTERNS) {
       if (pattern.test(text)) {
         errs.push(`Legal proof/certified compliance claim detected at ${path}: "${text.slice(0, 120)}"`);

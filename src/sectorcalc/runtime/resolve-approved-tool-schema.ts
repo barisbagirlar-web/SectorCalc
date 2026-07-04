@@ -155,27 +155,7 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     }
   }
 
-  // 2. Generated Free Tool schema
-  const genSchema = getGeneratedToolSchema(normalizedKey);
-  if (genSchema) {
-    return buildAndCache(
-      () => generatedToolSchemaToSuperV4Schema(genSchema, normalizedKey),
-      "generated_free",
-    );
-  }
-
-  // 3. Industrial Free Tool schema builder
-  if (isIndustrialFreeToolSlug(normalizedKey)) {
-    const indSchema = buildIndustrialFreeToolSchema(normalizedKey);
-    if (indSchema) {
-      return buildAndCache(
-        () => generatedToolSchemaToSuperV4Schema(indSchema, normalizedKey),
-        "industrial_free",
-      );
-    }
-  }
-
-  // 4. PRO V5.3.1 schema
+  // 2. PRO V5.3.1 schema (native V5.3.1 — highest priority)
   const proSchema = getProToolSchema(normalizedKey);
   if (proSchema) {
     return buildAndCache(
@@ -184,13 +164,33 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     );
   }
 
-  // 5. Free V5.3.1 schema
+  // 3. Free V5.3.1 schema (native V5.3.1 — second priority)
   const freeV531Schema = getFreeToolSchema(normalizedKey);
   if (freeV531Schema) {
     return buildAndCache(
       () => freeV531Schema,
       "free_v531",
     );
+  }
+
+  // 4. Generated Free Tool schema (legacy — converted via adapter)
+  const genSchema = getGeneratedToolSchema(normalizedKey);
+  if (genSchema) {
+    return buildAndCache(
+      () => generatedToolSchemaToSuperV4Schema(genSchema, normalizedKey),
+      "generated_free",
+    );
+  }
+
+  // 5. Industrial Free Tool schema builder
+  if (isIndustrialFreeToolSlug(normalizedKey)) {
+    const indSchema = buildIndustrialFreeToolSchema(normalizedKey);
+    if (indSchema) {
+      return buildAndCache(
+        () => generatedToolSchemaToSuperV4Schema(indSchema, normalizedKey),
+        "industrial_free",
+      );
+    }
   }
 
   // 6. Unknown tool — do not cache

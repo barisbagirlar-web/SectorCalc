@@ -133,6 +133,42 @@ function run() {
     }
   }
 
+  // Check 6: Idempotency checks
+  function read(filePath) {
+    const fp = join(ROOT, filePath);
+    if (!existsSync(fp)) {
+      violations.push(`MISSING_FILE: ${filePath} not found`);
+      return "";
+    }
+    return readFileSync(fp, "utf-8");
+  }
+
+  const sessionFile = "src/lib/credits/tool-usage-session.server.ts";
+  const executeFile = "src/app/api/tool-execute/route.ts";
+
+  const sessionText = read(sessionFile);
+  const executeText = read(executeFile);
+
+  if (!sessionText.includes("tool_execution_idempotency")) {
+    violations.push(`${sessionFile} must use tool_execution_idempotency collection for idempotent deduplication.`);
+  }
+
+  if (!sessionText.includes("createExecutionIdempotencyKey")) {
+    violations.push(`${sessionFile} must use createExecutionIdempotencyKey() for idempotency key generation.`);
+  }
+
+  if (!sessionText.includes("runTransaction")) {
+    violations.push(`${sessionFile} must decrement remainingRuns inside Firestore transaction.`);
+  }
+
+  if (!sessionText.includes("SESSION_EXHAUSTED")) {
+    violations.push(`${sessionFile} must block exhausted sessions.`);
+  }
+
+  if (!executeText.includes("clientRequestId")) {
+    violations.push(`${executeFile} must accept clientRequestId for execution idempotency.`);
+  }
+
   if (violations.length > 0) {
     console.error("TOOL ACCESS POLICY GUARD FAILED");
     console.error("Violations:");

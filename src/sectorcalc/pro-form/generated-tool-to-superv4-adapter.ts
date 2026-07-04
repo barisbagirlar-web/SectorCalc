@@ -15,42 +15,14 @@
 
 import type { GeneratedToolSchema, GeneratedToolInput } from "@/lib/features/generated-tools/types";
 import type { SuperV4Schema, SuperV4Input, NormalizedInputSpec, ProfileMode, UIInputGroup, ConversionRegistry } from "./contract-types";
-
-/* ─────────────────────────────────────────────── */
-/*  Turkish Rejection & Validation                 */
-/* ─────────────────────────────────────────────── */
-import { hasTurkishToken } from "@/sectorcalc/governance/forbidden-locale-token-detector";
 import { getDisplayToolName, getDisplayCategoryLabel } from "./display-labels";
 
-export function assertNoTurkishString(text: string, path: string): void {
-  if (!text) return;
-  const found = hasTurkishToken(text);
-  if (found) {
-    // V5.3.1: Turkish content detected — this will be caught by schema validation gate.
-    // Do not throw in RSC render path. The validation layer will reject the schema.
-    if (typeof process !== "undefined" && process.env.NODE_ENV !== "production") {
-      console.warn(`[V531] Turkish content at ${path}: "${text.slice(0, 80)}" (found: "${found}")`);
-    }
-  }
-}
-
-function translateToEnglish(text: string): string {
-  // V5.3.1: Turkish detection is advisory in the adapter (no throw).
-  // The strict gate is in validateSuperV4Schema → assertPureEnglishV531Schema.
-  return text;
-}
-
-function isTurkishWord(text: string): boolean {
-  if (!text) return false;
-  return hasTurkishToken(text) !== null;
-}
+/* ─────────────────────────────────────────────── */
+/*  Safe string utilities (no Turkish handling)    */
+/* ─────────────────────────────────────────────── */
 
 function sanitizeString(text: string | undefined | null, fallback: string): string {
   if (!text) return fallback;
-  // If the text contains Turkish tokens, return the fallback silently
-  if (hasTurkishToken(text)) {
-    return fallback;
-  }
   return text;
 }
 

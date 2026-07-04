@@ -29,6 +29,8 @@ interface ToolExecuteRequest {
   usageSessionId?: string | null;
   clientSchemaHash?: string;
   displayCurrency?: string | null;
+  /** Client-generated UUID for execution idempotency. Prevents double-decrement on retry/double-click. */
+  clientRequestId?: string | null;
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
@@ -73,18 +75,23 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         return NextResponse.json({ error: validation.reason }, { status: 403 });
       }
 
-      // ── Decrement remainingRuns atomically ────────────────────
-      const decrementResult = await decrementProSessionRuns(
+      // ── Decrement remainingRuns atomically (idempotent) ────────
+      const clientRequestId =
+        typeof body.clientRequestId === "string" && body.clientRequestId.trim()
+          ? body.clientRequestId.trim()
+          : null;
+
+      const decrementResult = await decrementProSessionRuns({
         userId,
-        body.usageSessionId!,
-        body.toolKey,
-      );
-      if (!decrementResult.ok) {
-        return NextResponse.json({ error: decrementResult.reason }, { status: 429 });
-      }
+        toolKey: body.toolKey,
+        usageSessionId: body.usageSessionId!,
+        clientRequestId,
+        rawInputs: body.rawInputs,
+        selectedUnits: body.selectedUnits,
+      });
 
       remainingRuns = decrementResult.remainingRuns;
-      sessionExhausted = decrementResult.exhausted;
+      sessionExhausted = decrementResult.status === "EXHAUSTED";
     }
 
     // ── Resolve and validate schema ─────────────────────────────

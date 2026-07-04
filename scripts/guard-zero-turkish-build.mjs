@@ -42,6 +42,7 @@ const excludedFileNames = new Set([
   "pnpm-lock.yaml",
   "yarn.lock",
   "forbidden-token-hashes.json", // Exclude the policy file itself from hash checks
+  "forbidden-locale-token-detector.ts", // Exclude detector source (contains Turkish word list by design)
 ]);
 
 const textExtensions = new Set([
@@ -79,6 +80,7 @@ const excludedPaths = [
   "src/lib/features/reports/resolve-print-values.ts",
   "src/lib/features/reports/tool-methodology.ts",
   "src/lib/features/tools/category-taxonomy.ts",
+  "src/sectorcalc/governance/forbidden-locale-token-detector.ts",
   "src/lib/features/calculators/__tests__/",
   "src/lib/features/case-studies/__tests__/",
   "src/lib/features/tools/__tests__/",

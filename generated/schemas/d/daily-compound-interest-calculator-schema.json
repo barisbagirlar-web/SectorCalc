@@ -2,11 +2,11 @@
   "toolName": "daily-compound-interest-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Finans",
+  "sector": "Finance",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "anapara",
+      "id": "principalAmount",
       "label": "Principal (USD)",
       "type": "number",
       "unit": "USD",
@@ -40,7 +40,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "anapara * Math.pow(1 + interest / 36500, day)"
+    "result": "principalAmount * Math.pow(1 + interest / 36500, day)"
   },
   "outputs": {
     "primary": "result",

@@ -2,11 +2,11 @@
   "toolName": "continuous-compounding-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Finans",
+  "sector": "Finance",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "anapara",
+      "id": "principalAmount",
       "label": "Principal (USD)",
       "type": "number",
       "unit": "USD",
@@ -40,7 +40,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "anapara * Math.exp((interest / 100) * year)"
+    "result": "principalAmount * Math.exp((interest / 100) * year)"
   },
   "outputs": {
     "primary": "result",

@@ -16,6 +16,8 @@
 // - Free tools never create or consume sessions
 
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+import { FieldValue } from "firebase-admin/firestore";
+import { createExecutionIdempotencyKey } from "./tool-execution-idempotency.server";
 
 const PRO_SESSION_COST = 1;
 const PRO_SESSION_MAX_RUNS = 10;
@@ -281,74 +283,150 @@ export async function validateProExecution(
   return { ok: true, session };
 }
 
+export type DecrementProSessionRunsInput = {
+  userId: string;
+  toolKey: string;
+  usageSessionId: string;
+  clientRequestId?: string | null;
+  rawInputs: unknown;
+  selectedUnits: unknown;
+};
+
+export type DecrementProSessionRunsResult = {
+  remainingRuns: number;
+  usedRuns: number;
+  status: "ACTIVE" | "EXHAUSTED";
+  deduplicated: boolean;
+};
+
 /**
- * Decrement remainingRuns for a Pro session (atomic).
- * Returns the updated session or error.
+ * Decrement remainingRuns for a Pro session (atomic + idempotent).
+ * Uses tool_execution_idempotency collection to prevent double-decrement
+ * on duplicate requests (e.g. double-click, retry).
  */
 export async function decrementProSessionRuns(
-  userId: string,
-  usageSessionId: string,
-  toolKey: string,
-): Promise<
-  { ok: true; remainingRuns: number; exhausted: boolean } | { ok: false; reason: string }
-> {
+  input: DecrementProSessionRunsInput,
+): Promise<DecrementProSessionRunsResult> {
   const db = getAdminFirestore();
   if (!db) {
-    return { ok: false, reason: "DATABASE_UNAVAILABLE" };
+    throw new Error("DATABASE_UNAVAILABLE");
   }
 
-  try {
-    const sessionRef = db
-      .collection("users")
-      .doc(userId)
-      .collection("tool_usage_sessions")
-      .doc(usageSessionId);
+  const idempotencyKey = createExecutionIdempotencyKey({
+    userId: input.userId,
+    toolKey: input.toolKey,
+    usageSessionId: input.usageSessionId,
+    clientRequestId: input.clientRequestId,
+    rawInputs: input.rawInputs,
+    selectedUnits: input.selectedUnits,
+  });
 
-    let remainingRuns = 0;
-    let exhausted = false;
+  const sessionRef = db
+    .collection("users")
+    .doc(input.userId)
+    .collection("tool_usage_sessions")
+    .doc(input.usageSessionId);
 
-    await db.runTransaction(async (transaction) => {
-      const snap = await transaction.get(sessionRef);
+  const idempotencyRef = db
+    .collection("users")
+    .doc(input.userId)
+    .collection("tool_execution_idempotency")
+    .doc(idempotencyKey);
 
-      if (!snap.exists) {
-        throw new Error("SESSION_NOT_FOUND");
-      }
+  return db.runTransaction(async (tx) => {
+    // ── Check idempotency ────────────────────────────────────────
+    const existingIdempotency = await tx.get(idempotencyRef);
 
-      const data = snap.data()!;
-      const currentRemaining = typeof data.remainingRuns === "number" ? data.remainingRuns : 0;
+    if (existingIdempotency.exists) {
+      const existing = existingIdempotency.data() ?? {};
+      return {
+        remainingRuns: Number(existing.remainingRunsAfter ?? 0),
+        usedRuns: Number(existing.usedRunsAfter ?? 0),
+        status: existing.statusAfter === "EXHAUSTED" ? "EXHAUSTED" : "ACTIVE",
+        deduplicated: true,
+      };
+    }
 
-      if (currentRemaining <= 0) {
-        throw new Error("SESSION_EXHAUSTED");
-      }
+    // ── Validate session ─────────────────────────────────────────
+    const sessionSnap = await tx.get(sessionRef);
 
-      if (data.toolKey !== toolKey) {
-        throw new Error("SESSION_TOOL_MISMATCH");
-      }
+    if (!sessionSnap.exists) {
+      throw new Error("SESSION_NOT_FOUND");
+    }
 
-      if (data.userId !== userId) {
-        throw new Error("SESSION_USER_MISMATCH");
-      }
+    const session = sessionSnap.data() ?? {};
 
-      const newRemaining = currentRemaining - 1;
-      const newUsed = (typeof data.usedRuns === "number" ? data.usedRuns : 0) + 1;
-      exhausted = newRemaining <= 0;
+    if (session.userId !== input.userId) {
+      throw new Error("SESSION_USER_MISMATCH");
+    }
 
-      transaction.update(sessionRef, {
-        remainingRuns: newRemaining,
-        usedRuns: newUsed,
-        ...(exhausted
-          ? { status: "EXHAUSTED", exhaustedAt: new Date().toISOString() }
-          : {}),
-      });
+    if (session.toolKey !== input.toolKey) {
+      throw new Error("SESSION_TOOL_MISMATCH");
+    }
 
-      remainingRuns = newRemaining;
+    if (session.status !== "ACTIVE") {
+      throw new Error("SESSION_NOT_ACTIVE");
+    }
+
+    const currentRemaining = Number(session.remainingRuns ?? 0);
+    const currentUsed = Number(session.usedRuns ?? 0);
+
+    if (!Number.isFinite(currentRemaining) || currentRemaining <= 0) {
+      throw new Error("SESSION_EXHAUSTED");
+    }
+
+    // ── Decrement ────────────────────────────────────────────────
+    const nextRemaining = currentRemaining - 1;
+    const nextUsed = currentUsed + 1;
+    const nextStatus = nextRemaining === 0 ? "EXHAUSTED" : "ACTIVE";
+
+    tx.update(sessionRef, {
+      remainingRuns: nextRemaining,
+      usedRuns: nextUsed,
+      status: nextStatus,
+      exhaustedAt: nextStatus === "EXHAUSTED" ? FieldValue.serverTimestamp() : null,
+      updatedAt: FieldValue.serverTimestamp(),
     });
 
-    return { ok: true, remainingRuns, exhausted };
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
-    return { ok: false, reason: msg };
-  }
+    // ── Write idempotency record ─────────────────────────────────
+    tx.set(idempotencyRef, {
+      idempotencyKey,
+      userId: input.userId,
+      toolKey: input.toolKey,
+      usageSessionId: input.usageSessionId,
+      remainingRunsBefore: currentRemaining,
+      remainingRunsAfter: nextRemaining,
+      usedRunsBefore: currentUsed,
+      usedRunsAfter: nextUsed,
+      statusAfter: nextStatus,
+      createdAt: FieldValue.serverTimestamp(),
+    });
+
+    // ── Write execution log ──────────────────────────────────────
+    const executionLogRef = db
+      .collection("users")
+      .doc(input.userId)
+      .collection("tool_execution_logs")
+      .doc();
+
+    tx.set(executionLogRef, {
+      userId: input.userId,
+      toolKey: input.toolKey,
+      usageSessionId: input.usageSessionId,
+      idempotencyKey,
+      provider: "sectorcalc_internal_credit_session",
+      remainingRunsAfter: nextRemaining,
+      usedRunsAfter: nextUsed,
+      createdAt: FieldValue.serverTimestamp(),
+    });
+
+    return {
+      remainingRuns: nextRemaining,
+      usedRuns: nextUsed,
+      status: nextStatus,
+      deduplicated: false,
+    };
+  });
 }
 
 // ── Credit Balance ────────────────────────────────────────────────
