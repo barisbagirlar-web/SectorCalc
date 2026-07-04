@@ -1,6 +1,6 @@
 /**
  * Sitemap source of truth - all public indexable routes derived from catalogs.
- * Free tool routes have been permanently removed (purge).
+ * Free V5.3.1 SuperV4 tool routes included. Old legacy free tools remain purged.
  */
 
 import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
@@ -10,6 +10,7 @@ import { listProgrammaticSeoSlugs } from "@/lib/infrastructure/seo/programmatic-
 import { listPremiumToolSeoLandingSlugs } from "@/lib/infrastructure/seo/premium-tool-seo-landings";
 import { listCaseStudySlugs } from "@/lib/features/case-studies/case-study-registry";
 import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
+import { listFreeToolSchemaSlugs } from "@/sectorcalc/runtime/free-schema-loader";
 import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonomy";
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
@@ -143,6 +144,16 @@ export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[
   );
 }
 
+export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
+  const hubItems: SitemapManifestItem[] = [
+    createItem("/free-tools", "hub", 0.85, "weekly"),
+  ];
+  const toolItems = listFreeToolSchemaSlugs().map((slug) =>
+    createItem("/tools/free/" + slug, "free_tool", 0.7, "monthly"),
+  );
+  return [...hubItems, ...toolItems];
+}
+
 export function getCaseStudySitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/case-studies", "hub", 0.74, "monthly"),
@@ -190,6 +201,7 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
     ...getCaseStudySitemapRoutes(),
     ...getAuthorityGuideSitemapRoutes(),
     ...getPremiumAnalyzerSitemapRoutes(),
+    ...getFreeToolSitemapRoutes(),
     ...getAiIndexSitemapRoutes(),
   ]);
 }
