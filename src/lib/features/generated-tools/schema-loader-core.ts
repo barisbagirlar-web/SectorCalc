@@ -11,16 +11,28 @@ function resolveSchemasDir(): string {
 
 const SCHEMAS_DIR = resolveSchemasDir();
 
+function resolveGeneratedSchemasDir(): string {
+  return path.join(process.cwd(), "generated", "schemas");
+}
+
 function schemaPathForSlug(slug: string): string {
-  if (!fs.existsSync(SCHEMAS_DIR)) {
-    return "";
+  // First check v531 directory
+  if (fs.existsSync(SCHEMAS_DIR)) {
+    const files = fs.readdirSync(SCHEMAS_DIR);
+    const match = files.find((f) => f.includes(slug) && f.endsWith(".json"));
+    if (match) {
+      return path.join(SCHEMAS_DIR, match);
+    }
   }
-  const files = fs.readdirSync(SCHEMAS_DIR);
-  // Search for the schema file matching the slug
-  const match = files.find((f) => f.includes(slug) && f.endsWith(".json"));
-  if (match) {
-    return path.join(SCHEMAS_DIR, match);
+
+  // Fallback: check generated/schemas/{firstChar}/{slug}-schema.json
+  const firstChar = slug.charAt(0).toLowerCase();
+  const subDir = /[a-z0-9]/.test(firstChar) ? firstChar : "other";
+  const generatedPath = path.join(resolveGeneratedSchemasDir(), subDir, `${slug}-schema.json`);
+  if (fs.existsSync(generatedPath)) {
+    return generatedPath;
   }
+
   return "";
 }
 
@@ -45,13 +57,35 @@ function normalizeGeneratedToolSchema(schema: GeneratedToolSchema): GeneratedToo
 }
 
 export function listGeneratedToolSchemaSlugs(): string[] {
-  if (!fs.existsSync(SCHEMAS_DIR)) {
-    return [];
+  const slugs = new Set<string>();
+
+  // Collect slugs from v531 directory
+  if (fs.existsSync(SCHEMAS_DIR)) {
+    for (const name of fs.readdirSync(SCHEMAS_DIR)) {
+      if (!name.endsWith(".json")) continue;
+      const slug = path.basename(name)
+        .replace(/^\d+_sc_\d+_(?:premium_)?/, "")
+        .replace(/\.schema\.json$/, "")
+        .replace(/\.json$/, "");
+      if (slug) slugs.add(slug);
+    }
   }
-  return fs.readdirSync(SCHEMAS_DIR)
-    .filter((name) => name.endsWith(".json"))
-    .map((name) => path.basename(name).replace(/^\d+_sc_\d+_(?:premium_)?/, "").replace(/\.schema\.json$/, "").replace(/\.json$/, ""))
-    .sort((left, right) => left.localeCompare(right));
+
+  // Also collect from generated/schemas/ subdirectories for legacy free tools
+  const genDir = resolveGeneratedSchemasDir();
+  if (fs.existsSync(genDir)) {
+    for (const subDir of fs.readdirSync(genDir)) {
+      const subPath = path.join(genDir, subDir);
+      if (!fs.statSync(subPath).isDirectory()) continue;
+      for (const name of fs.readdirSync(subPath)) {
+        if (!name.endsWith("-schema.json")) continue;
+        const slug = name.replace(/\.schema\.json$/, "");
+        if (slug) slugs.add(slug);
+      }
+    }
+  }
+
+  return [...slugs].sort((left, right) => left.localeCompare(right));
 }
 
 export function getGeneratedToolSchema(slug: string): GeneratedToolSchema | null {

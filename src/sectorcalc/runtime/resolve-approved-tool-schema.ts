@@ -19,19 +19,22 @@ import { getGeneratedToolSchema, listGeneratedToolSchemaSlugs } from "@/lib/feat
 import { buildIndustrialFreeToolSchema, isIndustrialFreeToolSlug } from "@/lib/features/tools/industrial-free-schema-factory";
 import { industrialFormulaTools } from "@/lib/features/tools/revenue-tools-industrial-formulas";
 import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter";
+import { getProToolSchema, listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
 import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 
 export type ApprovedSchemaResult =
-  | { ok: true; schema: SuperV4Schema; source: "generated_free" | "industrial_free" }
+  | { ok: true; schema: SuperV4Schema; source: ResolvedSource }
   | { ok: false; reason: "SCHEMA_NOT_FOUND" | "VALIDATION_FAILED" | "SCHEMA_IDENTITY_MISMATCH"; errors: string[] };
 
 // ── Server-side schema cache ─────────────────────────────────────────────
 // Module-scoped, never imported by client components.
 // Key format: `${toolKey}:${schemaVersion}:${schemaHash}`
 
+type ResolvedSource = "generated_free" | "industrial_free" | "pro_v531";
+
 interface CacheEntry {
   schema: SuperV4Schema;
-  source: "generated_free" | "industrial_free";
+  source: ResolvedSource;
 }
 
 const schemaCache = new Map<string, CacheEntry>();
@@ -103,7 +106,7 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   // Helper: build and validate a SuperV4 schema, cache if valid
   function buildAndCache(
     buildFn: () => SuperV4Schema,
-    source: "generated_free" | "industrial_free",
+    source: ResolvedSource,
   ): ApprovedSchemaResult {
     const superV4 = buildFn();
     const validation = validateSuperV4Schema(superV4);
@@ -161,7 +164,16 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     }
   }
 
-  // 4. Unknown tool — do not cache
+  // 4. PRO V5.3.1 schema
+  const proSchema = getProToolSchema(normalizedKey);
+  if (proSchema) {
+    return buildAndCache(
+      () => proSchema,
+      "pro_v531",
+    );
+  }
+
+  // 5. Unknown tool — do not cache
   return {
     ok: false,
     reason: "SCHEMA_NOT_FOUND",
@@ -195,6 +207,7 @@ export function listAllResolvableToolKeys(): string[] {
   const indSlugs = industrialFormulaTools
     .map((t) => t.freeSlug)
     .filter((s): s is string => Boolean(s));
+  const proSlugs = listProToolSchemaSlugs();
 
-  return [...new Set([...genSlugs, ...indSlugs])];
+  return [...new Set([...genSlugs, ...indSlugs, ...proSlugs])];
 }
