@@ -1,10 +1,23 @@
 // SectorCalc V5.3.1 — PRO Tools Catalog Page
 // Root-only route. Lists all 135 PRO calculators.
+// Same design as /free-tools using CatalogPageShell.
 // No locale prefix. Pure technical English.
 
 import type { Metadata } from "next";
-import Link from "next/link";
-import { getAllProToolSchemas, getProSchemaCount } from "@/sectorcalc/runtime/pro-schema-loader";
+import { PageLayout } from "@/components/layout/PageLayout";
+import { CatalogPageShell } from "@/components/catalog/CatalogPageShell";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
+import { getAllProToolSchemas } from "@/sectorcalc/runtime/pro-schema-loader";
+import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
+import {
+  buildTaxonomySectorCards,
+  withTaxonomyCountLabels,
+} from "@/lib/features/tools/build-taxonomy-sector-cards";
+import { SLUG_TOKEN_SECTOR_HINTS, SECTORS } from "@/lib/features/tools/taxonomy";
+import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
+import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/features/tools/filter-catalog-hub-tools";
 
 export const dynamic = "force-dynamic";
 
@@ -15,246 +28,211 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-interface CategoryGroup {
-  category: string;
-  tools: Array<{
-    toolKey: string;
-    toolName: string;
-    toolId: string;
-    riskLevel: string;
-    primaryOperation: string;
-    proofPack: boolean;
-  }>;
-}
+// ─── Sector mapping from PRO tool_key tokens ───────────────────────────────
 
-function groupByCategory(): CategoryGroup[] {
-  const tools = getAllProToolSchemas();
-  const groupMap = new Map<string, CategoryGroup>();
+const KNOWN_SECTOR_EXACT: Record<string, string> = {
+  // Manual overrides for PRO tool_key → sector ID
+  eurocode: "yapisal-muhendislik",
+  steel: "metal",
+  welding: "metal",
+  weld: "metal",
+  cnc: "makine",
+  laser: "makine",
+  crane: "makine",
+  press: "makine",
+  hydraulic: "makine",
+  injection: "plastik",
+  mold: "plastik",
+  painting: "kimya",
+  paint: "kimya",
+  powder: "kimya",
+  coating: "kimya",
+  galvanizing: "metal",
+  fixture: "makine",
+  grinding: "makine",
+  bearing: "makine",
+  conveyor: "makine",
+  extrusion: "plastik",
+  boiler: "enerji",
+  turbine: "enerji",
+  transformer: "enerji",
+  compressor: "enerji",
+  chiller: "enerji",
+  motor: "enerji",
+  generator: "enerji",
+  hvac: "enerji",
+  solar: "yenilenebilir",
+  wind: "yenilenebilir",
+  carbon: "cevre",
+  cbam: "cevre",
+  emission: "cevre",
+  textile: "tekstil",
+  fabric: "tekstil",
+  apparel: "tekstil",
+  concrete: "insaat",
+  formwork: "insaat",
+  scaffolding: "insaat",
+  scaffold: "insaat",
+  masonry: "insaat",
+  roofing: "insaat",
+  waterproofing: "insaat",
+  asphalt: "insaat",
+  pile: "insaat",
+  rebar: "insaat",
+  food: "gida",
+  bakery: "gida",
+  restaurant: "gida",
+  dairy: "gida",
+  beverage: "gida",
+  poultry: "tarim",
+  crop: "tarim",
+  irrigation: "tarim",
+  seed: "tarim",
+  grain: "tarim",
+  silo: "tarim",
+  shipping: "lojistik",
+  container: "lojistik",
+  logistics: "lojistik",
+  warehouse: "lojistik",
+  pallet: "lojistik",
+  demurrage: "lojistik",
+  automotive: "otomotiv",
+  battery: "otomotiv",
+  data: "bilisim",
+  cooling: "enerji",
+  vessel: "denizcilik",
+  ship: "denizcilik",
+  marine: "denizcilik",
+  rigging: "makine",
+  flange: "makine",
+  bolt: "makine",
+  gasket: "makine",
+  torque: "makine",
+  quality: "istatistik",
+  inspection: "istatistik",
+  calibration: "istatistik",
+  milling: "makine",
+  machining: "makine",
+  edm: "makine",
+  plasma: "makine",
+  cutting: "makine",
+  sheet: "metal",
+  metal: "metal",
+  electrolyzer: "enerji",
+  lyophilization: "gida",
+  autoclave: "kimya",
+  anode: "enerji",
+  cathode: "enerji",
+  ion: "elektronik",
+  semiconductor: "elektronik",
+  circuit: "elektronik",
+  electrical: "enerji",
+  cable: "enerji",
+  pump: "hidrolik-pnomatik",
+  pipe: "hidrolik-pnomatik",
+  valve: "hidrolik-pnomatik",
+  oven: "enerji",
+  thermal: "enerji",
+  ventilation: "enerji",
+  wastewater: "cevre",
+  water: "cevre",
+  environment: "cevre",
+  recycling: "cevre",
+  defect: "kalite",
+  scrap: "kalite",
+  waste: "cevre",
+  tolerance: "makine",
+  measurement: "istatistik",
+  gage: "istatistik",
+  aql: "istatistik",
+};
 
-  for (const { toolKey, schema } of tools) {
-    const cat = schema.category || "General";
-    if (!groupMap.has(cat)) {
-      groupMap.set(cat, { category: cat, tools: [] });
+const TAXONOMY_SECTOR_IDS = new Set(SECTORS.map((s) => s.id));
+
+function resolveProSectorKey(toolKey: string): string {
+  // Strip "sc_NNN_" prefix
+  const stripped = toolKey.replace(/^sc_\d+_/, "").replace(/_calculator$/, "");
+  // Check manual overrides
+  const tokens = stripped.split("_");
+  for (const token of tokens) {
+    if (KNOWN_SECTOR_EXACT[token]) {
+      return KNOWN_SECTOR_EXACT[token];
     }
-    groupMap.get(cat)!.tools.push({
-      toolKey,
-      toolName: schema.tool_name,
-      toolId: schema.tool_id,
-      riskLevel: schema.risk_level,
-      primaryOperation: schema.primary_operation,
-      proofPack: (schema.proof_pack?.enabled ?? false) as boolean,
-    });
+    const hint = SLUG_TOKEN_SECTOR_HINTS[token];
+    if (hint && TAXONOMY_SECTOR_IDS.has(hint)) {
+      return hint;
+    }
   }
-
-  return [...groupMap.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([_, group]) => ({
-      ...group,
-      tools: group.tools.sort((a, b) => a.toolName.localeCompare(b.toolName)),
-    }));
+  return "diger";
 }
 
-export default function ProToolsPage() {
-  const count = getProSchemaCount();
-  const categories = groupByCategory();
+// ─── Convert PRO schemas to ToolListItem ────────────────────────────────────
+
+function proSchemaToToolListItem(
+  toolKey: string,
+  schema: SuperV4Schema,
+): ToolListItem {
+  const sectorKey = resolveProSectorKey(toolKey);
+  return {
+    slug: toolKey,
+    title: schema.tool_name,
+    href: `/tools/pro/${toolKey}`,
+    isPremium: true,
+    categorySlug: "pro-tools",
+    sectorKey,
+  };
+}
+
+// ─── Page ────────────────────────────────────────────────────────────────────
+
+export default async function ProToolsPage() {
+  const locale = "en";
+  const proEntries = getAllProToolSchemas();
+  const count = proEntries.length;
+
+  const tools: ToolListItem[] = proEntries.map(({ toolKey, schema }) =>
+    proSchemaToToolListItem(toolKey, schema),
+  );
+
+  const taxonomySectorCards = withTaxonomyCountLabels(
+    buildTaxonomySectorCards(tools, locale, {
+      allLabel: "All PRO Tools",
+    }),
+    (toolCount) => `${toolCount} tools`,
+  );
+
+  const jsonLd = [
+    await buildLocalizedBreadcrumbJsonLd(
+      [
+        { key: "home", path: "/" },
+        { name: "PRO Tools", path: "/pro-tools" },
+      ],
+      locale,
+    ),
+    buildItemListJsonLd(
+      tools.slice(0, CATALOG_HUB_JSONLD_MAX_ITEMS).map((tool) => ({
+        name: tool.title,
+        path: tool.href,
+      })),
+      "PRO Industrial Calculators",
+      locale,
+    ),
+  ];
 
   return (
-    <main
-      className="sc-v531-shell"
-      data-pro-tools-count={count}
-      data-pro-category-count={categories.length}
-      style={{
-        maxWidth: "1200px",
-        margin: "0 auto",
-        padding: "2rem 1rem",
-        fontFamily: "Inter, system-ui, sans-serif",
-        background: "#F0EEE6",
-        minHeight: "100vh",
-        color: "#1A1915",
-      }}
-    >
-      <header style={{ marginBottom: "2.5rem" }}>
-        <h1
-          style={{
-            fontFamily: "Georgia, 'Times New Roman', serif",
-            fontSize: "2rem",
-            fontWeight: 700,
-            color: "#1A1915",
-            marginBottom: "0.5rem",
-          }}
-        >
-          PRO Industrial Calculators
-        </h1>
-        <p
-          style={{
-            fontSize: "1.05rem",
-            color: "rgba(26, 25, 21, 0.7)",
-            lineHeight: 1.6,
-          }}
-        >
-          {count} deterministic, auditable calculators across industrial engineering domains.
-          Server-side execution. No exact formula exposure. Decision-support only.
-        </p>
-      </header>
-
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "0.5rem",
-          marginBottom: "2rem",
-        }}
-      >
-        {categories.map((cat) => (
-          <a
-            key={cat.category}
-            href={`#category-${encodeURIComponent(cat.category.replace(/\s+/g, "-"))}`}
-            style={{
-              padding: "0.35rem 0.75rem",
-              fontSize: "0.8rem",
-              background: "rgba(26, 25, 21, 0.06)",
-              borderRadius: "4px",
-              color: "#1A1915",
-              textDecoration: "none",
-              border: "1px solid rgba(26, 25, 21, 0.10)",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {cat.category} ({cat.tools.length})
-          </a>
-        ))}
-      </div>
-
-      <style>{`
-        .pro-tool-card {
-          text-decoration: none;
-          display: block;
-          padding: 1rem;
-          background: #FAF9F5;
-          border: 1px solid rgba(26, 25, 21, 0.10);
-          border-radius: 6px;
-          color: #1A1915;
-          transition: border-color 0.15s;
-        }
-        .pro-tool-card:hover {
-          border-color: #BD5D3A !important;
-        }
-      `}</style>
-
-      {categories.map((cat) => (
-        <section
-          key={cat.category}
-          id={`category-${encodeURIComponent(cat.category.replace(/\s+/g, "-"))}`}
-          style={{ marginBottom: "2.5rem" }}
-        >
-          <h2
-            style={{
-              fontFamily: "Georgia, 'Times New Roman', serif",
-              fontSize: "1.35rem",
-              fontWeight: 600,
-              color: "#1A1915",
-              marginBottom: "0.75rem",
-              paddingBottom: "0.5rem",
-              borderBottom: "1px solid rgba(26, 25, 21, 0.10)",
-            }}
-          >
-            {cat.category}
-          </h2>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-              gap: "0.75rem",
-            }}
-          >
-            {cat.tools.map((tool) => (
-              <a
-                key={tool.toolKey}
-                href={`/tools/pro/${tool.toolKey}`}
-                className="pro-tool-card"
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
-                    marginBottom: "0.4rem",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "0.7rem",
-                      fontWeight: 600,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em",
-                      color: tool.riskLevel === "CRITICAL" ? "#BD5D3A" : "rgba(26, 25, 21, 0.6)",
-                    }}
-                  >
-                    {tool.toolId} · {tool.riskLevel}
-                  </span>
-                  {tool.proofPack && (
-                    <span
-                      style={{
-                        fontSize: "0.65rem",
-                        padding: "0.15rem 0.4rem",
-                        background: "rgba(189, 93, 58, 0.1)",
-                        borderRadius: "3px",
-                        color: "#BD5D3A",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Proof Pack
-                    </span>
-                  )}
-                </div>
-                <h3
-                  style={{
-                    fontSize: "0.9rem",
-                    fontWeight: 600,
-                    color: "#1A1915",
-                    marginBottom: "0.25rem",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {tool.toolName}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "0.78rem",
-                    color: "rgba(26, 25, 21, 0.6)",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {tool.primaryOperation.replace(/_/g, " ")}
-                </p>
-              </a>
-            ))}
-          </div>
-        </section>
-      ))}
-
-      <footer
-        style={{
-          marginTop: "3rem",
-          paddingTop: "1.5rem",
-          borderTop: "1px solid rgba(26, 25, 21, 0.10)",
-          fontSize: "0.78rem",
-          color: "rgba(26, 25, 21, 0.5)",
-          textAlign: "center",
-          lineHeight: 1.6,
-        }}
-      >
-        <p>
-          SectorCalc PRO calculators provide decision-support screening only.
-          Results do not constitute certified engineering, legal, financial, or regulatory advice.
-          Always verify critical values against approved source documentation and qualified professional review.
-        </p>
-        <p style={{ marginTop: "0.5rem" }}>
-          <Link href="/" style={{ color: "#BD5D3A", textDecoration: "underline" }}>
-            SectorCalc Home
-          </Link>
-        </p>
-      </footer>
-    </main>
+    <PageLayout>
+      <JsonLd data={jsonLd} />
+      <section className="sc-pro-section sc-pro-section--border">
+        <CatalogPageShell
+          tools={tools}
+          sectors={taxonomySectorCards}
+          title="PRO Industrial Calculators"
+          subtitle={`${count} deterministic, auditable calculators across industrial engineering domains. Server-side execution. No exact formula exposure. Decision-support only.`}
+          searchPlaceholder="Search PRO calculators..."
+          categoryTitle="Industry sectors"
+          proToolsHref="/pricing"
+        />
+      </section>
+    </PageLayout>
   );
 }
