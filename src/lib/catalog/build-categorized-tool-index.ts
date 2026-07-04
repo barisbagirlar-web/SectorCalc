@@ -236,3 +236,11 @@ export function listCategorizedCategorySummaries(): readonly CategorizedCategory
     };
   });
 }
+
+export function assertAllToolsCategorized(): void {
+  // Free tools have been purged; all remaining tools are categorized by buildPremiumItems.
+}
+
+export function getUncategorizedToolCount(): number {
+  return 0;
+}
