@@ -10,8 +10,8 @@ export interface ToolEntry {
   title: string;
   tier: "free" | "premium";
   category: string;
-  categoryKey?: string;
-  categorySlug?: string;
+  categoryKey: string;
+  categorySlug: string;
   sector: string;
   sectorKey: PremiumCategorySlug;
   premiumCategorySlug?: PremiumCategorySlug;
@@ -35,6 +35,8 @@ export function getAllTools(_locale?: string): ToolEntry[] {
     title: slugToName(slug),
     tier: "premium" as const,
     category: slug,
+    categoryKey: slug,
+    categorySlug: slug,
     sector: slug,
     sectorKey: "lean-production" as PremiumCategorySlug,
     premiumRequired: true,
