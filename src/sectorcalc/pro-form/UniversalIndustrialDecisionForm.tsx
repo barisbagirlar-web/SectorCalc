@@ -44,6 +44,7 @@ import {
   safeRedactionDisplay,
   formatSafeValue,
   safeDisplayScope,
+  formatDisplayUnit,
 } from "./form-render-helpers";
 import "./universal-industrial-decision-form.css";
 
@@ -446,8 +447,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               {/* ── Pre-execution locked placeholder — shown only when no server response ── */}
               {!hasResult && (
                 <section className="sc-v531-section sc-v531-locked-preview" aria-label="Results pending">
-                  <p className="sc-v531-locked-preview__text">
-                    Results will appear after server execution.
+                  <p className="sc-v531-locked-preview-title">No result yet</p>
+                  <p className="sc-v531-locked-preview-text">
+                    Complete the required inputs and run the server-side calculation. Results, warnings, audit status, and decision guidance will appear here.
                   </p>
                 </section>
               )}
@@ -487,43 +489,54 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               )}
             </main>
 
-            <aside className="sc-v531-cockpit" aria-label="Sticky decision cockpit">
-              <div className="sc-v531-cockpit__inner">
-                {/* Cockpit status: pre-execution vs post-execution */}
+            <aside className="sc-v531-side-panel" aria-label="Execution control panel">
+              <div className="sc-v531-side-panel-inner">
+                {/* Status */}
                 {hasResult ? (
-                  <div className="sc-v531-cockpit__status" data-status={status.toLowerCase()}>
-                    <span>Decision state</span>
-                    <strong>{decision?.primary_decision ?? status}</strong>
+                  <div className="sc-v531-side-status" data-status={status.toLowerCase()}>
+                    <span className="sc-v531-side-status-label">Decision state</span>
+                    <span className="sc-v531-side-status-value">{decision?.primary_decision ?? status}</span>
                   </div>
                 ) : (
-                  <div className="sc-v531-cockpit__status" data-status="ready">
-                    <span>Decision state</span>
-                    <strong>{clientBlockerCount > 0 ? "Review required" : "Ready for input"}</strong>
+                  <div className="sc-v531-side-status" data-status="ready">
+                    <span className="sc-v531-side-status-label">Decision state</span>
+                    <span className="sc-v531-side-status-value">{clientBlockerCount > 0 ? "Review required" : "Ready for input"}</span>
                   </div>
                 )}
 
-                <p className="sc-v531-cockpit__reason">
+                <p className="sc-v531-side-description">
                   {hasResult
                     ? (decision?.primary_reason ?? "Decision interpretation received from server.")
                     : "Complete the inputs below and run the server calculation."}
                 </p>
 
-                {/* Cockpit metrics */}
-                <div className="sc-v531-cockpit__metrics">
-                  <Metric label="Client blockers" value={String(clientBlockerCount)} />
-                  <Metric label="Warnings" value={String(clientWarningCount + (response?.warnings ?? []).length)} />
+                {/* Metrics */}
+                <div className="sc-v531-side-metrics">
+                  <div className="sc-v531-side-metric">
+                    <span className="sc-v531-side-metric-label">Blockers</span>
+                    <span className="sc-v531-side-metric-value">{String(clientBlockerCount)}</span>
+                  </div>
+                  <div className="sc-v531-side-metric">
+                    <span className="sc-v531-side-metric-label">Warnings</span>
+                    <span className="sc-v531-side-metric-value">{String(clientWarningCount + (response?.warnings ?? []).length)}</span>
+                  </div>
                   {hasResult ? (
-                    <>
-                      <Metric label="Audit seal" value={response!.audit_seal?.seal_status ?? "—"} />
-                      <Metric label="Redaction" value={safeRedactionDisplay(response!.redaction_status)} />
-                    </>
-                  ) : null}
+                    <div className="sc-v531-side-metric">
+                      <span className="sc-v531-side-metric-label">Audit</span>
+                      <span className="sc-v531-side-metric-value">{response!.audit_seal?.seal_status ?? "—"}</span>
+                    </div>
+                  ) : (
+                    <div className="sc-v531-side-metric">
+                      <span className="sc-v531-side-metric-label">Status</span>
+                      <span className="sc-v531-side-metric-value">{getExecutionStateLabel(state.executionState)}</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Primary CTA */}
                 <button
                   type="button"
-                  className="sc-v531-primary-button"
+                  className="sc-v531-primary-action"
                   disabled={primaryButtonDisabled}
                   aria-disabled={primaryButtonDisabled}
                   onClick={primaryButtonAction}
@@ -531,7 +544,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   {primaryButtonLabel}
                 </button>
 
-                {/* Disabled reason — always visible when disabled */}
+                {/* Disabled reason */}
                 {primaryButtonDisabled && primaryButtonDisabledReason && (
                   <p className="sc-v531-disabled-reason" role="status">
                     {primaryButtonDisabledReason}
@@ -539,25 +552,25 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 )}
 
                 {/* Secondary buttons */}
-                <button type="button" className="sc-v531-secondary-button" onClick={machine.runClientPrecheck}>
+                <button type="button" className="sc-v531-side-secondary" onClick={machine.runClientPrecheck}>
                   Check inputs
                 </button>
-                <button type="button" className="sc-v531-secondary-button" onClick={machine.resetInputs}>
+                <button type="button" className="sc-v531-side-secondary" onClick={machine.resetInputs}>
                   Reset inputs
                 </button>
 
-                {/* Reset result only — only shown when result exists */}
+                {/* Reset result only */}
                 {hasResult && (
-                  <button type="button" className="sc-v531-ghost-button" onClick={machine.resetResultOnly}>
+                  <button type="button" className="sc-v531-side-ghost" onClick={machine.resetResultOnly}>
                     Reset result only
                   </button>
                 )}
 
-                {/* Top next action from server */}
+                {/* Top next action */}
                 {hasResult && decision?.next_best_actions && decision.next_best_actions.length > 0 && (
-                  <div className="sc-v531-cockpit__next-action">
-                    <span>Next action</span>
-                    <p>{decision.next_best_actions[0]}</p>
+                  <div className="sc-v531-side-next-action">
+                    <span className="sc-v531-side-next-action-label">Next action</span>
+                    <p className="sc-v531-side-next-action-text">{decision.next_best_actions[0]}</p>
                   </div>
                 )}
               </div>
@@ -646,16 +659,26 @@ function IdentityBlocker({ reason }: { reason: string }) {
 }
 
 function InputGroupPanel({ group, expanded, onToggle, children }: { group: UIInputGroup; expanded: boolean; onToggle: () => void; children: ReactNode }) {
+  const fieldCount = group.fields?.length ?? 0;
   return (
     <article className="sc-v531-group" data-advanced={group.advanced === true}>
-      <button type="button" className="sc-v531-group__header" aria-expanded={expanded} onClick={onToggle}>
-        <span>
-          <strong>{group.title}</strong>
-          <small>{group.description}</small>
-        </span>
-        <span aria-hidden="true">{expanded ? "−" : "+"}</span>
+      <button type="button" className="sc-v531-group-header" aria-expanded={expanded} onClick={onToggle}>
+        <div className="sc-v531-group-header__info">
+          <span className="sc-v531-group-header__title">{group.title}</span>
+          {group.description ? (
+            <span className="sc-v531-group-header__desc">{group.description}</span>
+          ) : null}
+        </div>
+        <div className="sc-v531-group-header__meta">
+          {fieldCount > 0 ? (
+            <span className="sc-v531-group-count">{fieldCount} field{fieldCount !== 1 ? "s" : ""}</span>
+          ) : null}
+          <span className={`sc-v531-group-chevron${expanded ? " sc-v531-group-chevron--expanded" : ""}`} aria-hidden="true">▾</span>
+        </div>
       </button>
-      {expanded ? <div className="sc-v531-group__body">{children}</div> : null}
+      <div className="sc-v531-group-body" hidden={!expanded}>
+        {children}
+      </div>
     </article>
   );
 }
@@ -678,89 +701,87 @@ function IndustrialInputField(props: {
     ? props.input.evidence_requirement.toLowerCase().includes("required")
     : props.input.evidence_requirement.required;
 
-  // Safe base preview: never shows "Pending min" or "Pending %"
   const basePreviewText = safeBasePreview(
     props.normalizedPreview?.base_value ?? null,
     props.normalizedPreview?.base_unit ?? props.input.base_unit ?? null,
   );
-  // Only render base preview row when there is a real value (not "—" for empty)
   const showBasePreview = props.value !== null && props.value !== undefined && props.value !== "";
 
-  // Reference display
   const referenceLabel = safeReferenceLabel(props.input.reference_values);
   const hasReference = hasUsefulReferenceValues(props.input.reference_values);
 
   return (
-    <div className="sc-v531-field" data-criticality={props.input.criticality.toLowerCase()}>
-      <div className="sc-v531-field__head">
-        <label htmlFor={inputId}>{props.input.name}</label>
-        {props.input.symbol ? <span>{props.input.symbol}</span> : null}
+    <div className="sc-v531-field-card" data-criticality={props.input.criticality.toLowerCase()}>
+      {/* Label + symbol */}
+      <div>
+        <label htmlFor={inputId} className="sc-v531-field-title">{props.input.name}</label>
+        {props.input.symbol ? <span className="sc-v531-field-symbol">({props.input.symbol})</span> : null}
       </div>
-      <p className="sc-v531-field__help">{helpText}</p>
 
-      <div className="sc-v531-field__control-row">
+      {/* Help text */}
+      <p className="sc-v531-field-help">{helpText}</p>
+
+      {/* Input + unit row */}
+      <div className="sc-v531-input-row">
         {renderValueInput(inputId, props.input, props.value, props.onValueChange)}
         {props.input.unit_selectable ? (
           <select
             className="sc-v531-unit-select"
             value={props.selectedUnit}
-            aria-label={`${props.input.name} display unit`}
+            aria-label={`${props.input.name} unit`}
             onChange={(event: ChangeEvent<HTMLSelectElement>) => props.onUnitChange(event.target.value)}
           >
             {props.input.allowed_display_units.map((unit) => (
-              <option key={unit} value={unit}>{unit}</option>
+              <option key={unit} value={unit}>{formatDisplayUnit(unit)}</option>
             ))}
           </select>
         ) : null}
       </div>
 
-      {/* Base preview: only shown when user has entered a value */}
+      {/* Base preview — subtle */}
       {showBasePreview && (
-        <div className="sc-v531-field__preview" aria-label="Normalized base-unit preview">
-          <span>Base preview</span>
-          <strong>{basePreviewText}</strong>
+        <div className="sc-v531-field-preview" aria-label="Normalized base-unit preview">
+          <span className="sc-v531-field-preview-label">Base value</span>
+          <span>{basePreviewText}</span>
         </div>
       )}
 
-      {/* Compact reference line — only when reference data exists */}
-      {hasReference && (
-        <p className="sc-v531-field__reference-compact">
-          Reference: {referenceLabel}
-        </p>
-      )}
-      {!hasReference && (
-        <p className="sc-v531-field__reference-muted">
-          Reference: user-supplied value required.
-        </p>
+      {/* Reference hint */}
+      {hasReference ? (
+        <p className="sc-v531-field-reference">Reference: {referenceLabel}</p>
+      ) : (
+        <p className="sc-v531-field-reference-muted">No external reference — user-supplied value.</p>
       )}
 
-      {/* Evidence checkboxes — always shown */}
-      <div className="sc-v531-evidence-row" aria-label={`${props.input.name} evidence controls`}>
-        <label>
-          <input
-            type="checkbox"
-            checked={props.evidence?.user_verified ?? false}
-            onChange={(event: ChangeEvent<HTMLInputElement>) => props.onEvidenceChange({ user_verified: event.target.checked, enabled: true })}
-          />
-          <span>User verified</span>
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={props.evidence?.source_verified ?? false}
-            onChange={(event: ChangeEvent<HTMLInputElement>) => props.onEvidenceChange({ source_verified: event.target.checked, enabled: true })}
-          />
-          <span>Source verified</span>
-        </label>
-        {evidenceRequired && (
-          <span className="sc-v531-evidence-required-tag">Evidence required</span>
-        )}
+      {/* Evidence — simplified */}
+      <div className="sc-v531-field-evidence" aria-label={`${props.input.name} evidence`}>
+        <p className="sc-v531-evidence-title">
+          {evidenceRequired ? "Evidence required" : "Evidence (optional)"}
+        </p>
+        <div className="sc-v531-evidence-options">
+          <label>
+            <input
+              type="checkbox"
+              checked={props.evidence?.user_verified ?? false}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => props.onEvidenceChange({ user_verified: event.target.checked, enabled: true })}
+            />
+            <span>I verified this value</span>
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={props.evidence?.source_verified ?? false}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => props.onEvidenceChange({ source_verified: event.target.checked, enabled: true })}
+            />
+            <span>Source document exists</span>
+          </label>
+        </div>
       </div>
 
-      {/* Engineering details — collapsed by default, shown when showAdvanced */}
+      {/* Engineering details */}
       {props.showAdvanced && (
-        <div className="sc-v531-field__advanced">
-          <div className="sc-v531-reference-grid">
+        <div className="sc-v531-field-advanced">
+          <div className="sc-v531-advanced-grid">
             <InfoChip label="Physical bounds" value={formatPhysicalBounds(props.input)} />
             <InfoChip label="Engineering range" value={formatEngineeringRange(props.input.engineering_range ?? props.input.engineering_reference_range)} />
             <InfoChip label="Evidence" value={evidenceRequired ? "Required" : "Advisory"} />
@@ -770,7 +791,7 @@ function IndustrialInputField(props: {
 
       {/* Validation blockers */}
       {props.blockers.length > 0 ? (
-        <ul className="sc-v531-field__issues">
+        <ul className="sc-v531-field-issues">
           {props.blockers.map((issue) => (
             <li key={issue.id} data-severity={issue.severity.toLowerCase()}>
               <strong>{issue.severity}</strong> {issue.message}
@@ -1001,7 +1022,7 @@ function ProtectedMethodologyPanel({ schema, response }: { schema: SuperV4Schema
     <section className="sc-v531-section" aria-label="Protected methodology panel">
       <SectionHeader title="Protected methodology" subtitle="Public-safe methodology context without exact formula disclosure." />
       <div className="sc-v531-methodology-box">
-        <p>Exact formulas, private registry nodes, restricted tables, and internal execution sequence are not exposed in this public form.</p>
+        <p>This public form shows method context and audit status without exposing exact formulas or private execution logic.</p>
         <p>Formula quality gate: {String(schema.metadata.formula_quality_gate ?? "SECTORCALC_FORMULA_QUALITY_GATE_V5_3_1")}</p>
       </div>
       {proofSections.length > 0 ? (

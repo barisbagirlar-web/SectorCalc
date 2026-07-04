@@ -127,6 +127,50 @@ export function formatLabelValue(label: string, value: string): { label: string;
 }
 
 /**
+ * Map internal unit tokens to human-readable labels.
+ */
+export const UNIT_DISPLAY_LABELS: Record<string, string> = {
+  display_currency: "Currency",
+  currency: "Currency",
+  fraction: "Ratio",
+  index: "Index",
+  min: "Minutes",
+  h: "Hours",
+  s: "Seconds",
+  kg: "kg",
+  m: "m",
+  mm: "mm",
+  cm: "cm",
+  m2: "m²",
+  m3: "m³",
+  kw: "kW",
+  kwh: "kWh",
+  rpm: "rpm",
+  pct: "%",
+  percent: "%",
+  usd: "USD",
+};
+
+/**
+ * Transform a raw token (e.g. n_thickness_mm, display_currency) into human-readable form.
+ */
+export function humanizeToken(value: string): string {
+  if (!value) return "";
+  return value
+    .replace(/^n_/, "")
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+/**
+ * Get a human-readable unit label.
+ */
+export function getDisplayUnitLabel(unit: string): string {
+  if (!unit) return "";
+  return UNIT_DISPLAY_LABELS[unit] ?? humanizeToken(unit);
+}
+
+/**
  * Check if a string is a known raw internal key (kebab-case, snake_case).
  */
 export function isRawInternalKey(value: string): boolean {

@@ -62,6 +62,7 @@
     "guard:forbidden-form-surfaces": "node scripts/guard-forbidden-form-surfaces.mjs",
     "guard:v531-schema-formula-binding": "node scripts/guard-v531-schema-formula-binding.mjs",
     "guard:v531-form-ux": "node scripts/guard-v531-form-ux-contract.mjs",
+    "smoke:v531-form-ux": "node scripts/smoke-v531-form-ux.mjs",
     "guard:header-navigation": "node scripts/guard-header-navigation-contract.mjs",
     "smoke:header-navigation": "node scripts/smoke-header-navigation.mjs",
     "guard:sitemap-root": "node scripts/guard-sitemap-root-contract.mjs",

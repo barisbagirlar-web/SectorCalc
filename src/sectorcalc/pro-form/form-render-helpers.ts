@@ -3,6 +3,7 @@
 // These functions NEVER execute formulas. They only determine UI visibility and safe display text.
 
 import type { ExecuteResponse, RedactionStatus, ReferenceValuesObject, LegacyReferenceValue } from "./contract-types";
+import { getDisplayUnitLabel } from "./display-labels";
 
 // ── Response state predicates ──────────────────────────────────────────────────
 
@@ -288,4 +289,12 @@ export function getPrimaryCtaLabel(
 export function safeRedactionDisplay(status: RedactionStatus | null): string {
   if (!status) return "—";
   return status.replaceAll("_", " ");
+}
+
+/**
+ * Get a human-readable display label for a unit token.
+ */
+export function formatDisplayUnit(unit: string): string {
+  if (!unit) return "";
+  return getDisplayUnitLabel(unit);
 }
