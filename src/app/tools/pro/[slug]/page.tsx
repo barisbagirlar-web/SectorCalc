@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
 import { UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
+import { ProToolSessionWrapper } from "@/sectorcalc/pro-form/ProToolSessionWrapper";
 import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
 
@@ -78,10 +79,10 @@ export default async function ProToolDetailPage({
   return (
     <PageLayout>
       <article aria-label={schema.tool_name} className="sc-v531-shell">
-        <UniversalIndustrialDecisionForm
+        <ProToolSessionWrapper
           schema={schema}
           toolKey={slug}
-          executeEndpoint="/api/pro-calculator/execute"
+          executeEndpoint="/api/tool-execute"
           initialProfileMode="engineering"
         />
       </article>

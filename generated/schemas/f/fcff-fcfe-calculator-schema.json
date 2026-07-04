@@ -8,117 +8,47 @@
     {
       "id": "netKar",
       "label": "Net Income (USD)",
-      "label_i18n": {
-        "en": "Net Income (USD)",
-        "de": "Nettogewinn",
-        "fr": "Revenu net",
-        "es": "Ingreso neto",
-        "ar": "صافي الدخل"
-      },
       "type": "number",
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Net profit for the period.",
-      "businessContext_i18n": {
-        "en": "Net profit for the period.",
-        "de": "Perioden-Nettogewinn.",
-        "fr": "Bénéfice net de la période.",
-        "es": "Beneficio neto del período.",
-        "ar": "صافي الربح للفترة."
-      }
+      "businessContext": "Net profit for the period."
     },
     {
       "id": "amortisman",
       "label": "Depreciation (USD)",
-      "label_i18n": {
-        "en": "Depreciation (USD)",
-        "de": "Jährliche Abschreibungsrate",
-        "fr": "Taux d'amortissement annuel",
-        "es": "Tasa de depreciación anual",
-        "ar": "معدل الاستهلاك السنوي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Period depreciation expense.",
-      "businessContext_i18n": {
-        "en": "Period depreciation expense.",
-        "de": "Periodische Abschreibungen.",
-        "fr": "Charge de dépréciation de la période.",
-        "es": "Gasto por depreciación del período.",
-        "ar": "مصروفات الإهلاك للفترة."
-      }
+      "businessContext": "Period depreciation expense."
     },
     {
       "id": "isletmeSermayesi",
       "label": "Working Capital Change (USD)",
-      "label_i18n": {
-        "en": "Working Capital Change (USD)",
-        "de": "Veränderung des Betriebskapitals (USD)",
-        "fr": "Variation du fonds de roulement (USD)",
-        "es": "Cambio en el Capital de Trabajo (USD)",
-        "ar": "تغير رأس المال العامل (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Increase in net working capital.",
-      "businessContext_i18n": {
-        "en": "Increase in net working capital.",
-        "de": "Erhohung des NettoUmlaufvermogens.",
-        "fr": "Augmentation du besoin en fonds de roulement.",
-        "es": "Aumento en el capital de trabajo neto.",
-        "ar": "الزيادة في صافي رأس المال العامل."
-      }
+      "businessContext": "Increase in net working capital."
     },
     {
       "id": "capex",
       "label": "CapEx (USD)",
-      "label_i18n": {
-        "en": "CapEx (USD)",
-        "de": "Anfangsinvestition (CAPEX)",
-        "fr": "Investissement initial (CAPEX)",
-        "es": "Inversión inicial (CAPEX)",
-        "ar": "الاستثمار الأولي (النفقات الرأسمالية)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 40000,
       "min": 0,
-      "businessContext": "Capital expenditures on fixed assets.",
-      "businessContext_i18n": {
-        "en": "Capital expenditures on fixed assets.",
-        "de": "Investitionsausgaben fur Anlagevermogen.",
-        "fr": "Dépenses d'investissement en immobilisations.",
-        "es": "Gastos de capital en activos fijos.",
-        "ar": "النفقات الرأسمالية على الأصول الثابتة."
-      }
+      "businessContext": "Capital expenditures on fixed assets."
     },
     {
       "id": "debt",
       "label": "Net Debt Change (USD)",
-      "label_i18n": {
-        "en": "Net Debt Change (USD)",
-        "de": "Veränderung der Nettoverschuldung (USD)",
-        "fr": "Variation de la dette nette (USD)",
-        "es": "Cambio Neto en Deuda (USD)",
-        "ar": "تغير صافي الدين (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "New debt issuance minus principal payments.",
-      "businessContext_i18n": {
-        "en": "New debt issuance minus principal payments.",
-        "de": "Neue Schuldenemission abzuglich Tilgungszahlungen.",
-        "fr": "Nouvelles émissions de dette moins remboursements de principal.",
-        "es": "Nueva emisión de deuda menos pagos de principal.",
-        "ar": "إصدار دين جديد مطروحًا منه مدفوعات أصل الدين."
-      }
+      "businessContext": "New debt issuance minus principal payments."
     }
   ],
   "validation": {
@@ -132,67 +62,30 @@
     "result": "netKar + amortisman - isletmeSermayesi - capex + debt"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "fcff": "FCFF (Firmaya)",
       "result": "FCFE (Hissedara)"
     },
-    "breakdown_i18n": {
-      "fcff": {
-        "en": "FCFF (Firmaya)",
-        "de": "FCFF (Unternehmen)",
-        "fr": "FCFF (Entreprise)",
-        "es": "FCFF (Flujo de Caja Libre para la Empresa)",
-        "ar": "FCFF (للشركة)"
-      },
-      "result": {
-        "en": "FCFE (Hissedara)",
-        "de": "FCFE (Aktionär)",
-        "fr": "FCFE (Actionnaire)",
-        "es": "FCFE (Flujo de Caja Libre para el Accionista)",
-        "ar": "FCFE (للمساهم)"
-      }
-    },
     "breakdownUnits": {
       "fcff": "USD",
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
-      "long": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
-      "short_i18n": {
-        "en": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
-        "de": "Berechnen Sie den Free Cash Flow to Firm (FCFF) und to Equity (FCFE).",
-        "fr": "Calculer le flux de trésorerie disponible pour l'entreprise (FCFF) et pour les actionnaires (FCFE).",
-        "es": "Calcular el flujo de caja libre para la empresa (FCFF) y para el patrimonio (FCFE).",
-        "ar": "حساب التدفق النقدي الحر للشركة (FCFF) وللمساهمين (FCFE)."
-      },
-      "long_i18n": {
-        "en": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
-        "de": "Berechnen Sie den Free Cash Flow to Firm (FCFF) und to Equity (FCFE).",
-        "fr": "Calculer le flux de trésorerie disponible pour l'entreprise (FCFF) et pour les actionnaires (FCFE).",
-        "es": "Calcular el flujo de caja libre para la empresa (FCFF) y para el patrimonio (FCFE).",
-        "ar": "حساب التدفق النقدي الحر للشركة (FCFF) وللمساهمين (FCFE)."
-      }
+      "long": "Calculate free cash flow to firm (FCFF) and to equity (FCFE)."
     }
-  },
-  "title_i18n": {
-    "en": "fcff-fcfe-calculator",
-    "de": "FCFF-FCFE-Rechner",
-    "fr": "Calculateur FCFF/FCFE",
-    "es": "Calculadora FCFF/FCFE",
-    "ar": "حاسبة FCFF/FCFE"
   },
   "sectorSlug": "daily-renovation"
 }

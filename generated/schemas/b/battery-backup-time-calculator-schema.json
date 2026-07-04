@@ -8,94 +8,38 @@
     {
       "id": "akuKapasite",
       "label": "Battery Capacity (Ah)",
-      "label_i18n": {
-        "en": "Battery Capacity (Ah)",
-        "de": "Batteriekapazität (Ah)",
-        "fr": "Capacité de la batterie (Ah)",
-        "es": "Capacidad de la batería (Ah)",
-        "ar": "سعة البطارية (Ah)"
-      },
       "type": "number",
       "unit": "Ah",
       "default": 100,
       "min": 0,
-      "businessContext": "Battery rated capacity.",
-      "businessContext_i18n": {
-        "en": "Battery rated capacity.",
-        "de": "Nennkapazität der Batterie.",
-        "fr": "Capacité nominale de la batterie.",
-        "es": "Capacidad nominal de la batería.",
-        "ar": "السعة المقدرة للبطارية."
-      }
+      "businessContext": "Battery rated capacity."
     },
     {
       "id": "yukGucu",
       "label": "Load Power (W)",
-      "label_i18n": {
-        "en": "Load Power (W)",
-        "de": "Lastleistung (W)",
-        "fr": "Puissance de charge (W)",
-        "es": "Potencia de carga (W)",
-        "ar": "طاقة الحمل (W)"
-      },
       "type": "number",
       "unit": "W",
       "default": 500,
       "min": 0,
-      "businessContext": "Total connected load power.",
-      "businessContext_i18n": {
-        "en": "Total connected load power.",
-        "de": "Gesamtleistung der angeschlossenen Last.",
-        "fr": "Puissance totale de la charge connectée.",
-        "es": "Potencia total de la carga conectada.",
-        "ar": "إجمالي طاقة الحمل المتصل."
-      }
+      "businessContext": "Total connected load power."
     },
     {
       "id": "dcVoltaj",
       "label": "DC System Voltage (V)",
-      "label_i18n": {
-        "en": "DC System Voltage (V)",
-        "de": "DC-Systemspannung (V)",
-        "fr": "Tension du système CC (V)",
-        "es": "Tensión del Sistema DC (V)",
-        "ar": "جهد نظام التيار المستمر (V)"
-      },
       "type": "number",
       "unit": "V",
       "default": 12,
       "min": 0,
-      "businessContext": "Battery system voltage.",
-      "businessContext_i18n": {
-        "en": "Battery system voltage.",
-        "de": "Batteriesystemspannung.",
-        "fr": "Tension du système de batterie.",
-        "es": "Tensión del sistema de baterías.",
-        "ar": "جهد نظام البطارية."
-      }
+      "businessContext": "Battery system voltage."
     },
     {
       "id": "desarjDerinligi",
       "label": "Depth of Discharge (%)",
-      "label_i18n": {
-        "en": "Depth of Discharge (%)",
-        "de": "Entladetiefe (%)",
-        "fr": "Profondeur de décharge (%)",
-        "es": "Profundidad de descarga (%)",
-        "ar": "عمق التفريغ (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 80,
       "min": 0,
-      "businessContext": "Maximum allowed discharge.",
-      "businessContext_i18n": {
-        "en": "Maximum allowed discharge.",
-        "de": "Maximal zulässige Entladung.",
-        "fr": "Décharge maximale autorisée.",
-        "es": "Descarga máxima permitida.",
-        "ar": "أقصى تفريغ مسموح به."
-      }
+      "businessContext": "Maximum allowed discharge."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "(akuKapasite * dcVoltaj * (desarjDerinligi / 100)) / Math.max(0.0001, yukGucu)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "hours",
     "breakdown": {
       "result": "Yedekleme Time"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Yedekleme Time",
-        "de": "Sicherungszeit",
-        "fr": "Durée de sauvegarde",
-        "es": "Tiempo de Respaldo",
-        "ar": "مدة النسخ الاحتياطي"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "hours"
+      "result": "hours"
     },
     "hiddenLossDrivers": [
       "Low SNR indicates poor signal quality.",
@@ -133,36 +68,15 @@
       "Use proper shielding for sensitive measurements.",
       "Consider efficiency losses in energy calculations."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate battery backup time for a given load.",
-      "long": "Calculate battery backup time for a given load.",
-      "short_i18n": {
-        "en": "Calculate battery backup time for a given load.",
-        "de": "Batterieuberbruckungszeit fur eine gegebene Last berechnen.",
-        "fr": "Calculer le temps de secours de la batterie pour une charge donnée.",
-        "es": "Calcular el tiempo de respaldo de la batería para una carga determinada.",
-        "ar": "حساب وقت النسخ الاحتياطي للبطارية لحمل معين."
-      },
-      "long_i18n": {
-        "en": "Calculate battery backup time for a given load.",
-        "de": "Batterieuberbruckungszeit fur eine gegebene Last berechnen.",
-        "fr": "Calculer le temps de secours de la batterie pour une charge donnée.",
-        "es": "Calcular el tiempo de respaldo de la batería para una carga determinada.",
-        "ar": "حساب وقت النسخ الاحتياطي للبطارية لحمل معين."
-      }
+      "long": "Calculate battery backup time for a given load."
     }
-  },
-  "title_i18n": {
-    "en": "battery-backup-time-calculator",
-    "de": "Batteriekapazitäts-Backup-Rechner",
-    "fr": "Calculateur de capacité de batterie de secours",
-    "es": "Calculadora de capacidad de batería de respaldo",
-    "ar": "حاسبة سعة البطارية الاحتياطية"
   },
   "sectorSlug": "daily-renovation"
 }

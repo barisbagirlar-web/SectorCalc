@@ -8,48 +8,20 @@
     {
       "id": "yillikNakitAks",
       "label": "Annual Cash Flow (USD)",
-      "label_i18n": {
-        "en": "Annual Cash Flow (USD)",
-        "de": "Jährlicher Cashflow",
-        "fr": "Flux de trésorerie annuel",
-        "es": "Flujo de caja anual",
-        "ar": "التدفق النقدي السنوي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 60000,
       "min": 0,
-      "businessContext": "Annual cash flow after debt service.",
-      "businessContext_i18n": {
-        "en": "Annual cash flow after debt service.",
-        "de": "Jährlicher Cashflow nach Schuldendienst.",
-        "fr": "Flux de trésorerie annuel après service de la dette.",
-        "es": "Flujo de caja anual después del servicio de la deuda.",
-        "ar": "التدفق النقدي السنوي بعد خدمة الدين."
-      }
+      "businessContext": "Annual cash flow after debt service."
     },
     {
       "id": "toplamNakitYatirim",
       "label": "Total Cash Invested (USD)",
-      "label_i18n": {
-        "en": "Total Cash Invested (USD)",
-        "de": "Investiertes Gesamtkapital (USD)",
-        "fr": "Total des liquidités investies (USD)",
-        "es": "Total de Efectivo Invertido (USD)",
-        "ar": "إجمالي النقد المستثمر (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Total cash outlay including down payment and costs.",
-      "businessContext_i18n": {
-        "en": "Total cash outlay including down payment and costs.",
-        "de": "Gesamter Kapitaleinsatz inklusive Anzahlung und Kosten.",
-        "fr": "Débours total incluant l'acompte et les frais.",
-        "es": "Desembolso total de efectivo, incluyendo el pago inicial y los costos.",
-        "ar": "إجمالي الإنفاق النقدي بما في ذلك الدفعة الأولى والتكاليف."
-      }
+      "businessContext": "Total cash outlay including down payment and costs."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(yillikNakitAks / Math.max(1, toplamNakitYatirim)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Cash-on-Cash Getiri"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Cash-on-Cash Getiri",
-        "de": "Cash-on-Cash-Rendite",
-        "fr": "Rendement cash-on-cash",
-        "es": "Retorno Cash-on-Cash",
-        "ar": "العائد النقدي على النقد"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify all property data with official documents.",
       "Consult a mortgage broker for personalized rates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate cash-on-cash (CoC) return on equity invested.",
-      "long": "Calculate cash-on-cash (CoC) return on equity invested.",
-      "short_i18n": {
-        "en": "Calculate cash-on-cash (CoC) return on equity invested.",
-        "de": "Berechnen Sie die Cash-on-Cash (CoC) Rendite auf das investierte Eigenkapital.",
-        "fr": "Calculer le rendement cash-on-cash (CoC) sur les capitaux propres investis.",
-        "es": "Calcular el retorno cash-on-cash (CoC) sobre el capital invertido.",
-        "ar": "احسب العائد النقدي على النقد (CoC) على حقوق الملكية المستثمرة."
-      },
-      "long_i18n": {
-        "en": "Calculate cash-on-cash (CoC) return on equity invested.",
-        "de": "Berechnen Sie die Cash-on-Cash (CoC) Rendite auf das investierte Eigenkapital.",
-        "fr": "Calculer le rendement cash-on-cash (CoC) sur les capitaux propres investis.",
-        "es": "Calcular el retorno cash-on-cash (CoC) sobre el capital invertido.",
-        "ar": "احسب العائد النقدي على النقد (CoC) على حقوق الملكية المستثمرة."
-      }
+      "long": "Calculate cash-on-cash (CoC) return on equity invested."
     }
-  },
-  "title_i18n": {
-    "en": "cash-on-cash-return-calculator",
-    "de": "Cash-on-Cash-Renditerechner",
-    "fr": "Calculateur de rendement cash-on-cash",
-    "es": "Calculadora de rendimiento cash-on-cash",
-    "ar": "حاسبة العائد النقدي على النقد"
   },
   "sectorSlug": "daily-renovation"
 }

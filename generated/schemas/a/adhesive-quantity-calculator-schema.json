@@ -2,54 +2,26 @@
   "toolName": "adhesive-quantity-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Surface Area (m²)",
-      "label_i18n": {
-        "en": "Surface Area (m²)",
-        "de": "Surface Fläche to paint",
-        "fr": "Surface Surface to paint",
-        "es": "Surface Área to paint",
-        "ar": "Surface المساحة to paint"
-      },
       "type": "number",
       "unit": "m2",
       "default": 50,
       "min": 0,
-      "businessContext": "Area to cover.",
-      "businessContext_i18n": {
-        "en": "Area to cover.",
-        "de": "Zu bedeckende Fläche.",
-        "fr": "Surface à couvrir.",
-        "es": "Área a cubrir.",
-        "ar": "المساحة المراد تغطيتها."
-      }
+      "businessContext": "Area to cover."
     },
     {
       "id": "consumption",
       "label": "Consumption (kg/m²)",
-      "label_i18n": {
-        "en": "Consumption (kg/m²)",
-        "de": "Stromverbrauch",
-        "fr": "Consommation d'électricité",
-        "es": "Consumo de electricidad",
-        "ar": "استهلاك الكهرباء"
-      },
       "type": "number",
       "unit": "kg/m2",
       "default": 2,
       "min": 0,
-      "businessContext": "Adhesive consumption per m².",
-      "businessContext_i18n": {
-        "en": "Adhesive consumption per m².",
-        "de": "Klebstoffverbrauch pro m².",
-        "fr": "Consommation d'adhésif par m².",
-        "es": "Consumo de adhesivo por m².",
-        "ar": "استهلاك المادة اللاصقة لكل متر مربع."
-      }
+      "businessContext": "Adhesive consumption per m²."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "area * consumption"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kg",
     "breakdown": {
       "result": "Gerekli Yapistirici"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Yapistirici",
-        "de": "Erforderlicher Klebstoff",
-        "fr": "Adhésif requis",
-        "es": "Adhesivo Requerido",
-        "ar": "المادة اللاصقة المطلوبة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kg"
+      "result": "kg"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate adhesive quantity needed to cover a surface area.",
-      "long": "Calculate adhesive quantity needed to cover a surface area.",
-      "short_i18n": {
-        "en": "Calculate adhesive quantity needed to cover a surface area.",
-        "de": "Berechnen Sie die benotigte Klebstoffmenge zur Abdeckung einer Fläche.",
-        "fr": "Calculer la quantité d'adhésif nécessaire pour couvrir une surface.",
-        "es": "Calcular la cantidad de adhesivo necesaria para cubrir una superficie.",
-        "ar": "احسب كمية المادة اللاصقة اللازمة لتغطية مساحة سطح."
-      },
-      "long_i18n": {
-        "en": "Calculate adhesive quantity needed to cover a surface area.",
-        "de": "Berechnen Sie die benotigte Klebstoffmenge zur Abdeckung einer Fläche.",
-        "fr": "Calculer la quantité d'adhésif nécessaire pour couvrir une surface.",
-        "es": "Calcular la cantidad de adhesivo necesaria para cubrir una superficie.",
-        "ar": "احسب كمية المادة اللاصقة اللازمة لتغطية مساحة سطح."
-      }
+      "long": "Calculate adhesive quantity needed to cover a surface area."
     }
-  },
-  "title_i18n": {
-    "en": "adhesive-quantity-calculator",
-    "de": "Klebstoffmengenrechner",
-    "fr": "Calculateur de quantité d'adhésif",
-    "es": "Calculadora de cantidad de adhesivo",
-    "ar": "حاسبة كمية المادة اللاصقة"
   },
   "sectorSlug": "daily-renovation"
 }

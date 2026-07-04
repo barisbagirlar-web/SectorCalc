@@ -8,48 +8,20 @@
     {
       "id": "kritikKazanc",
       "label": "Ultimate Gain (Ku)",
-      "label_i18n": {
-        "en": "Ultimate Gain (Ku)",
-        "de": "Grenzverstärkung (Ku)",
-        "fr": "Gain ultime (Ku)",
-        "es": "Ganancia Última (Ku)",
-        "ar": "الكسب النهائي (Ku)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 5,
       "min": 0,
-      "businessContext": "Gain at onset of oscillation.",
-      "businessContext_i18n": {
-        "en": "Gain at onset of oscillation.",
-        "de": "Verstärkung beim Einsetzen der Schwingung.",
-        "fr": "Gain au début de l'oscillation.",
-        "es": "Ganancia al inicio de la oscilación.",
-        "ar": "الكسب عند بداية التذبذب."
-      }
+      "businessContext": "Gain at onset of oscillation."
     },
     {
       "id": "kritikPeriyot",
       "label": "Ultimate Period (Tu sec)",
-      "label_i18n": {
-        "en": "Ultimate Period (Tu sec)",
-        "de": "Grenzperiode (Tu sec)",
-        "fr": "Période ultime (Tu sec)",
-        "es": "Período Último (Tu seg)",
-        "ar": "الفترة النهائية (Tu sec)"
-      },
       "type": "number",
       "unit": "s",
       "default": 2,
       "min": 0,
-      "businessContext": "Oscillation period.",
-      "businessContext_i18n": {
-        "en": "Oscillation period.",
-        "de": "Schwingungsperiode.",
-        "fr": "Période d'oscillation.",
-        "es": "Período de oscilación.",
-        "ar": "فترة التذبذب."
-      }
+      "businessContext": "Oscillation period."
     }
   ],
   "validation": {
@@ -64,40 +36,17 @@
     "result": "(0.6 * kritikKazanc) * kritikPeriyot / 8"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Kd",
     "breakdown": {
       "Kp": "Oransal (Kp)",
       "Ki": "Integral (Ki)",
       "result": "Turev (Kd)"
     },
-    "breakdown_i18n": {
-      "Kp": {
-        "en": "Oransal (Kp)",
-        "de": "Proportional (Kp)",
-        "fr": "Proportionnel (Kp)",
-        "es": "Proporcional (Kp)",
-        "ar": "أورانسال (Kp)"
-      },
-      "Ki": {
-        "en": "Integral (Ki)",
-        "de": "Integral (Ki)",
-        "fr": "Intégral (Ki)",
-        "es": "Integral (Ki)",
-        "ar": "تكامل (Ki)"
-      },
-      "result": {
-        "en": "Turev (Kd)",
-        "de": "Differential (Kd)",
-        "fr": "Dérivé (Kd)",
-        "es": "Derivativo (Kd)",
-        "ar": "مشتق (Kd)"
-      }
-    },
     "breakdownUnits": {
       "Kp": "Kd",
       "Ki": "Kd",
-      "sonuc": "Kd"
+      "result": "Kd"
     },
     "hiddenLossDrivers": [
       "High asymmetry increases injury risk.",
@@ -107,36 +56,15 @@
       "Balance training for injury prevention.",
       "Use peer review to validate research quality."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate PID controller gains using Ziegler-Nichols method.",
-      "long": "Calculate PID controller gains using Ziegler-Nichols method.",
-      "short_i18n": {
-        "en": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "de": "Berechnen Sie die PID-Reglerverstärkungen mit der Ziegler-Nichols-Methode.",
-        "fr": "Calculer les gains du régulateur PID en utilisant la méthode de Ziegler-Nichols.",
-        "es": "Calcular las ganancias del controlador PID utilizando el método de Ziegler-Nichols.",
-        "ar": "حساب كسب المتحكم PID باستخدام طريقة Ziegler-Nichols."
-      },
-      "long_i18n": {
-        "en": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "de": "Berechnen Sie die PID-Reglerverstärkungen mit der Ziegler-Nichols-Methode.",
-        "fr": "Calculer les gains du régulateur PID en utilisant la méthode de Ziegler-Nichols.",
-        "es": "Calcular las ganancias del controlador PID utilizando el método de Ziegler-Nichols.",
-        "ar": "حساب كسب المتحكم PID باستخدام طريقة Ziegler-Nichols."
-      }
+      "long": "Calculate PID controller gains using Ziegler-Nichols method."
     }
-  },
-  "title_i18n": {
-    "en": "pid-controller-ziegler-calculator",
-    "de": "PID-Regler-Ziegler-Rechner",
-    "fr": "Calculateur de régulateur PID Ziegler",
-    "es": "Calculadora de controlador PID Ziegler",
-    "ar": "حاسبة وحدة التحكم PID زيغلر"
   },
   "sectorSlug": "daily-renovation"
 }

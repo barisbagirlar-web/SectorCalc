@@ -8,95 +8,39 @@
     {
       "id": "enlem",
       "label": "Latitude (Deg)",
-      "label_i18n": {
-        "en": "Latitude (Deg)",
-        "de": "Breitengrad (Grad)",
-        "fr": "Latitude (degrés)",
-        "es": "Latitud (grados)",
-        "ar": "خط العرض (درجات)"
-      },
       "type": "number",
       "unit": "degrees",
       "default": 41,
       "min": 0,
-      "businessContext": "Building latitude.",
-      "businessContext_i18n": {
-        "en": "Building latitude.",
-        "de": "Geografische Breite des Gebäudes.",
-        "fr": "Latitude du bâtiment.",
-        "es": "Latitud del edificio.",
-        "ar": "خط عرض المبنى."
-      }
+      "businessContext": "Building latitude."
     },
     {
       "id": "gunSayisi",
       "label": "Day of Year (1-365)",
-      "label_i18n": {
-        "en": "Day of Year (1-365)",
-        "de": "Tag des Jahres (1-365)",
-        "fr": "Jour de l'année (1-365)",
-        "es": "Día del año (1-365)",
-        "ar": "يوم السنة (1-365)"
-      },
       "type": "number",
       "unit": "day",
       "default": 172,
       "min": 1,
       "max": 365,
-      "businessContext": "Target day.",
-      "businessContext_i18n": {
-        "en": "Target day.",
-        "de": "Zieltag.",
-        "fr": "Jour cible.",
-        "es": "Día objetivo.",
-        "ar": "اليوم المستهدف."
-      }
+      "businessContext": "Target day."
     },
     {
       "id": "engelYukseklik",
       "label": "Obstacle Height (m)",
-      "label_i18n": {
-        "en": "Obstacle Height (m)",
-        "de": "Hindernishohe (m)",
-        "fr": "Hauteur de l'obstacle (m)",
-        "es": "Altura del Obstáculo (m)",
-        "ar": "ارتفاع العائق (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 20,
       "min": 0,
-      "businessContext": "Neighboring building height.",
-      "businessContext_i18n": {
-        "en": "Neighboring building height.",
-        "de": "Hohe des Nachbargebäudes.",
-        "fr": "Hauteur du bâtiment voisin.",
-        "es": "Altura del edificio vecino.",
-        "ar": "ارتفاع المبنى المجاور."
-      }
+      "businessContext": "Neighboring building height."
     },
     {
       "id": "mesafe",
       "label": "Obstacle-Building Distance (m)",
-      "label_i18n": {
-        "en": "Obstacle-Building Distance (m)",
-        "de": "Hindernis-Gebäude-Abstand (m)",
-        "fr": "Distance obstacle-bâtiment (m)",
-        "es": "Distancia Obstáculo-Edificio (m)",
-        "ar": "المسافة بين العائق والمبنى (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 15,
       "min": 0,
-      "businessContext": "Distance between buildings.",
-      "businessContext_i18n": {
-        "en": "Distance between buildings.",
-        "de": "Abstand zwischen Gebäuden.",
-        "fr": "Distance entre les bâtiments.",
-        "es": "Distancia entre edificios.",
-        "ar": "المسافة بين المباني."
-      }
+      "businessContext": "Distance between buildings."
     }
   ],
   "validation": {
@@ -110,22 +54,13 @@
     "result": "(Math.atan(engelYukseklik / Math.max(0.0001, mesafe)) * 180 / Math.PI) / 15 * 2"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "hours",
     "breakdown": {
       "result": "Tahmini Shade Duration"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tahmini Shade Duration",
-        "de": "Geschätzte Schattenzeit",
-        "fr": "Durée d'ombre estimée",
-        "es": "Duración Estimada de la Sombra",
-        "ar": "مدة الظل المقدرة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "hours"
+      "result": "hours"
     },
     "hiddenLossDrivers": [
       "High asymmetry increases injury risk.",
@@ -135,36 +70,15 @@
       "Balance training for injury prevention.",
       "Use peer review to validate research quality."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate daily shadow duration on building facade due to obstacles.",
-      "long": "Calculate daily shadow duration on building facade due to obstacles.",
-      "short_i18n": {
-        "en": "Calculate daily shadow duration on building facade due to obstacles.",
-        "de": "Berechnen Sie die tägliche Schattendauer auf der Gebäudefassade aufgrund von Hindernissen.",
-        "fr": "Calculer la durée quotidienne d'ombre sur la facade du bâtiment due aux obstacles.",
-        "es": "Calcular la duración diaria de sombra en la fachada del edificio debido a obstáculos.",
-        "ar": "حساب مدة الظل اليومي على واجهة المبنى بسبب العوائق."
-      },
-      "long_i18n": {
-        "en": "Calculate daily shadow duration on building facade due to obstacles.",
-        "de": "Berechnen Sie die tägliche Schattendauer auf der Gebäudefassade aufgrund von Hindernissen.",
-        "fr": "Calculer la durée quotidienne d'ombre sur la facade du bâtiment due aux obstacles.",
-        "es": "Calcular la duración diaria de sombra en la fachada del edificio debido a obstáculos.",
-        "ar": "حساب مدة الظل اليومي على واجهة المبنى بسبب العوائق."
-      }
+      "long": "Calculate daily shadow duration on building facade due to obstacles."
     }
-  },
-  "title_i18n": {
-    "en": "building-shadow-duration-calculator",
-    "de": "Gebäude-Sonneneinstrahlungsanalyse-Rechner",
-    "fr": "Calculateur d'analyse d'ensoleillement de bâtiment",
-    "es": "Calculadora de análisis de insolación de edificios",
-    "ar": "حاسبة تحليل التشمس للمبنى"
   },
   "sectorSlug": "daily-renovation"
 }

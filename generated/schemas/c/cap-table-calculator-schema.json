@@ -2,77 +2,35 @@
   "toolName": "cap-table-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "kurucu",
       "label": "Founder Shares",
-      "label_i18n": {
-        "en": "Founder Shares",
-        "de": "Grunderanteile",
-        "fr": "Actions des fondateurs",
-        "es": "Acciones del Fundador",
-        "ar": "أسهم المؤسسين"
-      },
       "type": "number",
       "unit": "shares",
       "default": 600000,
       "min": 0,
-      "businessContext": "Founder shares.",
-      "businessContext_i18n": {
-        "en": "Founder shares.",
-        "de": "Grunderanteile.",
-        "fr": "Actions des fondateurs.",
-        "es": "Acciones del fundador.",
-        "ar": "أسهم المؤسسين."
-      }
+      "businessContext": "Founder shares."
     },
     {
       "id": "yatirimci",
       "label": "Investor Shares",
-      "label_i18n": {
-        "en": "Investor Shares",
-        "de": "Investoranteile",
-        "fr": "Actions des investisseurs",
-        "es": "Acciones del Inversor",
-        "ar": "أسهم المستثمرين"
-      },
       "type": "number",
       "unit": "shares",
       "default": 300000,
       "min": 0,
-      "businessContext": "Investor shares.",
-      "businessContext_i18n": {
-        "en": "Investor shares.",
-        "de": "Investoranteile.",
-        "fr": "Actions des investisseurs.",
-        "es": "Acciones del inversor.",
-        "ar": "أسهم المستثمرين."
-      }
+      "businessContext": "Investor shares."
     },
     {
       "id": "opsiyon",
       "label": "Option Pool",
-      "label_i18n": {
-        "en": "Option Pool",
-        "de": "Aktien aus dem Optionspool",
-        "fr": "Actions du pool d'options",
-        "es": "Acciones del pool de opciones",
-        "ar": "أسهم مجمع الخيارات"
-      },
       "type": "number",
       "unit": "shares",
       "default": 100000,
       "min": 0,
-      "businessContext": "Employee option pool.",
-      "businessContext_i18n": {
-        "en": "Employee option pool.",
-        "de": "Mitarbeiteroptionspool.",
-        "fr": "Pool d'options pour employés.",
-        "es": "Fondo de opciones para empleados.",
-        "ar": "مجموعة خيارات الموظفين."
-      }
+      "businessContext": "Employee option pool."
     }
   ],
   "validation": {
@@ -86,58 +44,28 @@
     "result": "(kurucu / Math.max(1, (kurucu + yatirimci + opsiyon))) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Kurucu Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Kurucu Ratio",
-        "de": "Grunderquote",
-        "fr": "Taux de fondateur",
-        "es": "Tasa de Fundador",
-        "ar": "نسبة المؤسس"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate ownership percentages in a cap table.",
-      "long": "Calculate ownership percentages in a cap table.",
-      "short_i18n": {
-        "en": "Calculate ownership percentages in a cap table.",
-        "de": "Berechnen Sie die Eigentumsanteile in einer Cap-Tabelle.",
-        "fr": "Calculer les pourcentages de propriété dans un tableau de capitalisation.",
-        "es": "Calcular los porcentajes de propiedad en una tabla de capitalización.",
-        "ar": "حساب نسب الملكية في جدول الرسملة."
-      },
-      "long_i18n": {
-        "en": "Calculate ownership percentages in a cap table.",
-        "de": "Berechnen Sie die Eigentumsanteile in einer Cap-Tabelle.",
-        "fr": "Calculer les pourcentages de propriété dans un tableau de capitalisation.",
-        "es": "Calcular los porcentajes de propiedad en una tabla de capitalización.",
-        "ar": "حساب نسب الملكية في جدول الرسملة."
-      }
+      "long": "Calculate ownership percentages in a cap table."
     }
-  },
-  "title_i18n": {
-    "en": "cap-table-calculator",
-    "de": "Cap-Table-Aktientabellenrechner",
-    "fr": "Calculateur de tableau de capitalisation (Cap Table)",
-    "es": "Calculadora de tabla de capitalización (Cap Table)",
-    "ar": "حاسبة جدول الرسملة (Cap Table)"
   },
   "sectorSlug": "daily-renovation"
 }

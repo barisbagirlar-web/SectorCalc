@@ -8,71 +8,29 @@
     {
       "id": "load",
       "label": "Total Load (N)",
-      "label_i18n": {
-        "en": "Total Load (N)",
-        "de": "Gesamtlast (N)",
-        "fr": "Charge totale (N)",
-        "es": "Carga Total (N)",
-        "ar": "الحمل الكلي (N)"
-      },
       "type": "number",
       "unit": "N",
       "default": 10000,
       "min": 0,
-      "businessContext": "Total distributed load.",
-      "businessContext_i18n": {
-        "en": "Total distributed load.",
-        "de": "Gesamte verteilte Last.",
-        "fr": "Charge totale répartie.",
-        "es": "Carga distribuida total.",
-        "ar": "الحمل الموزع الكلي."
-      }
+      "businessContext": "Total distributed load."
     },
     {
       "id": "mesafe",
       "label": "Distance from Support (m)",
-      "label_i18n": {
-        "en": "Distance from Support (m)",
-        "de": "Abstand vom Auflager (m)",
-        "fr": "Distance depuis l'appui (m)",
-        "es": "Distancia desde el Apoyo (m)",
-        "ar": "المسافة من الدعامة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Distance from left support.",
-      "businessContext_i18n": {
-        "en": "Distance from left support.",
-        "de": "Abstand vom linken Auflager.",
-        "fr": "Distance depuis l'appui gauche.",
-        "es": "Distancia desde el apoyo izquierdo.",
-        "ar": "المسافة من الدعامة اليسرى."
-      }
+      "businessContext": "Distance from left support."
     },
     {
       "id": "length",
       "label": "Beam Length (m)",
-      "label_i18n": {
-        "en": "Beam Length (m)",
-        "de": "Balkenlänge (L)",
-        "fr": "Longueur de la poutre (L)",
-        "es": "Longitud de la viga (L)",
-        "ar": "طول العارضة (L)"
-      },
       "type": "number",
       "unit": "m",
       "default": 6,
       "min": 0,
-      "businessContext": "Total span.",
-      "businessContext_i18n": {
-        "en": "Total span.",
-        "de": "Gesamtspannweite.",
-        "fr": "Portée totale.",
-        "es": "Luz total.",
-        "ar": "الامتداد الكلي."
-      }
+      "businessContext": "Total span."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "mesafe < length / 2 ? load / 2 : -load / 2"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "N",
     "breakdown": {
-      "result": "Kesme Kuvveti (V)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Kesme Kuvveti (V)",
-        "de": "Querkraft (V)",
-        "fr": "Effort tranchant (V)",
-        "es": "Fuerza Cortante (V)",
-        "ar": "قوة القص (V)"
-      }
+      "result": "Shear Force (V)"
     },
     "breakdownUnits": {
-      "sonuc": "N"
+      "result": "N"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate shear force at a given section along a beam.",
-      "long": "Calculate shear force at a given section along a beam.",
-      "short_i18n": {
-        "en": "Calculate shear force at a given section along a beam.",
-        "de": "Berechnen Sie die Scherkraft an einem gegebenen Abschnitt entlang eines Balkens.",
-        "fr": "Calculer l'effort tranchant à une section donnée le long d'une poutre.",
-        "es": "Calcular la fuerza cortante en una sección dada a lo largo de una viga.",
-        "ar": "احسب قوة القص عند مقطع معين على طول العارضة."
-      },
-      "long_i18n": {
-        "en": "Calculate shear force at a given section along a beam.",
-        "de": "Berechnen Sie die Scherkraft an einem gegebenen Abschnitt entlang eines Balkens.",
-        "fr": "Calculer l'effort tranchant à une section donnée le long d'une poutre.",
-        "es": "Calcular la fuerza cortante en una sección dada a lo largo de una viga.",
-        "ar": "احسب قوة القص عند مقطع معين على طول العارضة."
-      }
+      "long": "Calculate shear force at a given section along a beam."
     }
-  },
-  "title_i18n": {
-    "en": "shear-force-diagram-calculator",
-    "de": "Querkraftdiagramm Rechner",
-    "fr": "Calculateur de Diagramme d'Effort Tranchant",
-    "es": "Calculadora de Diagrama de Fuerza Cortante",
-    "ar": "حاسبة مخطط قوة القص"
   },
   "sectorSlug": "daily-renovation"
 }

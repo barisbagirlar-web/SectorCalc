@@ -8,71 +8,29 @@
     {
       "id": "C0",
       "label": "Overall Composition (%)",
-      "label_i18n": {
-        "en": "Overall Composition (%)",
-        "de": "Gesamtzusammensetzung (%)",
-        "fr": "Composition globale (%)",
-        "es": "Composición General (%)",
-        "ar": "التركيب الكلي (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 40,
       "min": 0,
-      "businessContext": "Alloy overall composition.",
-      "businessContext_i18n": {
-        "en": "Alloy overall composition.",
-        "de": "Gesamtzusammensetzung der Legierung.",
-        "fr": "Composition globale de l'alliage.",
-        "es": "Composición general de la aleación.",
-        "ar": "التركيب الكلي للسبيكة."
-      }
+      "businessContext": "Alloy overall composition."
     },
     {
       "id": "Cl",
       "label": "Liquid Composition (%)",
-      "label_i18n": {
-        "en": "Liquid Composition (%)",
-        "de": "Flussigzusammensetzung (%)",
-        "fr": "Composition de la phase liquide (%)",
-        "es": "Composición del Líquido (%)",
-        "ar": "تركيب الطور السائل (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Liquid phase composition.",
-      "businessContext_i18n": {
-        "en": "Liquid phase composition.",
-        "de": "Zusammensetzung der flussigen Phase.",
-        "fr": "Composition de la phase liquide.",
-        "es": "Composición de la fase líquida.",
-        "ar": "تركيب الطور السائل."
-      }
+      "businessContext": "Liquid phase composition."
     },
     {
       "id": "Cs",
       "label": "Solid Composition (%)",
-      "label_i18n": {
-        "en": "Solid Composition (%)",
-        "de": "Festzusammensetzung (%)",
-        "fr": "Composition de la phase solide (%)",
-        "es": "Composición del Sólido (%)",
-        "ar": "تركيب الطور الصلب (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 60,
       "min": 0,
-      "businessContext": "Solid phase composition.",
-      "businessContext_i18n": {
-        "en": "Solid phase composition.",
-        "de": "Zusammensetzung der festen Phase.",
-        "fr": "Composition de la phase solide.",
-        "es": "Composición de la fase sólida.",
-        "ar": "تركيب الطور الصلب."
-      }
+      "businessContext": "Solid phase composition."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(C0 - Cl) / Math.max(0.0001, (Cs - Cl))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "fraction",
     "breakdown": {
       "result": "Kati Faz Ratioi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Kati Faz Ratioi",
-        "de": "Festphasenanteil",
-        "fr": "Solid Phase Ratio",
-        "es": "Fracción de Fase Sólida",
-        "ar": "نسبة الطور الصلب"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "fraction"
+      "result": "fraction"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Use calibrated equipment for measurements.",
       "Consider temperature effects on material properties."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate solid phase fraction using the lever rule on a phase diagram.",
-      "long": "Calculate solid phase fraction using the lever rule on a phase diagram.",
-      "short_i18n": {
-        "en": "Calculate solid phase fraction using the lever rule on a phase diagram.",
-        "de": "Berechnen Sie den Festphasenanteil mithilfe des Hebelgesetzes an einem Phasendiagramm.",
-        "fr": "Calculer la fraction de phase solide en utilisant la règle du levier sur un diagramme de phases.",
-        "es": "Calcular la fracción de fase sólida usando la regla de la palanca en un diagrama de fases.",
-        "ar": "حساب الكسر الطوري الصلب باستخدام قاعدة الرافعة على مخطط الأطوار."
-      },
-      "long_i18n": {
-        "en": "Calculate solid phase fraction using the lever rule on a phase diagram.",
-        "de": "Berechnen Sie den Festphasenanteil mithilfe des Hebelgesetzes an einem Phasendiagramm.",
-        "fr": "Calculer la fraction de phase solide en utilisant la règle du levier sur un diagramme de phases.",
-        "es": "Calcular la fracción de fase sólida usando la regla de la palanca en un diagrama de fases.",
-        "ar": "حساب الكسر الطوري الصلب باستخدام قاعدة الرافعة على مخطط الأطوار."
-      }
+      "long": "Calculate solid phase fraction using the lever rule on a phase diagram."
     }
-  },
-  "title_i18n": {
-    "en": "lever-rule-calculator",
-    "de": "Hebelregel-Rechner fur Phasendiagramme",
-    "fr": "Calculateur de règle du levier pour diagramme de phases",
-    "es": "Calculadora de regla de la palanca para diagrama de fases",
-    "ar": "حاسبة قاعدة الرافعة لمخطط الطور"
   },
   "sectorSlug": "daily-renovation"
 }

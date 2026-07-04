@@ -8,48 +8,20 @@
     {
       "id": "value",
       "label": "Thermal Conductivity",
-      "label_i18n": {
-        "en": "Thermal Conductivity",
-        "de": "Wärmeleitfähigkeit",
-        "fr": "Conductivité thermique",
-        "es": "Conductividad Térmica",
-        "ar": "التوصيل الحراري"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Value to convert.",
-      "businessContext_i18n": {
-        "en": "Value to convert.",
-        "de": "Zu konvertierender Wert.",
-        "fr": "Valeur à convertir.",
-        "es": "Valor a convertir.",
-        "ar": "القيمة المراد تحويلها."
-      }
+      "businessContext": "Value to convert."
     },
     {
       "id": "kaynak",
       "label": "Source (0=W/mK, 1=kcal/mhC)",
-      "label_i18n": {
-        "en": "Source (0=W/mK, 1=kcal/mhC)",
-        "de": "Primärenergiequelle",
-        "fr": "Source d'énergie primaire",
-        "es": "Fuente de energía primaria",
-        "ar": "مصدر الطاقة الأساسي"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0,
       "min": 0,
-      "businessContext": "Input unit.",
-      "businessContext_i18n": {
-        "en": "Input unit.",
-        "de": "Eingabeeinheit.",
-        "fr": "Unité d'entrée.",
-        "es": "Unidad de entrada.",
-        "ar": "وحدة الإدخال."
-      }
+      "businessContext": "Input unit."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "kaynak === 0 ? value : value * 1.163"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "W/mK",
     "breakdown": {
       "result": "Isi Iletkenligi (W/mK)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Isi Iletkenligi (W/mK)",
-        "de": "Wärmeleitfähigkeit (W/mK)",
-        "fr": "Conductivité thermique (W/mK)",
-        "es": "Conductividad Térmica (W/mK)",
-        "ar": "الموصلية الحرارية (W/mK)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "W/mK"
+      "result": "W/mK"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Use calibrated equipment for measurements.",
       "Consider temperature effects on material properties."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Convert thermal conductivity values to W/mK (SI unit).",
-      "long": "Convert thermal conductivity values to W/mK (SI unit).",
-      "short_i18n": {
-        "en": "Convert thermal conductivity values to W/mK (SI unit).",
-        "de": "Konvertieren Sie Wärmeleitfähigkeitswerte in W/mK (SI-Einheit).",
-        "fr": "Convertir les valeurs de conductivité thermique en W/mK (unité SI).",
-        "es": "Convertir valores de conductividad térmica a W/mK (unidad SI).",
-        "ar": "تحويل قيم التوصيل الحراري إلى W/mK (وحدة SI)."
-      },
-      "long_i18n": {
-        "en": "Convert thermal conductivity values to W/mK (SI unit).",
-        "de": "Konvertieren Sie Wärmeleitfähigkeitswerte in W/mK (SI-Einheit).",
-        "fr": "Convertir les valeurs de conductivité thermique en W/mK (unité SI).",
-        "es": "Convertir valores de conductividad térmica a W/mK (unidad SI).",
-        "ar": "تحويل قيم التوصيل الحراري إلى W/mK (وحدة SI)."
-      }
+      "long": "Convert thermal conductivity values to W/mK (SI unit)."
     }
-  },
-  "title_i18n": {
-    "en": "thermal-conductivity-converter-calculator",
-    "de": "Wärmeleitfähigkeitsumrechner",
-    "fr": "Convertisseur de Conductivité Thermique",
-    "es": "Conversor de Conductividad Térmica",
-    "ar": "محول الموصلية الحرارية"
   },
   "sectorSlug": "construction"
 }

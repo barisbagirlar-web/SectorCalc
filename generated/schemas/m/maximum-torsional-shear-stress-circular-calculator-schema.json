@@ -8,71 +8,29 @@
     {
       "id": "torque",
       "label": "Torque (N.m)",
-      "label_i18n": {
-        "en": "Torque (N.m)",
-        "de": "Drehmoment",
-        "fr": "Couple",
-        "es": "Par motor",
-        "ar": "عزم الدوران"
-      },
       "type": "number",
       "unit": "N.m",
       "default": 1000,
       "min": 0,
-      "businessContext": "Torque on shaft.",
-      "businessContext_i18n": {
-        "en": "Torque on shaft.",
-        "de": "Drehmoment auf der Welle.",
-        "fr": "Couple sur l'arbre.",
-        "es": "Par en el eje.",
-        "ar": "عزم الالتواء على العمود."
-      }
+      "businessContext": "Torque on shaft."
     },
     {
       "id": "yariDiameter",
       "label": "Section Radius (m)",
-      "label_i18n": {
-        "en": "Section Radius (m)",
-        "de": "Querschnittsradius (m)",
-        "fr": "Rayon de la section (m)",
-        "es": "Radio de la sección (m)",
-        "ar": "نصف قطر المقطع (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.025,
       "min": 0,
-      "businessContext": "Shaft outer radius.",
-      "businessContext_i18n": {
-        "en": "Shaft outer radius.",
-        "de": "Außenradius der Welle.",
-        "fr": "Rayon extérieur de l'arbre.",
-        "es": "Radio exterior del eje.",
-        "ar": "نصف القطر الخارجي للعمود."
-      }
+      "businessContext": "Shaft outer radius."
     },
     {
       "id": "kutupsalAtalet",
       "label": "Polar Moment of Inertia (m⁴)",
-      "label_i18n": {
-        "en": "Polar Moment of Inertia (m⁴)",
-        "de": "Polares Flächenträgheitsmoment (m⁴)",
-        "fr": "Moment d'inertie polaire (m⁴)",
-        "es": "Momento polar de inercia (m⁴)",
-        "ar": "عزم القصور الذاتي القطبي (m⁴)"
-      },
       "type": "number",
       "unit": "m4",
       "default": 6.14e-7,
       "min": 0,
-      "businessContext": "J = πR⁴/2.",
-      "businessContext_i18n": {
-        "en": "J = πR⁴/2.",
-        "de": "J = πR⁴/2.",
-        "fr": "J = πR⁴/2.",
-        "es": "J = πR⁴/2.",
-        "ar": "J = πR⁴/2."
-      }
+      "businessContext": "J = πR⁴/2."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(torque * yariDiameter) / Math.max(0.0001, kutupsalAtalet)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Maks. Kayma Gerilmesi (τ)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Maks. Kayma Gerilmesi (τ)",
-        "de": "Max. Schubspannung (τ)",
-        "fr": "Contrainte de cisaillement max. (τ)",
-        "es": "Esfuerzo cortante máximo (τ)",
-        "ar": "أقصى إجهاد قص (τ)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate maximum torsional shear stress in a circular section.",
-      "long": "Calculate maximum torsional shear stress in a circular section.",
-      "short_i18n": {
-        "en": "Calculate maximum torsional shear stress in a circular section.",
-        "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisformigen Querschnitt.",
-        "fr": "Calculer la contrainte de cisaillement de torsion maximale dans une section circulaire.",
-        "es": "Calcular el esfuerzo cortante torsional máximo en una sección circular.",
-        "ar": "احسب أقصى إجهاد قص الالتوائي في مقطع دائري."
-      },
-      "long_i18n": {
-        "en": "Calculate maximum torsional shear stress in a circular section.",
-        "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisformigen Querschnitt.",
-        "fr": "Calculer la contrainte de cisaillement de torsion maximale dans une section circulaire.",
-        "es": "Calcular el esfuerzo cortante torsional máximo en una sección circular.",
-        "ar": "احسب أقصى إجهاد قص الالتوائي في مقطع دائري."
-      }
+      "long": "Calculate maximum torsional shear stress in a circular section."
     }
-  },
-  "title_i18n": {
-    "en": "maximum-torsional-shear-stress-circular-calculator",
-    "de": "Schubspannung Torsionsrechner",
-    "fr": "Calculateur de Contrainte de Cisaillement en Torsion",
-    "es": "Calculadora de Esfuerzo Cortante por Torsión",
-    "ar": "حاسبة إجهاد القص الالتوائي"
   },
   "sectorSlug": "daily-renovation"
 }

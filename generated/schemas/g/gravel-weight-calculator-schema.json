@@ -2,77 +2,35 @@
   "toolName": "gravel-weight-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Area (m²)",
-      "label_i18n": {
-        "en": "Area (m²)",
-        "de": "Gesamtfläche (ft²)",
-        "fr": "Surface totale (pi²)",
-        "es": "Área total (ft²)",
-        "ar": "المساحة الإجمالية (قدم مربع)"
-      },
       "type": "number",
       "unit": "m2",
       "default": 50,
       "min": 0,
-      "businessContext": "Area to cover.",
-      "businessContext_i18n": {
-        "en": "Area to cover.",
-        "de": "Zu bedeckende Fläche.",
-        "fr": "Surface à couvrir.",
-        "es": "Área a cubrir.",
-        "ar": "المساحة المراد تغطيتها."
-      }
+      "businessContext": "Area to cover."
     },
     {
-      "id": "kalinlik",
+      "id": "thickness",
       "label": "Layer Thickness (cm)",
-      "label_i18n": {
-        "en": "Layer Thickness (cm)",
-        "de": "Schichtdicke (cm)",
-        "fr": "Épaisseur de la couche (cm)",
-        "es": "Espesor de Capa (cm)",
-        "ar": "سمك الطبقة (cm)"
-      },
       "type": "number",
       "unit": "cm",
       "default": 10,
       "min": 0,
-      "businessContext": "Compacted thickness.",
-      "businessContext_i18n": {
-        "en": "Compacted thickness.",
-        "de": "Verdichtete Dicke.",
-        "fr": "Épaisseur compactée.",
-        "es": "Espesor compactado.",
-        "ar": "السمك المدموك."
-      }
+      "businessContext": "Compacted thickness."
     },
     {
-      "id": "yogunluk",
+      "id": "density",
       "label": "Density (ton/m³)",
-      "label_i18n": {
-        "en": "Density (ton/m³)",
-        "de": "Materialdichte",
-        "fr": "Densité du matériau",
-        "es": "Densidad del material",
-        "ar": "كثافة المادة"
-      },
       "type": "number",
       "unit": "ton/m3",
       "default": 1.6,
       "min": 0,
-      "businessContext": "Aggregate density.",
-      "businessContext_i18n": {
-        "en": "Aggregate density.",
-        "de": "Gesteinsdichte.",
-        "fr": "Densité des granulats.",
-        "es": "Densidad del agregado.",
-        "ar": "كثافة الركام."
-      }
+      "businessContext": "Aggregate density."
     }
   ],
   "validation": {
@@ -82,61 +40,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "area * (kalinlik / 100) * yogunluk"
+    "result": "area * (thickness / 100) * density"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "tons",
     "breakdown": {
       "result": "Gerekli Agrega"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Agrega",
-        "de": "Erforderliches Aggregat",
-        "fr": "Granulats requis",
-        "es": "Agregado Requerido",
-        "ar": "الركام المطلوب"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "tons"
+      "result": "tons"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate gravel or sand weight needed for base course.",
-      "long": "Calculate gravel or sand weight needed for base course.",
-      "short_i18n": {
-        "en": "Calculate gravel or sand weight needed for base course.",
-        "de": "Berechnen Sie das benotigte Kies- oder Sandgewicht fur die Tragschicht.",
-        "fr": "Calculer le poids de gravier ou de sable nécessaire pour la couche de base.",
-        "es": "Calcular el peso de grava o arena necesario para la base.",
-        "ar": "احسب وزن الحصى أو الرمل اللازم للطبقة الأساسية."
-      },
-      "long_i18n": {
-        "en": "Calculate gravel or sand weight needed for base course.",
-        "de": "Berechnen Sie das benotigte Kies- oder Sandgewicht fur die Tragschicht.",
-        "fr": "Calculer le poids de gravier ou de sable nécessaire pour la couche de base.",
-        "es": "Calcular el peso de grava o arena necesario para la base.",
-        "ar": "احسب وزن الحصى أو الرمل اللازم للطبقة الأساسية."
-      }
+      "long": "Calculate gravel or sand weight needed for base course."
     }
-  },
-  "title_i18n": {
-    "en": "gravel-weight-calculator",
-    "de": "Kies-Sand-Rechner",
-    "fr": "Calculateur de gravier et sable",
-    "es": "Calculadora de grava y arena",
-    "ar": "حاسبة الحصى والرمل"
   },
   "sectorSlug": "daily-renovation"
 }

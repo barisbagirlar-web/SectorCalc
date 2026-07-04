@@ -8,48 +8,20 @@
     {
       "id": "en",
       "label": "Fabric Width (m)",
-      "label_i18n": {
-        "en": "Fabric Width (m)",
-        "de": "Stoffbreite (cm)",
-        "fr": "Largeur du tissu (cm)",
-        "es": "Ancho de la tela (cm)",
-        "ar": "عرض القماش (سم)"
-      },
       "type": "number",
       "unit": "m",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Fabric width.",
-      "businessContext_i18n": {
-        "en": "Fabric width.",
-        "de": "Stoffbreite.",
-        "fr": "Largeur du tissu.",
-        "es": "Ancho de la tela.",
-        "ar": "عرض القماش."
-      }
+      "businessContext": "Fabric width."
     },
     {
       "id": "gramaj",
       "label": "Fabric Weight (g/m²)",
-      "label_i18n": {
-        "en": "Fabric Weight (g/m²)",
-        "de": "Stoffgewicht (kg)",
-        "fr": "Poids du tissu (kg)",
-        "es": "Peso de la tela (kg)",
-        "ar": "وزن القماش (كجم)"
-      },
       "type": "number",
       "unit": "g/m2",
       "default": 180,
       "min": 0,
-      "businessContext": "GSM - grams per square meter.",
-      "businessContext_i18n": {
-        "en": "GSM - grams per square meter.",
-        "de": "GSM - Gramm pro Quadratmeter.",
-        "fr": "GSM - grammes par mètre carré.",
-        "es": "GSM - gramos por metro cuadrado.",
-        "ar": "GSM - جرام لكل متر مربع."
-      }
+      "businessContext": "GSM - grams per square meter."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "(en * gramaj) / 1000"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kg/m",
     "breakdown": {
       "result": "Metre Weight"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Metre Weight",
-        "de": "Metergewicht",
-        "fr": "Poids au mètre",
-        "es": "Peso por metro",
-        "ar": "وزن المتر"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kg/m"
+      "result": "kg/m"
     },
     "hiddenLossDrivers": [
       "Waste in material or time indicates process improvement opportunity."
@@ -86,36 +49,15 @@
       "Optimize drying/cooling parameters for cycle time reduction.",
       "Monitor defects and adjust process conditions accordingly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate fabric weight per meter using GSM and width.",
-      "long": "Calculate fabric weight per meter using GSM and width.",
-      "short_i18n": {
-        "en": "Calculate fabric weight per meter using GSM and width.",
-        "de": "Berechnen Sie das Stoffgewicht pro Meter mit GSM und Breite.",
-        "fr": "Calculer le poids du tissu par mètre à l'aide du GSM et de la largeur.",
-        "es": "Calcular el peso de la tela por metro usando GSM y ancho.",
-        "ar": "احسب وزن القماش لكل متر باستخدام GSM والعرض."
-      },
-      "long_i18n": {
-        "en": "Calculate fabric weight per meter using GSM and width.",
-        "de": "Berechnen Sie das Stoffgewicht pro Meter mit GSM und Breite.",
-        "fr": "Calculer le poids du tissu par mètre à l'aide du GSM et de la largeur.",
-        "es": "Calcular el peso de la tela por metro usando GSM y ancho.",
-        "ar": "احسب وزن القماش لكل متر باستخدام GSM والعرض."
-      }
+      "long": "Calculate fabric weight per meter using GSM and width."
     }
-  },
-  "title_i18n": {
-    "en": "fabric-weight-calculator",
-    "de": "Stoffgewichtrechner",
-    "fr": "Calculateur de grammage de tissu",
-    "es": "Calculadora de gramaje de tela",
-    "ar": "حاسبة وزن القماش"
   },
   "sectorSlug": "daily-renovation"
 }

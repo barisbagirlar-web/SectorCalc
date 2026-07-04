@@ -8,94 +8,38 @@
     {
       "id": "current",
       "label": "Welding Current (A)",
-      "label_i18n": {
-        "en": "Welding Current (A)",
-        "de": "Schweißstrom (A)",
-        "fr": "Courant de soudage (A)",
-        "es": "Corriente de soldadura (A)",
-        "ar": "تيار اللحام (A)"
-      },
       "type": "number",
       "unit": "A",
       "default": 200,
       "min": 0,
-      "businessContext": "Arc current.",
-      "businessContext_i18n": {
-        "en": "Arc current.",
-        "de": "Lichtbogenstrom.",
-        "fr": "Courant d'arc.",
-        "es": "Corriente del arco.",
-        "ar": "تيار القوس."
-      }
+      "businessContext": "Arc current."
     },
     {
       "id": "voltage",
       "label": "Arc Voltage (V)",
-      "label_i18n": {
-        "en": "Arc Voltage (V)",
-        "de": "Lichtbogenspannung (V)",
-        "fr": "Tension d'arc (V)",
-        "es": "Tensión del arco (V)",
-        "ar": "جهد القوس (V)"
-      },
       "type": "number",
       "unit": "V",
       "default": 25,
       "min": 0,
-      "businessContext": "Arc voltage.",
-      "businessContext_i18n": {
-        "en": "Arc voltage.",
-        "de": "Lichtbogenspannung.",
-        "fr": "Tension d'arc.",
-        "es": "Tensión del arco.",
-        "ar": "جهد القوس."
-      }
+      "businessContext": "Arc voltage."
     },
     {
       "id": "ilerlemeHiz",
       "label": "Travel Speed (mm/s)",
-      "label_i18n": {
-        "en": "Travel Speed (mm/s)",
-        "de": "Vorschubgeschwindigkeit (mm/s)",
-        "fr": "Vitesse de déplacement (mm/s)",
-        "es": "Velocidad de avance (mm/s)",
-        "ar": "سرعة السير (mm/s)"
-      },
       "type": "number",
       "unit": "mm/s",
       "default": 5,
       "min": 0,
-      "businessContext": "Welding speed.",
-      "businessContext_i18n": {
-        "en": "Welding speed.",
-        "de": "Schweißgeschwindigkeit.",
-        "fr": "Vitesse de soudage.",
-        "es": "Velocidad de soldadura.",
-        "ar": "سرعة اللحام."
-      }
+      "businessContext": "Welding speed."
     },
     {
       "id": "efficiency",
       "label": "Thermal Efficiency",
-      "label_i18n": {
-        "en": "Thermal Efficiency",
-        "de": "Thermischer Wirkungsgrad",
-        "fr": "Rendement thermique",
-        "es": "Eficiencia térmica",
-        "ar": "الكفاءة الحرارية"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0.8,
       "min": 0,
-      "businessContext": "Arc efficiency (0.6-0.9).",
-      "businessContext_i18n": {
-        "en": "Arc efficiency (0.6-0.9).",
-        "de": "Lichtbogenwirkungsgrad (0,6-0,9).",
-        "fr": "Rendement d'arc (0,6-0,9).",
-        "es": "Eficiencia del arco (0.6-0.9).",
-        "ar": "كفاءة القوس (0.6-0.9)."
-      }
+      "businessContext": "Arc efficiency (0.6-0.9)."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "(current * voltage * efficiency) / Math.max(0.0001, ilerlemeHiz)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "J/mm",
     "breakdown": {
       "result": "Heat Input"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Heat Input",
-        "de": "Wärmeeintrag",
-        "fr": "Apport de chaleur",
-        "es": "Aporte de Calor",
-        "ar": "مدخلات الحرارة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "J/mm"
+      "result": "J/mm"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate weld heat input per unit length.",
-      "long": "Calculate weld heat input per unit length.",
-      "short_i18n": {
-        "en": "Calculate weld heat input per unit length.",
-        "de": "Berechnen Sie den Wärmeeintrag pro Längeneinheit beim Schweißen.",
-        "fr": "Calculer l'apport de chaleur de soudage par unité de longueur.",
-        "es": "Calcular el aporte térmico de soldadura por unidad de longitud.",
-        "ar": "احسب مدخلات الحرارة في اللحام لكل وحدة طول."
-      },
-      "long_i18n": {
-        "en": "Calculate weld heat input per unit length.",
-        "de": "Berechnen Sie den Wärmeeintrag pro Längeneinheit beim Schweißen.",
-        "fr": "Calculer l'apport de chaleur de soudage par unité de longueur.",
-        "es": "Calcular el aporte térmico de soldadura por unidad de longitud.",
-        "ar": "احسب مدخلات الحرارة في اللحام لكل وحدة طول."
-      }
+      "long": "Calculate weld heat input per unit length."
     }
-  },
-  "title_i18n": {
-    "en": "weld-heat-input-calculator",
-    "de": "Schweißwärmeeintragsrechner",
-    "fr": "Calculateur d'Apport de Chaleur de Soudage",
-    "es": "Calculadora de Aporte de Calor de Soldadura",
-    "ar": "حاسبة مدخلات حرارة اللحام"
   },
   "sectorSlug": "daily-renovation"
 }

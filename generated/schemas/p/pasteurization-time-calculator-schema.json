@@ -8,48 +8,20 @@
     {
       "id": "volume",
       "label": "Pasteurization Volume (m³)",
-      "label_i18n": {
-        "en": "Pasteurization Volume (m³)",
-        "de": "Pasteurisierungsvolumen (m³)",
-        "fr": "Volume de pasteurisation (m³)",
-        "es": "Volumen de pasteurización (m³)",
-        "ar": "حجم البسترة (m³)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 5,
       "min": 0,
-      "businessContext": "Pasteurizer volume.",
-      "businessContext_i18n": {
-        "en": "Pasteurizer volume.",
-        "de": "Pasteurisierungsvolumen.",
-        "fr": "Volume du pasteurisateur.",
-        "es": "Volumen del pasteurizador.",
-        "ar": "حجم المبستر."
-      }
+      "businessContext": "Pasteurizer volume."
     },
     {
       "id": "flow",
       "label": "Flow Rate (m³/s)",
-      "label_i18n": {
-        "en": "Flow Rate (m³/s)",
-        "de": "Kompressordurchflussrate",
-        "fr": "Débit du compresseur",
-        "es": "Caudal del compresor",
-        "ar": "معدل تدفق الضاغط"
-      },
       "type": "number",
       "unit": "m3/s",
       "default": 0.002,
       "min": 0,
-      "businessContext": "Liquid flow rate.",
-      "businessContext_i18n": {
-        "en": "Liquid flow rate.",
-        "de": "Flussigkeitsdurchflussrate.",
-        "fr": "Débit du liquide.",
-        "es": "Caudal del líquido.",
-        "ar": "معدل تدفق السائل."
-      }
+      "businessContext": "Liquid flow rate."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "volume / Math.max(0.0001, flow)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "s",
     "breakdown": {
-      "result": "Alikonma Suresi"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Alikonma Suresi",
-        "de": "Verweilzeit",
-        "fr": "Temps de rétention",
-        "es": "Tiempo de Retención",
-        "ar": "مدة الاحتفاظ"
-      }
+      "result": "Hold Time"
     },
     "breakdownUnits": {
-      "sonuc": "s"
+      "result": "s"
     },
     "hiddenLossDrivers": [
       "Waste in material or time indicates process improvement opportunity."
@@ -86,36 +49,15 @@
       "Optimize drying/cooling parameters for cycle time reduction.",
       "Monitor defects and adjust process conditions accordingly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate minimum hold time for pasteurization.",
-      "long": "Calculate minimum hold time for pasteurization.",
-      "short_i18n": {
-        "en": "Calculate minimum hold time for pasteurization.",
-        "de": "Berechnen Sie die minimale Haltezeit fur die Pasteurisierung.",
-        "fr": "Calculer le temps de maintien minimum pour la pasteurisation.",
-        "es": "Calcular el tiempo mínimo de retención para la pasteurización.",
-        "ar": "حساب الحد الأدنى لوقت الاحتجاز للبسترة."
-      },
-      "long_i18n": {
-        "en": "Calculate minimum hold time for pasteurization.",
-        "de": "Berechnen Sie die minimale Haltezeit fur die Pasteurisierung.",
-        "fr": "Calculer le temps de maintien minimum pour la pasteurisation.",
-        "es": "Calcular el tiempo mínimo de retención para la pasteurización.",
-        "ar": "حساب الحد الأدنى لوقت الاحتجاز للبسترة."
-      }
+      "long": "Calculate minimum hold time for pasteurization."
     }
-  },
-  "title_i18n": {
-    "en": "pasteurization-time-calculator",
-    "de": "Pasteurisierungszeitrechner",
-    "fr": "Calculateur de temps de pasteurisation",
-    "es": "Calculadora de tiempo de pasteurización",
-    "ar": "حاسبة وقت البسترة"
   },
   "sectorSlug": "daily-renovation"
 }

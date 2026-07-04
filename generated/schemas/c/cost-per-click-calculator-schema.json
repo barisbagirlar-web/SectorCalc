@@ -2,54 +2,26 @@
   "toolName": "cost-per-click-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "toplamHarcama",
       "label": "Total Spend (USD)",
-      "label_i18n": {
-        "en": "Total Spend (USD)",
-        "de": "Gesamtausgaben (USD)",
-        "fr": "Dépenses totales (USD)",
-        "es": "Gasto Total (USD)",
-        "ar": "إجمالي الإنفاق (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Ad budget spent.",
-      "businessContext_i18n": {
-        "en": "Ad budget spent.",
-        "de": "Ausgegebenes Werbebudget.",
-        "fr": "Budget publicitaire dépensé.",
-        "es": "Presupuesto publicitario gastado.",
-        "ar": "الإنفاق على الميزانية الإعلانية."
-      }
+      "businessContext": "Ad budget spent."
     },
     {
       "id": "tiklama",
       "label": "Clicks",
-      "label_i18n": {
-        "en": "Clicks",
-        "de": "Klicks",
-        "fr": "Clics",
-        "es": "Clics",
-        "ar": "النقرات"
-      },
       "type": "number",
       "unit": "clicks",
       "default": 500,
       "min": 1,
-      "businessContext": "Total clicks.",
-      "businessContext_i18n": {
-        "en": "Total clicks.",
-        "de": "Gesamtklicks.",
-        "fr": "Nombre total de clics.",
-        "es": "Total de clics.",
-        "ar": "إجمالي النقرات."
-      }
+      "businessContext": "Total clicks."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "toplamHarcama / Math.max(1, tiklama)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Tiklama Basi Cost (CPC)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tiklama Basi Cost (CPC)",
-        "de": "Kosten pro Klick (CPC)",
-        "fr": "Coût par clic (CPC)",
-        "es": "Costo por Clic (CPC)",
-        "ar": "تكلفة النقرة (CPC)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate cost per click (CPC) for advertising.",
-      "long": "Calculate cost per click (CPC) for advertising.",
-      "short_i18n": {
-        "en": "Calculate cost per click (CPC) for advertising.",
-        "de": "Cost-per-Click (CPC) fur Werbung berechnen.",
-        "fr": "Calculer le coût par clic (CPC) pour la publicité.",
-        "es": "Calcular el costo por clic (CPC) para publicidad.",
-        "ar": "احسب تكلفة النقرة (CPC) للإعلان."
-      },
-      "long_i18n": {
-        "en": "Calculate cost per click (CPC) for advertising.",
-        "de": "Cost-per-Click (CPC) fur Werbung berechnen.",
-        "fr": "Calculer le coût par clic (CPC) pour la publicité.",
-        "es": "Calcular el costo por clic (CPC) para publicidad.",
-        "ar": "احسب تكلفة النقرة (CPC) للإعلان."
-      }
+      "long": "Calculate cost per click (CPC) for advertising."
     }
-  },
-  "title_i18n": {
-    "en": "cost-per-click-calculator",
-    "de": "CPC-Rechner",
-    "fr": "Calculateur de CPC",
-    "es": "Calculadora de CPC",
-    "ar": "حاسبة تكلفة النقرة CPC"
   },
   "sectorSlug": "daily-renovation"
 }

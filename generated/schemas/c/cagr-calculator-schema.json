@@ -8,71 +8,29 @@
     {
       "id": "ilkDeger",
       "label": "Initial Value (USD)",
-      "label_i18n": {
-        "en": "Initial Value (USD)",
-        "de": "Anfangswert",
-        "fr": "Valeur initiale",
-        "es": "Valor inicial",
-        "ar": "القيمة الأولية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Value at the beginning of the period.",
-      "businessContext_i18n": {
-        "en": "Value at the beginning of the period.",
-        "de": "Wert zu Beginn des Zeitraums.",
-        "fr": "Valeur en début de période.",
-        "es": "Valor al inicio del período.",
-        "ar": "القيمة في بداية الفترة."
-      }
+      "businessContext": "Value at the beginning of the period."
     },
     {
       "id": "sonDeger",
       "label": "Final Value (USD)",
-      "label_i18n": {
-        "en": "Final Value (USD)",
-        "de": "Endwert",
-        "fr": "Valeur finale",
-        "es": "Valor final",
-        "ar": "القيمة النهائية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "Value at the end of the period.",
-      "businessContext_i18n": {
-        "en": "Value at the end of the period.",
-        "de": "Wert am Ende des Zeitraums.",
-        "fr": "Valeur en fin de période.",
-        "es": "Valor al final del período.",
-        "ar": "القيمة في نهاية الفترة."
-      }
+      "businessContext": "Value at the end of the period."
     },
     {
       "id": "year",
       "label": "Period (Years)",
-      "label_i18n": {
-        "en": "Period (Years)",
-        "de": "Anlagezeitraum",
-        "fr": "Période d'investissement",
-        "es": "Período de inversión",
-        "ar": "فترة الاستثمار"
-      },
       "type": "number",
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Total investment period.",
-      "businessContext_i18n": {
-        "en": "Total investment period.",
-        "de": "Gesamter Anlagezeitraum.",
-        "fr": "Période totale d'investissement.",
-        "es": "Período total de inversión.",
-        "ar": "إجمالي فترة الاستثمار."
-      }
+      "businessContext": "Total investment period."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(Math.pow(sonDeger / Math.max(1, ilkDeger), 1 / Math.max(1, year)) - 1) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
-      "result": "CAGR (Bilesik Yillik Buyume)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "CAGR (Bilesik Yillik Buyume)",
-        "de": "CAGR (Jährliche Wachstumsrate)",
-        "fr": "CAGR (Croissance annuelle composée)",
-        "es": "CAGR (Tasa de Crecimiento Anual Compuesta)",
-        "ar": "CAGR (معدل النمو السنوي المركب)"
-      }
+      "result": "CAGR (Compound Annual Growth Rate)"
     },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the compound annual growth rate (CAGR) over time.",
-      "long": "Calculate the compound annual growth rate (CAGR) over time.",
-      "short_i18n": {
-        "en": "Calculate the compound annual growth rate (CAGR) over time.",
-        "de": "Berechnen Sie die durchschnittliche jährliche Wachstumsrate (CAGR) im Zeitverlauf.",
-        "fr": "Calculer le taux de croissance annuel composé (TCAC) sur une période.",
-        "es": "Calcular la tasa de crecimiento anual compuesta (CAGR) a lo largo del tiempo.",
-        "ar": "حساب معدل النمو السنوي المركب (CAGR) عبر الزمن."
-      },
-      "long_i18n": {
-        "en": "Calculate the compound annual growth rate (CAGR) over time.",
-        "de": "Berechnen Sie die durchschnittliche jährliche Wachstumsrate (CAGR) im Zeitverlauf.",
-        "fr": "Calculer le taux de croissance annuel composé (TCAC) sur une période.",
-        "es": "Calcular la tasa de crecimiento anual compuesta (CAGR) a lo largo del tiempo.",
-        "ar": "حساب معدل النمو السنوي المركب (CAGR) عبر الزمن."
-      }
+      "long": "Calculate the compound annual growth rate (CAGR) over time."
     }
-  },
-  "title_i18n": {
-    "en": "cagr-calculator",
-    "de": "CAGR-Wachstumsrechner",
-    "fr": "Calculateur de croissance composée CAGR",
-    "es": "Calculadora de crecimiento compuesto CAGR",
-    "ar": "حاسبة النمو المركب CAGR"
   },
   "sectorSlug": "daily-renovation"
 }

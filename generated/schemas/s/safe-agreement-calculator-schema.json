@@ -2,77 +2,35 @@
   "toolName": "safe-agreement-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "investment",
       "label": "Investment (USD)",
-      "label_i18n": {
-        "en": "Investment (USD)",
-        "de": "Anlagezeitraum",
-        "fr": "Période d'investissement",
-        "es": "Período de inversión",
-        "ar": "فترة الاستثمار"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "SAFE investment.",
-      "businessContext_i18n": {
-        "en": "SAFE investment.",
-        "de": "SAFE-Investition.",
-        "fr": "Investissement SAFE.",
-        "es": "Inversión SAFE.",
-        "ar": "استثمار SAFE."
-      }
+      "businessContext": "SAFE investment."
     },
     {
       "id": "tavanDeger",
       "label": "Valuation Cap (USD)",
-      "label_i18n": {
-        "en": "Valuation Cap (USD)",
-        "de": "Bewertungsobergrenze ($)",
-        "fr": "Plafond de valorisation ($)",
-        "es": "Tope de valoración ($)",
-        "ar": "سقف التقييم ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Valuation cap.",
-      "businessContext_i18n": {
-        "en": "Valuation cap.",
-        "de": "Bewertungsobergrenze.",
-        "fr": "Plafond de valorisation.",
-        "es": "Tope de valoración.",
-        "ar": "سقف التقييم."
-      }
+      "businessContext": "Valuation cap."
     },
     {
       "id": "toplamHisse",
       "label": "Total Shares",
-      "label_i18n": {
-        "en": "Total Shares",
-        "de": "Gesamtaktien",
-        "fr": "Nombre total d'actions",
-        "es": "Acciones totales",
-        "ar": "إجمالي الأسهم"
-      },
       "type": "number",
       "unit": "shares",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total shares outstanding.",
-      "businessContext_i18n": {
-        "en": "Total shares outstanding.",
-        "de": "Gesamtzahl der ausstehenden Aktien.",
-        "fr": "Nombre total d'actions en circulation.",
-        "es": "Total de acciones en circulación.",
-        "ar": "إجمالي الأسهم القائمة."
-      }
+      "businessContext": "Total shares outstanding."
     }
   ],
   "validation": {
@@ -86,58 +44,28 @@
     "result": "investment / Math.max(0.0001, (tavanDeger / Math.max(1, toplamHisse)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "shares",
     "breakdown": {
-      "result": "Yeni Hisse Adedi"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Yeni Hisse Adedi",
-        "de": "Anzahl neuer Aktien",
-        "fr": "Nombre de nouvelles actions",
-        "es": "Número de nuevas acciones",
-        "ar": "عدد الأسهم الجديدة"
-      }
+      "result": "New Share Count"
     },
     "breakdownUnits": {
-      "sonuc": "shares"
+      "result": "shares"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate shares issued under a SAFE agreement.",
-      "long": "Calculate shares issued under a SAFE agreement.",
-      "short_i18n": {
-        "en": "Calculate shares issued under a SAFE agreement.",
-        "de": "Berechnen Sie die im Rahmen einer SAFE-Vereinbarung ausgegebenen Aktien.",
-        "fr": "Calculer les actions émises dans le cadre d'un accord SAFE.",
-        "es": "Calcular las acciones emitidas bajo un acuerdo SAFE.",
-        "ar": "احسب عدد الأسهم المصدرة بموجب اتفاقية SAFE."
-      },
-      "long_i18n": {
-        "en": "Calculate shares issued under a SAFE agreement.",
-        "de": "Berechnen Sie die im Rahmen einer SAFE-Vereinbarung ausgegebenen Aktien.",
-        "fr": "Calculer les actions émises dans le cadre d'un accord SAFE.",
-        "es": "Calcular las acciones emitidas bajo un acuerdo SAFE.",
-        "ar": "احسب عدد الأسهم المصدرة بموجب اتفاقية SAFE."
-      }
+      "long": "Calculate shares issued under a SAFE agreement."
     }
-  },
-  "title_i18n": {
-    "en": "safe-agreement-calculator",
-    "de": "SAFE-Investitionsvereinbarungsrechner",
-    "fr": "Calculateur d'accord d'investissement SAFE",
-    "es": "Calculadora de acuerdo de inversión SAFE",
-    "ar": "حاسبة اتفاقية الاستثمار SAFE"
   },
   "sectorSlug": "daily-renovation"
 }

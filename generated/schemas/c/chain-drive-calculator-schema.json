@@ -8,94 +8,38 @@
     {
       "id": "Z1",
       "label": "Small Sprocket Teeth (Z1)",
-      "label_i18n": {
-        "en": "Small Sprocket Teeth (Z1)",
-        "de": "Kleine Kettenradzähne (Z1)",
-        "fr": "Petit pignon dents (Z1)",
-        "es": "Dientes del Piñón Pequeño (Z1)",
-        "ar": "أسنان الترس الصغير (Z1)"
-      },
       "type": "number",
       "unit": "teeth",
       "default": 17,
       "min": 6,
-      "businessContext": "Drive sprocket.",
-      "businessContext_i18n": {
-        "en": "Drive sprocket.",
-        "de": "Antriebskettenrad.",
-        "fr": "Pignon d'entraînement.",
-        "es": "Piñón motriz.",
-        "ar": "ترس القيادة."
-      }
+      "businessContext": "Drive sprocket."
     },
     {
       "id": "Z2",
       "label": "Large Sprocket Teeth (Z2)",
-      "label_i18n": {
-        "en": "Large Sprocket Teeth (Z2)",
-        "de": "Große Kettenradzähne (Z2)",
-        "fr": "Grand pignon dents (Z2)",
-        "es": "Dientes del Piñón Grande (Z2)",
-        "ar": "أسنان الترس الكبير (Z2)"
-      },
       "type": "number",
       "unit": "teeth",
       "default": 45,
       "min": 6,
-      "businessContext": "Wheel sprocket.",
-      "businessContext_i18n": {
-        "en": "Wheel sprocket.",
-        "de": "Radkettenrad.",
-        "fr": "Pignon de roue.",
-        "es": "Piñón de la rueda.",
-        "ar": "ترس العجلة."
-      }
+      "businessContext": "Wheel sprocket."
     },
     {
       "id": "adim",
       "label": "Chain Pitch (mm)",
-      "label_i18n": {
-        "en": "Chain Pitch (mm)",
-        "de": "Kettenteilung (mm)",
-        "fr": "Pas de chaîne (mm)",
-        "es": "Paso de la Cadena (mm)",
-        "ar": "خطوة السلسلة (mm)"
-      },
       "type": "number",
       "unit": "mm",
       "default": 12.7,
       "min": 0,
-      "businessContext": "Chain link pitch.",
-      "businessContext_i18n": {
-        "en": "Chain link pitch.",
-        "de": "Kettengliedteilung.",
-        "fr": "Pas du maillon de chaîne.",
-        "es": "Paso del eslabón de la cadena.",
-        "ar": "خطوة رابط السلسلة."
-      }
+      "businessContext": "Chain link pitch."
     },
     {
       "id": "merkezC",
       "label": "Center Distance (mm)",
-      "label_i18n": {
-        "en": "Center Distance (mm)",
-        "de": "Achsabstand",
-        "fr": "Distance entre centres",
-        "es": "Distancia entre centros",
-        "ar": "المسافة بين المراكز"
-      },
       "type": "number",
       "unit": "mm",
       "default": 500,
       "min": 0,
-      "businessContext": "Distance between sprockets.",
-      "businessContext_i18n": {
-        "en": "Distance between sprockets.",
-        "de": "Abstand zwischen den Kettenrädern.",
-        "fr": "Distance entre les pignons.",
-        "es": "Distancia entre piñones.",
-        "ar": "المسافة بين التروس المسننة."
-      }
+      "businessContext": "Distance between sprockets."
     }
   ],
   "validation": {
@@ -109,22 +53,13 @@
     "result": "2*merkezC + (Z1+Z2)*adim/2 + Math.pow(((Z2-Z1)*adim)/(2*Math.PI), 2)/Math.max(0.0001, merkezC)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "mm",
     "breakdown": {
-      "result": "Zincir Boyu"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Zincir Boyu",
-        "de": "Kettenlänge",
-        "fr": "Longueur de chaîne",
-        "es": "Longitud de la Cadena",
-        "ar": "طول السلسلة"
-      }
+      "result": "Chain Length"
     },
     "breakdownUnits": {
-      "sonuc": "mm"
+      "result": "mm"
     },
     "hiddenLossDrivers": [
       "High fuel/energy consumption indicates efficiency losses."
@@ -133,36 +68,15 @@
       "Regular maintenance improves overall equipment efficiency.",
       "Simulate real-world driving conditions for accurate range estimates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate chain drive length and sprocket ratio.",
-      "long": "Calculate chain drive length and sprocket ratio.",
-      "short_i18n": {
-        "en": "Calculate chain drive length and sprocket ratio.",
-        "de": "Berechnen Sie Kettenantriebslänge und Kettenradverhältnis.",
-        "fr": "Calculer la longueur de la chaîne et le rapport de pignon.",
-        "es": "Calcular la longitud de la cadena y la relación de piñones.",
-        "ar": "احسب طول محرك السلسلة ونسبة التروس المسننة."
-      },
-      "long_i18n": {
-        "en": "Calculate chain drive length and sprocket ratio.",
-        "de": "Berechnen Sie Kettenantriebslänge und Kettenradverhältnis.",
-        "fr": "Calculer la longueur de la chaîne et le rapport de pignon.",
-        "es": "Calcular la longitud de la cadena y la relación de piñones.",
-        "ar": "احسب طول محرك السلسلة ونسبة التروس المسننة."
-      }
+      "long": "Calculate chain drive length and sprocket ratio."
     }
-  },
-  "title_i18n": {
-    "en": "chain-drive-calculator",
-    "de": "Kettenantriebsrechner",
-    "fr": "Calculateur d'entraînement par chaîne",
-    "es": "Calculadora de transmisión por cadena",
-    "ar": "حاسبة محرك السلسلة"
   },
   "sectorSlug": "daily-renovation"
 }

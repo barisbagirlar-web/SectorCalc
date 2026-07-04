@@ -8,71 +8,29 @@
     {
       "id": "alis",
       "label": "Buy Price (USD)",
-      "label_i18n": {
-        "en": "Buy Price (USD)",
-        "de": "Kaufpreis",
-        "fr": "Prix d'achat",
-        "es": "Precio de compra",
-        "ar": "سعر الشراء"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "Purchase price per share.",
-      "businessContext_i18n": {
-        "en": "Purchase price per share.",
-        "de": "Kaufpreis pro Aktie.",
-        "fr": "Prix d'achat par action.",
-        "es": "Precio de compra por acción.",
-        "ar": "سعر الشراء لكل سهم."
-      }
+      "businessContext": "Purchase price per share."
     },
     {
       "id": "satis",
       "label": "Sell Price (USD)",
-      "label_i18n": {
-        "en": "Sell Price (USD)",
-        "de": "Verkaufspreis",
-        "fr": "Prix de vente",
-        "es": "Precio de venta",
-        "ar": "سعر البيع"
-      },
       "type": "number",
       "unit": "USD",
       "default": 75,
       "min": 0,
-      "businessContext": "Sale price per share.",
-      "businessContext_i18n": {
-        "en": "Sale price per share.",
-        "de": "Verkaufspreis pro Aktie.",
-        "fr": "Prix de vente par action.",
-        "es": "Precio de venta por acción.",
-        "ar": "سعر البيع لكل سهم."
-      }
+      "businessContext": "Sale price per share."
     },
     {
       "id": "temettu",
       "label": "Dividends Received (USD)",
-      "label_i18n": {
-        "en": "Dividends Received (USD)",
-        "de": "Erhaltene Dividenden ($)",
-        "fr": "Dividendes recus ($)",
-        "es": "Dividendos recibidos ($)",
-        "ar": "الأرباح الموزعة المستلمة ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5,
       "min": 0,
-      "businessContext": "Dividends received during holding period.",
-      "businessContext_i18n": {
-        "en": "Dividends received during holding period.",
-        "de": "Während der Haltedauer erhaltene Dividenden.",
-        "fr": "Dividendes recus pendant la période de détention.",
-        "es": "Dividendos recibidos durante el período de tenencia.",
-        "ar": "الأرباح الموزعة المستلمة خلال فترة الاحتفاظ."
-      }
+      "businessContext": "Dividends received during holding period."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "((satis - alis) + temettu) / Math.max(1, alis) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
-      "result": "Toplam Hisse Getirisi"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Toplam Hisse Getirisi",
-        "de": "Gesamte Aktienrendite",
-        "fr": "Rendement total des actions",
-        "es": "Rendimiento Total de la Acción",
-        "ar": "إجمالي عائد السهم"
-      }
+      "result": "Total Stock Return"
     },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate total stock return including capital gains and dividends.",
-      "long": "Calculate total stock return including capital gains and dividends.",
-      "short_i18n": {
-        "en": "Calculate total stock return including capital gains and dividends.",
-        "de": "Berechnen Sie die Gesamtrendite einer Aktie einschließlich Kursgewinnen und Dividenden.",
-        "fr": "Calculer le rendement total de l'action incluant les gains en capital et les dividendes.",
-        "es": "Calcular el rendimiento total de la acción incluyendo ganancias de capital y dividendos.",
-        "ar": "احسب إجمالي عائد السهم بما في ذلك أرباح رأس المال والأرباح الموزعة."
-      },
-      "long_i18n": {
-        "en": "Calculate total stock return including capital gains and dividends.",
-        "de": "Berechnen Sie die Gesamtrendite einer Aktie einschließlich Kursgewinnen und Dividenden.",
-        "fr": "Calculer le rendement total de l'action incluant les gains en capital et les dividendes.",
-        "es": "Calcular el rendimiento total de la acción incluyendo ganancias de capital y dividendos.",
-        "ar": "احسب إجمالي عائد السهم بما في ذلك أرباح رأس المال والأرباح الموزعة."
-      }
+      "long": "Calculate total stock return including capital gains and dividends."
     }
-  },
-  "title_i18n": {
-    "en": "stock-return-calculator",
-    "de": "Aktienrendite-Rechner",
-    "fr": "Calculateur de rendement boursier",
-    "es": "Calculadora de rendimiento de acciones",
-    "ar": "حاسبة عائد الأسهم"
   },
   "sectorSlug": "daily-renovation"
 }

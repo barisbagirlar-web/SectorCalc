@@ -8,94 +8,38 @@
     {
       "id": "girisim",
       "label": "Interference (m)",
-      "label_i18n": {
-        "en": "Interference (m)",
-        "de": "Ubermaß (m)",
-        "fr": "Interférence (m)",
-        "es": "Interferencia (m)",
-        "ar": "التداخل (م)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.00005,
       "min": 0,
-      "businessContext": "Diametral interference.",
-      "businessContext_i18n": {
-        "en": "Diametral interference.",
-        "de": "Diametrales Ubermaß.",
-        "fr": "Interférence diamétrale.",
-        "es": "Interferencia diametral.",
-        "ar": "التداخل القطري."
-      }
+      "businessContext": "Diametral interference."
     },
     {
       "id": "diameter",
       "label": "Nominal Diameter (m)",
-      "label_i18n": {
-        "en": "Nominal Diameter (m)",
-        "de": "Nenndurchmesser (m)",
-        "fr": "Diamètre nominal (m)",
-        "es": "Diámetro Nominal (m)",
-        "ar": "القطر الاسمي (م)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Joint nominal diameter.",
-      "businessContext_i18n": {
-        "en": "Joint nominal diameter.",
-        "de": "Nenndurchmesser der Verbindung.",
-        "fr": "Diamètre nominal de l'assemblage.",
-        "es": "Diámetro nominal de la unión.",
-        "ar": "القطر الاسمي للمفصل."
-      }
+      "businessContext": "Joint nominal diameter."
     },
     {
       "id": "E1",
       "label": "Material 1 Modulus (Pa)",
-      "label_i18n": {
-        "en": "Material 1 Modulus (Pa)",
-        "de": "Elastizitätsmodul Material 1 (Pa)",
-        "fr": "Module du matériau 1 (Pa)",
-        "es": "Módulo del Material 1 (Pa)",
-        "ar": "معامل المرونة للمادة 1 (Pa)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "First material modulus.",
-      "businessContext_i18n": {
-        "en": "First material modulus.",
-        "de": "Elastizitätsmodul des ersten Materials.",
-        "fr": "Module du premier matériau.",
-        "es": "Módulo del primer material.",
-        "ar": "معامل المرونة للمادة الأولى."
-      }
+      "businessContext": "First material modulus."
     },
     {
       "id": "E2",
       "label": "Material 2 Modulus (Pa)",
-      "label_i18n": {
-        "en": "Material 2 Modulus (Pa)",
-        "de": "Elastizitätsmodul Material 2 (Pa)",
-        "fr": "Module du matériau 2 (Pa)",
-        "es": "Módulo del Material 2 (Pa)",
-        "ar": "معامل المرونة للمادة 2 (Pa)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Second material modulus.",
-      "businessContext_i18n": {
-        "en": "Second material modulus.",
-        "de": "Elastizitätsmodul des zweiten Materials.",
-        "fr": "Module du second matériau.",
-        "es": "Módulo del segundo material.",
-        "ar": "معامل المرونة للمادة الثانية."
-      }
+      "businessContext": "Second material modulus."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "girisim / Math.max(0.0001, (diameter * (1 / Math.max(0.0001, E1) + 1 / Math.max(0.0001, E2))))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Temas Pressure"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Temas Pressure",
-        "de": "Kontaktdruck",
-        "fr": "Pression de contact",
-        "es": "Presión de Contacto",
-        "ar": "ضغط التلامس"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate interference fit contact pressure.",
-      "long": "Calculate interference fit contact pressure.",
-      "short_i18n": {
-        "en": "Calculate interference fit contact pressure.",
-        "de": "Kontaktdruck einer Presspassung berechnen.",
-        "fr": "Calculer la pression de contact d'un ajustement serré.",
-        "es": "Calcular la presión de contacto por ajuste a presión.",
-        "ar": "حساب ضغط التلامس للتداخل."
-      },
-      "long_i18n": {
-        "en": "Calculate interference fit contact pressure.",
-        "de": "Kontaktdruck einer Presspassung berechnen.",
-        "fr": "Calculer la pression de contact d'un ajustement serré.",
-        "es": "Calcular la presión de contacto por ajuste a presión.",
-        "ar": "حساب ضغط التلامس للتداخل."
-      }
+      "long": "Calculate interference fit contact pressure."
     }
-  },
-  "title_i18n": {
-    "en": "interference-fit-contact-pressure-calculator",
-    "de": "Presspassungsdruck-Rechner",
-    "fr": "Calculateur de pression d'ajustement serré",
-    "es": "Calculadora de presión de ajuste a presión",
-    "ar": "حاسبة ضغط التداخل"
   },
   "sectorSlug": "daily-renovation"
 }

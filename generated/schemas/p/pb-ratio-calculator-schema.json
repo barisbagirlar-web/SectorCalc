@@ -8,48 +8,20 @@
     {
       "id": "piyasaDegeri",
       "label": "Market Cap (USD)",
-      "label_i18n": {
-        "en": "Market Cap (USD)",
-        "de": "Marktkapitalisierung (USD)",
-        "fr": "Capitalisation boursière (USD)",
-        "es": "Capitalización de mercado (USD)",
-        "ar": "القيمة السوقية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Total market capitalization.",
-      "businessContext_i18n": {
-        "en": "Total market capitalization.",
-        "de": "Gesamte Marktkapitalisierung.",
-        "fr": "Capitalisation boursière totale.",
-        "es": "Capitalización total del mercado.",
-        "ar": "إجمالي القيمة السوقية."
-      }
+      "businessContext": "Total market capitalization."
     },
     {
       "id": "ozsermaye",
       "label": "Shareholders Equity (USD)",
-      "label_i18n": {
-        "en": "Shareholders Equity (USD)",
-        "de": "Eigenkapital (USD)",
-        "fr": "Capitaux propres (USD)",
-        "es": "Patrimonio neto de los accionistas (USD)",
-        "ar": "حقوق المساهمين (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 3000000,
       "min": 0,
-      "businessContext": "Book value of shareholders equity.",
-      "businessContext_i18n": {
-        "en": "Book value of shareholders equity.",
-        "de": "Buchwert des Eigenkapitals.",
-        "fr": "Valeur comptable des capitaux propres.",
-        "es": "Valor contable del patrimonio neto de los accionistas.",
-        "ar": "القيمة الدفترية لحقوق المساهمين."
-      }
+      "businessContext": "Book value of shareholders equity."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "piyasaDegeri / Math.max(1, ozsermaye)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ratio",
     "breakdown": {
       "result": "PD/DD (P/B) Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "PD/DD (P/B) Ratio",
-        "de": "Kurs-Buchwert-Verhältnis (P/B)",
-        "fr": "Ratio P/B (Price/Book)",
-        "es": "Relación P/B (Precio/Valor en Libros)",
-        "ar": "نسبة السعر إلى القيمة الدفترية (P/B)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ratio"
+      "result": "ratio"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the price-to-book (P/B) ratio.",
-      "long": "Calculate the price-to-book (P/B) ratio.",
-      "short_i18n": {
-        "en": "Calculate the price-to-book (P/B) ratio.",
-        "de": "Berechnen Sie das Kurs-Buchwert-Verhältnis (KGV).",
-        "fr": "Calculer le ratio cours/valeur comptable (P/B).",
-        "es": "Calcular la relación precio/valor contable (P/B).",
-        "ar": "حساب نسبة السعر إلى القيمة الدفترية (P/B)."
-      },
-      "long_i18n": {
-        "en": "Calculate the price-to-book (P/B) ratio.",
-        "de": "Berechnen Sie das Kurs-Buchwert-Verhältnis (KGV).",
-        "fr": "Calculer le ratio cours/valeur comptable (P/B).",
-        "es": "Calcular la relación precio/valor contable (P/B).",
-        "ar": "حساب نسبة السعر إلى القيمة الدفترية (P/B)."
-      }
+      "long": "Calculate the price-to-book (P/B) ratio."
     }
-  },
-  "title_i18n": {
-    "en": "pb-ratio-calculator",
-    "de": "Kurs-Buchwert-Verhältnis-Rechner",
-    "fr": "Calculateur de ratio cours/valeur comptable",
-    "es": "Calculadora de ratio precio/valor contable",
-    "ar": "حاسبة نسبة السعر إلى القيمة الدفترية"
   },
   "sectorSlug": "daily-renovation"
 }

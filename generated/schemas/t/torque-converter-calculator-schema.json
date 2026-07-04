@@ -8,48 +8,20 @@
     {
       "id": "value",
       "label": "Torque Value",
-      "label_i18n": {
-        "en": "Torque Value",
-        "de": "Drehmomentwert",
-        "fr": "Valeur de couple",
-        "es": "Valor de Torque",
-        "ar": "قيمة العزم"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Torque to convert.",
-      "businessContext_i18n": {
-        "en": "Torque to convert.",
-        "de": "Zu konvertierendes Drehmoment.",
-        "fr": "Couple à convertir.",
-        "es": "Torque a convertir.",
-        "ar": "العزم المراد تحويله."
-      }
+      "businessContext": "Torque to convert."
     },
     {
       "id": "kaynak",
       "label": "Source (0=N.m, 1=lbft, 2=kgfm)",
-      "label_i18n": {
-        "en": "Source (0=N.m, 1=lbft, 2=kgfm)",
-        "de": "Primärenergiequelle",
-        "fr": "Source d'énergie primaire",
-        "es": "Fuente de energía primaria",
-        "ar": "مصدر الطاقة الأساسي"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0,
       "min": 0,
-      "businessContext": "Input unit.",
-      "businessContext_i18n": {
-        "en": "Input unit.",
-        "de": "Eingabeeinheit.",
-        "fr": "Unité d'entrée.",
-        "es": "Unidad de entrada.",
-        "ar": "وحدة الإدخال."
-      }
+      "businessContext": "Input unit."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "kaynak === 1 ? value * 1.3558 : kaynak === 2 ? value * 9.8066 : value"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "N.m",
     "breakdown": {
       "result": "N.m Karsiligi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "N.m Karsiligi",
-        "de": "Entsprechung in N.m",
-        "fr": "Équivalent en N.m",
-        "es": "Equivalente en N.m",
-        "ar": "المكافئ لنيوتن متر (N.m)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "N.m"
+      "result": "N.m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
-      "long": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
-      "short_i18n": {
-        "en": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
-        "de": "Konvertieren Sie Drehmomentwerte (lbft/kgfm) in N.m (SI-Einheit).",
-        "fr": "Convertir les valeurs de couple (lbft/kgfm) en N.m (unité SI).",
-        "es": "Convertir valores de torque (lbft/kgfm) a N.m (unidad SI).",
-        "ar": "تحويل قيم العزم (lbft/kgfm) إلى N.m (وحدة SI)."
-      },
-      "long_i18n": {
-        "en": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
-        "de": "Konvertieren Sie Drehmomentwerte (lbft/kgfm) in N.m (SI-Einheit).",
-        "fr": "Convertir les valeurs de couple (lbft/kgfm) en N.m (unité SI).",
-        "es": "Convertir valores de torque (lbft/kgfm) a N.m (unidad SI).",
-        "ar": "تحويل قيم العزم (lbft/kgfm) إلى N.m (وحدة SI)."
-      }
+      "long": "Convert torque values (lbft/kgfm) to N.m (SI unit)."
     }
-  },
-  "title_i18n": {
-    "en": "torque-converter-calculator",
-    "de": "Drehmomentumrechner",
-    "fr": "Convertisseur de couple",
-    "es": "Torque Convertidor",
-    "ar": "محول عزم الدوران"
   },
   "sectorSlug": "ecommerce"
 }

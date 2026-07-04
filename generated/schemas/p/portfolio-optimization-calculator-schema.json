@@ -8,48 +8,20 @@
     {
       "id": "beklenenGetiri",
       "label": "Expected Return (%)",
-      "label_i18n": {
-        "en": "Expected Return (%)",
-        "de": "Erwartete Rendite",
-        "fr": "Rendement attendu",
-        "es": "Rendimiento esperado",
-        "ar": "العائد المتوقع"
-      },
       "type": "number",
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Target portfolio return expectation.",
-      "businessContext_i18n": {
-        "en": "Target portfolio return expectation.",
-        "de": "Erwartete Portfoliorendite.",
-        "fr": "Espérance de rendement du portefeuille cible.",
-        "es": "Expectativa de rendimiento objetivo de la cartera.",
-        "ar": "توقع العائد المستهدف للمحفظة."
-      }
+      "businessContext": "Target portfolio return expectation."
     },
     {
       "id": "beklenenRisk",
       "label": "Expected Risk (%)",
-      "label_i18n": {
-        "en": "Expected Risk (%)",
-        "de": "Erwartetes Risiko (%)",
-        "fr": "Risque attendu (%)",
-        "es": "Riesgo Esperado (%)",
-        "ar": "المخاطرة المتوقعة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Estimated portfolio risk/volatility.",
-      "businessContext_i18n": {
-        "en": "Estimated portfolio risk/volatility.",
-        "de": "Geschätztes Portfoliorisiko/Volatilität.",
-        "fr": "Risque/volatilité estimé du portefeuille.",
-        "es": "Riesgo/volatilidad estimada de la cartera.",
-        "ar": "المخاطرة/التقلب المقدر للمحفظة."
-      }
+      "businessContext": "Estimated portfolio risk/volatility."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "beklenenGetiri / Math.max(0.0001, beklenenRisk)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ratio",
     "breakdown": {
       "result": "Getiri/Risk Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Getiri/Risk Ratio",
-        "de": "Rendite/Risiko-Verhältnis",
-        "fr": "Ratio rendement/risque",
-        "es": "Relación Retorno/Riesgo",
-        "ar": "نسبة العائد إلى المخاطرة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ratio"
+      "result": "ratio"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Simple portfolio optimization along the efficient frontier.",
-      "long": "Simple portfolio optimization along the efficient frontier.",
-      "short_i18n": {
-        "en": "Simple portfolio optimization along the efficient frontier.",
-        "de": "Einfache Portfoliooptimierung entlang der Effizienzgrenze.",
-        "fr": "Optimisation simple de portefeuille le long de la frontière efficiente.",
-        "es": "Optimización simple de cartera a lo largo de la frontera eficiente.",
-        "ar": "تحسين بسيط للمحفظة على طول الحدود الفعالة."
-      },
-      "long_i18n": {
-        "en": "Simple portfolio optimization along the efficient frontier.",
-        "de": "Einfache Portfoliooptimierung entlang der Effizienzgrenze.",
-        "fr": "Optimisation simple de portefeuille le long de la frontière efficiente.",
-        "es": "Optimización simple de cartera a lo largo de la frontera eficiente.",
-        "ar": "تحسين بسيط للمحفظة على طول الحدود الفعالة."
-      }
+      "long": "Simple portfolio optimization along the efficient frontier."
     }
-  },
-  "title_i18n": {
-    "en": "portfolio-optimization-calculator",
-    "de": "Portfoliooptimierungsrechner",
-    "fr": "Calculateur d'optimisation de portefeuille",
-    "es": "Calculadora de optimización de cartera",
-    "ar": "حاسبة تحسين المحفظة"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,48 +8,20 @@
     {
       "id": "width",
       "label": "Section Width (m)",
-      "label_i18n": {
-        "en": "Section Width (m)",
-        "de": "Querschnittsbreite (m)",
-        "fr": "Largeur de la section (m)",
-        "es": "Ancho de la Sección (m)",
-        "ar": "عرض المقطع (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Rectangle section width.",
-      "businessContext_i18n": {
-        "en": "Rectangle section width.",
-        "de": "Breite des Rechteckquerschnitts.",
-        "fr": "Largeur de la section rectangulaire.",
-        "es": "Ancho de la sección rectangular.",
-        "ar": "عرض المقطع المستطيل."
-      }
+      "businessContext": "Rectangle section width."
     },
     {
       "id": "height",
       "label": "Section Height (m)",
-      "label_i18n": {
-        "en": "Section Height (m)",
-        "de": "Querschnittshohe (m)",
-        "fr": "Hauteur de la section (m)",
-        "es": "Altura de la Sección (m)",
-        "ar": "ارتفاع المقطع (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.4,
       "min": 0,
-      "businessContext": "Rectangle section height.",
-      "businessContext_i18n": {
-        "en": "Rectangle section height.",
-        "de": "Hohe des Rechteckquerschnitts.",
-        "fr": "Hauteur de la section rectangulaire.",
-        "es": "Altura de la sección rectangular.",
-        "ar": "ارتفاع المقطع المستطيل."
-      }
+      "businessContext": "Rectangle section height."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(width * Math.pow(height, 3)) / 12"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m4",
     "breakdown": {
       "result": "Atalet Momenti (I)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Atalet Momenti (I)",
-        "de": "Trägheitsmoment (I)",
-        "fr": "Moment d'inertie (I)",
-        "es": "Momento de Inercia (I)",
-        "ar": "عزم القصور الذاتي (I)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m4"
+      "result": "m4"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate rectangular section moment of inertia.",
-      "long": "Calculate rectangular section moment of inertia.",
-      "short_i18n": {
-        "en": "Calculate rectangular section moment of inertia.",
-        "de": "Berechnung des Flächenträgheitsmoments eines rechteckigen Querschnitts.",
-        "fr": "Calculer le moment d'inertie d'une section rectangulaire.",
-        "es": "Calcular el momento de inercia de una sección rectangular.",
-        "ar": "احسب عزم القصور الذاتي للمقطع المستطيل."
-      },
-      "long_i18n": {
-        "en": "Calculate rectangular section moment of inertia.",
-        "de": "Berechnung des Flächenträgheitsmoments eines rechteckigen Querschnitts.",
-        "fr": "Calculer le moment d'inertie d'une section rectangulaire.",
-        "es": "Calcular el momento de inercia de una sección rectangular.",
-        "ar": "احسب عزم القصور الذاتي للمقطع المستطيل."
-      }
+      "long": "Calculate rectangular section moment of inertia."
     }
-  },
-  "title_i18n": {
-    "en": "rectangular-section-moment-of-inertia-calculator",
-    "de": "Trägheitsmoment Rechteck Rechner",
-    "fr": "Calculateur de moment d'inertie rectangle",
-    "es": "Calculadora de momento de inercia rectángulo",
-    "ar": "حاسبة عزم القصور الذاتي للمستطيل"
   },
   "sectorSlug": "daily-renovation"
 }

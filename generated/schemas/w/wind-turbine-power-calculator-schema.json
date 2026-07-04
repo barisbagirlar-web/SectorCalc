@@ -8,94 +8,38 @@
     {
       "id": "kanatCapi",
       "label": "Rotor Diameter (m)",
-      "label_i18n": {
-        "en": "Rotor Diameter (m)",
-        "de": "Rotordurchmesser (m)",
-        "fr": "Diamètre du rotor (m)",
-        "es": "Diámetro del Rotor (m)",
-        "ar": "قطر الدوار (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 80,
       "min": 0,
-      "businessContext": "Turbine blade diameter.",
-      "businessContext_i18n": {
-        "en": "Turbine blade diameter.",
-        "de": "Durchmesser der Turbinenschaufel.",
-        "fr": "Diamètre des pales de la turbine.",
-        "es": "Diámetro de la pala de la turbina.",
-        "ar": "قطر شفرة التوربين."
-      }
+      "businessContext": "Turbine blade diameter."
     },
     {
       "id": "ruzgarHizi",
       "label": "Wind Speed (m/s)",
-      "label_i18n": {
-        "en": "Wind Speed (m/s)",
-        "de": "Basiswindgeschwindigkeit (V)",
-        "fr": "Vitesse de vent de base (V)",
-        "es": "Velocidad Básica del Viento (V)",
-        "ar": "سرعة الرياح الأساسية (V)"
-      },
       "type": "number",
       "unit": "m/s",
       "default": 12,
       "min": 0,
-      "businessContext": "Average wind speed.",
-      "businessContext_i18n": {
-        "en": "Average wind speed.",
-        "de": "Durchschnittliche Windgeschwindigkeit.",
-        "fr": "Vitesse moyenne du vent.",
-        "es": "Velocidad media del viento.",
-        "ar": "متوسط سرعة الرياح."
-      }
+      "businessContext": "Average wind speed."
     },
     {
       "id": "havaYogunlugu",
       "label": "Air Density (kg/m³)",
-      "label_i18n": {
-        "en": "Air Density (kg/m³)",
-        "de": "Luftdichte (ρ)",
-        "fr": "Densité de l'air (ρ)",
-        "es": "Densidad del aire (ρ)",
-        "ar": "كثافة الهواء (ρ)"
-      },
       "type": "number",
       "unit": "kg/m3",
       "default": 1.225,
       "min": 0,
-      "businessContext": "Sea-level air density.",
-      "businessContext_i18n": {
-        "en": "Sea-level air density.",
-        "de": "Luftdichte auf Meereshohe.",
-        "fr": "Densité de l'air au niveau de la mer.",
-        "es": "Densidad del aire a nivel del mar.",
-        "ar": "كثافة الهواء عند مستوى سطح البحر."
-      }
+      "businessContext": "Sea-level air density."
     },
     {
       "id": "Cp",
       "label": "Power Coefficient (Cp)",
-      "label_i18n": {
-        "en": "Power Coefficient (Cp)",
-        "de": "Leistungsbeiwert (Cp)",
-        "fr": "Coefficient de puissance (Cp)",
-        "es": "Coeficiente de Potencia (Cp)",
-        "ar": "معامل القدرة (Cp)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0.4,
       "min": 0,
-      "businessContext": "Efficiency below Betz limit.",
-      "businessContext_i18n": {
-        "en": "Efficiency below Betz limit.",
-        "de": "Wirkungsgrad unterhalb der Betz-Grenze.",
-        "fr": "Rendement en dessous de la limite de Betz.",
-        "es": "Eficiencia por debajo del límite de Betz.",
-        "ar": "الكفاءة أقل من حد بيتز."
-      }
+      "businessContext": "Efficiency below Betz limit."
     }
   ],
   "validation": {
@@ -109,22 +53,13 @@
     "result": "0.5 * havaYogunlugu * (Math.PI * Math.pow(kanatCapi / 2, 2)) * Math.pow(ruzgarHizi, 3) * Cp"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "W",
     "breakdown": {
       "result": "Turbine Power"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Turbine Power",
-        "de": "Turbine Power",
-        "fr": "Puissance de la turbine",
-        "es": "Potencia de la Turbina",
-        "ar": "قوة التوربين"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "W"
+      "result": "W"
     },
     "hiddenLossDrivers": [
       "Low SNR indicates poor signal quality.",
@@ -134,36 +69,15 @@
       "Use proper shielding for sensitive measurements.",
       "Consider efficiency losses in energy calculations."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate wind turbine instantaneous power output.",
-      "long": "Calculate wind turbine instantaneous power output.",
-      "short_i18n": {
-        "en": "Calculate wind turbine instantaneous power output.",
-        "de": "Berechnen Sie die momentane Leistungsabgabe einer Windturbine.",
-        "fr": "Calculer la puissance instantanée de l'éolienne.",
-        "es": "Calcular la potencia instantánea de salida de una turbina eólica.",
-        "ar": "احسب القدرة اللحظية لتوربينات الرياح."
-      },
-      "long_i18n": {
-        "en": "Calculate wind turbine instantaneous power output.",
-        "de": "Berechnen Sie die momentane Leistungsabgabe einer Windturbine.",
-        "fr": "Calculer la puissance instantanée de l'éolienne.",
-        "es": "Calcular la potencia instantánea de salida de una turbina eólica.",
-        "ar": "احسب القدرة اللحظية لتوربينات الرياح."
-      }
+      "long": "Calculate wind turbine instantaneous power output."
     }
-  },
-  "title_i18n": {
-    "en": "wind-turbine-power-calculator",
-    "de": "Windturbinen-Energierechner",
-    "fr": "Calculateur d'énergie d'éolienne",
-    "es": "Calculadora de energía de turbina eólica",
-    "ar": "حاسبة طاقة توربينات الرياح"
   },
   "sectorSlug": "construction"
 }

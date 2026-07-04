@@ -8,94 +8,38 @@
     {
       "id": "siraAraligi",
       "label": "Row Spacing (m)",
-      "label_i18n": {
-        "en": "Row Spacing (m)",
-        "de": "Reihenabstand (cm)",
-        "fr": "Espacement des rangs (cm)",
-        "es": "Espaciado entre hileras (cm)",
-        "ar": "تباعد الصفوف (سم)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.7,
       "min": 0,
-      "businessContext": "Distance between rows.",
-      "businessContext_i18n": {
-        "en": "Distance between rows.",
-        "de": "Reihenabstand.",
-        "fr": "Distance entre les rangs.",
-        "es": "Distancia entre hileras.",
-        "ar": "المسافة بين الصفوف."
-      }
+      "businessContext": "Distance between rows."
     },
     {
       "id": "uzeriMesafe",
       "label": "In-Row Spacing (m)",
-      "label_i18n": {
-        "en": "In-Row Spacing (m)",
-        "de": "Pflanzenabstand in der Reihe (m)",
-        "fr": "Espacement sur le rang (m)",
-        "es": "Espaciado entre plantas (m)",
-        "ar": "المسافة بين النباتات (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Distance between plants.",
-      "businessContext_i18n": {
-        "en": "Distance between plants.",
-        "de": "Abstand zwischen den Pflanzen.",
-        "fr": "Distance entre les plants.",
-        "es": "Distancia entre plantas.",
-        "ar": "المسافة بين النباتات."
-      }
+      "businessContext": "Distance between plants."
     },
     {
       "id": "binTaneAgirlik",
       "label": "Thousand Grain Weight (g)",
-      "label_i18n": {
-        "en": "Thousand Grain Weight (g)",
-        "de": "Tausendkorngewicht (g)",
-        "fr": "Poids de mille grains (g)",
-        "es": "Peso de mil granos (g)",
-        "ar": "وزن الألف حبة (g)"
-      },
       "type": "number",
       "unit": "g",
       "default": 350,
       "min": 0,
-      "businessContext": "Weight of 1000 seeds.",
-      "businessContext_i18n": {
-        "en": "Weight of 1000 seeds.",
-        "de": "Gewicht von 1000 Samen.",
-        "fr": "Poids de 1000 graines.",
-        "es": "Peso de 1000 semillas.",
-        "ar": "وزن 1000 بذرة."
-      }
+      "businessContext": "Weight of 1000 seeds."
     },
     {
       "id": "cimlenme",
       "label": "Germination Rate (%)",
-      "label_i18n": {
-        "en": "Germination Rate (%)",
-        "de": "Keimrate (%)",
-        "fr": "Taux de germination (%)",
-        "es": "Tasa de germinación (%)",
-        "ar": "معدل الإنبات (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 90,
       "min": 0,
-      "businessContext": "Germination percentage.",
-      "businessContext_i18n": {
-        "en": "Germination percentage.",
-        "de": "Keimprozentsatz.",
-        "fr": "Pourcentage de germination.",
-        "es": "Porcentaje de germinación.",
-        "ar": "نسبة الإنبات."
-      }
+      "businessContext": "Germination percentage."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "(10000 / Math.max(0.0001, (siraAraligi * uzeriMesafe))) * (binTaneAgirlik / 1000) / Math.max(0.0001, (cimlenme / 100))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kg/da",
     "breakdown": {
       "result": "Tohum Ihtiyaci"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tohum Ihtiyaci",
-        "de": "Saatgutbedarf",
-        "fr": "Besoin en semences",
-        "es": "Requerimiento de semilla",
-        "ar": "احتياج البذور"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kg/da"
+      "result": "kg/da"
     },
     "hiddenLossDrivers": [
       "Low efficiency may indicate equipment or process issues."
@@ -132,36 +67,15 @@
       "Calibrate all measuring equipment regularly.",
       "Use site-specific data when available."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate seed rate per decare (kg/da) for planting.",
-      "long": "Calculate seed rate per decare (kg/da) for planting.",
-      "short_i18n": {
-        "en": "Calculate seed rate per decare (kg/da) for planting.",
-        "de": "Berechnen Sie die Saatgutmenge pro Dekar (kg/da) fur die Aussaat.",
-        "fr": "Calculer le taux de semis par décare (kg/da) pour la plantation.",
-        "es": "Calcular la tasa de siembra por decárea (kg/da) para la plantación.",
-        "ar": "احسب معدل البذار لكل دونم (kg/da) للزراعة."
-      },
-      "long_i18n": {
-        "en": "Calculate seed rate per decare (kg/da) for planting.",
-        "de": "Berechnen Sie die Saatgutmenge pro Dekar (kg/da) fur die Aussaat.",
-        "fr": "Calculer le taux de semis par décare (kg/da) pour la plantation.",
-        "es": "Calcular la tasa de siembra por decárea (kg/da) para la plantación.",
-        "ar": "احسب معدل البذار لكل دونم (kg/da) للزراعة."
-      }
+      "long": "Calculate seed rate per decare (kg/da) for planting."
     }
-  },
-  "title_i18n": {
-    "en": "seed-rate-calculator",
-    "de": "Rechner fur Saatdichte",
-    "fr": "Calculateur de densité de semis",
-    "es": "Calculadora de densidad de siembra",
-    "ar": "حاسبة كثافة البذور"
   },
   "sectorSlug": "daily-renovation"
 }

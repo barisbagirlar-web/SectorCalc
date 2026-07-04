@@ -8,94 +8,38 @@
     {
       "id": "kohezyon",
       "label": "Cohesion (Pa)",
-      "label_i18n": {
-        "en": "Cohesion (Pa)",
-        "de": "Kohäsion",
-        "fr": "Cohésion",
-        "es": "Cohesión",
-        "ar": "التماسك"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 20000,
       "min": 0,
-      "businessContext": "Soil cohesion.",
-      "businessContext_i18n": {
-        "en": "Soil cohesion.",
-        "de": "Bodenkohäsion.",
-        "fr": "Cohésion du sol.",
-        "es": "Cohesión del suelo.",
-        "ar": "تماسك التربة."
-      }
+      "businessContext": "Soil cohesion."
     },
     {
       "id": "temelGenislik",
       "label": "Footing Width (m)",
-      "label_i18n": {
-        "en": "Footing Width (m)",
-        "de": "Fundamentbreite (m)",
-        "fr": "Largeur de la semelle (m)",
-        "es": "Ancho de la Zapata (m)",
-        "ar": "عرض القاعدة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "Footing base width.",
-      "businessContext_i18n": {
-        "en": "Footing base width.",
-        "de": "Fundamentsohlenbreite.",
-        "fr": "Largeur de la base de la semelle.",
-        "es": "Ancho de la base de la zapata.",
-        "ar": "عرض قاعدة الأساس."
-      }
+      "businessContext": "Footing base width."
     },
     {
       "id": "depth",
       "label": "Footing Depth (m)",
-      "label_i18n": {
-        "en": "Footing Depth (m)",
-        "de": "Fundamenttiefe (m)",
-        "fr": "Profondeur de la semelle (m)",
-        "es": "Profundidad de la Zapata (m)",
-        "ar": "عمق القاعدة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Footing base depth.",
-      "businessContext_i18n": {
-        "en": "Footing base depth.",
-        "de": "Fundamentsohlentiefe.",
-        "fr": "Profondeur de la base de la semelle.",
-        "es": "Profundidad de la base de la zapata.",
-        "ar": "عمق قاعدة الأساس."
-      }
+      "businessContext": "Footing base depth."
     },
     {
-      "id": "yogunluk",
+      "id": "density",
       "label": "Soil Density (kg/m³)",
-      "label_i18n": {
-        "en": "Soil Density (kg/m³)",
-        "de": "Bodendichte (kg/m³)",
-        "fr": "Densité du sol (kg/m³)",
-        "es": "Densidad del Suelo (kg/m³)",
-        "ar": "كثافة التربة (kg/m³)"
-      },
       "type": "number",
       "unit": "kg/m3",
       "default": 1800,
       "min": 0,
-      "businessContext": "Soil unit weight.",
-      "businessContext_i18n": {
-        "en": "Soil unit weight.",
-        "de": "Bodenwichte.",
-        "fr": "Poids volumique du sol.",
-        "es": "Peso unitario del suelo.",
-        "ar": "وزن وحدة التربة."
-      }
+      "businessContext": "Soil unit weight."
     }
   ],
   "validation": {
@@ -105,61 +49,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "(kohezyon * 30) + (yogunluk * 9.81 * depth * 18) + (0.5 * yogunluk * 9.81 * temelGenislik * 15)"
+    "result": "(cohesion * 30) + (density * 9.81 * depth * 18) + (0.5 * density * 9.81 * temelGenislik * 15)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Nihai Bearing Capacity (q)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Nihai Bearing Capacity (q)",
-        "de": "Endgultige Tragfähigkeit (q)",
-        "fr": "Capacité portante ultime (q)",
-        "es": "Capacidad de Carga Última (q)",
-        "ar": "سعة التحميل النهائية (q)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate soil bearing capacity using Terzaghi's formula.",
-      "long": "Calculate soil bearing capacity using Terzaghi's formula.",
-      "short_i18n": {
-        "en": "Calculate soil bearing capacity using Terzaghi's formula.",
-        "de": "Berechnen Sie die Boden Tragfähigkeit nach Terzaghi.",
-        "fr": "Calculer la capacité portante du sol à l'aide de la formule de Terzaghi.",
-        "es": "Calcular la capacidad portante del suelo usando la fórmula de Terzaghi.",
-        "ar": "حساب قدرة تحمل التربة باستخدام معادلة تيرزاغي."
-      },
-      "long_i18n": {
-        "en": "Calculate soil bearing capacity using Terzaghi's formula.",
-        "de": "Berechnen Sie die Boden Tragfähigkeit nach Terzaghi.",
-        "fr": "Calculer la capacité portante du sol à l'aide de la formule de Terzaghi.",
-        "es": "Calcular la capacidad portante del suelo usando la fórmula de Terzaghi.",
-        "ar": "حساب قدرة تحمل التربة باستخدام معادلة تيرزاغي."
-      }
+      "long": "Calculate soil bearing capacity using Terzaghi's formula."
     }
-  },
-  "title_i18n": {
-    "en": "soil-bearing-capacity-calculator",
-    "de": "Rechner fur Bodentragfähigkeit",
-    "fr": "Calculateur de capacité portante du sol",
-    "es": "Calculadora de capacidad portante del suelo",
-    "ar": "حاسبة قدرة تحمل التربة"
   },
   "sectorSlug": "daily-renovation"
 }

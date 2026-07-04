@@ -8,48 +8,20 @@
     {
       "id": "yillikNetGelir",
       "label": "Annual Net Rental Income (USD)",
-      "label_i18n": {
-        "en": "Annual Net Rental Income (USD)",
-        "de": "Jährliches Netto-Mieteinkommen (USD)",
-        "fr": "Revenu locatif net annuel (USD)",
-        "es": "Ingreso Neto Anual por Alquiler (USD)",
-        "ar": "صافي دخل الإيجار السنوي (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Net rental income after expenses.",
-      "businessContext_i18n": {
-        "en": "Net rental income after expenses.",
-        "de": "Netto-Mieteinkommen nach Ausgaben.",
-        "fr": "Revenu locatif net après dépenses.",
-        "es": "Ingreso neto por alquiler después de gastos.",
-        "ar": "صافي دخل الإيجار بعد المصروفات."
-      }
+      "businessContext": "Net rental income after expenses."
     },
     {
       "id": "mulkDegeri",
       "label": "Property Value (USD)",
-      "label_i18n": {
-        "en": "Property Value (USD)",
-        "de": "Immobilienwert",
-        "fr": "Valeur de la propriété",
-        "es": "Valor de la propiedad",
-        "ar": "قيمة العقار"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Property market value.",
-      "businessContext_i18n": {
-        "en": "Property market value.",
-        "de": "Marktwert der Immobilie.",
-        "fr": "Valeur marchande du bien.",
-        "es": "Valor de mercado de la propiedad.",
-        "ar": "القيمة السوقية للعقار."
-      }
+      "businessContext": "Property market value."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(yillikNetGelir / Math.max(1, mulkDegeri)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Cap Rate (Getiri Ratio)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Cap Rate (Getiri Ratio)",
-        "de": "Kapitalisierungsrate (Getiri Ratio)",
-        "fr": "Taux de capitalisation (Getiri Ratio)",
-        "es": "Tasa de Capitalización (Getiri Ratio)",
-        "ar": "معدل الرسملة (Getiri Ratio)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify all property data with official documents.",
       "Consult a mortgage broker for personalized rates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate property cap rate — unleveraged annual net return.",
-      "long": "Calculate property cap rate — unleveraged annual net return.",
-      "short_i18n": {
-        "en": "Calculate property cap rate — unleveraged annual net return.",
-        "de": "Berechnen Sie die Kapitalisierungsrate der Immobilie — unverschuldete jährliche Nettorendite.",
-        "fr": "Calculer le taux de capitalisation immobilière — rendement net annuel sans effet de levier.",
-        "es": "Calcular la tasa de capitalización de la propiedad — rendimiento neto anual sin apalancamiento.",
-        "ar": "حساب معدل رسملة العقار — العائد السنوي الصافي غير المرفوع."
-      },
-      "long_i18n": {
-        "en": "Calculate property cap rate — unleveraged annual net return.",
-        "de": "Berechnen Sie die Kapitalisierungsrate der Immobilie — unverschuldete jährliche Nettorendite.",
-        "fr": "Calculer le taux de capitalisation immobilière — rendement net annuel sans effet de levier.",
-        "es": "Calcular la tasa de capitalización de la propiedad — rendimiento neto anual sin apalancamiento.",
-        "ar": "حساب معدل رسملة العقار — العائد السنوي الصافي غير المرفوع."
-      }
+      "long": "Calculate property cap rate — unleveraged annual net return."
     }
-  },
-  "title_i18n": {
-    "en": "cap-rate-calculator",
-    "de": "Cap-Rate-Mietrendite-Rechner",
-    "fr": "Calculateur de rendement locatif Cap Rate",
-    "es": "Calculadora de rendimiento de alquiler Cap Rate",
-    "ar": "حاسبة عائد الإيجار Cap Rate"
   },
   "sectorSlug": "daily-renovation"
 }

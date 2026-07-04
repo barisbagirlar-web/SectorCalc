@@ -8,140 +8,56 @@
     {
       "id": "x1",
       "label": "X1",
-      "label_i18n": {
-        "en": "X1",
-        "de": "X1",
-        "fr": "X1",
-        "es": "X1",
-        "ar": "X1"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "X variable.",
-      "businessContext_i18n": {
-        "en": "X variable.",
-        "de": "X-Variable.",
-        "fr": "Variable X.",
-        "es": "Variable X.",
-        "ar": "متغير X."
-      }
+      "businessContext": "X variable."
     },
     {
       "id": "y1",
       "label": "Y1",
-      "label_i18n": {
-        "en": "Y1",
-        "de": "Y1",
-        "fr": "Y1",
-        "es": "Y1",
-        "ar": "Y1"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 2,
       "min": 0,
-      "businessContext": "Y variable.",
-      "businessContext_i18n": {
-        "en": "Y variable.",
-        "de": "Y-Variable.",
-        "fr": "Variable Y.",
-        "es": "Variable Y.",
-        "ar": "متغير Y."
-      }
+      "businessContext": "Y variable."
     },
     {
       "id": "x2",
       "label": "X2",
-      "label_i18n": {
-        "en": "X2",
-        "de": "X2",
-        "fr": "X2",
-        "es": "X2",
-        "ar": "X2"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 2,
       "min": 0,
-      "businessContext": "X variable.",
-      "businessContext_i18n": {
-        "en": "X variable.",
-        "de": "X-Variable.",
-        "fr": "Variable X.",
-        "es": "Variable X.",
-        "ar": "متغير X."
-      }
+      "businessContext": "X variable."
     },
     {
       "id": "y2",
       "label": "Y2",
-      "label_i18n": {
-        "en": "Y2",
-        "de": "Y2",
-        "fr": "Y2",
-        "es": "Y2",
-        "ar": "Y2"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 4,
       "min": 0,
-      "businessContext": "Y variable.",
-      "businessContext_i18n": {
-        "en": "Y variable.",
-        "de": "Y-Variable.",
-        "fr": "Variable Y.",
-        "es": "Variable Y.",
-        "ar": "متغير Y."
-      }
+      "businessContext": "Y variable."
     },
     {
       "id": "x3",
       "label": "X3",
-      "label_i18n": {
-        "en": "X3",
-        "de": "X3",
-        "fr": "X3",
-        "es": "X3",
-        "ar": "X3"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 3,
       "min": 0,
-      "businessContext": "X variable.",
-      "businessContext_i18n": {
-        "en": "X variable.",
-        "de": "X-Variable.",
-        "fr": "Variable X.",
-        "es": "Variable X.",
-        "ar": "متغير X."
-      }
+      "businessContext": "X variable."
     },
     {
       "id": "y3",
       "label": "Y3",
-      "label_i18n": {
-        "en": "Y3",
-        "de": "Y3",
-        "fr": "Y3",
-        "es": "Y3",
-        "ar": "Y3"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 6,
       "min": 0,
-      "businessContext": "Y variable.",
-      "businessContext_i18n": {
-        "en": "Y variable.",
-        "de": "Y-Variable.",
-        "fr": "Variable Y.",
-        "es": "Variable Y.",
-        "ar": "متغير Y."
-      }
+      "businessContext": "Y variable."
     }
   ],
   "validation": {
@@ -160,58 +76,28 @@
     "result": "(3*(x1*y1+x2*y2+x3*y3)-(x1+x2+x3)*(y1+y2+y3))/Math.sqrt(Math.max(0.0001,(3*(x1*x1+x2*x2+x3*x3)-(x1+x2+x3)*(x1+x2+x3))*(3*(y1*y1+y2*y2+y3*y3)-(y1+y2+y3)*(y1+y2+y3))))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "r-value",
     "breakdown": {
       "result": "Korelasyon (r)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Korelasyon (r)",
-        "de": "Korrelation (r)",
-        "fr": "Corrélation (r)",
-        "es": "Correlación (r)",
-        "ar": "معامل الارتباط (r)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "r-value"
+      "result": "r-value"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify statistical assumptions before making decisions.",
       "Use larger sample sizes for better accuracy."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate correlation coefficient and linear regression slope.",
-      "long": "Calculate correlation coefficient and linear regression slope.",
-      "short_i18n": {
-        "en": "Calculate correlation coefficient and linear regression slope.",
-        "de": "Korrelationskoeffizient und lineare Regressionssteigung berechnen.",
-        "fr": "Calculer le coefficient de corrélation et la pente de régression linéaire.",
-        "es": "Calcular el coeficiente de correlación y la pendiente de regresión lineal.",
-        "ar": "حساب معامل الارتباط وميل الانحدار الخطي."
-      },
-      "long_i18n": {
-        "en": "Calculate correlation coefficient and linear regression slope.",
-        "de": "Korrelationskoeffizient und lineare Regressionssteigung berechnen.",
-        "fr": "Calculer le coefficient de corrélation et la pente de régression linéaire.",
-        "es": "Calcular el coeficiente de correlación y la pendiente de regresión lineal.",
-        "ar": "حساب معامل الارتباط وميل الانحدار الخطي."
-      }
+      "long": "Calculate correlation coefficient and linear regression slope."
     }
-  },
-  "title_i18n": {
-    "en": "correlation-regression-calculator",
-    "de": "Korrelationsregressionsrechner",
-    "fr": "Calculateur de Corrélation et Régression",
-    "es": "Calculadora de Correlación y Regresión",
-    "ar": "حاسبة الارتباط والانحدار"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -2,77 +2,35 @@
   "toolName": "customer-acquisition-cost-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "pazarlama",
       "label": "Marketing Spend (USD)",
-      "label_i18n": {
-        "en": "Marketing Spend (USD)",
-        "de": "Marketingausgaben (USD)",
-        "fr": "Dépenses marketing (USD)",
-        "es": "Gasto en Marketing (USD)",
-        "ar": "الإنفاق التسويقي (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Marketing expenses.",
-      "businessContext_i18n": {
-        "en": "Marketing expenses.",
-        "de": "Marketingausgaben.",
-        "fr": "Dépenses marketing.",
-        "es": "Gastos de marketing.",
-        "ar": "المصاريف التسويقية."
-      }
+      "businessContext": "Marketing expenses."
     },
     {
       "id": "satisGideri",
       "label": "Sales Cost (USD)",
-      "label_i18n": {
-        "en": "Sales Cost (USD)",
-        "de": "Kosten fur Haftung und entgangene Verkäufe bei externem Fehler",
-        "fr": "Coût de responsabilité et de perte de ventes dû à un défaut externe",
-        "es": "Costo de responsabilidad y pérdida de ventas por falla externa",
-        "ar": "تكلفة المسؤولية وفقدان المبيعات بسبب الفشل الخارجي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Sales team costs.",
-      "businessContext_i18n": {
-        "en": "Sales team costs.",
-        "de": "Vertriebsteamkosten.",
-        "fr": "Coûts de l'équipe commerciale.",
-        "es": "Costos del equipo de ventas.",
-        "ar": "تكاليف فريق المبيعات."
-      }
+      "businessContext": "Sales team costs."
     },
     {
       "id": "yeniMusteri",
       "label": "New Customers",
-      "label_i18n": {
-        "en": "New Customers",
-        "de": "Neue Kunden",
-        "fr": "Nouveaux clients",
-        "es": "Nuevos Clientes",
-        "ar": "عملاء جدد"
-      },
       "type": "number",
       "unit": "customers",
       "default": 100,
       "min": 0,
-      "businessContext": "New customers acquired.",
-      "businessContext_i18n": {
-        "en": "New customers acquired.",
-        "de": "Neue gewonnene Kunden.",
-        "fr": "Nouveaux clients acquis.",
-        "es": "Nuevos clientes adquiridos.",
-        "ar": "العملاء الجدد المكتسبون."
-      }
+      "businessContext": "New customers acquired."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(pazarlama + satisGideri) / Math.max(1, yeniMusteri)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Musteri Edinim Costi (CAC)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Musteri Edinim Costi (CAC)",
-        "de": "Kundenakquisitionskosten (CAC)",
-        "fr": "Coût d'acquisition client (CAC)",
-        "es": "Costo de Adquisición de Cliente (CAC)",
-        "ar": "تكلفة اكتساب العميل (CAC)"
-      }
+      "result": "Customer Acquisition Cost (CAC)"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate customer acquisition cost (CAC).",
-      "long": "Calculate customer acquisition cost (CAC).",
-      "short_i18n": {
-        "en": "Calculate customer acquisition cost (CAC).",
-        "de": "Kundenakquisitionskosten (CAC) berechnen.",
-        "fr": "Calculer le coût d'acquisition client (CAC).",
-        "es": "Calcular el costo de adquisición de clientes (CAC).",
-        "ar": "احسب تكلفة اكتساب العميل (CAC)."
-      },
-      "long_i18n": {
-        "en": "Calculate customer acquisition cost (CAC).",
-        "de": "Kundenakquisitionskosten (CAC) berechnen.",
-        "fr": "Calculer le coût d'acquisition client (CAC).",
-        "es": "Calcular el costo de adquisición de clientes (CAC).",
-        "ar": "احسب تكلفة اكتساب العميل (CAC)."
-      }
+      "long": "Calculate customer acquisition cost (CAC)."
     }
-  },
-  "title_i18n": {
-    "en": "customer-acquisition-cost-calculator",
-    "de": "Kundenakquisitionskosten CAC Rechner",
-    "fr": "Calculateur de coût d'acquisition client CAC",
-    "es": "Calculadora de costo de adquisición de clientes CAC",
-    "ar": "حاسبة تكلفة اكتساب العميل CAC"
   },
   "sectorSlug": "daily-renovation"
 }

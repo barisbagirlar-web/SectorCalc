@@ -8,72 +8,30 @@
     {
       "id": "momentMagnitudu",
       "label": "Moment Magnitude (Mw)",
-      "label_i18n": {
-        "en": "Moment Magnitude (Mw)",
-        "de": "Momenten-Magnitude (Mw)",
-        "fr": "Magnitude de moment (Mw)",
-        "es": "Magnitud de Momento (Mw)",
-        "ar": "العزم الزلزالي (Mw)"
-      },
       "type": "number",
       "unit": "Mw",
       "default": 7,
       "min": 0,
       "max": 10,
-      "businessContext": "Earthquake moment magnitude.",
-      "businessContext_i18n": {
-        "en": "Earthquake moment magnitude.",
-        "de": "Erdbeben-Momenten-Magnitude.",
-        "fr": "Magnitude de moment sismique.",
-        "es": "Magnitud de momento del terremoto.",
-        "ar": "العزم الزلزالي للزلزال."
-      }
+      "businessContext": "Earthquake moment magnitude."
     },
     {
       "id": "mesafe",
       "label": "Distance from Epicenter (km)",
-      "label_i18n": {
-        "en": "Distance from Epicenter (km)",
-        "de": "Entfernung vom Epizentrum (km)",
-        "fr": "Distance de l'épicentre (km)",
-        "es": "Distancia desde el Epicentro (km)",
-        "ar": "المسافة من مركز الزلزال (km)"
-      },
       "type": "number",
       "unit": "km",
       "default": 50,
       "min": 0,
-      "businessContext": "Distance from epicenter.",
-      "businessContext_i18n": {
-        "en": "Distance from epicenter.",
-        "de": "Entfernung vom Epizentrum.",
-        "fr": "Distance de l'épicentre.",
-        "es": "Distancia desde el epicentro.",
-        "ar": "المسافة من مركز الزلزال."
-      }
+      "businessContext": "Distance from epicenter."
     },
     {
       "id": "zeminKatsayisi",
       "label": "Site Coefficient",
-      "label_i18n": {
-        "en": "Site Coefficient",
-        "de": "Standortkoeffizient",
-        "fr": "Coefficient de site",
-        "es": "Coeficiente de Sitio",
-        "ar": "معامل الموقع"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Soil amplification factor.",
-      "businessContext_i18n": {
-        "en": "Soil amplification factor.",
-        "de": "Bodenverstärkungsfaktor.",
-        "fr": "Facteur d'amplification du sol.",
-        "es": "Factor de amplificación del suelo.",
-        "ar": "عامل تضخيم التربة."
-      }
+      "businessContext": "Soil amplification factor."
     }
   ],
   "validation": {
@@ -86,22 +44,13 @@
     "result": "zeminKatsayisi * Math.exp(0.5 * momentMagnitudu - 2.0 * Math.log(Math.max(1, mesafe + 10)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "g",
     "breakdown": {
       "result": "PGA (g)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "PGA (g)",
-        "de": "PGA (g)",
-        "fr": "PGA (g)",
-        "es": "PGA (g)",
-        "ar": "PGA (غ)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "g"
+      "result": "g"
     },
     "hiddenLossDrivers": [
       "Low SLA indicates service reliability issue.",
@@ -111,36 +60,15 @@
       "Monitor system performance regularly.",
       "Implement redundancy for critical infrastructure."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
-      "long": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
-      "short_i18n": {
-        "en": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
-        "de": "Schätzen Sie die maximale Bodenbeschleunigung (PGA) aus Erdbebenstärke und Entfernung.",
-        "fr": "Estimer l'accélération maximale du sol (PGA) à partir de la magnitude du séisme et de la distance.",
-        "es": "Estimar la aceleración máxima del suelo (PGA) a partir de la magnitud del terremoto y la distancia.",
-        "ar": "تقدير أقصى تسارع أرضي (PGA) من قوة الزلزال والمسافة."
-      },
-      "long_i18n": {
-        "en": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
-        "de": "Schätzen Sie die maximale Bodenbeschleunigung (PGA) aus Erdbebenstärke und Entfernung.",
-        "fr": "Estimer l'accélération maximale du sol (PGA) à partir de la magnitude du séisme et de la distance.",
-        "es": "Estimar la aceleración máxima del suelo (PGA) a partir de la magnitud del terremoto y la distancia.",
-        "ar": "تقدير أقصى تسارع أرضي (PGA) من قوة الزلزال والمسافة."
-      }
+      "long": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance."
     }
-  },
-  "title_i18n": {
-    "en": "earthquake-pga-calculator",
-    "de": "Erdbebenmagnitude-PGA-Rechner",
-    "fr": "Calculateur de magnitude de séisme PGA",
-    "es": "Calculadora de magnitud de terremoto PGA",
-    "ar": "حاسبة حجم الزلزال PGA"
   },
   "sectorSlug": "daily-renovation"
 }

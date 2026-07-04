@@ -8,48 +8,20 @@
     {
       "id": "uretimHacmi",
       "label": "Production Volume (Tons)",
-      "label_i18n": {
-        "en": "Production Volume (Tons)",
-        "de": "Produktionsvolumen (N)",
-        "fr": "Volume de production (N)",
-        "es": "Volumen de producción (N)",
-        "ar": "حجم الإنتاج (N)"
-      },
       "type": "number",
       "unit": "tons",
       "default": 5000,
       "min": 0,
-      "businessContext": "Total production quantity.",
-      "businessContext_i18n": {
-        "en": "Total production quantity.",
-        "de": "Gesamtproduktionsmenge.",
-        "fr": "Quantité totale de production.",
-        "es": "Cantidad total de producción.",
-        "ar": "كمية الإنتاج الإجمالية."
-      }
+      "businessContext": "Total production quantity."
     },
     {
       "id": "tuketilenSu",
       "label": "Water Consumed (m³)",
-      "label_i18n": {
-        "en": "Water Consumed (m³)",
-        "de": "Wasserverbrauch (m³)",
-        "fr": "Eau consommée (m³)",
-        "es": "Agua consumida (m³)",
-        "ar": "المياه المستهلكة (m³)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 15000,
       "min": 0,
-      "businessContext": "Total water used in production.",
-      "businessContext_i18n": {
-        "en": "Total water used in production.",
-        "de": "Gesamtes in der Produktion verwendetes Wasser.",
-        "fr": "Eau totale utilisée dans la production.",
-        "es": "Agua total utilizada en la producción.",
-        "ar": "إجمالي المياه المستخدمة في الإنتاج."
-      }
+      "businessContext": "Total water used in production."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "tuketilenSu / Math.max(0.0001, uretimHacmi)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m3/ton",
     "breakdown": {
       "result": "Su Ayak Izi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Su Ayak Izi",
-        "de": "Wasserfußabdruck",
-        "fr": "Empreinte eau",
-        "es": "Huella Hídrica",
-        "ar": "بصمة المياه"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m3/ton"
+      "result": "m3/ton"
     },
     "hiddenLossDrivers": [
       "High environmental score may reduce operational costs.",
@@ -87,36 +50,15 @@
       "Set improvement targets for each ESG pillar.",
       "Consider carbon offset programs for residual emissions."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate water footprint per unit of production.",
-      "long": "Calculate water footprint per unit of production.",
-      "short_i18n": {
-        "en": "Calculate water footprint per unit of production.",
-        "de": "Berechnen Sie den Wasserfußabdruck pro Produktionseinheit.",
-        "fr": "Calculer l'empreinte eau par unité de production.",
-        "es": "Calcular la huella hídrica por unidad de producción.",
-        "ar": "احسب البصمة المائية لكل وحدة إنتاج."
-      },
-      "long_i18n": {
-        "en": "Calculate water footprint per unit of production.",
-        "de": "Berechnen Sie den Wasserfußabdruck pro Produktionseinheit.",
-        "fr": "Calculer l'empreinte eau par unité de production.",
-        "es": "Calcular la huella hídrica por unidad de producción.",
-        "ar": "احسب البصمة المائية لكل وحدة إنتاج."
-      }
+      "long": "Calculate water footprint per unit of production."
     }
-  },
-  "title_i18n": {
-    "en": "water-footprint-calculator",
-    "de": "Wasserfußabdruck-Rechner",
-    "fr": "Calculateur d'empreinte hydrique",
-    "es": "Calculadora de huella hídrica",
-    "ar": "حاسبة البصمة المائية"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,117 +8,47 @@
     {
       "id": "S",
       "label": "Spot Price (USD)",
-      "label_i18n": {
-        "en": "Spot Price (USD)",
-        "de": "Spotpreis",
-        "fr": "Prix au comptant",
-        "es": "Precio spot",
-        "ar": "السعر الفوري"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Current underlying asset price.",
-      "businessContext_i18n": {
-        "en": "Current underlying asset price.",
-        "de": "Aktueller Preis des Basiswerts.",
-        "fr": "Prix actuel de l'actif sous-jacent.",
-        "es": "Precio actual del activo subyacente.",
-        "ar": "سعر الأصل الأساسي الحالي."
-      }
+      "businessContext": "Current underlying asset price."
     },
     {
       "id": "K",
       "label": "Strike Price (USD)",
-      "label_i18n": {
-        "en": "Strike Price (USD)",
-        "de": "Ausubungspreis",
-        "fr": "Prix d'exercice",
-        "es": "Precio de ejercicio",
-        "ar": "سعر التنفيذ"
-      },
       "type": "number",
       "unit": "USD",
       "default": 110,
       "min": 0,
-      "businessContext": "Option strike price.",
-      "businessContext_i18n": {
-        "en": "Option strike price.",
-        "de": "Ausubungspreis der Option.",
-        "fr": "Prix d'exercice de l'option.",
-        "es": "Precio de ejercicio de la opción.",
-        "ar": "سعر تنفيذ الخيار."
-      }
+      "businessContext": "Option strike price."
     },
     {
       "id": "r",
       "label": "Risk-Free Rate (%)",
-      "label_i18n": {
-        "en": "Risk-Free Rate (%)",
-        "de": "Risikofreier Zinssatz (%)",
-        "fr": "Taux sans risque (%)",
-        "es": "Tasa libre de riesgo (%)",
-        "ar": "معدل الفائدة الخالي من المخاطر (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risk-free interest rate.",
-      "businessContext_i18n": {
-        "en": "Risk-free interest rate.",
-        "de": "Risikofreier Zinssatz.",
-        "fr": "Taux d'intérêt sans risque.",
-        "es": "Tasa de interés libre de riesgo.",
-        "ar": "معدل الفائدة الخالي من المخاطر."
-      }
+      "businessContext": "Risk-free interest rate."
     },
     {
       "id": "t",
       "label": "Time to Maturity (Years)",
-      "label_i18n": {
-        "en": "Time to Maturity (Years)",
-        "de": "Restlaufzeit (Jahre)",
-        "fr": "Temps jusqu'à l'échéance (années)",
-        "es": "Tiempo hasta el vencimiento (años)",
-        "ar": "الوقت حتى الاستحقاق (بالسنوات)"
-      },
       "type": "number",
       "unit": "years",
       "default": 1,
       "min": 0.0001,
-      "businessContext": "Time remaining to expiry.",
-      "businessContext_i18n": {
-        "en": "Time remaining to expiry.",
-        "de": "Verbleibende Zeit bis zum Verfall.",
-        "fr": "Temps restant jusqu'à l'échéance.",
-        "es": "Tiempo restante hasta el vencimiento.",
-        "ar": "الوقت المتبقي حتى تاريخ الاستحقاق."
-      }
+      "businessContext": "Time remaining to expiry."
     },
     {
       "id": "v",
       "label": "Volatility (%)",
-      "label_i18n": {
-        "en": "Volatility (%)",
-        "de": "Volatilität (%)",
-        "fr": "Volatilité (%)",
-        "es": "Volatilidad (%)",
-        "ar": "التقلب (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 30,
       "min": 0,
-      "businessContext": "Annualized volatility.",
-      "businessContext_i18n": {
-        "en": "Annualized volatility.",
-        "de": "Annualisierte Volatilität.",
-        "fr": "Volatilité annualisée.",
-        "es": "Volatilidad anualizada.",
-        "ar": "التقلب السنوي."
-      }
+      "businessContext": "Annualized volatility."
     }
   ],
   "validation": {
@@ -132,58 +62,28 @@
     "result": "S * 0.5 - K * Math.exp(-(r / 100) * t) * 0.5"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Opsiyon Primi (Call)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Opsiyon Primi (Call)",
-        "de": "Option Premium (Call)",
-        "fr": "Prime d'option (Call)",
-        "es": "Prima de la Opción (Call)",
-        "ar": "علاوة الخيار (شراء)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate European call option theoretical price using Black-Scholes.",
-      "long": "Calculate European call option theoretical price using Black-Scholes.",
-      "short_i18n": {
-        "en": "Calculate European call option theoretical price using Black-Scholes.",
-        "de": "Berechnung des theoretischen Preises einer europäischen Call-Option mittels Black-Scholes.",
-        "fr": "Calculer le prix théorique de l'option d'achat européenne à l'aide de Black-Scholes.",
-        "es": "Calcular el precio teórico de una opción de compra europea utilizando Black-Scholes.",
-        "ar": "حساب السعر النظري لخيار الشراء الأوروبي باستخدام بلاك-شولز."
-      },
-      "long_i18n": {
-        "en": "Calculate European call option theoretical price using Black-Scholes.",
-        "de": "Berechnung des theoretischen Preises einer europäischen Call-Option mittels Black-Scholes.",
-        "fr": "Calculer le prix théorique de l'option d'achat européenne à l'aide de Black-Scholes.",
-        "es": "Calcular el precio teórico de una opción de compra europea utilizando Black-Scholes.",
-        "ar": "حساب السعر النظري لخيار الشراء الأوروبي باستخدام بلاك-شولز."
-      }
+      "long": "Calculate European call option theoretical price using Black-Scholes."
     }
-  },
-  "title_i18n": {
-    "en": "black-scholes-calculator",
-    "de": "Black-Scholes-Optionsrechner",
-    "fr": "Calculateur d'options Black-Scholes",
-    "es": "Calculadora de opciones Black-Scholes",
-    "ar": "حاسبة خيارات بلاك-شولز"
   },
   "sectorSlug": "daily-renovation"
 }

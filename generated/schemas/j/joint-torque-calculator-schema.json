@@ -8,48 +8,20 @@
     {
       "id": "eylemsizlikMomenti",
       "label": "Moment of Inertia (kg·m²)",
-      "label_i18n": {
-        "en": "Moment of Inertia (kg·m²)",
-        "de": "Flächenträgheitsmoment (I)",
-        "fr": "Moment d'inertie (I)",
-        "es": "Momento de Inercia (I)",
-        "ar": "عزم القصور الذاتي (I)"
-      },
       "type": "number",
       "unit": "kgm2",
       "default": 5,
       "min": 0,
-      "businessContext": "Inertia about joint.",
-      "businessContext_i18n": {
-        "en": "Inertia about joint.",
-        "de": "Trägheit um das Gelenk.",
-        "fr": "Inertie autour de l'articulation.",
-        "es": "Inercia respecto a la articulación.",
-        "ar": "عزم القصور الذاتي حول المفصل."
-      }
+      "businessContext": "Inertia about joint."
     },
     {
       "id": "acisalIvme",
       "label": "Angular Acceleration (rad/s²)",
-      "label_i18n": {
-        "en": "Angular Acceleration (rad/s²)",
-        "de": "Winkelbeschleunigung (rad/s²)",
-        "fr": "Accélération angulaire (rad/s²)",
-        "es": "Aceleración Angular (rad/s²)",
-        "ar": "التسارع الزاوي (rad/s²)"
-      },
       "type": "number",
       "unit": "rad/s2",
       "default": 2,
       "min": 0,
-      "businessContext": "Target angular acceleration.",
-      "businessContext_i18n": {
-        "en": "Target angular acceleration.",
-        "de": "Zielwinkelbeschleunigung.",
-        "fr": "Accélération angulaire cible.",
-        "es": "Aceleración angular objetivo.",
-        "ar": "التسارع الزاوي المستهدف."
-      }
+      "businessContext": "Target angular acceleration."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "eylemsizlikMomenti * acisalIvme"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "N.m",
     "breakdown": {
       "result": "Eylem Torku"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Eylem Torku",
-        "de": "Betätigungsdrehmoment",
-        "fr": "Action Torque",
-        "es": "Par de Acción",
-        "ar": "عزم الدوران الفعال"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "N.m"
+      "result": "N.m"
     },
     "hiddenLossDrivers": [
       "High asymmetry increases injury risk.",
@@ -87,36 +50,15 @@
       "Balance training for injury prevention.",
       "Use peer review to validate research quality."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate joint torque from moment of inertia and angular acceleration.",
-      "long": "Calculate joint torque from moment of inertia and angular acceleration.",
-      "short_i18n": {
-        "en": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "de": "Berechnen Sie das Gelenkmoment aus Trägheitsmoment und Winkelbeschleunigung.",
-        "fr": "Calculer le couple articulaire à partir du moment d'inertie et de l'accélération angulaire.",
-        "es": "Calcular el torque en la articulación a partir del momento de inercia y la aceleración angular.",
-        "ar": "حساب عزم الدوران المشترك من عزم القصور الذاتي والتسارع الزاوي."
-      },
-      "long_i18n": {
-        "en": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "de": "Berechnen Sie das Gelenkmoment aus Trägheitsmoment und Winkelbeschleunigung.",
-        "fr": "Calculer le couple articulaire à partir du moment d'inertie et de l'accélération angulaire.",
-        "es": "Calcular el torque en la articulación a partir del momento de inercia y la aceleración angular.",
-        "ar": "حساب عزم الدوران المشترك من عزم القصور الذاتي والتسارع الزاوي."
-      }
+      "long": "Calculate joint torque from moment of inertia and angular acceleration."
     }
-  },
-  "title_i18n": {
-    "en": "joint-torque-calculator",
-    "de": "Gelenk-Winkelgeschwindigkeits-Drehmoment-Rechner",
-    "fr": "Calculateur de couple de vitesse angulaire d'articulation",
-    "es": "Calculadora de par de velocidad angular de articulación",
-    "ar": "حاسبة عزم السرعة الزاوية للمفصل"
   },
   "sectorSlug": "daily-renovation"
 }

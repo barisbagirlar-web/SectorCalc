@@ -8,48 +8,20 @@
     {
       "id": "cifBedel",
       "label": "CIF Value (USD)",
-      "label_i18n": {
-        "en": "CIF Value (USD)",
-        "de": "CIF-Wert (USD)",
-        "fr": "Valeur CIF (USD)",
-        "es": "Valor CIF (USD)",
-        "ar": "قيمة CIF (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Cost, insurance, freight inclusive value.",
-      "businessContext_i18n": {
-        "en": "Cost, insurance, freight inclusive value.",
-        "de": "Kosten-, Versicherungs- und Fracht-inklusiver Wert.",
-        "fr": "Valeur incluant le coût, l'assurance et le fret.",
-        "es": "Valor que incluye costo, seguro y flete.",
-        "ar": "القيمة شاملة التكلفة والتأمين والشحن."
-      }
+      "businessContext": "Cost, insurance, freight inclusive value."
     },
     {
       "id": "gumrukOrani",
       "label": "Customs Duty Rate (%)",
-      "label_i18n": {
-        "en": "Customs Duty Rate (%)",
-        "de": "Zollsatz (%)",
-        "fr": "Taux de droit de douane (%)",
-        "es": "Tasa de Arancel Aduanero (%)",
-        "ar": "نسبة الرسوم الجمركية (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "HS code based duty rate.",
-      "businessContext_i18n": {
-        "en": "HS code based duty rate.",
-        "de": "HS-Code-basierter Zollsatz.",
-        "fr": "Taux de droit basé sur le code SH.",
-        "es": "Tasa arancelaria basada en el código SA.",
-        "ar": "نسبة الرسوم بناءً على رمز النظام المنسق."
-      }
+      "businessContext": "HS code based duty rate."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "cifBedel * (gumrukOrani / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Customs Duty"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Customs Duty",
-        "de": "Zollgebuhr",
-        "fr": "Droit de douane",
-        "es": "Impuesto de Aduana",
-        "ar": "الرسوم الجمركية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Factor in return rates and chargebacks.",
       "Review platform fee schedules regularly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate customs duty on imports.",
-      "long": "Calculate customs duty on imports.",
-      "short_i18n": {
-        "en": "Calculate customs duty on imports.",
-        "de": "Berechnen Sie den Zoll auf Importe.",
-        "fr": "Calculer les droits de douane sur les importations.",
-        "es": "Calcular el arancel de importación sobre las importaciones.",
-        "ar": "احسب الرسوم الجمركية على الواردات."
-      },
-      "long_i18n": {
-        "en": "Calculate customs duty on imports.",
-        "de": "Berechnen Sie den Zoll auf Importe.",
-        "fr": "Calculer les droits de douane sur les importations.",
-        "es": "Calcular el arancel de importación sobre las importaciones.",
-        "ar": "احسب الرسوم الجمركية على الواردات."
-      }
+      "long": "Calculate customs duty on imports."
     }
-  },
-  "title_i18n": {
-    "en": "customs-duty-calculator",
-    "de": "Zollgebuhrenrechner",
-    "fr": "Calculateur de droits de douane",
-    "es": "Calculadora de derechos de aduana",
-    "ar": "حاسبة الرسوم الجمركية"
   },
   "sectorSlug": "daily-renovation"
 }

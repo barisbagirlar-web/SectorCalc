@@ -8,49 +8,21 @@
     {
       "id": "bitSayisi",
       "label": "Number of Bits (N)",
-      "label_i18n": {
-        "en": "Number of Bits (N)",
-        "de": "Anzahl der Bits (N)",
-        "fr": "Nombre de bits (N)",
-        "es": "Número de Bits (N)",
-        "ar": "عدد البتات (N)"
-      },
       "type": "number",
       "unit": "bits",
       "default": 12,
       "min": 1,
       "max": 32,
-      "businessContext": "ADC resolution bits.",
-      "businessContext_i18n": {
-        "en": "ADC resolution bits.",
-        "de": "ADC-Auflosungsbits.",
-        "fr": "Bits de résolution de l'ADC.",
-        "es": "Bits de resolución del ADC.",
-        "ar": "بتات دقة محول ADC."
-      }
+      "businessContext": "ADC resolution bits."
     },
     {
       "id": "refVoltaj",
       "label": "Reference Voltage (V)",
-      "label_i18n": {
-        "en": "Reference Voltage (V)",
-        "de": "Referenzspannung (V)",
-        "fr": "Tension de référence (V)",
-        "es": "Tensión de Referencia (V)",
-        "ar": "الجهد المرجعي (V)"
-      },
       "type": "number",
       "unit": "V",
       "default": 5,
       "min": 0,
-      "businessContext": "ADC reference voltage.",
-      "businessContext_i18n": {
-        "en": "ADC reference voltage.",
-        "de": "ADC-Referenzspannung.",
-        "fr": "Tension de référence de l'ADC.",
-        "es": "Tensión de referencia del ADC.",
-        "ar": "الجهد المرجعي لمحول ADC."
-      }
+      "businessContext": "ADC reference voltage."
     }
   ],
   "validation": {
@@ -64,31 +36,15 @@
     "result": "20 * Math.log10(Math.max(1, Math.pow(2, bitSayisi)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "dB",
     "breakdown": {
       "LSB": "LSB (V)",
       "result": "Dinamik Aralik (dB)"
     },
-    "breakdown_i18n": {
-      "LSB": {
-        "en": "LSB (V)",
-        "de": "NSB (V)",
-        "fr": "LSB (V)",
-        "es": "LSB (V)",
-        "ar": "البت الأقل أهمية (V)"
-      },
-      "result": {
-        "en": "Dinamik Aralik (dB)",
-        "de": "Dynamikbereich (dB)",
-        "fr": "Plage dynamique (dB)",
-        "es": "Rango Dinámico (dB)",
-        "ar": "النطاق الديناميكي (dB)"
-      }
-    },
     "breakdownUnits": {
       "LSB": "dB",
-      "sonuc": "dB"
+      "result": "dB"
     },
     "hiddenLossDrivers": [
       "Low Q factor indicates broader frequency response."
@@ -97,36 +53,15 @@
       "Verify component tolerances affect circuit performance.",
       "Use proper safety equipment for high voltage/current work."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate ADC resolution LSB and dynamic range.",
-      "long": "Calculate ADC resolution LSB and dynamic range.",
-      "short_i18n": {
-        "en": "Calculate ADC resolution LSB and dynamic range.",
-        "de": "Berechnen Sie die ADC-Auflosung LSB und den Dynamikbereich.",
-        "fr": "Calculer la résolution LSB et la plage dynamique de l'ADC.",
-        "es": "Calcular la resolución LSB y el rango dinámico del ADC.",
-        "ar": "احسب دقة LSB لمحول ADC والنطاق الديناميكي."
-      },
-      "long_i18n": {
-        "en": "Calculate ADC resolution LSB and dynamic range.",
-        "de": "Berechnen Sie die ADC-Auflosung LSB und den Dynamikbereich.",
-        "fr": "Calculer la résolution LSB et la plage dynamique de l'ADC.",
-        "es": "Calcular la resolución LSB y el rango dinámico del ADC.",
-        "ar": "احسب دقة LSB لمحول ADC والنطاق الديناميكي."
-      }
+      "long": "Calculate ADC resolution LSB and dynamic range."
     }
-  },
-  "title_i18n": {
-    "en": "adc-resolution-calculator",
-    "de": "ADC-Auflosungsrechner",
-    "fr": "Calculateur de résolution ADC",
-    "es": "Calculadora de resolución ADC",
-    "ar": "حاسبة دقة ADC"
   },
   "sectorSlug": "daily-renovation"
 }

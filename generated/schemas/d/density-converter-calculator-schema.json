@@ -8,48 +8,20 @@
     {
       "id": "value",
       "label": "Density Value",
-      "label_i18n": {
-        "en": "Density Value",
-        "de": "Dichtewert",
-        "fr": "Valeur de densité",
-        "es": "Valor de Densidad",
-        "ar": "قيمة الكثافة"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Density value to convert.",
-      "businessContext_i18n": {
-        "en": "Density value to convert.",
-        "de": "Zu konvertierender Dichtewert.",
-        "fr": "Valeur de densité à convertir.",
-        "es": "Valor de densidad a convertir.",
-        "ar": "قيمة الكثافة المراد تحويلها."
-      }
+      "businessContext": "Density value to convert."
     },
     {
       "id": "kaynak",
       "label": "Source Unit (kgm3/gcm3/lbft3)",
-      "label_i18n": {
-        "en": "Source Unit (kgm3/gcm3/lbft3)",
-        "de": "Quelleinheit",
-        "fr": "Unité source",
-        "es": "Unidad de origen",
-        "ar": "وحدة المصدر"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Unit of input value.",
-      "businessContext_i18n": {
-        "en": "Unit of input value.",
-        "de": "Einheit des Eingabewerts.",
-        "fr": "Unité de la valeur d'entrée.",
-        "es": "Unidad del valor de entrada.",
-        "ar": "وحدة القيمة المدخلة."
-      }
+      "businessContext": "Unit of input value."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "kaynak === 1 ? value : kaynak === 2 ? value * 1000 : value * 16.018"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kg/m3",
     "breakdown": {
       "result": "Dmostsity (kg/m³)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Dmostsity (kg/m³)",
-        "de": "Dichte (kg/m³)",
-        "fr": "Densité (kg/m³)",
-        "es": "Densidad (kg/m³)",
-        "ar": "الكثافة (kg/m³)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kg/m3"
+      "result": "kg/m3"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Use calibrated equipment for measurements.",
       "Consider temperature effects on material properties."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Convert density values from various units to kg/m³.",
-      "long": "Convert density values from various units to kg/m³.",
-      "short_i18n": {
-        "en": "Convert density values from various units to kg/m³.",
-        "de": "Konvertieren Sie Dichtewerte von verschiedenen Einheiten in kg/m³.",
-        "fr": "Convertir des valeurs de densité de diverses unités en kg/m³.",
-        "es": "Convertir valores de densidad de varias unidades a kg/m³.",
-        "ar": "حول قيم الكثافة من وحدات مختلفة إلى kg/m³."
-      },
-      "long_i18n": {
-        "en": "Convert density values from various units to kg/m³.",
-        "de": "Konvertieren Sie Dichtewerte von verschiedenen Einheiten in kg/m³.",
-        "fr": "Convertir des valeurs de densité de diverses unités en kg/m³.",
-        "es": "Convertir valores de densidad de varias unidades a kg/m³.",
-        "ar": "حول قيم الكثافة من وحدات مختلفة إلى kg/m³."
-      }
+      "long": "Convert density values from various units to kg/m³."
     }
-  },
-  "title_i18n": {
-    "en": "density-converter-calculator",
-    "de": "Dichteumrechner",
-    "fr": "Convertisseur de densité",
-    "es": "Densidad Convertidor",
-    "ar": "محول الكثافة"
   },
   "sectorSlug": "ecommerce"
 }

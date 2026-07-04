@@ -8,48 +8,20 @@
     {
       "id": "force",
       "label": "Axial Force (N)",
-      "label_i18n": {
-        "en": "Axial Force (N)",
-        "de": "Axialkraft (N)",
-        "fr": "Force axiale (N)",
-        "es": "Fuerza Axial (N)",
-        "ar": "القوة المحورية (N)"
-      },
       "type": "number",
       "unit": "N",
       "default": 50000,
       "min": 0,
-      "businessContext": "Force perpendicular to section.",
-      "businessContext_i18n": {
-        "en": "Force perpendicular to section.",
-        "de": "Kraft senkrecht zum Querschnitt.",
-        "fr": "Force perpendiculaire à la section.",
-        "es": "Fuerza perpendicular a la sección.",
-        "ar": "القوة العمودية على المقطع."
-      }
+      "businessContext": "Force perpendicular to section."
     },
     {
       "id": "area",
       "label": "Cross-Sectional Area (m²)",
-      "label_i18n": {
-        "en": "Cross-Sectional Area (m²)",
-        "de": "Querschnittsfläche",
-        "fr": "Aire de la section transversale",
-        "es": "Área de la sección transversal",
-        "ar": "مساحة المقطع العرضي"
-      },
       "type": "number",
       "unit": "m2",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Area over which force acts.",
-      "businessContext_i18n": {
-        "en": "Area over which force acts.",
-        "de": "Fläche, auf die die Kraft wirkt.",
-        "fr": "Surface sur laquelle la force agit.",
-        "es": "Área sobre la que actúa la fuerza.",
-        "ar": "المساحة التي تؤثر عليها القوة."
-      }
+      "businessContext": "Area over which force acts."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "force / Math.max(0.0001, area)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Normal Gerilme (σ)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Normal Gerilme (σ)",
-        "de": "Normalspannung (σ)",
-        "fr": "Contrainte normale (σ)",
-        "es": "Esfuerzo normal (σ)",
-        "ar": "الإجهاد الطبيعي (σ)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate normal stress as force divided by cross-sectional area.",
-      "long": "Calculate normal stress as force divided by cross-sectional area.",
-      "short_i18n": {
-        "en": "Calculate normal stress as force divided by cross-sectional area.",
-        "de": "Normalspannung als Kraft geteilt durch Querschnittsfläche berechnen.",
-        "fr": "Calculer la contrainte normale comme la force divisée par la section transversale.",
-        "es": "Calcular el esfuerzo normal como fuerza dividida por el área de la sección transversal.",
-        "ar": "احسب الإجهاد الطبيعي كقوة مقسومة على مساحة المقطع العرضي."
-      },
-      "long_i18n": {
-        "en": "Calculate normal stress as force divided by cross-sectional area.",
-        "de": "Normalspannung als Kraft geteilt durch Querschnittsfläche berechnen.",
-        "fr": "Calculer la contrainte normale comme la force divisée par la section transversale.",
-        "es": "Calcular el esfuerzo normal como fuerza dividida por el área de la sección transversal.",
-        "ar": "احسب الإجهاد الطبيعي كقوة مقسومة على مساحة المقطع العرضي."
-      }
+      "long": "Calculate normal stress as force divided by cross-sectional area."
     }
-  },
-  "title_i18n": {
-    "en": "normal-stress-force-area-calculator",
-    "de": "Spannungsrechner",
-    "fr": "Calculateur de contrainte",
-    "es": "Calculadora de tensión",
-    "ar": "حاسبة الإجهاد"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,48 +8,20 @@
     {
       "id": "sicakKaynak",
       "label": "Hot Reservoir (K)",
-      "label_i18n": {
-        "en": "Hot Reservoir (K)",
-        "de": "Heißes Reservoir (K)",
-        "fr": "Réservoir chaud (K)",
-        "es": "Reservorio Caliente (K)",
-        "ar": "المستودع الساخن (K)"
-      },
       "type": "number",
       "unit": "K",
       "default": 500,
       "min": 0,
-      "businessContext": "Heat source temperature.",
-      "businessContext_i18n": {
-        "en": "Heat source temperature.",
-        "de": "Temperatur der Wärmequelle.",
-        "fr": "Température de la source de chaleur.",
-        "es": "Temperatura de la fuente de calor.",
-        "ar": "درجة حرارة مصدر الحرارة."
-      }
+      "businessContext": "Heat source temperature."
     },
     {
       "id": "sogukKaynak",
       "label": "Cold Reservoir (K)",
-      "label_i18n": {
-        "en": "Cold Reservoir (K)",
-        "de": "Kaltes Reservoir (K)",
-        "fr": "Réservoir froid (K)",
-        "es": "Reservorio Frío (K)",
-        "ar": "المستودع البارد (K)"
-      },
       "type": "number",
       "unit": "K",
       "default": 300,
       "min": 0,
-      "businessContext": "Heat sink temperature.",
-      "businessContext_i18n": {
-        "en": "Heat sink temperature.",
-        "de": "Temperatur der Wärmesenke.",
-        "fr": "Température du puits de chaleur.",
-        "es": "Temperatura del sumidero de calor.",
-        "ar": "درجة حرارة مصرف الحرارة."
-      }
+      "businessContext": "Heat sink temperature."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "1 - (sogukKaynak / Math.max(0.0001, sicakKaynak))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Carnot Verimi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Carnot Verimi",
-        "de": "Carnot-Wirkungsgrad",
-        "fr": "Rendement de Carnot",
-        "es": "Rendimiento de Carnot",
-        "ar": "كفاءة كارنو"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [
       "Low SNR indicates poor signal quality.",
@@ -87,36 +50,15 @@
       "Use proper shielding for sensitive measurements.",
       "Consider efficiency losses in energy calculations."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate Carnot efficiency of an ideal heat engine.",
-      "long": "Calculate Carnot efficiency of an ideal heat engine.",
-      "short_i18n": {
-        "en": "Calculate Carnot efficiency of an ideal heat engine.",
-        "de": "Berechnen Sie den Carnot-Wirkungsgrad einer idealen Wärmekraftmaschine.",
-        "fr": "Calculer le rendement de Carnot d'un moteur thermique idéal.",
-        "es": "Calcular la eficiencia de Carnot de un motor térmico ideal.",
-        "ar": "احسب كفاءة كارنو لمحرك حراري مثالي."
-      },
-      "long_i18n": {
-        "en": "Calculate Carnot efficiency of an ideal heat engine.",
-        "de": "Berechnen Sie den Carnot-Wirkungsgrad einer idealen Wärmekraftmaschine.",
-        "fr": "Calculer le rendement de Carnot d'un moteur thermique idéal.",
-        "es": "Calcular la eficiencia de Carnot de un motor térmico ideal.",
-        "ar": "احسب كفاءة كارنو لمحرك حراري مثالي."
-      }
+      "long": "Calculate Carnot efficiency of an ideal heat engine."
     }
-  },
-  "title_i18n": {
-    "en": "carnot-efficiency-calculator",
-    "de": "Carnot-Wirkungsgradrechner",
-    "fr": "Calculateur d'efficacité de Carnot",
-    "es": "Calculadora de eficiencia de Carnot",
-    "ar": "حاسبة كفاءة كارنو"
   },
   "sectorSlug": "daily-renovation"
 }

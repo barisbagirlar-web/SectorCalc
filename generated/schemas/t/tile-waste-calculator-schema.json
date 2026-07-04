@@ -2,54 +2,26 @@
   "toolName": "tile-waste-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alanEn",
       "label": "Room Width (m)",
-      "label_i18n": {
-        "en": "Room Width (m)",
-        "de": "Raumbreite",
-        "fr": "Largeur de la pièce",
-        "es": "Ancho de la Habitación",
-        "ar": "عرض الغرفة"
-      },
       "type": "number",
       "unit": "m",
       "default": 4.2,
       "min": 0,
-      "businessContext": "Room width.",
-      "businessContext_i18n": {
-        "en": "Room width.",
-        "de": "Raumbreite.",
-        "fr": "Largeur de la pièce.",
-        "es": "Ancho de la habitación.",
-        "ar": "عرض الغرفة."
-      }
+      "businessContext": "Room width."
     },
     {
       "id": "fayansEn",
       "label": "Tile Width (m)",
-      "label_i18n": {
-        "en": "Tile Width (m)",
-        "de": "Fliesenbreite",
-        "fr": "Largeur du carreau",
-        "es": "Ancho de la baldosa",
-        "ar": "عرض البلاطة"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.6,
       "min": 0,
-      "businessContext": "Tile width.",
-      "businessContext_i18n": {
-        "en": "Tile width.",
-        "de": "Fliesenbreite.",
-        "fr": "Largeur du carreau.",
-        "es": "Ancho del azulejo.",
-        "ar": "عرض البلاطة."
-      }
+      "businessContext": "Tile width."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(alanEn % fayansEn) / Math.max(0.0001, fayansEn) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Kesim Scrap Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Kesim Scrap Ratio",
-        "de": "Verschnittanteil",
-        "fr": "Taux de déchet de coupe",
-        "es": "Tasa de Desperdicio de Corte",
-        "ar": "نسبة الفاقد في القطع"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate tile cutting waste ratio for layout optimization.",
-      "long": "Calculate tile cutting waste ratio for layout optimization.",
-      "short_i18n": {
-        "en": "Calculate tile cutting waste ratio for layout optimization.",
-        "de": "Berechnen Sie den Verschnittanteil bei der Fliesenverlegung zur Layoutoptimierung.",
-        "fr": "Calculer le taux de déchet de coupe de carrelage pour l'optimisation de la disposition.",
-        "es": "Calcular la tasa de desperdicio de corte de azulejos para optimización de diseño.",
-        "ar": "احسب نسبة نفايات قطع البلاط لتحسين التخطيط."
-      },
-      "long_i18n": {
-        "en": "Calculate tile cutting waste ratio for layout optimization.",
-        "de": "Berechnen Sie den Verschnittanteil bei der Fliesenverlegung zur Layoutoptimierung.",
-        "fr": "Calculer le taux de déchet de coupe de carrelage pour l'optimisation de la disposition.",
-        "es": "Calcular la tasa de desperdicio de corte de azulejos para optimización de diseño.",
-        "ar": "احسب نسبة نفايات قطع البلاط لتحسين التخطيط."
-      }
+      "long": "Calculate tile cutting waste ratio for layout optimization."
     }
-  },
-  "title_i18n": {
-    "en": "tile-waste-calculator",
-    "de": "Fliesenverlegungsrechner",
-    "fr": "Calculateur de disposition de carreaux",
-    "es": "Calculadora de disposición de baldosas",
-    "ar": "حاسبة تخطيط البلاط"
   },
   "sectorSlug": "daily-renovation"
 }

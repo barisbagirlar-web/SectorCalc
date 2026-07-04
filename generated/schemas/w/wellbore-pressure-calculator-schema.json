@@ -8,48 +8,20 @@
     {
       "id": "dikeyDerinlik",
       "label": "Vertical Depth (m)",
-      "label_i18n": {
-        "en": "Vertical Depth (m)",
-        "de": "Vertikale Tiefe (m)",
-        "fr": "Profondeur verticale (m)",
-        "es": "Profundidad vertical (m)",
-        "ar": "العمق الرأسي (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 3000,
       "min": 0,
-      "businessContext": "True vertical depth.",
-      "businessContext_i18n": {
-        "en": "True vertical depth.",
-        "de": "Wahre vertikale Tiefe.",
-        "fr": "Profondeur verticale réelle.",
-        "es": "Profundidad vertical verdadera.",
-        "ar": "العمق الرأسي الحقيقي."
-      }
+      "businessContext": "True vertical depth."
     },
     {
       "id": "camurYogunlugu",
       "label": "Mud Density (kg/m³)",
-      "label_i18n": {
-        "en": "Mud Density (kg/m³)",
-        "de": "Schlammdichte (kg/m³)",
-        "fr": "Densité de la boue (kg/m³)",
-        "es": "Densidad del lodo (kg/m³)",
-        "ar": "كثافة الطين (kg/m³)"
-      },
       "type": "number",
       "unit": "kg/m3",
       "default": 1500,
       "min": 0,
-      "businessContext": "Mud weight.",
-      "businessContext_i18n": {
-        "en": "Mud weight.",
-        "de": "Schlammgewicht.",
-        "fr": "Poids de la boue.",
-        "es": "Peso del lodo.",
-        "ar": "وزن الطين."
-      }
+      "businessContext": "Mud weight."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "(camurYogunlugu * 9.81 * dikeyDerinlik) / 1000000"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "MPa",
     "breakdown": {
       "result": "Hidrostatik Pressure"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Hidrostatik Pressure",
-        "de": "Hydrostatischer Druck",
-        "fr": "Pression hydrostatique",
-        "es": "Presión hidrostática",
-        "ar": "الضغط الهيدروستاتيكي"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "MPa"
+      "result": "MPa"
     },
     "hiddenLossDrivers": [
       "Low SLA indicates service reliability issue.",
@@ -87,36 +50,15 @@
       "Monitor system performance regularly.",
       "Implement redundancy for critical infrastructure."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate hydrostatic pressure of mud column at well depth.",
-      "long": "Calculate hydrostatic pressure of mud column at well depth.",
-      "short_i18n": {
-        "en": "Calculate hydrostatic pressure of mud column at well depth.",
-        "de": "Berechnen Sie den hydrostatischen Druck der Schlammspalte in der Bohrtiefe.",
-        "fr": "Calculer la pression hydrostatique de la colonne de boue à la profondeur du puits.",
-        "es": "Calcular la presión hidrostática de la columna de lodo a la profundidad del pozo.",
-        "ar": "احسب الضغط الهيدروستاتيكي لعمود الطين عند عمق البئر."
-      },
-      "long_i18n": {
-        "en": "Calculate hydrostatic pressure of mud column at well depth.",
-        "de": "Berechnen Sie den hydrostatischen Druck der Schlammspalte in der Bohrtiefe.",
-        "fr": "Calculer la pression hydrostatique de la colonne de boue à la profondeur du puits.",
-        "es": "Calcular la presión hidrostática de la columna de lodo a la profundidad del pozo.",
-        "ar": "احسب الضغط الهيدروستاتيكي لعمود الطين عند عمق البئر."
-      }
+      "long": "Calculate hydrostatic pressure of mud column at well depth."
     }
-  },
-  "title_i18n": {
-    "en": "wellbore-pressure-calculator",
-    "de": "Bohrlochdruck-Rechner",
-    "fr": "Calculateur de pression de puits de forage",
-    "es": "Calculadora de presión de pozo de perforación",
-    "ar": "حاسبة ضغط بئر الحفر"
   },
   "sectorSlug": "daily-renovation"
 }

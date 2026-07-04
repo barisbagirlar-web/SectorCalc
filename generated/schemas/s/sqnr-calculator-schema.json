@@ -8,26 +8,12 @@
     {
       "id": "bitSayisi",
       "label": "Number of Bits (N)",
-      "label_i18n": {
-        "en": "Number of Bits (N)",
-        "de": "Anzahl der Bits (N)",
-        "fr": "Nombre de bits (N)",
-        "es": "Número de Bits (N)",
-        "ar": "عدد البتات (N)"
-      },
       "type": "number",
       "unit": "bits",
       "default": 16,
       "min": 1,
       "max": 32,
-      "businessContext": "ADC resolution.",
-      "businessContext_i18n": {
-        "en": "ADC resolution.",
-        "de": "ADC-Auflosung.",
-        "fr": "Résolution du CAN.",
-        "es": "Resolución del ADC.",
-        "ar": "دقة المحول التناظري الرقمي."
-      }
+      "businessContext": "ADC resolution."
     }
   ],
   "validation": {
@@ -40,22 +26,13 @@
     "result": "6.02 * bitSayisi + 1.76"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "dB",
     "breakdown": {
       "result": "SQNR"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "SQNR",
-        "de": "SQNR (Signal-Quantisierungs-Rausch-Verhältnis)",
-        "fr": "Rapport signal sur bruit de quantification (SQNR)",
-        "es": "SQNR",
-        "ar": "نسبة الإشارة إلى ضوضاء التكميم (SQNR)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "dB"
+      "result": "dB"
     },
     "hiddenLossDrivers": [
       "Low SNR indicates poor signal quality.",
@@ -65,36 +42,15 @@
       "Use proper shielding for sensitive measurements.",
       "Consider efficiency losses in energy calculations."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
-      "long": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
-      "short_i18n": {
-        "en": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
-        "de": "Berechnen Sie das theoretische SQNR (Signal-zu-Quantisierungsrausch-Verhältnis).",
-        "fr": "Calculer le SQNR théorique (rapport signal sur bruit de quantification).",
-        "es": "Calcular la SQNR teórica (relación señal-ruido de cuantificación).",
-        "ar": "احسب نسبة SQNR النظرية (نسبة الإشارة إلى ضوضاء التكميم)."
-      },
-      "long_i18n": {
-        "en": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
-        "de": "Berechnen Sie das theoretische SQNR (Signal-zu-Quantisierungsrausch-Verhältnis).",
-        "fr": "Calculer le SQNR théorique (rapport signal sur bruit de quantification).",
-        "es": "Calcular la SQNR teórica (relación señal-ruido de cuantificación).",
-        "ar": "احسب نسبة SQNR النظرية (نسبة الإشارة إلى ضوضاء التكميم)."
-      }
+      "long": "Calculate theoretical SQNR (signal-to-quantization-noise ratio)."
     }
-  },
-  "title_i18n": {
-    "en": "sqnr-calculator",
-    "de": "Quantisierungsrausch-SQNR-Rechner",
-    "fr": "Calculateur SQNR de bruit de quantification",
-    "es": "Calculadora SQNR de ruido de cuantificación",
-    "ar": "حاسبة SQNR لضوضاء التكميم"
   },
   "sectorSlug": "daily-renovation"
 }

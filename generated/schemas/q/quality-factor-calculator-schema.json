@@ -8,48 +8,20 @@
     {
       "id": "rezonansFrekans",
       "label": "Resonant Frequency (Hz)",
-      "label_i18n": {
-        "en": "Resonant Frequency (Hz)",
-        "de": "Resonanzfrequenz (Hz)",
-        "fr": "Fréquence de résonance (Hz)",
-        "es": "Frecuencia de Resonancia (Hz)",
-        "ar": "تردد الرنين (Hz)"
-      },
       "type": "number",
       "unit": "Hz",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Circuit resonant frequency.",
-      "businessContext_i18n": {
-        "en": "Circuit resonant frequency.",
-        "de": "Resonanzfrequenz des Schwingkreises.",
-        "fr": "Fréquence de résonance du circuit.",
-        "es": "Frecuencia de resonancia del circuito.",
-        "ar": "تردد رنين الدائرة."
-      }
+      "businessContext": "Circuit resonant frequency."
     },
     {
       "id": "bantGenislik",
       "label": "Bandwidth (Hz)",
-      "label_i18n": {
-        "en": "Bandwidth (Hz)",
-        "de": "Bandbreite",
-        "fr": "Largeur de bande",
-        "es": "Ancho de banda",
-        "ar": "عرض النطاق"
-      },
       "type": "number",
       "unit": "Hz",
       "default": 20000,
       "min": 0,
-      "businessContext": "-3 dB bandwidth.",
-      "businessContext_i18n": {
-        "en": "-3 dB bandwidth.",
-        "de": "-3-dB-Bandbreite.",
-        "fr": "Bande passante à -3 dB.",
-        "es": "Ancho de banda de -3 dB.",
-        "ar": "عرض النطاق عند -3 dB."
-      }
+      "businessContext": "-3 dB bandwidth."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "rezonansFrekans / Math.max(0.0001, bantGenislik)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Q",
     "breakdown": {
-      "result": "Kalite Faktoru (Q)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Kalite Faktoru (Q)",
-        "de": "Gutefaktor (Q)",
-        "fr": "Facteur de qualité (Q)",
-        "es": "Factor de Calidad (Q)",
-        "ar": "عامل الجودة (Q)"
-      }
+      "result": "Quality Factor (Q)"
     },
     "breakdownUnits": {
-      "sonuc": "Q"
+      "result": "Q"
     },
     "hiddenLossDrivers": [
       "Low SNR indicates poor signal quality.",
@@ -87,36 +50,15 @@
       "Use proper shielding for sensitive measurements.",
       "Consider efficiency losses in energy calculations."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate resonant circuit quality factor (Q).",
-      "long": "Calculate resonant circuit quality factor (Q).",
-      "short_i18n": {
-        "en": "Calculate resonant circuit quality factor (Q).",
-        "de": "Berechnen Sie den Gutefaktor (Q) eines Schwingkreises.",
-        "fr": "Calculer le facteur de qualité (Q) du circuit résonant.",
-        "es": "Calcular el factor de calidad del circuito resonante (Q).",
-        "ar": "احسب عامل الجودة لدائرة الرنين (Q)."
-      },
-      "long_i18n": {
-        "en": "Calculate resonant circuit quality factor (Q).",
-        "de": "Berechnen Sie den Gutefaktor (Q) eines Schwingkreises.",
-        "fr": "Calculer le facteur de qualité (Q) du circuit résonant.",
-        "es": "Calcular el factor de calidad del circuito resonante (Q).",
-        "ar": "احسب عامل الجودة لدائرة الرنين (Q)."
-      }
+      "long": "Calculate resonant circuit quality factor (Q)."
     }
-  },
-  "title_i18n": {
-    "en": "quality-factor-calculator",
-    "de": "Gutefaktor Q Rechner",
-    "fr": "Calculateur de Facteur de Qualité Q",
-    "es": "Calculadora de Factor de Calidad Q",
-    "ar": "حاسبة عامل الجودة Q"
   },
   "sectorSlug": "daily-renovation"
 }

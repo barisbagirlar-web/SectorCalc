@@ -8,71 +8,29 @@
     {
       "id": "load",
       "label": "Applied Load (N)",
-      "label_i18n": {
-        "en": "Applied Load (N)",
-        "de": "Angewandte Last",
-        "fr": "Charge appliquée",
-        "es": "Carga Aplicada",
-        "ar": "الحمل المطبق"
-      },
       "type": "number",
       "unit": "N",
       "default": 50000,
       "min": 0,
-      "businessContext": "Force on weld.",
-      "businessContext_i18n": {
-        "en": "Force on weld.",
-        "de": "Kraft auf die Schweißnaht.",
-        "fr": "Force sur la soudure.",
-        "es": "Fuerza sobre la soldadura.",
-        "ar": "القوة على اللحام."
-      }
+      "businessContext": "Force on weld."
     },
     {
       "id": "kaynakBoyu",
       "label": "Weld Length (m)",
-      "label_i18n": {
-        "en": "Weld Length (m)",
-        "de": "Schweißnahtlänge",
-        "fr": "Longueur de soudure",
-        "es": "Longitud de soldadura",
-        "ar": "طول اللحام"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Weld seam length.",
-      "businessContext_i18n": {
-        "en": "Weld seam length.",
-        "de": "Schweißnahtlänge.",
-        "fr": "Longueur du cordon de soudure.",
-        "es": "Longitud del cordón de soldadura.",
-        "ar": "طول خط اللحام."
-      }
+      "businessContext": "Weld seam length."
     },
     {
       "id": "kaynakGerilmesi",
       "label": "Allowable Weld Stress (Pa)",
-      "label_i18n": {
-        "en": "Allowable Weld Stress (Pa)",
-        "de": "Zulässige Schweißspannung (Pa)",
-        "fr": "Contrainte de soudure admissible (Pa)",
-        "es": "Esfuerzo Admisible de Soldadura (Pa)",
-        "ar": "إجهاد اللحام المسموح به (Pa)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 120000000,
       "min": 0,
-      "businessContext": "Weld metal allowable stress.",
-      "businessContext_i18n": {
-        "en": "Weld metal allowable stress.",
-        "de": "Zulässige Spannung des Schweißmetalls.",
-        "fr": "Contrainte admissible du métal de soudure.",
-        "es": "Esfuerzo admisible del metal de soldadura.",
-        "ar": "إجهاد معدن اللحام المسموح به."
-      }
+      "businessContext": "Weld metal allowable stress."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "load / Math.max(0.0001, (kaynakBoyu * kaynakGerilmesi))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
-      "result": "Min. Kaynak Bogaz Kalinligi"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Min. Kaynak Bogaz Kalinligi",
-        "de": "Min. Schweißnahtdicke",
-        "fr": "Min. Weld Throat Thickness",
-        "es": "Grosor Mínimo de Garganta de Soldadura",
-        "ar": "الحد الأدنى لسمك حلق اللحام"
-      }
+      "result": "Min. Weld Throat Thickness"
     },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate minimum weld throat thickness for given load.",
-      "long": "Calculate minimum weld throat thickness for given load.",
-      "short_i18n": {
-        "en": "Calculate minimum weld throat thickness for given load.",
-        "de": "Berechnen Sie die minimale Schweißnahtdicke fur eine gegebene Belastung.",
-        "fr": "Calculer l'épaisseur minimale de la gorge de soudure pour une charge donnée.",
-        "es": "Calcular el espesor mínimo de garganta de soldadura para una carga dada.",
-        "ar": "حساب الحد الأدنى لسمك حلق اللحام لحمل معين."
-      },
-      "long_i18n": {
-        "en": "Calculate minimum weld throat thickness for given load.",
-        "de": "Berechnen Sie die minimale Schweißnahtdicke fur eine gegebene Belastung.",
-        "fr": "Calculer l'épaisseur minimale de la gorge de soudure pour une charge donnée.",
-        "es": "Calcular el espesor mínimo de garganta de soldadura para una carga dada.",
-        "ar": "حساب الحد الأدنى لسمك حلق اللحام لحمل معين."
-      }
+      "long": "Calculate minimum weld throat thickness for given load."
     }
-  },
-  "title_i18n": {
-    "en": "minimum-weld-throat-thickness-calculator",
-    "de": "Schweißnahtdimensionierungsrechner",
-    "fr": "Calculateur de Dimensionnement de Soudure",
-    "es": "Calculadora de Dimensionamiento de Soldadura",
-    "ar": "حاسبة أبعاد اللحام"
   },
   "sectorSlug": "daily-renovation"
 }

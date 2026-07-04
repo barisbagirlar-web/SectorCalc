@@ -8,71 +8,29 @@
     {
       "id": "yillikTalep",
       "label": "Annual Demand",
-      "label_i18n": {
-        "en": "Annual Demand",
-        "de": "Jährliche Nachfrage",
-        "fr": "Demande annuelle",
-        "es": "Demanda anual",
-        "ar": "الطلب السنوي"
-      },
       "type": "number",
       "unit": "units",
       "default": 10000,
       "min": 1,
-      "businessContext": "Annual total demand.",
-      "businessContext_i18n": {
-        "en": "Annual total demand.",
-        "de": "Jährlicher Gesamtbedarf.",
-        "fr": "Demande totale annuelle.",
-        "es": "Demanda total anual.",
-        "ar": "إجمالي الطلب السنوي."
-      }
+      "businessContext": "Annual total demand."
     },
     {
       "id": "siparisMaliyeti",
       "label": "Order Cost (USD)",
-      "label_i18n": {
-        "en": "Order Cost (USD)",
-        "de": "Fehlmengenkosten pro Einheit",
-        "fr": "Coût de rupture par unité",
-        "es": "Costo de rotura de stock por unidad",
-        "ar": "تكلفة الطلب المتأخر لكل وحدة"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Fixed cost per order.",
-      "businessContext_i18n": {
-        "en": "Fixed cost per order.",
-        "de": "Fixkosten pro Bestellung.",
-        "fr": "Coût fixe par commande.",
-        "es": "Costo fijo por pedido.",
-        "ar": "التكلفة الثابتة لكل طلب."
-      }
+      "businessContext": "Fixed cost per order."
     },
     {
       "id": "tasimaMaliyeti",
       "label": "Holding Cost (USD/Unit/yr)",
-      "label_i18n": {
-        "en": "Holding Cost (USD/Unit/yr)",
-        "de": "Jährlicher Lagerhaltungskostensatz (%)",
-        "fr": "Taux annuel des coûts de détention (%)",
-        "es": "Tasa anual de costo de mantenimiento (%)",
-        "ar": "معدل تكلفة الاحتفاظ السنوي (%)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5,
       "min": 0,
-      "businessContext": "Annual holding cost per unit.",
-      "businessContext_i18n": {
-        "en": "Annual holding cost per unit.",
-        "de": "Jährliche Lagerkosten pro Einheit.",
-        "fr": "Coût de détention annuel par unité.",
-        "es": "Costo anual de mantenimiento por unidad.",
-        "ar": "تكلفة الاحتفاظ السنوية لكل وحدة."
-      }
+      "businessContext": "Annual holding cost per unit."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "Math.sqrt(Math.max(0, (2 * yillikTalep * siparisMaliyeti) / Math.max(0.0001, tasimaMaliyeti)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "units",
     "breakdown": {
       "result": "EOQ (Optimum Siparis Amounti)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "EOQ (Optimum Siparis Amounti)",
-        "de": "EOQ (Optimale Bestellmenge)",
-        "fr": "EOQ (Quantité économique de commande)",
-        "es": "EOQ (Cantidad Óptima de Pedido)",
-        "ar": "EOQ (الكمية الاقتصادية للطلب)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "units"
+      "result": "units"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inventory turnover metrics monthly.",
       "Factor in seasonality for safety stock."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
-      "long": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
-      "short_i18n": {
-        "en": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
-        "de": "Berechnen Sie die wirtschaftliche Bestellmenge (EOQ) unter Minimierung der gesamten Lagerkosten.",
-        "fr": "Calculer la quantité économique de commande (EOQ) minimisant les coûts totaux de stock.",
-        "es": "Calcular la cantidad económica de pedido (EOQ) minimizando los costos totales de inventario.",
-        "ar": "احسب كمية الطلب الاقتصادية (EOQ) لتقليل إجمالي تكاليف المخزون."
-      },
-      "long_i18n": {
-        "en": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
-        "de": "Berechnen Sie die wirtschaftliche Bestellmenge (EOQ) unter Minimierung der gesamten Lagerkosten.",
-        "fr": "Calculer la quantité économique de commande (EOQ) minimisant les coûts totaux de stock.",
-        "es": "Calcular la cantidad económica de pedido (EOQ) minimizando los costos totales de inventario.",
-        "ar": "احسب كمية الطلب الاقتصادية (EOQ) لتقليل إجمالي تكاليف المخزون."
-      }
+      "long": "Calculate economic order quantity (EOQ) minimizing total inventory costs."
     }
-  },
-  "title_i18n": {
-    "en": "economic-order-quantity-calculator",
-    "de": "EOQ-Bestellmengenrechner",
-    "fr": "Calculateur de quantité économique de commande (EOQ)",
-    "es": "Calculadora de cantidad económica de pedido (EOQ)",
-    "ar": "حاسبة الكمية الاقتصادية للطلب (EOQ)"
   },
   "sectorSlug": "daily-renovation"
 }

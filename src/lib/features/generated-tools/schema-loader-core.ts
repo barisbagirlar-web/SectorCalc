@@ -106,16 +106,17 @@ export function getGeneratedToolSchema(slug: string): GeneratedToolSchema | null
   }
   const raw = JSON.parse(fs.readFileSync(schemaPath, "utf-8")) as unknown;
 
-  // ── Layer 1: Strict English validation (warn-only for legacy generated schemas) ──
+  // ── Layer 1: Strict English validation — reject Turkish in any active/public schema ──
+  // Legacy generated schemas with Turkish tokens (sonuc, insaat, etc.) must be
+  // either cleaned to pure English or excluded from public resolution.
+  // No warn-only bypass for active/public schemas.
   try {
     validateNoTurkish(raw, slug);
-  } catch {
-    // Legacy generated schemas may contain Turkish tokens (sonuc, insaat, etc.).
-    // These are pre-existing data issues; blocking them breaks 267 free tools.
-    // The build-time guard:zero-turkish catches these for new schemas.
+  } catch (err) {
     if (process.env.NODE_ENV !== "production") {
-      console.warn(`[SchemaLoader] Turkish tokens in ${slug} — schema loaded with warnings`);
+      console.error(`[SchemaLoader] Turkish tokens in ${slug} — schema rejected (zero-Turkish policy)`);
     }
+    return null;
   }
 
   const normalized = normalizeRawGeneratedSchema(raw, slug);

@@ -8,71 +8,29 @@
     {
       "id": "flow",
       "label": "Flow Rate (L/min)",
-      "label_i18n": {
-        "en": "Flow Rate (L/min)",
-        "de": "Kompressordurchflussrate",
-        "fr": "Débit du compresseur",
-        "es": "Caudal del compresor",
-        "ar": "معدل تدفق الضاغط"
-      },
       "type": "number",
       "unit": "L/min",
       "default": 1000,
       "min": 0,
-      "businessContext": "System flow rate.",
-      "businessContext_i18n": {
-        "en": "System flow rate.",
-        "de": "Systemdurchflussrate.",
-        "fr": "Débit du système.",
-        "es": "Caudal del sistema.",
-        "ar": "معدل تدفق النظام."
-      }
+      "businessContext": "System flow rate."
     },
     {
       "id": "pressure",
       "label": "Pressure (bar)",
-      "label_i18n": {
-        "en": "Pressure (bar)",
-        "de": "Druck (bar)",
-        "fr": "Pression (bar)",
-        "es": "Presión (bar)",
-        "ar": "الضغط (bar)"
-      },
       "type": "number",
       "unit": "bar",
       "default": 7,
       "min": 0,
-      "businessContext": "Required pressure.",
-      "businessContext_i18n": {
-        "en": "Required pressure.",
-        "de": "Erforderlicher Druck.",
-        "fr": "Pression requise.",
-        "es": "Presión requerida.",
-        "ar": "الضغط المطلوب."
-      }
+      "businessContext": "Required pressure."
     },
     {
       "id": "pompaVerim",
       "label": "Pump Efficiency (%)",
-      "label_i18n": {
-        "en": "Pump Efficiency (%)",
-        "de": "Pumpenwirkungsgrad (%)",
-        "fr": "Rendement de la pompe (%)",
-        "es": "Eficiencia de la Bomba (%)",
-        "ar": "كفاءة المضخة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 75,
       "min": 0,
-      "businessContext": "Pump efficiency.",
-      "businessContext_i18n": {
-        "en": "Pump efficiency.",
-        "de": "Pumpenwirkungsgrad.",
-        "fr": "Rendement de la pompe.",
-        "es": "Eficiencia de la bomba.",
-        "ar": "كفاءة المضخة."
-      }
+      "businessContext": "Pump efficiency."
     }
   ],
   "validation": {
@@ -85,22 +43,13 @@
     "result": "(flow * pressure * 100) / Math.max(0.0001, (600 * (pompaVerim / 100) * 746))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "HP",
     "breakdown": {
       "result": "Pump Motor Power"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Pump Motor Power",
-        "de": "Pumpenmotorleistung",
-        "fr": "Puissance du moteur de la pompe",
-        "es": "Potencia del motor de la bomba",
-        "ar": "قدرة محرك المضخة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "HP"
+      "result": "HP"
     },
     "hiddenLossDrivers": [
       "Low Q factor indicates broader frequency response."
@@ -109,36 +58,15 @@
       "Verify component tolerances affect circuit performance.",
       "Use proper safety equipment for high voltage/current work."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate minimum fire pump motor power for hydrant system.",
-      "long": "Calculate minimum fire pump motor power for hydrant system.",
-      "short_i18n": {
-        "en": "Calculate minimum fire pump motor power for hydrant system.",
-        "de": "Berechnen Sie die Mindestmotorleistung der Feuerloschpumpe fur das Hydrantensystem.",
-        "fr": "Calculer la puissance minimale du moteur de la pompe à incendie pour un système de poteaux d'incendie.",
-        "es": "Calcular la potencia mínima del motor de la bomba contra incendios para el sistema de hidrantes.",
-        "ar": "حساب الحد الأدنى لقدرة محرك مضخة الحريق لنظام الحنفيات."
-      },
-      "long_i18n": {
-        "en": "Calculate minimum fire pump motor power for hydrant system.",
-        "de": "Berechnen Sie die Mindestmotorleistung der Feuerloschpumpe fur das Hydrantensystem.",
-        "fr": "Calculer la puissance minimale du moteur de la pompe à incendie pour un système de poteaux d'incendie.",
-        "es": "Calcular la potencia mínima del motor de la bomba contra incendios para el sistema de hidrantes.",
-        "ar": "حساب الحد الأدنى لقدرة محرك مضخة الحريق لنظام الحنفيات."
-      }
+      "long": "Calculate minimum fire pump motor power for hydrant system."
     }
-  },
-  "title_i18n": {
-    "en": "fire-pump-power-calculator",
-    "de": "Leistungsrechner fur Feuerloschpumpe",
-    "fr": "Calculateur de puissance de pompe à incendie",
-    "es": "Calculadora de potencia de bomba contra incendios",
-    "ar": "حاسبة قدرة مضخة الحريق"
   },
   "sectorSlug": "daily-renovation"
 }

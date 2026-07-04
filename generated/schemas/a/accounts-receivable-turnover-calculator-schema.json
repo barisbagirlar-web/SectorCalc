@@ -2,54 +2,26 @@
   "toolName": "accounts-receivable-turnover-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "yillikSatis",
       "label": "Annual Sales (USD)",
-      "label_i18n": {
-        "en": "Annual Sales (USD)",
-        "de": "Jahresumsatz (USD)",
-        "fr": "Ventes annuelles (USD)",
-        "es": "Ventas Anuales (USD)",
-        "ar": "المبيعات السنوية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Total annual revenue.",
-      "businessContext_i18n": {
-        "en": "Total annual revenue.",
-        "de": "Gesamter Jahresumsatz.",
-        "fr": "Revenu annuel total.",
-        "es": "Ingresos anuales totales.",
-        "ar": "إجمالي الإيرادات السنوية."
-      }
+      "businessContext": "Total annual revenue."
     },
     {
       "id": "ortAlacak",
       "label": "Avg Receivables (USD)",
-      "label_i18n": {
-        "en": "Avg Receivables (USD)",
-        "de": "Durchschnittliche Forderungen (USD)",
-        "fr": "Créances moyennes (USD)",
-        "es": "Promedio de Cuentas por Cobrar (USD)",
-        "ar": "متوسط المستحقات (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Average accounts receivable.",
-      "businessContext_i18n": {
-        "en": "Average accounts receivable.",
-        "de": "Durchschnittliche Forderungen aus Lieferungen und Leistungen.",
-        "fr": "Comptes clients moyens.",
-        "es": "Promedio de cuentas por cobrar.",
-        "ar": "متوسط الحسابات المدينة."
-      }
+      "businessContext": "Average accounts receivable."
     }
   ],
   "validation": {
@@ -63,58 +35,28 @@
     "result": "365 / Math.max(0.0001, yillikSatis / Math.max(0.0001, ortAlacak))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "days",
     "breakdown": {
       "result": "Aandrage Tahsilat Time"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Aandrage Tahsilat Time",
-        "de": "Durchschnittliche Inkassofrist",
-        "fr": "Période moyenne de recouvrement",
-        "es": "Período Promedio de Cobro",
-        "ar": "متوسط فترة التحصيل"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "days"
+      "result": "days"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate accounts receivable turnover in days.",
-      "long": "Calculate accounts receivable turnover in days.",
-      "short_i18n": {
-        "en": "Calculate accounts receivable turnover in days.",
-        "de": "Berechnen Sie die Debitorenumschlagshäufigkeit in Tagen.",
-        "fr": "Calculer le délai de rotation des créances clients en jours.",
-        "es": "Calcular la rotación de cuentas por cobrar en días.",
-        "ar": "احسب معدل دوران الحسابات المدينة بالأيام."
-      },
-      "long_i18n": {
-        "en": "Calculate accounts receivable turnover in days.",
-        "de": "Berechnen Sie die Debitorenumschlagshäufigkeit in Tagen.",
-        "fr": "Calculer le délai de rotation des créances clients en jours.",
-        "es": "Calcular la rotación de cuentas por cobrar en días.",
-        "ar": "احسب معدل دوران الحسابات المدينة بالأيام."
-      }
+      "long": "Calculate accounts receivable turnover in days."
     }
-  },
-  "title_i18n": {
-    "en": "accounts-receivable-turnover-calculator",
-    "de": "Forderungsumschlagsrechner",
-    "fr": "Calculateur de rotation des créances",
-    "es": "Calculadora de rotación de cuentas por cobrar",
-    "ar": "حاسبة معدل دوران الذمم المدينة"
   },
   "sectorSlug": "daily-renovation"
 }

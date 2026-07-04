@@ -2,100 +2,44 @@
   "toolName": "drywall-sheet-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Wall Area (m²)",
-      "label_i18n": {
-        "en": "Wall Area (m²)",
-        "de": "Wandfläche",
-        "fr": "Surface murale",
-        "es": "Área de la pared",
-        "ar": "مساحة الجدار"
-      },
       "type": "number",
       "unit": "m2",
       "default": 80,
       "min": 0,
-      "businessContext": "Wall area.",
-      "businessContext_i18n": {
-        "en": "Wall area.",
-        "de": "Wandfläche.",
-        "fr": "Surface du mur.",
-        "es": "Área de la pared.",
-        "ar": "مساحة الجدار."
-      }
+      "businessContext": "Wall area."
     },
     {
       "id": "levhaEn",
       "label": "Sheet Width (m)",
-      "label_i18n": {
-        "en": "Sheet Width (m)",
-        "de": "Sheet Breite",
-        "fr": "Sheet Largeur",
-        "es": "Sheet Ancho",
-        "ar": "Sheet العرض"
-      },
       "type": "number",
       "unit": "m",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Drywall sheet width.",
-      "businessContext_i18n": {
-        "en": "Drywall sheet width.",
-        "de": "Trockenbauplattenbreite.",
-        "fr": "Largeur de la plaque de plâtre.",
-        "es": "Ancho de la placa de yeso.",
-        "ar": "عرض لوح الجبس."
-      }
+      "businessContext": "Drywall sheet width."
     },
     {
       "id": "levhaBoy",
       "label": "Sheet Length (m)",
-      "label_i18n": {
-        "en": "Sheet Length (m)",
-        "de": "Sheet Länge",
-        "fr": "Sheet Longueur",
-        "es": "Sheet Longitud",
-        "ar": "Sheet الطول"
-      },
       "type": "number",
       "unit": "m",
       "default": 2.5,
       "min": 0,
-      "businessContext": "Drywall sheet length.",
-      "businessContext_i18n": {
-        "en": "Drywall sheet length.",
-        "de": "Trockenbauplattenlänge.",
-        "fr": "Longueur de la plaque de plâtre.",
-        "es": "Largo de la placa de yeso.",
-        "ar": "طول لوح الجبس."
-      }
+      "businessContext": "Drywall sheet length."
     },
     {
       "id": "scrap",
       "label": "Waste Factor (%)",
-      "label_i18n": {
-        "en": "Waste Factor (%)",
-        "de": "Abfallfaktor (%)",
-        "fr": "Facteur de déchet (%)",
-        "es": "Factor de desperdicio (%)",
-        "ar": "عامل الهدر (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Cutting allowance.",
-      "businessContext_i18n": {
-        "en": "Cutting allowance.",
-        "de": "Zuschnittzugabe.",
-        "fr": "Marge de coupe.",
-        "es": "Margen de corte.",
-        "ar": "بدل القطع."
-      }
+      "businessContext": "Cutting allowance."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "Math.ceil((area * (1 + scrap / 100)) / Math.max(0.0001, (levhaEn * levhaBoy)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "sheets",
     "breakdown": {
-      "result": "Gerekli Alcipan Levha"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Alcipan Levha",
-        "de": "Erforderliche Gipskartonplatte",
-        "fr": "Plaques de plâtre nécessaires",
-        "es": "Panel de Yeso Requerido",
-        "ar": "ألواح الجبس المطلوبة"
-      }
+      "result": "Required Drywall Sheets"
     },
     "breakdownUnits": {
-      "sonuc": "sheets"
+      "result": "sheets"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate number of drywall sheets needed for walls.",
-      "long": "Calculate number of drywall sheets needed for walls.",
-      "short_i18n": {
-        "en": "Calculate number of drywall sheets needed for walls.",
-        "de": "Berechnen Sie die Anzahl der benotigten Trockenbauplatten fur Wände.",
-        "fr": "Calculer le nombre de plaques de plâtre nécessaires pour les murs.",
-        "es": "Calcular el número de placas de yeso necesarias para las paredes.",
-        "ar": "احسب عدد ألواح الجبس اللازمة للجدران."
-      },
-      "long_i18n": {
-        "en": "Calculate number of drywall sheets needed for walls.",
-        "de": "Berechnen Sie die Anzahl der benotigten Trockenbauplatten fur Wände.",
-        "fr": "Calculer le nombre de plaques de plâtre nécessaires pour les murs.",
-        "es": "Calcular el número de placas de yeso necesarias para las paredes.",
-        "ar": "احسب عدد ألواح الجبس اللازمة للجدران."
-      }
+      "long": "Calculate number of drywall sheets needed for walls."
     }
-  },
-  "title_i18n": {
-    "en": "drywall-sheet-calculator",
-    "de": "Gipskartonplatten-Rechner",
-    "fr": "Calculateur de plaques de plâtre",
-    "es": "Calculadora de placas de yeso",
-    "ar": "حاسبة ألواح الجبس"
   },
   "sectorSlug": "daily-renovation"
 }

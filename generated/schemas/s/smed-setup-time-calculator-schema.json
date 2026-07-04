@@ -8,72 +8,30 @@
     {
       "id": "icAyar",
       "label": "Internal Setup (Min)",
-      "label_i18n": {
-        "en": "Internal Setup (Min)",
-        "de": "Interne Rustzeit pro Rustvorgang (Minuten)",
-        "fr": "Temps de réglage interne par changement (minutes)",
-        "es": "Tiempo de configuración interna por cambio (minutos)",
-        "ar": "وقت الإعداد الداخلي لكل تغيير (بالدقائق)"
-      },
       "type": "number",
       "unit": "min",
       "default": 60,
       "min": 0,
-      "businessContext": "Setup done while machine stopped.",
-      "businessContext_i18n": {
-        "en": "Setup done while machine stopped.",
-        "de": "Rusten bei stillstehender Maschine.",
-        "fr": "Réglage effectué pendant l'arrêt de la machine.",
-        "es": "Preparación realizada mientras la máquina está detenida.",
-        "ar": "الإعداد يتم أثناء توقف الماكينة."
-      }
+      "businessContext": "Setup done while machine stopped."
     },
     {
       "id": "disAyar",
       "label": "External Setup (Min)",
-      "label_i18n": {
-        "en": "External Setup (Min)",
-        "de": "Externe Rustzeit pro Rustvorgang (Minuten)",
-        "fr": "Temps de réglage externe par changement (minutes)",
-        "es": "Tiempo de configuración externa por cambio (minutos)",
-        "ar": "وقت الإعداد الخارجي لكل تغيير (بالدقائق)"
-      },
       "type": "number",
       "unit": "min",
       "default": 15,
       "min": 0,
-      "businessContext": "Setup done while machine runs.",
-      "businessContext_i18n": {
-        "en": "Setup done while machine runs.",
-        "de": "Rusten bei laufender Maschine.",
-        "fr": "Réglage effectué pendant le fonctionnement de la machine.",
-        "es": "Preparación realizada mientras la máquina funciona.",
-        "ar": "الإعداد يتم أثناء تشغيل الماكينة."
-      }
+      "businessContext": "Setup done while machine runs."
     },
     {
       "id": "donusum",
       "label": "Conversion Rate (%)",
-      "label_i18n": {
-        "en": "Conversion Rate (%)",
-        "de": "Currency Conversion Satz (to EUR)",
-        "fr": "Currency Conversion Taux (to EUR)",
-        "es": "Currency Conversion Tasa (to EUR)",
-        "ar": "Currency Conversion المعدل (to EUR)"
-      },
       "type": "number",
       "unit": "%",
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of internal converted to external.",
-      "businessContext_i18n": {
-        "en": "Percentage of internal converted to external.",
-        "de": "Prozentsatz der internen in externe umgewandelten Vorgänge.",
-        "fr": "Pourcentage d'internes convertis en externes.",
-        "es": "Porcentaje de interno convertido a externo.",
-        "ar": "النسبة المئوية للداخلي المحول إلى خارجي."
-      }
+      "businessContext": "Percentage of internal converted to external."
     }
   ],
   "validation": {
@@ -87,58 +45,28 @@
     "result": "(icAyar * (1 - donusum / 100)) + disAyar"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "min",
     "breakdown": {
       "result": "Ymosti Setup Time"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Ymosti Setup Time",
-        "de": "Neue Rustzeit",
-        "fr": "Temps de nouveau réglage",
-        "es": "Tiempo de Nueva Configuración",
-        "ar": "مدة الإعداد الجديدة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "min"
+      "result": "min"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Conduct regular OEE audits for improvement.",
       "Use SMED to reduce setup times."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate reduced setup time by converting internal to external SMED adjustments.",
-      "long": "Calculate reduced setup time by converting internal to external SMED adjustments.",
-      "short_i18n": {
-        "en": "Calculate reduced setup time by converting internal to external SMED adjustments.",
-        "de": "Berechnen Sie die reduzierte Rustzeit durch Umwandlung interner in externe SMED-Anpassungen.",
-        "fr": "Calculer le temps de réglage réduit en convertissant les réglages internes en externes SMED.",
-        "es": "Calcular el tiempo de preparación reducido convirtiendo ajustes internos a externos SMED.",
-        "ar": "حساب وقت الإعداد المخفض عن طريق تحويل التعديلات الداخلية إلى خارجية SMED."
-      },
-      "long_i18n": {
-        "en": "Calculate reduced setup time by converting internal to external SMED adjustments.",
-        "de": "Berechnen Sie die reduzierte Rustzeit durch Umwandlung interner in externe SMED-Anpassungen.",
-        "fr": "Calculer le temps de réglage réduit en convertissant les réglages internes en externes SMED.",
-        "es": "Calcular el tiempo de preparación reducido convirtiendo ajustes internos a externos SMED.",
-        "ar": "حساب وقت الإعداد المخفض عن طريق تحويل التعديلات الداخلية إلى خارجية SMED."
-      }
+      "long": "Calculate reduced setup time by converting internal to external SMED adjustments."
     }
-  },
-  "title_i18n": {
-    "en": "smed-setup-time-calculator",
-    "de": "SMED-Formwechsel-Rechner",
-    "fr": "Calculateur de changement de moule SMED",
-    "es": "Calculadora de cambio de molde SMED",
-    "ar": "حاسبة تغيير القالب SMED"
   },
   "sectorSlug": "cnc-manufacturing"
 }

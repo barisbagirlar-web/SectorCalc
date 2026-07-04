@@ -8,74 +8,32 @@
     {
       "id": "energy",
       "label": "Energy Score (0-100)",
-      "label_i18n": {
-        "en": "Energy Score (0-100)",
-        "de": "Energiebewertung (0-100)",
-        "fr": "Score énergétique (0-100)",
-        "es": "Puntuación Energética (0-100)",
-        "ar": "درجة الطاقة (0-100)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 70,
       "min": 0,
       "max": 100,
-      "businessContext": "Energy efficiency score.",
-      "businessContext_i18n": {
-        "en": "Energy efficiency score.",
-        "de": "Energieeffizienzpunktzahl.",
-        "fr": "Score d'efficacité énergétique.",
-        "es": "Puntuación de eficiencia energética.",
-        "ar": "درجة كفاءة الطاقة."
-      }
+      "businessContext": "Energy efficiency score."
     },
     {
       "id": "su",
       "label": "Water Score (0-100)",
-      "label_i18n": {
-        "en": "Water Score (0-100)",
-        "de": "Wasserbewertung (0-100)",
-        "fr": "Score eau (0-100)",
-        "es": "Puntuación del Agua (0-100)",
-        "ar": "درجة المياه (0-100)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Water management score.",
-      "businessContext_i18n": {
-        "en": "Water management score.",
-        "de": "Wassermanagementpunktzahl.",
-        "fr": "Score de gestion de l'eau.",
-        "es": "Puntuación de gestión del agua.",
-        "ar": "درجة إدارة المياه."
-      }
+      "businessContext": "Water management score."
     },
     {
       "id": "malzeme",
       "label": "Materials Score (0-100)",
-      "label_i18n": {
-        "en": "Materials Score (0-100)",
-        "de": "Materialbewertung (0-100)",
-        "fr": "Score matériaux (0-100)",
-        "es": "Puntuación de Materiales (0-100)",
-        "ar": "درجة المواد (0-100)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 65,
       "min": 0,
       "max": 100,
-      "businessContext": "Materials selection score.",
-      "businessContext_i18n": {
-        "en": "Materials selection score.",
-        "de": "Materialauswahlpunktzahl.",
-        "fr": "Score de sélection des matériaux.",
-        "es": "Puntuación de selección de materiales.",
-        "ar": "درجة اختيار المواد."
-      }
+      "businessContext": "Materials selection score."
     }
   ],
   "validation": {
@@ -88,22 +46,13 @@
     "result": "(energy * 0.4) + (su * 0.3) + (malzeme * 0.3)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "score",
     "breakdown": {
       "result": "Tahmini Sertifika Puani"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tahmini Sertifika Puani",
-        "de": "Estimated Certification Score",
-        "fr": "Score de certification estimé",
-        "es": "Puntuación Estimada del Certificado",
-        "ar": "درجة الشهادة التقديرية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "score"
+      "result": "score"
     },
     "hiddenLossDrivers": [
       "High environmental score may reduce operational costs.",
@@ -113,36 +62,15 @@
       "Set improvement targets for each ESG pillar.",
       "Consider carbon offset programs for residual emissions."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Estimate BREEAM/LEED sustainability certification score.",
-      "long": "Estimate BREEAM/LEED sustainability certification score.",
-      "short_i18n": {
-        "en": "Estimate BREEAM/LEED sustainability certification score.",
-        "de": "Schätzung der BREEAM/LEED-Nachhaltigkeitszertifizierungspunktzahl.",
-        "fr": "Estimer le score de certification de durabilité BREEAM/LEED.",
-        "es": "Estimar la puntuación de certificación de sostenibilidad BREEAM/LEED.",
-        "ar": "تقدير درجة شهادة الاستدامة BREEAM/LEED."
-      },
-      "long_i18n": {
-        "en": "Estimate BREEAM/LEED sustainability certification score.",
-        "de": "Schätzung der BREEAM/LEED-Nachhaltigkeitszertifizierungspunktzahl.",
-        "fr": "Estimer le score de certification de durabilité BREEAM/LEED.",
-        "es": "Estimar la puntuación de certificación de sostenibilidad BREEAM/LEED.",
-        "ar": "تقدير درجة شهادة الاستدامة BREEAM/LEED."
-      }
+      "long": "Estimate BREEAM/LEED sustainability certification score."
     }
-  },
-  "title_i18n": {
-    "en": "breeam-leed-score-calculator",
-    "de": "BREEAM LEED Punkterechner",
-    "fr": "Calculateur de points BREEAM LEED",
-    "es": "Calculadora de puntos BREEAM LEED",
-    "ar": "حاسبة نقاط BREEAM LEED"
   },
   "sectorSlug": "daily-renovation"
 }

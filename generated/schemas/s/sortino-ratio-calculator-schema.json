@@ -8,71 +8,29 @@
     {
       "id": "portfoyGetirisi",
       "label": "Portfolio Return (%)",
-      "label_i18n": {
-        "en": "Portfolio Return (%)",
-        "de": "Portfoliorendite (%)",
-        "fr": "Rendement du portefeuille (%)",
-        "es": "Rendimiento de la cartera (%)",
-        "ar": "عائد المحفظة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Portfolio return.",
-      "businessContext_i18n": {
-        "en": "Portfolio return.",
-        "de": "Portfoliorendite.",
-        "fr": "Rendement du portefeuille.",
-        "es": "Rendimiento de la cartera.",
-        "ar": "عائد المحفظة."
-      }
+      "businessContext": "Portfolio return."
     },
     {
       "id": "risksizFaiz",
       "label": "Risk-Free Rate (%)",
-      "label_i18n": {
-        "en": "Risk-Free Rate (%)",
-        "de": "Risikofreier Zinssatz (%)",
-        "fr": "Taux sans risque (%)",
-        "es": "Tasa libre de riesgo (%)",
-        "ar": "معدل الفائدة الخالي من المخاطر (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risk-free return.",
-      "businessContext_i18n": {
-        "en": "Risk-free return.",
-        "de": "Risikofreie Rendite.",
-        "fr": "Rendement sans risque.",
-        "es": "Rendimiento libre de riesgo.",
-        "ar": "العائد الخالي من المخاطر."
-      }
+      "businessContext": "Risk-free return."
     },
     {
       "id": "asagiSapma",
       "label": "Downside Deviation (%)",
-      "label_i18n": {
-        "en": "Downside Deviation (%)",
-        "de": "Abwärtsabweichung (%)",
-        "fr": "Écart à la baisse (%)",
-        "es": "Desviación a la baja (%)",
-        "ar": "الانحراف السلبي (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Standard deviation of negative returns.",
-      "businessContext_i18n": {
-        "en": "Standard deviation of negative returns.",
-        "de": "Standardabweichung der negativen Renditen.",
-        "fr": "Écart type des rendements négatifs.",
-        "es": "Desviación estándar de los rendimientos negativos.",
-        "ar": "الانحراف المعياري للعوائد السلبية."
-      }
+      "businessContext": "Standard deviation of negative returns."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(portfoyGetirisi - risksizFaiz) / Math.max(0.0001, asagiSapma)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ratio",
     "breakdown": {
       "result": "Sortino Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Sortino Ratio",
-        "de": "Sortino-Verhältnis",
-        "fr": "Ratio Sortino",
-        "es": "Ratio Sortino",
-        "ar": "نسبة سورتينو"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ratio"
+      "result": "ratio"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the Sortino ratio — return per unit of downside risk only.",
-      "long": "Calculate the Sortino ratio — return per unit of downside risk only.",
-      "short_i18n": {
-        "en": "Calculate the Sortino ratio — return per unit of downside risk only.",
-        "de": "Berechnen Sie die Sortino-Ratio — Rendite pro Einheit des Abwärtsrisikos.",
-        "fr": "Calculer le ratio Sortino — rendement par unité de risque de baisse uniquement.",
-        "es": "Calcular el ratio Sortino — rendimiento por unidad de riesgo a la baja únicamente.",
-        "ar": "احسب نسبة سورتينو — العائد لكل وحدة من مخاطر الجانب السلبي فقط."
-      },
-      "long_i18n": {
-        "en": "Calculate the Sortino ratio — return per unit of downside risk only.",
-        "de": "Berechnen Sie die Sortino-Ratio — Rendite pro Einheit des Abwärtsrisikos.",
-        "fr": "Calculer le ratio Sortino — rendement par unité de risque de baisse uniquement.",
-        "es": "Calcular el ratio Sortino — rendimiento por unidad de riesgo a la baja únicamente.",
-        "ar": "احسب نسبة سورتينو — العائد لكل وحدة من مخاطر الجانب السلبي فقط."
-      }
+      "long": "Calculate the Sortino ratio — return per unit of downside risk only."
     }
-  },
-  "title_i18n": {
-    "en": "sortino-ratio-calculator",
-    "de": "Sortino-Ratio-Rechner",
-    "fr": "Calculateur de ratio de Sortino",
-    "es": "Calculadora de ratio de Sortino",
-    "ar": "حاسبة نسبة سورتينو"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -2,54 +2,26 @@
   "toolName": "customer-churn-rate-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "donemBasi",
       "label": "Start Customers",
-      "label_i18n": {
-        "en": "Start Customers",
-        "de": "Startkunden",
-        "fr": "Clients de départ",
-        "es": "Clientes Iniciales",
-        "ar": "العملاء في البداية"
-      },
       "type": "number",
       "unit": "customers",
       "default": 1000,
       "min": 1,
-      "businessContext": "Active customers at start.",
-      "businessContext_i18n": {
-        "en": "Active customers at start.",
-        "de": "Aktive Kunden zu Beginn.",
-        "fr": "Clients actifs au début.",
-        "es": "Clientes activos al inicio.",
-        "ar": "العملاء النشطون في البداية."
-      }
+      "businessContext": "Active customers at start."
     },
     {
       "id": "kaybedilen",
       "label": "Lost Customers",
-      "label_i18n": {
-        "en": "Lost Customers",
-        "de": "Verlorene Kunden",
-        "fr": "Clients perdus",
-        "es": "Clientes Perdidos",
-        "ar": "العملاء المفقودون"
-      },
       "type": "number",
       "unit": "customers",
       "default": 50,
       "min": 0,
-      "businessContext": "Customers lost during period.",
-      "businessContext_i18n": {
-        "en": "Customers lost during period.",
-        "de": "Im Zeitraum verlorene Kunden.",
-        "fr": "Clients perdus pendant la période.",
-        "es": "Clientes perdidos durante el período.",
-        "ar": "العملاء المفقودون خلال الفترة."
-      }
+      "businessContext": "Customers lost during period."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(kaybedilen / Math.max(1, donemBasi)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
-      "result": "Musteri Kaybi (Churn)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Musteri Kaybi (Churn)",
-        "de": "Kundenabwanderung (Churn)",
-        "fr": "Taux d'attrition client (Churn)",
-        "es": "Tasa de Abandono (Churn)",
-        "ar": "معدل تراجع العملاء (Churn)"
-      }
+      "result": "Customer Churn"
     },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate customer churn rate.",
-      "long": "Calculate customer churn rate.",
-      "short_i18n": {
-        "en": "Calculate customer churn rate.",
-        "de": "Kundenabwanderungsrate berechnen.",
-        "fr": "Calculer le taux d'attrition client.",
-        "es": "Calcular la tasa de abandono de clientes.",
-        "ar": "احسب معدل تراجع العملاء."
-      },
-      "long_i18n": {
-        "en": "Calculate customer churn rate.",
-        "de": "Kundenabwanderungsrate berechnen.",
-        "fr": "Calculer le taux d'attrition client.",
-        "es": "Calcular la tasa de abandono de clientes.",
-        "ar": "احسب معدل تراجع العملاء."
-      }
+      "long": "Calculate customer churn rate."
     }
-  },
-  "title_i18n": {
-    "en": "customer-churn-rate-calculator",
-    "de": "Kundenabwanderungs-Churn-Rechner",
-    "fr": "Calculateur de taux d'attrition client",
-    "es": "Calculadora de tasa de abandono de clientes",
-    "ar": "حاسبة تراجع العملاء Churn"
   },
   "sectorSlug": "daily-renovation"
 }

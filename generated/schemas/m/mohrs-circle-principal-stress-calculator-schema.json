@@ -8,71 +8,29 @@
     {
       "id": "sigmaX",
       "label": "σx (Pa)",
-      "label_i18n": {
-        "en": "σx (Pa)",
-        "de": "σx (Pa)",
-        "fr": "σx (Pa)",
-        "es": "σx (Pa)",
-        "ar": "σx (باسكال)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 100000000,
       "min": 0,
-      "businessContext": "Normal stress in x direction.",
-      "businessContext_i18n": {
-        "en": "Normal stress in x direction.",
-        "de": "Normalspannung in x-Richtung.",
-        "fr": "Contrainte normale dans la direction x.",
-        "es": "Esfuerzo normal en dirección x.",
-        "ar": "الإجهاد العمودي في اتجاه x."
-      }
+      "businessContext": "Normal stress in x direction."
     },
     {
       "id": "sigmaY",
       "label": "σy (Pa)",
-      "label_i18n": {
-        "en": "σy (Pa)",
-        "de": "σy (Pa)",
-        "fr": "σy (Pa)",
-        "es": "σy (Pa)",
-        "ar": "σy (باسكال)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 50000000,
       "min": 0,
-      "businessContext": "Normal stress in y direction.",
-      "businessContext_i18n": {
-        "en": "Normal stress in y direction.",
-        "de": "Normalspannung in y-Richtung.",
-        "fr": "Contrainte normale dans la direction y.",
-        "es": "Esfuerzo normal en dirección y.",
-        "ar": "الإجهاد العمودي في اتجاه y."
-      }
+      "businessContext": "Normal stress in y direction."
     },
     {
       "id": "tauXY",
       "label": "τxy (Pa)",
-      "label_i18n": {
-        "en": "τxy (Pa)",
-        "de": "τxy (Pa)",
-        "fr": "τxy (Pa)",
-        "es": "τxy (Pa)",
-        "ar": "τxy (باسكال)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 30000000,
       "min": 0,
-      "businessContext": "Shear stress in xy plane.",
-      "businessContext_i18n": {
-        "en": "Shear stress in xy plane.",
-        "de": "Schubspannung in der xy-Ebene.",
-        "fr": "Contrainte de cisaillement dans le plan xy.",
-        "es": "Esfuerzo cortante en el plano xy.",
-        "ar": "إجهاد القص في المستوى xy."
-      }
+      "businessContext": "Shear stress in xy plane."
     }
   ],
   "validation": {
@@ -86,67 +44,30 @@
     "result": "Math.sqrt(Math.max(0, Math.pow((sigmaX - sigmaY) / 2, 2) + Math.pow(tauXY, 2)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "merkez": "Cember Merkezi",
       "result": "Cember Radiusi"
     },
-    "breakdown_i18n": {
-      "merkez": {
-        "en": "Cember Merkezi",
-        "de": "Kreismittelpunkt",
-        "fr": "Centre du cercle",
-        "es": "Centro del Círculo",
-        "ar": "مركز الدائرة"
-      },
-      "result": {
-        "en": "Cember Radiusi",
-        "de": "Kreisradius",
-        "fr": "Rayon du cercle",
-        "es": "Radio del Círculo",
-        "ar": "نصف قطر الدائرة"
-      }
-    },
     "breakdownUnits": {
       "merkez": "Pa",
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate Mohr's circle parameters for principal stresses.",
-      "long": "Calculate Mohr's circle parameters for principal stresses.",
-      "short_i18n": {
-        "en": "Calculate Mohr's circle parameters for principal stresses.",
-        "de": "Berechnen Sie die Parameter des Mohrschen Kreises fur Hauptspannungen.",
-        "fr": "Calculer les paramètres du cercle de Mohr pour les contraintes principales.",
-        "es": "Calcular los parámetros del círculo de Mohr para esfuerzos principales.",
-        "ar": "حساب معلمات دائرة مور للإجهادات الرئيسية."
-      },
-      "long_i18n": {
-        "en": "Calculate Mohr's circle parameters for principal stresses.",
-        "de": "Berechnen Sie die Parameter des Mohrschen Kreises fur Hauptspannungen.",
-        "fr": "Calculer les paramètres du cercle de Mohr pour les contraintes principales.",
-        "es": "Calcular los parámetros del círculo de Mohr para esfuerzos principales.",
-        "ar": "حساب معلمات دائرة مور للإجهادات الرئيسية."
-      }
+      "long": "Calculate Mohr's circle parameters for principal stresses."
     }
-  },
-  "title_i18n": {
-    "en": "mohrs-circle-principal-stress-calculator",
-    "de": "Mohrscher Kreis Rechner",
-    "fr": "Calculateur de cercle de Mohr",
-    "es": "Calculadora de círculo de Mohr",
-    "ar": "حاسبة دائرة مور"
   },
   "sectorSlug": "daily-renovation"
 }

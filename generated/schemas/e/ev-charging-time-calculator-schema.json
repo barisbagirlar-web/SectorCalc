@@ -8,71 +8,29 @@
     {
       "id": "bataryaKapasite",
       "label": "Battery Capacity (kWh)",
-      "label_i18n": {
-        "en": "Battery Capacity (kWh)",
-        "de": "Batteriekapazität (Ah)",
-        "fr": "Capacité de la batterie (Ah)",
-        "es": "Capacidad de la batería (Ah)",
-        "ar": "سعة البطارية (Ah)"
-      },
       "type": "number",
       "unit": "kWh",
       "default": 60,
       "min": 0,
-      "businessContext": "Total battery energy.",
-      "businessContext_i18n": {
-        "en": "Total battery energy.",
-        "de": "Gesamtbatterieenergie.",
-        "fr": "Énergie totale de la batterie.",
-        "es": "Energía total de la batería.",
-        "ar": "إجمالي طاقة البطارية."
-      }
+      "businessContext": "Total battery energy."
     },
     {
       "id": "sarjGuc",
       "label": "Charging Power (kW)",
-      "label_i18n": {
-        "en": "Charging Power (kW)",
-        "de": "Ladeleistung (kW)",
-        "fr": "Puissance de charge (kW)",
-        "es": "Potencia de carga (kW)",
-        "ar": "قوة الشحن (kW)"
-      },
       "type": "number",
       "unit": "kW",
       "default": 7.4,
       "min": 0,
-      "businessContext": "Charger power.",
-      "businessContext_i18n": {
-        "en": "Charger power.",
-        "de": "Ladegerätleistung.",
-        "fr": "Puissance du chargeur.",
-        "es": "Potencia del cargador.",
-        "ar": "قوة الشاحن."
-      }
+      "businessContext": "Charger power."
     },
     {
       "id": "efficiency",
       "label": "Charging Efficiency (%)",
-      "label_i18n": {
-        "en": "Charging Efficiency (%)",
-        "de": "Ladeeffizienz (%)",
-        "fr": "Efficacité de charge (%)",
-        "es": "Eficiencia de carga (%)",
-        "ar": "كفاءة الشحن (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 90,
       "min": 0,
-      "businessContext": "Charging losses.",
-      "businessContext_i18n": {
-        "en": "Charging losses.",
-        "de": "Ladeverluste.",
-        "fr": "Pertes de charge.",
-        "es": "Pérdidas de carga.",
-        "ar": "فقدان الشحن."
-      }
+      "businessContext": "Charging losses."
     }
   ],
   "validation": {
@@ -85,22 +43,13 @@
     "result": "bataryaKapasite / Math.max(0.0001, (sarjGuc * (efficiency / 100)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "hours",
     "breakdown": {
       "result": "Charging Time"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Charging Time",
-        "de": "Ladezeit",
-        "fr": "Temps de charge",
-        "es": "Tiempo de carga",
-        "ar": "مدة الشحن"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "hours"
+      "result": "hours"
     },
     "hiddenLossDrivers": [
       "High fuel/energy consumption indicates efficiency losses."
@@ -109,36 +58,15 @@
       "Regular maintenance improves overall equipment efficiency.",
       "Simulate real-world driving conditions for accurate range estimates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate EV battery charging time from 0 to 100%.",
-      "long": "Calculate EV battery charging time from 0 to 100%.",
-      "short_i18n": {
-        "en": "Calculate EV battery charging time from 0 to 100%.",
-        "de": "Berechnen Sie die Ladezeit eines Elektrofahrzeug-Akkus von 0 auf 100 %.",
-        "fr": "Calculer le temps de charge de la batterie d'un véhicule électrique de 0 à 100%.",
-        "es": "Calcule el tiempo de carga de la batería del vehículo eléctrico del 0 al 100%.",
-        "ar": "احسب وقت شحن بطارية السيارة الكهربائية من 0 إلى 100%."
-      },
-      "long_i18n": {
-        "en": "Calculate EV battery charging time from 0 to 100%.",
-        "de": "Berechnen Sie die Ladezeit eines Elektrofahrzeug-Akkus von 0 auf 100 %.",
-        "fr": "Calculer le temps de charge de la batterie d'un véhicule électrique de 0 à 100%.",
-        "es": "Calcule el tiempo de carga de la batería del vehículo eléctrico del 0 al 100%.",
-        "ar": "احسب وقت شحن بطارية السيارة الكهربائية من 0 إلى 100%."
-      }
+      "long": "Calculate EV battery charging time from 0 to 100%."
     }
-  },
-  "title_i18n": {
-    "en": "ev-charging-time-calculator",
-    "de": "Haus-Ladezeit-Rechner",
-    "fr": "Calculateur de temps de charge à domicile",
-    "es": "Calculadora de tiempo de carga en casa",
-    "ar": "حاسبة وقت الشحن المنزلي"
   },
   "sectorSlug": "daily-renovation"
 }

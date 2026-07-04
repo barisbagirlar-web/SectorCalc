@@ -8,48 +8,20 @@
     {
       "id": "load",
       "label": "Vertical Load (N)",
-      "label_i18n": {
-        "en": "Vertical Load (N)",
-        "de": "Vertikallast (N)",
-        "fr": "Charge verticale (N)",
-        "es": "Carga Vertical (N)",
-        "ar": "الحمل الرأسي (N)"
-      },
       "type": "number",
       "unit": "N",
       "default": 200000,
       "min": 0,
-      "businessContext": "Vertical load on wall.",
-      "businessContext_i18n": {
-        "en": "Vertical load on wall.",
-        "de": "Vertikale Last auf die Wand.",
-        "fr": "Charge verticale sur le mur.",
-        "es": "Carga vertical sobre el muro.",
-        "ar": "الحمل الرأسي على الجدار."
-      }
+      "businessContext": "Vertical load on wall."
     },
     {
       "id": "duvarAlani",
       "label": "Wall Cross-Section (m²)",
-      "label_i18n": {
-        "en": "Wall Cross-Section (m²)",
-        "de": "Wandquerschnitt (m²)",
-        "fr": "Section transversale du mur (m²)",
-        "es": "Sección Transversal del Muro (m²)",
-        "ar": "مقطع الجدار العرضي (m²)"
-      },
       "type": "number",
       "unit": "m2",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Wall horizontal section area.",
-      "businessContext_i18n": {
-        "en": "Wall horizontal section area.",
-        "de": "Horizontale Querschnittsfläche der Wand.",
-        "fr": "Aire de la section horizontale du mur.",
-        "es": "Área de la sección horizontal del muro.",
-        "ar": "مساحة المقطع الأفقي للجدار."
-      }
+      "businessContext": "Wall horizontal section area."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "load / Math.max(0.0001, duvarAlani)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Wall Pressure Gerilmesi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Wall Pressure Gerilmesi",
-        "de": "Wall Bearing Stress",
-        "fr": "Contrainte de compression du mur",
-        "es": "Esfuerzo de Compresión en el Muro",
-        "ar": "إجهاد ضغط الجدار"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate average axial compressive stress in a load-bearing wall.",
-      "long": "Calculate average axial compressive stress in a load-bearing wall.",
-      "short_i18n": {
-        "en": "Calculate average axial compressive stress in a load-bearing wall.",
-        "de": "Berechnen Sie die mittlere axiale Druckspannung in einer tragenden Wand.",
-        "fr": "Calculer la contrainte de compression axiale moyenne dans un mur porteur.",
-        "es": "Calcular el esfuerzo de compresión axial promedio en un muro de carga.",
-        "ar": "احسب متوسط إجهاد الضغط المحوري في جدار حامل."
-      },
-      "long_i18n": {
-        "en": "Calculate average axial compressive stress in a load-bearing wall.",
-        "de": "Berechnen Sie die mittlere axiale Druckspannung in einer tragenden Wand.",
-        "fr": "Calculer la contrainte de compression axiale moyenne dans un mur porteur.",
-        "es": "Calcular el esfuerzo de compresión axial promedio en un muro de carga.",
-        "ar": "احسب متوسط إجهاد الضغط المحوري في جدار حامل."
-      }
+      "long": "Calculate average axial compressive stress in a load-bearing wall."
     }
-  },
-  "title_i18n": {
-    "en": "bearing-wall-stress-calculator",
-    "de": "Tragwand-Druck-Rechner",
-    "fr": "Calculateur de pression de mur porteur",
-    "es": "Calculadora de presión de muro de carga",
-    "ar": "حاسبة ضغط الجدار الحامل"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -2,54 +2,26 @@
   "toolName": "inventory-turnover-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "yillikCOGS",
       "label": "Annual COGS (USD)",
-      "label_i18n": {
-        "en": "Annual COGS (USD)",
-        "de": "Jährliche COGS (USD)",
-        "fr": "COGS annuel (USD)",
-        "es": "COGS anual (USD)",
-        "ar": "تكلفة البضائع المباعة السنوية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1200000,
       "min": 0,
-      "businessContext": "Annual COGS.",
-      "businessContext_i18n": {
-        "en": "Annual COGS.",
-        "de": "Jährliche COGS.",
-        "fr": "COGS annuel.",
-        "es": "COGS anual.",
-        "ar": "تكلفة البضائع المباعة السنوية."
-      }
+      "businessContext": "Annual COGS."
     },
     {
       "id": "ortStok",
       "label": "Avg Inventory (USD)",
-      "label_i18n": {
-        "en": "Avg Inventory (USD)",
-        "de": "Durchschnittlicher Lagerbestand (USD)",
-        "fr": "Stock moyen (USD)",
-        "es": "Inventario Promedio (USD)",
-        "ar": "متوسط المخزون (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Average inventory level.",
-      "businessContext_i18n": {
-        "en": "Average inventory level.",
-        "de": "Durchschnittlicher Lagerbestand.",
-        "fr": "Niveau moyen des stocks.",
-        "es": "Nivel de inventario promedio.",
-        "ar": "متوسط مستوى المخزون."
-      }
+      "businessContext": "Average inventory level."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "365 / Math.max(0.0001, yillikCOGS / Math.max(0.0001, ortStok))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "days",
     "breakdown": {
       "result": "Stokta Kalma Time"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Stokta Kalma Time",
-        "de": "Lagerdauer",
-        "fr": "Stock Holding Period",
-        "es": "Tiempo en inventario",
-        "ar": "مدة البقاء في المخزون"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "days"
+      "result": "days"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate inventory turnover in days.",
-      "long": "Calculate inventory turnover in days.",
-      "short_i18n": {
-        "en": "Calculate inventory turnover in days.",
-        "de": "Berechnen Sie den Lagerumschlag in Tagen.",
-        "fr": "Calculer la rotation des stocks en jours.",
-        "es": "Calcular la rotación de inventario en días.",
-        "ar": "حساب معدل دوران المخزون بالأيام."
-      },
-      "long_i18n": {
-        "en": "Calculate inventory turnover in days.",
-        "de": "Berechnen Sie den Lagerumschlag in Tagen.",
-        "fr": "Calculer la rotation des stocks en jours.",
-        "es": "Calcular la rotación de inventario en días.",
-        "ar": "حساب معدل دوران المخزون بالأيام."
-      }
+      "long": "Calculate inventory turnover in days."
     }
-  },
-  "title_i18n": {
-    "en": "inventory-turnover-calculator",
-    "de": "Lagerumschlagshäufigkeits-Rechner",
-    "fr": "Calculateur de rotation des stocks",
-    "es": "Calculadora de rotación de inventario",
-    "ar": "حاسبة معدل دوران المخزون"
   },
   "sectorSlug": "daily-renovation"
 }

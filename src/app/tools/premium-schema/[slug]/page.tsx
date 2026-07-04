@@ -162,7 +162,7 @@ export default async function PremiumSchemaPilotPage({
           data-calculation-form-shell="true"
           data-testid="calculator-form"
         />
-        <UniversalIndustrialDecisionForm schema={premiumSchemaToSuperV4Schema(schema as any)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
+        <UniversalIndustrialDecisionForm schema={premiumSchemaToSuperV4Schema(schema as any)} executeEndpoint="/api/tool-execute" initialProfileMode="quick" accessTier="PRO" />
         <PremiumAnalyzerAuthorityBlock
           schema={schema}
           locale={locale}

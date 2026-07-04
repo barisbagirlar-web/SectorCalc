@@ -8,117 +8,47 @@
     {
       "id": "share",
       "label": "Shares Held",
-      "label_i18n": {
-        "en": "Shares Held",
-        "de": "Gehaltene Aktien",
-        "fr": "Actions Détenues",
-        "es": "Acciones en Cartera",
-        "ar": "الأسهم المملوكة"
-      },
       "type": "number",
       "unit": "shares",
       "default": 100,
       "min": 0,
-      "businessContext": "Number of shares owned.",
-      "businessContext_i18n": {
-        "en": "Number of shares owned.",
-        "de": "Anzahl der gehaltenen Aktien.",
-        "fr": "Nombre d'actions possédées.",
-        "es": "Número de acciones en propiedad.",
-        "ar": "عدد الأسهم المملوكة."
-      }
+      "businessContext": "Number of shares owned."
     },
     {
       "id": "temettu",
       "label": "Dividend Per Share (USD)",
-      "label_i18n": {
-        "en": "Dividend Per Share (USD)",
-        "de": "Jährliche Dividende pro Aktie ($)",
-        "fr": "Dividende annuel par action ($)",
-        "es": "Dividendo anual por acción ($)",
-        "ar": "توزيعات الأرباح السنوية للسهم ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 2,
       "min": 0,
-      "businessContext": "Annual dividend per share.",
-      "businessContext_i18n": {
-        "en": "Annual dividend per share.",
-        "de": "Jährliche Dividende pro Aktie.",
-        "fr": "Dividende annuel par action.",
-        "es": "Dividendo anual por acción.",
-        "ar": "الأرباح السنوية لكل سهم."
-      }
+      "businessContext": "Annual dividend per share."
     },
     {
       "id": "price",
       "label": "Share Price (USD)",
-      "label_i18n": {
-        "en": "Share Price (USD)",
-        "de": "Aktueller Aktienkurs ($)",
-        "fr": "Cours actuel de l'action ($)",
-        "es": "Precio actual de la acción ($)",
-        "ar": "سعر السهم الحالي ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "Current share price.",
-      "businessContext_i18n": {
-        "en": "Current share price.",
-        "de": "Aktueller Aktienkurs.",
-        "fr": "Prix actuel de l'action.",
-        "es": "Precio actual de la acción.",
-        "ar": "سعر السهم الحالي."
-      }
+      "businessContext": "Current share price."
     },
     {
       "id": "year",
       "label": "Number of Years",
-      "label_i18n": {
-        "en": "Number of Years",
-        "de": "Anzahl der Jahre",
-        "fr": "Nombre d'années",
-        "es": "Número de años",
-        "ar": "عدد السنوات"
-      },
       "type": "number",
       "unit": "years",
       "default": 10,
       "min": 0,
-      "businessContext": "DRIP strategy duration.",
-      "businessContext_i18n": {
-        "en": "DRIP strategy duration.",
-        "de": "DRIP-Strategiedauer.",
-        "fr": "Durée de la stratégie DRIP.",
-        "es": "Duración de la estrategia DRIP.",
-        "ar": "مدة استراتيجية DRIP."
-      }
+      "businessContext": "DRIP strategy duration."
     },
     {
       "id": "getiri",
       "label": "Expected Annual Return (%)",
-      "label_i18n": {
-        "en": "Expected Annual Return (%)",
-        "de": "Erwartete jährliche Rendite (%)",
-        "fr": "Rendement annuel attendu (%)",
-        "es": "Rendimiento anual esperado (%)",
-        "ar": "العائد السنوي المتوقع (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Expected annual price appreciation.",
-      "businessContext_i18n": {
-        "en": "Expected annual price appreciation.",
-        "de": "Erwartete jährliche Kurssteigerung.",
-        "fr": "Appréciation annuelle attendue du prix.",
-        "es": "Apreciación anual esperada del precio.",
-        "ar": "الارتفاع السنوي المتوقع في السعر."
-      }
+      "businessContext": "Expected annual price appreciation."
     }
   ],
   "validation": {
@@ -132,58 +62,28 @@
     "result": "(share + ((temettu * share) / Math.max(1, price))) * Math.pow(1 + getiri / 100, year) * price"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "DRIP Portfoy Valuei"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "DRIP Portfoy Valuei",
-        "de": "DRIP-Portfoliowert",
-        "fr": "Valeur du Portefeuille DRIP",
-        "es": "Valor de la Cartera DRIP",
-        "ar": "قيمة محفظة DRIP"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-      "long": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-      "short_i18n": {
-        "en": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "de": "Berechnen Sie den Zinseszinseffekt der Dividendenwiederanlage (DRIP).",
-        "fr": "Calculez l'effet de croissance composée du réinvestissement des dividendes (DRIP).",
-        "es": "Calcular el efecto de crecimiento compuesto de la reinversión de dividendos (DRIP).",
-        "ar": "احسب تأثير النمو المركب لإعادة استثمار الأرباح (DRIP)."
-      },
-      "long_i18n": {
-        "en": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "de": "Berechnen Sie den Zinseszinseffekt der Dividendenwiederanlage (DRIP).",
-        "fr": "Calculez l'effet de croissance composée du réinvestissement des dividendes (DRIP).",
-        "es": "Calcular el efecto de crecimiento compuesto de la reinversión de dividendos (DRIP).",
-        "ar": "احسب تأثير النمو المركب لإعادة استثمار الأرباح (DRIP)."
-      }
+      "long": "Calculate the compound growth effect of dividend reinvestment (DRIP)."
     }
-  },
-  "title_i18n": {
-    "en": "dividend-reinvestment-calculator",
-    "de": "Dividenden-Reinvestitionsplan (DRIP)-Rechner",
-    "fr": "Calculateur de réinvestissement de dividendes (DRIP)",
-    "es": "Calculadora de reinversión de dividendos (DRIP)",
-    "ar": "حاسبة إعادة استثمار الأرباح (DRIP)"
   },
   "sectorSlug": "daily-renovation"
 }

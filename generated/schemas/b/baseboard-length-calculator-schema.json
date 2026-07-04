@@ -2,77 +2,35 @@
   "toolName": "baseboard-length-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "odaCevresi",
       "label": "Room Perimeter (m)",
-      "label_i18n": {
-        "en": "Room Perimeter (m)",
-        "de": "Raumumfang (m)",
-        "fr": "Périmètre de la pièce (m)",
-        "es": "Perímetro de la Habitación (m)",
-        "ar": "محيط الغرفة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 40,
       "min": 0,
-      "businessContext": "Total room perimeter.",
-      "businessContext_i18n": {
-        "en": "Total room perimeter.",
-        "de": "Gesamtraumumfang.",
-        "fr": "Périmètre total de la pièce.",
-        "es": "Perímetro total de la habitación.",
-        "ar": "إجمالي محيط الغرفة."
-      }
+      "businessContext": "Total room perimeter."
     },
     {
       "id": "kapiGenisligi",
       "label": "Door Width (m)",
-      "label_i18n": {
-        "en": "Door Width (m)",
-        "de": "Turbreite (m)",
-        "fr": "Largeur de porte (m)",
-        "es": "Ancho de Puerta (m)",
-        "ar": "عرض الباب (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.9,
       "min": 0,
-      "businessContext": "Standard door width.",
-      "businessContext_i18n": {
-        "en": "Standard door width.",
-        "de": "Standardturbreite.",
-        "fr": "Largeur standard de porte.",
-        "es": "Ancho estándar de puerta.",
-        "ar": "عرض الباب القياسي."
-      }
+      "businessContext": "Standard door width."
     },
     {
       "id": "kapiSayisi",
       "label": "Number of Doors",
-      "label_i18n": {
-        "en": "Number of Doors",
-        "de": "Anzahl der Turen",
-        "fr": "Nombre de portes",
-        "es": "Número de Puertas",
-        "ar": "عدد الأبواب"
-      },
       "type": "number",
       "unit": "doors",
       "default": 2,
       "min": 0,
-      "businessContext": "Number of doors.",
-      "businessContext_i18n": {
-        "en": "Number of doors.",
-        "de": "Anzahl der Turen.",
-        "fr": "Nombre de portes.",
-        "es": "Número de puertas.",
-        "ar": "عدد الأبواب."
-      }
+      "businessContext": "Number of doors."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "odaCevresi - (kapiGenisligi * kapiSayisi)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
       "result": "Gerekli Supurgelik"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Supurgelik",
-        "de": "Erforderliche Fußleiste",
-        "fr": "Plinthe nécessaire",
-        "es": "Zócalo Requerido",
-        "ar": "اللوح الأساسي المطلوب"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate baseboard length needed excluding door openings.",
-      "long": "Calculate baseboard length needed excluding door openings.",
-      "short_i18n": {
-        "en": "Calculate baseboard length needed excluding door openings.",
-        "de": "Erforderliche Sockelleistenlänge ohne Turoffnungen berechnen.",
-        "fr": "Calculer la longueur de plinthe nécessaire en excluant les ouvertures de portes.",
-        "es": "Calcular la longitud de rodapié necesaria excluyendo las aberturas de puertas.",
-        "ar": "حساب طول اللوح الأساسي المطلوب باستثناء فتحات الأبواب."
-      },
-      "long_i18n": {
-        "en": "Calculate baseboard length needed excluding door openings.",
-        "de": "Erforderliche Sockelleistenlänge ohne Turoffnungen berechnen.",
-        "fr": "Calculer la longueur de plinthe nécessaire en excluant les ouvertures de portes.",
-        "es": "Calcular la longitud de rodapié necesaria excluyendo las aberturas de puertas.",
-        "ar": "حساب طول اللوح الأساسي المطلوب باستثناء فتحات الأبواب."
-      }
+      "long": "Calculate baseboard length needed excluding door openings."
     }
-  },
-  "title_i18n": {
-    "en": "baseboard-length-calculator",
-    "de": "Fußleisten-Rechner",
-    "fr": "Calculateur de plinthe",
-    "es": "Calculadora de zócalo",
-    "ar": "حاسبة قاعدة الجدار"
   },
   "sectorSlug": "daily-renovation"
 }

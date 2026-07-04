@@ -8,48 +8,20 @@
     {
       "id": "gelecekNakitBD",
       "label": "Future Cash Flows PV (USD)",
-      "label_i18n": {
-        "en": "Future Cash Flows PV (USD)",
-        "de": "Barwert zukunftiger Cashflows (USD)",
-        "fr": "VA des flux de trésorerie futurs (USD)",
-        "es": "VP de Flujos de Caja Futuros (USD)",
-        "ar": "القيمة الحالية للتدفقات النقدية المستقبلية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Present value of all future cash flows.",
-      "businessContext_i18n": {
-        "en": "Present value of all future cash flows.",
-        "de": "Barwert aller zukunftigen Cashflows.",
-        "fr": "Valeur actuelle de tous les flux de trésorerie futurs.",
-        "es": "Valor presente de todos los flujos de caja futuros.",
-        "ar": "القيمة الحالية لجميع التدفقات النقدية المستقبلية."
-      }
+      "businessContext": "Present value of all future cash flows."
     },
     {
       "id": "investment",
       "label": "Initial Investment (USD)",
-      "label_i18n": {
-        "en": "Initial Investment (USD)",
-        "de": "Anfangsinvestition",
-        "fr": "Investissement initial",
-        "es": "Inversión Inicial",
-        "ar": "الاستثمار الأولي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Initial project cost.",
-      "businessContext_i18n": {
-        "en": "Initial project cost.",
-        "de": "Anfängliche Projektkosten.",
-        "fr": "Coût initial du projet.",
-        "es": "Costo inicial del proyecto.",
-        "ar": "التكلفة الأولية للمشروع."
-      }
+      "businessContext": "Initial project cost."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "gelecekNakitBD / Math.max(1, investment)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ratio",
     "breakdown": {
       "result": "PI (Kârlilik Endeksi)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "PI (Kârlilik Endeksi)",
-        "de": "PI (Rentabilitätsindex)",
-        "fr": "PI (Indice de rentabilité)",
-        "es": "PI (Índice de Rentabilidad)",
-        "ar": "مؤشر الربحية (PI)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ratio"
+      "result": "ratio"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the profitability index (PI) — value created per unit invested.",
-      "long": "Calculate the profitability index (PI) — value created per unit invested.",
-      "short_i18n": {
-        "en": "Calculate the profitability index (PI) — value created per unit invested.",
-        "de": "Berechnen Sie den Rentabilitätsindex (PI) – Wertschopfung pro investierter Einheit.",
-        "fr": "Calculer l'indice de rentabilité (PI) — valeur créée par unité investie.",
-        "es": "Calcular el índice de rentabilidad (PI) — valor creado por unidad invertida.",
-        "ar": "احسب مؤشر الربحية (PI) — القيمة المولدة لكل وحدة مستثمرة."
-      },
-      "long_i18n": {
-        "en": "Calculate the profitability index (PI) — value created per unit invested.",
-        "de": "Berechnen Sie den Rentabilitätsindex (PI) – Wertschopfung pro investierter Einheit.",
-        "fr": "Calculer l'indice de rentabilité (PI) — valeur créée par unité investie.",
-        "es": "Calcular el índice de rentabilidad (PI) — valor creado por unidad invertida.",
-        "ar": "احسب مؤشر الربحية (PI) — القيمة المولدة لكل وحدة مستثمرة."
-      }
+      "long": "Calculate the profitability index (PI) — value created per unit invested."
     }
-  },
-  "title_i18n": {
-    "en": "profitability-index-calculator",
-    "de": "Rentabilitätsindex (PI) Rechner",
-    "fr": "Calculateur d'Indice de Rentabilité (PI)",
-    "es": "Calculadora de Índice de Rentabilidad (PI)",
-    "ar": "حاسبة مؤشر الربحية (PI)"
   },
   "sectorSlug": "daily-renovation"
 }

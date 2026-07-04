@@ -8,94 +8,38 @@
     {
       "id": "malzemeKutle",
       "label": "Material Mass (kg)",
-      "label_i18n": {
-        "en": "Material Mass (kg)",
-        "de": "Materialmasse (kg)",
-        "fr": "Masse de matériau (kg)",
-        "es": "Masa del Material (kg)",
-        "ar": "كتلة المادة (kg)"
-      },
       "type": "number",
       "unit": "kg",
       "default": 50,
       "min": 0,
-      "businessContext": "Polymer to dry.",
-      "businessContext_i18n": {
-        "en": "Polymer to dry.",
-        "de": "Zu trocknendes Polymer.",
-        "fr": "Polymère à sécher.",
-        "es": "Polímero a secar.",
-        "ar": "البوليمر المراد تجفيفه."
-      }
+      "businessContext": "Polymer to dry."
     },
     {
       "id": "nemOrani",
       "label": "Moisture Content (%)",
-      "label_i18n": {
-        "en": "Moisture Content (%)",
-        "de": "Bodenfeuchte",
-        "fr": "Teneur en humidité du sol",
-        "es": "Contenido de humedad del suelo",
-        "ar": "محتوى رطوبة التربة"
-      },
       "type": "number",
       "unit": "%",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Polymer moisture percentage.",
-      "businessContext_i18n": {
-        "en": "Polymer moisture percentage.",
-        "de": "Feuchtegehalt des Polymers in Prozent.",
-        "fr": "Pourcentage d'humidité du polymère.",
-        "es": "Porcentaje de humedad del polímero.",
-        "ar": "نسبة الرطوبة في البوليمر."
-      }
+      "businessContext": "Polymer moisture percentage."
     },
     {
       "id": "havaDebi",
       "label": "Air Flow (kg/s)",
-      "label_i18n": {
-        "en": "Air Flow (kg/s)",
-        "de": "Luftstrom (kg/s)",
-        "fr": "Débit d'air (kg/s)",
-        "es": "Flujo de Aire (kg/s)",
-        "ar": "تدفق الهواء (kg/s)"
-      },
       "type": "number",
       "unit": "kg/s",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Drying air flow.",
-      "businessContext_i18n": {
-        "en": "Drying air flow.",
-        "de": "Trocknungsluftstrom.",
-        "fr": "Débit d'air de séchage.",
-        "es": "Flujo de aire de secado.",
-        "ar": "تدفق هواء التجفيف."
-      }
+      "businessContext": "Drying air flow."
     },
     {
       "id": "nemAlmaKapasite",
       "label": "Moisture Removal Capacity (kg/kg)",
-      "label_i18n": {
-        "en": "Moisture Removal Capacity (kg/kg)",
-        "de": "Feuchteentfernungsvermogen (kg/kg)",
-        "fr": "Capacité d'élimination d'humidité (kg/kg)",
-        "es": "Capacidad de Eliminación de Humedad (kg/kg)",
-        "ar": "سعة إزالة الرطوبة (kg/kg)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0.005,
       "min": 0,
-      "businessContext": "Air moisture removal capacity.",
-      "businessContext_i18n": {
-        "en": "Air moisture removal capacity.",
-        "de": "Feuchteentfernungsvermogen der Luft.",
-        "fr": "Capacité d'élimination d'humidité de l'air.",
-        "es": "Capacidad de eliminación de humedad del aire.",
-        "ar": "سعة إزالة الرطوبة من الهواء."
-      }
+      "businessContext": "Air moisture removal capacity."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "(malzemeKutle * (nemOrani / 100)) / Math.max(0.0001, (havaDebi * nemAlmaKapasite))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "s",
     "breakdown": {
       "result": "Drying Time"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Drying Time",
-        "de": "Trocknungszeit",
-        "fr": "Temps de séchage",
-        "es": "Tiempo de Secado",
-        "ar": "وقت التجفيف"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "s"
+      "result": "s"
     },
     "hiddenLossDrivers": [
       "Waste in material or time indicates process improvement opportunity."
@@ -132,36 +67,15 @@
       "Optimize drying/cooling parameters for cycle time reduction.",
       "Monitor defects and adjust process conditions accordingly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate drying time for hygroscopic polymer to reach processable moisture.",
-      "long": "Calculate drying time for hygroscopic polymer to reach processable moisture.",
-      "short_i18n": {
-        "en": "Calculate drying time for hygroscopic polymer to reach processable moisture.",
-        "de": "Berechnen Sie die Trocknungszeit fur ein hygroskopisches Polymer bis zur verarbeitbaren Feuchte.",
-        "fr": "Calculer le temps de séchage d'un polymère hygroscopique pour atteindre une humidité transformable.",
-        "es": "Calcular el tiempo de secado para que un polímero higroscópico alcance la humedad procesable.",
-        "ar": "حساب وقت التجفيف للبوليمر المسترطب للوصول إلى الرطوبة القابلة للمعالجة."
-      },
-      "long_i18n": {
-        "en": "Calculate drying time for hygroscopic polymer to reach processable moisture.",
-        "de": "Berechnen Sie die Trocknungszeit fur ein hygroskopisches Polymer bis zur verarbeitbaren Feuchte.",
-        "fr": "Calculer le temps de séchage d'un polymère hygroscopique pour atteindre une humidité transformable.",
-        "es": "Calcular el tiempo de secado para que un polímero higroscópico alcance la humedad procesable.",
-        "ar": "حساب وقت التجفيف للبوليمر المسترطب للوصول إلى الرطوبة القابلة للمعالجة."
-      }
+      "long": "Calculate drying time for hygroscopic polymer to reach processable moisture."
     }
-  },
-  "title_i18n": {
-    "en": "plastic-drying-time-calculator",
-    "de": "Kunststofftrocknungszeitrechner",
-    "fr": "Calculateur de temps de séchage du plastique",
-    "es": "Calculadora de tiempo de secado de plástico",
-    "ar": "حاسبة وقت تجفيف البلاستيك"
   },
   "sectorSlug": "daily-renovation"
 }

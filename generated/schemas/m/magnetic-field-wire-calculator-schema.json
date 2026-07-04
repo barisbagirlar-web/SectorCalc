@@ -8,48 +8,20 @@
     {
       "id": "current",
       "label": "Current in Wire (A)",
-      "label_i18n": {
-        "en": "Current in Wire (A)",
-        "de": "Strom im Draht (A)",
-        "fr": "Courant dans le fil (A)",
-        "es": "Corriente en el cable (A)",
-        "ar": "تيار السلك (A)"
-      },
       "type": "number",
       "unit": "A",
       "default": 10,
       "min": 0,
-      "businessContext": "Conductor current.",
-      "businessContext_i18n": {
-        "en": "Conductor current.",
-        "de": "Leiterstrom.",
-        "fr": "Courant conducteur.",
-        "es": "Corriente del conductor.",
-        "ar": "تيار الموصل."
-      }
+      "businessContext": "Conductor current."
     },
     {
       "id": "mesafe",
       "label": "Distance from Wire (m)",
-      "label_i18n": {
-        "en": "Distance from Wire (m)",
-        "de": "Abstand vom Draht",
-        "fr": "Distance du fil",
-        "es": "Distancia desde el cable",
-        "ar": "المسافة من السلك"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Measurement distance from wire.",
-      "businessContext_i18n": {
-        "en": "Measurement distance from wire.",
-        "de": "Messabstand vom Draht.",
-        "fr": "Distance de mesure par rapport au fil.",
-        "es": "Distancia de medición desde el cable.",
-        "ar": "مسافة القياس من السلك."
-      }
+      "businessContext": "Measurement distance from wire."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "(4 * Math.PI * 1e-7 * current) / Math.max(0.0001, (2 * Math.PI * mesafe))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "T",
     "breakdown": {
-      "result": "Manyetik Alan (B)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Manyetik Alan (B)",
-        "de": "Magnetfeld (B)",
-        "fr": "Champ magnétique (B)",
-        "es": "Campo magnético (B)",
-        "ar": "المجال المغناطيسي (B)"
-      }
+      "result": "Magnetic Field (B)"
     },
     "breakdownUnits": {
-      "sonuc": "T"
+      "result": "T"
     },
     "hiddenLossDrivers": [
       "Low Q factor indicates broader frequency response."
@@ -86,36 +49,15 @@
       "Verify component tolerances affect circuit performance.",
       "Use proper safety equipment for high voltage/current work."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate magnetic flux density around a long straight wire.",
-      "long": "Calculate magnetic flux density around a long straight wire.",
-      "short_i18n": {
-        "en": "Calculate magnetic flux density around a long straight wire.",
-        "de": "Berechnen Sie die magnetische Flussdichte um einen langen geraden Draht.",
-        "fr": "Calculer la densité de flux magnétique autour d'un long fil droit.",
-        "es": "Calcular la densidad de flujo magnético alrededor de un cable largo y recto.",
-        "ar": "احسب كثافة التدفق المغناطيسي حول سلك طويل مستقيم."
-      },
-      "long_i18n": {
-        "en": "Calculate magnetic flux density around a long straight wire.",
-        "de": "Berechnen Sie die magnetische Flussdichte um einen langen geraden Draht.",
-        "fr": "Calculer la densité de flux magnétique autour d'un long fil droit.",
-        "es": "Calcular la densidad de flujo magnético alrededor de un cable largo y recto.",
-        "ar": "احسب كثافة التدفق المغناطيسي حول سلك طويل مستقيم."
-      }
+      "long": "Calculate magnetic flux density around a long straight wire."
     }
-  },
-  "title_i18n": {
-    "en": "magnetic-field-wire-calculator",
-    "de": "Ampere-Gesetz Magnetfeldrechner",
-    "fr": "Calculateur de champ magnétique loi d'Ampère",
-    "es": "Calculadora de campo magnético ley de Ampère",
-    "ar": "حاسبة المجال المغناطيسي لقانون أمبير"
   },
   "sectorSlug": "daily-renovation"
 }

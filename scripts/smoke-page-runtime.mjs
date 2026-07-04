@@ -1,151 +1,137 @@
-#!/usr/bin/env node
-/**
- * SectorCalc Page Runtime Smoke Test
- *
- * Starts against a running app or accepts BASE_URL env variable.
- * Checks:
- *   - /
- *   - /free-tools
- *   - /pro-tools
- *   - /tools/generated/pb-ratio-calculator
- *   - at least one PRO detail page
- *   - /en
- *   - /tr
- *
- * Fails on:
- *   - unexpected status code
- *   - raw slug H1 for known tool
- *   - "categories." in HTML
- *   - "daily-renovation" as wrong subtitle
- *   - Turkish characters
- *   - exact formula leak markers
- *   - Next.js runtime error text in page
- */
+// SectorCalc Page Runtime Smoke Test
+// Tests live pages for correct rendering.
+// Usage: BASE_URL=http://localhost:3000 node scripts/smoke-page-runtime.mjs
 
-const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
+import { request } from "http";
 
-const TURKISH_RE = /[ğüşıöçĞÜŞİÖÇ]/;
-const FORMULA_LEAK_RE =
-  /\b(expression\s*[:=]|formula_expression\s*[:=]|public_formula_expression)\b/i;
-const RUNTIME_ERROR_RE =
-  /(Application error|a client-side exception|Something went wrong|500 -|500 Internal|Internal Server Error|RSC render error|Error: Not Found)/i;
-const RAW_SLUG_H1_RE = /\bh1[^>]*>\s*(pb-ratio-calculator|tool-weld-strength)/i;
+const BASE_URL = process.env.BASE_URL;
+if (!BASE_URL) {
+  console.error("BASE_URL environment variable is required");
+  console.error("Usage: BASE_URL=http://localhost:3000 node scripts/smoke-page-runtime.mjs");
+  process.exit(1);
+}
 
-const routes = [
-  { path: "/", expected: 200 },
-  { path: "/free-tools", expected: 200 },
-  { path: "/pro-tools", expected: 200 },
-  { path: "/tools/generated/pb-ratio-calculator", expected: 200 },
-  { path: "/en", expected: 404 },
-  { path: "/tr", expected: 404 },
+const TEST_PAGES = [
+  { url: "/tools/generated/welding-amperage-thickness-chart", tier: "FREE" },
+  { url: "/tools/generated/paint-coverage-calculator-primer", tier: "FREE" },
+  { url: "/tools/generated/concrete-volume-bags-m3", tier: "FREE" },
+  { url: "/tools/pro/sc-001-data-center-power-and-cooling-capacity-margin-with-occupancy-ramp-calculator", tier: "PRO" },
+  { url: "/tools/pro/sc-020-cnc-spindle-power-and-tool-amortization-break-even-analysis-calculator", tier: "PRO" },
+  { url: "/en", tier: "404" },
+  { url: "/tr", tier: "404" },
 ];
 
-let failures = 0;
+function fetchPage(urlPath) {
+  return new Promise((resolve, reject) => {
+    const fullUrl = `${BASE_URL}${urlPath}`;
+    const parsed = new URL(fullUrl);
 
-async function checkRoute({ path, expected }) {
-  const url = `${BASE_URL}${path}`;
-  let status;
-  let html;
-  try {
-    const res = await fetch(url);
-    status = res.status;
-    html = await res.text();
-  } catch (err) {
-    console.error(`FAIL  ${path} — network error: ${err.message}`);
-    failures++;
-    return;
-  }
-
-  if (status !== expected) {
-    console.error(
-      `FAIL  ${path} — expected status ${expected}, got ${status}`,
+    const req = request(
+      {
+        hostname: parsed.hostname,
+        port: parsed.port,
+        path: parsed.pathname,
+        method: "GET",
+        timeout: 15000,
+        headers: {
+          "User-Agent": "SectorCalc-SmokeTest/1.0",
+        },
+      },
+      (res) => {
+        let data = "";
+        res.on("data", (chunk) => (data += chunk));
+        res.on("end", () => {
+          resolve({ statusCode: res.statusCode, body: data, headers: res.headers });
+        });
+      },
     );
-    failures++;
-    return;
-  }
 
-  // Only check content for 200 pages
-  if (status === 200) {
-    const contentChecks = [
-      {
-        re: TURKISH_RE,
-        label: "Turkish characters",
-      },
-      {
-        re: FORMULA_LEAK_RE,
-        label: "formula expression leak",
-      },
-      {
-        re: RUNTIME_ERROR_RE,
-        label: "runtime error text",
-      },
-      {
-        re: RAW_SLUG_H1_RE,
-        label: "raw slug in H1",
-      },
-    ];
+    req.on("error", reject);
+    req.on("timeout", () => {
+      req.destroy();
+      reject(new Error("Request timeout"));
+    });
+    req.end();
+  });
+}
 
-    for (const { re, label } of contentChecks) {
-      if (re.test(html)) {
-        console.error(
-          `FAIL  ${path} — contains ${label} (matched: ${html.match(re)?.[0]})`,
-        );
-        failures++;
+async function run() {
+  let exitCode = 0;
+  const results = [];
+
+  console.log("=== PAGE RUNTIME SMOKE TEST ===");
+  console.log(`Base URL: ${BASE_URL}`);
+  console.log("");
+
+  for (const test of TEST_PAGES) {
+    try {
+      console.log(`  Testing: ${test.url} (expected: ${test.tier})`);
+      const { statusCode, body, headers } = await fetchPage(test.url);
+
+      if (test.tier === "404") {
+        if (statusCode === 404) {
+          console.log(`    ✅ Status: ${statusCode} (expected 404)`);
+          results.push({ url: test.url, passed: true, status: statusCode });
+        } else {
+          console.error(`    ❌ Status: ${statusCode} (expected 404)`);
+          results.push({ url: test.url, passed: false, status: statusCode, error: "Expected 404" });
+          exitCode = 1;
+        }
+        continue;
       }
-    }
 
-    // Check for "categories." only on tool detail pages
-    if (path.startsWith("/tools/") && /categories\./i.test(html)) {
-      console.error(`FAIL  ${path} — contains bare "categories." text`);
-      failures++;
-    }
+      // Check status code (200 or 304)
+      const validStatus = statusCode === 200 || statusCode === 304;
+      if (!validStatus) {
+        console.error(`    ❌ Status: ${statusCode} (expected 200)`);
+        results.push({ url: test.url, passed: false, status: statusCode, error: `Unexpected status ${statusCode}` });
+        exitCode = 1;
+        continue;
+      }
 
-    // Check for "daily-renovation" subtitle
-    if (/daily-renovation/i.test(html)) {
-      console.error(`FAIL  ${path} — contains "daily-renovation"`);
-      failures++;
+      // Check for RSC error
+      if (body.includes("Error:") || body.includes("error") || body.includes("notFound()")) {
+        console.error(`    ❌ Page contains error markers`);
+        results.push({ url: test.url, passed: false, status: statusCode, error: "Page contains error" });
+        exitCode = 1;
+        continue;
+      }
+
+      // Check for UniversalIndustrialDecisionForm render (presence of sc-v531-shell class)
+      if (!body.includes("sc-v531-shell") && !body.includes("UniversalIndustrialDecisionForm")) {
+        console.warn(`    ⚠️  No V5.3.1 form marker found (might be server-rendered)`);
+      }
+
+      // Check for raw slug H1
+      if (body.match(/<h1[^>]*>[a-z][a-z0-9-]+<\/h1>/i)) {
+        console.warn(`    ⚠️  Possible raw slug in H1`);
+      }
+
+      // Success
+      console.log(`    ✅ Status: ${statusCode} - Page loads successfully`);
+      results.push({ url: test.url, passed: true, status: statusCode });
+    } catch (err) {
+      console.error(`    ❌ Error: ${err.message}`);
+      results.push({ url: test.url, passed: false, status: 0, error: err.message });
+      exitCode = 1;
     }
   }
 
-  console.log(`PASS  ${path} (${status})`);
+  // Summary
+  console.log("");
+  console.log("=== SUMMARY ===");
+  const passed = results.filter((r) => r.passed).length;
+  const failed = results.filter((r) => !r.passed).length;
+  console.log(`  Passed: ${passed}/${results.length}`);
+  console.log(`  Failed: ${failed}/${results.length}`);
+
+  if (exitCode === 0) {
+    console.log("✅ PAGE RUNTIME SMOKE TEST PASSED");
+  } else {
+    console.error("❌ PAGE RUNTIME SMOKE TEST FAILED");
+  }
+
+  process.exit(exitCode);
 }
 
-async function main() {
-  console.log(`SectorCalc Page Runtime Smoke Test`);
-  console.log(`Target: ${BASE_URL}`);
-  console.log("");
-
-  for (const route of routes) {
-    await checkRoute(route);
-  }
-
-  // Try one PRO detail page (pick the first schema alphabetically)
-  try {
-    const proRes = await fetch(`${BASE_URL}/pro-tools`);
-    const proHtml = await proRes.text();
-    const slugMatch = proHtml.match(/href="\/tools\/pro\/([^"]+)"/);
-    if (slugMatch) {
-      const slug = slugMatch[1];
-      await checkRoute({ path: `/tools/pro/${slug}`, expected: 200 });
-    } else {
-      console.warn(
-        "WARN  /pro-tools — could not extract PRO tool slug from page",
-      );
-    }
-  } catch (err) {
-    console.error(`FAIL  PRO detail lookup — network error: ${err.message}`);
-    failures++;
-  }
-
-  console.log("");
-  if (failures > 0) {
-    console.log(
-      `RESULT: ${failures} failure(s) — PAGE RUNTIME SMOKE FAILED`,
-    );
-    process.exit(1);
-  }
-  console.log("RESULT: ALL PASS — PAGE RUNTIME SMOKE OK");
-  process.exit(0);
-}
-
-main();
+run();

@@ -35,6 +35,16 @@ export interface UniversalIndustrialDecisionFormProps {
   className?: string;
   /** Route slug for identity assertion. Must match schema.tool_key. */
   toolKey?: string;
+  /** Access tier: FREE tools require no payment, PRO tools are credit-gated. */
+  accessTier?: "FREE" | "PRO";
+  /** Usage session ID for Pro tool execution tracking. */
+  usageSessionId?: string | null;
+  /** Remaining runs for the active Pro usage session. */
+  remainingRuns?: number | null;
+  /** Called when user requests to use a credit for a Pro tool. */
+  onRequestCreditSession?: (toolKey: string) => void;
+  /** Whether a credit session is being created. */
+  creditSessionLoading?: boolean;
 }
 
 const PROFILE_MODES: Array<{ id: ProfileMode; label: string; description: string }> = [
@@ -45,8 +55,40 @@ const PROFILE_MODES: Array<{ id: ProfileMode; label: string; description: string
 ];
 
 export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisionFormProps) {
-  // V5.3.1: Schema identity check (evaluated each render, not a hook guard — hooks already declared)
-  const identityCheck = props.toolKey
+  // ── V5.3.1: Defensive contract invariants (evaluated each render, before hooks) ──
+  // Hooks MUST be declared unconditionally. Blocking render happens after hooks.
+  const contractErrors: string[] = [];
+  if (!props.schema || typeof props.schema !== "object") {
+    contractErrors.push("FORM_CONTRACT_SCHEMA_NULL");
+  } else {
+    if (!props.schema.tool_key || typeof props.schema.tool_key !== "string") {
+      contractErrors.push("FORM_CONTRACT_TOOL_KEY_MISSING");
+    }
+    if (!props.schema.tool_name || typeof props.schema.tool_name !== "string") {
+      contractErrors.push("FORM_CONTRACT_TOOL_NAME_MISSING");
+    }
+    if (!Array.isArray(props.schema.inputs)) {
+      contractErrors.push("FORM_CONTRACT_INPUTS_INVALID");
+    }
+    if (!Array.isArray(props.schema.outputs)) {
+      contractErrors.push("FORM_CONTRACT_OUTPUTS_INVALID");
+    }
+    if (!Array.isArray(props.schema.normalized_inputs)) {
+      contractErrors.push("FORM_CONTRACT_NORMALIZED_INPUTS_INVALID");
+    }
+    if (!props.schema.metadata?.schema_version) {
+      contractErrors.push("FORM_CONTRACT_SCHEMA_VERSION_MISSING");
+    }
+    if (props.schema.form_runtime_binding?.execute_response_contract) {
+      const erc = props.schema.form_runtime_binding.execute_response_contract;
+      if (!erc.redaction_status) {
+        contractErrors.push("FORM_CONTRACT_REDACTION_STATUS_MISSING");
+      }
+    }
+  }
+
+  // V5.3.1: Schema identity check
+  const identityCheck = !contractErrors.length && props.toolKey && props.schema
     ? assertToolSchemaIdentity({
         routeToolKey: props.toolKey,
         schemaToolKey: props.schema.tool_key,
@@ -54,8 +96,112 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       })
     : null;
 
+  // Provide a minimal valid schema for the machine when contract is broken,
+  // so hooks never crash. The blocking render handles the error display.
+  const machineSchema: SuperV4Schema = contractErrors.length
+    ? ({
+        tool_id: props.toolKey || "",
+        tool_key: props.toolKey || "",
+        tool_name: props.toolKey || "Tool",
+        category: "General",
+        scope: "",
+        primary_operation: "calculate",
+        inputs: [],
+        normalized_inputs: [],
+        outputs: [],
+        formulas: [],
+        metadata: { schema_version: "1.0.0", formula_version: "1.0.0" },
+        ui_contract: {
+          target_renderer: "UniversalIndustrialDecisionForm",
+          profile_modes: [],
+          input_groups: [],
+          sticky_decision_cockpit: false,
+          mobile_bottom_action_bar: false,
+          normalized_preview_required: false,
+          reference_values_visible: false,
+          evidence_controls_required: false,
+          semantic_error_summary_required: false,
+          safety_factor_gauges_required: false,
+          hidden_risk_panel_required: false,
+          business_impact_panel_required: false,
+          standards_clause_panel_required: false,
+          protected_methodology_panel_required: false,
+          audit_seal_panel_required: false,
+          accessibility: {},
+        },
+        form_runtime_binding: {
+          renderer: "UniversalIndustrialDecisionForm",
+          schema_generation_runtime: "offline",
+          llm_runtime_usage: "FORBIDDEN",
+          client_formula_execution: "FORBIDDEN",
+          server_execution_required: true,
+          state_management_required: true,
+          dynamic_ui_contract_required: true,
+          json_schema_form_substrate_allowed: false,
+          generic_json_schema_form_alone_sufficient: false,
+          state_domains: [],
+          state_transitions: [],
+          execute_request_contract: {},
+          execute_response_contract: {
+            redaction_status: "REDACTION_NOT_REQUIRED",
+            status: "OK",
+            pipeline_state: "blocked",
+          },
+        },
+        unit_conversion_contract: { conversion_registry: {} },
+        reference_value_policy: {},
+        physical_bounds_policy: {},
+        validation_contract: {},
+        derating_contract: {},
+        precision_policy: {},
+        output_formatting: {},
+        decision_interpretation_contract: {},
+        business_impact_contract: {},
+        engine_rules: {
+          client_formula_execution: false,
+          llm_enabled: false,
+          server_execution_required: true,
+          fmea: null,
+        },
+        uncertainty_model: { method: "NONE", confidence_level: null },
+        safety_factor_gauges: [],
+        proof_pack: { enabled: false, redaction_status: "PUBLIC_SAFE_REDACTED" as const, sections: [] },
+        audit_trail_contract: {
+          hash_algorithm: "SHA-256",
+          seal_config: {
+            enabled: false,
+            include_input_hash: true,
+            include_output_hash: true,
+            include_schema_hash: true,
+            include_formula_version: true,
+          },
+          redaction_status: "PUBLIC_SAFE_REDACTED",
+          seal_fields: [],
+        },
+        export_contract: { enabled: false, formats: [], redaction_required: true },
+        reference_code: { code_language: null, code_block: null },
+        test_plan: { test_cases: [], coverage_requirement: "NONE" },
+        red_team_review: { review_status: "NOT_REVIEWED", issues: [] },
+        risk_level: "MEDIUM",
+        brand_safety_policy: {
+          third_party_brand_references: [],
+          legal_proof_claims: [],
+          paid_standard_table_reproductions: [],
+          policy_enforced: true,
+          policy_version: "5.3.1",
+        },
+        calculation_basis: { method: "Fallback", assumptions: [], limitations: [] },
+        unit_system: { preferred: "GLOBAL", strict: false },
+        standards: [],
+        standards_clause_map: [],
+        reference_status: "UNVERIFIED",
+        irreversible_commitment_metric: "result",
+        decision_context: {},
+      } as SuperV4Schema)
+    : props.schema;
+
   const machine = useUniversalIndustrialDecisionFormMachine({
-    schema: props.schema,
+    schema: machineSchema,
     schemaHash: props.schemaHash,
     executeEndpoint: props.executeEndpoint,
     initialProfileMode: props.initialProfileMode ?? "engineering",
@@ -68,18 +214,66 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const activeMode = state.profileModeState.mode;
 
   const visibleGroups = useMemo(
-    () => getVisibleGroups(props.schema.ui_contract.input_groups, activeMode, state.advancedDisclosureState.advanced_visible),
-    [activeMode, props.schema.ui_contract.input_groups, state.advancedDisclosureState.advanced_visible],
+    () => {
+      if (contractErrors.length || !Array.isArray(props.schema?.ui_contract?.input_groups)) return [];
+      return getVisibleGroups(props.schema!.ui_contract!.input_groups, activeMode, state.advancedDisclosureState.advanced_visible);
+    },
+    [activeMode, contractErrors.length, props.schema?.ui_contract?.input_groups, state.advancedDisclosureState.advanced_visible],
   );
 
-  const inputsById = useMemo(() => new Map(props.schema.inputs.map((input) => [input.id, input])), [props.schema.inputs]);
+  const inputsById = useMemo(() => {
+    if (contractErrors.length || !Array.isArray(props.schema?.inputs)) return new Map();
+    return new Map(props.schema!.inputs.map((input: { id: string }) => [input.id, input]));
+  }, [contractErrors.length, props.schema?.inputs]);
 
   const status = response?.status ?? executionStateToStatus(state.executionState);
 
+  // Access tier
+  const accessTier = props.accessTier ?? "FREE";
+  const isPro = accessTier === "PRO";
+  const hasSession = isPro && !!props.usageSessionId;
+  const runsRemaining = props.remainingRuns ?? 0;
+  const sessionExhausted = isPro && hasSession && runsRemaining <= 0;
+  const creditSessionLoading = props.creditSessionLoading ?? false;
+
+  const primaryButtonDisabled =
+    state.executionState === "executing" ||
+    creditSessionLoading ||
+    (isPro && !hasSession) ||
+    (isPro && sessionExhausted);
+
+  const primaryButtonLabel = creditSessionLoading
+    ? "Processing credit..."
+    : isPro && !hasSession
+    ? "Use 1 credit"
+    : isPro && sessionExhausted
+    ? "Use 1 credit to continue"
+    : state.executionState === "executing"
+    ? "Executing on server"
+    : "Run server decision check";
+
+  const primaryButtonAction = () => {
+    if (isPro && (!hasSession || sessionExhausted)) {
+      if (props.onRequestCreditSession && props.toolKey) {
+        props.onRequestCreditSession(props.toolKey);
+      }
+      return;
+    }
+    void machine.submitServerExecution();
+  };
+
   // Display-safe labels
-  const displayToolName = getDisplayToolName(props.schema.tool_name, props.schema.tool_key);
-  const displayCategory = getDisplayCategoryLabel(props.schema.category);
-  const displayOperation = getDisplayOperationLabel(props.schema.primary_operation);
+  const displayToolName = getDisplayToolName(
+    props.schema?.tool_name as string | null | undefined,
+    props.schema?.tool_key as string || props.toolKey || "",
+  );
+  const displayCategory = getDisplayCategoryLabel(props.schema?.category as string | null | undefined);
+  const displayOperation = getDisplayOperationLabel(props.schema?.primary_operation as string | null | undefined);
+
+  // ── Contract errors blocking block (after all hooks) ──
+  if (contractErrors.length > 0) {
+    return <ContractBlocker errors={contractErrors} />;
+  }
 
   // Identity mismatch blocking block (after all hooks)
   if (identityCheck && !identityCheck.ok) {
@@ -104,6 +298,10 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         <div className="sc-v531-hero__meta" aria-label="Tool metadata">
           <span title={props.schema.category}>{displayCategory}</span>
           <span title={props.schema.primary_operation}>{displayOperation}</span>
+          <span>Access: {isPro ? "Pro tool" : "Free tool"}</span>
+          {isPro && hasSession ? (
+            <span>Runs remaining: {runsRemaining} / 10</span>
+          ) : null}
           <span>Risk: {props.schema.risk_level}</span>
           <span>Schema: {props.schema.metadata.schema_version}</span>
           <span>Formula: {props.schema.metadata.formula_version}</span>
@@ -223,10 +421,10 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 <button
                   type="button"
                   className="sc-v531-primary-button"
-                  disabled={state.executionState === "executing"}
-                  onClick={() => void machine.submitServerExecution()}
+                  disabled={primaryButtonDisabled}
+                  onClick={primaryButtonAction}
                 >
-                  {state.executionState === "executing" ? "Executing on server" : "Run server decision check"}
+                  {primaryButtonLabel}
                 </button>
                 <button type="button" className="sc-v531-secondary-button" onClick={machine.runClientPrecheck}>
                   Run client precheck
@@ -243,10 +441,10 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
             <button
               type="button"
               className="sc-v531-primary-button"
-              disabled={state.executionState === "executing"}
-              onClick={() => void machine.submitServerExecution()}
+              disabled={primaryButtonDisabled}
+              onClick={primaryButtonAction}
             >
-              Execute
+              {primaryButtonLabel}
             </button>
           </div>
         </>

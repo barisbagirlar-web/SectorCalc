@@ -8,71 +8,29 @@
     {
       "id": "Z",
       "label": "Z Value",
-      "label_i18n": {
-        "en": "Z Value",
-        "de": "Z-Wert",
-        "fr": "Valeur Z",
-        "es": "Valor Z",
-        "ar": "قيمة Z"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 1.96,
       "min": 0,
-      "businessContext": "Z-score for confidence level.",
-      "businessContext_i18n": {
-        "en": "Z-score for confidence level.",
-        "de": "Z-Score fur das Konfidenzniveau.",
-        "fr": "Score Z pour le niveau de confiance.",
-        "es": "Puntuación Z para el nivel de confianza.",
-        "ar": "درجة Z لمستوى الثقة."
-      }
+      "businessContext": "Z-score for confidence level."
     },
     {
       "id": "stdSapma",
       "label": "Estimated Std Dev",
-      "label_i18n": {
-        "en": "Estimated Std Dev",
-        "de": "Geschätzte Standardabweichung",
-        "fr": "Écart-type estimé",
-        "es": "Desviación Estándar Estimada",
-        "ar": "الانحراف المعياري المقدر"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 10,
       "min": 0,
-      "businessContext": "Population standard deviation.",
-      "businessContext_i18n": {
-        "en": "Population standard deviation.",
-        "de": "Standardabweichung der Grundgesamtheit.",
-        "fr": "Écart type de la population.",
-        "es": "Desviación estándar de la población.",
-        "ar": "الانحراف المعياري للسكان."
-      }
+      "businessContext": "Population standard deviation."
     },
     {
       "id": "hataPayi",
       "label": "Margin of Error",
-      "label_i18n": {
-        "en": "Margin of Error",
-        "de": "Fehlermarge",
-        "fr": "Marge d'erreur",
-        "es": "Margen de error",
-        "ar": "هامش الخطأ"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 2,
       "min": 0,
-      "businessContext": "Maximum allowable error.",
-      "businessContext_i18n": {
-        "en": "Maximum allowable error.",
-        "de": "Maximal zulässiger Fehler.",
-        "fr": "Erreur maximale admissible.",
-        "es": "Error máximo permitido.",
-        "ar": "الخطأ الأقصى المسموح به."
-      }
+      "businessContext": "Maximum allowable error."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "Math.ceil(Math.pow((Z * stdSapma / Math.max(0.0001, hataPayi)), 2))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "samples",
     "breakdown": {
       "result": "Gereken Minimum Orneklem"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gereken Minimum Orneklem",
-        "de": "Erforderliche Mindeststichprobe",
-        "fr": "Required Minimum Sample",
-        "es": "Muestra Mínima Requerida",
-        "ar": "الحد الأدنى المطلوب للعينة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "samples"
+      "result": "samples"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify statistical assumptions before making decisions.",
       "Use larger sample sizes for better accuracy."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate minimum sample size for statistical significance.",
-      "long": "Calculate minimum sample size for statistical significance.",
-      "short_i18n": {
-        "en": "Calculate minimum sample size for statistical significance.",
-        "de": "Berechnen Sie die minimale Stichprobengroße fur statistische Signifikanz.",
-        "fr": "Calculer la taille minimale de l'échantillon pour la signification statistique.",
-        "es": "Calcular el tamaño mínimo de muestra para significancia estadística.",
-        "ar": "حساب الحد الأدنى لحجم العينة للدلالة الإحصائية."
-      },
-      "long_i18n": {
-        "en": "Calculate minimum sample size for statistical significance.",
-        "de": "Berechnen Sie die minimale Stichprobengroße fur statistische Signifikanz.",
-        "fr": "Calculer la taille minimale de l'échantillon pour la signification statistique.",
-        "es": "Calcular el tamaño mínimo de muestra para significancia estadística.",
-        "ar": "حساب الحد الأدنى لحجم العينة للدلالة الإحصائية."
-      }
+      "long": "Calculate minimum sample size for statistical significance."
     }
-  },
-  "title_i18n": {
-    "en": "minimum-sample-size-calculator",
-    "de": "Stichprobengroßenrechner",
-    "fr": "Calculateur de taille d'échantillon",
-    "es": "Calculadora de tamaño de muestra",
-    "ar": "حاسبة حجم العينة"
   },
   "sectorSlug": "daily-renovation"
 }

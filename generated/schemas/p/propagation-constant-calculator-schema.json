@@ -8,94 +8,38 @@
     {
       "id": "resistance",
       "label": "Unit Resistance (Ω/m)",
-      "label_i18n": {
-        "en": "Unit Resistance (Ω/m)",
-        "de": "Widerstand pro Längeneinheit (Ω/m)",
-        "fr": "Résistance linéique (Ω/m)",
-        "es": "Resistencia Unitaria (Ω/m)",
-        "ar": "المقاومة النوعية (Ω/m)"
-      },
       "type": "number",
       "unit": "ohm/m",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Line resistance.",
-      "businessContext_i18n": {
-        "en": "Line resistance.",
-        "de": "Leitungswiderstand.",
-        "fr": "Résistance de la ligne.",
-        "es": "Resistencia de línea.",
-        "ar": "مقاومة الخط."
-      }
+      "businessContext": "Line resistance."
     },
     {
       "id": "induktans",
       "label": "Unit Inductance (H/m)",
-      "label_i18n": {
-        "en": "Unit Inductance (H/m)",
-        "de": "Induktivität pro Längeneinheit (H/m)",
-        "fr": "Inductance linéique (H/m)",
-        "es": "Inductancia Unitaria (H/m)",
-        "ar": "الحث النوعي (H/m)"
-      },
       "type": "number",
       "unit": "H/m",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Line inductance.",
-      "businessContext_i18n": {
-        "en": "Line inductance.",
-        "de": "Leitungsinduktivität.",
-        "fr": "Inductance de la ligne.",
-        "es": "Inductancia de línea.",
-        "ar": "حث الخط."
-      }
+      "businessContext": "Line inductance."
     },
     {
       "id": "capacity",
       "label": "Unit Capacitance (F/m)",
-      "label_i18n": {
-        "en": "Unit Capacitance (F/m)",
-        "de": "Kapazität pro Längeneinheit (F/m)",
-        "fr": "Capacité linéique (F/m)",
-        "es": "Capacitancia Unitaria (F/m)",
-        "ar": "السعة النوعية (F/m)"
-      },
       "type": "number",
       "unit": "F/m",
       "default": 1e-12,
       "min": 0,
-      "businessContext": "Line capacitance.",
-      "businessContext_i18n": {
-        "en": "Line capacitance.",
-        "de": "Leitungskapazität.",
-        "fr": "Capacité de la ligne.",
-        "es": "Capacitancia de línea.",
-        "ar": "سعة الخط."
-      }
+      "businessContext": "Line capacitance."
     },
     {
       "id": "frequency",
       "label": "Frequency (Hz)",
-      "label_i18n": {
-        "en": "Frequency (Hz)",
-        "de": "Zinseszinshäufigkeit",
-        "fr": "Fréquence de capitalisation",
-        "es": "Frecuencia de Capitalización",
-        "ar": "تكرار المركبة"
-      },
       "type": "number",
       "unit": "Hz",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Operating frequency.",
-      "businessContext_i18n": {
-        "en": "Operating frequency.",
-        "de": "Betriebsfrequenz.",
-        "fr": "Fréquence de fonctionnement.",
-        "es": "Frecuencia de operación.",
-        "ar": "تردد التشغيل."
-      }
+      "businessContext": "Operating frequency."
     }
   ],
   "validation": {
@@ -109,22 +53,13 @@
     "result": "Math.sqrt(Math.max(0, (resistance + 0 + induktans * 2 * Math.PI * frequency) * (0 + 0 + capacity * 2 * Math.PI * frequency)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Np/m",
     "breakdown": {
       "result": "Zayiflama Sabiti (α)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Zayiflama Sabiti (α)",
-        "de": "Dämpfungskonstante (α)",
-        "fr": "Constante d'atténuation (α)",
-        "es": "Constante de Atenuación (α)",
-        "ar": "ثابت التوهين (α)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Np/m"
+      "result": "Np/m"
     },
     "hiddenLossDrivers": [
       "Low SNR indicates poor signal quality.",
@@ -134,36 +69,15 @@
       "Use proper shielding for sensitive measurements.",
       "Consider efficiency losses in energy calculations."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate transmission line propagation constant (gamma).",
-      "long": "Calculate transmission line propagation constant (gamma).",
-      "short_i18n": {
-        "en": "Calculate transmission line propagation constant (gamma).",
-        "de": "Berechnen Sie die Ausbreitungskonstante (gamma) einer Ubertragungsleitung.",
-        "fr": "Calculer la constante de propagation de la ligne de transmission (gamma).",
-        "es": "Calcular la constante de propagación de la línea de transmisión (gamma).",
-        "ar": "احسب ثابت انتشار خط النقل (جاما)."
-      },
-      "long_i18n": {
-        "en": "Calculate transmission line propagation constant (gamma).",
-        "de": "Berechnen Sie die Ausbreitungskonstante (gamma) einer Ubertragungsleitung.",
-        "fr": "Calculer la constante de propagation de la ligne de transmission (gamma).",
-        "es": "Calcular la constante de propagación de la línea de transmisión (gamma).",
-        "ar": "احسب ثابت انتشار خط النقل (جاما)."
-      }
+      "long": "Calculate transmission line propagation constant (gamma)."
     }
-  },
-  "title_i18n": {
-    "en": "propagation-constant-calculator",
-    "de": "Rechner fur Ausbreitungskonstante",
-    "fr": "Calculateur de constante de propagation",
-    "es": "Calculadora de constante de propagación",
-    "ar": "حاسبة ثابت الانتشار"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,94 +8,38 @@
     {
       "id": "anapara",
       "label": "Principal (TL)",
-      "label_i18n": {
-        "en": "Principal (TL)",
-        "de": "Anfangskapital",
-        "fr": "Capital initial",
-        "es": "Capital inicial",
-        "ar": "رأس المال الأولي"
-      },
       "type": "number",
       "unit": "TL",
       "default": 10000,
       "min": 0,
-      "businessContext": "Principal debt amount.",
-      "businessContext_i18n": {
-        "en": "Principal debt amount.",
-        "de": "Hauptschuldbetrag.",
-        "fr": "Montant de la dette principale.",
-        "es": "Monto de la deuda principal.",
-        "ar": "مبلغ الدين الأساسي."
-      }
+      "businessContext": "Principal debt amount."
     },
     {
       "id": "yillikFaiz",
       "label": "Annual Late Interest (%)",
-      "label_i18n": {
-        "en": "Annual Late Interest (%)",
-        "de": "Jährlicher Verzugszins (%)",
-        "fr": "Intérêt annuel de retard (%)",
-        "es": "Interés Anual por Mora (%)",
-        "ar": "الفائدة السنوية المتأخرة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 24,
       "min": 0,
-      "businessContext": "Legal default interest rate.",
-      "businessContext_i18n": {
-        "en": "Legal default interest rate.",
-        "de": "Gesetzlicher Verzugszinssatz.",
-        "fr": "Taux d'intérêt légal par défaut.",
-        "es": "Tasa de interés legal por defecto.",
-        "ar": "سعر الفائدة القانوني الافتراضي."
-      }
+      "businessContext": "Legal default interest rate."
     },
     {
       "id": "gecikmeGun",
       "label": "Days Overdue",
-      "label_i18n": {
-        "en": "Days Overdue",
-        "de": "Uberfällige Tage",
-        "fr": "Jours de retard",
-        "es": "Días de Vencimiento",
-        "ar": "أيام التأخير"
-      },
       "type": "number",
       "unit": "days",
       "default": 90,
       "min": 0,
-      "businessContext": "Days past due.",
-      "businessContext_i18n": {
-        "en": "Days past due.",
-        "de": "Tage nach Fälligkeit.",
-        "fr": "Jours de dépassement de l'échéance.",
-        "es": "Días vencidos.",
-        "ar": "الأيام المتجاوزة عن الاستحقاق."
-      }
+      "businessContext": "Days past due."
     },
     {
       "id": "bilesimSikligi",
       "label": "Compounding Frequency (Days)",
-      "label_i18n": {
-        "en": "Compounding Frequency (Days)",
-        "de": "Zinseszinshäufigkeit",
-        "fr": "Fréquence de capitalisation",
-        "es": "Frecuencia de Capitalización",
-        "ar": "تكرار المركبة"
-      },
       "type": "number",
       "unit": "days",
       "default": 30,
       "min": 0,
-      "businessContext": "Interest capitalization period.",
-      "businessContext_i18n": {
-        "en": "Interest capitalization period.",
-        "de": "Zinskapitalisierungszeitraum.",
-        "fr": "Période de capitalisation des intérêts.",
-        "es": "Período de capitalización de intereses.",
-        "ar": "فترة رسملة الفائدة."
-      }
+      "businessContext": "Interest capitalization period."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "anapara * Math.pow((1 + (yillikFaiz / 100) * (bilesimSikligi / 365)), gecikmeGun / Math.max(1, bilesimSikligi))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "TL",
     "breakdown": {
       "result": "Total Liabilities"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Total Liabilities",
-        "de": "Gesamtschuld",
-        "fr": "Dette totale",
-        "es": "Deuda Total",
-        "ar": "إجمالي الدين"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "TL"
+      "result": "TL"
     },
     "hiddenLossDrivers": [
       "High asymmetry increases injury risk.",
@@ -133,36 +68,15 @@
       "Balance training for injury prevention.",
       "Use peer review to validate research quality."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate compound late payment interest on principal debt.",
-      "long": "Calculate compound late payment interest on principal debt.",
-      "short_i18n": {
-        "en": "Calculate compound late payment interest on principal debt.",
-        "de": "Berechnen Sie die Verzugszinsen auf die Hauptschuld bei Zinseszins.",
-        "fr": "Calculer les intérêts de retard composés sur la dette principale.",
-        "es": "Calcular el interés compuesto por mora sobre la deuda principal.",
-        "ar": "حساب الفائدة المركبة المتأخرة على الدين الأساسي."
-      },
-      "long_i18n": {
-        "en": "Calculate compound late payment interest on principal debt.",
-        "de": "Berechnen Sie die Verzugszinsen auf die Hauptschuld bei Zinseszins.",
-        "fr": "Calculer les intérêts de retard composés sur la dette principale.",
-        "es": "Calcular el interés compuesto por mora sobre la deuda principal.",
-        "ar": "حساب الفائدة المركبة المتأخرة على الدين الأساسي."
-      }
+      "long": "Calculate compound late payment interest on principal debt."
     }
-  },
-  "title_i18n": {
-    "en": "compound-late-interest-calculator",
-    "de": "Zusammengesetzter Verzugszinsrechner",
-    "fr": "Calculateur d'intérêt de retard composé",
-    "es": "Calculadora de interés de demora compuesto",
-    "ar": "حاسبة فائدة التأخير المركبة"
   },
   "sectorSlug": "ecommerce"
 }

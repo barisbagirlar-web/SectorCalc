@@ -2,101 +2,45 @@
   "toolName": "convertible-note-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "investment",
       "label": "Investment (USD)",
-      "label_i18n": {
-        "en": "Investment (USD)",
-        "de": "Anlagezeitraum",
-        "fr": "Période d'investissement",
-        "es": "Período de inversión",
-        "ar": "فترة الاستثمار"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Note investment amount.",
-      "businessContext_i18n": {
-        "en": "Note investment amount.",
-        "de": "Investitionsbetrag der Anleihe.",
-        "fr": "Montant de l'investissement en note.",
-        "es": "Monto de inversión del pagaré.",
-        "ar": "مبلغ استثمار السند."
-      }
+      "businessContext": "Note investment amount."
     },
     {
       "id": "valuation",
       "label": "Valuation Cap (USD)",
-      "label_i18n": {
-        "en": "Valuation Cap (USD)",
-        "de": "Bewertungsobergrenze ($)",
-        "fr": "Plafond de valorisation ($)",
-        "es": "Tope de valoración ($)",
-        "ar": "سقف التقييم ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Conversion valuation cap.",
-      "businessContext_i18n": {
-        "en": "Conversion valuation cap.",
-        "de": "Bewertungsobergrenze fur die Wandlung.",
-        "fr": "Plafond de valorisation de conversion.",
-        "es": "Tope de valoración de conversión.",
-        "ar": "سقف تقييم التحويل."
-      }
+      "businessContext": "Conversion valuation cap."
     },
     {
       "id": "iskonto",
       "label": "Discount (%)",
-      "label_i18n": {
-        "en": "Discount (%)",
-        "de": "Rabatt (%)",
-        "fr": "Remise (%)",
-        "es": "Descuento (%)",
-        "ar": "الخصم (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Conversion discount.",
-      "businessContext_i18n": {
-        "en": "Conversion discount.",
-        "de": "Wandlungsabschlag.",
-        "fr": "Remise de conversion.",
-        "es": "Descuento de conversión.",
-        "ar": "خصم التحويل."
-      }
+      "businessContext": "Conversion discount."
     },
     {
       "id": "interest",
       "label": "Interest (%)",
-      "label_i18n": {
-        "en": "Interest (%)",
-        "de": "Nominaler Jahreszinssatz",
-        "fr": "Taux d'intérêt annuel nominal",
-        "es": "Tasa de interés anual nominal",
-        "ar": "سعر الفائدة السنوي الاسمي"
-      },
       "type": "number",
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Accrued interest.",
-      "businessContext_i18n": {
-        "en": "Accrued interest.",
-        "de": "Aufgelaufene Zinsen.",
-        "fr": "Intérêts courus.",
-        "es": "Interés acumulado.",
-        "ar": "الفائدة المستحقة."
-      }
+      "businessContext": "Accrued interest."
     }
   ],
   "validation": {
@@ -110,58 +54,28 @@
     "result": "(investment * (1 + interest / 100)) / Math.max(0.0001, (valuation * (1 - iskonto / 100)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "shares",
     "breakdown": {
-      "result": "Donusum Sonrasi Hisse"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Donusum Sonrasi Hisse",
-        "de": "Aktie nach Konversion",
-        "fr": "Action après conversion",
-        "es": "Acción Posterior a la Conversión",
-        "ar": "السهم بعد التحويل"
-      }
+      "result": "Conversion Shares"
     },
     "breakdownUnits": {
-      "sonuc": "shares"
+      "result": "shares"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate shares received from convertible note conversion.",
-      "long": "Calculate shares received from convertible note conversion.",
-      "short_i18n": {
-        "en": "Calculate shares received from convertible note conversion.",
-        "de": "Anzahl der Aktien aus der Wandlung einer Wandelanleihe berechnen.",
-        "fr": "Calculer les actions recues de la conversion d'une note convertible.",
-        "es": "Calcular las acciones recibidas de la conversión de pagarés convertibles.",
-        "ar": "حساب عدد الأسهم المستلمة من تحويل السندات القابلة للتحويل."
-      },
-      "long_i18n": {
-        "en": "Calculate shares received from convertible note conversion.",
-        "de": "Anzahl der Aktien aus der Wandlung einer Wandelanleihe berechnen.",
-        "fr": "Calculer les actions recues de la conversion d'une note convertible.",
-        "es": "Calcular las acciones recibidas de la conversión de pagarés convertibles.",
-        "ar": "حساب عدد الأسهم المستلمة من تحويل السندات القابلة للتحويل."
-      }
+      "long": "Calculate shares received from convertible note conversion."
     }
-  },
-  "title_i18n": {
-    "en": "convertible-note-calculator",
-    "de": "Notenumrechner",
-    "fr": "Calculateur de conversion de notes",
-    "es": "Calculadora de conversión de calificaciones",
-    "ar": "حاسبة تحويل الدرجات"
   },
   "sectorSlug": "daily-renovation"
 }

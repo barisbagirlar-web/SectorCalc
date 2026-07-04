@@ -2,54 +2,26 @@
   "toolName": "cost-per-mille-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "reklamMaliyeti",
       "label": "Ad Cost (USD)",
-      "label_i18n": {
-        "en": "Ad Cost (USD)",
-        "de": "Gemeinkosten pro Einheit",
-        "fr": "Frais généraux par unité",
-        "es": "Costo general por unidad",
-        "ar": "التكلفة العامة لكل وحدة"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Total ad spend.",
-      "businessContext_i18n": {
-        "en": "Total ad spend.",
-        "de": "Gesamte Werbeausgaben.",
-        "fr": "Dépenses publicitaires totales.",
-        "es": "Gasto total en anuncios.",
-        "ar": "إجمالي الإنفاق الإعلاني."
-      }
+      "businessContext": "Total ad spend."
     },
     {
       "id": "gosterim",
       "label": "Impressions",
-      "label_i18n": {
-        "en": "Impressions",
-        "de": "Impressionen",
-        "fr": "Impressions",
-        "es": "Impresiones",
-        "ar": "مرات الظهور"
-      },
       "type": "number",
       "unit": "impressions",
       "default": 500000,
       "min": 1,
-      "businessContext": "Total impressions.",
-      "businessContext_i18n": {
-        "en": "Total impressions.",
-        "de": "Gesamte Impressionen.",
-        "fr": "Impressions totales.",
-        "es": "Total de impresiones.",
-        "ar": "إجمالي مرات الظهور."
-      }
+      "businessContext": "Total impressions."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(reklamMaliyeti / Math.max(1, gosterim)) * 1000"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Bin Gosterim Costi (CPM)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Bin Gosterim Costi (CPM)",
-        "de": "Kosten pro tausend Impressionen (CPM)",
-        "fr": "Coût pour mille impressions (CPM)",
-        "es": "Costo por Mil Impresiones (CPM)",
-        "ar": "تكلفة الألف ظهور (CPM)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate cost per mille (CPM) for advertising.",
-      "long": "Calculate cost per mille (CPM) for advertising.",
-      "short_i18n": {
-        "en": "Calculate cost per mille (CPM) for advertising.",
-        "de": "Cost-per-Mille (CPM) fur Werbung berechnen.",
-        "fr": "Calculer le coût pour mille (CPM) pour la publicité.",
-        "es": "Calcular el costo por mil (CPM) para publicidad.",
-        "ar": "احسب تكلفة الألف ظهور (CPM) للإعلان."
-      },
-      "long_i18n": {
-        "en": "Calculate cost per mille (CPM) for advertising.",
-        "de": "Cost-per-Mille (CPM) fur Werbung berechnen.",
-        "fr": "Calculer le coût pour mille (CPM) pour la publicité.",
-        "es": "Calcular el costo por mil (CPM) para publicidad.",
-        "ar": "احسب تكلفة الألف ظهور (CPM) للإعلان."
-      }
+      "long": "Calculate cost per mille (CPM) for advertising."
     }
-  },
-  "title_i18n": {
-    "en": "cost-per-mille-calculator",
-    "de": "CPM Kosten pro tausend Impressionen Rechner",
-    "fr": "Calculateur de CPM coût pour mille impressions",
-    "es": "Calculadora de CPM costo por mil impresiones",
-    "ar": "حاسبة التكلفة لكل ألف ظهور CPM"
   },
   "sectorSlug": "daily-renovation"
 }

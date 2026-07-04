@@ -2,100 +2,44 @@
   "toolName": "paving-stone-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Paving Area (m²)",
-      "label_i18n": {
-        "en": "Paving Area (m²)",
-        "de": "Pflasterfläche (m²)",
-        "fr": "Surface à paver (m²)",
-        "es": "Área de adoquinado (m²)",
-        "ar": "مساحة الرصف (m²)"
-      },
       "type": "number",
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Area to pave.",
-      "businessContext_i18n": {
-        "en": "Area to pave.",
-        "de": "Zu pflasternde Fläche.",
-        "fr": "Surface à paver.",
-        "es": "Área a adoquinar.",
-        "ar": "المساحة المراد رصفها."
-      }
+      "businessContext": "Area to pave."
     },
     {
       "id": "tasEn",
       "label": "Stone Width (m)",
-      "label_i18n": {
-        "en": "Stone Width (m)",
-        "de": "Steinbreite (m)",
-        "fr": "Largeur du pavé (m)",
-        "es": "Ancho de la piedra (m)",
-        "ar": "عرض الحجر (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Paver width.",
-      "businessContext_i18n": {
-        "en": "Paver width.",
-        "de": "Pflasterbreite.",
-        "fr": "Largeur du pavé.",
-        "es": "Ancho del adoquín.",
-        "ar": "عرض الراصف."
-      }
+      "businessContext": "Paver width."
     },
     {
       "id": "tasBoy",
       "label": "Stone Length (m)",
-      "label_i18n": {
-        "en": "Stone Length (m)",
-        "de": "Steinlänge (m)",
-        "fr": "Longueur du pavé (m)",
-        "es": "Largo de la piedra (m)",
-        "ar": "طول الحجر (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Paver length.",
-      "businessContext_i18n": {
-        "en": "Paver length.",
-        "de": "Pflasterlänge.",
-        "fr": "Longueur du pavé.",
-        "es": "Largo del adoquín.",
-        "ar": "طول الراصف."
-      }
+      "businessContext": "Paver length."
     },
     {
       "id": "scrap",
       "label": "Waste Factor (%)",
-      "label_i18n": {
-        "en": "Waste Factor (%)",
-        "de": "Abfallfaktor (%)",
-        "fr": "Facteur de déchet (%)",
-        "es": "Factor de desperdicio (%)",
-        "ar": "عامل الهدر (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Cutting waste.",
-      "businessContext_i18n": {
-        "en": "Cutting waste.",
-        "de": "Schnittverschnitt.",
-        "fr": "Perte de coupe.",
-        "es": "Desperdicio de corte.",
-        "ar": "هدر القطع."
-      }
+      "businessContext": "Cutting waste."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "Math.ceil((area / Math.max(0.0001, (tasEn * tasBoy))) * (1 + scrap / 100))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "stones",
     "breakdown": {
       "result": "Gerekli Kilit Tasi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Kilit Tasi",
-        "de": "Erforderlicher Keystone",
-        "fr": "Pierre angulaire requise",
-        "es": "Piedra Clave Requerida",
-        "ar": "حجر الزاوية المطلوب"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "stones"
+      "result": "stones"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate number of paving stones needed for a patio or driveway.",
-      "long": "Calculate number of paving stones needed for a patio or driveway.",
-      "short_i18n": {
-        "en": "Calculate number of paving stones needed for a patio or driveway.",
-        "de": "Berechnen Sie die Anzahl der benotigten Pflastersteine fur eine Terrasse oder Einfahrt.",
-        "fr": "Calculer le nombre de pavés nécessaires pour une terrasse ou une allée.",
-        "es": "Calcular el número de adoquines necesarios para un patio o entrada.",
-        "ar": "حساب عدد أحجار الرصف اللازمة لفناء أو ممر."
-      },
-      "long_i18n": {
-        "en": "Calculate number of paving stones needed for a patio or driveway.",
-        "de": "Berechnen Sie die Anzahl der benotigten Pflastersteine fur eine Terrasse oder Einfahrt.",
-        "fr": "Calculer le nombre de pavés nécessaires pour une terrasse ou une allée.",
-        "es": "Calcular el número de adoquines necesarios para un patio o entrada.",
-        "ar": "حساب عدد أحجار الرصف اللازمة لفناء أو ممر."
-      }
+      "long": "Calculate number of paving stones needed for a patio or driveway."
     }
-  },
-  "title_i18n": {
-    "en": "paving-stone-calculator",
-    "de": "Pflastersteinrechner",
-    "fr": "Calculateur de Pavés Autobloquants",
-    "es": "Calculadora de Adoquines",
-    "ar": "حاسبة بلاط الإنترلوك"
   },
   "sectorSlug": "daily-renovation"
 }

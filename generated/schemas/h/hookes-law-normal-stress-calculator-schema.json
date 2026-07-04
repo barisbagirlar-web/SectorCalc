@@ -8,48 +8,20 @@
     {
       "id": "elastisiteModulu",
       "label": "Young's Modulus (Pa)",
-      "label_i18n": {
-        "en": "Young's Modulus (Pa)",
-        "de": "Elastizitätsmodul (E)",
-        "fr": "Module de Young (E)",
-        "es": "Módulo de Young (E)",
-        "ar": "معامل يونغ (E)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Material Young's modulus.",
-      "businessContext_i18n": {
-        "en": "Material Young's modulus.",
-        "de": "Elastizitätsmodul des Materials.",
-        "fr": "Module de Young du matériau.",
-        "es": "Módulo de Young del material.",
-        "ar": "معامل يونج للمادة."
-      }
+      "businessContext": "Material Young's modulus."
     },
     {
       "id": "birimSekilDegistirme",
       "label": "Strain",
-      "label_i18n": {
-        "en": "Strain",
-        "de": "Einspannfaktor der Verbindung",
-        "fr": "Facteur de contrainte du joint",
-        "es": "Factor de Restricción de la Junta",
-        "ar": "عامل تقييد الوصلة"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Unit elongation.",
-      "businessContext_i18n": {
-        "en": "Unit elongation.",
-        "de": "Dehnung.",
-        "fr": "Allongement unitaire.",
-        "es": "Alargamiento unitario.",
-        "ar": "الاستطالة الوحدوية."
-      }
+      "businessContext": "Unit elongation."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "elastisiteModulu * birimSekilDegistirme"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Normal Gerilme (σ)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Normal Gerilme (σ)",
-        "de": "Normalspannung (σ)",
-        "fr": "Contrainte normale (σ)",
-        "es": "Esfuerzo normal (σ)",
-        "ar": "الإجهاد الطبيعي (σ)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate normal stress in linear elastic region using Hooke's Law.",
-      "long": "Calculate normal stress in linear elastic region using Hooke's Law.",
-      "short_i18n": {
-        "en": "Calculate normal stress in linear elastic region using Hooke's Law.",
-        "de": "Berechnen Sie die Normalspannung im linear-elastischen Bereich nach dem Hookeschen Gesetz.",
-        "fr": "Calculer la contrainte normale dans la région élastique linéaire en utilisant la loi de Hooke.",
-        "es": "Calcular el esfuerzo normal en la región elástica lineal usando la Ley de Hooke.",
-        "ar": "احسب الإجهاد الطبيعي في المنطقة المرنة الخطية باستخدام قانون هوك."
-      },
-      "long_i18n": {
-        "en": "Calculate normal stress in linear elastic region using Hooke's Law.",
-        "de": "Berechnen Sie die Normalspannung im linear-elastischen Bereich nach dem Hookeschen Gesetz.",
-        "fr": "Calculer la contrainte normale dans la région élastique linéaire en utilisant la loi de Hooke.",
-        "es": "Calcular el esfuerzo normal en la región elástica lineal usando la Ley de Hooke.",
-        "ar": "احسب الإجهاد الطبيعي في المنطقة المرنة الخطية باستخدام قانون هوك."
-      }
+      "long": "Calculate normal stress in linear elastic region using Hooke's Law."
     }
-  },
-  "title_i18n": {
-    "en": "hookes-law-normal-stress-calculator",
-    "de": "Hookesches Gesetz-Spannungsrechner",
-    "fr": "Calculateur de contrainte loi de Hooke",
-    "es": "Calculadora de tensión ley de Hooke",
-    "ar": "حاسبة الإجهاد بقانون هوك"
   },
   "sectorSlug": "daily-renovation"
 }

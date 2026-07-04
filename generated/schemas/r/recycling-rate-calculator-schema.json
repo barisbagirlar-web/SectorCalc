@@ -8,48 +8,20 @@
     {
       "id": "geriDonusen",
       "label": "Recycled (tons)",
-      "label_i18n": {
-        "en": "Recycled (tons)",
-        "de": "Recycelten Anteil verwenden",
-        "fr": "Utiliser du contenu recyclé",
-        "es": "Usar contenido reciclado",
-        "ar": "استخدام محتوى معاد تدويره"
-      },
       "type": "number",
       "unit": "tons",
       "default": 300,
       "min": 0,
-      "businessContext": "Amount of waste recovered.",
-      "businessContext_i18n": {
-        "en": "Amount of waste recovered.",
-        "de": "Menge des zuruckgewonnenen Abfalls.",
-        "fr": "Quantité de déchets récupérés.",
-        "es": "Cantidad de residuos recuperados.",
-        "ar": "كمية النفايات المستردة."
-      }
+      "businessContext": "Amount of waste recovered."
     },
     {
       "id": "toplamAtik",
       "label": "Total Waste (tons)",
-      "label_i18n": {
-        "en": "Total Waste (tons)",
-        "de": "Gesamter angefallener Abfall",
-        "fr": "Déchets totaux générés",
-        "es": "Residuos totales generados",
-        "ar": "إجمالي النفايات المتولدة"
-      },
       "type": "number",
       "unit": "tons",
       "default": 1000,
       "min": 0,
-      "businessContext": "Total waste generated.",
-      "businessContext_i18n": {
-        "en": "Total waste generated.",
-        "de": "Gesamte Abfallmenge.",
-        "fr": "Quantité totale de déchets générés.",
-        "es": "Total de residuos generados.",
-        "ar": "إجمالي النفايات المولدة."
-      }
+      "businessContext": "Total waste generated."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "(geriDonusen / Math.max(0.0001, toplamAtik)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Geri Conversion Rate"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Geri Conversion Rate",
-        "de": "Recyclingquote",
-        "fr": "Taux de recyclage",
-        "es": "Tasa de Reciclaje",
-        "ar": "معدل إعادة التدوير"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [
       "High environmental score may reduce operational costs.",
@@ -87,36 +50,15 @@
       "Set improvement targets for each ESG pillar.",
       "Consider carbon offset programs for residual emissions."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate recycling rate as percentage of waste recovered.",
-      "long": "Calculate recycling rate as percentage of waste recovered.",
-      "short_i18n": {
-        "en": "Calculate recycling rate as percentage of waste recovered.",
-        "de": "Berechnung der Recyclingquote als Prozentsatz des zuruckgewonnenen Abfalls.",
-        "fr": "Calculer le taux de recyclage en pourcentage des déchets récupérés.",
-        "es": "Calcular la tasa de reciclaje como porcentaje de residuos recuperados.",
-        "ar": "احسب معدل إعادة التدوير كنسبة مئوية من النفايات المستردة."
-      },
-      "long_i18n": {
-        "en": "Calculate recycling rate as percentage of waste recovered.",
-        "de": "Berechnung der Recyclingquote als Prozentsatz des zuruckgewonnenen Abfalls.",
-        "fr": "Calculer le taux de recyclage en pourcentage des déchets récupérés.",
-        "es": "Calcular la tasa de reciclaje como porcentaje de residuos recuperados.",
-        "ar": "احسب معدل إعادة التدوير كنسبة مئوية من النفايات المستردة."
-      }
+      "long": "Calculate recycling rate as percentage of waste recovered."
     }
-  },
-  "title_i18n": {
-    "en": "recycling-rate-calculator",
-    "de": "Recyclingquote-Rechner",
-    "fr": "Calculateur de taux de recyclage",
-    "es": "Calculadora de tasa de reciclaje",
-    "ar": "حاسبة معدل إعادة التدوير"
   },
   "sectorSlug": "daily-renovation"
 }

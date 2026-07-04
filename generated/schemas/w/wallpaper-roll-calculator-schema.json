@@ -2,100 +2,44 @@
   "toolName": "wallpaper-roll-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Wall Area (m²)",
-      "label_i18n": {
-        "en": "Wall Area (m²)",
-        "de": "Wandfläche",
-        "fr": "Surface murale",
-        "es": "Área de la pared",
-        "ar": "مساحة الجدار"
-      },
       "type": "number",
       "unit": "m2",
       "default": 50,
       "min": 0,
-      "businessContext": "Wall area.",
-      "businessContext_i18n": {
-        "en": "Wall area.",
-        "de": "Wandfläche.",
-        "fr": "Surface du mur.",
-        "es": "Área de la pared.",
-        "ar": "مساحة الجدار."
-      }
+      "businessContext": "Wall area."
     },
     {
       "id": "ruloEn",
       "label": "Roll Width (m)",
-      "label_i18n": {
-        "en": "Roll Width (m)",
-        "de": "Rollenbreite (m)",
-        "fr": "Largeur du rouleau (m)",
-        "es": "Ancho del Rollo (m)",
-        "ar": "عرض اللفة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.53,
       "min": 0,
-      "businessContext": "Wallpaper roll width.",
-      "businessContext_i18n": {
-        "en": "Wallpaper roll width.",
-        "de": "Tapetenrollenbreite.",
-        "fr": "Largeur du rouleau de papier peint.",
-        "es": "Ancho del rollo de papel tapiz.",
-        "ar": "عرض لفة ورق الحائط."
-      }
+      "businessContext": "Wallpaper roll width."
     },
     {
       "id": "ruloBoy",
       "label": "Roll Length (m)",
-      "label_i18n": {
-        "en": "Roll Length (m)",
-        "de": "Rollenlänge (m)",
-        "fr": "Longueur du rouleau (m)",
-        "es": "Longitud del rollo (m)",
-        "ar": "طول اللفة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Roll length.",
-      "businessContext_i18n": {
-        "en": "Roll length.",
-        "de": "Rollenlänge.",
-        "fr": "Longueur du rouleau.",
-        "es": "Longitud del rollo.",
-        "ar": "طول اللفة."
-      }
+      "businessContext": "Roll length."
     },
     {
       "id": "desenTekrari",
       "label": "Pattern Repeat (m)",
-      "label_i18n": {
-        "en": "Pattern Repeat (m)",
-        "de": "Musterrapport (m)",
-        "fr": "Raccord du motif (m)",
-        "es": "Repetición del patrón (m)",
-        "ar": "تكرار النمط (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0,
       "min": 0,
-      "businessContext": "Pattern repeat length.",
-      "businessContext_i18n": {
-        "en": "Pattern repeat length.",
-        "de": "Musterrapportlänge.",
-        "fr": "Longueur du raccord du motif.",
-        "es": "Longitud de repetición del patrón.",
-        "ar": "طول تكرار النمط."
-      }
+      "businessContext": "Pattern repeat length."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "Math.ceil(area / Math.max(0.0001, (ruloEn * ruloBoy * (1 - desenTekrari / Math.max(0.0001, ruloBoy)))))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "rolls",
     "breakdown": {
-      "result": "Gerekli Duvar Kagidi Rulosu"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Duvar Kagidi Rulosu",
-        "de": "Required Wallpaper Roll",
-        "fr": "Rouleau de papier peint nécessaire",
-        "es": "Rollo de Papel Tapiz Requerido",
-        "ar": "عدد لفات ورق الحائط المطلوبة"
-      }
+      "result": "Required Wallpaper Roll"
     },
     "breakdownUnits": {
-      "sonuc": "rolls"
+      "result": "rolls"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate wallpaper rolls needed including pattern repeat waste.",
-      "long": "Calculate wallpaper rolls needed including pattern repeat waste.",
-      "short_i18n": {
-        "en": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "de": "Berechnen Sie die benotigten Tapetenrollen inklusive Musterrapport-Verschwendung.",
-        "fr": "Calculer le nombre de rouleaux de papier peint nécessaires en incluant les pertes dues au raccord du motif.",
-        "es": "Calcular los rollos de papel tapiz necesarios incluyendo el desperdicio por repetición del patrón.",
-        "ar": "حساب اللفائف المطلوبة من ورق الحائط بما في ذلك هدر تكرار النمط."
-      },
-      "long_i18n": {
-        "en": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "de": "Berechnen Sie die benotigten Tapetenrollen inklusive Musterrapport-Verschwendung.",
-        "fr": "Calculer le nombre de rouleaux de papier peint nécessaires en incluant les pertes dues au raccord du motif.",
-        "es": "Calcular los rollos de papel tapiz necesarios incluyendo el desperdicio por repetición del patrón.",
-        "ar": "حساب اللفائف المطلوبة من ورق الحائط بما في ذلك هدر تكرار النمط."
-      }
+      "long": "Calculate wallpaper rolls needed including pattern repeat waste."
     }
-  },
-  "title_i18n": {
-    "en": "wallpaper-roll-calculator",
-    "de": "Tapetenrechner",
-    "fr": "Calculateur de papier peint",
-    "es": "Calculadora de papel tapiz",
-    "ar": "حاسبة ورق الحائط"
   },
   "sectorSlug": "daily-renovation"
 }

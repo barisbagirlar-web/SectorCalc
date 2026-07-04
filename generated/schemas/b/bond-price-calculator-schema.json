@@ -8,94 +8,38 @@
     {
       "id": "nominal",
       "label": "Face Value (USD)",
-      "label_i18n": {
-        "en": "Face Value (USD)",
-        "de": "Nennwert",
-        "fr": "Valeur nominale",
-        "es": "Valor nominal",
-        "ar": "القيمة الاسمية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Bond's par value at maturity.",
-      "businessContext_i18n": {
-        "en": "Bond's par value at maturity.",
-        "de": "Nennwert der Anleihe bei Fälligkeit.",
-        "fr": "Valeur nominale de l'obligation à l'échéance.",
-        "es": "Valor nominal del bono al vencimiento.",
-        "ar": "القيمة الاسمية للسند عند الاستحقاق."
-      }
+      "businessContext": "Bond's par value at maturity."
     },
     {
       "id": "kupon",
       "label": "Coupon Rate (%)",
-      "label_i18n": {
-        "en": "Coupon Rate (%)",
-        "de": "Kuponrate (%)",
-        "fr": "Taux du coupon (%)",
-        "es": "Tasa de cupón (%)",
-        "ar": "معدل القسيمة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Annual coupon payment rate.",
-      "businessContext_i18n": {
-        "en": "Annual coupon payment rate.",
-        "de": "Jährlicher Kuponzahlungssatz.",
-        "fr": "Taux de coupon annuel.",
-        "es": "Tasa de pago de cupón anual.",
-        "ar": "معدل دفع القسيمة السنوي."
-      }
+      "businessContext": "Annual coupon payment rate."
     },
     {
       "id": "piyasaFaizi",
       "label": "Market Rate (%)",
-      "label_i18n": {
-        "en": "Market Rate (%)",
-        "de": "Marktpreis pro Stunde ($)",
-        "fr": "Taux horaire du marché ($)",
-        "es": "Tarifa por hora de mercado ($)",
-        "ar": "سعر السوق للساعة ($)"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Yield on comparable bonds.",
-      "businessContext_i18n": {
-        "en": "Yield on comparable bonds.",
-        "de": "Rendite vergleichbarer Anleihen.",
-        "fr": "Rendement des obligations comparables.",
-        "es": "Rendimiento de bonos comparables.",
-        "ar": "العائد على السندات المماثلة."
-      }
+      "businessContext": "Yield on comparable bonds."
     },
     {
       "id": "vade",
       "label": "Maturity (Years)",
-      "label_i18n": {
-        "en": "Maturity (Years)",
-        "de": "Lean Six Sigma Reifegrad",
-        "fr": "Niveau de maturité Lean Six Sigma",
-        "es": "Nivel de Madurez Lean Six Sigma",
-        "ar": "مستوى نضج اللين ستة سيجما"
-      },
       "type": "number",
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Years to maturity.",
-      "businessContext_i18n": {
-        "en": "Years to maturity.",
-        "de": "Jahre bis zur Fälligkeit.",
-        "fr": "Années jusqu'à l'échéance.",
-        "es": "Años hasta el vencimiento.",
-        "ar": "السنوات حتى الاستحقاق."
-      }
+      "businessContext": "Years to maturity."
     }
   ],
   "validation": {
@@ -109,58 +53,28 @@
     "result": "nominal / Math.pow(1 + piyasaFaizi / 100, vade) + (nominal * (kupon / 100)) * ((1 - Math.pow(1 / (1 + piyasaFaizi / 100), vade)) / (piyasaFaizi / 100))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Tahvil Fiyati (Bugunku Value)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tahvil Fiyati (Bugunku Value)",
-        "de": "Bond Price (Present Value)",
-        "fr": "Prix de l'obligation (Valeur actuelle)",
-        "es": "Precio del Bono (Valor Actual)",
-        "ar": "سعر السند (القيمة الحالية)"
-      }
+      "result": "Bond Price (Present Value)"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the fair price of a bond based on market interest rates.",
-      "long": "Calculate the fair price of a bond based on market interest rates.",
-      "short_i18n": {
-        "en": "Calculate the fair price of a bond based on market interest rates.",
-        "de": "Berechnung des fairen Preises einer Anleihe basierend auf den Marktzinssätzen.",
-        "fr": "Calculer le prix équitable d'une obligation en fonction des taux d'intérêt du marché.",
-        "es": "Calcular el precio justo de un bono basado en las tasas de interés del mercado.",
-        "ar": "حساب السعر العادل للسند بناءً على أسعار الفائدة السوقية."
-      },
-      "long_i18n": {
-        "en": "Calculate the fair price of a bond based on market interest rates.",
-        "de": "Berechnung des fairen Preises einer Anleihe basierend auf den Marktzinssätzen.",
-        "fr": "Calculer le prix équitable d'une obligation en fonction des taux d'intérêt du marché.",
-        "es": "Calcular el precio justo de un bono basado en las tasas de interés del mercado.",
-        "ar": "حساب السعر العادل للسند بناءً على أسعار الفائدة السوقية."
-      }
+      "long": "Calculate the fair price of a bond based on market interest rates."
     }
-  },
-  "title_i18n": {
-    "en": "bond-price-calculator",
-    "de": "Anleihepreis-Rendite-Rechner",
-    "fr": "Calculateur de prix et rendement d'obligation",
-    "es": "Calculadora de precio y rendimiento de bonos",
-    "ar": "حاسبة سعر وعائد السندات"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -2,100 +2,44 @@
   "toolName": "shipping-cost-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "E-Ticaret",
+  "sector": "E-Commerce",
   "sectorId": "other",
   "inputs": [
     {
       "id": "weight",
       "label": "Actual Weight (kg)",
-      "label_i18n": {
-        "en": "Actual Weight (kg)",
-        "de": "Tatsächliches Gewicht (kg)",
-        "fr": "Poids réel (kg)",
-        "es": "Peso Real (kg)",
-        "ar": "الوزن الفعلي (كجم)"
-      },
       "type": "number",
       "unit": "kg",
       "default": 50,
       "min": 0,
-      "businessContext": "Actual shipment weight.",
-      "businessContext_i18n": {
-        "en": "Actual shipment weight.",
-        "de": "Tatsächliches Versandgewicht.",
-        "fr": "Poids réel de l'envoi.",
-        "es": "Peso real del envío.",
-        "ar": "الوزن الفعلي للشحنة."
-      }
+      "businessContext": "Actual shipment weight."
     },
     {
       "id": "volume",
       "label": "Volume (m³)",
-      "label_i18n": {
-        "en": "Volume (m³)",
-        "de": "Produktionsvolumen (N)",
-        "fr": "Volume de production (N)",
-        "es": "Volumen de producción (N)",
-        "ar": "حجم الإنتاج (N)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Package volume.",
-      "businessContext_i18n": {
-        "en": "Package volume.",
-        "de": "Paketvolumen.",
-        "fr": "Volume du colis.",
-        "es": "Volumen del paquete.",
-        "ar": "حجم الطرد."
-      }
+      "businessContext": "Package volume."
     },
     {
       "id": "mesafe",
       "label": "Distance (km)",
-      "label_i18n": {
-        "en": "Distance (km)",
-        "de": "Entfernung (km)",
-        "fr": "Distance (km)",
-        "es": "Distancia (km)",
-        "ar": "المسافة (كم)"
-      },
       "type": "number",
       "unit": "km",
       "default": 1000,
       "min": 0,
-      "businessContext": "Transport distance.",
-      "businessContext_i18n": {
-        "en": "Transport distance.",
-        "de": "Transportentfernung.",
-        "fr": "Distance de transport.",
-        "es": "Distancia de transporte.",
-        "ar": "مسافة النقل."
-      }
+      "businessContext": "Transport distance."
     },
     {
       "id": "birimFiyat",
       "label": "Unit Price (USD)",
-      "label_i18n": {
-        "en": "Unit Price (USD)",
-        "de": "Stuckpreis ($)",
-        "fr": "Prix unitaire ($)",
-        "es": "Precio unitario ($)",
-        "ar": "سعر الوحدة ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Unit freight price.",
-      "businessContext_i18n": {
-        "en": "Unit freight price.",
-        "de": "Einheitsfrachtpreis.",
-        "fr": "Prix unitaire du fret.",
-        "es": "Precio unitario del flete.",
-        "ar": "سعر الشحن للوحدة."
-      }
+      "businessContext": "Unit freight price."
     }
   ],
   "validation": {
@@ -109,58 +53,28 @@
     "result": "Math.max(weight, (volume * 167)) * mesafe * birimFiyat"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Toplam Navlun Maliyeti"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Toplam Navlun Maliyeti",
-        "de": "Gesamtfrachtkosten",
-        "fr": "Coût total du fret",
-        "es": "Costo Total de Flete",
-        "ar": "إجمالي تكلفة الشحن"
-      }
+      "result": "Total Freight Cost"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Factor in return rates and chargebacks.",
       "Review platform fee schedules regularly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate shipping cost comparing volumetric weight and actual weight.",
-      "long": "Calculate shipping cost comparing volumetric weight and actual weight.",
-      "short_i18n": {
-        "en": "Calculate shipping cost comparing volumetric weight and actual weight.",
-        "de": "Berechnen Sie die Versandkosten durch Vergleich von Volumengewicht und tatsächlichem Gewicht.",
-        "fr": "Calculer le coût d'expédition en comparant le poids volumétrique et le poids réel.",
-        "es": "Calcular el costo de envío comparando el peso volumétrico y el peso real.",
-        "ar": "احسب تكلفة الشحن بمقارنة الوزن الحجمي والوزن الفعلي."
-      },
-      "long_i18n": {
-        "en": "Calculate shipping cost comparing volumetric weight and actual weight.",
-        "de": "Berechnen Sie die Versandkosten durch Vergleich von Volumengewicht und tatsächlichem Gewicht.",
-        "fr": "Calculer le coût d'expédition en comparant le poids volumétrique et le poids réel.",
-        "es": "Calcular el costo de envío comparando el peso volumétrico y el peso real.",
-        "ar": "احسب تكلفة الشحن بمقارنة الوزن الحجمي والوزن الفعلي."
-      }
+      "long": "Calculate shipping cost comparing volumetric weight and actual weight."
     }
-  },
-  "title_i18n": {
-    "en": "shipping-cost-calculator",
-    "de": "Frachtkostenrechner",
-    "fr": "Calculateur de Coût de Fret",
-    "es": "Calculadora de Costo de Flete",
-    "ar": "حاسبة تكلفة الشحن"
   },
   "sectorSlug": "daily-renovation"
 }

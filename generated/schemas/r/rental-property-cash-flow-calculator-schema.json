@@ -2,101 +2,45 @@
   "toolName": "rental-property-cash-flow-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "project-construction-management",
-  "sector": "Gayrimenkul",
+  "sector": "Real Estate",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "brutKira",
       "label": "Gross Monthly Rent (USD)",
-      "label_i18n": {
-        "en": "Gross Monthly Rent (USD)",
-        "de": "Bruttomonatsmiete (USD)",
-        "fr": "Loyer brut mensuel (USD)",
-        "es": "Alquiler Bruto Mensual (USD)",
-        "ar": "الإيجار الشهري الإجمالي (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Total monthly rental income.",
-      "businessContext_i18n": {
-        "en": "Total monthly rental income.",
-        "de": "Gesamtes monatliches Mieteinkommen.",
-        "fr": "Revenu locatif mensuel total.",
-        "es": "Ingreso total mensual por alquiler.",
-        "ar": "إجمالي دخل الإيجار الشهري."
-      }
+      "businessContext": "Total monthly rental income."
     },
     {
       "id": "bosluk",
       "label": "Vacancy Rate (%)",
-      "label_i18n": {
-        "en": "Vacancy Rate (%)",
-        "de": "Leerstandsrate (%)",
-        "fr": "Taux d'inoccupation (%)",
-        "es": "Tasa de desocupación (%)",
-        "ar": "معدل الشغور (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Annual vacancy percentage.",
-      "businessContext_i18n": {
-        "en": "Annual vacancy percentage.",
-        "de": "Jährliche Leerstandsquote.",
-        "fr": "Pourcentage de vacance annuelle.",
-        "es": "Porcentaje anual de desocupación.",
-        "ar": "نسبة الشغور السنوية."
-      }
+      "businessContext": "Annual vacancy percentage."
     },
     {
       "id": "isletme",
       "label": "Monthly Operating Cost (USD)",
-      "label_i18n": {
-        "en": "Monthly Operating Cost (USD)",
-        "de": "Monatliche Betriebskosten (USD)",
-        "fr": "Coût d'exploitation mensuel (USD)",
-        "es": "Costo Operativo Mensual (USD)",
-        "ar": "تكلفة التشغيل الشهرية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 2000,
       "min": 0,
-      "businessContext": "Taxes, insurance, maintenance.",
-      "businessContext_i18n": {
-        "en": "Taxes, insurance, maintenance.",
-        "de": "Steuern, Versicherung, Instandhaltung.",
-        "fr": "Taxes, assurances, entretien.",
-        "es": "Impuestos, seguros, mantenimiento.",
-        "ar": "الضرائب والتأمين والصيانة."
-      }
+      "businessContext": "Taxes, insurance, maintenance."
     },
     {
-      "id": "kredi",
+      "id": "credit",
       "label": "Monthly Mortgage (USD)",
-      "label_i18n": {
-        "en": "Monthly Mortgage (USD)",
-        "de": "Monatliche Hypothek/Miete",
-        "fr": "Hypothèque/loyer mensuel",
-        "es": "Hipoteca/alquiler mensual",
-        "ar": "الرهن العقاري/الإيجار الشهري"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Monthly debt service.",
-      "businessContext_i18n": {
-        "en": "Monthly debt service.",
-        "de": "Monatlicher Schuldendienst.",
-        "fr": "Service de la dette mensuel.",
-        "es": "Servicio de deuda mensual.",
-        "ar": "خدمة الدين الشهرية."
-      }
+      "businessContext": "Monthly debt service."
     }
   ],
   "validation": {
@@ -106,61 +50,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "(brutKira * (1 - bosluk / 100)) - isletme - kredi"
+    "result": "(grossRent * (1 - vacancy / 100)) - operating - credit"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Aylik Net Nakit Akisi"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Aylik Net Nakit Akisi",
-        "de": "Monatlicher Netto-Cashflow",
-        "fr": "Flux de trésorerie net mensuel",
-        "es": "Flujo de Caja Neto Mensual",
-        "ar": "صافي التدفق النقدي الشهري"
-      }
+      "result": "Monthly Net Cash Flow"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify all property data with official documents.",
       "Consult a mortgage broker for personalized rates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate monthly net cash flow from rental property after all expenses.",
-      "long": "Calculate monthly net cash flow from rental property after all expenses.",
-      "short_i18n": {
-        "en": "Calculate monthly net cash flow from rental property after all expenses.",
-        "de": "Berechnung des monatlichen Netto-Cashflows aus Mietobjekten nach allen Ausgaben.",
-        "fr": "Calculer le flux de trésorerie net mensuel d'un bien locatif après toutes les dépenses.",
-        "es": "Calcular el flujo de caja neto mensual de una propiedad en alquiler después de todos los gastos.",
-        "ar": "احسب صافي التدفق النقدي الشهري من العقار المؤجر بعد جميع المصروفات."
-      },
-      "long_i18n": {
-        "en": "Calculate monthly net cash flow from rental property after all expenses.",
-        "de": "Berechnung des monatlichen Netto-Cashflows aus Mietobjekten nach allen Ausgaben.",
-        "fr": "Calculer le flux de trésorerie net mensuel d'un bien locatif après toutes les dépenses.",
-        "es": "Calcular el flujo de caja neto mensual de una propiedad en alquiler después de todos los gastos.",
-        "ar": "احسب صافي التدفق النقدي الشهري من العقار المؤجر بعد جميع المصروفات."
-      }
+      "long": "Calculate monthly net cash flow from rental property after all expenses."
     }
-  },
-  "title_i18n": {
-    "en": "rental-property-cash-flow-calculator",
-    "de": "Mietobjektanalyse Rechner",
-    "fr": "Calculateur d'Analyse de Propriété Locative",
-    "es": "Calculadora de Análisis de Propiedad de Alquiler",
-    "ar": "حاسبة تحليل العقارات المؤجرة"
   },
   "sectorSlug": "construction"
 }

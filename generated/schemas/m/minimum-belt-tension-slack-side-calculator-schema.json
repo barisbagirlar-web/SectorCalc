@@ -8,94 +8,38 @@
     {
       "id": "power",
       "label": "Power Transmitted (W)",
-      "label_i18n": {
-        "en": "Power Transmitted (W)",
-        "de": "Ubertragene Leistung (W)",
-        "fr": "Puissance transmise (W)",
-        "es": "Potencia transmitida (W)",
-        "ar": "القدرة المنقولة (W)"
-      },
       "type": "number",
       "unit": "W",
       "default": 5000,
       "min": 0,
-      "businessContext": "Belt power transmission.",
-      "businessContext_i18n": {
-        "en": "Belt power transmission.",
-        "de": "Riemenleistungsubertragung.",
-        "fr": "Transmission de puissance par courroie.",
-        "es": "Transmisión de potencia por correa.",
-        "ar": "نقل قدرة الحزام."
-      }
+      "businessContext": "Belt power transmission."
     },
     {
       "id": "speed",
       "label": "Belt Speed (m/s)",
-      "label_i18n": {
-        "en": "Belt Speed (m/s)",
-        "de": "Riemengeschwindigkeit (m/s)",
-        "fr": "Vitesse de la courroie (m/s)",
-        "es": "Velocidad de la correa (m/s)",
-        "ar": "سرعة الحزام (m/s)"
-      },
       "type": "number",
       "unit": "m/s",
       "default": 10,
       "min": 0,
-      "businessContext": "Belt linear speed.",
-      "businessContext_i18n": {
-        "en": "Belt linear speed.",
-        "de": "Lineare Riemengeschwindigkeit.",
-        "fr": "Vitesse linéaire de la courroie.",
-        "es": "Velocidad lineal de la correa.",
-        "ar": "السرعة الخطية للحزام."
-      }
+      "businessContext": "Belt linear speed."
     },
     {
       "id": "sarilmaAcisi",
       "label": "Wrap Angle (Rad)",
-      "label_i18n": {
-        "en": "Wrap Angle (Rad)",
-        "de": "Umschlingungswinkel (Rad)",
-        "fr": "Angle d'enroulement (Rad)",
-        "es": "Ángulo de contacto (Rad)",
-        "ar": "زاوية الالتفاف (Rad)"
-      },
       "type": "number",
       "unit": "rad",
       "default": 2.8,
       "min": 0,
-      "businessContext": "Small pulley wrap angle.",
-      "businessContext_i18n": {
-        "en": "Small pulley wrap angle.",
-        "de": "Umschlingungswinkel der kleinen Riemenscheibe.",
-        "fr": "Angle d'enroulement de la petite poulie.",
-        "es": "Ángulo de contacto de la polea pequeña.",
-        "ar": "زاوية التفاف البكرة الصغيرة."
-      }
+      "businessContext": "Small pulley wrap angle."
     },
     {
-      "id": "suratme",
+      "id": "driving",
       "label": "Friction Coefficient",
-      "label_i18n": {
-        "en": "Friction Coefficient",
-        "de": "Reibungskoeffizient",
-        "fr": "Coefficient de frottement",
-        "es": "Coeficiente de fricción",
-        "ar": "معامل الاحتكاك"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Belt-pulley friction.",
-      "businessContext_i18n": {
-        "en": "Belt-pulley friction.",
-        "de": "Riemen-Scheiben-Reibung.",
-        "fr": "Frottement courroie-poulie.",
-        "es": "Fricción correa-polea.",
-        "ar": "احتكاك الحزام والبكرة."
-      }
+      "businessContext": "Belt-pulley friction."
     }
   ],
   "validation": {
@@ -105,62 +49,32 @@
     "thresholds": {}
   },
   "formulas": {
-    "F1F2": "Math.exp(suratme * sarilmaAcisi)",
-    "result": "power / Math.max(0.0001, (speed * (Math.exp(suratme * sarilmaAcisi) - 1)))"
+    "F1F2": "Math.exp(driving * sarilmaAcisi)",
+    "result": "power / Math.max(0.0001, (speed * (Math.exp(driving * sarilmaAcisi) - 1)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "N",
     "breakdown": {
       "result": "Gevsek Kol Voltagei (F₂)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gevsek Kol Voltagei (F₂)",
-        "de": "Leerlaufseilspannung (F₂)",
-        "fr": "Tension du côté mou (F₂)",
-        "es": "Tensión del lado flojo (F₂)",
-        "ar": "شد الجانب المرتخي (F₂)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "N"
+      "result": "N"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate minimum belt tension on the slack side.",
-      "long": "Calculate minimum belt tension on the slack side.",
-      "short_i18n": {
-        "en": "Calculate minimum belt tension on the slack side.",
-        "de": "Berechnen Sie die minimale Riemenspannung auf der losen Seite.",
-        "fr": "Calculer la tension minimale de la courroie du côté mou.",
-        "es": "Calcular la tensión mínima de la correa en el lado flojo.",
-        "ar": "احسب أقل شد للحزام على الجانب المرتخي."
-      },
-      "long_i18n": {
-        "en": "Calculate minimum belt tension on the slack side.",
-        "de": "Berechnen Sie die minimale Riemenspannung auf der losen Seite.",
-        "fr": "Calculer la tension minimale de la courroie du côté mou.",
-        "es": "Calcular la tensión mínima de la correa en el lado flojo.",
-        "ar": "احسب أقل شد للحزام على الجانب المرتخي."
-      }
+      "long": "Calculate minimum belt tension on the slack side."
     }
-  },
-  "title_i18n": {
-    "en": "minimum-belt-tension-slack-side-calculator",
-    "de": "Riemenspannungsrechner",
-    "fr": "Calculateur de Tension de Courroie de Poulie",
-    "es": "Calculadora de Tensión de Correa de Polea",
-    "ar": "حاسبة شد حزام البكرة"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,94 +8,38 @@
     {
       "id": "mulkDegeri",
       "label": "Property Value (USD)",
-      "label_i18n": {
-        "en": "Property Value (USD)",
-        "de": "Immobilienwert",
-        "fr": "Valeur de la propriété",
-        "es": "Valor de la propiedad",
-        "ar": "قيمة العقار"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Current property value.",
-      "businessContext_i18n": {
-        "en": "Current property value.",
-        "de": "Aktueller Immobilienwert.",
-        "fr": "Valeur actuelle du bien.",
-        "es": "Valor actual de la propiedad.",
-        "ar": "قيمة العقار الحالية."
-      }
+      "businessContext": "Current property value."
     },
     {
       "id": "kalanBorc",
       "label": "Remaining Debt (USD)",
-      "label_i18n": {
-        "en": "Remaining Debt (USD)",
-        "de": "Restverschuldung (USD)",
-        "fr": "Dette restante (USD)",
-        "es": "Deuda restante (USD)",
-        "ar": "الدين المتبقي (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Current mortgage balance.",
-      "businessContext_i18n": {
-        "en": "Current mortgage balance.",
-        "de": "Aktueller Hypothekensaldo.",
-        "fr": "Solde hypothécaire actuel.",
-        "es": "Saldo actual de la hipoteca.",
-        "ar": "رصيد الرهن العقاري الحالي."
-      }
+      "businessContext": "Current mortgage balance."
     },
     {
       "id": "yeniKredi",
       "label": "New Loan Amount (USD)",
-      "label_i18n": {
-        "en": "New Loan Amount (USD)",
-        "de": "Neuer Darlehensbetrag (USD)",
-        "fr": "Montant du nouveau prêt (USD)",
-        "es": "Monto del Nuevo Préstamo (USD)",
-        "ar": "مبلغ القرض الجديد (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total new loan to draw.",
-      "businessContext_i18n": {
-        "en": "Total new loan to draw.",
-        "de": "Gesamter neuer Kreditbetrag zur Auszahlung.",
-        "fr": "Total du nouveau prêt à tirer.",
-        "es": "Total del nuevo préstamo a retirar.",
-        "ar": "إجمالي القرض الجديد للسحب."
-      }
+      "businessContext": "Total new loan to draw."
     },
     {
       "id": "masraf",
       "label": "Closing Costs (USD)",
-      "label_i18n": {
-        "en": "Closing Costs (USD)",
-        "de": "Abschlusskosten (%)",
-        "fr": "Frais de clôture (%)",
-        "es": "Costos de cierre (%)",
-        "ar": "تكاليف الإغلاق (%)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Closing and processing costs.",
-      "businessContext_i18n": {
-        "en": "Closing and processing costs.",
-        "de": "Abschluss- und Bearbeitungskosten.",
-        "fr": "Frais de clôture et de traitement.",
-        "es": "Costos de cierre y procesamiento.",
-        "ar": "تكاليف الإغلاق والمعالجة."
-      }
+      "businessContext": "Closing and processing costs."
     }
   ],
   "validation": {
@@ -109,67 +53,30 @@
     "result": "yeniKredi - kalanBorc - masraf"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "ltv": "LTV Ratio (%)",
       "result": "Net Cash Output"
     },
-    "breakdown_i18n": {
-      "ltv": {
-        "en": "LTV Ratio (%)",
-        "de": "LTV-Verhältnis (%)",
-        "fr": "Ratio LTV (%)",
-        "es": "Relación LTV (%)",
-        "ar": "نسبة LTV (%)"
-      },
-      "result": {
-        "en": "Net Cash Output",
-        "de": "Netto-Cash-Abfluss",
-        "fr": "Sortie nette de trésorerie",
-        "es": "Salida Neta de Efectivo",
-        "ar": "صافي التدفق النقدي الخارج"
-      }
-    },
     "breakdownUnits": {
       "ltv": "USD",
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify all property data with official documents.",
       "Consult a mortgage broker for personalized rates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate net cash-out from a cash-out refinance.",
-      "long": "Calculate net cash-out from a cash-out refinance.",
-      "short_i18n": {
-        "en": "Calculate net cash-out from a cash-out refinance.",
-        "de": "Berechnen Sie den Netto-Cash-Abfluss aus einer Cash-Out-Refinanzierung.",
-        "fr": "Calculer la sortie nette de trésorerie d'un refinancement avec retrait.",
-        "es": "Calcular la salida neta de efectivo de un refinanciamiento con retiro de efectivo.",
-        "ar": "احسب صافي التدفق النقدي الخارج من إعادة التمويل النقدي."
-      },
-      "long_i18n": {
-        "en": "Calculate net cash-out from a cash-out refinance.",
-        "de": "Berechnen Sie den Netto-Cash-Abfluss aus einer Cash-Out-Refinanzierung.",
-        "fr": "Calculer la sortie nette de trésorerie d'un refinancement avec retrait.",
-        "es": "Calcular la salida neta de efectivo de un refinanciamiento con retiro de efectivo.",
-        "ar": "احسب صافي التدفق النقدي الخارج من إعادة التمويل النقدي."
-      }
+      "long": "Calculate net cash-out from a cash-out refinance."
     }
-  },
-  "title_i18n": {
-    "en": "cash-out-refinance-calculator",
-    "de": "Cash-Out-Refinanzierungsrechner",
-    "fr": "Calculateur de refinancement avec sortie de fonds",
-    "es": "Calculadora de refinanciamiento con retiro de efectivo",
-    "ar": "حاسبة إعادة التمويل النقدي"
   },
   "sectorSlug": "daily-renovation"
 }

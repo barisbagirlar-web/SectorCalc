@@ -8,48 +8,20 @@
     {
       "id": "frequency",
       "label": "Frequency (Hz)",
-      "label_i18n": {
-        "en": "Frequency (Hz)",
-        "de": "Zinseszinshäufigkeit",
-        "fr": "Fréquence de capitalisation",
-        "es": "Frecuencia de Capitalización",
-        "ar": "تكرار المركبة"
-      },
       "type": "number",
       "unit": "Hz",
       "default": 50,
       "min": 0,
-      "businessContext": "AC signal frequency.",
-      "businessContext_i18n": {
-        "en": "AC signal frequency.",
-        "de": "Frequenz des Wechselstromsignals.",
-        "fr": "Fréquence du signal AC.",
-        "es": "Frecuencia de la señal de CA.",
-        "ar": "تردد الإشارة المترددة."
-      }
+      "businessContext": "AC signal frequency."
     },
     {
       "id": "capacity",
       "label": "Capacitance (F)",
-      "label_i18n": {
-        "en": "Capacitance (F)",
-        "de": "Kapazität (F)",
-        "fr": "Capacité (F)",
-        "es": "Capacitancia (F)",
-        "ar": "السعة (F)"
-      },
       "type": "number",
       "unit": "F",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Capacitor value.",
-      "businessContext_i18n": {
-        "en": "Capacitor value.",
-        "de": "Kondensatorwert.",
-        "fr": "Valeur du condensateur.",
-        "es": "Valor del capacitor.",
-        "ar": "قيمة المكثف."
-      }
+      "businessContext": "Capacitor value."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "1 / Math.max(0.0001, (2 * Math.PI * frequency * capacity))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ohms",
     "breakdown": {
       "result": "Kapasitif Reaktans (Xc)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Kapasitif Reaktans (Xc)",
-        "de": "Kapazitiver Blindwiderstand (Xc)",
-        "fr": "Réactance capacitive (Xc)",
-        "es": "Reactancia Capacitiva (Xc)",
-        "ar": "المفاعلة السعوية (Xc)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ohms"
+      "result": "ohms"
     },
     "hiddenLossDrivers": [
       "Low Q factor indicates broader frequency response."
@@ -86,36 +49,15 @@
       "Verify component tolerances affect circuit performance.",
       "Use proper safety equipment for high voltage/current work."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate capacitive reactance of a capacitor at given frequency.",
-      "long": "Calculate capacitive reactance of a capacitor at given frequency.",
-      "short_i18n": {
-        "en": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "de": "Berechnen Sie den kapazitiven Blindwiderstand eines Kondensators bei gegebener Frequenz.",
-        "fr": "Calculer la réactance capacitive d'un condensateur à une fréquence donnée.",
-        "es": "Calcular la reactancia capacitiva de un capacitor a una frecuencia dada.",
-        "ar": "حساب المفاعلة السعوية لمكثف عند تردد معين."
-      },
-      "long_i18n": {
-        "en": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "de": "Berechnen Sie den kapazitiven Blindwiderstand eines Kondensators bei gegebener Frequenz.",
-        "fr": "Calculer la réactance capacitive d'un condensateur à une fréquence donnée.",
-        "es": "Calcular la reactancia capacitiva de un capacitor a una frecuencia dada.",
-        "ar": "حساب المفاعلة السعوية لمكثف عند تردد معين."
-      }
+      "long": "Calculate capacitive reactance of a capacitor at given frequency."
     }
-  },
-  "title_i18n": {
-    "en": "capacitive-reactance-calculator",
-    "de": "Kapazitiver Blindwiderstand Rechner",
-    "fr": "Calculateur de Réactance Capacitive",
-    "es": "Calculadora de Reactancia Capacitiva",
-    "ar": "حاسبة المفاعلة السعوية"
   },
   "sectorSlug": "daily-renovation"
 }

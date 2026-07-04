@@ -2,77 +2,35 @@
   "toolName": "rainwater-harvest-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "catiAlani",
       "label": "Roof Area (m²)",
-      "label_i18n": {
-        "en": "Roof Area (m²)",
-        "de": "Dachfläche (m²)",
-        "fr": "Surface du toit (m²)",
-        "es": "Área del Techo (m²)",
-        "ar": "مساحة السطح (m²)"
-      },
       "type": "number",
       "unit": "m2",
       "default": 150,
       "min": 0,
-      "businessContext": "Collection roof area.",
-      "businessContext_i18n": {
-        "en": "Collection roof area.",
-        "de": "Sammelfläche des Daches.",
-        "fr": "Surface de collecte du toit.",
-        "es": "Área de captación del techo.",
-        "ar": "مساحة السطح المجمعة."
-      }
+      "businessContext": "Collection roof area."
     },
     {
       "id": "yillikYagis",
       "label": "Annual Rainfall (mm)",
-      "label_i18n": {
-        "en": "Annual Rainfall (mm)",
-        "de": "Jährlicher Niederschlag (mm)",
-        "fr": "Précipitations annuelles (mm)",
-        "es": "Precipitación Anual (mm)",
-        "ar": "هطول الأمطار السنوي (mm)"
-      },
       "type": "number",
       "unit": "mm",
       "default": 600,
       "min": 0,
-      "businessContext": "Annual precipitation.",
-      "businessContext_i18n": {
-        "en": "Annual precipitation.",
-        "de": "Jährliche Niederschlagsmenge.",
-        "fr": "Précipitations annuelles.",
-        "es": "Precipitación anual.",
-        "ar": "هطول الأمطار السنوي."
-      }
+      "businessContext": "Annual precipitation."
     },
     {
       "id": "efficiency",
       "label": "Collection Efficiency (%)",
-      "label_i18n": {
-        "en": "Collection Efficiency (%)",
-        "de": "Sammeleffizienz (%)",
-        "fr": "Efficacité de collecte (%)",
-        "es": "Eficiencia de Captación (%)",
-        "ar": "كفاءة التجميع (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 85,
       "min": 0,
-      "businessContext": "System efficiency.",
-      "businessContext_i18n": {
-        "en": "System efficiency.",
-        "de": "Systemeffizienz.",
-        "fr": "Efficacité du système.",
-        "es": "Eficiencia del sistema.",
-        "ar": "كفاءة النظام."
-      }
+      "businessContext": "System efficiency."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(catiAlani * (yillikYagis / 1000)) * (efficiency / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m3",
     "breakdown": {
       "result": "Annual Toplanan Su"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Annual Toplanan Su",
-        "de": "Jährlich gesammeltes Wasser",
-        "fr": "Eau collectée annuellement",
-        "es": "Agua Recolectada Anual",
-        "ar": "المياه المجمعة سنويًا"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m3"
+      "result": "m3"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate annual rainwater harvest volume from roof area.",
-      "long": "Calculate annual rainwater harvest volume from roof area.",
-      "short_i18n": {
-        "en": "Calculate annual rainwater harvest volume from roof area.",
-        "de": "Berechnen Sie das jährliche Regenwassersammelvolumen von der Dachfläche.",
-        "fr": "Calculer le volume annuel de récupération d'eau de pluie à partir de la surface du toit.",
-        "es": "Calcular el volumen anual de cosecha de agua de lluvia desde el área del techo.",
-        "ar": "احسب حجم حصاد مياه الأمطار السنوي من مساحة السطح."
-      },
-      "long_i18n": {
-        "en": "Calculate annual rainwater harvest volume from roof area.",
-        "de": "Berechnen Sie das jährliche Regenwassersammelvolumen von der Dachfläche.",
-        "fr": "Calculer le volume annuel de récupération d'eau de pluie à partir de la surface du toit.",
-        "es": "Calcular el volumen anual de cosecha de agua de lluvia desde el área del techo.",
-        "ar": "احسب حجم حصاد مياه الأمطار السنوي من مساحة السطح."
-      }
+      "long": "Calculate annual rainwater harvest volume from roof area."
     }
-  },
-  "title_i18n": {
-    "en": "rainwater-harvest-calculator",
-    "de": "Regenwassernutzungsrechner",
-    "fr": "Calculateur de récupération d'eau de pluie",
-    "es": "Calculadora de recolección de agua de lluvia",
-    "ar": "حاسبة حصاد مياه الأمطار"
   },
   "sectorSlug": "daily-renovation"
 }

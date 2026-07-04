@@ -8,26 +8,12 @@
     {
       "id": "HB",
       "label": "Brinell Hardness (HB)",
-      "label_i18n": {
-        "en": "Brinell Hardness (HB)",
-        "de": "Brinellhärte (HB)",
-        "fr": "Dureté Brinell (HB)",
-        "es": "Dureza Brinell (HB)",
-        "ar": "صلابة برينل (HB)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 300,
       "min": 100,
       "max": 700,
-      "businessContext": "Brinell hardness number.",
-      "businessContext_i18n": {
-        "en": "Brinell hardness number.",
-        "de": "Brinellhärtezahl.",
-        "fr": "Nombre de dureté Brinell.",
-        "es": "Número de dureza Brinell.",
-        "ar": "رقم صلابة برينل."
-      }
+      "businessContext": "Brinell hardness number."
     }
   ],
   "validation": {
@@ -40,58 +26,28 @@
     "result": "(HB - 100) / 10"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "HRC",
     "breakdown": {
       "result": "Rockwell C (HRC)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Rockwell C (HRC)",
-        "de": "Rockwell C (HRC)",
-        "fr": "Rockwell C (HRC)",
-        "es": "Rockwell C (HRC)",
-        "ar": "روكويل C (HRC)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "HRC"
+      "result": "HRC"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Use calibrated equipment for measurements.",
       "Consider temperature effects on material properties."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
-      "long": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
-      "short_i18n": {
-        "en": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
-        "de": "Konvertieren Sie die Brinellhärte (HB) in einen ungefähren Rockwell-C-Wert (HRC).",
-        "fr": "Convertir la dureté Brinell (HB) en valeur approximative Rockwell C (HRC).",
-        "es": "Convertir dureza Brinell (HB) a valor aproximado de Rockwell C (HRC).",
-        "ar": "حول صلابة برينل (HB) إلى قيمة روكويل C (HRC) تقريبية."
-      },
-      "long_i18n": {
-        "en": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
-        "de": "Konvertieren Sie die Brinellhärte (HB) in einen ungefähren Rockwell-C-Wert (HRC).",
-        "fr": "Convertir la dureté Brinell (HB) en valeur approximative Rockwell C (HRC).",
-        "es": "Convertir dureza Brinell (HB) a valor aproximado de Rockwell C (HRC).",
-        "ar": "حول صلابة برينل (HB) إلى قيمة روكويل C (HRC) تقريبية."
-      }
+      "long": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value."
     }
-  },
-  "title_i18n": {
-    "en": "hardness-conversion-calculator",
-    "de": "Brinell Rockwell Härteumrechnungsrechner",
-    "fr": "Calculateur de conversion de dureté Brinell Rockwell",
-    "es": "Calculadora de conversión de dureza Brinell Rockwell",
-    "ar": "حاسبة تحويل صلابة برينل روكويل"
   },
   "sectorSlug": "daily-renovation"
 }

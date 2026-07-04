@@ -8,71 +8,29 @@
     {
       "id": "risksizFaiz",
       "label": "Risk-Free Rate (%)",
-      "label_i18n": {
-        "en": "Risk-Free Rate (%)",
-        "de": "Risikofreier Zinssatz (%)",
-        "fr": "Taux sans risque (%)",
-        "es": "Tasa libre de riesgo (%)",
-        "ar": "معدل الفائدة الخالي من المخاطر (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Return on risk-free assets (e.g., government bonds).",
-      "businessContext_i18n": {
-        "en": "Return on risk-free assets (e.g., government bonds).",
-        "de": "Rendite risikofreier Anlagen (z. B. Staatsanleihen).",
-        "fr": "Rendement des actifs sans risque (par exemple, obligations d'État).",
-        "es": "Rendimiento de activos libres de riesgo (por ejemplo, bonos gubernamentales).",
-        "ar": "العائد على الأصول الخالية من المخاطر (مثل السندات الحكومية)."
-      }
+      "businessContext": "Return on risk-free assets (e.g., government bonds)."
     },
     {
       "id": "beta",
       "label": "Beta (Number)",
-      "label_i18n": {
-        "en": "Beta (Number)",
-        "de": "Beta (Anzahl)",
-        "fr": "Bêta",
-        "es": "Beta (Número)",
-        "ar": "بيتا"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Stock's sensitivity to market movements.",
-      "businessContext_i18n": {
-        "en": "Stock's sensitivity to market movements.",
-        "de": "Sensitivität der Aktie gegenuber Marktbewegungen.",
-        "fr": "Sensibilité de l'action aux mouvements du marché.",
-        "es": "Sensibilidad de la acción a los movimientos del mercado.",
-        "ar": "حساسية السهم لتحركات السوق."
-      }
+      "businessContext": "Stock's sensitivity to market movements."
     },
     {
       "id": "piyasaPrimi",
       "label": "Market Risk Premium (%)",
-      "label_i18n": {
-        "en": "Market Risk Premium (%)",
-        "de": "Marktrisikoprämie (%)",
-        "fr": "Prime de risque de marché (%)",
-        "es": "Prima de Riesgo de Mercado (%)",
-        "ar": "علاوة مخاطر السوق (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 6,
       "min": 0,
-      "businessContext": "Excess return of market over risk-free rate.",
-      "businessContext_i18n": {
-        "en": "Excess return of market over risk-free rate.",
-        "de": "Uberschussrendite des Marktes gegenuber dem risikofreien Zinssatz.",
-        "fr": "Rendement excédentaire du marché par rapport au taux sans risque.",
-        "es": "Exceso de rendimiento del mercado sobre la tasa libre de riesgo.",
-        "ar": "العائد الزائد للسوق عن المعدل الخالي من المخاطر."
-      }
+      "businessContext": "Excess return of market over risk-free rate."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "risksizFaiz + beta * piyasaPrimi"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Ozsermaye Costi (CAPM)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Ozsermaye Costi (CAPM)",
-        "de": "Eigenkapitalkosten (CAPM)",
-        "fr": "Coût des capitaux propres (CAPM)",
-        "es": "Costo del Capital (CAPM)",
-        "ar": "تكلفة حقوق الملكية (CAPM)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
-      "long": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
-      "short_i18n": {
-        "en": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
-        "de": "Berechnen Sie die Eigenkapitalkosten mit dem Capital Asset Pricing Model (CAPM).",
-        "fr": "Calculer le coût des capitaux propres à l'aide du modèle d'évaluation des actifs financiers (CAPM).",
-        "es": "Calcular el costo del capital utilizando el Modelo de Valoración de Activos de Capital (CAPM).",
-        "ar": "حساب تكلفة حقوق الملكية باستخدام نموذج تسعير الأصول الرأسمالية (CAPM)."
-      },
-      "long_i18n": {
-        "en": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
-        "de": "Berechnen Sie die Eigenkapitalkosten mit dem Capital Asset Pricing Model (CAPM).",
-        "fr": "Calculer le coût des capitaux propres à l'aide du modèle d'évaluation des actifs financiers (CAPM).",
-        "es": "Calcular el costo del capital utilizando el Modelo de Valoración de Activos de Capital (CAPM).",
-        "ar": "حساب تكلفة حقوق الملكية باستخدام نموذج تسعير الأصول الرأسمالية (CAPM)."
-      }
+      "long": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM)."
     }
-  },
-  "title_i18n": {
-    "en": "capm-cost-of-equity-calculator",
-    "de": "CAPM-Eigenkapitalkostenrechner",
-    "fr": "Calculateur de coût des fonds propres CAPM",
-    "es": "Calculadora de costo de capital propio CAPM",
-    "ar": "حاسبة تكلفة حقوق الملكية CAPM"
   },
   "sectorSlug": "daily-renovation"
 }

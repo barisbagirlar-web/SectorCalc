@@ -8,117 +8,47 @@
     {
       "id": "deplasman",
       "label": "Displacement (tons)",
-      "label_i18n": {
-        "en": "Displacement (tons)",
-        "de": "Verdrängung (Tonnen)",
-        "fr": "Déplacement (tonnes)",
-        "es": "Desplazamiento (toneladas)",
-        "ar": "الإزاحة (tons)"
-      },
       "type": "number",
       "unit": "tons",
       "default": 5000,
       "min": 0,
-      "businessContext": "Ship total weight.",
-      "businessContext_i18n": {
-        "en": "Ship total weight.",
-        "de": "Gesamtgewicht des Schiffs.",
-        "fr": "Poids total du navire.",
-        "es": "Peso total del barco.",
-        "ar": "الوزن الكلي للسفينة."
-      }
+      "businessContext": "Ship total weight."
     },
     {
       "id": "suYogunlugu",
       "label": "Water Density (t/m³)",
-      "label_i18n": {
-        "en": "Water Density (t/m³)",
-        "de": "Wasserdichte (t/m³)",
-        "fr": "Densité de l'eau (t/m³)",
-        "es": "Densidad del Agua (t/m³)",
-        "ar": "كثافة الماء (t/m³)"
-      },
       "type": "number",
       "unit": "t/m3",
       "default": 1.025,
       "min": 0,
-      "businessContext": "Seawater density.",
-      "businessContext_i18n": {
-        "en": "Seawater density.",
-        "de": "Dichte des Meerwassers.",
-        "fr": "Densité de l'eau de mer.",
-        "es": "Densidad del agua de mar.",
-        "ar": "كثافة ماء البحر."
-      }
+      "businessContext": "Seawater density."
     },
     {
       "id": "boy",
       "label": "Ship Length (m)",
-      "label_i18n": {
-        "en": "Ship Length (m)",
-        "de": "Schiffslänge (m)",
-        "fr": "Longueur du navire (m)",
-        "es": "Eslora del Barco (m)",
-        "ar": "طول السفينة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 100,
       "min": 0,
-      "businessContext": "Ship length.",
-      "businessContext_i18n": {
-        "en": "Ship length.",
-        "de": "Schiffslänge.",
-        "fr": "Longueur du navire.",
-        "es": "Eslora del barco.",
-        "ar": "طول السفينة."
-      }
+      "businessContext": "Ship length."
     },
     {
       "id": "en",
       "label": "Ship Beam (m)",
-      "label_i18n": {
-        "en": "Ship Beam (m)",
-        "de": "Schiffsbreite (m)",
-        "fr": "Largeur du navire (m)",
-        "es": "Manga del Barco (m)",
-        "ar": "عرض السفينة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 18,
       "min": 0,
-      "businessContext": "Ship breadth.",
-      "businessContext_i18n": {
-        "en": "Ship breadth.",
-        "de": "Schiffsbreite.",
-        "fr": "Largeur du navire.",
-        "es": "Manga del barco.",
-        "ar": "عرض السفينة."
-      }
+      "businessContext": "Ship breadth."
     },
     {
       "id": "blokKatsayi",
       "label": "Block Coefficient",
-      "label_i18n": {
-        "en": "Block Coefficient",
-        "de": "Blockkoeffizient",
-        "fr": "Coefficient de bloc",
-        "es": "Coeficiente de Bloque",
-        "ar": "معامل الكتلة"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0.7,
       "min": 0,
-      "businessContext": "Ship hull form coefficient.",
-      "businessContext_i18n": {
-        "en": "Ship hull form coefficient.",
-        "de": "Rumpfformkoeffizient des Schiffs.",
-        "fr": "Coefficient de forme de la coque du navire.",
-        "es": "Coeficiente de forma del casco del barco.",
-        "ar": "معامل شكل هيكل السفينة."
-      }
+      "businessContext": "Ship hull form coefficient."
     }
   ],
   "validation": {
@@ -128,25 +58,16 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "deplasman / Math.max(0.0001, (suYogunlugu * boy * en * blokKatsayi))"
+    "result": "deplasman / Math.max(0.0001, (suYogunlugu * length * en * blokKatsayi))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
       "result": "Draft (Draft)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Draft (Draft)",
-        "de": "Tiefgang (Entwurf)",
-        "fr": "Tirant d'eau (Draft)",
-        "es": "Calado (Draft)",
-        "ar": "الغاطس (Draft)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [
       "Low efficiency may indicate equipment or process issues."
@@ -155,36 +76,15 @@
       "Calibrate all measuring equipment regularly.",
       "Use site-specific data when available."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate ship draft (vertical depth below waterline).",
-      "long": "Calculate ship draft (vertical depth below waterline).",
-      "short_i18n": {
-        "en": "Calculate ship draft (vertical depth below waterline).",
-        "de": "Berechnen Sie den Tiefgang des Schiffs (vertikale Tiefe unter der Wasserlinie).",
-        "fr": "Calculer le tirant d'eau du navire (profondeur verticale sous la ligne de flottaison).",
-        "es": "Calcular el calado del barco (profundidad vertical por debajo de la línea de flotación).",
-        "ar": "احسب غاطس السفينة (العمق الرأسي أسفل خط الماء)."
-      },
-      "long_i18n": {
-        "en": "Calculate ship draft (vertical depth below waterline).",
-        "de": "Berechnen Sie den Tiefgang des Schiffs (vertikale Tiefe unter der Wasserlinie).",
-        "fr": "Calculer le tirant d'eau du navire (profondeur verticale sous la ligne de flottaison).",
-        "es": "Calcular el calado del barco (profundidad vertical por debajo de la línea de flotación).",
-        "ar": "احسب غاطس السفينة (العمق الرأسي أسفل خط الماء)."
-      }
+      "long": "Calculate ship draft (vertical depth below waterline)."
     }
-  },
-  "title_i18n": {
-    "en": "ship-draft-calculator",
-    "de": "Schiffstiefgangsrechner",
-    "fr": "Calculateur de tirant d'eau",
-    "es": "Calculadora de calado del buque",
-    "ar": "حاسبة غاطس السفينة"
   },
   "sectorSlug": "daily-renovation"
 }

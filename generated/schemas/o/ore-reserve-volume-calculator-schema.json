@@ -8,71 +8,29 @@
     {
       "id": "blokHacim",
       "label": "Ore Block Volume (m³)",
-      "label_i18n": {
-        "en": "Ore Block Volume (m³)",
-        "de": "Erzblockvolumen (m³)",
-        "fr": "Volume du bloc de minerai (m³)",
-        "es": "Volumen del Bloque de Mineral (m³)",
-        "ar": "حجم كتلة الخام (m³)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 50000,
       "min": 0,
-      "businessContext": "Ore body volume.",
-      "businessContext_i18n": {
-        "en": "Ore body volume.",
-        "de": "Erzkorpervolumen.",
-        "fr": "Volume du corps minéralisé.",
-        "es": "Volumen del cuerpo mineral.",
-        "ar": "حجم جسم الخام."
-      }
+      "businessContext": "Ore body volume."
     },
     {
       "id": "cevherYogunlugu",
       "label": "Ore Density (ton/m³)",
-      "label_i18n": {
-        "en": "Ore Density (ton/m³)",
-        "de": "Erzdichte (ton/m³)",
-        "fr": "Densité du minerai (ton/m³)",
-        "es": "Densidad del Mineral (ton/m³)",
-        "ar": "كثافة الخام (ton/m³)"
-      },
       "type": "number",
       "unit": "ton/m3",
       "default": 2.7,
       "min": 0,
-      "businessContext": "Ore density.",
-      "businessContext_i18n": {
-        "en": "Ore density.",
-        "de": "Erzdichte.",
-        "fr": "Densité du minerai.",
-        "es": "Densidad del mineral.",
-        "ar": "كثافة الخام."
-      }
+      "businessContext": "Ore density."
     },
     {
       "id": "tenor",
       "label": "Grade (%)",
-      "label_i18n": {
-        "en": "Grade (%)",
-        "de": "Schraubenfestigkeitsklasse / Eigenschaftsklasse",
-        "fr": "Classe de qualité de boulon / Classe de propriété",
-        "es": "Grado de perno / Clase de propiedad",
-        "ar": "درجة البرغي / فئة الخواص"
-      },
       "type": "number",
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Metal grade in ore.",
-      "businessContext_i18n": {
-        "en": "Metal grade in ore.",
-        "de": "Metallgehalt im Erz.",
-        "fr": "Teneur en métal dans le minerai.",
-        "es": "Ley del metal en el mineral.",
-        "ar": "درجة المعدن في الخام."
-      }
+      "businessContext": "Metal grade in ore."
     }
   ],
   "validation": {
@@ -86,31 +44,15 @@
     "result": "(blokHacim * cevherYogunlugu) * (tenor / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "tons",
     "breakdown": {
-      "tonaj": "Toplam Cevher (ton)",
+      "tonaj": "Total Ore (ton)",
       "result": "Metal Quantity (ton)"
-    },
-    "breakdown_i18n": {
-      "tonaj": {
-        "en": "Toplam Cevher (ton)",
-        "de": "Gesamterz (t)",
-        "fr": "Minerai total (tonne)",
-        "es": "Mineral Total (ton)",
-        "ar": "إجمالي الخام (طن)"
-      },
-      "result": {
-        "en": "Metal Quantity (ton)",
-        "de": "Metallmenge (t)",
-        "fr": "Quantité de métal (tonne)",
-        "es": "Cantidad de Metal (ton)",
-        "ar": "كمية المعدن (طن)"
-      }
     },
     "breakdownUnits": {
       "tonaj": "tons",
-      "sonuc": "tons"
+      "result": "tons"
     },
     "hiddenLossDrivers": [
       "Low SLA indicates service reliability issue.",
@@ -120,36 +62,15 @@
       "Monitor system performance regularly.",
       "Implement redundancy for critical infrastructure."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate ore tonnage and metal content in a mining block.",
-      "long": "Calculate ore tonnage and metal content in a mining block.",
-      "short_i18n": {
-        "en": "Calculate ore tonnage and metal content in a mining block.",
-        "de": "Erztonnage und Metallgehalt in einem Bergbaublock berechnen.",
-        "fr": "Calculer le tonnage de minerai et la teneur en métal dans un bloc minier.",
-        "es": "Calcular el tonelaje de mineral y el contenido metálico en un bloque minero.",
-        "ar": "احسب حمولة الخام ومحتوى المعدن في كتلة تعدين."
-      },
-      "long_i18n": {
-        "en": "Calculate ore tonnage and metal content in a mining block.",
-        "de": "Erztonnage und Metallgehalt in einem Bergbaublock berechnen.",
-        "fr": "Calculer le tonnage de minerai et la teneur en métal dans un bloc minier.",
-        "es": "Calcular el tonelaje de mineral y el contenido metálico en un bloque minero.",
-        "ar": "احسب حمولة الخام ومحتوى المعدن في كتلة تعدين."
-      }
+      "long": "Calculate ore tonnage and metal content in a mining block."
     }
-  },
-  "title_i18n": {
-    "en": "ore-reserve-volume-calculator",
-    "de": "Erzreservenvolumenrechner",
-    "fr": "Calculateur de volume de réserve minière",
-    "es": "Calculadora de volumen de reserva minera",
-    "ar": "حاسبة حجم الاحتياطي المعدني"
   },
   "sectorSlug": "daily-renovation"
 }

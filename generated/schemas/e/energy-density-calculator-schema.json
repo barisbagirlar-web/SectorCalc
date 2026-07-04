@@ -8,48 +8,20 @@
     {
       "id": "energy",
       "label": "Total Energy (J)",
-      "label_i18n": {
-        "en": "Total Energy (J)",
-        "de": "Gesamtenergieverbrauch",
-        "fr": "Consommation totale d'énergie",
-        "es": "Consumo total de energía",
-        "ar": "إجمالي استهلاك الطاقة"
-      },
       "type": "number",
       "unit": "J",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total stored energy.",
-      "businessContext_i18n": {
-        "en": "Total stored energy.",
-        "de": "Gespeicherte Gesamtenergie.",
-        "fr": "Énergie totale stockée.",
-        "es": "Energía total almacenada.",
-        "ar": "إجمالي الطاقة المخزنة."
-      }
+      "businessContext": "Total stored energy."
     },
     {
       "id": "volume",
       "label": "Volume (m³)",
-      "label_i18n": {
-        "en": "Volume (m³)",
-        "de": "Produktionsvolumen (N)",
-        "fr": "Volume de production (N)",
-        "es": "Volumen de producción (N)",
-        "ar": "حجم الإنتاج (N)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 1,
       "min": 0,
-      "businessContext": "Storage volume.",
-      "businessContext_i18n": {
-        "en": "Storage volume.",
-        "de": "Speichervolumen.",
-        "fr": "Volume de stockage.",
-        "es": "Volumen de almacenamiento.",
-        "ar": "حجم التخزين."
-      }
+      "businessContext": "Storage volume."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "energy / Math.max(0.0001, volume)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "J/m3",
     "breakdown": {
       "result": "Energy Dmostsity"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Energy Dmostsity",
-        "de": "Energiedichte",
-        "fr": "Densité énergétique",
-        "es": "Densidad de Energía",
-        "ar": "كثافة الطاقة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "J/m3"
+      "result": "J/m3"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Use calibrated equipment for measurements.",
       "Consider temperature effects on material properties."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate energy density per unit volume.",
-      "long": "Calculate energy density per unit volume.",
-      "short_i18n": {
-        "en": "Calculate energy density per unit volume.",
-        "de": "Berechnen Sie die Energiedichte pro Volumeneinheit.",
-        "fr": "Calculer la densité énergétique par unité de volume.",
-        "es": "Calcular la densidad de energía por unidad de volumen.",
-        "ar": "حساب كثافة الطاقة لكل وحدة حجم."
-      },
-      "long_i18n": {
-        "en": "Calculate energy density per unit volume.",
-        "de": "Berechnen Sie die Energiedichte pro Volumeneinheit.",
-        "fr": "Calculer la densité énergétique par unité de volume.",
-        "es": "Calcular la densidad de energía por unidad de volumen.",
-        "ar": "حساب كثافة الطاقة لكل وحدة حجم."
-      }
+      "long": "Calculate energy density per unit volume."
     }
-  },
-  "title_i18n": {
-    "en": "energy-density-calculator",
-    "de": "Energie Dichte Rechner",
-    "fr": "Calculateur de densité énergétique",
-    "es": "Calculadora de densidad energética",
-    "ar": "حاسبة كثافة الطاقة"
   },
   "sectorSlug": "energy-carbon"
 }

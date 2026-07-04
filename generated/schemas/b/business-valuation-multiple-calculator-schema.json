@@ -2,54 +2,26 @@
   "toolName": "business-valuation-multiple-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "favok",
       "label": "EBITDA (USD)",
-      "label_i18n": {
-        "en": "EBITDA (USD)",
-        "de": "EBITDA-Marge (%)",
-        "fr": "Marge d'EBITDA (%)",
-        "es": "Margen EBITDA (%)",
-        "ar": "هامش الأرباح قبل الفوائد والضرائب والإهلاك والاستهلاك (%)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Earnings before interest, tax, depreciation.",
-      "businessContext_i18n": {
-        "en": "Earnings before interest, tax, depreciation.",
-        "de": "Gewinn vor Zinsen, Steuern und Abschreibungen.",
-        "fr": "Bénéfice avant intérêts, impôts et amortissements.",
-        "es": "Ganancias antes de intereses, impuestos, depreciación.",
-        "ar": "الأرباح قبل الفوائد والضرائب والإهلاك."
-      }
+      "businessContext": "Earnings before interest, tax, depreciation."
     },
     {
       "id": "carpan",
       "label": "Industry Multiple",
-      "label_i18n": {
-        "en": "Industry Multiple",
-        "de": "Branchenmultiplikator",
-        "fr": "Multiple sectoriel",
-        "es": "Múltiplo de la Industria",
-        "ar": "المضاعف الصناعي"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 5,
       "min": 1,
-      "businessContext": "Industry average EBITDA multiple.",
-      "businessContext_i18n": {
-        "en": "Industry average EBITDA multiple.",
-        "de": "Branchendurchschnittliches EBITDA-Multiple.",
-        "fr": "Multiple d'EBITDA moyen du secteur.",
-        "es": "Múltiplo promedio de EBITDA de la industria.",
-        "ar": "متوسط مضاعف EBITDA في الصناعة."
-      }
+      "businessContext": "Industry average EBITDA multiple."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "favok * carpan"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Tahmini Workletme Valuei"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tahmini Workletme Valuei",
-        "de": "Geschätzter Unternehmenswert",
-        "fr": "Valeur d'exploitation estimée",
-        "es": "Valor Operativo Estimado",
-        "ar": "القيمة التشغيلية المقدرة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Estimate business valuation based on EBITDA multiples.",
-      "long": "Estimate business valuation based on EBITDA multiples.",
-      "short_i18n": {
-        "en": "Estimate business valuation based on EBITDA multiples.",
-        "de": "Schätzen Sie die Unternehmensbewertung auf Basis von EBITDA-Multiplikatoren.",
-        "fr": "Estimer la valorisation de l'entreprise basée sur les multiples d'EBITDA.",
-        "es": "Estimar la valoración del negocio basada en múltiplos de EBITDA.",
-        "ar": "تقدير تقييم الأعمال بناءً على مضاعفات EBITDA."
-      },
-      "long_i18n": {
-        "en": "Estimate business valuation based on EBITDA multiples.",
-        "de": "Schätzen Sie die Unternehmensbewertung auf Basis von EBITDA-Multiplikatoren.",
-        "fr": "Estimer la valorisation de l'entreprise basée sur les multiples d'EBITDA.",
-        "es": "Estimar la valoración del negocio basada en múltiplos de EBITDA.",
-        "ar": "تقدير تقييم الأعمال بناءً على مضاعفات EBITDA."
-      }
+      "long": "Estimate business valuation based on EBITDA multiples."
     }
-  },
-  "title_i18n": {
-    "en": "business-valuation-multiple-calculator",
-    "de": "Unternehmensbewertungsmultiplikator Rechner",
-    "fr": "Calculateur de Multiple d'Évaluation d'Entreprise",
-    "es": "Calculadora de Múltiplo de Valoración de Negocios",
-    "ar": "حاسبة مضاعف تقييم الأعمال"
   },
   "sectorSlug": "daily-renovation"
 }

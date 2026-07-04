@@ -8,48 +8,20 @@
     {
       "id": "nominal",
       "label": "Nominal Rate (%)",
-      "label_i18n": {
-        "en": "Nominal Rate (%)",
-        "de": "Nominal Satz",
-        "fr": "Nominal Taux",
-        "es": "Nominal Tasa",
-        "ar": "Nominal المعدل"
-      },
       "type": "number",
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Stated annual nominal interest rate.",
-      "businessContext_i18n": {
-        "en": "Stated annual nominal interest rate.",
-        "de": "Angegebener jährlicher Nominalzinssatz.",
-        "fr": "Taux d'intérêt nominal annuel déclaré.",
-        "es": "Tasa de interés nominal anual declarada.",
-        "ar": "سعر الفائدة الاسمي السنوي المعلن."
-      }
+      "businessContext": "Stated annual nominal interest rate."
     },
     {
       "id": "siklik",
       "label": "Compounding Frequency",
-      "label_i18n": {
-        "en": "Compounding Frequency",
-        "de": "Zinseszinshäufigkeit",
-        "fr": "Fréquence de capitalisation",
-        "es": "Frecuencia de Capitalización",
-        "ar": "تكرار المركبة"
-      },
       "type": "number",
       "unit": "per year",
       "default": 12,
       "min": 1,
-      "businessContext": "Number of compounding periods per year.",
-      "businessContext_i18n": {
-        "en": "Number of compounding periods per year.",
-        "de": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich).",
-        "fr": "Nombre de périodes de composition par an (par exemple, 1=annuel, 12=mensuel, 365=quotidien).",
-        "es": "Número de períodos de capitalización por año (por ejemplo, 1=anual, 12=mensual, 365=diario).",
-        "ar": "عدد فترات التركيب في السنة (مثل 1=سنوي، 12=شهري، 365=يومي)."
-      }
+      "businessContext": "Number of compounding periods per year."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(Math.pow(1 + (nominal / 100) / Math.max(1, siklik), siklik) - 1) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Efektif Annual Interest"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Efektif Annual Interest",
-        "de": "Effektiver Jahreszins",
-        "fr": "Taux annuel effectif",
-        "es": "Tasa de Interés Efectiva Anual",
-        "ar": "سعر الفائدة السنوي الفعلي"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Convert nominal interest rate to effective annual rate based on compounding frequency.",
-      "long": "Convert nominal interest rate to effective annual rate based on compounding frequency.",
-      "short_i18n": {
-        "en": "Convert nominal interest rate to effective annual rate based on compounding frequency.",
-        "de": "Wandeln Sie den nominalen Zinssatz basierend auf der Zinseszinshäufigkeit in den effektiven Jahreszins um.",
-        "fr": "Convertir le taux d'intérêt nominal en taux annuel effectif en fonction de la fréquence de composition.",
-        "es": "Convertir la tasa de interés nominal a la tasa anual efectiva según la frecuencia de capitalización.",
-        "ar": "تحويل سعر الفائدة الاسمي إلى المعدل السنوي الفعلي بناءً على تكرار المركبة."
-      },
-      "long_i18n": {
-        "en": "Convert nominal interest rate to effective annual rate based on compounding frequency.",
-        "de": "Wandeln Sie den nominalen Zinssatz basierend auf der Zinseszinshäufigkeit in den effektiven Jahreszins um.",
-        "fr": "Convertir le taux d'intérêt nominal en taux annuel effectif en fonction de la fréquence de composition.",
-        "es": "Convertir la tasa de interés nominal a la tasa anual efectiva según la frecuencia de capitalización.",
-        "ar": "تحويل سعر الفائدة الاسمي إلى المعدل السنوي الفعلي بناءً على تكرار المركبة."
-      }
+      "long": "Convert nominal interest rate to effective annual rate based on compounding frequency."
     }
-  },
-  "title_i18n": {
-    "en": "effective-annual-rate-calculator",
-    "de": "Nominal-Effektivzins-Rechner",
-    "fr": "Calculateur de taux d'intérêt nominal effectif",
-    "es": "Calculadora de interés nominal efectivo",
-    "ar": "حاسبة الفائدة الاسمية الفعلية"
   },
   "sectorSlug": "daily-renovation"
 }

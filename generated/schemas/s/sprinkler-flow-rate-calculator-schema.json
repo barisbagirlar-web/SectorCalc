@@ -6,50 +6,22 @@
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
-      "id": "K_Faktoru",
+      "id": "K_Factor",
       "label": "K Factor (L/min/bar^0.5)",
-      "label_i18n": {
-        "en": "K Factor (L/min/bar^0.5)",
-        "de": "Implementierungsrisikofaktor",
-        "fr": "Facteur de risque de mise en œuvre",
-        "es": "Factor de Riesgo de Implementación",
-        "ar": "عامل مخاطر التنفيذ"
-      },
       "type": "number",
       "unit": "L/min/bar0.5",
       "default": 80,
       "min": 0,
-      "businessContext": "Sprinkler K factor.",
-      "businessContext_i18n": {
-        "en": "Sprinkler K factor.",
-        "de": "Sprinkler-K-Faktor.",
-        "fr": "Facteur K de l'arroseur.",
-        "es": "Factor K del aspersor.",
-        "ar": "عامل K للرشاش."
-      }
+      "businessContext": "Sprinkler K factor."
     },
     {
       "id": "pressure",
       "label": "Pressure (bar)",
-      "label_i18n": {
-        "en": "Pressure (bar)",
-        "de": "Druck (bar)",
-        "fr": "Pression (bar)",
-        "es": "Presión (bar)",
-        "ar": "الضغط (bar)"
-      },
       "type": "number",
       "unit": "bar",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Sprinkler inlet pressure.",
-      "businessContext_i18n": {
-        "en": "Sprinkler inlet pressure.",
-        "de": "Sprinklereingangsdruck.",
-        "fr": "Pression d'entrée de l'arroseur.",
-        "es": "Presión de entrada del aspersor.",
-        "ar": "ضغط مدخل الرشاش."
-      }
+      "businessContext": "Sprinkler inlet pressure."
     }
   ],
   "validation": {
@@ -59,25 +31,16 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "K_Faktoru * Math.sqrt(Math.max(0, pressure))"
+    "result": "K_Factor * Math.sqrt(Math.max(0, pressure))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "L/min",
     "breakdown": {
       "result": "Sprinkler Debisi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Sprinkler Debisi",
-        "de": "Sprinklerdurchfluss",
-        "fr": "Débit du gicleur",
-        "es": "Caudal del Aspersor",
-        "ar": "معدل تدفق الرشاش"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "L/min"
+      "result": "L/min"
     },
     "hiddenLossDrivers": [
       "Low Q factor indicates broader frequency response."
@@ -86,36 +49,15 @@
       "Verify component tolerances affect circuit performance.",
       "Use proper safety equipment for high voltage/current work."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate flow rate from a single sprinkler head.",
-      "long": "Calculate flow rate from a single sprinkler head.",
-      "short_i18n": {
-        "en": "Calculate flow rate from a single sprinkler head.",
-        "de": "Berechnen Sie die Durchflussrate eines einzelnen Sprinklerkopfes.",
-        "fr": "Calculer le débit d'une seule tête d'arroseur.",
-        "es": "Calcular el caudal de un solo aspersor.",
-        "ar": "احسب معدل التدفق من رأس رشاش واحد."
-      },
-      "long_i18n": {
-        "en": "Calculate flow rate from a single sprinkler head.",
-        "de": "Berechnen Sie die Durchflussrate eines einzelnen Sprinklerkopfes.",
-        "fr": "Calculer le débit d'une seule tête d'arroseur.",
-        "es": "Calcular el caudal de un solo aspersor.",
-        "ar": "احسب معدل التدفق من رأس رشاش واحد."
-      }
+      "long": "Calculate flow rate from a single sprinkler head."
     }
-  },
-  "title_i18n": {
-    "en": "sprinkler-flow-rate-calculator",
-    "de": "Sprinkler-Durchflussrechner",
-    "fr": "Calculateur de débit de gicleur",
-    "es": "Calculadora de caudal de rociador",
-    "ar": "حاسبة معدل تدفق الرشاش"
   },
   "sectorSlug": "construction"
 }

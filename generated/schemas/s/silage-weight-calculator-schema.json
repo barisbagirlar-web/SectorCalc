@@ -8,48 +8,20 @@
     {
       "id": "siloHacim",
       "label": "Silo Volume (m³)",
-      "label_i18n": {
-        "en": "Silo Volume (m³)",
-        "de": "Silovolumen (m³)",
-        "fr": "Volume du silo (m³)",
-        "es": "Volumen del Silo (m³)",
-        "ar": "حجم الصومعة (m³)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 500,
       "min": 0,
-      "businessContext": "Total silo volume.",
-      "businessContext_i18n": {
-        "en": "Total silo volume.",
-        "de": "Gesamtsilovolumen.",
-        "fr": "Volume total du silo.",
-        "es": "Volumen total del silo.",
-        "ar": "إجمالي حجم الصومعة."
-      }
+      "businessContext": "Total silo volume."
     },
     {
       "id": "sikistirmaYogunlugu",
       "label": "Packing Density (kg/m³)",
-      "label_i18n": {
-        "en": "Packing Density (kg/m³)",
-        "de": "Packungsdichte (kg/m³)",
-        "fr": "Densité de tassement (kg/m³)",
-        "es": "Densidad de Empaque (kg/m³)",
-        "ar": "كثافة التعبئة (kg/m³)"
-      },
       "type": "number",
       "unit": "kg/m3",
       "default": 700,
       "min": 0,
-      "businessContext": "Packed silage density.",
-      "businessContext_i18n": {
-        "en": "Packed silage density.",
-        "de": "Dichte der gepressten Silage.",
-        "fr": "Densité de l'ensilage tassé.",
-        "es": "Densidad del ensilaje compactado.",
-        "ar": "كثافة السيلاج المضغوط."
-      }
+      "businessContext": "Packed silage density."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "siloHacim * sikistirmaYogunlugu"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kg",
     "breakdown": {
       "result": "Depolanan Silaj Yem"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Depolanan Silaj Yem",
-        "de": "Gelagerte Silage",
-        "fr": "Fourrage ensilé stocké",
-        "es": "Ensilage Almacenado",
-        "ar": "علف السيلاج المخزن"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kg"
+      "result": "kg"
     },
     "hiddenLossDrivers": [
       "Low efficiency may indicate equipment or process issues."
@@ -86,36 +49,15 @@
       "Calibrate all measuring equipment regularly.",
       "Use site-specific data when available."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate net dry matter weight stored in silo.",
-      "long": "Calculate net dry matter weight stored in silo.",
-      "short_i18n": {
-        "en": "Calculate net dry matter weight stored in silo.",
-        "de": "Berechnen Sie das im Silo gelagerte Netto-Trockenmassegewicht.",
-        "fr": "Calculer le poids net de matière sèche stocké dans le silo.",
-        "es": "Calcular el peso neto de materia seca almacenado en el silo.",
-        "ar": "احسب وزن المادة الجافة الصافية المخزنة في الصومعة."
-      },
-      "long_i18n": {
-        "en": "Calculate net dry matter weight stored in silo.",
-        "de": "Berechnen Sie das im Silo gelagerte Netto-Trockenmassegewicht.",
-        "fr": "Calculer le poids net de matière sèche stocké dans le silo.",
-        "es": "Calcular el peso neto de materia seca almacenado en el silo.",
-        "ar": "احسب وزن المادة الجافة الصافية المخزنة في الصومعة."
-      }
+      "long": "Calculate net dry matter weight stored in silo."
     }
-  },
-  "title_i18n": {
-    "en": "silage-weight-calculator",
-    "de": "Silage-Futtervolumen-Rechner",
-    "fr": "Calculateur de volume d'aliments ensilés",
-    "es": "Calculadora de volumen de ensilaje",
-    "ar": "حاسبة حجم علف السيلاج"
   },
   "sectorSlug": "daily-renovation"
 }

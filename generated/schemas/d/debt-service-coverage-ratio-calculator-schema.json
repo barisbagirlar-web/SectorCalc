@@ -8,48 +8,20 @@
     {
       "id": "netIsletmeGeliri",
       "label": "Net Operating Income (USD)",
-      "label_i18n": {
-        "en": "Net Operating Income (USD)",
-        "de": "Nettoertrag aus Betriebstätigkeit",
-        "fr": "Résultat net d'exploitation",
-        "es": "Ingreso operativo neto",
-        "ar": "صافي الدخل التشغيلي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Annual net operating income.",
-      "businessContext_i18n": {
-        "en": "Annual net operating income.",
-        "de": "Jährlicher Nettoertrag aus Betrieb.",
-        "fr": "Revenu net d'exploitation annuel.",
-        "es": "Ingreso neto operativo anual.",
-        "ar": "صافي الدخل التشغيلي السنوي."
-      }
+      "businessContext": "Annual net operating income."
     },
     {
       "id": "yillikBorcOdemesi",
       "label": "Annual Debt Service (USD)",
-      "label_i18n": {
-        "en": "Annual Debt Service (USD)",
-        "de": "Jährlicher Schuldendienst (USD)",
-        "fr": "Service annuel de la dette (USD)",
-        "es": "Servicio Anual de la Deuda (USD)",
-        "ar": "خدمة الدين السنوية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Annual principal + interest payment.",
-      "businessContext_i18n": {
-        "en": "Annual principal + interest payment.",
-        "de": "Jährliche Tilgungs- und Zinszahlung.",
-        "fr": "Paiement annuel du principal + intérêts.",
-        "es": "Pago anual de capital + intereses.",
-        "ar": "الدفع السنوي للأصل + الفائدة."
-      }
+      "businessContext": "Annual principal + interest payment."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "netIsletmeGeliri / Math.max(1, yillikBorcOdemesi)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ratio",
     "breakdown": {
       "result": "DSCR Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "DSCR Ratio",
-        "de": "DSCR-Verhältnis",
-        "fr": "Ratio DSCR",
-        "es": "Índice DSCR",
-        "ar": "نسبة DSCR"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ratio"
+      "result": "ratio"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Compare multiple loan offers before committing.",
       "Consider total cost including fees."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate debt service coverage ratio (DSCR).",
-      "long": "Calculate debt service coverage ratio (DSCR).",
-      "short_i18n": {
-        "en": "Calculate debt service coverage ratio (DSCR).",
-        "de": "Berechnen Sie den Schuldendienstdeckungsgrad (DSCR).",
-        "fr": "Calculer le ratio de couverture du service de la dette (DSCR).",
-        "es": "Calcular el índice de cobertura del servicio de la deuda (DSCR).",
-        "ar": "احسب نسبة تغطية خدمة الدين (DSCR)."
-      },
-      "long_i18n": {
-        "en": "Calculate debt service coverage ratio (DSCR).",
-        "de": "Berechnen Sie den Schuldendienstdeckungsgrad (DSCR).",
-        "fr": "Calculer le ratio de couverture du service de la dette (DSCR).",
-        "es": "Calcular el índice de cobertura del servicio de la deuda (DSCR).",
-        "ar": "احسب نسبة تغطية خدمة الدين (DSCR)."
-      }
+      "long": "Calculate debt service coverage ratio (DSCR)."
     }
-  },
-  "title_i18n": {
-    "en": "debt-service-coverage-ratio-calculator",
-    "de": "DSCR-Schuldendeckungsrechner",
-    "fr": "Calculateur de couverture de la dette DSCR",
-    "es": "Calculadora de cobertura de deuda DSCR",
-    "ar": "حاسبة تغطية الديون DSCR"
   },
   "sectorSlug": "daily-renovation"
 }

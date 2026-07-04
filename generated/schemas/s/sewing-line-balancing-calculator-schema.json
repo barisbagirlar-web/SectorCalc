@@ -8,71 +8,29 @@
     {
       "id": "smvToplam",
       "label": "Total SMV (Min)",
-      "label_i18n": {
-        "en": "Total SMV (Min)",
-        "de": "Gesamte SMV (Min)",
-        "fr": "SMV total (Min)",
-        "es": "SMV total (Min)",
-        "ar": "إجمالي الدقائق القياسية (Min)"
-      },
       "type": "number",
       "unit": "min",
       "default": 120,
       "min": 0,
-      "businessContext": "Total standard minutes per product.",
-      "businessContext_i18n": {
-        "en": "Total standard minutes per product.",
-        "de": "Gesamte Standardminuten pro Produkt.",
-        "fr": "Total des minutes standard par produit.",
-        "es": "Total de minutos estándar por producto.",
-        "ar": "إجمالي الدقائق القياسية لكل منتج."
-      }
+      "businessContext": "Total standard minutes per product."
     },
     {
       "id": "taktTime",
       "label": "Target Takt Time (Min)",
-      "label_i18n": {
-        "en": "Target Takt Time (Min)",
-        "de": "Ziel-Taktzeit (Min)",
-        "fr": "Temps de Takt cible (Min)",
-        "es": "Tiempo Takt Objetivo (Min)",
-        "ar": "وقت التكت المستهدف (Min)"
-      },
       "type": "number",
       "unit": "min",
       "default": 10,
       "min": 0,
-      "businessContext": "Target time per unit.",
-      "businessContext_i18n": {
-        "en": "Target time per unit.",
-        "de": "Zielzeit pro Einheit.",
-        "fr": "Temps cible par unité.",
-        "es": "Tiempo objetivo por unidad.",
-        "ar": "الوقت المستهدف لكل وحدة."
-      }
+      "businessContext": "Target time per unit."
     },
     {
       "id": "operator",
       "label": "Operator Count",
-      "label_i18n": {
-        "en": "Operator Count",
-        "de": "Anzahl der Bediener",
-        "fr": "Nombre d'opérateurs",
-        "es": "Número de Operadores",
-        "ar": "عدد العمال"
-      },
       "type": "number",
       "unit": "operators",
       "default": 15,
       "min": 1,
-      "businessContext": "Total operators on line.",
-      "businessContext_i18n": {
-        "en": "Total operators on line.",
-        "de": "Gesamtzahl der Bediener in der Linie.",
-        "fr": "Nombre total d'opérateurs sur la ligne.",
-        "es": "Total de operadores en la línea.",
-        "ar": "إجمالي العمال على الخط."
-      }
+      "businessContext": "Total operators on line."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(smvToplam / Math.max(0.0001, (operator * taktTime))) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Dikis Hatti Efficiencyliligi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Dikis Hatti Efficiencyliligi",
-        "de": "Nahtlinien-Effizienz",
-        "fr": "Efficacité de la ligne de couture",
-        "es": "Eficiencia de la Línea de Costura",
-        "ar": "كفاءة خط الخياطة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Conduct regular OEE audits for improvement.",
       "Use SMED to reduce setup times."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate sewing line balancing efficiency per operator.",
-      "long": "Calculate sewing line balancing efficiency per operator.",
-      "short_i18n": {
-        "en": "Calculate sewing line balancing efficiency per operator.",
-        "de": "Berechnen Sie die Effizienz der Nählinienabstimmung pro Bediener.",
-        "fr": "Calculer l'efficacité de l'équilibrage de la ligne de couture par opérateur.",
-        "es": "Calcular la eficiencia del balanceo de la línea de costura por operario.",
-        "ar": "احسب كفاءة توازن خط الخياطة لكل عامل."
-      },
-      "long_i18n": {
-        "en": "Calculate sewing line balancing efficiency per operator.",
-        "de": "Berechnen Sie die Effizienz der Nählinienabstimmung pro Bediener.",
-        "fr": "Calculer l'efficacité de l'équilibrage de la ligne de couture par opérateur.",
-        "es": "Calcular la eficiencia del balanceo de la línea de costura por operario.",
-        "ar": "احسب كفاءة توازن خط الخياطة لكل عامل."
-      }
+      "long": "Calculate sewing line balancing efficiency per operator."
     }
-  },
-  "title_i18n": {
-    "en": "sewing-line-balancing-calculator",
-    "de": "Nählinien-Ausgleichsrechner",
-    "fr": "Calculateur d'équilibrage de ligne de couture",
-    "es": "Calculadora de equilibrio de línea de costura",
-    "ar": "حاسبة موازنة خط الخياطة"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -2,100 +2,44 @@
   "toolName": "siding-panel-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Facade Area (m²)",
-      "label_i18n": {
-        "en": "Facade Area (m²)",
-        "de": "Fassadenfläche (m²)",
-        "fr": "Surface de la facade (m²)",
-        "es": "Área de Fachada (m²)",
-        "ar": "مساحة الواجهة (m²)"
-      },
       "type": "number",
       "unit": "m2",
       "default": 100,
       "min": 0,
-      "businessContext": "Facade surface area.",
-      "businessContext_i18n": {
-        "en": "Facade surface area.",
-        "de": "Fassadenoberfläche.",
-        "fr": "Surface de la facade.",
-        "es": "Área de la superficie de la fachada.",
-        "ar": "مساحة سطح الواجهة."
-      }
+      "businessContext": "Facade surface area."
     },
     {
       "id": "panelEn",
       "label": "Panel Width (m)",
-      "label_i18n": {
-        "en": "Panel Width (m)",
-        "de": "Gipskartonplattenbreite",
-        "fr": "Largeur du panneau de placoplâtre",
-        "es": "Ancho del panel de yeso",
-        "ar": "عرض لوح الجبس"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Siding panel width.",
-      "businessContext_i18n": {
-        "en": "Siding panel width.",
-        "de": "Breite der Verkleidungsplatte.",
-        "fr": "Largeur du panneau de revêtement.",
-        "es": "Ancho del panel de revestimiento.",
-        "ar": "عرض لوح التغطية."
-      }
+      "businessContext": "Siding panel width."
     },
     {
       "id": "panelBoy",
       "label": "Panel Length (m)",
-      "label_i18n": {
-        "en": "Panel Length (m)",
-        "de": "Gipskartonplattenlänge",
-        "fr": "Longueur du panneau de placoplâtre",
-        "es": "Largo del panel de yeso",
-        "ar": "طول لوح الجبس"
-      },
       "type": "number",
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Panel length.",
-      "businessContext_i18n": {
-        "en": "Panel length.",
-        "de": "Plattenlänge.",
-        "fr": "Longueur du panneau.",
-        "es": "Longitud del panel.",
-        "ar": "طول اللوح."
-      }
+      "businessContext": "Panel length."
     },
     {
       "id": "scrap",
       "label": "Waste Factor (%)",
-      "label_i18n": {
-        "en": "Waste Factor (%)",
-        "de": "Abfallfaktor (%)",
-        "fr": "Facteur de déchet (%)",
-        "es": "Factor de desperdicio (%)",
-        "ar": "عامل الهدر (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Cutting waste.",
-      "businessContext_i18n": {
-        "en": "Cutting waste.",
-        "de": "Schnittverschnitt.",
-        "fr": "Perte de coupe.",
-        "es": "Desperdicio de corte.",
-        "ar": "هدر القطع."
-      }
+      "businessContext": "Cutting waste."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "Math.ceil((area * (1 + scrap / 100)) / Math.max(0.0001, (panelEn * panelBoy)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "panels",
     "breakdown": {
       "result": "Gerekli Panel Count"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Panel Count",
-        "de": "Erforderliche Anzahl Paneele",
-        "fr": "Nombre de panneaux requis",
-        "es": "Número de Paneles Necesarios",
-        "ar": "عدد الألواح المطلوبة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "panels"
+      "result": "panels"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate exterior siding panel count needed.",
-      "long": "Calculate exterior siding panel count needed.",
-      "short_i18n": {
-        "en": "Calculate exterior siding panel count needed.",
-        "de": "Berechnen Sie die benotigte Anzahl an Außenverkleidungsplatten.",
-        "fr": "Calculer le nombre de panneaux de revêtement extérieur nécessaires.",
-        "es": "Calcular la cantidad necesaria de paneles de revestimiento exterior.",
-        "ar": "احسب عدد ألواح التغطية الخارجية المطلوبة."
-      },
-      "long_i18n": {
-        "en": "Calculate exterior siding panel count needed.",
-        "de": "Berechnen Sie die benotigte Anzahl an Außenverkleidungsplatten.",
-        "fr": "Calculer le nombre de panneaux de revêtement extérieur nécessaires.",
-        "es": "Calcular la cantidad necesaria de paneles de revestimiento exterior.",
-        "ar": "احسب عدد ألواح التغطية الخارجية المطلوبة."
-      }
+      "long": "Calculate exterior siding panel count needed."
     }
-  },
-  "title_i18n": {
-    "en": "siding-panel-calculator",
-    "de": "Außenwandverkleidungsrechner",
-    "fr": "Calculateur de revêtement extérieur",
-    "es": "Calculadora de revestimiento exterior",
-    "ar": "حاسبة الكسوة الخارجية"
   },
   "sectorSlug": "daily-renovation"
 }

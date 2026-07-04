@@ -8,71 +8,29 @@
     {
       "id": "mesafe",
       "label": "Distance (km)",
-      "label_i18n": {
-        "en": "Distance (km)",
-        "de": "Entfernung (km)",
-        "fr": "Distance (km)",
-        "es": "Distancia (km)",
-        "ar": "المسافة (كم)"
-      },
       "type": "number",
       "unit": "km",
       "default": 500,
       "min": 0,
-      "businessContext": "Total distance.",
-      "businessContext_i18n": {
-        "en": "Total distance.",
-        "de": "Gesamtentfernung.",
-        "fr": "Distance totale.",
-        "es": "Distancia total.",
-        "ar": "المسافة الإجمالية."
-      }
+      "businessContext": "Total distance."
     },
     {
       "id": "tuketim",
       "label": "Fuel Consumption (L/100km)",
-      "label_i18n": {
-        "en": "Fuel Consumption (L/100km)",
-        "de": "Kraftstoffverbrauch (L/100km)",
-        "fr": "Consommation de carburant (L/100km)",
-        "es": "Consumo de combustible (L/100km)",
-        "ar": "استهلاك الوقود (لتر/100كم)"
-      },
       "type": "number",
       "unit": "L/100km",
       "default": 10,
       "min": 0,
-      "businessContext": "Fuel per 100 km.",
-      "businessContext_i18n": {
-        "en": "Fuel per 100 km.",
-        "de": "Kraftstoff pro 100 km.",
-        "fr": "Carburant aux 100 km.",
-        "es": "Combustible por cada 100 km.",
-        "ar": "الوقود لكل 100 كم."
-      }
+      "businessContext": "Fuel per 100 km."
     },
     {
       "id": "litreFiyati",
       "label": "Fuel Price/Liter (USD)",
-      "label_i18n": {
-        "en": "Fuel Price/Liter (USD)",
-        "de": "Kraftstoffpreis/Liter (USD)",
-        "fr": "Prix du carburant/litre (USD)",
-        "es": "Precio del combustible/litro (USD)",
-        "ar": "سعر الوقود/لتر (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 25,
       "min": 0,
-      "businessContext": "Price per liter.",
-      "businessContext_i18n": {
-        "en": "Price per liter.",
-        "de": "Preis pro Liter.",
-        "fr": "Prix par litre.",
-        "es": "Precio por litro.",
-        "ar": "السعر لكل لتر."
-      }
+      "businessContext": "Price per liter."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(mesafe / 100) * tuketim * litreFiyati"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Total Fuel Cost"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Total Fuel Cost",
-        "de": "Gesamtkraftstoffkosten",
-        "fr": "Coût total du carburant",
-        "es": "Costo total de combustible",
-        "ar": "إجمالي تكلفة الوقود"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inventory turnover metrics monthly.",
       "Factor in seasonality for safety stock."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate total fuel cost for a trip.",
-      "long": "Calculate total fuel cost for a trip.",
-      "short_i18n": {
-        "en": "Calculate total fuel cost for a trip.",
-        "de": "Berechnen Sie die gesamten Treibstoffkosten fur eine Reise.",
-        "fr": "Calculer le coût total du carburant pour un trajet.",
-        "es": "Calcular el costo total de combustible para un viaje.",
-        "ar": "حساب التكلفة الإجمالية للوقود لرحلة."
-      },
-      "long_i18n": {
-        "en": "Calculate total fuel cost for a trip.",
-        "de": "Berechnen Sie die gesamten Treibstoffkosten fur eine Reise.",
-        "fr": "Calculer le coût total du carburant pour un trajet.",
-        "es": "Calcular el costo total de combustible para un viaje.",
-        "ar": "حساب التكلفة الإجمالية للوقود لرحلة."
-      }
+      "long": "Calculate total fuel cost for a trip."
     }
-  },
-  "title_i18n": {
-    "en": "fuel-cost-calculator",
-    "de": "Kraftstoffkostenrechner",
-    "fr": "Calculateur de coût de carburant",
-    "es": "Calculadora de costo de combustible",
-    "ar": "حاسبة تكلفة الوقود"
   },
   "sectorSlug": "daily-renovation"
 }

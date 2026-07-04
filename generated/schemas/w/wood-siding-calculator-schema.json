@@ -2,77 +2,35 @@
   "toolName": "wood-siding-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Siding Area (m²)",
-      "label_i18n": {
-        "en": "Siding Area (m²)",
-        "de": "Verkleidungsfläche (m²)",
-        "fr": "Surface de bardage (m²)",
-        "es": "Área de Revestimiento (m²)",
-        "ar": "مساحة الانحياز (m²)"
-      },
       "type": "number",
       "unit": "m2",
       "default": 40,
       "min": 0,
-      "businessContext": "Area to cover.",
-      "businessContext_i18n": {
-        "en": "Area to cover.",
-        "de": "Zu bedeckende Fläche.",
-        "fr": "Surface à couvrir.",
-        "es": "Área a cubrir.",
-        "ar": "المساحة المراد تغطيتها."
-      }
+      "businessContext": "Area to cover."
     },
     {
       "id": "tahtaEn",
       "label": "Board Width (m)",
-      "label_i18n": {
-        "en": "Board Width (m)",
-        "de": "Brettbreite (m)",
-        "fr": "Largeur de la lame (m)",
-        "es": "Ancho de la Tabla (m)",
-        "ar": "عرض اللوح (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.15,
       "min": 0,
-      "businessContext": "Board total width.",
-      "businessContext_i18n": {
-        "en": "Board total width.",
-        "de": "Gesamtbreite des Bretts.",
-        "fr": "Largeur totale de la planche.",
-        "es": "Ancho total del tablero.",
-        "ar": "العرض الكلي للوح."
-      }
+      "businessContext": "Board total width."
     },
     {
       "id": "bindirmePayi",
       "label": "Overlap (m)",
-      "label_i18n": {
-        "en": "Overlap (m)",
-        "de": "Uberlappung (m)",
-        "fr": "Chevauchement (m)",
-        "es": "Superposición (m)",
-        "ar": "التداخل (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.025,
       "min": 0,
-      "businessContext": "Overlap between boards.",
-      "businessContext_i18n": {
-        "en": "Overlap between boards.",
-        "de": "Uberlappung zwischen den Brettern.",
-        "fr": "Chevauchement entre les planches.",
-        "es": "Superposición entre tableros.",
-        "ar": "التداخل بين الألواح."
-      }
+      "businessContext": "Overlap between boards."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "area / Math.max(0.0001, (tahtaEn - bindirmePayi))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
-      "result": "Toplam Kaplama Boyu"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Toplam Kaplama Boyu",
-        "de": "Total Coating Length",
-        "fr": "Longueur totale de revêtement",
-        "es": "Longitud Total del Revestimiento",
-        "ar": "إجمالي طول الطلاء"
-      }
+      "result": "Total Siding Length"
     },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate wood siding length needed accounting for overlap.",
-      "long": "Calculate wood siding length needed accounting for overlap.",
-      "short_i18n": {
-        "en": "Calculate wood siding length needed accounting for overlap.",
-        "de": "Berechnen Sie die benotigte Länge der Holzverkleidung unter Berucksichtigung der Uberlappung.",
-        "fr": "Calculer la longueur de bardage en bois nécessaire en tenant compte du chevauchement.",
-        "es": "Calcular la longitud necesaria de revestimiento de madera considerando la superposición.",
-        "ar": "حساب طول انحياز الخشب المطلوب مع مراعاة التداخل."
-      },
-      "long_i18n": {
-        "en": "Calculate wood siding length needed accounting for overlap.",
-        "de": "Berechnen Sie die benotigte Länge der Holzverkleidung unter Berucksichtigung der Uberlappung.",
-        "fr": "Calculer la longueur de bardage en bois nécessaire en tenant compte du chevauchement.",
-        "es": "Calcular la longitud necesaria de revestimiento de madera considerando la superposición.",
-        "ar": "حساب طول انحياز الخشب المطلوب مع مراعاة التداخل."
-      }
+      "long": "Calculate wood siding length needed accounting for overlap."
     }
-  },
-  "title_i18n": {
-    "en": "wood-siding-calculator",
-    "de": "Holzverkleidungsrechner",
-    "fr": "Calculateur de revêtement en bois",
-    "es": "Calculadora de revestimiento de madera",
-    "ar": "حاسبة تكسية الخشب"
   },
   "sectorSlug": "daily-renovation"
 }

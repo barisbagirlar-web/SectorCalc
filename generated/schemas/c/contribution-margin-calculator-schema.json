@@ -2,54 +2,26 @@
   "toolName": "contribution-margin-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "satisFiyati",
       "label": "Selling Price (USD)",
-      "label_i18n": {
-        "en": "Selling Price (USD)",
-        "de": "Verkaufspreis pro Einheit",
-        "fr": "Prix de vente par unité",
-        "es": "Precio de venta por unidad",
-        "ar": "سعر البيع لكل وحدة"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Unit selling price.",
-      "businessContext_i18n": {
-        "en": "Unit selling price.",
-        "de": "Verkaufspreis pro Einheit.",
-        "fr": "Prix de vente unitaire.",
-        "es": "Precio de venta unitario.",
-        "ar": "سعر البيع للوحدة."
-      }
+      "businessContext": "Unit selling price."
     },
     {
       "id": "degiskenMaliyet",
       "label": "Variable Cost (USD)",
-      "label_i18n": {
-        "en": "Variable Cost (USD)",
-        "de": "Variable Kosten pro Einheit",
-        "fr": "Coût variable par unité",
-        "es": "Costo variable por unidad",
-        "ar": "التكلفة المتغيرة لكل وحدة"
-      },
       "type": "number",
       "unit": "USD",
       "default": 60,
       "min": 0,
-      "businessContext": "Unit variable cost.",
-      "businessContext_i18n": {
-        "en": "Unit variable cost.",
-        "de": "Variable Kosten pro Einheit.",
-        "fr": "Coût variable unitaire.",
-        "es": "Costo variable unitario.",
-        "ar": "التكلفة المتغيرة للوحدة."
-      }
+      "businessContext": "Unit variable cost."
     }
   ],
   "validation": {
@@ -63,58 +35,28 @@
     "result": "((satisFiyati - degiskenMaliyet) / Math.max(0.0001, satisFiyati)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Katki Marji Ratioi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Katki Marji Ratioi",
-        "de": "Deckungsbeitragsquote",
-        "fr": "Ratio de marge de contribution",
-        "es": "Relación de Margen de Contribución",
-        "ar": "نسبة هامش المساهمة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate contribution margin per unit and ratio.",
-      "long": "Calculate contribution margin per unit and ratio.",
-      "short_i18n": {
-        "en": "Calculate contribution margin per unit and ratio.",
-        "de": "Deckungsbeitrag pro Einheit und Deckungsbeitragsverhältnis berechnen.",
-        "fr": "Calculer la marge de contribution par unité et le ratio.",
-        "es": "Calcular el margen de contribución por unidad y la razón.",
-        "ar": "حساب هامش المساهمة لكل وحدة ونسبته."
-      },
-      "long_i18n": {
-        "en": "Calculate contribution margin per unit and ratio.",
-        "de": "Deckungsbeitrag pro Einheit und Deckungsbeitragsverhältnis berechnen.",
-        "fr": "Calculer la marge de contribution par unité et le ratio.",
-        "es": "Calcular el margen de contribución por unidad y la razón.",
-        "ar": "حساب هامش المساهمة لكل وحدة ونسبته."
-      }
+      "long": "Calculate contribution margin per unit and ratio."
     }
-  },
-  "title_i18n": {
-    "en": "contribution-margin-calculator",
-    "de": "Deckungsbeitragsrechner",
-    "fr": "Calculateur de Marge de Contribution",
-    "es": "Calculadora de Margen de Contribución",
-    "ar": "حاسبة هامش المساهمة"
   },
   "sectorSlug": "ecommerce"
 }

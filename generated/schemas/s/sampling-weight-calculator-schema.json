@@ -8,94 +8,38 @@
     {
       "id": "tabakaPopulasyon",
       "label": "Stratum Population (N_h)",
-      "label_i18n": {
-        "en": "Stratum Population (N_h)",
-        "de": "Schichtpopulation (N_h)",
-        "fr": "Population de la strate (N_h)",
-        "es": "Población del estrato (N_h)",
-        "ar": "عدد أفراد الطبقة (N_h)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 500,
       "min": 0,
-      "businessContext": "Total individuals in stratum.",
-      "businessContext_i18n": {
-        "en": "Total individuals in stratum.",
-        "de": "Gesamtzahl der Personen in der Schicht.",
-        "fr": "Nombre total d'individus dans la strate.",
-        "es": "Total de individuos en el estrato.",
-        "ar": "إجمالي الأفراد في الطبقة."
-      }
+      "businessContext": "Total individuals in stratum."
     },
     {
       "id": "toplamPopulasyon",
       "label": "Total Population (N)",
-      "label_i18n": {
-        "en": "Total Population (N)",
-        "de": "Gesamtpopulation (N)",
-        "fr": "Population totale (N)",
-        "es": "Población total (N)",
-        "ar": "إجمالي عدد السكان (N)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 5000,
       "min": 0,
-      "businessContext": "Population size.",
-      "businessContext_i18n": {
-        "en": "Population size.",
-        "de": "Populationsgroße.",
-        "fr": "Taille de la population.",
-        "es": "Tamaño de la población.",
-        "ar": "حجم السكان."
-      }
+      "businessContext": "Population size."
     },
     {
       "id": "tabakaOrneklem",
       "label": "Stratum Sample (n_h)",
-      "label_i18n": {
-        "en": "Stratum Sample (n_h)",
-        "de": "Schichtstichprobe (n_h)",
-        "fr": "Échantillon de la strate (n_h)",
-        "es": "Muestra del estrato (n_h)",
-        "ar": "عينة الطبقة (n_h)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 50,
       "min": 0,
-      "businessContext": "Sample drawn from stratum.",
-      "businessContext_i18n": {
-        "en": "Sample drawn from stratum.",
-        "de": "Aus der Schicht gezogene Stichprobe.",
-        "fr": "Échantillon prélevé dans la strate.",
-        "es": "Muestra extraída del estrato.",
-        "ar": "العينة المسحوبة من الطبقة."
-      }
+      "businessContext": "Sample drawn from stratum."
     },
     {
       "id": "toplamOrneklem",
       "label": "Total Sample (n)",
-      "label_i18n": {
-        "en": "Total Sample (n)",
-        "de": "Gesamtstichprobe (n)",
-        "fr": "Échantillon total (n)",
-        "es": "Muestra total (n)",
-        "ar": "إجمالي العينة (n)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 500,
       "min": 0,
-      "businessContext": "Total sample size.",
-      "businessContext_i18n": {
-        "en": "Total sample size.",
-        "de": "Gesamtstichprobengroße.",
-        "fr": "Taille totale de l'échantillon.",
-        "es": "Tamaño total de la muestra.",
-        "ar": "حجم العينة الإجمالي."
-      }
+      "businessContext": "Total sample size."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "(tabakaPopulasyon / Math.max(1, toplamPopulasyon)) / Math.max(0.0001, (tabakaOrneklem / Math.max(1, toplamOrneklem)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "weight",
     "breakdown": {
       "result": "Weight Coefficimostt"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Weight Coefficimostt",
-        "de": "Gewichtungskoeffizient",
-        "fr": "Coefficient de pondération",
-        "es": "Coeficiente de ponderación",
-        "ar": "معامل الوزن"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "weight"
+      "result": "weight"
     },
     "hiddenLossDrivers": [
       "High asymmetry increases injury risk.",
@@ -133,36 +68,15 @@
       "Balance training for injury prevention.",
       "Use peer review to validate research quality."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate sampling weight for each stratum in stratified sampling.",
-      "long": "Calculate sampling weight for each stratum in stratified sampling.",
-      "short_i18n": {
-        "en": "Calculate sampling weight for each stratum in stratified sampling.",
-        "de": "Berechnen Sie das Stichprobengewicht fur jede Schicht bei geschichteter Stichprobenziehung.",
-        "fr": "Calculer le poids d'échantillonnage pour chaque strate dans un échantillonnage stratifié.",
-        "es": "Calcular el peso de muestreo para cada estrato en el muestreo estratificado.",
-        "ar": "احسب وزن العينة لكل طبقة في أخذ العينات الطبقي."
-      },
-      "long_i18n": {
-        "en": "Calculate sampling weight for each stratum in stratified sampling.",
-        "de": "Berechnen Sie das Stichprobengewicht fur jede Schicht bei geschichteter Stichprobenziehung.",
-        "fr": "Calculer le poids d'échantillonnage pour chaque strate dans un échantillonnage stratifié.",
-        "es": "Calcular el peso de muestreo para cada estrato en el muestreo estratificado.",
-        "ar": "احسب وزن العينة لكل طبقة في أخذ العينات الطبقي."
-      }
+      "long": "Calculate sampling weight for each stratum in stratified sampling."
     }
-  },
-  "title_i18n": {
-    "en": "sampling-weight-calculator",
-    "de": "Stichproben-Gewichtungsrechner",
-    "fr": "Calculateur de pondération d'échantillon",
-    "es": "Calculadora de ponderación de muestra",
-    "ar": "حاسبة ترجيح العينة"
   },
   "sectorSlug": "daily-renovation"
 }

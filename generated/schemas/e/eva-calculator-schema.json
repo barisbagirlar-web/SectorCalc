@@ -8,71 +8,29 @@
     {
       "id": "nopat",
       "label": "NOPAT (USD)",
-      "label_i18n": {
-        "en": "NOPAT (USD)",
-        "de": "NOPAT (USD)",
-        "fr": "NOPAT (USD)",
-        "es": "NOPAT (USD)",
-        "ar": "صافي الربح التشغيلي بعد الضريبة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Net operating profit after tax.",
-      "businessContext_i18n": {
-        "en": "Net operating profit after tax.",
-        "de": "Netto-Betriebsgewinn nach Steuern.",
-        "fr": "Bénéfice net d'exploitation après impôts.",
-        "es": "Beneficio operativo neto después de impuestos.",
-        "ar": "صافي الربح التشغيلي بعد الضريبة."
-      }
+      "businessContext": "Net operating profit after tax."
     },
     {
       "id": "sermaye",
       "label": "Invested Capital (USD)",
-      "label_i18n": {
-        "en": "Invested Capital (USD)",
-        "de": "Investiertes Kapital (USD)",
-        "fr": "Capital investi (USD)",
-        "es": "Capital invertido (USD)",
-        "ar": "رأس المال المستثمر (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Total capital employed.",
-      "businessContext_i18n": {
-        "en": "Total capital employed.",
-        "de": "Gesamtes eingesetztes Kapital.",
-        "fr": "Capital total employé.",
-        "es": "Capital total empleado.",
-        "ar": "إجمالي رأس المال المستخدم."
-      }
+      "businessContext": "Total capital employed."
     },
     {
       "id": "wacc",
       "label": "WACC (%)",
-      "label_i18n": {
-        "en": "WACC (%)",
-        "de": "GKM (%)",
-        "fr": "CMPC (%)",
-        "es": "WACC (%)",
-        "ar": "المتوسط المرجح لتكلفة رأس المال (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Weighted average cost of capital.",
-      "businessContext_i18n": {
-        "en": "Weighted average cost of capital.",
-        "de": "Gewichtete durchschnittliche Kapitalkosten.",
-        "fr": "Coût moyen pondéré du capital.",
-        "es": "Costo promedio ponderado del capital.",
-        "ar": "متوسط التكلفة المرجح لرأس المال."
-      }
+      "businessContext": "Weighted average cost of capital."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "nopat - (sermaye * wacc / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "EVA (Ekonomik Katma Value)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "EVA (Ekonomik Katma Value)",
-        "de": "EVA (Economic Value Added)",
-        "fr": "EVA (Valeur Économique Ajoutée)",
-        "es": "EVA (Valor Económico Agregado)",
-        "ar": "EVA (القيمة الاقتصادية المضافة)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
-      "long": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
-      "short_i18n": {
-        "en": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
-        "de": "Berechnen Sie den Economic Value Added (EVA) – Restvermogen nach Kapitalkosten.",
-        "fr": "Calculer la valeur économique ajoutée (EVA) — richesse résiduelle après le coût du capital.",
-        "es": "Calcule el valor económico agregado (EVA) — riqueza residual después del costo de capital.",
-        "ar": "احسب القيمة الاقتصادية المضافة (EVA) — الثروة المتبقية بعد تكلفة رأس المال."
-      },
-      "long_i18n": {
-        "en": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
-        "de": "Berechnen Sie den Economic Value Added (EVA) – Restvermogen nach Kapitalkosten.",
-        "fr": "Calculer la valeur économique ajoutée (EVA) — richesse résiduelle après le coût du capital.",
-        "es": "Calcule el valor económico agregado (EVA) — riqueza residual después del costo de capital.",
-        "ar": "احسب القيمة الاقتصادية المضافة (EVA) — الثروة المتبقية بعد تكلفة رأس المال."
-      }
+      "long": "Calculate economic value added (EVA) — residual wealth after cost of capital."
     }
-  },
-  "title_i18n": {
-    "en": "eva-calculator",
-    "de": "EVA-Wirtschaftlicher-Mehrwert-Rechner",
-    "fr": "Calculateur de valeur ajoutée économique (EVA)",
-    "es": "Calculadora de valor económico agregado (EVA)",
-    "ar": "حاسبة القيمة الاقتصادية المضافة (EVA)"
   },
   "sectorSlug": "daily-renovation"
 }

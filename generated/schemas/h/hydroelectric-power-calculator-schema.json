@@ -8,71 +8,29 @@
     {
       "id": "flow",
       "label": "Flow Rate (m³/s)",
-      "label_i18n": {
-        "en": "Flow Rate (m³/s)",
-        "de": "Kompressordurchflussrate",
-        "fr": "Débit du compresseur",
-        "es": "Caudal del compresor",
-        "ar": "معدل تدفق الضاغط"
-      },
       "type": "number",
       "unit": "m3/s",
       "default": 50,
       "min": 0,
-      "businessContext": "Turbine water flow.",
-      "businessContext_i18n": {
-        "en": "Turbine water flow.",
-        "de": "Wasserfluss durch die Turbine.",
-        "fr": "Débit d'eau de la turbine.",
-        "es": "Flujo de agua de la turbina.",
-        "ar": "تدفق مياه التوربين."
-      }
+      "businessContext": "Turbine water flow."
     },
     {
       "id": "dusuYuksekligi",
       "label": "Head (m)",
-      "label_i18n": {
-        "en": "Head (m)",
-        "de": "Gemeinkostenmultiplikator",
-        "fr": "Multiplicateur de frais généraux",
-        "es": "Multiplicador de Gastos Generales",
-        "ar": "مضاعف التكاليف العامة"
-      },
       "type": "number",
       "unit": "m",
       "default": 100,
       "min": 0,
-      "businessContext": "Water level difference.",
-      "businessContext_i18n": {
-        "en": "Water level difference.",
-        "de": "Wasserspiegeldifferenz.",
-        "fr": "Différence de niveau d'eau.",
-        "es": "Diferencia de nivel de agua.",
-        "ar": "فرق مستوى المياه."
-      }
+      "businessContext": "Water level difference."
     },
     {
       "id": "turbinVerim",
       "label": "Turbine Efficiency (%)",
-      "label_i18n": {
-        "en": "Turbine Efficiency (%)",
-        "de": "Turbinenwirkungsgrad (%)",
-        "fr": "Rendement de la turbine (%)",
-        "es": "Eficiencia de la turbina (%)",
-        "ar": "كفاءة التوربين (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 85,
       "min": 0,
-      "businessContext": "Turbine efficiency.",
-      "businessContext_i18n": {
-        "en": "Turbine efficiency.",
-        "de": "Turbinenwirkungsgrad.",
-        "fr": "Rendement de la turbine.",
-        "es": "Eficiencia de la turbina.",
-        "ar": "كفاءة التوربين."
-      }
+      "businessContext": "Turbine efficiency."
     }
   ],
   "validation": {
@@ -85,22 +43,13 @@
     "result": "1000 * 9.81 * flow * dusuYuksekligi * (turbinVerim / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "W",
     "breakdown": {
       "result": "Hydroelectric Power"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Hydroelectric Power",
-        "de": "Wasserkraft",
-        "fr": "Puissance hydroélectrique",
-        "es": "Potencia hidroeléctrica",
-        "ar": "الطاقة الكهرومائية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "W"
+      "result": "W"
     },
     "hiddenLossDrivers": [
       "Low SNR indicates poor signal quality.",
@@ -110,36 +59,15 @@
       "Use proper shielding for sensitive measurements.",
       "Consider efficiency losses in energy calculations."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate hydroelectric power from water flow and head.",
-      "long": "Calculate hydroelectric power from water flow and head.",
-      "short_i18n": {
-        "en": "Calculate hydroelectric power from water flow and head.",
-        "de": "Berechnen Sie die Wasserkraft aus Wasserfluss und Fallhohe.",
-        "fr": "Calculer la puissance hydroélectrique à partir du débit d'eau et de la hauteur de chute.",
-        "es": "Calcular la energía hidroeléctrica a partir del flujo de agua y la altura.",
-        "ar": "احسب الطاقة الكهرومائية من تدفق المياه والارتفاع."
-      },
-      "long_i18n": {
-        "en": "Calculate hydroelectric power from water flow and head.",
-        "de": "Berechnen Sie die Wasserkraft aus Wasserfluss und Fallhohe.",
-        "fr": "Calculer la puissance hydroélectrique à partir du débit d'eau et de la hauteur de chute.",
-        "es": "Calcular la energía hidroeléctrica a partir del flujo de agua y la altura.",
-        "ar": "احسب الطاقة الكهرومائية من تدفق المياه والارتفاع."
-      }
+      "long": "Calculate hydroelectric power from water flow and head."
     }
-  },
-  "title_i18n": {
-    "en": "hydroelectric-power-calculator",
-    "de": "Wasserkraftrechner",
-    "fr": "Calculateur de puissance hydroélectrique",
-    "es": "Calculadora de energía hidroeléctrica",
-    "ar": "حاسبة الطاقة الكهرومائية"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -6,50 +6,22 @@
   "sectorId": "process-chemical",
   "inputs": [
     {
-      "id": "yogunluk",
+      "id": "density",
       "label": "Fluid Density (kg/m³)",
-      "label_i18n": {
-        "en": "Fluid Density (kg/m³)",
-        "de": "Fluiddichte",
-        "fr": "Densité du fluide",
-        "es": "Densidad del fluido",
-        "ar": "كثافة المائع"
-      },
       "type": "number",
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Fluid density.",
-      "businessContext_i18n": {
-        "en": "Fluid density.",
-        "de": "Fluiddichte.",
-        "fr": "Masse volumique du fluide.",
-        "es": "Densidad del fluido.",
-        "ar": "كثافة المائع."
-      }
+      "businessContext": "Fluid density."
     },
     {
       "id": "volume",
       "label": "Submerged Volume (m³)",
-      "label_i18n": {
-        "en": "Submerged Volume (m³)",
-        "de": "Untergetauchtes Volumen (m³)",
-        "fr": "Volume immergé (m³)",
-        "es": "Volumen Sumergido (m³)",
-        "ar": "الحجم المغمور (m³)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Volume of displaced fluid.",
-      "businessContext_i18n": {
-        "en": "Volume of displaced fluid.",
-        "de": "Volumen der verdrängten Flussigkeit.",
-        "fr": "Volume de fluide déplacé.",
-        "es": "Volumen de fluido desplazado.",
-        "ar": "حجم المائع المزاح."
-      }
+      "businessContext": "Volume of displaced fluid."
     }
   ],
   "validation": {
@@ -59,61 +31,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "yogunluk * 9.81 * volume"
+    "result": "density * 9.81 * volume"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "N",
     "breakdown": {
       "result": "Kaldirma Forcei"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Kaldirma Forcei",
-        "de": "Auftriebskraft",
-        "fr": "Force de levage",
-        "es": "Fuerza de Elevación",
-        "ar": "قوة الرفع"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "N"
+      "result": "N"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Use calibrated equipment for measurements.",
       "Consider temperature effects on material properties."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate buoyant force on an object submerged in a fluid.",
-      "long": "Calculate buoyant force on an object submerged in a fluid.",
-      "short_i18n": {
-        "en": "Calculate buoyant force on an object submerged in a fluid.",
-        "de": "Berechnen Sie die Auftriebskraft auf einen in einer Flussigkeit eingetauchten Gegenstand.",
-        "fr": "Calculer la force de poussée sur un objet immergé dans un fluide.",
-        "es": "Calcular la fuerza de flotación sobre un objeto sumergido en un fluido.",
-        "ar": "حساب قوة الطفو على جسم مغمور في مائع."
-      },
-      "long_i18n": {
-        "en": "Calculate buoyant force on an object submerged in a fluid.",
-        "de": "Berechnen Sie die Auftriebskraft auf einen in einer Flussigkeit eingetauchten Gegenstand.",
-        "fr": "Calculer la force de poussée sur un objet immergé dans un fluide.",
-        "es": "Calcular la fuerza de flotación sobre un objeto sumergido en un fluido.",
-        "ar": "حساب قوة الطفو على جسم مغمور في مائع."
-      }
+      "long": "Calculate buoyant force on an object submerged in a fluid."
     }
-  },
-  "title_i18n": {
-    "en": "buoyant-force-calculator",
-    "de": "Archimedes Auftriebskraft Rechner",
-    "fr": "Calculateur de poussée d'Archimède",
-    "es": "Calculadora de fuerza de flotación de Arquímedes",
-    "ar": "حاسبة قوة الطفو لأرخميدس"
   },
   "sectorSlug": "daily-renovation"
 }

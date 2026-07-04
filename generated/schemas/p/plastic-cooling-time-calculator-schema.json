@@ -8,94 +8,38 @@
     {
       "id": "etKalinlik",
       "label": "Wall Thickness (mm)",
-      "label_i18n": {
-        "en": "Wall Thickness (mm)",
-        "de": "Wanddicke",
-        "fr": "Épaisseur du mur",
-        "es": "Espesor de pared",
-        "ar": "سمك الجدار"
-      },
       "type": "number",
       "unit": "mm",
       "default": 3,
       "min": 0,
-      "businessContext": "Average part wall thickness.",
-      "businessContext_i18n": {
-        "en": "Average part wall thickness.",
-        "de": "Durchschnittliche Wanddicke des Teils.",
-        "fr": "Épaisseur moyenne de la paroi de la pièce.",
-        "es": "Espesor promedio de la pared de la pieza.",
-        "ar": "متوسط سمك جدار الجزء."
-      }
+      "businessContext": "Average part wall thickness."
     },
     {
       "id": "termalDifuzyon",
       "label": "Thermal Diffusivity (mm²/s)",
-      "label_i18n": {
-        "en": "Thermal Diffusivity (mm²/s)",
-        "de": "Temperaturleitfähigkeit (mm²/s)",
-        "fr": "Diffusivité thermique (mm²/s)",
-        "es": "Difusividad Térmica (mm²/s)",
-        "ar": "الانتشارية الحرارية (mm²/s)"
-      },
       "type": "number",
       "unit": "mm2/s",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Polymer thermal diffusivity.",
-      "businessContext_i18n": {
-        "en": "Polymer thermal diffusivity.",
-        "de": "Temperaturleitfähigkeit des Polymers.",
-        "fr": "Diffusivité thermique du polymère.",
-        "es": "Difusividad térmica del polímero.",
-        "ar": "الانتشارية الحرارية للبوليمر."
-      }
+      "businessContext": "Polymer thermal diffusivity."
     },
     {
       "id": "erimeSicaklik",
       "label": "Melt Temperature (°C)",
-      "label_i18n": {
-        "en": "Melt Temperature (°C)",
-        "de": "Schmelztemperatur (°C)",
-        "fr": "Température de fusion (°C)",
-        "es": "Temperatura de Fusión (°C)",
-        "ar": "درجة حرارة الذوبان (°C)"
-      },
       "type": "number",
       "unit": "°C",
       "default": 230,
       "min": 0,
-      "businessContext": "Melt temperature.",
-      "businessContext_i18n": {
-        "en": "Melt temperature.",
-        "de": "Schmelztemperatur.",
-        "fr": "Température de fusion.",
-        "es": "Temperatura de fusión.",
-        "ar": "درجة حرارة الذوبان."
-      }
+      "businessContext": "Melt temperature."
     },
     {
       "id": "kalipSicaklik",
       "label": "Mold Temperature (°C)",
-      "label_i18n": {
-        "en": "Mold Temperature (°C)",
-        "de": "Werkzeugtemperatur (°C)",
-        "fr": "Température du moule (°C)",
-        "es": "Temperatura del Molde (°C)",
-        "ar": "درجة حرارة القالب (°C)"
-      },
       "type": "number",
       "unit": "°C",
       "default": 40,
       "min": 0,
-      "businessContext": "Mold surface temperature.",
-      "businessContext_i18n": {
-        "en": "Mold surface temperature.",
-        "de": "Werkzeugoberflächentemperatur.",
-        "fr": "Température de surface du moule.",
-        "es": "Temperatura de la superficie del molde.",
-        "ar": "درجة حرارة سطح القالب."
-      }
+      "businessContext": "Mold surface temperature."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "(Math.pow(etKalinlik, 2) / (Math.pow(Math.PI, 2) * Math.max(0.0001, termalDifuzyon))) * Math.log(Math.max(0.0001, (4 / Math.PI) * (erimeSicaklik - kalipSicaklik) / Math.max(0.0001, (50 - kalipSicaklik))))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "s",
     "breakdown": {
       "result": "Cooling Time"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Cooling Time",
-        "de": "Kuhlzeit",
-        "fr": "Temps de refroidissement",
-        "es": "Tiempo de Enfriamiento",
-        "ar": "وقت التبريد"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "s"
+      "result": "s"
     },
     "hiddenLossDrivers": [
       "Waste in material or time indicates process improvement opportunity."
@@ -132,36 +67,15 @@
       "Optimize drying/cooling parameters for cycle time reduction.",
       "Monitor defects and adjust process conditions accordingly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate cooling time for plastic part to reach ejection temperature.",
-      "long": "Calculate cooling time for plastic part to reach ejection temperature.",
-      "short_i18n": {
-        "en": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "de": "Berechnen Sie die Kuhlzeit fur ein Kunststoffteil bis zur Entformungstemperatur.",
-        "fr": "Calculer le temps de refroidissement d'une pièce en plastique pour atteindre la température d'éjection.",
-        "es": "Calcular el tiempo de enfriamiento para que una pieza de plástico alcance la temperatura de expulsión.",
-        "ar": "حساب وقت التبريد للجزء البلاستيكي للوصول إلى درجة حرارة القذف."
-      },
-      "long_i18n": {
-        "en": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "de": "Berechnen Sie die Kuhlzeit fur ein Kunststoffteil bis zur Entformungstemperatur.",
-        "fr": "Calculer le temps de refroidissement d'une pièce en plastique pour atteindre la température d'éjection.",
-        "es": "Calcular el tiempo de enfriamiento para que una pieza de plástico alcance la temperatura de expulsión.",
-        "ar": "حساب وقت التبريد للجزء البلاستيكي للوصول إلى درجة حرارة القذف."
-      }
+      "long": "Calculate cooling time for plastic part to reach ejection temperature."
     }
-  },
-  "title_i18n": {
-    "en": "plastic-cooling-time-calculator",
-    "de": "KunststoffKuhlzeitrechner",
-    "fr": "Calculateur de temps de refroidissement du plastique",
-    "es": "Calculadora de tiempo de enfriamiento de plástico",
-    "ar": "حاسبة وقت تبريد البلاستيك"
   },
   "sectorSlug": "daily-renovation"
 }

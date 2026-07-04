@@ -8,71 +8,29 @@
     {
       "id": "parcaDerinlik",
       "label": "Part Depth (mm)",
-      "label_i18n": {
-        "en": "Part Depth (mm)",
-        "de": "Teiletiefe (mm)",
-        "fr": "Profondeur de la Pièce (mm)",
-        "es": "Profundidad de la Pieza (mm)",
-        "ar": "عمق القطعة (mm)"
-      },
       "type": "number",
       "unit": "mm",
       "default": 50,
       "min": 0,
-      "businessContext": "Part depth in mold direction.",
-      "businessContext_i18n": {
-        "en": "Part depth in mold direction.",
-        "de": "Teiletiefe in Formrichtung.",
-        "fr": "Profondeur de la pièce dans la direction du moule.",
-        "es": "Profundidad de la pieza en la dirección del molde.",
-        "ar": "عمق القطعة في اتجاه القالب."
-      }
+      "businessContext": "Part depth in mold direction."
     },
     {
       "id": "buzulmeOrani",
       "label": "Shrinkage Rate (%)",
-      "label_i18n": {
-        "en": "Shrinkage Rate (%)",
-        "de": "Schrumpfungsrate (%)",
-        "fr": "Taux de Retrait (%)",
-        "es": "Tasa de Contracción (%)",
-        "ar": "نسبة الانكماش (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Polymer shrinkage rate.",
-      "businessContext_i18n": {
-        "en": "Polymer shrinkage rate.",
-        "de": "Polymerschrumpfungsrate.",
-        "fr": "Taux de retrait du polymère.",
-        "es": "Tasa de contracción del polímero.",
-        "ar": "نسبة انكماش البوليمر."
-      }
+      "businessContext": "Polymer shrinkage rate."
     },
     {
       "id": "yanYuzeyUzunluk",
       "label": "Side Wall Length (mm)",
-      "label_i18n": {
-        "en": "Side Wall Length (mm)",
-        "de": "Seitenwandlänge (mm)",
-        "fr": "Longueur de la Paroi Latérale (mm)",
-        "es": "Longitud de la Pared Lateral (mm)",
-        "ar": "طول الجدار الجانبي (mm)"
-      },
       "type": "number",
       "unit": "mm",
       "default": 100,
       "min": 0,
-      "businessContext": "Mold side wall length.",
-      "businessContext_i18n": {
-        "en": "Mold side wall length.",
-        "de": "Formseitenwandlänge.",
-        "fr": "Longueur de la paroi latérale du moule.",
-        "es": "Longitud de la pared lateral del molde.",
-        "ar": "طول الجدار الجانبي للقالب."
-      }
+      "businessContext": "Mold side wall length."
     }
   ],
   "validation": {
@@ -85,22 +43,13 @@
     "result": "Math.atan((parcaDerinlik * (buzulmeOrani / 100)) / Math.max(0.0001, yanYuzeyUzunluk)) * (180 / Math.PI)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "degrees",
     "breakdown": {
       "result": "Gerekli Draft Acisi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Draft Acisi",
-        "de": "Erforderlicher Abzugswinkel",
-        "fr": "Angle de Dépouille Requis",
-        "es": "Ángulo de Desmoldeo Requerido",
-        "ar": "زاوية القالب المطلوبة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "degrees"
+      "result": "degrees"
     },
     "hiddenLossDrivers": [
       "Waste in material or time indicates process improvement opportunity."
@@ -109,36 +58,15 @@
       "Optimize drying/cooling parameters for cycle time reduction.",
       "Monitor defects and adjust process conditions accordingly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate minimum draft angle for part ejection from mold.",
-      "long": "Calculate minimum draft angle for part ejection from mold.",
-      "short_i18n": {
-        "en": "Calculate minimum draft angle for part ejection from mold.",
-        "de": "Berechnen Sie den minimalen Entformungswinkel fur die Teileausstoßung aus der Form.",
-        "fr": "Calculez l'angle de dépouille minimal pour l'éjection de la pièce du moule.",
-        "es": "Calcular el ángulo de desmoldeo mínimo para la expulsión de la pieza del molde.",
-        "ar": "احسب زاوية القالب الدنيا لخروج القطعة من القالب."
-      },
-      "long_i18n": {
-        "en": "Calculate minimum draft angle for part ejection from mold.",
-        "de": "Berechnen Sie den minimalen Entformungswinkel fur die Teileausstoßung aus der Form.",
-        "fr": "Calculez l'angle de dépouille minimal pour l'éjection de la pièce du moule.",
-        "es": "Calcular el ángulo de desmoldeo mínimo para la expulsión de la pieza del molde.",
-        "ar": "احسب زاوية القالب الدنيا لخروج القطعة من القالب."
-      }
+      "long": "Calculate minimum draft angle for part ejection from mold."
     }
-  },
-  "title_i18n": {
-    "en": "draft-angle-calculator",
-    "de": "Formschrägenrechner",
-    "fr": "Calculateur d'Angle de Dépouille",
-    "es": "Calculadora de Ángulo de Desmoldeo",
-    "ar": "حاسبة زاوية السحب"
   },
   "sectorSlug": "daily-renovation"
 }

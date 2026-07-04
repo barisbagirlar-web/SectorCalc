@@ -8,94 +8,38 @@
     {
       "id": "current",
       "label": "Current (A)",
-      "label_i18n": {
-        "en": "Current (A)",
-        "de": "CBAM-Zertifikatspreis (aktuelle Auktion)",
-        "fr": "Prix du certificat CBAM (enchère en cours)",
-        "es": "Precio del certificado CBAM (subasta actual)",
-        "ar": "سعر شهادة CBAM (المزاد الحالي)"
-      },
       "type": "number",
       "unit": "A",
       "default": 2,
       "min": 0,
-      "businessContext": "Electrolysis current.",
-      "businessContext_i18n": {
-        "en": "Electrolysis current.",
-        "de": "Elektrolysestrom.",
-        "fr": "Courant d'électrolyse.",
-        "es": "Corriente de electrólisis.",
-        "ar": "تيار التحليل الكهربائي."
-      }
+      "businessContext": "Electrolysis current."
     },
     {
       "id": "duration",
       "label": "Time (s)",
-      "label_i18n": {
-        "en": "Time (s)",
-        "de": "Uberstundenzuschlag einbeziehen",
-        "fr": "Inclure la pénalité pour heures supplémentaires",
-        "es": "Incluir Penalización por Horas Extra",
-        "ar": "تضمين عقوبة العمل الإضافي"
-      },
       "type": "number",
       "unit": "s",
       "default": 3600,
       "min": 0,
-      "businessContext": "Time current applied.",
-      "businessContext_i18n": {
-        "en": "Time current applied.",
-        "de": "Zeit, in der der Strom angelegt wird.",
-        "fr": "Durée d'application du courant.",
-        "es": "Tiempo de aplicación de la corriente.",
-        "ar": "زمن تطبيق التيار."
-      }
+      "businessContext": "Time current applied."
     },
     {
       "id": "esdegerAgirlik",
       "label": "Equivalent Weight (g/mol)",
-      "label_i18n": {
-        "en": "Equivalent Weight (g/mol)",
-        "de": "Äquivalentgewicht (g/mol)",
-        "fr": "Poids équivalent (g/mol)",
-        "es": "Peso Equivalente (g/mol)",
-        "ar": "الوزن المكافئ (g/mol)"
-      },
       "type": "number",
       "unit": "g/mol",
       "default": 27,
       "min": 0,
-      "businessContext": "Element equivalent mass.",
-      "businessContext_i18n": {
-        "en": "Element equivalent mass.",
-        "de": "Äquivalente Masse des Elements.",
-        "fr": "Masse équivalente de l'élément.",
-        "es": "Masa equivalente del elemento.",
-        "ar": "الكتلة المكافئة للعنصر."
-      }
+      "businessContext": "Element equivalent mass."
     },
     {
       "id": "elektronSayisi",
       "label": "Electron Count (n)",
-      "label_i18n": {
-        "en": "Electron Count (n)",
-        "de": "Elektronenzahl (n)",
-        "fr": "Nombre d'électrons (n)",
-        "es": "Número de Electrones (n)",
-        "ar": "عدد الإلكترونات (n)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 3,
       "min": 0,
-      "businessContext": "Number of electrons transferred.",
-      "businessContext_i18n": {
-        "en": "Number of electrons transferred.",
-        "de": "Anzahl der ubertragenen Elektronen.",
-        "fr": "Nombre d'électrons transférés.",
-        "es": "Número de electrones transferidos.",
-        "ar": "عدد الإلكترونات المنقولة."
-      }
+      "businessContext": "Number of electrons transferred."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "(current * duration * esdegerAgirlik) / Math.max(0.0001, (96485 * elektronSayisi))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "g",
     "breakdown": {
       "result": "Biriken Madde"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Biriken Madde",
-        "de": "Akkumulierte Substanz",
-        "fr": "Masse déposée",
-        "es": "Materia acumulada",
-        "ar": "المادة المترسبة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "g"
+      "result": "g"
     },
     "hiddenLossDrivers": [
       "Low SNR indicates poor signal quality.",
@@ -133,36 +68,15 @@
       "Use proper shielding for sensitive measurements.",
       "Consider efficiency losses in energy calculations."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-      "long": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-      "short_i18n": {
-        "en": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "de": "Berechnen Sie die an der Elektrode abgeschiedene oder geloste Masse mit dem Faradayschen Gesetz.",
-        "fr": "Calculer la masse déposée ou dissoute à l'électrode en utilisant la loi de Faraday.",
-        "es": "Calcular la masa depositada o disuelta en el electrodo usando la ley de Faraday.",
-        "ar": "حساب الكتلة المترسبة أو المذابة عند القطب باستخدام قانون فاراداي."
-      },
-      "long_i18n": {
-        "en": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "de": "Berechnen Sie die an der Elektrode abgeschiedene oder geloste Masse mit dem Faradayschen Gesetz.",
-        "fr": "Calculer la masse déposée ou dissoute à l'électrode en utilisant la loi de Faraday.",
-        "es": "Calcular la masa depositada o disuelta en el electrodo usando la ley de Faraday.",
-        "ar": "حساب الكتلة المترسبة أو المذابة عند القطب باستخدام قانون فاراداي."
-      }
+      "long": "Calculate mass deposited or dissolved at electrode using Faraday's law."
     }
-  },
-  "title_i18n": {
-    "en": "faraday-electrolysis-calculator",
-    "de": "Faraday-Elektrolyse-Rechner",
-    "fr": "Calculateur d'électrolyse de Faraday",
-    "es": "Calculadora de electrólisis de Faraday",
-    "ar": "حاسبة التحليل الكهربائي لفاراداي"
   },
   "sectorSlug": "daily-renovation"
 }

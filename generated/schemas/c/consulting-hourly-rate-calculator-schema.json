@@ -2,77 +2,35 @@
   "toolName": "consulting-hourly-rate-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "hedefGelir",
       "label": "Target Annual Income (USD)",
-      "label_i18n": {
-        "en": "Target Annual Income (USD)",
-        "de": "Ziel-Jahreseinkommen (USD)",
-        "fr": "Revenu annuel cible (USD)",
-        "es": "Ingreso Anual Objetivo (USD)",
-        "ar": "الدخل السنوي المستهدف (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Consultant's target income.",
-      "businessContext_i18n": {
-        "en": "Consultant's target income.",
-        "de": "Zieleinkommen des Beraters.",
-        "fr": "Revenu cible du consultant.",
-        "es": "Ingreso objetivo del consultor.",
-        "ar": "الدخل المستهدف للمستشار."
-      }
+      "businessContext": "Consultant's target income."
     },
     {
       "id": "yillikGider",
       "label": "Annual Overhead (USD)",
-      "label_i18n": {
-        "en": "Annual Overhead (USD)",
-        "de": "Jährliche Gemeinkosten insgesamt",
-        "fr": "Coûts indirects annuels totaux",
-        "es": "Costos indirectos anuales totales",
-        "ar": "إجمالي التكاليف العامة السنوية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Office, insurance, travel costs.",
-      "businessContext_i18n": {
-        "en": "Office, insurance, travel costs.",
-        "de": "Buro-, Versicherungs- und Reisekosten.",
-        "fr": "Frais de bureau, assurance, déplacements.",
-        "es": "Costos de oficina, seguros y viajes.",
-        "ar": "تكاليف المكتب والتأمين والسفر."
-      }
+      "businessContext": "Office, insurance, travel costs."
     },
     {
       "id": "faturaliSaat",
       "label": "Billable Hours/Year",
-      "label_i18n": {
-        "en": "Billable Hours/Year",
-        "de": "Abrechenbare Stunden/Jahr",
-        "fr": "Heures facturables/An",
-        "es": "Horas Facturables/Año",
-        "ar": "الساعات القابلة للفوترة/السنة"
-      },
       "type": "number",
       "unit": "hours",
       "default": 1500,
       "min": 1,
-      "businessContext": "Annual billable hours.",
-      "businessContext_i18n": {
-        "en": "Annual billable hours.",
-        "de": "Jährliche abrechenbare Stunden.",
-        "fr": "Heures facturables annuelles.",
-        "es": "Horas facturables anuales.",
-        "ar": "ساعات العمل القابلة للفوترة سنويًا."
-      }
+      "businessContext": "Annual billable hours."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(hedefGelir + yillikGider) / Math.max(1, faturaliSaat)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "TRY/hour",
     "breakdown": {
       "result": "Saatlik Danismanlik Ucreti"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Saatlik Danismanlik Ucreti",
-        "de": "Stundlicher Beratungssatz",
-        "fr": "Tarif horaire de conseil",
-        "es": "Tarifa de Consultoría por Hora",
-        "ar": "أتعاب الاستشارات بالساعة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "TRY/hour"
+      "result": "TRY/hour"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate minimum hourly consulting rate covering costs and profit.",
-      "long": "Calculate minimum hourly consulting rate covering costs and profit.",
-      "short_i18n": {
-        "en": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "de": "Mindeststundensatz fur Beratung unter Berucksichtigung von Kosten und Gewinn berechnen.",
-        "fr": "Calculer le taux horaire minimal de conseil couvrant les coûts et le profit.",
-        "es": "Calcular la tarifa mínima por hora de consultoría que cubra costos y ganancias.",
-        "ar": "حساب الحد الأدنى لسعر الاستشارة بالساعة الذي يغطي التكاليف والأرباح."
-      },
-      "long_i18n": {
-        "en": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "de": "Mindeststundensatz fur Beratung unter Berucksichtigung von Kosten und Gewinn berechnen.",
-        "fr": "Calculer le taux horaire minimal de conseil couvrant les coûts et le profit.",
-        "es": "Calcular la tarifa mínima por hora de consultoría que cubra costos y ganancias.",
-        "ar": "حساب الحد الأدنى لسعر الاستشارة بالساعة الذي يغطي التكاليف والأرباح."
-      }
+      "long": "Calculate minimum hourly consulting rate covering costs and profit."
     }
-  },
-  "title_i18n": {
-    "en": "consulting-hourly-rate-calculator",
-    "de": "Beratungsstundensatzrechner",
-    "fr": "Calculateur de tarif horaire de conseil",
-    "es": "Calculadora de tarifa por hora de consultoría",
-    "ar": "حاسبة أجر الساعة الاستشارية"
   },
   "sectorSlug": "daily-renovation"
 }

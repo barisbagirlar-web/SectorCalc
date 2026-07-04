@@ -8,117 +8,47 @@
     {
       "id": "pressure",
       "label": "Liquid Surface Pressure (Pa)",
-      "label_i18n": {
-        "en": "Liquid Surface Pressure (Pa)",
-        "de": "Flussigkeitsoberflächendruck (Pa)",
-        "fr": "Pression à la surface du liquide (Pa)",
-        "es": "Presión Superficial del Líquido (Pa)",
-        "ar": "ضغط سطح السائل (Pa)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 101325,
       "min": 0,
-      "businessContext": "Tank or atmospheric pressure.",
-      "businessContext_i18n": {
-        "en": "Tank or atmospheric pressure.",
-        "de": "Tank- oder Atmosphärendruck.",
-        "fr": "Pression du réservoir ou atmosphérique.",
-        "es": "Presión del tanque o atmosférica.",
-        "ar": "ضغط الخزان أو الضغط الجوي."
-      }
+      "businessContext": "Tank or atmospheric pressure."
     },
     {
       "id": "buharBasinci",
       "label": "Vapor Pressure (Pa)",
-      "label_i18n": {
-        "en": "Vapor Pressure (Pa)",
-        "de": "Dampfdruck (Pa)",
-        "fr": "Pression de vapeur (Pa)",
-        "es": "Presión de Vapor (Pa)",
-        "ar": "ضغط البخار (Pa)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 5000,
       "min": 0,
-      "businessContext": "Vapor pressure at pumping temperature.",
-      "businessContext_i18n": {
-        "en": "Vapor pressure at pumping temperature.",
-        "de": "Dampfdruck bei Pumptemperatur.",
-        "fr": "Pression de vapeur à la température de pompage.",
-        "es": "Presión de vapor a la temperatura de bombeo.",
-        "ar": "ضغط البخار عند درجة حرارة الضخ."
-      }
+      "businessContext": "Vapor pressure at pumping temperature."
     },
     {
-      "id": "yogunluk",
+      "id": "density",
       "label": "Liquid Density (kg/m³)",
-      "label_i18n": {
-        "en": "Liquid Density (kg/m³)",
-        "de": "Flussigkeitsdichte (kg/m³)",
-        "fr": "Masse volumique du liquide (kg/m³)",
-        "es": "Densidad del Líquido (kg/m³)",
-        "ar": "كثافة السائل (kg/m³)"
-      },
       "type": "number",
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Pumped fluid density.",
-      "businessContext_i18n": {
-        "en": "Pumped fluid density.",
-        "de": "Dichte der gepumpten Flussigkeit.",
-        "fr": "Densité du fluide pompé.",
-        "es": "Densidad del fluido bombeado.",
-        "ar": "كثافة السائل المضخوخ."
-      }
+      "businessContext": "Pumped fluid density."
     },
     {
       "id": "height",
       "label": "Liquid Level to Pump (m)",
-      "label_i18n": {
-        "en": "Liquid Level to Pump (m)",
-        "de": "Flussigkeitsstand bis Pumpe (m)",
-        "fr": "Niveau de liquide à la pompe (m)",
-        "es": "Nivel de Líquido a la Bomba (m)",
-        "ar": "مستوى السائل إلى المضخة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Positive if suction lift.",
-      "businessContext_i18n": {
-        "en": "Positive if suction lift.",
-        "de": "Positiv bei Saughub.",
-        "fr": "Positif si hauteur d'aspiration.",
-        "es": "Positivo si es altura de succión.",
-        "ar": "موجب إذا كان رفع الشفط."
-      }
+      "businessContext": "Positive if suction lift."
     },
     {
       "id": "kayip",
       "label": "Suction Line Loss (m)",
-      "label_i18n": {
-        "en": "Suction Line Loss (m)",
-        "de": "Saugleitungsverlust (m)",
-        "fr": "Perte de ligne d'aspiration (m)",
-        "es": "Pérdida en la Línea de Succión (m)",
-        "ar": "فقدان خط الشفط (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "Friction loss in suction pipe.",
-      "businessContext_i18n": {
-        "en": "Friction loss in suction pipe.",
-        "de": "Reibungsverlust in der Saugleitung.",
-        "fr": "Perte par frottement dans la conduite d'aspiration.",
-        "es": "Pérdida por fricción en la tubería de succión.",
-        "ar": "فقد الاحتكاك في أنبوب الشفط."
-      }
+      "businessContext": "Friction loss in suction pipe."
     }
   ],
   "validation": {
@@ -128,61 +58,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "(pressure - buharBasinci) / Math.max(0.0001, (yogunluk * 9.81)) + height - kayip"
+    "result": "(pressure - buharBasinci) / Math.max(0.0001, (density * 9.81)) + height - kayip"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
       "result": "NPSH (Net Pozitif Emme Height)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "NPSH (Net Pozitif Emme Height)",
-        "de": "NPSH (Net Positive Suction Head)",
-        "fr": "NPSH (Hauteur d'aspiration nette positive)",
-        "es": "NPSH (Altura de Succión Positiva Neta)",
-        "ar": "NPSH (صافي رأس الشفط الموجب)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate Net Positive Suction Head (NPSH) available for pump.",
-      "long": "Calculate Net Positive Suction Head (NPSH) available for pump.",
-      "short_i18n": {
-        "en": "Calculate Net Positive Suction Head (NPSH) available for pump.",
-        "de": "Berechnen Sie die verfugbare Netto-Positiv-Saughohe (NPSH) fur die Pumpe.",
-        "fr": "Calculer la hauteur nette d'aspiration positive (NPSH) disponible pour la pompe.",
-        "es": "Calcular la Altura Neta de Succión Positiva (NPSH) disponible para la bomba.",
-        "ar": "حساب صافي رأس الشفط الموجب (NPSH) المتاح للمضخة."
-      },
-      "long_i18n": {
-        "en": "Calculate Net Positive Suction Head (NPSH) available for pump.",
-        "de": "Berechnen Sie die verfugbare Netto-Positiv-Saughohe (NPSH) fur die Pumpe.",
-        "fr": "Calculer la hauteur nette d'aspiration positive (NPSH) disponible pour la pompe.",
-        "es": "Calcular la Altura Neta de Succión Positiva (NPSH) disponible para la bomba.",
-        "ar": "حساب صافي رأس الشفط الموجب (NPSH) المتاح للمضخة."
-      }
+      "long": "Calculate Net Positive Suction Head (NPSH) available for pump."
     }
-  },
-  "title_i18n": {
-    "en": "net-positive-suction-head-available-calculator",
-    "de": "NPSH-Pumpensaughohenrechner",
-    "fr": "Calculateur NPSH d'aspiration de pompe",
-    "es": "Calculadora NPSH de succión de bomba",
-    "ar": "حاسبة NPSH لشفط المضخة"
   },
   "sectorSlug": "daily-renovation"
 }

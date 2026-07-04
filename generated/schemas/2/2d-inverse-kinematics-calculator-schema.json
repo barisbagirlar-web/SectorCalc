@@ -8,94 +8,38 @@
     {
       "id": "hedefX",
       "label": "Target X (m)",
-      "label_i18n": {
-        "en": "Target X (m)",
-        "de": "Ziel-X (m)",
-        "fr": "Cible X (m)",
-        "es": "Objetivo X (m)",
-        "ar": "الهدف X (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.5,
       "min": 0,
-      "businessContext": "End effector x position.",
-      "businessContext_i18n": {
-        "en": "End effector x position.",
-        "de": "Endeffektor x-Position.",
-        "fr": "Position x de l'effecteur.",
-        "es": "Posición x del efector final.",
-        "ar": "موضع نهاية المؤثر x."
-      }
+      "businessContext": "End effector x position."
     },
     {
       "id": "hedefY",
       "label": "Target Y (m)",
-      "label_i18n": {
-        "en": "Target Y (m)",
-        "de": "Zielertrag",
-        "fr": "Rendement cible",
-        "es": "Rendimiento objetivo",
-        "ar": "المحصول المستهدف"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.5,
       "min": 0,
-      "businessContext": "End effector y position.",
-      "businessContext_i18n": {
-        "en": "End effector y position.",
-        "de": "Endeffektor y-Position.",
-        "fr": "Position y de l'effecteur.",
-        "es": "Posición y del efector final.",
-        "ar": "موضع نهاية المؤثر y."
-      }
+      "businessContext": "End effector y position."
     },
     {
       "id": "kol1Uzunluk",
       "label": "Link 1 Length (m)",
-      "label_i18n": {
-        "en": "Link 1 Length (m)",
-        "de": "Glied 1 Länge (m)",
-        "fr": "Longueur du lien 1 (m)",
-        "es": "Longitud del eslabón 1 (m)",
-        "ar": "طول الوصلة 1 (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.4,
       "min": 0,
-      "businessContext": "First arm segment.",
-      "businessContext_i18n": {
-        "en": "First arm segment.",
-        "de": "Erstes Armsegment.",
-        "fr": "Premier segment du bras.",
-        "es": "Primer segmento del brazo.",
-        "ar": "الجزء الأول من الذراع."
-      }
+      "businessContext": "First arm segment."
     },
     {
       "id": "kol2Uzunluk",
       "label": "Link 2 Length (m)",
-      "label_i18n": {
-        "en": "Link 2 Length (m)",
-        "de": "Glied 2 Länge (m)",
-        "fr": "Longueur du lien 2 (m)",
-        "es": "Longitud del eslabón 2 (m)",
-        "ar": "طول الوصلة 2 (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Second arm segment.",
-      "businessContext_i18n": {
-        "en": "Second arm segment.",
-        "de": "Zweites Armsegment.",
-        "fr": "Deuxième segment du bras.",
-        "es": "Segundo segmento del brazo.",
-        "ar": "الجزء الثاني من الذراع."
-      }
+      "businessContext": "Second arm segment."
     }
   ],
   "validation": {
@@ -109,31 +53,15 @@
     "result": "Math.atan2(hedefY, hedefX) - Math.atan2(kol2Uzunluk*Math.sin(aci2), kol1Uzunluk + kol2Uzunluk*Math.cos(aci2))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "rad",
     "breakdown": {
       "aci2": "Eklem 2 (θ₂)",
       "result": "Eklem 1 (θ₁)"
     },
-    "breakdown_i18n": {
-      "aci2": {
-        "en": "Eklem 2 (θ₂)",
-        "de": "Gelenk 2 (θ₂)",
-        "fr": "Articulation 2 (θ₂)",
-        "es": "Articulación 2 (θ₂)",
-        "ar": "المفصل 2 (θ₂)"
-      },
-      "result": {
-        "en": "Eklem 1 (θ₁)",
-        "de": "Gelenk 1 (θ₁)",
-        "fr": "Articulation 1 (θ₁)",
-        "es": "Articulación 1 (θ₁)",
-        "ar": "المفصل 1 (θ₁)"
-      }
-    },
     "breakdownUnits": {
       "aci2": "rad",
-      "sonuc": "rad"
+      "result": "rad"
     },
     "hiddenLossDrivers": [
       "High asymmetry increases injury risk.",
@@ -143,36 +71,15 @@
       "Balance training for injury prevention.",
       "Use peer review to validate research quality."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-      "long": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-      "short_i18n": {
-        "en": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "de": "Berechnen Sie die 2D-inversen kinematischen Gelenkwinkel fur einen Roboterarm.",
-        "fr": "Calculer les angles articulaires de cinématique inverse 2D pour un bras robotique.",
-        "es": "Calcular los ángulos de las articulaciones de cinemática inversa 2D para un brazo robótico.",
-        "ar": "احسب زوايا المفاصل العكسية ثنائية الأبعاد لذراع آلية."
-      },
-      "long_i18n": {
-        "en": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "de": "Berechnen Sie die 2D-inversen kinematischen Gelenkwinkel fur einen Roboterarm.",
-        "fr": "Calculer les angles articulaires de cinématique inverse 2D pour un bras robotique.",
-        "es": "Calcular los ángulos de las articulaciones de cinemática inversa 2D para un brazo robótico.",
-        "ar": "احسب زوايا المفاصل العكسية ثنائية الأبعاد لذراع آلية."
-      }
+      "long": "Calculate 2D inverse kinematics joint angles for a robotic arm."
     }
-  },
-  "title_i18n": {
-    "en": "2d-inverse-kinematics-calculator",
-    "de": "Inverse Kinematik 2D-Arm-Rechner",
-    "fr": "Calculateur de cinématique inverse pour bras 2D",
-    "es": "Calculadora de cinemática inversa para brazo 2D",
-    "ar": "حاسبة الحركة العكسية للذراع ثنائي الأبعاد"
   },
   "sectorSlug": "daily-renovation"
 }

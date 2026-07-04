@@ -2,78 +2,36 @@
   "toolName": "espp-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "piyasaFiyati",
       "label": "Market Price (USD)",
-      "label_i18n": {
-        "en": "Market Price (USD)",
-        "de": "Marktpreis fur reines Filament",
-        "fr": "Prix du marché du filament vierge",
-        "es": "Precio de mercado del filamento virgen",
-        "ar": "سعر السوق للخيوط البكر"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Stock market price.",
-      "businessContext_i18n": {
-        "en": "Stock market price.",
-        "de": "Aktienmarktkurs.",
-        "fr": "Prix du marché de l'action.",
-        "es": "Precio de mercado de la acción.",
-        "ar": "سعر السوق للسهم."
-      }
+      "businessContext": "Stock market price."
     },
     {
       "id": "iskonto",
       "label": "Discount Rate (%)",
-      "label_i18n": {
-        "en": "Discount Rate (%)",
-        "de": "Diskontsatz (%)",
-        "fr": "Taux d'actualisation (%)",
-        "es": "Tasa de descuento (%)",
-        "ar": "معدل الخصم (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "ESPP purchase discount.",
-      "businessContext_i18n": {
-        "en": "ESPP purchase discount.",
-        "de": "ESPP-Kaufrabatt.",
-        "fr": "Remise sur l'achat ESPP.",
-        "es": "Descuento de compra del ESPP.",
-        "ar": "خصم شراء ESPP."
-      }
+      "businessContext": "ESPP purchase discount."
     },
     {
       "id": "katki",
       "label": "Monthly Contribution (USD)",
-      "label_i18n": {
-        "en": "Monthly Contribution (USD)",
-        "de": "Monatlicher Beitrag ($)",
-        "fr": "Contribution mensuelle ($)",
-        "es": "Contribución Mensual ($)",
-        "ar": "المساهمة الشهرية ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Employee monthly contribution.",
-      "businessContext_i18n": {
-        "en": "Employee monthly contribution.",
-        "de": "Monatlicher Mitarbeiterbeitrag.",
-        "fr": "Contribution mensuelle de l'employé.",
-        "es": "Contribución mensual del empleado.",
-        "ar": "مساهمة الموظف الشهرية."
-      }
+      "businessContext": "Employee monthly contribution."
     }
   ],
   "validation": {
@@ -87,58 +45,28 @@
     "result": "katki / Math.max(0.0001, (piyasaFiyati * (1 - iskonto / 100)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "shares",
     "breakdown": {
-      "result": "Alinabilecek Hisse"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Alinabilecek Hisse",
-        "de": "Erwerbbare Aktien",
-        "fr": "Actions pouvant être achetées",
-        "es": "Acciones Comprables",
-        "ar": "الأسهم القابلة للشراء"
-      }
+      "result": "Shares Purchasable"
     },
     "breakdownUnits": {
-      "sonuc": "shares"
+      "result": "shares"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate shares purchasable through employee stock purchase plan.",
-      "long": "Calculate shares purchasable through employee stock purchase plan.",
-      "short_i18n": {
-        "en": "Calculate shares purchasable through employee stock purchase plan.",
-        "de": "Berechnen Sie die Anzahl der Aktien, die uber einen Mitarbeiteraktienkaufplan erworben werden konnen.",
-        "fr": "Calculer le nombre d'actions pouvant être achetées via un plan d'achat d'actions pour les employés.",
-        "es": "Calcular las acciones comprables a través del plan de compra de acciones para empleados.",
-        "ar": "حساب الأسهم القابلة للشراء من خلال خطة شراء أسهم الموظفين."
-      },
-      "long_i18n": {
-        "en": "Calculate shares purchasable through employee stock purchase plan.",
-        "de": "Berechnen Sie die Anzahl der Aktien, die uber einen Mitarbeiteraktienkaufplan erworben werden konnen.",
-        "fr": "Calculer le nombre d'actions pouvant être achetées via un plan d'achat d'actions pour les employés.",
-        "es": "Calcular las acciones comprables a través del plan de compra de acciones para empleados.",
-        "ar": "حساب الأسهم القابلة للشراء من خلال خطة شراء أسهم الموظفين."
-      }
+      "long": "Calculate shares purchasable through employee stock purchase plan."
     }
-  },
-  "title_i18n": {
-    "en": "espp-calculator",
-    "de": "ESPP-Aktienoptionsrechner",
-    "fr": "Calculateur d'options d'achat d'actions ESPP",
-    "es": "Calculadora de opciones sobre acciones ESPP",
-    "ar": "حاسبة خيارات أسهم ESPP"
   },
   "sectorSlug": "daily-renovation"
 }

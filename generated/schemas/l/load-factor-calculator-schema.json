@@ -8,48 +8,20 @@
     {
       "id": "ortalamaGuc",
       "label": "Average Power (kW)",
-      "label_i18n": {
-        "en": "Average Power (kW)",
-        "de": "Durchschnittsleistung (kW)",
-        "fr": "Puissance moyenne (kW)",
-        "es": "Potencia promedio (kW)",
-        "ar": "متوسط القدرة (kW)"
-      },
       "type": "number",
       "unit": "kW",
       "default": 80,
       "min": 0,
-      "businessContext": "Average power drawn.",
-      "businessContext_i18n": {
-        "en": "Average power drawn.",
-        "de": "Durchschnittliche Leistungsaufnahme.",
-        "fr": "Puissance moyenne consommée.",
-        "es": "Potencia promedio consumida.",
-        "ar": "متوسط القدرة المسحوبة."
-      }
+      "businessContext": "Average power drawn."
     },
     {
       "id": "pikGuc",
       "label": "Peak Power (kW)",
-      "label_i18n": {
-        "en": "Peak Power (kW)",
-        "de": "Spitzenleistung (kW)",
-        "fr": "Puissance de pointe (kW)",
-        "es": "Potencia pico (kW)",
-        "ar": "ذروة القدرة (kW)"
-      },
       "type": "number",
       "unit": "kW",
       "default": 200,
       "min": 0,
-      "businessContext": "Peak power demand.",
-      "businessContext_i18n": {
-        "en": "Peak power demand.",
-        "de": "Spitzenleistungsbedarf.",
-        "fr": "Demande de puissance de pointe.",
-        "es": "Demanda de potencia pico.",
-        "ar": "طلب ذروة القدرة."
-      }
+      "businessContext": "Peak power demand."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(ortalamaGuc / Math.max(0.0001, pikGuc)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Load Factor"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Load Factor",
-        "de": "Load Factor",
-        "fr": "Facteur de charge",
-        "es": "Factor de Carga",
-        "ar": "عامل الحمولة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Quantum effects are only observable at microscopic scales.",
       "These are idealized models."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate electrical load factor — average vs peak power usage ratio.",
-      "long": "Calculate electrical load factor — average vs peak power usage ratio.",
-      "short_i18n": {
-        "en": "Calculate electrical load factor — average vs peak power usage ratio.",
-        "de": "Berechnen Sie den elektrischen Lastfaktor – das Verhältnis von Durchschnitts- zu Spitzenleistung.",
-        "fr": "Calculer le facteur de charge électrique — rapport entre la puissance moyenne et la puissance de pointe.",
-        "es": "Calcular el factor de carga eléctrica — relación de uso de potencia promedio vs pico.",
-        "ar": "احسب معامل الحمل الكهربائي — نسبة متوسط القدرة إلى ذروة القدرة."
-      },
-      "long_i18n": {
-        "en": "Calculate electrical load factor — average vs peak power usage ratio.",
-        "de": "Berechnen Sie den elektrischen Lastfaktor – das Verhältnis von Durchschnitts- zu Spitzenleistung.",
-        "fr": "Calculer le facteur de charge électrique — rapport entre la puissance moyenne et la puissance de pointe.",
-        "es": "Calcular el factor de carga eléctrica — relación de uso de potencia promedio vs pico.",
-        "ar": "احسب معامل الحمل الكهربائي — نسبة متوسط القدرة إلى ذروة القدرة."
-      }
+      "long": "Calculate electrical load factor — average vs peak power usage ratio."
     }
-  },
-  "title_i18n": {
-    "en": "load-factor-calculator",
-    "de": "Lastfaktor-Rechner fur Elektrizität",
-    "fr": "Calculateur de facteur de charge électrique",
-    "es": "Calculadora de factor de carga eléctrica",
-    "ar": "حاسبة عامل الحمولة الكهربائية"
   },
   "sectorSlug": "daily-renovation"
 }

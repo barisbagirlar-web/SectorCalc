@@ -2,103 +2,47 @@
   "toolName": "asset-allocation-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Finans",
+  "sector": "Finance",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "portfoy",
       "label": "Total Portfolio (USD)",
-      "label_i18n": {
-        "en": "Total Portfolio (USD)",
-        "de": "Gesamtportfolio (USD)",
-        "fr": "Portefeuille total (USD)",
-        "es": "Cartera Total (USD)",
-        "ar": "إجمالي المحفظة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Total investment portfolio value.",
-      "businessContext_i18n": {
-        "en": "Total investment portfolio value.",
-        "de": "Gesamtwert des Anlageportfolios.",
-        "fr": "Valeur totale du portefeuille d'investissement.",
-        "es": "Valor total de la cartera de inversiones.",
-        "ar": "قيمة إجمالي محفظة الاستثمار."
-      }
+      "businessContext": "Total investment portfolio value."
     },
     {
       "id": "share",
       "label": "Stocks (%)",
-      "label_i18n": {
-        "en": "Stocks (%)",
-        "de": "Aktien (%)",
-        "fr": "Actions (%)",
-        "es": "Acciones (%)",
-        "ar": "الأسهم (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Target stock allocation percentage.",
-      "businessContext_i18n": {
-        "en": "Target stock allocation percentage.",
-        "de": "Zielprozentsatz der Aktienallokation.",
-        "fr": "Pourcentage d'allocation cible en actions.",
-        "es": "Porcentaje objetivo de asignación de acciones.",
-        "ar": "النسبة المئوية المستهدفة لتخصيص الأسهم."
-      }
+      "businessContext": "Target stock allocation percentage."
     },
     {
       "id": "bond",
       "label": "Bonds (%)",
-      "label_i18n": {
-        "en": "Bonds (%)",
-        "de": "Anleihen (%)",
-        "fr": "Obligations (%)",
-        "es": "Bonos (%)",
-        "ar": "السندات (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Target bond allocation percentage.",
-      "businessContext_i18n": {
-        "en": "Target bond allocation percentage.",
-        "de": "Zielprozentsatz der Anleihenallokation.",
-        "fr": "Pourcentage d'allocation cible en obligations.",
-        "es": "Porcentaje objetivo de asignación de bonos.",
-        "ar": "النسبة المئوية المستهدفة لتخصيص السندات."
-      }
+      "businessContext": "Target bond allocation percentage."
     },
     {
       "id": "nakit",
       "label": "Cash (%)",
-      "label_i18n": {
-        "en": "Cash (%)",
-        "de": "Jährlicher Mittelzufluss",
-        "fr": "Entrée de trésorerie annuelle",
-        "es": "Entrada de efectivo anual",
-        "ar": "التدفق النقدي السنوي"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Target cash allocation percentage.",
-      "businessContext_i18n": {
-        "en": "Target cash allocation percentage.",
-        "de": "Zielprozentsatz der Bargeldallokation.",
-        "fr": "Pourcentage d'allocation cible en liquidités.",
-        "es": "Porcentaje objetivo de asignación de efectivo.",
-        "ar": "النسبة المئوية المستهدفة لتخصيص النقد."
-      }
+      "businessContext": "Target cash allocation percentage."
     }
   ],
   "validation": {
@@ -113,76 +57,32 @@
     "result": "portfoy * (nakit / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "shareAmount": "Hisse Senedi Tutari",
-      "bondAmount": "Tahvil Tutari",
-      "result": "Nakit Tutari"
-    },
-    "breakdown_i18n": {
-      "shareAmount": {
-        "en": "Hisse Senedi Tutari",
-        "de": "Aktienbetrag",
-        "fr": "Montant des actions",
-        "es": "Monto en Acciones",
-        "ar": "قيمة الأسهم"
-      },
-      "bondAmount": {
-        "en": "Tahvil Tutari",
-        "de": "Anleihebetrag",
-        "fr": "Montant des obligations",
-        "es": "Monto en Bonos",
-        "ar": "قيمة السندات"
-      },
-      "result": {
-        "en": "Nakit Tutari",
-        "de": "Bargeldbetrag",
-        "fr": "Montant des liquidités",
-        "es": "Monto en Efectivo",
-        "ar": "قيمة النقد"
-      }
+      "shareAmount": "Stock Amount",
+      "bondAmount": "Bond Amount",
+      "result": "Cash Amount"
     },
     "breakdownUnits": {
       "hisseTutar": "USD",
       "tahvilTutar": "USD",
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Allocate portfolio across asset classes based on target percentages.",
-      "long": "Allocate portfolio across asset classes based on target percentages.",
-      "short_i18n": {
-        "en": "Allocate portfolio across asset classes based on target percentages.",
-        "de": "Portfolio auf Anlageklassen basierend auf Zielprozentsätzen aufteilen.",
-        "fr": "Allouer le portefeuille entre les classes d'actifs en fonction des pourcentages cibles.",
-        "es": "Asignar la cartera entre clases de activos según porcentajes objetivo.",
-        "ar": "توزيع المحفظة عبر فئات الأصول بناءً على النسب المئوية المستهدفة."
-      },
-      "long_i18n": {
-        "en": "Allocate portfolio across asset classes based on target percentages.",
-        "de": "Portfolio auf Anlageklassen basierend auf Zielprozentsätzen aufteilen.",
-        "fr": "Allouer le portefeuille entre les classes d'actifs en fonction des pourcentages cibles.",
-        "es": "Asignar la cartera entre clases de activos según porcentajes objetivo.",
-        "ar": "توزيع المحفظة عبر فئات الأصول بناءً على النسب المئوية المستهدفة."
-      }
+      "long": "Allocate portfolio across asset classes based on target percentages."
     }
-  },
-  "title_i18n": {
-    "en": "asset-allocation-calculator",
-    "de": "Portfolio-Asset-Allokationsrechner",
-    "fr": "Calculateur de répartition d'actifs de portefeuille",
-    "es": "Calculadora de asignación de activos de cartera",
-    "ar": "حاسبة توزيع الأصول في المحفظة"
   },
   "sectorSlug": "daily-renovation"
 }

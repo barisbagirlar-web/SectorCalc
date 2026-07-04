@@ -8,71 +8,29 @@
     {
       "id": "yaniciKutle",
       "label": "Combustible Mass (kg)",
-      "label_i18n": {
-        "en": "Combustible Mass (kg)",
-        "de": "Brennbare Masse (kg)",
-        "fr": "Masse combustible (kg)",
-        "es": "Masa Combustible (kg)",
-        "ar": "الكتلة القابلة للاحتراق (kg)"
-      },
       "type": "number",
       "unit": "kg",
       "default": 5000,
       "min": 0,
-      "businessContext": "Combustible material on floor.",
-      "businessContext_i18n": {
-        "en": "Combustible material on floor.",
-        "de": "Brennbare Masse auf dem Boden.",
-        "fr": "Matériau combustible au sol.",
-        "es": "Material combustible en el piso.",
-        "ar": "المواد القابلة للاحتراق على الأرضية."
-      }
+      "businessContext": "Combustible material on floor."
     },
     {
       "id": "isilDeger",
       "label": "Calorific Value (MJ/kg)",
-      "label_i18n": {
-        "en": "Calorific Value (MJ/kg)",
-        "de": "Brennwert (MJ/kg)",
-        "fr": "Pouvoir calorifique (MJ/kg)",
-        "es": "Valor Calorífico (MJ/kg)",
-        "ar": "القيمة الحرارية (MJ/kg)"
-      },
       "type": "number",
       "unit": "MJ/kg",
       "default": 18,
       "min": 0,
-      "businessContext": "Material energy per kg.",
-      "businessContext_i18n": {
-        "en": "Material energy per kg.",
-        "de": "Energie des Materials pro kg.",
-        "fr": "Énergie du matériau par kg.",
-        "es": "Energía del material por kg.",
-        "ar": "طاقة المادة لكل كيلوجرام."
-      }
+      "businessContext": "Material energy per kg."
     },
     {
       "id": "katAlani",
       "label": "Floor Area (m²)",
-      "label_i18n": {
-        "en": "Floor Area (m²)",
-        "de": "Gesamtfläche",
-        "fr": "Surface totale",
-        "es": "Superficie total",
-        "ar": "المساحة الإجمالية"
-      },
       "type": "number",
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Fire compartment area.",
-      "businessContext_i18n": {
-        "en": "Fire compartment area.",
-        "de": "Brandabschnittsfläche.",
-        "fr": "Surface du compartiment coupe-feu.",
-        "es": "Área del compartimento de incendio.",
-        "ar": "مساحة حجرة الحريق."
-      }
+      "businessContext": "Fire compartment area."
     }
   ],
   "validation": {
@@ -85,22 +43,13 @@
     "result": "(yaniciKutle * isilDeger) / Math.max(0.0001, katAlani)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "MJ/m2",
     "breakdown": {
       "result": "Scrap Load"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Scrap Load",
-        "de": "Brandlast",
-        "fr": "Charge calorifique",
-        "es": "Carga de incendio",
-        "ar": "حمولة الحريق"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "MJ/m2"
+      "result": "MJ/m2"
     },
     "hiddenLossDrivers": [
       "Low Q factor indicates broader frequency response."
@@ -109,36 +58,15 @@
       "Verify component tolerances affect circuit performance.",
       "Use proper safety equipment for high voltage/current work."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate building fire load per unit area.",
-      "long": "Calculate building fire load per unit area.",
-      "short_i18n": {
-        "en": "Calculate building fire load per unit area.",
-        "de": "Berechnen Sie die Brandlast pro Flächeneinheit eines Gebäudes.",
-        "fr": "Calculer la charge calorifique d'un bâtiment par unité de surface.",
-        "es": "Calcular la carga de incendio del edificio por unidad de área.",
-        "ar": "حساب حمولة الحريق للمبنى لكل وحدة مساحة."
-      },
-      "long_i18n": {
-        "en": "Calculate building fire load per unit area.",
-        "de": "Berechnen Sie die Brandlast pro Flächeneinheit eines Gebäudes.",
-        "fr": "Calculer la charge calorifique d'un bâtiment par unité de surface.",
-        "es": "Calcular la carga de incendio del edificio por unidad de área.",
-        "ar": "حساب حمولة الحريق للمبنى لكل وحدة مساحة."
-      }
+      "long": "Calculate building fire load per unit area."
     }
-  },
-  "title_i18n": {
-    "en": "fire-load-calculator",
-    "de": "Gebäude-Brandlastrechner",
-    "fr": "Calculateur de charge incendie de bâtiment",
-    "es": "Calculadora de carga de incendio de edificio",
-    "ar": "حاسبة حمل الحريق للمبنى"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -63,7 +63,7 @@ export default async function EmbedToolPage({
       className="mx-auto max-w-4xl px-3 py-4"
       data-embed-calculator={slug}
     >
-      <UniversalIndustrialDecisionForm schema={generatedToolSchemaToSuperV4Schema(schema as any, slug)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
+      <UniversalIndustrialDecisionForm schema={generatedToolSchemaToSuperV4Schema(schema as any, slug)} executeEndpoint="/api/tool-execute" initialProfileMode="quick" accessTier="FREE" />
     </div>
   );
 }

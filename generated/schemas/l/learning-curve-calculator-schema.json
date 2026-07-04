@@ -8,72 +8,30 @@
     {
       "id": "ilkSure",
       "label": "First Unit Time (Min)",
-      "label_i18n": {
-        "en": "First Unit Time (Min)",
-        "de": "Zeit fur erste Einheit (Stunden)",
-        "fr": "Temps de la première unité (heures)",
-        "es": "Tiempo de la primera unidad (horas)",
-        "ar": "وقت الوحدة الأولى (ساعات)"
-      },
       "type": "number",
       "unit": "min",
       "default": 100,
       "min": 0,
-      "businessContext": "Time for first unit.",
-      "businessContext_i18n": {
-        "en": "Time for first unit.",
-        "de": "Zeit fur das erste Stuck.",
-        "fr": "Temps pour la première unité.",
-        "es": "Tiempo para la primera unidad.",
-        "ar": "زمن الوحدة الأولى."
-      }
+      "businessContext": "Time for first unit."
     },
     {
       "id": "ogrenmeOrani",
       "label": "Learning Rate (%)",
-      "label_i18n": {
-        "en": "Learning Rate (%)",
-        "de": "Lernrate (%)",
-        "fr": "Taux d'apprentissage (%)",
-        "es": "Tasa de aprendizaje (%)",
-        "ar": "معدل التعلم (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 90,
       "min": 1,
       "max": 100,
-      "businessContext": "Time reduction per doubling of output.",
-      "businessContext_i18n": {
-        "en": "Time reduction per doubling of output.",
-        "de": "Zeitreduktion pro Verdopplung der Ausbringungsmenge.",
-        "fr": "Réduction de temps par doublement de la production.",
-        "es": "Reducción de tiempo por duplicación de la producción.",
-        "ar": "تقليل الزمن عند مضاعفة الإنتاج."
-      }
+      "businessContext": "Time reduction per doubling of output."
     },
     {
       "id": "uretilenAdet",
       "label": "Units Produced",
-      "label_i18n": {
-        "en": "Units Produced",
-        "de": "Produzierte Einheiten",
-        "fr": "Unités produites",
-        "es": "Unidades producidas",
-        "ar": "الوحدات المنتجة"
-      },
       "type": "number",
       "unit": "units",
       "default": 100,
       "min": 1,
-      "businessContext": "Total units produced.",
-      "businessContext_i18n": {
-        "en": "Total units produced.",
-        "de": "Gesamtzahl der produzierten Einheiten.",
-        "fr": "Nombre total d'unités produites.",
-        "es": "Total de unidades producidas.",
-        "ar": "إجمالي الوحدات المنتجة."
-      }
+      "businessContext": "Total units produced."
     }
   ],
   "validation": {
@@ -87,58 +45,28 @@
     "result": "ilkSure * Math.pow(uretilenAdet, (Math.log(Math.max(0.0001, ogrenmeOrani / 100)) / Math.log(2)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "min",
     "breakdown": {
       "result": "Son Unit Time"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Son Unit Time",
-        "de": "Zeit der letzten Einheit",
-        "fr": "Last Unit Time",
-        "es": "Tiempo de la Última Unidad",
-        "ar": "زمن الوحدة الأخيرة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "min"
+      "result": "min"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Conduct regular OEE audits for improvement.",
       "Use SMED to reduce setup times."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate unit production time using the learning curve theory.",
-      "long": "Calculate unit production time using the learning curve theory.",
-      "short_i18n": {
-        "en": "Calculate unit production time using the learning curve theory.",
-        "de": "Berechnen Sie die Stuckproduktionszeit mithilfe der Lernkurventheorie.",
-        "fr": "Calculer le temps de production unitaire en utilisant la théorie de la courbe d'apprentissage.",
-        "es": "Calcular el tiempo de producción unitario usando la teoría de la curva de aprendizaje.",
-        "ar": "حساب زمن الإنتاج للوحدة باستخدام نظرية منحنى التعلم."
-      },
-      "long_i18n": {
-        "en": "Calculate unit production time using the learning curve theory.",
-        "de": "Berechnen Sie die Stuckproduktionszeit mithilfe der Lernkurventheorie.",
-        "fr": "Calculer le temps de production unitaire en utilisant la théorie de la courbe d'apprentissage.",
-        "es": "Calcular el tiempo de producción unitario usando la teoría de la curva de aprendizaje.",
-        "ar": "حساب زمن الإنتاج للوحدة باستخدام نظرية منحنى التعلم."
-      }
+      "long": "Calculate unit production time using the learning curve theory."
     }
-  },
-  "title_i18n": {
-    "en": "learning-curve-calculator",
-    "de": "Lernkurvenrechner",
-    "fr": "Calculateur de courbe d'apprentissage",
-    "es": "Calculadora de curva de aprendizaje",
-    "ar": "حاسبة منحنى التعلم"
   },
   "sectorSlug": "daily-renovation"
 }

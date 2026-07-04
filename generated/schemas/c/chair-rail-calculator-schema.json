@@ -2,31 +2,17 @@
   "toolName": "chair-rail-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "duvarUzunlugu",
       "label": "Wall Length (m)",
-      "label_i18n": {
-        "en": "Wall Length (m)",
-        "de": "Wandlänge",
-        "fr": "Longueur du mur",
-        "es": "Longitud de la pared",
-        "ar": "طول الجدار"
-      },
       "type": "number",
       "unit": "m",
       "default": 20,
       "min": 0,
-      "businessContext": "Wall length for chair rail.",
-      "businessContext_i18n": {
-        "en": "Wall length for chair rail.",
-        "de": "Wandlänge fur Sockelleiste.",
-        "fr": "Longueur du mur pour la cimaise.",
-        "es": "Longitud de la pared para la barandilla.",
-        "ar": "طول الجدار لسكة الكرسي."
-      }
+      "businessContext": "Wall length for chair rail."
     }
   ],
   "validation": {
@@ -39,58 +25,28 @@
     "result": "duvarUzunlugu"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
-      "result": "Gerekli Korkuluk Boyu"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Korkuluk Boyu",
-        "de": "Erforderliche Geländerlänge",
-        "fr": "Longueur de garde-corps nécessaire",
-        "es": "Longitud Requerida de Barandilla",
-        "ar": "طول الدرابزين المطلوب"
-      }
+      "result": "Required Railing Length"
     },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate chair rail length needed for room.",
-      "long": "Calculate chair rail length needed for room.",
-      "short_i18n": {
-        "en": "Calculate chair rail length needed for room.",
-        "de": "Berechnen Sie die benotigte Länge der Sockelleiste fur den Raum.",
-        "fr": "Calculer la longueur de la cimaise nécessaire pour la pièce.",
-        "es": "Calcular la longitud de la barandilla necesaria para la habitación.",
-        "ar": "احسب طول سكة الكرسي اللازمة للغرفة."
-      },
-      "long_i18n": {
-        "en": "Calculate chair rail length needed for room.",
-        "de": "Berechnen Sie die benotigte Länge der Sockelleiste fur den Raum.",
-        "fr": "Calculer la longueur de la cimaise nécessaire pour la pièce.",
-        "es": "Calcular la longitud de la barandilla necesaria para la habitación.",
-        "ar": "احسب طول سكة الكرسي اللازمة للغرفة."
-      }
+      "long": "Calculate chair rail length needed for room."
     }
-  },
-  "title_i18n": {
-    "en": "chair-rail-calculator",
-    "de": "Geländerrechner",
-    "fr": "Calculateur de garde-corps",
-    "es": "Calculadora de barandilla",
-    "ar": "حاسبة الدرابزين"
   },
   "sectorSlug": "daily-renovation"
 }

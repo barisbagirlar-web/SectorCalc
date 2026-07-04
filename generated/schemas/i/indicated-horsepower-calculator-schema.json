@@ -8,94 +8,38 @@
     {
       "id": "pressure",
       "label": "Mean Indicated Pressure (Pa)",
-      "label_i18n": {
-        "en": "Mean Indicated Pressure (Pa)",
-        "de": "Mittlerer indizierter Druck (Pa)",
-        "fr": "Pression moyenne indiquée (Pa)",
-        "es": "Presión Media Indicada (Pa)",
-        "ar": "متوسط الضغط المشار إليه (Pa)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Average cylinder pressure.",
-      "businessContext_i18n": {
-        "en": "Average cylinder pressure.",
-        "de": "Mittlerer Zylinderdruck.",
-        "fr": "Pression moyenne dans le cylindre.",
-        "es": "Presión promedio del cilindro.",
-        "ar": "متوسط ضغط الأسطوانة."
-      }
+      "businessContext": "Average cylinder pressure."
     },
     {
       "id": "strok",
       "label": "Stroke (m)",
-      "label_i18n": {
-        "en": "Stroke (m)",
-        "de": "Hublänge (mm)",
-        "fr": "Longueur de course (mm)",
-        "es": "Longitud de carrera (mm)",
-        "ar": "طول الشوط (مم)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Piston stroke length.",
-      "businessContext_i18n": {
-        "en": "Piston stroke length.",
-        "de": "Kolbenhublänge.",
-        "fr": "Longueur de la course du piston.",
-        "es": "Longitud de carrera del pistón.",
-        "ar": "طول شوط المكبس."
-      }
+      "businessContext": "Stroke length."
     },
     {
       "id": "area",
-      "label": "Piston Area (m²)",
-      "label_i18n": {
-        "en": "Piston Area (m²)",
-        "de": "Kolbenfläche (m²)",
-        "fr": "Surface du piston (m²)",
-        "es": "Área del Pistón (m²)",
-        "ar": "مساحة المكبس (م²)"
-      },
+      "label": "Cylinder Area (m²)",
       "type": "number",
       "unit": "m2",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Piston cross-section area.",
-      "businessContext_i18n": {
-        "en": "Piston cross-section area.",
-        "de": "Kolbenquerschnittsfläche.",
-        "fr": "Section transversale du piston.",
-        "es": "Área de la sección transversal del pistón.",
-        "ar": "مساحة المقطع العرضي للمكبس."
-      }
+      "businessContext": "Cylinder cross-section area."
     },
     {
       "id": "devir",
       "label": "Engine Speed (RPM)",
-      "label_i18n": {
-        "en": "Engine Speed (RPM)",
-        "de": "Motordrehzahl (RPM)",
-        "fr": "Régime moteur (RPM)",
-        "es": "Velocidad del Motor (RPM)",
-        "ar": "سرعة المحرك (RPM)"
-      },
       "type": "number",
       "unit": "rpm",
       "default": 3000,
       "min": 0,
-      "businessContext": "Crankshaft speed.",
-      "businessContext_i18n": {
-        "en": "Crankshaft speed.",
-        "de": "Kurbelwellendrehzahl.",
-        "fr": "Vitesse du vilebrequin.",
-        "es": "Velocidad del cigueñal.",
-        "ar": "سرعة العمود المرفقي."
-      }
+      "businessContext": "Crankshaft speed."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "(pressure * strok * area * devir) / 60000"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kW",
     "breakdown": {
-      "result": "Indike Beygir Gucu (IHP)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Indike Beygir Gucu (IHP)",
-        "de": "Indizierte Leistung (IHP)",
-        "fr": "Puissance indiquée (IHP)",
-        "es": "Potencia Indicada (IHP)",
-        "ar": "القدرة الحصانية المشار إليها (IHP)"
-      }
+      "result": "Indicated Horsepower (IHP)"
     },
     "breakdownUnits": {
-      "sonuc": "kW"
+      "result": "kW"
     },
     "hiddenLossDrivers": [
       "High fuel/energy consumption indicates efficiency losses."
@@ -132,36 +67,15 @@
       "Regular maintenance improves overall equipment efficiency.",
       "Simulate real-world driving conditions for accurate range estimates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate indicated horsepower (IHP) from cylinder parameters.",
-      "long": "Calculate indicated horsepower (IHP) from cylinder parameters.",
-      "short_i18n": {
-        "en": "Calculate indicated horsepower (IHP) from cylinder parameters.",
-        "de": "Indizierte Leistung (IHP) aus Zylinderparametern berechnen.",
-        "fr": "Calculer la puissance indiquée (IHP) à partir des paramètres du cylindre.",
-        "es": "Calcular la potencia indicada (IHP) a partir de parámetros del cilindro.",
-        "ar": "حساب القدرة الحصانية المشار إليها (IHP) من معلمات الأسطوانة."
-      },
-      "long_i18n": {
-        "en": "Calculate indicated horsepower (IHP) from cylinder parameters.",
-        "de": "Indizierte Leistung (IHP) aus Zylinderparametern berechnen.",
-        "fr": "Calculer la puissance indiquée (IHP) à partir des paramètres du cylindre.",
-        "es": "Calcular la potencia indicada (IHP) a partir de parámetros del cilindro.",
-        "ar": "حساب القدرة الحصانية المشار إليها (IHP) من معلمات الأسطوانة."
-      }
+      "long": "Calculate indicated horsepower (IHP) from cylinder parameters."
     }
-  },
-  "title_i18n": {
-    "en": "indicated-horsepower-calculator",
-    "de": "Indizierte Leistung (IHP) Rechner",
-    "fr": "Calculateur de Puissance Indiquée (IHP)",
-    "es": "Calculadora de Potencia Indicada (IHP)",
-    "ar": "حاسبة القدرة الحصانية المؤشرة (IHP)"
   },
   "sectorSlug": "daily-renovation"
 }

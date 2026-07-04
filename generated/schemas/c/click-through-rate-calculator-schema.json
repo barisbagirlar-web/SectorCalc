@@ -2,54 +2,26 @@
   "toolName": "click-through-rate-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "tiklama",
       "label": "Clicks",
-      "label_i18n": {
-        "en": "Clicks",
-        "de": "Klicks",
-        "fr": "Clics",
-        "es": "Clics",
-        "ar": "النقرات"
-      },
       "type": "number",
       "unit": "clicks",
       "default": 500,
       "min": 0,
-      "businessContext": "Ad clicks.",
-      "businessContext_i18n": {
-        "en": "Ad clicks.",
-        "de": "Anzeigenklicks.",
-        "fr": "Clics sur l'annonce.",
-        "es": "Clics en anuncios.",
-        "ar": "نقرات الإعلان."
-      }
+      "businessContext": "Ad clicks."
     },
     {
       "id": "gosterim",
       "label": "Impressions",
-      "label_i18n": {
-        "en": "Impressions",
-        "de": "Impressionen",
-        "fr": "Impressions",
-        "es": "Impresiones",
-        "ar": "مرات الظهور"
-      },
       "type": "number",
       "unit": "impressions",
       "default": 50000,
       "min": 1,
-      "businessContext": "Ad display count.",
-      "businessContext_i18n": {
-        "en": "Ad display count.",
-        "de": "Anzeigenanzahl der Ausspielungen.",
-        "fr": "Nombre d'affichages de l'annonce.",
-        "es": "Recuento de visualizaciones del anuncio.",
-        "ar": "عدد مرات عرض الإعلان."
-      }
+      "businessContext": "Ad display count."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(tiklama / Math.max(1, gosterim)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Tiklama Ratioi (CTR)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tiklama Ratioi (CTR)",
-        "de": "Klickrate (CTR)",
-        "fr": "Taux de clics (CTR)",
-        "es": "Tasa de Clics (CTR)",
-        "ar": "نسبة النقر إلى الظهور (CTR)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate click-through rate (CTR) for ads.",
-      "long": "Calculate click-through rate (CTR) for ads.",
-      "short_i18n": {
-        "en": "Calculate click-through rate (CTR) for ads.",
-        "de": "Berechnen Sie die Klickrate (CTR) fur Anzeigen.",
-        "fr": "Calculer le taux de clics (CTR) pour les annonces.",
-        "es": "Calcular la tasa de clics (CTR) para anuncios.",
-        "ar": "حساب نسبة النقر إلى الظهور (CTR) للإعلانات."
-      },
-      "long_i18n": {
-        "en": "Calculate click-through rate (CTR) for ads.",
-        "de": "Berechnen Sie die Klickrate (CTR) fur Anzeigen.",
-        "fr": "Calculer le taux de clics (CTR) pour les annonces.",
-        "es": "Calcular la tasa de clics (CTR) para anuncios.",
-        "ar": "حساب نسبة النقر إلى الظهور (CTR) للإعلانات."
-      }
+      "long": "Calculate click-through rate (CTR) for ads."
     }
-  },
-  "title_i18n": {
-    "en": "click-through-rate-calculator",
-    "de": "CTR-Rechner",
-    "fr": "Calculateur de CTR",
-    "es": "Calculadora de CTR",
-    "ar": "حاسبة نسبة النقر إلى الظهور CTR"
   },
   "sectorSlug": "daily-renovation"
 }

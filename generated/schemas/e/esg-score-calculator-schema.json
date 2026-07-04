@@ -8,74 +8,32 @@
     {
       "id": "environment",
       "label": "Environmental (0-100)",
-      "label_i18n": {
-        "en": "Environmental (0-100)",
-        "de": "Umweltbelastungsfaktor",
-        "fr": "Facteur de stress environnemental",
-        "es": "Factor de Estrés Ambiental",
-        "ar": "عامل الإجهاد البيئي"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 75,
       "min": 0,
       "max": 100,
-      "businessContext": "Environmental performance.",
-      "businessContext_i18n": {
-        "en": "Environmental performance.",
-        "de": "Umweltleistung.",
-        "fr": "Performance environnementale.",
-        "es": "Desempeño ambiental.",
-        "ar": "الأداء البيئي."
-      }
+      "businessContext": "Environmental performance."
     },
     {
       "id": "sosyal",
       "label": "Social (0-100)",
-      "label_i18n": {
-        "en": "Social (0-100)",
-        "de": "Sozialversicherungssatz",
-        "fr": "Taux de sécurité sociale",
-        "es": "Tasa de seguridad social",
-        "ar": "معدل الضمان الاجتماعي"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 80,
       "min": 0,
       "max": 100,
-      "businessContext": "Social responsibility.",
-      "businessContext_i18n": {
-        "en": "Social responsibility.",
-        "de": "Soziale Verantwortung.",
-        "fr": "Responsabilité sociale.",
-        "es": "Responsabilidad social.",
-        "ar": "المسؤولية الاجتماعية."
-      }
+      "businessContext": "Social responsibility."
     },
     {
       "id": "yonetisim",
       "label": "Governance (0-100)",
-      "label_i18n": {
-        "en": "Governance (0-100)",
-        "de": "Unternehmensfuhrung (0-100)",
-        "fr": "Gouvernance (0-100)",
-        "es": "Gobernanza (0-100)",
-        "ar": "الحوكمة (0-100)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 70,
       "min": 0,
       "max": 100,
-      "businessContext": "Corporate governance.",
-      "businessContext_i18n": {
-        "en": "Corporate governance.",
-        "de": "Corporate Governance.",
-        "fr": "Gouvernance d'entreprise.",
-        "es": "Gobernanza corporativa.",
-        "ar": "حوكمة الشركات."
-      }
+      "businessContext": "Corporate governance."
     }
   ],
   "validation": {
@@ -88,22 +46,13 @@
     "result": "(environment * 0.4) + (sosyal * 0.3) + (yonetisim * 0.3)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "score",
     "breakdown": {
       "result": "ESG Skoru"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "ESG Skoru",
-        "de": "ESG-Score",
-        "fr": "Score ESG",
-        "es": "Puntuación ESG",
-        "ar": "درجة ESG"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "score"
+      "result": "score"
     },
     "hiddenLossDrivers": [
       "High environmental score may reduce operational costs.",
@@ -113,36 +62,15 @@
       "Set improvement targets for each ESG pillar.",
       "Consider carbon offset programs for residual emissions."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate corporate ESG sustainability score (0-100).",
-      "long": "Calculate corporate ESG sustainability score (0-100).",
-      "short_i18n": {
-        "en": "Calculate corporate ESG sustainability score (0-100).",
-        "de": "Berechnen Sie die unternehmerische ESG-Nachhaltigkeitsbewertung (0-100).",
-        "fr": "Calculer le score de durabilité ESG de l'entreprise (0-100).",
-        "es": "Calcular la puntuación de sostenibilidad ESG corporativa (0-100).",
-        "ar": "حساب درجة الاستدامة البيئية والاجتماعية والحوكمة للشركة (0-100)."
-      },
-      "long_i18n": {
-        "en": "Calculate corporate ESG sustainability score (0-100).",
-        "de": "Berechnen Sie die unternehmerische ESG-Nachhaltigkeitsbewertung (0-100).",
-        "fr": "Calculer le score de durabilité ESG de l'entreprise (0-100).",
-        "es": "Calcular la puntuación de sostenibilidad ESG corporativa (0-100).",
-        "ar": "حساب درجة الاستدامة البيئية والاجتماعية والحوكمة للشركة (0-100)."
-      }
+      "long": "Calculate corporate ESG sustainability score (0-100)."
     }
-  },
-  "title_i18n": {
-    "en": "esg-score-calculator",
-    "de": "ESG-Score-Rechner",
-    "fr": "Calculateur de score ESG",
-    "es": "Calculadora de puntuación ESG",
-    "ar": "حاسبة درجة ESG"
   },
   "sectorSlug": "daily-renovation"
 }

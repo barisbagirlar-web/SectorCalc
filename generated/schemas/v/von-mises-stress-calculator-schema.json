@@ -8,71 +8,29 @@
     {
       "id": "sigmaX",
       "label": "σx (Pa)",
-      "label_i18n": {
-        "en": "σx (Pa)",
-        "de": "σx (Pa)",
-        "fr": "σx (Pa)",
-        "es": "σx (Pa)",
-        "ar": "σx (باسكال)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 150000000,
       "min": 0,
-      "businessContext": "Normal stress in x.",
-      "businessContext_i18n": {
-        "en": "Normal stress in x.",
-        "de": "Normalspannung in x.",
-        "fr": "Contrainte normale en x.",
-        "es": "Esfuerzo normal en x.",
-        "ar": "الإجهاد العمودي في x."
-      }
+      "businessContext": "Normal stress in x."
     },
     {
       "id": "sigmaY",
       "label": "σy (Pa)",
-      "label_i18n": {
-        "en": "σy (Pa)",
-        "de": "σy (Pa)",
-        "fr": "σy (Pa)",
-        "es": "σy (Pa)",
-        "ar": "σy (باسكال)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 50000000,
       "min": 0,
-      "businessContext": "Normal stress in y.",
-      "businessContext_i18n": {
-        "en": "Normal stress in y.",
-        "de": "Normalspannung in y.",
-        "fr": "Contrainte normale en y.",
-        "es": "Esfuerzo normal en y.",
-        "ar": "الإجهاد العمودي في y."
-      }
+      "businessContext": "Normal stress in y."
     },
     {
       "id": "tauXY",
       "label": "τxy (Pa)",
-      "label_i18n": {
-        "en": "τxy (Pa)",
-        "de": "τxy (Pa)",
-        "fr": "τxy (Pa)",
-        "es": "τxy (Pa)",
-        "ar": "τxy (باسكال)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 40000000,
       "min": 0,
-      "businessContext": "Shear stress in xy.",
-      "businessContext_i18n": {
-        "en": "Shear stress in xy.",
-        "de": "Schubspannung in xy.",
-        "fr": "Contrainte de cisaillement en xy.",
-        "es": "Esfuerzo cortante en xy.",
-        "ar": "إجهاد القص في xy."
-      }
+      "businessContext": "Shear stress in xy."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "Math.sqrt(Math.max(0, sigmaX*sigmaX - sigmaX*sigmaY + sigmaY*sigmaY + 3*tauXY*tauXY))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Von Mises Gerilmesi (σᵥ)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Von Mises Gerilmesi (σᵥ)",
-        "de": "Von Mises Stress (σᵥ)",
-        "fr": "Contrainte de Von Mises (σᵥ)",
-        "es": "Esfuerzo de Von Mises (σᵥ)",
-        "ar": "إجهاد فون ميزس (σᵥ)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate Von Mises equivalent stress for multiaxial loading.",
-      "long": "Calculate Von Mises equivalent stress for multiaxial loading.",
-      "short_i18n": {
-        "en": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "de": "Berechnen Sie die Von-Mises-Vergleichsspannung fur mehrachsige Belastung.",
-        "fr": "Calculer la contrainte équivalente de Von Mises pour un chargement multiaxial.",
-        "es": "Calcular el esfuerzo equivalente de Von Mises para carga multiaxial.",
-        "ar": "حساب الإجهاد المكافئ لفون ميزس للحمل متعدد المحاور."
-      },
-      "long_i18n": {
-        "en": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "de": "Berechnen Sie die Von-Mises-Vergleichsspannung fur mehrachsige Belastung.",
-        "fr": "Calculer la contrainte équivalente de Von Mises pour un chargement multiaxial.",
-        "es": "Calcular el esfuerzo equivalente de Von Mises para carga multiaxial.",
-        "ar": "حساب الإجهاد المكافئ لفون ميزس للحمل متعدد المحاور."
-      }
+      "long": "Calculate Von Mises equivalent stress for multiaxial loading."
     }
-  },
-  "title_i18n": {
-    "en": "von-mises-stress-calculator",
-    "de": "Von-Mises-Spannungsrechner",
-    "fr": "Calculateur de contrainte de von Mises",
-    "es": "Calculadora de tensión de von Mises",
-    "ar": "حاسبة إجهاد فون ميزس"
   },
   "sectorSlug": "daily-renovation"
 }

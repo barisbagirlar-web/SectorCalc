@@ -8,48 +8,20 @@
     {
       "id": "hamOlcu",
       "label": "Greige Dimension (cm)",
-      "label_i18n": {
-        "en": "Greige Dimension (cm)",
-        "de": "Rohmaß (cm)",
-        "fr": "Dimension grège (cm)",
-        "es": "Dimensión en crudo (cm)",
-        "ar": "البعد الخام (cm)"
-      },
       "type": "number",
       "unit": "cm",
       "default": 100,
       "min": 0,
-      "businessContext": "Pre-processing fabric size.",
-      "businessContext_i18n": {
-        "en": "Pre-processing fabric size.",
-        "de": "Stoffgroße vor der Verarbeitung.",
-        "fr": "Taille du tissu avant traitement.",
-        "es": "Tamaño de la tela antes del procesamiento.",
-        "ar": "حجم القماش قبل المعالجة."
-      }
+      "businessContext": "Pre-processing fabric size."
     },
     {
       "id": "bitmisOlcu",
       "label": "Finished Dimension (cm)",
-      "label_i18n": {
-        "en": "Finished Dimension (cm)",
-        "de": "Endmaß (cm)",
-        "fr": "Dimension finie (cm)",
-        "es": "Dimensión acabada (cm)",
-        "ar": "البعد النهائي (cm)"
-      },
       "type": "number",
       "unit": "cm",
       "default": 96,
       "min": 0,
-      "businessContext": "Post-processing fabric size.",
-      "businessContext_i18n": {
-        "en": "Post-processing fabric size.",
-        "de": "Stoffgroße nach der Verarbeitung.",
-        "fr": "Taille du tissu après traitement.",
-        "es": "Tamaño de la tela después del procesamiento.",
-        "ar": "حجم القماش بعد المعالجة."
-      }
+      "businessContext": "Post-processing fabric size."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "((hamOlcu - bitmisOlcu) / Math.max(0.0001, hamOlcu)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Tmostsion Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tmostsion Ratio",
-        "de": "Ziehverhältnis",
-        "fr": "Taux de retrait",
-        "es": "Relación de estirado",
-        "ar": "نسبة الانكماش"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [
       "Waste in material or time indicates process improvement opportunity."
@@ -86,36 +49,15 @@
       "Optimize drying/cooling parameters for cycle time reduction.",
       "Monitor defects and adjust process conditions accordingly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate fabric shrinkage percentage after processing.",
-      "long": "Calculate fabric shrinkage percentage after processing.",
-      "short_i18n": {
-        "en": "Calculate fabric shrinkage percentage after processing.",
-        "de": "Berechnen Sie den Stoffschrumpfprozentsatz nach der Verarbeitung.",
-        "fr": "Calculer le pourcentage de retrait du tissu après traitement.",
-        "es": "Calcule el porcentaje de encogimiento de la tela después del procesamiento.",
-        "ar": "احسب نسبة انكماش القماش بعد المعالجة."
-      },
-      "long_i18n": {
-        "en": "Calculate fabric shrinkage percentage after processing.",
-        "de": "Berechnen Sie den Stoffschrumpfprozentsatz nach der Verarbeitung.",
-        "fr": "Calculer le pourcentage de retrait du tissu après traitement.",
-        "es": "Calcule el porcentaje de encogimiento de la tela después del procesamiento.",
-        "ar": "احسب نسبة انكماش القماش بعد المعالجة."
-      }
+      "long": "Calculate fabric shrinkage percentage after processing."
     }
-  },
-  "title_i18n": {
-    "en": "fabric-shrinkage-calculator",
-    "de": "Stoffschrumpffaktorrechner",
-    "fr": "Calculateur de facteur de retrait de tissu",
-    "es": "Calculadora de factor de encogimiento de tela",
-    "ar": "حاسبة عامل انكماش القماش"
   },
   "sectorSlug": "daily-renovation"
 }

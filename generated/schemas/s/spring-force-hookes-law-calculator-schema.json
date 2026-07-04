@@ -8,48 +8,20 @@
     {
       "id": "yayKatsayisi",
       "label": "Spring Constant (N/m)",
-      "label_i18n": {
-        "en": "Spring Constant (N/m)",
-        "de": "Federkonstante (N/m)",
-        "fr": "Constante de raideur (N/m)",
-        "es": "Constante del resorte (N/m)",
-        "ar": "ثابت الزنبرك (N/m)"
-      },
       "type": "number",
       "unit": "N/m",
       "default": 500,
       "min": 0,
-      "businessContext": "Spring stiffness.",
-      "businessContext_i18n": {
-        "en": "Spring stiffness.",
-        "de": "Federsteifigkeit.",
-        "fr": "Raideur du ressort.",
-        "es": "Rigidez del resorte.",
-        "ar": "صلابة الزنبرك."
-      }
+      "businessContext": "Spring stiffness."
     },
     {
       "id": "deplasman",
       "label": "Spring Displacement (m)",
-      "label_i18n": {
-        "en": "Spring Displacement (m)",
-        "de": "Federauslenkung (m)",
-        "fr": "Déplacement du ressort (m)",
-        "es": "Desplazamiento del resorte (m)",
-        "ar": "إزاحة الزنبرك (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Spring compression/extension.",
-      "businessContext_i18n": {
-        "en": "Spring compression/extension.",
-        "de": "Federkompression/-extension.",
-        "fr": "Compression/extension du ressort.",
-        "es": "Compresión/extensión del resorte.",
-        "ar": "ضغط/تمدد الزنبرك."
-      }
+      "businessContext": "Spring compression/extension."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "yayKatsayisi * deplasman"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "N",
     "breakdown": {
-      "result": "Yay Kuvveti (F)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Yay Kuvveti (F)",
-        "de": "Federkraft (F)",
-        "fr": "Force du ressort (F)",
-        "es": "Fuerza del Resorte (F)",
-        "ar": "قوة الزنبرك (F)"
-      }
+      "result": "Spring Force (F)"
     },
     "breakdownUnits": {
-      "sonuc": "N"
+      "result": "N"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate spring force using Hooke's law (F=kx).",
-      "long": "Calculate spring force using Hooke's law (F=kx).",
-      "short_i18n": {
-        "en": "Calculate spring force using Hooke's law (F=kx).",
-        "de": "Berechnen Sie die Federkraft mit dem Hookeschen Gesetz (F=kx).",
-        "fr": "Calculer la force du ressort en utilisant la loi de Hooke (F=kx).",
-        "es": "Calcular la fuerza del resorte usando la ley de Hooke (F=kx).",
-        "ar": "احسب قوة الزنبرك باستخدام قانون هوك (F=kx)."
-      },
-      "long_i18n": {
-        "en": "Calculate spring force using Hooke's law (F=kx).",
-        "de": "Berechnen Sie die Federkraft mit dem Hookeschen Gesetz (F=kx).",
-        "fr": "Calculer la force du ressort en utilisant la loi de Hooke (F=kx).",
-        "es": "Calcular la fuerza del resorte usando la ley de Hooke (F=kx).",
-        "ar": "احسب قوة الزنبرك باستخدام قانون هوك (F=kx)."
-      }
+      "long": "Calculate spring force using Hooke's law (F=kx)."
     }
-  },
-  "title_i18n": {
-    "en": "spring-force-hookes-law-calculator",
-    "de": "Rechner fur Federkraft und Auslenkung",
-    "fr": "Calculateur de force et déplacement de ressort",
-    "es": "Calculadora de fuerza y desplazamiento de resorte",
-    "ar": "حاسبة قوة الزنبرك والإزاحة"
   },
   "sectorSlug": "daily-renovation"
 }

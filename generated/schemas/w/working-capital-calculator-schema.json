@@ -2,54 +2,26 @@
   "toolName": "working-capital-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "donenVarliklar",
       "label": "Current Assets (USD)",
-      "label_i18n": {
-        "en": "Current Assets (USD)",
-        "de": "Umlaufvermogen",
-        "fr": "Actifs courants",
-        "es": "Activos Corrientes",
-        "ar": "الأصول المتداولة"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Short-term assets.",
-      "businessContext_i18n": {
-        "en": "Short-term assets.",
-        "de": "Kurzfristige Vermogenswerte.",
-        "fr": "Actifs à court terme.",
-        "es": "Activos a corto plazo.",
-        "ar": "الأصول قصيرة الأجل."
-      }
+      "businessContext": "Short-term assets."
     },
     {
       "id": "kisaVadeliBorc",
       "label": "Current Liabilities (USD)",
-      "label_i18n": {
-        "en": "Current Liabilities (USD)",
-        "de": "Kurzfristige Verbindlichkeiten",
-        "fr": "Passifs courants",
-        "es": "Pasivos Corrientes",
-        "ar": "الخصوم المتداولة"
-      },
       "type": "number",
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Short-term obligations.",
-      "businessContext_i18n": {
-        "en": "Short-term obligations.",
-        "de": "Kurzfristige Verbindlichkeiten.",
-        "fr": "Obligations à court terme.",
-        "es": "Obligaciones a corto plazo.",
-        "ar": "الالتزامات قصيرة الأجل."
-      }
+      "businessContext": "Short-term obligations."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "donenVarliklar - kisaVadeliBorc"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Net Calisma Sermayesi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Net Calisma Sermayesi",
-        "de": "Net Working Capital",
-        "fr": "Besoin en fonds de roulement net",
-        "es": "Capital de Trabajo Neto",
-        "ar": "رأس المال العامل الصافي"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate working capital (current assets - current liabilities).",
-      "long": "Calculate working capital (current assets - current liabilities).",
-      "short_i18n": {
-        "en": "Calculate working capital (current assets - current liabilities).",
-        "de": "Berechnen Sie das Betriebskapital (Umlaufvermogen - kurzfristige Verbindlichkeiten).",
-        "fr": "Calculer le fonds de roulement (actifs courants - passifs courants).",
-        "es": "Calcular el capital de trabajo (activos corrientes - pasivos corrientes).",
-        "ar": "حساب رأس المال العامل (الأصول المتداولة - الخصوم المتداولة)."
-      },
-      "long_i18n": {
-        "en": "Calculate working capital (current assets - current liabilities).",
-        "de": "Berechnen Sie das Betriebskapital (Umlaufvermogen - kurzfristige Verbindlichkeiten).",
-        "fr": "Calculer le fonds de roulement (actifs courants - passifs courants).",
-        "es": "Calcular el capital de trabajo (activos corrientes - pasivos corrientes).",
-        "ar": "حساب رأس المال العامل (الأصول المتداولة - الخصوم المتداولة)."
-      }
+      "long": "Calculate working capital (current assets - current liabilities)."
     }
-  },
-  "title_i18n": {
-    "en": "working-capital-calculator",
-    "de": "Betriebskapitalrechner",
-    "fr": "Calculateur de fonds de roulement",
-    "es": "Calculadora de capital de trabajo",
-    "ar": "حاسبة رأس المال العامل"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,71 +8,29 @@
     {
       "id": "anapara",
       "label": "Principal (USD)",
-      "label_i18n": {
-        "en": "Principal (USD)",
-        "de": "Anfangskapital",
-        "fr": "Capital initial",
-        "es": "Capital inicial",
-        "ar": "رأس المال الأولي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Principal amount for interest calculation.",
-      "businessContext_i18n": {
-        "en": "Principal amount for interest calculation.",
-        "de": "Kapitalbetrag fur die Zinsberechnung.",
-        "fr": "Montant du capital pour le calcul des intérêts.",
-        "es": "Monto principal para el cálculo de intereses.",
-        "ar": "مبلغ أصل المبلغ لحساب الفائدة."
-      }
+      "businessContext": "Principal amount for interest calculation."
     },
     {
       "id": "interest",
       "label": "Interest Rate (%)",
-      "label_i18n": {
-        "en": "Interest Rate (%)",
-        "de": "Zinssatz (%)",
-        "fr": "Taux d'intérêt (%)",
-        "es": "Tasa de Interés (%)",
-        "ar": "سعر الفائدة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Annual interest rate.",
-      "businessContext_i18n": {
-        "en": "Annual interest rate.",
-        "de": "Nominaler jährlicher Zinssatz.",
-        "fr": "Taux d'intérêt annuel nominal.",
-        "es": "Tasa de interés anual nominal.",
-        "ar": "سعر الفائدة السنوي الاسمي."
-      }
+      "businessContext": "Annual interest rate."
     },
     {
       "id": "duration",
       "label": "Time (Years)",
-      "label_i18n": {
-        "en": "Time (Years)",
-        "de": "Uberstundenzuschlag einbeziehen",
-        "fr": "Inclure la pénalité pour heures supplémentaires",
-        "es": "Incluir Penalización por Horas Extra",
-        "ar": "تضمين عقوبة العمل الإضافي"
-      },
       "type": "number",
       "unit": "years",
       "default": 3,
       "min": 0,
-      "businessContext": "Number of years for interest accrual.",
-      "businessContext_i18n": {
-        "en": "Number of years for interest accrual.",
-        "de": "Anzahl der Jahre fur die Zinsabgrenzung.",
-        "fr": "Nombre d'années pour l'accumulation des intérêts.",
-        "es": "Número de años para la acumulación de intereses.",
-        "ar": "عدد سنوات استحقاق الفائدة."
-      }
+      "businessContext": "Number of years for interest accrual."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "anapara * (interest / 100) * duration"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Basit Faiz Tutari"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Basit Faiz Tutari",
-        "de": "Einfacher Zinsbetrag",
-        "fr": "Montant des intérêts simples",
-        "es": "Monto de Interés Simple",
-        "ar": "مبلغ الفائدة البسيطة"
-      }
+      "result": "Simple Interest Amount"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate simple interest earned on principal only.",
-      "long": "Calculate simple interest earned on principal only.",
-      "short_i18n": {
-        "en": "Calculate simple interest earned on principal only.",
-        "de": "Berechnen Sie die einfachen Zinsen, die nur auf das Kapital anfallen.",
-        "fr": "Calculer les intérêts simples gagnés sur le capital uniquement.",
-        "es": "Calcular el interés simple ganado solo sobre el capital.",
-        "ar": "حساب الفائدة البسيطة المكتسبة على أصل المبلغ فقط."
-      },
-      "long_i18n": {
-        "en": "Calculate simple interest earned on principal only.",
-        "de": "Berechnen Sie die einfachen Zinsen, die nur auf das Kapital anfallen.",
-        "fr": "Calculer les intérêts simples gagnés sur le capital uniquement.",
-        "es": "Calcular el interés simple ganado solo sobre el capital.",
-        "ar": "حساب الفائدة البسيطة المكتسبة على أصل المبلغ فقط."
-      }
+      "long": "Calculate simple interest earned on principal only."
     }
-  },
-  "title_i18n": {
-    "en": "simple-interest-calculator",
-    "de": "Einfacher Zinsrechner",
-    "fr": "Calculateur d'intérêt simple",
-    "es": "Calculadora de interés simple",
-    "ar": "حاسبة الفائدة البسيطة"
   },
   "sectorSlug": "ecommerce"
 }

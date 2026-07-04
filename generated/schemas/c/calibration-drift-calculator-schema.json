@@ -8,71 +8,29 @@
     {
       "id": "sonHata",
       "label": "Latest Error",
-      "label_i18n": {
-        "en": "Latest Error",
-        "de": "Letzter Fehler",
-        "fr": "Erreur la plus récente",
-        "es": "Último Error",
-        "ar": "أحدث خطأ"
-      },
       "type": "number",
       "unit": "unit",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Error at last calibration.",
-      "businessContext_i18n": {
-        "en": "Error at last calibration.",
-        "de": "Fehler bei der letzten Kalibrierung.",
-        "fr": "Erreur lors du dernier étalonnage.",
-        "es": "Error en la última calibración.",
-        "ar": "الخطأ في آخر معايرة."
-      }
+      "businessContext": "Error at last calibration."
     },
     {
       "id": "oncekiHata",
       "label": "Previous Error",
-      "label_i18n": {
-        "en": "Previous Error",
-        "de": "Vorheriger Fehler",
-        "fr": "Erreur précédente",
-        "es": "Error Anterior",
-        "ar": "الخطأ السابق"
-      },
       "type": "number",
       "unit": "unit",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Previous calibration error.",
-      "businessContext_i18n": {
-        "en": "Previous calibration error.",
-        "de": "Vorheriger Kalibrierungsfehler.",
-        "fr": "Erreur d'étalonnage précédente.",
-        "es": "Error de calibración anterior.",
-        "ar": "خطأ المعايرة السابق."
-      }
+      "businessContext": "Previous calibration error."
     },
     {
       "id": "gecenSure",
       "label": "Elapsed Time (Days)",
-      "label_i18n": {
-        "en": "Elapsed Time (Days)",
-        "de": "Verstrichene Zeit (Days)",
-        "fr": "Temps écoulé (Days)",
-        "es": "Tiempo Transcurrido (Días)",
-        "ar": "الوقت المنقضي (Days)"
-      },
       "type": "number",
       "unit": "days",
       "default": 90,
       "min": 0,
-      "businessContext": "Time between calibrations.",
-      "businessContext_i18n": {
-        "en": "Time between calibrations.",
-        "de": "Zeit zwischen Kalibrierungen.",
-        "fr": "Temps entre les étalonnages.",
-        "es": "Tiempo entre calibraciones.",
-        "ar": "الوقت بين المعايرات."
-      }
+      "businessContext": "Time between calibrations."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(sonHata - oncekiHata) / Math.max(1, gecenSure)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "unit/day",
     "breakdown": {
-      "result": "Sapma Speed"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Sapma Speed",
-        "de": "Abweichungsrate",
-        "fr": "Taux de déviation",
-        "es": "Tasa de Desviación",
-        "ar": "معدل الانحراف"
-      }
+      "result": "Drift Speed"
     },
     "breakdownUnits": {
-      "sonuc": "unit/day"
+      "result": "unit/day"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Conduct regular OEE audits for improvement.",
       "Use SMED to reduce setup times."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate measurement instrument drift rate over time.",
-      "long": "Calculate measurement instrument drift rate over time.",
-      "short_i18n": {
-        "en": "Calculate measurement instrument drift rate over time.",
-        "de": "Berechnen Sie die Driftrate eines Messgeräts im Zeitverlauf.",
-        "fr": "Calculer le taux de dérive d'un instrument de mesure au fil du temps.",
-        "es": "Calcular la tasa de deriva del instrumento de medición a lo largo del tiempo.",
-        "ar": "حساب معدل انحراف أداة القياس عبر الزمن."
-      },
-      "long_i18n": {
-        "en": "Calculate measurement instrument drift rate over time.",
-        "de": "Berechnen Sie die Driftrate eines Messgeräts im Zeitverlauf.",
-        "fr": "Calculer le taux de dérive d'un instrument de mesure au fil du temps.",
-        "es": "Calcular la tasa de deriva del instrumento de medición a lo largo del tiempo.",
-        "ar": "حساب معدل انحراف أداة القياس عبر الزمن."
-      }
+      "long": "Calculate measurement instrument drift rate over time."
     }
-  },
-  "title_i18n": {
-    "en": "calibration-drift-calculator",
-    "de": "Kalibrierungsabweichungsrechner",
-    "fr": "Calculateur d'Écart d'Étalonnage",
-    "es": "Calculadora de Desviación de Calibración",
-    "ar": "حاسبة انحراف المعايرة"
   },
   "sectorSlug": "daily-renovation"
 }

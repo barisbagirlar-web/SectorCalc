@@ -8,48 +8,20 @@
     {
       "id": "helisAcisi",
       "label": "Helix Angle (Rad)",
-      "label_i18n": {
-        "en": "Helix Angle (Rad)",
-        "de": "Steigungswinkel (Rad)",
-        "fr": "Angle d'hélice (Rad)",
-        "es": "Ángulo de Hélice (Rad)",
-        "ar": "زاوية الحلزون (Rad)"
-      },
       "type": "number",
       "unit": "rad",
       "default": 0.35,
       "min": 0,
-      "businessContext": "Worm helix angle.",
-      "businessContext_i18n": {
-        "en": "Worm helix angle.",
-        "de": "Steigungswinkel der Schnecke.",
-        "fr": "Angle d'hélice de la vis sans fin.",
-        "es": "Ángulo de hélice del tornillo sin fin.",
-        "ar": "زاوية حلزون الدودة."
-      }
+      "businessContext": "Worm helix angle."
     },
     {
       "id": "suratmeAcisi",
       "label": "Friction Angle (Rad)",
-      "label_i18n": {
-        "en": "Friction Angle (Rad)",
-        "de": "Reibungswinkel",
-        "fr": "Angle de frottement",
-        "es": "Ángulo de fricción",
-        "ar": "زاوية الاحتكاك"
-      },
       "type": "number",
       "unit": "rad",
       "default": 0.15,
       "min": 0,
-      "businessContext": "Arctan of friction coefficient.",
-      "businessContext_i18n": {
-        "en": "Arctan of friction coefficient.",
-        "de": "Arkustangens des Reibungskoeffizienten.",
-        "fr": "Arctan du coefficient de frottement.",
-        "es": "Arcotangente del coeficiente de fricción.",
-        "ar": "ظل زاوية معامل الاحتكاك."
-      }
+      "businessContext": "Arctan of friction coefficient."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "Math.tan(helisAcisi) / Math.max(0.0001, Math.tan(helisAcisi + suratmeAcisi))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "efficiency",
     "breakdown": {
       "result": "Mekanik Verim"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Mekanik Verim",
-        "de": "Mechanical Efficiency",
-        "fr": "Rendement mécanique",
-        "es": "Eficiencia Mecánica",
-        "ar": "الكفاءة الميكانيكية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "efficiency"
+      "result": "efficiency"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate worm gear mechanical efficiency.",
-      "long": "Calculate worm gear mechanical efficiency.",
-      "short_i18n": {
-        "en": "Calculate worm gear mechanical efficiency.",
-        "de": "Berechnen Sie den mechanischen Wirkungsgrad eines Schneckengetriebes.",
-        "fr": "Calculer le rendement mécanique de l'engrenage à vis sans fin.",
-        "es": "Calcular la eficiencia mecánica de un engranaje de tornillo sin fin.",
-        "ar": "حساب الكفاءة الميكانيكية للترس الدودي."
-      },
-      "long_i18n": {
-        "en": "Calculate worm gear mechanical efficiency.",
-        "de": "Berechnen Sie den mechanischen Wirkungsgrad eines Schneckengetriebes.",
-        "fr": "Calculer le rendement mécanique de l'engrenage à vis sans fin.",
-        "es": "Calcular la eficiencia mecánica de un engranaje de tornillo sin fin.",
-        "ar": "حساب الكفاءة الميكانيكية للترس الدودي."
-      }
+      "long": "Calculate worm gear mechanical efficiency."
     }
-  },
-  "title_i18n": {
-    "en": "worm-gear-efficiency-calculator",
-    "de": "Schneckengetriebe-Wirkungsgrad-Rechner",
-    "fr": "Calculateur de rendement de vis sans fin",
-    "es": "Calculadora de eficiencia de tornillo sin fin",
-    "ar": "حاسبة كفاءة اللولب الدودي"
   },
   "sectorSlug": "daily-renovation"
 }

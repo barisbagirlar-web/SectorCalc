@@ -99,7 +99,7 @@ export default async function PremiumGeneratedToolRoutePage({
   return (
     <PageLayout>
       {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
-      <UniversalIndustrialDecisionForm schema={generatedToolSchemaToSuperV4Schema(schema as any, resolvedSlug)} executeEndpoint="/api/pro-calculator/execute" initialProfileMode="quick" />
+      <UniversalIndustrialDecisionForm schema={generatedToolSchemaToSuperV4Schema(schema as any, resolvedSlug)} executeEndpoint="/api/tool-execute" initialProfileMode="quick" accessTier="FREE" />
     </PageLayout>
   );
 }

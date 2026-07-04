@@ -8,94 +8,38 @@
     {
       "id": "torque",
       "label": "Torque (N.m)",
-      "label_i18n": {
-        "en": "Torque (N.m)",
-        "de": "Drehmoment",
-        "fr": "Couple",
-        "es": "Par motor",
-        "ar": "عزم الدوران"
-      },
       "type": "number",
       "unit": "N.m",
       "default": 1000,
       "min": 0,
-      "businessContext": "Torque on shaft.",
-      "businessContext_i18n": {
-        "en": "Torque on shaft.",
-        "de": "Drehmoment auf der Welle.",
-        "fr": "Couple sur l'arbre.",
-        "es": "Par en el eje.",
-        "ar": "عزم الالتواء على العمود."
-      }
+      "businessContext": "Torque on shaft."
     },
     {
       "id": "length",
       "label": "Shaft Length (m)",
-      "label_i18n": {
-        "en": "Shaft Length (m)",
-        "de": "Wellenlänge (m)",
-        "fr": "Longueur de l'arbre (m)",
-        "es": "Longitud del Eje (m)",
-        "ar": "طول العمود (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Shaft length under torsion.",
-      "businessContext_i18n": {
-        "en": "Shaft length under torsion.",
-        "de": "Wellenlänge unter Torsion.",
-        "fr": "Longueur de l'arbre sous torsion.",
-        "es": "Longitud del eje bajo torsión.",
-        "ar": "طول العمود تحت عزم الالتواء."
-      }
+      "businessContext": "Shaft length under torsion."
     },
     {
       "id": "kaymaModulu",
       "label": "Shear Modulus (Pa)",
-      "label_i18n": {
-        "en": "Shear Modulus (Pa)",
-        "de": "Schubmodul (Pa)",
-        "fr": "Module de cisaillement (Pa)",
-        "es": "Módulo de Corte (Pa)",
-        "ar": "معامل القص (Pa)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 80000000000,
       "min": 0,
-      "businessContext": "Material shear modulus.",
-      "businessContext_i18n": {
-        "en": "Material shear modulus.",
-        "de": "Schubmodul des Materials.",
-        "fr": "Module de cisaillement du matériau.",
-        "es": "Módulo de corte del material.",
-        "ar": "معامل قص المادة."
-      }
+      "businessContext": "Material shear modulus."
     },
     {
       "id": "kutupsalAtalet",
       "label": "Polar Moment (m⁴)",
-      "label_i18n": {
-        "en": "Polar Moment (m⁴)",
-        "de": "Polares Trägheitsmoment (m⁴)",
-        "fr": "Moment polaire (m⁴)",
-        "es": "Momento Polar (m⁴)",
-        "ar": "العزم القطبي (m⁴)"
-      },
       "type": "number",
       "unit": "m4",
       "default": 6.14e-7,
       "min": 0,
-      "businessContext": "J = πR⁴/2.",
-      "businessContext_i18n": {
-        "en": "J = πR⁴/2.",
-        "de": "J = πR⁴/2.",
-        "fr": "J = πR⁴/2.",
-        "es": "J = πR⁴/2.",
-        "ar": "J = πR⁴/2."
-      }
+      "businessContext": "J = πR⁴/2."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "(torque * length) / Math.max(0.0001, (kaymaModulu * kutupsalAtalet))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "rad",
     "breakdown": {
-      "result": "Burulma Acisi (θ)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Burulma Acisi (θ)",
-        "de": "Verdrehwinkel (θ)",
-        "fr": "Angle de torsion (θ)",
-        "es": "Ángulo de Torsión (θ)",
-        "ar": "زاوية الالتواء (θ)"
-      }
+      "result": "Twist Angle (θ)"
     },
     "breakdownUnits": {
-      "sonuc": "rad"
+      "result": "rad"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate total angle of twist in a shaft under torsion.",
-      "long": "Calculate total angle of twist in a shaft under torsion.",
-      "short_i18n": {
-        "en": "Calculate total angle of twist in a shaft under torsion.",
-        "de": "Berechnen Sie den gesamten Verdrehwinkel einer Welle unter Torsion.",
-        "fr": "Calculer l'angle de torsion total dans un arbre sous torsion.",
-        "es": "Calcular el ángulo total de torsión en un eje bajo torsión.",
-        "ar": "احسب الزاوية الكلية للالتواء في عمود تحت عزم الالتواء."
-      },
-      "long_i18n": {
-        "en": "Calculate total angle of twist in a shaft under torsion.",
-        "de": "Berechnen Sie den gesamten Verdrehwinkel einer Welle unter Torsion.",
-        "fr": "Calculer l'angle de torsion total dans un arbre sous torsion.",
-        "es": "Calcular el ángulo total de torsión en un eje bajo torsión.",
-        "ar": "احسب الزاوية الكلية للالتواء في عمود تحت عزم الالتواء."
-      }
+      "long": "Calculate total angle of twist in a shaft under torsion."
     }
-  },
-  "title_i18n": {
-    "en": "angle-of-twist-calculator",
-    "de": "Torsionswinkelrechner",
-    "fr": "Calculateur d'angle de torsion",
-    "es": "Calculadora de ángulo de torsión",
-    "ar": "حاسبة زاوية الالتواء"
   },
   "sectorSlug": "daily-renovation"
 }

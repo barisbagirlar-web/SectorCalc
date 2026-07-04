@@ -8,163 +8,65 @@
     {
       "id": "nakit1",
       "label": "Year 1 Cash Flow (USD)",
-      "label_i18n": {
-        "en": "Year 1 Cash Flow (USD)",
-        "de": "Jahr 1 Cashflow (USD)",
-        "fr": "Flux de trésorerie de l'année 1 (USD)",
-        "es": "Flujo de Caja Año 1 (USD)",
-        "ar": "التدفق النقدي للسنة الأولى (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "First year cash flow.",
-      "businessContext_i18n": {
-        "en": "First year cash flow.",
-        "de": "Cashflow des ersten Jahres.",
-        "fr": "Flux de trésorerie de la première année.",
-        "es": "Flujo de efectivo del primer año.",
-        "ar": "التدفق النقدي للسنة الأولى."
-      }
+      "businessContext": "First year cash flow."
     },
     {
       "id": "nakit2",
       "label": "Year 2 Cash Flow (USD)",
-      "label_i18n": {
-        "en": "Year 2 Cash Flow (USD)",
-        "de": "Jahr 2 Cashflow (USD)",
-        "fr": "Flux de trésorerie de l'année 2 (USD)",
-        "es": "Flujo de Caja Año 2 (USD)",
-        "ar": "التدفق النقدي للسنة الثانية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 40000,
       "min": 0,
-      "businessContext": "Second year cash flow.",
-      "businessContext_i18n": {
-        "en": "Second year cash flow.",
-        "de": "Cashflow des zweiten Jahres.",
-        "fr": "Flux de trésorerie de la deuxième année.",
-        "es": "Flujo de efectivo del segundo año.",
-        "ar": "التدفق النقدي للسنة الثانية."
-      }
+      "businessContext": "Second year cash flow."
     },
     {
       "id": "nakit3",
       "label": "Year 3 Cash Flow (USD)",
-      "label_i18n": {
-        "en": "Year 3 Cash Flow (USD)",
-        "de": "Jahr 3 Cashflow (USD)",
-        "fr": "Flux de trésorerie de l'année 3 (USD)",
-        "es": "Flujo de Caja Año 3 (USD)",
-        "ar": "التدفق النقدي للسنة الثالثة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Third year cash flow.",
-      "businessContext_i18n": {
-        "en": "Third year cash flow.",
-        "de": "Cashflow des dritten Jahres.",
-        "fr": "Flux de trésorerie de la troisième année.",
-        "es": "Flujo de efectivo del tercer año.",
-        "ar": "التدفق النقدي للسنة الثالثة."
-      }
+      "businessContext": "Third year cash flow."
     },
     {
       "id": "nakit4",
       "label": "Year 4 Cash Flow (USD)",
-      "label_i18n": {
-        "en": "Year 4 Cash Flow (USD)",
-        "de": "Cashflow Jahr 4 (USD)",
-        "fr": "Flux de trésorerie de l'année 4 (USD)",
-        "es": "Flujo de Efectivo Año 4 (USD)",
-        "ar": "التدفق النقدي للسنة الرابعة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 35000,
       "min": 0,
-      "businessContext": "Fourth year cash flow.",
-      "businessContext_i18n": {
-        "en": "Fourth year cash flow.",
-        "de": "Cashflow des vierten Jahres.",
-        "fr": "Flux de trésorerie de la quatrième année.",
-        "es": "Flujo de efectivo del cuarto año.",
-        "ar": "التدفق النقدي للسنة الرابعة."
-      }
+      "businessContext": "Fourth year cash flow."
     },
     {
       "id": "nakit5",
       "label": "Year 5 Cash Flow (USD)",
-      "label_i18n": {
-        "en": "Year 5 Cash Flow (USD)",
-        "de": "Cashflow Jahr 5 (USD)",
-        "fr": "Flux de trésorerie de l'année 5 (USD)",
-        "es": "Flujo de Efectivo Año 5 (USD)",
-        "ar": "التدفق النقدي للسنة الخامسة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Fifth year cash flow.",
-      "businessContext_i18n": {
-        "en": "Fifth year cash flow.",
-        "de": "Cashflow des funften Jahres.",
-        "fr": "Flux de trésorerie de la cinquième année.",
-        "es": "Flujo de efectivo del quinto año.",
-        "ar": "التدفق النقدي للسنة الخامسة."
-      }
+      "businessContext": "Fifth year cash flow."
     },
     {
       "id": "iskonto",
       "label": "Discount Rate (%)",
-      "label_i18n": {
-        "en": "Discount Rate (%)",
-        "de": "Diskontsatz (%)",
-        "fr": "Taux d'actualisation (%)",
-        "es": "Tasa de descuento (%)",
-        "ar": "معدل الخصم (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Discount rate reflecting cost of capital.",
-      "businessContext_i18n": {
-        "en": "Discount rate reflecting cost of capital.",
-        "de": "Diskontsatz, der die Kapitalkosten widerspiegelt.",
-        "fr": "Taux d'actualisation reflétant le coût du capital.",
-        "es": "Tasa de descuento que refleja el costo de capital.",
-        "ar": "معدل الخصم الذي يعكس تكلفة رأس المال."
-      }
+      "businessContext": "Discount rate reflecting cost of capital."
     },
     {
       "id": "investment",
       "label": "Initial Investment (USD)",
-      "label_i18n": {
-        "en": "Initial Investment (USD)",
-        "de": "Anfangsinvestition",
-        "fr": "Investissement initial",
-        "es": "Inversión Inicial",
-        "ar": "الاستثمار الأولي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Initial project investment.",
-      "businessContext_i18n": {
-        "en": "Initial project investment.",
-        "de": "Anfängliche Projektinvestition.",
-        "fr": "Investissement initial du projet.",
-        "es": "Inversión inicial del proyecto.",
-        "ar": "الاستثمار الأولي للمشروع."
-      }
+      "businessContext": "Initial project investment."
     }
   ],
   "validation": {
@@ -182,58 +84,28 @@
     "result": "(nakit1 / Math.pow(1 + iskonto / 100, 1) + nakit2 / Math.pow(1 + iskonto / 100, 2) + nakit3 / Math.pow(1 + iskonto / 100, 3) + nakit4 / Math.pow(1 + iskonto / 100, 4) + nakit5 / Math.pow(1 + iskonto / 100, 5)) - investment"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Net Present Value (NPV)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Net Present Value (NPV)",
-        "de": "Nettobarwert (NPV)",
-        "fr": "Valeur actuelle nette (VAN)",
-        "es": "Valor Presente Neto (NPV)",
-        "ar": "صافي القيمة الحالية (NPV)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate net present value (NPV) of a series of cash flows.",
-      "long": "Calculate net present value (NPV) of a series of cash flows.",
-      "short_i18n": {
-        "en": "Calculate net present value (NPV) of a series of cash flows.",
-        "de": "Nettobarwert (NPV) einer Reihe von Zahlungsstromen berechnen.",
-        "fr": "Calculer la valeur actuelle nette (VAN) d'une série de flux de trésorerie.",
-        "es": "Calcular el valor presente neto (VPN) de una serie de flujos de efectivo.",
-        "ar": "احسب صافي القيمة الحالية (NPV) لسلسلة من التدفقات النقدية."
-      },
-      "long_i18n": {
-        "en": "Calculate net present value (NPV) of a series of cash flows.",
-        "de": "Nettobarwert (NPV) einer Reihe von Zahlungsstromen berechnen.",
-        "fr": "Calculer la valeur actuelle nette (VAN) d'une série de flux de trésorerie.",
-        "es": "Calcular el valor presente neto (VPN) de una serie de flujos de efectivo.",
-        "ar": "احسب صافي القيمة الحالية (NPV) لسلسلة من التدفقات النقدية."
-      }
+      "long": "Calculate net present value (NPV) of a series of cash flows."
     }
-  },
-  "title_i18n": {
-    "en": "npv-calculator",
-    "de": "Nettobarwert NPV Rechner",
-    "fr": "Calculateur de valeur actuelle nette NPV",
-    "es": "Calculadora de valor actual neto NPV",
-    "ar": "حاسبة صافي القيمة الحالية NPV"
   },
   "sectorSlug": "ecommerce"
 }

@@ -8,48 +8,20 @@
     {
       "id": "cikisGuc",
       "label": "Output Power (W)",
-      "label_i18n": {
-        "en": "Output Power (W)",
-        "de": "Ausgangsleistung (W)",
-        "fr": "Puissance de sortie (W)",
-        "es": "Potencia de Salida (W)",
-        "ar": "طاقة الخرج (W)"
-      },
       "type": "number",
       "unit": "W",
       "default": 750,
       "min": 0,
-      "businessContext": "Shaft mechanical power.",
-      "businessContext_i18n": {
-        "en": "Shaft mechanical power.",
-        "de": "Mechanische Wellenleistung.",
-        "fr": "Puissance mécanique de l'arbre.",
-        "es": "Potencia mecánica del eje.",
-        "ar": "الطاقة الميكانيكية للعمود."
-      }
+      "businessContext": "Shaft mechanical power."
     },
     {
       "id": "girisGuc",
       "label": "Input Power (W)",
-      "label_i18n": {
-        "en": "Input Power (W)",
-        "de": "Eingangsleistung (W)",
-        "fr": "Puissance d'entrée (W)",
-        "es": "Potencia de Entrada (W)",
-        "ar": "طاقة الدخل (W)"
-      },
       "type": "number",
       "unit": "W",
       "default": 1000,
       "min": 0,
-      "businessContext": "Motor electrical power.",
-      "businessContext_i18n": {
-        "en": "Motor electrical power.",
-        "de": "Elektrische Motorleistung.",
-        "fr": "Puissance électrique du moteur.",
-        "es": "Potencia eléctrica del motor.",
-        "ar": "الطاقة الكهربائية للمحرك."
-      }
+      "businessContext": "Motor electrical power."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "(cikisGuc / Math.max(0.0001, girisGuc)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Motor Verimi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Motor Verimi",
-        "de": "Motorwirkungsgrad",
-        "fr": "Rendement du moteur",
-        "es": "Eficiencia del Motor",
-        "ar": "كفاءة المحرك"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [
       "High fuel/energy consumption indicates efficiency losses."
@@ -86,36 +49,15 @@
       "Regular maintenance improves overall equipment efficiency.",
       "Simulate real-world driving conditions for accurate range estimates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate electric motor efficiency.",
-      "long": "Calculate electric motor efficiency.",
-      "short_i18n": {
-        "en": "Calculate electric motor efficiency.",
-        "de": "Berechnen Sie den Wirkungsgrad eines Elektromotors.",
-        "fr": "Calculer l'efficacité du moteur électrique.",
-        "es": "Calcular la eficiencia del motor eléctrico.",
-        "ar": "حساب كفاءة المحرك الكهربائي."
-      },
-      "long_i18n": {
-        "en": "Calculate electric motor efficiency.",
-        "de": "Berechnen Sie den Wirkungsgrad eines Elektromotors.",
-        "fr": "Calculer l'efficacité du moteur électrique.",
-        "es": "Calcular la eficiencia del motor eléctrico.",
-        "ar": "حساب كفاءة المحرك الكهربائي."
-      }
+      "long": "Calculate electric motor efficiency."
     }
-  },
-  "title_i18n": {
-    "en": "motor-efficiency-calculator",
-    "de": "Motorwirkungsgradrechner",
-    "fr": "Calculateur de rendement moteur",
-    "es": "Calculadora de eficiencia del motor",
-    "ar": "حاسبة كفاءة المحرك"
   },
   "sectorSlug": "daily-renovation"
 }

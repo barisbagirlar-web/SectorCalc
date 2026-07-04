@@ -8,71 +8,29 @@
     {
       "id": "toplamYatirim",
       "label": "Total Investment (USD)",
-      "label_i18n": {
-        "en": "Total Investment (USD)",
-        "de": "Gesamtinvestitionsbetrag",
-        "fr": "Montant total de l'investissement",
-        "es": "Monto Total de Inversión",
-        "ar": "إجمالي مبلغ الاستثمار"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Plant installation cost.",
-      "businessContext_i18n": {
-        "en": "Plant installation cost.",
-        "de": "Anlageninstallationskosten.",
-        "fr": "Coût d'installation de l'usine.",
-        "es": "Costo de instalación de la planta.",
-        "ar": "تكلفة تركيب المحطة."
-      }
+      "businessContext": "Plant installation cost."
     },
     {
       "id": "toplamIsletme",
       "label": "Lifetime O&M (USD)",
-      "label_i18n": {
-        "en": "Lifetime O&M (USD)",
-        "de": "Lebensdauer O&M (USD)",
-        "fr": "O&M sur la durée de vie (USD)",
-        "es": "O&M de por vida (USD)",
-        "ar": "تكاليف التشغيل والصيانة طوال العمر (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Operation and maintenance costs.",
-      "businessContext_i18n": {
-        "en": "Operation and maintenance costs.",
-        "de": "Betriebs- und Wartungskosten.",
-        "fr": "Coûts d'exploitation et de maintenance.",
-        "es": "Costos de operación y mantenimiento.",
-        "ar": "تكاليف التشغيل والصيانة."
-      }
+      "businessContext": "Operation and maintenance costs."
     },
     {
       "id": "toplamUretim",
       "label": "Lifetime Production (kWh)",
-      "label_i18n": {
-        "en": "Lifetime Production (kWh)",
-        "de": "Lebensdauerproduktion (kWh)",
-        "fr": "Production sur la durée de vie (kWh)",
-        "es": "Producción de por vida (kWh)",
-        "ar": "الإنتاج طوال العمر (kWh)"
-      },
       "type": "number",
       "unit": "kWh",
       "default": 25000000,
       "min": 1,
-      "businessContext": "Total electricity generation.",
-      "businessContext_i18n": {
-        "en": "Total electricity generation.",
-        "de": "Gesamte Stromerzeugung.",
-        "fr": "Production totale d'électricité.",
-        "es": "Generación total de electricidad.",
-        "ar": "إجمالي توليد الكهرباء."
-      }
+      "businessContext": "Total electricity generation."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(toplamYatirim + toplamIsletme) / Math.max(1, toplamUretim)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "TRY/kWh",
     "breakdown": {
-      "result": "LCOE (Birim Enerji Maliyeti)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "LCOE (Birim Enerji Maliyeti)",
-        "de": "LCOE (Stromgestehungskosten)",
-        "fr": "LCOE (Levelized Cost of Energy)",
-        "es": "LCOE (Costo de Energía Unitaria)",
-        "ar": "التكلفة المعادلة للطاقة (LCOE)"
-      }
+      "result": "LCOE (Unit Enerji Maliyeti)"
     },
     "breakdownUnits": {
-      "sonuc": "TRY/kWh"
+      "result": "TRY/kWh"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Conduct regular OEE audits for improvement.",
       "Use SMED to reduce setup times."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate levelized cost of energy (LCOE).",
-      "long": "Calculate levelized cost of energy (LCOE).",
-      "short_i18n": {
-        "en": "Calculate levelized cost of energy (LCOE).",
-        "de": "Berechnen Sie die Stromgestehungskosten (LCOE).",
-        "fr": "Calculer le coût actualisé de l'énergie (LCOE).",
-        "es": "Calcular el costo nivelado de la energía (LCOE).",
-        "ar": "حساب التكلفة المعادلة للطاقة (LCOE)."
-      },
-      "long_i18n": {
-        "en": "Calculate levelized cost of energy (LCOE).",
-        "de": "Berechnen Sie die Stromgestehungskosten (LCOE).",
-        "fr": "Calculer le coût actualisé de l'énergie (LCOE).",
-        "es": "Calcular el costo nivelado de la energía (LCOE).",
-        "ar": "حساب التكلفة المعادلة للطاقة (LCOE)."
-      }
+      "long": "Calculate levelized cost of energy (LCOE)."
     }
-  },
-  "title_i18n": {
-    "en": "levelized-cost-of-energy-calculator",
-    "de": "LCOE-Energiekostenrechner",
-    "fr": "Calculateur de coût énergétique LCOE",
-    "es": "Calculadora de costo energético LCOE",
-    "ar": "حاسبة تكلفة الطاقة LCOE"
   },
   "sectorSlug": "energy-carbon"
 }

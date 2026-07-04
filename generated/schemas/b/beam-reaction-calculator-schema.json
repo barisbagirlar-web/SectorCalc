@@ -8,71 +8,29 @@
     {
       "id": "load",
       "label": "Point Load (N)",
-      "label_i18n": {
-        "en": "Point Load (N)",
-        "de": "Punktlast (P)",
-        "fr": "Charge ponctuelle (P)",
-        "es": "Carga Puntual (P)",
-        "ar": "الحمولة النقطية (P)"
-      },
       "type": "number",
       "unit": "N",
       "default": 10000,
       "min": 0,
-      "businessContext": "Point force on beam.",
-      "businessContext_i18n": {
-        "en": "Point force on beam.",
-        "de": "Einzelkraft auf den Träger.",
-        "fr": "Force ponctuelle sur la poutre.",
-        "es": "Fuerza puntual sobre la viga.",
-        "ar": "قوة نقطية على العتبة."
-      }
+      "businessContext": "Point force on beam."
     },
     {
       "id": "length",
       "label": "Beam Length (m)",
-      "label_i18n": {
-        "en": "Beam Length (m)",
-        "de": "Balkenlänge (L)",
-        "fr": "Longueur de la poutre (L)",
-        "es": "Longitud de la viga (L)",
-        "ar": "طول العارضة (L)"
-      },
       "type": "number",
       "unit": "m",
       "default": 6,
       "min": 0,
-      "businessContext": "Span between supports.",
-      "businessContext_i18n": {
-        "en": "Span between supports.",
-        "de": "Stutzweite.",
-        "fr": "Portée entre appuis.",
-        "es": "Vano entre apoyos.",
-        "ar": "المدى بين الإسناد."
-      }
+      "businessContext": "Span between supports."
     },
     {
       "id": "yukKonum",
       "label": "Load Distance from A (m)",
-      "label_i18n": {
-        "en": "Load Distance from A (m)",
-        "de": "Lastabstand von A (m)",
-        "fr": "Distance de la charge depuis A (m)",
-        "es": "Distancia de la carga desde A (m)",
-        "ar": "مسافة الحمل من A (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Distance from left support to load.",
-      "businessContext_i18n": {
-        "en": "Distance from left support to load.",
-        "de": "Abstand vom linken Auflager zur Last.",
-        "fr": "Distance de l'appui gauche à la charge.",
-        "es": "Distancia desde el apoyo izquierdo hasta la carga.",
-        "ar": "المسافة من الإسناد الأيسر إلى الحمل."
-      }
+      "businessContext": "Distance from left support to load."
     }
   ],
   "validation": {
@@ -86,67 +44,30 @@
     "result": "load - load * Math.max(0, (length - loadKonum)) / Math.max(0.0001, length)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "N",
     "breakdown": {
       "RA": "Tepki A (Rₐ)",
       "result": "Tepki B (Rᵦ)"
     },
-    "breakdown_i18n": {
-      "RA": {
-        "en": "Tepki A (Rₐ)",
-        "de": "Reaction A (Rₐ)",
-        "fr": "Réaction A (Rₐ)",
-        "es": "Respuesta A (Rₐ)",
-        "ar": "رد الفعل A (Rₐ)"
-      },
-      "result": {
-        "en": "Tepki B (Rᵦ)",
-        "de": "Reaction B (Rᵦ)",
-        "fr": "Réaction B (Rᵦ)",
-        "es": "Respuesta B (Rᵦ)",
-        "ar": "رد الفعل B (Rᵦ)"
-      }
-    },
     "breakdownUnits": {
       "RA": "N",
-      "sonuc": "N"
+      "result": "N"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Quantum effects are only observable at microscopic scales.",
       "These are idealized models."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate vertical reaction forces at simple beam supports.",
-      "long": "Calculate vertical reaction forces at simple beam supports.",
-      "short_i18n": {
-        "en": "Calculate vertical reaction forces at simple beam supports.",
-        "de": "Berechnen Sie die vertikalen Auflagerreaktionen an den Auflagern eines Einfeldträgers.",
-        "fr": "Calculer les réactions verticales aux appuis d'une poutre simple.",
-        "es": "Calcular las fuerzas de reacción vertical en los apoyos de una viga simple.",
-        "ar": "احسب قوى رد الفعل الرأسية عند إسناد العتبة البسيطة."
-      },
-      "long_i18n": {
-        "en": "Calculate vertical reaction forces at simple beam supports.",
-        "de": "Berechnen Sie die vertikalen Auflagerreaktionen an den Auflagern eines Einfeldträgers.",
-        "fr": "Calculer les réactions verticales aux appuis d'une poutre simple.",
-        "es": "Calcular las fuerzas de reacción vertical en los apoyos de una viga simple.",
-        "ar": "احسب قوى رد الفعل الرأسية عند إسناد العتبة البسيطة."
-      }
+      "long": "Calculate vertical reaction forces at simple beam supports."
     }
-  },
-  "title_i18n": {
-    "en": "beam-reaction-calculator",
-    "de": "Auflagerreaktionen Balken Rechner",
-    "fr": "Calculateur de Réactions d'Appui de Poutre",
-    "es": "Calculadora de Reacciones de Apoyo de Viga",
-    "ar": "حاسبة ردود فعل دعامات الكمرة"
   },
   "sectorSlug": "construction"
 }

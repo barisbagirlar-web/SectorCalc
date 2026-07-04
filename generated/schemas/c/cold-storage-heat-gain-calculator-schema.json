@@ -8,94 +8,38 @@
     {
       "id": "area",
       "label": "Total Surface Area (m²)",
-      "label_i18n": {
-        "en": "Total Surface Area (m²)",
-        "de": "Gesamtoberfläche (m²)",
-        "fr": "Surface totale (m²)",
-        "es": "Área de Superficie Total (m²)",
-        "ar": "إجمالي مساحة السطح (م²)"
-      },
       "type": "number",
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Heat transfer area.",
-      "businessContext_i18n": {
-        "en": "Heat transfer area.",
-        "de": "Wärmeubertragungsfläche.",
-        "fr": "Surface de transfert de chaleur.",
-        "es": "Área de transferencia de calor.",
-        "ar": "مساحة نقل الحرارة."
-      }
+      "businessContext": "Heat transfer area."
     },
     {
       "id": "UCoefficient",
       "label": "U-Value (W/m²K)",
-      "label_i18n": {
-        "en": "U-Value (W/m²K)",
-        "de": "U-Wert",
-        "fr": "U-Valeur",
-        "es": "U-Valor",
-        "ar": "U-القيمة"
-      },
       "type": "number",
       "unit": "W/m2K",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Insulation U-value.",
-      "businessContext_i18n": {
-        "en": "Insulation U-value.",
-        "de": "U-Wert der Isolierung.",
-        "fr": "Valeur U de l'isolation.",
-        "es": "Valor U del aislamiento.",
-        "ar": "قيمة U للعزل."
-      }
+      "businessContext": "Insulation U-value."
     },
     {
       "id": "disSicaklik",
       "label": "Ambient Temperature (°C)",
-      "label_i18n": {
-        "en": "Ambient Temperature (°C)",
-        "de": "Umgebungstemperatur (°C)",
-        "fr": "Température ambiante (°C)",
-        "es": "Temperatura Ambiente (°C)",
-        "ar": "درجة الحرارة المحيطة (°م)"
-      },
       "type": "number",
       "unit": "°C",
       "default": 35,
       "min": 0,
-      "businessContext": "Outside air temperature.",
-      "businessContext_i18n": {
-        "en": "Outside air temperature.",
-        "de": "Außenlufttemperatur.",
-        "fr": "Température de l'air extérieur.",
-        "es": "Temperatura del aire exterior.",
-        "ar": "درجة حرارة الهواء الخارجي."
-      }
+      "businessContext": "Outside air temperature."
     },
     {
       "id": "icSicaklik",
       "label": "Storage Temperature (°C)",
-      "label_i18n": {
-        "en": "Storage Temperature (°C)",
-        "de": "Lagertemperatur (°C)",
-        "fr": "Température de stockage (°C)",
-        "es": "Temperatura de Almacenamiento (°C)",
-        "ar": "درجة حرارة التخزين (°C)"
-      },
       "type": "number",
       "unit": "°C",
       "default": -20,
       "min": 0,
-      "businessContext": "Cold storage temperature.",
-      "businessContext_i18n": {
-        "en": "Cold storage temperature.",
-        "de": "Kuhllagertemperatur.",
-        "fr": "Température de l'entrepôt frigorifique.",
-        "es": "Temperatura de almacenamiento en frío.",
-        "ar": "درجة حرارة التخزين البارد."
-      }
+      "businessContext": "Cold storage temperature."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "area * UCoefficient * (disSicaklik - icSicaklik)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "W",
     "breakdown": {
       "result": "Sogutma Heat Load"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Sogutma Heat Load",
-        "de": "Kuhllast",
-        "fr": "Charge thermique de refroidissement",
-        "es": "Carga de Calor de Refrigeración",
-        "ar": "حمل التبريد الحراري"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "W"
+      "result": "W"
     },
     "hiddenLossDrivers": [
       "Waste in material or time indicates process improvement opportunity."
@@ -132,36 +67,15 @@
       "Optimize drying/cooling parameters for cycle time reduction.",
       "Monitor defects and adjust process conditions accordingly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate heat gain through cold storage insulation.",
-      "long": "Calculate heat gain through cold storage insulation.",
-      "short_i18n": {
-        "en": "Calculate heat gain through cold storage insulation.",
-        "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kuhllagers.",
-        "fr": "Calculer le gain de chaleur à travers l'isolation d'un entrepôt frigorifique.",
-        "es": "Calcular la ganancia de calor a través del aislamiento de almacenamiento en frío.",
-        "ar": "حساب اكتساب الحرارة عبر عزل التخزين البارد."
-      },
-      "long_i18n": {
-        "en": "Calculate heat gain through cold storage insulation.",
-        "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kuhllagers.",
-        "fr": "Calculer le gain de chaleur à travers l'isolation d'un entrepôt frigorifique.",
-        "es": "Calcular la ganancia de calor a través del aislamiento de almacenamiento en frío.",
-        "ar": "حساب اكتساب الحرارة عبر عزل التخزين البارد."
-      }
+      "long": "Calculate heat gain through cold storage insulation."
     }
-  },
-  "title_i18n": {
-    "en": "cold-storage-heat-gain-calculator",
-    "de": "Kuhllager-Wärmegewinn-Rechner",
-    "fr": "Calculateur de gain de chaleur d'entrepôt frigorifique",
-    "es": "Calculadora de ganancia de calor de almacén frigorífico",
-    "ar": "حاسبة اكتساب الحرارة للمخازن الباردة"
   },
   "sectorSlug": "daily-renovation"
 }

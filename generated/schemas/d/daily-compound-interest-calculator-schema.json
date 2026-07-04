@@ -8,71 +8,29 @@
     {
       "id": "anapara",
       "label": "Principal (USD)",
-      "label_i18n": {
-        "en": "Principal (USD)",
-        "de": "Anfangskapital",
-        "fr": "Capital initial",
-        "es": "Capital inicial",
-        "ar": "رأس المال الأولي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Initial investment amount.",
-      "businessContext_i18n": {
-        "en": "Initial investment amount.",
-        "de": "Anfänglicher Anlagebetrag.",
-        "fr": "Montant de l'investissement initial.",
-        "es": "Monto de inversión inicial.",
-        "ar": "مبلغ الاستثمار الأولي."
-      }
+      "businessContext": "Initial investment amount."
     },
     {
       "id": "interest",
       "label": "Annual Interest (%)",
-      "label_i18n": {
-        "en": "Annual Interest (%)",
-        "de": "Nominaler Jahreszinssatz",
-        "fr": "Taux d'intérêt annuel nominal",
-        "es": "Tasa de interés anual nominal",
-        "ar": "سعر الفائدة السنوي الاسمي"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Annual interest rate.",
-      "businessContext_i18n": {
-        "en": "Annual interest rate.",
-        "de": "Nominaler jährlicher Zinssatz.",
-        "fr": "Taux d'intérêt annuel nominal.",
-        "es": "Tasa de interés anual nominal.",
-        "ar": "سعر الفائدة السنوي الاسمي."
-      }
+      "businessContext": "Annual interest rate."
     },
     {
       "id": "day",
       "label": "Number of Days",
-      "label_i18n": {
-        "en": "Number of Days",
-        "de": "Anzahl der Tage",
-        "fr": "Nombre de jours",
-        "es": "Número de días",
-        "ar": "عدد الأيام"
-      },
       "type": "number",
       "unit": "days",
       "default": 365,
       "min": 1,
-      "businessContext": "Number of days for the term.",
-      "businessContext_i18n": {
-        "en": "Number of days for the term.",
-        "de": "Anzahl der Tage fur die Laufzeit.",
-        "fr": "Nombre de jours pour la durée.",
-        "es": "Número de días del plazo.",
-        "ar": "عدد أيام المدة."
-      }
+      "businessContext": "Number of days for the term."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "anapara * Math.pow(1 + interest / 36500, day)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Gunluk Bilesik Value"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gunluk Bilesik Value",
-        "de": "Täglicher Zinseszinswert",
-        "fr": "Valeur composée quotidienne",
-        "es": "Valor Compuesto Diario",
-        "ar": "القيمة المركبة اليومية"
-      }
+      "result": "Gunluk Compound Value"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate daily compound interest future value.",
-      "long": "Calculate daily compound interest future value.",
-      "short_i18n": {
-        "en": "Calculate daily compound interest future value.",
-        "de": "Berechnen Sie den zukunftigen Wert bei täglicher Zinseszinsrechnung.",
-        "fr": "Calculer la valeur future des intérêts composés quotidiens.",
-        "es": "Calcular el valor futuro del interés compuesto diario.",
-        "ar": "احسب القيمة المستقبلية للفائدة المركبة اليومية."
-      },
-      "long_i18n": {
-        "en": "Calculate daily compound interest future value.",
-        "de": "Berechnen Sie den zukunftigen Wert bei täglicher Zinseszinsrechnung.",
-        "fr": "Calculer la valeur future des intérêts composés quotidiens.",
-        "es": "Calcular el valor futuro del interés compuesto diario.",
-        "ar": "احسب القيمة المستقبلية للفائدة المركبة اليومية."
-      }
+      "long": "Calculate daily compound interest future value."
     }
-  },
-  "title_i18n": {
-    "en": "daily-compound-interest-calculator",
-    "de": "Täglicher Zinseszinsrechner",
-    "fr": "Calculateur d'intérêts composés quotidiens",
-    "es": "Calculadora de interés compuesto diario",
-    "ar": "حاسبة الفائدة المركبة اليومية"
   },
   "sectorSlug": "ecommerce"
 }

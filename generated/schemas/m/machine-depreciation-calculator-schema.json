@@ -8,71 +8,29 @@
     {
       "id": "bedel",
       "label": "Machine Cost (USD)",
-      "label_i18n": {
-        "en": "Machine Cost (USD)",
-        "de": "Jährliche Maschinenkosten insgesamt",
-        "fr": "Coûts annuels totaux des machines",
-        "es": "Costos anuales totales de maquinaria",
-        "ar": "إجمالي تكاليف الآلات السنوية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Machine purchase cost.",
-      "businessContext_i18n": {
-        "en": "Machine purchase cost.",
-        "de": "Anschaffungskosten der Maschine.",
-        "fr": "Coût d'achat de la machine.",
-        "es": "Costo de compra de la máquina.",
-        "ar": "تكلفة شراء الماكينة."
-      }
+      "businessContext": "Machine purchase cost."
     },
     {
       "id": "kalinti",
       "label": "Salvage Value (USD)",
-      "label_i18n": {
-        "en": "Salvage Value (USD)",
-        "de": "Restwert am Ende der Nutzungsdauer",
-        "fr": "Valeur de récupération en fin de vie",
-        "es": "Valor residual al final de la vida útil",
-        "ar": "قيمة الخردة في نهاية العمر الافتراضي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "End-of-life value.",
-      "businessContext_i18n": {
-        "en": "End-of-life value.",
-        "de": "Restwert am Ende der Nutzungsdauer.",
-        "fr": "Valeur en fin de vie.",
-        "es": "Valor al final de la vida útil.",
-        "ar": "القيمة في نهاية العمر الافتراضي."
-      }
+      "businessContext": "End-of-life value."
     },
     {
       "id": "uretimKapasite",
       "label": "Total Production Capacity",
-      "label_i18n": {
-        "en": "Total Production Capacity",
-        "de": "Gesamtproduktionskapazität",
-        "fr": "Capacité de production totale",
-        "es": "Capacidad total de producción",
-        "ar": "إجمالي الطاقة الإنتاجية"
-      },
       "type": "number",
       "unit": "units",
       "default": 1000000,
       "min": 1,
-      "businessContext": "Total units over machine life.",
-      "businessContext_i18n": {
-        "en": "Total units over machine life.",
-        "de": "Gesamteinheiten uber die Maschinenlebensdauer.",
-        "fr": "Nombre total d'unités sur la durée de vie de la machine.",
-        "es": "Unidades totales durante la vida útil de la máquina.",
-        "ar": "إجمالي الوحدات على مدى عمر الماكينة."
-      }
+      "businessContext": "Total units over machine life."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(bedel - kalinti) / Math.max(1, uretimKapasite)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "TRY/unit",
     "breakdown": {
-      "result": "Birim Amortisman"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Birim Amortisman",
-        "de": "Einheitsabschreibung",
-        "fr": "Amortissement unitaire",
-        "es": "Amortización por unidad",
-        "ar": "الإهلاك لكل وحدة"
-      }
+      "result": "Unit Depreciation"
     },
     "breakdownUnits": {
-      "sonuc": "TRY/unit"
+      "result": "TRY/unit"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Conduct regular OEE audits for improvement.",
       "Use SMED to reduce setup times."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate depreciation cost per unit based on production capacity.",
-      "long": "Calculate depreciation cost per unit based on production capacity.",
-      "short_i18n": {
-        "en": "Calculate depreciation cost per unit based on production capacity.",
-        "de": "Berechnen Sie die Abschreibungskosten pro Einheit basierend auf der Produktionskapazität.",
-        "fr": "Calculer le coût d'amortissement par unité en fonction de la capacité de production.",
-        "es": "Calcular el costo de depreciación por unidad basado en la capacidad de producción.",
-        "ar": "احسب تكلفة الإهلاك لكل وحدة بناءً على الطاقة الإنتاجية."
-      },
-      "long_i18n": {
-        "en": "Calculate depreciation cost per unit based on production capacity.",
-        "de": "Berechnen Sie die Abschreibungskosten pro Einheit basierend auf der Produktionskapazität.",
-        "fr": "Calculer le coût d'amortissement par unité en fonction de la capacité de production.",
-        "es": "Calcular el costo de depreciación por unidad basado en la capacidad de producción.",
-        "ar": "احسب تكلفة الإهلاك لكل وحدة بناءً على الطاقة الإنتاجية."
-      }
+      "long": "Calculate depreciation cost per unit based on production capacity."
     }
-  },
-  "title_i18n": {
-    "en": "machine-depreciation-calculator",
-    "de": "Maschinenabschreibungsrechner",
-    "fr": "Calculateur d'amortissement de machine",
-    "es": "Calculadora de depreciación de maquinaria",
-    "ar": "حاسبة إهلاك الآلات"
   },
   "sectorSlug": "ecommerce"
 }

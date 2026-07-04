@@ -8,94 +8,38 @@
     {
       "id": "en",
       "label": "Width (cm)",
-      "label_i18n": {
-        "en": "Width (cm)",
-        "de": "Breite (cm)",
-        "fr": "Largeur (cm)",
-        "es": "Ancho (cm)",
-        "ar": "العرض (سم)"
-      },
       "type": "number",
       "unit": "cm",
       "default": 30,
       "min": 0,
-      "businessContext": "Package width.",
-      "businessContext_i18n": {
-        "en": "Package width.",
-        "de": "Paketbreite.",
-        "fr": "Largeur du colis.",
-        "es": "Ancho del paquete.",
-        "ar": "عرض الطرد."
-      }
+      "businessContext": "Package width."
     },
     {
       "id": "boy",
       "label": "Length (cm)",
-      "label_i18n": {
-        "en": "Length (cm)",
-        "de": "Länge (cm)",
-        "fr": "Longueur (cm)",
-        "es": "Longitud (cm)",
-        "ar": "الطول (سم)"
-      },
       "type": "number",
       "unit": "cm",
       "default": 40,
       "min": 0,
-      "businessContext": "Package length.",
-      "businessContext_i18n": {
-        "en": "Package length.",
-        "de": "Paketlänge.",
-        "fr": "Longueur du colis.",
-        "es": "Largo del paquete.",
-        "ar": "طول الطرد."
-      }
+      "businessContext": "Package length."
     },
     {
       "id": "height",
       "label": "Height (cm)",
-      "label_i18n": {
-        "en": "Height (cm)",
-        "de": "Hohe (cm)",
-        "fr": "Hauteur (cm)",
-        "es": "Altura (cm)",
-        "ar": "الارتفاع (سم)"
-      },
       "type": "number",
       "unit": "cm",
       "default": 30,
       "min": 0,
-      "businessContext": "Package height.",
-      "businessContext_i18n": {
-        "en": "Package height.",
-        "de": "Pakethohe.",
-        "fr": "Hauteur du colis.",
-        "es": "Alto del paquete.",
-        "ar": "ارتفاع الطرد."
-      }
+      "businessContext": "Package height."
     },
     {
       "id": "bolen",
       "label": "Divider (Vol. Factor)",
-      "label_i18n": {
-        "en": "Divider (Vol. Factor)",
-        "de": "Divisor (Volumenfaktor)",
-        "fr": "Diviseur (facteur volumétrique)",
-        "es": "Divisor (Factor Vol.)",
-        "ar": "المقسوم (عامل الحجم)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 3000,
       "min": 1,
-      "businessContext": "Carrier's volumetric divisor.",
-      "businessContext_i18n": {
-        "en": "Carrier's volumetric divisor.",
-        "de": "Volumengewicht-Divisor des Frachtfuhrers.",
-        "fr": "Diviseur volumétrique du transporteur.",
-        "es": "Divisor volumétrico del transportista.",
-        "ar": "المقسوم الحجمي لشركة النقل."
-      }
+      "businessContext": "Carrier's volumetric divisor."
     }
   ],
   "validation": {
@@ -105,61 +49,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "(en * boy * height) / Math.max(1, bolen)"
+    "result": "(en * length * height) / Math.max(1, bolen)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kg",
     "breakdown": {
       "result": "Volumesel Weight (Desi)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Volumesel Weight (Desi)",
-        "de": "Volumetric Weight (Desi)",
-        "fr": "Poids volumétrique (Desi)",
-        "es": "Peso Volumétrico (Desi)",
-        "ar": "الوزن الحجمي (Desi)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kg"
+      "result": "kg"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Factor in return rates and chargebacks.",
       "Review platform fee schedules regularly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate volumetric weight (desi) for cargo pricing.",
-      "long": "Calculate volumetric weight (desi) for cargo pricing.",
-      "short_i18n": {
-        "en": "Calculate volumetric weight (desi) for cargo pricing.",
-        "de": "Berechnen Sie das Volumengewicht (Desi) fur die Frachtpreisgestaltung.",
-        "fr": "Calculer le poids volumétrique (desi) pour la tarification du fret.",
-        "es": "Calcular el peso volumétrico (desi) para el precio de carga.",
-        "ar": "حساب الوزن الحجمي (desi) لتسعير الشحن."
-      },
-      "long_i18n": {
-        "en": "Calculate volumetric weight (desi) for cargo pricing.",
-        "de": "Berechnen Sie das Volumengewicht (Desi) fur die Frachtpreisgestaltung.",
-        "fr": "Calculer le poids volumétrique (desi) pour la tarification du fret.",
-        "es": "Calcular el peso volumétrico (desi) para el precio de carga.",
-        "ar": "حساب الوزن الحجمي (desi) لتسعير الشحن."
-      }
+      "long": "Calculate volumetric weight (desi) for cargo pricing."
     }
-  },
-  "title_i18n": {
-    "en": "volumetric-weight-calculator",
-    "de": "Volumengewichtsrechner (Desi)",
-    "fr": "Calculateur de poids volumétrique (Desi)",
-    "es": "Calculadora de peso volumétrico (Desi)",
-    "ar": "حاسبة الوزن الحجمي (Desi)"
   },
   "sectorSlug": "daily-renovation"
 }

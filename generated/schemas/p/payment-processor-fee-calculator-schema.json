@@ -8,71 +8,29 @@
     {
       "id": "satis",
       "label": "Sale Amount (USD)",
-      "label_i18n": {
-        "en": "Sale Amount (USD)",
-        "de": "Verkaufsbetrag",
-        "fr": "Montant de la vente",
-        "es": "Monto de venta",
-        "ar": "مبلغ البيع"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Amount charged to customer.",
-      "businessContext_i18n": {
-        "en": "Amount charged to customer.",
-        "de": "Dem Kunden berechneter Betrag.",
-        "fr": "Montant facturé au client.",
-        "es": "Monto cobrado al cliente.",
-        "ar": "المبلغ المحصل من العميل."
-      }
+      "businessContext": "Amount charged to customer."
     },
     {
       "id": "yuzde",
       "label": "Percentage Fee (%)",
-      "label_i18n": {
-        "en": "Percentage Fee (%)",
-        "de": "Prozentsatzgebuhr (%)",
-        "fr": "Frais en pourcentage (%)",
-        "es": "Tarifa de Porcentaje (%)",
-        "ar": "رسوم النسبة المئوية (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 2.9,
       "min": 0,
-      "businessContext": "Transaction percentage.",
-      "businessContext_i18n": {
-        "en": "Transaction percentage.",
-        "de": "Transaktionsprozentsatz.",
-        "fr": "Pourcentage de transaction.",
-        "es": "Porcentaje de la transacción.",
-        "ar": "نسبة المعاملة."
-      }
+      "businessContext": "Transaction percentage."
     },
     {
       "id": "sabit",
       "label": "Fixed Fee (USD)",
-      "label_i18n": {
-        "en": "Fixed Fee (USD)",
-        "de": "Feste Gebuhr (USD)",
-        "fr": "Frais fixes (USD)",
-        "es": "Tarifa fija (USD)",
-        "ar": "الرسوم الثابتة (دولار أمريكي)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 2.35,
       "min": 0,
-      "businessContext": "Fixed transaction fee.",
-      "businessContext_i18n": {
-        "en": "Fixed transaction fee.",
-        "de": "Feste Transaktionsgebuhr.",
-        "fr": "Frais de transaction fixes.",
-        "es": "Tarifa fija por transacción.",
-        "ar": "رسوم المعاملة الثابتة."
-      }
+      "businessContext": "Fixed transaction fee."
     }
   ],
   "validation": {
@@ -86,58 +44,28 @@
     "result": "satis - ((satis * yuzde / 100) + sabit)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Net Hesaba Gecen Tutar"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Net Hesaba Gecen Tutar",
-        "de": "Netto-Gutschriftbetrag",
-        "fr": "Montant net crédité",
-        "es": "Monto Neto Depositado",
-        "ar": "صافي المبلغ المحول"
-      }
+      "result": "Net Settlement Amount"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Factor in return rates and chargebacks.",
       "Review platform fee schedules regularly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-      "long": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-      "short_i18n": {
-        "en": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-        "de": "Berechnen Sie den Nettobetrag nach Abzug der Gebuhren des Zahlungsabwicklers Stripe/PayPal.",
-        "fr": "Calculer le montant net après les frais de traitement des paiements Stripe/PayPal.",
-        "es": "Calcular el monto neto después de las comisiones del procesador de pagos Stripe/PayPal.",
-        "ar": "حساب صافي التسوية بعد رسوم معالج الدفع (Stripe/PayPal)."
-      },
-      "long_i18n": {
-        "en": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-        "de": "Berechnen Sie den Nettobetrag nach Abzug der Gebuhren des Zahlungsabwicklers Stripe/PayPal.",
-        "fr": "Calculer le montant net après les frais de traitement des paiements Stripe/PayPal.",
-        "es": "Calcular el monto neto después de las comisiones del procesador de pagos Stripe/PayPal.",
-        "ar": "حساب صافي التسوية بعد رسوم معالج الدفع (Stripe/PayPal)."
-      }
+      "long": "Calculate net settlement after Stripe/PayPal payment processor fees."
     }
-  },
-  "title_i18n": {
-    "en": "payment-processor-fee-calculator",
-    "de": "Zahlungsanbieter-Gebuhrenrechner",
-    "fr": "Calculateur de frais de fournisseur de paiement",
-    "es": "Calculadora de tarifas de proveedor de pagos",
-    "ar": "حاسبة رسوم مزود الدفع"
   },
   "sectorSlug": "daily-renovation"
 }

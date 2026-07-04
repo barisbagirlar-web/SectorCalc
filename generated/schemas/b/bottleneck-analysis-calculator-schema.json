@@ -8,71 +8,29 @@
     {
       "id": "istasyon1",
       "label": "Station 1 Time (Min)",
-      "label_i18n": {
-        "en": "Station 1 Time (Min)",
-        "de": "Station 1 Zeit (Min)",
-        "fr": "Temps au poste 1 (Min)",
-        "es": "Tiempo en la Estación 1 (min)",
-        "ar": "وقت المحطة 1 (Min)"
-      },
       "type": "number",
       "unit": "min",
       "default": 45,
       "min": 0,
-      "businessContext": "First station operation time.",
-      "businessContext_i18n": {
-        "en": "First station operation time.",
-        "de": "Bearbeitungszeit der ersten Station.",
-        "fr": "Temps d'opération au premier poste.",
-        "es": "Tiempo de operación de la primera estación.",
-        "ar": "وقت تشغيل المحطة الأولى."
-      }
+      "businessContext": "First station operation time."
     },
     {
       "id": "istasyon2",
       "label": "Station 2 Time (Min)",
-      "label_i18n": {
-        "en": "Station 2 Time (Min)",
-        "de": "Station 2 Zeit (Min)",
-        "fr": "Temps au poste 2 (Min)",
-        "es": "Tiempo en la Estación 2 (min)",
-        "ar": "وقت المحطة 2 (Min)"
-      },
       "type": "number",
       "unit": "min",
       "default": 60,
       "min": 0,
-      "businessContext": "Second station time.",
-      "businessContext_i18n": {
-        "en": "Second station time.",
-        "de": "Bearbeitungszeit der zweiten Station.",
-        "fr": "Temps au deuxième poste.",
-        "es": "Tiempo de la segunda estación.",
-        "ar": "وقت المحطة الثانية."
-      }
+      "businessContext": "Second station time."
     },
     {
       "id": "istasyon3",
       "label": "Station 3 Time (Min)",
-      "label_i18n": {
-        "en": "Station 3 Time (Min)",
-        "de": "Station 3 Zeit (Min)",
-        "fr": "Temps au poste 3 (Min)",
-        "es": "Tiempo en la Estación 3 (min)",
-        "ar": "وقت المحطة 3 (Min)"
-      },
       "type": "number",
       "unit": "min",
       "default": 50,
       "min": 0,
-      "businessContext": "Third station time.",
-      "businessContext_i18n": {
-        "en": "Third station time.",
-        "de": "Bearbeitungszeit der dritten Station.",
-        "fr": "Temps au troisième poste.",
-        "es": "Tiempo de la tercera estación.",
-        "ar": "وقت المحطة الثالثة."
-      }
+      "businessContext": "Third station time."
     }
   ],
   "validation": {
@@ -86,58 +44,28 @@
     "result": "60 / Math.max(0.0001, Math.max(istasyon1, istasyon2, istasyon3))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "units/hour",
     "breakdown": {
       "result": "Maximum Production Speed"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Maximum Production Speed",
-        "de": "Maximum Production Rate",
-        "fr": "Taux de production maximal",
-        "es": "Velocidad Máxima de Producción",
-        "ar": "أقصى معدل إنتاج"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "units/hour"
+      "result": "units/hour"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Conduct regular OEE audits for improvement.",
       "Use SMED to reduce setup times."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Identify bottleneck and calculate maximum production rate.",
-      "long": "Identify bottleneck and calculate maximum production rate.",
-      "short_i18n": {
-        "en": "Identify bottleneck and calculate maximum production rate.",
-        "de": "Identifizierung des Engpasses und Berechnung der maximalen Produktionsrate.",
-        "fr": "Identifier le goulot d'étranglement et calculer le taux de production maximal.",
-        "es": "Identificar el cuello de botella y calcular la tasa máxima de producción.",
-        "ar": "تحديد عنق الزجاجة وحساب أقصى معدل إنتاج."
-      },
-      "long_i18n": {
-        "en": "Identify bottleneck and calculate maximum production rate.",
-        "de": "Identifizierung des Engpasses und Berechnung der maximalen Produktionsrate.",
-        "fr": "Identifier le goulot d'étranglement et calculer le taux de production maximal.",
-        "es": "Identificar el cuello de botella y calcular la tasa máxima de producción.",
-        "ar": "تحديد عنق الزجاجة وحساب أقصى معدل إنتاج."
-      }
+      "long": "Identify bottleneck and calculate maximum production rate."
     }
-  },
-  "title_i18n": {
-    "en": "bottleneck-analysis-calculator",
-    "de": "Engpassanalyse-Rechner",
-    "fr": "Calculateur d'analyse des goulots d'étranglement",
-    "es": "Calculadora de análisis de cuellos de botella",
-    "ar": "حاسبة تحليل الاختناقات"
   },
   "sectorSlug": "daily-renovation"
 }

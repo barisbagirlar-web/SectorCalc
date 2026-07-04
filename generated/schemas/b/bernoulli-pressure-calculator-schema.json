@@ -8,140 +8,56 @@
     {
       "id": "P1",
       "label": "Point 1 Pressure (Pa)",
-      "label_i18n": {
-        "en": "Point 1 Pressure (Pa)",
-        "de": "Druck am Punkt 1 (Pa)",
-        "fr": "Pression au point 1 (Pa)",
-        "es": "Presión en el Punto 1 (Pa)",
-        "ar": "ضغط النقطة 1 (Pa)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 200000,
       "min": 0,
-      "businessContext": "Static pressure at point 1.",
-      "businessContext_i18n": {
-        "en": "Static pressure at point 1.",
-        "de": "Statischer Druck am Punkt 1.",
-        "fr": "Pression statique au point 1.",
-        "es": "Presión estática en el punto 1.",
-        "ar": "الضغط الساكن عند النقطة 1."
-      }
+      "businessContext": "Static pressure at point 1."
     },
     {
       "id": "v1",
       "label": "Point 1 Velocity (m/s)",
-      "label_i18n": {
-        "en": "Point 1 Velocity (m/s)",
-        "de": "Geschwindigkeit am Punkt 1 (m/s)",
-        "fr": "Vitesse au point 1 (m/s)",
-        "es": "Velocidad en el Punto 1 (m/s)",
-        "ar": "سرعة النقطة 1 (m/s)"
-      },
       "type": "number",
       "unit": "m/s",
       "default": 2,
       "min": 0,
-      "businessContext": "Flow velocity at point 1.",
-      "businessContext_i18n": {
-        "en": "Flow velocity at point 1.",
-        "de": "Stromungsgeschwindigkeit am Punkt 1.",
-        "fr": "Vitesse d'écoulement au point 1.",
-        "es": "Velocidad del flujo en el punto 1.",
-        "ar": "سرعة التدفق عند النقطة 1."
-      }
+      "businessContext": "Flow velocity at point 1."
     },
     {
       "id": "v2",
       "label": "Point 2 Velocity (m/s)",
-      "label_i18n": {
-        "en": "Point 2 Velocity (m/s)",
-        "de": "Geschwindigkeit am Punkt 2 (m/s)",
-        "fr": "Vitesse au point 2 (m/s)",
-        "es": "Velocidad en el Punto 2 (m/s)",
-        "ar": "سرعة النقطة 2 (m/s)"
-      },
       "type": "number",
       "unit": "m/s",
       "default": 4,
       "min": 0,
-      "businessContext": "Flow velocity at point 2.",
-      "businessContext_i18n": {
-        "en": "Flow velocity at point 2.",
-        "de": "Stromungsgeschwindigkeit am Punkt 2.",
-        "fr": "Vitesse d'écoulement au point 2.",
-        "es": "Velocidad del flujo en el punto 2.",
-        "ar": "سرعة التدفق عند النقطة 2."
-      }
+      "businessContext": "Flow velocity at point 2."
     },
     {
       "id": "h1",
       "label": "Point 1 Height (m)",
-      "label_i18n": {
-        "en": "Point 1 Height (m)",
-        "de": "Hohe am Punkt 1 (m)",
-        "fr": "Hauteur au point 1 (m)",
-        "es": "Altura en el Punto 1 (m)",
-        "ar": "ارتفاع النقطة 1 (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Elevation at point 1.",
-      "businessContext_i18n": {
-        "en": "Elevation at point 1.",
-        "de": "Hohenlage am Punkt 1.",
-        "fr": "Altitude au point 1.",
-        "es": "Elevación en el punto 1.",
-        "ar": "الارتفاع عند النقطة 1."
-      }
+      "businessContext": "Elevation at point 1."
     },
     {
       "id": "h2",
       "label": "Point 2 Height (m)",
-      "label_i18n": {
-        "en": "Point 2 Height (m)",
-        "de": "Hohe am Punkt 2 (m)",
-        "fr": "Hauteur au point 2 (m)",
-        "es": "Altura en el Punto 2 (m)",
-        "ar": "ارتفاع النقطة 2 (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Elevation at point 2.",
-      "businessContext_i18n": {
-        "en": "Elevation at point 2.",
-        "de": "Hohenlage am Punkt 2.",
-        "fr": "Altitude au point 2.",
-        "es": "Elevación en el punto 2.",
-        "ar": "الارتفاع عند النقطة 2."
-      }
+      "businessContext": "Elevation at point 2."
     },
     {
-      "id": "yogunluk",
+      "id": "density",
       "label": "Fluid Density (kg/m³)",
-      "label_i18n": {
-        "en": "Fluid Density (kg/m³)",
-        "de": "Fluiddichte",
-        "fr": "Densité du fluide",
-        "es": "Densidad del fluido",
-        "ar": "كثافة المائع"
-      },
       "type": "number",
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Fluid density.",
-      "businessContext_i18n": {
-        "en": "Fluid density.",
-        "de": "Fluiddichte.",
-        "fr": "Masse volumique du fluide.",
-        "es": "Densidad del fluido.",
-        "ar": "كثافة المائع."
-      }
+      "businessContext": "Fluid density."
     }
   ],
   "validation": {
@@ -151,61 +67,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "P1 + 0.5 * yogunluk * (v1 * v1 - v2 * v2) + yogunluk * 9.81 * (h1 - h2)"
+    "result": "P1 + 0.5 * density * (v1 * v1 - v2 * v2) + density * 9.81 * (h1 - h2)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "2nd Nokta Pressure (P₂)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "2nd Nokta Pressure (P₂)",
-        "de": "Point 2 Pressure (P₂)",
-        "fr": "Pression au point 2 (P₂)",
-        "es": "Presión en el Punto 2 (P₂)",
-        "ar": "ضغط النقطة 2 (P₂)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Use calibrated equipment for measurements.",
       "Consider temperature effects on material properties."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate static pressure at a point using Bernoulli's equation.",
-      "long": "Calculate static pressure at a point using Bernoulli's equation.",
-      "short_i18n": {
-        "en": "Calculate static pressure at a point using Bernoulli's equation.",
-        "de": "Berechnen Sie den statischen Druck an einem Punkt mit der Bernoulli-Gleichung.",
-        "fr": "Calculer la pression statique en un point à l'aide de l'équation de Bernoulli.",
-        "es": "Calcular la presión estática en un punto usando la ecuación de Bernoulli.",
-        "ar": "احسب الضغط الساكن عند نقطة باستخدام معادلة برنولي."
-      },
-      "long_i18n": {
-        "en": "Calculate static pressure at a point using Bernoulli's equation.",
-        "de": "Berechnen Sie den statischen Druck an einem Punkt mit der Bernoulli-Gleichung.",
-        "fr": "Calculer la pression statique en un point à l'aide de l'équation de Bernoulli.",
-        "es": "Calcular la presión estática en un punto usando la ecuación de Bernoulli.",
-        "ar": "احسب الضغط الساكن عند نقطة باستخدام معادلة برنولي."
-      }
+      "long": "Calculate static pressure at a point using Bernoulli's equation."
     }
-  },
-  "title_i18n": {
-    "en": "bernoulli-pressure-calculator",
-    "de": "Bernoulli-Gleichungsrechner",
-    "fr": "Calculateur d'équation de Bernoulli",
-    "es": "Calculadora de ecuación de Bernoulli",
-    "ar": "حاسبة معادلة برنولي"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -2,101 +2,45 @@
   "toolName": "customer-lifetime-value-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "ortSiparis",
       "label": "Avg Order Value (USD)",
-      "label_i18n": {
-        "en": "Avg Order Value (USD)",
-        "de": "Durchschnittlicher Bestellwert (USD)",
-        "fr": "Valeur moyenne de commande (USD)",
-        "es": "Valor Promedio del Pedido (USD)",
-        "ar": "متوسط قيمة الطلب (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Average order value.",
-      "businessContext_i18n": {
-        "en": "Average order value.",
-        "de": "Durchschnittlicher Bestellwert.",
-        "fr": "Valeur moyenne de commande.",
-        "es": "Valor promedio del pedido.",
-        "ar": "متوسط قيمة الطلب."
-      }
+      "businessContext": "Average order value."
     },
     {
       "id": "siklik",
       "label": "Orders per Year",
-      "label_i18n": {
-        "en": "Orders per Year",
-        "de": "Bestellungen pro Jahr",
-        "fr": "Commandes par an",
-        "es": "Pedidos por Año",
-        "ar": "الطلبات سنويًا"
-      },
       "type": "number",
       "unit": "per year",
       "default": 12,
       "min": 1,
-      "businessContext": "Purchase frequency per year.",
-      "businessContext_i18n": {
-        "en": "Purchase frequency per year.",
-        "de": "Kauffrequenz pro Jahr.",
-        "fr": "Fréquence d'achat par an.",
-        "es": "Frecuencia de compra por año.",
-        "ar": "تكرار الشراء سنويًا."
-      }
+      "businessContext": "Purchase frequency per year."
     },
     {
       "id": "omur",
       "label": "Customer Lifetime (Years)",
-      "label_i18n": {
-        "en": "Customer Lifetime (Years)",
-        "de": "Kundenlebensdauer (Jahre)",
-        "fr": "Durée de vie client (années)",
-        "es": "Vida útil del cliente (años)",
-        "ar": "عمر العميل (بالسنوات)"
-      },
       "type": "number",
       "unit": "years",
       "default": 3,
       "min": 0,
-      "businessContext": "Average customer retention.",
-      "businessContext_i18n": {
-        "en": "Average customer retention.",
-        "de": "Durchschnittliche Kundenbindung.",
-        "fr": "Rétention moyenne des clients.",
-        "es": "Retención promedio de clientes.",
-        "ar": "متوسط الاحتفاظ بالعملاء."
-      }
+      "businessContext": "Average customer retention."
     },
     {
       "id": "marj",
       "label": "Profit Margin (%)",
-      "label_i18n": {
-        "en": "Profit Margin (%)",
-        "de": "Zielgewinnmarge (%)",
-        "fr": "Marge bénéficiaire cible (%)",
-        "es": "Margen de beneficio objetivo (%)",
-        "ar": "هامش الربح المستهدف (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Net profit margin.",
-      "businessContext_i18n": {
-        "en": "Net profit margin.",
-        "de": "Nettogewinnmarge.",
-        "fr": "Marge bénéficiaire nette.",
-        "es": "Margen de beneficio neto.",
-        "ar": "هامش الربح الصافي."
-      }
+      "businessContext": "Net profit margin."
     }
   ],
   "validation": {
@@ -109,58 +53,28 @@
     "result": "ortSiparis * siklik * omur * (marj / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Customer Lifetime Value (CLV)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Customer Lifetime Value (CLV)",
-        "de": "Kundenlebenszeitwert (CLV)",
-        "fr": "Valeur à vie du client (CLV)",
-        "es": "Valor de Vida del Cliente (CLV)",
-        "ar": "القيمة الدائمة للعميل (CLV)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate customer lifetime value (CLV).",
-      "long": "Calculate customer lifetime value (CLV).",
-      "short_i18n": {
-        "en": "Calculate customer lifetime value (CLV).",
-        "de": "Kundenlebenszeitwert (CLV) berechnen.",
-        "fr": "Calculer la valeur à vie du client (CLV).",
-        "es": "Calcular el valor de vida del cliente (CLV).",
-        "ar": "احسب القيمة الدائمة للعميل (CLV)."
-      },
-      "long_i18n": {
-        "en": "Calculate customer lifetime value (CLV).",
-        "de": "Kundenlebenszeitwert (CLV) berechnen.",
-        "fr": "Calculer la valeur à vie du client (CLV).",
-        "es": "Calcular el valor de vida del cliente (CLV).",
-        "ar": "احسب القيمة الدائمة للعميل (CLV)."
-      }
+      "long": "Calculate customer lifetime value (CLV)."
     }
-  },
-  "title_i18n": {
-    "en": "customer-lifetime-value-calculator",
-    "de": "Customer Lifetime Value CLV Rechner",
-    "fr": "Calculateur de valeur à vie du client CLV",
-    "es": "Calculadora de valor de vida del cliente CLV",
-    "ar": "حاسبة القيمة الدائمة للعميل CLV"
   },
   "sectorSlug": "daily-renovation"
 }

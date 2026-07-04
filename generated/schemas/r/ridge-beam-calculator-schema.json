@@ -8,48 +8,20 @@
     {
       "id": "catiYuk",
       "label": "Roof Uniform Load (N/m)",
-      "label_i18n": {
-        "en": "Roof Uniform Load (N/m)",
-        "de": "Gleichlast Dach (N/m)",
-        "fr": "Charge uniforme du toit (N/m)",
-        "es": "Carga Uniforme del Techo (N/m)",
-        "ar": "الحمل المنتظم على السقف (N/m)"
-      },
       "type": "number",
       "unit": "N/m",
       "default": 8000,
       "min": 0,
-      "businessContext": "Uniform load on ridge.",
-      "businessContext_i18n": {
-        "en": "Uniform load on ridge.",
-        "de": "Gleichlast auf dem First.",
-        "fr": "Charge uniforme sur le faîte.",
-        "es": "Carga uniforme sobre la cumbrera.",
-        "ar": "الحمل المنتظم على الحافة."
-      }
+      "businessContext": "Uniform load on ridge."
     },
     {
       "id": "aciklik",
       "label": "Ridge Span (m)",
-      "label_i18n": {
-        "en": "Ridge Span (m)",
-        "de": "Firstspannweite (m)",
-        "fr": "Portée du faîte (m)",
-        "es": "Luz de la Cumbrera (m)",
-        "ar": "امتداد الحافة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Ridge beam span.",
-      "businessContext_i18n": {
-        "en": "Ridge beam span.",
-        "de": "Spannweite des Firstbalkens.",
-        "fr": "Portée de la poutre faîtière.",
-        "es": "Luz de la viga cumbrera.",
-        "ar": "امتداد عارضة الحافة."
-      }
+      "businessContext": "Ridge beam span."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(catiYuk * Math.pow(aciklik, 2)) / 8"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "N.m",
     "breakdown": {
       "result": "Maks. Bmostding Mommostti"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Maks. Bmostding Mommostti",
-        "de": "Max. Biegemoment",
-        "fr": "Moment de flexion maximal",
-        "es": "Momento Máximo de Flexión",
-        "ar": "أقصى عزم انحناء"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "N.m"
+      "result": "N.m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate maximum bending moment in a roof ridge beam.",
-      "long": "Calculate maximum bending moment in a roof ridge beam.",
-      "short_i18n": {
-        "en": "Calculate maximum bending moment in a roof ridge beam.",
-        "de": "Berechnen Sie das maximale Biegemoment in einem Dachfirstbalken.",
-        "fr": "Calculer le moment de flexion maximal dans une poutre faîtière de toit.",
-        "es": "Calcular el momento flector máximo en una viga cumbrera de techo.",
-        "ar": "حساب أقصى عزم انحناء في عارضة حافة السقف."
-      },
-      "long_i18n": {
-        "en": "Calculate maximum bending moment in a roof ridge beam.",
-        "de": "Berechnen Sie das maximale Biegemoment in einem Dachfirstbalken.",
-        "fr": "Calculer le moment de flexion maximal dans une poutre faîtière de toit.",
-        "es": "Calcular el momento flector máximo en una viga cumbrera de techo.",
-        "ar": "حساب أقصى عزم انحناء في عارضة حافة السقف."
-      }
+      "long": "Calculate maximum bending moment in a roof ridge beam."
     }
-  },
-  "title_i18n": {
-    "en": "ridge-beam-calculator",
-    "de": "Firstbalkenrechner",
-    "fr": "Calculateur de poutre faîtière",
-    "es": "Calculadora de viga cumbrera",
-    "ar": "حاسبة عارضة التلال"
   },
   "sectorSlug": "construction"
 }

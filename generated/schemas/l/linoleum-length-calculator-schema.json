@@ -2,77 +2,35 @@
   "toolName": "linoleum-length-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Floor Area (m²)",
-      "label_i18n": {
-        "en": "Floor Area (m²)",
-        "de": "Gesamtfläche",
-        "fr": "Surface totale",
-        "es": "Superficie total",
-        "ar": "المساحة الإجمالية"
-      },
       "type": "number",
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Area to cover.",
-      "businessContext_i18n": {
-        "en": "Area to cover.",
-        "de": "Zu bedeckende Fläche.",
-        "fr": "Surface à couvrir.",
-        "es": "Área a cubrir.",
-        "ar": "المساحة المراد تغطيتها."
-      }
+      "businessContext": "Area to cover."
     },
     {
       "id": "ruloEn",
       "label": "Roll Width (m)",
-      "label_i18n": {
-        "en": "Roll Width (m)",
-        "de": "Rollenbreite (m)",
-        "fr": "Largeur du rouleau (m)",
-        "es": "Ancho del Rollo (m)",
-        "ar": "عرض اللفة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Roll width.",
-      "businessContext_i18n": {
-        "en": "Roll width.",
-        "de": "Rollenbreite.",
-        "fr": "Largeur du rouleau.",
-        "es": "Ancho del rollo.",
-        "ar": "عرض اللفة."
-      }
+      "businessContext": "Roll width."
     },
     {
       "id": "scrap",
       "label": "Waste Factor (%)",
-      "label_i18n": {
-        "en": "Waste Factor (%)",
-        "de": "Abfallfaktor (%)",
-        "fr": "Facteur de déchet (%)",
-        "es": "Factor de desperdicio (%)",
-        "ar": "عامل الهدر (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Cutting waste.",
-      "businessContext_i18n": {
-        "en": "Cutting waste.",
-        "de": "Schnittverschnitt.",
-        "fr": "Perte de coupe.",
-        "es": "Desperdicio de corte.",
-        "ar": "هدر القطع."
-      }
+      "businessContext": "Cutting waste."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(area / Math.max(0.0001, ruloEn)) * (1 + scrap / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
-      "result": "Gerekli Rulo Boyu"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Rulo Boyu",
-        "de": "Erforderliche Rollenlänge",
-        "fr": "Longueur de rouleau requise",
-        "es": "Longitud de Bobina Requerida",
-        "ar": "طول اللفة المطلوب"
-      }
+      "result": "Gerekli Rulo Length"
     },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate linoleum/vinyl length to cut from roll.",
-      "long": "Calculate linoleum/vinyl length to cut from roll.",
-      "short_i18n": {
-        "en": "Calculate linoleum/vinyl length to cut from roll.",
-        "de": "Berechnen Sie die Länge von Linoleum/Vinyl, die von der Rolle geschnitten werden soll.",
-        "fr": "Calculer la longueur de linoléum/vinyle à couper du rouleau.",
-        "es": "Calcular la longitud de linóleo/vinilo a cortar del rollo.",
-        "ar": "حساب طول المشمع/الفينيل المراد قصه من اللفة."
-      },
-      "long_i18n": {
-        "en": "Calculate linoleum/vinyl length to cut from roll.",
-        "de": "Berechnen Sie die Länge von Linoleum/Vinyl, die von der Rolle geschnitten werden soll.",
-        "fr": "Calculer la longueur de linoléum/vinyle à couper du rouleau.",
-        "es": "Calcular la longitud de linóleo/vinilo a cortar del rollo.",
-        "ar": "حساب طول المشمع/الفينيل المراد قصه من اللفة."
-      }
+      "long": "Calculate linoleum/vinyl length to cut from roll."
     }
-  },
-  "title_i18n": {
-    "en": "linoleum-length-calculator",
-    "de": "Linoleum-Vinyl-Rechner",
-    "fr": "Calculateur de linoléum vinyle",
-    "es": "Calculadora de linóleo vinílico",
-    "ar": "حاسبة مشمع الفينيل"
   },
   "sectorSlug": "daily-renovation"
 }

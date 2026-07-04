@@ -8,71 +8,29 @@
     {
       "id": "toplamIstek",
       "label": "Total Requests",
-      "label_i18n": {
-        "en": "Total Requests",
-        "de": "Gesamtanfragen",
-        "fr": "Requêtes totales",
-        "es": "Solicitudes Totales",
-        "ar": "إجمالي الطلبات"
-      },
       "type": "number",
       "unit": "requests",
       "default": 10000,
       "min": 0,
-      "businessContext": "Total API calls.",
-      "businessContext_i18n": {
-        "en": "Total API calls.",
-        "de": "Gesamtzahl der API-Aufrufe.",
-        "fr": "Appels API totaux.",
-        "es": "Total de llamadas API.",
-        "ar": "إجمالي استدعاءات API."
-      }
+      "businessContext": "Total API calls."
     },
     {
       "id": "hataliIstek",
       "label": "Failed Requests",
-      "label_i18n": {
-        "en": "Failed Requests",
-        "de": "Fehlgeschlagene Anfragen",
-        "fr": "Requêtes échouées",
-        "es": "Solicitudes Fallidas",
-        "ar": "الطلبات الفاشلة"
-      },
       "type": "number",
       "unit": "requests",
       "default": 50,
       "min": 0,
-      "businessContext": "Number of failed requests.",
-      "businessContext_i18n": {
-        "en": "Number of failed requests.",
-        "de": "Anzahl der fehlgeschlagenen Anfragen.",
-        "fr": "Nombre de requêtes échouées.",
-        "es": "Número de solicitudes fallidas.",
-        "ar": "عدد الطلبات الفاشلة."
-      }
+      "businessContext": "Number of failed requests."
     },
     {
       "id": "toplamGecikme",
       "label": "Total Latency (ms)",
-      "label_i18n": {
-        "en": "Total Latency (ms)",
-        "de": "Gesamtlatenz (ms)",
-        "fr": "Latence totale (ms)",
-        "es": "Latencia Total (ms)",
-        "ar": "إجمالي زمن الاستجابة (ms)"
-      },
       "type": "number",
       "unit": "ms",
       "default": 250000,
       "min": 0,
-      "businessContext": "Sum of all request durations.",
-      "businessContext_i18n": {
-        "en": "Sum of all request durations.",
-        "de": "Summe aller Anfragedauern.",
-        "fr": "Somme de toutes les durées de requêtes.",
-        "es": "Suma de todas las duraciones de solicitudes.",
-        "ar": "مجموع جميع مدد الطلبات."
-      }
+      "businessContext": "Sum of all request durations."
     }
   ],
   "validation": {
@@ -86,31 +44,15 @@
     "sla": "((toplamIstek - hataliIstek) / Math.max(1, toplamIstek)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ms",
     "breakdown": {
       "result": "Ortalama Gecikme",
       "sla": "SLA (%)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Ortalama Gecikme",
-        "de": "Durchschnittliche Latenz",
-        "fr": "Latence moyenne",
-        "es": "Retardo Promedio",
-        "ar": "متوسط التأخير"
-      },
-      "sla": {
-        "en": "SLA (%)",
-        "de": "SLZ (%)",
-        "fr": "SLA (%)",
-        "es": "SLA (%)",
-        "ar": "اتفاقية مستوى الخدمة (%)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ms",
-      "sla": "ms"
+      "sla": "ms",
+      "result": "ms"
     },
     "hiddenLossDrivers": [
       "Low SLA indicates service reliability issue.",
@@ -120,36 +62,15 @@
       "Monitor system performance regularly.",
       "Implement redundancy for critical infrastructure."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate API average latency and SLA success rate.",
-      "long": "Calculate API average latency and SLA success rate.",
-      "short_i18n": {
-        "en": "Calculate API average latency and SLA success rate.",
-        "de": "Berechnen Sie die durchschnittliche API-Latenz und die SLA-Erfolgsrate.",
-        "fr": "Calculer la latence moyenne de l'API et le taux de succès SLA.",
-        "es": "Calcular la latencia promedio de API y la tasa de éxito de SLA.",
-        "ar": "حساب متوسط زمن الاستجابة لواجهة API ومعدل نجاح SLA."
-      },
-      "long_i18n": {
-        "en": "Calculate API average latency and SLA success rate.",
-        "de": "Berechnen Sie die durchschnittliche API-Latenz und die SLA-Erfolgsrate.",
-        "fr": "Calculer la latence moyenne de l'API et le taux de succès SLA.",
-        "es": "Calcular la latencia promedio de API y la tasa de éxito de SLA.",
-        "ar": "حساب متوسط زمن الاستجابة لواجهة API ومعدل نجاح SLA."
-      }
+      "long": "Calculate API average latency and SLA success rate."
     }
-  },
-  "title_i18n": {
-    "en": "api-latency-sla-calculator",
-    "de": "API-Latenz-SLA-Rechner",
-    "fr": "Calculateur de latence API SLA",
-    "es": "Calculadora de latencia de API SLA",
-    "ar": "حاسبة زمن استجابة API SLA"
   },
   "sectorSlug": "daily-renovation"
 }

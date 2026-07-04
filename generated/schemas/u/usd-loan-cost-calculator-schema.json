@@ -8,117 +8,47 @@
     {
       "id": "amount",
       "label": "Loan Amount (USD)",
-      "label_i18n": {
-        "en": "Loan Amount (USD)",
-        "de": "Darlehensbetrag",
-        "fr": "Montant du prêt",
-        "es": "Monto del préstamo",
-        "ar": "مبلغ القرض"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Loan principal in USD.",
-      "businessContext_i18n": {
-        "en": "Loan principal in USD.",
-        "de": "Darlehensbetrag in USD.",
-        "fr": "Principal du prêt en USD.",
-        "es": "Principal del préstamo en USD.",
-        "ar": "أصل القرض بالدولار."
-      }
+      "businessContext": "Loan principal in USD."
     },
     {
       "id": "interest",
       "label": "Annual Interest (%)",
-      "label_i18n": {
-        "en": "Annual Interest (%)",
-        "de": "Nominaler Jahreszinssatz",
-        "fr": "Taux d'intérêt annuel nominal",
-        "es": "Tasa de interés anual nominal",
-        "ar": "سعر الفائدة السنوي الاسمي"
-      },
       "type": "number",
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Loan interest rate.",
-      "businessContext_i18n": {
-        "en": "Loan interest rate.",
-        "de": "Darlehenszinssatz.",
-        "fr": "Taux d'intérêt du prêt.",
-        "es": "Tasa de interés del préstamo.",
-        "ar": "معدل فائدة القرض."
-      }
+      "businessContext": "Loan interest rate."
     },
     {
       "id": "vade",
       "label": "Term (Months)",
-      "label_i18n": {
-        "en": "Term (Months)",
-        "de": "Kreditlaufzeit",
-        "fr": "Durée du prêt",
-        "es": "Plazo del préstamo",
-        "ar": "مدة القرض"
-      },
       "type": "number",
       "unit": "months",
       "default": 36,
       "min": 1,
-      "businessContext": "Loan term.",
-      "businessContext_i18n": {
-        "en": "Loan term.",
-        "de": "Kreditlaufzeit.",
-        "fr": "Durée du prêt.",
-        "es": "Plazo del préstamo.",
-        "ar": "مدة القرض."
-      }
+      "businessContext": "Loan term."
     },
     {
       "id": "kurBeklentisi",
       "label": "FX Expected Change (%)",
-      "label_i18n": {
-        "en": "FX Expected Change (%)",
-        "de": "FX Erwartete Änderung (%)",
-        "fr": "Variation attendue du taux de change (%)",
-        "es": "Cambio Esperado en FX (%)",
-        "ar": "التغير المتوقع في سعر الصرف (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 20,
       "min": 0,
-      "businessContext": "Expected annual FX rate increase.",
-      "businessContext_i18n": {
-        "en": "Expected annual FX rate increase.",
-        "de": "Erwarteter jährlicher Wechselkursanstieg.",
-        "fr": "Augmentation annuelle attendue du taux de change.",
-        "es": "Incremento anual esperado del tipo de cambio.",
-        "ar": "الزيادة السنوية المتوقعة في سعر الصرف."
-      }
+      "businessContext": "Expected annual FX rate increase."
     },
     {
       "id": "mevcutKur",
       "label": "Current FX Rate (USD/USD)",
-      "label_i18n": {
-        "en": "Current FX Rate (USD/USD)",
-        "de": "Aktueller Wechselkurs (USD/USD)",
-        "fr": "Taux de change actuel (USD/USD)",
-        "es": "Tipo de Cambio Actual (USD/USD)",
-        "ar": "سعر الصرف الحالي (USD/USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 30,
       "min": 0,
-      "businessContext": "Current USD/TRY rate.",
-      "businessContext_i18n": {
-        "en": "Current USD/TRY rate.",
-        "de": "Aktueller USD/TRY-Kurs.",
-        "fr": "Taux actuel USD/TRY.",
-        "es": "Tipo de cambio actual USD/TRY.",
-        "ar": "سعر USD/TRY الحالي."
-      }
+      "businessContext": "Current USD/TRY rate."
     }
   ],
   "validation": {
@@ -132,58 +62,28 @@
     "result": "(interest === 0 ? amount / Math.max(1, vade) : amount * ((interest / 1200) * Math.pow(1 + interest / 1200, vade)) / (Math.pow(1 + interest / 1200, vade) - 1)) * mevcutKur * Math.pow(1 + kurBeklentisi / 100, vade / 12)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Tahmini TRY Monthly Taksit"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tahmini TRY Monthly Taksit",
-        "de": "Estimated Monthly Installment in TRY",
-        "fr": "Mensualité estimée en TL",
-        "es": "Cuota Mensual Estimada en TL",
-        "ar": "القسط الشهري المقدر بالليرة التركية"
-      }
+      "result": "Estimated TRY Monthly Installment"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Compare multiple loan offers before committing.",
       "Consider total cost including fees."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate estimated TRY cost of a USD loan with FX risk.",
-      "long": "Calculate estimated TRY cost of a USD loan with FX risk.",
-      "short_i18n": {
-        "en": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "de": "Berechnen Sie die geschätzten TRY-Kosten eines USD-Darlehens mit Wechselkursrisiko.",
-        "fr": "Calculer le coût estimé en TRY d'un prêt en USD avec risque de change.",
-        "es": "Calcular el costo estimado en TRY de un préstamo en USD con riesgo cambiario.",
-        "ar": "حساب التكلفة المقدرة بالليرة التركية لقرض بالدولار مع مخاطر سعر الصرف."
-      },
-      "long_i18n": {
-        "en": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "de": "Berechnen Sie die geschätzten TRY-Kosten eines USD-Darlehens mit Wechselkursrisiko.",
-        "fr": "Calculer le coût estimé en TRY d'un prêt en USD avec risque de change.",
-        "es": "Calcular el costo estimado en TRY de un préstamo en USD con riesgo cambiario.",
-        "ar": "حساب التكلفة المقدرة بالليرة التركية لقرض بالدولار مع مخاطر سعر الصرف."
-      }
+      "long": "Calculate estimated TRY cost of a USD loan with FX risk."
     }
-  },
-  "title_i18n": {
-    "en": "usd-loan-cost-calculator",
-    "de": "USD-Darlehensrechner",
-    "fr": "Calculateur de prêt en USD",
-    "es": "Calculadora de préstamo en USD",
-    "ar": "حاسبة قرض الدولار الأمريكي"
   },
   "sectorSlug": "ecommerce"
 }

@@ -8,71 +8,29 @@
     {
       "id": "nominalDeger",
       "label": "Nominal Value (USD)",
-      "label_i18n": {
-        "en": "Nominal Value (USD)",
-        "de": "Nennwert (USD)",
-        "fr": "Valeur nominale (USD)",
-        "es": "Valor Nominal (USD)",
-        "ar": "القيمة الاسمية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Current nominal money value.",
-      "businessContext_i18n": {
-        "en": "Current nominal money value.",
-        "de": "Aktueller Nennwert des Geldes.",
-        "fr": "Valeur nominale actuelle de l'argent.",
-        "es": "Valor nominal actual del dinero.",
-        "ar": "القيمة النقدية الاسمية الحالية."
-      }
+      "businessContext": "Current nominal money value."
     },
     {
       "id": "enflasyon",
       "label": "Annual Inflation (%)",
-      "label_i18n": {
-        "en": "Annual Inflation (%)",
-        "de": "Jährliche Inflationsrate",
-        "fr": "Taux d'inflation annuel",
-        "es": "Tasa de inflación anual",
-        "ar": "معدل التضخم السنوي"
-      },
       "type": "number",
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Average annual inflation rate.",
-      "businessContext_i18n": {
-        "en": "Average annual inflation rate.",
-        "de": "Erwartete durchschnittliche jährliche Inflationsrate. Inflation verringert die Kaufkraft im Laufe der Zeit, daher mussen die Entnahmen moglicherweise erhoht werden. Keine Finanzberatung.",
-        "fr": "Taux d'inflation annuel moyen attendu. L'inflation réduit le pouvoir d'achat au fil du temps, donc les retraits peuvent devoir augmenter. Ce n'est pas un conseil financier.",
-        "es": "Tasa de inflación anual promedio esperada. La inflación reduce el poder adquisitivo con el tiempo, por lo que los retiros pueden necesitar aumentar. No es asesoramiento financiero.",
-        "ar": "متوسط معدل التضخم السنوي المتوقع. يقلل التضخم من القوة الشرائية بمرور الوقت، لذلك قد تحتاج السحوبات إلى الزيادة. ليست نصيحة مالية."
-      }
+      "businessContext": "Average annual inflation rate."
     },
     {
       "id": "year",
       "label": "Number of Years",
-      "label_i18n": {
-        "en": "Number of Years",
-        "de": "Anzahl der Jahre",
-        "fr": "Nombre d'années",
-        "es": "Número de años",
-        "ar": "عدد السنوات"
-      },
       "type": "number",
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Future period in years.",
-      "businessContext_i18n": {
-        "en": "Future period in years.",
-        "de": "Zukunftiger Zeitraum in Jahren.",
-        "fr": "Période future en années.",
-        "es": "Período futuro en años.",
-        "ar": "الفترة المستقبلية بالسنوات."
-      }
+      "businessContext": "Future period in years."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "nominalDeger / Math.pow(1 + enflasyon / 100, year)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Enflasyon Duzeltilmis Value"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Enflasyon Duzeltilmis Value",
-        "de": "Inflationsbereinigter Wert",
-        "fr": "Valeur ajustée à l'inflation",
-        "es": "Valor Ajustado por Inflación",
-        "ar": "القيمة المعدلة حسب التضخم"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate inflation-adjusted purchasing power of money.",
-      "long": "Calculate inflation-adjusted purchasing power of money.",
-      "short_i18n": {
-        "en": "Calculate inflation-adjusted purchasing power of money.",
-        "de": "Inflationsbereinigte Kaufkraft von Geld berechnen.",
-        "fr": "Calculer le pouvoir d'achat ajusté à l'inflation.",
-        "es": "Calcular el poder adquisitivo ajustado por inflación del dinero.",
-        "ar": "حساب القوة الشرائية المعدلة حسب التضخم للنقود."
-      },
-      "long_i18n": {
-        "en": "Calculate inflation-adjusted purchasing power of money.",
-        "de": "Inflationsbereinigte Kaufkraft von Geld berechnen.",
-        "fr": "Calculer le pouvoir d'achat ajusté à l'inflation.",
-        "es": "Calcular el poder adquisitivo ajustado por inflación del dinero.",
-        "ar": "حساب القوة الشرائية المعدلة حسب التضخم للنقود."
-      }
+      "long": "Calculate inflation-adjusted purchasing power of money."
     }
-  },
-  "title_i18n": {
-    "en": "inflation-adjustment-calculator",
-    "de": "Inflationsanpassungsrechner",
-    "fr": "Calculateur d'ajustement à l'inflation",
-    "es": "Calculadora de ajuste por inflación",
-    "ar": "حاسبة تعديل التضخم"
   },
   "sectorSlug": "daily-renovation"
 }

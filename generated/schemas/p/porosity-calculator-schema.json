@@ -8,48 +8,20 @@
     {
       "id": "boslukHacim",
       "label": "Void Volume (m³)",
-      "label_i18n": {
-        "en": "Void Volume (m³)",
-        "de": "Porenvolumen (m³)",
-        "fr": "Volume des vides (m³)",
-        "es": "Volumen de Vacíos (m³)",
-        "ar": "حجم الفراغات (m³)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Total void volume.",
-      "businessContext_i18n": {
-        "en": "Total void volume.",
-        "de": "Gesamtes Porenvolumen.",
-        "fr": "Volume total des vides.",
-        "es": "Volumen total de vacíos.",
-        "ar": "إجمالي حجم الفراغات."
-      }
+      "businessContext": "Total void volume."
     },
     {
       "id": "toplamHacim",
       "label": "Total Volume (m³)",
-      "label_i18n": {
-        "en": "Total Volume (m³)",
-        "de": "Gesamtvolumen (m³)",
-        "fr": "Volume total (m³)",
-        "es": "Volumen Total (m³)",
-        "ar": "الحجم الكلي (m³)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 1,
       "min": 0,
-      "businessContext": "Total material volume.",
-      "businessContext_i18n": {
-        "en": "Total material volume.",
-        "de": "Gesamtes Materialvolumen.",
-        "fr": "Volume total du matériau.",
-        "es": "Volumen total de material.",
-        "ar": "الحجم الكلي للمادة."
-      }
+      "businessContext": "Total material volume."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(boslukHacim / Math.max(0.0001, toplamHacim)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Porozite"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Porozite",
-        "de": "Porosität",
-        "fr": "Porosité",
-        "es": "Porosidad",
-        "ar": "المسامية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Use calibrated equipment for measurements.",
       "Consider temperature effects on material properties."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate material porosity as percentage of void volume.",
-      "long": "Calculate material porosity as percentage of void volume.",
-      "short_i18n": {
-        "en": "Calculate material porosity as percentage of void volume.",
-        "de": "Berechnen Sie die Materialporosität als Prozentsatz des Porenvolumens.",
-        "fr": "Calculer la porosité du matériau en pourcentage du volume des vides.",
-        "es": "Calcular la porosidad del material como porcentaje del volumen de vacíos.",
-        "ar": "حساب مسامية المادة كنسبة مئوية من حجم الفراغات."
-      },
-      "long_i18n": {
-        "en": "Calculate material porosity as percentage of void volume.",
-        "de": "Berechnen Sie die Materialporosität als Prozentsatz des Porenvolumens.",
-        "fr": "Calculer la porosité du matériau en pourcentage du volume des vides.",
-        "es": "Calcular la porosidad del material como porcentaje del volumen de vacíos.",
-        "ar": "حساب مسامية المادة كنسبة مئوية من حجم الفراغات."
-      }
+      "long": "Calculate material porosity as percentage of void volume."
     }
-  },
-  "title_i18n": {
-    "en": "porosity-calculator",
-    "de": "Porositätsrechner",
-    "fr": "Calculateur de porosité",
-    "es": "Calculadora de porosidad",
-    "ar": "حاسبة المسامية"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,48 +8,20 @@
     {
       "id": "value",
       "label": "Power Value",
-      "label_i18n": {
-        "en": "Power Value",
-        "de": "Leistungswert",
-        "fr": "Valeur de puissance",
-        "es": "Valor de potencia",
-        "ar": "قيمة القدرة"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Power to convert.",
-      "businessContext_i18n": {
-        "en": "Power to convert.",
-        "de": "Umzurechnende Leistung.",
-        "fr": "Puissance à convertir.",
-        "es": "Potencia a convertir.",
-        "ar": "القدرة المراد تحويلها."
-      }
+      "businessContext": "Power to convert."
     },
     {
       "id": "kaynak",
       "label": "Source Unit (0=HP, 1=kW, 2=PS)",
-      "label_i18n": {
-        "en": "Source Unit (0=HP, 1=kW, 2=PS)",
-        "de": "Quelleinheit",
-        "fr": "Unité source",
-        "es": "Unidad de origen",
-        "ar": "وحدة المصدر"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0,
       "min": 0,
-      "businessContext": "Input unit.",
-      "businessContext_i18n": {
-        "en": "Input unit.",
-        "de": "Eingabeeinheit.",
-        "fr": "Unité d'entrée.",
-        "es": "Unidad de entrada.",
-        "ar": "وحدة الإدخال."
-      }
+      "businessContext": "Input unit."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "kaynak === 0 ? value * 0.7457 : kaynak === 2 ? value * 0.7355 : value"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kW",
     "breakdown": {
       "result": "kW Karsiligi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "kW Karsiligi",
-        "de": "kW-Äquivalent",
-        "fr": "Équivalent kW",
-        "es": "Equivalente en kW",
-        "ar": "المكافئ بالكيلوواط (kW)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kW"
+      "result": "kW"
     },
     "hiddenLossDrivers": [
       "High fuel/energy consumption indicates efficiency losses."
@@ -86,36 +49,15 @@
       "Regular maintenance improves overall equipment efficiency.",
       "Simulate real-world driving conditions for accurate range estimates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Convert horsepower (HP/PS) to kilowatts (kW).",
-      "long": "Convert horsepower (HP/PS) to kilowatts (kW).",
-      "short_i18n": {
-        "en": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "de": "Wandeln Sie Pferdestärken (HP/PS) in Kilowatt (kW) um.",
-        "fr": "Convertir la puissance en chevaux (HP/PS) en kilowatts (kW).",
-        "es": "Convertir caballos de fuerza (HP/PS) a kilovatios (kW).",
-        "ar": "تحويل القدرة الحصانية (HP/PS) إلى كيلوواط (kW)."
-      },
-      "long_i18n": {
-        "en": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "de": "Wandeln Sie Pferdestärken (HP/PS) in Kilowatt (kW) um.",
-        "fr": "Convertir la puissance en chevaux (HP/PS) en kilowatts (kW).",
-        "es": "Convertir caballos de fuerza (HP/PS) a kilovatios (kW).",
-        "ar": "تحويل القدرة الحصانية (HP/PS) إلى كيلوواط (kW)."
-      }
+      "long": "Convert horsepower (HP/PS) to kilowatts (kW)."
     }
-  },
-  "title_i18n": {
-    "en": "horsepower-converter-calculator",
-    "de": "Pferdestärken-Umrechner",
-    "fr": "Convertisseur de chevaux-vapeur",
-    "es": "Horsepower Convertidor",
-    "ar": "محول القدرة الحصانية"
   },
   "sectorSlug": "ecommerce"
 }

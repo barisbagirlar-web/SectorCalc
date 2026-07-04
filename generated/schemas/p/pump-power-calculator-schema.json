@@ -2,77 +2,35 @@
   "toolName": "pump-power-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "flow",
       "label": "Flow Rate (m³/h)",
-      "label_i18n": {
-        "en": "Flow Rate (m³/h)",
-        "de": "Kompressordurchflussrate",
-        "fr": "Débit du compresseur",
-        "es": "Caudal del compresor",
-        "ar": "معدل تدفق الضاغط"
-      },
       "type": "number",
       "unit": "m3/h",
       "default": 10,
       "min": 0,
-      "businessContext": "Pumping flow rate.",
-      "businessContext_i18n": {
-        "en": "Pumping flow rate.",
-        "de": "Forderstrom der Pumpe.",
-        "fr": "Débit de pompage.",
-        "es": "Caudal de bombeo.",
-        "ar": "معدل تدفق الضخ."
-      }
+      "businessContext": "Pumping flow rate."
     },
     {
       "id": "height",
       "label": "Total Head (m)",
-      "label_i18n": {
-        "en": "Total Head (m)",
-        "de": "Gesamtforderhohe (m)",
-        "fr": "Hauteur manométrique totale (m)",
-        "es": "Altura Total (m)",
-        "ar": "الارتفاع الكلي (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 50,
       "min": 0,
-      "businessContext": "Suction + discharge head.",
-      "businessContext_i18n": {
-        "en": "Suction + discharge head.",
-        "de": "Saug- + Druckhohe.",
-        "fr": "Hauteur d'aspiration + de refoulement.",
-        "es": "Altura de succión + descarga.",
-        "ar": "ارتفاع الشفط + الطرد."
-      }
+      "businessContext": "Suction + discharge head."
     },
     {
       "id": "efficiency",
       "label": "Pump Efficiency (%)",
-      "label_i18n": {
-        "en": "Pump Efficiency (%)",
-        "de": "Pumpenwirkungsgrad (%)",
-        "fr": "Rendement de la pompe (%)",
-        "es": "Eficiencia de la Bomba (%)",
-        "ar": "كفاءة المضخة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 70,
       "min": 0,
-      "businessContext": "Pump efficiency.",
-      "businessContext_i18n": {
-        "en": "Pump efficiency.",
-        "de": "Pumpenwirkungsgrad.",
-        "fr": "Rendement de la pompe.",
-        "es": "Eficiencia de la bomba.",
-        "ar": "كفاءة المضخة."
-      }
+      "businessContext": "Pump efficiency."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(flow * height * 9.81) / Math.max(0.0001, (3600 * (efficiency / 100)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kW",
     "breakdown": {
       "result": "Min. Pump Power"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Min. Pump Power",
-        "de": "Min. Pumpenleistung",
-        "fr": "Puissance minimale de la pompe",
-        "es": "Potencia Mínima de la Bomba",
-        "ar": "الحد الأدنى لقدرة المضخة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kW"
+      "result": "kW"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate minimum pump shaft power for water lifting.",
-      "long": "Calculate minimum pump shaft power for water lifting.",
-      "short_i18n": {
-        "en": "Calculate minimum pump shaft power for water lifting.",
-        "de": "Berechnen Sie die minimale Pumpenwellenleistung fur die Wasserforderung.",
-        "fr": "Calculer la puissance minimale à l'arbre de la pompe pour le relevage d'eau.",
-        "es": "Calcular la potencia mínima del eje de la bomba para elevación de agua.",
-        "ar": "احسب الحد الأدنى لطاقة عمود المضخة لرفع المياه."
-      },
-      "long_i18n": {
-        "en": "Calculate minimum pump shaft power for water lifting.",
-        "de": "Berechnen Sie die minimale Pumpenwellenleistung fur die Wasserforderung.",
-        "fr": "Calculer la puissance minimale à l'arbre de la pompe pour le relevage d'eau.",
-        "es": "Calcular la potencia mínima del eje de la bomba para elevación de agua.",
-        "ar": "احسب الحد الأدنى لطاقة عمود المضخة لرفع المياه."
-      }
+      "long": "Calculate minimum pump shaft power for water lifting."
     }
-  },
-  "title_i18n": {
-    "en": "pump-power-calculator",
-    "de": "Brunnenpumpenkapazitätsrechner",
-    "fr": "Calculateur de capacité de pompe de puits",
-    "es": "Calculadora de capacidad de bomba de pozo",
-    "ar": "حاسبة سعة مضخة البئر"
   },
   "sectorSlug": "daily-renovation"
 }

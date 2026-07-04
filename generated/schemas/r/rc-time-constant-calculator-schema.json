@@ -8,48 +8,20 @@
     {
       "id": "R",
       "label": "Resistance (Ω)",
-      "label_i18n": {
-        "en": "Resistance (Ω)",
-        "de": "Widerstand (R)",
-        "fr": "Résistance (R)",
-        "es": "Resistencia (R)",
-        "ar": "المقاومة (أوم)"
-      },
       "type": "number",
       "unit": "ohms",
       "default": 10000,
       "min": 0,
-      "businessContext": "Circuit resistance.",
-      "businessContext_i18n": {
-        "en": "Circuit resistance.",
-        "de": "Schaltungswiderstand.",
-        "fr": "Résistance du circuit.",
-        "es": "Resistencia del circuito.",
-        "ar": "مقاومة الدائرة."
-      }
+      "businessContext": "Circuit resistance."
     },
     {
       "id": "C",
       "label": "Capacitance (F)",
-      "label_i18n": {
-        "en": "Capacitance (F)",
-        "de": "Kapazität (F)",
-        "fr": "Capacité (F)",
-        "es": "Capacitancia (F)",
-        "ar": "السعة (F)"
-      },
       "type": "number",
       "unit": "F",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Circuit capacitance.",
-      "businessContext_i18n": {
-        "en": "Circuit capacitance.",
-        "de": "Schaltungskapazität.",
-        "fr": "Capacité du circuit.",
-        "es": "Capacitancia del circuito.",
-        "ar": "سعة الدائرة."
-      }
+      "businessContext": "Circuit capacitance."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "R * C"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "s",
     "breakdown": {
       "result": "Zaman Sabiti (τ)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Zaman Sabiti (τ)",
-        "de": "Zeitkonstante (τ)",
-        "fr": "Constante de temps (τ)",
-        "es": "Constante de Tiempo (τ)",
-        "ar": "ثابت الزمن (τ)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "s"
+      "result": "s"
     },
     "hiddenLossDrivers": [
       "Low Q factor indicates broader frequency response."
@@ -86,36 +49,15 @@
       "Verify component tolerances affect circuit performance.",
       "Use proper safety equipment for high voltage/current work."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-      "long": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-      "short_i18n": {
-        "en": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "de": "Berechnung der RC-Zeitkonstante — Zeit bis 63,2% Ladung/Entladung.",
-        "fr": "Calculer la constante de temps RC — temps pour atteindre 63,2 % de charge/décharge.",
-        "es": "Calcular la constante de tiempo RC — tiempo para alcanzar el 63.2% de carga/descarga.",
-        "ar": "احسب ثابت الوقت RC — الوقت للوصول إلى 63.2% شحن/تفريغ."
-      },
-      "long_i18n": {
-        "en": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "de": "Berechnung der RC-Zeitkonstante — Zeit bis 63,2% Ladung/Entladung.",
-        "fr": "Calculer la constante de temps RC — temps pour atteindre 63,2 % de charge/décharge.",
-        "es": "Calcular la constante de tiempo RC — tiempo para alcanzar el 63.2% de carga/descarga.",
-        "ar": "احسب ثابت الوقت RC — الوقت للوصول إلى 63.2% شحن/تفريغ."
-      }
+      "long": "Calculate RC time constant — time to reach 63.2% charge/discharge."
     }
-  },
-  "title_i18n": {
-    "en": "rc-time-constant-calculator",
-    "de": "RC-Zeitkonstantenrechner",
-    "fr": "Calculateur de constante de temps RC",
-    "es": "Calculadora de constante de tiempo RC",
-    "ar": "حاسبة ثابت الزمن RC"
   },
   "sectorSlug": "daily-renovation"
 }

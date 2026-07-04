@@ -8,48 +8,20 @@
     {
       "id": "urunBedeli",
       "label": "Product Value (USD)",
-      "label_i18n": {
-        "en": "Product Value (USD)",
-        "de": "Product Wert (CIF)",
-        "fr": "Product Valeur (CIF)",
-        "es": "Product Valor (CIF)",
-        "ar": "Product القيمة (CIF)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Product invoice value.",
-      "businessContext_i18n": {
-        "en": "Product invoice value.",
-        "de": "Rechnungswert des Produkts.",
-        "fr": "Valeur facture du produit.",
-        "es": "Valor de la factura del producto.",
-        "ar": "قيمة فاتورة المنتج."
-      }
+      "businessContext": "Product invoice value."
     },
     {
       "id": "ekVergi",
       "label": "Additional Tariff (%)",
-      "label_i18n": {
-        "en": "Additional Tariff (%)",
-        "de": "Zusätzlicher Zollsatz (%)",
-        "fr": "Tarif additionnel (%)",
-        "es": "Arancel Adicional (%)",
-        "ar": "التعريفة الإضافية (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Origin-based extra tariff rate.",
-      "businessContext_i18n": {
-        "en": "Origin-based extra tariff rate.",
-        "de": "Ursprungsbezogener Zusatzzollsatz.",
-        "fr": "Taux de tarif supplémentaire basé sur l'origine.",
-        "es": "Tasa de arancel adicional basada en el origen.",
-        "ar": "معدل التعريفة الإضافية على أساس المنشأ."
-      }
+      "businessContext": "Origin-based extra tariff rate."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "urunBedeli * (ekVergi / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Ek Customs Duty"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Ek Customs Duty",
-        "de": "Additional Customs Duty",
-        "fr": "Droit de douane supplémentaire",
-        "es": "Arancel Aduanero Adicional",
-        "ar": "الرسوم الجمركية الإضافية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Factor in return rates and chargebacks.",
       "Review platform fee schedules regularly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate additional tariff on specific country of origin.",
-      "long": "Calculate additional tariff on specific country of origin.",
-      "short_i18n": {
-        "en": "Calculate additional tariff on specific country of origin.",
-        "de": "Berechnen Sie den zusätzlichen Zoll fur ein bestimmtes Ursprungsland.",
-        "fr": "Calculer le tarif additionnel sur un pays d'origine spécifique.",
-        "es": "Calcular el arancel adicional sobre el país de origen específico.",
-        "ar": "احسب التعريفة الإضافية على بلد المنشأ المحدد."
-      },
-      "long_i18n": {
-        "en": "Calculate additional tariff on specific country of origin.",
-        "de": "Berechnen Sie den zusätzlichen Zoll fur ein bestimmtes Ursprungsland.",
-        "fr": "Calculer le tarif additionnel sur un pays d'origine spécifique.",
-        "es": "Calcular el arancel adicional sobre el país de origen específico.",
-        "ar": "احسب التعريفة الإضافية على بلد المنشأ المحدد."
-      }
+      "long": "Calculate additional tariff on specific country of origin."
     }
-  },
-  "title_i18n": {
-    "en": "tariff-extra-duty-calculator",
-    "de": "Zollzusatzsteuer-Rechner",
-    "fr": "Calculateur de taxe supplémentaire tarifaire",
-    "es": "Calculadora de impuesto adicional arancelario",
-    "ar": "حاسبة الضريبة الإضافية الجمركية"
   },
   "sectorSlug": "daily-renovation"
 }

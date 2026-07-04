@@ -8,48 +8,20 @@
     {
       "id": "moment",
       "label": "Bending Moment (N.m)",
-      "label_i18n": {
-        "en": "Bending Moment (N.m)",
-        "de": "Biegemoment",
-        "fr": "Moment de flexion",
-        "es": "Momento flector",
-        "ar": "عزم الانحناء"
-      },
       "type": "number",
       "unit": "N.m",
       "default": 50000,
       "min": 0,
-      "businessContext": "Bending moment on beam.",
-      "businessContext_i18n": {
-        "en": "Bending moment on beam.",
-        "de": "Biegemoment am Träger.",
-        "fr": "Moment de flexion sur la poutre.",
-        "es": "Momento flector en la viga.",
-        "ar": "عزم الانحناء على العارضة."
-      }
+      "businessContext": "Bending moment on beam."
     },
     {
       "id": "kesitModulu",
       "label": "Section Modulus (m³)",
-      "label_i18n": {
-        "en": "Section Modulus (m³)",
-        "de": "Widerstandsmoment",
-        "fr": "Module de section",
-        "es": "Módulo de sección",
-        "ar": "معامل المقطع"
-      },
       "type": "number",
       "unit": "m3",
       "default": 0.00025,
       "min": 0,
-      "businessContext": "Elastic section modulus.",
-      "businessContext_i18n": {
-        "en": "Elastic section modulus.",
-        "de": "Elastisches Widerstandsmoment.",
-        "fr": "Module de section élastique.",
-        "es": "Módulo de sección elástico.",
-        "ar": "معامل المقطع المرن."
-      }
+      "businessContext": "Elastic section modulus."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "moment / Math.max(0.0001, kesitModulu)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Maks. Bmostding Gerilmesi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Maks. Bmostding Gerilmesi",
-        "de": "Maximale Biegespannung",
-        "fr": "Contrainte de flexion maximale",
-        "es": "Esfuerzo Máximo de Flexión",
-        "ar": "أقصى إجهاد انحناء"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate maximum bending stress in a steel beam section.",
-      "long": "Calculate maximum bending stress in a steel beam section.",
-      "short_i18n": {
-        "en": "Calculate maximum bending stress in a steel beam section.",
-        "de": "Berechnen Sie die maximale Biegespannung in einem Stahlträgerquerschnitt.",
-        "fr": "Calculer la contrainte de flexion maximale dans une section de poutre en acier.",
-        "es": "Calcular el esfuerzo máximo de flexión en una sección de viga de acero.",
-        "ar": "احسب أقصى إجهاد انحناء في مقطع عارضة فولاذية."
-      },
-      "long_i18n": {
-        "en": "Calculate maximum bending stress in a steel beam section.",
-        "de": "Berechnen Sie die maximale Biegespannung in einem Stahlträgerquerschnitt.",
-        "fr": "Calculer la contrainte de flexion maximale dans une section de poutre en acier.",
-        "es": "Calcular el esfuerzo máximo de flexión en una sección de viga de acero.",
-        "ar": "احسب أقصى إجهاد انحناء في مقطع عارضة فولاذية."
-      }
+      "long": "Calculate maximum bending stress in a steel beam section."
     }
-  },
-  "title_i18n": {
-    "en": "steel-beam-maximum-bending-stress-calculator",
-    "de": "Stahlträger-Biegeberechner",
-    "fr": "Calculateur de flexion de poutre en acier",
-    "es": "Calculadora de flexión de viga de acero",
-    "ar": "حاسبة انحناء العارضة الفولاذية"
   },
   "sectorSlug": "construction"
 }

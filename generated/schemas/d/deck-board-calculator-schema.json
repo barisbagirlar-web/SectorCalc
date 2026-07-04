@@ -2,100 +2,44 @@
   "toolName": "deck-board-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Deck Area (m²)",
-      "label_i18n": {
-        "en": "Deck Area (m²)",
-        "de": "Terrassenfläche (m²)",
-        "fr": "Surface de la terrasse (m²)",
-        "es": "Área de la Cubierta (m²)",
-        "ar": "مساحة السطح (m²)"
-      },
       "type": "number",
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Area to cover.",
-      "businessContext_i18n": {
-        "en": "Area to cover.",
-        "de": "Zu bedeckende Fläche.",
-        "fr": "Surface à couvrir.",
-        "es": "Área a cubrir.",
-        "ar": "المساحة المراد تغطيتها."
-      }
+      "businessContext": "Area to cover."
     },
     {
       "id": "tahtaEn",
       "label": "Board Width (m)",
-      "label_i18n": {
-        "en": "Board Width (m)",
-        "de": "Brettbreite (m)",
-        "fr": "Largeur de la lame (m)",
-        "es": "Ancho de la Tabla (m)",
-        "ar": "عرض اللوح (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.14,
       "min": 0,
-      "businessContext": "Board width.",
-      "businessContext_i18n": {
-        "en": "Board width.",
-        "de": "Brettbreite.",
-        "fr": "Largeur de la lame.",
-        "es": "Ancho de la tabla.",
-        "ar": "عرض اللوح."
-      }
+      "businessContext": "Board width."
     },
     {
       "id": "tahtaBoy",
       "label": "Board Length (m)",
-      "label_i18n": {
-        "en": "Board Length (m)",
-        "de": "Brettlänge (m)",
-        "fr": "Longueur de la lame (m)",
-        "es": "Longitud de la Tabla (m)",
-        "ar": "طول اللوح (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Board length.",
-      "businessContext_i18n": {
-        "en": "Board length.",
-        "de": "Brettlänge.",
-        "fr": "Longueur de la lame.",
-        "es": "Longitud de la tabla.",
-        "ar": "طول اللوح."
-      }
+      "businessContext": "Board length."
     },
     {
       "id": "scrap",
       "label": "Waste Factor (%)",
-      "label_i18n": {
-        "en": "Waste Factor (%)",
-        "de": "Abfallfaktor (%)",
-        "fr": "Facteur de déchet (%)",
-        "es": "Factor de desperdicio (%)",
-        "ar": "عامل الهدر (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Cutting waste.",
-      "businessContext_i18n": {
-        "en": "Cutting waste.",
-        "de": "Schnittverschnitt.",
-        "fr": "Perte de coupe.",
-        "es": "Desperdicio de corte.",
-        "ar": "هدر القطع."
-      }
+      "businessContext": "Cutting waste."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "Math.ceil((area / Math.max(0.0001, (tahtaEn * tahtaBoy))) * (1 + scrap / 100))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "boards",
     "breakdown": {
       "result": "Gerekli Deck Tahtasi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Deck Tahtasi",
-        "de": "Erforderliche Terrassendielen",
-        "fr": "Lames de terrasse nécessaires",
-        "es": "Tablas de Cubierta Necesarias",
-        "ar": "عدد ألواح السطح المطلوبة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "boards"
+      "result": "boards"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate number of deck boards needed including waste factor.",
-      "long": "Calculate number of deck boards needed including waste factor.",
-      "short_i18n": {
-        "en": "Calculate number of deck boards needed including waste factor.",
-        "de": "Berechnen Sie die Anzahl der benotigten Terrassendielen unter Berucksichtigung des Verschnittfaktors.",
-        "fr": "Calculer le nombre de lames de terrasse nécessaires, y compris le facteur de perte.",
-        "es": "Calcular el número de tablas de cubierta necesarias incluyendo el factor de desperdicio.",
-        "ar": "احسب عدد ألواح السطح المطلوبة بما في ذلك عامل الهدر."
-      },
-      "long_i18n": {
-        "en": "Calculate number of deck boards needed including waste factor.",
-        "de": "Berechnen Sie die Anzahl der benotigten Terrassendielen unter Berucksichtigung des Verschnittfaktors.",
-        "fr": "Calculer le nombre de lames de terrasse nécessaires, y compris le facteur de perte.",
-        "es": "Calcular el número de tablas de cubierta necesarias incluyendo el factor de desperdicio.",
-        "ar": "احسب عدد ألواح السطح المطلوبة بما في ذلك عامل الهدر."
-      }
+      "long": "Calculate number of deck boards needed including waste factor."
     }
-  },
-  "title_i18n": {
-    "en": "deck-board-calculator",
-    "de": "Holzterrassen-Rechner",
-    "fr": "Calculateur de terrasse en bois",
-    "es": "Calculadora de terraza de madera",
-    "ar": "حاسبة سطح السفينة الخشبية"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,95 +8,39 @@
     {
       "id": "satis",
       "label": "Sale Proceeds (USD)",
-      "label_i18n": {
-        "en": "Sale Proceeds (USD)",
-        "de": "Verkaufserlos (USD)",
-        "fr": "Produit de la vente (USD)",
-        "es": "Ingresos por Venta (USD)",
-        "ar": "حصيلة البيع (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Asset sale proceeds.",
-      "businessContext_i18n": {
-        "en": "Asset sale proceeds.",
-        "de": "Verkaufserlos des Vermogenswerts.",
-        "fr": "Produit de la vente d'actifs.",
-        "es": "Ingresos por venta de activos.",
-        "ar": "حصيلة بيع الأصل."
-      }
+      "businessContext": "Asset sale proceeds."
     },
     {
       "id": "alis",
       "label": "Cost Basis (USD)",
-      "label_i18n": {
-        "en": "Cost Basis (USD)",
-        "de": "Anpassungen der Kostenbasis",
-        "fr": "Ajustements de la base de coût",
-        "es": "Ajustes de base de costo",
-        "ar": "تعديلات أساس التكلفة"
-      },
       "type": "number",
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Asset purchase cost.",
-      "businessContext_i18n": {
-        "en": "Asset purchase cost.",
-        "de": "Anschaffungskosten des Vermogenswerts.",
-        "fr": "Coût d'achat de l'actif.",
-        "es": "Costo de compra del activo.",
-        "ar": "تكلفة شراء الأصل."
-      }
+      "businessContext": "Asset purchase cost."
     },
     {
       "id": "vergiOrani",
       "label": "Tax Rate (%)",
-      "label_i18n": {
-        "en": "Tax Rate (%)",
-        "de": "Steuersatz (%)",
-        "fr": "Taux d'imposition (%)",
-        "es": "Tasa Impositiva (%)",
-        "ar": "معدل الضريبة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Capital gains tax rate.",
-      "businessContext_i18n": {
-        "en": "Capital gains tax rate.",
-        "de": "Kapitalertragssteuersatz.",
-        "fr": "Taux d'imposition des plus-values.",
-        "es": "Tasa impositiva sobre ganancias de capital.",
-        "ar": "معدل ضريبة أرباح رأس المال."
-      }
+      "businessContext": "Capital gains tax rate."
     },
     {
       "id": "istisna",
       "label": "Exemption Amount (USD)",
-      "label_i18n": {
-        "en": "Exemption Amount (USD)",
-        "de": "Freibetragsbetrag",
-        "fr": "Montant de l'exonération",
-        "es": "Monto de exención",
-        "ar": "مبلغ الإعفاء"
-      },
       "type": "number",
       "unit": "USD",
       "default": 0,
       "min": 0,
-      "businessContext": "Tax-free allowance.",
-      "businessContext_i18n": {
-        "en": "Tax-free allowance.",
-        "de": "Steuerfreibetrag.",
-        "fr": "Abattement fiscal.",
-        "es": "Exención fiscal.",
-        "ar": "الإعفاء الضريبي."
-      }
+      "businessContext": "Tax-free allowance."
     }
   ],
   "validation": {
@@ -110,58 +54,28 @@
     "result": "Math.max(0, (satis - alis - istisna)) * vergiOrani / 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Odenecek Capital Gains Tax"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Odenecek Capital Gains Tax",
-        "de": "Zahlbare Kapitalertragssteuer",
-        "fr": "Impôt sur les plus-values à payer",
-        "es": "Impuesto a Pagar sobre Ganancias de Capital",
-        "ar": "ضريبة أرباح رأس المال المستحقة الدفع"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate capital gains tax liability from asset sales.",
-      "long": "Calculate capital gains tax liability from asset sales.",
-      "short_i18n": {
-        "en": "Calculate capital gains tax liability from asset sales.",
-        "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermogensverkäufen.",
-        "fr": "Calculer l'impôt sur les plus-values provenant de la vente d'actifs.",
-        "es": "Calcular la obligación tributaria por ganancias de capital por venta de activos.",
-        "ar": "حساب ضريبة أرباح رأس المال المستحقة من بيع الأصول."
-      },
-      "long_i18n": {
-        "en": "Calculate capital gains tax liability from asset sales.",
-        "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermogensverkäufen.",
-        "fr": "Calculer l'impôt sur les plus-values provenant de la vente d'actifs.",
-        "es": "Calcular la obligación tributaria por ganancias de capital por venta de activos.",
-        "ar": "حساب ضريبة أرباح رأس المال المستحقة من بيع الأصول."
-      }
+      "long": "Calculate capital gains tax liability from asset sales."
     }
-  },
-  "title_i18n": {
-    "en": "capital-gains-tax-calculator",
-    "de": "Kapitalertragsteuer-Rechner",
-    "fr": "Calculateur d'impôt sur les plus-values",
-    "es": "Calculadora de impuesto a las ganancias de capital",
-    "ar": "حاسبة ضريبة أرباح رأس المال"
   },
   "sectorSlug": "ecommerce"
 }

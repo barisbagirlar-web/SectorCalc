@@ -2,54 +2,26 @@
   "toolName": "cac-to-clv-ratio-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "clv",
       "label": "CLV (USD)",
-      "label_i18n": {
-        "en": "CLV (USD)",
-        "de": "Kundenlebenszeitwert (CLV)",
-        "fr": "Valeur à vie du client (CLV)",
-        "es": "Valor de vida del cliente (CLV)",
-        "ar": "القيمة الدائمة للعميل (CLV)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Customer lifetime value.",
-      "businessContext_i18n": {
-        "en": "Customer lifetime value.",
-        "de": "Kundenlebenszeitwert.",
-        "fr": "Valeur vie client.",
-        "es": "Valor de vida del cliente.",
-        "ar": "القيمة الدائمة للعميل."
-      }
+      "businessContext": "Customer lifetime value."
     },
     {
       "id": "cac",
       "label": "CAC (USD)",
-      "label_i18n": {
-        "en": "CAC (USD)",
-        "de": "Gesamte Kundenakquisitionskosten (CAC)",
-        "fr": "Coût total d'acquisition client (CAC)",
-        "es": "Costo total de adquisición de clientes (CAC)",
-        "ar": "إجمالي تكلفة اكتساب العميل (CAC)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Customer acquisition cost.",
-      "businessContext_i18n": {
-        "en": "Customer acquisition cost.",
-        "de": "Kundenakquisitionskosten.",
-        "fr": "Coût d'acquisition client.",
-        "es": "Costo de adquisición del cliente.",
-        "ar": "تكلفة اكتساب العميل."
-      }
+      "businessContext": "Customer acquisition cost."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "clv / Math.max(0.0001, cac)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ratio",
     "breakdown": {
       "result": "CLV/CAC Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "CLV/CAC Ratio",
-        "de": "CLV/CAC-Verhältnis",
-        "fr": "Ratio CLV/CAC",
-        "es": "Relación CLV/CAC",
-        "ar": "نسبة CLV/CAC"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ratio"
+      "result": "ratio"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate CAC to CLV ratio for acquisition efficiency.",
-      "long": "Calculate CAC to CLV ratio for acquisition efficiency.",
-      "short_i18n": {
-        "en": "Calculate CAC to CLV ratio for acquisition efficiency.",
-        "de": "Berechnen Sie das CAC-zu-CLV-Verhältnis fur die Akquise-Effizienz.",
-        "fr": "Calculer le ratio CAC/CLV pour l'efficacité d'acquisition.",
-        "es": "Calcular la relación CAC a CLV para la eficiencia de adquisición.",
-        "ar": "حساب نسبة CAC إلى CLV لكفاءة الاكتساب."
-      },
-      "long_i18n": {
-        "en": "Calculate CAC to CLV ratio for acquisition efficiency.",
-        "de": "Berechnen Sie das CAC-zu-CLV-Verhältnis fur die Akquise-Effizienz.",
-        "fr": "Calculer le ratio CAC/CLV pour l'efficacité d'acquisition.",
-        "es": "Calcular la relación CAC a CLV para la eficiencia de adquisición.",
-        "ar": "حساب نسبة CAC إلى CLV لكفاءة الاكتساب."
-      }
+      "long": "Calculate CAC to CLV ratio for acquisition efficiency."
     }
-  },
-  "title_i18n": {
-    "en": "cac-to-clv-ratio-calculator",
-    "de": "CAC-CLV-Verhältnisrechner",
-    "fr": "Calculateur de ratio CAC CLV",
-    "es": "Calculadora de relación CAC CLV",
-    "ar": "حاسبة نسبة CAC CLV"
   },
   "sectorSlug": "daily-renovation"
 }

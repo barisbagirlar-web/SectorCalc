@@ -8,48 +8,20 @@
     {
       "id": "evFiyati",
       "label": "Home Price (USD)",
-      "label_i18n": {
-        "en": "Home Price (USD)",
-        "de": "Hauspreis",
-        "fr": "Prix de la maison",
-        "es": "Precio de la Vivienda",
-        "ar": "سعر المنزل"
-      },
       "type": "number",
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Home purchase price.",
-      "businessContext_i18n": {
-        "en": "Home purchase price.",
-        "de": "Kaufpreis des Hauses.",
-        "fr": "Prix d'achat du logement.",
-        "es": "Precio de compra de la vivienda.",
-        "ar": "سعر شراء المنزل."
-      }
+      "businessContext": "Home purchase price."
     },
     {
       "id": "yillikKira",
       "label": "Annual Rent (USD)",
-      "label_i18n": {
-        "en": "Annual Rent (USD)",
-        "de": "Jährliches Mieteinkommen",
-        "fr": "Revenu Locatif Annuel",
-        "es": "Ingreso Anual por Alquiler",
-        "ar": "دخل الإيجار السنوي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Annual rent for same property.",
-      "businessContext_i18n": {
-        "en": "Annual rent for same property.",
-        "de": "Jahresmiete fur dieselbe Immobilie.",
-        "fr": "Loyer annuel pour le même bien.",
-        "es": "Alquiler anual de la misma propiedad.",
-        "ar": "الإيجار السنوي لنفس العقار."
-      }
+      "businessContext": "Annual rent for same property."
     }
   ],
   "validation": {
@@ -63,58 +35,28 @@
     "result": "evFiyati / Math.max(1, yillikKira)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ratio",
     "breakdown": {
-      "result": "Price/Kira Ratio"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Price/Kira Ratio",
-        "de": "Preis-Miet-Verhältnis",
-        "fr": "Ratio prix/loyer",
-        "es": "Relación Precio/Alquiler",
-        "ar": "نسبة السعر/الإيجار"
-      }
+      "result": "Price / Rent Ratio"
     },
     "breakdownUnits": {
-      "sonuc": "ratio"
+      "result": "ratio"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify all property data with official documents.",
       "Consult a mortgage broker for personalized rates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Compare renting vs buying based on price-to-rent ratio.",
-      "long": "Compare renting vs buying based on price-to-rent ratio.",
-      "short_i18n": {
-        "en": "Compare renting vs buying based on price-to-rent ratio.",
-        "de": "Vergleich von Mieten vs. Kaufen basierend auf dem Preis-Miet-Verhältnis.",
-        "fr": "Comparer la location et l'achat en fonction du ratio prix/loyer.",
-        "es": "Comparar alquilar vs comprar basado en la relación precio-alquiler.",
-        "ar": "قارن بين الإيجار والشراء بناءً على نسبة السعر إلى الإيجار."
-      },
-      "long_i18n": {
-        "en": "Compare renting vs buying based on price-to-rent ratio.",
-        "de": "Vergleich von Mieten vs. Kaufen basierend auf dem Preis-Miet-Verhältnis.",
-        "fr": "Comparer la location et l'achat en fonction du ratio prix/loyer.",
-        "es": "Comparar alquilar vs comprar basado en la relación precio-alquiler.",
-        "ar": "قارن بين الإيجار والشراء بناءً على نسبة السعر إلى الإيجار."
-      }
+      "long": "Compare renting vs buying based on price-to-rent ratio."
     }
-  },
-  "title_i18n": {
-    "en": "rent-vs-buy-calculator",
-    "de": "Mieten oder Kaufen Vergleichsrechner",
-    "fr": "Calculateur de Comparatif Location Achat",
-    "es": "Calculadora de Comparación Alquiler vs Compra",
-    "ar": "حاسبة مقارنة الإيجار والشراء"
   },
   "sectorSlug": "daily-renovation"
 }

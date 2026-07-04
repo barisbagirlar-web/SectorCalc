@@ -8,71 +8,29 @@
     {
       "id": "pressure",
       "label": "Internal Pressure (Pa)",
-      "label_i18n": {
-        "en": "Internal Pressure (Pa)",
-        "de": "Innendruck (Pa)",
-        "fr": "Pression interne (Pa)",
-        "es": "Presión Interna (Pa)",
-        "ar": "الضغط الداخلي (Pa)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 500000,
       "min": 0,
-      "businessContext": "Internal vessel pressure.",
-      "businessContext_i18n": {
-        "en": "Internal vessel pressure.",
-        "de": "Innendruck des Behälters.",
-        "fr": "Pression interne du réservoir.",
-        "es": "Presión interna del recipiente.",
-        "ar": "ضغط الوعاء الداخلي."
-      }
+      "businessContext": "Internal vessel pressure."
     },
     {
       "id": "diameter",
       "label": "Diameter (m)",
-      "label_i18n": {
-        "en": "Diameter (m)",
-        "de": "Nennbolzendurchmesser (d)",
-        "fr": "Diamètre nominal du boulon (d)",
-        "es": "Diámetro nominal del perno (d)",
-        "ar": "القطر الاسمي للبرغي (d)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Cylinder diameter.",
-      "businessContext_i18n": {
-        "en": "Cylinder diameter.",
-        "de": "Zylinderdurchmesser.",
-        "fr": "Diamètre du cylindre.",
-        "es": "Diámetro del cilindro.",
-        "ar": "قطر الأسطوانة."
-      }
+      "businessContext": "Cylinder diameter."
     },
     {
-      "id": "kalinlik",
+      "id": "thickness",
       "label": "Wall Thickness (m)",
-      "label_i18n": {
-        "en": "Wall Thickness (m)",
-        "de": "Wanddicke",
-        "fr": "Épaisseur du mur",
-        "es": "Espesor de pared",
-        "ar": "سمك الجدار"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.003,
       "min": 0,
-      "businessContext": "Vessel wall thickness.",
-      "businessContext_i18n": {
-        "en": "Vessel wall thickness.",
-        "de": "Wanddicke des Behälters.",
-        "fr": "Épaisseur de la paroi du réservoir.",
-        "es": "Espesor de la pared del recipiente.",
-        "ar": "سمك جدار الوعاء."
-      }
+      "businessContext": "Vessel wall thickness."
     }
   ],
   "validation": {
@@ -82,61 +40,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "(pressure * diameter) / Math.max(0.0001, (2 * kalinlik))"
+    "result": "(pressure * diameter) / Math.max(0.0001, (2 * thickness))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Cevresel Gerilme"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Cevresel Gerilme",
-        "de": "Umfangsspannung",
-        "fr": "Contrainte circonférentielle",
-        "es": "Esfuerzo Circunferencial",
-        "ar": "الإجهاد المحيطي"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-      "long": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-      "short_i18n": {
-        "en": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "de": "Berechnen Sie die Umfangsspannung in einem dunnwandigen zylindrischen Druckbehälter.",
-        "fr": "Calculer la contrainte circonférentielle dans un réservoir sous pression cylindrique à paroi mince.",
-        "es": "Calcular el esfuerzo circunferencial en un recipiente a presión cilíndrico de pared delgada.",
-        "ar": "احسب الإجهاد المحيطي في وعاء ضغط أسطواني رقيق الجدران."
-      },
-      "long_i18n": {
-        "en": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "de": "Berechnen Sie die Umfangsspannung in einem dunnwandigen zylindrischen Druckbehälter.",
-        "fr": "Calculer la contrainte circonférentielle dans un réservoir sous pression cylindrique à paroi mince.",
-        "es": "Calcular el esfuerzo circunferencial en un recipiente a presión cilíndrico de pared delgada.",
-        "ar": "احسب الإجهاد المحيطي في وعاء ضغط أسطواني رقيق الجدران."
-      }
+      "long": "Calculate hoop stress in a thin-walled cylindrical pressure vessel."
     }
-  },
-  "title_i18n": {
-    "en": "thin-walled-pressure-vessel-hoop-stress-calculator",
-    "de": "Dunnwandiger Behälter Spannungsrechner",
-    "fr": "Calculateur de Contrainte de Récipient à Paroi Mince",
-    "es": "Calculadora de Tensión de Recipiente de Pared Delgada",
-    "ar": "حاسبة إجهاد الأوعية رقيقة الجدران"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,48 +8,20 @@
     {
       "id": "speed",
       "label": "Wave Speed (m/s)",
-      "label_i18n": {
-        "en": "Wave Speed (m/s)",
-        "de": "Wellengeschwindigkeit (m/s)",
-        "fr": "Vitesse de l'onde (m/s)",
-        "es": "Velocidad de la onda (m/s)",
-        "ar": "سرعة الموجة (m/s)"
-      },
       "type": "number",
       "unit": "m/s",
       "default": 343,
       "min": 0,
-      "businessContext": "Wave propagation speed.",
-      "businessContext_i18n": {
-        "en": "Wave propagation speed.",
-        "de": "Wellenausbreitungsgeschwindigkeit.",
-        "fr": "Vitesse de propagation de l'onde.",
-        "es": "Velocidad de propagación de la onda.",
-        "ar": "سرعة انتشار الموجة."
-      }
+      "businessContext": "Wave propagation speed."
     },
     {
       "id": "frequency",
       "label": "Frequency (Hz)",
-      "label_i18n": {
-        "en": "Frequency (Hz)",
-        "de": "Zinseszinshäufigkeit",
-        "fr": "Fréquence de capitalisation",
-        "es": "Frecuencia de Capitalización",
-        "ar": "تكرار المركبة"
-      },
       "type": "number",
       "unit": "Hz",
       "default": 440,
       "min": 0,
-      "businessContext": "Wave frequency.",
-      "businessContext_i18n": {
-        "en": "Wave frequency.",
-        "de": "Wellenfrequenz.",
-        "fr": "Fréquence de l'onde.",
-        "es": "Frecuencia de la onda.",
-        "ar": "تردد الموجة."
-      }
+      "businessContext": "Wave frequency."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "speed / Math.max(0.0001, frequency)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
-      "result": "Dalga Boyu"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Dalga Boyu",
-        "de": "Wellenlänge",
-        "fr": "Longueur d'onde",
-        "es": "Longitud de Onda",
-        "ar": "طول الموجة"
-      }
+      "result": "Dalga Length"
     },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Use calibrated equipment for measurements.",
       "Consider temperature effects on material properties."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate wavelength from wave speed and frequency.",
-      "long": "Calculate wavelength from wave speed and frequency.",
-      "short_i18n": {
-        "en": "Calculate wavelength from wave speed and frequency.",
-        "de": "Berechnen Sie die Wellenlänge aus Wellengeschwindigkeit und Frequenz.",
-        "fr": "Calculer la longueur d'onde à partir de la vitesse et de la fréquence de l'onde.",
-        "es": "Calcular la longitud de onda a partir de la velocidad y frecuencia de la onda.",
-        "ar": "احسب الطول الموجي من سرعة الموجة والتردد."
-      },
-      "long_i18n": {
-        "en": "Calculate wavelength from wave speed and frequency.",
-        "de": "Berechnen Sie die Wellenlänge aus Wellengeschwindigkeit und Frequenz.",
-        "fr": "Calculer la longueur d'onde à partir de la vitesse et de la fréquence de l'onde.",
-        "es": "Calcular la longitud de onda a partir de la velocidad y frecuencia de la onda.",
-        "ar": "احسب الطول الموجي من سرعة الموجة والتردد."
-      }
+      "long": "Calculate wavelength from wave speed and frequency."
     }
-  },
-  "title_i18n": {
-    "en": "wavelength-calculator",
-    "de": "Wellenlängen-Frequenz-Rechner",
-    "fr": "Calculateur de longueur d'onde et fréquence",
-    "es": "Calculadora de longitud de onda y frecuencia",
-    "ar": "حاسبة الطول الموجي والتردد"
   },
   "sectorSlug": "daily-renovation"
 }

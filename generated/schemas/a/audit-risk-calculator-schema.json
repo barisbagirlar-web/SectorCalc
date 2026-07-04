@@ -8,74 +8,32 @@
     {
       "id": "dogustan",
       "label": "Inherent Risk (%)",
-      "label_i18n": {
-        "en": "Inherent Risk (%)",
-        "de": "Inhärentes Risiko (%)",
-        "fr": "Risque inhérent (%)",
-        "es": "Riesgo Inherente (%)",
-        "ar": "المخاطر الجوهرية (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Risk inherent in the business operations.",
-      "businessContext_i18n": {
-        "en": "Risk inherent in the business operations.",
-        "de": "Risiko, das in den Geschäftsabläufen inhärent ist.",
-        "fr": "Risque inhérent aux opérations commerciales.",
-        "es": "Riesgo inherente en las operaciones del negocio.",
-        "ar": "المخاطر الكامنة في عمليات الأعمال."
-      }
+      "businessContext": "Risk inherent in the business operations."
     },
     {
       "id": "kontrol",
       "label": "Control Risk (%)",
-      "label_i18n": {
-        "en": "Control Risk (%)",
-        "de": "Kontrollrisiko (%)",
-        "fr": "Risque de contrôle (%)",
-        "es": "Riesgo de Control (%)",
-        "ar": "مخاطر الرقابة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 40,
       "min": 0,
       "max": 100,
-      "businessContext": "Risk that internal controls fail to prevent errors.",
-      "businessContext_i18n": {
-        "en": "Risk that internal controls fail to prevent errors.",
-        "de": "Risiko, dass interne Kontrollen Fehler nicht verhindern.",
-        "fr": "Risque que les contrôles internes ne parviennent pas à prévenir les erreurs.",
-        "es": "Riesgo de que los controles internos no prevengan errores.",
-        "ar": "المخاطر التي تفشل فيها الضوابط الداخلية في منع الأخطاء."
-      }
+      "businessContext": "Risk that internal controls fail to prevent errors."
     },
     {
       "id": "tespit",
       "label": "Detection Risk (%)",
-      "label_i18n": {
-        "en": "Detection Risk (%)",
-        "de": "Entdeckungsrisiko (%)",
-        "fr": "Risque de détection (%)",
-        "es": "Riesgo de Detección (%)",
-        "ar": "مخاطر الاكتشاف (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Risk that the auditor fails to detect errors.",
-      "businessContext_i18n": {
-        "en": "Risk that the auditor fails to detect errors.",
-        "de": "Risiko, dass der Prufer Fehler nicht erkennt.",
-        "fr": "Risque que l'auditeur ne parvienne pas à détecter les erreurs.",
-        "es": "Riesgo de que el auditor no detecte errores.",
-        "ar": "المخاطر التي يفشل فيها المراجع في اكتشاف الأخطاء."
-      }
+      "businessContext": "Risk that the auditor fails to detect errors."
     }
   ],
   "validation": {
@@ -88,58 +46,28 @@
     "result": "(dogustan / 100) * (kontrol / 100) * (tespit / 100) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
-      "result": "Toplam Denetim Riski"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Toplam Denetim Riski",
-        "de": "Gesamtprufungsrisiko",
-        "fr": "Risque d'audit total",
-        "es": "Riesgo Total de Auditoría",
-        "ar": "إجمالي مخاطر المراجعة"
-      }
+      "result": "Total Audit Risk"
     },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate audit risk — the probability of not detecting material misstatement.",
-      "long": "Calculate audit risk — the probability of not detecting material misstatement.",
-      "short_i18n": {
-        "en": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "de": "Prufungsrisiko berechnen – die Wahrscheinlichkeit, wesentliche falsche Darstellungen nicht zu erkennen.",
-        "fr": "Calculer le risque d'audit — la probabilité de ne pas détecter une anomalie significative.",
-        "es": "Calcular el riesgo de auditoría: la probabilidad de no detectar una incorrección material.",
-        "ar": "حساب مخاطر المراجعة — احتمال عدم اكتشاف تحريف جوهري."
-      },
-      "long_i18n": {
-        "en": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "de": "Prufungsrisiko berechnen – die Wahrscheinlichkeit, wesentliche falsche Darstellungen nicht zu erkennen.",
-        "fr": "Calculer le risque d'audit — la probabilité de ne pas détecter une anomalie significative.",
-        "es": "Calcular el riesgo de auditoría: la probabilidad de no detectar una incorrección material.",
-        "ar": "حساب مخاطر المراجعة — احتمال عدم اكتشاف تحريف جوهري."
-      }
+      "long": "Calculate audit risk — the probability of not detecting material misstatement."
     }
-  },
-  "title_i18n": {
-    "en": "audit-risk-calculator",
-    "de": "Prufungsrisikorechner",
-    "fr": "Calculateur de risque d'audit",
-    "es": "Calculadora de riesgo de auditoría",
-    "ar": "حاسبة مخاطر التدقيق"
   },
   "sectorSlug": "daily-renovation"
 }

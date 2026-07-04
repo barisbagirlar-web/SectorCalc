@@ -8,48 +8,20 @@
     {
       "id": "geriKazanilan",
       "label": "Recovered Material (tons)",
-      "label_i18n": {
-        "en": "Recovered Material (tons)",
-        "de": "Ruckgewonnenes Material (tons)",
-        "fr": "Matériau récupéré (tonnes)",
-        "es": "Material Recuperado (tons)",
-        "ar": "المواد المستردة (طن)"
-      },
       "type": "number",
       "unit": "tons",
       "default": 500,
       "min": 0,
-      "businessContext": "Secondary raw material.",
-      "businessContext_i18n": {
-        "en": "Secondary raw material.",
-        "de": "Sekundärrohstoff.",
-        "fr": "Matière première secondaire.",
-        "es": "Materia prima secundaria.",
-        "ar": "مادة خام ثانوية."
-      }
+      "businessContext": "Secondary raw material."
     },
     {
       "id": "toplamGirdi",
       "label": "Total Material Input (tons)",
-      "label_i18n": {
-        "en": "Total Material Input (tons)",
-        "de": "Gesamter Materialeinsatz (tons)",
-        "fr": "Entrée totale de matière (tonnes)",
-        "es": "Entrada Total de Material (tons)",
-        "ar": "إجمالي مدخلات المواد (طن)"
-      },
       "type": "number",
       "unit": "tons",
       "default": 2000,
       "min": 0,
-      "businessContext": "All production material input.",
-      "businessContext_i18n": {
-        "en": "All production material input.",
-        "de": "Gesamter Produktionsmaterialeinsatz.",
-        "fr": "Toute entrée de matière de production.",
-        "es": "Entrada de material de toda la producción.",
-        "ar": "جميع مدخلات المواد الإنتاجية."
-      }
+      "businessContext": "All production material input."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "(geriKazanilan / Math.max(0.0001, toplamGirdi)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Dongusel Ekonomi Ratioi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Dongusel Ekonomi Ratioi",
-        "de": "Kreislaufwirtschaftsquote",
-        "fr": "Taux d'économie circulaire",
-        "es": "Relación de Economía Circular",
-        "ar": "نسبة الاقتصاد الدائري"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [
       "High environmental score may reduce operational costs.",
@@ -87,36 +50,15 @@
       "Set improvement targets for each ESG pillar.",
       "Consider carbon offset programs for residual emissions."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate circular economy material reuse ratio.",
-      "long": "Calculate circular economy material reuse ratio.",
-      "short_i18n": {
-        "en": "Calculate circular economy material reuse ratio.",
-        "de": "Berechnen Sie die Wiederverwendungsquote von Materialien in der Kreislaufwirtschaft.",
-        "fr": "Calculer le taux de réutilisation des matières dans l'économie circulaire.",
-        "es": "Calcular la relación de reutilización de materiales en economía circular.",
-        "ar": "حساب نسبة إعادة استخدام المواد في الاقتصاد الدائري."
-      },
-      "long_i18n": {
-        "en": "Calculate circular economy material reuse ratio.",
-        "de": "Berechnen Sie die Wiederverwendungsquote von Materialien in der Kreislaufwirtschaft.",
-        "fr": "Calculer le taux de réutilisation des matières dans l'économie circulaire.",
-        "es": "Calcular la relación de reutilización de materiales en economía circular.",
-        "ar": "حساب نسبة إعادة استخدام المواد في الاقتصاد الدائري."
-      }
+      "long": "Calculate circular economy material reuse ratio."
     }
-  },
-  "title_i18n": {
-    "en": "circular-economy-ratio-calculator",
-    "de": "Kreislaufwirtschaft-Rechner",
-    "fr": "Calculateur d'économie circulaire",
-    "es": "Calculadora de economía circular",
-    "ar": "حاسبة الاقتصاد الدائري"
   },
   "sectorSlug": "daily-renovation"
 }

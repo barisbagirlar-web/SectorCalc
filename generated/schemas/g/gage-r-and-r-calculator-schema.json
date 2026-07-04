@@ -8,48 +8,20 @@
     {
       "id": "parcaVaryans",
       "label": "Part Variance (VP)",
-      "label_i18n": {
-        "en": "Part Variance (VP)",
-        "de": "Teilevarianz (VP)",
-        "fr": "Variance des pièces (VP)",
-        "es": "Varianza de la pieza (VP)",
-        "ar": "تباين القطعة (VP)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Actual part-to-part variation.",
-      "businessContext_i18n": {
-        "en": "Actual part-to-part variation.",
-        "de": "Tatsächliche Teil-zu-Teil-Variation.",
-        "fr": "Variation réelle pièce à pièce.",
-        "es": "Variación real de pieza a pieza.",
-        "ar": "التباين الفعلي بين القطع."
-      }
+      "businessContext": "Actual part-to-part variation."
     },
     {
       "id": "olcumVaryans",
       "label": "Gauge R&R Variance",
-      "label_i18n": {
-        "en": "Gauge R&R Variance",
-        "de": "Messsystem-R&R-Varianz",
-        "fr": "Variance R&R de l'instrument",
-        "es": "Varianza R&R del calibre",
-        "ar": "تباين R&R للمقياس"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 25,
       "min": 0,
-      "businessContext": "Measurement system variance.",
-      "businessContext_i18n": {
-        "en": "Measurement system variance.",
-        "de": "Varianz des Messsystems.",
-        "fr": "Variance du système de mesure.",
-        "es": "Varianza del sistema de medición.",
-        "ar": "تباين نظام القياس."
-      }
+      "businessContext": "Measurement system variance."
     }
   ],
   "validation": {
@@ -63,58 +35,28 @@
     "result": "(olcumVaryans / Math.max(0.0001, (parcaVaryans + olcumVaryans))) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Gage R&R Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gage R&R Ratio",
-        "de": "Gage R&R-Verhältnis",
-        "fr": "Rapport R&R de l'étalon",
-        "es": "Relación Gage R&R",
-        "ar": "نسبة Gage R&R"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Conduct regular OEE audits for improvement.",
       "Use SMED to reduce setup times."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-      "long": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-      "short_i18n": {
-        "en": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-        "de": "Berechnen Sie die Messwiederholbarkeit und -reproduzierbarkeit (R&R) als Prozentsatz der Gesamtvarianz.",
-        "fr": "Calculer la répétabilité et la reproductibilité (R&R) de l'instrument en % de la variance totale.",
-        "es": "Calcular la repetibilidad y reproducibilidad del calibre (R&R) como % de la varianza total.",
-        "ar": "حساب قابلية التكرار والاستنساخ للمقياس (R&R) كنسبة مئوية من التباين الكلي."
-      },
-      "long_i18n": {
-        "en": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-        "de": "Berechnen Sie die Messwiederholbarkeit und -reproduzierbarkeit (R&R) als Prozentsatz der Gesamtvarianz.",
-        "fr": "Calculer la répétabilité et la reproductibilité (R&R) de l'instrument en % de la variance totale.",
-        "es": "Calcular la repetibilidad y reproducibilidad del calibre (R&R) como % de la varianza total.",
-        "ar": "حساب قابلية التكرار والاستنساخ للمقياس (R&R) كنسبة مئوية من التباين الكلي."
-      }
+      "long": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance."
     }
-  },
-  "title_i18n": {
-    "en": "gage-r-and-r-calculator",
-    "de": "Gage-R&R-Rechner",
-    "fr": "Calculateur Gage R&R",
-    "es": "Calculadora Gage R&R",
-    "ar": "حاسبة Gage R&R"
   },
   "sectorSlug": "cnc-manufacturing"
 }

@@ -8,71 +8,29 @@
     {
       "id": "production",
       "label": "Total Production",
-      "label_i18n": {
-        "en": "Total Production",
-        "de": "Gesamtproduktionseinheiten",
-        "fr": "Unités de production totales",
-        "es": "Unidades de Producción Totales",
-        "ar": "إجمالي وحدات الإنتاج"
-      },
       "type": "number",
       "unit": "units",
       "default": 10000,
       "min": 1,
-      "businessContext": "Total units produced.",
-      "businessContext_i18n": {
-        "en": "Total units produced.",
-        "de": "Gesamtzahl der produzierten Einheiten.",
-        "fr": "Nombre total d'unités produites.",
-        "es": "Total de unidades producidas.",
-        "ar": "إجمالي الوحدات المنتجة."
-      }
+      "businessContext": "Total units produced."
     },
     {
       "id": "hurda",
       "label": "Scrap Quantity",
-      "label_i18n": {
-        "en": "Scrap Quantity",
-        "de": "Ausschussmenge",
-        "fr": "Quantité de rebut",
-        "es": "Cantidad de desechos",
-        "ar": "كمية الخردة"
-      },
       "type": "number",
       "unit": "units",
       "default": 500,
       "min": 0,
-      "businessContext": "Defective units.",
-      "businessContext_i18n": {
-        "en": "Defective units.",
-        "de": "Fehlerhafte Einheiten.",
-        "fr": "Unités défectueuses.",
-        "es": "Unidades defectuosas.",
-        "ar": "الوحدات المعيبة."
-      }
+      "businessContext": "Defective units."
     },
     {
       "id": "birimMaliyet",
       "label": "Unit Cost (USD)",
-      "label_i18n": {
-        "en": "Unit Cost (USD)",
-        "de": "Stuckkosten",
-        "fr": "Coût unitaire",
-        "es": "Costo unitario",
-        "ar": "التكلفة لكل وحدة"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "Product unit cost.",
-      "businessContext_i18n": {
-        "en": "Product unit cost.",
-        "de": "Stuckkosten des Produkts.",
-        "fr": "Coût unitaire du produit.",
-        "es": "Costo unitario del producto.",
-        "ar": "تكلفة الوحدة للمنتج."
-      }
+      "businessContext": "Product unit cost."
     }
   ],
   "validation": {
@@ -86,58 +44,28 @@
     "result": "hurda * birimMaliyet"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Hurda Kaybi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Hurda Kaybi",
-        "de": "Ausschussverlust",
-        "fr": "Perte due aux rebuts",
-        "es": "Pérdida por desechos",
-        "ar": "خسارة الخردة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Conduct regular OEE audits for improvement.",
       "Use SMED to reduce setup times."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate total financial loss from scrap and rework.",
-      "long": "Calculate total financial loss from scrap and rework.",
-      "short_i18n": {
-        "en": "Calculate total financial loss from scrap and rework.",
-        "de": "Berechnen Sie den gesamten finanziellen Verlust durch Ausschuss und Nacharbeit.",
-        "fr": "Calculer la perte financière totale due aux rebuts et aux reprises.",
-        "es": "Calcular la pérdida financiera total por desechos y retrabajos.",
-        "ar": "احسب إجمالي الخسارة المالية من الخردة وإعادة العمل."
-      },
-      "long_i18n": {
-        "en": "Calculate total financial loss from scrap and rework.",
-        "de": "Berechnen Sie den gesamten finanziellen Verlust durch Ausschuss und Nacharbeit.",
-        "fr": "Calculer la perte financière totale due aux rebuts et aux reprises.",
-        "es": "Calcular la pérdida financiera total por desechos y retrabajos.",
-        "ar": "احسب إجمالي الخسارة المالية من الخردة وإعادة العمل."
-      }
+      "long": "Calculate total financial loss from scrap and rework."
     }
-  },
-  "title_i18n": {
-    "en": "scrap-rate-optimization-calculator",
-    "de": "Ausschussraten-Optimierungsrechner",
-    "fr": "Calculateur d'optimisation du taux de rebut",
-    "es": "Calculadora de optimización de tasa de desecho",
-    "ar": "حاسبة تحسين نسبة الخردة"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,117 +8,47 @@
     {
       "id": "deger1",
       "label": "Value 1",
-      "label_i18n": {
-        "en": "Value 1",
-        "de": "Wert 1",
-        "fr": "Valeur 1",
-        "es": "Valor 1",
-        "ar": "القيمة 1"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 10,
       "min": 0,
-      "businessContext": "Data value.",
-      "businessContext_i18n": {
-        "en": "Data value.",
-        "de": "Datenwert.",
-        "fr": "Valeur de la donnée.",
-        "es": "Valor del dato.",
-        "ar": "قيمة البيانات."
-      }
+      "businessContext": "Data value."
     },
     {
       "id": "deger2",
       "label": "Value 2",
-      "label_i18n": {
-        "en": "Value 2",
-        "de": "Wert 2",
-        "fr": "Valeur 2",
-        "es": "Valor 2",
-        "ar": "القيمة 2"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 20,
       "min": 0,
-      "businessContext": "Data value.",
-      "businessContext_i18n": {
-        "en": "Data value.",
-        "de": "Datenwert.",
-        "fr": "Valeur de la donnée.",
-        "es": "Valor del dato.",
-        "ar": "قيمة البيانات."
-      }
+      "businessContext": "Data value."
     },
     {
       "id": "deger3",
       "label": "Value 3",
-      "label_i18n": {
-        "en": "Value 3",
-        "de": "Wert 3",
-        "fr": "Valeur 3",
-        "es": "Valor 3",
-        "ar": "القيمة 3"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 30,
       "min": 0,
-      "businessContext": "Data value.",
-      "businessContext_i18n": {
-        "en": "Data value.",
-        "de": "Datenwert.",
-        "fr": "Valeur de la donnée.",
-        "es": "Valor del dato.",
-        "ar": "قيمة البيانات."
-      }
+      "businessContext": "Data value."
     },
     {
       "id": "deger4",
       "label": "Value 4",
-      "label_i18n": {
-        "en": "Value 4",
-        "de": "Wert 4",
-        "fr": "Valeur 4",
-        "es": "Valor 4",
-        "ar": "القيمة 4"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 40,
       "min": 0,
-      "businessContext": "Data value.",
-      "businessContext_i18n": {
-        "en": "Data value.",
-        "de": "Datenwert.",
-        "fr": "Valeur de la donnée.",
-        "es": "Valor del dato.",
-        "ar": "قيمة البيانات."
-      }
+      "businessContext": "Data value."
     },
     {
       "id": "deger5",
       "label": "Value 5",
-      "label_i18n": {
-        "en": "Value 5",
-        "de": "Wert 5",
-        "fr": "Valeur 5",
-        "es": "Valor 5",
-        "ar": "القيمة 5"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 50,
       "min": 0,
-      "businessContext": "Data value.",
-      "businessContext_i18n": {
-        "en": "Data value.",
-        "de": "Datenwert.",
-        "fr": "Valeur de la donnée.",
-        "es": "Valor del dato.",
-        "ar": "قيمة البيانات."
-      }
+      "businessContext": "Data value."
     }
   ],
   "validation": {
@@ -132,58 +62,28 @@
     "result": "Math.sqrt((Math.pow(deger1 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger2 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger3 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger4 - (deger1+deger2+deger3+deger4+deger5)/5, 2) + Math.pow(deger5 - (deger1+deger2+deger3+deger4+deger5)/5, 2)) / 4)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "number",
     "breakdown": {
-      "result": "Standart Sapma"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Standart Sapma",
-        "de": "Standardabweichung",
-        "fr": "Écart type",
-        "es": "Desviación Estándar",
-        "ar": "الانحراف المعياري"
-      }
+      "result": "Standard Deviation"
     },
     "breakdownUnits": {
-      "sonuc": "number"
+      "result": "number"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify statistical assumptions before making decisions.",
       "Use larger sample sizes for better accuracy."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate standard deviation and variance of a data set.",
-      "long": "Calculate standard deviation and variance of a data set.",
-      "short_i18n": {
-        "en": "Calculate standard deviation and variance of a data set.",
-        "de": "Berechnen Sie Standardabweichung und Varianz eines Datensatzes.",
-        "fr": "Calculer l'écart type et la variance d'un ensemble de données.",
-        "es": "Calcular la desviación estándar y la varianza de un conjunto de datos.",
-        "ar": "احسب الانحراف المعياري والتباين لمجموعة بيانات."
-      },
-      "long_i18n": {
-        "en": "Calculate standard deviation and variance of a data set.",
-        "de": "Berechnen Sie Standardabweichung und Varianz eines Datensatzes.",
-        "fr": "Calculer l'écart type et la variance d'un ensemble de données.",
-        "es": "Calcular la desviación estándar y la varianza de un conjunto de datos.",
-        "ar": "احسب الانحراف المعياري والتباين لمجموعة بيانات."
-      }
+      "long": "Calculate standard deviation and variance of a data set."
     }
-  },
-  "title_i18n": {
-    "en": "standard-deviation-variance-calculator",
-    "de": "Standardabweichung-Varianz-Rechner",
-    "fr": "Calculateur d'écart type et de variance",
-    "es": "Calculadora de desviación estándar y varianza",
-    "ar": "حاسبة الانحراف المعياري والتباين"
   },
   "sectorSlug": "ecommerce"
 }

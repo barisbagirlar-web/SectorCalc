@@ -2,54 +2,26 @@
   "toolName": "joint-compound-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Drywall Area (m²)",
-      "label_i18n": {
-        "en": "Drywall Area (m²)",
-        "de": "Total dryWall Fläche",
-        "fr": "Total dryWall Surface",
-        "es": "Total dryWall Área",
-        "ar": "Total dryWall المساحة"
-      },
       "type": "number",
       "unit": "m2",
       "default": 80,
       "min": 0,
-      "businessContext": "Total drywall area.",
-      "businessContext_i18n": {
-        "en": "Total drywall area.",
-        "de": "Gesamte Trockenbaufläche.",
-        "fr": "Surface totale de plaques de plâtre.",
-        "es": "Área total de paneles de yeso.",
-        "ar": "إجمالي مساحة ألواح الجبس."
-      }
+      "businessContext": "Total drywall area."
     },
     {
       "id": "consumption",
       "label": "Consumption (kg/m²)",
-      "label_i18n": {
-        "en": "Consumption (kg/m²)",
-        "de": "Stromverbrauch",
-        "fr": "Consommation d'électricité",
-        "es": "Consumo de electricidad",
-        "ar": "استهلاك الكهرباء"
-      },
       "type": "number",
       "unit": "kg/m2",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Joint compound per m².",
-      "businessContext_i18n": {
-        "en": "Joint compound per m².",
-        "de": "Fugenmasse pro m².",
-        "fr": "Composé à joints par m².",
-        "es": "Compuesto para juntas por m².",
-        "ar": "المركب المشترك لكل متر مربع."
-      }
+      "businessContext": "Joint compound per m²."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "area * consumption"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kg",
     "breakdown": {
       "result": "Gerekli Derz Macunu"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Derz Macunu",
-        "de": "Erforderliche Fugenmasse",
-        "fr": "Required Joint Compound",
-        "es": "Masa de Juntas Requerida",
-        "ar": "معجون المفاصل المطلوب"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kg"
+      "result": "kg"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate joint compound weight for drywall seams.",
-      "long": "Calculate joint compound weight for drywall seams.",
-      "short_i18n": {
-        "en": "Calculate joint compound weight for drywall seams.",
-        "de": "Berechnen Sie das Gewicht der Fugenmasse fur Trockenbaunähte.",
-        "fr": "Calculer le poids du composé à joints pour les joints de plaques de plâtre.",
-        "es": "Calcular el peso del compuesto para juntas en juntas de paneles de yeso.",
-        "ar": "حساب وزن المركب المشترك لمفاصل ألواح الجبس."
-      },
-      "long_i18n": {
-        "en": "Calculate joint compound weight for drywall seams.",
-        "de": "Berechnen Sie das Gewicht der Fugenmasse fur Trockenbaunähte.",
-        "fr": "Calculer le poids du composé à joints pour les joints de plaques de plâtre.",
-        "es": "Calcular el peso del compuesto para juntas en juntas de paneles de yeso.",
-        "ar": "حساب وزن المركب المشترك لمفاصل ألواح الجبس."
-      }
+      "long": "Calculate joint compound weight for drywall seams."
     }
-  },
-  "title_i18n": {
-    "en": "joint-compound-calculator",
-    "de": "Fugenmortelrechner",
-    "fr": "Calculateur de mastic de jointoiement",
-    "es": "Calculadora de masilla para juntas",
-    "ar": "حاسبة معجون الوصلات"
   },
   "sectorSlug": "ecommerce"
 }

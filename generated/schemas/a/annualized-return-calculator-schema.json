@@ -8,71 +8,29 @@
     {
       "id": "initial",
       "label": "Starting Value (USD)",
-      "label_i18n": {
-        "en": "Starting Value (USD)",
-        "de": "Starting Wert",
-        "fr": "Starting Valeur",
-        "es": "Starting Valor",
-        "ar": "Starting القيمة"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Investment value at start of period.",
-      "businessContext_i18n": {
-        "en": "Investment value at start of period.",
-        "de": "Anlagewert zu Beginn des Zeitraums.",
-        "fr": "Valeur de l'investissement au début de la période.",
-        "es": "Valor de la inversión al inicio del período.",
-        "ar": "قيمة الاستثمار في بداية الفترة."
-      }
+      "businessContext": "Investment value at start of period."
     },
     {
       "id": "final",
       "label": "Ending Value (USD)",
-      "label_i18n": {
-        "en": "Ending Value (USD)",
-        "de": "Endwert",
-        "fr": "Valeur finale",
-        "es": "Valor final",
-        "ar": "القيمة النهائية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "Investment value at end of period.",
-      "businessContext_i18n": {
-        "en": "Investment value at end of period.",
-        "de": "Anlagewert am Ende des Zeitraums.",
-        "fr": "Valeur de l'investissement à la fin de la période.",
-        "es": "Valor de la inversión al final del período.",
-        "ar": "قيمة الاستثمار في نهاية الفترة."
-      }
+      "businessContext": "Investment value at end of period."
     },
     {
       "id": "year",
       "label": "Period (Years)",
-      "label_i18n": {
-        "en": "Period (Years)",
-        "de": "Anlagezeitraum",
-        "fr": "Période d'investissement",
-        "es": "Período de inversión",
-        "ar": "فترة الاستثمار"
-      },
       "type": "number",
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Total investment period.",
-      "businessContext_i18n": {
-        "en": "Total investment period.",
-        "de": "Gesamter Anlagezeitraum.",
-        "fr": "Période totale d'investissement.",
-        "es": "Período total de inversión.",
-        "ar": "إجمالي فترة الاستثمار."
-      }
+      "businessContext": "Total investment period."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(Math.pow(final / Math.max(1, initial), 1 / Math.max(1, year)) - 1) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Yilliklandirilmis Getiri"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Yilliklandirilmis Getiri",
-        "de": "Annualisierte Rendite",
-        "fr": "Rendement annualisé",
-        "es": "Rendimiento Anualizado",
-        "ar": "العائد السنوي"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the annualized rate of return on an investment.",
-      "long": "Calculate the annualized rate of return on an investment.",
-      "short_i18n": {
-        "en": "Calculate the annualized rate of return on an investment.",
-        "de": "Berechnen Sie die annualisierte Rendite einer Investition.",
-        "fr": "Calculer le taux de rendement annualisé d'un investissement.",
-        "es": "Calcular la tasa de rendimiento anualizada de una inversión.",
-        "ar": "احسب معدل العائد السنوي على الاستثمار."
-      },
-      "long_i18n": {
-        "en": "Calculate the annualized rate of return on an investment.",
-        "de": "Berechnen Sie die annualisierte Rendite einer Investition.",
-        "fr": "Calculer le taux de rendement annualisé d'un investissement.",
-        "es": "Calcular la tasa de rendimiento anualizada de una inversión.",
-        "ar": "احسب معدل العائد السنوي على الاستثمار."
-      }
+      "long": "Calculate the annualized rate of return on an investment."
     }
-  },
-  "title_i18n": {
-    "en": "annualized-return-calculator",
-    "de": "Jahresrenditerechner",
-    "fr": "Calculateur de rendement annuel",
-    "es": "Calculadora de rendimiento anual",
-    "ar": "حاسبة العائد السنوي"
   },
   "sectorSlug": "daily-renovation"
 }

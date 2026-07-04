@@ -8,94 +8,38 @@
     {
       "id": "kohezyon",
       "label": "Cohesion (kPa)",
-      "label_i18n": {
-        "en": "Cohesion (kPa)",
-        "de": "Kohäsion",
-        "fr": "Cohésion",
-        "es": "Cohesión",
-        "ar": "التماسك"
-      },
       "type": "number",
       "unit": "kPa",
       "default": 20,
       "min": 0,
-      "businessContext": "Soil cohesion.",
-      "businessContext_i18n": {
-        "en": "Soil cohesion.",
-        "de": "Bodenkohäsion.",
-        "fr": "Cohésion du sol.",
-        "es": "Cohesión del suelo.",
-        "ar": "تماسك التربة."
-      }
+      "businessContext": "Soil cohesion."
     },
     {
       "id": "normalGerilme",
       "label": "Normal Stress (kPa)",
-      "label_i18n": {
-        "en": "Normal Stress (kPa)",
-        "de": "Normalspannung (kPa)",
-        "fr": "Contrainte normale (kPa)",
-        "es": "Esfuerzo Normal (kPa)",
-        "ar": "الإجهاد العمودي (kPa)"
-      },
       "type": "number",
       "unit": "kPa",
       "default": 100,
       "min": 0,
-      "businessContext": "Normal stress on slip plane.",
-      "businessContext_i18n": {
-        "en": "Normal stress on slip plane.",
-        "de": "Normalspannung auf der Gleitebene.",
-        "fr": "Contrainte normale sur le plan de glissement.",
-        "es": "Esfuerzo normal en el plano de deslizamiento.",
-        "ar": "الإجهاد العمودي على مستوى الانزلاق."
-      }
+      "businessContext": "Normal stress on slip plane."
     },
     {
       "id": "icSuratmeAcisi",
       "label": "Internal Friction Angle (Deg)",
-      "label_i18n": {
-        "en": "Internal Friction Angle (Deg)",
-        "de": "Innerer Reibungswinkel (Grad)",
-        "fr": "Angle de frottement interne (Deg)",
-        "es": "Ángulo de Fricción Interna (Deg)",
-        "ar": "زاوية الاحتكاك الداخلي (Deg)"
-      },
       "type": "number",
       "unit": "degrees",
       "default": 30,
       "min": 0,
-      "businessContext": "Soil friction angle.",
-      "businessContext_i18n": {
-        "en": "Soil friction angle.",
-        "de": "Bodenreibungswinkel.",
-        "fr": "Angle de frottement du sol.",
-        "es": "Ángulo de fricción del suelo.",
-        "ar": "زاوية احتكاك التربة."
-      }
+      "businessContext": "Soil friction angle."
     },
     {
       "id": "kaymaGerilmesi",
       "label": "Shear Stress (kPa)",
-      "label_i18n": {
-        "en": "Shear Stress (kPa)",
-        "de": "Schubspannung (kPa)",
-        "fr": "Contrainte de cisaillement (kPa)",
-        "es": "Esfuerzo Cortante (kPa)",
-        "ar": "إجهاد القص (kPa)"
-      },
       "type": "number",
       "unit": "kPa",
       "default": 80,
       "min": 0,
-      "businessContext": "Driving shear stress on slip plane.",
-      "businessContext_i18n": {
-        "en": "Driving shear stress on slip plane.",
-        "de": "Treibende Schubspannung auf der Gleitebene.",
-        "fr": "Contrainte de cisaillement motrice sur le plan de glissement.",
-        "es": "Esfuerzo cortante impulsor en el plano de deslizamiento.",
-        "ar": "إجهاد القص المحرك على مستوى الانزلاق."
-      }
+      "businessContext": "Driving shear stress on slip plane."
     }
   ],
   "validation": {
@@ -105,26 +49,17 @@
     "thresholds": {}
   },
   "formulas": {
-    "dayanim": "kohezyon + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))",
-    "result": "(kohezyon + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))) / Math.max(0.0001, kaymaGerilmesi)"
+    "dayanim": "cohesion + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))",
+    "result": "(cohesion + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))) / Math.max(0.0001, kaymaGerilmesi)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "safety",
     "breakdown": {
-      "result": "Emniyet Faktoru (FS)"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Emniyet Faktoru (FS)",
-        "de": "Sicherheitsfaktor (SF)",
-        "fr": "Facteur de sécurité (FS)",
-        "es": "Factor de Seguridad (FS)",
-        "ar": "عامل الأمان (FS)"
-      }
+      "result": "Safety Factor (FS)"
     },
     "breakdownUnits": {
-      "sonuc": "safety"
+      "result": "safety"
     },
     "hiddenLossDrivers": [
       "Low efficiency may indicate equipment or process issues."
@@ -133,36 +68,15 @@
       "Calibrate all measuring equipment regularly.",
       "Use site-specific data when available."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate slope stability factor of safety against sliding.",
-      "long": "Calculate slope stability factor of safety against sliding.",
-      "short_i18n": {
-        "en": "Calculate slope stability factor of safety against sliding.",
-        "de": "Berechnen Sie den Standsicherheitsfaktor gegen Gleiten.",
-        "fr": "Calculer le facteur de sécurité de stabilité des pentes contre le glissement.",
-        "es": "Calcular el factor de seguridad de estabilidad de taludes contra deslizamiento.",
-        "ar": "حساب معامل أمان استقرار المنحدر ضد الانزلاق."
-      },
-      "long_i18n": {
-        "en": "Calculate slope stability factor of safety against sliding.",
-        "de": "Berechnen Sie den Standsicherheitsfaktor gegen Gleiten.",
-        "fr": "Calculer le facteur de sécurité de stabilité des pentes contre le glissement.",
-        "es": "Calcular el factor de seguridad de estabilidad de taludes contra deslizamiento.",
-        "ar": "حساب معامل أمان استقرار المنحدر ضد الانزلاق."
-      }
+      "long": "Calculate slope stability factor of safety against sliding."
     }
-  },
-  "title_i18n": {
-    "en": "slope-stability-factor-calculator",
-    "de": "SEV-Sicherheitsfaktor-Rechner",
-    "fr": "Calculateur de facteur de sécurité SEV",
-    "es": "Calculadora de factor de seguridad SEV",
-    "ar": "حاسبة عامل الأمان SEV"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -2,79 +2,37 @@
   "toolName": "rsu-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "hisseSayisi",
       "label": "RSU Shares Granted",
-      "label_i18n": {
-        "en": "RSU Shares Granted",
-        "de": "Gewährte RSU-Aktien",
-        "fr": "Actions RSU attribuées",
-        "es": "Acciones RSU Concedidas",
-        "ar": "أسهم RSU الممنوحة"
-      },
       "type": "number",
       "unit": "shares",
       "default": 1000,
       "min": 0,
-      "businessContext": "Vested RSU shares.",
-      "businessContext_i18n": {
-        "en": "Vested RSU shares.",
-        "de": "Unverfallbare RSU-Aktien.",
-        "fr": "Actions RSU acquises.",
-        "es": "Acciones RSU adquiridas.",
-        "ar": "أسهم RSU المستحقة."
-      }
+      "businessContext": "Vested RSU shares."
     },
     {
       "id": "hakKazanma",
       "label": "Vesting Percentage (%)",
-      "label_i18n": {
-        "en": "Vesting Percentage (%)",
-        "de": "Unverfallbarkeitsprozentsatz (%)",
-        "fr": "Pourcentage d'acquisition (%)",
-        "es": "Porcentaje de Adquisición (%)",
-        "ar": "نسبة الاستحقاق (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Vesting percentage.",
-      "businessContext_i18n": {
-        "en": "Vesting percentage.",
-        "de": "Unverfallbarkeitsprozentsatz.",
-        "fr": "Pourcentage d'acquisition.",
-        "es": "Porcentaje de adquisición.",
-        "ar": "نسبة الاستحقاق."
-      }
+      "businessContext": "Vesting percentage."
     },
     {
       "id": "vergi",
       "label": "Tax Withholding (%)",
-      "label_i18n": {
-        "en": "Tax Withholding (%)",
-        "de": "Steuereinbehalt (%)",
-        "fr": "Retenue d'impôt (%)",
-        "es": "Retención de Impuestos (%)",
-        "ar": "نسبة خصم الضريبة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Withholding tax rate.",
-      "businessContext_i18n": {
-        "en": "Withholding tax rate.",
-        "de": "Steuereinbehaltssatz.",
-        "fr": "Taux de retenue d'impôt.",
-        "es": "Tasa de retención de impuestos.",
-        "ar": "معدل ضريبة الخصم."
-      }
+      "businessContext": "Withholding tax rate."
     }
   ],
   "validation": {
@@ -87,58 +45,28 @@
     "result": "(hisseSayisi * hakKazanma / 100) * (1 - vergi / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "shares",
     "breakdown": {
-      "result": "Net Hisse"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Net Hisse",
-        "de": "Nettoaktien",
-        "fr": "Actions nettes",
-        "es": "Acciones Netas",
-        "ar": "صافي الأسهم"
-      }
+      "result": "Net Shares"
     },
     "breakdownUnits": {
-      "sonuc": "shares"
+      "result": "shares"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate net RSU shares after tax withholding.",
-      "long": "Calculate net RSU shares after tax withholding.",
-      "short_i18n": {
-        "en": "Calculate net RSU shares after tax withholding.",
-        "de": "Berechnen Sie die Netto-RSU-Aktien nach Steuereinbehalt.",
-        "fr": "Calculer les actions RSU nettes après retenue d'impôt.",
-        "es": "Calcular las acciones netas de RSU después de la retención de impuestos.",
-        "ar": "حساب صافي أسهم RSU بعد خصم الضريبة."
-      },
-      "long_i18n": {
-        "en": "Calculate net RSU shares after tax withholding.",
-        "de": "Berechnen Sie die Netto-RSU-Aktien nach Steuereinbehalt.",
-        "fr": "Calculer les actions RSU nettes après retenue d'impôt.",
-        "es": "Calcular las acciones netas de RSU después de la retención de impuestos.",
-        "ar": "حساب صافي أسهم RSU بعد خصم الضريبة."
-      }
+      "long": "Calculate net RSU shares after tax withholding."
     }
-  },
-  "title_i18n": {
-    "en": "rsu-calculator",
-    "de": "RSU-Aktienrechner (Restricted Stock Units)",
-    "fr": "Calculateur d'actions restreintes RSU",
-    "es": "Calculadora de unidades de acciones restringidas RSU",
-    "ar": "حاسبة وحدات الأسهم المقيدة RSU"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,71 +8,29 @@
     {
       "id": "mesafe",
       "label": "Distance (km)",
-      "label_i18n": {
-        "en": "Distance (km)",
-        "de": "Entfernung (km)",
-        "fr": "Distance (km)",
-        "es": "Distancia (km)",
-        "ar": "المسافة (كم)"
-      },
       "type": "number",
       "unit": "km",
       "default": 500,
       "min": 0,
-      "businessContext": "Transport distance.",
-      "businessContext_i18n": {
-        "en": "Transport distance.",
-        "de": "Transportentfernung.",
-        "fr": "Distance de transport.",
-        "es": "Distancia de transporte.",
-        "ar": "مسافة النقل."
-      }
+      "businessContext": "Transport distance."
     },
     {
       "id": "tonaj",
       "label": "Weight (Tons)",
-      "label_i18n": {
-        "en": "Weight (Tons)",
-        "de": "Beschichtungsgewicht einbeziehen",
-        "fr": "Inclure le poids du revêtement",
-        "es": "Incluir peso del recubrimiento",
-        "ar": "تضمين وزن الطلاء"
-      },
       "type": "number",
       "unit": "tons",
       "default": 20,
       "min": 0,
-      "businessContext": "Cargo weight.",
-      "businessContext_i18n": {
-        "en": "Cargo weight.",
-        "de": "Frachtgewicht.",
-        "fr": "Poids de la cargaison.",
-        "es": "Peso de la carga.",
-        "ar": "وزن الشحنة."
-      }
+      "businessContext": "Cargo weight."
     },
     {
       "id": "birimFiyat",
       "label": "Unit Price (USD/ton-km)",
-      "label_i18n": {
-        "en": "Unit Price (USD/ton-km)",
-        "de": "Stuckpreis ($)",
-        "fr": "Prix unitaire ($)",
-        "es": "Precio unitario ($)",
-        "ar": "سعر الوحدة ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Rate per ton-km.",
-      "businessContext_i18n": {
-        "en": "Rate per ton-km.",
-        "de": "Satz pro Tonnen-km.",
-        "fr": "Tarif par tonne-km.",
-        "es": "Tarifa por tonelada-km.",
-        "ar": "السعر لكل طن-كم."
-      }
+      "businessContext": "Rate per ton-km."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "mesafe * tonaj * birimFiyat"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Toplam Navlun"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Toplam Navlun",
-        "de": "Gesamtfracht",
-        "fr": "Fret total",
-        "es": "Flete total",
-        "ar": "إجمالي الشحن"
-      }
+      "result": "Total Freight"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inventory turnover metrics monthly.",
       "Factor in seasonality for safety stock."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate total road freight cost based on distance and tonnage.",
-      "long": "Calculate total road freight cost based on distance and tonnage.",
-      "short_i18n": {
-        "en": "Calculate total road freight cost based on distance and tonnage.",
-        "de": "Berechnen Sie die gesamten Straßengutertransportkosten basierend auf Entfernung und Tonnage.",
-        "fr": "Calculer le coût total du fret routier en fonction de la distance et du tonnage.",
-        "es": "Calcular el costo total de flete por carretera basado en distancia y tonelaje.",
-        "ar": "حساب التكلفة الإجمالية لنقل البضائع بالشاحنات بناءً على المسافة والحمولة."
-      },
-      "long_i18n": {
-        "en": "Calculate total road freight cost based on distance and tonnage.",
-        "de": "Berechnen Sie die gesamten Straßengutertransportkosten basierend auf Entfernung und Tonnage.",
-        "fr": "Calculer le coût total du fret routier en fonction de la distance et du tonnage.",
-        "es": "Calcular el costo total de flete por carretera basado en distancia y tonelaje.",
-        "ar": "حساب التكلفة الإجمالية لنقل البضائع بالشاحنات بناءً على المسافة والحمولة."
-      }
+      "long": "Calculate total road freight cost based on distance and tonnage."
     }
-  },
-  "title_i18n": {
-    "en": "freight-cost-calculator",
-    "de": "Versandkostenrechner",
-    "fr": "Calculateur de frais d'expédition",
-    "es": "Calculadora de costos de envío",
-    "ar": "حاسبة تكلفة الشحن"
   },
   "sectorSlug": "daily-renovation"
 }

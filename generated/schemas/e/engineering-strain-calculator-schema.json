@@ -8,48 +8,20 @@
     {
       "id": "ilkBoy",
       "label": "Original Length (m)",
-      "label_i18n": {
-        "en": "Original Length (m)",
-        "de": "Ursprungliche Länge (m)",
-        "fr": "Longueur originale (m)",
-        "es": "Longitud Original (m)",
-        "ar": "الطول الأصلي (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "Original dimension.",
-      "businessContext_i18n": {
-        "en": "Original dimension.",
-        "de": "Ursprungliche Abmessung.",
-        "fr": "Dimension originale.",
-        "es": "Dimensión original.",
-        "ar": "البعد الأصلي."
-      }
+      "businessContext": "Original dimension."
     },
     {
       "id": "sonBoy",
       "label": "Final Length (m)",
-      "label_i18n": {
-        "en": "Final Length (m)",
-        "de": "Endlänge (m)",
-        "fr": "Longueur finale (m)",
-        "es": "Longitud Final (m)",
-        "ar": "الطول النهائي (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 1.002,
       "min": 0,
-      "businessContext": "Dimension after loading.",
-      "businessContext_i18n": {
-        "en": "Dimension after loading.",
-        "de": "Abmessung nach Belastung.",
-        "fr": "Dimension après chargement.",
-        "es": "Dimensión después de la carga.",
-        "ar": "البعد بعد التحميل."
-      }
+      "businessContext": "Dimension after loading."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(sonBoy - ilkBoy) / Math.max(0.0001, ilkBoy)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "strain",
     "breakdown": {
       "result": "Unit Strain (ε)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Unit Strain (ε)",
-        "de": "Dehnung (ε)",
-        "fr": "Déformation (ε)",
-        "es": "Deformación Unitaria (ε)",
-        "ar": "الانفعال الهندسي (ε)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "strain"
+      "result": "strain"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate engineering strain as change in length divided by original length.",
-      "long": "Calculate engineering strain as change in length divided by original length.",
-      "short_i18n": {
-        "en": "Calculate engineering strain as change in length divided by original length.",
-        "de": "Berechnen Sie die technische Dehnung als Längenänderung geteilt durch die ursprungliche Länge.",
-        "fr": "Calculer la déformation technique comme le changement de longueur divisé par la longueur originale.",
-        "es": "Calcular la deformación unitaria ingenieril como el cambio de longitud dividido por la longitud original.",
-        "ar": "حساب الانفعال الهندسي كتغير في الطول مقسومًا على الطول الأصلي."
-      },
-      "long_i18n": {
-        "en": "Calculate engineering strain as change in length divided by original length.",
-        "de": "Berechnen Sie die technische Dehnung als Längenänderung geteilt durch die ursprungliche Länge.",
-        "fr": "Calculer la déformation technique comme le changement de longueur divisé par la longueur originale.",
-        "es": "Calcular la deformación unitaria ingenieril como el cambio de longitud dividido por la longitud original.",
-        "ar": "حساب الانفعال الهندسي كتغير في الطول مقسومًا على الطول الأصلي."
-      }
+      "long": "Calculate engineering strain as change in length divided by original length."
     }
-  },
-  "title_i18n": {
-    "en": "engineering-strain-calculator",
-    "de": "Dehnungsrechner",
-    "fr": "Calculateur de déformation unitaire",
-    "es": "Calculadora de deformación unitaria",
-    "ar": "حاسبة الانفعال الوحدوي"
   },
   "sectorSlug": "daily-renovation"
 }

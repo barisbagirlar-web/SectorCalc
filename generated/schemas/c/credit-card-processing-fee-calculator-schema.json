@@ -8,71 +8,29 @@
     {
       "id": "satis",
       "label": "Sale Amount (USD)",
-      "label_i18n": {
-        "en": "Sale Amount (USD)",
-        "de": "Verkaufsbetrag",
-        "fr": "Montant de la vente",
-        "es": "Monto de venta",
-        "ar": "مبلغ البيع"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Transaction amount.",
-      "businessContext_i18n": {
-        "en": "Transaction amount.",
-        "de": "Transaktionsbetrag.",
-        "fr": "Montant de la transaction.",
-        "es": "Monto de la transacción.",
-        "ar": "مبلغ المعاملة."
-      }
+      "businessContext": "Transaction amount."
     },
     {
       "id": "yuzde",
       "label": "Percentage Fee (%)",
-      "label_i18n": {
-        "en": "Percentage Fee (%)",
-        "de": "Prozentsatzgebuhr (%)",
-        "fr": "Frais en pourcentage (%)",
-        "es": "Tarifa de Porcentaje (%)",
-        "ar": "رسوم النسبة المئوية (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 2.5,
       "min": 0,
-      "businessContext": "Per-transaction percentage fee.",
-      "businessContext_i18n": {
-        "en": "Per-transaction percentage fee.",
-        "de": "Prozentsatzgebuhr pro Transaktion.",
-        "fr": "Frais de pourcentage par transaction.",
-        "es": "Comisión porcentual por transacción.",
-        "ar": "رسوم النسبة المئوية لكل معاملة."
-      }
+      "businessContext": "Per-transaction percentage fee."
     },
     {
       "id": "sabit",
       "label": "Fixed Fee (USD)",
-      "label_i18n": {
-        "en": "Fixed Fee (USD)",
-        "de": "Feste Gebuhr (USD)",
-        "fr": "Frais fixes (USD)",
-        "es": "Tarifa fija (USD)",
-        "ar": "الرسوم الثابتة (دولار أمريكي)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Per-transaction fixed fee.",
-      "businessContext_i18n": {
-        "en": "Per-transaction fixed fee.",
-        "de": "Feste Gebuhr pro Transaktion.",
-        "fr": "Frais fixes par transaction.",
-        "es": "Comisión fija por transacción.",
-        "ar": "الرسوم الثابتة لكل معاملة."
-      }
+      "businessContext": "Per-transaction fixed fee."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(satis * yuzde / 100) + sabit"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Worklem Ucreti"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Worklem Ucreti",
-        "de": "Transaktionsgebuhr",
-        "fr": "Frais de transaction",
-        "es": "Tarifa de Transacción",
-        "ar": "رسوم المعاملة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Compare multiple loan offers before committing.",
       "Consider total cost including fees."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate credit card processing fee for POS or online payments.",
-      "long": "Calculate credit card processing fee for POS or online payments.",
-      "short_i18n": {
-        "en": "Calculate credit card processing fee for POS or online payments.",
-        "de": "Kreditkartenabwicklungsgebuhr fur POS- oder Online-Zahlungen berechnen.",
-        "fr": "Calculer les frais de traitement de la carte de crédit pour les paiements POS ou en ligne.",
-        "es": "Calcular la comisión de procesamiento de tarjeta de crédito para pagos POS o en línea.",
-        "ar": "احسب رسوم معالجة بطاقة الائتمان للمدفوعات عبر نقاط البيع أو عبر الإنترنت."
-      },
-      "long_i18n": {
-        "en": "Calculate credit card processing fee for POS or online payments.",
-        "de": "Kreditkartenabwicklungsgebuhr fur POS- oder Online-Zahlungen berechnen.",
-        "fr": "Calculer les frais de traitement de la carte de crédit pour les paiements POS ou en ligne.",
-        "es": "Calcular la comisión de procesamiento de tarjeta de crédito para pagos POS o en línea.",
-        "ar": "احسب رسوم معالجة بطاقة الائتمان للمدفوعات عبر نقاط البيع أو عبر الإنترنت."
-      }
+      "long": "Calculate credit card processing fee for POS or online payments."
     }
-  },
-  "title_i18n": {
-    "en": "credit-card-processing-fee-calculator",
-    "de": "KreditkartenTransaktionsgebuhrenrechner",
-    "fr": "Calculateur de Frais de Transaction par Carte de Crédit",
-    "es": "Calculadora de Tarifa de Transacción de Tarjeta de Crédito",
-    "ar": "حاسبة رسوم معاملات بطاقة الائتمان"
   },
   "sectorSlug": "daily-renovation"
 }

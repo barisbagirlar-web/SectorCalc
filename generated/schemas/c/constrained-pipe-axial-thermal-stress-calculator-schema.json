@@ -8,71 +8,29 @@
     {
       "id": "elastisiteModulu",
       "label": "Young's Modulus (Pa)",
-      "label_i18n": {
-        "en": "Young's Modulus (Pa)",
-        "de": "Elastizitätsmodul (E)",
-        "fr": "Module de Young (E)",
-        "es": "Módulo de Young (E)",
-        "ar": "معامل يونغ (E)"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Pipe material modulus.",
-      "businessContext_i18n": {
-        "en": "Pipe material modulus.",
-        "de": "Elastizitätsmodul des Rohrmaterials.",
-        "fr": "Module du matériau du tuyau.",
-        "es": "Módulo del material de la tubería.",
-        "ar": "معامل مرونة مادة الأنبوب."
-      }
+      "businessContext": "Pipe material modulus."
     },
     {
       "id": "genlesmeKatsayisi",
       "label": "Thermal Expansion Coeff (1/K)",
-      "label_i18n": {
-        "en": "Thermal Expansion Coeff (1/K)",
-        "de": "Wärmeausdehnungskoeffizient",
-        "fr": "Coefficient de dilatation thermique",
-        "es": "Coeficiente de expansión térmica",
-        "ar": "معامل التمدد الحراري"
-      },
       "type": "number",
       "unit": "1/K",
       "default": 0.000012,
       "min": 0,
-      "businessContext": "Linear expansion coefficient.",
-      "businessContext_i18n": {
-        "en": "Linear expansion coefficient.",
-        "de": "Linearer Ausdehnungskoeffizient.",
-        "fr": "Coefficient de dilatation linéaire.",
-        "es": "Coeficiente de expansión lineal.",
-        "ar": "معامل التمدد الخطي."
-      }
+      "businessContext": "Linear expansion coefficient."
     },
     {
       "id": "sicaklikFarki",
       "label": "Temperature Difference (K)",
-      "label_i18n": {
-        "en": "Temperature Difference (K)",
-        "de": "Temperaturdifferenz",
-        "fr": "Différence de température",
-        "es": "Diferencia de temperatura",
-        "ar": "فرق درجة الحرارة"
-      },
       "type": "number",
       "unit": "K",
       "default": 50,
       "min": 0,
-      "businessContext": "Installation vs operating temperature difference.",
-      "businessContext_i18n": {
-        "en": "Installation vs operating temperature difference.",
-        "de": "Temperaturdifferenz zwischen Einbau- und Betriebszustand.",
-        "fr": "Différence de température entre installation et fonctionnement.",
-        "es": "Diferencia de temperatura entre instalación y operación.",
-        "ar": "فرق درجة الحرارة بين التركيب والتشغيل."
-      }
+      "businessContext": "Installation vs operating temperature difference."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "elastisiteModulu * genlesmeKatsayisi * sicaklikFarki"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Termal Gerilme"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Termal Gerilme",
-        "de": "Thermische Spannung",
-        "fr": "Contrainte thermique",
-        "es": "Esfuerzo Térmico",
-        "ar": "الإجهاد الحراري"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate axial thermal stress in a constrained pipe.",
-      "long": "Calculate axial thermal stress in a constrained pipe.",
-      "short_i18n": {
-        "en": "Calculate axial thermal stress in a constrained pipe.",
-        "de": "Axiale thermische Spannung in einem eingespannten Rohr berechnen.",
-        "fr": "Calculer la contrainte thermique axiale dans un tuyau contraint.",
-        "es": "Calcular la tensión térmica axial en una tubería restringida.",
-        "ar": "حساب الإجهاد الحراري المحوري في أنبوب مقيد."
-      },
-      "long_i18n": {
-        "en": "Calculate axial thermal stress in a constrained pipe.",
-        "de": "Axiale thermische Spannung in einem eingespannten Rohr berechnen.",
-        "fr": "Calculer la contrainte thermique axiale dans un tuyau contraint.",
-        "es": "Calcular la tensión térmica axial en una tubería restringida.",
-        "ar": "حساب الإجهاد الحراري المحوري في أنبوب مقيد."
-      }
+      "long": "Calculate axial thermal stress in a constrained pipe."
     }
-  },
-  "title_i18n": {
-    "en": "constrained-pipe-axial-thermal-stress-calculator",
-    "de": "Rohr-Wärmespannungsrechner",
-    "fr": "Calculateur de contrainte thermique de tuyau",
-    "es": "Calculadora de tensión térmica de tubería",
-    "ar": "حاسبة الإجهاد الحراري للأنابيب"
   },
   "sectorSlug": "construction"
 }

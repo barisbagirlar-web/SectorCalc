@@ -8,94 +8,38 @@
     {
       "id": "diameter",
       "label": "Pile Diameter (m)",
-      "label_i18n": {
-        "en": "Pile Diameter (m)",
-        "de": "Pfahldurchmesser (m)",
-        "fr": "Diamètre du pieu (m)",
-        "es": "Diámetro del Pilote (m)",
-        "ar": "قطر الركيزة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.6,
       "min": 0,
-      "businessContext": "Pile diameter.",
-      "businessContext_i18n": {
-        "en": "Pile diameter.",
-        "de": "Pfahldurchmesser.",
-        "fr": "Diamètre du pieu.",
-        "es": "Diámetro del pilote.",
-        "ar": "قطر الركيزة."
-      }
+      "businessContext": "Pile diameter."
     },
     {
       "id": "boy",
       "label": "Pile Length (m)",
-      "label_i18n": {
-        "en": "Pile Length (m)",
-        "de": "Pfahllänge (m)",
-        "fr": "Longueur du pieu (m)",
-        "es": "Longitud del Pilote (m)",
-        "ar": "طول الركيزة (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 15,
       "min": 0,
-      "businessContext": "Pile length.",
-      "businessContext_i18n": {
-        "en": "Pile length.",
-        "de": "Pfahllänge.",
-        "fr": "Longueur du pieu.",
-        "es": "Longitud del pilote.",
-        "ar": "طول الركيزة."
-      }
+      "businessContext": "Pile length."
     },
     {
       "id": "kohezyon",
       "label": "Cohesion (kPa)",
-      "label_i18n": {
-        "en": "Cohesion (kPa)",
-        "de": "Kohäsion",
-        "fr": "Cohésion",
-        "es": "Cohesión",
-        "ar": "التماسك"
-      },
       "type": "number",
       "unit": "kPa",
       "default": 100,
       "min": 0,
-      "businessContext": "Soil cohesion.",
-      "businessContext_i18n": {
-        "en": "Soil cohesion.",
-        "de": "Bodenkohäsion.",
-        "fr": "Cohésion du sol.",
-        "es": "Cohesión del suelo.",
-        "ar": "تماسك التربة."
-      }
+      "businessContext": "Soil cohesion."
     },
     {
-      "id": "suratme",
+      "id": "driving",
       "label": "Skin Friction (kPa)",
-      "label_i18n": {
-        "en": "Skin Friction (kPa)",
-        "de": "Mantelreibung (kPa)",
-        "fr": "Frottement latéral (kPa)",
-        "es": "Fricción Superficial (kPa)",
-        "ar": "احتكاك الجلد (kPa)"
-      },
       "type": "number",
       "unit": "kPa",
       "default": 50,
       "min": 0,
-      "businessContext": "Pile-soil skin friction.",
-      "businessContext_i18n": {
-        "en": "Pile-soil skin friction.",
-        "de": "Mantelreibung zwischen Pfahl und Boden.",
-        "fr": "Frottement latéral pieu-sol.",
-        "es": "Fricción superficial pilote-suelo.",
-        "ar": "احتكاك الجلد بين الركيزة والتربة."
-      }
+      "businessContext": "Pile-soil skin friction."
     }
   ],
   "validation": {
@@ -105,27 +49,18 @@
     "thresholds": {}
   },
   "formulas": {
-    "ucDayanimi": "(Math.PI * Math.pow(diameter / 2, 2)) * (9 * kohezyon)",
-    "yuzeySuratmesi": "Math.PI * diameter * boy * suratme",
-    "result": "((Math.PI * Math.pow(diameter / 2, 2)) * (9 * kohezyon)) + (Math.PI * diameter * boy * suratme)"
+    "ucDayanimi": "(Math.PI * Math.pow(diameter / 2, 2)) * (9 * cohesion)",
+    "result": "((Math.PI * Math.pow(diameter / 2, 2)) * (9 * cohesion)) + (Math.PI * diameter * length * driving)",
+    "surfaceFriction": "Math.PI * diameter * length * driving"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kN",
     "breakdown": {
       "result": "Nihai Bearing Power"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Nihai Bearing Power",
-        "de": "Grenztragfähigkeit",
-        "fr": "Capacité portante ultime",
-        "es": "Capacidad de Carga Última",
-        "ar": "قدرة التحمل النهائية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kN"
+      "result": "kN"
     },
     "hiddenLossDrivers": [
       "Low efficiency may indicate equipment or process issues."
@@ -134,36 +69,15 @@
       "Calibrate all measuring equipment regularly.",
       "Use site-specific data when available."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-      "long": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-      "short_i18n": {
-        "en": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "de": "Berechnen Sie die axiale Grenztragfähigkeit eines Ortbetonpfahls.",
-        "fr": "Calculer la capacité portante axiale ultime d'un pieu coulé en place.",
-        "es": "Calcular la capacidad de carga axial última de un pilote colado in situ.",
-        "ar": "حساب قدرة التحمل المحورية النهائية للركيزة المصبوبة في الموقع."
-      },
-      "long_i18n": {
-        "en": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "de": "Berechnen Sie die axiale Grenztragfähigkeit eines Ortbetonpfahls.",
-        "fr": "Calculer la capacité portante axiale ultime d'un pieu coulé en place.",
-        "es": "Calcular la capacidad de carga axial última de un pilote colado in situ.",
-        "ar": "حساب قدرة التحمل المحورية النهائية للركيزة المصبوبة في الموقع."
-      }
+      "long": "Calculate ultimate axial bearing capacity of a cast-in-place pile."
     }
-  },
-  "title_i18n": {
-    "en": "pile-bearing-capacity-calculator",
-    "de": "Pfahl-Tragfähigkeitsrechner",
-    "fr": "Calculateur de capacité portante de pieu",
-    "es": "Calculadora de capacidad de carga de pilotes",
-    "ar": "حاسبة قدرة تحمل الخوازيق"
   },
   "sectorSlug": "daily-renovation"
 }

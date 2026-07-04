@@ -8,71 +8,29 @@
     {
       "id": "netFiyat",
       "label": "Net Price (EUR)",
-      "label_i18n": {
-        "en": "Net Price (EUR)",
-        "de": "Nettopreis (EUR)",
-        "fr": "Prix net (EUR)",
-        "es": "Precio neto (EUR)",
-        "ar": "السعر الصافي (EUR)"
-      },
       "type": "number",
       "unit": "EUR",
       "default": 100,
       "min": 0,
-      "businessContext": "Product net price.",
-      "businessContext_i18n": {
-        "en": "Product net price.",
-        "de": "Produktnettopreis.",
-        "fr": "Prix net du produit.",
-        "es": "Precio neto del producto.",
-        "ar": "السعر الصافي للمنتج."
-      }
+      "businessContext": "Product net price."
     },
     {
       "id": "kargo",
       "label": "Shipping (EUR)",
-      "label_i18n": {
-        "en": "Shipping (EUR)",
-        "de": "Versandkosten pro kg",
-        "fr": "Coût d'expédition par kg",
-        "es": "Costo de envío por kg",
-        "ar": "تكلفة الشحن لكل كجم"
-      },
       "type": "number",
       "unit": "EUR",
       "default": 15,
       "min": 0,
-      "businessContext": "Shipping cost.",
-      "businessContext_i18n": {
-        "en": "Shipping cost.",
-        "de": "Versandkosten.",
-        "fr": "Frais d'expédition.",
-        "es": "Costo de envío.",
-        "ar": "تكلفة الشحن."
-      }
+      "businessContext": "Shipping cost."
     },
     {
       "id": "ulkeKDV",
       "label": "Country VAT Rate (%)",
-      "label_i18n": {
-        "en": "Country VAT Rate (%)",
-        "de": "Landes-Mehrwertsteuersatz (%)",
-        "fr": "Taux de TVA du pays (%)",
-        "es": "Tasa de IVA del país (%)",
-        "ar": "نسبة ضريبة القيمة المضافة للدولة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 20,
       "min": 0,
-      "businessContext": "Destination country VAT rate.",
-      "businessContext_i18n": {
-        "en": "Destination country VAT rate.",
-        "de": "Mehrwertsteuersatz des Bestimmungslandes.",
-        "fr": "Taux de TVA du pays de destination.",
-        "es": "Tasa de IVA del país de destino.",
-        "ar": "نسبة ضريبة القيمة المضافة في الدولة الوجهة."
-      }
+      "businessContext": "Destination country VAT rate."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(netFiyat + kargo) * (ulkeKDV / 100)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "EUR",
     "breakdown": {
       "result": "Odenecek KDV (IOSS)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Odenecek KDV (IOSS)",
-        "de": "Zu zahlende MwSt. (IOSS)",
-        "fr": "TVA à payer (IOSS)",
-        "es": "IVA a pagar (IOSS)",
-        "ar": "ضريبة القيمة المضافة المستحقة (IOSS)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "EUR"
+      "result": "EUR"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Factor in return rates and chargebacks.",
       "Review platform fee schedules regularly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
-      "long": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
-      "short_i18n": {
-        "en": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
-        "de": "Berechnen Sie die EU-Einfuhrumsatzsteuer (IOSS) fur Waren unter 150 EUR.",
-        "fr": "Calculer la TVA à l'importation de l'UE (IOSS) pour les marchandises de moins de 150 EUR.",
-        "es": "Calcule el IVA de importación de la UE (IOSS) para bienes menores de 150 EUR.",
-        "ar": "احسب ضريبة القيمة المضافة للاستيراد في الاتحاد الأوروبي (IOSS) للسلع التي تقل قيمتها عن 150 يورو."
-      },
-      "long_i18n": {
-        "en": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
-        "de": "Berechnen Sie die EU-Einfuhrumsatzsteuer (IOSS) fur Waren unter 150 EUR.",
-        "fr": "Calculer la TVA à l'importation de l'UE (IOSS) pour les marchandises de moins de 150 EUR.",
-        "es": "Calcule el IVA de importación de la UE (IOSS) para bienes menores de 150 EUR.",
-        "ar": "احسب ضريبة القيمة المضافة للاستيراد في الاتحاد الأوروبي (IOSS) للسلع التي تقل قيمتها عن 150 يورو."
-      }
+      "long": "Calculate EU import VAT (IOSS) for goods under EUR 150."
     }
-  },
-  "title_i18n": {
-    "en": "eu-import-vat-calculator",
-    "de": "MwSt. EU IOSS Rechner",
-    "fr": "Calculateur TVA UE IOSS",
-    "es": "Calculadora de IVA UE IOSS",
-    "ar": "حاسبة ضريبة القيمة المضافة IOSS للاتحاد الأوروبي"
   },
   "sectorSlug": "daily-renovation"
 }

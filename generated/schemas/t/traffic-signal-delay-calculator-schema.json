@@ -8,94 +8,38 @@
     {
       "id": "donguSuresi",
       "label": "Cycle Length (s)",
-      "label_i18n": {
-        "en": "Cycle Length (s)",
-        "de": "Durchschnittliche Zykluslänge (Tage)",
-        "fr": "Longueur moyenne du cycle (jours)",
-        "es": "Longitud media del ciclo (días)",
-        "ar": "متوسط طول الدورة (أيام)"
-      },
       "type": "number",
       "unit": "s",
       "default": 90,
       "min": 0,
-      "businessContext": "Signal cycle length.",
-      "businessContext_i18n": {
-        "en": "Signal cycle length.",
-        "de": "Signalumlaufzeit.",
-        "fr": "Durée du cycle de signalisation.",
-        "es": "Duración del ciclo del semáforo.",
-        "ar": "طول دورة الإشارة."
-      }
+      "businessContext": "Signal cycle length."
     },
     {
       "id": "yesilSure",
       "label": "Green Time (s)",
-      "label_i18n": {
-        "en": "Green Time (s)",
-        "de": "Grunzeit (s)",
-        "fr": "Temps de vert (s)",
-        "es": "Tiempo en Verde (s)",
-        "ar": "الوقت الأخضر (s)"
-      },
       "type": "number",
       "unit": "s",
       "default": 30,
       "min": 0,
-      "businessContext": "Green signal duration.",
-      "businessContext_i18n": {
-        "en": "Green signal duration.",
-        "de": "Grunsignaldauer.",
-        "fr": "Durée du feu vert.",
-        "es": "Duración de la señal verde.",
-        "ar": "مدة الإشارة الخضراء."
-      }
+      "businessContext": "Green signal duration."
     },
     {
       "id": "akisHizi",
       "label": "Traffic Flow (veh/s)",
-      "label_i18n": {
-        "en": "Traffic Flow (veh/s)",
-        "de": "Verkehrsfluss (veh/s)",
-        "fr": "Débit de trafic (veh/s)",
-        "es": "Flujo de Tráfico (veh/s)",
-        "ar": "تدفق المرور (veh/s)"
-      },
       "type": "number",
       "unit": "veh/s",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Arrival flow rate.",
-      "businessContext_i18n": {
-        "en": "Arrival flow rate.",
-        "de": "Ankunftsflussrate.",
-        "fr": "Débit d'arrivée.",
-        "es": "Tasa de flujo de llegada.",
-        "ar": "معدل تدفق الوصول."
-      }
+      "businessContext": "Arrival flow rate."
     },
     {
       "id": "doygunAkis",
       "label": "Saturation Flow (veh/s)",
-      "label_i18n": {
-        "en": "Saturation Flow (veh/s)",
-        "de": "Sättigungsfluss (veh/s)",
-        "fr": "Débit de saturation (veh/s)",
-        "es": "Flujo de Saturación (veh/s)",
-        "ar": "تدفق التشبع (veh/s)"
-      },
       "type": "number",
       "unit": "veh/s",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Maximum discharge rate.",
-      "businessContext_i18n": {
-        "en": "Maximum discharge rate.",
-        "de": "Maximale Abflussrate.",
-        "fr": "Taux de décharge maximal.",
-        "es": "Tasa máxima de descarga.",
-        "ar": "أقصى معدل تفريغ."
-      }
+      "businessContext": "Maximum discharge rate."
     }
   ],
   "validation": {
@@ -108,22 +52,13 @@
     "result": "(donguSuresi * Math.pow((1 - yesilSure/Math.max(1,donguSuresi)), 2)) / Math.max(0.0001, (2 * (1 - (akisHizi/Math.max(0.0001, doygunAkis)))))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "s/veh",
     "breakdown": {
       "result": "Ortalama Gecikme"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Ortalama Gecikme",
-        "de": "Durchschnittliche Latenz",
-        "fr": "Latence moyenne",
-        "es": "Retardo Promedio",
-        "ar": "متوسط التأخير"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "s/veh"
+      "result": "s/veh"
     },
     "hiddenLossDrivers": [
       "High asymmetry increases injury risk.",
@@ -133,36 +68,15 @@
       "Balance training for injury prevention.",
       "Use peer review to validate research quality."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate average vehicle delay at a signalized intersection.",
-      "long": "Calculate average vehicle delay at a signalized intersection.",
-      "short_i18n": {
-        "en": "Calculate average vehicle delay at a signalized intersection.",
-        "de": "Berechnen Sie die durchschnittliche Fahrzeugverzogerung an einer signalisierten Kreuzung.",
-        "fr": "Calculer le retard moyen des véhicules à une intersection avec feux de signalisation.",
-        "es": "Calcular el retardo promedio de vehículos en una intersección semaforizada.",
-        "ar": "حساب متوسط تأخير المركبات عند تقاطع إشارات مرورية."
-      },
-      "long_i18n": {
-        "en": "Calculate average vehicle delay at a signalized intersection.",
-        "de": "Berechnen Sie die durchschnittliche Fahrzeugverzogerung an einer signalisierten Kreuzung.",
-        "fr": "Calculer le retard moyen des véhicules à une intersection avec feux de signalisation.",
-        "es": "Calcular el retardo promedio de vehículos en una intersección semaforizada.",
-        "ar": "حساب متوسط تأخير المركبات عند تقاطع إشارات مرورية."
-      }
+      "long": "Calculate average vehicle delay at a signalized intersection."
     }
-  },
-  "title_i18n": {
-    "en": "traffic-signal-delay-calculator",
-    "de": "Rechner fur Verkehrssignalverzogerung",
-    "fr": "Calculateur de délai de signalisation routière",
-    "es": "Calculadora de retardo de señalización de tráfico",
-    "ar": "حاسبة تأخير إشارات المرور"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -6,50 +6,22 @@
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
-      "id": "ilerleme",
+      "id": "feed",
       "label": "Feed Rate (mm/rev)",
-      "label_i18n": {
-        "en": "Feed Rate (mm/rev)",
-        "de": "Vorschubgeschwindigkeit (f)",
-        "fr": "Vitesse d'avance (f)",
-        "es": "Velocidad de avance (f)",
-        "ar": "معدل التغذية (f)"
-      },
       "type": "number",
       "unit": "mm/rev",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Feed per revolution.",
-      "businessContext_i18n": {
-        "en": "Feed per revolution.",
-        "de": "Vorschub pro Umdrehung.",
-        "fr": "Avance par tour.",
-        "es": "Avance por revolución.",
-        "ar": "التغذية لكل دورة."
-      }
+      "businessContext": "Feed per revolution."
     },
     {
       "id": "ucYariCap",
       "label": "Nose Radius (mm)",
-      "label_i18n": {
-        "en": "Nose Radius (mm)",
-        "de": "Schneidplattenradius (mm)",
-        "fr": "Rayon de nez (mm)",
-        "es": "Radio de Punta (mm)",
-        "ar": "نصف قطر الأنف (mm)"
-      },
       "type": "number",
       "unit": "mm",
       "default": 0.8,
       "min": 0,
-      "businessContext": "Insert nose radius.",
-      "businessContext_i18n": {
-        "en": "Insert nose radius.",
-        "de": "Schneidplattenradius.",
-        "fr": "Rayon de nez de la plaquette.",
-        "es": "Radio de punta del inserto.",
-        "ar": "نصف قطر أنف القطعة."
-      }
+      "businessContext": "Insert nose radius."
     }
   ],
   "validation": {
@@ -59,61 +31,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "(Math.pow(ilerleme, 2)) / Math.max(0.0001, (32 * ucYariCap))"
+    "result": "(Math.pow(feed, 2)) / Math.max(0.0001, (32 * ucYariCap))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "mm",
     "breakdown": {
       "result": "Surface Roughness (Ra)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Surface Roughness (Ra)",
-        "de": "Oberflächenrauheit (Ra)",
-        "fr": "Rugosité de surface (Ra)",
-        "es": "Rugosidad Superficial (Ra)",
-        "ar": "الخشونة السطحية (Ra)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "mm"
+      "result": "mm"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate theoretical surface roughness (Ra) for turning operation.",
-      "long": "Calculate theoretical surface roughness (Ra) for turning operation.",
-      "short_i18n": {
-        "en": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "de": "Berechnen Sie die theoretische Oberflächenrauheit (Ra) fur eine Drehbearbeitung.",
-        "fr": "Calculer la rugosité théorique de surface (Ra) pour une opération de tournage.",
-        "es": "Calcular la rugosidad superficial teórica (Ra) para una operación de torneado.",
-        "ar": "احسب الخشونة السطحية النظرية (Ra) لعملية الخراطة."
-      },
-      "long_i18n": {
-        "en": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "de": "Berechnen Sie die theoretische Oberflächenrauheit (Ra) fur eine Drehbearbeitung.",
-        "fr": "Calculer la rugosité théorique de surface (Ra) pour une opération de tournage.",
-        "es": "Calcular la rugosidad superficial teórica (Ra) para una operación de torneado.",
-        "ar": "احسب الخشونة السطحية النظرية (Ra) لعملية الخراطة."
-      }
+      "long": "Calculate theoretical surface roughness (Ra) for turning operation."
     }
-  },
-  "title_i18n": {
-    "en": "surface-roughness-calculator",
-    "de": "Oberflächenrauheitsrechner Ra",
-    "fr": "Calculateur de rugosité de surface Ra",
-    "es": "Calculadora de rugosidad superficial Ra",
-    "ar": "حاسبة خشونة السطح Ra"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,48 +8,20 @@
     {
       "id": "hisseFiyati",
       "label": "Share Price (USD)",
-      "label_i18n": {
-        "en": "Share Price (USD)",
-        "de": "Aktueller Aktienkurs ($)",
-        "fr": "Cours actuel de l'action ($)",
-        "es": "Precio actual de la acción ($)",
-        "ar": "سعر السهم الحالي ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Current market price per share.",
-      "businessContext_i18n": {
-        "en": "Current market price per share.",
-        "de": "Aktueller Marktpreis pro Aktie.",
-        "fr": "Prix actuel du marché par action.",
-        "es": "Precio actual de mercado por acción.",
-        "ar": "سعر السوق الحالي للسهم."
-      }
+      "businessContext": "Current market price per share."
     },
     {
       "id": "hisseBasiKar",
       "label": "Earnings Per Share (USD)",
-      "label_i18n": {
-        "en": "Earnings Per Share (USD)",
-        "de": "Gewinn pro Aktie (EPS)",
-        "fr": "Bénéfice par action (BPA)",
-        "es": "Ganancias por acción (EPS)",
-        "ar": "ربحية السهم (EPS)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5,
       "min": 0,
-      "businessContext": "Net earnings per share.",
-      "businessContext_i18n": {
-        "en": "Net earnings per share.",
-        "de": "Nettogewinn pro Aktie.",
-        "fr": "Bénéfice net par action.",
-        "es": "Ganancias netas por acción.",
-        "ar": "صافي ربحية السهم."
-      }
+      "businessContext": "Net earnings per share."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "hisseFiyati / Math.max(0.0001, hisseBasiKar)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ratio",
     "breakdown": {
       "result": "F/K (P/E) Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "F/K (P/E) Ratio",
-        "de": "Kurs-Gewinn-Verhältnis (KGV)",
-        "fr": "Ratio P/E (Price/Earnings)",
-        "es": "Relación P/E (Precio/Ganancias)",
-        "ar": "نسبة السعر إلى الربح (P/E)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ratio"
+      "result": "ratio"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the price-to-earnings (P/E) ratio.",
-      "long": "Calculate the price-to-earnings (P/E) ratio.",
-      "short_i18n": {
-        "en": "Calculate the price-to-earnings (P/E) ratio.",
-        "de": "Berechnen Sie das Kurs-Gewinn-Verhältnis (KGV).",
-        "fr": "Calculer le ratio cours/bénéfice (P/E).",
-        "es": "Calcular la relación precio/ganancias (P/E).",
-        "ar": "حساب نسبة السعر إلى الربح (P/E)."
-      },
-      "long_i18n": {
-        "en": "Calculate the price-to-earnings (P/E) ratio.",
-        "de": "Berechnen Sie das Kurs-Gewinn-Verhältnis (KGV).",
-        "fr": "Calculer le ratio cours/bénéfice (P/E).",
-        "es": "Calcular la relación precio/ganancias (P/E).",
-        "ar": "حساب نسبة السعر إلى الربح (P/E)."
-      }
+      "long": "Calculate the price-to-earnings (P/E) ratio."
     }
-  },
-  "title_i18n": {
-    "en": "pe-ratio-calculator",
-    "de": "KGV-Rechner",
-    "fr": "Calculateur de ratio cours/bénéfice",
-    "es": "Calculadora de ratio precio/ganancias",
-    "ar": "حاسبة نسبة السعر إلى الربح"
   },
   "sectorSlug": "daily-renovation"
 }

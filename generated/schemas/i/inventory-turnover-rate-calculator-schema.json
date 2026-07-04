@@ -8,48 +8,20 @@
     {
       "id": "yillikCOGS",
       "label": "Annual COGS (USD)",
-      "label_i18n": {
-        "en": "Annual COGS (USD)",
-        "de": "Jährliche COGS (USD)",
-        "fr": "COGS annuel (USD)",
-        "es": "COGS anual (USD)",
-        "ar": "تكلفة البضائع المباعة السنوية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Annual cost of goods sold.",
-      "businessContext_i18n": {
-        "en": "Annual cost of goods sold.",
-        "de": "Jährliche Kosten der verkauften Waren.",
-        "fr": "Coût annuel des marchandises vendues.",
-        "es": "Costo anual de los bienes vendidos.",
-        "ar": "تكلفة البضائع المباعة السنوية."
-      }
+      "businessContext": "Annual cost of goods sold."
     },
     {
       "id": "ortStok",
       "label": "Average Inventory (USD)",
-      "label_i18n": {
-        "en": "Average Inventory (USD)",
-        "de": "Durchschnittlicher Lagerbestandswert (aktuell)",
-        "fr": "Valeur moyenne des stocks (actuelle)",
-        "es": "Valor promedio del inventario (actual)",
-        "ar": "متوسط قيمة المخزون (حالي)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Average inventory value.",
-      "businessContext_i18n": {
-        "en": "Average inventory value.",
-        "de": "Durchschnittlicher Lagerwert.",
-        "fr": "Valeur moyenne des stocks.",
-        "es": "Valor promedio del inventario.",
-        "ar": "متوسط قيمة المخزون."
-      }
+      "businessContext": "Average inventory value."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "yillikCOGS / Math.max(0.0001, ortStok)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "times",
     "breakdown": {
       "result": "Envanter Devir Speed"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Envanter Devir Speed",
-        "de": "Lagerumschlagshäufigkeit",
-        "fr": "Inventory Turnover Rate",
-        "es": "Rotación de inventario",
-        "ar": "معدل دوران المخزون"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "times"
+      "result": "times"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inventory turnover metrics monthly.",
       "Factor in seasonality for safety stock."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate inventory turnover rate.",
-      "long": "Calculate inventory turnover rate.",
-      "short_i18n": {
-        "en": "Calculate inventory turnover rate.",
-        "de": "Berechnen Sie die Lagerumschlagshäufigkeit.",
-        "fr": "Calculer le taux de rotation des stocks.",
-        "es": "Calcular la tasa de rotación de inventario.",
-        "ar": "حساب معدل دوران المخزون."
-      },
-      "long_i18n": {
-        "en": "Calculate inventory turnover rate.",
-        "de": "Berechnen Sie die Lagerumschlagshäufigkeit.",
-        "fr": "Calculer le taux de rotation des stocks.",
-        "es": "Calcular la tasa de rotación de inventario.",
-        "ar": "حساب معدل دوران المخزون."
-      }
+      "long": "Calculate inventory turnover rate."
     }
-  },
-  "title_i18n": {
-    "en": "inventory-turnover-rate-calculator",
-    "de": "Lagerumschlagshäufigkeitsrechner",
-    "fr": "Calculateur de rotation des stocks",
-    "es": "Calculadora de rotación de inventario",
-    "ar": "حاسبة دوران المخزون"
   },
   "sectorSlug": "daily-renovation"
 }

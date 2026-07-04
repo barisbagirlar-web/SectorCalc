@@ -8,71 +8,29 @@
     {
       "id": "yakit",
       "label": "Fuel Consumption (L)",
-      "label_i18n": {
-        "en": "Fuel Consumption (L)",
-        "de": "Dieselkraftstoffverbrauch (Flotte)",
-        "fr": "Consommation de carburant diesel (Flotte)",
-        "es": "Consumo de combustible diésel (Flota)",
-        "ar": "استهلاك وقود الديزل (الأسطول)"
-      },
       "type": "number",
       "unit": "L",
       "default": 10000,
       "min": 0,
-      "businessContext": "Annual diesel consumption.",
-      "businessContext_i18n": {
-        "en": "Annual diesel consumption.",
-        "de": "Jährlicher Dieselverbrauch.",
-        "fr": "Consommation annuelle de diesel.",
-        "es": "Consumo anual de diésel.",
-        "ar": "الاستهلاك السنوي للديزل."
-      }
+      "businessContext": "Annual diesel consumption."
     },
     {
       "id": "elektrik",
       "label": "Electricity (kWh)",
-      "label_i18n": {
-        "en": "Electricity (kWh)",
-        "de": "Stromverbrauch",
-        "fr": "Consommation d'électricité",
-        "es": "Consumo de electricidad",
-        "ar": "استهلاك الكهرباء"
-      },
       "type": "number",
       "unit": "kWh",
       "default": 50000,
       "min": 0,
-      "businessContext": "Annual electricity consumption.",
-      "businessContext_i18n": {
-        "en": "Annual electricity consumption.",
-        "de": "Jährlicher Stromverbrauch.",
-        "fr": "Consommation annuelle d'électricité.",
-        "es": "Consumo anual de electricidad.",
-        "ar": "استهلاك الكهرباء السنوي."
-      }
+      "businessContext": "Annual electricity consumption."
     },
     {
       "id": "tedarik",
       "label": "Supply Chain (kgCO₂)",
-      "label_i18n": {
-        "en": "Supply Chain (kgCO₂)",
-        "de": "Lieferkette (kgCO₂)",
-        "fr": "Chaîne d'approvisionnement (kgCO₂)",
-        "es": "Cadena de Suministro (kgCO₂)",
-        "ar": "سلسلة التوريد (kgCO₂)"
-      },
       "type": "number",
       "unit": "kgCO2",
       "default": 20000,
       "min": 0,
-      "businessContext": "Purchased goods emissions.",
-      "businessContext_i18n": {
-        "en": "Purchased goods emissions.",
-        "de": "Emissionen aus eingekauften Gutern.",
-        "fr": "Émissions des biens achetés.",
-        "es": "Emisiones de bienes comprados.",
-        "ar": "انبعاثات السلع المشتراة."
-      }
+      "businessContext": "Purchased goods emissions."
     }
   ],
   "validation": {
@@ -87,22 +45,13 @@
     "result": "(yakit * 2.31) + (elektrik * 0.45) + tedarik"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "kgCO2",
     "breakdown": {
       "result": "Total Carbon Footprint"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Total Carbon Footprint",
-        "de": "Gesamter CO2-Fußabdruck",
-        "fr": "Empreinte carbone totale",
-        "es": "Huella de Carbono Total",
-        "ar": "البصمة الكربونية الإجمالية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "kgCO2"
+      "result": "kgCO2"
     },
     "hiddenLossDrivers": [
       "High environmental score may reduce operational costs.",
@@ -112,36 +61,15 @@
       "Set improvement targets for each ESG pillar.",
       "Consider carbon offset programs for residual emissions."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
-      "long": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
-      "short_i18n": {
-        "en": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
-        "de": "Berechnen Sie die gesamten Treibhausgasemissionen des Unternehmens (CO2-Fußabdruck).",
-        "fr": "Calculer les émissions totales de gaz à effet de serre de l'entreprise (empreinte carbone).",
-        "es": "Calcular las emisiones totales de gases de efecto invernadero corporativas (huella de carbono).",
-        "ar": "حساب إجمالي انبعاثات الغازات الدفيئة للشركة (البصمة الكربونية)."
-      },
-      "long_i18n": {
-        "en": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
-        "de": "Berechnen Sie die gesamten Treibhausgasemissionen des Unternehmens (CO2-Fußabdruck).",
-        "fr": "Calculer les émissions totales de gaz à effet de serre de l'entreprise (empreinte carbone).",
-        "es": "Calcular las emisiones totales de gases de efecto invernadero corporativas (huella de carbono).",
-        "ar": "حساب إجمالي انبعاثات الغازات الدفيئة للشركة (البصمة الكربونية)."
-      }
+      "long": "Calculate total corporate greenhouse gas emissions (carbon footprint)."
     }
-  },
-  "title_i18n": {
-    "en": "carbon-footprint-calculator",
-    "de": "CO2-Fußabdruck Rechner",
-    "fr": "Calculateur d'Empreinte Carbone",
-    "es": "Calculadora de Huella de Carbono",
-    "ar": "حاسبة البصمة الكربونية"
   },
   "sectorSlug": "energy-carbon"
 }

@@ -8,48 +8,20 @@
     {
       "id": "zirveDeger",
       "label": "Peak Value (USD)",
-      "label_i18n": {
-        "en": "Peak Value (USD)",
-        "de": "Hochstwert",
-        "fr": "Valeur maximale",
-        "es": "Valor máximo",
-        "ar": "القيمة القصوى"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Highest portfolio value.",
-      "businessContext_i18n": {
-        "en": "Highest portfolio value.",
-        "de": "Hochster Portfoliowert.",
-        "fr": "Valeur la plus élevée du portefeuille.",
-        "es": "Valor más alto de la cartera.",
-        "ar": "أعلى قيمة للمحفظة."
-      }
+      "businessContext": "Highest portfolio value."
     },
     {
       "id": "dipDeger",
       "label": "Trough Value (USD)",
-      "label_i18n": {
-        "en": "Trough Value (USD)",
-        "de": "Tiefstwert",
-        "fr": "Valeur minimale",
-        "es": "Valor mínimo",
-        "ar": "القيمة الدنيا"
-      },
       "type": "number",
       "unit": "USD",
       "default": 70000,
       "min": 0,
-      "businessContext": "Lowest portfolio value.",
-      "businessContext_i18n": {
-        "en": "Lowest portfolio value.",
-        "de": "Niedrigster Portfoliowert.",
-        "fr": "Valeur la plus basse du portefeuille.",
-        "es": "Valor más bajo de la cartera.",
-        "ar": "أدنى قيمة للمحفظة."
-      }
+      "businessContext": "Lowest portfolio value."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "((zirveDeger - dipDeger) / Math.max(1, zirveDeger)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Maximum Dusus (MDD)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Maximum Dusus (MDD)",
-        "de": "Maximaler Drawdown (MDD)",
-        "fr": "Drawdown maximum (MDD)",
-        "es": "Reducción máxima (MDD)",
-        "ar": "أقصى انخفاض (MDD)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the maximum drawdown (MDD) from peak to trough.",
-      "long": "Calculate the maximum drawdown (MDD) from peak to trough.",
-      "short_i18n": {
-        "en": "Calculate the maximum drawdown (MDD) from peak to trough.",
-        "de": "Berechnen Sie den maximalen Drawdown (MDD) vom Hochst- zum Tiefststand.",
-        "fr": "Calculer le drawdown maximum (MDD) du pic au creux.",
-        "es": "Calcular la reducción máxima (MDD) desde el pico hasta el valle.",
-        "ar": "احسب أقصى انخفاض (MDD) من الذروة إلى القاع."
-      },
-      "long_i18n": {
-        "en": "Calculate the maximum drawdown (MDD) from peak to trough.",
-        "de": "Berechnen Sie den maximalen Drawdown (MDD) vom Hochst- zum Tiefststand.",
-        "fr": "Calculer le drawdown maximum (MDD) du pic au creux.",
-        "es": "Calcular la reducción máxima (MDD) desde el pico hasta el valle.",
-        "ar": "احسب أقصى انخفاض (MDD) من الذروة إلى القاع."
-      }
+      "long": "Calculate the maximum drawdown (MDD) from peak to trough."
     }
-  },
-  "title_i18n": {
-    "en": "maximum-drawdown-calculator",
-    "de": "Maximaler Drawdown MDD Rechner",
-    "fr": "Calculateur de drawdown maximal MDD",
-    "es": "Calculadora de drawdown máximo MDD",
-    "ar": "حاسبة الحد الأقصى للانخفاض MDD"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -2,54 +2,26 @@
   "toolName": "building-load-factor-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "maksTalep",
       "label": "Peak Demand (kW)",
-      "label_i18n": {
-        "en": "Peak Demand (kW)",
-        "de": "Spitzenlast (kW)",
-        "fr": "Demande de pointe (kW)",
-        "es": "Demanda Máxima (kW)",
-        "ar": "الطلب الأقصى (kW)"
-      },
       "type": "number",
       "unit": "kW",
       "default": 150,
       "min": 0,
-      "businessContext": "Measured peak power demand.",
-      "businessContext_i18n": {
-        "en": "Measured peak power demand.",
-        "de": "Gemessener Spitzenleistungsbedarf.",
-        "fr": "Demande de puissance de pointe mesurée.",
-        "es": "Demanda máxima de potencia medida.",
-        "ar": "ذروة الطلب على الطاقة المقاسة."
-      }
+      "businessContext": "Measured peak power demand."
     },
     {
       "id": "kuruluGuc",
       "label": "Installed Capacity (kW)",
-      "label_i18n": {
-        "en": "Installed Capacity (kW)",
-        "de": "Installierte Leistung (kW)",
-        "fr": "Capacité installée (kW)",
-        "es": "Capacidad Instalada (kW)",
-        "ar": "السعة المركبة (kW)"
-      },
       "type": "number",
       "unit": "kW",
       "default": 250,
       "min": 0,
-      "businessContext": "Transformer or panel rating.",
-      "businessContext_i18n": {
-        "en": "Transformer or panel rating.",
-        "de": "Transformator- oder Schalttafelleistung.",
-        "fr": "Calibre du transformateur ou du tableau.",
-        "es": "Clasificación del transformador o panel.",
-        "ar": "تصنيف المحول أو اللوحة."
-      }
+      "businessContext": "Transformer or panel rating."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(maksTalep / Math.max(0.0001, kuruluGuc)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Load Factor"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Load Factor",
-        "de": "Load Factor",
-        "fr": "Facteur de charge",
-        "es": "Factor de Carga",
-        "ar": "عامل الحمولة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate building load factor — actual demand vs installed capacity.",
-      "long": "Calculate building load factor — actual demand vs installed capacity.",
-      "short_i18n": {
-        "en": "Calculate building load factor — actual demand vs installed capacity.",
-        "de": "Berechnen Sie den Gebäudelastfaktor – tatsächlicher Bedarf im Vergleich zur installierten Kapazität.",
-        "fr": "Calculer le facteur de charge du bâtiment — demande réelle par rapport à la capacité installée.",
-        "es": "Calcular el factor de carga del edificio: demanda real frente a capacidad instalada.",
-        "ar": "حساب عامل حمل المبنى — الطلب الفعلي مقابل السعة المركبة."
-      },
-      "long_i18n": {
-        "en": "Calculate building load factor — actual demand vs installed capacity.",
-        "de": "Berechnen Sie den Gebäudelastfaktor – tatsächlicher Bedarf im Vergleich zur installierten Kapazität.",
-        "fr": "Calculer le facteur de charge du bâtiment — demande réelle par rapport à la capacité installée.",
-        "es": "Calcular el factor de carga del edificio: demanda real frente a capacidad instalada.",
-        "ar": "حساب عامل حمل المبنى — الطلب الفعلي مقابل السعة المركبة."
-      }
+      "long": "Calculate building load factor — actual demand vs installed capacity."
     }
-  },
-  "title_i18n": {
-    "en": "building-load-factor-calculator",
-    "de": "Lastfaktor-Rechner fur Gebäude",
-    "fr": "Calculateur de facteur de charge pour bâtiment",
-    "es": "Calculadora de factor de carga para edificios",
-    "ar": "حاسبة عامل الحمولة للمباني"
   },
   "sectorSlug": "daily-renovation"
 }

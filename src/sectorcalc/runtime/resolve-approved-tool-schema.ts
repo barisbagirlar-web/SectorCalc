@@ -25,7 +25,7 @@ import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtim
 
 export type ApprovedSchemaResult =
   | { ok: true; schema: SuperV4Schema; source: ResolvedSource }
-  | { ok: false; reason: "SCHEMA_NOT_FOUND" | "VALIDATION_FAILED" | "SCHEMA_IDENTITY_MISMATCH"; errors: string[] };
+  | { ok: false; reason: "SCHEMA_NOT_FOUND" | "VALIDATION_FAILED" | "SCHEMA_IDENTITY_MISMATCH" | "CAUGHT_EXCEPTION"; errors: string[] };
 
 // ── Server-side schema cache ─────────────────────────────────────────────
 // Module-scoped, never imported by client components.
@@ -109,7 +109,17 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     buildFn: () => SuperV4Schema,
     source: ResolvedSource,
   ): ApprovedSchemaResult {
-    const superV4 = buildFn();
+    let superV4: SuperV4Schema;
+    try {
+      superV4 = buildFn();
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      return {
+        ok: false,
+        reason: "CAUGHT_EXCEPTION",
+        errors: [`Build function threw: ${msg}`],
+      };
+    }
     const validation = validateSuperV4Schema(superV4);
     if (validation.ok) {
       const frozen = freezeSchemaGuard(validation.schema);

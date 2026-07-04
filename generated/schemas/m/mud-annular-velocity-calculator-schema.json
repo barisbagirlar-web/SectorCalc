@@ -8,71 +8,29 @@
     {
       "id": "camurDebi",
       "label": "Mud Flow Rate (m³/s)",
-      "label_i18n": {
-        "en": "Mud Flow Rate (m³/s)",
-        "de": "Spulungsdurchflussrate (m³/s)",
-        "fr": "Débit de la boue (m³/s)",
-        "es": "Caudal de Lodo (m³/s)",
-        "ar": "معدل تدفق الطين (m³/s)"
-      },
       "type": "number",
       "unit": "m3/s",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Mud flow rate.",
-      "businessContext_i18n": {
-        "en": "Mud flow rate.",
-        "de": "Spulungsdurchflussrate.",
-        "fr": "Débit de la boue.",
-        "es": "Caudal de lodo.",
-        "ar": "معدل تدفق الطين."
-      }
+      "businessContext": "Mud flow rate."
     },
     {
       "id": "kuyuCapi",
       "label": "Wellbore Diameter (m)",
-      "label_i18n": {
-        "en": "Wellbore Diameter (m)",
-        "de": "Bohrlochdurchmesser (m)",
-        "fr": "Diamètre du puits (m)",
-        "es": "Diámetro del Pozo (m)",
-        "ar": "قطر حفرة البئر (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Hole diameter.",
-      "businessContext_i18n": {
-        "en": "Hole diameter.",
-        "de": "Lochdurchmesser.",
-        "fr": "Diamètre du trou.",
-        "es": "Diámetro del agujero.",
-        "ar": "قطر الحفرة."
-      }
+      "businessContext": "Hole diameter."
     },
     {
       "id": "matkapCapi",
       "label": "Drill Pipe OD (m)",
-      "label_i18n": {
-        "en": "Drill Pipe OD (m)",
-        "de": "Bohrgestänge-Außendurchmesser (m)",
-        "fr": "Diamètre extérieur de la tige de forage (m)",
-        "es": "DE de la Tubería de Perforación (m)",
-        "ar": "القطر الخارجي لأنبوب الحفر (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Drill pipe outer diameter.",
-      "businessContext_i18n": {
-        "en": "Drill pipe outer diameter.",
-        "de": "Außendurchmesser des Bohrgestänges.",
-        "fr": "Diamètre extérieur de la tige de forage.",
-        "es": "Diámetro exterior de la tubería de perforación.",
-        "ar": "القطر الخارجي لأنبوب الحفر."
-      }
+      "businessContext": "Drill pipe outer diameter."
     }
   ],
   "validation": {
@@ -85,22 +43,13 @@
     "result": "(4 * camurDebi) / Math.max(0.0001, (Math.PI * (kuyuCapi * kuyuCapi - matkapCapi * matkapCapi)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m/s",
     "breakdown": {
       "result": "Halkasal Speed"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Halkasal Speed",
-        "de": "Ringgeschwindigkeit",
-        "fr": "Vitesse angulaire",
-        "es": "Velocidad Angular",
-        "ar": "السرعة الحلقية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m/s"
+      "result": "m/s"
     },
     "hiddenLossDrivers": [
       "Low efficiency may indicate equipment or process issues."
@@ -109,36 +58,15 @@
       "Calibrate all measuring equipment regularly.",
       "Use site-specific data when available."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate mud annular velocity in wellbore.",
-      "long": "Calculate mud annular velocity in wellbore.",
-      "short_i18n": {
-        "en": "Calculate mud annular velocity in wellbore.",
-        "de": "Berechnen Sie die Ringraumgeschwindigkeit der Bohrspulung im Bohrloch.",
-        "fr": "Calculer la vitesse annulaire de la boue dans le puits.",
-        "es": "Calcular la velocidad anular del lodo en el pozo.",
-        "ar": "حساب السرعة الحلقية للطين في حفرة البئر."
-      },
-      "long_i18n": {
-        "en": "Calculate mud annular velocity in wellbore.",
-        "de": "Berechnen Sie die Ringraumgeschwindigkeit der Bohrspulung im Bohrloch.",
-        "fr": "Calculer la vitesse annulaire de la boue dans le puits.",
-        "es": "Calcular la velocidad anular del lodo en el pozo.",
-        "ar": "حساب السرعة الحلقية للطين في حفرة البئر."
-      }
+      "long": "Calculate mud annular velocity in wellbore."
     }
-  },
-  "title_i18n": {
-    "en": "mud-annular-velocity-calculator",
-    "de": "Schlammumlaufgeschwindigkeitsrechner",
-    "fr": "Calculateur de vitesse de circulation de boue",
-    "es": "Calculadora de velocidad de circulación de lodo",
-    "ar": "حاسبة سرعة دوران الطين"
   },
   "sectorSlug": "daily-renovation"
 }

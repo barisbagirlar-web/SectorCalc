@@ -8,25 +8,11 @@
     {
       "id": "odakUzaklik",
       "label": "Focal Length (m)",
-      "label_i18n": {
-        "en": "Focal Length (m)",
-        "de": "Brennweite (m)",
-        "fr": "Distance focale (m)",
-        "es": "Distancia Focal (m)",
-        "ar": "البعد البؤري (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Lens focal length.",
-      "businessContext_i18n": {
-        "en": "Lens focal length.",
-        "de": "Brennweite der Linse.",
-        "fr": "Distance focale de la lentille.",
-        "es": "Distancia focal de la lente.",
-        "ar": "البعد البؤري للعدسة."
-      }
+      "businessContext": "Lens focal length."
     }
   ],
   "validation": {
@@ -39,22 +25,13 @@
     "result": "1 / Math.max(0.0001, odakUzaklik)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m^-1",
     "breakdown": {
       "result": "Diyoptri"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Diyoptri",
-        "de": "Dioptrie",
-        "fr": "Diopter",
-        "es": "Dioptrías",
-        "ar": "الديوبتر"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m^-1"
+      "result": "m^-1"
     },
     "hiddenLossDrivers": [
       "Low SNR indicates poor signal quality.",
@@ -64,36 +41,15 @@
       "Use proper shielding for sensitive measurements.",
       "Consider efficiency losses in energy calculations."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate lens optical power (diopters) from focal length.",
-      "long": "Calculate lens optical power (diopters) from focal length.",
-      "short_i18n": {
-        "en": "Calculate lens optical power (diopters) from focal length.",
-        "de": "Berechnen Sie die optische Leistung einer Linse (Dioptrien) aus der Brennweite.",
-        "fr": "Calculer la puissance optique d'une lentille (dioptries) à partir de la distance focale.",
-        "es": "Calcular la potencia óptica de una lente (dioptrías) a partir de la distancia focal.",
-        "ar": "حساب القدرة البصرية للعدسة (الديوبتر) من البعد البؤري."
-      },
-      "long_i18n": {
-        "en": "Calculate lens optical power (diopters) from focal length.",
-        "de": "Berechnen Sie die optische Leistung einer Linse (Dioptrien) aus der Brennweite.",
-        "fr": "Calculer la puissance optique d'une lentille (dioptries) à partir de la distance focale.",
-        "es": "Calcular la potencia óptica de una lente (dioptrías) a partir de la distancia focal.",
-        "ar": "حساب القدرة البصرية للعدسة (الديوبتر) من البعد البؤري."
-      }
+      "long": "Calculate lens optical power (diopters) from focal length."
     }
-  },
-  "title_i18n": {
-    "en": "lens-power-calculator",
-    "de": "Dioptrien-Linsenstärke-Rechner",
-    "fr": "Calculateur de puissance de lentille dioptrique",
-    "es": "Calculadora de potencia de lente dióptrica",
-    "ar": "حاسبة قوة العدسة الانكسارية"
   },
   "sectorSlug": "daily-renovation"
 }

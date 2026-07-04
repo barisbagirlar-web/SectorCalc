@@ -8,94 +8,38 @@
     {
       "id": "anapara",
       "label": "Principal (USD)",
-      "label_i18n": {
-        "en": "Principal (USD)",
-        "de": "Anfangskapital",
-        "fr": "Capital initial",
-        "es": "Capital inicial",
-        "ar": "رأس المال الأولي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Initial investment amount.",
-      "businessContext_i18n": {
-        "en": "Initial investment amount.",
-        "de": "Anfänglicher Anlagebetrag.",
-        "fr": "Montant de l'investissement initial.",
-        "es": "Monto de inversión inicial.",
-        "ar": "مبلغ الاستثمار الأولي."
-      }
+      "businessContext": "Initial investment amount."
     },
     {
       "id": "interest",
       "label": "Annual Interest (%)",
-      "label_i18n": {
-        "en": "Annual Interest (%)",
-        "de": "Nominaler Jahreszinssatz",
-        "fr": "Taux d'intérêt annuel nominal",
-        "es": "Tasa de interés anual nominal",
-        "ar": "سعر الفائدة السنوي الاسمي"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Annual nominal interest rate.",
-      "businessContext_i18n": {
-        "en": "Annual nominal interest rate.",
-        "de": "Jährlicher nominaler Zinssatz.",
-        "fr": "Taux d'intérêt nominal annuel.",
-        "es": "Tasa de interés nominal anual.",
-        "ar": "معدل الفائدة الاسمي السنوي."
-      }
+      "businessContext": "Annual nominal interest rate."
     },
     {
       "id": "year",
       "label": "Term (Years)",
-      "label_i18n": {
-        "en": "Term (Years)",
-        "de": "Kreditlaufzeit",
-        "fr": "Durée du prêt",
-        "es": "Plazo del préstamo",
-        "ar": "مدة القرض"
-      },
       "type": "number",
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Total investment period.",
-      "businessContext_i18n": {
-        "en": "Total investment period.",
-        "de": "Gesamter Anlagezeitraum.",
-        "fr": "Période totale d'investissement.",
-        "es": "Período total de inversión.",
-        "ar": "إجمالي فترة الاستثمار."
-      }
+      "businessContext": "Total investment period."
     },
     {
       "id": "siklik",
       "label": "Compounding Frequency",
-      "label_i18n": {
-        "en": "Compounding Frequency",
-        "de": "Zinseszinshäufigkeit",
-        "fr": "Fréquence de capitalisation",
-        "es": "Frecuencia de Capitalización",
-        "ar": "تكرار المركبة"
-      },
       "type": "number",
       "unit": "per year",
       "default": 12,
       "min": 1,
-      "businessContext": "Number of compounding periods per year (12=monthly).",
-      "businessContext_i18n": {
-        "en": "Number of compounding periods per year (12=monthly).",
-        "de": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich).",
-        "fr": "Nombre de périodes de composition par an (par exemple, 1=annuel, 12=mensuel, 365=quotidien).",
-        "es": "Número de períodos de capitalización por año (por ejemplo, 1=anual, 12=mensual, 365=diario).",
-        "ar": "عدد فترات التركيب في السنة (مثل 1=سنوي، 12=شهري، 365=يومي)."
-      }
+      "businessContext": "Number of compounding periods per year (12=monthly)."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "anapara * Math.pow(1 + (interest / 100) / Math.max(1, siklik), siklik * year)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Maturity Sonu Value"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Maturity Sonu Value",
-        "de": "Endwert bei Fälligkeit",
-        "fr": "Valeur à l'échéance",
-        "es": "Valor al Vencimiento",
-        "ar": "القيمة عند الاستحقاق"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate compound interest future value with periodic compounding.",
-      "long": "Calculate compound interest future value with periodic compounding.",
-      "short_i18n": {
-        "en": "Calculate compound interest future value with periodic compounding.",
-        "de": "Berechnen Sie den zukunftigen Wert bei Zinseszins mit periodischer Verzinsung.",
-        "fr": "Calculer la valeur future d'un intérêt composé avec capitalisation périodique.",
-        "es": "Calcular el valor futuro de interés compuesto con capitalización periódica.",
-        "ar": "حساب القيمة المستقبلية للفائدة المركبة مع الفترة المركبة."
-      },
-      "long_i18n": {
-        "en": "Calculate compound interest future value with periodic compounding.",
-        "de": "Berechnen Sie den zukunftigen Wert bei Zinseszins mit periodischer Verzinsung.",
-        "fr": "Calculer la valeur future d'un intérêt composé avec capitalisation périodique.",
-        "es": "Calcular el valor futuro de interés compuesto con capitalización periódica.",
-        "ar": "حساب القيمة المستقبلية للفائدة المركبة مع الفترة المركبة."
-      }
+      "long": "Calculate compound interest future value with periodic compounding."
     }
-  },
-  "title_i18n": {
-    "en": "compound-interest-calculator",
-    "de": "Zinseszinsrechner",
-    "fr": "Calculateur d'intérêt composé",
-    "es": "Calculadora de interés compuesto",
-    "ar": "حاسبة الفائدة المركبة"
   },
   "sectorSlug": "ecommerce"
 }

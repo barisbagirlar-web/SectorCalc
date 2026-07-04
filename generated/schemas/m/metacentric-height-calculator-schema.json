@@ -8,71 +8,29 @@
     {
       "id": "KB",
       "label": "KB (m) - Center of Buoyancy",
-      "label_i18n": {
-        "en": "KB (m) - Center of Buoyancy",
-        "de": "KB (m) - Auftriebsmittelpunkt",
-        "fr": "KB (m) - Centre de poussée",
-        "es": "KB (m) - Centro de flotación",
-        "ar": "KB (m) - مركز الطفو"
-      },
       "type": "number",
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Center of buoyancy.",
-      "businessContext_i18n": {
-        "en": "Center of buoyancy.",
-        "de": "Auftriebsmittelpunkt.",
-        "fr": "Centre de poussée.",
-        "es": "Centro de flotación.",
-        "ar": "مركز الطفو."
-      }
+      "businessContext": "Center of buoyancy."
     },
     {
       "id": "BM",
       "label": "BM (m) - Metacentric Radius",
-      "label_i18n": {
-        "en": "BM (m) - Metacentric Radius",
-        "de": "BM (m) - Metazentrischer Radius",
-        "fr": "BM (m) - Rayon métacentrique",
-        "es": "BM (m) - Radio metacéntrico",
-        "ar": "BM (m) - نصف القطر الميتاسنتري"
-      },
       "type": "number",
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Metacentric radius.",
-      "businessContext_i18n": {
-        "en": "Metacentric radius.",
-        "de": "Metazentrischer Radius.",
-        "fr": "Rayon métacentrique.",
-        "es": "Radio metacéntrico.",
-        "ar": "نصف القطر الميتاسنتري."
-      }
+      "businessContext": "Metacentric radius."
     },
     {
       "id": "KG",
       "label": "KG (m) - Center of Gravity",
-      "label_i18n": {
-        "en": "KG (m) - Center of Gravity",
-        "de": "KG (m) - Schwerpunkt",
-        "fr": "KG (m) - Centre de gravité",
-        "es": "KG (m) - Centro de gravedad",
-        "ar": "KG (m) - مركز الثقل"
-      },
       "type": "number",
       "unit": "m",
       "default": 6,
       "min": 0,
-      "businessContext": "Vertical center of gravity.",
-      "businessContext_i18n": {
-        "en": "Vertical center of gravity.",
-        "de": "Vertikaler Schwerpunkt.",
-        "fr": "Centre de gravité vertical.",
-        "es": "Centro de gravedad vertical.",
-        "ar": "مركز الثقل الرأسي."
-      }
+      "businessContext": "Vertical center of gravity."
     }
   ],
   "validation": {
@@ -85,22 +43,13 @@
     "result": "KB + BM - KG"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
       "result": "GM (Metasmosttrik Height)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "GM (Metasmosttrik Height)",
-        "de": "GM (metazentrische Hohe)",
-        "fr": "GM (Hauteur métacentrique)",
-        "es": "GM (Altura metacéntrica)",
-        "ar": "GM (الارتفاع الميتاسنتري)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [
       "Low efficiency may indicate equipment or process issues."
@@ -109,36 +58,15 @@
       "Calibrate all measuring equipment regularly.",
       "Use site-specific data when available."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate metacentric height (GM) for ship stability assessment.",
-      "long": "Calculate metacentric height (GM) for ship stability assessment.",
-      "short_i18n": {
-        "en": "Calculate metacentric height (GM) for ship stability assessment.",
-        "de": "Berechnen Sie die metazentrische Hohe (GM) fur die Schiffsstabilitätsbewertung.",
-        "fr": "Calculer la hauteur métacentrique (GM) pour l'évaluation de la stabilité du navire.",
-        "es": "Calcular la altura metacéntrica (GM) para la evaluación de la estabilidad del buque.",
-        "ar": "احسب الارتفاع الميتاسنتري (GM) لتقييم استقرار السفينة."
-      },
-      "long_i18n": {
-        "en": "Calculate metacentric height (GM) for ship stability assessment.",
-        "de": "Berechnen Sie die metazentrische Hohe (GM) fur die Schiffsstabilitätsbewertung.",
-        "fr": "Calculer la hauteur métacentrique (GM) pour l'évaluation de la stabilité du navire.",
-        "es": "Calcular la altura metacéntrica (GM) para la evaluación de la estabilidad del buque.",
-        "ar": "احسب الارتفاع الميتاسنتري (GM) لتقييم استقرار السفينة."
-      }
+      "long": "Calculate metacentric height (GM) for ship stability assessment."
     }
-  },
-  "title_i18n": {
-    "en": "metacentric-height-calculator",
-    "de": "Schiffsstabilitätsrechner (GM)",
-    "fr": "Calculateur de stabilité du navire (GM)",
-    "es": "Calculadora de estabilidad del buque (GM)",
-    "ar": "حاسبة استقرار السفينة (GM)"
   },
   "sectorSlug": "daily-renovation"
 }

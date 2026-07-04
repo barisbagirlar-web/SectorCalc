@@ -2,77 +2,35 @@
   "toolName": "cash-conversion-cycle-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "stokGun",
       "label": "DIO (Days)",
-      "label_i18n": {
-        "en": "DIO (Days)",
-        "de": "Tage des Lagerbestands (DIO)",
-        "fr": "Délai de rotation des stocks (DIO)",
-        "es": "Días de inventario pendiente (DIO)",
-        "ar": "أيام المخزون المعلقة (DIO)"
-      },
       "type": "number",
       "unit": "days",
       "default": 60,
       "min": 0,
-      "businessContext": "Days inventory outstanding.",
-      "businessContext_i18n": {
-        "en": "Days inventory outstanding.",
-        "de": "Tage des Lagerbestands (Days inventory outstanding).",
-        "fr": "Jours de stock en cours.",
-        "es": "Días de inventario pendiente.",
-        "ar": "أيام المخزون المعلقة."
-      }
+      "businessContext": "Days inventory outstanding."
     },
     {
       "id": "alacakGun",
       "label": "DSO (Days)",
-      "label_i18n": {
-        "en": "DSO (Days)",
-        "de": "Durchschnittliche Forderungslaufzeit (DSO)",
-        "fr": "Délai moyen de recouvrement (DSO)",
-        "es": "Días promedio de cuentas por cobrar (DSO)",
-        "ar": "متوسط أيام التحصيل (DSO)"
-      },
       "type": "number",
       "unit": "days",
       "default": 45,
       "min": 0,
-      "businessContext": "Days sales outstanding.",
-      "businessContext_i18n": {
-        "en": "Days sales outstanding.",
-        "de": "Tage der ausstehenden Forderungen (Days sales outstanding).",
-        "fr": "Jours de ventes en cours.",
-        "es": "Días de ventas pendientes.",
-        "ar": "أيام المبيعات المعلقة."
-      }
+      "businessContext": "Days sales outstanding."
     },
     {
       "id": "borcGun",
       "label": "DPO (Days)",
-      "label_i18n": {
-        "en": "DPO (Days)",
-        "de": "Durchschnittliche Verbindlichkeitslaufzeit (DPO)",
-        "fr": "Délai moyen de paiement (DPO)",
-        "es": "Días promedio de cuentas por pagar (DPO)",
-        "ar": "متوسط أيام الدفع (DPO)"
-      },
       "type": "number",
       "unit": "days",
       "default": 30,
       "min": 0,
-      "businessContext": "Days payable outstanding.",
-      "businessContext_i18n": {
-        "en": "Days payable outstanding.",
-        "de": "Tage der ausstehenden Verbindlichkeiten (Days payable outstanding).",
-        "fr": "Jours de dettes fournisseurs en cours.",
-        "es": "Días de cuentas por pagar pendientes.",
-        "ar": "أيام الدفع المعلقة."
-      }
+      "businessContext": "Days payable outstanding."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "stokGun + alacakGun - borcGun"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "days",
     "breakdown": {
       "result": "Nakit Donusum Dongusu (CCC)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Nakit Donusum Dongusu (CCC)",
-        "de": "Cash-Conversion-Cycle (CCC)",
-        "fr": "Cycle de conversion de trésorerie (CCC)",
-        "es": "Ciclo de Conversión de Efectivo (CCC)",
-        "ar": "دورة التحويل النقدي (CCC)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "days"
+      "result": "days"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate cash conversion cycle (CCC).",
-      "long": "Calculate cash conversion cycle (CCC).",
-      "short_i18n": {
-        "en": "Calculate cash conversion cycle (CCC).",
-        "de": "Berechnen Sie den Cash Conversion Cycle (CCC).",
-        "fr": "Calculer le cycle de conversion de trésorerie (CCC).",
-        "es": "Calcular el ciclo de conversión de efectivo (CCC).",
-        "ar": "احسب دورة التحويل النقدي (CCC)."
-      },
-      "long_i18n": {
-        "en": "Calculate cash conversion cycle (CCC).",
-        "de": "Berechnen Sie den Cash Conversion Cycle (CCC).",
-        "fr": "Calculer le cycle de conversion de trésorerie (CCC).",
-        "es": "Calcular el ciclo de conversión de efectivo (CCC).",
-        "ar": "احسب دورة التحويل النقدي (CCC)."
-      }
+      "long": "Calculate cash conversion cycle (CCC)."
     }
-  },
-  "title_i18n": {
-    "en": "cash-conversion-cycle-calculator",
-    "de": "Cash-Conversion-Cycle-Rechner",
-    "fr": "Calculateur de cycle de conversion de trésorerie",
-    "es": "Calculadora de ciclo de conversión de efectivo",
-    "ar": "حاسبة دورة التحويل النقدي"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,71 +8,29 @@
     {
       "id": "investment",
       "label": "Initial Investment (USD)",
-      "label_i18n": {
-        "en": "Initial Investment (USD)",
-        "de": "Anfangsinvestition",
-        "fr": "Investissement initial",
-        "es": "Inversión Inicial",
-        "ar": "الاستثمار الأولي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Initial project cost.",
-      "businessContext_i18n": {
-        "en": "Initial project cost.",
-        "de": "Anfängliche Projektkosten.",
-        "fr": "Coût initial du projet.",
-        "es": "Costo inicial del proyecto.",
-        "ar": "التكلفة الأولية للمشروع."
-      }
+      "businessContext": "Initial project cost."
     },
     {
       "id": "ortalamaNakit",
       "label": "Avg Annual Cash Flow (USD)",
-      "label_i18n": {
-        "en": "Avg Annual Cash Flow (USD)",
-        "de": "Durchschnittlicher jährlicher Cashflow (USD)",
-        "fr": "Flux de trésorerie annuel moyen (USD)",
-        "es": "Flujo de Caja Promedio Anual (USD)",
-        "ar": "متوسط التدفق النقدي السنوي (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 35000,
       "min": 0,
-      "businessContext": "Average annual cash inflow.",
-      "businessContext_i18n": {
-        "en": "Average annual cash inflow.",
-        "de": "Durchschnittlicher jährlicher Mittelzufluss.",
-        "fr": "Entrée de trésorerie annuelle moyenne.",
-        "es": "Entrada de efectivo anual promedio.",
-        "ar": "متوسط التدفق النقدي السنوي الوارد."
-      }
+      "businessContext": "Average annual cash inflow."
     },
     {
       "id": "year",
       "label": "Project Life (Years)",
-      "label_i18n": {
-        "en": "Project Life (Years)",
-        "de": "Projektlaufzeit (Jahre)",
-        "fr": "Durée de vie du projet (années)",
-        "es": "Vida del proyecto (años)",
-        "ar": "عمر المشروع (سنوات)"
-      },
       "type": "number",
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Project's economic life.",
-      "businessContext_i18n": {
-        "en": "Project's economic life.",
-        "de": "Wirtschaftliche Nutzungsdauer des Projekts.",
-        "fr": "Durée de vie économique du projet.",
-        "es": "Vida económica del proyecto.",
-        "ar": "العمر الاقتصادي للمشروع."
-      }
+      "businessContext": "Project's economic life."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(Math.pow(1 + ortalamaNakit / Math.max(1, investment), 1 / Math.max(1, year)) - 1) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "IRR (Internal Rate of Return - Yaklasik)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "IRR (Internal Rate of Return - Yaklasik)",
-        "de": "IRR (interner Zinsfuß - Näherungswert)",
-        "fr": "IRR (Internal Rate of Return - Approximate)",
-        "es": "TIR (Tasa Interna de Retorno - Aproximada)",
-        "ar": "معدل العائد الداخلي (IRR - تقريبي)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-      "long": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-      "short_i18n": {
-        "en": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "de": "Schätzen Sie den internen Zinsfuß (IRR), der den NPV auf null setzt.",
-        "fr": "Estimer le taux de rendement interne (TRI) qui annule la VAN.",
-        "es": "Estimar la tasa interna de retorno (IRR) que hace cero el VAN.",
-        "ar": "تقدير معدل العائد الداخلي (IRR) الذي يجعل صافي القيمة الحالية (NPV) صفرًا."
-      },
-      "long_i18n": {
-        "en": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "de": "Schätzen Sie den internen Zinsfuß (IRR), der den NPV auf null setzt.",
-        "fr": "Estimer le taux de rendement interne (TRI) qui annule la VAN.",
-        "es": "Estimar la tasa interna de retorno (IRR) que hace cero el VAN.",
-        "ar": "تقدير معدل العائد الداخلي (IRR) الذي يجعل صافي القيمة الحالية (NPV) صفرًا."
-      }
+      "long": "Estimate the internal rate of return (IRR) that zeroes NPV."
     }
-  },
-  "title_i18n": {
-    "en": "irr-calculator",
-    "de": "IRR-Rechner",
-    "fr": "Calculateur de TRI",
-    "es": "Calculadora de TIR",
-    "ar": "حاسبة معدل العائد الداخلي (IRR)"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -2,100 +2,44 @@
   "toolName": "gross-net-profit-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "ciro",
       "label": "Revenue (USD)",
-      "label_i18n": {
-        "en": "Revenue (USD)",
-        "de": "Tagesumsatz",
-        "fr": "Revenu quotidien",
-        "es": "Ingreso Diario",
-        "ar": "الإيرادات اليومية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total revenue.",
-      "businessContext_i18n": {
-        "en": "Total revenue.",
-        "de": "Gesamtumsatz.",
-        "fr": "Revenu total.",
-        "es": "Ingresos totales.",
-        "ar": "إجمالي الإيرادات."
-      }
+      "businessContext": "Total revenue."
     },
     {
       "id": "cogs",
       "label": "COGS (USD)",
-      "label_i18n": {
-        "en": "COGS (USD)",
-        "de": "Gesamte Teilekosten (COGS)",
-        "fr": "Coût total des pièces (COGS)",
-        "es": "Costo total de piezas (COGS)",
-        "ar": "إجمالي تكلفة القطع (تكلفة البضائع المباعة)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 600000,
       "min": 0,
-      "businessContext": "Cost of goods sold.",
-      "businessContext_i18n": {
-        "en": "Cost of goods sold.",
-        "de": "Kosten der verkauften Waren.",
-        "fr": "Coût des marchandises vendues.",
-        "es": "Costo de los bienes vendidos.",
-        "ar": "تكلفة البضائع المباعة."
-      }
+      "businessContext": "Cost of goods sold."
     },
     {
       "id": "isletmeGideri",
       "label": "Operating Expense (USD)",
-      "label_i18n": {
-        "en": "Operating Expense (USD)",
-        "de": "Tägliche Betriebsausgaben",
-        "fr": "Dépenses d'exploitation quotidiennes",
-        "es": "Gastos operativos diarios",
-        "ar": "المصروفات التشغيلية اليومية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Operating expenses.",
-      "businessContext_i18n": {
-        "en": "Operating expenses.",
-        "de": "Betriebsausgaben.",
-        "fr": "Dépenses d'exploitation.",
-        "es": "Gastos operativos.",
-        "ar": "المصروفات التشغيلية."
-      }
+      "businessContext": "Operating expenses."
     },
     {
       "id": "vergi",
       "label": "Tax (USD)",
-      "label_i18n": {
-        "en": "Tax (USD)",
-        "de": "Steuersatz auf Gewinne",
-        "fr": "Taux d'imposition sur les gains",
-        "es": "Tasa impositiva sobre ganancias",
-        "ar": "معدل الضريبة على الأرباح"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Tax expense.",
-      "businessContext_i18n": {
-        "en": "Tax expense.",
-        "de": "Steueraufwand.",
-        "fr": "Charge fiscale.",
-        "es": "Gasto de impuestos.",
-        "ar": "مصروفات الضرائب."
-      }
+      "businessContext": "Tax expense."
     }
   ],
   "validation": {
@@ -109,67 +53,30 @@
     "result": "(ciro - cogs) - isletmeGideri - vergi"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "brut": "Gross Profit",
-      "result": "Net Kâr"
-    },
-    "breakdown_i18n": {
-      "brut": {
-        "en": "Gross Profit",
-        "de": "Bruttogewinn",
-        "fr": "Bénéfice brut",
-        "es": "Ganancia Bruta",
-        "ar": "الربح الإجمالي"
-      },
-      "result": {
-        "en": "Net Kâr",
-        "de": "Nettogewinn",
-        "fr": "Bénéfice net",
-        "es": "Ganancia Neta",
-        "ar": "صافي الربح"
-      }
+      "result": "Net Profit"
     },
     "breakdownUnits": {
       "brut": "USD",
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate gross profit and net profit after all expenses.",
-      "long": "Calculate gross profit and net profit after all expenses.",
-      "short_i18n": {
-        "en": "Calculate gross profit and net profit after all expenses.",
-        "de": "Berechnen Sie den Bruttogewinn und den Nettogewinn nach allen Ausgaben.",
-        "fr": "Calculer le bénéfice brut et le bénéfice net après toutes les dépenses.",
-        "es": "Calcular la ganancia bruta y la ganancia neta después de todos los gastos.",
-        "ar": "احسب الربح الإجمالي وصافي الربح بعد جميع المصروفات."
-      },
-      "long_i18n": {
-        "en": "Calculate gross profit and net profit after all expenses.",
-        "de": "Berechnen Sie den Bruttogewinn und den Nettogewinn nach allen Ausgaben.",
-        "fr": "Calculer le bénéfice brut et le bénéfice net après toutes les dépenses.",
-        "es": "Calcular la ganancia bruta y la ganancia neta después de todos los gastos.",
-        "ar": "احسب الربح الإجمالي وصافي الربح بعد جميع المصروفات."
-      }
+      "long": "Calculate gross profit and net profit after all expenses."
     }
-  },
-  "title_i18n": {
-    "en": "gross-net-profit-calculator",
-    "de": "Brutto-Netto-Gewinnrechner",
-    "fr": "Calculateur de bénéfice brut net",
-    "es": "Calculadora de beneficio bruto neto",
-    "ar": "حاسبة الربح الإجمالي الصافي"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,71 +8,29 @@
     {
       "id": "anapara",
       "label": "Principal (USD)",
-      "label_i18n": {
-        "en": "Principal (USD)",
-        "de": "Anfangskapital",
-        "fr": "Capital initial",
-        "es": "Capital inicial",
-        "ar": "رأس المال الأولي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Total principal invested.",
-      "businessContext_i18n": {
-        "en": "Total principal invested.",
-        "de": "Investiertes Gesamtkapital.",
-        "fr": "Principal total investi.",
-        "es": "Capital total invertido.",
-        "ar": "إجمالي المبلغ الأساسي المستثمر."
-      }
+      "businessContext": "Total principal invested."
     },
     {
       "id": "interest",
       "label": "Annual Interest (%)",
-      "label_i18n": {
-        "en": "Annual Interest (%)",
-        "de": "Nominaler Jahreszinssatz",
-        "fr": "Taux d'intérêt annuel nominal",
-        "es": "Tasa de interés anual nominal",
-        "ar": "سعر الفائدة السنوي الاسمي"
-      },
       "type": "number",
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Annual interest rate.",
-      "businessContext_i18n": {
-        "en": "Annual interest rate.",
-        "de": "Nominaler jährlicher Zinssatz.",
-        "fr": "Taux d'intérêt annuel nominal.",
-        "es": "Tasa de interés anual nominal.",
-        "ar": "سعر الفائدة السنوي الاسمي."
-      }
+      "businessContext": "Annual interest rate."
     },
     {
       "id": "period",
       "label": "Period (Months)",
-      "label_i18n": {
-        "en": "Period (Months)",
-        "de": "Anlagezeitraum",
-        "fr": "Période d'investissement",
-        "es": "Período de inversión",
-        "ar": "فترة الاستثمار"
-      },
       "type": "number",
       "unit": "months",
       "default": 120,
       "min": 1,
-      "businessContext": "Total income withdrawal months.",
-      "businessContext_i18n": {
-        "en": "Total income withdrawal months.",
-        "de": "Monate des Einkommensbezugs.",
-        "fr": "Mois de retrait de revenu total.",
-        "es": "Meses de retiro de ingresos totales.",
-        "ar": "أشهر سحب الدخل الإجمالية."
-      }
+      "businessContext": "Total income withdrawal months."
     }
   ],
   "validation": {
@@ -86,58 +44,28 @@
     "result": "anapara * ((interest/12/100) / Math.max(0.0001, (1 - Math.pow(1 + interest/12/100, -period))))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Aylik Anuite Geliri"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Aylik Anuite Geliri",
-        "de": "Monatliche Annuitäteneinnahme",
-        "fr": "Revenu de rente mensuelle",
-        "es": "Ingreso de Anualidad Mensual",
-        "ar": "الدخل السنوي الشهري"
-      }
+      "result": "Monthly Annuity Income"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate fixed periodic income from a principal amount at a given interest rate.",
-      "long": "Calculate fixed periodic income from a principal amount at a given interest rate.",
-      "short_i18n": {
-        "en": "Calculate fixed periodic income from a principal amount at a given interest rate.",
-        "de": "Berechnen Sie ein festes periodisches Einkommen aus einem Kapitalbetrag bei einem gegebenen Zinssatz.",
-        "fr": "Calculer le revenu périodique fixe à partir d'un montant principal à un taux d'intérêt donné.",
-        "es": "Calcular el ingreso periódico fijo a partir de un monto principal a una tasa de interés dada.",
-        "ar": "حساب الدخل الدوري الثابت من مبلغ أساسي بسعر فائدة معين."
-      },
-      "long_i18n": {
-        "en": "Calculate fixed periodic income from a principal amount at a given interest rate.",
-        "de": "Berechnen Sie ein festes periodisches Einkommen aus einem Kapitalbetrag bei einem gegebenen Zinssatz.",
-        "fr": "Calculer le revenu périodique fixe à partir d'un montant principal à un taux d'intérêt donné.",
-        "es": "Calcular el ingreso periódico fijo a partir de un monto principal a una tasa de interés dada.",
-        "ar": "حساب الدخل الدوري الثابت من مبلغ أساسي بسعر فائدة معين."
-      }
+      "long": "Calculate fixed periodic income from a principal amount at a given interest rate."
     }
-  },
-  "title_i18n": {
-    "en": "annuity-income-calculator",
-    "de": "Annuitäten-Einkommensrechner",
-    "fr": "Calculateur de revenu de rente",
-    "es": "Calculadora de ingresos de anualidad",
-    "ar": "حاسبة الدخل السنوي"
   },
   "sectorSlug": "daily-renovation"
 }

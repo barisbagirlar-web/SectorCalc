@@ -8,94 +8,38 @@
     {
       "id": "alisFiyati",
       "label": "Purchase Price (USD)",
-      "label_i18n": {
-        "en": "Purchase Price (USD)",
-        "de": "Kaufpreis (USD)",
-        "fr": "Prix d'achat (USD)",
-        "es": "Precio de Compra (USD)",
-        "ar": "سعر الشراء (دولار أمريكي)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "ETF purchase price.",
-      "businessContext_i18n": {
-        "en": "ETF purchase price.",
-        "de": "ETF-Kaufpreis.",
-        "fr": "Prix d'achat de l'ETF.",
-        "es": "Precio de compra del ETF.",
-        "ar": "سعر شراء ETF."
-      }
+      "businessContext": "ETF purchase price."
     },
     {
       "id": "satisFiyati",
       "label": "Sell Price (USD)",
-      "label_i18n": {
-        "en": "Sell Price (USD)",
-        "de": "Verkaufspreis",
-        "fr": "Prix de vente",
-        "es": "Precio de venta",
-        "ar": "سعر البيع"
-      },
       "type": "number",
       "unit": "USD",
       "default": 115,
       "min": 0,
-      "businessContext": "ETF sell price.",
-      "businessContext_i18n": {
-        "en": "ETF sell price.",
-        "de": "ETF-Verkaufspreis.",
-        "fr": "Prix de vente de l'ETF.",
-        "es": "Precio de venta del ETF.",
-        "ar": "سعر بيع ETF."
-      }
+      "businessContext": "ETF sell price."
     },
     {
       "id": "temettu",
       "label": "Dividend (USD)",
-      "label_i18n": {
-        "en": "Dividend (USD)",
-        "de": "Jährliche Dividende pro Aktie ($)",
-        "fr": "Dividende annuel par action ($)",
-        "es": "Dividendo anual por acción ($)",
-        "ar": "توزيعات الأرباح السنوية للسهم ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 2,
       "min": 0,
-      "businessContext": "Dividend distributed.",
-      "businessContext_i18n": {
-        "en": "Dividend distributed.",
-        "de": "Ausgeschuttete Dividende.",
-        "fr": "Dividende distribué.",
-        "es": "Dividendo distribuido.",
-        "ar": "الأرباح الموزعة."
-      }
+      "businessContext": "Dividend distributed."
     },
     {
       "id": "giderOrani",
       "label": "Expense Ratio (%)",
-      "label_i18n": {
-        "en": "Expense Ratio (%)",
-        "de": "Kostenquote (%)",
-        "fr": "Ratio des frais (%)",
-        "es": "Ratio de gastos (%)",
-        "ar": "نسبة المصروفات (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Annual management fee.",
-      "businessContext_i18n": {
-        "en": "Annual management fee.",
-        "de": "Jährliche Verwaltungsgebuhr.",
-        "fr": "Frais de gestion annuels.",
-        "es": "Tarifa anual de gestión.",
-        "ar": "الرسوم الإدارية السنوية."
-      }
+      "businessContext": "Annual management fee."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "((satisFiyati + temettu - alisFiyati) / Math.max(1, alisFiyati) * 100) - giderOrani"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Net ETF Getirisi"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Net ETF Getirisi",
-        "de": "Netto-ETF-Rendite",
-        "fr": "Rendement net de l'ETF",
-        "es": "Rendimiento neto del ETF",
-        "ar": "صافي عائد ETF"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate net ETF return after management expense ratio.",
-      "long": "Calculate net ETF return after management expense ratio.",
-      "short_i18n": {
-        "en": "Calculate net ETF return after management expense ratio.",
-        "de": "Berechnen Sie die Netto-ETF-Rendite nach Abzug der Verwaltungsgebuhrenquote.",
-        "fr": "Calculer le rendement net de l'ETF après le ratio des frais de gestion.",
-        "es": "Calcular el rendimiento neto del ETF después del índice de gastos de gestión.",
-        "ar": "حساب صافي عائد صندوق المؤشرات المتداولة بعد نسبة المصروفات الإدارية."
-      },
-      "long_i18n": {
-        "en": "Calculate net ETF return after management expense ratio.",
-        "de": "Berechnen Sie die Netto-ETF-Rendite nach Abzug der Verwaltungsgebuhrenquote.",
-        "fr": "Calculer le rendement net de l'ETF après le ratio des frais de gestion.",
-        "es": "Calcular el rendimiento neto del ETF después del índice de gastos de gestión.",
-        "ar": "حساب صافي عائد صندوق المؤشرات المتداولة بعد نسبة المصروفات الإدارية."
-      }
+      "long": "Calculate net ETF return after management expense ratio."
     }
-  },
-  "title_i18n": {
-    "en": "etf-return-calculator",
-    "de": "ETF-Renditerechner",
-    "fr": "Calculateur de rendement ETF",
-    "es": "Calculadora de rendimiento de ETF",
-    "ar": "حاسبة عائد ETF"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,94 +8,38 @@
     {
       "id": "netKar",
       "label": "Net Income (USD)",
-      "label_i18n": {
-        "en": "Net Income (USD)",
-        "de": "Nettogewinn",
-        "fr": "Revenu net",
-        "es": "Ingreso neto",
-        "ar": "صافي الدخل"
-      },
       "type": "number",
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Net income for the period.",
-      "businessContext_i18n": {
-        "en": "Net income for the period.",
-        "de": "Periodenuberschuss.",
-        "fr": "Résultat net de la période.",
-        "es": "Ingreso neto del período.",
-        "ar": "صافي الدخل للفترة."
-      }
+      "businessContext": "Net income for the period."
     },
     {
       "id": "satislar",
       "label": "Sales (USD)",
-      "label_i18n": {
-        "en": "Sales (USD)",
-        "de": "Umsatzsteuersatz",
-        "fr": "Taux de taxe de vente",
-        "es": "Tasa de impuesto a las ventas",
-        "ar": "نسبة ضريبة المبيعات"
-      },
       "type": "number",
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Total sales revenue.",
-      "businessContext_i18n": {
-        "en": "Total sales revenue.",
-        "de": "Gesamtumsatzerlose.",
-        "fr": "Chiffre d'affaires total.",
-        "es": "Ingresos totales por ventas.",
-        "ar": "إجمالي إيرادات المبيعات."
-      }
+      "businessContext": "Total sales revenue."
     },
     {
       "id": "varliklar",
       "label": "Total Assets (USD)",
-      "label_i18n": {
-        "en": "Total Assets (USD)",
-        "de": "Gesamtvermogen",
-        "fr": "Actif total",
-        "es": "Activos totales",
-        "ar": "إجمالي الأصول"
-      },
       "type": "number",
       "unit": "USD",
       "default": 3000000,
       "min": 0,
-      "businessContext": "Total assets.",
-      "businessContext_i18n": {
-        "en": "Total assets.",
-        "de": "Gesamtvermogen.",
-        "fr": "Total des actifs.",
-        "es": "Activos totales.",
-        "ar": "إجمالي الأصول."
-      }
+      "businessContext": "Total assets."
     },
     {
       "id": "ozsermaye",
       "label": "Equity (USD)",
-      "label_i18n": {
-        "en": "Equity (USD)",
-        "de": "Gesamter Eigenkapitalwert ($)",
-        "fr": "Valeur totale des capitaux propres ($)",
-        "es": "Valor total del patrimonio ($)",
-        "ar": "إجمالي قيمة حقوق الملكية ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Total shareholders equity.",
-      "businessContext_i18n": {
-        "en": "Total shareholders equity.",
-        "de": "Gesamtes Eigenkapital der Aktionäre.",
-        "fr": "Capitaux propres totaux.",
-        "es": "Patrimonio neto total de los accionistas.",
-        "ar": "إجمالي حقوق المساهمين."
-      }
+      "businessContext": "Total shareholders equity."
     }
   ],
   "validation": {
@@ -111,58 +55,28 @@
     "result": "(netKar / Math.max(1, satislar)) * (satislar / Math.max(1, varliklar)) * (varliklar / Math.max(1, ozsermaye)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "DuPont ROE"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "DuPont ROE",
-        "de": "DuPont-ROE",
-        "fr": "ROE DuPont",
-        "es": "ROE de DuPont",
-        "ar": "عائد حقوق المساهمين لـ DuPont"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
-      "long": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
-      "short_i18n": {
-        "en": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
-        "de": "Berechnen Sie die DuPont-ROE-Zerlegung – Rentabilität, Effizienz, Verschuldung.",
-        "fr": "Calculer la décomposition DuPont du ROE — rentabilité, efficacité, levier.",
-        "es": "Calcular la descomposición ROE de DuPont — rentabilidad, eficiencia, apalancamiento.",
-        "ar": "احسب تحليل DuPont للعائد على حقوق المساهمين — الربحية، الكفاءة، الرفع المالي."
-      },
-      "long_i18n": {
-        "en": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
-        "de": "Berechnen Sie die DuPont-ROE-Zerlegung – Rentabilität, Effizienz, Verschuldung.",
-        "fr": "Calculer la décomposition DuPont du ROE — rentabilité, efficacité, levier.",
-        "es": "Calcular la descomposición ROE de DuPont — rentabilidad, eficiencia, apalancamiento.",
-        "ar": "احسب تحليل DuPont للعائد على حقوق المساهمين — الربحية، الكفاءة، الرفع المالي."
-      }
+      "long": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage."
     }
-  },
-  "title_i18n": {
-    "en": "dupont-roi-calculator",
-    "de": "ROE-Dupont-Analyse-Rechner",
-    "fr": "Calculateur d'analyse ROE Dupont",
-    "es": "Calculadora de análisis ROE Dupont",
-    "ar": "حاسبة تحليل ROE دوبونت"
   },
   "sectorSlug": "ecommerce"
 }

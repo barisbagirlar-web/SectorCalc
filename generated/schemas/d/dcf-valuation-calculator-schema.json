@@ -8,163 +8,65 @@
     {
       "id": "fcf1",
       "label": "Year 1 FCF (USD)",
-      "label_i18n": {
-        "en": "Year 1 FCF (USD)",
-        "de": "Jahr 1 FCF (USD)",
-        "fr": "FCF Année 1 (USD)",
-        "es": "FCF Año 1 (USD)",
-        "ar": "التدفق النقدي الحر للسنة الأولى (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "First year free cash flow.",
-      "businessContext_i18n": {
-        "en": "First year free cash flow.",
-        "de": "Freier Cashflow des ersten Jahres.",
-        "fr": "Flux de trésorerie disponible de la première année.",
-        "es": "Flujo de caja libre del primer año.",
-        "ar": "التدفق النقدي الحر للسنة الأولى."
-      }
+      "businessContext": "First year free cash flow."
     },
     {
       "id": "fcf2",
       "label": "Year 2 FCF (USD)",
-      "label_i18n": {
-        "en": "Year 2 FCF (USD)",
-        "de": "Jahr 2 FCF (USD)",
-        "fr": "FCF Année 2 (USD)",
-        "es": "FCF Año 2 (USD)",
-        "ar": "التدفق النقدي الحر للسنة الثانية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 110000,
       "min": 0,
-      "businessContext": "Second year free cash flow.",
-      "businessContext_i18n": {
-        "en": "Second year free cash flow.",
-        "de": "Freier Cashflow des zweiten Jahres.",
-        "fr": "Flux de trésorerie disponible de la deuxième année.",
-        "es": "Flujo de caja libre del segundo año.",
-        "ar": "التدفق النقدي الحر للسنة الثانية."
-      }
+      "businessContext": "Second year free cash flow."
     },
     {
       "id": "fcf3",
       "label": "Year 3 FCF (USD)",
-      "label_i18n": {
-        "en": "Year 3 FCF (USD)",
-        "de": "Jahr 3 FCF (USD)",
-        "fr": "FCF Année 3 (USD)",
-        "es": "FCF Año 3 (USD)",
-        "ar": "التدفق النقدي الحر للسنة الثالثة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 121000,
       "min": 0,
-      "businessContext": "Third year free cash flow.",
-      "businessContext_i18n": {
-        "en": "Third year free cash flow.",
-        "de": "Freier Cashflow des dritten Jahres.",
-        "fr": "Flux de trésorerie disponible de la troisième année.",
-        "es": "Flujo de caja libre del tercer año.",
-        "ar": "التدفق النقدي الحر للسنة الثالثة."
-      }
+      "businessContext": "Third year free cash flow."
     },
     {
       "id": "fcf4",
       "label": "Year 4 FCF (USD)",
-      "label_i18n": {
-        "en": "Year 4 FCF (USD)",
-        "de": "Jahr 4 FCF (USD)",
-        "fr": "FCF Année 4 (USD)",
-        "es": "FCF Año 4 (USD)",
-        "ar": "التدفق النقدي الحر للسنة الرابعة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 133100,
       "min": 0,
-      "businessContext": "Fourth year free cash flow.",
-      "businessContext_i18n": {
-        "en": "Fourth year free cash flow.",
-        "de": "Freier Cashflow des vierten Jahres.",
-        "fr": "Flux de trésorerie disponible de la quatrième année.",
-        "es": "Flujo de caja libre del cuarto año.",
-        "ar": "التدفق النقدي الحر للسنة الرابعة."
-      }
+      "businessContext": "Fourth year free cash flow."
     },
     {
       "id": "fcf5",
       "label": "Year 5 FCF (USD)",
-      "label_i18n": {
-        "en": "Year 5 FCF (USD)",
-        "de": "Jahr 5 FCF (USD)",
-        "fr": "FCF Année 5 (USD)",
-        "es": "FCF Año 5 (USD)",
-        "ar": "التدفق النقدي الحر للسنة الخامسة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 146410,
       "min": 0,
-      "businessContext": "Fifth year free cash flow.",
-      "businessContext_i18n": {
-        "en": "Fifth year free cash flow.",
-        "de": "Freier Cashflow des funften Jahres.",
-        "fr": "Flux de trésorerie disponible de la cinquième année.",
-        "es": "Flujo de caja libre del quinto año.",
-        "ar": "التدفق النقدي الحر للسنة الخامسة."
-      }
+      "businessContext": "Fifth year free cash flow."
     },
     {
       "id": "WACC",
       "label": "WACC (%)",
-      "label_i18n": {
-        "en": "WACC (%)",
-        "de": "GKM (%)",
-        "fr": "CMPC (%)",
-        "es": "WACC (%)",
-        "ar": "المتوسط المرجح لتكلفة رأس المال (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Weighted average cost of capital.",
-      "businessContext_i18n": {
-        "en": "Weighted average cost of capital.",
-        "de": "Gewichtete durchschnittliche Kapitalkosten.",
-        "fr": "Coût moyen pondéré du capital.",
-        "es": "Costo promedio ponderado del capital.",
-        "ar": "متوسط التكلفة المرجح لرأس المال."
-      }
+      "businessContext": "Weighted average cost of capital."
     },
     {
       "id": "terminalBuyume",
       "label": "Terminal Growth (%)",
-      "label_i18n": {
-        "en": "Terminal Growth (%)",
-        "de": "Terminale Wachstumsrate",
-        "fr": "Taux de croissance terminal",
-        "es": "Tasa de crecimiento terminal",
-        "ar": "معدل النمو النهائي"
-      },
       "type": "number",
       "unit": "%",
       "default": 3,
       "min": 0,
-      "businessContext": "Perpetual growth rate assumption.",
-      "businessContext_i18n": {
-        "en": "Perpetual growth rate assumption.",
-        "de": "Annahme der ewigen Wachstumsrate.",
-        "fr": "Hypothèse de taux de croissance perpétuelle.",
-        "es": "Supuesto de tasa de crecimiento perpetuo.",
-        "ar": "افتراض معدل النمو الدائم."
-      }
+      "businessContext": "Perpetual growth rate assumption."
     }
   ],
   "validation": {
@@ -184,58 +86,28 @@
     "result": "fcf1 / Math.pow(1 + WACC/100, 1) + fcf2 / Math.pow(1 + WACC/100, 2) + fcf3 / Math.pow(1 + WACC/100, 3) + fcf4 / Math.pow(1 + WACC/100, 4) + fcf5 / Math.pow(1 + WACC/100, 5) + (fcf5 * (1 + terminalBuyume/100) / Math.max(0.0001, (WACC/100 - terminalBuyume/100))) / Math.pow(1 + WACC/100, 5)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Workletme Valuei (DCF)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Workletme Valuei (DCF)",
-        "de": "Unternehmenswert (DCF)",
-        "fr": "Valeur d'entreprise (DCF)",
-        "es": "Valor Empresarial (DCF)",
-        "ar": "قيمة المؤسسة (DCF)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
-      "long": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
-      "short_i18n": {
-        "en": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
-        "de": "Berechnen Sie den Unternehmenswert mittels Discounted-Cashflow-Analyse (DCF).",
-        "fr": "Calculer la valeur d'entreprise à l'aide de l'analyse des flux de trésorerie actualisés (DCF).",
-        "es": "Calcular el valor empresarial mediante el análisis de flujo de caja descontado (DCF).",
-        "ar": "احسب قيمة المؤسسة باستخدام تحليل التدفقات النقدية المخصومة (DCF)."
-      },
-      "long_i18n": {
-        "en": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
-        "de": "Berechnen Sie den Unternehmenswert mittels Discounted-Cashflow-Analyse (DCF).",
-        "fr": "Calculer la valeur d'entreprise à l'aide de l'analyse des flux de trésorerie actualisés (DCF).",
-        "es": "Calcular el valor empresarial mediante el análisis de flujo de caja descontado (DCF).",
-        "ar": "احسب قيمة المؤسسة باستخدام تحليل التدفقات النقدية المخصومة (DCF)."
-      }
+      "long": "Calculate enterprise value using discounted cash flow (DCF) analysis."
     }
-  },
-  "title_i18n": {
-    "en": "dcf-valuation-calculator",
-    "de": "DCF-Unternehmensbewertungsrechner",
-    "fr": "Calculateur d'évaluation d'entreprise DCF",
-    "es": "Calculadora de valoración de empresas DCF",
-    "ar": "حاسبة تقييم الأعمال DCF"
   },
   "sectorSlug": "daily-renovation"
 }

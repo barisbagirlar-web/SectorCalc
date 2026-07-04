@@ -8,48 +8,20 @@
     {
       "id": "moment",
       "label": "Applied Moment (N.m)",
-      "label_i18n": {
-        "en": "Applied Moment (N.m)",
-        "de": "Aufgebrachtes Moment (N.m)",
-        "fr": "Moment appliqué (N.m)",
-        "es": "Momento Aplicado (N.m)",
-        "ar": "العزم المطبق (N.m)"
-      },
       "type": "number",
       "unit": "N.m",
       "default": 50,
       "min": 0,
-      "businessContext": "Moment applied to spring.",
-      "businessContext_i18n": {
-        "en": "Moment applied to spring.",
-        "de": "Auf die Feder aufgebrachtes Moment.",
-        "fr": "Moment appliqué au ressort.",
-        "es": "Momento aplicado al resorte.",
-        "ar": "العزم المطبق على النابض."
-      }
+      "businessContext": "Moment applied to spring."
     },
     {
       "id": "yayKatsayisi",
       "label": "Spring Constant (N.m/rad)",
-      "label_i18n": {
-        "en": "Spring Constant (N.m/rad)",
-        "de": "Federkonstante (N.m/rad)",
-        "fr": "Constante de rappel (N.m/rad)",
-        "es": "Constante del Resorte (N.m/rad)",
-        "ar": "ثابت النابض (N.m/rad)"
-      },
       "type": "number",
       "unit": "N.m/rad",
       "default": 100,
       "min": 0,
-      "businessContext": "Torsion spring stiffness.",
-      "businessContext_i18n": {
-        "en": "Torsion spring stiffness.",
-        "de": "Steifigkeit der Torsionsfeder.",
-        "fr": "Raideur du ressort de torsion.",
-        "es": "Rigidez del resorte de torsión.",
-        "ar": "صلابة نابض الالتواء."
-      }
+      "businessContext": "Torsion spring stiffness."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "moment / Math.max(0.0001, yayKatsayisi)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "rad",
     "breakdown": {
       "result": "Acisal Displacement"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Acisal Displacement",
-        "de": "Winkelauslenkung",
-        "fr": "Déplacement angulaire",
-        "es": "Desplazamiento Angular",
-        "ar": "الإزاحة الزاوية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "rad"
+      "result": "rad"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate angular displacement of a torsion spring.",
-      "long": "Calculate angular displacement of a torsion spring.",
-      "short_i18n": {
-        "en": "Calculate angular displacement of a torsion spring.",
-        "de": "Berechnen Sie die Winkelauslenkung einer Torsionsfeder.",
-        "fr": "Calculer le déplacement angulaire d'un ressort de torsion.",
-        "es": "Calcular el desplazamiento angular de un resorte de torsión.",
-        "ar": "احسب الإزاحة الزاوية لنابض الالتواء."
-      },
-      "long_i18n": {
-        "en": "Calculate angular displacement of a torsion spring.",
-        "de": "Berechnen Sie die Winkelauslenkung einer Torsionsfeder.",
-        "fr": "Calculer le déplacement angulaire d'un ressort de torsion.",
-        "es": "Calcular el desplazamiento angular de un resorte de torsión.",
-        "ar": "احسب الإزاحة الزاوية لنابض الالتواء."
-      }
+      "long": "Calculate angular displacement of a torsion spring."
     }
-  },
-  "title_i18n": {
-    "en": "torsion-spring-calculator",
-    "de": "Torsionsfederrechner",
-    "fr": "Calculateur de ressort de torsion",
-    "es": "Calculadora de resorte de torsión",
-    "ar": "حاسبة نابض الالتواء"
   },
   "sectorSlug": "daily-renovation"
 }

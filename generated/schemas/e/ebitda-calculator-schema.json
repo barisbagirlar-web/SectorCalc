@@ -79,13 +79,8 @@
     "breakdown": {
       "0": "normalized_product"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "EBITDA"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "currency"
+      "result": "currency"
     },
     "hiddenLossDrivers": [
       "Model uses normalized input chain — validate units",
@@ -104,9 +99,6 @@
       "short": "Calculate earnings before interest, taxes, depreciation and amortization.",
       "long": "Calculate earnings before interest, taxes, depreciation and amortization."
     }
-  },
-  "title_i18n": {
-    "en": "EBITDA Calculator"
   },
   "sectorSlug": "finance-sales-working-capital"
 }

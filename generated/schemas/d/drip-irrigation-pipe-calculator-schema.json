@@ -8,71 +8,29 @@
     {
       "id": "damaticiDebi",
       "label": "Emitter Flow (L/h)",
-      "label_i18n": {
-        "en": "Emitter Flow (L/h)",
-        "de": "Tropferdurchfluss (L/h)",
-        "fr": "Débit de l'Émetteur (L/h)",
-        "es": "Caudal del Emisor (L/h)",
-        "ar": "تدفق النقاط (L/h)"
-      },
       "type": "number",
       "unit": "L/h",
       "default": 4,
       "min": 0,
-      "businessContext": "Flow per emitter.",
-      "businessContext_i18n": {
-        "en": "Flow per emitter.",
-        "de": "Durchfluss pro Tropfer.",
-        "fr": "Débit par émetteur.",
-        "es": "Caudal por emisor.",
-        "ar": "التدفق لكل نقطة."
-      }
+      "businessContext": "Flow per emitter."
     },
     {
       "id": "damaticiSayisi",
       "label": "Number of Emitters",
-      "label_i18n": {
-        "en": "Number of Emitters",
-        "de": "Anzahl der Tropfer",
-        "fr": "Nombre d'Émetteurs",
-        "es": "Número de Emisores",
-        "ar": "عدد النقاط"
-      },
       "type": "number",
       "unit": "emitters",
       "default": 500,
       "min": 0,
-      "businessContext": "Total emitters on line.",
-      "businessContext_i18n": {
-        "en": "Total emitters on line.",
-        "de": "Gesamttropfer auf der Leitung.",
-        "fr": "Nombre total d'émetteurs sur la ligne.",
-        "es": "Total de emisores en la línea.",
-        "ar": "إجمالي النقاط على الخط."
-      }
+      "businessContext": "Total emitters on line."
     },
     {
       "id": "maxHiz",
       "label": "Max. Flow Velocity (m/s)",
-      "label_i18n": {
-        "en": "Max. Flow Velocity (m/s)",
-        "de": "Max. Fließgeschwindigkeit (m/s)",
-        "fr": "Vitesse d'Écoulement Max. (m/s)",
-        "es": "Velocidad Máx. del Flujo (m/s)",
-        "ar": "السرعة القصوى للتدفق (m/s)"
-      },
       "type": "number",
       "unit": "m/s",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Max permissible velocity.",
-      "businessContext_i18n": {
-        "en": "Max permissible velocity.",
-        "de": "Maximal zulässige Geschwindigkeit.",
-        "fr": "Vitesse maximale admissible.",
-        "es": "Velocidad máxima permitida.",
-        "ar": "السرعة القصوى المسموح بها."
-      }
+      "businessContext": "Max permissible velocity."
     }
   ],
   "validation": {
@@ -86,22 +44,13 @@
     "result": "Math.sqrt(Math.max(0, (4 * toplamDebi) / Math.max(0.0001, (Math.PI * maxHiz)))) * 1000"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "mm",
     "breakdown": {
       "result": "Min. Boru Ic Diameteri"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Min. Boru Ic Diameteri",
-        "de": "Min. Rohrinnendurchmesser",
-        "fr": "Diamètre Intérieur Min. du Tuyau",
-        "es": "Diámetro Interior Mínimo de la Tubería",
-        "ar": "القطر الداخلي الأدنى للأنبوب"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "mm"
+      "result": "mm"
     },
     "hiddenLossDrivers": [
       "Low efficiency may indicate equipment or process issues."
@@ -110,36 +59,15 @@
       "Calibrate all measuring equipment regularly.",
       "Use site-specific data when available."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate minimum mainline pipe diameter for drip irrigation.",
-      "long": "Calculate minimum mainline pipe diameter for drip irrigation.",
-      "short_i18n": {
-        "en": "Calculate minimum mainline pipe diameter for drip irrigation.",
-        "de": "Berechnen Sie den minimalen Hauptleitungsdurchmesser fur die Tropfchenbewässerung.",
-        "fr": "Calculez le diamètre minimal de la conduite principale pour l'irrigation goutte à goutte.",
-        "es": "Calcular el diámetro mínimo de la tubería principal para riego por goteo.",
-        "ar": "احسب القطر الداخلي الأدنى لأنبوب الخط الرئيسي للري بالتنقيط."
-      },
-      "long_i18n": {
-        "en": "Calculate minimum mainline pipe diameter for drip irrigation.",
-        "de": "Berechnen Sie den minimalen Hauptleitungsdurchmesser fur die Tropfchenbewässerung.",
-        "fr": "Calculez le diamètre minimal de la conduite principale pour l'irrigation goutte à goutte.",
-        "es": "Calcular el diámetro mínimo de la tubería principal para riego por goteo.",
-        "ar": "احسب القطر الداخلي الأدنى لأنبوب الخط الرئيسي للري بالتنقيط."
-      }
+      "long": "Calculate minimum mainline pipe diameter for drip irrigation."
     }
-  },
-  "title_i18n": {
-    "en": "drip-irrigation-pipe-calculator",
-    "de": "Tropfbewässerungsrohrdurchmesser-Rechner",
-    "fr": "Calculateur de diamètre de tuyau d'irrigation goutte à goutte",
-    "es": "Calculadora de diámetro de tubería de riego por goteo",
-    "ar": "حاسبة قطر أنبوب الري بالتنقيط"
   },
   "sectorSlug": "construction"
 }

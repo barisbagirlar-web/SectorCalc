@@ -8,48 +8,20 @@
     {
       "id": "frequency",
       "label": "Frequency (MHz)",
-      "label_i18n": {
-        "en": "Frequency (MHz)",
-        "de": "Zinseszinshäufigkeit",
-        "fr": "Fréquence de capitalisation",
-        "es": "Frecuencia de Capitalización",
-        "ar": "تكرار المركبة"
-      },
       "type": "number",
       "unit": "MHz",
       "default": 100,
       "min": 0,
-      "businessContext": "Operating frequency.",
-      "businessContext_i18n": {
-        "en": "Operating frequency.",
-        "de": "Betriebsfrequenz.",
-        "fr": "Fréquence de fonctionnement.",
-        "es": "Frecuencia de operación.",
-        "ar": "تردد التشغيل."
-      }
+      "businessContext": "Operating frequency."
     },
     {
       "id": "tip",
       "label": "Antenna Type (1=Dipole, 2=Yagi)",
-      "label_i18n": {
-        "en": "Antenna Type (1=Dipole, 2=Yagi)",
-        "de": "Antennentyp (1=Dipol, 2=Yagi)",
-        "fr": "Type d'antenne (1=Dipôle, 2=Yagi)",
-        "es": "Tipo de Antena (1=Dipolo, 2=Yagi)",
-        "ar": "نوع الهوائي (1=ثنائي القطب، 2=ياغي)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Antenna type.",
-      "businessContext_i18n": {
-        "en": "Antenna type.",
-        "de": "Antennentyp.",
-        "fr": "Type d'antenne.",
-        "es": "Tipo de antena.",
-        "ar": "نوع الهوائي."
-      }
+      "businessContext": "Antenna type."
     }
   ],
   "validation": {
@@ -63,58 +35,28 @@
     "result": "tip === 1 ? 300 / Math.max(0.0001, frequency) / 2 : 300 / Math.max(0.0001, frequency) * 0.45"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
       "result": "Antmost Lmostgth"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Antmost Lmostgth",
-        "de": "Antennenlänge",
-        "fr": "Longueur de l'antenne",
-        "es": "Longitud de la Antena",
-        "ar": "طول الهوائي"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Quantum effects are only observable at microscopic scales.",
       "These are idealized models."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate physical antenna element length for resonance at given frequency.",
-      "long": "Calculate physical antenna element length for resonance at given frequency.",
-      "short_i18n": {
-        "en": "Calculate physical antenna element length for resonance at given frequency.",
-        "de": "Berechnen Sie die physikalische Antennenelementlänge fur Resonanz bei einer gegebenen Frequenz.",
-        "fr": "Calculer la longueur de l'élément d'antenne physique pour la résonance à une fréquence donnée.",
-        "es": "Calcular la longitud del elemento de antena física para resonancia a una frecuencia dada.",
-        "ar": "حساب طول عنصر الهوائي الفيزيائي للرنين عند تردد معين."
-      },
-      "long_i18n": {
-        "en": "Calculate physical antenna element length for resonance at given frequency.",
-        "de": "Berechnen Sie die physikalische Antennenelementlänge fur Resonanz bei einer gegebenen Frequenz.",
-        "fr": "Calculer la longueur de l'élément d'antenne physique pour la résonance à une fréquence donnée.",
-        "es": "Calcular la longitud del elemento de antena física para resonancia a una frecuencia dada.",
-        "ar": "حساب طول عنصر الهوائي الفيزيائي للرنين عند تردد معين."
-      }
+      "long": "Calculate physical antenna element length for resonance at given frequency."
     }
-  },
-  "title_i18n": {
-    "en": "antenna-length-calculator",
-    "de": "RF-Antennengroßenrechner",
-    "fr": "Calculateur de dimensionnement d'antenne RF",
-    "es": "Calculadora de dimensionamiento de antena RF",
-    "ar": "حاسبة حجم هوائي RF"
   },
   "sectorSlug": "daily-renovation"
 }

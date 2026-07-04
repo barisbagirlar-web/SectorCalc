@@ -8,71 +8,29 @@
     {
       "id": "havzaAlani",
       "label": "Watershed Area (km²)",
-      "label_i18n": {
-        "en": "Watershed Area (km²)",
-        "de": "Einzugsgebietsfläche (km²)",
-        "fr": "Superficie du bassin versant (km²)",
-        "es": "Área de la cuenca (km²)",
-        "ar": "مساحة مستجمع المياه (km²)"
-      },
       "type": "number",
       "unit": "km2",
       "default": 100,
       "min": 0,
-      "businessContext": "Catchment area.",
-      "businessContext_i18n": {
-        "en": "Catchment area.",
-        "de": "Einzugsgebiet.",
-        "fr": "Zone de captage.",
-        "es": "Área de captación.",
-        "ar": "منطقة التجميع."
-      }
+      "businessContext": "Catchment area."
     },
     {
       "id": "yagis",
       "label": "Rainfall (mm)",
-      "label_i18n": {
-        "en": "Rainfall (mm)",
-        "de": "Niederschlagsvorhersage (nächste 7 Tage)",
-        "fr": "Prévisions de précipitations (7 prochains jours)",
-        "es": "Pronóstico de lluvia (próximos 7 días)",
-        "ar": "توقعات هطول الأمطار (الأيام السبعة القادمة)"
-      },
       "type": "number",
       "unit": "mm",
       "default": 50,
       "min": 0,
-      "businessContext": "Single rainfall depth.",
-      "businessContext_i18n": {
-        "en": "Single rainfall depth.",
-        "de": "Einzelne Niederschlagshohe.",
-        "fr": "Hauteur de pluie unique.",
-        "es": "Profundidad de una sola lluvia.",
-        "ar": "عمق هطول الأمطار الفردي."
-      }
+      "businessContext": "Single rainfall depth."
     },
     {
       "id": "akisKatsayisi",
       "label": "Runoff Coefficient (0-1)",
-      "label_i18n": {
-        "en": "Runoff Coefficient (0-1)",
-        "de": "Abflussbeiwert (0-1)",
-        "fr": "Coefficient de ruissellement (0-1)",
-        "es": "Coeficiente de escorrentía (0-1)",
-        "ar": "معامل الجريان السطحي (0-1)"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Surface permeability coefficient.",
-      "businessContext_i18n": {
-        "en": "Surface permeability coefficient.",
-        "de": "Oberflächendurchlässigkeitskoeffizient.",
-        "fr": "Coefficient de perméabilité de surface.",
-        "es": "Coeficiente de permeabilidad superficial.",
-        "ar": "معامل نفاذية السطح."
-      }
+      "businessContext": "Surface permeability coefficient."
     }
   ],
   "validation": {
@@ -85,22 +43,13 @@
     "result": "havzaAlani * 1000000 * (yagis / 1000) * akisKatsayisi"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m3",
     "breakdown": {
-      "result": "Total Yuzey Akis Hacmi"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Total Yuzey Akis Hacmi",
-        "de": "Gesamtes Oberflächenabflussvolumen",
-        "fr": "Volume total de ruissellement de surface",
-        "es": "Volumen Total de Escorrentía Superficial",
-        "ar": "إجمالي حجم الجريان السطحي"
-      }
+      "result": "Total Surface Runoff Volume"
     },
     "breakdownUnits": {
-      "sonuc": "m3"
+      "result": "m3"
     },
     "hiddenLossDrivers": [
       "High environmental score may reduce operational costs.",
@@ -110,36 +59,15 @@
       "Set improvement targets for each ESG pillar.",
       "Consider carbon offset programs for residual emissions."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate surface runoff volume from a watershed after rainfall.",
-      "long": "Calculate surface runoff volume from a watershed after rainfall.",
-      "short_i18n": {
-        "en": "Calculate surface runoff volume from a watershed after rainfall.",
-        "de": "Berechnen Sie das Oberflächenabflussvolumen aus einem Einzugsgebiet nach Regenfall.",
-        "fr": "Calculer le volume de ruissellement de surface d'un bassin versant après une pluie.",
-        "es": "Calcular el volumen de escorrentía superficial de una cuenca después de la lluvia.",
-        "ar": "احسب حجم الجريان السطحي من مستجمع مائي بعد هطول الأمطار."
-      },
-      "long_i18n": {
-        "en": "Calculate surface runoff volume from a watershed after rainfall.",
-        "de": "Berechnen Sie das Oberflächenabflussvolumen aus einem Einzugsgebiet nach Regenfall.",
-        "fr": "Calculer le volume de ruissellement de surface d'un bassin versant après une pluie.",
-        "es": "Calcular el volumen de escorrentía superficial de una cuenca después de la lluvia.",
-        "ar": "احسب حجم الجريان السطحي من مستجمع مائي بعد هطول الأمطار."
-      }
+      "long": "Calculate surface runoff volume from a watershed after rainfall."
     }
-  },
-  "title_i18n": {
-    "en": "watershed-runoff-calculator",
-    "de": "Einzugsgebietsabflussrechner",
-    "fr": "Calculateur de débit de bassin versant",
-    "es": "Calculadora de caudal de cuenca",
-    "ar": "حاسبة تدفق حوض الصرف"
   },
   "sectorSlug": "daily-renovation"
 }

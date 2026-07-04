@@ -2,55 +2,27 @@
   "toolName": "startup-valuation-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "investment",
       "label": "Investment Amount (USD)",
-      "label_i18n": {
-        "en": "Investment Amount (USD)",
-        "de": "Investitionsbetrag ($)",
-        "fr": "Montant de l'investissement ($)",
-        "es": "Monto de inversión ($)",
-        "ar": "مبلغ الاستثمار ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Investor capital contribution.",
-      "businessContext_i18n": {
-        "en": "Investor capital contribution.",
-        "de": "Investorenkapitalbeitrag.",
-        "fr": "Apport en capital de l'investisseur.",
-        "es": "Aporte de capital del inversor.",
-        "ar": "مساهمة رأس المال من المستثمر."
-      }
+      "businessContext": "Investor capital contribution."
     },
     {
       "id": "hisseOrani",
       "label": "Equity Given (%)",
-      "label_i18n": {
-        "en": "Equity Given (%)",
-        "de": "Eigenkapital gegeben (%)",
-        "fr": "Pourcentage d'équité donné (%)",
-        "es": "Capital Social Otorgado (%)",
-        "ar": "نسبة الأسهم الممنوحة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 20,
       "min": 0.1,
       "max": 99,
-      "businessContext": "Percentage equity given to investor.",
-      "businessContext_i18n": {
-        "en": "Percentage equity given to investor.",
-        "de": "Prozentsatz des an den Investor gegebenen Eigenkapitals.",
-        "fr": "Pourcentage d'équité donné à l'investisseur.",
-        "es": "Porcentaje de capital entregado al inversor.",
-        "ar": "النسبة المئوية للأسهم الممنوحة للمستثمر."
-      }
+      "businessContext": "Percentage equity given to investor."
     }
   ],
   "validation": {
@@ -64,58 +36,28 @@
     "result": "(investment / Math.max(0.0001, hisseOrani / 100)) - investment"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Yatirim Oncesi Valueleme"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Yatirim Oncesi Valueleme",
-        "de": "Pre-Money-Bewertung",
-        "fr": "Valorisation pré-investissement",
-        "es": "Valoración Pre-Inversión",
-        "ar": "التقييم قبل الاستثمار"
-      }
+      "result": "Pre-Money Valuation"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate pre-money and post-money startup valuation.",
-      "long": "Calculate pre-money and post-money startup valuation.",
-      "short_i18n": {
-        "en": "Calculate pre-money and post-money startup valuation.",
-        "de": "Berechnen Sie die Pre-Money- und Post-Money-Bewertung eines Startups.",
-        "fr": "Calculer la valorisation pré-money et post-money d'une startup.",
-        "es": "Calcular la valoración pre-money y post-money de una startup.",
-        "ar": "احسب التقييم قبل الاستثمار وبعده لشركة ناشئة."
-      },
-      "long_i18n": {
-        "en": "Calculate pre-money and post-money startup valuation.",
-        "de": "Berechnen Sie die Pre-Money- und Post-Money-Bewertung eines Startups.",
-        "fr": "Calculer la valorisation pré-money et post-money d'une startup.",
-        "es": "Calcular la valoración pre-money y post-money de una startup.",
-        "ar": "احسب التقييم قبل الاستثمار وبعده لشركة ناشئة."
-      }
+      "long": "Calculate pre-money and post-money startup valuation."
     }
-  },
-  "title_i18n": {
-    "en": "startup-valuation-calculator",
-    "de": "Startup-Bewertungsrechner",
-    "fr": "Calculateur d'évaluation de startup",
-    "es": "Calculadora de valoración de startups",
-    "ar": "حاسبة تقييم الشركات الناشئة"
   },
   "sectorSlug": "daily-renovation"
 }

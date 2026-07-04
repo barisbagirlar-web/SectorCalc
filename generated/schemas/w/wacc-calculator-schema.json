@@ -8,117 +8,47 @@
     {
       "id": "E",
       "label": "Equity (USD)",
-      "label_i18n": {
-        "en": "Equity (USD)",
-        "de": "Gesamter Eigenkapitalwert ($)",
-        "fr": "Valeur totale des capitaux propres ($)",
-        "es": "Valor total del patrimonio ($)",
-        "ar": "إجمالي قيمة حقوق الملكية ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total equity value.",
-      "businessContext_i18n": {
-        "en": "Total equity value.",
-        "de": "Gesamter Eigenkapitalwert.",
-        "fr": "Valeur totale des capitaux propres.",
-        "es": "Valor total del patrimonio.",
-        "ar": "إجمالي قيمة حقوق الملكية."
-      }
+      "businessContext": "Total equity value."
     },
     {
       "id": "D",
       "label": "Debt (USD)",
-      "label_i18n": {
-        "en": "Debt (USD)",
-        "de": "Bestehende monatliche Schuldenzahlungen",
-        "fr": "Paiements mensuels de dettes existants",
-        "es": "Pagos de Deuda Mensuales Existentes",
-        "ar": "مدفوعات الديون الشهرية الحالية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Total debt.",
-      "businessContext_i18n": {
-        "en": "Total debt.",
-        "de": "Gesamtschulden.",
-        "fr": "Dette totale.",
-        "es": "Deuda total.",
-        "ar": "إجمالي الديون."
-      }
+      "businessContext": "Total debt."
     },
     {
       "id": "Re",
       "label": "Cost of Equity (%)",
-      "label_i18n": {
-        "en": "Cost of Equity (%)",
-        "de": "Eigenkapitalkosten (%)",
-        "fr": "Coût des capitaux propres (%)",
-        "es": "Costo del capital (%)",
-        "ar": "تكلفة حقوق الملكية (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Expected return for shareholders.",
-      "businessContext_i18n": {
-        "en": "Expected return for shareholders.",
-        "de": "Erwartete Rendite fur Aktionäre.",
-        "fr": "Rendement attendu pour les actionnaires.",
-        "es": "Rendimiento esperado para los accionistas.",
-        "ar": "العائد المتوقع للمساهمين."
-      }
+      "businessContext": "Expected return for shareholders."
     },
     {
       "id": "Rd",
       "label": "Cost of Debt (%)",
-      "label_i18n": {
-        "en": "Cost of Debt (%)",
-        "de": "Fremdkapitalkosten (%)",
-        "fr": "Coût de la dette (%)",
-        "es": "Costo de la deuda (%)",
-        "ar": "تكلفة الديون (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Company's borrowing cost.",
-      "businessContext_i18n": {
-        "en": "Company's borrowing cost.",
-        "de": "Fremdkapitalkosten des Unternehmens.",
-        "fr": "Coût d'emprunt de l'entreprise.",
-        "es": "Costo de endeudamiento de la empresa.",
-        "ar": "تكلفة الاقتراض للشركة."
-      }
+      "businessContext": "Company's borrowing cost."
     },
     {
       "id": "vergi",
       "label": "Tax Rate (%)",
-      "label_i18n": {
-        "en": "Tax Rate (%)",
-        "de": "Steuersatz (%)",
-        "fr": "Taux d'imposition (%)",
-        "es": "Tasa Impositiva (%)",
-        "ar": "معدل الضريبة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Corporate tax rate.",
-      "businessContext_i18n": {
-        "en": "Corporate tax rate.",
-        "de": "Korperschaftsteuersatz.",
-        "fr": "Taux d'imposition des sociétés.",
-        "es": "Tasa impositiva corporativa.",
-        "ar": "معدل الضريبة على الشركات."
-      }
+      "businessContext": "Corporate tax rate."
     }
   ],
   "validation": {
@@ -132,58 +62,28 @@
     "result": "(E / Math.max(1, E + D) * Re) + (D / Math.max(1, E + D) * Rd * (1 - vergi / 100))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "WACC (Weightli Mean Sermaye Costi)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "WACC (Weightli Mean Sermaye Costi)",
-        "de": "WACC (Weighted Average Cost of Capital)",
-        "fr": "WACC (Coût moyen pondéré du capital)",
-        "es": "WACC (Costo Promedio Ponderado del Capital)",
-        "ar": "المتوسط المرجح لتكلفة رأس المال"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate weighted average cost of capital (WACC).",
-      "long": "Calculate weighted average cost of capital (WACC).",
-      "short_i18n": {
-        "en": "Calculate weighted average cost of capital (WACC).",
-        "de": "Berechnen Sie die gewichteten durchschnittlichen Kapitalkosten (WACC).",
-        "fr": "Calculer le coût moyen pondéré du capital (CMPC).",
-        "es": "Calcular el costo promedio ponderado del capital (WACC).",
-        "ar": "حساب متوسط التكلفة المرجح لرأس المال (WACC)."
-      },
-      "long_i18n": {
-        "en": "Calculate weighted average cost of capital (WACC).",
-        "de": "Berechnen Sie die gewichteten durchschnittlichen Kapitalkosten (WACC).",
-        "fr": "Calculer le coût moyen pondéré du capital (CMPC).",
-        "es": "Calcular el costo promedio ponderado del capital (WACC).",
-        "ar": "حساب متوسط التكلفة المرجح لرأس المال (WACC)."
-      }
+      "long": "Calculate weighted average cost of capital (WACC)."
     }
-  },
-  "title_i18n": {
-    "en": "wacc-calculator",
-    "de": "WACC-Rechner",
-    "fr": "Calculateur de WACC",
-    "es": "Calculadora de WACC",
-    "ar": "حاسبة المتوسط المرجح لتكلفة رأس المال WACC"
   },
   "sectorSlug": "daily-renovation"
 }

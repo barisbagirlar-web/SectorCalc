@@ -8,48 +8,20 @@
     {
       "id": "power",
       "label": "Engine Power (kW)",
-      "label_i18n": {
-        "en": "Engine Power (kW)",
-        "de": "Motorleistung",
-        "fr": "Puissance du moteur",
-        "es": "Potencia del motor",
-        "ar": "قوة المحرك"
-      },
       "type": "number",
       "unit": "kW",
       "default": 100,
       "min": 0,
-      "businessContext": "Engine output power.",
-      "businessContext_i18n": {
-        "en": "Engine output power.",
-        "de": "Motorausgangsleistung.",
-        "fr": "Puissance de sortie du moteur.",
-        "es": "Potencia de salida del motor.",
-        "ar": "قدرة خرج المحرك."
-      }
+      "businessContext": "Engine output power."
     },
     {
       "id": "devir",
       "label": "Engine Speed (RPM)",
-      "label_i18n": {
-        "en": "Engine Speed (RPM)",
-        "de": "Motordrehzahl (RPM)",
-        "fr": "Régime moteur (RPM)",
-        "es": "Velocidad del Motor (RPM)",
-        "ar": "سرعة المحرك (RPM)"
-      },
       "type": "number",
       "unit": "rpm",
       "default": 3000,
       "min": 0,
-      "businessContext": "Crankshaft speed.",
-      "businessContext_i18n": {
-        "en": "Crankshaft speed.",
-        "de": "Kurbelwellendrehzahl.",
-        "fr": "Vitesse du vilebrequin.",
-        "es": "Velocidad del cigueñal.",
-        "ar": "سرعة العمود المرفقي."
-      }
+      "businessContext": "Crankshaft speed."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "(power * 9550) / Math.max(0.0001, devir)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "N.m",
     "breakdown": {
       "result": "Motor Torku"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Motor Torku",
-        "de": "Motordrehmoment",
-        "fr": "Couple moteur",
-        "es": "Par Motor",
-        "ar": "عزم المحرك"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "N.m"
+      "result": "N.m"
     },
     "hiddenLossDrivers": [
       "High fuel/energy consumption indicates efficiency losses."
@@ -86,36 +49,15 @@
       "Regular maintenance improves overall equipment efficiency.",
       "Simulate real-world driving conditions for accurate range estimates."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate engine torque at a given power and RPM.",
-      "long": "Calculate engine torque at a given power and RPM.",
-      "short_i18n": {
-        "en": "Calculate engine torque at a given power and RPM.",
-        "de": "Berechnen Sie das Motordrehmoment bei gegebener Leistung und Drehzahl.",
-        "fr": "Calculer le couple moteur à une puissance et un régime donnés.",
-        "es": "Calcular el par motor a una potencia y RPM dadas.",
-        "ar": "حساب عزم المحرك عند قدرة وسرعة دوران معينة."
-      },
-      "long_i18n": {
-        "en": "Calculate engine torque at a given power and RPM.",
-        "de": "Berechnen Sie das Motordrehmoment bei gegebener Leistung und Drehzahl.",
-        "fr": "Calculer le couple moteur à une puissance et un régime donnés.",
-        "es": "Calcular el par motor a una potencia y RPM dadas.",
-        "ar": "حساب عزم المحرك عند قدرة وسرعة دوران معينة."
-      }
+      "long": "Calculate engine torque at a given power and RPM."
     }
-  },
-  "title_i18n": {
-    "en": "engine-torque-calculator",
-    "de": "Motordrehmoment-Drehzahl-Rechner",
-    "fr": "Calculateur de couple et régime moteur",
-    "es": "Calculadora de par motor y RPM",
-    "ar": "حاسبة عزم المحرك ودورانه"
   },
   "sectorSlug": "daily-renovation"
 }

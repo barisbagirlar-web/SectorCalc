@@ -8,94 +8,38 @@
     {
       "id": "ortTalep",
       "label": "Avg Daily Demand",
-      "label_i18n": {
-        "en": "Avg Daily Demand",
-        "de": "Durchschnittlicher Tagesbedarf",
-        "fr": "Demande quotidienne moyenne",
-        "es": "Demanda Diaria Promedio",
-        "ar": "متوسط الطلب اليومي"
-      },
       "type": "number",
       "unit": "units",
       "default": 100,
       "min": 0,
-      "businessContext": "Average daily demand.",
-      "businessContext_i18n": {
-        "en": "Average daily demand.",
-        "de": "Durchschnittlicher täglicher Bedarf.",
-        "fr": "Demande quotidienne moyenne.",
-        "es": "Demanda diaria promedio.",
-        "ar": "متوسط الطلب اليومي."
-      }
+      "businessContext": "Average daily demand."
     },
     {
       "id": "stdSapma",
       "label": "Demand Std Dev",
-      "label_i18n": {
-        "en": "Demand Std Dev",
-        "de": "Standardabweichung des Bedarfs",
-        "fr": "Écart type de la demande",
-        "es": "Desviación Estándar de la Demanda",
-        "ar": "الانحراف المعياري للطلب"
-      },
       "type": "number",
       "unit": "units",
       "default": 20,
       "min": 0,
-      "businessContext": "Demand variability.",
-      "businessContext_i18n": {
-        "en": "Demand variability.",
-        "de": "Tägliche Nachfrageschwankung. Kritisch fur den Sicherheitsbestand bei Six Sigma-Servicegraden.",
-        "fr": "Variabilité de la demande quotidienne. Critique pour le stock de sécurité sous les niveaux de service Six Sigma.",
-        "es": "Variabilidad de la demanda diaria. Crítica para el stock de seguridad bajo niveles de servicio Six Sigma.",
-        "ar": "تقلب الطلب اليومي. حاسم لمخزون الأمان تحت مستويات الخدمة Six Sigma."
-      }
+      "businessContext": "Demand variability."
     },
     {
       "id": "tedarikSure",
       "label": "Lead Time (Days)",
-      "label_i18n": {
-        "en": "Lead Time (Days)",
-        "de": "Vorlaufzeit (Tage)",
-        "fr": "Délai de livraison (jours)",
-        "es": "Tiempo de entrega (días)",
-        "ar": "مهلة التسليم (أيام)"
-      },
       "type": "number",
       "unit": "days",
       "default": 7,
       "min": 0,
-      "businessContext": "Order-to-delivery time.",
-      "businessContext_i18n": {
-        "en": "Order-to-delivery time.",
-        "de": "Bestell- bis Lieferzeit.",
-        "fr": "Délai de commande à livraison.",
-        "es": "Tiempo de entrega desde el pedido.",
-        "ar": "وقت الطلب إلى التسليم."
-      }
+      "businessContext": "Order-to-delivery time."
     },
     {
       "id": "Z",
       "label": "Z Score (Service Level)",
-      "label_i18n": {
-        "en": "Z Score (Service Level)",
-        "de": "Z-Wert",
-        "fr": "Score Z",
-        "es": "Puntuación Z",
-        "ar": "درجة Z"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 1.65,
       "min": 0,
-      "businessContext": "Z value for target service level (1.65=95%).",
-      "businessContext_i18n": {
-        "en": "Z value for target service level (1.65=95%).",
-        "de": "Z-Wert fur das angestrebte Servicelevel (1,65=95%).",
-        "fr": "Valeur Z pour le niveau de service cible (1,65=95%).",
-        "es": "Valor Z para el nivel de servicio objetivo (1.65=95%).",
-        "ar": "قيمة Z لمستوى الخدمة المستهدف (1.65=95%)."
-      }
+      "businessContext": "Z value for target service level (1.65=95%)."
     }
   ],
   "validation": {
@@ -109,58 +53,28 @@
     "result": "(ortTalep * tedarikSure) + (Z * stdSapma * Math.sqrt(Math.max(0, tedarikSure)))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "units",
     "breakdown": {
       "result": "ROP (Yeniden Siparis Seviyesi)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "ROP (Yeniden Siparis Seviyesi)",
-        "de": "ROP (Wiederbestellpunkt)",
-        "fr": "ROP (Niveau de réapprovisionnement)",
-        "es": "ROP (Nivel de Reorden)",
-        "ar": "ROP (مستوى إعادة الطلب)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "units"
+      "result": "units"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Review inventory turnover metrics monthly.",
       "Factor in seasonality for safety stock."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate reorder point (ROP) with safety stock to prevent stockouts.",
-      "long": "Calculate reorder point (ROP) with safety stock to prevent stockouts.",
-      "short_i18n": {
-        "en": "Calculate reorder point (ROP) with safety stock to prevent stockouts.",
-        "de": "Berechnung des Meldebestands (ROP) mit Sicherheitsbestand zur Vermeidung von Fehlbeständen.",
-        "fr": "Calculer le point de commande (ROP) avec stock de sécurité pour éviter les ruptures de stock.",
-        "es": "Calcular el punto de reorden (ROP) con stock de seguridad para evitar desabastecimientos.",
-        "ar": "احسب نقطة إعادة الطلب (ROP) مع المخزون الاحتياطي لمنع نفاد المخزون."
-      },
-      "long_i18n": {
-        "en": "Calculate reorder point (ROP) with safety stock to prevent stockouts.",
-        "de": "Berechnung des Meldebestands (ROP) mit Sicherheitsbestand zur Vermeidung von Fehlbeständen.",
-        "fr": "Calculer le point de commande (ROP) avec stock de sécurité pour éviter les ruptures de stock.",
-        "es": "Calcular el punto de reorden (ROP) con stock de seguridad para evitar desabastecimientos.",
-        "ar": "احسب نقطة إعادة الطلب (ROP) مع المخزون الاحتياطي لمنع نفاد المخزون."
-      }
+      "long": "Calculate reorder point (ROP) with safety stock to prevent stockouts."
     }
-  },
-  "title_i18n": {
-    "en": "reorder-point-calculator",
-    "de": "Sicherheitsbestandsrechner (ROP)",
-    "fr": "Calculateur de stock de sécurité (ROP)",
-    "es": "Calculadora de stock de seguridad (ROP)",
-    "ar": "حاسبة مخزون الأمان (ROP)"
   },
   "sectorSlug": "daily-renovation"
 }

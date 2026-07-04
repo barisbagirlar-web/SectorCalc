@@ -8,48 +8,20 @@
     {
       "id": "delikCap",
       "label": "Hole Diameter (m)",
-      "label_i18n": {
-        "en": "Hole Diameter (m)",
-        "de": "Lochdurchmesser",
-        "fr": "Diamètre du trou",
-        "es": "Diámetro del agujero",
-        "ar": "قطر الثقب"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.0501,
       "min": 0,
-      "businessContext": "Hole nominal diameter.",
-      "businessContext_i18n": {
-        "en": "Hole nominal diameter.",
-        "de": "Nenndurchmesser der Bohrung.",
-        "fr": "Diamètre nominal de l'alésage.",
-        "es": "Diámetro nominal del agujero.",
-        "ar": "القطر الاسمي للثقب."
-      }
+      "businessContext": "Hole nominal diameter."
     },
     {
       "id": "milCap",
       "label": "Shaft Diameter (m)",
-      "label_i18n": {
-        "en": "Shaft Diameter (m)",
-        "de": "Wellendurchmesser (m)",
-        "fr": "Diamètre de l'arbre (m)",
-        "es": "Diámetro del Eje (m)",
-        "ar": "قطر العمود (م)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Shaft nominal diameter.",
-      "businessContext_i18n": {
-        "en": "Shaft nominal diameter.",
-        "de": "Nenndurchmesser der Welle.",
-        "fr": "Diamètre nominal de l'arbre.",
-        "es": "Diámetro nominal del eje.",
-        "ar": "القطر الاسمي للعمود."
-      }
+      "businessContext": "Shaft nominal diameter."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "delikCap - milCap"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
       "result": "Gecme/Bosluk Amounti"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gecme/Bosluk Amounti",
-        "de": "Ubermaß/Spielbetrag",
-        "fr": "Quantité de jeu/interférence",
-        "es": "Cantidad de Interferencia/Holgura",
-        "ar": "مقدار الخلوص/التداخل"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate clearance or interference between hole and shaft.",
-      "long": "Calculate clearance or interference between hole and shaft.",
-      "short_i18n": {
-        "en": "Calculate clearance or interference between hole and shaft.",
-        "de": "Berechnen Sie das Spiel oder Ubermaß zwischen Bohrung und Welle.",
-        "fr": "Calculer le jeu ou l'interférence entre un alésage et un arbre.",
-        "es": "Calcular la holgura o interferencia entre agujero y eje.",
-        "ar": "حساب الخلوص أو التداخل بين الثقب والعمود."
-      },
-      "long_i18n": {
-        "en": "Calculate clearance or interference between hole and shaft.",
-        "de": "Berechnen Sie das Spiel oder Ubermaß zwischen Bohrung und Welle.",
-        "fr": "Calculer le jeu ou l'interférence entre un alésage et un arbre.",
-        "es": "Calcular la holgura o interferencia entre agujero y eje.",
-        "ar": "حساب الخلوص أو التداخل بين الثقب والعمود."
-      }
+      "long": "Calculate clearance or interference between hole and shaft."
     }
-  },
-  "title_i18n": {
-    "en": "clearance-interference-calculator",
-    "de": "Rechner fur Toleranzuberschreitung",
-    "fr": "Calculateur de dépassement de tolérance",
-    "es": "Calculadora de superación de tolerancia",
-    "ar": "حاسبة تجاوز التسامح"
   },
   "sectorSlug": "daily-renovation"
 }

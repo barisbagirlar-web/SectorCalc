@@ -2,6 +2,7 @@
 
 export { UniversalIndustrialDecisionForm, default } from "./UniversalIndustrialDecisionForm";
 export type { UniversalIndustrialDecisionFormProps } from "./UniversalIndustrialDecisionForm";
+export { ProToolSessionWrapper } from "./ProToolSessionWrapper";
 export {
   createInitialUniversalFormState,
   createNormalizedAuditFromPreview,

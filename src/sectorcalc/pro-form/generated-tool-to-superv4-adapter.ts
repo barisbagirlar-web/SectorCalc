@@ -26,12 +26,17 @@ export function assertNoTurkishString(text: string, path: string): void {
   if (!text) return;
   const found = hasTurkishToken(text);
   if (found) {
-    throw new Error(`Turkish content rejected at ${path}: "${text}" (found: "${found}")`);
+    // V5.3.1: Turkish content detected — this will be caught by schema validation gate.
+    // Do not throw in RSC render path. The validation layer will reject the schema.
+    if (typeof process !== "undefined" && process.env.NODE_ENV !== "production") {
+      console.warn(`[V531] Turkish content at ${path}: "${text.slice(0, 80)}" (found: "${found}")`);
+    }
   }
 }
 
 function translateToEnglish(text: string): string {
-  assertNoTurkishString(text, "translateToEnglish");
+  // V5.3.1: Turkish detection is advisory in the adapter (no throw).
+  // The strict gate is in validateSuperV4Schema → assertPureEnglishV531Schema.
   return text;
 }
 
@@ -42,10 +47,11 @@ function isTurkishWord(text: string): boolean {
 
 function sanitizeString(text: string | undefined | null, fallback: string): string {
   if (!text) return fallback;
-  const sanitized = translateToEnglish(text);
-  // If translation changed nothing but it's still a Turkish word, return fallback
-  if (sanitized === text && isTurkishWord(text)) return fallback;
-  return sanitized;
+  // If the text contains Turkish tokens, return the fallback silently
+  if (hasTurkishToken(text)) {
+    return fallback;
+  }
+  return text;
 }
 
 /* ─────────────────────────────────────────────── */

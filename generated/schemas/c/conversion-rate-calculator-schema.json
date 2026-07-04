@@ -2,54 +2,26 @@
   "toolName": "conversion-rate-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "ziyaretci",
       "label": "Visitors",
-      "label_i18n": {
-        "en": "Visitors",
-        "de": "Besucher der Kontrollgruppe",
-        "fr": "Visiteurs du groupe de contrôle",
-        "es": "Visitantes del grupo de control",
-        "ar": "زوار المجموعة الضابطة"
-      },
       "type": "number",
       "unit": "visitors",
       "default": 10000,
       "min": 1,
-      "businessContext": "Total website visitors.",
-      "businessContext_i18n": {
-        "en": "Total website visitors.",
-        "de": "Gesamtzahl der Website-Besucher.",
-        "fr": "Nombre total de visiteurs du site web.",
-        "es": "Total de visitantes del sitio web.",
-        "ar": "إجمالي زوار الموقع."
-      }
+      "businessContext": "Total website visitors."
     },
     {
       "id": "donusum",
       "label": "Conversions",
-      "label_i18n": {
-        "en": "Conversions",
-        "de": "Konversionen der Kontrollgruppe",
-        "fr": "Conversions du groupe de contrôle",
-        "es": "Conversiones del grupo de control",
-        "ar": "تحويلات المجموعة الضابطة"
-      },
       "type": "number",
       "unit": "conversions",
       "default": 500,
       "min": 0,
-      "businessContext": "Completed target actions.",
-      "businessContext_i18n": {
-        "en": "Completed target actions.",
-        "de": "Abgeschlossene Zielaktionen.",
-        "fr": "Actions cibles complétées.",
-        "es": "Acciones objetivo completadas.",
-        "ar": "الإجراءات المستهدفة المكتملة."
-      }
+      "businessContext": "Completed target actions."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(donusum / Math.max(1, ziyaretci)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Conversion Rate (CRO)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Conversion Rate (CRO)",
-        "de": "Konversionsrate (CRO)",
-        "fr": "Taux de conversion (CRO)",
-        "es": "Tasa de Conversión (CRO)",
-        "ar": "معدل التحويل (CRO)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate conversion rate optimization (CRO) percentage.",
-      "long": "Calculate conversion rate optimization (CRO) percentage.",
-      "short_i18n": {
-        "en": "Calculate conversion rate optimization (CRO) percentage.",
-        "de": "Conversion-Rate-Optimierung (CRO) in Prozent berechnen.",
-        "fr": "Calculer le pourcentage d'optimisation du taux de conversion (CRO).",
-        "es": "Calcular el porcentaje de optimización de la tasa de conversión (CRO).",
-        "ar": "حساب نسبة تحسين معدل التحويل (CRO)."
-      },
-      "long_i18n": {
-        "en": "Calculate conversion rate optimization (CRO) percentage.",
-        "de": "Conversion-Rate-Optimierung (CRO) in Prozent berechnen.",
-        "fr": "Calculer le pourcentage d'optimisation du taux de conversion (CRO).",
-        "es": "Calcular el porcentaje de optimización de la tasa de conversión (CRO).",
-        "ar": "حساب نسبة تحسين معدل التحويل (CRO)."
-      }
+      "long": "Calculate conversion rate optimization (CRO) percentage."
     }
-  },
-  "title_i18n": {
-    "en": "conversion-rate-calculator",
-    "de": "Conversion-Rate-Optimierung (CRO)-Rechner",
-    "fr": "Calculateur de taux de conversion (CRO)",
-    "es": "Calculadora de tasa de conversión (CRO)",
-    "ar": "حاسبة معدل التحويل (CRO)"
   },
   "sectorSlug": "daily-renovation"
 }

@@ -8,48 +8,20 @@
     {
       "id": "aylikKira",
       "label": "Monthly Rent (USD)",
-      "label_i18n": {
-        "en": "Monthly Rent (USD)",
-        "de": "Monatsmiete",
-        "fr": "Loyer mensuel",
-        "es": "Alquiler mensual",
-        "ar": "الإيجار الشهري"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Monthly gross rental income from the property.",
-      "businessContext_i18n": {
-        "en": "Monthly gross rental income from the property.",
-        "de": "Monatliches Bruttomieteinkommen aus der Immobilie.",
-        "fr": "Revenu locatif brut mensuel du bien.",
-        "es": "Ingreso bruto mensual por alquiler de la propiedad.",
-        "ar": "دخل الإيجار الإجمالي الشهري من العقار."
-      }
+      "businessContext": "Monthly gross rental income from the property."
     },
     {
       "id": "mulkDegeri",
       "label": "Property Value (USD)",
-      "label_i18n": {
-        "en": "Property Value (USD)",
-        "de": "Immobilienwert",
-        "fr": "Valeur de la propriété",
-        "es": "Valor de la propiedad",
-        "ar": "قيمة العقار"
-      },
       "type": "number",
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Current market value of the real estate property.",
-      "businessContext_i18n": {
-        "en": "Current market value of the real estate property.",
-        "de": "Aktueller Marktwert der Immobilie.",
-        "fr": "Valeur marchande actuelle du bien immobilier.",
-        "es": "Valor de mercado actual de la propiedad inmobiliaria.",
-        "ar": "القيمة السوقية الحالية للعقار."
-      }
+      "businessContext": "Current market value of the real estate property."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "(aylikKira / Math.max(1, mulkDegeri)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
-      "result": "Kira / Value Ratio"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Kira / Value Ratio",
-        "de": "Mietwertverhältnis",
-        "fr": "Ratio loyer/valeur",
-        "es": "Relación Alquiler / Valor",
-        "ar": "نسبة الإيجار/القيمة"
-      }
+      "result": "Rent / Value Ratio"
     },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
-      "long": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
-      "short_i18n": {
-        "en": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
-        "de": "Berechnung des Verhältnisses von monatlicher Miete zum Immobilienwert fur die Immobilieninvestitionsbewertung.",
-        "fr": "Calculer le ratio du loyer mensuel par rapport à la valeur du bien pour l'évaluation d'un investissement immobilier.",
-        "es": "Calcular la relación entre el alquiler mensual y el valor de la propiedad para la evaluación de inversiones inmobiliarias.",
-        "ar": "احسب نسبة الإيجار الشهري إلى قيمة العقار لتقييم الاستثمار العقاري."
-      },
-      "long_i18n": {
-        "en": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
-        "de": "Berechnung des Verhältnisses von monatlicher Miete zum Immobilienwert fur die Immobilieninvestitionsbewertung.",
-        "fr": "Calculer le ratio du loyer mensuel par rapport à la valeur du bien pour l'évaluation d'un investissement immobilier.",
-        "es": "Calcular la relación entre el alquiler mensual y el valor de la propiedad para la evaluación de inversiones inmobiliarias.",
-        "ar": "احسب نسبة الإيجار الشهري إلى قيمة العقار لتقييم الاستثمار العقاري."
-      }
+      "long": "Calculate the ratio of monthly rent to property value for real estate investment evaluation."
     }
-  },
-  "title_i18n": {
-    "en": "rent-to-value-ratio-calculator",
-    "de": "Prozentregel-Mietrechner",
-    "fr": "Calculateur de loyer selon la règle du pourcentage",
-    "es": "Calculadora de alquiler por regla de porcentaje",
-    "ar": "حاسبة الإيجار بقاعدة النسبة المئوية"
   },
   "sectorSlug": "daily-renovation"
 }

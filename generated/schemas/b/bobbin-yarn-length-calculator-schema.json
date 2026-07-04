@@ -8,48 +8,20 @@
     {
       "id": "bobinAgirlik",
       "label": "Bobbin Weight (g)",
-      "label_i18n": {
-        "en": "Bobbin Weight (g)",
-        "de": "Spulengewicht (g)",
-        "fr": "Poids de la bobine (g)",
-        "es": "Peso de la Bobina (g)",
-        "ar": "وزن البكرة (g)"
-      },
       "type": "number",
       "unit": "g",
       "default": 100,
       "min": 0,
-      "businessContext": "Bobbin weight.",
-      "businessContext_i18n": {
-        "en": "Bobbin weight.",
-        "de": "Spulengewicht.",
-        "fr": "Poids de la bobine.",
-        "es": "Peso de la bobina.",
-        "ar": "وزن البكرة."
-      }
+      "businessContext": "Bobbin weight."
     },
     {
       "id": "iplikNumara",
       "label": "Yarn Count (Nm)",
-      "label_i18n": {
-        "en": "Yarn Count (Nm)",
-        "de": "Garnfeinheit (Nm)",
-        "fr": "Numéro métrique du fil (Nm)",
-        "es": "Título del Hilo (Nm)",
-        "ar": "رقم الخيط (Nm)"
-      },
       "type": "number",
       "unit": "Nm",
       "default": 40,
       "min": 0,
-      "businessContext": "Yarn count (metric).",
-      "businessContext_i18n": {
-        "en": "Yarn count (metric).",
-        "de": "Garnfeinheit (metrisch).",
-        "fr": "Numéro métrique du fil.",
-        "es": "Número de hilo (métrico).",
-        "ar": "رقم الخيط (متري)."
-      }
+      "businessContext": "Yarn count (metric)."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "(bobinAgirlik / 1000) * iplikNumara * 1000"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "m",
     "breakdown": {
-      "result": "Iplik Uzunlugu"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Iplik Uzunlugu",
-        "de": "Thread Length",
-        "fr": "Longueur du fil",
-        "es": "Longitud del Hilo",
-        "ar": "طول الخيط"
-      }
+      "result": "Yarn Length"
     },
     "breakdownUnits": {
-      "sonuc": "m"
+      "result": "m"
     },
     "hiddenLossDrivers": [
       "Waste in material or time indicates process improvement opportunity."
@@ -86,36 +49,15 @@
       "Optimize drying/cooling parameters for cycle time reduction.",
       "Monitor defects and adjust process conditions accordingly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate total yarn length on a bobbin.",
-      "long": "Calculate total yarn length on a bobbin.",
-      "short_i18n": {
-        "en": "Calculate total yarn length on a bobbin.",
-        "de": "Berechnung der gesamten Garnlänge auf einer Spule.",
-        "fr": "Calculer la longueur totale du fil sur une bobine.",
-        "es": "Calcular la longitud total del hilo en una bobina.",
-        "ar": "حساب الطول الإجمالي للخيط على بكرة."
-      },
-      "long_i18n": {
-        "en": "Calculate total yarn length on a bobbin.",
-        "de": "Berechnung der gesamten Garnlänge auf einer Spule.",
-        "fr": "Calculer la longueur totale du fil sur une bobine.",
-        "es": "Calcular la longitud total del hilo en una bobina.",
-        "ar": "حساب الطول الإجمالي للخيط على بكرة."
-      }
+      "long": "Calculate total yarn length on a bobbin."
     }
-  },
-  "title_i18n": {
-    "en": "bobbin-yarn-length-calculator",
-    "de": "Spulengarn-Kapazitätsrechner",
-    "fr": "Calculateur de capacité de fil de bobine",
-    "es": "Calculadora de capacidad de hilo de bobina",
-    "ar": "حاسبة سعة خيوط البكرة"
   },
   "sectorSlug": "daily-renovation"
 }

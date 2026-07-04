@@ -8,48 +8,20 @@
     {
       "id": "tankHacim",
       "label": "Bilge Tank Volume (m³)",
-      "label_i18n": {
-        "en": "Bilge Tank Volume (m³)",
-        "de": "Bilgetankvolumen (m³)",
-        "fr": "Volume du réservoir de cale (m³)",
-        "es": "Volumen del Tanque de Sentina (m³)",
-        "ar": "حجم خزان الآسن (m³)"
-      },
       "type": "number",
       "unit": "m3",
       "default": 50,
       "min": 0,
-      "businessContext": "Total bilge water volume.",
-      "businessContext_i18n": {
-        "en": "Total bilge water volume.",
-        "de": "Gesamtvolumen des Bilgewassers.",
-        "fr": "Volume total d'eau de cale.",
-        "es": "Volumen total de agua de sentina.",
-        "ar": "الحجم الكلي لمياه الآسن."
-      }
+      "businessContext": "Total bilge water volume."
     },
     {
       "id": "pompaDebi",
       "label": "Pump Flow (m³/h)",
-      "label_i18n": {
-        "en": "Pump Flow (m³/h)",
-        "de": "Pumpenforderstrom (m³/h)",
-        "fr": "Débit de la pompe (m³/h)",
-        "es": "Caudal de la Bomba (m³/h)",
-        "ar": "تدفق المضخة (m³/h)"
-      },
       "type": "number",
       "unit": "m3/h",
       "default": 10,
       "min": 0,
-      "businessContext": "Bilge pump flow rate.",
-      "businessContext_i18n": {
-        "en": "Bilge pump flow rate.",
-        "de": "Forderstrom der Bilgepumpe.",
-        "fr": "Débit de la pompe de cale.",
-        "es": "Caudal de la bomba de sentina.",
-        "ar": "معدل تدفق مضخة الآسن."
-      }
+      "businessContext": "Bilge pump flow rate."
     }
   ],
   "validation": {
@@ -62,22 +34,13 @@
     "result": "tankHacim / Math.max(0.0001, pompaDebi)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "hours",
     "breakdown": {
       "result": "Tahliye Time"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Tahliye Time",
-        "de": "Discharge Time",
-        "fr": "Durée d'évacuation",
-        "es": "Tiempo de Evacuación",
-        "ar": "مدة التفريغ"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "hours"
+      "result": "hours"
     },
     "hiddenLossDrivers": [
       "Low efficiency may indicate equipment or process issues."
@@ -86,36 +49,15 @@
       "Calibrate all measuring equipment regularly.",
       "Use site-specific data when available."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate time required to discharge bilge water.",
-      "long": "Calculate time required to discharge bilge water.",
-      "short_i18n": {
-        "en": "Calculate time required to discharge bilge water.",
-        "de": "Berechnen Sie die erforderliche Zeit zum Abpumpen von Bilgewasser.",
-        "fr": "Calculer le temps nécessaire pour évacuer l'eau de cale.",
-        "es": "Calcular el tiempo necesario para descargar el agua de sentina.",
-        "ar": "احسب الوقت اللازم لتصريف مياه الآسن."
-      },
-      "long_i18n": {
-        "en": "Calculate time required to discharge bilge water.",
-        "de": "Berechnen Sie die erforderliche Zeit zum Abpumpen von Bilgewasser.",
-        "fr": "Calculer le temps nécessaire pour évacuer l'eau de cale.",
-        "es": "Calcular el tiempo necesario para descargar el agua de sentina.",
-        "ar": "احسب الوقت اللازم لتصريف مياه الآسن."
-      }
+      "long": "Calculate time required to discharge bilge water."
     }
-  },
-  "title_i18n": {
-    "en": "bilge-discharge-time-calculator",
-    "de": "Bilgenentleerungszeit-Rechner",
-    "fr": "Calculateur de temps de vidange de cale",
-    "es": "Calculadora de tiempo de vaciado de sentina",
-    "ar": "حاسبة وقت تصريف مياه الآسن"
   },
   "sectorSlug": "daily-renovation"
 }

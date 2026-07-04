@@ -2,54 +2,26 @@
   "toolName": "marketing-roi-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "kampanyaGeliri",
       "label": "Campaign Revenue (USD)",
-      "label_i18n": {
-        "en": "Campaign Revenue (USD)",
-        "de": "Kampagneneinnahmen (USD)",
-        "fr": "Revenu de la campagne (USD)",
-        "es": "Ingresos de la campaña (USD)",
-        "ar": "إيرادات الحملة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Revenue generated.",
-      "businessContext_i18n": {
-        "en": "Revenue generated.",
-        "de": "Generierte Einnahmen.",
-        "fr": "Revenu généré.",
-        "es": "Ingresos generados.",
-        "ar": "الإيرادات المُولَّدة."
-      }
+      "businessContext": "Revenue generated."
     },
     {
       "id": "kampanyaMaliyeti",
       "label": "Campaign Cost (USD)",
-      "label_i18n": {
-        "en": "Campaign Cost (USD)",
-        "de": "Kampagnenkosten (USD)",
-        "fr": "Coût de la campagne (USD)",
-        "es": "Costo de la campaña (USD)",
-        "ar": "تكلفة الحملة (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Total campaign spend.",
-      "businessContext_i18n": {
-        "en": "Total campaign spend.",
-        "de": "Gesamtausgaben der Kampagne.",
-        "fr": "Dépenses totales de la campagne.",
-        "es": "Gasto total de la campaña.",
-        "ar": "إجمالي إنفاق الحملة."
-      }
+      "businessContext": "Total campaign spend."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "((kampanyaGeliri - kampanyaMaliyeti) / Math.max(0.0001, kampanyaMaliyeti)) * 100"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "%",
     "breakdown": {
       "result": "Pazarlama ROI"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Pazarlama ROI",
-        "de": "Marketing-ROI",
-        "fr": "ROI marketing",
-        "es": "ROI de marketing",
-        "ar": "عائد الاستثمار التسويقي"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "%"
+      "result": "%"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate marketing ROI from campaign revenue and cost.",
-      "long": "Calculate marketing ROI from campaign revenue and cost.",
-      "short_i18n": {
-        "en": "Calculate marketing ROI from campaign revenue and cost.",
-        "de": "Berechnen Sie den Marketing-ROI aus Kampagneneinnahmen und -kosten.",
-        "fr": "Calculer le ROI marketing à partir des revenus et des coûts de la campagne.",
-        "es": "Calcular el ROI de marketing a partir de los ingresos y costos de la campaña.",
-        "ar": "احسب عائد الاستثمار التسويقي من إيرادات الحملة وتكلفتها."
-      },
-      "long_i18n": {
-        "en": "Calculate marketing ROI from campaign revenue and cost.",
-        "de": "Berechnen Sie den Marketing-ROI aus Kampagneneinnahmen und -kosten.",
-        "fr": "Calculer le ROI marketing à partir des revenus et des coûts de la campagne.",
-        "es": "Calcular el ROI de marketing a partir de los ingresos y costos de la campaña.",
-        "ar": "احسب عائد الاستثمار التسويقي من إيرادات الحملة وتكلفتها."
-      }
+      "long": "Calculate marketing ROI from campaign revenue and cost."
     }
-  },
-  "title_i18n": {
-    "en": "marketing-roi-calculator",
-    "de": "Marketing-ROI-Rechner",
-    "fr": "Calculateur ROI marketing",
-    "es": "Calculadora de ROI de marketing",
-    "ar": "حاسبة عائد الاستثمار التسويقي"
   },
   "sectorSlug": "ecommerce"
 }

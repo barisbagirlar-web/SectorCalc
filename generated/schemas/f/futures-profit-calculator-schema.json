@@ -8,94 +8,38 @@
     {
       "id": "girisFiyati",
       "label": "Entry Price (USD)",
-      "label_i18n": {
-        "en": "Entry Price (USD)",
-        "de": "Einstiegspreis (USD)",
-        "fr": "Prix d'entrée (USD)",
-        "es": "Precio de Entrada (USD)",
-        "ar": "سعر الدخول (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Contract entry price.",
-      "businessContext_i18n": {
-        "en": "Contract entry price.",
-        "de": "Einstiegspreis des Kontrakts.",
-        "fr": "Prix d'entrée du contrat.",
-        "es": "Precio de entrada del contrato.",
-        "ar": "سعر دخول العقد."
-      }
+      "businessContext": "Contract entry price."
     },
     {
       "id": "cikisFiyati",
       "label": "Exit Price (USD)",
-      "label_i18n": {
-        "en": "Exit Price (USD)",
-        "de": "Ausstiegspreis (USD)",
-        "fr": "Prix de sortie (USD)",
-        "es": "Precio de Salida (USD)",
-        "ar": "سعر الخروج (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 105,
       "min": 0,
-      "businessContext": "Contract exit price.",
-      "businessContext_i18n": {
-        "en": "Contract exit price.",
-        "de": "Ausstiegspreis des Kontrakts.",
-        "fr": "Prix de sortie du contrat.",
-        "es": "Precio de salida del contrato.",
-        "ar": "سعر خروج العقد."
-      }
+      "businessContext": "Contract exit price."
     },
     {
       "id": "carpan",
       "label": "Contract Multiplier",
-      "label_i18n": {
-        "en": "Contract Multiplier",
-        "de": "Kontraktmultiplikator",
-        "fr": "Multiplicateur du contrat",
-        "es": "Multiplicador del contrato",
-        "ar": "مضاعف العقد"
-      },
       "type": "number",
       "unit": "scalar",
       "default": 100,
       "min": 1,
-      "businessContext": "Contract size multiplier.",
-      "businessContext_i18n": {
-        "en": "Contract size multiplier.",
-        "de": "Multiplikator der Kontraktgroße.",
-        "fr": "Multiplicateur de taille du contrat.",
-        "es": "Multiplicador del tamaño del contrato.",
-        "ar": "مضاعف حجم العقد."
-      }
+      "businessContext": "Contract size multiplier."
     },
     {
       "id": "lot",
       "label": "Lot (Number)",
-      "label_i18n": {
-        "en": "Lot (Number)",
-        "de": "Losgroße (N)",
-        "fr": "Taille du lot (N)",
-        "es": "Tamaño de Lote (N)",
-        "ar": "حجم الدفعة (N)"
-      },
       "type": "number",
       "unit": "lots",
       "default": 1,
       "min": 1,
-      "businessContext": "Number of contracts traded.",
-      "businessContext_i18n": {
-        "en": "Number of contracts traded.",
-        "de": "Anzahl der gehandelten Kontrakte.",
-        "fr": "Nombre de contrats négociés.",
-        "es": "Número de contratos negociados.",
-        "ar": "عدد العقود المتداولة."
-      }
+      "businessContext": "Number of contracts traded."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "(cikisFiyati - girisFiyati) * carpan * lot"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Kâr / Zarar"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Kâr / Zarar",
-        "de": "Gewinn / Verlust",
-        "fr": "Profit / Loss",
-        "es": "Ganancia / Pérdida",
-        "ar": "ربح / خسارة"
-      }
+      "result": "Profit / Loss"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate profit/loss from futures contract price movement.",
-      "long": "Calculate profit/loss from futures contract price movement.",
-      "short_i18n": {
-        "en": "Calculate profit/loss from futures contract price movement.",
-        "de": "Berechnen Sie Gewinn/Verlust aus der Preisbewegung eines Futures-Kontrakts.",
-        "fr": "Calculer le profit/perte d'un contrat à terme à partir du mouvement de prix.",
-        "es": "Calcular ganancia/pérdida del movimiento del precio de un contrato de futuros.",
-        "ar": "حساب الربح/الخسارة من حركة سعر عقد مستقبلي."
-      },
-      "long_i18n": {
-        "en": "Calculate profit/loss from futures contract price movement.",
-        "de": "Berechnen Sie Gewinn/Verlust aus der Preisbewegung eines Futures-Kontrakts.",
-        "fr": "Calculer le profit/perte d'un contrat à terme à partir du mouvement de prix.",
-        "es": "Calcular ganancia/pérdida del movimiento del precio de un contrato de futuros.",
-        "ar": "حساب الربح/الخسارة من حركة سعر عقد مستقبلي."
-      }
+      "long": "Calculate profit/loss from futures contract price movement."
     }
-  },
-  "title_i18n": {
-    "en": "futures-profit-calculator",
-    "de": "Futures-Rechner",
-    "fr": "Calculateur de contrats à terme",
-    "es": "Calculadora de futuros",
-    "ar": "حاسبة العقود الآجلة"
   },
   "sectorSlug": "daily-renovation"
 }

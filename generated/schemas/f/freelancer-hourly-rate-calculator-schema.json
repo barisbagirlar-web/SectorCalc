@@ -2,101 +2,45 @@
   "toolName": "freelancer-hourly-rate-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Workletme",
+  "sector": "Business",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "hedefNet",
       "label": "Target Net Income (USD)",
-      "label_i18n": {
-        "en": "Target Net Income (USD)",
-        "de": "Ziel-Nettoeinkommen (USD)",
-        "fr": "Revenu net cible (USD)",
-        "es": "Ingreso neto objetivo (USD)",
-        "ar": "صافي الدخل المستهدف (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "After-tax target income.",
-      "businessContext_i18n": {
-        "en": "After-tax target income.",
-        "de": "Zieleinkommen nach Steuern.",
-        "fr": "Revenu cible après impôt.",
-        "es": "Ingreso objetivo después de impuestos.",
-        "ar": "الدخل المستهدف بعد الضريبة."
-      }
+      "businessContext": "After-tax target income."
     },
     {
       "id": "vergi",
       "label": "Tax Rate (%)",
-      "label_i18n": {
-        "en": "Tax Rate (%)",
-        "de": "Steuersatz (%)",
-        "fr": "Taux d'imposition (%)",
-        "es": "Tasa Impositiva (%)",
-        "ar": "معدل الضريبة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Average tax burden.",
-      "businessContext_i18n": {
-        "en": "Average tax burden.",
-        "de": "Durchschnittliche Steuerbelastung.",
-        "fr": "Charge fiscale moyenne.",
-        "es": "Carga fiscal promedio.",
-        "ar": "متوسط العبء الضريبي."
-      }
+      "businessContext": "Average tax burden."
     },
     {
       "id": "expense",
       "label": "Annual Expense (USD)",
-      "label_i18n": {
-        "en": "Annual Expense (USD)",
-        "de": "Jährliche Ausgaben im Ruhestand",
-        "fr": "Dépenses annuelles à la retraite",
-        "es": "Gastos Anuales en el Retiro",
-        "ar": "المصروفات السنوية في التقاعد"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Business expenses.",
-      "businessContext_i18n": {
-        "en": "Business expenses.",
-        "de": "Geschäftsausgaben.",
-        "fr": "Dépenses professionnelles.",
-        "es": "Gastos comerciales.",
-        "ar": "المصاريف التجارية."
-      }
+      "businessContext": "Business expenses."
     },
     {
       "id": "calismaSaati",
       "label": "Annual Work Hours",
-      "label_i18n": {
-        "en": "Annual Work Hours",
-        "de": "Jährliche Arbeitsstunden",
-        "fr": "Heures de travail annuelles",
-        "es": "Horas de trabajo anuales",
-        "ar": "ساعات العمل السنوية"
-      },
       "type": "number",
       "unit": "hours",
       "default": 1800,
       "min": 1,
-      "businessContext": "Total work hours.",
-      "businessContext_i18n": {
-        "en": "Total work hours.",
-        "de": "Gesamtarbeitsstunden.",
-        "fr": "Total des heures de travail.",
-        "es": "Horas totales de trabajo.",
-        "ar": "إجمالي ساعات العمل."
-      }
+      "businessContext": "Total work hours."
     }
   ],
   "validation": {
@@ -110,58 +54,28 @@
     "result": "((hedefNet + expense) / Math.max(0.0001, (1 - vergi / 100))) / Math.max(1, calismaSaati)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "TRY/hour",
     "breakdown": {
-      "result": "Saatlik Serbest Calisan Ucreti"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Saatlik Serbest Calisan Ucreti",
-        "de": "Stundlicher Honorarsatz fur Freiberufler",
-        "fr": "Taux horaire freelance",
-        "es": "Tarifa por hora del freelancer",
-        "ar": "أجر العامل الحر بالساعة"
-      }
+      "result": "Hourly Freelancer Rate"
     },
     "breakdownUnits": {
-      "sonuc": "TRY/hour"
+      "result": "TRY/hour"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify financial projections with actual data.",
       "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate freelancer hourly rate including tax and overhead.",
-      "long": "Calculate freelancer hourly rate including tax and overhead.",
-      "short_i18n": {
-        "en": "Calculate freelancer hourly rate including tax and overhead.",
-        "de": "Berechnen Sie den Stundensatz fur Freiberufler inklusive Steuern und Gemeinkosten.",
-        "fr": "Calculer le taux horaire du freelance incluant les taxes et les frais généraux.",
-        "es": "Calcular tarifa por hora de freelancer incluyendo impuestos y gastos generales.",
-        "ar": "حساب السعر بالساعة للعامل الحر شامل الضريبة والتكاليف العامة."
-      },
-      "long_i18n": {
-        "en": "Calculate freelancer hourly rate including tax and overhead.",
-        "de": "Berechnen Sie den Stundensatz fur Freiberufler inklusive Steuern und Gemeinkosten.",
-        "fr": "Calculer le taux horaire du freelance incluant les taxes et les frais généraux.",
-        "es": "Calcular tarifa por hora de freelancer incluyendo impuestos y gastos generales.",
-        "ar": "حساب السعر بالساعة للعامل الحر شامل الضريبة والتكاليف العامة."
-      }
+      "long": "Calculate freelancer hourly rate including tax and overhead."
     }
-  },
-  "title_i18n": {
-    "en": "freelancer-hourly-rate-calculator",
-    "de": "Freiberufler-Stundensatzrechner",
-    "fr": "Calculateur de tarif horaire pour freelance",
-    "es": "Calculadora de tarifa por hora para autónomos",
-    "ar": "حاسبة أجر الساعة للعاملين المستقلين"
   },
   "sectorSlug": "daily-renovation"
 }

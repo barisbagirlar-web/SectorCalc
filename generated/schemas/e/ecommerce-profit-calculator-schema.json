@@ -8,94 +8,38 @@
     {
       "id": "ciro",
       "label": "Revenue (USD)",
-      "label_i18n": {
-        "en": "Revenue (USD)",
-        "de": "Tagesumsatz",
-        "fr": "Revenu quotidien",
-        "es": "Ingreso Diario",
-        "ar": "الإيرادات اليومية"
-      },
       "type": "number",
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Total revenue.",
-      "businessContext_i18n": {
-        "en": "Total revenue.",
-        "de": "Gesamtumsatz.",
-        "fr": "Revenu total.",
-        "es": "Ingresos totales.",
-        "ar": "إجمالي الإيرادات."
-      }
+      "businessContext": "Total revenue."
     },
     {
       "id": "cogs",
       "label": "COGS (USD)",
-      "label_i18n": {
-        "en": "COGS (USD)",
-        "de": "Gesamte Teilekosten (COGS)",
-        "fr": "Coût total des pièces (COGS)",
-        "es": "Costo total de piezas (COGS)",
-        "ar": "إجمالي تكلفة القطع (تكلفة البضائع المباعة)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Cost of goods sold.",
-      "businessContext_i18n": {
-        "en": "Cost of goods sold.",
-        "de": "Kosten der verkauften Waren.",
-        "fr": "Coût des marchandises vendues.",
-        "es": "Costo de los bienes vendidos.",
-        "ar": "تكلفة البضائع المباعة."
-      }
+      "businessContext": "Cost of goods sold."
     },
     {
       "id": "pazarlama",
       "label": "Marketing (USD)",
-      "label_i18n": {
-        "en": "Marketing (USD)",
-        "de": "Marketingkosten pro Verkauf ($)",
-        "fr": "Coût marketing par vente ($)",
-        "es": "Costo de marketing por venta ($)",
-        "ar": "تكلفة التسويق لكل عملية بيع ($)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 80000,
       "min": 0,
-      "businessContext": "Marketing expense.",
-      "businessContext_i18n": {
-        "en": "Marketing expense.",
-        "de": "Marketingausgaben.",
-        "fr": "Dépenses marketing.",
-        "es": "Gasto de marketing.",
-        "ar": "مصروفات التسويق."
-      }
+      "businessContext": "Marketing expense."
     },
     {
       "id": "operasyon",
       "label": "Operations (USD)",
-      "label_i18n": {
-        "en": "Operations (USD)",
-        "de": "Interne Vorgänge (% der Gesamtzeit)",
-        "fr": "Opérations internes (% du temps total)",
-        "es": "Operaciones internas (% del tiempo total)",
-        "ar": "العمليات الداخلية (٪ من الوقت الإجمالي)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Warehouse, shipping, software costs.",
-      "businessContext_i18n": {
-        "en": "Warehouse, shipping, software costs.",
-        "de": "Lager-, Versand- und Softwarekosten.",
-        "fr": "Coûts d'entrepôt, d'expédition et de logiciel.",
-        "es": "Costos de almacén, envío y software.",
-        "ar": "تكاليف المستودعات والشحن والبرمجيات."
-      }
+      "businessContext": "Warehouse, shipping, software costs."
     }
   ],
   "validation": {
@@ -108,58 +52,28 @@
     "result": "ciro - cogs - pazarlama - operasyon"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
       "result": "Net E-Ticaret Kâri"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Net E-Ticaret Kâri",
-        "de": "Nettogewinn E-Commerce",
-        "fr": "Bénéfice net e-commerce",
-        "es": "Ganancia Neta del Comercio Electrónico",
-        "ar": "صافي ربح التجارة الإلكترونية"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Factor in return rates and chargebacks.",
       "Review platform fee schedules regularly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate overall ecommerce net profit.",
-      "long": "Calculate overall ecommerce net profit.",
-      "short_i18n": {
-        "en": "Calculate overall ecommerce net profit.",
-        "de": "Berechnen Sie den gesamten E-Commerce-Nettogewinn.",
-        "fr": "Calculer le bénéfice net global du e-commerce.",
-        "es": "Calcular el beneficio neto general del comercio electrónico.",
-        "ar": "احسب صافي الربح الإجمالي للتجارة الإلكترونية."
-      },
-      "long_i18n": {
-        "en": "Calculate overall ecommerce net profit.",
-        "de": "Berechnen Sie den gesamten E-Commerce-Nettogewinn.",
-        "fr": "Calculer le bénéfice net global du e-commerce.",
-        "es": "Calcular el beneficio neto general del comercio electrónico.",
-        "ar": "احسب صافي الربح الإجمالي للتجارة الإلكترونية."
-      }
+      "long": "Calculate overall ecommerce net profit."
     }
-  },
-  "title_i18n": {
-    "en": "ecommerce-profit-calculator",
-    "de": "E-Commerce-Gewinn-Rechner",
-    "fr": "Calculateur de profit e-commerce",
-    "es": "Calculadora de ganancias de comercio electrónico",
-    "ar": "حاسبة أرباح التجارة الإلكترونية"
   },
   "sectorSlug": "daily-renovation"
 }

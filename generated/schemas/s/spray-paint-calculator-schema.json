@@ -2,77 +2,35 @@
   "toolName": "spray-paint-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "Insaat ve Yapi",
+  "sector": "Construction",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "area",
       "label": "Surface Area (m²)",
-      "label_i18n": {
-        "en": "Surface Area (m²)",
-        "de": "Surface Fläche to paint",
-        "fr": "Surface Surface to paint",
-        "es": "Surface Área to paint",
-        "ar": "Surface المساحة to paint"
-      },
       "type": "number",
       "unit": "m2",
       "default": 20,
       "min": 0,
-      "businessContext": "Area to paint.",
-      "businessContext_i18n": {
-        "en": "Area to paint.",
-        "de": "Zu lackierende Fläche.",
-        "fr": "Surface à peindre.",
-        "es": "Área a pintar.",
-        "ar": "المساحة المراد طلاؤها."
-      }
+      "businessContext": "Area to paint."
     },
     {
-      "id": "katSayisi",
+      "id": "layerCount",
       "label": "Number of Coats",
-      "label_i18n": {
-        "en": "Number of Coats",
-        "de": "Anzahl der Anstriche",
-        "fr": "Nombre de couches",
-        "es": "Número de capas",
-        "ar": "عدد الطبقات"
-      },
       "type": "number",
       "unit": "coats",
       "default": 2,
       "min": 1,
-      "businessContext": "Number of paint coats.",
-      "businessContext_i18n": {
-        "en": "Number of paint coats.",
-        "de": "Anzahl der Farbschichten.",
-        "fr": "Nombre de couches de peinture.",
-        "es": "Número de capas de pintura.",
-        "ar": "عدد طبقات الطلاء."
-      }
+      "businessContext": "Number of paint coats."
     },
     {
       "id": "ortmeOrani",
       "label": "Coverage Rate (m²/L)",
-      "label_i18n": {
-        "en": "Coverage Rate (m²/L)",
-        "de": "Abdeckungsrate",
-        "fr": "Taux de couverture",
-        "es": "Tasa de cobertura",
-        "ar": "معدل التغطية"
-      },
       "type": "number",
       "unit": "m2/L",
       "default": 8,
       "min": 0,
-      "businessContext": "Coverage per liter.",
-      "businessContext_i18n": {
-        "en": "Coverage per liter.",
-        "de": "Deckungsbereich pro Liter.",
-        "fr": "Couverture par litre.",
-        "es": "Cobertura por litro.",
-        "ar": "التغطية لكل لتر."
-      }
+      "businessContext": "Coverage per liter."
     }
   ],
   "validation": {
@@ -82,61 +40,31 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "(area * katSayisi) / Math.max(0.0001, ortmeOrani)"
+    "result": "(area * layerCount) / Math.max(0.0001, ortmeOrani)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "L",
     "breakdown": {
       "result": "Gerekli Sprey Boya"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekli Sprey Boya",
-        "de": "Erforderliche Spruhfarbe",
-        "fr": "Peinture en spray requise",
-        "es": "Pintura en Spray Necesaria",
-        "ar": "طلاء الرش المطلوب"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "L"
+      "result": "L"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Order 5-10% extra material for waste.",
       "Verify local building codes before purchasing."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate spray paint volume needed for a surface.",
-      "long": "Calculate spray paint volume needed for a surface.",
-      "short_i18n": {
-        "en": "Calculate spray paint volume needed for a surface.",
-        "de": "Berechnen Sie das benotigte Spruhfarbvolumen fur eine Oberfläche.",
-        "fr": "Calculer le volume de peinture en aérosol nécessaire pour une surface.",
-        "es": "Calcular el volumen de pintura en aerosol necesario para una superficie.",
-        "ar": "احسب حجم طلاء الرش المطلوب لسطح."
-      },
-      "long_i18n": {
-        "en": "Calculate spray paint volume needed for a surface.",
-        "de": "Berechnen Sie das benotigte Spruhfarbvolumen fur eine Oberfläche.",
-        "fr": "Calculer le volume de peinture en aérosol nécessaire pour une surface.",
-        "es": "Calcular el volumen de pintura en aerosol necesario para una superficie.",
-        "ar": "احسب حجم طلاء الرش المطلوب لسطح."
-      }
+      "long": "Calculate spray paint volume needed for a surface."
     }
-  },
-  "title_i18n": {
-    "en": "spray-paint-calculator",
-    "de": "Spruhfarbe-Rechner",
-    "fr": "Calculateur de peinture pulvérisée",
-    "es": "Calculadora de pintura en aerosol",
-    "ar": "حاسبة طلاء الرش"
   },
   "sectorSlug": "daily-renovation"
 }

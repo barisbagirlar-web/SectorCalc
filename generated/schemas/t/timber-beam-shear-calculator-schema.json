@@ -8,71 +8,29 @@
     {
       "id": "kesmeKuvveti",
       "label": "Shear Force (N)",
-      "label_i18n": {
-        "en": "Shear Force (N)",
-        "de": "Querkraft (N)",
-        "fr": "Effort tranchant (N)",
-        "es": "Fuerza Cortante (N)",
-        "ar": "قوة القص (N)"
-      },
       "type": "number",
       "unit": "N",
       "default": 20000,
       "min": 0,
-      "businessContext": "Beam shear force.",
-      "businessContext_i18n": {
-        "en": "Beam shear force.",
-        "de": "Querkraft des Balkens.",
-        "fr": "Effort tranchant de la poutre.",
-        "es": "Fuerza cortante de la viga.",
-        "ar": "قوة قص العارضة."
-      }
+      "businessContext": "Beam shear force."
     },
     {
       "id": "width",
       "label": "Section Width (m)",
-      "label_i18n": {
-        "en": "Section Width (m)",
-        "de": "Querschnittsbreite (m)",
-        "fr": "Largeur de la section (m)",
-        "es": "Ancho de la Sección (m)",
-        "ar": "عرض المقطع (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.15,
       "min": 0,
-      "businessContext": "Timber section width.",
-      "businessContext_i18n": {
-        "en": "Timber section width.",
-        "de": "Breite des Holzquerschnitts.",
-        "fr": "Largeur de la section de bois.",
-        "es": "Ancho de la sección de madera.",
-        "ar": "عرض المقطع الخشبي."
-      }
+      "businessContext": "Timber section width."
     },
     {
       "id": "height",
       "label": "Section Height (m)",
-      "label_i18n": {
-        "en": "Section Height (m)",
-        "de": "Querschnittshohe (m)",
-        "fr": "Hauteur de la section (m)",
-        "es": "Altura de la Sección (m)",
-        "ar": "ارتفاع المقطع (m)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Timber section height.",
-      "businessContext_i18n": {
-        "en": "Timber section height.",
-        "de": "Hohe des Holzquerschnitts.",
-        "fr": "Hauteur de la section de bois.",
-        "es": "Altura de la sección de madera.",
-        "ar": "ارتفاع المقطع الخشبي."
-      }
+      "businessContext": "Timber section height."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "(1.5 * kesmeKuvveti) / Math.max(0.0001, (width * height))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "Pa",
     "breakdown": {
       "result": "Maks. Kayma Gerilmesi (τ)"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Maks. Kayma Gerilmesi (τ)",
-        "de": "Max. Schubspannung (τ)",
-        "fr": "Contrainte de cisaillement max. (τ)",
-        "es": "Esfuerzo cortante máximo (τ)",
-        "ar": "أقصى إجهاد قص (τ)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "Pa"
+      "result": "Pa"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate maximum shear stress in a rectangular timber beam.",
-      "long": "Calculate maximum shear stress in a rectangular timber beam.",
-      "short_i18n": {
-        "en": "Calculate maximum shear stress in a rectangular timber beam.",
-        "de": "Berechnen Sie die maximale Schubspannung in einem rechteckigen Holzbalken.",
-        "fr": "Calculer la contrainte de cisaillement maximale dans une poutre rectangulaire en bois.",
-        "es": "Calcular el esfuerzo cortante máximo en una viga rectangular de madera.",
-        "ar": "احسب أقصى إجهاد قص في عارضة خشبية مستطيلة."
-      },
-      "long_i18n": {
-        "en": "Calculate maximum shear stress in a rectangular timber beam.",
-        "de": "Berechnen Sie die maximale Schubspannung in einem rechteckigen Holzbalken.",
-        "fr": "Calculer la contrainte de cisaillement maximale dans une poutre rectangulaire en bois.",
-        "es": "Calcular el esfuerzo cortante máximo en una viga rectangular de madera.",
-        "ar": "احسب أقصى إجهاد قص في عارضة خشبية مستطيلة."
-      }
+      "long": "Calculate maximum shear stress in a rectangular timber beam."
     }
-  },
-  "title_i18n": {
-    "en": "timber-beam-shear-calculator",
-    "de": "Holzbalken-Schneidrechner",
-    "fr": "Calculateur de coupe de poutre en bois",
-    "es": "Calculadora de corte de viga de madera",
-    "ar": "حاسبة قطع العارضة الخشبية"
   },
   "sectorSlug": "construction"
 }

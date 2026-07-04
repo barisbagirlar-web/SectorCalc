@@ -8,71 +8,29 @@
     {
       "id": "anapara",
       "label": "Principal (USD)",
-      "label_i18n": {
-        "en": "Principal (USD)",
-        "de": "Anfangskapital",
-        "fr": "Capital initial",
-        "es": "Capital inicial",
-        "ar": "رأس المال الأولي"
-      },
       "type": "number",
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Initial investment.",
-      "businessContext_i18n": {
-        "en": "Initial investment.",
-        "de": "Anfangsinvestition.",
-        "fr": "Investissement initial.",
-        "es": "Inversión inicial.",
-        "ar": "الاستثمار الأولي."
-      }
+      "businessContext": "Initial investment."
     },
     {
       "id": "interest",
       "label": "Annual Interest (%)",
-      "label_i18n": {
-        "en": "Annual Interest (%)",
-        "de": "Nominaler Jahreszinssatz",
-        "fr": "Taux d'intérêt annuel nominal",
-        "es": "Tasa de interés anual nominal",
-        "ar": "سعر الفائدة السنوي الاسمي"
-      },
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Continuous compounding interest rate.",
-      "businessContext_i18n": {
-        "en": "Continuous compounding interest rate.",
-        "de": "Kontinuierlicher Verzinsungssatz.",
-        "fr": "Taux d'intérêt à capitalisation continue.",
-        "es": "Tasa de interés con capitalización continua.",
-        "ar": "معدل الفائدة المركبة المستمرة."
-      }
+      "businessContext": "Continuous compounding interest rate."
     },
     {
       "id": "year",
       "label": "Term (Years)",
-      "label_i18n": {
-        "en": "Term (Years)",
-        "de": "Kreditlaufzeit",
-        "fr": "Durée du prêt",
-        "es": "Plazo del préstamo",
-        "ar": "مدة القرض"
-      },
       "type": "number",
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Investment period.",
-      "businessContext_i18n": {
-        "en": "Investment period.",
-        "de": "Anlagezeitraum.",
-        "fr": "Période d'investissement.",
-        "es": "Período de inversión.",
-        "ar": "فترة الاستثمار."
-      }
+      "businessContext": "Investment period."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "anapara * Math.exp((interest / 100) * year)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "USD",
     "breakdown": {
-      "result": "Surekli Bilesik Value"
-    },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Surekli Bilesik Value",
-        "de": "Stetiger Zinseszinswert",
-        "fr": "Valeur composée continue",
-        "es": "Valor de Capitalización Continua",
-        "ar": "القيمة المركبة المستمرة"
-      }
+      "result": "Surekli Compound Value"
     },
     "breakdownUnits": {
-      "sonuc": "USD"
+      "result": "USD"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate continuous compounding future value — the theoretical maximum.",
-      "long": "Calculate continuous compounding future value — the theoretical maximum.",
-      "short_i18n": {
-        "en": "Calculate continuous compounding future value — the theoretical maximum.",
-        "de": "Zukunftswert bei kontinuierlicher Verzinsung berechnen – das theoretische Maximum.",
-        "fr": "Calculer la valeur future avec capitalisation continue — le maximum théorique.",
-        "es": "Calcular el valor futuro con capitalización continua — el máximo teórico.",
-        "ar": "حساب القيمة المستقبلية للفائدة المركبة المستمرة — الحد الأقصى النظري."
-      },
-      "long_i18n": {
-        "en": "Calculate continuous compounding future value — the theoretical maximum.",
-        "de": "Zukunftswert bei kontinuierlicher Verzinsung berechnen – das theoretische Maximum.",
-        "fr": "Calculer la valeur future avec capitalisation continue — le maximum théorique.",
-        "es": "Calcular el valor futuro con capitalización continua — el máximo teórico.",
-        "ar": "حساب القيمة المستقبلية للفائدة المركبة المستمرة — الحد الأقصى النظري."
-      }
+      "long": "Calculate continuous compounding future value — the theoretical maximum."
     }
-  },
-  "title_i18n": {
-    "en": "continuous-compounding-calculator",
-    "de": "Stetiger Zinseszins-Rechner",
-    "fr": "Calculateur d'intérêt composé continu",
-    "es": "Calculadora de interés compuesto continuo",
-    "ar": "حاسبة الفائدة المركبة المستمرة"
   },
   "sectorSlug": "ecommerce"
 }

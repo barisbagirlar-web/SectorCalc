@@ -8,71 +8,29 @@
     {
       "id": "flow",
       "label": "Flow Rate (m³/s)",
-      "label_i18n": {
-        "en": "Flow Rate (m³/s)",
-        "de": "Kompressordurchflussrate",
-        "fr": "Débit du compresseur",
-        "es": "Caudal del compresor",
-        "ar": "معدل تدفق الضاغط"
-      },
       "type": "number",
       "unit": "m3/s",
       "default": 0.005,
       "min": 0,
-      "businessContext": "Liquid flow rate.",
-      "businessContext_i18n": {
-        "en": "Liquid flow rate.",
-        "de": "Flussigkeitsdurchflussrate.",
-        "fr": "Débit du liquide.",
-        "es": "Caudal del líquido.",
-        "ar": "معدل تدفق السائل."
-      }
+      "businessContext": "Liquid flow rate."
     },
     {
       "id": "basincDusumu",
       "label": "Pressure Drop (Pa)",
-      "label_i18n": {
-        "en": "Pressure Drop (Pa)",
-        "de": "Gesamtdruckabfall",
-        "fr": "Perte de charge totale",
-        "es": "Caída de presión total",
-        "ar": "انخفاض الضغط الكلي"
-      },
       "type": "number",
       "unit": "Pa",
       "default": 200000,
       "min": 0,
-      "businessContext": "Total pipe pressure loss.",
-      "businessContext_i18n": {
-        "en": "Total pipe pressure loss.",
-        "de": "Gesamter Rohrleitungsdruckverlust.",
-        "fr": "Perte de charge totale dans la canalisation.",
-        "es": "Pérdida total de presión en la tubería.",
-        "ar": "فقدان الضغط الكلي في الأنبوب."
-      }
+      "businessContext": "Total pipe pressure loss."
     },
     {
       "id": "pompaVerim",
       "label": "Pump Efficiency (%)",
-      "label_i18n": {
-        "en": "Pump Efficiency (%)",
-        "de": "Pumpenwirkungsgrad (%)",
-        "fr": "Rendement de la pompe (%)",
-        "es": "Eficiencia de la Bomba (%)",
-        "ar": "كفاءة المضخة (%)"
-      },
       "type": "number",
       "unit": "%",
       "default": 75,
       "min": 0,
-      "businessContext": "Pump efficiency.",
-      "businessContext_i18n": {
-        "en": "Pump efficiency.",
-        "de": "Pumpenwirkungsgrad.",
-        "fr": "Rendement de la pompe.",
-        "es": "Eficiencia de la bomba.",
-        "ar": "كفاءة المضخة."
-      }
+      "businessContext": "Pump efficiency."
     }
   ],
   "validation": {
@@ -85,22 +43,13 @@
     "result": "(flow * basincDusumu) / Math.max(0.0001, (pompaVerim / 100))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "W",
     "breakdown": {
       "result": "Gerekmost Pump Power"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Gerekmost Pump Power",
-        "de": "Required Pump Power",
-        "fr": "Puissance de pompe requise",
-        "es": "Potencia de Bomba Requerida",
-        "ar": "قدرة المضخة المطلوبة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "W"
+      "result": "W"
     },
     "hiddenLossDrivers": [
       "Waste in material or time indicates process improvement opportunity."
@@ -109,36 +58,15 @@
       "Optimize drying/cooling parameters for cycle time reduction.",
       "Monitor defects and adjust process conditions accordingly."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate pump power for viscous food liquid transfer.",
-      "long": "Calculate pump power for viscous food liquid transfer.",
-      "short_i18n": {
-        "en": "Calculate pump power for viscous food liquid transfer.",
-        "de": "Berechnen Sie die Pumpenleistung fur den Transport von viskosen Lebensmittelflussigkeiten.",
-        "fr": "Calculer la puissance de la pompe pour le transfert de liquide alimentaire visqueux.",
-        "es": "Calcular la potencia de la bomba para la transferencia de líquido alimenticio viscoso.",
-        "ar": "حساب قدرة المضخة لنقل السوائل الغذائية اللزجة."
-      },
-      "long_i18n": {
-        "en": "Calculate pump power for viscous food liquid transfer.",
-        "de": "Berechnen Sie die Pumpenleistung fur den Transport von viskosen Lebensmittelflussigkeiten.",
-        "fr": "Calculer la puissance de la pompe pour le transfert de liquide alimentaire visqueux.",
-        "es": "Calcular la potencia de la bomba para la transferencia de líquido alimenticio viscoso.",
-        "ar": "حساب قدرة المضخة لنقل السوائل الغذائية اللزجة."
-      }
+      "long": "Calculate pump power for viscous food liquid transfer."
     }
-  },
-  "title_i18n": {
-    "en": "viscous-pump-power-calculator",
-    "de": "Energie-Rechner fur Flussignahrungsstromung",
-    "fr": "Calculateur d'énergie d'écoulement d'aliments liquides",
-    "es": "Calculadora de energía de flujo de alimentos líquidos",
-    "ar": "حاسبة طاقة تدفق الأغذية السائلة"
   },
   "sectorSlug": "daily-renovation"
 }

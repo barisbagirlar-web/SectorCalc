@@ -8,71 +8,29 @@
     {
       "id": "lazerGuc",
       "label": "Laser Power (W)",
-      "label_i18n": {
-        "en": "Laser Power (W)",
-        "de": "Laserleistung (W)",
-        "fr": "Puissance laser (W)",
-        "es": "Potencia del Láser (W)",
-        "ar": "قدرة الليزر (W)"
-      },
       "type": "number",
       "unit": "W",
       "default": 4000,
       "min": 0,
-      "businessContext": "Laser source power.",
-      "businessContext_i18n": {
-        "en": "Laser source power.",
-        "de": "Leistung der Laserquelle.",
-        "fr": "Puissance de la source laser.",
-        "es": "Potencia de la fuente láser.",
-        "ar": "قدرة مصدر الليزر."
-      }
+      "businessContext": "Laser source power."
     },
     {
       "id": "kesmeHiz",
       "label": "Cutting Speed (m/s)",
-      "label_i18n": {
-        "en": "Cutting Speed (m/s)",
-        "de": "Schnittgeschwindigkeit (Vc)",
-        "fr": "Vitesse de coupe (Vc)",
-        "es": "Velocidad de corte (Vc)",
-        "ar": "سرعة القطع (Vc)"
-      },
       "type": "number",
       "unit": "m/s",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Laser travel speed.",
-      "businessContext_i18n": {
-        "en": "Laser travel speed.",
-        "de": "Laservorschubgeschwindigkeit.",
-        "fr": "Vitesse de déplacement du laser.",
-        "es": "Velocidad de desplazamiento del láser.",
-        "ar": "سرعة حركة الليزر."
-      }
+      "businessContext": "Laser travel speed."
     },
     {
       "id": "malzemeKalinlik",
       "label": "Material Thickness (m)",
-      "label_i18n": {
-        "en": "Material Thickness (m)",
-        "de": "Materialdicke (mm)",
-        "fr": "Épaisseur du matériau (mm)",
-        "es": "Espesor del material (mm)",
-        "ar": "سمك المادة (مم)"
-      },
       "type": "number",
       "unit": "m",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Material thickness.",
-      "businessContext_i18n": {
-        "en": "Material thickness.",
-        "de": "Temperaturgradient uber die Materialdicke. Treibt den Wärmetransport durch Leitung an.",
-        "fr": "Gradient de température à travers l'épaisseur du matériau. Entraîne le transfert de chaleur par conduction.",
-        "es": "Gradiente de temperatura a través del espesor del material. Impulsa la transferencia de calor por conducción.",
-        "ar": "تدرج درجة الحرارة عبر سمك المادة. يدفع نقل الحرارة بالتوصيل."
-      }
+      "businessContext": "Material thickness."
     }
   ],
   "validation": {
@@ -85,58 +43,28 @@
     "result": "lazerGuc / Math.max(0.0001, (kesmeHiz * malzemeKalinlik))"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "J/m2",
     "breakdown": {
       "result": "Energy Dmostsity"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "Energy Dmostsity",
-        "de": "Energiedichte",
-        "fr": "Densité énergétique",
-        "es": "Densidad de Energía",
-        "ar": "كثافة الطاقة"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "J/m2"
+      "result": "J/m2"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify calculations with FEA or physical testing.",
       "Use appropriate safety factors for design."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate laser processing energy density for cutting.",
-      "long": "Calculate laser processing energy density for cutting.",
-      "short_i18n": {
-        "en": "Calculate laser processing energy density for cutting.",
-        "de": "Berechnen Sie die Laser-Energiedichte fur das Schneiden.",
-        "fr": "Calculer la densité d'énergie de traitement laser pour la découpe.",
-        "es": "Calcular la densidad de energía del procesamiento láser para corte.",
-        "ar": "حساب كثافة طاقة المعالجة بالليزر للقطع."
-      },
-      "long_i18n": {
-        "en": "Calculate laser processing energy density for cutting.",
-        "de": "Berechnen Sie die Laser-Energiedichte fur das Schneiden.",
-        "fr": "Calculer la densité d'énergie de traitement laser pour la découpe.",
-        "es": "Calcular la densidad de energía del procesamiento láser para corte.",
-        "ar": "حساب كثافة طاقة المعالجة بالليزر للقطع."
-      }
+      "long": "Calculate laser processing energy density for cutting."
     }
-  },
-  "title_i18n": {
-    "en": "laser-processing-energy-density-calculator",
-    "de": "Laserbearbeitungsparameterrechner",
-    "fr": "Calculateur de paramètres de traitement laser",
-    "es": "Calculadora de parámetros de procesamiento láser",
-    "ar": "حاسبة معلمات المعالجة بالليزر"
   },
   "sectorSlug": "energy-carbon"
 }

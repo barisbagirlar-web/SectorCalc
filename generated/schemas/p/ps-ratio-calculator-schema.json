@@ -8,48 +8,20 @@
     {
       "id": "piyasaDegeri",
       "label": "Market Cap (USD)",
-      "label_i18n": {
-        "en": "Market Cap (USD)",
-        "de": "Marktkapitalisierung (USD)",
-        "fr": "Capitalisation boursière (USD)",
-        "es": "Capitalización de mercado (USD)",
-        "ar": "القيمة السوقية (USD)"
-      },
       "type": "number",
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Market capitalization.",
-      "businessContext_i18n": {
-        "en": "Market capitalization.",
-        "de": "Marktkapitalisierung.",
-        "fr": "Capitalisation boursière.",
-        "es": "Capitalización de mercado.",
-        "ar": "القيمة السوقية."
-      }
+      "businessContext": "Market capitalization."
     },
     {
       "id": "toplamSatislar",
       "label": "Total Revenue (USD)",
-      "label_i18n": {
-        "en": "Total Revenue (USD)",
-        "de": "Gesamtumsatz",
-        "fr": "Revenu total",
-        "es": "Ingresos totales",
-        "ar": "إجمالي الإيرادات"
-      },
       "type": "number",
       "unit": "USD",
       "default": 4000000,
       "min": 0,
-      "businessContext": "Annual total revenue.",
-      "businessContext_i18n": {
-        "en": "Annual total revenue.",
-        "de": "Jährlicher Gesamtumsatz.",
-        "fr": "Revenu total annuel.",
-        "es": "Ingresos totales anuales.",
-        "ar": "إجمالي الإيرادات السنوية."
-      }
+      "businessContext": "Annual total revenue."
     }
   ],
   "validation": {
@@ -62,58 +34,28 @@
     "result": "piyasaDegeri / Math.max(1, toplamSatislar)"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "result",
     "unit": "ratio",
     "breakdown": {
       "result": "F/S (P/S) Ratio"
     },
-    "breakdown_i18n": {
-      "result": {
-        "en": "F/S (P/S) Ratio",
-        "de": "KUV (P/S) Verhältnis",
-        "fr": "Ratio F/S (P/S)",
-        "es": "Relación P/S (Precio/Ventas)",
-        "ar": "نسبة السعر إلى المبيعات (P/S)"
-      }
-    },
     "breakdownUnits": {
-      "sonuc": "ratio"
+      "result": "ratio"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
   "about": {
     "description": {
       "short": "Calculate the price-to-sales (P/S) ratio.",
-      "long": "Calculate the price-to-sales (P/S) ratio.",
-      "short_i18n": {
-        "en": "Calculate the price-to-sales (P/S) ratio.",
-        "de": "Berechnen Sie das Kurs-Umsatz-Verhältnis (P/S).",
-        "fr": "Calculer le ratio cours/ventes (P/S).",
-        "es": "Calcular la relación precio-ventas (P/S).",
-        "ar": "احسب نسبة السعر إلى المبيعات (P/S)."
-      },
-      "long_i18n": {
-        "en": "Calculate the price-to-sales (P/S) ratio.",
-        "de": "Berechnen Sie das Kurs-Umsatz-Verhältnis (P/S).",
-        "fr": "Calculer le ratio cours/ventes (P/S).",
-        "es": "Calcular la relación precio-ventas (P/S).",
-        "ar": "احسب نسبة السعر إلى المبيعات (P/S)."
-      }
+      "long": "Calculate the price-to-sales (P/S) ratio."
     }
-  },
-  "title_i18n": {
-    "en": "ps-ratio-calculator",
-    "de": "Kurs-Umsatz-Verhältnis-Rechner",
-    "fr": "Calculateur de ratio cours/chiffre d'affaires",
-    "es": "Calculadora de ratio precio/ventas",
-    "ar": "حاسبة نسبة السعر إلى المبيعات"
   },
   "sectorSlug": "daily-renovation"
 }
