@@ -43,8 +43,23 @@ function loadAllSchemas(): void {
       }
 
       if (validation.schema && !loadedSchemas.has(toolKey)) {
+        // Normalize: ensure every input_group has a fields array
+        const normalized = JSON.parse(JSON.stringify(validation.schema)) as Record<string, unknown>;
+        const inputIds = Array.isArray(normalized.inputs)
+          ? (normalized.inputs as Array<Record<string, unknown>>).map((inp) => inp.id as string)
+          : [];
+        const uiContract = normalized.ui_contract as Record<string, unknown> | undefined;
+        if (uiContract && Array.isArray(uiContract.input_groups)) {
+          const groups = uiContract.input_groups as Array<Record<string, unknown>>;
+          for (let i = 0; i < groups.length; i++) {
+            const group = groups[i];
+            if (!group.fields || !Array.isArray(group.fields)) {
+              group.fields = i === 0 ? [...inputIds] : [];
+            }
+          }
+        }
         loadedSchemas.set(toolKey, {
-          schema: validation.schema,
+          schema: normalized as unknown as SuperV4Schema,
           errors: [],
         });
       }

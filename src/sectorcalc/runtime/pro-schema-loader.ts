@@ -174,6 +174,25 @@ function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema {
       });
   }
 
+  // ── Add fields array to input_groups ──
+  // PRO schemas define groups without field-to-group mapping.
+  // Ensure every group has a non-null fields array so UniversalIndustrialDecisionForm
+  // doesn't crash on group.fields.map().
+  // First group gets all input IDs; remaining groups get empty arrays.
+  const inputIds = Array.isArray(s.inputs)
+    ? (s.inputs as Array<Record<string, unknown>>).map((inp) => inp.id as string)
+    : [];
+  const uiContract2 = s.ui_contract as Record<string, unknown> | undefined;
+  if (uiContract2 && Array.isArray(uiContract2.input_groups)) {
+    const groups = uiContract2.input_groups as Array<Record<string, unknown>>;
+    for (let i = 0; i < groups.length; i++) {
+      const group = groups[i];
+      if (!group.fields || !Array.isArray(group.fields)) {
+        group.fields = i === 0 ? [...inputIds] : [];
+      }
+    }
+  }
+
   return s as unknown as SuperV4Schema;
 }
 
