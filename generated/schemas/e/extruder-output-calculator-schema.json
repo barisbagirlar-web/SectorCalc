@@ -24,7 +24,7 @@
       "businessContext": "Screw rotational speed."
     },
     {
-      "id": "eriyikYogunluk",
+      "id": "meltDensity",
       "label": "Melt Density (g/cm³)",
       "type": "number",
       "unit": "g/cm3",
@@ -49,7 +49,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "(vidaHacim * devir * eriyikYogunluk * (efficiency / 100) * 60) / 1000"
+    "result": "(vidaHacim * devir * meltDensity * (efficiency / 100) * 60) / 1000"
   },
   "outputs": {
     "primary": "result",
