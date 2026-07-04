@@ -287,7 +287,7 @@ function httpGet(urlPath) {
       let body = "";
       res.on("data", (chunk) => { body += chunk; });
       res.on("end", () => {
-        resolve({ status: res.statusCode, body: body.slice(0, 2000) });
+        resolve({ status: res.statusCode, body: body.slice(0, 80000) });
       });
     });
     req.on("error", (err) => {
