@@ -43,7 +43,7 @@ export const SITE = {
 /** Desktop header nav - Free → Premium → Industry → Pricing. */
 export const DESKTOP_HEADER_NAV = [
   { key: "freeCalculators", href: "/free-tools" },
-  { key: "premiumCalculators", href: "/free-tools" },
+  { key: "premiumCalculators", href: "/pro-tools" },
   { key: "industryCalculators", href: "/industries" },
   { key: "pricing", href: "/pricing" },
 ] as const;
@@ -59,7 +59,7 @@ export const FOOTER_PLATFORM_NAV = [
 
 export const PUBLIC_NAV_ITEMS = [
  { label: "Free Calculators", href: "/free-tools" },
- { label: "Pro Calculators", href: "/free-tools" },
+ { label: "Pro Calculators", href: "/pro-tools" },
  { label: "Industry Calculators", href: "/industries" },
 ] as const;
 
