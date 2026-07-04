@@ -154,7 +154,7 @@ function PremiumToolInputField({
        <label htmlFor={inputId}>
          <span className="f-name">{input.label}{input.required ? " *" : null}</span>
        </label>
-       <button type="button" className="choice" onClick={() => {}}>
+       <button type="button" className="choice">
          <span className="cv">{String(value)}</span>
          <span className="car">\u25be</span>
        </button>

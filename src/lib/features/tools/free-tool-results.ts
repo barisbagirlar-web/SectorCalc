@@ -4,9 +4,6 @@ export type FreeRiskLevel = "LOW" | "MEDIUM" | "HIGH";
 
 export type FreeToolInputValues = Record<string, number | string>;
 
-/** @deprecated Use FreeToolInputValues */
-export type FreeToolFormValues = FreeToolInputValues;
-
 export type FreeToolResult = {
   riskLevel: FreeRiskLevel;
   headline: string;

@@ -14,7 +14,7 @@ describe("smart form pilot selection", () => {
   test("flag false keeps existing path selection off", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "false");
     expect(shouldUseSmartFormPilot("3d-print-cost-check")).toBe(false);
-    // Loader may still resolve manifest; wiring gate is shouldUseSmartFormPilot in FreeToolPage.
+    // Loader may still resolve manifest; wiring gate is shouldUseSmartFormPilot in the tool route.
     expect(getPilotSmartFormManifest("3d-print-cost-check")?.status).toBe("ui_bridge_ready");
   });
 
