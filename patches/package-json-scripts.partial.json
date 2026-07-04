@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "guard:free-tools-control-plane": "node scripts/guard-free-tools-control-plane.mjs",
+    "report:free-tools-v531": "node scripts/report-free-tools-v531-progress.mjs",
+    "update:free-tools-v531-status": "node scripts/update-free-tools-v531-status.mjs",
+    "activate:free-tools-v531-batch": "node scripts/activate-free-tools-v531-batch.mjs",
+    "block:free-tools-v531-batch": "node scripts/block-free-tools-v531-batch.mjs",
+    "mark:free-tools-v531-live": "node scripts/mark-free-tools-v531-live-verified.mjs"
+  }
+}
