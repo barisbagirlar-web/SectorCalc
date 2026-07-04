@@ -61,6 +61,8 @@ export default function ProToolsPage() {
   return (
     <main
       className="sc-v531-shell"
+      data-pro-tools-count={count}
+      data-pro-category-count={categories.length}
       style={{
         maxWidth: "1200px",
         margin: "0 auto",
@@ -123,6 +125,22 @@ export default function ProToolsPage() {
         ))}
       </div>
 
+      <style>{`
+        .pro-tool-card {
+          text-decoration: none;
+          display: block;
+          padding: 1rem;
+          background: #FAF9F5;
+          border: 1px solid rgba(26, 25, 21, 0.10);
+          border-radius: 6px;
+          color: #1A1915;
+          transition: border-color 0.15s;
+        }
+        .pro-tool-card:hover {
+          border-color: #BD5D3A !important;
+        }
+      `}</style>
+
       {categories.map((cat) => (
         <section
           key={cat.category}
@@ -150,25 +168,10 @@ export default function ProToolsPage() {
             }}
           >
             {cat.tools.map((tool) => (
-              <Link
+              <a
                 key={tool.toolKey}
                 href={`/tools/pro/${tool.toolKey}`}
-                style={{
-                  textDecoration: "none",
-                  display: "block",
-                  padding: "1rem",
-                  background: "#FAF9F5",
-                  border: "1px solid rgba(26, 25, 21, 0.10)",
-                  borderRadius: "6px",
-                  color: "#1A1915",
-                  transition: "border-color 0.15s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#BD5D3A";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(26, 25, 21, 0.10)";
-                }}
+                className="pro-tool-card"
               >
                 <div
                   style={{
@@ -224,7 +227,7 @@ export default function ProToolsPage() {
                 >
                   {tool.primaryOperation.replace(/_/g, " ")}
                 </p>
-              </Link>
+              </a>
             ))}
           </div>
         </section>
