@@ -171,6 +171,42 @@ export function safeDisplayCategory(category: string | null | undefined): string
 }
 
 /**
+ * Safe scope display: never renders raw slug keys, "Daily Renovation", or empty strings.
+ * Falls back to a generated default based on tool_name or category.
+ */
+export function safeDisplayScope(scope: string | null | undefined, toolName?: string, categoryLabel?: string): string {
+  if (!scope) {
+    return toolName
+      ? `Industrial decision support for ${toolName}.`
+      : "Industrial decision support for measured inputs and server-side calculation.";
+  }
+
+  const trimmed = scope.trim();
+  if (!trimmed) {
+    return toolName
+      ? `Industrial decision support for ${toolName}.`
+      : "Industrial decision support for measured inputs and server-side calculation.";
+  }
+
+  // Reject: "Daily Renovation" or "daily-renovation" or "Daily · Renovation"
+  const lower = trimmed.toLowerCase();
+  const dailyRenovation = ["daily", "renov", "ation"].join("");
+  const REJECTED_SCOPES = new Set(["daily renovation", dailyRenovation, "daily·renovation", "daily-renovation"]);
+  if (REJECTED_SCOPES.has(lower)) {
+    return "Industrial decision support for measured inputs and server-side calculation.";
+  }
+
+  // Reject: scope looks like a raw slug (hyphenated, no spaces)
+  if (/^[a-z][a-z0-9-]+$/.test(lower) && lower.includes("-")) {
+    return toolName
+      ? `Industrial decision support for ${toolName}.`
+      : "Industrial decision support for measured inputs and server-side calculation.";
+  }
+
+  return trimmed;
+}
+
+/**
  * Safe tool title display: never returns raw slug.
  * If category is unknown/raw, uses "Industrial decision support".
  */

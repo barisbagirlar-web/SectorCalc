@@ -378,8 +378,8 @@ export function generatedToolSchemaToSuperV4Schema(
     tool_id: slug,
     tool_key: slug,
     tool_name: getDisplayToolName(sanitizeString(legacy.toolName, slug), slug),
+    scope: `${getDisplayToolName(sanitizeString(legacy.toolName, slug), slug)} — industrial decision support for measured inputs and server-side calculation.`,
     category: getDisplayCategoryLabel(legacy.categorySlug || legacy.sectorSlug),
-    scope: getDisplayCategoryLabel(legacy.sectorSlug),
     primary_operation: "calculate",
     decision_context: {
       engineering_discipline: legacy.sectorSlug ? sanitizeString(legacy.sectorSlug, "") : "",

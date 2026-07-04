@@ -260,6 +260,27 @@ export const FALLBACK_MAP: Record<string, string> = {
   "generatedToolCatalog.noResults": "No calculators found matching your search.",
   "generatedToolCatalog.allCategories": "← Back to all categories",
 
+  // ─── Free Traffic Catalog Category Labels ──────────────────────
+  "freeTrafficCatalog.categories.construction-measurement": "Construction · Measurement",
+  "freeTrafficCatalog.categories.finance-business": "Finance · Business",
+  "freeTrafficCatalog.categories.manufacturing-workshop": "Manufacturing · Workshop",
+  "freeTrafficCatalog.categories.energy-carbon": "Energy · Carbon",
+  "freeTrafficCatalog.categories.logistics-travel": "Logistics · Travel",
+  "freeTrafficCatalog.categories.agriculture-food": "Agriculture · Food",
+  "freeTrafficCatalog.categories.everyday-life": "Everyday Life",
+  "freeTrafficCatalog.categories.math-statistics": "Math · Statistics",
+  "freeTrafficCatalog.categories.conversion": "Conversion",
+  "freeTrafficCatalog.categories.health-body": "Health · Body",
+  "freeTrafficCatalog.categories.physics-science": "Physics · Science",
+  "freeTrafficCatalog.categories.chemistry-science": "Chemistry · Science",
+  "freeTrafficCatalog.categories.engineering-science": "Engineering · Science",
+  "freeTrafficCatalog.categories.food-cooking": "Food · Cooking",
+  "freeTrafficCatalog.categories.date-time": "Date · Time",
+  "freeTrafficCatalog.categories.education-academic": "Education · Academic",
+  "freeTrafficCatalog.categories.ecology-environment": "Ecology · Environment",
+  "freeTrafficCatalog.categories.gaming-entertainment": "Gaming · Entertainment",
+  "freeTrafficCatalog.categories.hobbies-diy": "Hobbies · DIY",
+
   // ─── About ────────────────────────────────────────────────────────
   "aboutPage.hero.eyebrow": "About SectorCalc",
   "aboutPage.hero.title": "About SectorCalc",

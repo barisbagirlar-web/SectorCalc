@@ -184,7 +184,7 @@ export default async function GeneratedToolRoutePage({
                 prefetch={false}
                 className="font-medium text-deep-navy hover:underline"
               >
-                {tCatalog(`categories.${categoryId}`)}
+                {tCatalog.has(`categories.${categoryId}`) ? tCatalog(`categories.${categoryId}`) : "General"}
               </Link>
             </p>
           ) : null}

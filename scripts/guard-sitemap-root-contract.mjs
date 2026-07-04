@@ -68,11 +68,9 @@ const indexingSource = existsSync("src/lib/infrastructure/seo/seo-indexing-contr
   ? readFileSync("src/lib/infrastructure/seo/seo-indexing-control.ts", "utf8")
   : "";
 
-const hasRobotsUrl =
-  robotsText.includes("https://sectorcalc.com/sitemap.xml") ||
-  robotsText.includes("/sitemap.xml") ||
-  indexingSource.includes("https://sectorcalc.com/sitemap.xml") ||
-  indexingSource.includes("/sitemap.xml");
+  const hasRobotsUrl =
+  robotsText.includes("https://www.sectorcalc.com/sitemap.xml") ||
+  indexingSource.includes("https://www.sectorcalc.com/sitemap.xml");
 
 if (!hasRobotsUrl) {
   failures.push("robots does not reference https://sectorcalc.com/sitemap.xml.");

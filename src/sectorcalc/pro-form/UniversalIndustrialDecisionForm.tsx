@@ -43,6 +43,7 @@ import {
   getPrimaryCtaLabel,
   safeRedactionDisplay,
   formatSafeValue,
+  safeDisplayScope,
 } from "./form-render-helpers";
 import "./universal-industrial-decision-form.css";
 
@@ -321,6 +322,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const rawCategory = getDisplayCategoryLabel(props.schema?.category as string | null | undefined);
   const displayCategory = safeDisplayCategory(rawCategoryLabel || rawCategory);
   const displayOperation = getDisplayOperationLabel(props.schema?.primary_operation as string | null | undefined);
+  const displayScope = safeDisplayScope(
+    String(props.schema?.scope ?? ""),
+    displayToolName || toolName,
+    displayCategory,
+  );
 
   // ── Contract errors blocking block (after all hooks) ──
   if (contractErrors.length > 0) {
@@ -339,7 +345,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         <div className="sc-v531-hero__main">
           <div>
             <h1 className="sc-v531-title">{toolName || displayToolName}</h1>
-            <p className="sc-v531-hero__scope">{props.schema.scope}</p>
+            <p className="sc-v531-hero__scope">{displayScope}</p>
           </div>
           <div className="sc-v531-status-card" data-status={status.toLowerCase()}>
             <span className="sc-v531-status-card__label">Execution state</span>

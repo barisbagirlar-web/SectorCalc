@@ -101,6 +101,12 @@ function makeSafeV531LikeSchema(input: {
   const inputs = readArray(schema, ["inputs", "fields", "parameters"]);
   const outputs = readArray(schema, ["outputs", "results", "result_fields"]);
 
+  // Sanitize scope — never render raw slug, "Daily Renovation", or empty
+  const rawScope = readString(schema, ["scope"]);
+  const safeScopeText = rawScope && !rawScope.toLowerCase().includes("daily-renovation") && !rawScope.toLowerCase().includes("daily·renovation")
+    ? rawScope
+    : `Industrial decision support for ${toolName}.`;
+
   return {
     ...schema,
 
@@ -113,6 +119,8 @@ function makeSafeV531LikeSchema(input: {
 
     category: categoryLabel,
     category_label: categoryLabel,
+
+    scope: safeScopeText,
 
     primary_operation: operationLabel,
 

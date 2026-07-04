@@ -333,7 +333,7 @@ export function FreeTrafficToolPage({
               <span className="text-premium-velvet font-medium">{displayTitle}</span>
             </nav>
           )}
-          <p className="sc-craft-eyebrow">{t(`categories.${tool.category}`)}</p>
+          <p className="sc-craft-eyebrow">{t.has(`categories.${tool.category}`) ? t(`categories.${tool.category}`) : "General"}</p>
           <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <h1 className="sc-craft-headline">{displayTitle}</h1>
             <FormulaGateToolStatus slug={tool.slug} locale={locale} surface={surfaceTier} />
