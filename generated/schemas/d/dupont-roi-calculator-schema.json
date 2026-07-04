@@ -33,7 +33,7 @@
       "businessContext": "Total assets."
     },
     {
-      "id": "ozsermaye",
+      "id": "equity",
       "label": "Equity (USD)",
       "type": "number",
       "unit": "USD",
@@ -51,8 +51,8 @@
   "formulas": {
     "profitMarji": "netKar / Math.max(1, satislar)",
     "varlikDevri": "satislar / Math.max(1, varliklar)",
-    "kaldirac": "varliklar / Math.max(1, ozsermaye)",
-    "result": "(netKar / Math.max(1, satislar)) * (satislar / Math.max(1, varliklar)) * (varliklar / Math.max(1, ozsermaye)) * 100"
+    "kaldirac": "varliklar / Math.max(1, equity)",
+    "result": "(netKar / Math.max(1, satislar)) * (satislar / Math.max(1, varliklar)) * (varliklar / Math.max(1, equity)) * 100"
   },
   "outputs": {
     "primary": "result",

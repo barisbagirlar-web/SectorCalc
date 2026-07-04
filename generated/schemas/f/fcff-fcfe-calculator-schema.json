@@ -24,7 +24,7 @@
       "businessContext": "Period depreciation expense."
     },
     {
-      "id": "isletmeSermayesi",
+      "id": "workingCapital",
       "label": "Working Capital Change (USD)",
       "type": "number",
       "unit": "USD",
@@ -58,8 +58,8 @@
     "thresholds": {}
   },
   "formulas": {
-    "fcff": "netKar + amortisman - isletmeSermayesi - capex",
-    "result": "netKar + amortisman - isletmeSermayesi - capex + debt"
+    "fcff": "netKar + amortisman - workingCapital - capex",
+    "result": "netKar + amortisman - workingCapital - capex + debt"
   },
   "outputs": {
     "primary": "result",

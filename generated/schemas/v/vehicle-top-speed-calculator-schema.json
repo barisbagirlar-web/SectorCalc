@@ -24,7 +24,7 @@
       "businessContext": "Vehicle weight."
     },
     {
-      "id": "suratmeKatsayi",
+      "id": "rollingResistanceCoef",
       "label": "Rolling Friction Coefficient",
       "type": "number",
       "unit": "scalar",
@@ -40,7 +40,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "Math.pow((power / suratmeKatsayi), 1/3)"
+    "result": "Math.pow((power / rollingResistanceCoef), 1/3)"
   },
   "outputs": {
     "primary": "result",

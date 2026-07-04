@@ -24,7 +24,7 @@
       "businessContext": "Arc voltage."
     },
     {
-      "id": "ilerlemeHiz",
+      "id": "travelSpeed",
       "label": "Travel Speed (mm/s)",
       "type": "number",
       "unit": "mm/s",
@@ -49,7 +49,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "(current * voltage * efficiency) / Math.max(0.0001, ilerlemeHiz)"
+    "result": "(current * voltage * efficiency) / Math.max(0.0001, travelSpeed)"
   },
   "outputs": {
     "primary": "result",

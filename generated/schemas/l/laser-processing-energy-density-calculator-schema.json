@@ -24,7 +24,7 @@
       "businessContext": "Laser travel speed."
     },
     {
-      "id": "malzemeKalinlik",
+      "id": "materialThickness",
       "label": "Material Thickness (m)",
       "type": "number",
       "unit": "m",
@@ -40,7 +40,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "lazerGuc / Math.max(0.0001, (kesmeHiz * malzemeKalinlik))"
+    "result": "lazerGuc / Math.max(0.0001, (kesmeHiz * materialThickness))"
   },
   "outputs": {
     "primary": "result",

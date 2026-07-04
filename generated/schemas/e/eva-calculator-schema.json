@@ -15,7 +15,7 @@
       "businessContext": "Net operating profit after tax."
     },
     {
-      "id": "sermaye",
+      "id": "investedCapital",
       "label": "Invested Capital (USD)",
       "type": "number",
       "unit": "USD",
@@ -40,7 +40,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "nopat - (sermaye * wacc / 100)"
+    "result": "nopat - (investedCapital * wacc / 100)"
   },
   "outputs": {
     "primary": "result",

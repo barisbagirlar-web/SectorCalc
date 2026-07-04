@@ -15,7 +15,7 @@
       "businessContext": "Worm helix angle."
     },
     {
-      "id": "suratmeAcisi",
+      "id": "frictionAngle",
       "label": "Friction Angle (Rad)",
       "type": "number",
       "unit": "rad",
@@ -31,7 +31,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "Math.tan(helisAcisi) / Math.max(0.0001, Math.tan(helisAcisi + suratmeAcisi))"
+    "result": "Math.tan(helisAcisi) / Math.max(0.0001, Math.tan(helisAcisi + frictionAngle))"
   },
   "outputs": {
     "primary": "result",

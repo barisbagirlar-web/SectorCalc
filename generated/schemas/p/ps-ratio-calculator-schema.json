@@ -31,7 +31,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "piyasaDegeri / Math.max(1, toplamSatislar)"
+    "result": "marketValue / Math.max(1, toplamSatislar)"
   },
   "outputs": {
     "primary": "result",

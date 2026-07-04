@@ -15,7 +15,7 @@
       "businessContext": "Net operating profit after tax."
     },
     {
-      "id": "yatirilanSermaye",
+      "id": "investedCapital",
       "label": "Invested Capital (USD)",
       "type": "number",
       "unit": "USD",
@@ -31,7 +31,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "nopat / Math.max(1, yatirilanSermaye) * 100"
+    "result": "nopat / Math.max(1, investedCapital) * 100"
   },
   "outputs": {
     "primary": "result",

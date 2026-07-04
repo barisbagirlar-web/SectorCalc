@@ -15,7 +15,7 @@
       "businessContext": "Total market capitalization."
     },
     {
-      "id": "ozsermaye",
+      "id": "bookValue",
       "label": "Shareholders Equity (USD)",
       "type": "number",
       "unit": "USD",
@@ -31,7 +31,7 @@
     "thresholds": {}
   },
   "formulas": {
-    "result": "piyasaDegeri / Math.max(1, ozsermaye)"
+    "result": "marketValue / Math.max(1, bookValue)"
   },
   "outputs": {
     "primary": "result",

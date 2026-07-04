@@ -24,7 +24,7 @@
       "businessContext": "Normal stress on slip plane."
     },
     {
-      "id": "icSuratmeAcisi",
+      "id": "internalFrictionAngle",
       "label": "Internal Friction Angle (Deg)",
       "type": "number",
       "unit": "degrees",
@@ -49,8 +49,8 @@
     "thresholds": {}
   },
   "formulas": {
-    "dayanim": "cohesion + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))",
-    "result": "(cohesion + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))) / Math.max(0.0001, kaymaGerilmesi)"
+    "dayanim": "cohesion + (normalGerilme * Math.tan(internalFrictionAngle * Math.PI / 180))",
+    "result": "(cohesion + (normalGerilme * Math.tan(internalFrictionAngle * Math.PI / 180))) / Math.max(0.0001, kaymaGerilmesi)"
   },
   "outputs": {
     "primary": "result",
