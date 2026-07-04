@@ -23,8 +23,6 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
 
-const BYPASS_SESSION_ID = "bypass-unlimited";
-
 interface ToolExecuteRequest {
   toolKey: string;
   rawInputs: Record<string, unknown>;
@@ -35,15 +33,36 @@ interface ToolExecuteRequest {
   displayCurrency?: string | null;
   /** Client-generated UUID for execution idempotency. Prevents double-decrement on retry/double-click. */
   clientRequestId?: string | null;
+
+  /** Snake-case aliases (sent by UniversalIndustrialDecisionForm machine). */
+  tool_key?: string;
+  raw_inputs?: Record<string, unknown>;
+  selected_units?: Record<string, string>;
+  user_profile_mode?: string;
+  client_schema_hash?: string;
+  display_currency?: string | null;
+}
+
+function extractField<T>(body: Record<string, unknown>, camel: string, snake: string): T | undefined {
+  return (body[camel] ?? body[snake]) as T | undefined;
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
-    const body: ToolExecuteRequest = await request.json();
+    const raw: Record<string, unknown> = await request.json();
+    const body = raw as unknown as ToolExecuteRequest;
 
-    if (!body.toolKey || typeof body.toolKey !== "string") {
+    // Accept both camelCase (tool-execute contract) and snake_case (machine ExecuteRequest)
+    const toolKey = extractField<string>(raw, "toolKey", "tool_key");
+    if (!toolKey || typeof toolKey !== "string") {
       return NextResponse.json({ error: "MISSING_TOOL_KEY" }, { status: 400 });
     }
+    body.toolKey = toolKey;
+    if (!body.rawInputs) body.rawInputs = (extractField<Record<string, unknown>>(raw, "rawInputs", "raw_inputs") ?? {});
+    if (!body.selectedUnits) body.selectedUnits = (extractField<Record<string, string>>(raw, "selectedUnits", "selected_units") ?? {});
+    if (!body.profileMode) body.profileMode = extractField<any>(raw, "profileMode", "user_profile_mode");
+    if (!body.clientSchemaHash) body.clientSchemaHash = extractField<string>(raw, "clientSchemaHash", "client_schema_hash");
+    if (!body.displayCurrency) body.displayCurrency = extractField<string>(raw, "displayCurrency", "display_currency");
 
     // ── Resolve tool from manifest ─────────────────────────────
     const manifestEntry = getPublicToolBySlug(body.toolKey);
@@ -69,8 +88,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
       userId = user.uid;
 
-      // ── Owner bypass: skip session validation, unlimited runs ─
-      if (body.usageSessionId === BYPASS_SESSION_ID && user.email && isProBypassEmail(user.email)) {
+      // ── Owner bypass: skip session validation, unlimited runs ─────
+      // We check email from the verified auth token — NOT from body.usageSessionId —
+      // because the machine's ExecuteRequest type doesn't carry usageSessionId.
+      if (user.email && isProBypassEmail(user.email)) {
         remainingRuns = 999;
         sessionExhausted = false;
       } else {
