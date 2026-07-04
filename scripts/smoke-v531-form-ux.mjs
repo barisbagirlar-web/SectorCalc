@@ -92,13 +92,16 @@ function collectBuildFiles() {
 function checkPatterns(content, isBuild, isLive) {
   const fails = [];
   const passes = [];
+  // For forbidden patterns: check visible text only (strip HTML tags)
+  // For required UX patterns: check raw content (class names in HTML)
+  const textContent = content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
   for (const p of FORBIDDEN_PATTERNS) {
     if (!isLive && SOURCE_SKIP.has(p)) {
       passes.push(`forbidden token skipped: ${p} (server data, not UI)`); continue;
     }
     const re = new RegExp(p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
-    (re.test(content) ? fails : passes).push(
-      re.test(content) ? `FORBIDDEN_TOKEN_FOUND: ${p}` : `forbidden token absent: ${p}`
+    (re.test(textContent) ? fails : passes).push(
+      re.test(textContent) ? `FORBIDDEN_TOKEN_FOUND: ${p}` : `forbidden token absent: ${p}`
     );
   }
   for (const p of REQUIRED_UX) {
@@ -128,7 +131,13 @@ async function main() {
         const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
         if (!res.ok) { console.log(`  ⚠️  ${url} → ${res.status}`); continue; }
         const html = await res.text();
-        content += html + "\n";
+        // Strip Next.js serialized data blocks (schema JSON), script tags, and JSON-LD
+        // so we only scan actual rendered DOM text.
+        const visibleContent = html
+          .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+          .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, "")
+          .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "");
+        content += visibleContent + "\n";
         fileCount++;
         console.log(`  ✅ ${url} (${html.length} bytes)`);
       } catch (e) { console.log(`  ❌ ${url} → ${e.message}`); }

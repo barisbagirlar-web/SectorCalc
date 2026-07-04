@@ -323,9 +323,15 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   // Apply safe category — never show raw keys or "Daily Renovation"
   const rawCategory = getDisplayCategoryLabel(props.schema?.category as string | null | undefined);
   const displayCategory = safeDisplayCategory(rawCategoryLabel || rawCategory);
-  const displayOperation = getDisplayOperationLabel(props.schema?.primary_operation as string | null | undefined);
+  const rawOperation = props.schema?.primary_operation as string | null | undefined;
+  const displayOperation = getDisplayOperationLabel(rawOperation);
+  // Replace raw operation slug in scope text with humanized label
+  const rawScope = String(props.schema?.scope ?? "");
+  const cleanedScope = rawOperation && rawScope.includes(rawOperation)
+    ? rawScope.replaceAll(rawOperation, displayOperation)
+    : rawScope;
   const displayScope = safeDisplayScope(
-    String(props.schema?.scope ?? ""),
+    cleanedScope || rawScope,
     displayToolName || toolName,
     displayCategory,
   );
@@ -626,13 +632,14 @@ function DecisionContextSection({ schema }: { schema: SuperV4Schema }) {
     <section className="sc-v531-section sc-v531-guidance" aria-label="Decision context">
       <SectionHeader title="Decision context" subtitle="Operational boundary, evidence expectation, and result use." />
       <dl className="sc-v531-context-grid">
-        {visibleItems.map(({ label, key }) => (
-          <ContextItem
-            key={key}
-            label={label}
-            value={(ctx as Record<string, unknown>)[key] as string}
-          />
-        ))}
+        {visibleItems.map(({ label, key }) => {
+          const rawValue = (ctx as Record<string, unknown>)[key] as string;
+          // Humanize enum-like values for classification display
+          const displayValue = key === "tool_use_classification" ? humanizeEnum(rawValue) : rawValue;
+          return (
+            <ContextItem key={key} label={label} value={displayValue} />
+          );
+        })}
       </dl>
     </section>
   );
