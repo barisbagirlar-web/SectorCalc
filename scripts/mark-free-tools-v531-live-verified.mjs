@@ -12,7 +12,7 @@ import {
 
 const args = process.argv.slice(2);
 const manifest = readManifest();
-const baseUrl = getArgValue(args, "--base-url", "https://www.sectorcalc.com");
+const baseUrl = getArgValue(args, "--base-url", "https://sectorcalc.com");
 const commit = getArgValue(args, "--commit", "UNKNOWN");
 const smoke = getArgValue(args, "--smoke", "PASS");
 

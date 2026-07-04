@@ -58,7 +58,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         {locale === "en" ? <GeoLocaleBootstrapScript /> : null}
 
         {/* === DNS PREFETCH & PRECONNECT (Predictive Preconnect) === */}
-        <link rel="dns-prefetch" href="https://www.sectorcalc.com" />
+        <link rel="dns-prefetch" href="https://sectorcalc.com" />
         <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
         <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com" />
         <link rel="dns-prefetch" href="https://securetoken.googleapis.com" />

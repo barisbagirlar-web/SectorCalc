@@ -202,4 +202,4 @@ if (failures.length > 0) {
 console.log("V531_FORM_UX_CONTRACT_GUARD=PASS");
 console.log(`Scanned ${SCAN_FILES.length} files — no forbidden UX patterns found.`);
 console.log("NOTE: Run live DOM smoke for full acceptance:");
-console.log("  BASE_URL=https://www.sectorcalc.com node scripts/smoke-page-runtime.mjs");
+console.log("  BASE_URL=https://sectorcalc.com node scripts/smoke-page-runtime.mjs");

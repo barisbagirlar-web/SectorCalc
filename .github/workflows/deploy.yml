@@ -79,7 +79,7 @@ jobs:
         run: npm run build
         env:
           NODE_OPTIONS: --max-old-space-size=8192
-          NEXT_PUBLIC_SITE_URL: https://www.sectorcalc.com
+          NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
 
       - name: "Stage 5.1 — Sitemap"
         run: npm run generate:sitemap-static

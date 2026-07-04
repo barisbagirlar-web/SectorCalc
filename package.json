@@ -43,7 +43,7 @@
     "smoke:payment-paddle": "node scripts/smoke-payment-paddle.mjs",
     "generate:sitemap-static": "tsx scripts/generate-sitemap-static.ts",
     "validate:translations": "node scripts/validate-schema-translations.mjs",
-    "prebuild": "npm run guard:v531-form-architecture && npm run guard:forbidden-form-surfaces && npm run guard:v531-schema-formula-binding && npm run guard:zero-turkish && npm run guard:no-turkish-public-source && node scripts/zero-tolerance-turkish-guard.mjs && npm run guard:i18n-keys && npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && npm run validate:translations && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts",
+    "prebuild": "npm run guard:v531-form-architecture && npm run guard:forbidden-form-surfaces && npm run guard:v531-schema-formula-binding && npm run guard:zero-turkish && npm run guard:no-turkish-public-source && node scripts/zero-tolerance-turkish-guard.mjs && npm run guard:i18n-keys && npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && npm run validate:translations && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts && npm run dump:routes",
     "audit:runtime": "tsx scripts/audit-premium-runtime.ts",
     "test:v5-form": "vitest run src/sectorcalc/pro-form/__tests__/",
     "test:v5-runtime": "vitest run src/sectorcalc/pro-runtime/__tests__/",
@@ -68,7 +68,11 @@
     "guard:sitemap-root": "node scripts/guard-sitemap-root-contract.mjs",
     "smoke:sitemap-root": "node scripts/smoke-sitemap-root.mjs",
     "guard:working-tree-clean": "node scripts/guard-working-tree-clean.mjs",
-    "resolve:pro-schema-loader-dirty": "node scripts/resolve-pro-schema-loader-dirty-file.mjs"
+    "resolve:pro-schema-loader-dirty": "node scripts/resolve-pro-schema-loader-dirty-file.mjs",
+    "dump:routes": "tsx scripts/dump-routes-to-json.ts",
+    "lock:sitemap": "node scripts/sitemap-lock.mjs",
+    "audit:seo-copy": "tsx scripts/lint-seo.ts",
+    "audit:seo-gates": "npm run dump:routes && node scripts/sitemap-lock.mjs --routes public/routes.json --sample 50 && npm run audit:seo-copy"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

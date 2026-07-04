@@ -35,7 +35,7 @@ export type AiCategoryIndexRecord = {
 
 export type AiToolIndexDocument = {
   readonly site: "SectorCalc";
-  readonly baseUrl: "https://www.sectorcalc.com";
+  readonly baseUrl: "https://sectorcalc.com";
   readonly generatedAt: string;
   readonly totalTools: number;
   readonly totalActiveRoutes: number;

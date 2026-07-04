@@ -18,7 +18,7 @@ interface ToolAlphaListProps {
 // ─── Constants ──────────────────────────────────────────────────────────────
 
 const EXPAND_THRESHOLD = 200;
-const DEFAULT_DOMAIN = "https://www.sectorcalc.com";
+const DEFAULT_DOMAIN = "https://sectorcalc.com";
 
 // ─── Pure display component for tool items ──────────────────────────────────
 

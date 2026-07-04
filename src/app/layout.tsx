@@ -61,7 +61,7 @@ export default async function RootLayout({
       data-locale={locale}
     >
       <head>
-        <link rel="dns-prefetch" href="https://www.sectorcalc.com" />
+        <link rel="dns-prefetch" href="https://sectorcalc.com" />
         <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
         <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com" />
         <link rel="dns-prefetch" href="https://securetoken.googleapis.com" />

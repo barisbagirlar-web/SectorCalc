@@ -33,7 +33,7 @@ export function metadataRobots() {
 
 /* ----------------------------- robots.txt ----------------------------- */
 
-const SITE_URL = "https://www.sectorcalc.com";
+const SITE_URL = "https://sectorcalc.com";
 
 const AI_AND_SEARCH_AGENTS = [
   "Googlebot",

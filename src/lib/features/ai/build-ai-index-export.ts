@@ -164,7 +164,7 @@ export function buildAiToolIndexDocument(): AiToolIndexDocument {
 
   return {
     site: "SectorCalc",
-    baseUrl: SITE_URL as "https://www.sectorcalc.com",
+    baseUrl: SITE_URL as "https://sectorcalc.com",
     generatedAt: new Date().toISOString(),
     totalTools: tools.length,
     totalActiveRoutes,

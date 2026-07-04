@@ -46,9 +46,9 @@ export async function GET(): Promise<Response> {
   lines.push(
     "",
     "## Tool location pattern",
-    "- Generated free tools: https://www.sectorcalc.com/tools/generated/{slug}",
-    "- Locale-specific: https://www.sectorcalc.com/{locale}/tools/generated/{slug}",
-    "- Pro tools: https://www.sectorcalc.com/{locale}/tools/premium-schema/{slug}",
+    "- Generated free tools: https://sectorcalc.com/tools/generated/{slug}",
+    "- Locale-specific: https://sectorcalc.com/{locale}/tools/generated/{slug}",
+    "- Pro tools: https://sectorcalc.com/{locale}/tools/premium-schema/{slug}",
     "- Where {locale} = tr, de, fr, es, ar (en uses no prefix)",
     "",
     "## Internal link map",

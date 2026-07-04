@@ -4,7 +4,7 @@
  * Smoke test: PRO Tools Catalog Page
  * Checks /pro-tools for correct rendering with CatalogPageShell design.
  * Usage: BASE_URL=http://localhost:3000 node scripts/smoke-pro-tools-catalog.mjs
- *        BASE_URL=https://www.sectorcalc.com node scripts/smoke-pro-tools-catalog.mjs
+ *        BASE_URL=https://sectorcalc.com node scripts/smoke-pro-tools-catalog.mjs
  */
 
 const BASE_URL = process.env.BASE_URL || "http://localhost:3000";

@@ -15,11 +15,11 @@ function buildAiTxt(): string {
 # Languages: en, tr, de, fr, es, ar
 # Schema: https://ai-txt.org/schema/v1
 
-Site: https://www.sectorcalc.com
-LLM index: https://www.sectorcalc.com/llms.txt
-Sitemap: https://www.sectorcalc.com/sitemap.xml
-Developer showcase: https://www.sectorcalc.com/developer-showcase
-OpenAPI spec: https://www.sectorcalc.com/.well-known/openapi.yaml
+Site: https://sectorcalc.com
+LLM index: https://sectorcalc.com/llms.txt
+Sitemap: https://sectorcalc.com/sitemap.xml
+Developer showcase: https://sectorcalc.com/developer-showcase
+OpenAPI spec: https://sectorcalc.com/.well-known/openapi.yaml
 
 # ============================================================
 # MULTILINGUAL IDENTITY
@@ -39,16 +39,16 @@ OpenAPI spec: https://www.sectorcalc.com/.well-known/openapi.yaml
 # Use localeUrls from ai-tool-index.json for locale-specific links.
 #
 # Locale URL structure:
-# - en: https://www.sectorcalc.com/tools/generated/{slug}       (no prefix)
-# - tr: https://www.sectorcalc.com/tr/tools/generated/{slug}
-# - de: https://www.sectorcalc.com/de/tools/generated/{slug}
-# - fr: https://www.sectorcalc.com/fr/tools/generated/{slug}
-# - es: https://www.sectorcalc.com/es/tools/generated/{slug}
-# - ar: https://www.sectorcalc.com/ar/tools/generated/{slug}
+# - en: https://sectorcalc.com/tools/generated/{slug}       (no prefix)
+# - tr: https://sectorcalc.com/tr/tools/generated/{slug}
+# - de: https://sectorcalc.com/de/tools/generated/{slug}
+# - fr: https://sectorcalc.com/fr/tools/generated/{slug}
+# - es: https://sectorcalc.com/es/tools/generated/{slug}
+# - ar: https://sectorcalc.com/ar/tools/generated/{slug}
 #
-# Pro tools:     https://www.sectorcalc.com/{locale}/tools/premium-schema/{slug}
-# Free-tools hub:    https://www.sectorcalc.com/{locale}/free-tools
-# Pro-tools hub: https://www.sectorcalc.com/{locale}/pro-tools
+# Pro tools:     https://sectorcalc.com/{locale}/tools/premium-schema/{slug}
+# Free-tools hub:    https://sectorcalc.com/{locale}/free-tools
+# Pro-tools hub: https://sectorcalc.com/{locale}/pro-tools
 
 # ============================================================
 # AI AGENT SEMANTIC ACCESS PROTOCOL
@@ -221,18 +221,18 @@ Supported-Actions: All calculation, estimation, and decision-support tools liste
 # ============================================================
 
 Primary knowledge indexes:
-- https://www.sectorcalc.com/ai-tool-index.json       (Full tool inventory - ${index.totalTools} tools)
-- https://www.sectorcalc.com/ai-categories.json       (Category hierarchy - ${index.categories.length} categories)
-- https://www.sectorcalc.com/ai-tool-routes.json      (Route map - ${index.totalActiveRoutes} active routes)
-- https://www.sectorcalc.com/ai-search-manifest.json  (Search manifest - intent-based routing)
-- https://www.sectorcalc.com/ai-embedding-source.jsonl (Embedding corpus - vector-ready)
+- https://sectorcalc.com/ai-tool-index.json       (Full tool inventory - ${index.totalTools} tools)
+- https://sectorcalc.com/ai-categories.json       (Category hierarchy - ${index.categories.length} categories)
+- https://sectorcalc.com/ai-tool-routes.json      (Route map - ${index.totalActiveRoutes} active routes)
+- https://sectorcalc.com/ai-search-manifest.json  (Search manifest - intent-based routing)
+- https://sectorcalc.com/ai-embedding-source.jsonl (Embedding corpus - vector-ready)
 
 Human-readable knowledge bases:
-- https://www.sectorcalc.com/sectorcalc-index.txt     (Platform index and internal link map)
-- https://www.sectorcalc.com/services-products.txt    (Complete services and products catalog)
-- https://www.sectorcalc.com/faq-knowledge.txt        (FAQ knowledge base - root English only)
-- https://www.sectorcalc.com/llms.txt                 (LLM knowledge base - full tool index)
-- https://www.sectorcalc.com/ai-tool-index.txt        (Flat tool index)
+- https://sectorcalc.com/sectorcalc-index.txt     (Platform index and internal link map)
+- https://sectorcalc.com/services-products.txt    (Complete services and products catalog)
+- https://sectorcalc.com/faq-knowledge.txt        (FAQ knowledge base - root English only)
+- https://sectorcalc.com/llms.txt                 (LLM knowledge base - full tool index)
+- https://sectorcalc.com/ai-tool-index.txt        (Flat tool index)
 
 # ============================================================
 # ALLOWED CONTENT FOR AI INDEXING
@@ -241,8 +241,8 @@ Human-readable knowledge bases:
 AI agents are permitted to index:
 - Public home pages (root English only)
 - Public calculator pages (root English only)
-- Free calculator catalog (https://www.sectorcalc.com/{locale}/free-tools)
-- Pro calculator catalog (https://www.sectorcalc.com/{locale}/pro-tools)
+- Free calculator catalog (https://sectorcalc.com/{locale}/free-tools)
+- Pro calculator catalog (https://sectorcalc.com/{locale}/pro-tools)
 - Pro category pages (root English only)
 - Calculator library page
 - Industry pages

@@ -4,7 +4,7 @@ function normalizeSiteUrl(value: string): string {
  const trimmed = value.trim().replace(/\/$/, "");
  try {
   const url = new URL(trimmed);
-  if (url.hostname === "www.sectorcalc.com") {
+  if (url.hostname === "sectorcalc.com") {
    url.hostname = "sectorcalc.com";
   }
   return url.origin;

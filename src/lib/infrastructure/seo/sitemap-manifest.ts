@@ -106,9 +106,6 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/how-it-works", "hub", 0.7, "monthly"),
     createItem("/operating-system", "hub", 0.65, "monthly"),
     createItem("/for-consultants", "hub", 0.7, "monthly"),
-    ...listGlobalCategories().map((category) =>
-      createItem(`/premium-tools/${category.slug}`, "hub", 0.85, "weekly"),
-    ),
   ];
 }
 
@@ -144,14 +141,10 @@ export function getPremiumRevenueToolSitemapRoutes(): readonly SitemapManifestIt
 }
 
 export function getAiIndexSitemapRoutes(): readonly SitemapManifestItem[] {
+  // Only HTML/text AI-facing pages — exclude raw JSON/jsonl/xml data files
   const files = [
     "/llms.txt",
     "/ai.txt",
-    "/ai-tool-index.json",
-    "/ai-categories.json",
-    "/ai-tool-routes.json",
-    "/ai-search-manifest.json",
-    "/ai-embedding-source.jsonl",
   ];
   return files.map((path) => createItem(path, "ai_index", 0.55, "weekly"));
 }

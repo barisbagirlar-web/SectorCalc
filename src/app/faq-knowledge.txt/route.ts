@@ -16,7 +16,7 @@ export async function GET(): Promise<Response> {
 
   const lines: string[] = [
     "# SectorCalc FAQ Knowledge Base",
-    `# Site: https://www.sectorcalc.com`,
+    `# Site: https://sectorcalc.com`,
     `# Generated: ${ts}`,
     `# Languages: ${joinLocales(SUPPORTED_LOCALES)}`,
     "# Version: 2.0 (dynamic)",

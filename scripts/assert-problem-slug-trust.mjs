@@ -3,7 +3,7 @@
  * ERT-0.1 — Hard assert for the problem slug live trust surface.
  *
  * Usage:
- *   BASE_URL=https://www.sectorcalc.com node scripts/assert-problem-slug-trust.mjs
+ *   BASE_URL=https://sectorcalc.com node scripts/assert-problem-slug-trust.mjs
  */
 import { getBaseUrl, localePath } from "./smoke-utils.mjs";
 

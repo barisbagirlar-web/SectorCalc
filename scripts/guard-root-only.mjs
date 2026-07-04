@@ -146,8 +146,8 @@ if (existsSync(middlewarePath)) {
 const seoConfig = join(ROOT, "src/lib/infrastructure/seo/global-seo-config.ts");
 if (existsSync(seoConfig)) {
   const content = readFileSync(seoConfig, "utf8");
-  if (!content.includes("SITE_BASE_URL = \"https://www.sectorcalc.com\"")) {
-    fail("global-seo-config.ts does not have correct SITE_BASE_URL (expected https://www.sectorcalc.com)");
+  if (!content.includes("SITE_BASE_URL = \"https://sectorcalc.com\"")) {
+    fail("global-seo-config.ts does not have correct SITE_BASE_URL (expected https://sectorcalc.com)");
   } else {
     pass("global-seo-config.ts SITE_BASE_URL is root-only with www");
   }

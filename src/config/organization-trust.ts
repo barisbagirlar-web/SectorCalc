@@ -38,7 +38,7 @@ export const SECURITY_TXT = {
   contact: "mailto:barisbagirlar@gmail.com",
   expires: "2027-06-16",
   preferredLanguages: "en, tr, de, fr, es, ar",
-  canonical: "https://www.sectorcalc.com/.well-known/security.txt",
+  canonical: "https://sectorcalc.com/.well-known/security.txt",
 } as const;
 
 export const THEME_COLOR = "#F0EEE6" as const;

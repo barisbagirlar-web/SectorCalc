@@ -8,13 +8,21 @@ import type { SitemapManifestItem } from "@/lib/infrastructure/seo/sitemap-manif
 
 // V5.3.1 root-only: no locale alternates, no hreflang, single URL per item.
 
+const DATA_FILE_EXT_PATTERN = /\.(json|jsonl|csv|xml)$/i;
+
+function isHtmlPage(path: string): boolean {
+  return !DATA_FILE_EXT_PATTERN.test(path);
+}
+
 export async function buildSitemapXmlString(items: readonly SitemapManifestItem[]): Promise<string> {
   const caseStudyLastMod = await getCaseStudyLastModMap();
   
   const urls: string[] = [];
 
   for (const item of items) {
-    const lastmodDate = resolveSitemapLastModified(item.path, new Date(0), caseStudyLastMod);
+    if (!isHtmlPage(item.path)) continue;
+
+    const lastmodDate = resolveSitemapLastModified(item.path, new Date(), caseStudyLastMod);
     const hasValidLastMod = lastmodDate.getFullYear() > 1985;
     const lastmodTag = hasValidLastMod ? `\n    <lastmod>${lastmodDate.toISOString()}</lastmod>` : "";
     const changefreq = item.changeFrequency;

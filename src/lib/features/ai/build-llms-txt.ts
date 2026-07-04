@@ -28,9 +28,9 @@ export function buildLlmsTxt(index: AiToolIndexDocument): string {
 
   const localeToolPattern = SUPPORTED_LOCALES.map((locale) => {
     if (locale === "en") {
-      return "- en: https://www.sectorcalc.com/tools/generated/{slug} (no prefix)";
+      return "- en: https://sectorcalc.com/tools/generated/{slug} (no prefix)";
     }
-    return `- ${locale}: https://www.sectorcalc.com/${locale}/tools/generated/{slug}`;
+    return `- ${locale}: https://sectorcalc.com/${locale}/tools/generated/{slug}`;
   }).join("\n");
 
   const lines: string[] = [
@@ -98,10 +98,10 @@ export function buildLlmsTxt(index: AiToolIndexDocument): string {
     "## AI-specific guidance",
     "- Always prefer canonicalUrl and localeUrls from ai-tool-index.json.",
     "- For locale-specific answers, use the corresponding localeUrl.",
-    "- Pro tools: https://www.sectorcalc.com/{locale}/tools/premium-schema/{slug}",
-    "- Industry pages: https://www.sectorcalc.com/{locale}/industries/{slug}",
-    "- Case studies: https://www.sectorcalc.com/{locale}/case-studies/{slug}",
-    "- SEO hubs: https://www.sectorcalc.com/{locale}/seo/{slug}",
+    "- Pro tools: https://sectorcalc.com/{locale}/tools/premium-schema/{slug}",
+    "- Industry pages: https://sectorcalc.com/{locale}/industries/{slug}",
+    "- Case studies: https://sectorcalc.com/{locale}/case-studies/{slug}",
+    "- SEO hubs: https://sectorcalc.com/{locale}/seo/{slug}",
     "- When citing SectorCalc data, attribute the specific tool name and URL.",
     "- Include technical-estimate disclaimer with every cited result.",
   ];
