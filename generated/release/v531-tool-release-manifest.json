@@ -1,0 +1,45 @@
+{
+  "release_version": "5.3.1",
+  "generated_at": "2026-07-04T11:00:00Z",
+  "pro_v531_tools": 135,
+  "free_v531_schemas_on_disk": 51,
+  "free_v531_active_routes": 0,
+  "industrial_free_tools": 16,
+  "legacy_free_tools": 306,
+  "total_v531_tools": 186,
+  "total_route_visible_tools": 441,
+  "total_active_tools": 441,
+  "v531_tools_integration_status": {
+    "pro_v531": "ACTIVE — 135 routes, 135 formula modules, 100% smoke pass",
+    "free_v531": "ON_DISK — 51 schemas exist but NOT connected to any route (schema loader not imported by any page, resolveApprovedToolSchema does not include free-schema-loader)",
+    "industrial_free": "ACTIVE — 16 routes via /tools/generated/[slug] via resolveApprovedToolSchema",
+    "legacy_free_traffic": "ACTIVE — 306 routes via /tools/generated/[slug] via generated schema loader"
+  },
+  "smoke_scope": {
+    "previous_count": 151,
+    "previous_label": "smoke-all-v531-tools (misleading — only tested generated_free + industrial_free, did NOT test PRO schemas)",
+    "previous_problem": "listGeneratedToolSlugs() mangled PRO schema filenames with incorrect regex, producing slugs that accidentally matched generated_free schemas via resolveApprovedToolSchema priority",
+    "corrected_count": 202,
+    "corrected_label": "smoke-active-runtime-schema-scope",
+    "corrected_definition": "202 V5.3.1 schemas: PRO V5.3.1 (135, validated with SuperV4Schema) + Free V5.3.1 (51, validated with structure checks via free-schema-loader) + Industrial Free (16, validated via resolveApprovedToolSchema)",
+    "excluded_from_smoke": [
+      {"count": 306, "reason": "Legacy free-traffic slugs (free-slugs.json) — thin catalog entries without V5.3.1 schema contract"},
+      {"count": 268, "reason": "Generated schemas (generated/schemas/) — some overlap with free-traffic slugs, not V5.3.1 format"}
+    ],
+    "all_v531_tools_covered": true
+  },
+  "integrity": {
+    "duplicate_tool_keys": 0,
+    "duplicate_slugs": 0,
+    "missing_routes": 0,
+    "missing_sitemap_urls": 0,
+    "missing_formula_modules": 0,
+    "identity_mismatch": 0
+  },
+  "route_breakdown": {
+    "pro_v531_routes": 135,
+    "free_v531_routes": 0,
+    "free_traffic_routes": 306,
+    "industrial_free_routes": 16
+  }
+}
