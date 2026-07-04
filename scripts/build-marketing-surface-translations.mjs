@@ -8,21 +8,21 @@ import { join, dirname } from "node:path";
 
 const ROOT = join(dirname(import.meta.filename), "..");
 const QUEUE = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/marketing-translation-queue.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/marketing-translation-queue.json"), "utf8"),
 );
 
 /** @type {Record<string, [string, string, string, string]>} en -> [ar, de, fr, es] */
 const ROWS = JSON.parse(
-  readFileSync(join(dirname(import.meta.filename), "data/marketing-surface-rows.json"), "utf8"),
+  readFileSync(join(dirname(import.meta.filename), "../archive/migration-only/scripts/data/marketing-surface-rows.json"), "utf8"),
 );
 
 /** @type {Record<string, string>} en -> tr (only where queue lacks tr) */
 const TR_ONLY = {
   Premium: "Premium",
   "Parasal kayıp": "Parasal kayıp",
-  "Malzeme kaybı": "Malzeme kaybı",
+  "Material kaybı": "Material kaybı",
   "Zaman kaybı": "Zaman kaybı",
-  "Enerji kaybı": "Enerji kaybı",
+  "Energy kaybı": "Energy kaybı",
   Enterprise: "Kurumsal",
   Baseline: "Temel değer",
   SectorCalc: "SectorCalc",
@@ -32,7 +32,7 @@ const TR_ONLY = {
   Español: "İspanyolca",
   Deutsch: "Almanca",
   Français: "Fransızca",
-  "Audit archive": "Denetim arşivi",
+  "Audit archive": "Audit arşivi",
   "for your sector.": "sektörünüz için.",
   Global: "Küresel",
   Türkiye: "Türkiye",
@@ -43,7 +43,7 @@ const TR_ONLY = {
   SECTORCALC: "SECTORCALC",
   "FREE + PREMIUM": "ÜCRETSİZ + PREMIUM",
   LLMS: "LLMS",
-  "REG: GLOBAL": "KAYIT: KÜRESEL",
+  "REG: GLOBAL": "RECORD: KÜRESEL",
   "© 2026 SECTORCALC": "© 2026 SECTORCALC",
   "llms.txt": "llms.txt",
   "sectorcalc-index.txt": "sectorcalc-index.txt",
@@ -81,7 +81,7 @@ if (missing.length) {
   process.exit(1);
 }
 
-const outPath = join(ROOT, "scripts/data/marketing-surface-translations.json");
+const outPath = join(ROOT, "archive/migration-only/scripts/data/marketing-surface-translations.json");
 writeFileSync(outPath, JSON.stringify(out, null, 2) + "\n");
 
 console.log("Written:", outPath);

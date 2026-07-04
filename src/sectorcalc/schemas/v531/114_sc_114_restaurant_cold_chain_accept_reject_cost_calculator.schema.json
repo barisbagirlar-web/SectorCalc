@@ -1,0 +1,2466 @@
+{
+  "tool_id": "SC-114",
+  "tool_key": "sc_114_restaurant_cold_chain_accept_reject_cost_calculator",
+  "tool_name": "Restaurant Cold Chain Accept/Reject Cost Calculator",
+  "category": "Restaurant / Food Service",
+  "scope": "Restaurant Cold Chain Accept/Reject Cost Calculator supports one operation: food_service_margin_and_safety_screening. It is limited to decision-support screening using user-supplied, source-verified inputs.",
+  "primary_operation": "food_service_margin_and_safety_screening",
+  "decision_context": {
+    "system_boundary": "Batch/serving volume, time-temperature exposure, labor/energy cost, spoilage probability, and gross margin.",
+    "single_operation_scope": "Evaluate Restaurant Cold Chain Accept/Reject Cost Calculator as a single decision-support operation using normalized inputs, evidence checks, uncertainty, and business impact.",
+    "decision_owner": "Restaurant owner/operator, chef, purchasing, operations lead, food quality team",
+    "decision_after_output": "serve, hold, discard, adjust labor/menu/cold-chain plan, or escalate for food safety review",
+    "cost_of_wrong_decision": "Food safety, energy, scrap, labor, and menu margin are misread in daily operations.",
+    "failure_mode_if_formula_wrong": "Wrong unit normalization, missing evidence, hidden default, threshold misuse, or formula leak can produce unsafe release, underpriced work, rejected documentation, or avoidable loss.",
+    "primary_metric": "gross margin, food safety margin, and operating cost exposure",
+    "secondary_metrics": [
+      "evidence confidence",
+      "expanded uncertainty",
+      "money at risk",
+      "FMEA trigger status",
+      "governing driver"
+    ],
+    "required_source_documents": [
+      "calibrated measurement record",
+      "source document or certificate",
+      "job/ERP record when commercial values are used",
+      "owner-approved engineering assumption when no universal reference exists"
+    ],
+    "excluded_use_cases": [
+      "certified compliance decision",
+      "legal proof",
+      "authority approval",
+      "replacement of qualified engineering review",
+      "reproduction of paid standard tables"
+    ],
+    "field_use_limitations": [
+      "Use for screening and decision support only.",
+      "Do not bypass review for REVIEW, HOLD, REJECT, or BLOCKED status.",
+      "Verify all standards-sensitive values from approved source documents."
+    ],
+    "tool_use_classification": "DECISION_SUPPORT_ONLY_NOT_CERTIFICATION"
+  },
+  "irreversible_commitment_metric": "release of food batch, menu price, cold-chain acceptance, labor plan, or service operation",
+  "standards": [
+    "HACCP context"
+  ],
+  "standards_clause_map": [],
+  "reference_status": {
+    "standard_references": "CONTEXT_ONLY_USER_MUST_VERIFY",
+    "paid_standard_table_reproduction": "FORBIDDEN",
+    "exact_clause_claims": "NOT_INCLUDED",
+    "source_evidence_required": true,
+    "public_note": "This schema uses standards context only. Exact clauses, tables, coefficients, and acceptance values must be supplied and verified by the user where applicable."
+  },
+  "risk_level": "HIGH",
+  "brand_safety_policy": {
+    "third_party_brand_use": "FORBIDDEN",
+    "comparative_brand_language": "FORBIDDEN",
+    "affiliation_implication": "FORBIDDEN",
+    "competitor_name_generation": "FORBIDDEN",
+    "public_output_brand_mentions": "FORBIDDEN",
+    "legal_proof_claim": "FORBIDDEN",
+    "certified_compliance_claim": "FORBIDDEN",
+    "allowed_description": "Generic professional engineering evidence pattern",
+    "approved_terms": [
+      "review-ready calculation evidence",
+      "auditable engineering calculation note",
+      "checker-ready calculation summary",
+      "engineering proof pack",
+      "standards-context calculation dossier",
+      "source-evidence calculation record",
+      "audit-ready decision support"
+    ],
+    "violation_behavior": "REJECT_SCHEMA"
+  },
+  "calculation_basis": {
+    "basis_type": "FOOD_SERVICE_OPERATION",
+    "source_row_number": 114,
+    "source_tool_code": "SC-114",
+    "input_requirement_min_max": "7-16",
+    "engineering_engine_summary": "Operating model that combines heat-time, labor, product safety, energy, scrap, and margin impact.",
+    "buyer_problem_solved": "Connects daily operating decisions with real margin, scrap, energy, product safety, and labor impact.",
+    "red_team_note": "Unit-safe schema, physical hard bounds, semantic warnings, hidden-risk explanation, proof pack, and audit seal are mandatory.",
+    "public_formula_policy": "PROTECTED_METHODOLOGY_NO_EXACT_FORMULA",
+    "single_operation_only": true
+  },
+  "unit_system": {
+    "internal_base_system": "SI_BASE_UNITS_WITH_DOMAIN_EXCEPTIONS",
+    "display_units": "USER_SELECTABLE_PER_INPUT",
+    "currency": "USER_ENTERED_DISPLAY_CURRENCY_ONLY",
+    "temperature_handling": "ABSOLUTE_AND_INTERVAL_DISTINGUISHED"
+  },
+  "unit_conversion_contract": {
+    "internal_base_system": "SI_BASE_UNITS_WITH_DOMAIN_EXCEPTIONS",
+    "currency_policy": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION",
+    "temperature_policy": "DISTINGUISH_ABSOLUTE_TEMPERATURE_FROM_TEMPERATURE_INTERVAL",
+    "conversion_registry": {
+      "currency": {
+        "display_currency": {
+          "factor": 1,
+          "offset": 0
+        }
+      },
+      "mass": {
+        "kg": {
+          "factor": 1,
+          "offset": 0
+        },
+        "g": {
+          "factor": 0.001,
+          "offset": 0
+        },
+        "t": {
+          "factor": 1000,
+          "offset": 0
+        },
+        "lb": {
+          "factor": 0.45359237,
+          "offset": 0
+        }
+      },
+      "temperature_interval": {
+        "K": {
+          "factor": 1,
+          "offset": 0
+        },
+        "degC_delta": {
+          "factor": 1,
+          "offset": 0
+        },
+        "degF_delta": {
+          "factor": 0.5555555555555556,
+          "offset": 0
+        }
+      },
+      "time": {
+        "s": {
+          "factor": 1,
+          "offset": 0
+        },
+        "min": {
+          "factor": 60,
+          "offset": 0
+        },
+        "h": {
+          "factor": 3600,
+          "offset": 0
+        },
+        "day": {
+          "factor": 86400,
+          "offset": 0
+        }
+      }
+    },
+    "unsupported_conversion_behavior": "BLOCK_CALCULATION",
+    "unit_change_behavior": "PRESERVE_PHYSICAL_QUANTITY",
+    "formula_input_rule": "FORMULAS_USE_NORMALIZED_BASE_UNITS_ONLY"
+  },
+  "inputs": [
+    {
+      "id": "batch_quantity",
+      "name": "Batch Quantity",
+      "symbol": "Q",
+      "quantity_kind": "mass",
+      "unit_selectable": true,
+      "base_unit": "kg",
+      "allowed_display_units": [
+        "kg",
+        "g",
+        "lb"
+      ],
+      "normalized_id": "n_batch_quantity",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": null,
+        "unit": "kg",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Batch Quantity cannot be below the physical lower bound for this calculation context.",
+        "semantic_error_message_max": "Batch Quantity exceeds the configured physical hard bound; verify source evidence before execution."
+      },
+      "engineering_range": {
+        "min": null,
+        "max": null,
+        "unit": "kg",
+        "source": "Tool-specific engineering range must be configured from user-verified source evidence or internal approved policy.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 4,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "User-verified source document, calibrated measurement, ERP/job record, or approved engineering note.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Reference values are advisory and must not autofill or override measured values."
+      },
+      "source_priority": [
+        "calibrated_measurement",
+        "approved_source_document",
+        "erp_or_job_record",
+        "engineer_verified_assumption"
+      ],
+      "source": "USER_SUPPLIED_OR_SOURCE_EVIDENCE",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "calibrated_measurement",
+          "source_document",
+          "job_record",
+          "inspection_record",
+          "engineer_verified_assumption"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Attach or confirm source evidence before using this value for a decision."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8"
+      ],
+      "output_bindings": [
+        "decision_status",
+        "utilization_index",
+        "safety_margin",
+        "expanded_uncertainty",
+        "money_at_risk",
+        "governing_driver",
+        "fmea_status"
+      ],
+      "warning_bindings": [
+        "W_REFERENCE_RANGE",
+        "W_EVIDENCE",
+        "W_UNCERTAINTY",
+        "W_THRESHOLD"
+      ],
+      "ui_binding": {
+        "group_id": "operation_context",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": true,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": true
+      },
+      "user_help_text": "Enter the source-verified value for Batch Quantity. The client shows only unit-normalized preview; calculation is server-side.",
+      "warning_if_missing_or_estimated": "Batch Quantity is decision-sensitive. Missing or estimated values may move the result to REVIEW or BLOCKED."
+    },
+    {
+      "id": "time_exposure",
+      "name": "Time Exposure",
+      "symbol": "t",
+      "quantity_kind": "time",
+      "unit_selectable": true,
+      "base_unit": "s",
+      "allowed_display_units": [
+        "min",
+        "h"
+      ],
+      "normalized_id": "n_time_exposure",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": null,
+        "unit": "s",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Time Exposure cannot be below the physical lower bound for this calculation context.",
+        "semantic_error_message_max": "Time Exposure exceeds the configured physical hard bound; verify source evidence before execution."
+      },
+      "engineering_range": {
+        "min": null,
+        "max": null,
+        "unit": "s",
+        "source": "Tool-specific engineering range must be configured from user-verified source evidence or internal approved policy.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 4,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "User-verified source document, calibrated measurement, ERP/job record, or approved engineering note.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Reference values are advisory and must not autofill or override measured values."
+      },
+      "source_priority": [
+        "calibrated_measurement",
+        "approved_source_document",
+        "erp_or_job_record",
+        "engineer_verified_assumption"
+      ],
+      "source": "USER_SUPPLIED_OR_SOURCE_EVIDENCE",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "calibrated_measurement",
+          "source_document",
+          "job_record",
+          "inspection_record",
+          "engineer_verified_assumption"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or confirm source evidence before using this value for a decision."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8"
+      ],
+      "output_bindings": [
+        "decision_status",
+        "utilization_index",
+        "safety_margin",
+        "expanded_uncertainty",
+        "money_at_risk",
+        "governing_driver",
+        "fmea_status"
+      ],
+      "warning_bindings": [
+        "W_REFERENCE_RANGE",
+        "W_EVIDENCE",
+        "W_UNCERTAINTY",
+        "W_THRESHOLD"
+      ],
+      "ui_binding": {
+        "group_id": "quality_tolerance_calibration_data",
+        "field_order": 2,
+        "component": "number_with_unit",
+        "unit_dropdown_required": true,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": true
+      },
+      "user_help_text": "Enter the source-verified value for Time Exposure. The client shows only unit-normalized preview; calculation is server-side.",
+      "warning_if_missing_or_estimated": "Time Exposure is decision-sensitive. Missing or estimated values may move the result to REVIEW or BLOCKED."
+    },
+    {
+      "id": "temperature_margin",
+      "name": "Temperature Margin",
+      "symbol": "dT",
+      "quantity_kind": "temperature_interval",
+      "unit_selectable": true,
+      "base_unit": "K",
+      "allowed_display_units": [
+        "K",
+        "degC_delta",
+        "degF_delta"
+      ],
+      "normalized_id": "n_temperature_margin",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": null,
+        "unit": "K",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Temperature Margin cannot be below the physical lower bound for this calculation context.",
+        "semantic_error_message_max": "Temperature Margin exceeds the configured physical hard bound; verify source evidence before execution."
+      },
+      "engineering_range": {
+        "min": null,
+        "max": null,
+        "unit": "K",
+        "source": "Tool-specific engineering range must be configured from user-verified source evidence or internal approved policy.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 4,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "User-verified source document, calibrated measurement, ERP/job record, or approved engineering note.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Reference values are advisory and must not autofill or override measured values."
+      },
+      "source_priority": [
+        "calibrated_measurement",
+        "approved_source_document",
+        "erp_or_job_record",
+        "engineer_verified_assumption"
+      ],
+      "source": "USER_SUPPLIED_OR_SOURCE_EVIDENCE",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "calibrated_measurement",
+          "source_document",
+          "job_record",
+          "inspection_record",
+          "engineer_verified_assumption"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or confirm source evidence before using this value for a decision."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8"
+      ],
+      "output_bindings": [
+        "decision_status",
+        "utilization_index",
+        "safety_margin",
+        "expanded_uncertainty",
+        "money_at_risk",
+        "governing_driver",
+        "fmea_status"
+      ],
+      "warning_bindings": [
+        "W_REFERENCE_RANGE",
+        "W_EVIDENCE",
+        "W_UNCERTAINTY",
+        "W_THRESHOLD"
+      ],
+      "ui_binding": {
+        "group_id": "quality_tolerance_calibration_data",
+        "field_order": 3,
+        "component": "number_with_unit",
+        "unit_dropdown_required": true,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": true
+      },
+      "user_help_text": "Enter the source-verified value for Temperature Margin. The client shows only unit-normalized preview; calculation is server-side.",
+      "warning_if_missing_or_estimated": "Temperature Margin is decision-sensitive. Missing or estimated values may move the result to REVIEW or BLOCKED."
+    },
+    {
+      "id": "labor_or_energy_cost",
+      "name": "Labor or Energy Cost",
+      "symbol": "C",
+      "quantity_kind": "currency",
+      "unit_selectable": true,
+      "base_unit": "display_currency",
+      "allowed_display_units": [
+        "display_currency"
+      ],
+      "normalized_id": "n_labor_or_energy_cost",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": null,
+        "unit": "display_currency",
+        "basis": "NO_UNIVERSAL_BOUND_AVAILABLE",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Labor or Energy Cost cannot be below the physical lower bound for this calculation context.",
+        "semantic_error_message_max": "Labor or Energy Cost exceeds the configured physical hard bound; verify source evidence before execution."
+      },
+      "engineering_range": {
+        "min": null,
+        "max": null,
+        "unit": "display_currency",
+        "source": "Tool-specific engineering range must be configured from user-verified source evidence or internal approved policy.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 4,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "User-verified source document, calibrated measurement, ERP/job record, or approved engineering note.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Reference values are advisory and must not autofill or override measured values."
+      },
+      "source_priority": [
+        "calibrated_measurement",
+        "approved_source_document",
+        "erp_or_job_record",
+        "engineer_verified_assumption"
+      ],
+      "source": "USER_SUPPLIED_OR_SOURCE_EVIDENCE",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "calibrated_measurement",
+          "source_document",
+          "job_record",
+          "inspection_record",
+          "engineer_verified_assumption"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Attach or confirm source evidence before using this value for a decision."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8"
+      ],
+      "output_bindings": [
+        "decision_status",
+        "utilization_index",
+        "safety_margin",
+        "expanded_uncertainty",
+        "money_at_risk",
+        "governing_driver",
+        "fmea_status"
+      ],
+      "warning_bindings": [
+        "W_REFERENCE_RANGE",
+        "W_EVIDENCE",
+        "W_UNCERTAINTY",
+        "W_THRESHOLD"
+      ],
+      "ui_binding": {
+        "group_id": "commercial_impact_inputs",
+        "field_order": 4,
+        "component": "number_with_unit",
+        "unit_dropdown_required": true,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": true
+      },
+      "user_help_text": "Enter the source-verified value for Labor or Energy Cost. The client shows only unit-normalized preview; calculation is server-side.",
+      "warning_if_missing_or_estimated": "Labor or Energy Cost is decision-sensitive. Missing or estimated values may move the result to REVIEW or BLOCKED."
+    },
+    {
+      "id": "spoilage_cost",
+      "name": "Spoilage Cost Exposure",
+      "symbol": "Cs",
+      "quantity_kind": "currency",
+      "unit_selectable": true,
+      "base_unit": "display_currency",
+      "allowed_display_units": [
+        "display_currency"
+      ],
+      "normalized_id": "n_spoilage_cost",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": null,
+        "unit": "display_currency",
+        "basis": "NO_UNIVERSAL_BOUND_AVAILABLE",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Spoilage Cost Exposure cannot be below the physical lower bound for this calculation context.",
+        "semantic_error_message_max": "Spoilage Cost Exposure exceeds the configured physical hard bound; verify source evidence before execution."
+      },
+      "engineering_range": {
+        "min": null,
+        "max": null,
+        "unit": "display_currency",
+        "source": "Tool-specific engineering range must be configured from user-verified source evidence or internal approved policy.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 4,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "User-verified source document, calibrated measurement, ERP/job record, or approved engineering note.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Reference values are advisory and must not autofill or override measured values."
+      },
+      "source_priority": [
+        "calibrated_measurement",
+        "approved_source_document",
+        "erp_or_job_record",
+        "engineer_verified_assumption"
+      ],
+      "source": "USER_SUPPLIED_OR_SOURCE_EVIDENCE",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "calibrated_measurement",
+          "source_document",
+          "job_record",
+          "inspection_record",
+          "engineer_verified_assumption"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Attach or confirm source evidence before using this value for a decision."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8"
+      ],
+      "output_bindings": [
+        "decision_status",
+        "utilization_index",
+        "safety_margin",
+        "expanded_uncertainty",
+        "money_at_risk",
+        "governing_driver",
+        "fmea_status"
+      ],
+      "warning_bindings": [
+        "W_REFERENCE_RANGE",
+        "W_EVIDENCE",
+        "W_UNCERTAINTY",
+        "W_THRESHOLD"
+      ],
+      "ui_binding": {
+        "group_id": "commercial_impact_inputs",
+        "field_order": 5,
+        "component": "number_with_unit",
+        "unit_dropdown_required": true,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": true
+      },
+      "user_help_text": "Enter the source-verified value for Spoilage Cost Exposure. The client shows only unit-normalized preview; calculation is server-side.",
+      "warning_if_missing_or_estimated": "Spoilage Cost Exposure is decision-sensitive. Missing or estimated values may move the result to REVIEW or BLOCKED."
+    },
+    {
+      "id": "source_evidence_confirmed",
+      "name": "Source Evidence Confirmed",
+      "symbol": "E",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "index",
+      "allowed_display_units": [],
+      "normalized_id": "",
+      "type": "boolean",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": null,
+        "unit": "index",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Source Evidence Confirmed cannot be below the physical lower bound for this calculation context.",
+        "semantic_error_message_max": "Source Evidence Confirmed exceeds the configured physical hard bound; verify source evidence before execution."
+      },
+      "engineering_range": {
+        "min": null,
+        "max": null,
+        "unit": "index",
+        "source": "Tool-specific engineering range must be configured from user-verified source evidence or internal approved policy.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 4,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "User-verified source document, calibrated measurement, ERP/job record, or approved engineering note.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Reference values are advisory and must not autofill or override measured values."
+      },
+      "source_priority": [
+        "calibrated_measurement",
+        "approved_source_document",
+        "erp_or_job_record",
+        "engineer_verified_assumption"
+      ],
+      "source": "USER_SUPPLIED_OR_SOURCE_EVIDENCE",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "calibrated_measurement",
+          "source_document",
+          "job_record",
+          "inspection_record",
+          "engineer_verified_assumption"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Attach or confirm source evidence before using this value for a decision."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8"
+      ],
+      "output_bindings": [
+        "decision_status",
+        "utilization_index",
+        "safety_margin",
+        "expanded_uncertainty",
+        "money_at_risk",
+        "governing_driver",
+        "fmea_status"
+      ],
+      "warning_bindings": [
+        "W_REFERENCE_RANGE",
+        "W_EVIDENCE",
+        "W_UNCERTAINTY",
+        "W_THRESHOLD"
+      ],
+      "ui_binding": {
+        "group_id": "evidence_and_source_status",
+        "field_order": 99,
+        "component": "boolean",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": true
+      },
+      "user_help_text": "Enter the source-verified value for Source Evidence Confirmed. The client shows only unit-normalized preview; calculation is server-side.",
+      "warning_if_missing_or_estimated": "Source Evidence Confirmed is decision-sensitive. Missing or estimated values may move the result to REVIEW or BLOCKED."
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "n_batch_quantity",
+      "from_input": "batch_quantity",
+      "quantity_kind": "mass",
+      "base_unit": "kg",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "NON_FINITE_REJECT",
+        "PHYSICAL_HARD_BOUND_ENFORCED",
+        "REFERENCE_RANGE_REVIEW"
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_time_exposure",
+      "from_input": "time_exposure",
+      "quantity_kind": "time",
+      "base_unit": "s",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "NON_FINITE_REJECT",
+        "PHYSICAL_HARD_BOUND_ENFORCED",
+        "REFERENCE_RANGE_REVIEW"
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_temperature_margin",
+      "from_input": "temperature_margin",
+      "quantity_kind": "temperature_interval",
+      "base_unit": "K",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "NON_FINITE_REJECT",
+        "PHYSICAL_HARD_BOUND_ENFORCED",
+        "REFERENCE_RANGE_REVIEW"
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_labor_or_energy_cost",
+      "from_input": "labor_or_energy_cost",
+      "quantity_kind": "currency",
+      "base_unit": "display_currency",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "NON_FINITE_REJECT",
+        "PHYSICAL_HARD_BOUND_ENFORCED",
+        "REFERENCE_RANGE_REVIEW"
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_spoilage_cost",
+      "from_input": "spoilage_cost",
+      "quantity_kind": "currency",
+      "base_unit": "display_currency",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "NON_FINITE_REJECT",
+        "PHYSICAL_HARD_BOUND_ENFORCED",
+        "REFERENCE_RANGE_REVIEW"
+      ],
+      "audit_required": true
+    }
+  ],
+  "reference_value_policy": {
+    "enabled": true,
+    "input_reference_ranges_required": true,
+    "reference_values_required": true,
+    "reference_values_are_advisory": true,
+    "reference_values_are_not_default_values": true,
+    "reference_values_are_not_decision_authority": true,
+    "critical_input_autofill_from_reference_value": "FORBIDDEN",
+    "range_violation_behavior": "WARN_OR_REVIEW_NOT_AUTOMATIC_FAIL_UNLESS_PHYSICAL_BOUND_IS_VIOLATED",
+    "source_label_required": true,
+    "unit_awareness_required": true,
+    "calibration_context_required_for_measured_inputs": true
+  },
+  "form_runtime_binding": {
+    "renderer": "UniversalIndustrialDecisionForm",
+    "schema_generation_runtime": "ADMIN_CLI_OR_CI_ONLY",
+    "llm_runtime_usage": "FORBIDDEN",
+    "client_formula_execution": "FORBIDDEN",
+    "server_execution_required": true,
+    "state_management_required": true,
+    "dynamic_ui_contract_required": true,
+    "json_schema_form_substrate_allowed": true,
+    "generic_json_schema_form_alone_sufficient": false,
+    "state_domains": [
+      "schemaState",
+      "profileModeState",
+      "rawInputState",
+      "selectedUnitState",
+      "normalizedPreviewState",
+      "evidenceState",
+      "touchedState",
+      "validationState",
+      "referenceRangeState",
+      "blockerState",
+      "advancedDisclosureState",
+      "scenarioState",
+      "executionState",
+      "serverResponseState",
+      "auditSealState",
+      "exportState"
+    ],
+    "state_transitions": [
+      "INIT_SCHEMA",
+      "VALIDATE_SCHEMA_CONTRACT",
+      "SET_PROFILE_MODE",
+      "SET_INPUT_VALUE",
+      "SET_SELECTED_UNIT",
+      "PRESERVE_PHYSICAL_QUANTITY_ON_UNIT_CHANGE",
+      "UPDATE_NORMALIZED_PREVIEW",
+      "UPDATE_EVIDENCE_STATUS",
+      "RUN_CLIENT_PRECHECK",
+      "BLOCK_CLIENT_EXECUTION",
+      "SUBMIT_SERVER_EXECUTION",
+      "RECEIVE_SERVER_RESPONSE",
+      "RECEIVE_SERVER_BLOCKERS",
+      "RECEIVE_SERVER_ERROR",
+      "RESET_INPUTS",
+      "RESET_RESULT_ONLY"
+    ],
+    "execute_request_contract": {
+      "tool_id": "string",
+      "tool_key": "string",
+      "schema_version": "string",
+      "raw_inputs": "Record<string, unknown>",
+      "selected_units": "Record<string, string>",
+      "output_units": "Record<string, string> | optional",
+      "display_currency": "string | null | optional",
+      "scenario_request": "unknown | null | optional",
+      "user_profile_mode": "quick|engineering|cost|audit"
+    },
+    "execute_response_contract": {
+      "status": "OK|REVIEW|BLOCKED|REPRICE|REJECT|HOLD",
+      "pipeline_state": "string",
+      "outputs": "ServerOutput[]",
+      "warnings": "ServerWarning[]",
+      "normalized_input_audit": "NormalizedInputAudit[]",
+      "reference_range_warnings": "ReferenceRangeWarning[]",
+      "sensitivity": "SensitivityItem[]",
+      "scenario_compare": "ScenarioComparison|null",
+      "proof_pack_public": "PublicProofPack",
+      "decision_interpretation": "DecisionInterpretation",
+      "audit_seal": "AuditSeal",
+      "redaction_status": "PUBLIC_SAFE_REDACTED|INTERNAL_TRACE_RESTRICTED|REDACTION_NOT_REQUIRED|REDACTION_FAILED_BLOCKED"
+    }
+  },
+  "physical_bounds_policy": {
+    "enabled": true,
+    "server_enforced": true,
+    "client_precheck_allowed": true,
+    "violation_behavior": "BLOCK_CALCULATION",
+    "semantic_error_required": true,
+    "non_finite_number_behavior": "BLOCK_CALCULATION"
+  },
+  "validation_contract": {
+    "fail_closed": true,
+    "semantic_errors_required": true,
+    "rules": [
+      {
+        "id": "V_MISSING_REQUIRED_INPUT",
+        "type": "PHYSICAL_BOUND",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "A required input is missing.",
+        "severity": "BLOCKER",
+        "behavior": "BLOCK",
+        "semantic_message": "Required input is missing.",
+        "why_it_matters": "Missing inputs prevent deterministic execution.",
+        "suggested_action": "Enter the missing value or confirm no calculation should be run."
+      },
+      {
+        "id": "V_MISSING_UNIT",
+        "type": "UNIT",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "A unit-selectable input has no selected unit.",
+        "severity": "BLOCKER",
+        "behavior": "BLOCK",
+        "semantic_message": "Selected unit is missing.",
+        "why_it_matters": "Unit ambiguity can create wrong engineering outputs.",
+        "suggested_action": "Select the display unit before execution."
+      },
+      {
+        "id": "V_MISSING_CONVERSION",
+        "type": "UNIT",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Selected unit is absent from the conversion registry.",
+        "severity": "BLOCKER",
+        "behavior": "BLOCK",
+        "semantic_message": "Unsupported unit conversion.",
+        "why_it_matters": "Unsupported conversion can corrupt normalized inputs.",
+        "suggested_action": "Use an approved display unit."
+      },
+      {
+        "id": "V_NON_FINITE_INPUT",
+        "type": "NON_FINITE",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Input is NaN, Infinity, or non-numeric.",
+        "severity": "BLOCKER",
+        "behavior": "BLOCK",
+        "semantic_message": "Input must be a finite number.",
+        "why_it_matters": "Non-finite values break deterministic calculation.",
+        "suggested_action": "Correct the value."
+      },
+      {
+        "id": "V_NON_FINITE_OUTPUT",
+        "type": "NON_FINITE",
+        "affected_inputs": [],
+        "affected_outputs": [
+          "*"
+        ],
+        "condition_description": "Server output is non-finite.",
+        "severity": "BLOCKER",
+        "behavior": "BLOCK",
+        "semantic_message": "Output is non-finite and cannot be displayed.",
+        "why_it_matters": "Non-finite output indicates invalid formula path or input.",
+        "suggested_action": "Block public response and inspect server trace."
+      },
+      {
+        "id": "V_PHYSICAL_BOUND",
+        "type": "PHYSICAL_BOUND",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Physical hard bound is violated.",
+        "severity": "BLOCKER",
+        "behavior": "BLOCK",
+        "semantic_message": "Value violates a physical hard bound.",
+        "why_it_matters": "Impossible or unsafe values must fail closed.",
+        "suggested_action": "Correct value or source evidence."
+      },
+      {
+        "id": "V_ENGINEERING_RANGE_LOW",
+        "type": "ENGINEERING_RANGE",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Input is below advisory engineering range.",
+        "severity": "WARNING",
+        "behavior": "WARN",
+        "semantic_message": "Value is below the advisory engineering range.",
+        "why_it_matters": "Unusual values may indicate wrong units or source data.",
+        "suggested_action": "Verify source evidence."
+      },
+      {
+        "id": "V_ENGINEERING_RANGE_HIGH",
+        "type": "ENGINEERING_RANGE",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Input is above advisory engineering range.",
+        "severity": "WARNING",
+        "behavior": "WARN",
+        "semantic_message": "Value is above the advisory engineering range.",
+        "why_it_matters": "Unusual values may indicate wrong units or source data.",
+        "suggested_action": "Verify source evidence."
+      },
+      {
+        "id": "V_EVIDENCE_MISSING",
+        "type": "EVIDENCE",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Critical input lacks source evidence.",
+        "severity": "CRITICAL",
+        "behavior": "BLOCK",
+        "semantic_message": "Critical source evidence is missing.",
+        "why_it_matters": "The result may not be defensible without evidence.",
+        "suggested_action": "Attach or confirm source evidence."
+      },
+      {
+        "id": "V_HIDDEN_DEFAULT",
+        "type": "STANDARD_VALUE",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Critical input uses a hidden default.",
+        "severity": "CRITICAL",
+        "behavior": "BLOCK",
+        "semantic_message": "Hidden defaults are forbidden for critical inputs.",
+        "why_it_matters": "Hidden defaults create false precision.",
+        "suggested_action": "Replace default with user-verified value."
+      },
+      {
+        "id": "V_UNVERIFIED_SMART_DEFAULT",
+        "type": "STANDARD_VALUE",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Unverified smart default used as critical final value.",
+        "severity": "CRITICAL",
+        "behavior": "BLOCK",
+        "semantic_message": "Unverified default cannot be final critical input.",
+        "why_it_matters": "Smart defaults are suggestions only.",
+        "suggested_action": "Verify or replace the value."
+      },
+      {
+        "id": "V_RAW_INPUT_IN_FORMULA",
+        "type": "DEPENDENCY",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [
+          "*"
+        ],
+        "condition_description": "Formula uses raw input ID instead of normalized input ID.",
+        "severity": "CRITICAL",
+        "behavior": "BLOCK",
+        "semantic_message": "Formula must use normalized base-unit input IDs only.",
+        "why_it_matters": "Raw units can create wrong results.",
+        "suggested_action": "Fix formula registry binding."
+      },
+      {
+        "id": "V_PUBLIC_FORMULA_LEAK",
+        "type": "DEPENDENCY",
+        "affected_inputs": [],
+        "affected_outputs": [
+          "*"
+        ],
+        "condition_description": "Exact formula expression appears in public response or export.",
+        "severity": "CRITICAL",
+        "behavior": "BLOCK",
+        "semantic_message": "Public formula expression leak detected.",
+        "why_it_matters": "Protected formulas must remain server-only.",
+        "suggested_action": "Block response and redact."
+      },
+      {
+        "id": "V_ORPHAN_INPUT",
+        "type": "DEPENDENCY",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Input is not bound to formula, output, validation, warning, audit, proof pack, or UI.",
+        "severity": "WARNING",
+        "behavior": "REVIEW",
+        "semantic_message": "Orphan input detected.",
+        "why_it_matters": "Orphan fields confuse users and weaken auditability.",
+        "suggested_action": "Bind or remove input."
+      },
+      {
+        "id": "V_ORPHAN_NORMALIZED_INPUT",
+        "type": "DEPENDENCY",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "Normalized input is not bound to formula graph.",
+        "severity": "WARNING",
+        "behavior": "REVIEW",
+        "semantic_message": "Orphan normalized input detected.",
+        "why_it_matters": "Unbound normalized data indicates schema inconsistency.",
+        "suggested_action": "Bind or remove normalized input."
+      },
+      {
+        "id": "V_ORPHAN_FORMULA",
+        "type": "DEPENDENCY",
+        "affected_inputs": [],
+        "affected_outputs": [
+          "*"
+        ],
+        "condition_description": "Formula is not bound to an output.",
+        "severity": "WARNING",
+        "behavior": "REVIEW",
+        "semantic_message": "Orphan formula detected.",
+        "why_it_matters": "Unbound formula stage cannot be audited properly.",
+        "suggested_action": "Bind formula to output."
+      },
+      {
+        "id": "V_ORPHAN_OUTPUT",
+        "type": "DEPENDENCY",
+        "affected_inputs": [],
+        "affected_outputs": [
+          "*"
+        ],
+        "condition_description": "Output lacks formula source or decision use.",
+        "severity": "WARNING",
+        "behavior": "REVIEW",
+        "semantic_message": "Orphan output detected.",
+        "why_it_matters": "Every output must have interpretation and source.",
+        "suggested_action": "Bind output or remove it."
+      },
+      {
+        "id": "V_ORPHAN_WARNING",
+        "type": "DEPENDENCY",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [
+          "*"
+        ],
+        "condition_description": "Warning is not bound to input or output.",
+        "severity": "WARNING",
+        "behavior": "REVIEW",
+        "semantic_message": "Orphan warning detected.",
+        "why_it_matters": "Unbound warnings cannot guide action.",
+        "suggested_action": "Bind warning."
+      },
+      {
+        "id": "V_ORPHAN_UI_FIELD",
+        "type": "DEPENDENCY",
+        "affected_inputs": [
+          "*"
+        ],
+        "affected_outputs": [],
+        "condition_description": "UI field lacks input binding.",
+        "severity": "WARNING",
+        "behavior": "REVIEW",
+        "semantic_message": "Orphan UI field detected.",
+        "why_it_matters": "Unbound UI fields create unusable forms.",
+        "suggested_action": "Bind UI field."
+      }
+    ]
+  },
+  "derating_contract": {
+    "enabled": true,
+    "rules": [
+      {
+        "id": "D1",
+        "name": "Evidence and condition derating",
+        "driver_input": "source_evidence_confirmed",
+        "affected_inputs": [
+          "batch_quantity",
+          "time_exposure",
+          "temperature_margin",
+          "labor_or_energy_cost",
+          "spoilage_cost",
+          "source_evidence_confirmed"
+        ],
+        "affected_formulas": [
+          "F2",
+          "F3",
+          "F4",
+          "F8"
+        ],
+        "affected_outputs": [
+          "safety_margin",
+          "utilization_index",
+          "decision_status"
+        ],
+        "derating_source": "USER_VERIFIED_TABLE",
+        "source_status": "USER_MUST_VERIFY",
+        "public_note": "Derating must come from user-verified source evidence or approved internal policy. Paid standard tables are not reproduced.",
+        "paid_standard_table_reproduction": "FORBIDDEN",
+        "missing_derating_data_behavior": "REVIEW"
+      }
+    ]
+  },
+  "precision_policy": {
+    "internal_calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+    "rounding_rule": "DISPLAY_ONLY",
+    "financial_outputs_decimals": 2,
+    "engineering_outputs_decimals": 3,
+    "audit_hash_uses_unrounded_values": true
+  },
+  "formulas": [
+    {
+      "id": "F1",
+      "name": "Normalized demand or exposure model",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "uses": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost"
+      ],
+      "output": "demand_or_exposure_index",
+      "unit": "index",
+      "proof_role": "LOAD_EFFECT",
+      "standard_clause_bindings": [],
+      "input_bindings": [
+        "batch_quantity",
+        "time_exposure",
+        "temperature_margin",
+        "labor_or_energy_cost",
+        "spoilage_cost",
+        "source_evidence_confirmed"
+      ],
+      "normalized_input_bindings": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost"
+      ],
+      "output_bindings": [
+        "utilization_index",
+        "governing_driver"
+      ],
+      "assumptions": [
+        "Inputs are normalized to base units before server-side formula execution.",
+        "Reference ranges are advisory and do not replace user-verified measured values."
+      ],
+      "limitations": [
+        "This stage is a decision-support screening model and is not a certification, legal proof, or authority approval."
+      ],
+      "edge_cases": [
+        "Missing evidence, non-finite normalized values, or hard-bound violations block execution."
+      ],
+      "public_proof_summary": "Builds the normalized demand or exposure side of the decision using user-verified inputs.",
+      "protected_methodology_summary": "Server-side formula registry combines normalized demand, process, quality, and evidence variables without exposing exact expressions.",
+      "checker_note": "Verify source evidence and units before relying on the demand or exposure index.",
+      "acceptance_logic": "Demand/exposure is acceptable only when the server-owned margin and uncertainty checks remain inside approved limits.",
+      "rejection_logic": "Reject or block when source evidence is missing for critical values or demand exceeds verified capacity after uncertainty.",
+      "review_required_logic": "Review when the dominant driver is estimated, outside advisory range, or close to the decision threshold.",
+      "uncertainty_expression": "Combined standard uncertainty is computed server-side from Type A and Type B input components.",
+      "formula_leak_risk": "HIGH"
+    },
+    {
+      "id": "F2",
+      "name": "Verified capacity or capability model",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "uses": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output": "verified_capacity_or_capability_index",
+      "unit": "index",
+      "proof_role": "RESISTANCE",
+      "standard_clause_bindings": [],
+      "input_bindings": [
+        "batch_quantity",
+        "time_exposure",
+        "temperature_margin",
+        "labor_or_energy_cost",
+        "spoilage_cost",
+        "source_evidence_confirmed"
+      ],
+      "normalized_input_bindings": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output_bindings": [
+        "safety_margin",
+        "governing_driver"
+      ],
+      "assumptions": [
+        "Capacity, capability, or acceptable limit values must be user-verified when standards-sensitive."
+      ],
+      "limitations": [
+        "No paid standard table value is reproduced or implied."
+      ],
+      "edge_cases": [
+        "If capacity is zero, negative, missing, or unsupported, execution is blocked."
+      ],
+      "public_proof_summary": "Builds the evidence-backed capacity, capability, or target side of the decision.",
+      "protected_methodology_summary": "Server-side registry applies verified capacity/capability values, source status, and derating where applicable.",
+      "checker_note": "Confirm material/process/source evidence and any derating basis before final decision.",
+      "acceptance_logic": "Capacity/capability must remain above demand/exposure after derating and uncertainty review.",
+      "rejection_logic": "Reject when verified capacity/capability cannot be proven or is exceeded by demand/exposure.",
+      "review_required_logic": "Review when capacity evidence is partial or when derating data is user-supplied but not verified.",
+      "uncertainty_expression": "Capacity uncertainty is combined with demand uncertainty in the server-owned decision model.",
+      "formula_leak_risk": "HIGH"
+    },
+    {
+      "id": "F3",
+      "name": "Utilization and decision margin model",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "uses": [
+        "demand_or_exposure_index",
+        "verified_capacity_or_capability_index"
+      ],
+      "output": "utilization_index",
+      "unit": "index",
+      "proof_role": "UTILIZATION",
+      "standard_clause_bindings": [],
+      "input_bindings": [
+        "batch_quantity",
+        "time_exposure",
+        "temperature_margin",
+        "labor_or_energy_cost",
+        "spoilage_cost",
+        "source_evidence_confirmed"
+      ],
+      "normalized_input_bindings": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output_bindings": [
+        "utilization_index",
+        "safety_margin",
+        "decision_status"
+      ],
+      "assumptions": [
+        "The governing margin is derived from normalized demand/exposure versus verified capacity/capability."
+      ],
+      "limitations": [
+        "Thresholds are not certification limits unless the owner supplies verified applicable values."
+      ],
+      "edge_cases": [
+        "Decision flips are flagged when the uncertainty band crosses the configured margin threshold."
+      ],
+      "public_proof_summary": "Compares exposure to verified capability and reports the governing margin.",
+      "protected_methodology_summary": "Exact utilization and threshold logic is server-only and redacted from public exports.",
+      "checker_note": "Review governing inputs when utilization approaches the review band.",
+      "acceptance_logic": "PASS only when margin, evidence, and uncertainty checks all pass.",
+      "rejection_logic": "REJECT or BLOCK when the margin is negative or evidence cannot support the result.",
+      "review_required_logic": "REVIEW when margin is narrow, evidence is partial, or uncertainty crosses the threshold.",
+      "uncertainty_expression": "Expanded uncertainty is computed server-side and displayed as value ± expanded uncertainty.",
+      "formula_leak_risk": "HIGH"
+    },
+    {
+      "id": "F4",
+      "name": "Derating and confidence adjustment model",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "uses": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output": "derated_margin_index",
+      "unit": "index",
+      "proof_role": "DERATING",
+      "standard_clause_bindings": [],
+      "input_bindings": [
+        "batch_quantity",
+        "time_exposure",
+        "temperature_margin",
+        "labor_or_energy_cost",
+        "spoilage_cost",
+        "source_evidence_confirmed"
+      ],
+      "normalized_input_bindings": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output_bindings": [
+        "safety_margin",
+        "governing_driver"
+      ],
+      "assumptions": [
+        "Derating is applied only from user-verified source evidence or approved internal policy."
+      ],
+      "limitations": [
+        "No hidden derating default is allowed for critical decisions."
+      ],
+      "edge_cases": [
+        "Missing derating evidence triggers REVIEW or BLOCK depending on risk level."
+      ],
+      "public_proof_summary": "Adjusts margin for source confidence, derating, and evidence completeness.",
+      "protected_methodology_summary": "Derating arithmetic and exact confidence scoring remain server-side.",
+      "checker_note": "Confirm derating source status before approving a high-risk result.",
+      "acceptance_logic": "Adjusted margin must stay inside the acceptable decision band.",
+      "rejection_logic": "Block when derating data is required but not source-verified.",
+      "review_required_logic": "Review when derating materially changes the decision state.",
+      "uncertainty_expression": "Derating sensitivity is included in the uncertainty and scenario comparison outputs.",
+      "formula_leak_risk": "MEDIUM"
+    },
+    {
+      "id": "F5",
+      "name": "Uncertainty and sensitivity model",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "uses": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output": "expanded_uncertainty",
+      "unit": "index",
+      "proof_role": "UNCERTAINTY",
+      "standard_clause_bindings": [],
+      "input_bindings": [
+        "batch_quantity",
+        "time_exposure",
+        "temperature_margin",
+        "labor_or_energy_cost",
+        "spoilage_cost",
+        "source_evidence_confirmed"
+      ],
+      "normalized_input_bindings": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output_bindings": [
+        "expanded_uncertainty",
+        "governing_driver"
+      ],
+      "assumptions": [
+        "Type A and Type B uncertainty components are supported when supplied."
+      ],
+      "limitations": [
+        "If critical uncertainty data is absent, result moves to REVIEW or BLOCKED according to risk level."
+      ],
+      "edge_cases": [
+        "Uncertainty band crossing the threshold triggers FMEA and REVIEW."
+      ],
+      "public_proof_summary": "Ranks the variables most likely to flip the decision.",
+      "protected_methodology_summary": "Sensitivity coefficients and exact uncertainty propagation remain server-side.",
+      "checker_note": "Use sensitivity output to request the highest-value missing evidence first.",
+      "acceptance_logic": "Uncertainty must not cross the decision threshold for an OK result.",
+      "rejection_logic": "Block or review when uncertainty invalidates the claimed margin.",
+      "review_required_logic": "Review when the dominant uncertainty driver is unverified or estimated.",
+      "uncertainty_expression": "Public output format: value ± expanded uncertainty, k=coverage factor.",
+      "formula_leak_risk": "MEDIUM"
+    },
+    {
+      "id": "F6",
+      "name": "Business impact and money-at-risk model",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "uses": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output": "money_at_risk",
+      "unit": "display_currency",
+      "proof_role": "BUSINESS_IMPACT",
+      "standard_clause_bindings": [],
+      "input_bindings": [
+        "batch_quantity",
+        "time_exposure",
+        "temperature_margin",
+        "labor_or_energy_cost",
+        "spoilage_cost",
+        "source_evidence_confirmed"
+      ],
+      "normalized_input_bindings": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output_bindings": [
+        "money_at_risk"
+      ],
+      "assumptions": [
+        "Currency values are user-entered display currency only; no hidden FX conversion is performed."
+      ],
+      "limitations": [
+        "Commercial exposure is a decision-support estimate, not accounting proof."
+      ],
+      "edge_cases": [
+        "Missing cost data can still allow engineering review but blocks commercial impact precision."
+      ],
+      "public_proof_summary": "Converts technical margin and evidence gaps into commercial exposure.",
+      "protected_methodology_summary": "Exact weighting and scenario impact logic is server-only.",
+      "checker_note": "Validate cost basis with quote, ERP, invoice, tariff, or owner-approved estimate.",
+      "acceptance_logic": "Commercial impact supports proceed/reprice/hold decision when evidence is sufficient.",
+      "rejection_logic": "Reprice or reject when money-at-risk exceeds the configured tolerance.",
+      "review_required_logic": "Review when cost drivers are estimated or incomplete.",
+      "uncertainty_expression": "Commercial uncertainty follows the dominant technical and cost-input uncertainty drivers.",
+      "formula_leak_risk": "MEDIUM"
+    },
+    {
+      "id": "F7",
+      "name": "FMEA trigger and risk priority model",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "uses": [
+        "utilization_index",
+        "expanded_uncertainty",
+        "money_at_risk"
+      ],
+      "output": "fmea_status",
+      "unit": "index",
+      "proof_role": "DIAGNOSTIC",
+      "standard_clause_bindings": [],
+      "input_bindings": [
+        "batch_quantity",
+        "time_exposure",
+        "temperature_margin",
+        "labor_or_energy_cost",
+        "spoilage_cost",
+        "source_evidence_confirmed"
+      ],
+      "normalized_input_bindings": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output_bindings": [
+        "fmea_status",
+        "decision_status"
+      ],
+      "assumptions": [
+        "FMEA is triggered for high utilization, low confidence, threshold-crossing uncertainty, or missing critical evidence."
+      ],
+      "limitations": [
+        "FMEA ranking is decision support and must be reviewed by the responsible owner."
+      ],
+      "edge_cases": [
+        "Missing critical evidence triggers FMEA even if the numeric margin appears acceptable."
+      ],
+      "public_proof_summary": "Creates a public-safe FMEA summary when the decision risk is elevated.",
+      "protected_methodology_summary": "Risk scoring weights remain server-side and audit-controlled.",
+      "checker_note": "Confirm severity, occurrence, detection, and mitigation owner for each triggered failure mode.",
+      "acceptance_logic": "No critical FMEA item remains open for OK decision.",
+      "rejection_logic": "Block when a critical failure mode has no control or mitigation evidence.",
+      "review_required_logic": "Review when RPN is elevated or mitigation owner is missing.",
+      "uncertainty_expression": "Uncertainty-driven threshold crossing increases occurrence or detection risk.",
+      "formula_leak_risk": "LOW"
+    },
+    {
+      "id": "F8",
+      "name": "Server-owned decision state model",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "uses": [
+        "utilization_index",
+        "derated_margin_index",
+        "expanded_uncertainty",
+        "money_at_risk",
+        "fmea_status"
+      ],
+      "output": "decision_status",
+      "unit": "index",
+      "proof_role": "DECISION_RULE",
+      "standard_clause_bindings": [],
+      "input_bindings": [
+        "batch_quantity",
+        "time_exposure",
+        "temperature_margin",
+        "labor_or_energy_cost",
+        "spoilage_cost",
+        "source_evidence_confirmed"
+      ],
+      "normalized_input_bindings": [
+        "n_batch_quantity",
+        "n_time_exposure",
+        "n_temperature_margin",
+        "n_labor_or_energy_cost",
+        "n_spoilage_cost"
+      ],
+      "output_bindings": [
+        "decision_status"
+      ],
+      "assumptions": [
+        "Final status is generated only by the deterministic server runtime."
+      ],
+      "limitations": [
+        "This tool does not replace qualified engineering, quality, legal, accounting, or regulatory review."
+      ],
+      "edge_cases": [
+        "Redaction failure blocks public response and export."
+      ],
+      "public_proof_summary": "Generates a direct decision recommendation for whether to serve, hold, discard, adjust labor/menu/cold-chain plan, or escalate for food safety review.",
+      "protected_methodology_summary": "Exact decision branching logic is server-only and redacted.",
+      "checker_note": "Check the audit seal, evidence register, and dominant sensitivity driver before acting.",
+      "acceptance_logic": "OK or PASS requires margin, evidence, uncertainty, and redaction checks to pass.",
+      "rejection_logic": "REJECT, HOLD, or BLOCKED status is produced when core safety, evidence, or commercial thresholds fail.",
+      "review_required_logic": "REVIEW status is produced for narrow margin, missing evidence, or threshold-crossing uncertainty.",
+      "uncertainty_expression": "Decision state considers expanded uncertainty and scenario sensitivity.",
+      "formula_leak_risk": "HIGH"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "decision_status",
+      "name": "Decision Status",
+      "symbol": "DS",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [],
+      "type": "enum",
+      "formula_source": "F8",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "PASS_FAIL",
+      "acceptance_threshold": "Server-owned approved threshold; no public exact formula expression is exposed.",
+      "review_threshold": "Review band is configured by approved schema, risk level, source evidence, and uncertainty crossing.",
+      "failure_threshold": "Blocked or rejected when physical bounds, evidence, redaction, or margin checks fail.",
+      "governing_clause": "User-verified standards context only; no clause is invented in this schema.",
+      "governing_formula": "F8",
+      "governing_input_sensitivity": [
+        "dominant_uncertainty_driver",
+        "critical_evidence_status",
+        "derated_margin_index"
+      ],
+      "public_explanation": "Shows whether the user should serve, hold, discard, adjust labor/menu/cold-chain plan, or escalate for food safety review.",
+      "operator_explanation": "Use this as the immediate action label; do not override BLOCKED or REVIEW without source evidence.",
+      "engineer_explanation": "Check governing driver, uncertainty band, and source evidence before approving action.",
+      "owner_cfo_explanation": "Connects technical risk to money-at-risk and reprice/hold decisions.",
+      "checker_explanation": "Verify audit seal, source evidence register, redaction status, and deterministic hash consistency.",
+      "hidden_risk_note": "A numerically acceptable result can still be unsafe or commercially wrong if evidence or uncertainty is weak.",
+      "suggested_action": "Act on the displayed status and resolve blockers before export or release.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": null,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    },
+    {
+      "id": "utilization_index",
+      "name": "Utilization Index",
+      "symbol": "U",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [],
+      "type": "number",
+      "formula_source": "F3",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "UTILIZATION",
+      "acceptance_threshold": "Configured server-side by tool risk class and verified source context.",
+      "review_threshold": "Review when close to configured threshold or when uncertainty crosses the limit.",
+      "failure_threshold": "Failure when demand/exposure exceeds verified capability after derating.",
+      "governing_clause": "Context only unless user supplies exact verified references.",
+      "governing_formula": "F3",
+      "governing_input_sensitivity": [
+        "applied_demand_or_exposure",
+        "verified_capacity_or_capability",
+        "derating_factor"
+      ],
+      "public_explanation": "Reports the ratio-like stress between demand/exposure and verified capability.",
+      "operator_explanation": "Higher values mean less remaining margin.",
+      "engineer_explanation": "Use with derated margin and uncertainty, not as a standalone acceptance proof.",
+      "owner_cfo_explanation": "Narrow margin usually increases rework, delay, and claim exposure.",
+      "checker_explanation": "Confirm normalized units, source evidence, and threshold basis.",
+      "hidden_risk_note": "A small data error near the threshold can flip the decision.",
+      "suggested_action": "Review dominant sensitivity driver when utilization is in the review band.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    },
+    {
+      "id": "safety_margin",
+      "name": "Derated Decision Margin",
+      "symbol": "M",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [],
+      "type": "number",
+      "formula_source": "F4",
+      "decision_use": "SECONDARY_METRIC",
+      "proof_status_role": "MARGIN",
+      "acceptance_threshold": "Positive margin after derating and uncertainty review.",
+      "review_threshold": "Narrow or evidence-sensitive margin.",
+      "failure_threshold": "Negative margin or unsupported derating basis.",
+      "governing_clause": "Context only unless user supplies exact verified references.",
+      "governing_formula": "F4",
+      "governing_input_sensitivity": [
+        "derating_factor",
+        "source_evidence_confirmed",
+        "measurement_uncertainty"
+      ],
+      "public_explanation": "Shows the practical remaining margin after evidence and derating adjustments.",
+      "operator_explanation": "Do not proceed on a narrow or negative margin.",
+      "engineer_explanation": "Check whether derating is source-verified and whether uncertainty crosses the limit.",
+      "owner_cfo_explanation": "Margin erosion is the leading signal for reprice, rework, or hold decisions.",
+      "checker_explanation": "Verify the basis of each derating and evidence status.",
+      "hidden_risk_note": "Hidden derating can turn an apparent pass into a field failure or loss-making job.",
+      "suggested_action": "Request missing evidence or increase conservatism before release.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    },
+    {
+      "id": "expanded_uncertainty",
+      "name": "Expanded Uncertainty",
+      "symbol": "Uexp",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [],
+      "type": "number",
+      "formula_source": "F5",
+      "decision_use": "SENSITIVITY",
+      "proof_status_role": "DIAGNOSTIC",
+      "acceptance_threshold": "Uncertainty band must not cross the server-owned decision threshold.",
+      "review_threshold": "Review when uncertainty materially affects decision status.",
+      "failure_threshold": "Block or review when critical uncertainty is missing for high-risk decisions.",
+      "governing_clause": "GUM-context uncertainty model; no certification claim.",
+      "governing_formula": "F5",
+      "governing_input_sensitivity": [
+        "dominant_uncertainty_driver",
+        "measurement_uncertainty",
+        "source_confidence"
+      ],
+      "public_explanation": "Displays the uncertainty band used to judge whether the result is stable.",
+      "operator_explanation": "If uncertainty is large, treat the output as unstable until evidence improves.",
+      "engineer_explanation": "Use the dominant driver list to prioritize new measurements or documents.",
+      "owner_cfo_explanation": "Uncertainty widens the commercial risk band and can justify hold or reprice.",
+      "checker_explanation": "Confirm Type A/Type B inputs and coverage factor treatment.",
+      "hidden_risk_note": "A result close to the threshold is not robust if uncertainty crosses it.",
+      "suggested_action": "Improve the highest-sensitivity measurement first.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    },
+    {
+      "id": "money_at_risk",
+      "name": "Money at Risk",
+      "symbol": "MAR",
+      "quantity_kind": "currency",
+      "base_unit": "display_currency",
+      "allowed_display_units": [
+        "display_currency"
+      ],
+      "type": "number",
+      "formula_source": "F6",
+      "decision_use": "BUSINESS_IMPACT",
+      "proof_status_role": "BUSINESS_IMPACT",
+      "acceptance_threshold": "Owner-configured acceptable exposure.",
+      "review_threshold": "Review when exposure is material to quote margin, downtime, claim, scrap, or rework.",
+      "failure_threshold": "Reprice, hold, or reject when exposure exceeds the configured tolerance.",
+      "governing_clause": "Commercial evidence only; no accounting proof claim.",
+      "governing_formula": "F6",
+      "governing_input_sensitivity": [
+        "commercial_exposure",
+        "cost_rate",
+        "scrap_rework_factor",
+        "downtime_cost"
+      ],
+      "public_explanation": "Translates the technical decision into commercial exposure.",
+      "operator_explanation": "Use this to understand why a technically small issue may still block release.",
+      "engineer_explanation": "Use with margin and uncertainty, not as standalone engineering acceptance.",
+      "owner_cfo_explanation": "Supports reprice, renegotiate, repair, or stop-loss action.",
+      "checker_explanation": "Confirm cost basis from ERP, quote, tariff, invoice, or owner-approved estimate.",
+      "hidden_risk_note": "Underestimated hidden cost creates false profit and bad pricing decisions.",
+      "suggested_action": "Update cost basis and rerun before customer commitment.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "governing_driver",
+      "name": "Governing Driver",
+      "symbol": "GD",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [],
+      "type": "string",
+      "formula_source": "F5",
+      "decision_use": "WARNING_DRIVER",
+      "proof_status_role": "DIAGNOSTIC",
+      "acceptance_threshold": "Not applicable.",
+      "review_threshold": "Review when the governing driver is estimated or unverified.",
+      "failure_threshold": "Block when the governing driver is a missing critical evidence item.",
+      "governing_clause": "Context only.",
+      "governing_formula": "F5",
+      "governing_input_sensitivity": [
+        "dominant_uncertainty_driver"
+      ],
+      "public_explanation": "Names the input or evidence gap most likely to change the decision.",
+      "operator_explanation": "Fix this item first.",
+      "engineer_explanation": "Use this to prioritize verification work.",
+      "owner_cfo_explanation": "Shows the cheapest lever to reduce risk or avoid loss.",
+      "checker_explanation": "Confirm that the audit record captures this driver.",
+      "hidden_risk_note": "The decision can be misleading if the governing driver is not verified.",
+      "suggested_action": "Collect better evidence for the governing driver.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": null,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    },
+    {
+      "id": "fmea_status",
+      "name": "FMEA Trigger Status",
+      "symbol": "FMEA",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [],
+      "type": "enum",
+      "formula_source": "F7",
+      "decision_use": "AUDIT",
+      "proof_status_role": "WARNING_SUMMARY",
+      "acceptance_threshold": "No elevated failure mode remains open.",
+      "review_threshold": "FMEA required when margin, evidence, or uncertainty risk is elevated.",
+      "failure_threshold": "Block when critical failure mode has no mitigation owner.",
+      "governing_clause": "Internal risk review context.",
+      "governing_formula": "F7",
+      "governing_input_sensitivity": [
+        "utilization_index",
+        "expanded_uncertainty",
+        "source_evidence_confirmed"
+      ],
+      "public_explanation": "Indicates whether a failure-mode review is required.",
+      "operator_explanation": "Do not bypass a triggered FMEA.",
+      "engineer_explanation": "Review severity, occurrence, detection, RPN, control, and mitigation action.",
+      "owner_cfo_explanation": "FMEA helps avoid repeating loss-making or unsafe decisions.",
+      "checker_explanation": "Confirm FMEA summary appears in the public proof pack when triggered.",
+      "hidden_risk_note": "A narrow numeric pass without FMEA can hide a high-consequence failure mode.",
+      "suggested_action": "Assign mitigation owner before release.",
+      "evidence_level": "FULL",
+      "output_format": {
+        "decimals": null,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    }
+  ],
+  "output_formatting": {
+    "status_labels": [
+      "OK",
+      "REVIEW",
+      "BLOCKED",
+      "REPRICE",
+      "REJECT",
+      "HOLD"
+    ],
+    "number_format": "DISPLAY_ONLY",
+    "currency_format": "USER_DISPLAY_CURRENCY",
+    "uncertainty_format": "value ± expanded_uncertainty unit, k=coverage_factor",
+    "no_color_only_status": true
+  },
+  "decision_interpretation_contract": {
+    "enabled": true,
+    "server_generated_only": true,
+    "public_safe": true,
+    "profile_summaries_required": true,
+    "hidden_risk_required": true,
+    "money_impact_required_when_commercial_inputs_exist": true,
+    "fields": {
+      "primary_decision": "PASS|REVIEW|BLOCKED|REPRICE|REJECT|HOLD",
+      "primary_reason": "Server-owned reason based on margin, evidence, uncertainty, FMEA, and money-at-risk.",
+      "user_profile_summary": {
+        "operator": "Use the status and blockers to decide whether the operation can proceed.",
+        "engineer": "Review margin, evidence, uncertainty, derating, and governing driver before approval.",
+        "owner_cfo": "Use money-at-risk to decide whether to reprice, hold, repair, outsource, or reject.",
+        "checker_auditor": "Verify audit seal, normalized input audit, redaction status, and proof-pack completeness."
+      },
+      "hidden_risk_explanations": [
+        "Narrow margin can flip under measurement uncertainty.",
+        "Missing evidence can invalidate an apparently acceptable result.",
+        "Commercial exposure may exceed technical issue size."
+      ],
+      "money_impact_summary": {
+        "enabled": true,
+        "source": "business_impact_contract"
+      },
+      "what_can_flip_the_decision": [
+        "dominant uncertainty driver",
+        "missing critical evidence",
+        "unit conversion error",
+        "derating factor",
+        "cost basis"
+      ],
+      "next_best_actions": [
+        "Resolve BLOCKER items.",
+        "Verify governing driver.",
+        "Rerun after evidence update.",
+        "Export proof pack only after public-safe redaction succeeds."
+      ],
+      "premium_unlock_reason": "Unlock protected methodology, source-evidence proof pack, uncertainty, FMEA, sensitivity, and commercial impact in one auditable decision record."
+    }
+  },
+  "business_impact_contract": {
+    "enabled": true,
+    "impact_types": [
+      "scrap",
+      "quality",
+      "energy",
+      "quote_margin"
+    ],
+    "currency_policy": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION",
+    "required_outputs": [
+      "money_at_risk",
+      "governing_driver",
+      "decision_status"
+    ],
+    "money_at_risk_output_id": "money_at_risk",
+    "main_cost_driver_output_id": "governing_driver",
+    "quote_or_decision_impact_output_id": "decision_status",
+    "public_value_statement": "Connects the technical decision to money-at-risk without hidden FX conversion or accounting-proof claims.",
+    "premium_unlock_reason": "Shows whether the next best business action is proceed, hold, reprice, repair, outsource, scrap, or reject."
+  },
+  "engine_rules": {
+    "deterministic_runtime_only": true,
+    "llm_runtime_forbidden": true,
+    "server_side_formula_execution_only": true,
+    "normalized_base_unit_formula_inputs_only": true,
+    "formula_leak_rejection": true,
+    "non_finite_rejection": true,
+    "fail_closed_behavior": true,
+    "physical_bound_blocking": true,
+    "reference_range_warning_or_review": true,
+    "derating_owned_by_server": true,
+    "uncertainty_owned_by_server": true,
+    "fmea_owned_by_server": true,
+    "audit_seal_required": true,
+    "public_response_redaction_required": true
+  },
+  "uncertainty_model": {
+    "enabled": true,
+    "type_a_uncertainty_support": true,
+    "type_b_uncertainty_support": true,
+    "combined_standard_uncertainty": true,
+    "expanded_uncertainty_with_coverage_factor": true,
+    "sensitivity_coefficients_or_ranking": true,
+    "dominant_uncertainty_driver": true,
+    "uncertainty_band_crossing_threshold_review_logic": true,
+    "display_only_rounded_uncertainty": true,
+    "missing_critical_uncertainty_behavior": "REVIEW"
+  },
+  "safety_factor_gauges": [
+    {
+      "id": "utilization_gauge",
+      "name": "Utilization Gauge",
+      "source_output": "utilization_index",
+      "states": [
+        "PASS",
+        "REVIEW",
+        "WARNING",
+        "CRITICAL",
+        "BLOCKED"
+      ],
+      "state_messages": {
+        "PASS": "Margin is acceptable with current evidence.",
+        "REVIEW": "Margin or evidence requires technical review.",
+        "WARNING": "Risk is elevated; verify governing driver.",
+        "CRITICAL": "Do not proceed without engineering review.",
+        "BLOCKED": "Execution or export is blocked."
+      },
+      "no_color_only_status": true
+    },
+    {
+      "id": "evidence_confidence_gauge",
+      "name": "Evidence Confidence Gauge",
+      "source_output": "governing_driver",
+      "states": [
+        "PASS",
+        "REVIEW",
+        "WARNING",
+        "CRITICAL",
+        "BLOCKED"
+      ],
+      "state_messages": {
+        "PASS": "Evidence is sufficient for decision support.",
+        "REVIEW": "Evidence is incomplete or advisory.",
+        "WARNING": "Critical evidence quality is weak.",
+        "CRITICAL": "Critical evidence is missing.",
+        "BLOCKED": "Required evidence is absent."
+      },
+      "no_color_only_status": true
+    },
+    {
+      "id": "uncertainty_gauge",
+      "name": "Uncertainty Stability Gauge",
+      "source_output": "expanded_uncertainty",
+      "states": [
+        "PASS",
+        "REVIEW",
+        "WARNING",
+        "CRITICAL",
+        "BLOCKED"
+      ],
+      "state_messages": {
+        "PASS": "Uncertainty does not cross the decision threshold.",
+        "REVIEW": "Uncertainty may affect the decision.",
+        "WARNING": "Uncertainty is high relative to margin.",
+        "CRITICAL": "Uncertainty can flip the decision.",
+        "BLOCKED": "Uncertainty data is insufficient for critical risk."
+      },
+      "no_color_only_status": true
+    }
+  ],
+  "proof_pack": {
+    "enabled": true,
+    "purpose": "Generate review-ready engineering evidence for technical checking, internal review, audit discussion, and engineering documentation.",
+    "public_disclosure_level": "PROTECTED_METHODOLOGY_NO_EXACT_FORMULA",
+    "internal_disclosure_level": "FULL_FORMULA_TRACE_FOR_ADMIN_AND_TESTING",
+    "sections": [
+      "input summary",
+      "normalized input summary",
+      "reference range review",
+      "source evidence register",
+      "calibration trace summary",
+      "protected methodology summary",
+      "assumptions and limitations",
+      "output table",
+      "uncertainty summary",
+      "warning summary",
+      "FMEA summary when triggered",
+      "business impact summary",
+      "decision interpretation",
+      "audit seal"
+    ],
+    "export_formats": [
+      "PDF",
+      "JSON_AUDIT",
+      "COPY_SUMMARY"
+    ],
+    "public_report_rules": [
+      "Do not expose exact formula expressions.",
+      "Do not expose proprietary coefficients.",
+      "Do not reproduce restricted standard tables.",
+      "Do not claim approval.",
+      "Do not claim certified compliance.",
+      "Do not claim legal proof.",
+      "Do not mention third-party engineering software brands.",
+      "Show source context, use scope, limitation, evidence status, protected methodology, result interpretation, uncertainty, and audit seal."
+    ],
+    "redaction_status_required": "PUBLIC_SAFE_REDACTED"
+  },
+  "audit_trail_contract": {
+    "enabled": true,
+    "report_seal_required": true,
+    "hash_algorithm": "SHA-256",
+    "seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ],
+    "public_audit_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ],
+    "internal_audit_fields": [
+      "private_formula_registry_hash",
+      "internal_checker_trace_hash",
+      "server_runtime_commit"
+    ],
+    "signature_status": "SERVER_SIGNATURE_OPTIONAL",
+    "tamper_warning": "Changing any input, unit, schema version, formula version, or output invalidates the audit seal.",
+    "redaction_status": "PUBLIC_SAFE_REDACTED|INTERNAL_TRACE_RESTRICTED|REDACTION_NOT_REQUIRED|REDACTION_FAILED_BLOCKED"
+  },
+  "export_contract": {
+    "pdf_enabled": true,
+    "json_audit_enabled": true,
+    "copy_summary_enabled": true,
+    "cad_bim_erp_export": {
+      "status": "FUTURE_OPTIONAL_OR_CUSTOM_IMPLEMENTATION",
+      "allowed_formats": [
+        "STEP",
+        "IFC",
+        "BOM_JSON",
+        "ERP_CSV"
+      ],
+      "must_not_claim_native_integration_unless_implemented": true
+    },
+    "export_blocked_when_redaction_fails": true,
+    "public_proof_pack_source": "server_only_proof_pack_builder"
+  },
+  "ui_contract": {
+    "target_renderer": "UniversalIndustrialDecisionForm",
+    "profile_modes": [
+      "quick",
+      "engineering",
+      "cost",
+      "audit"
+    ],
+    "input_groups": [
+      {
+        "id": "operation_context",
+        "title": "Operation Context",
+        "order": 1
+      },
+      {
+        "id": "geometry_or_process_definition",
+        "title": "Geometry or Process Definition",
+        "order": 2
+      },
+      {
+        "id": "material_or_asset_data",
+        "title": "Material or Asset Data",
+        "order": 3
+      },
+      {
+        "id": "load_demand",
+        "title": "Load, Demand, or Production Requirement",
+        "order": 4
+      },
+      {
+        "id": "capacity_resistance",
+        "title": "Capacity, Resistance, or Process Capability",
+        "order": 5
+      },
+      {
+        "id": "quality_tolerance_calibration_data",
+        "title": "Quality, Tolerance, and Calibration Data",
+        "order": 6
+      },
+      {
+        "id": "commercial_impact_inputs",
+        "title": "Commercial Impact Inputs",
+        "order": 7
+      },
+      {
+        "id": "evidence_and_source_status",
+        "title": "Evidence and Source Status",
+        "order": 8
+      },
+      {
+        "id": "advanced_derating_inputs",
+        "title": "Advanced Derating Inputs",
+        "order": 9
+      }
+    ],
+    "sticky_decision_cockpit": true,
+    "mobile_bottom_action_bar": true,
+    "normalized_preview_required": true,
+    "reference_values_visible": true,
+    "evidence_controls_required": true,
+    "semantic_error_summary_required": true,
+    "safety_factor_gauges_required": true,
+    "hidden_risk_panel_required": true,
+    "business_impact_panel_required": true,
+    "standards_clause_panel_required": false,
+    "protected_methodology_panel_required": true,
+    "audit_seal_panel_required": true,
+    "accessibility": {
+      "wcag_target": "WCAG_2_2_AA",
+      "minimum_touch_target_px": 44,
+      "keyboard_navigation_required": true,
+      "numpad_entry_optimized": true,
+      "visible_focus_required": true,
+      "no_color_only_warnings": true,
+      "high_contrast_required": true,
+      "dark_mode_required": false,
+      "mobile_min_width_px": 375,
+      "no_horizontal_overflow": true
+    }
+  },
+  "reference_code": {
+    "typescript_interfaces_required": true,
+    "zod_strict_schema_validation_required": true,
+    "typescript_any_forbidden": true,
+    "eval_forbidden": true,
+    "new_function_forbidden": true,
+    "server_only_deterministic_execution": true,
+    "formula_registry_privacy": "PRIVATE_SERVER_SIDE_REGISTRY_ONLY",
+    "public_response_redaction": "REQUIRED",
+    "test_fixture_requirements": [
+      "schema fixture",
+      "golden input fixture",
+      "golden hash artifact",
+      "public redaction fixture"
+    ],
+    "canonical_redaction_status_single_source_of_truth": true,
+    "executable_state_machine_binding_for_universal_form": true,
+    "approved_schema_fetch_path_required": true,
+    "private_server_side_formula_registry_boundary_required": true,
+    "server_only_proof_pack_builder_module_required": true,
+    "restricted_internal_checker_trace_module_required": true,
+    "golden_fixture_and_hash_storage_required": true,
+    "root_only_route_guard_verification_required": true,
+    "final_v531_integration_report_generation_required": true
+  },
+  "test_plan": [
+    "strict top-level schema keys",
+    "missing required top-level key rejects",
+    "extra top-level key rejects",
+    "schema generation prompt not used in runtime",
+    "LLM runtime usage forbidden",
+    "valid schema renders in UniversalIndustrialDecisionForm",
+    "profile mode switching",
+    "state transition coverage",
+    "unit conversion",
+    "unit-invariance",
+    "unit change preserves physical quantity",
+    "normalized preview does not execute formulas",
+    "physical hard bounds",
+    "engineering reference range warnings",
+    "reference values are visible but do not autofill critical inputs",
+    "semantic errors",
+    "evidence requirement blocking or review",
+    "cross-field derating",
+    "formula graph binding",
+    "public formula leak prevention",
+    "brand safety",
+    "hidden default prevention",
+    "smart default verification",
+    "decision interpretation",
+    "hidden risk panel",
+    "business impact",
+    "FMEA trigger at high utilization or threshold risk",
+    "uncertainty propagation",
+    "audit seal",
+    "audit reproducibility",
+    "public proof pack redaction",
+    "internal checker trace access restriction if implemented",
+    "accessibility",
+    "mobile 375px width",
+    "canonical RedactionStatus consistency between ExecuteResponse and AuditSeal",
+    "redaction failure blocks public response",
+    "state machine is actually bound to UniversalIndustrialDecisionForm",
+    "approved schema fetch path exists and missing schema blocks execution",
+    "private formula registry is server-only and not imported by client code",
+    "proof-pack-builder module exists and produces public-safe proof pack",
+    "internal checker trace module is restricted and never appears in public response",
+    "golden hash storage exists and excludes volatile fields",
+    "root-only route guard runs and passes before integration PASS",
+    "final V5.3.1 integration report format is produced from actual command outputs"
+  ],
+  "red_team_review": {
+    "single_operation_tool": true,
+    "painful_paid_industrial_decision": true,
+    "more_than_basic_calculator": true,
+    "critical_inputs_evidence_aware": true,
+    "reference_ranges_present_and_non_autofill": true,
+    "physical_bounds_separate_from_reference_ranges": true,
+    "formulas_server_only_and_normalized_input_only": true,
+    "public_formula_leakage_prevented_by_policy": true,
+    "uncertainty_fmea_business_impact_hidden_risk_next_action_present": true,
+    "runtime_avoids_llm_calls": true,
+    "universal_form_without_custom_tool_code": true,
+    "state_management_represented": true,
+    "state_machine_must_be_executable_in_integration": true,
+    "canonical_redaction_status_required": true,
+    "approved_schema_fetch_required": true,
+    "private_formula_registry_server_only_required": true,
+    "proof_pack_server_builder_required": true,
+    "internal_checker_trace_restricted": true,
+    "golden_hash_artifacts_required": true,
+    "root_only_route_guard_required_before_pass": true
+  },
+  "metadata": {
+    "schema_version": "5.3.1",
+    "formula_version": "server-registry-v1",
+    "prompt_version": "5.3.1",
+    "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
+    "runtime_llm_usage": "FORBIDDEN",
+    "schema_storage_target": "POSTGRES_JSONB_OR_OBJECT_STORAGE_AFTER_STRICT_VALIDATION",
+    "deterministic_runtime_required": true,
+    "formula_quality_gate": "SECTORCALC_FORMULA_QUALITY_GATE_V5_3_1",
+    "quality_gate_classification": "AUDIT_READY_DECISION_SUPPORT_NOT_CERTIFIED",
+    "change_log_summary": "Generated Cursor-ready V5.3.1 schema contract for Restaurant Cold Chain Accept/Reject Cost Calculator.",
+    "owner_review_required": true,
+    "canonical_redaction_status_required": true,
+    "state_machine_binding_required": true,
+    "approved_schema_fetch_required": true,
+    "private_formula_registry_boundary_required": true,
+    "proof_pack_builder_required": true,
+    "internal_checker_trace_restricted": true,
+    "golden_hash_storage_required": true,
+    "root_only_guard_required": true,
+    "final_integration_report_contract": "V5_3_1_FORMULA_FORM_INTEGRATION_RESULT",
+    "source_workbook": "sectorcalc-tool-portfolio-english.xlsx",
+    "source_row_number": 114
+  }
+}

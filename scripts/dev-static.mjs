@@ -5,7 +5,7 @@
  * PM2 restart handles code changes reliably.
  * Build hatası olursa eski sürüm yayında kalır.
  * 
- * Kullanım: node scripts/dev-static.mjs
+ * Useım: node scripts/dev-static.mjs
  * Browser: http://localhost:3000
  * 
  * Yeniden derleme (kod değişikliği sonrası):

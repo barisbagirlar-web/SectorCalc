@@ -29,7 +29,7 @@ if (json.landingV3 && json.landingV3.features) {
 // Free vs Pro Differentiation (pricing)
 if (json.pricing && json.pricing.plans) {
   json.pricing.plans.forEach(p => {
-    if (p.price === "Credit-based") p.price = "Pay-per-report (No subscriptions)";
+    if (p.price === "Credit-based") p.price = "Share-per-report (No subscriptions)";
     if (p.features) {
       p.features.forEach(f => {
         if (f.sub === "Business impact analysis of your number") f.sub = "Basic output summary";

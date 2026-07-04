@@ -12,7 +12,7 @@ import { loadEnvLocal } from "./ai/load-env-local.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 const LOCALES = ["tr", "de", "fr", "es", "ar"];
-const FIELD_LABEL_MAP_PATH = join(ROOT, "scripts/data/calculator-field-labels-i18n.json");
+const FIELD_LABEL_MAP_PATH = join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json");
 const LOCALE_LABELS = {
   tr: "Turkish",
   de: "German",

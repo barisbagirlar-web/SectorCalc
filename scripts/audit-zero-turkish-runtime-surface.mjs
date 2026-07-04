@@ -27,44 +27,44 @@ const TURKISH_CHARS_REGEX = /[çÇğĞıİöÖşŞüÜ]/;
 // These are matched at word boundaries and camelCase boundaries.
 const TURKISH_TERMS = new Set([
   // 3+ character transliterated Turkish terms
-  "muhendis", "danismani", "danışmanı", "uzmani", "uzmanı",
+  "engineer", "danismani", "danışmanı", "uzmani", "uzmanı",
   "yapisal", "yapısal", "istatistik", "istatistikci",
-  "marangoz", "emlak", "degerleme", "değerleme", "yatirim", "yatırım",
-  "maliyet", "fire", "kapasite", "verim", "oran",
-  "kar", "kâr", "adet", "birim", "alan", "hacim", "basinc", "basınç",
-  "sicaklik", "sıcaklık", "uretim", "üretim", "tasarim", "tasarım",
-  "cevre", "çevre", "surdurulebilirlik", "sürdürülebilirlik",
-  "hidrolik", "demiryolu", "sinyalizasyon", "gunes", "güneş",
-  "ruzgar", "rüzgar", "elektrikci", "elektrikçi", "tesisatci", "tesisatçı",
-  "kaynakci", "kaynakçı", "tornaci", "tornacı", "frezeci",
-  "tamirci", "boya", "insaat", "inşaat",
-  "celik", "çelik", "torna", "tesfiye", "iscilik", "işçilik",
-  "stok", "alacak", "borc", "borç", "veresiye",
-  "agirlik", "ağırlık", "uzunluk", "genislik", "genişlik",
-  "yukseklik", "yükseklik", "derinlik", "yaricap", "yarıçap",
-  "kesit", "hiz", "hız", "ivme", "baslangic", "başlangıç",
-  "bitis", "bitiş", "sonuc", "sonuç", "ortalama", "standart", "sapma",
-  "katsayi", "katsayı", "tutar", "hisse", "tahvil",
-  "odeme", "ödeme", "miktar", "toplam", "fiyat", "direnc", "direnç",
-  "gerilim", "akim", "akım", "taksit", "faiz", "kazanc", "zarar",
-  "gelir", "gider", "donem", "dönem", "kira", "teslimat", "kalite",
-  "musteri", "müşteri", "tedarikci", "tedarikçi", "calisan", "calışan",
+  "marangoz", "realestate", "degerleme", "değerleme", "investment", "yatırım",
+  "cost", "waste", "capacity", "efficiency", "ratio",
+  "profit", "kâr", "count", "unit", "area", "volume", "pressure", "basınç",
+  "temperature", "sıcaklık", "production", "üduction", "design", "tasarım",
+  "environment", "çevre", "sustainability", "sürdürülebilirlik",
+  "hydraulic", "railway", "sinyalizasyon", "solar", "güneş",
+  "wind", "rüzgar", "elektrikci", "elektrikçi", "tesisatci", "tesisatçı",
+  "kaynakci", "resourceçı", "tornaci", "tornacı", "frezeci",
+  "tamirci", "boya", "construction", "inşaat",
+  "steel", "çelik", "torna", "tesfiye", "labor", "işçilik",
+  "inventory", "alacak", "borc", "borç", "veresiye",
+  "weight", "ağırlık", "length", "width", "genişlik",
+  "height", "yükseklik", "derinlik", "yaricap", "yarıçap",
+  "kesit", "speed", "hız", "acceleration", "start", "başlangıç",
+  "finish", "bitiş", "result", "sonuç", "average", "standard", "deviation",
+  "coefficient", "katsayı", "tutar", "hisse", "tahvil",
+  "payment", "ödeme", "quantity", "total", "price", "resistance", "direnç",
+  "stress", "akim", "akım", "taksit", "interest", "kazanc", "loss",
+  "gelir", "expense", "period", "dönem", "rent", "teslimat", "quality",
+  "customer", "müşteri", "supplier", "supplyçi", "running", "calışan",
   "uretici", "üretici", "yay", "rulman", "yatak", "kasnak",
   "kayis", "kayış", "zincir", "bant", "piston",
   "valf", "pompa", "kompresor", "kompresör",
   "pervane", "kanat", "diyafram", "debimetre",
-  "egim", "eğim", "egme", "bukulme", "bükülme",
-  "burkulma", "burulma", "sarfiyat", "yillik", "aylik", "haftalik",
-  "kullanici", "kullanıcı", "hesapla", "rapor", "kayit", "kayıt",
+  "slope", "eğim", "egme", "bukulme", "bükülme",
+  "burkulma", "burulma", "sarfiyat", "annual", "aylik", "haftalik",
+  "user", "useıcı", "calculate", "report", "record", "kayıt",
   "yeni", "eski", "mevcut", "guncel", "güncel",
   "saniye", "katman", "tabaka", "levha", "plaka",
   "eksen", "dilim", "kose", "köşe", "kenar", "kare",
   "dikdortgen", "dikdörtgen", "ucgen", "üçgen", "daire", "cokgen", "çokgen",
-  "dikey", "kolon", "kiris", "kiriş", "doseme", "döşeme",
-  "temel", "duvar", "perde", "cati", "çatı",
+  "dikey", "column", "beam", "kiriş", "doseme", "döşeme",
+  "temel", "wall", "perde", "roof", "çatı",
   "kubbe", "kemer", "merdiven", "korkuluk",
-  "donati", "donatı", "beton",
-  "ahsap", "ahşap", "kompozit",
+  "donati", "donatı", "concrete",
+  "wood", "ahşap", "kompozit",
 ]);
 
 // Short tokens (2 chars) — only matched inside camelCase/snake_case identifiers
@@ -148,7 +148,7 @@ function tokenize(line) {
     }
 
     // For short terms, check if part of a camelCase token
-    // A camelCase token like "icBasinc" would split to ["ic", "Basinc"]
+    // A camelCase token like "icBasinc" would split to ["ic", "Pressure"]
     // We detect camelCase splits and check each part
     const camelParts = lower.split(/(?<=[a-z])(?=[A-Z])|_/);
     for (const part of camelParts) {

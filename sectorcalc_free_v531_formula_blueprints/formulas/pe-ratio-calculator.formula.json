@@ -1,0 +1,167 @@
+{
+  "tool_name": "Pe Ratio Calculator",
+  "tool_key": "pe-ratio-calculator",
+  "slug": "pe-ratio-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "finance-ratio-and-cash-flow",
+  "inputs": [
+    {
+      "id": "initial_amount",
+      "label": "Initial Amount",
+      "unit": "USD",
+      "required": true,
+      "normalized_id": "initial_amount",
+      "description": "Initial Amount",
+      "min": 0
+    },
+    {
+      "id": "final_amount",
+      "label": "Final Amount",
+      "unit": "USD",
+      "required": true,
+      "normalized_id": "final_amount",
+      "description": "Final Amount",
+      "min": 0
+    },
+    {
+      "id": "periods",
+      "label": "Number of Periods",
+      "unit": "period",
+      "required": true,
+      "normalized_id": "periods",
+      "description": "Number of Periods",
+      "min": 1
+    },
+    {
+      "id": "annual_rate",
+      "label": "Annual Rate",
+      "unit": "decimal",
+      "required": true,
+      "normalized_id": "annual_rate",
+      "description": "Annual Rate",
+      "min": 0,
+      "max": 5
+    },
+    {
+      "id": "cash_flow",
+      "label": "Periodic Cash Flow",
+      "unit": "USD",
+      "required": false,
+      "normalized_id": "cash_flow",
+      "description": "Periodic Cash Flow",
+      "min": -1000000000000.0,
+      "max": 1000000000000.0
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "initial_amount",
+      "source_input_id": "initial_amount",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "final_amount",
+      "source_input_id": "final_amount",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "periods",
+      "source_input_id": "periods",
+      "base_unit": "period",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "annual_rate",
+      "source_input_id": "annual_rate",
+      "base_unit": "decimal",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "cash_flow",
+      "source_input_id": "cash_flow",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "net_result",
+      "label": "Primary Result",
+      "unit": "decimal",
+      "description": "Primary Result"
+    },
+    {
+      "id": "annualized_percent",
+      "label": "Annualized Result",
+      "unit": "%",
+      "description": "Annualized Result"
+    },
+    {
+      "id": "risk_flag",
+      "label": "Review Flag",
+      "unit": "status",
+      "description": "Review Flag"
+    }
+  ],
+  "server_formula_steps": [
+    "Validate all monetary and rate inputs as finite numbers.",
+    "Compute absolute gain as final_amount minus initial_amount plus cumulative cash_flow when applicable.",
+    "Compute ratio result as absolute gain divided by initial_amount when initial_amount is positive.",
+    "Compute annualized result as power(final_amount / initial_amount, 1 / periods) minus one when both values are positive.",
+    "Classify REVIEW when denominator inputs are zero or when the output is not finite."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

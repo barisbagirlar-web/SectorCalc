@@ -9,7 +9,7 @@ const ROOT = join(import.meta.dirname, "..");
 const REPORT = join(
   process.env.HOME ?? "",
   "Downloads",
-  "SECTORCALC İÇİN NİHAİ STRATEJİK ARAÇ RAPORU.txt",
+  "SECTORCALC İÇİN NİHAİ STRATEJİK ARAÇ Report.txt",
 );
 
 const text = readFileSync(REPORT, "utf8");
@@ -41,7 +41,7 @@ const CATEGORY_META = [
   },
   {
     id: "electrical-energy-mechanical",
-    tr: "Elektrik, Enerji ve Mekanik",
+    tr: "Elektrik, Energy ve Mekanik",
     en: "Electrical, Energy and Mechanical",
     de: "Elektrik, Energie und Mechanik",
     fr: "Électricité, énergie et mécanique",
@@ -49,7 +49,7 @@ const CATEGORY_META = [
   },
   {
     id: "manufacturing-material-inventory",
-    tr: "İmalat, Malzeme ve Stok",
+    tr: "İmalat, Material ve Inventory",
     en: "Manufacturing, Material and Inventory",
     de: "Fertigung, Material und Lager",
     fr: "Fabrication, matériaux et stock",
@@ -57,7 +57,7 @@ const CATEGORY_META = [
   },
   {
     id: "finance-accounting-hr",
-    tr: "Finans, Muhasebe ve İK",
+    tr: "Finance, Accounting ve İK",
     en: "Finance, Accounting and HR",
     de: "Finanzen, Buchhaltung und Personal",
     fr: "Finance, comptabilité et RH",
@@ -73,7 +73,7 @@ const CATEGORY_META = [
   },
   {
     id: "business-daily-use",
-    tr: "İşletme ve Günlük Kullanım",
+    tr: "İşletme ve Günlük Useım",
     en: "Business and Daily Use",
     de: "Betrieb und tägliche Nutzung",
     fr: "Entreprise et usage quotidien",
@@ -81,7 +81,7 @@ const CATEGORY_META = [
   },
   {
     id: "engineering-technical",
-    tr: "Mühendislik ve Teknik Hesaplar",
+    tr: "Mühendislik ve Technical Hesaplar",
     en: "Engineering and Technical Calculations",
     de: "Ingenieur- und Technikberechnungen",
     fr: "Calculs d'ingénierie et techniques",
@@ -211,8 +211,8 @@ const LIVE_FREE_SLUG_MAP = {
   "vat-calculator": "vat-calculator",
   "gross-net-salary-calculator": "salary-cost-calculator",
   "annual-leave-days-calculator": "time-duration-calculator",
-  "severance-pay-calculator": "salary-cost-calculator",
-  "notice-pay-calculator": "salary-cost-calculator",
+  "severance-share-calculator": "salary-cost-calculator",
+  "notice-share-calculator": "salary-cost-calculator",
   "depreciation-calculator": "depreciation-calculator",
   "loan-installment-calculator": "loan-payment-calculator",
   "currency-converter-calculator": "unit-price-calculator",
@@ -280,11 +280,11 @@ function slugify(title) {
 function enTitleFromTr(trTitle) {
   const replacements = [
     [/Hesaplayıcı/gi, "Calculator"],
-    [/Hesaplama/gi, "Calculation"],
+    [/Calculation/gi, "Calculation"],
     [/Çevirici/gi, "Converter"],
     [/Çevirme/gi, "Conversion"],
     [/Hesabı/gi, "Calculation"],
-    [/Hesap/gi, "Calculation"],
+    [/Account/gi, "Calculation"],
     [/ – /g, " — "],
   ];
   let s = trTitle;
@@ -294,7 +294,7 @@ function enTitleFromTr(trTitle) {
 
 function parseFreeSection() {
   const start = text.indexOf("KATEGORİ 1: TEMEL DÖNÜŞTÜRÜCÜLER");
-  const end = text.indexOf("200\tEkonomik Sipariş Miktarı");
+  const end = text.indexOf("200\tEkonomik Sipariş Quantityı");
   const section = text.slice(start, end + 200);
   const lines = section.split("\n");
   const items = [];
@@ -329,7 +329,7 @@ function parseFreeSection() {
         .replace(/İnşaat, atölye/g, "Construction and workshops")
         .replace(/İnşaat, tadilat/g, "Construction and renovation")
         .replace(/İnşaat/g, "Construction")
-        .replace(/Muhasebe, satış/g, "Accounting and sales")
+        .replace(/Accounting, satış/g, "Accounting and sales")
         .replace(/Muhasebeci/g, "Accountants")
         .replace(/İK, patron/g, "HR and owners")
         .replace(/İK, çalışan/g, "HR and employees")
@@ -341,21 +341,21 @@ function parseFreeSection() {
         .replace(/Bakım, otomasyon/g, "Maintenance and automation")
         .replace(/Bakım/g, "Maintenance")
         .replace(/Elektrikçi/g, "Electricians")
-        .replace(/Makine, otomotiv/g, "Machinery and automotive")
-        .replace(/Kalite kontrol/g, "Quality control")
-        .replace(/Kalite, üretim, İK/g, "Quality, production and HR")
-        .replace(/Kalite, montaj/g, "Quality and assembly")
-        .replace(/Kalite/g, "Quality teams")
-        .replace(/Teknik resim, imalat/g, "Technical drawing and manufacturing")
-        .replace(/Teknik resim/g, "Technical drawing")
+        .replace(/Machine, otomotiv/g, "Machinery and automotive")
+        .replace(/Quality control/g, "Quality control")
+        .replace(/Quality, üduction, İK/g, "Quality, production and HR")
+        .replace(/Quality, montaj/g, "Quality and assembly")
+        .replace(/Quality/g, "Quality teams")
+        .replace(/Technical resim, manufacturing/g, "Technical drawing and manufacturing")
+        .replace(/Technical resim/g, "Technical drawing")
         .replace(/Sac metal, lazer/g, "Sheet metal and laser")
         .replace(/Sac metal/g, "Sheet metal shops")
-        .replace(/Kaynak atölyesi/g, "Welding shops")
+        .replace(/Resource atölyesi/g, "Welding shops")
         .replace(/CNC, torna/g, "CNC and lathe shops")
-        .replace(/Finans/g, "Finance teams")
-        .replace(/Enerji, mühendis/g, "Energy and engineers")
-        .replace(/Enerji, çatı GES/g, "Energy and rooftop solar")
-        .replace(/Enerji/g, "Energy teams")
+        .replace(/Finance/g, "Finance teams")
+        .replace(/Energy, mühendis/g, "Energy and engineers")
+        .replace(/Energy, çatı GES/g, "Energy and rooftop solar")
+        .replace(/Energy/g, "Energy teams")
         .replace(/Ofis, ev/g, "Office and home")
         .replace(/Ofis, atölye/g, "Office and workshop")
         .replace(/Ofis/g, "Office teams")
@@ -378,7 +378,7 @@ const PREMIUM_ITEMS = [
     phase: 1,
     score: 9.7,
     categoryId: "cost-margin",
-    trTitle: "Teklif Fiyatı ve Kâr Marjı Hesaplayıcı",
+    trTitle: "Teklif Priceı ve Kâr Marginı Hesaplayıcı",
     mappedLiveSlug: "quote-price-profit-margin-calculator",
     status: "live",
   },
@@ -388,7 +388,7 @@ const PREMIUM_ITEMS = [
     phase: 1,
     score: 9.2,
     categoryId: "operations-oee",
-    trTitle: "Makine Saat Ücreti Hesaplayıcı",
+    trTitle: "Machine Saat Ücreti Hesaplayıcı",
     mappedLiveSlug: "machine-hour-rate-calculator",
     status: "live",
   },
@@ -398,7 +398,7 @@ const PREMIUM_ITEMS = [
     phase: 1,
     score: 9.1,
     categoryId: "finance-hr",
-    trTitle: "Başabaş Noktası ve Güvenlik Marjı Hesaplayıcı",
+    trTitle: "Başabaş Noktası ve Güvenlik Marginı Hesaplayıcı",
     mappedLiveSlug: "break-even-calculator",
     status: "live",
   },
@@ -417,7 +417,7 @@ const PREMIUM_ITEMS = [
     phase: 1,
     score: 8.8,
     categoryId: "energy-carbon",
-    trTitle: "SKDM Birim Ürün Karbon Ayak İzi Hesaplayıcı",
+    trTitle: "SKDM Unit Ürün Karbon Ayak İzi Hesaplayıcı",
     mappedLiveSlug: "cbam-exposure-quick-check",
     status: "live",
   },
@@ -437,7 +437,7 @@ const PREMIUM_ITEMS = [
     phase: 1,
     score: 8.7,
     categoryId: "energy-carbon",
-    trTitle: "Kompresör Kaçağı Maliyet Hesaplayıcı",
+    trTitle: "Kompresör Kaçağı Cost Hesaplayıcı",
     mappedLiveSlug: "compressor-energy-cost-calculator",
     status: "live",
   },
@@ -447,7 +447,7 @@ const PREMIUM_ITEMS = [
     phase: 2,
     score: 8.5,
     categoryId: "finance-hr",
-    trTitle: "Personel Tam Maliyet Hesaplayıcı",
+    trTitle: "Personel Tam Cost Hesaplayıcı",
     mappedLiveSlug: "salary-cost-calculator",
     status: "live",
   },
@@ -457,7 +457,7 @@ const PREMIUM_ITEMS = [
     phase: 2,
     score: 8.4,
     categoryId: "operations-oee",
-    trTitle: "Duruş Dakika Maliyeti Hesaplayıcı",
+    trTitle: "Duruş Dakika Cost Hesaplayıcı",
     status: "planned",
   },
   {
@@ -476,7 +476,7 @@ const PREMIUM_ITEMS = [
     phase: 2,
     score: 7.9,
     categoryId: "manufacturing-engineering",
-    trTitle: "Stok Taşıma Maliyeti ve EOQ Hesaplayıcı",
+    trTitle: "Inventory Taşıma Cost ve EOQ Hesaplayıcı",
     mappedLiveSlug: "unit-cost-calculator",
     status: "live",
   },
@@ -514,7 +514,7 @@ const PREMIUM_ITEMS = [
     phase: 3,
     score: 7.4,
     categoryId: "energy-carbon",
-    trTitle: "Enerji Tasarruf Hesaplayıcı",
+    trTitle: "Energy Savings Hesaplayıcı",
     mappedLiveSlug: "energy-savings-package-calculator",
     status: "live",
   },
@@ -530,7 +530,7 @@ const PREMIUM_ITEMS = [
   },
   {
     id: "sp-017",
-    slug: "fire-system-flow-hydrant-calculator",
+    slug: "waste-system-flow-hydrant-calculator",
     phase: 3,
     score: 6.7,
     categoryId: "engineering-technical",
@@ -553,7 +553,7 @@ const PREMIUM_ITEMS = [
     phase: 4,
     score: 6.4,
     categoryId: "engineering-technical",
-    trTitle: "Hidrolik ve Pnömatik Silindir Kuvvet Hesaplayıcı",
+    trTitle: "Hydraulic ve Pnömatik Silindir Force Hesaplayıcı",
     status: "planned",
   },
   {
@@ -562,7 +562,7 @@ const PREMIUM_ITEMS = [
     phase: 4,
     score: 6.2,
     categoryId: "engineering-technical",
-    trTitle: "Kayış Kasnak Devir ve Uzunluk Hesaplayıcı",
+    trTitle: "Kayış Kasnak Devir ve Length Hesaplayıcı",
     mappedLiveSlug: "belt-pulley-speed-length-calculator",
     status: "live",
   },
@@ -572,7 +572,7 @@ const PREMIUM_ITEMS = [
     phase: 4,
     score: 6.1,
     categoryId: "quality-lean",
-    trTitle: "Kalite Maliyeti PAF Hesaplayıcı",
+    trTitle: "Quality Cost PAF Hesaplayıcı",
     status: "planned",
   },
   {
@@ -603,7 +603,7 @@ if (freeItems.length !== 200) {
 
 mkdirSync(join(ROOT, "scripts/data"), { recursive: true });
 writeFileSync(
-  join(ROOT, "scripts/data/strategic-roadmap-source.json"),
+  join(ROOT, "archive/migration-only/scripts/data/strategic-roadmap-source.json"),
   JSON.stringify(
     {
       categories: CATEGORY_META,

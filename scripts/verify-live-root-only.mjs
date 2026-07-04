@@ -68,7 +68,7 @@ async function scanHomepageForIssues() {
     // Check for Turkish text
     const turkishPatterns = [
       "Türkçe", "Turkish", "Mühendis", "Danışman", "Uzmanı",
-      "Yatırım", "Maliyet", "Üretim",
+      "Yatırım", "Cost", "Üretim",
     ];
     for (const pattern of turkishPatterns) {
       if (html.includes(pattern)) {

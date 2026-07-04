@@ -15,9 +15,9 @@ const premiumFormPatches = {
     calculationStandardLabel: "Calculation standard",
   },
   tr: {
-    calculate: "Hesapla",
+    calculate: "Calculate",
     operatorStation: "Operatör istasyonu",
-    calculationStandardLabel: "Hesaplama standardı",
+    calculationStandardLabel: "Calculation standardı",
   },
   de: {
     calculate: "Berechnen",

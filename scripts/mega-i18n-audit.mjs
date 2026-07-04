@@ -49,7 +49,7 @@ function collectKeys(obj, path='') {
 }
 
 const enKeys = new Set(collectKeys(data.en));
-console.log(`\nEN toplam key: ${enKeys.size.toLocaleString()}\n`);
+console.log(`\nEN total key: ${enKeys.size.toLocaleString()}\n`);
 
 for (const loc of ['tr','de','fr','es','ar']) {
   const locKeys = new Set(collectKeys(data[loc]));
@@ -69,7 +69,7 @@ for (const loc of ['tr','de','fr','es','ar']) {
 }
 
 // ── LAYER 2: freeToolInputs field parity ──────────────────────
-console.log(`\n${BOLD}═══ LAYER 2: ALAN UYUMU (freeToolInputs) ═══${RESET}\n`);
+console.log(`\n${BOLD}═══ LAYER 2: AREA UYUMU (freeToolInputs) ═══${RESET}\n`);
 
 for (const loc of ['tr','de','fr','es','ar']) {
   const fti = data[loc].freeToolInputs;
@@ -100,9 +100,9 @@ for (const loc of ['tr','de','fr','es','ar']) {
   }
 
   if (missing === 0) {
-    pass(`${loc.toUpperCase()} — ${total} alanın tümü label/placeholder/helper sahibi`);
+    pass(`${loc.toUpperCase()} — ${total} areaın tümü label/placeholder/helper sahibi`);
   } else {
-    fail('fieldParity', `${loc.toUpperCase()}: ${missing} alt-alan eksik (${total} alan içinde)`);
+    fail('fieldParity', `${loc.toUpperCase()}: ${missing} alt-area eksik (${total} area içinde)`);
   }
 }
 
@@ -139,23 +139,23 @@ try {
 }
 
 // ── LAYER 4: Schema-field-i18n ────────────────────────────────
-console.log(`\n${BOLD}═══ LAYER 4: SCHEMA-FIELD-i18n REGRESYON ═══${RESET}\n`);
+console.log(`\n${BOLD}═══ LAYER 4: SCHEMA-FIELD-i18n REGRESSION ═══${RESET}\n`);
 try {
   const audit = spawnSync('npx', ['tsx', 'scripts/audit-schema-field-i18n.ts', '--regression'], {
     cwd: process.cwd(), stdio: 'pipe', encoding: 'utf8',
     env: { ...process.env, NODE_OPTIONS: '--max-old-space-size=4096' }
   });
   if (audit.status === 0) {
-    pass('Schema-field-i18n regresyon testi GECTI');
+    pass('Schema-field-i18n regression testi GECTI');
     // Extract en-identical counts
     const idents = (audit.stdout||'').match(/(tr|de|fr|es|ar): en-identical=(\d+)/g);
     if (idents) idents.forEach(l => {
       const [loc, cnt] = l.replace('en-identical=','').split(': ');
       const num = parseInt(l.match(/(\d+)/)[1]);
-      if (num > 0) warn(`${loc.toUpperCase()} — ${num} adet en-identical alan (bilinen) — baseline=1264`);
+      if (num > 0) warn(`${loc.toUpperCase()} — ${num} count en-identical area (bilinen) — baseline=1264`);
     });
   } else {
-    fail('reports', `Schema-field-i18n regresyon BASARISIZ (exit ${audit.status})`);
+    fail('reports', `Schema-field-i18n regression FAILED (exit ${audit.status})`);
     console.error((audit.stderr||'').slice(-300));
   }
 } catch (e) {
@@ -179,17 +179,17 @@ try {
 }
 
 // ── LAYER 6: SteelCore / Generate Reports ─────────────────────
-console.log(`\n${BOLD}═══ LAYER 6: RAPOR KALİTESİ ═══${RESET}\n`);
+console.log(`\n${BOLD}═══ LAYER 6: REPORT KALİTESİ ═══${RESET}\n`);
 
 try {
   const report = JSON.parse(readFileSync('steelcore-validation-report.json', 'utf8'));
   const bs = report.byStatus || {};
   console.log(`  SteelCore: PASS=${bs.PASS||0} WARN=${bs.WARN||0} FAIL=${bs.FAIL||0} RUNTIME_FAIL=${bs.RUNTIME_FAIL||0} QUARANTINE=${bs.QUARANTINE||0}`);
   if (bs.PASS > 0) pass(`SteelCore: ${report.valid}/${report.total} gecerli`);
-  if ((bs.QUARANTINE||0) > 0) fail('reports', `${bs.QUARANTINE} schema QUARANTINE — gecmis session bilinen borc`);
-  if ((bs.FAIL||0) > 0) fail('reports', `${bs.FAIL} schema FAIL — acil mudahale gerekli`);
+  if ((bs.QUARANTINE||0) > 0) fail('reports', `${bs.QUARANTINE} schema QUARANTINE — historical session bilinen borc`);
+  if ((bs.FAIL||0) > 0) fail('reports', `${bs.FAIL} schema FAIL — emergency intervention gerekli`);
 } catch (e) {
-  fail('reports', `SteelCore rapor hatasi: ${e.message}`);
+  fail('reports', `SteelCore report hatasi: ${e.message}`);
 }
 
 try {
@@ -200,7 +200,7 @@ try {
   if (aa.needsReview > 0) fail('reports', `${aa.needsReview} schema archetype incelemesi gerektiriyor`);
   if (!aa.needsReview || aa.needsReview === 0) pass('Archetype distribution OK');
 } catch (e) {
-  fail('reports', `Generate rapor hatasi: ${e.message}`);
+  fail('reports', `Generate report hatasi: ${e.message}`);
 }
 
 // ── LAYER 7: Edge cases ───────────────────────────────────────
@@ -231,24 +231,24 @@ for (const loc of LOCALES) {
 if (edgeIssues === 0) {
   pass('Tum alanlar: null, empty, tip hatasi YOK');
 } else {
-  fail('edgeCase', `${edgeIssues} kenar durum sorunu (ilk 5 gosterildi)`);
+  fail('edgeCase', `${edgeIssues} kenar status sorunu (ilk 5 gosterildi)`);
 }
 
 // ── FINAL SUMMARY ─────────────────────────────────────────────
 const CAT_LABELS = {
   structural: 'Yapisal Butunluk',
-  fieldParity: 'Alan Uyumu',
+  fieldParity: 'Area Uyumu',
   bundle: 'Bundle Uyumu',
   edgeCase: 'Kenar Durumlar',
   guard: 'i18n Guard',
-  reports: 'Rapor Kalitesi'
+  reports: 'Report Kalitesi'
 };
 
 const total = Object.values(COUNTS).reduce((a,b) => a+b, 0);
 console.log(`\n${BOLD}${'═'.repeat(55)}${RESET}`);
-console.log(`${BOLD}  MEGA AUDIT — KESIN KALITE RAPORU${RESET}`);
+console.log(`${BOLD}  MEGA AUDIT — KESIN QUALITY Report${RESET}`);
 console.log(`${BOLD}${'═'.repeat(55)}${RESET}`);
-console.log(`  ${'Kategori'.padEnd(25)} ${'Sonuc'.padEnd(10)} Adet`);
+console.log(`  ${'Kategori'.padEnd(25)} ${'Result'.padEnd(10)} Count`);
 console.log(`  ${'─'.repeat(50)}`);
 for (const [cat, count] of Object.entries(COUNTS).sort((a,b) => b[1]-a[1])) {
   const label = CAT_LABELS[cat] || cat;
@@ -265,7 +265,7 @@ for (const cat of allCats) {
 }
 console.log(`  ${'─'.repeat(50)}`);
 const verdict = total === 0 ? `${GREEN}TEMIZ — SIFIR BORC${RESET}` : `${RED}${total} SORUN TESPIT EDILDI${RESET}`;
-console.log(`  ${'TOPLAM'.padEnd(25)} ${verdict}`);
+console.log(`  ${'TOTAL'.padEnd(25)} ${verdict}`);
 console.log(`${BOLD}${'═'.repeat(55)}${RESET}\n`);
 
 process.exit(total > 0 ? 1 : 0);

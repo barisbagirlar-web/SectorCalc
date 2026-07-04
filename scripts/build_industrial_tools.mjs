@@ -8,7 +8,7 @@ if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
 }
 
-console.log("=== TUR 2: THE INDUSTRIAL TOOL FACTORY ===");
+console.log("=== TYPE 2: THE INDUSTRIAL TOOL FACTORY ===");
 
 const rawData = fs.readFileSync(cacheFile, 'utf-8');
 const tools = JSON.parse(rawData);
@@ -48,7 +48,7 @@ tools.forEach(tool => {
             .replace(/\bSUM\b/gi, '/*SUM*/')
             .replace(/\bCOUNT\b/gi, '/*COUNT*/');
         
-        // Güvenlik: JS string koşulu parse edilemez veya eksik input içerirse (örn: Gelir), statik analizi kırma.
+        // Güvenlik: JS string koşulu parse edilemez veya eksik input içerirse (örn: Gelir), statik analysis kırma.
         const knownVars = ['result', 'Math', 'true', 'false', ...tool.inputs.map(i=>i.id)];
         const words = jsCond.match(/[a-zA-Z_]\w*/g) || [];
         const hasUnknown = words.some(w => !knownVars.includes(w) && isNaN(w));
@@ -66,7 +66,7 @@ tools.forEach(tool => {
   }`;
     }).join('\n\n');
     
-    // Değişkenleri koda aktar (Bazen sistem_gerilimi gibi gizli id'ler çıkar, default olarak destruct et ama TS hatasını önlemek için any ekleyelim)
+    // Değişkenleri koda aktar (Bazen sistem_gerilimi gibi gizli id'ler çıprofit, default olarak destruct et ama TS hatasını önlemek için any ekleyelim)
     const inputDestructure = tool.inputs.length > 0 ? `const { ${tool.inputs.map(i => i.id).join(', ')} } = validData as any;` : '';
 
     const content = `import { z } from "zod";
@@ -89,8 +89,8 @@ export interface Output_${safeId} {
 }
 
 export function execute_${safeId}(input: Input_${safeId}): Output_${safeId} {
-  // ADIM 3 HESAPLAMA İZLEME (Statik İz)
-  // Girdi Değişkenleri: ${tool.inputs.map(i => i.id).join(', ')}
+  // STEP 3 Calculation İZLEME (Statik İz)
+  // Input Değişkenleri: ${tool.inputs.map(i => i.id).join(', ')}
   
   const validData = InputSchema_${safeId}.parse(input);
   ${inputDestructure}
@@ -112,4 +112,4 @@ ${warningsLogic}
     generatedCount++;
 });
 
-console.log(`[PASS] ${generatedCount} adet araç Type-Safe (Zod & Smart Warnings entegreli) olarak başarıyla oluşturuldu.`);
+console.log(`[PASS] ${generatedCount} count araç Type-Safe (Zod & Smart Warnings entegreli) olarak başarıyla oluşturuldu.`);

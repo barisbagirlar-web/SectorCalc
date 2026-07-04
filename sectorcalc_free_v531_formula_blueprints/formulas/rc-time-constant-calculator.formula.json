@@ -1,0 +1,164 @@
+{
+  "tool_name": "Rc Time Constant Calculator",
+  "tool_key": "rc-time-constant-calculator",
+  "slug": "rc-time-constant-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "electrical-frequency-impedance-resolution",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "unit": "Hz",
+      "required": true,
+      "normalized_id": "frequency",
+      "description": "Frequency",
+      "min": 0
+    },
+    {
+      "id": "capacitance",
+      "label": "Capacitance",
+      "unit": "F",
+      "required": false,
+      "normalized_id": "capacitance",
+      "description": "Capacitance",
+      "min": 0
+    },
+    {
+      "id": "inductance",
+      "label": "Inductance",
+      "unit": "H",
+      "required": false,
+      "normalized_id": "inductance",
+      "description": "Inductance",
+      "min": 0
+    },
+    {
+      "id": "resistance",
+      "label": "Resistance",
+      "unit": "ohm",
+      "required": false,
+      "normalized_id": "resistance",
+      "description": "Resistance",
+      "min": 0
+    },
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "unit": "V",
+      "required": false,
+      "normalized_id": "voltage",
+      "description": "Voltage",
+      "min": 0
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "frequency",
+      "source_input_id": "frequency",
+      "base_unit": "Hz",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "capacitance",
+      "source_input_id": "capacitance",
+      "base_unit": "F",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "inductance",
+      "source_input_id": "inductance",
+      "base_unit": "H",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "resistance",
+      "source_input_id": "resistance",
+      "base_unit": "ohm",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "voltage",
+      "source_input_id": "voltage",
+      "base_unit": "V",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "reactance",
+      "label": "Reactance",
+      "unit": "ohm",
+      "description": "Reactance"
+    },
+    {
+      "id": "impedance",
+      "label": "Impedance",
+      "unit": "ohm",
+      "description": "Impedance"
+    },
+    {
+      "id": "time_constant",
+      "label": "Time Constant",
+      "unit": "s",
+      "description": "Time Constant"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute capacitive or inductive reactance according to the supplied component type.",
+    "Compute impedance magnitude using resistance and reactance.",
+    "Compute time constant for RC cases when resistance and capacitance are provided.",
+    "Classify REVIEW when required component inputs are omitted."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

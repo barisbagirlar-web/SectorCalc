@@ -13,7 +13,7 @@ import { loadEnvLocal } from "./ai/load-env-local.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 const SCHEMAS_DIR = join(ROOT, "generated", "schemas");
-const OUT_MAP = join(ROOT, "scripts/data/generated-schema-copy-i18n.json");
+const OUT_MAP = join(ROOT, "archive/migration-only/scripts/data/generated-schema-copy-i18n.json");
 const OUT_TITLES = join(ROOT, "src/data/generated-tool-titles-i18n.generated.json");
 const OUT_DESCRIPTIONS = join(ROOT, "src/data/generated-tool-descriptions-i18n.generated.json");
 const TARGET_LOCALES = ["tr", "de", "fr", "es", "ar"];
@@ -101,7 +101,7 @@ const ENGLISH_MARKERS = [
 ];
 
 const LOCALE_MARKERS = {
-  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|proses|maliyet|birim)\b/i],
+  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|process|cost|unit)\b/i],
   de: [/[äöüßÄÖÜ]/, /\b(und|oder|für|pro|eingeben|der|die|das)\b/i],
   fr: [/[àâçéèêëîïôùûü]/i, /\b(pour|ou|de|le|la|saisir)\b/i],
   es: [/[áéíóúñü¿¡]/i, /\b(para|o|de|el|la|introduzca)\b/i],

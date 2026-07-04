@@ -17,185 +17,26 @@ import type { GeneratedToolSchema, GeneratedToolInput } from "@/lib/features/gen
 import type { SuperV4Schema, SuperV4Input, NormalizedInputSpec, ProfileMode, UIInputGroup, ConversionRegistry } from "./contract-types";
 
 /* ─────────────────────────────────────────────── */
-/*  Turkish→English Translation Map                */
+/*  Turkish Rejection & Validation                 */
 /* ─────────────────────────────────────────────── */
-const TR_EN: Record<string, string> = {
-  // Unit / dimension
-  uzunluk: "length", yaricap: "radius", yarçap: "radius",
-  genislik: "width", genişlik: "width", yukseklik: "height", yükseklik: "height",
-  derinlik: "depth", alan: "area", hacim: "volume", agirlik: "weight", ağırlık: "weight",
-  kutle: "mass", kütle: "mass",   egim: "slope/slope", eğim: "slope", egme: "bending",
-  bukulme: "bending", bükülme: "bending", burkulma: "buckling", burulma: "torsion",
-  sehim: "deflection", aci: "angle", açi: "angle", açı: "angle", acı: "angle",
-  dikdortgen: "rectangle", dikdörtgen: "rectangle",
-  ucgen: "triangle", üçgen: "triangle", daire: "circle", cokgen: "polygon", çokgen: "polygon",
-  dik: "vertical/perpendicular", yatay: "horizontal", dikey: "vertical",
-  kare: "square", kose: "corner", köşe: "corner", kenar: "edge",
-  katman: "layer", tabaka: "layer", levha: "plate", plaka: "plate",
-  eksen: "axis", dilim: "segment", kosegen: "diagonal", köşegen: "diagonal",
+import { hasTurkishToken } from "@/sectorcalc/governance/forbidden-locale-token-detector";
 
-  // Mechanics / physics
-  gerilim: "stress/tension", direnc: "resistance", direnç: "resistance",
-  kuvvet: "force", yuk: "load", yük: "load", basinc: "pressure", basınç: "pressure",
-  sicaklik: "temperature", sıcaklık: "temperature", ivme: "acceleration",
-  hiz: "speed", hız: "speed", akim: "current", akım: "current", debi: "flow",
-  guc: "power", güç: "power", is: "work", enerji: "energy",
-  moment: "moment", tork: "torque", frekans: "frequency", titresim: "vibration", titreşim: "vibration",
-  cozunurluk: "resolution", çözünürlük: "resolution",
-  diyafram: "diaphragm", debimetre: "flowmeter",
-  oran: "ratio", katsayi: "coefficient", katsayı: "coefficient",
-  standart: "standard", sapma: "deviation", ortalama: "average",
-  test: "test", deney: "experiment", numune: "sample", ornek: "sample", örnek: "sample",
-  gradyan: "gradient", baslangic: "initial", başlangıç: "initial",
-  bitis: "final", bitiş: "final", cikti: "output", çıktı: "output",
-  girdi: "input", sonuc: "result", sonuç: "result", cikis: "output", çıkış: "output",
-
-  // Structural
-  kolon: "column", kiris: "beam", kiriş: "beam", doseme: "slab", döşeme: "slab",
-  temel: "foundation", duvar: "wall", perde: "curtain/wall", catı: "roof", cati: "roof", çatı: "roof",
-  kubbe: "dome", kemer: "arch", merdiven: "staircase", korkuluk: "railing",
-  donati: "reinforcement", donatı: "reinforcement", beton: "concrete", celik: "steel", çelik: "steel",
-  ahsap: "timber", ahşap: "timber", kompozit: "composite",
-
-  // Mechanical components
-  yay: "spring", disli: "gear", dişli: "gear", vites: "gear",
-  rulman: "bearing", yatak: "bearing", kasnak: "pulley", kayis: "belt", kayış: "belt",
-  zincir: "chain", bant: "belt", silindir: "cylinder",
-  valf: "valve", pompa: "pump", kompresor: "compressor", kompresör: "compressor",
-  mill: "shaft", mil: "shaft", pervane: "propeller", kanat: "blade",
-
-  // Manufacturing
-  uretim: "production", üretim: "production", imalat: "manufacturing",
-  calisma: "operation", calışma: "operation", calisan: "operator", calışan: "operator",
-  iscilik: "labor", işçilik: "labor", malzeme: "material", stok: "inventory",
-  teslimat: "delivery", kalite: "quality",
-  maliyet: "cost", birim: "unit", fiyat: "price", kar: "profit", kâr: "profit",
-  zarar: "loss", gelir: "revenue", gider: "expense", verim: "efficiency",
-  kapasite: "capacity", randiman: "efficiency", randıman: "efficiency",
-  kaynak: "resource/source", parca: "part", parça: "part", urun: "product", ürün: "product",
-  cnc: "cnc", torna: "lathe", freze: "mill", talaş: "chip", tala: "chip",
-
-  // Electrical / electronics
-  voltaj: "voltage",
-  kondansator: "capacitor", kondansatör: "capacitor",
-  transformator: "transformer", transformatör: "transformer", diyot: "diode",
-  transistör: "transistor", transistor: "transistor", entegre: "integrated",
-  sarj: "charge", şarj: "charge", batarya: "battery", pil: "battery",
-
-  // Finance
-  adet: "quantity", miktar: "quantity", toplam: "total", taksit: "installment",
-  odeme: "payment", ödeme: "payment", faiz: "interest", getiri: "return/yield",
-  donem: "period", dönem: "period", kira: "rent", deger: "value", değer: "value",
-  tutar: "amount", hisse: "share", tahvil: "bond", bono: "bond",
-  pay: "share", ort: "average",
-  butce: "budget", bütçe: "budget", plan: "plan", proje: "project",
-  yatirim: "investment", yatırım: "investment", finans: "finance",
-  kredi: "credit", borc: "debt", borç: "debt", alacak: "receivable",
-  musteri: "customer", müşteri: "customer", tedarikci: "supplier", tedarikçi: "supplier",
-  hizmet: "service", satis: "sales", satış: "sales", siparis: "order", sipariş: "order",
-
-  // Time / misc
-  sure: "duration", süre: "duration", aralik: "interval", aralık: "interval",
-  yil: "year", yıl: "year", gun: "day", gün: "day", ay: "month", hafta: "week", saat: "hour",
-  cizelge: "schedule", çizelge: "schedule", takvim: "calendar",
-  mevcut: "current", yeni: "new", eski: "old", guncel: "current", güncel: "current",
-  hesapla: "calculate", kullanici: "user", kullanıcı: "user",
-  bilgi: "information", veri: "data", rapor: "report", kayit: "record", kayıt: "record",
-  durum: "status", seviye: "level", tip: "type", tur: "type", tür: "type",
-  ozellik: "property", özellik: "property", nitelik: "attribute",
-  // Turkish inflected forms (suffix-based: -i/-ı/-u/-ü, -si/-sı/-su/-sü)
-  aylik: "monthly", aylık: "monthly", yillik: "annual", yıllık: "annual",
-  gunluk: "daily", günlük: "daily", haftalik: "weekly", haftalık: "weekly",
-  nakit: "cash", kutupsal: "polar", atalet: "inertia",
-  saatlik: "hourly",
-  tutari: "amount", hissesi: "share", tahvili: "bond",
-  maliyeti: "cost", birimi: "unit", fiyati: "price", fiyatı: "price",
-  kari: "profit", kârı: "profit", zarari: "loss", zararı: "loss",
-  degeri: "value", değeri: "value", kapasitesi: "capacity",
-  odemesi: "payment", ödemesi: "payment", taksiti: "installment",
-  faizi: "interest", getirisi: "return",
-  stogu: "inventory", stoku: "inventory",
-  geliri: "revenue", gideri: "expense", verimi: "efficiency",
-  akimi: "current", akımı: "current", gerilimi: "voltage",
-  basinci: "pressure", basıncı: "pressure", sicakligi: "temperature", sıcaklığı: "temperature",
-  ivmesi: "acceleration", hizi: "speed", hızı: "speed",
-  alani: "area", alanı: "area", hacmi: "volume",
-  uzunlugu: "length", uzunluğu: "length",
-  genisligi: "width", genişliği: "width", yuksekligi: "height", yüksekliği: "height",
-  derinligi: "depth", derinliği: "depth", capi: "diameter", çapı: "diameter",
-  agirligi: "weight", ağırlığı: "weight", kutlesi: "mass", kütlesi: "mass",
-  kuvveti: "force", yuku: "load", yükü: "load",
-  acisi: "angle", açisi: "angle", açısı: "angle", acısı: "angle",
-  egimi: "slope", eğimi: "slope", sehimi: "deflection",
-  burkulmasi: "buckling", burkulması: "buckling",
-  burulmasi: "torsion", burulması: "torsion",
-  kolonu: "column", kirisi: "beam", kirişi: "beam",
-  temeli: "foundation", duvari: "wall", duvarı: "wall",
-  catisi: "roof", çatısı: "roof",
-  uretimi: "production", üretimi: "production",
-  orani: "ratio", oranı: "ratio", katsayisi: "coefficient", katsayısı: "coefficient",
-  standarti: "standard", standartı: "standard", sapmasi: "deviation", sapması: "deviation",
-  cozunurlugu: "resolution", çözünürlügu: "resolution", çözünürlüğü: "resolution",
-  butcesi: "budget", bütçesi: "budget",
-  yatirimi: "investment", yatırımı: "investment",
-  senedi: "security/note", senet: "bond/note",
-  toplami: "total", toplamı: "total", miktari: "quantity", miktarı: "quantity",
-  adedi: "quantity", ortalamasi: "average", ortalaması: "average",
-};
+export function assertNoTurkishString(text: string, path: string): void {
+  if (!text) return;
+  const found = hasTurkishToken(text);
+  if (found) {
+    throw new Error(`Turkish content rejected at ${path}: "${text}" (found: "${found}")`);
+  }
+}
 
 function translateToEnglish(text: string): string {
-  if (!text) return text;
-  // If text contains spaces, split by word boundaries and translate each word
-  if (/\s/.test(text)) {
-    const words = text.split(/(\s+)/);
-    return words.map((word) => {
-      if (/^\s+$/.test(word)) return word;
-      // For words with punctuation (e.g. "Kâr/Zarar"), split further by non-alpha chars
-      if (/[^a-zA-ZğüşıöçĞÜŞİÖÇâîûÂÎÛ]/.test(word)) {
-        const parts = word.split(/([^a-zA-ZğüşıöçĞÜŞİÖÇâîûÂÎÛ]+)/);
-        return parts.map((part) => {
-          if (/^[^a-zA-ZğüşıöçĞÜŞİÖÇ]+$/.test(part)) return part;
-          const lower = part.toLowerCase();
-          const en = TR_EN[lower];
-          if (en) {
-            return part[0] === part[0]?.toUpperCase() && part === part[0] + part.slice(1).toLowerCase()
-              ? en.charAt(0).toUpperCase() + en.slice(1)
-              : en;
-          }
-          return part;
-        }).join("");
-      }
-      const lower = word.toLowerCase();
-      const en = TR_EN[lower];
-      if (en) {
-        return word[0] === word[0]?.toUpperCase() && word === word[0] + word.slice(1).toLowerCase()
-          ? en.charAt(0).toUpperCase() + en.slice(1)
-          : en;
-      }
-      return word;
-    }).join("");
-  }
-  // No spaces: split by camelCase and underscore boundaries, translate each part
-  const parts = text.split(/(?<=[a-z])(?=[A-Z])|_|(?<=[A-Z])(?=[A-Z][a-z])/);
-  const translated = parts.map((part) => {
-    const lower = part.toLowerCase();
-    if (TR_EN[lower]) {
-      const en = TR_EN[lower];
-      if (part[0] === part[0]?.toUpperCase() && part === part[0] + part.slice(1).toLowerCase()) {
-        return en.charAt(0).toUpperCase() + en.slice(1);
-      }
-      return en;
-    }
-    return part;
-  });
-  return translated.join("");
+  assertNoTurkishString(text, "translateToEnglish");
+  return text;
 }
 
 function isTurkishWord(text: string): boolean {
   if (!text) return false;
-  const lower = text.toLowerCase().replace(/[^a-zğüşıöç0-9]/g, "");
-  if (TR_EN[lower]) return true;
-  return false;
+  return hasTurkishToken(text) !== null;
 }
 
 function sanitizeString(text: string | undefined | null, fallback: string): string {
@@ -443,7 +284,9 @@ export function generatedToolSchemaToSuperV4Schema(
       base_unit: actualUnit || "",
     });
 
-    const outputIds = legacy.outputs?.breakdown ? Object.keys(legacy.outputs.breakdown) : ["result"];
+    const outputIds = legacy.outputs?.breakdown && Object.keys(legacy.outputs.breakdown).length > 0
+      ? Object.keys(legacy.outputs.breakdown)
+      : ["result"];
 
     // Determine criticality based on presence of bounds
     const hasBounds = inp.min !== undefined || inp.max !== undefined;
@@ -528,7 +371,9 @@ export function generatedToolSchemaToSuperV4Schema(
   }
 
   const outputBreakdown = legacy.outputs?.breakdown ?? {};
-  const outputIds = Object.keys(outputBreakdown);
+  const outputIds = Object.keys(outputBreakdown).length > 0
+    ? Object.keys(outputBreakdown)
+    : ["result"];
   const primaryKey = legacy.outputs?.primary || "result";
 
   const outputs = outputIds.length > 0

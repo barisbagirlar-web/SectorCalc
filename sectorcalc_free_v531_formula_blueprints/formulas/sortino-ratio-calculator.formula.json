@@ -1,0 +1,164 @@
+{
+  "tool_name": "Sortino Ratio Calculator",
+  "tool_key": "sortino-ratio-calculator",
+  "slug": "sortino-ratio-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "statistics-quality-measurement",
+  "inputs": [
+    {
+      "id": "sample_count",
+      "label": "Sample Count",
+      "unit": "count",
+      "required": true,
+      "normalized_id": "sample_count",
+      "description": "Sample Count",
+      "min": 2
+    },
+    {
+      "id": "mean_value",
+      "label": "Mean Value",
+      "unit": "unit",
+      "required": true,
+      "normalized_id": "mean_value",
+      "description": "Mean Value",
+      "min": -1000000000000.0
+    },
+    {
+      "id": "standard_deviation",
+      "label": "Standard Deviation",
+      "unit": "unit",
+      "required": true,
+      "normalized_id": "standard_deviation",
+      "description": "Standard Deviation",
+      "min": 0
+    },
+    {
+      "id": "lower_limit",
+      "label": "Lower Limit",
+      "unit": "unit",
+      "required": true,
+      "normalized_id": "lower_limit",
+      "description": "Lower Limit",
+      "min": -1000000000000.0
+    },
+    {
+      "id": "upper_limit",
+      "label": "Upper Limit",
+      "unit": "unit",
+      "required": true,
+      "normalized_id": "upper_limit",
+      "description": "Upper Limit",
+      "min": -1000000000000.0
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "sample_count",
+      "source_input_id": "sample_count",
+      "base_unit": "count",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "mean_value",
+      "source_input_id": "mean_value",
+      "base_unit": "unit",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "standard_deviation",
+      "source_input_id": "standard_deviation",
+      "base_unit": "unit",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "lower_limit",
+      "source_input_id": "lower_limit",
+      "base_unit": "unit",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "upper_limit",
+      "source_input_id": "upper_limit",
+      "base_unit": "unit",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "variance",
+      "label": "Variance",
+      "unit": "unit^2",
+      "description": "Variance"
+    },
+    {
+      "id": "capability_index",
+      "label": "Capability Index",
+      "unit": "ratio",
+      "description": "Capability Index"
+    },
+    {
+      "id": "confidence_width",
+      "label": "Confidence Width",
+      "unit": "unit",
+      "description": "Confidence Width"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute variance from standard deviation.",
+    "Compute capability index from specification width and process spread when limits are valid.",
+    "Compute approximate confidence width using sample count and standard deviation.",
+    "Classify REVIEW when sample count is below minimum decision threshold."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

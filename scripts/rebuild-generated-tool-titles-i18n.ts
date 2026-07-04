@@ -13,7 +13,7 @@ import { resolveSchemaEnglishTitle } from "../src/lib/infrastructure/i18n/tool-t
 const ROOT = process.cwd();
 const SCHEMAS_DIR = path.join(ROOT, "generated", "schemas");
 const OUT_TITLES = path.join(ROOT, "src/data/generated-tool-titles-i18n.generated.json");
-const COPY_MAP_PATH = path.join(ROOT, "scripts/data/generated-schema-copy-i18n.json");
+const COPY_MAP_PATH = path.join(ROOT, "archive/migration-only/scripts/data/generated-schema-copy-i18n.json");
 
 function listSchemaSlugs(): string[] {
   if (!fs.existsSync(SCHEMAS_DIR)) {

@@ -4,8 +4,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = path.join(import.meta.dirname, "../..");
-const SECTIONS_DIR = path.join(ROOT, "scripts/data/omni-sections");
-const RAW = path.join(ROOT, "scripts/data/omni-expansion-raw.txt");
+const SECTIONS_DIR = path.join(ROOT, "archive/migration-only/scripts/data/omni-sections");
+const RAW = path.join(ROOT, "archive/migration-only/scripts/data/omni-expansion-raw.txt");
 const INPUT = path.join(ROOT, "input_calculators.txt");
 
 if (!fs.existsSync(SECTIONS_DIR)) {

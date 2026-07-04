@@ -8,12 +8,12 @@ import { join, dirname } from "node:path";
 
 const ROOT = join(dirname(import.meta.filename), "..");
 const need = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/_need-rows.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/_need-rows.json"), "utf8"),
 );
 
 /** @type {Record<string, [string, string, string, string]>} */
 const COMPLETE = JSON.parse(
-  readFileSync(join(dirname(import.meta.filename), "data/marketing-surface-rows-complete.json"), "utf8"),
+  readFileSync(join(dirname(import.meta.filename), "../archive/migration-only/scripts/data/marketing-surface-rows-complete.json"), "utf8"),
 );
 
 const ROWS = {};

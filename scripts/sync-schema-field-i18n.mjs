@@ -17,9 +17,9 @@ const PHRASE_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),
 );
 const FIELD_LABEL_MAP = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/calculator-field-labels-i18n.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json"), "utf8"),
 );
-const COPY_MAP_PATH = join(ROOT, "scripts/data/generated-schema-copy-i18n.json");
+const COPY_MAP_PATH = join(ROOT, "archive/migration-only/scripts/data/generated-schema-copy-i18n.json");
 const COPY_MAP = existsSync(COPY_MAP_PATH)
   ? JSON.parse(readFileSync(COPY_MAP_PATH, "utf8"))
   : { labels: {}, helpers: {} };

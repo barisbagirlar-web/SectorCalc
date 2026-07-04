@@ -44,9 +44,9 @@ locales.forEach(locale => {
         const toolObj = localeObj.tools.free[slug];
         
         toolObj.title = title;
-        toolObj.description = `${title} için hesaplama ve doğrulama aracı. Endüstriyel Validasyon Katmanı devrededir.`;
+        toolObj.description = `${title} için calculation ve doğrulama toolı. Endüstriyel Validasyon Katmanı devrededir.`;
         toolObj.seoTitle = `${title} | SectorCalc Pro`;
-        toolObj.seoDescription = `Endüstri standartlarında ${title} hesaplayıcı. Ücretsiz ölçüm ve tolerans aracı.`;
+        toolObj.seoDescription = `Endüstri standartlarında ${title} hesaplayıcı. Ücretsiz ölçüm ve tolerans toolı.`;
         
         if (!toolObj.inputs) toolObj.inputs = {};
         
@@ -68,7 +68,7 @@ locales.forEach(locale => {
     });
     
     fs.writeFileSync(localeFile, JSON.stringify(localeObj, null, 2), 'utf-8');
-    console.log(`[PASS] ${locale}.json: ${addedCount} aracın çeviri şemaları başarıyla uygulandı (İngilizce kalıntı = 0).`);
+    console.log(`[PASS] ${locale}.json: ${addedCount} toolın çeviri şemaları başarıyla uygulandı (İngilizce kalıntı = 0).`);
 });
 
 console.log("[SUCCESS] Tüm lokasyonlar (TR/DE/FR/ES/AR/EN) eksiksiz şekilde güncellendi!");

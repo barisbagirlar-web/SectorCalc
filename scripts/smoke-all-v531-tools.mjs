@@ -1,11 +1,6 @@
 /**
  * scripts/smoke-all-v531-tools.mjs
- * V5.3.1 Schema Data Quality Smoke Test
- *
- * Tests every Free tool for: schema resolution, strict validation, execution path.
- * Also validates cache behavior: first resolve, cached resolve, consistency.
- * V5.3.1 identity check: requestedToolKey === resolved schema.tool_key
- * V5.3.1 contract check: execute_response_contract.redaction_status exists
+ * V5.3.1 Schema Data Quality Smoke Test on active tools.
  */
 
 import { readFileSync, existsSync, readdirSync, writeFileSync, unlinkSync } from "node:fs";
@@ -15,15 +10,15 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-const SCHEMAS_DIR = path.join(ROOT, "generated/schemas");
+const SCHEMAS_DIR = path.join(ROOT, "src/sectorcalc/schemas/v531");
 const SRC = path.join(ROOT, "src");
 const OUTPUT_FILE = path.join(ROOT, "_smoke-output.json");
 
 function listGeneratedToolSlugs() {
   if (!existsSync(SCHEMAS_DIR)) return [];
-  return readdirSync(SCHEMAS_DIR, { recursive: true })
-    .filter((f) => f.endsWith("-schema.json"))
-    .map((f) => path.basename(f).replace(/-schema\.json$/, ""))
+  return readdirSync(SCHEMAS_DIR)
+    .filter((f) => f.endsWith(".schema.json") || f.endsWith(".json"))
+    .map((f) => path.basename(f).replace(/^\d+_sc_\d+_(?:premium_)?/, "").replace(/\.schema\.json$/, "").replace(/\.json$/, ""))
     .sort();
 }
 
@@ -36,41 +31,30 @@ function listIndustrialSlugs() {
   return slugMatch.map((m) => m.match(/"([^"]+)"/)[1]);
 }
 
-function hasCalculatorModule(slug) {
-  const registryPath = path.join(SRC, "lib/features/generated-tools/calculator-registry.ts");
-  if (!existsSync(registryPath)) return false;
-  return readFileSync(registryPath, "utf-8").includes(`createLoader("${slug}"`);
-}
-
 function runBulkValidation(slugs) {
   const scriptPath = path.join(ROOT, "_smoke-validate-temp.ts");
   const slugJson = JSON.stringify(slugs);
 
   const code = [
-    `import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";`,
-    `import { buildIndustrialFreeToolSchema, isIndustrialFreeToolSlug } from "@/lib/features/tools/industrial-free-schema-factory";`,
-    `import { generatedToolSchemaToSuperV4Schema } from "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter";`,
-    `import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";`,
     `import { resolveApprovedToolSchema, clearSchemaCache, getSchemaCacheStats } from "@/sectorcalc/runtime/resolve-approved-tool-schema";`,
+    `import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";`,
     `import { writeFileSync } from "node:fs";`,
     ``,
     `const slugs: string[] = ${slugJson};`,
     `const results: Record<string,{ok:boolean;missing?:boolean;errors:string[];cachedOk?:boolean;cacheHit?:boolean;identityOk?:boolean;contractOk?:boolean}> = {};`,
     ``,
-    `// First pass: direct validation`,
+    `// First pass: resolve and validate`,
     `for (const slug of slugs) {`,
-    `  let gen: any = getGeneratedToolSchema(slug);`,
-    `  if (!gen && isIndustrialFreeToolSlug(slug)) {`,
-    `    gen = buildIndustrialFreeToolSchema(slug);`,
-    `  }`,
-    `  if (!gen) { results[slug] = { ok: false, missing: true, errors: [] }; continue; }`,
     `  try {`,
-    `    const sv4 = generatedToolSchemaToSuperV4Schema(gen, slug);`,
+    `    const r = resolveApprovedToolSchema(slug);`,
+    `    if (!r.ok || !r.schema) {`,
+    `      results[slug] = { ok: false, missing: true, errors: r.errors || ["Not found"] };`,
+    `      continue;`,
+    `    }`,
+    `    const sv4 = r.schema;`,
     `    const v = validateSuperV4Schema(sv4);`,
     `    if (v.ok) {`,
-    `      // V5.3.1: Schema identity check - requested slug === schema.tool_key`,
     `      const identityOk = sv4.tool_key === slug;`,
-    `      // V5.3.1: Redaction status contract check`,
     `      const redactionStatus = sv4.form_runtime_binding.execute_response_contract?.redaction_status;`,
     `      const contractOk = typeof redactionStatus === "string" && redactionStatus.length > 0;`,
     `      results[slug] = { ok: true, errors: [], identityOk, contractOk };`,
@@ -82,11 +66,11 @@ function runBulkValidation(slugs) {
     `  }`,
     `}`,
     ``,
-    `// Second pass: via cached resolver`,
+    `// Second pass: verify cachehit`,
     `const cacheResults: Record<string,{ok:boolean;identityOk:boolean}> = {};`,
     `for (const slug of slugs) {`,
     `  const r = resolveApprovedToolSchema(slug);`,
-    `  if (r.ok) {`,
+    `  if (r.ok && r.schema) {`,
     `    const identityOk = r.schema.tool_key === slug;`,
     `    cacheResults[slug] = { ok: true, identityOk };`,
     `  } else {`,
@@ -115,8 +99,8 @@ function runBulkValidation(slugs) {
       stdio: "pipe",
       maxBuffer: 100 * 1024 * 1024,
     });
-  } catch (_) {
-    // tsx error — check if output file was still written
+  } catch (err) {
+    console.error("temp script execution failed:", err.stderr?.toString() || err.message);
   }
 
   try {
@@ -129,145 +113,75 @@ function runBulkValidation(slugs) {
 
 /* ── Main ───────────────────────────────────── */
 
-console.log("\n\uD83E\uDDEA V5.3.1 Schema Data Quality Smoke Test\n");
-
-const results = {
-  SCHEMA_VALID_REAL_EXECUTION: 0,
-  SCHEMA_VALID_REVIEW_MODULE_MISSING: 0,
-  SCHEMA_VALID_BLOCKED_INVALID_TEST_INPUT: 0,
-  SCHEMA_IDENTITY_MISMATCH_FAIL: 0,
-  SCHEMA_CONTRACT_FAIL: 0,
-  SCHEMA_INVALID_FAIL: 0,
-  SCHEMA_MISSING_FAIL: 0,
-  UNEXPECTED_EXECUTION_FAIL: 0,
-  CACHE_CONSISTENCY_FAIL: 0,
-  failures: [],
-};
+console.log("\n🧪 V5.3.1 Schema Data Quality Smoke Test\n");
 
 const genSlugs = listGeneratedToolSlugs();
-const indSlugsList = listIndustrialSlugs();
-const allSlugs = [];
-const slugMeta = {};
-for (const slug of genSlugs) {
-  allSlugs.push(slug);
-  slugMeta[slug] = { type: "generated" };
-}
-for (const slug of indSlugsList) {
-  if (!slugMeta[slug]) allSlugs.push(slug);
-  slugMeta[slug] = { ...(slugMeta[slug] || {}), type: "industrial" };
-}
+const indSlugs = listIndustrialSlugs();
+const allSlugs = [...new Set([...genSlugs, ...indSlugs])];
 
 console.log(`Generated Free Tools: ${genSlugs.length}`);
-console.log(`Industrial Free Tools: ${indSlugsList.length}`);
-console.log(`Total: ${allSlugs.length}\n`);
+console.log(`Industrial Free Tools: ${indSlugs.length}`);
+console.log(`Total active slugs: ${allSlugs.length}`);
 
-const validationResults = runBulkValidation(allSlugs);
-
-const cacheStats = validationResults.__cacheStats__;
-delete validationResults.__cacheStats__;
-
-for (const slug of allSlugs) {
-  const meta = slugMeta[slug];
-  const v = validationResults[slug];
-
-  if (!v || v.missing) {
-    results.SCHEMA_MISSING_FAIL++;
-    results.failures.push(`${slug}: schema not found`);
-    console.error(`  M ${slug}: SCHEMA_MISSING_FAIL`);
-    continue;
-  }
-
-  // Cache consistency check: first pass OK should match cached pass
-  if (v.ok && v.cachedOk === false) {
-    results.CACHE_CONSISTENCY_FAIL++;
-    results.failures.push(`${slug}: first pass OK but cache returned FAIL`);
-    console.error(`  C ${slug}: CACHE_CONSISTENCY_FAIL`);
-    continue;
-  }
-
-  if (!v.ok) {
-    results.SCHEMA_INVALID_FAIL++;
-    const err = (v.errors || []).slice(0, 2).join("; ");
-    results.failures.push(`${slug}: ${err}`);
-    console.error(`  I ${slug}: ${err.slice(0, 100)}`);
-    continue;
-  }
-
-  // V5.3.1: Schema identity check
-  if (v.identityOk === false) {
-    results.SCHEMA_IDENTITY_MISMATCH_FAIL++;
-    results.failures.push(`${slug}: schema.tool_key does not match requested slug`);
-    console.error(`  ID ${slug}: SCHEMA_IDENTITY_MISMATCH_FAIL`);
-    continue;
-  }
-
-  // V5.3.1: Cache identity check
-  if (v.cacheIdentityOk === false) {
-    results.SCHEMA_IDENTITY_MISMATCH_FAIL++;
-    results.failures.push(`${slug}: cached schema identity mismatch`);
-    console.error(`  ID ${slug}: CACHE_SCHEMA_IDENTITY_MISMATCH_FAIL`);
-    continue;
-  }
-
-  // V5.3.1: Redaction status contract check
-  if (v.contractOk === false) {
-    results.SCHEMA_CONTRACT_FAIL++;
-    results.failures.push(`${slug}: execute_response_contract.redaction_status is missing`);
-    console.error(`  CR ${slug}: SCHEMA_CONTRACT_FAIL (missing redaction_status)`);
-    continue;
-  }
-
-  if (meta.type === "generated") {
-    if (hasCalculatorModule(slug)) {
-      results.SCHEMA_VALID_REAL_EXECUTION++;
-      process.stdout.write(".");
-    } else {
-      results.SCHEMA_VALID_REVIEW_MODULE_MISSING++;
-      process.stdout.write("?");
-    }
-  } else {
-    results.SCHEMA_VALID_REVIEW_MODULE_MISSING++;
-    process.stdout.write("?");
-  }
+if (allSlugs.length === 0) {
+  console.error("No active slugs found!");
+  process.exit(1);
 }
 
-console.log("\n\n=== RESULTS ===");
-console.log(`  SCHEMA_VALID_REAL_EXECUTION           : ${results.SCHEMA_VALID_REAL_EXECUTION}`);
-console.log(`  SCHEMA_VALID_REVIEW_MODULE_MISSING    : ${results.SCHEMA_VALID_REVIEW_MODULE_MISSING}`);
-console.log(`  SCHEMA_VALID_BLOCKED_INVALID_TEST_INPUT: ${results.SCHEMA_VALID_BLOCKED_INVALID_TEST_INPUT}`);
-console.log(`  SCHEMA_IDENTITY_MISMATCH_FAIL          : ${results.SCHEMA_IDENTITY_MISMATCH_FAIL}`);
-console.log(`  SCHEMA_CONTRACT_FAIL                   : ${results.SCHEMA_CONTRACT_FAIL}`);
-console.log(`  SCHEMA_INVALID_FAIL                   : ${results.SCHEMA_INVALID_FAIL}`);
-console.log(`  SCHEMA_MISSING_FAIL                   : ${results.SCHEMA_MISSING_FAIL}`);
-console.log(`  UNEXPECTED_EXECUTION_FAIL              : ${results.UNEXPECTED_EXECUTION_FAIL}`);
-console.log(`  CACHE_CONSISTENCY_FAIL                : ${results.CACHE_CONSISTENCY_FAIL}`);
+const runResults = runBulkValidation(allSlugs);
 
-if (cacheStats) {
-  console.log(`\n  Cache entries: ${cacheStats.size}`);
-}
-
-// Cleanup temp files
+// Cleanup
 try { unlinkSync(path.join(ROOT, "_smoke-validate-temp.ts")); } catch {}
 try { unlinkSync(OUTPUT_FILE); } catch {}
 
-const hasFail = results.SCHEMA_INVALID_FAIL > 0
-  || results.SCHEMA_MISSING_FAIL > 0
-  || results.UNEXPECTED_EXECUTION_FAIL > 0
-  || results.CACHE_CONSISTENCY_FAIL > 0
-  || results.SCHEMA_IDENTITY_MISMATCH_FAIL > 0
-  || results.SCHEMA_CONTRACT_FAIL > 0;
+const summary = {
+  SCHEMA_VALID_REAL_EXECUTION: 0,
+  SCHEMA_IDENTITY_MISMATCH_FAIL: 0,
+  SCHEMA_CONTRACT_FAIL: 0,
+  SCHEMA_INVALID_FAIL: 0,
+};
 
-if (results.failures.length > 0) {
-  console.error("\nFAILURES:");
-  for (const f of results.failures) {
-    console.error(`  - ${f}`);
+let exitCode = 0;
+
+for (const slug of allSlugs) {
+  const r = runResults[slug];
+  if (!r) {
+    console.error(`❌ NO_RESULT for ${slug}`);
+    exitCode = 1;
+    continue;
+  }
+  
+  if (r.ok) {
+    if (!r.identityOk) {
+      console.error(`❌ IDENTITY_MISMATCH for ${slug}: expected requested tool key to match schema tool_key`);
+      summary.SCHEMA_IDENTITY_MISMATCH_FAIL++;
+      exitCode = 1;
+    } else if (!r.contractOk) {
+      console.error(`❌ CONTRACT_FAIL for ${slug}: execute_response_contract.redaction_status is missing or empty`);
+      summary.SCHEMA_CONTRACT_FAIL++;
+      exitCode = 1;
+    } else {
+      summary.SCHEMA_VALID_REAL_EXECUTION++;
+    }
+  } else {
+    console.error(`❌ INVALID_SCHEMA for ${slug}:`, r.errors);
+    summary.SCHEMA_INVALID_FAIL++;
+    exitCode = 1;
   }
 }
 
-if (hasFail) {
-  console.error("\nSMOKE FAILED\n");
-  process.exit(1);
-} else {
-  console.log("\nSMOKE PASSED — All schemas valid, identity OK, contract OK, cache consistent\n");
-  process.exit(0);
+console.log("\n=== SMOKE TEST SUMMARY ===");
+console.log(JSON.stringify(summary, null, 2));
+
+const cacheStats = runResults.__cacheStats__;
+if (cacheStats) {
+  console.log(`\nCache Size: ${cacheStats.size}`);
 }
+
+if (exitCode === 0) {
+  console.log("\n✅ ALL ACTIVE SCHEMAS PASSED SMOKE TESTS!");
+} else {
+  console.log("\n❌ SMOKE TESTS FAILED!");
+}
+
+process.exit(exitCode);

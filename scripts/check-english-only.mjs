@@ -42,7 +42,7 @@ const FORBIDDEN_PATTERNS = [
 
   // Turkish function names
   { pattern: /PARETO_ANALIZI/, label: "PARETO_ANALIZI function" },
-  { pattern: /SOSYAL_GUVENLIK_FORMULU/, label: "SOSYAL_GUVENLIK_FORMULU function" },
+  { pattern: /SOSYAL_SAFETY_FORMULU/, label: "SOSYAL_SAFETY_FORMULU function" },
   { pattern: /YAS_CARPANI/, label: "YAS_CARPANI function" },
 ];
 
@@ -176,7 +176,7 @@ const EXCLUDE_PATHS = [
   /free-traffic-calculators-registry\.ts$/,
 
   // Input key names that are intentionally Turkish (legacy form bindings)
-  /values\.(birimmaliyet|kredi|nakit|faiz|vade|masraf|yil|donem|taksit)/,
+  /values\.(birimmaliyet|kredi|nakit|interest|vade|masraf|year|period|taksit)/,
 
   // Legitimate currency/region config — TRY is factual for TR region
   /\/src\/config\/regions\.ts/,

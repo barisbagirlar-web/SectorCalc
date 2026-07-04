@@ -171,7 +171,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Screening preload index = diameter × preload (verify with torque spec).",
   ),
-  "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama": divideTool(
+  "sogutma-sivisi-karisim-ratio-antifriz-bor-yagi-calculation": divideTool(
     "antifreezeLiters",
     "Antifreeze volume",
     "totalLiters",
@@ -190,7 +190,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Total lumber length ≈ pallet count × board length.",
   ),
-  "tahta-mdf-sunta-m-agirlik-hesabi": multiplyTool(
+  "tahta-mdf-sunta-m-weight-hesabi": multiplyTool(
     ["areaM2", "kgPerM2"],
     ["Area", "Weight per m²"],
     ["Sheet area in m²", "Catalog weight per m²"],
@@ -199,7 +199,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Weight = area × kg/m².",
   ),
-  "tel-kablo-uzunlugu-agirlik-hesabi": multiplyTool(
+  "tel-kablo-uzunlugu-weight-hesabi": multiplyTool(
     ["lengthM", "kgPerMeter"],
     ["Length", "kg/m"],
     ["Cable run length in meters", "Catalog cable weight per meter"],
@@ -208,7 +208,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Weight = length × kg/m.",
   ),
-  "vida-somun-adim-dis-ustu-cap-hesabi": multiplyTool(
+  "vida-somun-step-dis-ustu-cap-hesabi": multiplyTool(
     ["pitchMm", "threadCount"],
     ["Pitch", "Thread count"],
     ["Thread pitch in mm", "Number of threads engaged"],
@@ -227,7 +227,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Pilot hole ≈ screw diameter ÷ drill factor (verify with tap drill chart).",
   ),
-  "kdv-tevkifati-hesaplama": {
+  "kdv-tevkifati-calculation": {
     resultType: "cost",
     inputs: [
       nInput("netAmount", "Net amount", "USD", "Net invoice amount"),
@@ -242,7 +242,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Withheld amount proxy ≈ net × rate (informational — not official tax advice).",
     },
   },
-  "stopaj-hesaplama-kira-serbest-meslek": {
+  "stopaj-calculation-rent-serbest-meslek": {
     resultType: "cost",
     inputs: [
       nInput("grossAmount", "Gross amount", "USD", "Payment before withholding"),
@@ -257,7 +257,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Withheld tax proxy ≈ gross × rate (informational only).",
     },
   },
-  "gelir-vergisi-dilimleri-hesaplama": multiplyToolDef({
+  "gelir-vergisi-dilimleri-calculation": multiplyToolDef({
     keys: ["taxableIncome", "effectiveRate"],
     labels: ["Taxable income", "Effective rate"],
     helpers: ["Annual taxable income", "Blended effective rate percent"],
@@ -268,7 +268,7 @@ const FORMULA_BY_SLUG = {
     explanation: "Screening tax estimate = income × effective rate (not bracket-accurate).",
     resultType: "cost",
   }),
-  "ise-giris-cikis-bildirgesi-sureleri": identityTool(
+  "ise-giris-outlet-bildirgesi-sureleri": identityTool(
     "noticeDays",
     "Notice period",
     "Employment notice period",
@@ -276,7 +276,7 @@ const FORMULA_BY_SLUG = {
     "Displays entered notice period in days — compare to local labor rules.",
     "time",
   ),
-  "sgk-prim-hesaplama-isci-plus-isveren": {
+  "sgk-prim-calculation-isci-plus-isveren": {
     resultType: "cost",
     inputs: [
       nInput("grossWage", "Gross wage", "USD", "Monthly gross wage"),
@@ -291,7 +291,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Total premium proxy ≈ gross wage × combined rate (informational).",
     },
   },
-  "makine-ekonomik-omru-hurda-deger-hesabi": {
+  "machine-economic-omru-hurda-value-hesabi": {
     resultType: "cost",
     inputs: [
       nInput("machineCost", "Machine cost", "USD", "Purchase price"),
@@ -308,7 +308,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Straight-line annual depreciation proxy (informational).",
     },
   },
-  "leasing-kiralama-maliyet-karsilastirma": subtractTool(
+  "leasing-leasing-cost-comparison": subtractTool(
     "leaseCost",
     "Lease cost",
     "rentalCost",
@@ -317,7 +317,7 @@ const FORMULA_BY_SLUG = {
     "Lease savings",
     "Savings = rental cost − lease cost (informational).",
   ),
-  "kredi-erken-kapama-cezasi-hesaplama": multiplyToolDef({
+  "kredi-erken-kapama-cezasi-calculation": multiplyToolDef({
     keys: ["remainingBalance", "penaltyRate"],
     labels: ["Remaining balance", "Penalty rate"],
     helpers: ["Outstanding loan balance", "Early closure penalty percent"],
@@ -339,7 +339,7 @@ const FORMULA_BY_SLUG = {
     explanation: "Risk proxy ≈ exposure × FX move percent.",
     resultType: "cost",
   }),
-  "cek-senet-vade-kirma-maliyeti-hesabi": multiplyToolDef({
+  "cek-senet-vade-kirma-cost-hesabi": multiplyToolDef({
     keys: ["faceValue", "discountRate"],
     labels: ["Face value", "Discount rate"],
     helpers: ["Instrument face value", "Discount rate percent"],
@@ -350,7 +350,7 @@ const FORMULA_BY_SLUG = {
     explanation: "Discount cost proxy ≈ face value × discount rate.",
     resultType: "cost",
   }),
-  "nakit-akisi-basit-gunluk-haftalik-panosu": multiplyToolDef({
+  "nakit-flow-basit-daily-haftalik-panosu": multiplyToolDef({
     keys: ["dailyInflow", "days"],
     labels: ["Daily inflow", "Days"],
     helpers: ["Average daily cash inflow", "Days in period"],
@@ -361,7 +361,7 @@ const FORMULA_BY_SLUG = {
     explanation: "Period inflow ≈ daily inflow × days.",
     resultType: "cost",
   }),
-  "ic-verim-orani-irr-hesaplama": multiplyToolDef({
+  "ic-efficiency-ratio-irr-calculation": multiplyToolDef({
     keys: ["initialInvestment", "returnMultiple"],
     labels: ["Initial investment", "Return multiple"],
     helpers: ["Project investment", "Screening return multiple"],
@@ -371,7 +371,7 @@ const FORMULA_BY_SLUG = {
     format: "number",
     explanation: "Screening return index — not a full IRR solver.",
   }),
-  "konteyner-yukleme-kapasitesi-teu-hesabi": divideTool(
+  "konteyner-loading-capacity-teu-hesabi": divideTool(
     "totalWeightKg",
     "Total weight",
     "unitWeightKg",
@@ -381,7 +381,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Load units ≈ total weight ÷ unit weight.",
   ),
-  "tir-kamyon-yuk-kapasitesi-hesaplama": multiplyToolDef({
+  "tir-kamyon-load-capacity-calculation": multiplyToolDef({
     keys: ["payloadTon", "loadFactor"],
     labels: ["Payload capacity", "Load factor"],
     helpers: ["Rated payload in tonnes", "Utilization factor"],
@@ -391,7 +391,7 @@ const FORMULA_BY_SLUG = {
     format: "number",
     explanation: "Usable payload ≈ rated payload × load factor.",
   }),
-  "arac-bakim-periyodu-takip-hesaplama": divideTool(
+  "tool-maintenance-period-takip-calculation": divideTool(
     "remainingKm",
     "Remaining km",
     "dailyKm",
@@ -402,7 +402,7 @@ const FORMULA_BY_SLUG = {
     "Days until service ≈ remaining km ÷ daily km.",
     "time",
   ),
-  "lastik-omru-degisim-km-hesaplama": divideTool(
+  "tire-omru-change-km-calculation": divideTool(
     "remainingTreadKm",
     "Remaining tread km",
     "monthlyKm",
@@ -413,7 +413,7 @@ const FORMULA_BY_SLUG = {
     "Months until change ≈ remaining tread km ÷ monthly km.",
     "time",
   ),
-  "depo-raf-palet-yerlesim-optimizasyonu": multiplyTool(
+  "warehouse-raf-palet-yerlesim-optimizasyonu": multiplyTool(
     ["palletWidthM", "palletDepthM"],
     ["Pallet width", "Pallet depth"],
     ["Pallet width in meters", "Pallet depth in meters"],
@@ -422,7 +422,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Footprint m² = width × depth.",
   ),
-  "trafik-cezasi-gecikme-faizi-hesaplama": multiplyToolDef({
+  "trafik-cezasi-delay-faizi-calculation": multiplyToolDef({
     keys: ["fineAmount", "lateRate"],
     labels: ["Fine amount", "Late rate"],
     helpers: ["Original fine amount", "Late payment rate percent"],
@@ -433,7 +433,7 @@ const FORMULA_BY_SLUG = {
     explanation: "Late interest proxy ≈ fine × late rate.",
     resultType: "cost",
   }),
-  "kasko-sigorta-prim-karsilastirma": subtractTool(
+  "comprehensive-insurance-prim-comparison": subtractTool(
     "quoteA",
     "Quote A",
     "quoteB",
@@ -442,7 +442,7 @@ const FORMULA_BY_SLUG = {
     "Quote delta",
     "Delta = quote A − quote B (informational).",
   ),
-  "sofor-operator-gunluk-yevmiye-maliyeti": multiplyToolDef({
+  "sofor-operator-daily-yevmiye-cost": multiplyToolDef({
     keys: ["dailyRate", "days"],
     labels: ["Daily rate", "Days"],
     helpers: ["Driver/operator daily rate", "Working days"],
@@ -453,7 +453,7 @@ const FORMULA_BY_SLUG = {
     explanation: "Labor cost ≈ daily rate × days.",
     resultType: "cost",
   }),
-  "arac-kira-satin-alma-karsilastirma": subtractTool(
+  "tool-rent-satin-taking-comparison": subtractTool(
     "purchaseCost",
     "Purchase cost",
     "leaseCost",
@@ -462,7 +462,7 @@ const FORMULA_BY_SLUG = {
     "Cost delta",
     "Delta = purchase cost − lease cost (informational).",
   ),
-  "yemek-tabldot-maliyet-hesaplama": multiplyTool(
+  "yemek-tabldot-cost-calculation": multiplyTool(
     ["mealCost", "headcount"],
     ["Meal cost", "Headcount"],
     ["Cost per meal", "Number of meals"],
@@ -472,7 +472,7 @@ const FORMULA_BY_SLUG = {
     "Total cost ≈ meal cost × headcount.",
     "cost",
   ),
-  "fotokopi-yazici-toner-sayfa-maliyeti": divideTool(
+  "fotokopi-yazici-toner-sayfa-cost": divideTool(
     "tonerCost",
     "Toner cost",
     "pageYield",
@@ -483,7 +483,7 @@ const FORMULA_BY_SLUG = {
     "Cost per page ≈ toner cost ÷ page yield.",
     "cost",
   ),
-  "internet-telefon-paketi-karsilastirma": subtractTool(
+  "internet-telefon-paketi-comparison": subtractTool(
     "packageA",
     "Package A",
     "packageB",
@@ -492,17 +492,17 @@ const FORMULA_BY_SLUG = {
     "Monthly delta",
     "Monthly delta = package A − package B.",
   ),
-  "yangin-tupu-dolap-debisi-hesaplama": multiplyToolDef({
+  "yangin-tupu-dolap-debisi-calculation": multiplyToolDef({
     keys: ["areaM2", "flowFactor"],
     labels: ["Protected area", "Flow factor"],
     helpers: ["Protected floor area in m²", "Flow factor per m²"],
     defaults: { flowFactor: 0.5 },
-    headline: "Fire suppression flow",
+    headline: "Waste suppression flow",
     primaryLabel: "Flow index",
     format: "number",
     explanation: "Flow index ≈ area × flow factor.",
   }),
-  "prefabrik-konteyner-ofis-m-maliyeti": multiplyTool(
+  "prefabrik-konteyner-ofis-m-cost": multiplyTool(
     ["areaM2", "costPerM2"],
     ["Floor area", "Cost per m²"],
     ["Office floor area in m²", "Cost per m²"],
@@ -512,7 +512,7 @@ const FORMULA_BY_SLUG = {
     "Cost ≈ area × cost per m².",
     "cost",
   ),
-  "celik-raf-depo-rafi-yuk-kapasitesi": multiplyTool(
+  "steel-raf-warehouse-rafi-load-capacity": multiplyTool(
     ["beamCapacityKg", "shelfCount"],
     ["Beam capacity", "Shelf count"],
     ["Capacity per beam level in kg", "Number of shelf levels"],
@@ -539,7 +539,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Shear index ≈ bolt count × capacity per bolt.",
   ),
-  "ruzgar-turbini-yaklasik-uretim-hesabi": multiplyToolDef({
+  "wind-turbini-yaklasik-production-hesabi": multiplyToolDef({
     keys: ["ratedKw", "capacityFactor"],
     labels: ["Rated power", "Capacity factor"],
     helpers: ["Turbine rated kW", "Capacity factor"],
@@ -549,7 +549,7 @@ const FORMULA_BY_SLUG = {
     format: "number",
     explanation: "Production index ≈ rated kW × capacity factor × hours proxy.",
   }),
-  "su-isitma-kazan-boyler-kapasite-hesabi": multiplyTool(
+  "su-isitma-kazan-boyler-capacity-hesabi": multiplyTool(
     ["volumeLiters", "deltaTempC"],
     ["Volume", "Temperature rise"],
     ["Tank volume in liters", "Required temperature rise in °C"],
@@ -558,7 +558,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Energy index ≈ volume × temperature rise.",
   ),
-  "soguk-oda-sogutma-yuku-hesabi": {
+  "soguk-oda-sogutma-load-hesabi": {
     resultType: "quantity",
     inputs: [
       nInput("roomVolumeM3", "Room volume", "m³", "Cold room volume"),
@@ -573,7 +573,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Cooling load proxy ≈ room volume × load factor.",
     },
   },
-  "yamuk-alani-hesaplama": {
+  "yamuk-area-calculation": {
     resultType: "quantity",
     inputs: [
       nInput("baseA", "Base A", "m", "First parallel side"),
@@ -589,7 +589,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Area = (base A + base B) ÷ 2 × height.",
     },
   },
-  "kure-hacmi-hesaplama": {
+  "kure-volume-calculation": {
     resultType: "quantity",
     inputs: [nInput("radius", "Radius", "m", "Sphere radius")],
     formula: {
@@ -599,7 +599,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Volume = 4/3 × π × r³.",
     },
   },
-  "koni-hacmi-hesaplama": {
+  "koni-volume-calculation": {
     resultType: "quantity",
     inputs: [
       nInput("radius", "Radius", "m", "Base radius"),
@@ -613,7 +613,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Volume = 1/3 × π × r² × height.",
     },
   },
-  "duvar-kagidi-seramik-adet-hesaplama": divideTool(
+  "wall-kagidi-seramik-count-calculation": divideTool(
     "wallAreaM2",
     "Wall area",
     "tileAreaM2",
@@ -623,7 +623,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Tiles ≈ wall area ÷ tile area (add waste separately).",
   ),
-  "kiris-kolon-yaklasik-agirlik-hesabi": multiplyTool(
+  "beam-column-yaklasik-weight-hesabi": multiplyTool(
     ["lengthM", "kgPerMeter"],
     ["Length", "kg/m"],
     ["Member length in meters", "Catalog weight per meter"],
@@ -632,7 +632,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Weight = length × kg/m.",
   ),
-  "asma-tavan-malzeme-hesabi": multiplyTool(
+  "asma-tavan-material-hesabi": multiplyTool(
     ["ceilingAreaM2", "materialPerM2"],
     ["Ceiling area", "Material per m²"],
     ["Ceiling area in m²", "Material units per m²"],
@@ -641,7 +641,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Material units ≈ area × material per m².",
   ),
-  "istinat-duvari-yaklasik-beton-hesabi": multiplyTool(
+  "istinat-duvari-yaklasik-concrete-hesabi": multiplyTool(
     ["wallLengthM", "wallHeightM"],
     ["Wall length", "Wall height"],
     ["Retaining wall length", "Average wall height"],
@@ -660,7 +660,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "L10 life index ≈ basic load ÷ dynamic load (screening).",
   ),
-  "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli": identityTool(
+  "paslanmaz-steel-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli": identityTool(
     "densityKgM3",
     "Material density",
     "Material density check",
@@ -686,7 +686,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Abrasive kg ≈ area × kg/m².",
   ),
-  "plastik-enjeksiyon-cevrim-suresi-tahmini": divideTool(
+  "plastik-enjeksiyon-cycle-duration-tahmini": divideTool(
     "shotWeightG",
     "Shot weight",
     "injectionRateGps",
@@ -697,7 +697,7 @@ const FORMULA_BY_SLUG = {
     "Injection time index ≈ shot weight ÷ injection rate.",
     "time",
   ),
-  "personel-devamsizlik-maliyeti-hesaplama": multiplyTool(
+  "personel-devamsizlik-cost-calculation": multiplyTool(
     ["dailyWage", "absentDays"],
     ["Daily wage", "Absent days"],
     ["Daily wage cost", "Absent days in period"],
@@ -707,7 +707,7 @@ const FORMULA_BY_SLUG = {
     "Cost ≈ daily wage × absent days.",
     "cost",
   ),
-  "is-kazasi-maliyeti-gun-kaybi-hesaplama": multiplyTool(
+  "is-kazasi-cost-day-loss-calculation": multiplyTool(
     ["dailyOutputValue", "lostDays"],
     ["Daily output value", "Lost days"],
     ["Daily production value", "Lost workdays"],
@@ -717,7 +717,7 @@ const FORMULA_BY_SLUG = {
     "Cost ≈ daily output × lost days.",
     "cost",
   ),
-  "forklift-transpalet-kullanim-maliyeti": multiplyTool(
+  "forklift-transpalet-usage-cost": multiplyTool(
     ["hourlyRate", "hours"],
     ["Hourly rate", "Hours"],
     ["Equipment hourly rate", "Operating hours"],
@@ -727,7 +727,7 @@ const FORMULA_BY_SLUG = {
     "Cost ≈ hourly rate × hours.",
     "cost",
   ),
-  "paketleme-malzemesi-strec-koli-sarfiyati": multiplyTool(
+  "paketleme-material-strec-koli-sarfiyati": multiplyTool(
     ["shipmentCount", "materialPerShipment"],
     ["Shipments", "Material per shipment"],
     ["Number of shipments", "Packaging units per shipment"],
@@ -736,7 +736,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Material units ≈ shipments × units per shipment.",
   ),
-  "irsaliye-fatura-adedi-basina-sevkiyat-maliyeti": divideTool(
+  "irsaliye-fatura-adedi-basina-sevkiyat-cost": divideTool(
     "totalShippingCost",
     "Total shipping cost",
     "documentCount",
@@ -747,7 +747,7 @@ const FORMULA_BY_SLUG = {
     "Cost per document ≈ total shipping cost ÷ document count.",
     "cost",
   ),
-  "cay-kahve-su-tuketim-maliyeti": multiplyToolDef({
+  "cay-kahve-su-tuketim-cost": multiplyToolDef({
     keys: ["unitCost", "dailyUnits"],
     labels: ["Unit cost", "Daily units"],
     helpers: ["Cost per serving", "Servings per day"],
@@ -758,7 +758,7 @@ const FORMULA_BY_SLUG = {
     explanation: "Daily cost ≈ unit cost × daily servings.",
     resultType: "cost",
   }),
-  "toplanti-saati-maliyeti-hesaplama": multiplyTool(
+  "toplanti-saati-cost-calculation": multiplyTool(
     ["attendeeRate", "attendeeHours"],
     ["Attendee rate", "Attendee-hours"],
     ["Blended hourly attendee cost", "Total attendee-hours"],
@@ -778,7 +778,7 @@ const FORMULA_BY_SLUG = {
     "Total cost ≈ unit cost × employees.",
     "cost",
   ),
-  "temizlik-malzemesi-sarfiyat-hesabi": multiplyTool(
+  "temizlik-material-sarfiyat-hesabi": multiplyTool(
     ["areaM2", "consumptionPerM2"],
     ["Area", "Consumption per m²"],
     ["Cleaned area in m²", "Material consumption per m²"],
@@ -797,7 +797,7 @@ const FORMULA_BY_SLUG = {
     "Monthly spend ≈ employees × spend per head.",
     "cost",
   ),
-  "sirket-telefon-faturasi-hesaplama": multiplyTool(
+  "sirket-telefon-faturasi-calculation": multiplyTool(
     ["lineCount", "monthlyLineCost"],
     ["Lines", "Cost per line"],
     ["Number of phone lines", "Monthly cost per line"],
@@ -807,7 +807,7 @@ const FORMULA_BY_SLUG = {
     "Monthly bill ≈ lines × cost per line.",
     "cost",
   ),
-  "abonelik-yazilim-cloud-yillik-maliyet-hesabi": multiplyToolDef({
+  "abonelik-yazilim-cloud-annual-cost-hesabi": multiplyToolDef({
     keys: ["monthlyFee", "months"],
     labels: ["Monthly fee", "Months"],
     helpers: ["Monthly subscription fee", "Months per year"],
@@ -818,7 +818,7 @@ const FORMULA_BY_SLUG = {
     explanation: "Annual cost ≈ monthly fee × months.",
     resultType: "cost",
   }),
-  "is-sagligi-ve-guvenligi-ceza-hesaplama": multiplyToolDef({
+  "is-sagligi-ve-guvenligi-ceza-calculation": multiplyToolDef({
     keys: ["baseFine", "severityFactor"],
     labels: ["Base fine", "Severity factor"],
     helpers: ["Reference fine amount", "Severity multiplier"],
@@ -839,7 +839,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Width index ≈ occupant load ÷ flow per meter.",
   ),
-  "cevre-atik-beyani-maliyet-hesaplama": multiplyTool(
+  "environment-atik-beyani-cost-calculation": multiplyTool(
     ["wasteTonnes", "feePerTonne"],
     ["Waste tonnage", "Fee per tonne"],
     ["Declared waste in tonnes", "Fee per tonne"],
@@ -849,7 +849,7 @@ const FORMULA_BY_SLUG = {
     "Cost ≈ tonnage × fee per tonne.",
     "cost",
   ),
-  "cop-atik-konteyner-hacim-hesabi": multiplyTool(
+  "cop-atik-konteyner-volume-hesabi": multiplyTool(
     ["containerLengthM", "containerWidthM"],
     ["Length", "Width"],
     ["Container length in meters", "Container width in meters"],
@@ -858,7 +858,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Footprint index = length × width (multiply by height separately).",
   ),
-  "geri-donusum-gelir-maliyet-hesabi": subtractTool(
+  "geri-donusum-gelir-cost-hesabi": subtractTool(
     "recyclingRevenue",
     "Recycling revenue",
     "processingCost",
@@ -867,7 +867,7 @@ const FORMULA_BY_SLUG = {
     "Net recycling value",
     "Net value = revenue − processing cost.",
   ),
-  "merdiven-platform-yukseklik-erisim-hesabi": multiplyToolDef({
+  "merdiven-platform-height-erisim-hesabi": multiplyToolDef({
     keys: ["platformHeightM", "accessFactor"],
     labels: ["Platform height", "Access factor"],
     helpers: ["Working platform height in meters", "Access factor"],
@@ -896,7 +896,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "L10 life index ≈ basic load ÷ dynamic load.",
   ),
-  "yay-helisel-kuvvet-uzama-hesabi": multiplyTool(
+  "yay-helisel-force-uzama-hesabi": multiplyTool(
     ["springRate", "deflectionMm"],
     ["Spring rate", "Deflection"],
     ["Spring rate N/mm", "Deflection in mm"],
@@ -915,7 +915,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Thickness index ≈ pressure ÷ allowable stress (screening).",
   ),
-  "isi-degistirici-esanjor-kapasite-hesabi": multiplyTool(
+  "isi-degistirici-esanjor-capacity-hesabi": multiplyTool(
     ["flowRateM3h", "deltaTempC"],
     ["Flow rate", "Temperature delta"],
     ["Flow in m³/h", "Temperature difference in °C"],
@@ -943,7 +943,7 @@ const FORMULA_BY_SLUG = {
     "Result level",
     "Result level ≈ source − attenuation (informational).",
   ),
-  "titresim-frekans-periyot-hesaplama": {
+  "titresim-frequency-period-calculation": {
     resultType: "quantity",
     inputs: [
       nInput("frequencyHz", "Frequency", "Hz", "Vibration frequency in Hz"),
@@ -959,14 +959,14 @@ const FORMULA_BY_SLUG = {
       explanation: "Period ≈ constant ÷ frequency (use constant = 1 for seconds).",
     },
   },
-  "kaynak-proseduru-wps-on-isitma-sicakligi-hesabi": identityTool(
+  "resource-proseduru-wps-on-isitma-sicakligi-hesabi": identityTool(
     "preheatTempC",
     "Preheat temperature",
     "WPS preheat check",
     "Preheat °C",
     "Displays entered preheat temperature — compare to WPS requirements.",
   ),
-  "istatistiksel-proses-kontrol-spc-limit-hesabi": multiplyToolDef({
+  "istatistiksel-process-control-spc-limit-hesabi": multiplyToolDef({
     keys: ["processMean", "controlFactor"],
     labels: ["Process mean", "Control factor"],
     helpers: ["Process mean", "Control limit factor"],
@@ -976,7 +976,7 @@ const FORMULA_BY_SLUG = {
     format: "number",
     explanation: "Control limit index ≈ mean × control factor (screening).",
   }),
-  "alti-sigma-dpmo-sigma-seviyesi-cevirici": {
+  "alti-sigma-dpmo-sigma-level-cevirici": {
     resultType: "statistics",
     inputs: [
       nInput("dpmo", "DPMO", "defects", "Defects per million opportunities"),
@@ -1045,21 +1045,21 @@ writeFileSync(
 );
 
 const CUSTOM_HANDLERS = `
-  if (slug === "kdv-tevkifati-hesaplama" || slug === "stopaj-hesaplama-kira-serbest-meslek" || slug === "sgk-prim-hesaplama-isci-plus-isveren") {
-    const amount = Number(values[slug === "sgk-prim-hesaplama-isci-plus-isveren" ? "grossWage" : slug === "kdv-tevkifati-hesaplama" ? "netAmount" : "grossAmount"] ?? 0);
+  if (slug === "kdv-tevkifati-calculation" || slug === "stopaj-calculation-rent-serbest-meslek" || slug === "sgk-prim-calculation-isci-plus-isveren") {
+    const amount = Number(values[slug === "sgk-prim-calculation-isci-plus-isveren" ? "grossWage" : slug === "kdv-tevkifati-calculation" ? "netAmount" : "grossAmount"] ?? 0);
     const rate = Number(values.withholdingRate ?? values.combinedRate ?? 0);
-    const rateKey = slug === "sgk-prim-hesaplama-isci-plus-isveren" ? "combinedRate" : "withholdingRate";
+    const rateKey = slug === "sgk-prim-calculation-isci-plus-isveren" ? "combinedRate" : "withholdingRate";
     return runBatch1Formula(
       spec,
-      { ...values, [slug === "sgk-prim-hesaplama-isci-plus-isveren" ? "grossWage" : slug === "kdv-tevkifati-hesaplama" ? "netAmount" : "grossAmount"]: amount * (rate / 100), [rateKey]: 1 },
+      { ...values, [slug === "sgk-prim-calculation-isci-plus-isveren" ? "grossWage" : slug === "kdv-tevkifati-calculation" ? "netAmount" : "grossAmount"]: amount * (rate / 100), [rateKey]: 1 },
     );
   }
-  if (slug === "gelir-vergisi-dilimleri-hesaplama") {
+  if (slug === "gelir-vergisi-dilimleri-calculation") {
     const income = Number(values.taxableIncome ?? 0);
     const rate = Number(values.effectiveRate ?? 0);
     return runBatch1Formula(spec, { taxableIncome: income * (rate / 100), effectiveRate: 1 });
   }
-  if (slug === "makine-ekonomik-omru-hurda-deger-hesabi") {
+  if (slug === "machine-economic-omru-hurda-value-hesabi") {
     const cost = Number(values.machineCost ?? 0);
     const salvage = Number(values.salvageValue ?? 0);
     const years = Math.max(Number(values.usefulLifeYears ?? 1), 0.01);
@@ -1068,9 +1068,9 @@ const CUSTOM_HANDLERS = `
       { ...values, depreciableBase: Math.max(cost - salvage, 0), usefulLifeYears: years },
     );
   }
-  if (slug === "kredi-erken-kapama-cezasi-hesaplama" || slug === "doviz-pozisyonu-kur-farki-riski-hesabi" || slug === "cek-senet-vade-kirma-maliyeti-hesabi" || slug === "trafik-cezasi-gecikme-faizi-hesaplama") {
-    const baseKey = slug === "kredi-erken-kapama-cezasi-hesaplama" ? "remainingBalance" : slug === "doviz-pozisyonu-kur-farki-riski-hesabi" ? "foreignExposure" : slug === "cek-senet-vade-kirma-maliyeti-hesabi" ? "faceValue" : "fineAmount";
-    const rateKey = slug === "doviz-pozisyonu-kur-farki-riski-hesabi" ? "fxMovePercent" : slug === "cek-senet-vade-kirma-maliyeti-hesabi" ? "discountRate" : slug === "trafik-cezasi-gecikme-faizi-hesaplama" ? "lateRate" : "penaltyRate";
+  if (slug === "kredi-erken-kapama-cezasi-calculation" || slug === "doviz-pozisyonu-kur-farki-riski-hesabi" || slug === "cek-senet-vade-kirma-cost-hesabi" || slug === "trafik-cezasi-delay-faizi-calculation") {
+    const baseKey = slug === "kredi-erken-kapama-cezasi-calculation" ? "remainingBalance" : slug === "doviz-pozisyonu-kur-farki-riski-hesabi" ? "foreignExposure" : slug === "cek-senet-vade-kirma-cost-hesabi" ? "faceValue" : "fineAmount";
+    const rateKey = slug === "doviz-pozisyonu-kur-farki-riski-hesabi" ? "fxMovePercent" : slug === "cek-senet-vade-kirma-cost-hesabi" ? "discountRate" : slug === "trafik-cezasi-delay-faizi-calculation" ? "lateRate" : "penaltyRate";
     const base = Number(values[baseKey] ?? 0);
     const rate = Number(values[rateKey] ?? 0);
     return runBatch1Formula(spec, { ...values, [baseKey]: base * (rate / 100), [rateKey]: 1 });
@@ -1104,7 +1104,7 @@ writeFileSync(
   `${JSON.stringify(i18nBatch, null, 2)}\n`,
 );
 
-const sourcePath = join(ROOT, "scripts/data/strategic-roadmap-source.json");
+const sourcePath = join(ROOT, "archive/migration-only/scripts/data/strategic-roadmap-source.json");
 const source = JSON.parse(readFileSync(sourcePath, "utf8"));
 const batchSlugs = new Set(batch.map((b) => b.slug));
 for (const item of source.free) {

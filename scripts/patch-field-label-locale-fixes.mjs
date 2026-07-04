@@ -7,17 +7,17 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
-const TARGET = join(ROOT, "scripts/data/calculator-field-labels-i18n.json");
+const TARGET = join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json");
 
 const FIXES = {
   tr: {
-    Distance: "Mesafe",
-    Volume: "Hacim",
-    Total: "Toplam",
-    "Input material": "Girdi malzemesi",
+    Distance: "Distance",
+    Volume: "Volume",
+    Total: "Total",
+    "Input material": "Input material",
     "Loan amount": "Kredi tutarı",
-    "Margin error": "Marj hatası",
-    "Fuel input": "Yakıt girdisi",
+    "Margin error": "Margin hatası",
+    "Fuel input": "Yakıt input",
     "Current year": "Cari yıl",
     "Phase Type": "Faz Türü",
     dimensionless: "boyutsuz",
@@ -26,11 +26,11 @@ const FIXES = {
     Divisor: "Bölen",
     Dosage: "Dozaj",
     Favorable: "Uygun",
-    Inspection: "Denetim",
+    Inspection: "Audit",
     "Motor kW": "Motor gücü (kW)",
     Population: "Popülasyon",
     Portions: "Porsiyonlar",
-    Proportion: "Oran",
+    Proportion: "Ratio",
     "Pump motor kW": "Pompa motor gücü (kW)",
     Servings: "Servis porsiyonları",
     "Successful outcomes": "Başarılı sonuçlar",

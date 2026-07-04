@@ -20,7 +20,7 @@ const COPY = {
     ctaCalculate: "Calculate",
     ctaOpen: "Hesaplayıcıyı aç",
     ctaOpenSector: "Sektörü aç",
-    inputCount: "~{count} girdi",
+    inputCount: "~{count} input",
     sectorToolCounts: "{free} ücretsiz · {premium} premium",
     resultsLabel: "<strong>{count}</strong> hesaplayıcı listeleniyor",
   },

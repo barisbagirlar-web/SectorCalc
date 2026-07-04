@@ -1,0 +1,164 @@
+{
+  "tool_name": "Oven Capacity Calculator",
+  "tool_key": "oven-capacity-calculator",
+  "slug": "oven-capacity-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "thermal-energy-transfer",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "unit": "kg",
+      "required": true,
+      "normalized_id": "mass",
+      "description": "Mass",
+      "min": 0
+    },
+    {
+      "id": "specific_heat",
+      "label": "Specific Heat",
+      "unit": "J/(kg*K)",
+      "required": true,
+      "normalized_id": "specific_heat",
+      "description": "Specific Heat",
+      "min": 0
+    },
+    {
+      "id": "temperature_difference",
+      "label": "Temperature Difference",
+      "unit": "K",
+      "required": true,
+      "normalized_id": "temperature_difference",
+      "description": "Temperature Difference",
+      "min": 0
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "unit": "s",
+      "required": true,
+      "normalized_id": "time",
+      "description": "Time",
+      "min": 1e-06
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "unit": "decimal",
+      "required": true,
+      "normalized_id": "efficiency",
+      "description": "Efficiency",
+      "min": 0.01,
+      "max": 1
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "mass",
+      "source_input_id": "mass",
+      "base_unit": "kg",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "specific_heat",
+      "source_input_id": "specific_heat",
+      "base_unit": "J/(kg*K)",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "temperature_difference",
+      "source_input_id": "temperature_difference",
+      "base_unit": "K",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "time",
+      "source_input_id": "time",
+      "base_unit": "s",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "efficiency",
+      "source_input_id": "efficiency",
+      "base_unit": "decimal",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "thermal_energy",
+      "label": "Thermal Energy",
+      "unit": "J",
+      "description": "Thermal Energy"
+    },
+    {
+      "id": "heat_rate",
+      "label": "Heat Rate",
+      "unit": "W",
+      "description": "Heat Rate"
+    },
+    {
+      "id": "input_power",
+      "label": "Input Power",
+      "unit": "W",
+      "description": "Input Power"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute thermal energy from mass, specific heat, and temperature difference.",
+    "Compute heat rate from thermal energy divided by time.",
+    "Compute required input power by dividing heat rate by efficiency."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

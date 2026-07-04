@@ -8,26 +8,26 @@ let changedFiles = 0;
 
 const unitTranslations = {
   "saat": "hours",
-  "adet": "units",
+  "count": "units",
   "kisi": "people",
   "kişi": "people",
   "ay": "months",
-  "gun": "days",
+  "day": "days",
   "gün": "days",
   "hafta": "weeks",
-  "yil": "years",
+  "year": "years",
   "yıl": "years",
   "dakika": "minutes",
   "USD/saat": "USD/hour",
-  "adet/saat": "units/hour",
-  "adet/ay": "units/month",
-  "adet/yil": "units/year",
-  "adet/dekar": "units/acre",
-  "adet/gun": "units/day",
+  "count/saat": "units/hour",
+  "count/ay": "units/month",
+  "count/year": "units/year",
+  "count/dekar": "units/acre",
+  "count/day": "units/day",
   "USD/ay": "USD/month",
-  "USD/gun": "USD/day",
-  "USD/yil": "USD/year",
-  "USD/adet": "USD/unit"
+  "USD/day": "USD/day",
+  "USD/year": "USD/year",
+  "USD/count": "USD/unit"
 };
 
 for (const file of files) {

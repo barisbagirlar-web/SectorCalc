@@ -19,7 +19,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
-const BATCH_FILE = "data/premium-formulas-batch.txt";
+const BATCH_FILE = "archive/migration-only/data/premium-formulas-batch.txt";
 const GENERATED_JSON_DIR = "generated/schemas";
 
 // ── Turkish char normalization ──
@@ -206,33 +206,33 @@ function deriveInputs(formulas) {
 // ── Guess unit from label ──
 function guessUnit(text) {
   const t = text.toLowerCase();
-  if (/\b(percent|ratio|oran|rate|yuzde|pct|yüzde)\b/.test(t)) return "%";
+  if (/\b(percent|ratio|ratio|rate|yuzde|pct|yüzde)\b/.test(t)) return "%";
   if (/currency|\$|eur|try|usd|tl\b/.test(t)) return "USD";
-  if (/\b(kg|weight|agirlik|kutle|kütle|ton)\b/.test(t)) return "kg";
-  if (/\b(kw|power|guc|güç)\b/.test(t)) return "kW";
-  if (/\b(kwh|energy|enerji|tuketim|tüketim)\b/.test(t)) return "kWh";
-  if (/\b(hours|hour|time|sure|süre|saat|dakika)\b/.test(t)) return "hour";
-  if (/\b(day|daily|gunluk|günlük)\b/.test(t)) return "day";
-  if (/\b(km|kilometer|distance|mesafe)\b/.test(t)) return "km";
-  if (/\b(adet|unit|piece|count|sayi|sayı|miktar)\b/.test(t)) return "unit";
+  if (/\b(kg|weight|weight|mass|kütle|ton)\b/.test(t)) return "kg";
+  if (/\b(kw|power|power|güç)\b/.test(t)) return "kW";
+  if (/\b(kwh|energy|energy|tuketim|tüketim)\b/.test(t)) return "kWh";
+  if (/\b(hours|hour|time|duration|süre|saat|dakika)\b/.test(t)) return "hour";
+  if (/\b(day|daily|daily|günlük)\b/.test(t)) return "day";
+  if (/\b(km|kilometer|distance|distance)\b/.test(t)) return "km";
+  if (/\b(count|unit|piece|count|sayi|sayı|quantity)\b/.test(t)) return "unit";
   return "";
 }
 
 // ── Infer category ──
 function inferCategory(name, formulas) {
   const txt = (name + " " + formulas.map(f => f.varName + " " + f.expr).join(" ")).toLowerCase();
-  if (/\b(dcf|irr|npv|roi|payback|wacc|discount|cash.flow|clv|cac|ltv|faiz|finans)\b/.test(txt)) return "finance";
+  if (/\b(dcf|irr|npv|roi|payback|wacc|discount|cash.flow|clv|cac|ltv|interest|finance)\b/.test(txt)) return "finance";
   if (/\b(kwh|energy|elec|power|compressor|steam|hvac|reactive)\b/.test(txt)) return "energy";
-  if (/\b(scrap|defect|waste|fire|israf|muda|hurda|rework|hata|kayip)\b/.test(txt)) return "scrap";
+  if (/\b(scrap|defect|waste|waste|waste|muda|hurda|rework|error|loss)\b/.test(txt)) return "scrap";
   if (/\b(oee|availability|performance|downtime|ariza)\b/.test(txt)) return "oee";
-  if (/\b(cycle|takt|setup|changeover|smed|sure|lead.time|process.time)\b/.test(txt)) return "time";
-  if (/\b(route|mesafe|distance|transport|lojistik|rota|navlun|freight|tasima)\b/.test(txt)) return "route";
-  if (/\b(carbon|co2|emission|karbon|cevre|environment|su|water|atik)\b/.test(txt)) return "carbon";
+  if (/\b(cycle|takt|setup|changeover|smed|duration|lead.time|process.time)\b/.test(txt)) return "time";
+  if (/\b(route|distance|distance|transport|lojistik|rota|navlun|freight|tasima)\b/.test(txt)) return "route";
+  if (/\b(carbon|co2|emission|karbon|environment|environment|su|water|atik)\b/.test(txt)) return "carbon";
   if (/\b(calibrasyon|calibration|drift|tolerance|gage)\b/.test(txt)) return "calibration";
-  if (/\b(ogrenme|learning|kaizen|lean|smv|sewing|dikis|hatti)\b/.test(txt)) return "lean";
+  if (/\b(learning|learning|kaizen|lean|smv|sewing|dikis|hatti)\b/.test(txt)) return "lean";
   if (/\b(cpk|ppm|spc|sigma|control.chart|istatistik|sample)\b/.test(txt)) return "measurement";
-  if (/\b(maliyet|cost|price|margin|marj|cogs)\b/.test(txt)) return "cost";
-  if (/\b(tedarik|supplier|stok|inventory|eoq|rop)\b/.test(txt)) return "benchmark";
+  if (/\b(cost|cost|price|margin|margin|cogs)\b/.test(txt)) return "cost";
+  if (/\b(supply|supplier|inventory|inventory|eoq|rop)\b/.test(txt)) return "benchmark";
   return "cost";
 }
 
@@ -346,7 +346,7 @@ function generateJson(slug, tool) {
     slug,
     toolName: tool.toolName,
     name: tool.toolName,
-    description: `${tool.toolName} premium hesaplama araci.`,
+    description: `${tool.toolName} premium calculation tool.`,
     premiumRequired: true,
     standardOptions: [],
     premiumFeatures: ["PDF export", "CSV export", "Trend analysis", "Verdict report", "Action plan"],
@@ -366,8 +366,8 @@ function generateJson(slug, tool) {
     profession: "engineer",
     about: {
       description: {
-        short: `${tool.toolName} premium araci ile kayiplari tespit edin.`,
-        long: `${tool.toolName} premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama.`,
+        short: `${tool.toolName} premium tool ile kayiplari tespit edin.`,
+        long: `${tool.toolName} premium calculation tool. Endustriyel formuller ile fast ve correct calculation.`,
       },
     },
   };
@@ -405,11 +405,11 @@ function main() {
   }
 
   console.log(`\n=== ISTATISTIK ===`);
-  console.log(`  Toplam: ${ok + skip + err}`);
+  console.log(`  Total: ${ok + skip + err}`);
   console.log(`  OK:     ${ok}`);
   console.log(`  Skip:   ${skip}`);
-  console.log(`  Hata:   ${err}`);
-  console.log(`\nSonraki adim: npm run generate:all`);
+  console.log(`  Error:   ${err}`);
+  console.log(`\nSonraki step: npm run generate:all`);
 }
 
 main();

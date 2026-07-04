@@ -7,9 +7,8 @@
  */
 
 import {
-  TURKISH_TOKENS,
   hasTurkishToken,
-} from "./turkish-token-detector";
+} from "./forbidden-locale-token-detector";
 
 export interface AssertionError {
   path: string;

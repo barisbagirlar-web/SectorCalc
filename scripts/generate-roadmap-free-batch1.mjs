@@ -132,7 +132,7 @@ function divideTool(numKey, numLabel, denKey, denLabel, headline, primaryLabel, 
 
 const FORMULA_BY_SLUG = {
   "bar-psi-pascal-cevirici": unitTool(PRESSURE),
-  "newton-kilogram-kuvvet-cevirici": unitTool(FORCE),
+  "newton-kilogram-force-cevirici": unitTool(FORCE),
   "joule-kalori-watt-saat-cevirici": unitTool(ENERGY),
   "beygir-gucu-kilowatt-cevirici": unitTool(POWER),
   "motor-gucu-kw-hp-cevirici": unitTool(POWER),
@@ -152,7 +152,7 @@ const FORMULA_BY_SLUG = {
       explanation: "kW = amps × volts × power factor ÷ 1000.",
     },
   },
-  "klima-btu-secim-hesaplama": {
+  "klima-btu-secim-calculation": {
     resultType: "quantity",
     inputs: [
       nInput("areaM2", "Floor area", "m²", "Cooled floor area"),
@@ -168,7 +168,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Approximate cooling load = area × ceiling height × load factor.",
     },
   },
-  "daire-alani-cevresi-hesaplama": {
+  "daire-area-cevresi-calculation": {
     resultType: "quantity",
     inputs: [nInput("radius", "Radius", "m", "Circle radius")],
     formula: {
@@ -178,7 +178,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Area = πr² and circumference = 2πr.",
     },
   },
-  "ucgen-alani-cevresi-hesaplama": {
+  "ucgen-area-cevresi-calculation": {
     resultType: "quantity",
     inputs: [
       nInput("base", "Base", "m", "Triangle base length"),
@@ -192,7 +192,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Area = base × height ÷ 2.",
     },
   },
-  "silindir-hacmi-hesaplama": {
+  "silindir-volume-calculation": {
     resultType: "quantity",
     inputs: [
       nInput("radius", "Radius", "m", "Cylinder radius"),
@@ -206,7 +206,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Volume = πr²h.",
     },
   },
-  "su-deposu-hacmi-hesaplama": {
+  "su-deposu-volume-calculation": {
     resultType: "quantity",
     inputs: [
       nInput("radius", "Radius", "m", "Tank radius", { defaultValue: 1.2 }),
@@ -220,7 +220,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Cylindrical tank volume = πr²h.",
     },
   },
-  "agirlikli-ortalama-hesaplama": {
+  "weighted-average-calculation": {
     resultType: "statistics",
     inputs: [
       nInput("value1", "Value 1", "value", "First value"),
@@ -262,7 +262,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Decimal = numerator ÷ denominator.",
   ),
-  "cit-korkuluk-malzeme-hesabi": divideTool(
+  "cit-korkuluk-material-hesabi": divideTool(
     "length",
     "Fence length",
     "postSpacing",
@@ -272,7 +272,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Posts ≈ fence length ÷ post spacing.",
   ),
-  "prefabrik-konteyner-olcu-hesaplama": multiplyTool(
+  "prefabrik-konteyner-olcu-calculation": multiplyTool(
     ["length", "width"],
     ["Length", "Width"],
     ["Container length", "Container width"],
@@ -281,7 +281,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Floor area = length × width.",
   ),
-  "yalitim-malzemesi-m-hesaplama": multiplyTool(
+  "yalitim-material-m-calculation": multiplyTool(
     ["areaM2", "layers"],
     ["Surface area", "Layers"],
     ["Insulated surface in m²", "Number of layers"],
@@ -290,7 +290,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Material area = surface area × number of layers.",
   ),
-  "celik-cati-makas-yaklasik-agirligi": multiplyTool(
+  "steel-roof-makas-yaklasik-weight": multiplyTool(
     ["span", "weightPerMeter"],
     ["Roof span", "Weight per meter"],
     ["Truss span in meters", "Approximate steel weight per meter"],
@@ -299,7 +299,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Estimated truss steel weight = span × weight per meter.",
   ),
-  "npu-npi-profil-agirlik-hesaplama": multiplyTool(
+  "npu-npi-profil-weight-calculation": multiplyTool(
     ["length", "kgPerMeter"],
     ["Profile length", "kg/m"],
     ["Bar length in meters", "Catalog weight per meter"],
@@ -308,7 +308,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Weight = length × kg/m.",
   ),
-  "kosebent-lama-agirlik-hesaplama": multiplyTool(
+  "kosebent-lama-weight-calculation": multiplyTool(
     ["length", "kgPerMeter"],
     ["Bar length", "kg/m"],
     ["Angle bar length", "Catalog weight per meter"],
@@ -317,7 +317,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Weight = length × kg/m.",
   ),
-  "boru-agirlik-hesaplama-celik-paslanmaz": multiplyTool(
+  "boru-weight-calculation-steel-paslanmaz": multiplyTool(
     ["length", "kgPerMeter"],
     ["Pipe length", "kg/m"],
     ["Pipe run length", "Catalog pipe weight per meter"],
@@ -326,7 +326,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Weight = length × kg/m.",
   ),
-  "dogalgaz-tuketimi-hesaplama": multiplyTool(
+  "dogalgaz-tuketimi-calculation": multiplyTool(
     ["consumptionSm3", "unitPrice"],
     ["Consumption", "Unit price"],
     ["Natural gas consumption in sm³", "Price per sm³"],
@@ -336,7 +336,7 @@ const FORMULA_BY_SLUG = {
     "Cost = consumption × unit price.",
     "cost",
   ),
-  "lpg-benzin-tasarruf-karsilastirma": {
+  "lpg-benzin-savings-comparison": {
     resultType: "cost",
     inputs: [
       nInput("lpgCost", "LPG cost", "USD", "Cost per km on LPG"),
@@ -352,7 +352,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Savings per km = gasoline cost − LPG cost.",
     },
   },
-  "dizel-benzin-maliyet-karsilastirma": {
+  "dizel-benzin-cost-comparison": {
     resultType: "cost",
     inputs: [
       nInput("dieselCost", "Diesel cost", "USD", "Cost per km on diesel"),
@@ -368,7 +368,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Savings per km = gasoline cost − diesel cost.",
     },
   },
-  "akaryakit-fiyati-ile-yol-butcesi": multiplyTool(
+  "akaryakit-price-ile-yol-butcesi": multiplyTool(
     ["distanceKm", "costPerKm"],
     ["Distance", "Cost per km"],
     ["Trip distance in km", "Fuel cost per km"],
@@ -378,17 +378,17 @@ const FORMULA_BY_SLUG = {
     "Trip fuel cost = distance × cost per km.",
     "cost",
   ),
-  "fazla-mesai-ucreti-hesaplama": multiplyTool(
+  "fazla-mesai-ucreti-calculation": multiplyTool(
     ["overtimeHours", "hourlyRate"],
     ["Overtime hours", "Hourly rate"],
     ["Overtime hours worked", "Base hourly rate"],
-    "Overtime pay",
-    "Overtime pay",
+    "Overtime share",
+    "Overtime share",
     "currency",
-    "Overtime pay = overtime hours × hourly rate (informational).",
+    "Overtime share = overtime hours × hourly rate (informational).",
     "cost",
   ),
-  "enflasyon-fiyat-eskalasyonu-hesaplama": {
+  "inflation-price-eskalasyonu-calculation": {
     resultType: "cost",
     inputs: [
       nInput("baseAmount", "Base amount", "USD", "Starting amount"),
@@ -413,7 +413,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Liters = wall area ÷ coverage per liter.",
   ),
-  "civata-sikma-torku-hesaplama": multiplyTool(
+  "civata-sikma-torku-calculation": multiplyTool(
     ["clampForce", "boltDiameterMm"],
     ["Clamp force", "Bolt diameter"],
     ["Target clamp force", "Nominal bolt diameter in mm"],
@@ -422,7 +422,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Screening torque index = force × diameter (verify with torque spec).",
   ),
-  "kaynak-dikis-hacmi-maliyeti-hesabi": multiplyTool(
+  "resource-dikis-volume-cost-hesabi": multiplyTool(
     ["throatMm", "weldLengthM"],
     ["Throat", "Weld length"],
     ["Weld throat in mm", "Weld length in meters"],
@@ -440,7 +440,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Screening tonnage index = length × thickness.",
   ),
-  "disli-modul-cap-hesaplama": multiplyTool(
+  "disli-modul-cap-calculation": multiplyTool(
     ["module", "teeth"],
     ["Module", "Teeth"],
     ["Gear module", "Number of teeth"],
@@ -449,7 +449,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Pitch diameter ≈ module × teeth.",
   ),
-  "jenerator-kapasitesi-secim-hesaplama": {
+  "jenerator-capacity-secim-calculation": {
     resultType: "quantity",
     inputs: [
       nInput("peakLoadKw", "Peak load", "kW", "Peak load in kW"),
@@ -464,7 +464,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Required generator kW ≈ peak load × safety factor.",
     },
   },
-  "kablo-kesiti-mm-secim-hesaplama": divideTool(
+  "kablo-kesiti-mm-secim-calculation": divideTool(
     "loadAmps",
     "Load current",
     "ampacityPerMm2",
@@ -474,7 +474,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Cross-section mm² ≈ load amps ÷ ampacity per mm².",
   ),
-  "gerilim-dusumu-hesaplama": multiplyTool(
+  "stress-dusumu-calculation": multiplyTool(
     ["current", "lineLengthM"],
     ["Current", "Line length"],
     ["Load current in amps", "One-way cable length in meters"],
@@ -483,7 +483,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Drop index = current × length (use with cable resistance tables).",
   ),
-  "topraklama-direnci-hesaplama": {
+  "topraklama-resistance-calculation": {
     resultType: "quantity",
     inputs: [nInput("measuredOhms", "Measured resistance", "Ω", "Ground resistance reading")],
     formula: {
@@ -495,7 +495,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Displays measured ground resistance — compare to local code limits.",
     },
   },
-  "aku-kapasitesi-calisma-suresi-hesabi": divideTool(
+  "aku-capacity-working-duration-hesabi": divideTool(
     "batteryAh",
     "Battery capacity",
     "loadAmps",
@@ -505,7 +505,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Runtime hours ≈ battery Ah ÷ load amps.",
   ),
-  "aydinlatma-armatur-sayisi-hesaplama": divideTool(
+  "aydinlatma-armatur-count-calculation": divideTool(
     "totalLumensNeeded",
     "Total lumens",
     "lumensPerFixture",
@@ -515,7 +515,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Fixtures ≈ total lumens ÷ lumens per fixture.",
   ),
-  "ups-kesintisiz-guc-kaynagi-secimi": multiplyTool(
+  "ups-kesintisiz-power-resource-secimi": multiplyTool(
     ["loadWatts", "runtimeMinutes"],
     ["Load", "Runtime"],
     ["Connected load in watts", "Required runtime in minutes"],
@@ -524,7 +524,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Screening VA estimate = load × runtime factor.",
   ),
-  "kompresor-debisi-tank-hacmi-hesabi": multiplyTool(
+  "kompresor-debisi-tank-volume-hesabi": multiplyTool(
     ["flowCfm", "fillMinutes"],
     ["Compressor flow", "Fill time"],
     ["Compressor flow rate", "Desired tank fill time in minutes"],
@@ -533,7 +533,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Tank sizing index = flow × fill time.",
   ),
-  "hidrolik-silindir-itme-kuvveti-hesabi": multiplyTool(
+  "hydraulic-silindir-itme-kuvveti-hesabi": multiplyTool(
     ["pressureBar", "boreMm"],
     ["Pressure", "Bore diameter"],
     ["System pressure in bar", "Cylinder bore in mm"],
@@ -542,7 +542,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Force index = pressure × bore (screen with bore area).",
   ),
-  "pnomatik-silindir-kuvvet-hesabi": multiplyTool(
+  "pneumatic-silindir-force-hesabi": multiplyTool(
     ["pressureBar", "boreMm"],
     ["Pressure", "Bore diameter"],
     ["Air pressure in bar", "Cylinder bore in mm"],
@@ -551,7 +551,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Force index = pressure × bore (screen with bore area).",
   ),
-  "hidrolik-pompa-gucu-hesaplama": multiplyTool(
+  "hydraulic-pompa-gucu-calculation": multiplyTool(
     ["flowLpm", "pressureBar"],
     ["Flow", "Pressure"],
     ["Flow in L/min", "Pressure in bar"],
@@ -560,7 +560,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Power index = flow × pressure (screening estimate).",
   ),
-  "boru-capi-akis-hizi-hesaplama": divideTool(
+  "boru-capi-flow-speed-calculation": divideTool(
     "flowLpm",
     "Flow rate",
     "velocityMps",
@@ -579,7 +579,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Power index = flow × head (screening estimate).",
   ),
-  "su-debisi-litre-dakika-hesaplama": divideTool(
+  "su-debisi-litre-dakika-calculation": divideTool(
     "volumeLiters",
     "Volume",
     "minutes",
@@ -589,7 +589,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Flow L/min = volume ÷ minutes.",
   ),
-  "isitma-sogutma-yuku-kcal-kw-hesabi": {
+  "isitma-sogutma-load-kcal-kw-hesabi": {
     resultType: "quantity",
     inputs: [
       nInput("areaM2", "Area", "m²", "Conditioned floor area"),
@@ -604,7 +604,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Load kcal/h = area × load factor.",
     },
   },
-  "radyator-petek-boyu-hesaplama": divideTool(
+  "radyator-petek-boyu-calculation": divideTool(
     "heatLoadKcal",
     "Heat load",
     "panelOutputKcal",
@@ -614,7 +614,7 @@ const FORMULA_BY_SLUG = {
     "number",
     "Panel index ≈ heat load ÷ panel output per section.",
   ),
-  "arac-amortisman-hesaplama": {
+  "tool-depreciation-calculation": {
     resultType: "cost",
     inputs: [
       nInput("vehicleCost", "Vehicle cost", "USD", "Purchase price"),
@@ -631,7 +631,7 @@ const FORMULA_BY_SLUG = {
       explanation: "Straight-line annual depreciation ≈ (cost − salvage) ÷ years (informational).",
     },
   },
-  "mtv-motorlu-tasitlar-vergisi-hesaplama": {
+  "mtv-motorlu-tasitlar-vergisi-calculation": {
     resultType: "cost",
     inputs: [
       nInput("engineCc", "Engine displacement", "cc", "Engine size in cc"),
@@ -707,7 +707,7 @@ writeFileSync(
 
 writeFileSync(
   join(ROOT, "src/lib/tools/roadmap-free-batch1-calculators.ts"),
-  `/** Generated by scripts/generate-roadmap-free-batch1.mjs — do not edit manually. */\nimport type { FreeTrafficInputValues } from "@/lib/tools/free-traffic-calculators";\nimport { runBatch1Formula, setBatch1FormatLocale, type Batch1CalcPartial } from "@/lib/tools/roadmap-free-batch1/engine";\nimport { ROADMAP_FREE_BATCH1_SPECS } from "@/lib/tools/roadmap-free-batch1-specs.generated";\n\nexport const ROADMAP_FREE_BATCH1_SLUGS = Object.freeze(Object.keys(ROADMAP_FREE_BATCH1_SPECS));\n\nexport function calculateRoadmapFreeBatch1Tool(\n  slug: string,\n  values: FreeTrafficInputValues,\n  locale = "en",\n): Batch1CalcPartial {\n  const spec = ROADMAP_FREE_BATCH1_SPECS[slug];\n  if (!spec) {\n    throw new Error(\`Unknown roadmap batch-1 calculator slug: \${slug}\`);\n  }\n  setBatch1FormatLocale(locale);\n  if (slug === "enflasyon-fiyat-eskalasyonu-hesaplama") {\n    const base = Number(values.baseAmount ?? 0);\n    const rate = Number(values.inflationPercent ?? 0);\n    return runBatch1Formula(\n      {\n        kind: "multiply",\n        headline: "Inflation-adjusted amount",\n        primaryLabel: "Escalated amount",\n        keys: ["baseAmount", "inflationPercent"],\n        format: "currency",\n        explanation: "Single-period escalation ≈ base × (1 + rate/100) — informational only.",\n      },\n      { baseAmount: base * (1 + rate / 100), inflationPercent: 1 },\n    );\n  }\n  if (slug === "arac-amortisman-hesaplama") {\n    const cost = Number(values.vehicleCost ?? 0);\n    const salvage = Number(values.salvageValue ?? 0);\n    const years = Math.max(Number(values.usefulLifeYears ?? 1), 0.01);\n    return runBatch1Formula(\n      {\n        kind: "divide",\n        headline: "Vehicle depreciation",\n        primaryLabel: "Annual depreciation",\n        numerator: "depreciableBase",\n        denominator: "usefulLifeYears",\n        format: "currency",\n        explanation: "Straight-line annual depreciation ≈ (cost − salvage) ÷ years (informational).",\n      },\n      { ...values, depreciableBase: Math.max(cost - salvage, 0), usefulLifeYears: years },\n    );\n  }\n  return runBatch1Formula(spec, values);\n}\n\nexport function hasRoadmapFreeBatch1Calculator(slug: string): boolean {\n  return slug in ROADMAP_FREE_BATCH1_SPECS;\n}\n`,
+  `/** Generated by scripts/generate-roadmap-free-batch1.mjs — do not edit manually. */\nimport type { FreeTrafficInputValues } from "@/lib/tools/free-traffic-calculators";\nimport { runBatch1Formula, setBatch1FormatLocale, type Batch1CalcPartial } from "@/lib/tools/roadmap-free-batch1/engine";\nimport { ROADMAP_FREE_BATCH1_SPECS } from "@/lib/tools/roadmap-free-batch1-specs.generated";\n\nexport const ROADMAP_FREE_BATCH1_SLUGS = Object.freeze(Object.keys(ROADMAP_FREE_BATCH1_SPECS));\n\nexport function calculateRoadmapFreeBatch1Tool(\n  slug: string,\n  values: FreeTrafficInputValues,\n  locale = "en",\n): Batch1CalcPartial {\n  const spec = ROADMAP_FREE_BATCH1_SPECS[slug];\n  if (!spec) {\n    throw new Error(\`Unknown roadmap batch-1 calculator slug: \${slug}\`);\n  }\n  setBatch1FormatLocale(locale);\n  if (slug === "inflation-price-eskalasyonu-calculation") {\n    const base = Number(values.baseAmount ?? 0);\n    const rate = Number(values.inflationPercent ?? 0);\n    return runBatch1Formula(\n      {\n        kind: "multiply",\n        headline: "Inflation-adjusted amount",\n        primaryLabel: "Escalated amount",\n        keys: ["baseAmount", "inflationPercent"],\n        format: "currency",\n        explanation: "Single-period escalation ≈ base × (1 + rate/100) — informational only.",\n      },\n      { baseAmount: base * (1 + rate / 100), inflationPercent: 1 },\n    );\n  }\n  if (slug === "tool-depreciation-calculation") {\n    const cost = Number(values.vehicleCost ?? 0);\n    const salvage = Number(values.salvageValue ?? 0);\n    const years = Math.max(Number(values.usefulLifeYears ?? 1), 0.01);\n    return runBatch1Formula(\n      {\n        kind: "divide",\n        headline: "Vehicle depreciation",\n        primaryLabel: "Annual depreciation",\n        numerator: "depreciableBase",\n        denominator: "usefulLifeYears",\n        format: "currency",\n        explanation: "Straight-line annual depreciation ≈ (cost − salvage) ÷ years (informational).",\n      },\n      { ...values, depreciableBase: Math.max(cost - salvage, 0), usefulLifeYears: years },\n    );\n  }\n  return runBatch1Formula(spec, values);\n}\n\nexport function hasRoadmapFreeBatch1Calculator(slug: string): boolean {\n  return slug in ROADMAP_FREE_BATCH1_SPECS;\n}\n`,
 );
 
 // i18n batch translations from roadmap titles
@@ -729,7 +729,7 @@ writeFileSync(
 );
 
 // Patch strategic source free items
-const sourcePath = join(ROOT, "scripts/data/strategic-roadmap-source.json");
+const sourcePath = join(ROOT, "archive/migration-only/scripts/data/strategic-roadmap-source.json");
 const source = JSON.parse(readFileSync(sourcePath, "utf8"));
 const batchSlugs = new Set(batch.map((b) => b.slug));
 for (const item of source.free) {

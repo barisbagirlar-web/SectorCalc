@@ -319,7 +319,7 @@ const TOOLS = [
     seoTitle: "Cash Flow Gap Calculator | SectorCalc",
     seoDescription: "Estimate cash gap from payment terms and daily cost.",
     resultType: "cost",
-    inputs: [n("receivablesDays", "Receivables days", "days", "Days to collect"), n("payableDays", "Payables days", "days", "Days to pay"), n("dailyCost", "Daily cost", "USD/day", "Operating cash outflow")],
+    inputs: [n("receivablesDays", "Receivables days", "days", "Days to collect"), n("payableDays", "Payables days", "days", "Days to share"), n("dailyCost", "Daily cost", "USD/day", "Operating cash outflow")],
   },
   {
     slug: "unit-cost-calculator",

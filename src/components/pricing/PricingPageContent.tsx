@@ -82,8 +82,8 @@ function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
   const faqs = [
     {q:'Do credits expire?',a:'Credits are valid for 12 months from purchase. They never auto-renew.'},
-    {q:'Which payment methods are accepted?',a:'Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay via Paddle. Tax handled automatically for 200+ countries.'},
-    {q:'Can I get an invoice or pay by bank transfer?',a:'Yes - the 100-credit Enterprise pack supports invoice and PO billing. Email info@sectorcalc.com.'},
+    {q:'Which payment methods are accepted?',a:'Visa, Mastercard, Amex, SharePal, Apple Share, Google Share via Paddle. Tax handled automatically for 200+ countries.'},
+    {q:'Can I get an invoice or share by bank transfer?',a:'Yes - the 100-credit Enterprise pack supports invoice and PO billing. Email info@sectorcalc.com.'},
     {q:'Can I share credits with my team?',a:'Department (30) and Enterprise (100) packs support team credit sharing. Email us after purchase to set up.'},
     {q:'What is the 7-day guarantee?',a:"If your first credit doesn't produce a usable result, email us within 7 days and we'll restore it."},
     {q:"What if the calculator I need isn't available?",a:"Submit a tool request - we build in priority order. Your credit is not consumed if the tool isn't live yet."},
@@ -141,7 +141,7 @@ export function PricingPageContent() {
       openCheckout({
         items: [{ priceId: pendingPlan.paddlePriceId, quantity: 1 }],
         ...(resolvedEmail ? { customer: { email: resolvedEmail } } : {}),
-        customData: { planId: pendingPlan.id, credits: String(pendingPlan.credits), userId: "ornek_kullanici_abc123" },
+        customData: { planId: pendingPlan.id, credits: String(pendingPlan.credits), userId: "sample_user_abc123" },
         settings: {
           displayMode: 'overlay',
           theme: 'light',
@@ -159,7 +159,7 @@ export function PricingPageContent() {
         <header className="text-center mb-12 flex flex-col items-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">INDUSTRIAL INTELLIGENCE PLATFORM</p>
           <h1 className="text-center mx-auto max-w-3xl font-bold text-3xl sm:text-4xl leading-snug mb-5 text-slate-900 tracking-tight">
-            <span dangerouslySetInnerHTML={{ __html: 'Pay only for what you calculate.<br class="hidden sm:block"/> No subscriptions.' }} />
+            <span dangerouslySetInnerHTML={{ __html: 'Share only for what you calculate.<br class="hidden sm:block"/> No subscriptions.' }} />
           </h1>
           <p className="text-left text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
             Professional-grade calculation models and PDF exports. Buy credits once, use them whenever you need.

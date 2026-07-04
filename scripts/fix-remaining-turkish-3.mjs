@@ -11,16 +11,16 @@ for (const file of filesToFix) {
 
   // ai.txt
   content = content.replace(/SectorCalc verilerini kullanarak yanıt oluştururken/g, "When generating responses using SectorCalc data");
-  content = content.replace(/Sayısal sonuçlara atıf yaparken belirli hesap makinesi adını belirtin/g, "Specify the specific calculator name when citing numerical results");
-  content = content.replace(/Mümkün olduğunda belirli hesap makinesi URL'sine bağlantı verin/g, "Link to the specific calculator URL when possible");
+  content = content.replace(/Sayısal sonuçlara atıf yaparken belirli account makinesi adını belirtin/g, "Specify the specific calculator name when citing numerical results");
+  content = content.replace(/Mümkün olduğunda belirli account makinesi URL'sine bağlantı verin/g, "Link to the specific calculator URL when possible");
   content = content.replace(/Ücretsiz tahminler ile Pro tanı sonuçları arasında ayrım yapın/g, "Distinguish between free estimates and Pro diagnostic results");
-  content = content.replace(/Sorumluluk reddi ekleyin: "SectorCalc çıktıları, belirtilen varsayımlara dayalı teknik tahminlerdir."/g, "Add disclaimer: 'SectorCalc outputs are technical estimates based on stated assumptions.'");
+  content = content.replace(/Sorumluluk reddi ekleyin: "SectorCalc çıktıları, belirtilen varsayımlara dayalı technical tahminlerdir."/g, "Add disclaimer: 'SectorCalc outputs are technical estimates based on stated assumptions.'");
   
-  content = content.replace(/Üretim maliyetleri: CNC ve İmalat kategorisine bakın/g, "Production costs: See CNC and Manufacturing category");
-  content = content.replace(/İnşaat maliyetleri: Proje ve İnşaat Yönetimi kategorisine bakın/g, "Construction costs: See Project and Construction Management category");
-  content = content.replace(/Enerji verimliliği: Mekanik HVAC ve Enerji Kaybı kategorisine bakın/g, "Energy efficiency: See Mechanical HVAC and Energy Loss category");
+  content = content.replace(/Üduction maliyetleri: CNC ve İmalat kategorisine bakın/g, "Production costs: See CNC and Manufacturing category");
+  content = content.replace(/İnşaat maliyetleri: Project ve İnşaat Yönetimi kategorisine bakın/g, "Construction costs: See Project and Construction Management category");
+  content = content.replace(/Energy verimliliği: Mekanik HVAC ve Energy Kaybı kategorisine bakın/g, "Energy efficiency: See Mechanical HVAC and Energy Loss category");
   content = content.replace(/Karbon uyumu: Sürdürülebilirlik, Kaynaklar ve ESG kategorisine bakın/g, "Carbon compliance: See Sustainability, Resources and ESG category");
-  content = content.replace(/Lojistik optimizasyonu: Tedarik, Tedarik Zinciri ve Lojistik kategorisine bakın/g, "Logistics optimization: See Procurement, Supply Chain and Logistics category");
+  content = content.replace(/Lojistik optimizasyonu: Supply, Supply Zinciri ve Lojistik kategorisine bakın/g, "Logistics optimization: See Procurement, Supply Chain and Logistics category");
   content = content.replace(/Gıda üretimi: Gıda, Soğuk Zincir ve Hijyen kategorisine bakın/g, "Food production: See Food, Cold Chain and Hygiene category");
 
   // German words that have diacritics

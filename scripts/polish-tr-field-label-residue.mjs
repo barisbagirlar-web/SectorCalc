@@ -20,7 +20,7 @@ loadEnvLocal(ROOT);
 
 const en = JSON.parse(readFileSync(join(ROOT, "messages/en.json"), "utf8"));
 const tr = JSON.parse(readFileSync(join(ROOT, "messages/tr.json"), "utf8"));
-const mapPath = join(ROOT, "scripts/data/calculator-field-labels-i18n.json");
+const mapPath = join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json");
 const map = JSON.parse(readFileSync(mapPath, "utf8"));
 if (!map.tr) {
   map.tr = {};

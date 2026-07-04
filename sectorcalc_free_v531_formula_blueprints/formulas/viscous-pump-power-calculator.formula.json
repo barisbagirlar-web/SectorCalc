@@ -1,0 +1,165 @@
+{
+  "tool_name": "Viscous Pump Power Calculator",
+  "tool_key": "viscous-pump-power-calculator",
+  "slug": "viscous-pump-power-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "fluid-pressure-flow-power",
+  "inputs": [
+    {
+      "id": "fluid_density",
+      "label": "Fluid Density",
+      "unit": "kg/m^3",
+      "required": true,
+      "normalized_id": "fluid_density",
+      "description": "Fluid Density",
+      "min": 0
+    },
+    {
+      "id": "flow_rate",
+      "label": "Volumetric Flow Rate",
+      "unit": "m^3/s",
+      "required": true,
+      "normalized_id": "flow_rate",
+      "description": "Volumetric Flow Rate",
+      "min": 0
+    },
+    {
+      "id": "head",
+      "label": "Hydraulic Head",
+      "unit": "m",
+      "required": true,
+      "normalized_id": "head",
+      "description": "Hydraulic Head",
+      "min": 0
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "unit": "decimal",
+      "required": true,
+      "normalized_id": "efficiency",
+      "description": "Efficiency",
+      "min": 0.01,
+      "max": 1
+    },
+    {
+      "id": "pressure",
+      "label": "Pressure",
+      "unit": "Pa",
+      "required": false,
+      "normalized_id": "pressure",
+      "description": "Pressure",
+      "min": 0
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "fluid_density",
+      "source_input_id": "fluid_density",
+      "base_unit": "kg/m^3",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "flow_rate",
+      "source_input_id": "flow_rate",
+      "base_unit": "m^3/s",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "head",
+      "source_input_id": "head",
+      "base_unit": "m",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "efficiency",
+      "source_input_id": "efficiency",
+      "base_unit": "decimal",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "pressure",
+      "source_input_id": "pressure",
+      "base_unit": "Pa",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "hydraulic_power",
+      "label": "Hydraulic Power",
+      "unit": "W",
+      "description": "Hydraulic Power"
+    },
+    {
+      "id": "shaft_power",
+      "label": "Shaft Power",
+      "unit": "W",
+      "description": "Shaft Power"
+    },
+    {
+      "id": "pressure_head",
+      "label": "Pressure Head",
+      "unit": "m",
+      "description": "Pressure Head"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute hydraulic power from density, gravity, flow rate, and head.",
+    "Compute shaft power by dividing hydraulic power by efficiency.",
+    "Compute pressure head when pressure is provided.",
+    "Classify REVIEW when efficiency is outside practical range or flow assumptions are incomplete."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

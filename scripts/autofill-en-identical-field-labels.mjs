@@ -8,7 +8,7 @@ import { join } from "node:path";
 import { createPhraseTranslator, isSentenceLike } from "./lib/generate-translate-phrase.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
-const TARGET = join(ROOT, "scripts/data/calculator-field-labels-i18n.json");
+const TARGET = join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json");
 const BUNDLE_PATH = join(ROOT, "src/data/free-tool-inputs-i18n.generated.json");
 const LOCALES = ["tr", "de", "fr", "es", "ar"];
 
@@ -16,7 +16,7 @@ const PHRASE_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),
 );
 const COPY_MAP = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/generated-schema-copy-i18n.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/generated-schema-copy-i18n.json"), "utf8"),
 );
 
 const { translatePhrase } = createPhraseTranslator({
@@ -43,7 +43,7 @@ const ENGLISH_MARKERS_STRICT = [
 ];
 
 const LOCALE_MARKERS = {
-  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|proses|maliyet|birim|değer|hesaplamada)\b/i],
+  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|process|cost|unit|değer|hesaplamada)\b/i],
   de: [/[äöüßÄÖÜ]/, /\b(und|oder|für|pro|eingeben|der|die|das|berechnung)\b/i],
   fr: [/[àâçéèêëîïôùûü]/i, /\b(pour|ou|de|le|la|saisir|calcul|valeur)\b/i],
   es: [/[áéíóúñü¿¡]/i, /\b(para|o|de|el|la|introduzca|cálculo|valor)\b/i],

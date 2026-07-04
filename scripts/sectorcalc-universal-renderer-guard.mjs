@@ -52,7 +52,7 @@ if (!fs.existsSync(componentFile)) {
   if (!component.includes("data-universal-layout={resolvedLayout}")) {
     fail("UNIVERSAL_COMPONENT_MISSING_LAYOUT_TRACE_ATTRIBUTE");
   }
-  if (/KESİN|GÜÇLÜ|ORTA|EKSİK VERİ|varsayım|karar|maliyet|denetim/i.test(component)) {
+  if (/KESİN|GÜÇLÜ|ORTA|EKSİK VERİ|varsayım|karar|cost|audit/i.test(component)) {
     fail("UNIVERSAL_COMPONENT_CONTAINS_NON_ENGLISH_VISIBLE_LABEL_RISK");
   }
 }

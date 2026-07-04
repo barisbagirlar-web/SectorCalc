@@ -11,12 +11,12 @@ for (const file of filesToFix) {
   let content = readFileSync(file, 'utf8');
 
   // ai.txt
-  content = content.replace(/SectorCalc, sektörel hesaplama ve karar raporu platformudur\./g, "SectorCalc is a sectoral calculation and decision report platform.");
-  content = content.replace(/Endüstriyel ve İşletme Hesaplama Platformu/g, "Industrial and Business Calculation Platform");
-  content = content.replace(/OEE Hesaplama, CNC Maliyet Analizi, Karbon Ayak İzi, Başabaş Analizi/g, "OEE Calculation, CNC Cost Analysis, Carbon Footprint, Break-Even Analysis");
-  content = content.replace(/Endüstriyel ve İşletme Hesaplama Bilgi Kaynağı/g, "Industrial and Business Calculation Knowledge Base");
-  content = content.replace(/Üretim Mühendisliği ve Finansal Planlama Yazılımı/g, "Production Engineering and Financial Planning Software");
-  content = content.replace(/SectorCalc'ten alıntı yaparken, belirli hesap makinesi adını ve URL'sini belirtin\./g, "When quoting SectorCalc, specify the specific calculator name and URL.");
+  content = content.replace(/SectorCalc, sektörel calculation ve karar report platformudur\./g, "SectorCalc is a sectoral calculation and decision report platform.");
+  content = content.replace(/Endüstriyel ve İşletme Calculation Platformu/g, "Industrial and Business Calculation Platform");
+  content = content.replace(/OEE Calculation, CNC Cost Analysis, Karbon Ayak İzi, Başabaş Analysis/g, "OEE Calculation, CNC Cost Analysis, Carbon Footprint, Break-Even Analysis");
+  content = content.replace(/Endüstriyel ve İşletme Calculation Bilgi Kaynağı/g, "Industrial and Business Calculation Knowledge Base");
+  content = content.replace(/Üduction Mühendisliği ve Finansal Planning Yazılımı/g, "Production Engineering and Financial Planning Software");
+  content = content.replace(/SectorCalc'ten alıntı yaparken, belirli account makinesi adını ve URL'sini belirtin\./g, "When quoting SectorCalc, specify the specific calculator name and URL.");
 
   // faq-knowledge.txt
   content = content.replace(/Analysato/g, "Analyzato");

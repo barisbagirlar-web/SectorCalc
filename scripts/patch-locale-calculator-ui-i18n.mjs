@@ -42,18 +42,18 @@ const SMART_FORM = {
       hideAdvanced: "Gelişmiş alanları gizle",
     },
     validation: {
-      required: "Bu alan zorunludur.",
+      required: "Bu area zorunludur.",
       invalidNumber: "Geçerli bir sayı girin.",
       min: "Değer en az {min} olmalı.",
       max: "Değer en fazla {max} olmalı.",
-      missingInputs: "{count, plural, one {# zorunlu alan eksik} other {# zorunlu alan eksik}}",
-      invalidCombination: "Bu girdiler geçerli bir hesaplama üretemez.",
+      missingInputs: "{count, plural, one {# zorunlu area eksik} other {# zorunlu area eksik}}",
+      invalidCombination: "Bu girdiler geçerli bir calculation üretemez.",
     },
-    scenario: { label: "İş senaryosu", placeholder: "Senaryo seçin" },
+    scenario: { label: "İş senaryosu", placeholder: "Scenario seçin" },
     notices: {
-      requiredInputReason: "Her alan bu hesaplayıcının doğrulanmış sözleşme girdisine karşılık gelir.",
+      requiredInputReason: "Her area bu hesaplayıcının doğrulanmış sözleşme girdisine profitşılık gelir.",
       calculationBlocked: "Hesaplamayı çalıştırmadan önce zorunlu alanları tamamlayın.",
-      validatedInputSet: "Girdi seti hazır — değerler onaylandığında hesaplamayı çalıştırın.",
+      validatedInputSet: "Input seti hazır — değerler onaylandığında hesaplamayı çalıştırın.",
     },
   },
   de: {
@@ -147,7 +147,7 @@ const CALCULATOR = {
   },
   tr: {
     calculate: "Calculate",
-    awaiting: "Sonucu görmek için değerleri girin",
+    awaiting: "Result görmek için değerleri girin",
     validationRequired: "Lütfen bir değer seçin.",
     validationNumber: "Geçerli bir sayı girin.",
   },

@@ -15,14 +15,14 @@ const STUB_HELPER_EN = [
 
 const FIELD_GENERIC = {
   primary_value: {
-    tr: "Hesaplamada kullanılan birincil girdi değeri.",
+    tr: "Hesaplamada useılan birincil input değeri.",
     de: "Primärer Eingabewert für die Berechnung.",
     fr: "Valeur d'entrée principale utilisée pour le calcul.",
     es: "Valor de entrada principal utilizado para el cálculo.",
     ar: "قيمة الإدخال الأساسية المستخدمة في الحساب.",
   },
   secondary_value: {
-    tr: "Hesaplamada kullanılan ikincil girdi değeri.",
+    tr: "Hesaplamada useılan ikincil input değeri.",
     de: "Sekundärer Eingabewert für die Berechnung.",
     fr: "Valeur d'entrée secondaire utilisée pour le calcul.",
     es: "Valor de entrada secundario utilizado para el cálculo.",

@@ -97,24 +97,24 @@ const PATCH = {
   tr: {
     disclaimer: {
       standard: {
-        title: "Kullanım bildirimi",
-        body: "Bu hesaplama, girilen verilere ve deterministik hesaplama metodolojisine göre ön değerlendirme sağlar. Sonuçlar; teklif, yatırım, mühendislik, vergi, hukuk veya güvenlik kararı yerine geçmez. Kritik kararlarda kendi verileriniz, yetkili uzman kontrolü ve geçerli mevzuat/standartlar esas alınmalıdır.",
+        title: "Useım bildirimi",
+        body: "Bu calculation, girilen verilere ve deterministik calculation metodolojisine göre ön değerlendirme sağlar. Sonuçlar; teklif, yatırım, mühendislik, tax, hukuk veya güvenlik kararı yerine geçmez. Kritik kararlarda kendi verileriniz, yetkili uzman controlü ve geçerli mevzuat/standartlar esas alınmalıdır.",
       },
       elevated: {
-        title: "Önemli kullanım uyarısı",
+        title: "Önemli useım uyarısı",
         body: "Bu araç ticari veya uyumluluk hassasiyeti taşıyan bir exposure modeli sunar. Çıktılar yalnızca göstergedir; aksiyon öncesi sözleşme, bordro ve yerel kurallarla doğrulanmalıdır.",
       },
       engineering: {
-        title: "Mühendislik referans bildirimi",
-        body: "Bu araç standard referanslı ön hesaplama sağlar. Nihai tasarım, güvenlik ve uygunluk kararı yetkili mühendislik kontrolü gerektirir.",
+        title: "Mühendislik reference bildirimi",
+        body: "Bu araç standard referanslı ön calculation sağlar. Nihai tasarım, güvenlik ve uygunluk kararı yetkili mühendislik controlü gerektirir.",
       },
     },
     standards: {
       selectorTitle: "Mühendislik standard bağlamı",
-      selectorLabel: "Referans standard sistemi",
-      selectorNote: "Varsayılan bölgeye göre gelir; karşılaştırma için değiştirebilirsiniz.",
+      selectorLabel: "Reference standard sistemi",
+      selectorNote: "Varsayılan bölgeye göre gelir; profitşılaştırma için değiştirebilirsiniz.",
       engineeringWarning:
-        "Bu araç standard referanslı ön hesaplama sağlar. Nihai tasarım, güvenlik ve uygunluk kararı yetkili mühendislik kontrolü gerektirir.",
+        "Bu araç standard referanslı ön calculation sağlar. Nihai tasarım, güvenlik ve uygunluk kararı yetkili mühendislik controlü gerektirir.",
       systems: {
         AWS: "AWS",
         ISO_EN: "ISO / EN",
@@ -132,24 +132,24 @@ const PATCH = {
       },
     },
     calculationFeedback: {
-      prompt: "Bu sonuçta hata mı gördünüz?",
+      prompt: "Bu sonuçta error mı gördünüz?",
       cta: "Öneri veya düzeltme gönder",
-      modalTitle: "Hesaplama geri bildirimi",
+      modalTitle: "Calculation geri bildirimi",
       close: "Kapat",
       issueTypeLabel: "Konu tipi",
       messageLabel: "Açıklama",
       emailLabel: "E-posta (opsiyonel)",
-      submit: "Geri bildirim gönder",
+      submit: "Geri notification gönder",
       submitting: "Gönderiliyor…",
       success: "Teşekkürler — notunuz inceleme kuyruğuna alındı.",
       issueTypes: {
         "wrong-result": "Sonuç hatalı",
         "formula-suggestion": "Formül önerisi",
-        "unit-error": "Birim hatası",
+        "unit-error": "Unit hatası",
         "translation-error": "Çeviri hatası",
         other: "Diğer",
       },
-      error: { submitFailed: "Geri bildirim gönderilemedi. Kısa süre sonra tekrar deneyin." },
+      error: { submitFailed: "Geri notification gönderilemedi. Kısa süre sonra repeat deneyin." },
     },
     resultLayers: {
       quickTab: "Hızlı sonuç",
@@ -159,18 +159,18 @@ const PATCH = {
     developerShowcase: {
       meta: {
         title: "Geliştirici vitrin | SectorCalc",
-        description: "AI ajanları için SectorCalc hesaplayıcı keşfi semantic referansı.",
+        description: "AI ajanları için SectorCalc hesaplayıcı keşfi semantic referenceı.",
       },
-      eyebrow: "Semantic referans",
+      eyebrow: "Semantic reference",
       title: "SectorCalc geliştirici vitrini",
       intro:
-        "Bu sayfa SectorCalc araçlarının yapılandırılmış girdi/çıktı ve JSON-LD yapısını açıklar. Public referanstır — gizli API değildir.",
+        "Bu sayfa SectorCalc araçlarının yapılandırılmış input/çıktı ve JSON-LD yapısını açıklar. Public referanstır — gizli API değildir.",
       semantic: {
         title: "JSON-LD yapısı",
         body: "Hesaplayıcı rotaları schema.org action ve uygulama metadata'sı sunar.",
         item1: "Çekirdek sayfalarda WebSite + Organization",
         item2: "Hesaplayıcı detay rotalarında CalculateAction",
-        item3: "Premium analizlerde uygun olduğunda karar raporu metadata'sı",
+        item3: "Premium analizlerde uygun olduğunda karar report metadata'sı",
       },
       resources: {
         title: "Public kaynaklar",

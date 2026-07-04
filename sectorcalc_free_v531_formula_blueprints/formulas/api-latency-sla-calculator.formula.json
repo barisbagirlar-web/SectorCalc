@@ -1,0 +1,165 @@
+{
+  "tool_name": "Api Latency Sla Calculator",
+  "tool_key": "api-latency-sla-calculator",
+  "slug": "api-latency-sla-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "digital-operations-unit-economics",
+  "inputs": [
+    {
+      "id": "requests",
+      "label": "Request Count",
+      "unit": "count",
+      "required": true,
+      "normalized_id": "requests",
+      "description": "Request Count",
+      "min": 0
+    },
+    {
+      "id": "unit_cost",
+      "label": "Unit Cost",
+      "unit": "USD/unit",
+      "required": true,
+      "normalized_id": "unit_cost",
+      "description": "Unit Cost",
+      "min": 0
+    },
+    {
+      "id": "unit_revenue",
+      "label": "Unit Revenue",
+      "unit": "USD/unit",
+      "required": true,
+      "normalized_id": "unit_revenue",
+      "description": "Unit Revenue",
+      "min": 0
+    },
+    {
+      "id": "conversion_rate",
+      "label": "Conversion Rate",
+      "unit": "decimal",
+      "required": true,
+      "normalized_id": "conversion_rate",
+      "description": "Conversion Rate",
+      "min": 0,
+      "max": 1
+    },
+    {
+      "id": "fixed_cost",
+      "label": "Fixed Cost",
+      "unit": "USD",
+      "required": true,
+      "normalized_id": "fixed_cost",
+      "description": "Fixed Cost",
+      "min": 0
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "requests",
+      "source_input_id": "requests",
+      "base_unit": "count",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "unit_cost",
+      "source_input_id": "unit_cost",
+      "base_unit": "USD/unit",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "unit_revenue",
+      "source_input_id": "unit_revenue",
+      "base_unit": "USD/unit",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "conversion_rate",
+      "source_input_id": "conversion_rate",
+      "base_unit": "decimal",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "fixed_cost",
+      "source_input_id": "fixed_cost",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "total_cost",
+      "label": "Total Cost",
+      "unit": "USD",
+      "description": "Total Cost"
+    },
+    {
+      "id": "total_revenue",
+      "label": "Total Revenue",
+      "unit": "USD",
+      "description": "Total Revenue"
+    },
+    {
+      "id": "net_margin",
+      "label": "Net Margin",
+      "unit": "USD",
+      "description": "Net Margin"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute total cost from request count, unit cost, and fixed cost.",
+    "Compute converted volume from request count and conversion rate.",
+    "Compute revenue from converted volume and unit revenue.",
+    "Compute net margin as revenue minus cost."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

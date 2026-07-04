@@ -224,7 +224,7 @@ const RESIDUAL = {
   },
 };
 
-const manualPath = join(ROOT, "scripts/data/marketing-surface-translations.json");
+const manualPath = join(ROOT, "archive/migration-only/scripts/data/marketing-surface-translations.json");
 const manual = JSON.parse(readFileSync(manualPath, "utf8"));
 
 for (const [locale, entries] of Object.entries(RESIDUAL)) {

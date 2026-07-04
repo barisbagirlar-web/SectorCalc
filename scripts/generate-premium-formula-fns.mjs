@@ -12,7 +12,7 @@
 
 import fs from "node:fs";
 
-const FORMULAS_FILE = "data/premium-formulas-batch.txt";
+const FORMULAS_FILE = "archive/migration-only/data/premium-formulas-batch.txt";
 const OUTPUT_DIR = "scripts/generated-premium";
 
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });

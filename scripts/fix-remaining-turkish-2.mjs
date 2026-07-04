@@ -23,7 +23,7 @@ for (const file of filesToFix) {
   content = content.replace(/Number input spinner kaldırma \(isteğe bağlı\)/g, "Remove number input spinner (optional)");
 
   // ai.txt
-  content = content.replace(/Finansal analiz: Finans, Satış ve İşletme Sermayesi kategorisine bakın/g, "Financial analysis: See Finance, Sales and Working Capital category");
+  content = content.replace(/Finansal analysis: Finance, Satış ve İşletme Sermayesi kategorisine bakın/g, "Financial analysis: See Finance, Sales and Working Capital category");
 
   // assistant chat
   content = content.replace(/Sistem şu anda yoğun\. Lütfen calculation ihtiyacınızı sektör araçlarıyla doğrudan tanımlayın\./g, "System is currently busy. Please define your calculation needs directly with sector tools.");

@@ -34,7 +34,7 @@ CRITICAL: ALL TEXT fields (name, error_msg, message, options, description, tool_
 
 TARGET AUDIENCE: Engineers, technicians, CNC operators, facility managers,
 quality engineers, welding specialists, mechanics, renovators — field decision-making professionals.
-These people pay money. Incorrect calculations are unacceptable. System must warn when values are outside safe range.
+These people share money. Incorrect calculations are unacceptable. System must warn when values are outside safe range.
 
 OUTPUT RULE: Return ONLY valid JSON. No markdown, no explanation, no \`\`\`json.
 First character must be {, last character must be }.
@@ -261,7 +261,7 @@ function parseTools(filePath) {
     if (!idMatch) continue;
 
     // Her bloğun başından bir sonraki tool_id'ye kadar olan kısmı al
-    // JSON reconstruct: tool_id'den itibaren ilk geçerli JSON objesini çıkar
+    // JSON reconstruct: tool_id'den itibaren ilk geçerli JSON objesini çıprofit
     const fullBlock = '"tool_id"' + block.split('"tool_id"')[0];
 
     tools.push({
@@ -356,7 +356,7 @@ async function rewriteTool(client, tool, attempt = 1) {
     const jsonStr = text.substring(jsonStart, jsonEnd + 1);
     const parsed = JSON.parse(jsonStr);
 
-    // Kalite gate
+    // Quality gate
     const warnings = parsed.engine_rules?.smart_warnings || [];
     const validations = Object.keys(parsed.engine_rules?.validation || {});
     const inputs = parsed.inputs || [];
@@ -475,10 +475,10 @@ async function main() {
           id: tool.tool_id,
           quality_gate: result.quality_gate,
         });
-        console.log(`  ⚠  Kalite gate başarısız | ${JSON.stringify(result.quality_gate)}`);
+        console.log(`  ⚠  Quality gate başarısız | ${JSON.stringify(result.quality_gate)}`);
       }
     } catch (err) {
-      console.error(`  ❌ Hata: ${err.message}`);
+      console.error(`  ❌ Error: ${err.message}`);
       report.failed.push({ id: tool.tool_id, error: err.message });
     }
 
@@ -503,20 +503,20 @@ async function main() {
   console.log("📊 PIPELINE TAMAMLANDI");
   console.log("═".repeat(50));
   console.log(`✅ Başarılı:         ${report.success.length}`);
-  console.log(`⚠  Kalite sorunu:   ${report.quality_failed.length}`);
-  console.log(`❌ Hata:            ${report.failed.length}`);
+  console.log(`⚠  Quality sorunu:   ${report.quality_failed.length}`);
+  console.log(`❌ Error:            ${report.failed.length}`);
   console.log(`⏭  Atlandı:         ${report.skipped.length}`);
-  console.log(`📈 Token (toplam):  ${report.token_usage.input + report.token_usage.output}`);
+  console.log(`📈 Token (total):  ${report.token_usage.input + report.token_usage.output}`);
   console.log(`📁 Çıktı:           ${outputArg}/`);
-  console.log(`📋 Rapor:           ${reportPath}`);
+  console.log(`📋 Report:           ${reportPath}`);
   console.log(`📦 Merged:          ${mergedPath}`);
 
   if (report.failed.length > 0) {
-    console.log("\n❌ Hata veren araçlar:");
+    console.log("\n❌ Error veren araçlar:");
     report.failed.forEach(f => console.log(`   ${f.id}: ${f.error}`));
   }
   if (report.quality_failed.length > 0) {
-    console.log("\n⚠  Kalite gate başarısız araçlar (manuel kontrol önerilir):");
+    console.log("\n⚠  Quality gate başarısız araçlar (manuel control önerilir):");
     report.quality_failed.forEach(f => {
       const failed = Object.entries(f.quality_gate)
         .filter(([, v]) => !v).map(([k]) => k).join(", ");

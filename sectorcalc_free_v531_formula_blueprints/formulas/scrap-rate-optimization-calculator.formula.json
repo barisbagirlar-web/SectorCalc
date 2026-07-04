@@ -1,0 +1,165 @@
+{
+  "tool_name": "Scrap Rate Optimization Calculator",
+  "tool_key": "scrap-rate-optimization-calculator",
+  "slug": "scrap-rate-optimization-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "analytics-risk-score",
+  "inputs": [
+    {
+      "id": "event_count",
+      "label": "Event Count",
+      "unit": "count",
+      "required": true,
+      "normalized_id": "event_count",
+      "description": "Event Count",
+      "min": 0
+    },
+    {
+      "id": "opportunity_count",
+      "label": "Opportunity Count",
+      "unit": "count",
+      "required": true,
+      "normalized_id": "opportunity_count",
+      "description": "Opportunity Count",
+      "min": 1
+    },
+    {
+      "id": "impact_cost",
+      "label": "Impact Cost",
+      "unit": "USD",
+      "required": true,
+      "normalized_id": "impact_cost",
+      "description": "Impact Cost",
+      "min": 0
+    },
+    {
+      "id": "probability",
+      "label": "Probability",
+      "unit": "decimal",
+      "required": true,
+      "normalized_id": "probability",
+      "description": "Probability",
+      "min": 0,
+      "max": 1
+    },
+    {
+      "id": "exposure",
+      "label": "Exposure",
+      "unit": "USD",
+      "required": true,
+      "normalized_id": "exposure",
+      "description": "Exposure",
+      "min": 0
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "event_count",
+      "source_input_id": "event_count",
+      "base_unit": "count",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "opportunity_count",
+      "source_input_id": "opportunity_count",
+      "base_unit": "count",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "impact_cost",
+      "source_input_id": "impact_cost",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "probability",
+      "source_input_id": "probability",
+      "base_unit": "decimal",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "exposure",
+      "source_input_id": "exposure",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "rate",
+      "label": "Rate",
+      "unit": "decimal",
+      "description": "Rate"
+    },
+    {
+      "id": "expected_loss",
+      "label": "Expected Loss",
+      "unit": "USD",
+      "description": "Expected Loss"
+    },
+    {
+      "id": "risk_score",
+      "label": "Risk Score",
+      "unit": "score",
+      "description": "Risk Score"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute rate as event_count divided by opportunity_count.",
+    "Compute expected loss as probability multiplied by impact_cost plus exposure adjusted by rate.",
+    "Compute bounded risk score on a zero to one hundred scale.",
+    "Classify REVIEW when sample size is too small for a stable decision."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

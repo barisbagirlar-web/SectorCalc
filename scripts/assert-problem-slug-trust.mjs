@@ -7,7 +7,7 @@
  */
 import { getBaseUrl, localePath } from "./smoke-utils.mjs";
 
-const PROBLEM_SLUG = "abonelik-yazilim-cloud-yillik-maliyet-hesabi";
+const PROBLEM_SLUG = "abonelik-yazilim-cloud-annual-cost-hesabi";
 const LOCALE = "tr";
 
 const FORBIDDEN_PATTERNS = [
@@ -16,7 +16,7 @@ const FORBIDDEN_PATTERNS = [
   { id: "mixed_label_aylik_fee", pattern: /\bAylık fee\b/i },
   { id: "mixed_label_subscription_fee", pattern: /\bAylık subscription fee\b/i },
   { id: "mixed_label_ay_value", pattern: /\bAy\s*[\*×x]?\s*value\b/i },
-  { id: "free_faq_on_premium", pattern: /\bBu hesaplama aracı ücretsiz mi\?\s*Evet/i },
+  { id: "free_faq_on_premium", pattern: /\bBu calculation toolı ücretsiz mi\?\s*Evet/i },
 ];
 
 function stripScripts(html) {
@@ -30,7 +30,7 @@ function hasActiveCalculateCta(visible) {
   if (!/data-calculation-form="true"/.test(visible)) {
     return false;
   }
-  return /<button[^>]*type="submit"[^>]*>[\s\S]*?(Hesapla|Calculate)/i.test(visible);
+  return /<button[^>]*type="submit"[^>]*>[\s\S]*?(Calculate|Calculate)/i.test(visible);
 }
 
 async function main() {
@@ -64,7 +64,7 @@ async function main() {
   const hasSafeState =
     html.includes('data-runtime-trust-safe-state="true"') ||
     html.includes('data-runtime-readiness-safe-state="true"') ||
-    /Hesaplama kalite kontrolünde/i.test(visible);
+    /Calculation quality controlünde/i.test(visible);
 
   if (!hasSafeState) {
     failures.push("missing_safe_review_state");

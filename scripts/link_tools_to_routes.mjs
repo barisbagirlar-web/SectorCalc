@@ -4,7 +4,7 @@ import path from 'path';
 const toolsDir = path.resolve('./src/tools/generated');
 const routesFile = path.resolve('./public/ai-tool-routes.json');
 
-console.log("=== TUR 3: ROUTING ENTEGRASYONU ===");
+console.log("=== TYPE 3: ROUTING ENTEGRASYONU ===");
 
 if (!fs.existsSync(toolsDir)) {
     console.error("Araç klasörü bulunamadı.");
@@ -25,4 +25,4 @@ const routes = files
 
 fs.writeFileSync(routesFile, JSON.stringify(routes, null, 2));
 
-console.log(`PASS: ${routes.length} adet aracın rotası başarıyla (public/ai-tool-routes.json) oluşturuldu ve eşleştirildi.`);
+console.log(`PASS: ${routes.length} count toolın rotası başarıyla (public/ai-tool-routes.json) oluşturuldu ve eşleştirildi.`);

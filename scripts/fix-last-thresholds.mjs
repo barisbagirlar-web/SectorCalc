@@ -5,13 +5,13 @@ const DIR = path.resolve("src/lib/premium-schema/schemas");
 
 const FIXES = [
   // factory-layout-distance
-  ['warningMessage_i18n: {"en":"Alan kullanımı < %50 — yerleşim optimizasyonu önerilir.","tr":"Alan kullanımı < %50 — yerleşim optimizasyonu önerilir."}',
-   'warningMessage_i18n: {"en":"Space utilization < 50% — layout optimization recommended.","tr":"Alan kullanımı < %50 — yerleşim optimizasyonu önerilir."}'],
-  ['criticalMessage_i18n: {"en":"Alan kullanımı < %35 — acil yeniden düzenleme.","tr":"Alan kullanımı < %35 — acil yeniden düzenleme."}',
-   'criticalMessage_i18n: {"en":"Space utilization < 35% — urgent reconfiguration.","tr":"Alan kullanımı < %35 — acil yeniden düzenleme."}'],
+  ['warningMessage_i18n: {"en":"Area useımı < %50 — yerleşim optimizasyonu önerilir.","tr":"Area useımı < %50 — yerleşim optimizasyonu önerilir."}',
+   'warningMessage_i18n: {"en":"Space utilization < 50% — layout optimization recommended.","tr":"Area useımı < %50 — yerleşim optimizasyonu önerilir."}'],
+  ['criticalMessage_i18n: {"en":"Area useımı < %35 — emergency yeniden düzenleme.","tr":"Area useımı < %35 — emergency yeniden düzenleme."}',
+   'criticalMessage_i18n: {"en":"Space utilization < 35% — urgent reconfiguration.","tr":"Area useımı < %35 — emergency yeniden düzenleme."}'],
   // digital-twin
-  ['warningMessage_i18n: {"en":"ROI < %100 — fizibilite tekrar değerlendirilmeli.","tr":"ROI < %100 — fizibilite tekrar değerlendirilmeli."}',
-   'warningMessage_i18n: {"en":"ROI < 100% — feasibility should be re-evaluated.","tr":"ROI < %100 — fizibilite tekrar değerlendirilmeli."}'],
+  ['warningMessage_i18n: {"en":"ROI < %100 — fizibilite repeat değerlendirilmeli.","tr":"ROI < %100 — fizibilite repeat değerlendirilmeli."}',
+   'warningMessage_i18n: {"en":"ROI < 100% — feasibility should be re-evaluated.","tr":"ROI < %100 — fizibilite repeat değerlendirilmeli."}'],
   ['criticalMessage_i18n: {"en":"ROI < %50 — yatırım önerilmez.","tr":"ROI < %50 — yatırım önerilmez."}',
    'criticalMessage_i18n: {"en":"ROI < 50% — investment not recommended.","tr":"ROI < %50 — yatırım önerilmez."}'],
 ];

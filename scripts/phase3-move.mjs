@@ -125,7 +125,7 @@ mapping["benchmarks"] = "features";
 mapping["feedback"] = "features";
 mapping["semantic"] = "features";
 
-// 2. Yeni Klasörleri Oluştur
+// 2. Yeni Klasörleri Oluştype
 const categories = new Set(Object.values(mapping).filter(Boolean));
 for (const cat of categories) {
   const dirPath = path.join(SRC_LIB, cat);
@@ -134,7 +134,7 @@ for (const cat of categories) {
   }
 }
 
-// 3. Import Replace Fonksiyonu (Proje Genelinde)
+// 3. Import Replace Fonksiyonu (Project Genelinde)
 function updateImportsInFile(filePath) {
   let content = fs.readFileSync(filePath, "utf-8");
   let modified = false;

@@ -4,7 +4,7 @@ import path from 'path';
 const SCHEMAS_DIR = path.join(process.cwd(), 'src/lib/premium-schema/schemas');
 const COMPONENTS_DIR = path.join(process.cwd(), 'src/components/tools');
 
-console.log("=== BULK REPAIR ENGINE (TUR 2 ONARIM) BAŞLIYOR ===");
+console.log("=== BULK REPAIR ENGINE (TYPE 2 REPAIR) BAŞLIYOR ===");
 
 // 1. Şemalar Üzerinde İngilizce Kalıntı (expertMeaning vs) Temizliği
 function repairSchemas() {
@@ -18,11 +18,11 @@ function repairSchemas() {
 
     // Replace all expertMeaning with a standard Turkish phrase
     // matching: expertMeaning: "...", or expertMeaning: '...',
-    content = content.replace(/expertMeaning:\s*["']([^"']+)["']/g, 'expertMeaning: "Endüstriyel hesaplama standartlarına uygun parametre değeri."');
+    content = content.replace(/expertMeaning:\s*["']([^"']+)["']/g, 'expertMeaning: "Endüstriyel calculation standartlarına uygun parametre değeri."');
     
     // Replace helper with standard if it has English
     // Just a basic fallback to ensure Zero Defect translation rule
-    content = content.replace(/helper:\s*["'](?!.*(hesap|alan|gir|sayı|oran))([^"']+)["']/g, 'helper: "Lütfen geçerli bir değer giriniz."');
+    content = content.replace(/helper:\s*["'](?!.*(account|area|gir|sayı|ratio))([^"']+)["']/g, 'helper: "Lütfen geçerli bir değer giriniz."');
 
     if (content !== original) {
       fs.writeFileSync(filePath, content, 'utf-8');
@@ -30,7 +30,7 @@ function repairSchemas() {
     }
   });
 
-  console.log(`[PASS] ADIM 5: ${fixedCount} Premium Schema dosyasındaki İngilizce (expertMeaning vb.) kalıntılar Türkçeleştirildi.`);
+  console.log(`[PASS] STEP 5: ${fixedCount} Premium Schema dosyasındaki İngilizce (expertMeaning vb.) kalıntılar Türkçeleştirildi.`);
 }
 
 // 2. UI Bütünlüğü (hidden md:block onarımı)
@@ -53,7 +53,7 @@ function repairUI() {
     }
   });
 
-  console.log(`[PASS] ADIM 4: ${fixedCount} UI Component (React) dosyasındaki mobil görünürlüğü bozan (hidden md:block) hatalı Grid/Flex yapıları onarıldı.`);
+  console.log(`[PASS] STEP 4: ${fixedCount} UI Component (React) dosyasındaki mobil görünürlüğü bozan (hidden md:block) hatalı Grid/Flex yapıları onarıldı.`);
 }
 
 // 3. Free Tools Tarama ve Onarım
@@ -64,13 +64,13 @@ function repairFreeTools() {
     let original = content;
 
     // Basit İngilizce kelimeleri arayıp (örnek), Türkçe'ye sabitleme (Mockup repair)
-    content = content.replace(/expertMeaning:\s*["']([^"']+)["']/g, 'expertMeaning: "Standart analiz değeri."');
+    content = content.replace(/expertMeaning:\s*["']([^"']+)["']/g, 'expertMeaning: "Standard analysis değeri."');
     
     if (content !== original) {
       fs.writeFileSync(freeToolsPath, content, 'utf-8');
-      console.log(`[PASS] ADIM 1,2,3,5: Free Trafik Araçlarındaki dil borçları temizlendi.`);
+      console.log(`[PASS] STEP 1,2,3,5: Free Trafik Araçlarındaki dil borçları temizlendi.`);
     } else {
-      console.log(`[PASS] ADIM 1,2,3,5: Free Trafik Araçlarında İngilizce kalıntı bulunamadı.`);
+      console.log(`[PASS] STEP 1,2,3,5: Free Trafik Araçlarında İngilizce kalıntı bulunamadı.`);
     }
   }
 }
@@ -79,4 +79,4 @@ repairSchemas();
 repairUI();
 repairFreeTools();
 
-console.log("\n[SONUÇ] Bulk Repair Engine tüm dosyaları SectorCalc Audit Protokolüne uygun hale getirdi. Hata ve borç kalmadı!");
+console.log("\n[SONUÇ] Bulk Repair Engine tüm dosyaları SectorCalc Audit Protokolüne uygun hale getirdi. Error ve borç kalmadı!");

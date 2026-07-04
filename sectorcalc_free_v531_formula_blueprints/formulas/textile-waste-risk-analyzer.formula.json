@@ -1,0 +1,180 @@
+{
+  "tool_name": "Textile Waste Risk Analyzer",
+  "tool_key": "textile-waste-risk-analyzer",
+  "slug": "textile-waste-risk-analyzer",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "construction-material-quantity",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "unit": "m",
+      "required": true,
+      "normalized_id": "length",
+      "description": "Length",
+      "min": 0
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "unit": "m",
+      "required": true,
+      "normalized_id": "width",
+      "description": "Width",
+      "min": 0
+    },
+    {
+      "id": "thickness",
+      "label": "Thickness",
+      "unit": "m",
+      "required": true,
+      "normalized_id": "thickness",
+      "description": "Thickness",
+      "min": 0
+    },
+    {
+      "id": "coverage_per_unit",
+      "label": "Coverage per Unit",
+      "unit": "m^2/unit",
+      "required": true,
+      "normalized_id": "coverage_per_unit",
+      "description": "Coverage per Unit",
+      "min": 0.0001
+    },
+    {
+      "id": "waste_rate",
+      "label": "Waste Rate",
+      "unit": "decimal",
+      "required": true,
+      "normalized_id": "waste_rate",
+      "description": "Waste Rate",
+      "min": 0,
+      "max": 1
+    },
+    {
+      "id": "unit_cost",
+      "label": "Unit Cost",
+      "unit": "USD/unit",
+      "required": true,
+      "normalized_id": "unit_cost",
+      "description": "Unit Cost",
+      "min": 0
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "length",
+      "source_input_id": "length",
+      "base_unit": "m",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "width",
+      "source_input_id": "width",
+      "base_unit": "m",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "thickness",
+      "source_input_id": "thickness",
+      "base_unit": "m",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "coverage_per_unit",
+      "source_input_id": "coverage_per_unit",
+      "base_unit": "m^2/unit",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "waste_rate",
+      "source_input_id": "waste_rate",
+      "base_unit": "decimal",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "unit_cost",
+      "source_input_id": "unit_cost",
+      "base_unit": "USD/unit",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "net_area",
+      "label": "Net Area",
+      "unit": "m^2",
+      "description": "Net Area"
+    },
+    {
+      "id": "gross_quantity",
+      "label": "Gross Quantity",
+      "unit": "unit",
+      "description": "Gross Quantity"
+    },
+    {
+      "id": "estimated_cost",
+      "label": "Estimated Cost",
+      "unit": "USD",
+      "description": "Estimated Cost"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute net area or volume from normalized dimensions.",
+    "Apply waste allowance by dividing required quantity by one minus waste_rate.",
+    "Round purchase quantity upward to whole units when applicable.",
+    "Compute estimated cost as purchase quantity multiplied by unit cost."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "tool_name": "Payment Processor Fee Calculator",
+  "tool_key": "payment-processor-fee-calculator",
+  "slug": "payment-processor-fee-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "cost-buildup-and-margin",
+  "inputs": [
+    {
+      "id": "material_cost",
+      "label": "Material Cost",
+      "unit": "USD",
+      "required": true,
+      "normalized_id": "material_cost",
+      "description": "Material Cost",
+      "min": 0
+    },
+    {
+      "id": "labor_cost",
+      "label": "Labor Cost",
+      "unit": "USD",
+      "required": true,
+      "normalized_id": "labor_cost",
+      "description": "Labor Cost",
+      "min": 0
+    },
+    {
+      "id": "overhead_cost",
+      "label": "Overhead Cost",
+      "unit": "USD",
+      "required": true,
+      "normalized_id": "overhead_cost",
+      "description": "Overhead Cost",
+      "min": 0
+    },
+    {
+      "id": "waste_rate",
+      "label": "Waste Rate",
+      "unit": "decimal",
+      "required": true,
+      "normalized_id": "waste_rate",
+      "description": "Waste Rate",
+      "min": 0,
+      "max": 1
+    },
+    {
+      "id": "selling_price",
+      "label": "Selling Price",
+      "unit": "USD",
+      "required": true,
+      "normalized_id": "selling_price",
+      "description": "Selling Price",
+      "min": 0
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "material_cost",
+      "source_input_id": "material_cost",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "labor_cost",
+      "source_input_id": "labor_cost",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "overhead_cost",
+      "source_input_id": "overhead_cost",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "waste_rate",
+      "source_input_id": "waste_rate",
+      "base_unit": "decimal",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "selling_price",
+      "source_input_id": "selling_price",
+      "base_unit": "USD",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "total_cost",
+      "label": "Total Cost",
+      "unit": "USD",
+      "description": "Total Cost"
+    },
+    {
+      "id": "gross_margin",
+      "label": "Gross Margin",
+      "unit": "decimal",
+      "description": "Gross Margin"
+    },
+    {
+      "id": "margin_leakage",
+      "label": "Margin Leakage",
+      "unit": "USD",
+      "description": "Margin Leakage"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute adjusted material cost as material_cost divided by one minus waste_rate.",
+    "Compute total cost as adjusted material cost plus labor_cost plus overhead_cost.",
+    "Compute gross margin as selling_price minus total_cost divided by selling_price.",
+    "Compute margin leakage as adjusted material cost minus material_cost.",
+    "Classify REVIEW when waste_rate is greater than or equal to one or when selling_price is zero."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

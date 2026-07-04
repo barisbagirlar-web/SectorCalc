@@ -61,11 +61,11 @@ console.log("Premium slugs count:", premiumSlugs.length);
 
 // Premium-152 seed first 5 batch slugs
 const batch1 = [
-  "7-israf-muda-avcisi-parasal-karsilik-calculator",
-  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
-  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+  "7-waste-muda-avcisi-parasal-karsilik-calculator",
+  "5s-audit-skoru-productivity-loss-cost-calculator",
+  "3b-baski-destek-structure-ve-post-process-cost-calculator",
   "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
-  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+  "3b-baski-vs-talasli-manufacturing-basabas-noktasi-calculator",
 ];
 
 // Check overlap between seed slugs and schema IDs in registry

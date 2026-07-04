@@ -10,13 +10,13 @@ import { createPhraseTranslator } from "./lib/generate-translate-phrase.mjs";
 const ROOT = join(import.meta.dirname, "..");
 const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
 const BUNDLE_PATH = join(ROOT, "src/data/free-tool-inputs-i18n.generated.json");
-const COPY_MAP_PATH = join(ROOT, "scripts/data/generated-schema-copy-i18n.json");
+const COPY_MAP_PATH = join(ROOT, "archive/migration-only/scripts/data/generated-schema-copy-i18n.json");
 
 const PHRASE_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),
 );
 const FIELD_LABEL_MAP = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/calculator-field-labels-i18n.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json"), "utf8"),
 );
 const COPY_MAP = existsSync(COPY_MAP_PATH)
   ? JSON.parse(readFileSync(COPY_MAP_PATH, "utf8"))

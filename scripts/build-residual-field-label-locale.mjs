@@ -8,12 +8,12 @@ import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
 const BUNDLE_PATH = join(ROOT, "src/data/free-tool-inputs-i18n.generated.json");
-const OUT_PATH = join(ROOT, "scripts/data/residual-field-label-locale.json");
+const OUT_PATH = join(ROOT, "archive/migration-only/scripts/data/residual-field-label-locale.json");
 const LOCALES = ["tr", "de", "fr", "es", "ar"];
 
 const MANUAL = {
   "Source unit": {
-    tr: "Kaynak birimi",
+    tr: "Resource unit",
     de: "Quelleinheit",
     fr: "Unité source",
     es: "Unidad de origen",
@@ -54,7 +54,7 @@ const MANUAL = {
     ar: "رسوم أخرى",
   },
   Volume: {
-    tr: "Hacim",
+    tr: "Volume",
     de: "Volumen",
     fr: "Volume",
     es: "Volumen",
@@ -81,14 +81,14 @@ const MANUAL = {
     ar: "متفرقات",
   },
   "Savings goal": {
-    tr: "Tasarruf hedefi",
+    tr: "Savings hedefi",
     de: "Sparziel",
     fr: "Objectif d'épargne",
     es: "Meta de ahorro",
     ar: "هدف الادخار",
   },
   "Nominal APR": {
-    tr: "Nominal yıllık oran",
+    tr: "Nominal yıllık ratio",
     de: "Nominaler effektiver Jahreszins",
     fr: "TAEG nominal",
     es: "TAE nominal",
@@ -109,7 +109,7 @@ const MANUAL = {
     ar: "النفاذية الحرارية",
   },
   "Breakage allowance": {
-    tr: "Kırılma payı",
+    tr: "Kırılma shareı",
     de: "Bruchzuschlag",
     fr: "Marge de casse",
     es: "Margen de rotura",
@@ -123,14 +123,14 @@ const MANUAL = {
     ar: "عمليات الثقب",
   },
   "Overhead allocated": {
-    tr: "Tahsis edilen genel gider",
+    tr: "Tahsis edilen genel expense",
     de: "Zugerechnete Gemeinkosten",
     fr: "Frais généraux imputés",
     es: "Gastos generales asignados",
     ar: "المصاريف العامة المخصصة",
   },
   "Overhead to cover": {
-    tr: "Karşılanacak genel gider",
+    tr: "Profitşılanacak genel expense",
     de: "Zu deckende Gemeinkosten",
     fr: "Frais généraux à couvrir",
     es: "Gastos generales a cubrir",
@@ -172,7 +172,7 @@ const MANUAL = {
     ar: "رسوم الطرق",
   },
   Expected: {
-    tr: "Beklenen",
+    tr: "Expected",
     de: "Erwarteter",
     fr: "Attendu",
     es: "Esperado",
@@ -193,14 +193,14 @@ const MANUAL = {
     ar: "رصيد IRA ($)",
   },
   "Standard Part B Premium": {
-    tr: "Standart B Bölümü primi",
+    tr: "Standard B Bölümü primi",
     de: "Standard-Teil-B-Prämie",
     fr: "Prime standard Partie B",
     es: "Prima estándar Parte B",
     ar: "قسط الجزء B القياسي",
   },
   "Standard Part D Premium": {
-    tr: "Standart D Bölümü primi",
+    tr: "Standard D Bölümü primi",
     de: "Standard-Teil-D-Prämie",
     fr: "Prime standard Partie D",
     es: "Prima estándar Parte D",

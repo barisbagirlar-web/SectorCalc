@@ -10,7 +10,7 @@ for (const file of txtFiles) {
   const content = fs.readFileSync(file, 'utf8');
   const lines = content.split('\n');
   for (const line of lines) {
-    // Example: "1. Yüzde Kuralı | Girdiler: AylikKira (₺), MulkDegeri (₺) | Formül: Oran = (AylikKira / MAX(1, MulkDegeri)) * 100 | Çıktı: Oran (%)"
+    // Example: "1. Yüzde Kuralı | Girdiler: AylikKira (₺), MulkDegeri (₺) | Formül: Ratio = (AylikKira / MAX(1, MulkDegeri)) * 100 | Çıktı: Ratio (%)"
     if (line.includes('| Girdiler:') && line.includes('| Formül:')) {
       const match = line.match(/^\d+\.\s*(.*?)\s*\|\s*Girdiler:(.*?)\|\s*Formül:(.*?)\|\s*Çıktı:/);
       if (match) {

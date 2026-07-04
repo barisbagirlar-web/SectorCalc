@@ -14,7 +14,7 @@ export const PLACEHOLDER_TEMPLATES = {
 };
 
 export const HELPER_TEMPLATES = {
-  tr: (label) => `${label} için hesaplamada kullanılan değer.`,
+  tr: (label) => `${label} için hesaplamada useılan değer.`,
   de: (label) => `Eingabewert für ${label} in der Berechnung.`,
   fr: (label) => `Valeur utilisée pour ${label} dans le calcul.`,
   es: (label) => `Valor utilizado para ${label} en el cálculo.`,
@@ -40,7 +40,7 @@ const ENGLISH_MARKERS_STRICT = [
 ];
 
 const LOCALE_MARKERS = {
-  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|proses|maliyet|birim|değer|hesaplamada)\b/i],
+  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|process|cost|unit|değer|hesaplamada)\b/i],
   de: [/[äöüßÄÖÜ]/, /\b(und|oder|für|pro|eingeben|der|die|das|berechnung)\b/i],
   fr: [/[àâçéèêëîïôùûü]/i, /\b(pour|ou|de|le|la|saisir|calcul|valeur)\b/i],
   es: [/[áéíóúñü¿¡]/i, /\b(para|o|de|el|la|introduzca|cálculo|valor)\b/i],
@@ -97,7 +97,7 @@ const GENERIC_CALCULATOR_HELPER_PATTERNS = [
   {
     re: /^Primary input for (.+?) Calculator\.?$/i,
     templates: {
-      tr: () => "Hesaplamada kullanılan birincil girdi değeri.",
+      tr: () => "Hesaplamada useılan birincil input değeri.",
       de: () => "Primärer Eingabewert für die Berechnung.",
       fr: () => "Valeur d'entrée principale utilisée pour le calcul.",
       es: () => "Valor de entrada principal utilizado para el cálculo.",
@@ -107,7 +107,7 @@ const GENERIC_CALCULATOR_HELPER_PATTERNS = [
   {
     re: /^Secondary input for (.+?) Calculator\.?$/i,
     templates: {
-      tr: () => "Hesaplamada kullanılan ikincil girdi değeri.",
+      tr: () => "Hesaplamada useılan ikincil input değeri.",
       de: () => "Sekundärer Eingabewert für die Berechnung.",
       fr: () => "Valeur d'entrée secondaire utilisée pour le calcul.",
       es: () => "Valor de entrada secundario utilizado para el cálculo.",

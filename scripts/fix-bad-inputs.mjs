@@ -38,13 +38,13 @@ const SLUG_FIXES = {
   "transfer-fiyatlandirmasi-optimize-edici": {
     removeInputs: ["Total", "Tax", "at", "Rate_Low", "Currency", "Pct_Group", "TaxDiff"],
   },
-  "odeme-vadesi-optimize-edici": {
+  "payment-vadesi-optimize-edici": {
     removeInputs: [],
   },
   "cbam-uyumluluk": {
     removeInputs: ["Proceed", "Reevaluate"],
   },
-  "civate-tork": {
+  "civate-torque": {
     removeInputs: ["FAIL", "PASS"],
   },
 };

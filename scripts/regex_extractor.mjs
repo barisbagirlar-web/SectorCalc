@@ -80,7 +80,7 @@ function extractTools(rawData, fileName) {
     return tools;
 }
 
-console.log("=== TUR 1: REGEX EXTRACTION (DEEP SANITIZATION) ===");
+console.log("=== TYPE 1: REGEX EXTRACTION (DEEP SANITIZATION) ===");
 
 try {
     const raw1 = fs.existsSync(file1) ? fs.readFileSync(file1, 'utf-8') : '';
@@ -92,10 +92,10 @@ try {
     console.log(`[PASS] ${path.basename(file2)} parsed via Regex. Found ${tools2.length} tools.`);
     
     const totalTools = tools1.length + tools2.length;
-    console.log(`\n[SUCCESS] RAM aktarımı tamamlandı! Toplam İşlenebilir Araç: ${totalTools}`);
+    console.log(`\n[SUCCESS] RAM aktarımı tamamlandı! Total İşlenebilir Araç: ${totalTools}`);
     
     if (tools2.length > 0) {
-        const sample = tools2[0]; // MECH_192 Rezonans Frekansı
+        const sample = tools2[0]; // MECH_192 Rezonans Frequencyı
         console.log(`\nÖrneklem (Set 2): ${sample.tool_id} - ${sample.tool_name}`);
         console.log(`Inputs:`, sample.inputs.map(i => i.id).join(', '));
         console.log(`Validation Rules:`, JSON.stringify(sample.validation));
@@ -107,7 +107,7 @@ try {
     
     // Verileri diğer scriptin (Factory) kullanabilmesi için sağlam bir JSON formatında diske yaz (Cache).
     fs.writeFileSync(path.resolve('./scripts/extracted_tools_cache.json'), JSON.stringify(tools1.concat(tools2), null, 2));
-    console.log(`\n[PASS] Tüm araçlar (359 adet) hatasız formatta ./scripts/extracted_tools_cache.json olarak derlendi.`);
+    console.log(`\n[PASS] Tüm araçlar (359 count) hatasız formatta ./scripts/extracted_tools_cache.json olarak derlendi.`);
 
 } catch (err) {
     console.error("\n[FAIL] Regex Extraction Başarısız:", err.message);

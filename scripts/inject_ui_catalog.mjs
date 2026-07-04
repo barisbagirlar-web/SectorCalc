@@ -60,7 +60,7 @@ tools.forEach(t => {
     slug: "${slug}",
     category: "${category}",
     title: "${title}",
-    description: "${title} hesaplama aracı.",
+    description: "${title} calculation toolı.",
     seoTitle: "${title} | SectorCalc Pro",
     seoDescription: "${title} endüstriyel hesaplamaları.",
     missingFactors: [],
@@ -83,7 +83,7 @@ if (catalogContent.includes(fallbackPoint)) {
          const after = parts[0].substring(lastBracketIndex + 2);
          catalogContent = before + "," + injectionString + "\n];\n" + after + fallbackPoint + parts[1];
          fs.writeFileSync(catalogFile, catalogContent, 'utf-8');
-         console.log(`[PASS] ${tools.length} adet aracın UI Form şeması başarıyla kataloğa zerk edildi.`);
+         console.log(`[PASS] ${tools.length} count toolın UI Form şeması başarıyla kataloğa zerk edildi.`);
      } else {
          console.error("[FAIL] Enjeksiyon noktası (];) bulunamadı.");
      }

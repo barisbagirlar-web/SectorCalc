@@ -4,7 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const BATCH_FILE = "data/premium-formulas-batch.txt";
+const BATCH_FILE = "archive/migration-only/data/premium-formulas-batch.txt";
 const SCHEMAS_DIR = "src/lib/premium-schema/schemas";
 const REGISTRY_FILE = "src/lib/premium-schema/schema-registry.ts";
 const GENERATED_JSON_DIR = "generated/schemas";
@@ -154,18 +154,18 @@ function extractVars(expr) {
 
 function inferCategory(name, formulas) {
   const fullText = (name + " " + formulas.map(f => f.varName + " " + f.expression).join(" ")).toLowerCase();
-  if (/\b(dcf|irr|npv|roi|payback|wacc|discount|cash.flow|clv|cac|ltv|faiz|finans)\b/.test(fullText)) return "finance";
+  if (/\b(dcf|irr|npv|roi|payback|wacc|discount|cash.flow|clv|cac|ltv|interest|finance)\b/.test(fullText)) return "finance";
   if (/\b(kwh|energy|elec|gaz|kömür|power|compressor|steam|hvac|reactive|pompa)\b/.test(fullText)) return "energy";
-  if (/\b(scrap|defect|waste|fire|israf|muda|hurda|rework|hata|kayip)\b/.test(fullText)) return "scrap";
+  if (/\b(scrap|defect|waste|waste|waste|muda|hurda|rework|error|loss)\b/.test(fullText)) return "scrap";
   if (/\b(oee|availability|performance|durma|downtime|ariza)\b/.test(fullText)) return "oee";
-  if (/\b(cycle.time|takt|setup|changeover|smed|sure|lead.time|process.time)\b/.test(fullText)) return "time";
-  if (/\b(route|mesafe|distance|transport|lojistik|nakliye|rota|navlun|freight|tasima)\b/.test(fullText)) return "route";
-  if (/\b(carbon|co2|emission|karbon|cevre|environment|su|water|atık)\b/.test(fullText)) return "carbon";
+  if (/\b(cycle.time|takt|setup|changeover|smed|duration|lead.time|process.time)\b/.test(fullText)) return "time";
+  if (/\b(route|distance|distance|transport|lojistik|nakliye|rota|navlun|freight|tasima)\b/.test(fullText)) return "route";
+  if (/\b(carbon|co2|emission|karbon|environment|environment|su|water|atık)\b/.test(fullText)) return "carbon";
   if (/\b(calibrasyon|calibration|drift|tolerance|gage|grr)\b/.test(fullText)) return "calibration";
-  if (/\b(ogrenme|learning|kaizen|lean|muda|smv|sewing|dikis|hatti|denge)\b/.test(fullText)) return "lean";
+  if (/\b(learning|learning|kaizen|lean|muda|smv|sewing|dikis|hatti|denge)\b/.test(fullText)) return "lean";
   if (/\b(cpk|ppm|spc|sigma|control.chart|istatistik|sample|orneklem)\b/.test(fullText)) return "measurement";
-  if (/\b(maliyet|cost.*birim|unit.*cost|fiyat|price|margin|marj|cogs)\b/.test(fullText)) return "cost";
-  if (/\b(tedarik|supplier|supply|stok|inventory|eoq|rop)\b/.test(fullText)) return "benchmark";
+  if (/\b(cost|cost.*unit|unit.*cost|price|price|margin|margin|cogs)\b/.test(fullText)) return "cost";
+  if (/\b(supply|supplier|supply|inventory|inventory|eoq|rop)\b/.test(fullText)) return "benchmark";
   return "cost";
 }
 
@@ -189,17 +189,17 @@ function inferSectorSlug(name, category) {
 
 function guessUnit(inputId, label) {
   const text = (inputId + " " + label).toLowerCase();
-  if (/\b(percent|ratio|oran|rate|yuzde|pct)\b/.test(text)) return "%";
-  if (/\b(temperature|sicaklik|derece)/.test(text)) return "°C";
-  if (/\b(kg|weight|agirlik|kutle|ton)\b/.test(text)) return "kg";
-  if (/\b(sqm|m2|m²|area|alan|metrekare)\b/.test(text)) return "m²";
-  if (/\b(m3|m³|volume|hacim)\b/.test(text)) return "m³";
-  if (/\b(kw|power|guc)\b/.test(text)) return "kW";
-  if (/\b(kwh|energy|enerji|tuketim)\b/.test(text)) return "kWh";
-  if (/\b(hours|hour|time|sure|saat|dakika|minute)\b/.test(text)) return "saat";
-  if (/\b(day|daily|gunluk)\b/.test(text)) return "gün";
-  if (/\b(kilometer|km|distance|mesafe)\b/.test(text)) return "km";
-  if (/\b(adet|unit|piece|count|sayi|miktar)\b/.test(text)) return "adet";
+  if (/\b(percent|ratio|ratio|rate|yuzde|pct)\b/.test(text)) return "%";
+  if (/\b(temperature|temperature|derece)/.test(text)) return "°C";
+  if (/\b(kg|weight|weight|mass|ton)\b/.test(text)) return "kg";
+  if (/\b(sqm|m2|m²|area|area|metrekare)\b/.test(text)) return "m²";
+  if (/\b(m3|m³|volume|volume)\b/.test(text)) return "m³";
+  if (/\b(kw|power|power)\b/.test(text)) return "kW";
+  if (/\b(kwh|energy|energy|tuketim)\b/.test(text)) return "kWh";
+  if (/\b(hours|hour|time|duration|saat|dakika|minute)\b/.test(text)) return "saat";
+  if (/\b(day|daily|daily)\b/.test(text)) return "gün";
+  if (/\b(kilometer|km|distance|distance)\b/.test(text)) return "km";
+  if (/\b(count|unit|piece|count|sayi|quantity)\b/.test(text)) return "count";
   if (/\b(currency|\$|eur|try|usd)\b/.test(text)) return "currency";
   return "";
 }
@@ -284,7 +284,7 @@ export const ${constName}: PremiumCalculatorSchema = {
   name: "${tool.toolName}",
   sectorSlug: "${sectorSlug}",
   category: "${category}",
-  painStatement: "${tool.toolName} hesaplamalarini tek adimda yaparak kayiplari tespit edin ve dogru kararlar alin.",
+  painStatement: "${tool.toolName} hesaplamalarini tek adimda yaparak kayiplari tespit edin ve correct kararlar alin.",
   inputs: ${JSON.stringify(schemaInputs, null, 2).replace(/"([^"]+)":/g, "$1:")},
   outputs: ${JSON.stringify(schemaOutputs, null, 2).replace(/"([^"]+)":/g, "$1:")},
   thresholds: [],
@@ -445,7 +445,7 @@ function main() {
   console.log(`\n=== Genel ===`);
   console.log(`  Olusturulan: ${generatedCount}`);
   console.log(`  Atlanan: ${skippedCount}`);
-  console.log(`  Hata: ${errorCount}`);
+  console.log(`  Error: ${errorCount}`);
 
   // Patch schema-registry.ts
   if (newRegistryImports.length > 0) {

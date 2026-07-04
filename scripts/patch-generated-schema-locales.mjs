@@ -9,7 +9,7 @@ import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
 const SCHEMAS_DIR = join(ROOT, "generated", "schemas");
-const CACHE_PATH = join(ROOT, "scripts/data/generated-schema-copy-i18n.json");
+const CACHE_PATH = join(ROOT, "archive/migration-only/scripts/data/generated-schema-copy-i18n.json");
 
 if (!existsSync(CACHE_PATH)) {
   console.error("Translation cache not found:", CACHE_PATH);

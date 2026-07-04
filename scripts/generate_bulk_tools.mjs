@@ -4,12 +4,12 @@ import path from 'path';
 const jsonFile = path.resolve('./gemını free 191-359 .txt');
 const outputDir = path.resolve('./src/tools/generated');
 
-// Output dizini yoksa oluştur
+// Output dizini yoksa oluştype
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
 }
 
-console.log("=== TUR 2: KOD ÜRETİMİ BAŞLIYOR ===");
+console.log("=== TYPE 2: KOD ÜRETİMİ BAŞLIYOR ===");
 
 const rawData = fs.readFileSync(jsonFile, 'utf-8');
 
@@ -67,4 +67,4 @@ export function execute_${id}(input: Input_${id}): Output_${id} {
     generatedCount++;
 }
 
-console.log(`PASS: ${generatedCount} adet endüstriyel standartta araç dosyası başarıyla /src/tools/generated klasörüne üretildi.`);
+console.log(`PASS: ${generatedCount} count endüstriyel standartta araç dosyası başarıyla /src/tools/generated klasörüne üretildi.`);

@@ -6,7 +6,7 @@ const ROOT = join(import.meta.dirname, "..");
 
 const PREMIUM_SUBTITLE = {
   en: "Premium sector calculators for production, cost, energy, inventory, technical, and operational decisions that need more inputs, scenario comparison, and decision summaries.",
-  tr: "Daha fazla girdi, senaryo karşılaştırması ve karar özeti gerektiren kritik üretim, maliyet, enerji, stok, teknik ve operasyon hesapları için hazırlanmış premium sektör hesaplayıcıları.",
+  tr: "Daha fazla input, scenario profitşılaştırması ve karar özeti gerektiren kritik üduction, cost, energy, inventory, technical ve operasyon hesapları için hazırlanmış premium sektör hesaplayıcıları.",
   de: "Premium-Branchenrechner für Produktion, Kosten, Energie, Bestand, Technik und operative Entscheidungen mit mehr Eingaben, Szenariovergleich und Entscheidungszusammenfassung.",
   fr: "Calculateurs sectoriels premium pour la production, les coûts, l'énergie, les stocks, la technique et les décisions opérationnelles nécessitant plus d'entrées, des scénarios et un résumé décisionnel.",
   es: "Calculadoras sectoriales premium para producción, costos, energía, inventario, técnica y decisiones operativas que requieren más entradas, escenarios y resumen de decisión.",
@@ -25,13 +25,13 @@ const PREMIUM_TABS = {
   },
   tr: {
     premiumToolsAll: "Tüm premium hesaplayıcılar",
-    "cost-margin": "Maliyet ve marj",
+    "cost-margin": "Cost ve margin",
     "operations-oee": "Operasyon ve OEE",
-    "energy-carbon": "Enerji ve karbon",
+    "energy-carbon": "Energy ve karbon",
     "manufacturing-engineering": "İmalat ve mühendislik",
-    "finance-hr": "Finans ve İK",
-    "quality-lean": "Kalite ve yalın",
-    "engineering-technical": "Mühendislik ve teknik",
+    "finance-hr": "Finance ve İK",
+    "quality-lean": "Quality ve yalın",
+    "engineering-technical": "Mühendislik ve technical",
   },
   de: {
     premiumToolsAll: "Alle Premium-Rechner",

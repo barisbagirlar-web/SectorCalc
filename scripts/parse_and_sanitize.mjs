@@ -60,7 +60,7 @@ function loadAndParse(file) {
     return extractedTools;
 }
 
-console.log("=== TUR 1: DEEP SANITIZATION & PARSING ===");
+console.log("=== TYPE 1: DEEP SANITIZATION & PARSING ===");
 
 try {
     const tools1 = loadAndParse(file1);
@@ -70,7 +70,7 @@ try {
     console.log(`[PASS] ${path.basename(file2)} parsed. Found ${tools2.length} tools.`);
     
     const totalTools = tools1.length + tools2.length;
-    console.log(`\n[SUCCESS] RAM aktarımı tamamlandı! Toplam İşlenebilir Araç (Tam Veri): ${totalTools}`);
+    console.log(`\n[SUCCESS] RAM aktarımı tamamlandı! Total İşlenebilir Araç (Tam Veri): ${totalTools}`);
     
     // Test for first tool of second file
     const sample = tools2[0];
@@ -80,5 +80,5 @@ try {
         console.log(`Warnings Count:`, sample.engine_rules?.smart_warnings?.length || 0);
     }
 } catch (err) {
-    console.error("\n[FAIL] Veri Kurtarma Başarısız:", err.message, err.stack);
+    console.error("\n[FAIL] Veri Recovery Başarısız:", err.message, err.stack);
 }

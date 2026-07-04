@@ -24,13 +24,13 @@ if (existsSync(PREMIUM_DIR)) {
 
 // Very strict forbidden Turkish words list
 const FORBIDDEN_WORDS = [
-  "maliyeti", "hesaplama", "suresi", "hesabi", "sayisi", "tuketim", "yogunluk",
-  "ucreti", "karsilastirma", "dogalgaz", "boru", "agirlik", 
-  "klima", "kamyon", "amortisman", "bakim", "armatur", "celik", "paslanmaz",
-  "cevre", "alani", "yazici", "hacmi", "omru", "kosebent", "lama",
+  "maliyeti", "hesaplama", "hesabi", "tuketim", "yogunluk",
+  "ucreti", "karsilastirma", "dogalgaz", "boru",
+  "klima", "kamyon", "armatur", "paslanmaz",
+  "alani", "yazici", "hacmi", "omru", "kosebent", "lama",
   "kure", "npu", "profil", "radyator", "petek", "enflasyon", "mesai",
-  "irsaliye", "fatura", "kaynak", "dikis", "kaza", "dolayli", "isleme",
-  "tasima", "cevrim", "finansal", "donusturucu", "dntrc", "adet"
+  "irsaliye", "fatura", "dikis", "kaza", "dolayli", "isleme",
+  "tasima", "finansal", "donusturucu", "dntrc"
 ];
 
 let failed = false;

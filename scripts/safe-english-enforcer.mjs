@@ -58,7 +58,7 @@ if (fs.existsSync(middlewarePath)) {
   }
   
   fs.writeFileSync(middlewarePath, content, 'utf8');
-  console.log("[+] middleware.ts kök domain yönlendirmeleri aktif edildi.");
+  console.log("[+] middleware.ts kök domain yönlendirmeleri active edildi.");
 }
 
 const localeSwitcherPath = path.join(process.cwd(), 'src/components/layout/LocaleSwitcher.tsx');

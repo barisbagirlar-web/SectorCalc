@@ -1,0 +1,2358 @@
+{
+  "package": "sectorcalc-free-v531-formula-blueprints",
+  "tool_count": 294,
+  "tools": [
+    {
+      "tool_name": "2d Inverse Kinematics Calculator",
+      "tool_key": "2d-inverse-kinematics-calculator",
+      "slug": "2d-inverse-kinematics-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/2d-inverse-kinematics-calculator.formula.json",
+      "server_stub": "server-formula-stubs/2d-inverse-kinematics-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Abc Classification Calculator",
+      "tool_key": "abc-classification-calculator",
+      "slug": "abc-classification-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/abc-classification-calculator.formula.json",
+      "server_stub": "server-formula-stubs/abc-classification-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Accounts Payable Turnover Calculator",
+      "tool_key": "accounts-payable-turnover-calculator",
+      "slug": "accounts-payable-turnover-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/accounts-payable-turnover-calculator.formula.json",
+      "server_stub": "server-formula-stubs/accounts-payable-turnover-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Accounts Receivable Turnover Calculator",
+      "tool_key": "accounts-receivable-turnover-calculator",
+      "slug": "accounts-receivable-turnover-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/accounts-receivable-turnover-calculator.formula.json",
+      "server_stub": "server-formula-stubs/accounts-receivable-turnover-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Adc Resolution Calculator",
+      "tool_key": "adc-resolution-calculator",
+      "slug": "adc-resolution-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/adc-resolution-calculator.formula.json",
+      "server_stub": "server-formula-stubs/adc-resolution-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Adhesive Quantity Calculator",
+      "tool_key": "adhesive-quantity-calculator",
+      "slug": "adhesive-quantity-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/adhesive-quantity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/adhesive-quantity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "AI Token Cost Analyzer",
+      "tool_key": "ai-token-cost-analyzer",
+      "slug": "ai-token-cost-analyzer",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/ai-token-cost-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/ai-token-cost-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Anchor Chain Length Calculator",
+      "tool_key": "anchor-chain-length-calculator",
+      "slug": "anchor-chain-length-calculator",
+      "formula_profile": "mechanical-transmission",
+      "formula_file": "formulas/anchor-chain-length-calculator.formula.json",
+      "server_stub": "server-formula-stubs/anchor-chain-length-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Angle Of Twist Calculator",
+      "tool_key": "angle-of-twist-calculator",
+      "slug": "angle-of-twist-calculator",
+      "formula_profile": "shaft-torsion-and-twist",
+      "formula_file": "formulas/angle-of-twist-calculator.formula.json",
+      "server_stub": "server-formula-stubs/angle-of-twist-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Annualized Return Calculator",
+      "tool_key": "annualized-return-calculator",
+      "slug": "annualized-return-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/annualized-return-calculator.formula.json",
+      "server_stub": "server-formula-stubs/annualized-return-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Annuity Income Calculator",
+      "tool_key": "annuity-income-calculator",
+      "slug": "annuity-income-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/annuity-income-calculator.formula.json",
+      "server_stub": "server-formula-stubs/annuity-income-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Antenna Length Calculator",
+      "tool_key": "antenna-length-calculator",
+      "slug": "antenna-length-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/antenna-length-calculator.formula.json",
+      "server_stub": "server-formula-stubs/antenna-length-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Api Latency Sla Calculator",
+      "tool_key": "api-latency-sla-calculator",
+      "slug": "api-latency-sla-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/api-latency-sla-calculator.formula.json",
+      "server_stub": "server-formula-stubs/api-latency-sla-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Apr Calculator",
+      "tool_key": "apr-calculator",
+      "slug": "apr-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/apr-calculator.formula.json",
+      "server_stub": "server-formula-stubs/apr-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Asme Shaft Diameter Bending Torsion Calculator",
+      "tool_key": "asme-shaft-diameter-bending-torsion-calculator",
+      "slug": "asme-shaft-diameter-bending-torsion-calculator",
+      "formula_profile": "shaft-torsion-and-twist",
+      "formula_file": "formulas/asme-shaft-diameter-bending-torsion-calculator.formula.json",
+      "server_stub": "server-formula-stubs/asme-shaft-diameter-bending-torsion-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Asset Allocation Calculator",
+      "tool_key": "asset-allocation-calculator",
+      "slug": "asset-allocation-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/asset-allocation-calculator.formula.json",
+      "server_stub": "server-formula-stubs/asset-allocation-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Audit Risk Calculator",
+      "tool_key": "audit-risk-calculator",
+      "slug": "audit-risk-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/audit-risk-calculator.formula.json",
+      "server_stub": "server-formula-stubs/audit-risk-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Barn Ventilation Calculator",
+      "tool_key": "barn-ventilation-calculator",
+      "slug": "barn-ventilation-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/barn-ventilation-calculator.formula.json",
+      "server_stub": "server-formula-stubs/barn-ventilation-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Baseboard Length Calculator",
+      "tool_key": "baseboard-length-calculator",
+      "slug": "baseboard-length-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/baseboard-length-calculator.formula.json",
+      "server_stub": "server-formula-stubs/baseboard-length-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Battery Backup Time Calculator",
+      "tool_key": "battery-backup-time-calculator",
+      "slug": "battery-backup-time-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/battery-backup-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/battery-backup-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Beam Deflection Calculator",
+      "tool_key": "beam-deflection-calculator",
+      "slug": "beam-deflection-calculator",
+      "formula_profile": "structural-beam-serviceability-strength",
+      "formula_file": "formulas/beam-deflection-calculator.formula.json",
+      "server_stub": "server-formula-stubs/beam-deflection-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Beam Reaction Calculator",
+      "tool_key": "beam-reaction-calculator",
+      "slug": "beam-reaction-calculator",
+      "formula_profile": "structural-beam-serviceability-strength",
+      "formula_file": "formulas/beam-reaction-calculator.formula.json",
+      "server_stub": "server-formula-stubs/beam-reaction-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Bearing Wall Stress Calculator",
+      "tool_key": "bearing-wall-stress-calculator",
+      "slug": "bearing-wall-stress-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/bearing-wall-stress-calculator.formula.json",
+      "server_stub": "server-formula-stubs/bearing-wall-stress-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Bernoulli Pressure Calculator",
+      "tool_key": "bernoulli-pressure-calculator",
+      "slug": "bernoulli-pressure-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/bernoulli-pressure-calculator.formula.json",
+      "server_stub": "server-formula-stubs/bernoulli-pressure-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Bilge Discharge Time Calculator",
+      "tool_key": "bilge-discharge-time-calculator",
+      "slug": "bilge-discharge-time-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/bilge-discharge-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/bilge-discharge-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Black Scholes Calculator",
+      "tool_key": "black-scholes-calculator",
+      "slug": "black-scholes-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/black-scholes-calculator.formula.json",
+      "server_stub": "server-formula-stubs/black-scholes-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Bobbin Yarn Length Calculator",
+      "tool_key": "bobbin-yarn-length-calculator",
+      "slug": "bobbin-yarn-length-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/bobbin-yarn-length-calculator.formula.json",
+      "server_stub": "server-formula-stubs/bobbin-yarn-length-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Bond Price Calculator",
+      "tool_key": "bond-price-calculator",
+      "slug": "bond-price-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/bond-price-calculator.formula.json",
+      "server_stub": "server-formula-stubs/bond-price-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Bottleneck Analysis Calculator",
+      "tool_key": "bottleneck-analysis-calculator",
+      "slug": "bottleneck-analysis-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/bottleneck-analysis-calculator.formula.json",
+      "server_stub": "server-formula-stubs/bottleneck-analysis-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Break-Even & Margin of Safety Analysis",
+      "tool_key": "break-even-and-margin-of-safety-analysis",
+      "slug": "break-even-and-margin-of-safety-analysis",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/break-even-and-margin-of-safety-analysis.formula.json",
+      "server_stub": "server-formula-stubs/break-even-and-margin-of-safety-analysis.formula.ts"
+    },
+    {
+      "tool_name": "Breeam Leed Score Calculator",
+      "tool_key": "breeam-leed-score-calculator",
+      "slug": "breeam-leed-score-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/breeam-leed-score-calculator.formula.json",
+      "server_stub": "server-formula-stubs/breeam-leed-score-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Building Load Factor Calculator",
+      "tool_key": "building-load-factor-calculator",
+      "slug": "building-load-factor-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/building-load-factor-calculator.formula.json",
+      "server_stub": "server-formula-stubs/building-load-factor-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Building Shadow Duration Calculator",
+      "tool_key": "building-shadow-duration-calculator",
+      "slug": "building-shadow-duration-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/building-shadow-duration-calculator.formula.json",
+      "server_stub": "server-formula-stubs/building-shadow-duration-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Buoyant Force Calculator",
+      "tool_key": "buoyant-force-calculator",
+      "slug": "buoyant-force-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/buoyant-force-calculator.formula.json",
+      "server_stub": "server-formula-stubs/buoyant-force-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Burn Rate Calculator",
+      "tool_key": "burn-rate-calculator",
+      "slug": "burn-rate-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/burn-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/burn-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Business Valuation Multiple Calculator",
+      "tool_key": "business-valuation-multiple-calculator",
+      "slug": "business-valuation-multiple-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/business-valuation-multiple-calculator.formula.json",
+      "server_stub": "server-formula-stubs/business-valuation-multiple-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cac To Clv Ratio Calculator",
+      "tool_key": "cac-to-clv-ratio-calculator",
+      "slug": "cac-to-clv-ratio-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/cac-to-clv-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cac-to-clv-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cagr Calculator",
+      "tool_key": "cagr-calculator",
+      "slug": "cagr-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/cagr-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cagr-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Calibration Drift Calculator",
+      "tool_key": "calibration-drift-calculator",
+      "slug": "calibration-drift-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/calibration-drift-calculator.formula.json",
+      "server_stub": "server-formula-stubs/calibration-drift-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cap Rate Calculator",
+      "tool_key": "cap-rate-calculator",
+      "slug": "cap-rate-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/cap-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cap-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cap Table Calculator",
+      "tool_key": "cap-table-calculator",
+      "slug": "cap-table-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/cap-table-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cap-table-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Capacitive Reactance Calculator",
+      "tool_key": "capacitive-reactance-calculator",
+      "slug": "capacitive-reactance-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/capacitive-reactance-calculator.formula.json",
+      "server_stub": "server-formula-stubs/capacitive-reactance-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Capital Gains Tax Calculator",
+      "tool_key": "capital-gains-tax-calculator",
+      "slug": "capital-gains-tax-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/capital-gains-tax-calculator.formula.json",
+      "server_stub": "server-formula-stubs/capital-gains-tax-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Capm Cost Of Equity Calculator",
+      "tool_key": "capm-cost-of-equity-calculator",
+      "slug": "capm-cost-of-equity-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/capm-cost-of-equity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/capm-cost-of-equity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Carbon Footprint Calculator",
+      "tool_key": "carbon-footprint-calculator",
+      "slug": "carbon-footprint-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/carbon-footprint-calculator.formula.json",
+      "server_stub": "server-formula-stubs/carbon-footprint-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Carbon Offset Trees Calculator",
+      "tool_key": "carbon-offset-trees-calculator",
+      "slug": "carbon-offset-trees-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/carbon-offset-trees-calculator.formula.json",
+      "server_stub": "server-formula-stubs/carbon-offset-trees-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Carnot Efficiency Calculator",
+      "tool_key": "carnot-efficiency-calculator",
+      "slug": "carnot-efficiency-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/carnot-efficiency-calculator.formula.json",
+      "server_stub": "server-formula-stubs/carnot-efficiency-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cash Conversion Cycle Calculator",
+      "tool_key": "cash-conversion-cycle-calculator",
+      "slug": "cash-conversion-cycle-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/cash-conversion-cycle-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cash-conversion-cycle-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cash Flow Gap Analysis",
+      "tool_key": "cash-flow-gap-analysis",
+      "slug": "cash-flow-gap-analysis",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/cash-flow-gap-analysis.formula.json",
+      "server_stub": "server-formula-stubs/cash-flow-gap-analysis.formula.ts"
+    },
+    {
+      "tool_name": "Cash On Cash Return Calculator",
+      "tool_key": "cash-on-cash-return-calculator",
+      "slug": "cash-on-cash-return-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/cash-on-cash-return-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cash-on-cash-return-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cash Out Refinance Calculator",
+      "tool_key": "cash-out-refinance-calculator",
+      "slug": "cash-out-refinance-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/cash-out-refinance-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cash-out-refinance-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Chain Drive Calculator",
+      "tool_key": "chain-drive-calculator",
+      "slug": "chain-drive-calculator",
+      "formula_profile": "mechanical-transmission",
+      "formula_file": "formulas/chain-drive-calculator.formula.json",
+      "server_stub": "server-formula-stubs/chain-drive-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Chair Rail Calculator",
+      "tool_key": "chair-rail-calculator",
+      "slug": "chair-rail-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/chair-rail-calculator.formula.json",
+      "server_stub": "server-formula-stubs/chair-rail-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Circular Economy Ratio Calculator",
+      "tool_key": "circular-economy-ratio-calculator",
+      "slug": "circular-economy-ratio-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/circular-economy-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/circular-economy-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Clamping Force Calculator",
+      "tool_key": "clamping-force-calculator",
+      "slug": "clamping-force-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/clamping-force-calculator.formula.json",
+      "server_stub": "server-formula-stubs/clamping-force-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cleaning Bid Optimizer",
+      "tool_key": "cleaning-bid-optimizer",
+      "slug": "cleaning-bid-optimizer",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/cleaning-bid-optimizer.formula.json",
+      "server_stub": "server-formula-stubs/cleaning-bid-optimizer.formula.ts"
+    },
+    {
+      "tool_name": "Clearance Interference Calculator",
+      "tool_key": "clearance-interference-calculator",
+      "slug": "clearance-interference-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/clearance-interference-calculator.formula.json",
+      "server_stub": "server-formula-stubs/clearance-interference-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Click Through Rate Calculator",
+      "tool_key": "click-through-rate-calculator",
+      "slug": "click-through-rate-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/click-through-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/click-through-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Closing Costs Calculator",
+      "tool_key": "closing-costs-calculator",
+      "slug": "closing-costs-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/closing-costs-calculator.formula.json",
+      "server_stub": "server-formula-stubs/closing-costs-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cold Storage Heat Gain Calculator",
+      "tool_key": "cold-storage-heat-gain-calculator",
+      "slug": "cold-storage-heat-gain-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/cold-storage-heat-gain-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cold-storage-heat-gain-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Compound Interest Calculator",
+      "tool_key": "compound-interest-calculator",
+      "slug": "compound-interest-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/compound-interest-calculator.formula.json",
+      "server_stub": "server-formula-stubs/compound-interest-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Compound Late Interest Calculator",
+      "tool_key": "compound-late-interest-calculator",
+      "slug": "compound-late-interest-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/compound-late-interest-calculator.formula.json",
+      "server_stub": "server-formula-stubs/compound-late-interest-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Constrained Pipe Axial Thermal Stress Calculator",
+      "tool_key": "constrained-pipe-axial-thermal-stress-calculator",
+      "slug": "constrained-pipe-axial-thermal-stress-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/constrained-pipe-axial-thermal-stress-calculator.formula.json",
+      "server_stub": "server-formula-stubs/constrained-pipe-axial-thermal-stress-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Consulting Hourly Rate Calculator",
+      "tool_key": "consulting-hourly-rate-calculator",
+      "slug": "consulting-hourly-rate-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/consulting-hourly-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/consulting-hourly-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Container Loading Calculator",
+      "tool_key": "container-loading-calculator",
+      "slug": "container-loading-calculator",
+      "formula_profile": "inventory-stock-cost-control",
+      "formula_file": "formulas/container-loading-calculator.formula.json",
+      "server_stub": "server-formula-stubs/container-loading-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Continuous Compounding Calculator",
+      "tool_key": "continuous-compounding-calculator",
+      "slug": "continuous-compounding-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/continuous-compounding-calculator.formula.json",
+      "server_stub": "server-formula-stubs/continuous-compounding-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Contract Incentive Analysis",
+      "tool_key": "contract-incentive-analysis",
+      "slug": "contract-incentive-analysis",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/contract-incentive-analysis.formula.json",
+      "server_stub": "server-formula-stubs/contract-incentive-analysis.formula.ts"
+    },
+    {
+      "tool_name": "Contribution Margin Calculator",
+      "tool_key": "contribution-margin-calculator",
+      "slug": "contribution-margin-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/contribution-margin-calculator.formula.json",
+      "server_stub": "server-formula-stubs/contribution-margin-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Conversion Rate Calculator",
+      "tool_key": "conversion-rate-calculator",
+      "slug": "conversion-rate-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/conversion-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/conversion-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Convertible Note Calculator",
+      "tool_key": "convertible-note-calculator",
+      "slug": "convertible-note-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/convertible-note-calculator.formula.json",
+      "server_stub": "server-formula-stubs/convertible-note-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Correlation Regression Calculator",
+      "tool_key": "correlation-regression-calculator",
+      "slug": "correlation-regression-calculator",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/correlation-regression-calculator.formula.json",
+      "server_stub": "server-formula-stubs/correlation-regression-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cost Per Click Calculator",
+      "tool_key": "cost-per-click-calculator",
+      "slug": "cost-per-click-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/cost-per-click-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cost-per-click-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Cost Per Mille Calculator",
+      "tool_key": "cost-per-mille-calculator",
+      "slug": "cost-per-mille-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/cost-per-mille-calculator.formula.json",
+      "server_stub": "server-formula-stubs/cost-per-mille-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Credit Card Processing Fee Calculator",
+      "tool_key": "credit-card-processing-fee-calculator",
+      "slug": "credit-card-processing-fee-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/credit-card-processing-fee-calculator.formula.json",
+      "server_stub": "server-formula-stubs/credit-card-processing-fee-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Crop Yield Loss Analyzer",
+      "tool_key": "crop-yield-loss-analyzer",
+      "slug": "crop-yield-loss-analyzer",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/crop-yield-loss-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/crop-yield-loss-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Customer Acquisition Cost Calculator",
+      "tool_key": "customer-acquisition-cost-calculator",
+      "slug": "customer-acquisition-cost-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/customer-acquisition-cost-calculator.formula.json",
+      "server_stub": "server-formula-stubs/customer-acquisition-cost-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Customer Churn Rate Calculator",
+      "tool_key": "customer-churn-rate-calculator",
+      "slug": "customer-churn-rate-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/customer-churn-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/customer-churn-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Customer Lifetime Value Calculator",
+      "tool_key": "customer-lifetime-value-calculator",
+      "slug": "customer-lifetime-value-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/customer-lifetime-value-calculator.formula.json",
+      "server_stub": "server-formula-stubs/customer-lifetime-value-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Customs Duty Calculator",
+      "tool_key": "customs-duty-calculator",
+      "slug": "customs-duty-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/customs-duty-calculator.formula.json",
+      "server_stub": "server-formula-stubs/customs-duty-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Daily Compound Interest Calculator",
+      "tool_key": "daily-compound-interest-calculator",
+      "slug": "daily-compound-interest-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/daily-compound-interest-calculator.formula.json",
+      "server_stub": "server-formula-stubs/daily-compound-interest-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Dairy Profit Detector",
+      "tool_key": "dairy-profit-detector",
+      "slug": "dairy-profit-detector",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/dairy-profit-detector.formula.json",
+      "server_stub": "server-formula-stubs/dairy-profit-detector.formula.ts"
+    },
+    {
+      "tool_name": "Data Backup Time Calculator",
+      "tool_key": "data-backup-time-calculator",
+      "slug": "data-backup-time-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/data-backup-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/data-backup-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Dcf Valuation Calculator",
+      "tool_key": "dcf-valuation-calculator",
+      "slug": "dcf-valuation-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/dcf-valuation-calculator.formula.json",
+      "server_stub": "server-formula-stubs/dcf-valuation-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Debt Service Coverage Ratio Calculator",
+      "tool_key": "debt-service-coverage-ratio-calculator",
+      "slug": "debt-service-coverage-ratio-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/debt-service-coverage-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/debt-service-coverage-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Deck Board Calculator",
+      "tool_key": "deck-board-calculator",
+      "slug": "deck-board-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/deck-board-calculator.formula.json",
+      "server_stub": "server-formula-stubs/deck-board-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Demand Forecast Stock Cost Analyzer",
+      "tool_key": "demand-forecast-stock-cost-analyzer",
+      "slug": "demand-forecast-stock-cost-analyzer",
+      "formula_profile": "inventory-stock-cost-control",
+      "formula_file": "formulas/demand-forecast-stock-cost-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/demand-forecast-stock-cost-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Density Converter",
+      "tool_key": "density-converter",
+      "slug": "density-converter",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/density-converter.formula.json",
+      "server_stub": "server-formula-stubs/density-converter.formula.ts"
+    },
+    {
+      "tool_name": "Depreciation Calculator",
+      "tool_key": "depreciation-calculator",
+      "slug": "depreciation-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/depreciation-calculator.formula.json",
+      "server_stub": "server-formula-stubs/depreciation-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Discounted Payback Calculator",
+      "tool_key": "discounted-payback-calculator",
+      "slug": "discounted-payback-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/discounted-payback-calculator.formula.json",
+      "server_stub": "server-formula-stubs/discounted-payback-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Dividend Reinvestment Calculator",
+      "tool_key": "dividend-reinvestment-calculator",
+      "slug": "dividend-reinvestment-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/dividend-reinvestment-calculator.formula.json",
+      "server_stub": "server-formula-stubs/dividend-reinvestment-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Dividend Tax Calculator",
+      "tool_key": "dividend-tax-calculator",
+      "slug": "dividend-tax-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/dividend-tax-calculator.formula.json",
+      "server_stub": "server-formula-stubs/dividend-tax-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Draft Angle Calculator",
+      "tool_key": "draft-angle-calculator",
+      "slug": "draft-angle-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/draft-angle-calculator.formula.json",
+      "server_stub": "server-formula-stubs/draft-angle-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Drill String Torque Calculator",
+      "tool_key": "drill-string-torque-calculator",
+      "slug": "drill-string-torque-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/drill-string-torque-calculator.formula.json",
+      "server_stub": "server-formula-stubs/drill-string-torque-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Drip Irrigation Pipe Calculator",
+      "tool_key": "drip-irrigation-pipe-calculator",
+      "slug": "drip-irrigation-pipe-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/drip-irrigation-pipe-calculator.formula.json",
+      "server_stub": "server-formula-stubs/drip-irrigation-pipe-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Drying Time Calculator",
+      "tool_key": "drying-time-calculator",
+      "slug": "drying-time-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/drying-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/drying-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Drywall Sheet Calculator",
+      "tool_key": "drywall-sheet-calculator",
+      "slug": "drywall-sheet-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/drywall-sheet-calculator.formula.json",
+      "server_stub": "server-formula-stubs/drywall-sheet-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Dupont Roi Calculator",
+      "tool_key": "dupont-roi-calculator",
+      "slug": "dupont-roi-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/dupont-roi-calculator.formula.json",
+      "server_stub": "server-formula-stubs/dupont-roi-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Earthquake Pga Calculator",
+      "tool_key": "earthquake-pga-calculator",
+      "slug": "earthquake-pga-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/earthquake-pga-calculator.formula.json",
+      "server_stub": "server-formula-stubs/earthquake-pga-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Ebitda Calculator",
+      "tool_key": "ebitda-calculator",
+      "slug": "ebitda-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/ebitda-calculator.formula.json",
+      "server_stub": "server-formula-stubs/ebitda-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Ecommerce Profit Calculator",
+      "tool_key": "ecommerce-profit-calculator",
+      "slug": "ecommerce-profit-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/ecommerce-profit-calculator.formula.json",
+      "server_stub": "server-formula-stubs/ecommerce-profit-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Economic Order Quantity Calculator",
+      "tool_key": "economic-order-quantity-calculator",
+      "slug": "economic-order-quantity-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/economic-order-quantity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/economic-order-quantity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Effective Annual Rate Calculator",
+      "tool_key": "effective-annual-rate-calculator",
+      "slug": "effective-annual-rate-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/effective-annual-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/effective-annual-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Effective Radiation Dose Calculator",
+      "tool_key": "effective-radiation-dose-calculator",
+      "slug": "effective-radiation-dose-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/effective-radiation-dose-calculator.formula.json",
+      "server_stub": "server-formula-stubs/effective-radiation-dose-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Employee Turnover Cost Analyzer",
+      "tool_key": "employee-turnover-cost-analyzer",
+      "slug": "employee-turnover-cost-analyzer",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/employee-turnover-cost-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/employee-turnover-cost-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Energy Density Calculator",
+      "tool_key": "energy-density-calculator",
+      "slug": "energy-density-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/energy-density-calculator.formula.json",
+      "server_stub": "server-formula-stubs/energy-density-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Engine Torque Calculator",
+      "tool_key": "engine-torque-calculator",
+      "slug": "engine-torque-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/engine-torque-calculator.formula.json",
+      "server_stub": "server-formula-stubs/engine-torque-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Engineering Strain Calculator",
+      "tool_key": "engineering-strain-calculator",
+      "slug": "engineering-strain-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/engineering-strain-calculator.formula.json",
+      "server_stub": "server-formula-stubs/engineering-strain-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Equity Dilution Calculator",
+      "tool_key": "equity-dilution-calculator",
+      "slug": "equity-dilution-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/equity-dilution-calculator.formula.json",
+      "server_stub": "server-formula-stubs/equity-dilution-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Esg Score Calculator",
+      "tool_key": "esg-score-calculator",
+      "slug": "esg-score-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/esg-score-calculator.formula.json",
+      "server_stub": "server-formula-stubs/esg-score-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Espp Calculator",
+      "tool_key": "espp-calculator",
+      "slug": "espp-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/espp-calculator.formula.json",
+      "server_stub": "server-formula-stubs/espp-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Etf Return Calculator",
+      "tool_key": "etf-return-calculator",
+      "slug": "etf-return-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/etf-return-calculator.formula.json",
+      "server_stub": "server-formula-stubs/etf-return-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Eu Import Vat Calculator",
+      "tool_key": "eu-import-vat-calculator",
+      "slug": "eu-import-vat-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/eu-import-vat-calculator.formula.json",
+      "server_stub": "server-formula-stubs/eu-import-vat-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Ev Charging Time Calculator",
+      "tool_key": "ev-charging-time-calculator",
+      "slug": "ev-charging-time-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/ev-charging-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/ev-charging-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Ev Range Calculator",
+      "tool_key": "ev-range-calculator",
+      "slug": "ev-range-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/ev-range-calculator.formula.json",
+      "server_stub": "server-formula-stubs/ev-range-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Eva Calculator",
+      "tool_key": "eva-calculator",
+      "slug": "eva-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/eva-calculator.formula.json",
+      "server_stub": "server-formula-stubs/eva-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Extruder Output Calculator",
+      "tool_key": "extruder-output-calculator",
+      "slug": "extruder-output-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/extruder-output-calculator.formula.json",
+      "server_stub": "server-formula-stubs/extruder-output-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Fabric Cutting Optimizer",
+      "tool_key": "fabric-cutting-optimizer",
+      "slug": "fabric-cutting-optimizer",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/fabric-cutting-optimizer.formula.json",
+      "server_stub": "server-formula-stubs/fabric-cutting-optimizer.formula.ts"
+    },
+    {
+      "tool_name": "Fabric Shrinkage Calculator",
+      "tool_key": "fabric-shrinkage-calculator",
+      "slug": "fabric-shrinkage-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/fabric-shrinkage-calculator.formula.json",
+      "server_stub": "server-formula-stubs/fabric-shrinkage-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Fabric Weight Calculator",
+      "tool_key": "fabric-weight-calculator",
+      "slug": "fabric-weight-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/fabric-weight-calculator.formula.json",
+      "server_stub": "server-formula-stubs/fabric-weight-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Faraday Electrolysis Calculator",
+      "tool_key": "faraday-electrolysis-calculator",
+      "slug": "faraday-electrolysis-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/faraday-electrolysis-calculator.formula.json",
+      "server_stub": "server-formula-stubs/faraday-electrolysis-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Fcff Fcfe Calculator",
+      "tool_key": "fcff-fcfe-calculator",
+      "slug": "fcff-fcfe-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/fcff-fcfe-calculator.formula.json",
+      "server_stub": "server-formula-stubs/fcff-fcfe-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Fiber Optic Loss Calculator",
+      "tool_key": "fiber-optic-loss-calculator",
+      "slug": "fiber-optic-loss-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/fiber-optic-loss-calculator.formula.json",
+      "server_stub": "server-formula-stubs/fiber-optic-loss-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Fire Load Calculator",
+      "tool_key": "fire-load-calculator",
+      "slug": "fire-load-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/fire-load-calculator.formula.json",
+      "server_stub": "server-formula-stubs/fire-load-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Fire Pump Power Calculator",
+      "tool_key": "fire-pump-power-calculator",
+      "slug": "fire-pump-power-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/fire-pump-power-calculator.formula.json",
+      "server_stub": "server-formula-stubs/fire-pump-power-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Flight Cost Calculator",
+      "tool_key": "flight-cost-calculator",
+      "slug": "flight-cost-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/flight-cost-calculator.formula.json",
+      "server_stub": "server-formula-stubs/flight-cost-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Forex Profit Calculator",
+      "tool_key": "forex-profit-calculator",
+      "slug": "forex-profit-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/forex-profit-calculator.formula.json",
+      "server_stub": "server-formula-stubs/forex-profit-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Freelancer Hourly Rate Calculator",
+      "tool_key": "freelancer-hourly-rate-calculator",
+      "slug": "freelancer-hourly-rate-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/freelancer-hourly-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/freelancer-hourly-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Freight Cost Calculator",
+      "tool_key": "freight-cost-calculator",
+      "slug": "freight-cost-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/freight-cost-calculator.formula.json",
+      "server_stub": "server-formula-stubs/freight-cost-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Fuel Cost Calculator",
+      "tool_key": "fuel-cost-calculator",
+      "slug": "fuel-cost-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/fuel-cost-calculator.formula.json",
+      "server_stub": "server-formula-stubs/fuel-cost-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Fund Return Calculator",
+      "tool_key": "fund-return-calculator",
+      "slug": "fund-return-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/fund-return-calculator.formula.json",
+      "server_stub": "server-formula-stubs/fund-return-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Futures Profit Calculator",
+      "tool_key": "futures-profit-calculator",
+      "slug": "futures-profit-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/futures-profit-calculator.formula.json",
+      "server_stub": "server-formula-stubs/futures-profit-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Gage R And R Calculator",
+      "tool_key": "gage-r-and-r-calculator",
+      "slug": "gage-r-and-r-calculator",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/gage-r-and-r-calculator.formula.json",
+      "server_stub": "server-formula-stubs/gage-r-and-r-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Gear Root Bending Stress Lewis Calculator",
+      "tool_key": "gear-root-bending-stress-lewis-calculator",
+      "slug": "gear-root-bending-stress-lewis-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/gear-root-bending-stress-lewis-calculator.formula.json",
+      "server_stub": "server-formula-stubs/gear-root-bending-stress-lewis-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Gravel Weight Calculator",
+      "tool_key": "gravel-weight-calculator",
+      "slug": "gravel-weight-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/gravel-weight-calculator.formula.json",
+      "server_stub": "server-formula-stubs/gravel-weight-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Greywater Savings Calculator",
+      "tool_key": "greywater-savings-calculator",
+      "slug": "greywater-savings-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/greywater-savings-calculator.formula.json",
+      "server_stub": "server-formula-stubs/greywater-savings-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Gross Net Profit Calculator",
+      "tool_key": "gross-net-profit-calculator",
+      "slug": "gross-net-profit-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/gross-net-profit-calculator.formula.json",
+      "server_stub": "server-formula-stubs/gross-net-profit-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Hardness Conversion Calculator",
+      "tool_key": "hardness-conversion-calculator",
+      "slug": "hardness-conversion-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/hardness-conversion-calculator.formula.json",
+      "server_stub": "server-formula-stubs/hardness-conversion-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Heat Transfer Rate Calculator",
+      "tool_key": "heat-transfer-rate-calculator",
+      "slug": "heat-transfer-rate-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/heat-transfer-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/heat-transfer-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Hookes Law Normal Stress Calculator",
+      "tool_key": "hookes-law-normal-stress-calculator",
+      "slug": "hookes-law-normal-stress-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/hookes-law-normal-stress-calculator.formula.json",
+      "server_stub": "server-formula-stubs/hookes-law-normal-stress-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Horsepower Converter",
+      "tool_key": "horsepower-converter",
+      "slug": "horsepower-converter",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/horsepower-converter.formula.json",
+      "server_stub": "server-formula-stubs/horsepower-converter.formula.ts"
+    },
+    {
+      "tool_name": "Hydroelectric Power Calculator",
+      "tool_key": "hydroelectric-power-calculator",
+      "slug": "hydroelectric-power-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/hydroelectric-power-calculator.formula.json",
+      "server_stub": "server-formula-stubs/hydroelectric-power-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Hydrostatic Pressure Fluid Column Calculator",
+      "tool_key": "hydrostatic-pressure-fluid-column-calculator",
+      "slug": "hydrostatic-pressure-fluid-column-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/hydrostatic-pressure-fluid-column-calculator.formula.json",
+      "server_stub": "server-formula-stubs/hydrostatic-pressure-fluid-column-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Indicated Horsepower Calculator",
+      "tool_key": "indicated-horsepower-calculator",
+      "slug": "indicated-horsepower-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/indicated-horsepower-calculator.formula.json",
+      "server_stub": "server-formula-stubs/indicated-horsepower-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Inductive Reactance Calculator",
+      "tool_key": "inductive-reactance-calculator",
+      "slug": "inductive-reactance-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/inductive-reactance-calculator.formula.json",
+      "server_stub": "server-formula-stubs/inductive-reactance-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Inflation Adjustment Calculator",
+      "tool_key": "inflation-adjustment-calculator",
+      "slug": "inflation-adjustment-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/inflation-adjustment-calculator.formula.json",
+      "server_stub": "server-formula-stubs/inflation-adjustment-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Interference Fit Contact Pressure Calculator",
+      "tool_key": "interference-fit-contact-pressure-calculator",
+      "slug": "interference-fit-contact-pressure-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/interference-fit-contact-pressure-calculator.formula.json",
+      "server_stub": "server-formula-stubs/interference-fit-contact-pressure-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Inventory Turnover Calculator",
+      "tool_key": "inventory-turnover-calculator",
+      "slug": "inventory-turnover-calculator",
+      "formula_profile": "inventory-stock-cost-control",
+      "formula_file": "formulas/inventory-turnover-calculator.formula.json",
+      "server_stub": "server-formula-stubs/inventory-turnover-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Inventory Turnover Rate Calculator",
+      "tool_key": "inventory-turnover-rate-calculator",
+      "slug": "inventory-turnover-rate-calculator",
+      "formula_profile": "inventory-stock-cost-control",
+      "formula_file": "formulas/inventory-turnover-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/inventory-turnover-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Inventory Turnover Risk Analyzer",
+      "tool_key": "inventory-turnover-risk-analyzer",
+      "slug": "inventory-turnover-risk-analyzer",
+      "formula_profile": "inventory-stock-cost-control",
+      "formula_file": "formulas/inventory-turnover-risk-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/inventory-turnover-risk-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Irr Calculator",
+      "tool_key": "irr-calculator",
+      "slug": "irr-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/irr-calculator.formula.json",
+      "server_stub": "server-formula-stubs/irr-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Irrigation Cost Check Analyzer",
+      "tool_key": "irrigation-cost-check-analyzer",
+      "slug": "irrigation-cost-check-analyzer",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/irrigation-cost-check-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/irrigation-cost-check-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Joint Compound Calculator",
+      "tool_key": "joint-compound-calculator",
+      "slug": "joint-compound-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/joint-compound-calculator.formula.json",
+      "server_stub": "server-formula-stubs/joint-compound-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Joint Torque Calculator",
+      "tool_key": "joint-torque-calculator",
+      "slug": "joint-torque-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/joint-torque-calculator.formula.json",
+      "server_stub": "server-formula-stubs/joint-torque-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Kalman Filter Prediction Calculator",
+      "tool_key": "kalman-filter-prediction-calculator",
+      "slug": "kalman-filter-prediction-calculator",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/kalman-filter-prediction-calculator.formula.json",
+      "server_stub": "server-formula-stubs/kalman-filter-prediction-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Landfill Area Calculator",
+      "tool_key": "landfill-area-calculator",
+      "slug": "landfill-area-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/landfill-area-calculator.formula.json",
+      "server_stub": "server-formula-stubs/landfill-area-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Laser Processing Energy Density Calculator",
+      "tool_key": "laser-processing-energy-density-calculator",
+      "slug": "laser-processing-energy-density-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/laser-processing-energy-density-calculator.formula.json",
+      "server_stub": "server-formula-stubs/laser-processing-energy-density-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Learning Curve Calculator",
+      "tool_key": "learning-curve-calculator",
+      "slug": "learning-curve-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/learning-curve-calculator.formula.json",
+      "server_stub": "server-formula-stubs/learning-curve-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Lens Power Calculator",
+      "tool_key": "lens-power-calculator",
+      "slug": "lens-power-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/lens-power-calculator.formula.json",
+      "server_stub": "server-formula-stubs/lens-power-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Levelized Cost Of Energy Calculator",
+      "tool_key": "levelized-cost-of-energy-calculator",
+      "slug": "levelized-cost-of-energy-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/levelized-cost-of-energy-calculator.formula.json",
+      "server_stub": "server-formula-stubs/levelized-cost-of-energy-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Lever Rule Calculator",
+      "tool_key": "lever-rule-calculator",
+      "slug": "lever-rule-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/lever-rule-calculator.formula.json",
+      "server_stub": "server-formula-stubs/lever-rule-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Line Balancing Calculator",
+      "tool_key": "line-balancing-calculator",
+      "slug": "line-balancing-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/line-balancing-calculator.formula.json",
+      "server_stub": "server-formula-stubs/line-balancing-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Linoleum Length Calculator",
+      "tool_key": "linoleum-length-calculator",
+      "slug": "linoleum-length-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/linoleum-length-calculator.formula.json",
+      "server_stub": "server-formula-stubs/linoleum-length-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Lintel Beam Bending Stress Calculator",
+      "tool_key": "lintel-beam-bending-stress-calculator",
+      "slug": "lintel-beam-bending-stress-calculator",
+      "formula_profile": "structural-beam-serviceability-strength",
+      "formula_file": "formulas/lintel-beam-bending-stress-calculator.formula.json",
+      "server_stub": "server-formula-stubs/lintel-beam-bending-stress-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Load Factor Calculator",
+      "tool_key": "load-factor-calculator",
+      "slug": "load-factor-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/load-factor-calculator.formula.json",
+      "server_stub": "server-formula-stubs/load-factor-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Loom Production Calculator",
+      "tool_key": "loom-production-calculator",
+      "slug": "loom-production-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/loom-production-calculator.formula.json",
+      "server_stub": "server-formula-stubs/loom-production-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Lvl Beam Capacity Calculator",
+      "tool_key": "lvl-beam-capacity-calculator",
+      "slug": "lvl-beam-capacity-calculator",
+      "formula_profile": "structural-beam-serviceability-strength",
+      "formula_file": "formulas/lvl-beam-capacity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/lvl-beam-capacity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Machine Depreciation Calculator",
+      "tool_key": "machine-depreciation-calculator",
+      "slug": "machine-depreciation-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/machine-depreciation-calculator.formula.json",
+      "server_stub": "server-formula-stubs/machine-depreciation-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Magnetic Field Wire Calculator",
+      "tool_key": "magnetic-field-wire-calculator",
+      "slug": "magnetic-field-wire-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/magnetic-field-wire-calculator.formula.json",
+      "server_stub": "server-formula-stubs/magnetic-field-wire-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Marketing Roi Calculator",
+      "tool_key": "marketing-roi-calculator",
+      "slug": "marketing-roi-calculator",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/marketing-roi-calculator.formula.json",
+      "server_stub": "server-formula-stubs/marketing-roi-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Maximum Drawdown Calculator",
+      "tool_key": "maximum-drawdown-calculator",
+      "slug": "maximum-drawdown-calculator",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/maximum-drawdown-calculator.formula.json",
+      "server_stub": "server-formula-stubs/maximum-drawdown-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Maximum Torsional Shear Stress Circular Calculator",
+      "tool_key": "maximum-torsional-shear-stress-circular-calculator",
+      "slug": "maximum-torsional-shear-stress-circular-calculator",
+      "formula_profile": "shaft-torsion-and-twist",
+      "formula_file": "formulas/maximum-torsional-shear-stress-circular-calculator.formula.json",
+      "server_stub": "server-formula-stubs/maximum-torsional-shear-stress-circular-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Metacentric Height Calculator",
+      "tool_key": "metacentric-height-calculator",
+      "slug": "metacentric-height-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/metacentric-height-calculator.formula.json",
+      "server_stub": "server-formula-stubs/metacentric-height-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Minimum Belt Tension Slack Side Calculator",
+      "tool_key": "minimum-belt-tension-slack-side-calculator",
+      "slug": "minimum-belt-tension-slack-side-calculator",
+      "formula_profile": "mechanical-transmission",
+      "formula_file": "formulas/minimum-belt-tension-slack-side-calculator.formula.json",
+      "server_stub": "server-formula-stubs/minimum-belt-tension-slack-side-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Minimum Sample Size Calculator",
+      "tool_key": "minimum-sample-size-calculator",
+      "slug": "minimum-sample-size-calculator",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/minimum-sample-size-calculator.formula.json",
+      "server_stub": "server-formula-stubs/minimum-sample-size-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Minimum Weld Throat Thickness Calculator",
+      "tool_key": "minimum-weld-throat-thickness-calculator",
+      "slug": "minimum-weld-throat-thickness-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/minimum-weld-throat-thickness-calculator.formula.json",
+      "server_stub": "server-formula-stubs/minimum-weld-throat-thickness-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Mohrs Circle Principal Stress Calculator",
+      "tool_key": "mohrs-circle-principal-stress-calculator",
+      "slug": "mohrs-circle-principal-stress-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/mohrs-circle-principal-stress-calculator.formula.json",
+      "server_stub": "server-formula-stubs/mohrs-circle-principal-stress-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Mooring Line Load Calculator",
+      "tool_key": "mooring-line-load-calculator",
+      "slug": "mooring-line-load-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/mooring-line-load-calculator.formula.json",
+      "server_stub": "server-formula-stubs/mooring-line-load-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Motor Efficiency Calculator",
+      "tool_key": "motor-efficiency-calculator",
+      "slug": "motor-efficiency-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/motor-efficiency-calculator.formula.json",
+      "server_stub": "server-formula-stubs/motor-efficiency-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Mud Annular Velocity Calculator",
+      "tool_key": "mud-annular-velocity-calculator",
+      "slug": "mud-annular-velocity-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/mud-annular-velocity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/mud-annular-velocity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Net Positive Suction Head Available Calculator",
+      "tool_key": "net-positive-suction-head-available-calculator",
+      "slug": "net-positive-suction-head-available-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/net-positive-suction-head-available-calculator.formula.json",
+      "server_stub": "server-formula-stubs/net-positive-suction-head-available-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Noise Propagation Calculator",
+      "tool_key": "noise-propagation-calculator",
+      "slug": "noise-propagation-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/noise-propagation-calculator.formula.json",
+      "server_stub": "server-formula-stubs/noise-propagation-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Normal Stress Force Area Calculator",
+      "tool_key": "normal-stress-force-area-calculator",
+      "slug": "normal-stress-force-area-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/normal-stress-force-area-calculator.formula.json",
+      "server_stub": "server-formula-stubs/normal-stress-force-area-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Npv Calculator",
+      "tool_key": "npv-calculator",
+      "slug": "npv-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/npv-calculator.formula.json",
+      "server_stub": "server-formula-stubs/npv-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Office Supplies Cost Analyzer",
+      "tool_key": "office-supplies-cost-analyzer",
+      "slug": "office-supplies-cost-analyzer",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/office-supplies-cost-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/office-supplies-cost-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Operating Margin Calculator",
+      "tool_key": "operating-margin-calculator",
+      "slug": "operating-margin-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/operating-margin-calculator.formula.json",
+      "server_stub": "server-formula-stubs/operating-margin-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Opportunity Cost Calculator",
+      "tool_key": "opportunity-cost-calculator",
+      "slug": "opportunity-cost-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/opportunity-cost-calculator.formula.json",
+      "server_stub": "server-formula-stubs/opportunity-cost-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Ore Reserve Volume Calculator",
+      "tool_key": "ore-reserve-volume-calculator",
+      "slug": "ore-reserve-volume-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/ore-reserve-volume-calculator.formula.json",
+      "server_stub": "server-formula-stubs/ore-reserve-volume-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Oven Capacity Calculator",
+      "tool_key": "oven-capacity-calculator",
+      "slug": "oven-capacity-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/oven-capacity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/oven-capacity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Overall Equipment Effectiveness Calculator",
+      "tool_key": "overall-equipment-effectiveness-calculator",
+      "slug": "overall-equipment-effectiveness-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/overall-equipment-effectiveness-calculator.formula.json",
+      "server_stub": "server-formula-stubs/overall-equipment-effectiveness-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Overtime vs Hiring Breakeven",
+      "tool_key": "overtime-vs-hiring-breakeven",
+      "slug": "overtime-vs-hiring-breakeven",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/overtime-vs-hiring-breakeven.formula.json",
+      "server_stub": "server-formula-stubs/overtime-vs-hiring-breakeven.formula.ts"
+    },
+    {
+      "tool_name": "Pallet Rack Capacity Optimizer",
+      "tool_key": "pallet-rack-capacity-optimizer",
+      "slug": "pallet-rack-capacity-optimizer",
+      "formula_profile": "inventory-stock-cost-control",
+      "formula_file": "formulas/pallet-rack-capacity-optimizer.formula.json",
+      "server_stub": "server-formula-stubs/pallet-rack-capacity-optimizer.formula.ts"
+    },
+    {
+      "tool_name": "Pasteurization Time Calculator",
+      "tool_key": "pasteurization-time-calculator",
+      "slug": "pasteurization-time-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/pasteurization-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/pasteurization-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Paving Stone Calculator",
+      "tool_key": "paving-stone-calculator",
+      "slug": "paving-stone-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/paving-stone-calculator.formula.json",
+      "server_stub": "server-formula-stubs/paving-stone-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Payment Processor Fee Calculator",
+      "tool_key": "payment-processor-fee-calculator",
+      "slug": "payment-processor-fee-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/payment-processor-fee-calculator.formula.json",
+      "server_stub": "server-formula-stubs/payment-processor-fee-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Payment Terms Optimizer",
+      "tool_key": "payment-terms-optimizer",
+      "slug": "payment-terms-optimizer",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/payment-terms-optimizer.formula.json",
+      "server_stub": "server-formula-stubs/payment-terms-optimizer.formula.ts"
+    },
+    {
+      "tool_name": "Pb Ratio Calculator",
+      "tool_key": "pb-ratio-calculator",
+      "slug": "pb-ratio-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/pb-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/pb-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Pe Ratio Calculator",
+      "tool_key": "pe-ratio-calculator",
+      "slug": "pe-ratio-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/pe-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/pe-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Pid Controller Ziegler Calculator",
+      "tool_key": "pid-controller-ziegler-calculator",
+      "slug": "pid-controller-ziegler-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/pid-controller-ziegler-calculator.formula.json",
+      "server_stub": "server-formula-stubs/pid-controller-ziegler-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Pile Bearing Capacity Calculator",
+      "tool_key": "pile-bearing-capacity-calculator",
+      "slug": "pile-bearing-capacity-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/pile-bearing-capacity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/pile-bearing-capacity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Plaster Weight Calculator",
+      "tool_key": "plaster-weight-calculator",
+      "slug": "plaster-weight-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/plaster-weight-calculator.formula.json",
+      "server_stub": "server-formula-stubs/plaster-weight-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Plastic Cooling Time Calculator",
+      "tool_key": "plastic-cooling-time-calculator",
+      "slug": "plastic-cooling-time-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/plastic-cooling-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/plastic-cooling-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Plastic Drying Time Calculator",
+      "tool_key": "plastic-drying-time-calculator",
+      "slug": "plastic-drying-time-calculator",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/plastic-drying-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/plastic-drying-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Porosity Calculator",
+      "tool_key": "porosity-calculator",
+      "slug": "porosity-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/porosity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/porosity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Portfolio Optimization Calculator",
+      "tool_key": "portfolio-optimization-calculator",
+      "slug": "portfolio-optimization-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/portfolio-optimization-calculator.formula.json",
+      "server_stub": "server-formula-stubs/portfolio-optimization-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Profitability Index Calculator",
+      "tool_key": "profitability-index-calculator",
+      "slug": "profitability-index-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/profitability-index-calculator.formula.json",
+      "server_stub": "server-formula-stubs/profitability-index-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Propagation Constant Calculator",
+      "tool_key": "propagation-constant-calculator",
+      "slug": "propagation-constant-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/propagation-constant-calculator.formula.json",
+      "server_stub": "server-formula-stubs/propagation-constant-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Ps Ratio Calculator",
+      "tool_key": "ps-ratio-calculator",
+      "slug": "ps-ratio-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/ps-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/ps-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Pump Power Calculator",
+      "tool_key": "pump-power-calculator",
+      "slug": "pump-power-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/pump-power-calculator.formula.json",
+      "server_stub": "server-formula-stubs/pump-power-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Quality Factor Calculator",
+      "tool_key": "quality-factor-calculator",
+      "slug": "quality-factor-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/quality-factor-calculator.formula.json",
+      "server_stub": "server-formula-stubs/quality-factor-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Rainwater Harvest Calculator",
+      "tool_key": "rainwater-harvest-calculator",
+      "slug": "rainwater-harvest-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/rainwater-harvest-calculator.formula.json",
+      "server_stub": "server-formula-stubs/rainwater-harvest-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Rc Time Constant Calculator",
+      "tool_key": "rc-time-constant-calculator",
+      "slug": "rc-time-constant-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/rc-time-constant-calculator.formula.json",
+      "server_stub": "server-formula-stubs/rc-time-constant-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Real Return Calculator",
+      "tool_key": "real-return-calculator",
+      "slug": "real-return-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/real-return-calculator.formula.json",
+      "server_stub": "server-formula-stubs/real-return-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Recipe Cost Check",
+      "tool_key": "recipe-cost-check",
+      "slug": "recipe-cost-check",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/recipe-cost-check.formula.json",
+      "server_stub": "server-formula-stubs/recipe-cost-check.formula.ts"
+    },
+    {
+      "tool_name": "Rectangular Section Moment Of Inertia Calculator",
+      "tool_key": "rectangular-section-moment-of-inertia-calculator",
+      "slug": "rectangular-section-moment-of-inertia-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/rectangular-section-moment-of-inertia-calculator.formula.json",
+      "server_stub": "server-formula-stubs/rectangular-section-moment-of-inertia-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Recycling Rate Calculator",
+      "tool_key": "recycling-rate-calculator",
+      "slug": "recycling-rate-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/recycling-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/recycling-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Rent To Value Ratio Calculator",
+      "tool_key": "rent-to-value-ratio-calculator",
+      "slug": "rent-to-value-ratio-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/rent-to-value-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/rent-to-value-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Rent Vs Buy Calculator",
+      "tool_key": "rent-vs-buy-calculator",
+      "slug": "rent-vs-buy-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/rent-vs-buy-calculator.formula.json",
+      "server_stub": "server-formula-stubs/rent-vs-buy-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Rental Property Cash Flow Calculator",
+      "tool_key": "rental-property-cash-flow-calculator",
+      "slug": "rental-property-cash-flow-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/rental-property-cash-flow-calculator.formula.json",
+      "server_stub": "server-formula-stubs/rental-property-cash-flow-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Reorder Point Calculator",
+      "tool_key": "reorder-point-calculator",
+      "slug": "reorder-point-calculator",
+      "formula_profile": "inventory-stock-cost-control",
+      "formula_file": "formulas/reorder-point-calculator.formula.json",
+      "server_stub": "server-formula-stubs/reorder-point-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Restaurant Menu Margin Leak Analysis",
+      "tool_key": "restaurant-menu-margin-leak-analysis",
+      "slug": "restaurant-menu-margin-leak-analysis",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/restaurant-menu-margin-leak-analysis.formula.json",
+      "server_stub": "server-formula-stubs/restaurant-menu-margin-leak-analysis.formula.ts"
+    },
+    {
+      "tool_name": "Ridge Beam Calculator",
+      "tool_key": "ridge-beam-calculator",
+      "slug": "ridge-beam-calculator",
+      "formula_profile": "structural-beam-serviceability-strength",
+      "formula_file": "formulas/ridge-beam-calculator.formula.json",
+      "server_stub": "server-formula-stubs/ridge-beam-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Rlc Resonant Frequency Calculator",
+      "tool_key": "rlc-resonant-frequency-calculator",
+      "slug": "rlc-resonant-frequency-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/rlc-resonant-frequency-calculator.formula.json",
+      "server_stub": "server-formula-stubs/rlc-resonant-frequency-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Roi Calculator",
+      "tool_key": "roi-calculator",
+      "slug": "roi-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/roi-calculator.formula.json",
+      "server_stub": "server-formula-stubs/roi-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Roic Calculator",
+      "tool_key": "roic-calculator",
+      "slug": "roic-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/roic-calculator.formula.json",
+      "server_stub": "server-formula-stubs/roic-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Rsu Calculator",
+      "tool_key": "rsu-calculator",
+      "slug": "rsu-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/rsu-calculator.formula.json",
+      "server_stub": "server-formula-stubs/rsu-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Runway Length Calculator",
+      "tool_key": "runway-length-calculator",
+      "slug": "runway-length-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/runway-length-calculator.formula.json",
+      "server_stub": "server-formula-stubs/runway-length-calculator.formula.ts"
+    },
+    {
+      "tool_name": "SaaS Shelfware Analysis",
+      "tool_key": "saas-shelfware-analysis",
+      "slug": "saas-shelfware-analysis",
+      "formula_profile": "digital-operations-unit-economics",
+      "formula_file": "formulas/saas-shelfware-analysis.formula.json",
+      "server_stub": "server-formula-stubs/saas-shelfware-analysis.formula.ts"
+    },
+    {
+      "tool_name": "Safe Agreement Calculator",
+      "tool_key": "safe-agreement-calculator",
+      "slug": "safe-agreement-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/safe-agreement-calculator.formula.json",
+      "server_stub": "server-formula-stubs/safe-agreement-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Sampling Weight Calculator",
+      "tool_key": "sampling-weight-calculator",
+      "slug": "sampling-weight-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/sampling-weight-calculator.formula.json",
+      "server_stub": "server-formula-stubs/sampling-weight-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Scrap Rate Optimization Calculator",
+      "tool_key": "scrap-rate-optimization-calculator",
+      "slug": "scrap-rate-optimization-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/scrap-rate-optimization-calculator.formula.json",
+      "server_stub": "server-formula-stubs/scrap-rate-optimization-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Seed Rate and Cost Analysis",
+      "tool_key": "seed-rate-and-cost-analysis",
+      "slug": "seed-rate-and-cost-analysis",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/seed-rate-and-cost-analysis.formula.json",
+      "server_stub": "server-formula-stubs/seed-rate-and-cost-analysis.formula.ts"
+    },
+    {
+      "tool_name": "Seed Rate Calculator",
+      "tool_key": "seed-rate-calculator",
+      "slug": "seed-rate-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/seed-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/seed-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Sewing Cycle Time Calculator",
+      "tool_key": "sewing-cycle-time-calculator",
+      "slug": "sewing-cycle-time-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/sewing-cycle-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/sewing-cycle-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Sewing Line Balancing Calculator",
+      "tool_key": "sewing-line-balancing-calculator",
+      "slug": "sewing-line-balancing-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/sewing-line-balancing-calculator.formula.json",
+      "server_stub": "server-formula-stubs/sewing-line-balancing-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Sharpe Ratio Calculator",
+      "tool_key": "sharpe-ratio-calculator",
+      "slug": "sharpe-ratio-calculator",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/sharpe-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/sharpe-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Shear Force Diagram Calculator",
+      "tool_key": "shear-force-diagram-calculator",
+      "slug": "shear-force-diagram-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/shear-force-diagram-calculator.formula.json",
+      "server_stub": "server-formula-stubs/shear-force-diagram-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Ship Draft Calculator",
+      "tool_key": "ship-draft-calculator",
+      "slug": "ship-draft-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/ship-draft-calculator.formula.json",
+      "server_stub": "server-formula-stubs/ship-draft-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Shipping Cost Calculator",
+      "tool_key": "shipping-cost-calculator",
+      "slug": "shipping-cost-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/shipping-cost-calculator.formula.json",
+      "server_stub": "server-formula-stubs/shipping-cost-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Siding Panel Calculator",
+      "tool_key": "siding-panel-calculator",
+      "slug": "siding-panel-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/siding-panel-calculator.formula.json",
+      "server_stub": "server-formula-stubs/siding-panel-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Signal To Noise Ratio Calculator",
+      "tool_key": "signal-to-noise-ratio-calculator",
+      "slug": "signal-to-noise-ratio-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/signal-to-noise-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/signal-to-noise-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Silage Weight Calculator",
+      "tool_key": "silage-weight-calculator",
+      "slug": "silage-weight-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/silage-weight-calculator.formula.json",
+      "server_stub": "server-formula-stubs/silage-weight-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Simple Interest Calculator",
+      "tool_key": "simple-interest-calculator",
+      "slug": "simple-interest-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/simple-interest-calculator.formula.json",
+      "server_stub": "server-formula-stubs/simple-interest-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Simply Supported Beam Deflection Calculator",
+      "tool_key": "simply-supported-beam-deflection-calculator",
+      "slug": "simply-supported-beam-deflection-calculator",
+      "formula_profile": "structural-beam-serviceability-strength",
+      "formula_file": "formulas/simply-supported-beam-deflection-calculator.formula.json",
+      "server_stub": "server-formula-stubs/simply-supported-beam-deflection-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Slope Stability Factor Calculator",
+      "tool_key": "slope-stability-factor-calculator",
+      "slug": "slope-stability-factor-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/slope-stability-factor-calculator.formula.json",
+      "server_stub": "server-formula-stubs/slope-stability-factor-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Smed Setup Time Calculator",
+      "tool_key": "smed-setup-time-calculator",
+      "slug": "smed-setup-time-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/smed-setup-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/smed-setup-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Soffit Area Calculator",
+      "tool_key": "soffit-area-calculator",
+      "slug": "soffit-area-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/soffit-area-calculator.formula.json",
+      "server_stub": "server-formula-stubs/soffit-area-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Soil Bearing Capacity Calculator",
+      "tool_key": "soil-bearing-capacity-calculator",
+      "slug": "soil-bearing-capacity-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/soil-bearing-capacity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/soil-bearing-capacity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Sortino Ratio Calculator",
+      "tool_key": "sortino-ratio-calculator",
+      "slug": "sortino-ratio-calculator",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/sortino-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/sortino-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Spray Paint Calculator",
+      "tool_key": "spray-paint-calculator",
+      "slug": "spray-paint-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/spray-paint-calculator.formula.json",
+      "server_stub": "server-formula-stubs/spray-paint-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Spring Force Hookes Law Calculator",
+      "tool_key": "spring-force-hookes-law-calculator",
+      "slug": "spring-force-hookes-law-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/spring-force-hookes-law-calculator.formula.json",
+      "server_stub": "server-formula-stubs/spring-force-hookes-law-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Sprinkler Flow Rate Calculator",
+      "tool_key": "sprinkler-flow-rate-calculator",
+      "slug": "sprinkler-flow-rate-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/sprinkler-flow-rate-calculator.formula.json",
+      "server_stub": "server-formula-stubs/sprinkler-flow-rate-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Sqnr Calculator",
+      "tool_key": "sqnr-calculator",
+      "slug": "sqnr-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/sqnr-calculator.formula.json",
+      "server_stub": "server-formula-stubs/sqnr-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Standard Deviation Variance Calculator",
+      "tool_key": "standard-deviation-variance-calculator",
+      "slug": "standard-deviation-variance-calculator",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/standard-deviation-variance-calculator.formula.json",
+      "server_stub": "server-formula-stubs/standard-deviation-variance-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Standard Time Calculator",
+      "tool_key": "standard-time-calculator",
+      "slug": "standard-time-calculator",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/standard-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/standard-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Startup Valuation Calculator",
+      "tool_key": "startup-valuation-calculator",
+      "slug": "startup-valuation-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/startup-valuation-calculator.formula.json",
+      "server_stub": "server-formula-stubs/startup-valuation-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Steel Beam Maximum Bending Stress Calculator",
+      "tool_key": "steel-beam-maximum-bending-stress-calculator",
+      "slug": "steel-beam-maximum-bending-stress-calculator",
+      "formula_profile": "structural-beam-serviceability-strength",
+      "formula_file": "formulas/steel-beam-maximum-bending-stress-calculator.formula.json",
+      "server_stub": "server-formula-stubs/steel-beam-maximum-bending-stress-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Stock Return Calculator",
+      "tool_key": "stock-return-calculator",
+      "slug": "stock-return-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/stock-return-calculator.formula.json",
+      "server_stub": "server-formula-stubs/stock-return-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Supply Chain Disruption Risk Analysis",
+      "tool_key": "supply-chain-disruption-risk-analysis",
+      "slug": "supply-chain-disruption-risk-analysis",
+      "formula_profile": "mechanical-transmission",
+      "formula_file": "formulas/supply-chain-disruption-risk-analysis.formula.json",
+      "server_stub": "server-formula-stubs/supply-chain-disruption-risk-analysis.formula.ts"
+    },
+    {
+      "tool_name": "Surface Roughness Calculator",
+      "tool_key": "surface-roughness-calculator",
+      "slug": "surface-roughness-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/surface-roughness-calculator.formula.json",
+      "server_stub": "server-formula-stubs/surface-roughness-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Taguchi Quality Loss Analysis",
+      "tool_key": "taguchi-quality-loss-analysis",
+      "slug": "taguchi-quality-loss-analysis",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/taguchi-quality-loss-analysis.formula.json",
+      "server_stub": "server-formula-stubs/taguchi-quality-loss-analysis.formula.ts"
+    },
+    {
+      "tool_name": "Tariff Extra Duty Calculator",
+      "tool_key": "tariff-extra-duty-calculator",
+      "slug": "tariff-extra-duty-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/tariff-extra-duty-calculator.formula.json",
+      "server_stub": "server-formula-stubs/tariff-extra-duty-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Textile Waste Risk Analyzer",
+      "tool_key": "textile-waste-risk-analyzer",
+      "slug": "textile-waste-risk-analyzer",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/textile-waste-risk-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/textile-waste-risk-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Thermal Conductivity Converter",
+      "tool_key": "thermal-conductivity-converter",
+      "slug": "thermal-conductivity-converter",
+      "formula_profile": "thermal-energy-transfer",
+      "formula_file": "formulas/thermal-conductivity-converter.formula.json",
+      "server_stub": "server-formula-stubs/thermal-conductivity-converter.formula.ts"
+    },
+    {
+      "tool_name": "Thin Walled Pressure Vessel Hoop Stress Calculator",
+      "tool_key": "thin-walled-pressure-vessel-hoop-stress-calculator",
+      "slug": "thin-walled-pressure-vessel-hoop-stress-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/thin-walled-pressure-vessel-hoop-stress-calculator.formula.json",
+      "server_stub": "server-formula-stubs/thin-walled-pressure-vessel-hoop-stress-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Tile Waste Calculator",
+      "tool_key": "tile-waste-calculator",
+      "slug": "tile-waste-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/tile-waste-calculator.formula.json",
+      "server_stub": "server-formula-stubs/tile-waste-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Timber Beam Shear Calculator",
+      "tool_key": "timber-beam-shear-calculator",
+      "slug": "timber-beam-shear-calculator",
+      "formula_profile": "structural-beam-serviceability-strength",
+      "formula_file": "formulas/timber-beam-shear-calculator.formula.json",
+      "server_stub": "server-formula-stubs/timber-beam-shear-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Torque Converter",
+      "tool_key": "torque-converter",
+      "slug": "torque-converter",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/torque-converter.formula.json",
+      "server_stub": "server-formula-stubs/torque-converter.formula.ts"
+    },
+    {
+      "tool_name": "Torsion Spring Calculator",
+      "tool_key": "torsion-spring-calculator",
+      "slug": "torsion-spring-calculator",
+      "formula_profile": "shaft-torsion-and-twist",
+      "formula_file": "formulas/torsion-spring-calculator.formula.json",
+      "server_stub": "server-formula-stubs/torsion-spring-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Total Employee Cost Analyzer",
+      "tool_key": "total-employee-cost-analyzer",
+      "slug": "total-employee-cost-analyzer",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/total-employee-cost-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/total-employee-cost-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Traffic Signal Delay Calculator",
+      "tool_key": "traffic-signal-delay-calculator",
+      "slug": "traffic-signal-delay-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/traffic-signal-delay-calculator.formula.json",
+      "server_stub": "server-formula-stubs/traffic-signal-delay-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Transfer Pricing Optimizer",
+      "tool_key": "transfer-pricing-optimizer",
+      "slug": "transfer-pricing-optimizer",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/transfer-pricing-optimizer.formula.json",
+      "server_stub": "server-formula-stubs/transfer-pricing-optimizer.formula.ts"
+    },
+    {
+      "tool_name": "Treynor Ratio Calculator",
+      "tool_key": "treynor-ratio-calculator",
+      "slug": "treynor-ratio-calculator",
+      "formula_profile": "statistics-quality-measurement",
+      "formula_file": "formulas/treynor-ratio-calculator.formula.json",
+      "server_stub": "server-formula-stubs/treynor-ratio-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Usd Loan Cost Calculator",
+      "tool_key": "usd-loan-cost-calculator",
+      "slug": "usd-loan-cost-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/usd-loan-cost-calculator.formula.json",
+      "server_stub": "server-formula-stubs/usd-loan-cost-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Vacuum Pump Time Calculator",
+      "tool_key": "vacuum-pump-time-calculator",
+      "slug": "vacuum-pump-time-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/vacuum-pump-time-calculator.formula.json",
+      "server_stub": "server-formula-stubs/vacuum-pump-time-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Vehicle Top Speed Calculator",
+      "tool_key": "vehicle-top-speed-calculator",
+      "slug": "vehicle-top-speed-calculator",
+      "formula_profile": "mechanical-transmission",
+      "formula_file": "formulas/vehicle-top-speed-calculator.formula.json",
+      "server_stub": "server-formula-stubs/vehicle-top-speed-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Viscous Pump Power Calculator",
+      "tool_key": "viscous-pump-power-calculator",
+      "slug": "viscous-pump-power-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/viscous-pump-power-calculator.formula.json",
+      "server_stub": "server-formula-stubs/viscous-pump-power-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Volumetric Weight Calculator",
+      "tool_key": "volumetric-weight-calculator",
+      "slug": "volumetric-weight-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/volumetric-weight-calculator.formula.json",
+      "server_stub": "server-formula-stubs/volumetric-weight-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Von Mises Stress Calculator",
+      "tool_key": "von-mises-stress-calculator",
+      "slug": "von-mises-stress-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/von-mises-stress-calculator.formula.json",
+      "server_stub": "server-formula-stubs/von-mises-stress-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Vswr Calculator",
+      "tool_key": "vswr-calculator",
+      "slug": "vswr-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/vswr-calculator.formula.json",
+      "server_stub": "server-formula-stubs/vswr-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Wacc Calculator",
+      "tool_key": "wacc-calculator",
+      "slug": "wacc-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/wacc-calculator.formula.json",
+      "server_stub": "server-formula-stubs/wacc-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Wallpaper Roll Calculator",
+      "tool_key": "wallpaper-roll-calculator",
+      "slug": "wallpaper-roll-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/wallpaper-roll-calculator.formula.json",
+      "server_stub": "server-formula-stubs/wallpaper-roll-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Warehouse Capacity Calculator",
+      "tool_key": "warehouse-capacity-calculator",
+      "slug": "warehouse-capacity-calculator",
+      "formula_profile": "inventory-stock-cost-control",
+      "formula_file": "formulas/warehouse-capacity-calculator.formula.json",
+      "server_stub": "server-formula-stubs/warehouse-capacity-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Water Footprint Calculator",
+      "tool_key": "water-footprint-calculator",
+      "slug": "water-footprint-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/water-footprint-calculator.formula.json",
+      "server_stub": "server-formula-stubs/water-footprint-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Water Usage Optimization Analyzer",
+      "tool_key": "water-usage-optimization-analyzer",
+      "slug": "water-usage-optimization-analyzer",
+      "formula_profile": "analytics-risk-score",
+      "formula_file": "formulas/water-usage-optimization-analyzer.formula.json",
+      "server_stub": "server-formula-stubs/water-usage-optimization-analyzer.formula.ts"
+    },
+    {
+      "tool_name": "Watershed Runoff Calculator",
+      "tool_key": "watershed-runoff-calculator",
+      "slug": "watershed-runoff-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/watershed-runoff-calculator.formula.json",
+      "server_stub": "server-formula-stubs/watershed-runoff-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Wavelength Calculator",
+      "tool_key": "wavelength-calculator",
+      "slug": "wavelength-calculator",
+      "formula_profile": "electrical-frequency-impedance-resolution",
+      "formula_file": "formulas/wavelength-calculator.formula.json",
+      "server_stub": "server-formula-stubs/wavelength-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Weld Heat Input Calculator",
+      "tool_key": "weld-heat-input-calculator",
+      "slug": "weld-heat-input-calculator",
+      "formula_profile": "mechanical-stress-capacity",
+      "formula_file": "formulas/weld-heat-input-calculator.formula.json",
+      "server_stub": "server-formula-stubs/weld-heat-input-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Well Bottom Pressure Calculator",
+      "tool_key": "well-bottom-pressure-calculator",
+      "slug": "well-bottom-pressure-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/well-bottom-pressure-calculator.formula.json",
+      "server_stub": "server-formula-stubs/well-bottom-pressure-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Wellbore Pressure Calculator",
+      "tool_key": "wellbore-pressure-calculator",
+      "slug": "wellbore-pressure-calculator",
+      "formula_profile": "fluid-pressure-flow-power",
+      "formula_file": "formulas/wellbore-pressure-calculator.formula.json",
+      "server_stub": "server-formula-stubs/wellbore-pressure-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Wind Turbine Power Calculator",
+      "tool_key": "wind-turbine-power-calculator",
+      "slug": "wind-turbine-power-calculator",
+      "formula_profile": "cost-buildup-and-margin",
+      "formula_file": "formulas/wind-turbine-power-calculator.formula.json",
+      "server_stub": "server-formula-stubs/wind-turbine-power-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Wood Siding Calculator",
+      "tool_key": "wood-siding-calculator",
+      "slug": "wood-siding-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/wood-siding-calculator.formula.json",
+      "server_stub": "server-formula-stubs/wood-siding-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Wood Stain Calculator",
+      "tool_key": "wood-stain-calculator",
+      "slug": "wood-stain-calculator",
+      "formula_profile": "construction-material-quantity",
+      "formula_file": "formulas/wood-stain-calculator.formula.json",
+      "server_stub": "server-formula-stubs/wood-stain-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Working Capital Calculator",
+      "tool_key": "working-capital-calculator",
+      "slug": "working-capital-calculator",
+      "formula_profile": "finance-ratio-and-cash-flow",
+      "formula_file": "formulas/working-capital-calculator.formula.json",
+      "server_stub": "server-formula-stubs/working-capital-calculator.formula.ts"
+    },
+    {
+      "tool_name": "Worm Gear Efficiency Calculator",
+      "tool_key": "worm-gear-efficiency-calculator",
+      "slug": "worm-gear-efficiency-calculator",
+      "formula_profile": "mechanical-transmission",
+      "formula_file": "formulas/worm-gear-efficiency-calculator.formula.json",
+      "server_stub": "server-formula-stubs/worm-gear-efficiency-calculator.formula.ts"
+    }
+  ]
+}

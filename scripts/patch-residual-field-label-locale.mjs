@@ -6,8 +6,8 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
-const SOURCE = join(ROOT, "scripts/data/residual-field-label-locale.json");
-const TARGET = join(ROOT, "scripts/data/calculator-field-labels-i18n.json");
+const SOURCE = join(ROOT, "archive/migration-only/scripts/data/residual-field-label-locale.json");
+const TARGET = join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json");
 
 if (!existsSync(SOURCE)) {
   console.log("patch-residual-field-label-locale: skip (no source file)");

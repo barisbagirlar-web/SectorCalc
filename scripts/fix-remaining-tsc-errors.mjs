@@ -5,19 +5,19 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 const FIXES = {
-  "arac-amortismani": {
+  "tool-amortismani": {
     "DB_Year_t": "BookValue_ * (t - 1) * DB_Rate",
   },
   "teklif-risk-analizoru": {
     "WinProbability": "BidPrice / (BidPrice + CompetitorIndex + HistoricalWinRate)",
   },
-  "tohum-orani": {
+  "tohum-ratio": {
     "OptimalYield": "PlantPopulation * (0.3 * SoilFertility / 100 + 0.7) * (0.8 + 0.2 * Water / 100)",
   },
-  "wps-preheat-sicaklik": {
+  "wps-preheat-temperature": {
     "PreheatTemp": "CarbonEquivalent_CE * 200 + Thickness * 5 + HydrogenLevel * 30 - HeatInput * 10",
   },
-  "kiris-agirligi": {
+  "beam-weight": {
     "Area_Cross": "Size * 0.1",
   },
 };

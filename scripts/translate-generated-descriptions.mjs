@@ -30,7 +30,7 @@ const ENGLISH_MARKERS = [
 ];
 
 const LOCALE_MARKERS = {
-  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|maliyet|birim|hesaplanır)\b/i],
+  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|cost|unit|hesaplanır)\b/i],
   de: [/[äöüßÄÖÜ]/, /\b(und|oder|für|pro|der|die|das|wird|berechnet)\b/i],
   fr: [/[àâçéèêëîïôùûü]/, /\b(pour|ou|de|le|la|est|calculé)\b/i],
   es: [/[áéíóúñü¿¡]/, /\b(para|o|de|el|la|se|calcula)\b/i],

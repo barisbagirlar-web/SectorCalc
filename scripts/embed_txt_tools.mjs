@@ -29,18 +29,18 @@ function getSector(id, category) {
   
   // Exact category mappings
   if (i.includes('AUT') || c.includes('otomotiv')) return 'auto-repair-shop';
-  if (i.includes('CIV') || c.includes('inşaat') || c.includes('insaat') || c.includes('harita') || c.includes('şantiye')) return 'construction';
-  if (i.includes('ENV') || c.includes('enerji') || c.includes('çevre')) return 'energy-consumption';
+  if (i.includes('CIV') || c.includes('inşaat') || c.includes('construction') || c.includes('harita') || c.includes('şantiye')) return 'construction';
+  if (i.includes('ENV') || c.includes('energy') || c.includes('çevre')) return 'energy-consumption';
   if (i.includes('THERM') || c.includes('iklimlendirme') || c.includes('hvac')) return 'hvac';
   if (i.includes('MET') || c.includes('metalürji')) return 'metal-casting';
-  if (i.includes('MFG') || i.includes('ROB') || c.includes('üretim') || c.includes('imalat')) return 'cnc-manufacturing';
-  if (i.includes('WELD') || c.includes('kaynak')) return 'welding-fabrication';
+  if (i.includes('MFG') || i.includes('ROB') || c.includes('üduction') || c.includes('manufacturing')) return 'cnc-manufacturing';
+  if (i.includes('WELD') || c.includes('resource')) return 'welding-fabrication';
   if (i.includes('ELEC') || c.includes('elektrik')) return 'electrical-contracting';
   if (i.includes('PLUMB') || c.includes('tesisat')) return 'plumbing';
   if (i.includes('WOOD') || i.includes('CARP') || c.includes('mobilya') || c.includes('ahşap')) return 'carpentry-millwork';
   if (i.includes('AGR') || c.includes('tarım') || c.includes('ziraat')) return 'agriculture-crops';
   if (i.includes('LOG') || i.includes('TRANS') || c.includes('lojistik')) return 'logistics-transport';
-  if (i.includes('FIN') || c.includes('finans')) return 'ecommerce';
+  if (i.includes('FIN') || c.includes('finance')) return 'ecommerce';
   if (c.includes('3d') || c.includes('print')) return '3d-printing';
   if (c.includes('gıda') || c.includes('restoran')) return 'restaurant-cafe';
   if (c.includes('peyzaj')) return 'landscaping';
@@ -94,7 +94,7 @@ function cleanJSONString(str) {
   
   // Fix known AI generation cutoffs
   clean = clean.replace(/"category": "Bilişim Sistemleri \(Fin\s*\{/g, '"category": "Bilişim Sistemleri (Fin)"}]},{');
-  clean = clean.replace(/"name": "Faiz\s*\{/g, '"name": "Faiz"}]},{');
+  clean = clean.replace(/"name": "Interest\s*\{/g, '"name": "Interest"}]},{');
   clean = clean.replace(/}\s*\{/g, '},{');
   
   // Catch unfinished endings
@@ -278,7 +278,7 @@ async function run() {
           const smartWarnings = tool.engine_rules?.smart_warnings || [];
           const warningLines = smartWarnings.map(w => {
              let cond = w.condition
-               .replace(/Frekans_Result/g, lastVar)
+               .replace(/Frequency_Result/g, lastVar)
                .replace(/Tau_Result/g, lastVar)
                .replace(/([a-zA-Z0-9_]+) \=\=/g, '$1 ==='); 
                

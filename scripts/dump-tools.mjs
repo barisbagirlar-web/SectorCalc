@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-let md = "# SectorCalc Form Kullanım Listesi\n\nBu dokümanda projede bulunan tüm hesaplama araçlarının hangi form motorunu kullandığı eksiksiz olarak listelenmiştir.\n\n";
+let md = "# SectorCalc Form Useım Listesi\n\nBu dokümanda projede bulunan tüm calculation araçlarının which form motorunu kullandığı eksiksiz olarak listelenmiştir.\n\n";
 
 md += "## 1. UniversalIndustrialDecisionForm Kullanan Araçlar (Premium Schema)\n\n";
 md += "Bu araçlar `src/lib/features/premium-schema/schemas/` dizini altında tanımlanmıştır.\n\n";

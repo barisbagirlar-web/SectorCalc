@@ -184,6 +184,10 @@ function scanForNonFinite(obj: unknown, path: string, errors: string[]): void {
 function scanForThirdPartyBrands(text: string, path: string, errors: string[]): void {
   for (const pattern of THIRD_PARTY_BRAND_PATTERNS) {
     if (pattern.test(text)) {
+      // Physics context exception: allow "ignition risk", "ignition temp", etc.
+      if (pattern.source === "ignition" && /ignition(?:[\s_]+)(?:risk|temp|temperature|point|energy|delay|source)/i.test(text)) {
+        continue;
+      }
       errors.push(`Third-party brand reference detected at ${path}: "${text.slice(0, 120)}"`);
       return;
     }

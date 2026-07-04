@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * Detect and fix `en` anchors that contain non-English text WITHOUT special characters.
- * Phase 1 missed these because words like "Uzunluk", "Tarla", "Saat" use only Latin chars.
+ * Phase 1 missed these because words like "Length", "Tarla", "Saat" use only Latin chars.
  *
  * Strategy: For fields where en === tr (suggesting non-English anchor), ask DeepSeek
  * to determine if the text IS English. If not, provide the correct English version.
@@ -53,7 +53,7 @@ async function checkEnglishBatch(
     "Return JSON with same keys. If the text IS English, set value to the string 'OK'. " +
     "If the text is NOT English (e.g., Turkish, German, French), provide the correct English translation. " +
     "Preserve units in parentheses (mmHg, kW, %, USD, km, ha). " +
-    "Examples: 'Uzunluk' → 'Length', 'Minimum' → 'OK', 'Tarla 1 (ha)' → 'Field 1 (ha)', 'Protein' → 'OK', 'a₀' → 'OK'.";
+    "Examples: 'Length' → 'Length', 'Minimum' → 'OK', 'Tarla 1 (ha)' → 'Field 1 (ha)', 'Protein' → 'OK', 'a₀' → 'OK'.";
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {

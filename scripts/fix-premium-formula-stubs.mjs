@@ -164,14 +164,14 @@ const REPLACEMENTS = [
     },
   },
 
-  // ── 7. MACRS_Table(sinif, yil) → rate lookup by class ───────────────
+  // ── 7. MACRS_Table(class, year) → rate lookup by class ───────────────
   {
     name: "MACRS_Table",
     apply(expr) {
       return expr.replace(
         /\bMACRS_Table\s*\(\s*([^,]+)\s*,\s*[^)]+\s*\)/gi,
-        (_m, sinif) =>
-          `(((${sinif}) === 5 ? 0.2 : (${sinif}) === 7 ? 0.1429 : (${sinif}) === 10 ? 0.1 : (${sinif}) === 15 ? 0.0667 : (${sinif}) === 20 ? 0.05 : 0.1))`,
+        (_m, class) =>
+          `(((${class}) === 5 ? 0.2 : (${class}) === 7 ? 0.1429 : (${class}) === 10 ? 0.1 : (${class}) === 15 ? 0.0667 : (${class}) === 20 ? 0.05 : 0.1))`,
       );
     },
   },

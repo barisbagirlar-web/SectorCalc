@@ -47,7 +47,7 @@ const userFileContent = `/**
  * These formulas are EXACTLY as specified by the user for 141 premium tools.
  * They replace any auto-generated formulas for the same tools.
  *
- * Auto-generated from data/premium-formulas-batch.txt
+ * Auto-generated from archive/migration-only/data/premium-formulas-batch.txt
  * Generated: ${new Date().toISOString()}
  */
 

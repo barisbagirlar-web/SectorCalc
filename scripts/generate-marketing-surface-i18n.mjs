@@ -27,12 +27,12 @@ const PHRASE_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),
 );
 const WORD_GLOSSARY = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/calculator-word-glossary.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/calculator-word-glossary.json"), "utf8"),
 );
 const EXPAND = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/calculator-glossary-expand.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/calculator-glossary-expand.json"), "utf8"),
 );
-const MANUAL_PATH = join(ROOT, "scripts/data/marketing-surface-translations.json");
+const MANUAL_PATH = join(ROOT, "archive/migration-only/scripts/data/marketing-surface-translations.json");
 const MANUAL = existsSync(MANUAL_PATH)
   ? JSON.parse(readFileSync(MANUAL_PATH, "utf8"))
   : {};

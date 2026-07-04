@@ -10,11 +10,11 @@ import { createPhraseTranslator } from "./lib/generate-translate-phrase.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 const SCHEMAS_DIR = join(ROOT, "generated", "schemas");
-const COPY_MAP_PATH = join(ROOT, "scripts/data/generated-schema-copy-i18n.json");
+const COPY_MAP_PATH = join(ROOT, "archive/migration-only/scripts/data/generated-schema-copy-i18n.json");
 const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
 
-const FIELD_LABEL_MAP = existsSync(join(ROOT, "scripts/data/calculator-field-labels-i18n.json"))
-  ? JSON.parse(readFileSync(join(ROOT, "scripts/data/calculator-field-labels-i18n.json"), "utf8"))
+const FIELD_LABEL_MAP = existsSync(join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json"))
+  ? JSON.parse(readFileSync(join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json"), "utf8"))
   : {};
 
 const COPY_MAP = existsSync(COPY_MAP_PATH)

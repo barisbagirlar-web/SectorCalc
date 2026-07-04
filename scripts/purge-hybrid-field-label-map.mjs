@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
-const TARGET = join(ROOT, "scripts/data/calculator-field-labels-i18n.json");
+const TARGET = join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json");
 const LOCALES = ["tr", "de", "fr", "es", "ar"];
 
 const ENGLISH_MARKERS_STRICT = [
@@ -28,7 +28,7 @@ const ENGLISH_MARKERS_STRICT = [
 ];
 
 const LOCALE_MARKERS = {
-  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|proses|maliyet|birim|değer|hesaplamada)\b/i],
+  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|process|cost|unit|değer|hesaplamada)\b/i],
   de: [/[äöüßÄÖÜ]/, /\b(und|oder|für|pro|eingeben|der|die|das|berechnung)\b/i],
   fr: [/[àâçéèêëîïôùûü]/i, /\b(pour|ou|de|le|la|saisir|calcul|valeur)\b/i],
   es: [/[áéíóúñü¿¡]/i, /\b(para|o|de|el|la|introduzca|cálculo|valor)\b/i],

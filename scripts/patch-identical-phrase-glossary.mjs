@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
-const TARGET = join(ROOT, "scripts/data/calculator-word-glossary.json");
+const TARGET = join(ROOT, "archive/migration-only/scripts/data/calculator-word-glossary.json");
 const LOCALES = ["tr", "de", "fr", "es", "ar"];
 
 const PHRASES = {
@@ -47,42 +47,42 @@ const PHRASES = {
     ar: "مقياس المصدر",
   },
   "Expected Value": {
-    tr: "Beklenen değer",
+    tr: "Expected değer",
     de: "Erwartungswert",
     fr: "Valeur attendue",
     es: "Valor esperado",
     ar: "القيمة المتوقعة",
   },
   "Expected Resale value": {
-    tr: "Beklenen yeniden satış değeri",
+    tr: "Expected yeniden satış değeri",
     de: "Erwarteter Wiederverkaufswert",
     fr: "Valeur de revente attendue",
     es: "Valor de reventa esperado",
     ar: "قيمة إعادة البيع المتوقعة",
   },
   "Expected annual rent growth": {
-    tr: "Beklenen yıllık kira artışı",
+    tr: "Expected yıllık rent artışı",
     de: "Erwartetes jährliches Mietwachstum",
     fr: "Croissance annuelle attendue du loyer",
     es: "Crecimiento anual esperado del alquiler",
     ar: "النمو السنوي المتوقع للإيجار",
   },
   "Expected Annual Growth Rate": {
-    tr: "Beklenen yıllık büyüme oranı",
+    tr: "Expected yıllık büyüme ratioı",
     de: "Erwartete jährliche Wachstumsrate",
     fr: "Taux de croissance annuel attendu",
     es: "Tasa de crecimiento anual esperada",
     ar: "معدل النمو السنوي المتوقع",
   },
   "Expected Future Tax Rate in Retirement": {
-    tr: "Emeklilikte beklenen gelecek vergi oranı",
+    tr: "Emeklilikte expected future tax ratioı",
     de: "Erwarteter Steuersatz im Ruhestand",
     fr: "Taux d'imposition futur attendu à la retraite",
     es: "Tasa impositiva futura esperada en la jubilación",
     ar: "معدل الضريبة المتوقع في التقاعد",
   },
   "Source scale": {
-    tr: "Kaynak ölçeği",
+    tr: "Resource ölçeği",
     de: "Quellskala",
     fr: "Échelle source",
     es: "Escala de origen",
@@ -103,49 +103,49 @@ const PHRASES = {
     ar: "الإجمالي الشهري",
   },
   "Expected resale": {
-    tr: "Beklenen yeniden satış",
+    tr: "Expected yeniden satış",
     de: "Erwarteter Wiederverkauf",
     fr: "Revente attendue",
     es: "Reventa esperada",
     ar: "إعادة البيع المتوقعة",
   },
   "Expected yearly rent growth": {
-    tr: "Beklenen yıllık kira artışı",
+    tr: "Expected yıllık rent artışı",
     de: "Erwartetes jährliches Mietwachstum",
     fr: "Croissance annuelle attendue du loyer",
     es: "Crecimiento anual esperado del alquiler",
     ar: "النمو السنوي المتوقع للإيجار",
   },
   "Expected yield": {
-    tr: "Beklenen verim",
+    tr: "Expected efficiency",
     de: "Erwarteter Ertrag",
     fr: "Rendement attendu",
     es: "Rendimiento esperado",
     ar: "المحصول المتوقع",
   },
   "Expected proportion": {
-    tr: "Beklenen oran",
+    tr: "Expected ratio",
     de: "Erwarteter Anteil",
     fr: "Proportion attendue",
     es: "Proporción esperada",
     ar: "النسبة المتوقعة",
   },
   "Available hours": {
-    tr: "Kullanılabilir saat",
+    tr: "Useılabilir saat",
     de: "Verfügbare Stunden",
     fr: "Heures disponibles",
     es: "Horas disponibles",
     ar: "الساعات المتاحة",
   },
   "Input material": {
-    tr: "Girdi malzemesi",
+    tr: "Input material",
     de: "Eingangsmaterial",
     fr: "Matière entrante",
     es: "Material de entrada",
     ar: "مادة الإدخال",
   },
   "Fuel input": {
-    tr: "Yakıt girdisi",
+    tr: "Yakıt input",
     de: "Brennstoffeingabe",
     fr: "Entrée de combustible",
     es: "Entrada de combustible",

@@ -6,7 +6,7 @@ const file = path.resolve(process.cwd(), "src/lib/premium-schema/schemas/kaizen-
 // Read before
 const before = fs.readFileSync(file, "utf-8");
 console.log("BEFORE length:", before.length);
-console.log("BEFORE name_i18n has Turkish:", before.includes('name_i18n: {"en":"Kaizen Tasarruf Takipçisi'));
+console.log("BEFORE name_i18n has Turkish:", before.includes('name_i18n: {"en":"Kaizen Savings Takipçisi'));
 
 // Write a test marker
 const marker = "// DEBUG_MARKER\n";

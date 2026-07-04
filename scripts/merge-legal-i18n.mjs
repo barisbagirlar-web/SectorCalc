@@ -193,7 +193,7 @@ const packs = {
 
   tr: {
     legalContact: {
-      taxIdLabel: "Vergi No",
+      taxIdLabel: "Tax No",
       addressLabel: "Adres",
       phoneLabel: "Telefon",
       emailLabel: "E-posta",
@@ -223,7 +223,7 @@ const packs = {
       lastUpdated: "Son güncelleme: {date}",
       lastUpdatedDate: "15 Haziran 2026",
       intro:
-        "SectorCalc'e hoş geldiniz. Web sitemizi ve hesaplama araçlarımızı kullanarak bu Hizmet Şartları'nı kabul etmiş sayılırsınız.",
+        "SectorCalc'e hoş geldiniz. Web sitemizi ve calculation araçlarımızı kullanarak bu Hizmet Şartları'nı kabul etmiş sayılırsınız.",
       section1: {
         title: "1. Hizmetlerimiz",
         content:
@@ -232,12 +232,12 @@ const packs = {
       section2: {
         title: "2. Premium Özellikler ve Krediler",
         content:
-          "Premium araçlar kredi gerektirir. Krediler iade edilemez ve satın alma tarihinden itibaren 12 ay sonra geçerliliğini yitirir. Kredi paketlerini güvenli ödeme sağlayıcımız üzerinden satın alabilirsiniz. Kullanılmayan krediler yenilenmez.",
+          "Premium araçlar kredi gerektirir. Krediler iade edilemez ve satın taking tarihinden itibaren 12 ay sonra geçerliliğini yitirir. Kredi paketlerini güvenli ödeme sağlayıcımız üzerinden satın alabilirsiniz. Useılmayan krediler yenilenmez.",
       },
       section3: {
-        title: "3. Kullanıcı Hesapları",
+        title: "3. Useıcı Hesapları",
         content:
-          "Premium özelliklere erişmek için bir hesap oluşturmalısınız. Hesap bilgilerinizin gizliliğini korumak ve hesabınız altında gerçekleşen tüm işlemlerden siz sorumlusunuz.",
+          "Premium özelliklere erişmek için bir account oluşturmalısınız. Account bilgilerinizin gizliliğini korumak ve hesabınız altında gerçekleşen tüm işlemlerden siz sorumlusunuz.",
       },
       section4: {
         title: "4. Fikri Mülkiyet",
@@ -247,7 +247,7 @@ const packs = {
       section5: {
         title: "5. Sorumluluk Sınırlaması",
         content:
-          "Yasanın izin verdiği azami ölçüde, Sector Calculator, hizmetlerimizin kullanımından kaynaklanan dolaylı, arızi, özel, cezai veya neticesi zararlardan sorumlu değildir.",
+          "Yasanın izin verdiği azami ölçüde, Sector Calculator, hizmetlerimizin useımından kaynaklanan dolaylı, arızi, özel, cezai veya neticesi zararlardan sorumlu değildir.",
       },
       section6: {
         title: "6. Değişiklikler",
@@ -257,35 +257,35 @@ const packs = {
       section7: {
         title: "7. İletişim Bilgileri",
         content:
-          "Bu Şartlar hakkında sorularınız için aşağıdaki iletişim bilgilerini kullanın.",
+          "Bu Şartlar hakkında sorularınız için aşağıdaki iletişim bilgilerini useın.",
       },
     },
     privacy: {
       meta: {
         title: "Gizlilik Politikası",
         description:
-          "SectorCalc kişisel verilerinizi nasıl toplar, kullanır ve korur.",
+          "SectorCalc kişisel verilerinizi nasıl toplar, useır ve korur.",
       },
       heroDescription:
-        "Hangi verileri topladığımız, nasıl kullandığımız ve haklarınız.",
+        "Which verileri topladığımız, nasıl kullandığımız ve haklarınız.",
       title: "Gizlilik Politikası",
       effective: "Yürürlük Tarihi: 15 Haziran 2026",
       intro:
-        "Gizliliğiniz bizim için önemlidir. Bu politika, hangi verileri topladığımızı, nasıl kullandığımızı ve haklarınızı açıklar.",
+        "Gizliliğiniz bizim için önemlidir. Bu politika, which verileri topladığımızı, nasıl kullandığımızı ve haklarınızı açıklar.",
       section1: {
         title: "1. Topladığımız Bilgiler",
         content:
-          "Kayıt olurken sağladığınız kişisel bilgileri (örneğin e-posta adresiniz) toplarız. Ayrıca araçlarımızı iyileştirmek için kullanım verilerini (IP adresi, tarayıcı türü, ziyaret edilen sayfalar) otomatik olarak toplarız.",
+          "Kayıt olurken sağladığınız kişisel bilgileri (örneğin e-posta adresiniz) toplarız. Ayrıca araçlarımızı iyileştirmek için useım verilerini (IP adresi, tarayıcı türü, ziyaret edilen sayfalar) otomatik olarak toplarız.",
       },
       section2: {
-        title: "2. Bilgilerinizi Nasıl Kullanıyoruz",
+        title: "2. Bilgilerinizi Nasıl Useıyoruz",
         content:
-          "Verilerinizi SectorCalc'i işletmek, geliştirmek, ödemeleri işlemek ve hesabınız veya güncellemeler hakkında sizinle iletişim kurmak için kullanırız.",
+          "Verilerinizi SectorCalc'i işletmek, geliştirmek, ödemeleri işlemek ve hesabınız veya güncellemeler hakkında sizinle iletişim kurmak için useırız.",
       },
       section3: {
         title: "3. Çerezler ve İzleme",
         content:
-          "Kimlik doğrulama için zorunlu çerezler ve kullanım analizi için isteğe bağlı analitik çerezler (örneğin Google Analytics) kullanırız. Zorunlu olmayan çerezleri tarayıcı ayarlarınızdan devre dışı bırakabilirsiniz.",
+          "Kimlik doğrulama için zorunlu çerezler ve useım analysis için isteğe bağlı analitik çerezler (örneğin Google Analytics) useırız. Zorunlu olmayan çerezleri tarayıcı ayarlarınızdan devre dışı bırakabilirsiniz.",
       },
       section4: {
         title: "4. Veri Paylaşımı",
@@ -295,7 +295,7 @@ const packs = {
       section5: {
         title: "5. Veri Saklama ve Güvenlik",
         content:
-          "Verilerinizi hesabınız aktif olduğu sürece saklarız. Makul güvenlik önlemleri alırız, ancak internet üzerinden hiçbir veri iletim yöntemi %100 güvenli değildir.",
+          "Verilerinizi hesabınız active olduğu sürece saklarız. Makul güvenlik önlemleri alırız, ancak internet üzerinden hiçbir veri iletim yöntemi %100 güvenli değildir.",
       },
       section6: {
         title: "6. Haklarınız",
@@ -331,15 +331,15 @@ const packs = {
       section1: {
         title: "1. Krediler ve Abonelikler",
         content:
-          "Krediler: Kredi satın alımları kesindir ve iade edilemez. Kullanılmayan krediler, satın alma tarihinden itibaren 12 ay sonra geçerliliğini yitirir. Kullanılmayan krediler için nakit iade yapılmaz. Abonelikler: Yinelenen bir abonelik satın alırsanız, ilk ödemeden sonraki 14 gün içinde, bu süre boyunca herhangi bir premium araç kullanmadıysanız tam iade talep edebilirsiniz. 14 gün sonra veya ilk kullanımdan sonra abonelik ücretleri iade edilemez.",
+          "Krediler: Kredi satın alımları kesindir ve iade edilemez. Useılmayan krediler, satın taking tarihinden itibaren 12 ay sonra geçerliliğini yitirir. Useılmayan krediler için nakit iade yapılmaz. Abonelikler: Yinelenen bir abonelik satın alırsanız, ilk ödemeden sonraki 14 gün içinde, bu süre boyunca herhangi bir premium araç kullanmadıysanız tam iade demand edebilirsiniz. 14 gün sonra veya ilk useımdan sonra abonelik ücretleri iade edilemez.",
       },
       section2: {
         title: "2. Hatalı veya Yanlış Araçlar",
         content:
-          "Bir premium araç, sistemimizdeki bir hata nedeniyle belirgin şekilde yanlış sonuç üretirse, bu hesaplama için kullanılan kredileri iade ederiz (harcanan kredi sayısına kadar) veya yedek kredi sağlarız. Lütfen sorunu ekran görüntüleri ve ayrıntılarla info@sectorcalc.com adresine bildirin.",
+          "Bir premium araç, sistemimizdeki bir error nedeniyle belirgin şekilde yanlış sonuç üretirse, bu calculation için useılan kredileri iade ederiz (harcanan kredi sayısına kadar) veya spare kredi sağlarız. Lütfen sorunu ekran görüntüleri ve ayrıntılarla info@sectorcalc.com adresine bildirin.",
       },
       section3: {
-        title: "3. İade Nasıl Talep Edilir",
+        title: "3. İade Nasıl Demand Edilir",
         content:
           "İade talebi için, ödeme sağlayıcınızdan işlem kimliğinizle birlikte gerekçenizi info@sectorcalc.com adresine gönderin. 7-14 iş günü içinde yanıt vereceğiz.",
       },
@@ -356,7 +356,7 @@ const packs = {
       section6: {
         title: "6. İletişim Bilgileri",
         content:
-          "İade talepleri veya faturalandırma soruları için aşağıdaki iletişim bilgilerini kullanın.",
+          "İade talepleri veya faturalandırma soruları için aşağıdaki iletişim bilgilerini useın.",
       },
     },
     creditsPricing: {
@@ -367,13 +367,13 @@ const packs = {
       },
       title: "Kredi Paketinizi Seçin",
       subtitle:
-        "Bir kredi, bir premium hesaplamayı açar. Krediler satın alma tarihinden itibaren 12 ay geçerlidir.",
+        "Bir kredi, bir premium hesaplamayı açar. Krediler satın taking tarihinden itibaren 12 ay geçerlidir.",
       creditsLabel: "{count} kredi",
       perCredit: "/ kredi",
       buyNow: "Kredi Satın Al",
       popular: "En Popüler",
       legalNote:
-        "Tüm fiyatlar USD cinsindendir. Krediler iade edilemez ve satın alma tarihinden itibaren 12 ay sonra geçerliliğini yitirir.",
+        "Tüm fiyatlar USD cinsindendir. Krediler iade edilemez ve satın taking tarihinden itibaren 12 ay sonra geçerliliğini yitirir.",
     },
   },
 

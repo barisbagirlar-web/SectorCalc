@@ -8,16 +8,16 @@ import { join, dirname } from "node:path";
 
 const ROOT = join(dirname(import.meta.filename), "..");
 const items = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/_export-queue-items.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/_export-queue-items.json"), "utf8"),
 );
 
 /** @type {Record<string, [string, string, string, string]>} */
 const ROWS = JSON.parse(
-  readFileSync(join(dirname(import.meta.filename), "data/marketing-surface-rows-body.json"), "utf8"),
+  readFileSync(join(dirname(import.meta.filename), "../archive/migration-only/scripts/data/marketing-surface-rows-body.json"), "utf8"),
 );
 
 const queue = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/marketing-translation-queue.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/marketing-translation-queue.json"), "utf8"),
 );
 const uniqueEn = [...new Set(queue.map((i) => i.en))];
 
@@ -34,7 +34,7 @@ if (extra.length) {
   process.exit(1);
 }
 
-const outPath = join(ROOT, "scripts/data/marketing-surface-rows.json");
+const outPath = join(ROOT, "archive/migration-only/scripts/data/marketing-surface-rows.json");
 writeFileSync(outPath, `${JSON.stringify(ROWS, null, 2)}\n`);
 console.log("Written:", outPath);
 console.log("Keys:", Object.keys(ROWS).length);

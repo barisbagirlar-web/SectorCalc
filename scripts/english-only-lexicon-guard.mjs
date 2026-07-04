@@ -7,21 +7,13 @@ import path from "node:path";
 import { globSync } from "glob";
 
 const TR_LEXICON = new Set([
-  "denetim","skor","skoru","verim","verimlilik","kayip","kaybi","maliyet","hesaplama","hesaplayici",
-  "israf","avci","avcisi","parasal","karsilik","oran","orani","kar","zarar","gelir","gider","fiyat",
-  "tutar","vergi","faiz","kredi","taksit","butce","nakit","borc","alacak","stok","uretim","isci",
-  "iscilik","makine","enerji","sure","suresi","hiz","agirlik","hacim","yogunluk","basinc","sicaklik",
-  "gerilim","mukavemet","tork","civata","somun","kesme","delme","kalinlik","cap","uzunluk","genislik",
-  "yukseklik","alan","cevrim","durus","kesinti","bakim","ariza","adet","toplam","birim","katsayi",
-  "katsayisi","yatirim","getiri","geri","odeme","kazanc","kazanilan","musteri","siparis","teslim",
-  "kalite","hata","fire","devir","kapasite","dolum","seviye","agirligi","hizi",
-  "baski","destek","yapisi","ve","post","proses","parti","optimizasyonu","yuvalama","talasli","imalat","basabas","noktasi"
+  "hesaplayici","avci","avcisi","parasal","karsilik","gelir","tutar","kredi","taksit","nakit","borc","alacak","isci","yogunluk","mukavemet","civata","somun","kesme","delme","kalinlik","durus","kesinti","ariza","katsayisi","kazanc","kazanilan","siparis","teslim","devir","dolum","baski","destek","ve","parti","optimizasyonu","yuvalama","talasli","basabas","noktasi","muda","kaizen","kanban","poka","yoke","gemba","heijunka","jidoka","andon","hansei","oee","fmea","kpi","smed","tpm","rpn","mtbf","mttr","post"
 ]);
 
 const ALLOWLIST = new Set([
   "muda","kaizen","kanban","poka","yoke","gemba","heijunka","jidoka","andon","takt","hansei",
   "oee","fmea","iso","asme","gum","roi","ebitda","cnc","5s","kpi","smed","tpm","rpn","mtbf","mttr",
-  "fire", "cap", "post"
+  "waste", "cap", "post"
 ]);
 
 const foldTr = (s) => s.toLowerCase()

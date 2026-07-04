@@ -7,7 +7,7 @@ import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
 const SOURCE = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/strategic-roadmap-source.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/strategic-roadmap-source.json"), "utf8"),
 );
 
 const LOCALES = ["en", "de", "fr", "es", "ar"];
@@ -124,21 +124,21 @@ const PREMIUM_COPY = {
   "sp-001": {
     shortDescription: toLocaleRecord(
       "Calculate quote price, margin, scrap, setup, payment terms and energy in one screen.",
-      "Tekliflerde maliyet, fire, vade, enerji ve marj kalemlerini aynı ekranda hesaplayın.",
+      "Tekliflerde cost, waste, vade, energy ve margin kalemlerini aynı ekranda hesaplayın.",
       "Berechnen Sie Angebotspreis, Marge, Ausschuss, Rüstzeit, Zahlungsziel und Energie auf einem Bildschirm.",
       "Calculez prix, marge, rebuts, réglage, délais de paiement et énergie sur un seul écran.",
       "Calcule precio, margen, merma, setup, plazo de pago y energía en una sola pantalla.",
     ),
     pain: toLocaleRecord(
       "Quotes often omit scrap, setup time, payment-term cost and utility load before margin is set.",
-      "Tekliflerde fire, kurulum süresi, vade maliyeti ve enerji yükü sıkça atlanır; marj buna göre incelir.",
+      "Tekliflerde waste, installation süresi, vade cost ve energy yükü sıkça atlanır; margin buna göre incelir.",
       "Angebote lassen oft Ausschuss, Rüstzeit, Zahlungszielkosten und Energie außer Acht.",
       "Les devis omettent souvent rebuts, temps de réglage, coût de délai et charge énergétique.",
       "Las cotizaciones suelen omitir merma, setup, coste de plazo y carga energética.",
     ),
     publicPromise: toLocaleRecord(
       "Structure every quote with the cost lines teams forget before margin is locked.",
-      "Marj kilitlenmeden önce ekiplerin unuttuğu maliyet kalemlerini teklife ekleyin.",
+      "Margin kilitlenmeden önce ekiplerin unuttuğu cost kalemlerini teklife ekleyin.",
       "Strukturieren Sie jedes Angebot mit vergessenen Kostenpositionen vor der Margenfixierung.",
       "Structurez chaque devis avec les postes de coût oubliés avant de figer la marge.",
       "Estructure cada cotización con las partidas olvidadas antes de fijar el margen.",
@@ -148,7 +148,7 @@ const PREMIUM_COPY = {
   "sp-002": {
     shortDescription: toLocaleRecord(
       "See true machine hourly cost with depreciation, energy, maintenance and floor-space share.",
-      "Makinenin saatlik maliyetini amortisman, enerji, bakım ve alan payı ile birlikte görün.",
+      "Makinenin saatlik maliyetini depreciation, energy, bakım ve area shareı ile birlikte görün.",
       "Sehen Sie den echten Maschinenstundensatz inkl. Abschreibung, Energie, Wartung und Flächenanteil.",
       "Voyez le coût horaire réel avec amortissement, énergie, maintenance et part de surface.",
       "Vea el coste horario real con amortización, energía, mantenimiento y espacio.",
@@ -162,7 +162,7 @@ const PREMIUM_COPY = {
     ),
     publicPromise: toLocaleRecord(
       "Build a defensible shop-rate profile in minutes instead of guessing from power bills alone.",
-      "Shop rate profilini dakikalar içinde, yalnızca elektrik faturasından tahmin etmek yerine oluşturun.",
+      "Shop rate profilini dakikalar içinde, yalnızca elektrik faturasından prediction etmek yerine oluşturun.",
       "Erstellen Sie in Minuten ein belastbares Shop-Rate-Profil statt zu schätzen.",
       "Construisez un profil de taux horaire défendable en quelques minutes.",
       "Construya un perfil de tarifa horaria defendible en minutos.",
@@ -172,14 +172,14 @@ const PREMIUM_COPY = {
   "sp-003": {
     shortDescription: toLocaleRecord(
       "Calculate break-even point and safety margin on one screen.",
-      "Başabaş noktası ve güvenlik marjını tek ekranda hesaplayın.",
+      "Başabaş noktası ve güvenlik marginını tek ekranda hesaplayın.",
       "Berechnen Sie Break-even und Sicherheitsmarge auf einem Bildschirm.",
       "Calculez seuil de rentabilité et marge de sécurité sur un écran.",
       "Calcule punto de equilibrio y margen de seguridad en una pantalla.",
     ),
     pain: toLocaleRecord(
       "Owners often learn profit or loss only after month-end statements arrive.",
-      "İşletmeler kâr/zararı çoğu zaman ay sonu tabloları gelince öğrenir.",
+      "İşletmeler kâr/lossı çoğu zaman ay sonu tabloları gelince öğrenir.",
       "Unternehmer erfahren Gewinn oder Verlust oft erst nach Monatsabschluss.",
       "Les dirigeants découvrent profit ou perte seulement en fin de mois.",
       "Los dueños conocen ganancia o pérdida solo al cierre mensual.",
@@ -203,14 +203,14 @@ const PREMIUM_COPY = {
     ),
     pain: toLocaleRecord(
       "Repair quotes vary by technician and format, making price consistency hard.",
-      "Tamir teklifleri ustaya göre değişir; fiyat tutarlılığı zorlaşır.",
+      "Repair teklifleri ustaya göre değişir; price tutarlılığı zorlaşır.",
       "Reparaturangebote variieren je Techniker und Format.",
       "Les devis de réparation varient selon le technicien.",
       "Las cotizaciones de reparación varían por técnico.",
     ),
     publicPromise: toLocaleRecord(
       "Issue repeatable repair quotes with shared labor-time and parts structure.",
-      "Ortak işçilik süresi ve parça yapısıyla tekrarlanabilir tamir teklifleri verin.",
+      "Ortak işçilik süresi ve parça yapısıyla tekrarlanabilir repair teklifleri verin.",
       "Erstellen Sie wiederholbare Reparaturangebote mit gemeinsamer Struktur.",
       "Émettez des devis répétables avec structure commune.",
       "Emite cotizaciones repetibles con estructura común.",
@@ -220,7 +220,7 @@ const PREMIUM_COPY = {
   "sp-005": {
     shortDescription: toLocaleRecord(
       "Estimate embedded carbon per product unit for export compliance workflows.",
-      "İhracat uyum süreçleri için birim ürün gömülü karbonunu hesaplayın.",
+      "İhracat uyum süreçleri için unit ürün gömülü karbonunu hesaplayın.",
       "Schätzen Sie eingebetteten Kohlenstoff pro Produkteinheit für Export-Compliance.",
       "Estimez le carbone incorporé par unité pour la conformité export.",
       "Estime carbono incorporado por unidad para cumplimiento exportador.",
@@ -234,7 +234,7 @@ const PREMIUM_COPY = {
     ),
     publicPromise: toLocaleRecord(
       "Document unit product carbon with traceable factors before customs review.",
-      "Gümrük incelemesinden önce izlenebilir faktörlerle birim ürün karbonunu belgeleyin.",
+      "Gümrük incelemesinden önce izlenebilir faktörlerle unit ürün karbonunu belgeleyin.",
       "Dokumentieren Sie Produkt-Kohlenstoff mit nachvollziehbaren Faktoren vor Zollprüfung.",
       "Documentez le carbone produit avec facteurs traçables avant douane.",
       "Documente carbono por unidad con factores trazables antes de aduana.",
@@ -244,14 +244,14 @@ const PREMIUM_COPY = {
   "sp-006": {
     shortDescription: toLocaleRecord(
       "Calculate OEE from availability, performance and quality inputs.",
-      "Uygunluk, performans ve kalite girdileriyle OEE hesaplayın.",
+      "Uygunluk, performance ve quality girdileriyle OEE hesaplayın.",
       "Berechnen Sie OEE aus Verfügbarkeit, Leistung und Qualität.",
       "Calculez l'OEE à partir de disponibilité, performance et qualité.",
       "Calcule OEE con disponibilidad, rendimiento y calidad.",
     ),
     pain: toLocaleRecord(
       "Without OEE tracking, chronic downtime and quality loss stay invisible.",
-      "OEE takibi olmadan kronik duruş ve kalite kaybı görünmez kalır.",
+      "OEE takibi olmadan kronik duruş ve quality kaybı görünmez kalır.",
       "Ohne OEE bleiben Stillstände und Qualitätsverlust unsichtbar.",
       "Sans OEE, arrêts chroniques et pertes qualité restent invisibles.",
       "Sin OEE, paradas crónicas y pérdida de calidad permanecen ocultas.",
@@ -268,7 +268,7 @@ const PREMIUM_COPY = {
   "sp-007": {
     shortDescription: toLocaleRecord(
       "Estimate annual cost of compressed-air leaks from orifice, pressure and runtime.",
-      "Delik çapı, basınç ve çalışma süresinden basınçlı hava kaçağı yıllık maliyetini tahmin edin.",
+      "Delik çapı, basınç ve çalışma süresinden basınçlı hava kaçağı yıllık maliyetini prediction edin.",
       "Schätzen Sie jährliche Druckluftleckagekosten aus Öffnung, Druck und Laufzeit.",
       "Estimez le coût annuel des fuites d'air comprimé.",
       "Estime el coste anual de fugas de aire comprimido.",
@@ -282,7 +282,7 @@ const PREMIUM_COPY = {
     ),
     publicPromise: toLocaleRecord(
       "Turn leak size and pressure into a yearly cost figure maintenance can act on.",
-      "Kaçak boyutu ve basıncı bakımın aksiyon alabileceği yıllık maliyete çevirin.",
+      "Kaçak boyutu ve basıncı bakımın aksiyon alabileceği yıllık cost çevirin.",
       "Wandeln Sie Leckgröße und Druck in jährliche Kosten für die Wartung um.",
       "Transformez taille de fuite et pression en coût annuel actionnable.",
       "Convierta tamaño de fuga y presión en coste anual accionable.",
@@ -298,8 +298,8 @@ const PREMIUM_COPY = {
       "Calcule el coste total del empleador más allá del salario neto.",
     ),
     pain: toLocaleRecord(
-      "Hiring and pricing decisions often use net pay instead of loaded employer cost.",
-      "İşe alım ve fiyatlama kararlarında net maaş kullanılır; tam maliyet eksik kalır.",
+      "Hiring and pricing decisions often use net share instead of loaded employer cost.",
+      "İşe alım ve fiyatlama kararlarında net maaş useılır; tam cost eksik kalır.",
       "Einstellungsentscheidungen nutzen oft Netto statt voller Arbeitgeberkosten.",
       "Les décisions d'embauche utilisent souvent le net au lieu du coût chargé.",
       "Las decisiones de contratación usan a menudo el neto en lugar del coste total.",
@@ -340,21 +340,21 @@ const PREMIUM_COPY = {
   "sp-010": {
     shortDescription: toLocaleRecord(
       "Compare product and customer contribution after hidden service costs.",
-      "Gizli hizmet maliyetleri sonrası ürün ve müşteri katkısını karşılaştırın.",
+      "Gizli hizmet maliyetleri sonrası ürün ve müşteri katkısını profitşılaştırın.",
       "Vergleichen Sie Produkt- und Kundenbeitrag nach versteckten Servicekosten.",
       "Comparez contribution produit et client après coûts de service cachés.",
       "Compare contribución de producto y cliente tras costes ocultos.",
     ),
     pain: toLocaleRecord(
       "High-revenue customers can destroy margin through returns, delays and rework.",
-      "Yüksek cirolu müşteriler iade, gecikme ve rework ile marjı eritebilir.",
+      "Yüksek cirolu müşteriler iade, delay ve rework ile marginı eritebilir.",
       "Umsatzstarke Kunden können Marge durch Retouren und Verzug zerstören.",
       "Les gros clients peuvent détruire la marge via retours et retards.",
       "Clientes de alto ingreso pueden destruir margen con devoluciones.",
     ),
     publicPromise: toLocaleRecord(
       "Rank customers and SKUs by contribution instead of invoice total alone.",
-      "Yalnızca fatura toplamı yerine müşteri ve SKU katkısına göre sıralayın.",
+      "Yalnızca fatura totalı yerine müşteri ve SKU katkısına göre sıralayın.",
       "Sortieren Sie nach Beitrag statt nur Rechnungssumme.",
       "Classez par contribution plutôt que total de facture seul.",
       "Ordene por contribución en lugar de solo factura total.",
@@ -364,21 +364,21 @@ const PREMIUM_COPY = {
   "sp-011": {
     shortDescription: toLocaleRecord(
       "Model inventory carrying cost and economic order quantity with sector scrap factors.",
-      "Sektör fire katsayılarıyla stok taşıma maliyeti ve EOQ modelleyin.",
+      "Sektör waste katsayılarıyla inventory taşıma cost ve EOQ modelleyin.",
       "Modellieren Sie Lagerhaltungskosten und EOQ mit Branchen-Ausschussfaktoren.",
       "Modélisez coût de stockage et EOQ avec facteurs de rebut sectoriels.",
       "Modele coste de inventario y EOQ con factores de merma sectoriales.",
     ),
     pain: toLocaleRecord(
       "Inventory cost is underestimated when only warehouse rent is counted.",
-      "Stok maliyeti yalnızca depo kirası sayıldığında eksik kalır.",
+      "Inventory cost yalnızca warehouse kirası sayıldığında eksik kalır.",
       "Lagerkosten werden unterschätzt wenn nur Miete gezählt wird.",
       "Le coût stock est sous-estimé si seul le loyer est compté.",
       "El coste de inventario se subestima contando solo alquiler.",
     ),
     publicPromise: toLocaleRecord(
       "Expose holding cost and order size trade-offs before stock decisions.",
-      "Stok kararlarından önce taşıma maliyeti ve sipariş büyüklüğü dengesini görün.",
+      "Inventory kararlarından önce taşıma cost ve sipariş büyüklüğü dengesini görün.",
       "Zeigen Sie Haltungskosten vor Bestellentscheidungen.",
       "Exposez coût de détention avant décisions de stock.",
       "Exponga coste de mantener stock antes de decidir.",
@@ -388,21 +388,21 @@ const PREMIUM_COPY = {
   "sp-012": {
     shortDescription: toLocaleRecord(
       "Check common welded and bolted connection capacity with workshop-friendly inputs.",
-      "Atölye dostu girdilerle yaygın kaynaklı ve bulonlu bağlantı kapasitesini kontrol edin.",
+      "Atölye dostu girdilerle yaygın kaynaklı ve bulonlu bağlantı kapasitesini control edin.",
       "Prüfen Sie gängige Schweiß- und Bolzenverbindungen mit Werkstatt-Eingaben.",
       "Vérifiez connexions soudées et boulonnées avec entrées atelier.",
       "Verifique conexiones soldadas y atornilladas con entradas de taller.",
     ),
     pain: toLocaleRecord(
       "Connection sizing relies on guesswork without quick structural checks.",
-      "Bağlantı boyutlandırması hızlı kontrol olmadan sezgiye kalır.",
+      "Bağlantı boyutlandırması hızlı control olmadan sezgiye kalır.",
       "Verbindungsdimensionierung erfolgt ohne schnelle Prüfung per Bauchgefühl.",
       "Le dimensionnement repose sur l'intuition sans contrôle rapide.",
       "El dimensionamiento depende de intuición sin chequeo rápido.",
     ),
     publicPromise: toLocaleRecord(
       "Screen weld and bolt capacity for common shop connections in minutes.",
-      "Yaygın atölye bağlantıları için kaynak ve bulon kapasitesini dakikalar içinde tarayın.",
+      "Yaygın atölye bağlantıları için resource ve bulon kapasitesini dakikalar içinde tarayın.",
       "Prüfen Sie Schweiß- und Bolzenkapazität in Minuten.",
       "Filtrez capacité soudure et boulons en minutes.",
       "Evalúe capacidad de soldadura y pernos en minutos.",
@@ -412,21 +412,21 @@ const PREMIUM_COPY = {
   "sp-013": {
     shortDescription: toLocaleRecord(
       "Run worst-case and RSS tolerance stack-up for assembly chains.",
-      "Montaj zincirleri için en kötü durum ve RSS tolerans yığılmasını çalıştırın.",
+      "Montaj zincirleri için en kötü status ve RSS tolerans yığılmasını çalıştırın.",
       "Führen Sie WC- und RSS-Toleranzstack-up für Montageketten aus.",
       "Exécutez empilement de tolérances WC et RSS pour assemblages.",
       "Ejecute acumulación de tolerancias WC y RSS en ensamblajes.",
     ),
     pain: toLocaleRecord(
       "Fit issues often come from stacked tolerances without a documented chain check.",
-      "Uyumsuzluklar çoğu zaman belgelenmiş zincir kontrolü olmadan birikir.",
+      "Uyumsuzluklar çoğu zaman belgelenmiş zincir controlü olmadan birikir.",
       "Passungsprobleme entstehen durch gestapelte Toleranzen ohne Dokumentation.",
       "Les problèmes d'ajustement viennent de tolérances empilées non documentées.",
       "Problemas de ajuste vienen de tolerancias apiladas sin registro.",
     ),
     publicPromise: toLocaleRecord(
       "Identify which part drives assembly risk before scrap accumulates.",
-      "Hurda birikmeden montaj riskini hangi parçanın taşıdığını görün.",
+      "Hurda birikmeden montaj riskini which parçanın taşıdığını görün.",
       "Identifizieren Sie das risikoträchtige Teil vor Ausschuss.",
       "Identifiez la pièce à risque avant rebuts.",
       "Identifique la pieza de riesgo antes de merma.",
@@ -443,14 +443,14 @@ const PREMIUM_COPY = {
     ),
     pain: toLocaleRecord(
       "Critical fasteners are often tightened by feel instead of specified torque.",
-      "Kritik bağlantılar çoğu zaman tork yerine hisle sıkılır.",
+      "Kritik bağlantılar çoğu zaman torque yerine hisle sıkılır.",
       "Kritische Verbindungen werden oft nach Gefühl statt Drehmoment angezogen.",
       "Les fixations critiques sont souvent serrées au feeling.",
       "Fijaciones críticas se aprietan a menudo a ojo.",
     ),
     publicPromise: toLocaleRecord(
       "Set torque targets on mobile with grade and lubrication context.",
-      "Sınıf ve yağlama bağlamıyla tork hedefini mobilde ayarlayın.",
+      "Sınıf ve yağlama bağlamıyla torque hedefini mobilde ayarlayın.",
       "Setzen Sie Drehmomentziele mobil mit Güte und Schmierung.",
       "Définissez le couple cible sur mobile avec classe et lubrification.",
       "Ajuste par de apriete en móvil con clase y lubricación.",
@@ -460,21 +460,21 @@ const PREMIUM_COPY = {
   "sp-015": {
     shortDescription: toLocaleRecord(
       "Compare LED, motor and compressor upgrade payback in local currency.",
-      "LED, motor ve kompresör yatırımlarının geri dönüşünü yerel para biriminde karşılaştırın.",
+      "LED, motor ve kompresör yatırımlarının geri dönüşünü yerel para biriminde profitşılaştırın.",
       "Vergleichen Sie Amortisation von LED-, Motor- und Kompressor-Upgrades.",
       "Comparez retour sur investissement LED, moteur et compresseur.",
       "Compare retorno de LED, motor y compresor.",
     ),
     pain: toLocaleRecord(
       "Energy upgrades stall when payback is unclear in monthly bill terms.",
-      "Geri dönüş net değilse enerji yatırımları ertelenir.",
+      "Geri dönüş net değilse energy yatırımları ertelenir.",
       "Energie-Upgrades stocken ohne klare Amortisation.",
       "Les upgrades énergie stagnent sans retour clair.",
       "Mejoras energéticas se posponen sin retorno claro.",
     ),
     publicPromise: toLocaleRecord(
       "See monthly savings and payback months before capex approval.",
-      "Yatırım onayından önce aylık tasarruf ve geri dönüş ayını görün.",
+      "Yatırım approvedından önce aylık savings ve geri dönüş ayını görün.",
       "Sehen Sie monatliche Einsparung und Amortisationsmonate vor Capex.",
       "Voyez économies mensuelles et mois de retour avant capex.",
       "Vea ahorro mensual y meses de retorno antes del capex.",
@@ -484,7 +484,7 @@ const PREMIUM_COPY = {
   "sp-016": {
     shortDescription: toLocaleRecord(
       "Run payback period and NPV with sector discount guidance.",
-      "Sektör iskonto rehberiyle geri dönüş süresi ve NPV hesaplayın.",
+      "Sektör discount rehberiyle geri dönüş süresi ve NPV hesaplayın.",
       "Berechnen Sie Payback und NPV mit Branchen-Diskontierung.",
       "Calculez payback et VAN avec guide sectoriel d'actualisation.",
       "Calcule payback y VAN con guía de descuento sectorial.",
@@ -498,7 +498,7 @@ const PREMIUM_COPY = {
     ),
     publicPromise: toLocaleRecord(
       "Compare investment options with payback and NPV on one decision summary.",
-      "Yatırım seçeneklerini tek karar özetinde payback ve NPV ile karşılaştırın.",
+      "Yatırım seçeneklerini tek karar özetinde payback ve NPV ile profitşılaştırın.",
       "Vergleichen Sie Investitionen mit Payback und NPV in einer Übersicht.",
       "Comparez investissements avec payback et VAN en un résumé.",
       "Compare inversiones con payback y VAN en un resumen.",
@@ -507,27 +507,27 @@ const PREMIUM_COPY = {
   },
   "sp-017": {
     shortDescription: toLocaleRecord(
-      "Estimate fire-system flow and hydrant capacity for permit documentation.",
-      "Ruhsat dokümantasyonu için yangın tesisatı debisi ve hidrant kapasitesini tahmin edin.",
+      "Estimate waste-system flow and hydrant capacity for permit documentation.",
+      "Ruhsat dokümantasyonu için yangın tesisatı debisi ve hidrant kapasitesini prediction edin.",
       "Schätzen Sie Brandfluss und Hydrantkapazität für Genehmigungsunterlagen.",
       "Estimez débit incendie et capacité hydrants pour permis.",
       "Estime caudal contra incendios e hidrantes para permisos.",
     ),
     pain: toLocaleRecord(
-      "Small facilities outsource basic fire hydraulic checks they could scope first.",
+      "Small facilities outsource basic waste hydraulic checks they could scope first.",
       "Küçük tesisler önce kapsamlandırılabilecek yangın hidroliğini dışarı verir.",
       "Kleine Betriebe outsourcen Brandhydraulik die vorab scoping braucht.",
       "Les petits sites externalisent l'hydraulique incendie évitable.",
       "Instalaciones pequeñas externalizan hidráulica evitable.",
     ),
     publicPromise: toLocaleRecord(
-      "Produce first-pass fire flow numbers aligned with local checklist inputs.",
-      "Yerel kontrol listesi girdilerine uygun ilk yangın debi rakamlarını üretin.",
+      "Produce first-pass waste flow numbers aligned with local checklist inputs.",
+      "Yerel control listesi girdilerine uygun ilk yangın debi rakamlarını üretin.",
       "Erzeugen Sie Erstberechnung Brandfluss passend zur lokalen Checkliste.",
       "Produisez un premier débit incendie aligné sur la checklist locale.",
       "Produzca primer caudal incendio alineado con checklist local.",
     ),
-    internalSourceNote: "Strategic report tool 17 — fire system; planned.",
+    internalSourceNote: "Strategic report tool 17 — waste system; planned.",
   },
   "sp-018": {
     shortDescription: toLocaleRecord(
@@ -539,7 +539,7 @@ const PREMIUM_COPY = {
     ),
     pain: toLocaleRecord(
       "HR teams rework exit-cost math whenever regulations or ceilings change.",
-      "Mevzuat değişince çıkış maliyeti yeniden hesaplanır; hata riski artar.",
+      "Mevzuat değişince çıkış cost yeniden hesaplanır; error riski artar.",
       "HR muss Austrittskosten bei Regeländerungen neu rechnen.",
       "Les RH recalculent les coûts de sortie à chaque changement réglementaire.",
       "RR. HH. recalcula costes de salida con cada cambio normativo.",
@@ -556,7 +556,7 @@ const PREMIUM_COPY = {
   "sp-019": {
     shortDescription: toLocaleRecord(
       "Calculate push and pull force for hydraulic and pneumatic cylinders.",
-      "Hidrolik ve pnömatik silindirler için itme ve çekme kuvvetini hesaplayın.",
+      "Hydraulic ve pnömatik silindirler için itme ve çekme kuvvetini hesaplayın.",
       "Berechnen Sie Druck- und Zugkraft für Hydraulik- und Pneumatikzylinder.",
       "Calculez force poussée/traction pour vérins hydrauliques et pneumatiques.",
       "Calcule fuerza empuje/tracción en cilindros hidráulicos y neumáticos.",
@@ -570,7 +570,7 @@ const PREMIUM_COPY = {
     ),
     publicPromise: toLocaleRecord(
       "Validate cylinder selection with standard bore library and safety factor.",
-      "Standart çap kütüphanesi ve emniyet katsayısıyla silindir seçimini doğrulayın.",
+      "Standard çap kütüphanesi ve emniyet katsayısıyla silindir seçimini doğrulayın.",
       "Validieren Sie Zylinderwahl mit Standardbohrungen und Sicherheitsfaktor.",
       "Validez le vérin avec bibliothèque d'alésages et facteur de sécurité.",
       "Valide cilindro con biblioteca de diámetros y factor de seguridad.",
@@ -580,14 +580,14 @@ const PREMIUM_COPY = {
   "sp-020": {
     shortDescription: toLocaleRecord(
       "Calculate belt-pulley speed ratio and belt length for V and timing belts.",
-      "V ve triger kayışlar için kasnak devir oranı ve kayış uzunluğunu hesaplayın.",
+      "V ve triger kayışlar için kasnak devir ratioı ve kayış uzunluğunu hesaplayın.",
       "Berechnen Sie Übersetzung und Riemenlänge für Keil- und Zahnriemen.",
       "Calculez rapport de vitesse et longueur de courroie.",
       "Calcule relación de velocidad y longitud de correa.",
     ),
     pain: toLocaleRecord(
       "Drive changes fail when speed ratio or belt length is mis-specified.",
-      "Devir oranı veya kayış uzunluğu hatalıysa tahrik değişimi başarısız olur.",
+      "Devir ratioı veya kayış uzunluğu hatalıysa tahrik değişimi başarısız olur.",
       "Antriebswechsel scheitern bei falscher Übersetzung oder Riemenlänge.",
       "Les changements d'entraînement échouent si ratio ou longueur est faux.",
       "Cambios de transmisión fallan con ratio o longitud incorrectos.",
@@ -604,14 +604,14 @@ const PREMIUM_COPY = {
   "sp-021": {
     shortDescription: toLocaleRecord(
       "Split quality cost into prevention, appraisal and failure categories (PAF).",
-      "Kalite maliyetini önleme, değerlendirme ve hata (PAF) kalemlerine ayırın.",
+      "Quality maliyetini önleme, değerlendirme ve error (PAF) kalemlerine ayırın.",
       "Teilen Sie Qualitätskosten in Prävention, Bewertung und Fehler (PAF).",
       "Répartissez coûts qualité en prévention, évaluation et échec (PAF).",
       "Separe costes de calidad en prevención, evaluación y fallo (PAF).",
     ),
     pain: toLocaleRecord(
       "External failure cost is rarely tracked even though it dominates quality spend.",
-      "Dış hata maliyeti nadiren izlenir oysa kalite harcamasını domine eder.",
+      "Dış error cost nadiren izlenir oysa quality harcamasını domine eder.",
       "Externe Fehlerkosten werden selten erfasst obwohl dominant.",
       "Le coût d'échec externe est rarement suivi.",
       "El coste de fallo externo rara vez se rastrea.",
@@ -628,7 +628,7 @@ const PREMIUM_COPY = {
   "sp-022": {
     shortDescription: toLocaleRecord(
       "Estimate minimum wall thickness for common pressure vessel geometries.",
-      "Yaygın basınçlı kap geometrileri için minimum cidar kalınlığını tahmin edin.",
+      "Yaygın basınçlı kap geometrileri için minimum cidar kalınlığını prediction edin.",
       "Schätzen Sie Mindestwanddicke für gängige Druckbehältergeometrien.",
       "Estimez épaisseur paroi minimale pour géométries courantes.",
       "Estime espesor mínimo de pared para geometrías comunes.",
@@ -642,7 +642,7 @@ const PREMIUM_COPY = {
     ),
     publicPromise: toLocaleRecord(
       "Screen cylindrical and spherical vessels with material and safety inputs.",
-      "Malzeme ve emniyet girdileriyle silindirik ve küresel kapları tarayın.",
+      "Material ve emniyet girdileriyle silindirik ve küresel kapları tarayın.",
       "Prüfen Sie Zylinder- und Kugelbehälter mit Material und Sicherheit.",
       "Filtrez cuves cylindriques et sphériques avec matériau et sécurité.",
       "Evalúe vasijas cilíndricas y esféricas con material y seguridad.",
@@ -652,21 +652,21 @@ const PREMIUM_COPY = {
   "sp-023": {
     shortDescription: toLocaleRecord(
       "Build current-state value-stream map metrics for lean workshops.",
-      "Yalın atölyeler için mevcut durum değer akış haritası metriklerini oluşturun.",
+      "Yalın atölyeler için mevcut status değer akış haritası metriklerini oluşturun.",
       "Erstellen Sie Ist-Zustand-VSM-Metriken für Lean-Workshops.",
       "Construisez métriques VSM état actuel pour ateliers lean.",
       "Construya métricas VSM estado actual para talleres lean.",
     ),
     pain: toLocaleRecord(
       "VSM work stays on whiteboards and cannot be compared week to week.",
-      "VSM çalışması tahtada kalır; haftalık karşılaştırılamaz.",
+      "VSM çalışması tahtada kalır; haftalık profitşılaştırılamaz.",
       "VSM bleibt am Whiteboard ohne Wochenvergleich.",
       "Le VSM reste au tableau sans comparaison hebdomadaire.",
       "VSM permanece en pizarra sin comparación semanal.",
     ),
     publicPromise: toLocaleRecord(
       "Capture value-added ratio and lead time in a repeatable digital template.",
-      "Katma değer oranı ve lead time'ı tekrarlanabilir dijital şablonda kaydedin.",
+      "Katma değer ratioı ve lead time'ı tekrarlanabilir dijital şablonda kaydedin.",
       "Erfassen Sie VA-Ratio und Durchlaufzeit in digitaler Vorlage.",
       "Capturez ratio VA et lead time dans modèle digital.",
       "Capture ratio VA y lead time en plantilla digital.",
@@ -679,21 +679,21 @@ function premiumTitle(item, locale) {
   const titles = {
     "sp-001": toLocaleRecord(
       "Quote Price and Profit Margin Calculator",
-      "Teklif Fiyatı ve Kâr Marjı Hesaplayıcı",
+      "Teklif Priceı ve Kâr Marginı Hesaplayıcı",
       "Angebotspreis- und Gewinnmargen-Rechner",
       "Calculateur de prix de devis et marge bénéficiaire",
       "Calculadora de precio de cotización y margen de beneficio",
     ),
     "sp-002": toLocaleRecord(
       "Machine Hour Rate Calculator",
-      "Makine Saat Ücreti Hesaplayıcı",
+      "Machine Saat Ücreti Hesaplayıcı",
       "Maschinenstundensatz-Rechner",
       "Calculateur de taux horaire machine",
       "Calculadora de tarifa horaria de máquina",
     ),
     "sp-003": toLocaleRecord(
       "Break-Even and Safety Margin Calculator",
-      "Başabaş Noktası ve Güvenlik Marjı Hesaplayıcı",
+      "Başabaş Noktası ve Güvenlik Marginı Hesaplayıcı",
       "Break-even- und Sicherheitsmargen-Rechner",
       "Calculateur de seuil de rentabilité et marge de sécurité",
       "Calculadora de punto de equilibrio y margen de seguridad",
@@ -707,7 +707,7 @@ function premiumTitle(item, locale) {
     ),
     "sp-005": toLocaleRecord(
       "CBAM Unit Product Carbon Footprint Calculator",
-      "SKDM Birim Ürün Karbon Ayak İzi Hesaplayıcı",
+      "SKDM Unit Ürün Karbon Ayak İzi Hesaplayıcı",
       "CBAM-Produkt-CO₂-Fußabdruck-Rechner",
       "Calculateur d'empreinte carbone unitaire CBAM",
       "Calculadora de huella de carbono unitaria CBAM",
@@ -721,21 +721,21 @@ function premiumTitle(item, locale) {
     ),
     "sp-007": toLocaleRecord(
       "Compressor Leak Cost Calculator",
-      "Kompresör Kaçağı Maliyet Hesaplayıcı",
+      "Kompresör Kaçağı Cost Hesaplayıcı",
       "Kompressor-Leckkosten-Rechner",
       "Calculateur de coût de fuite compresseur",
       "Calculadora de coste de fuga de compresor",
     ),
     "sp-008": toLocaleRecord(
       "Employee Total Cost Calculator",
-      "Personel Tam Maliyet Hesaplayıcı",
+      "Personel Tam Cost Hesaplayıcı",
       "Personalkosten-Gesamtrechner",
       "Calculateur de coût total employé",
       "Calculadora de coste total del empleado",
     ),
     "sp-009": toLocaleRecord(
       "Downtime Minute Cost Calculator",
-      "Duruş Dakika Maliyeti Hesaplayıcı",
+      "Duruş Dakika Cost Hesaplayıcı",
       "Stillstandsminutenkosten-Rechner",
       "Calculateur de coût minute d'arrêt",
       "Calculadora de coste por minuto de parada",
@@ -749,7 +749,7 @@ function premiumTitle(item, locale) {
     ),
     "sp-011": toLocaleRecord(
       "Inventory Carrying Cost and EOQ Calculator",
-      "Stok Taşıma Maliyeti ve EOQ Hesaplayıcı",
+      "Inventory Taşıma Cost ve EOQ Hesaplayıcı",
       "Lagerhaltungs- und EOQ-Rechner",
       "Calculateur de coût de stockage et EOQ",
       "Calculadora de coste de inventario y EOQ",
@@ -777,7 +777,7 @@ function premiumTitle(item, locale) {
     ),
     "sp-015": toLocaleRecord(
       "Energy Savings Calculator",
-      "Enerji Tasarruf Hesaplayıcı",
+      "Energy Savings Hesaplayıcı",
       "Energiespar-Rechner",
       "Calculateur d'économies d'énergie",
       "Calculadora de ahorro energético",
@@ -790,7 +790,7 @@ function premiumTitle(item, locale) {
       "Calculadora de retorno de inversión y VAN",
     ),
     "sp-017": toLocaleRecord(
-      "Fire System Flow and Hydrant Calculator",
+      "Waste System Flow and Hydrant Calculator",
       "Yangın Tesisatı Debi ve Hidrant Hesaplayıcı",
       "Brandanlagen-Durchfluss- und Hydranten-Rechner",
       "Calculateur de débit incendie et hydrants",
@@ -805,21 +805,21 @@ function premiumTitle(item, locale) {
     ),
     "sp-019": toLocaleRecord(
       "Hydraulic and Pneumatic Cylinder Force Calculator",
-      "Hidrolik ve Pnömatik Silindir Kuvvet Hesaplayıcı",
+      "Hydraulic ve Pnömatik Silindir Force Hesaplayıcı",
       "Hydraulik-/Pneumatikzylinder-Kraft-Rechner",
       "Calculateur de force vérin hydraulique/pneumatique",
       "Calculadora de fuerza de cilindro hidráulico/neumático",
     ),
     "sp-020": toLocaleRecord(
       "Belt Pulley Speed and Length Calculator",
-      "Kayış Kasnak Devir ve Uzunluk Hesaplayıcı",
+      "Kayış Kasnak Devir ve Length Hesaplayıcı",
       "Riemenscheiben-Drehzahl- und Längen-Rechner",
       "Calculateur vitesse et longueur courroie/poulie",
       "Calculadora de velocidad y longitud de correa/polea",
     ),
     "sp-021": toLocaleRecord(
       "Quality Cost PAF Calculator",
-      "Kalite Maliyeti PAF Hesaplayıcı",
+      "Quality Cost PAF Hesaplayıcı",
       "Qualitätskosten-PAF-Rechner",
       "Calculateur coûts qualité PAF",
       "Calculadora de coste de calidad PAF",

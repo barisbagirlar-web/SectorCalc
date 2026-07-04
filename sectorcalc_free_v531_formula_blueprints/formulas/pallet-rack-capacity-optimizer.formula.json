@@ -1,0 +1,179 @@
+{
+  "tool_name": "Pallet Rack Capacity Optimizer",
+  "tool_key": "pallet-rack-capacity-optimizer",
+  "slug": "pallet-rack-capacity-optimizer",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "inventory-stock-cost-control",
+  "inputs": [
+    {
+      "id": "annual_demand",
+      "label": "Annual Demand",
+      "unit": "unit/year",
+      "required": true,
+      "normalized_id": "annual_demand",
+      "description": "Annual Demand",
+      "min": 0
+    },
+    {
+      "id": "order_cost",
+      "label": "Order Cost",
+      "unit": "USD/order",
+      "required": true,
+      "normalized_id": "order_cost",
+      "description": "Order Cost",
+      "min": 0
+    },
+    {
+      "id": "holding_cost",
+      "label": "Holding Cost",
+      "unit": "USD/unit/year",
+      "required": true,
+      "normalized_id": "holding_cost",
+      "description": "Holding Cost",
+      "min": 1e-06
+    },
+    {
+      "id": "lead_time_days",
+      "label": "Lead Time",
+      "unit": "day",
+      "required": true,
+      "normalized_id": "lead_time_days",
+      "description": "Lead Time",
+      "min": 0
+    },
+    {
+      "id": "daily_demand",
+      "label": "Daily Demand",
+      "unit": "unit/day",
+      "required": true,
+      "normalized_id": "daily_demand",
+      "description": "Daily Demand",
+      "min": 0
+    },
+    {
+      "id": "safety_stock",
+      "label": "Safety Stock",
+      "unit": "unit",
+      "required": true,
+      "normalized_id": "safety_stock",
+      "description": "Safety Stock",
+      "min": 0
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "annual_demand",
+      "source_input_id": "annual_demand",
+      "base_unit": "unit/year",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "order_cost",
+      "source_input_id": "order_cost",
+      "base_unit": "USD/order",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "holding_cost",
+      "source_input_id": "holding_cost",
+      "base_unit": "USD/unit/year",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "lead_time_days",
+      "source_input_id": "lead_time_days",
+      "base_unit": "day",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "daily_demand",
+      "source_input_id": "daily_demand",
+      "base_unit": "unit/day",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "safety_stock",
+      "source_input_id": "safety_stock",
+      "base_unit": "unit",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "economic_quantity",
+      "label": "Economic Quantity",
+      "unit": "unit",
+      "description": "Economic Quantity"
+    },
+    {
+      "id": "reorder_point",
+      "label": "Reorder Point",
+      "unit": "unit",
+      "description": "Reorder Point"
+    },
+    {
+      "id": "annual_inventory_cost",
+      "label": "Annual Inventory Cost",
+      "unit": "USD/year",
+      "description": "Annual Inventory Cost"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute economic order quantity from annual demand, order cost, and holding cost.",
+    "Compute reorder point from daily demand, lead time, and safety stock.",
+    "Compute annual inventory cost from order and holding cost components.",
+    "Classify REVIEW when demand is volatile or lead time uncertainty is not provided."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

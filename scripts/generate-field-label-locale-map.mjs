@@ -8,7 +8,7 @@ import { join } from "node:path";
 import { execSync } from "node:child_process";
 
 const ROOT = join(import.meta.dirname, "..");
-const OUT = join(ROOT, "scripts/data/calculator-field-labels-i18n.json");
+const OUT = join(ROOT, "archive/migration-only/scripts/data/calculator-field-labels-i18n.json");
 
 const CATALOG_PATHS = [
   "src/lib/tools/free-traffic-catalog.generated.json",
@@ -17,10 +17,10 @@ const CATALOG_PATHS = [
 ];
 
 const WORD_GLOSSARY = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/calculator-word-glossary.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/calculator-word-glossary.json"), "utf8"),
 );
 const EXPAND = JSON.parse(
-  readFileSync(join(ROOT, "scripts/data/calculator-glossary-expand.json"), "utf8"),
+  readFileSync(join(ROOT, "archive/migration-only/scripts/data/calculator-glossary-expand.json"), "utf8"),
 );
 const PHRASE_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),

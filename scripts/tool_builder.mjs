@@ -3,10 +3,10 @@ import path from 'path';
 
 const jsonFile = path.resolve('./gemını free 191-359 .txt');
 
-console.log("=== TUR 2: ENDÜSTRİYEL VALİDASYON VE KOD ÜRETİMİ (TOOL BUILDER) ===");
+console.log("=== TYPE 2: ENDÜSTRİYEL VALİDASYON VE KOD ÜRETİMİ (TOOL BUILDER) ===");
 
 if (!fs.existsSync(jsonFile)) {
-  console.error("HATA: JSON dosyası bulunamadı:", jsonFile);
+  console.error("ERROR: JSON dosyası bulunamadı:", jsonFile);
   process.exit(1);
 }
 
@@ -40,19 +40,19 @@ try {
       });
   }
 } catch (e) {
-  console.error("HATA: JSON Parse failed after cleanup. Detay:", e.message);
+  console.error("ERROR: JSON Parse failed after cleanup. Detay:", e.message);
   process.exit(1);
 }
 
-console.log(`PASS: ${toolsArray.length} adet aracın TAM DATASI (Inputs, Warnings, Validation) başarıyla yüklendi.`);
+console.log(`PASS: ${toolsArray.length} count toolın TAM DATASI (Inputs, Warnings, Validation) başarıyla yüklendi.`);
 
-// Örnek: İlk Aracı İncele
+// Örnek: İlk Toolı İncele
 const firstTool = toolsArray[0];
 console.log(`\nÖRNEK ARAÇ İNCELEMESİ: ${firstTool.tool_id} - ${firstTool.tool_name}`);
 console.log(`Inputs: ${firstTool.inputs.map(i => i.id).join(', ')}`);
 if (firstTool.engine_rules) {
    console.log(`Validation Kuralları Mevcut: ${Object.keys(firstTool.engine_rules.validation || {}).length}`);
-   console.log(`Smart Warnings (Endüstriyel Kural): ${firstTool.engine_rules.smart_warnings?.length || 0} adet`);
+   console.log(`Smart Warnings (Endüstriyel Kural): ${firstTool.engine_rules.smart_warnings?.length || 0} count`);
 }
 
 console.log("\nSONUÇ: Tool Builder veriyi işlemeye hazır. Kod üretimine başlanabilir.");

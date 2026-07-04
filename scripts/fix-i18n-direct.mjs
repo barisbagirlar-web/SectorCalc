@@ -3,10 +3,10 @@ const D = '/Users/macair1/projects/SectorCalc/src/lib/premium-schema/schemas';
 
 const fixes = {
   'scaffold-rental-cost-analyzer.ts': {
-    name: ['"en":"İskele Kiralama & Süre Optimizasyonu"', '"en":"Scaffold Rental & Duration Optimization"'],
+    name: ['"en":"İskele Leasing & Süre Optimizasyonu"', '"en":"Scaffold Rental & Duration Optimization"'],
     pain: [
-      '"en":"İskele kiralama süresi ve alanı optimize edilmezse gereksiz kira, işçilik ve nakliye maliyeti oluşur.","tr":"İskele kiralama süresi ve alanı optimize edilmezse gereksiz kira, işçilik ve nakliye maliyeti oluşur."',
-      '"en":"If scaffold rental duration and area are not optimized, unnecessary rent, labor, and transportation costs occur.","tr":"İskele kiralama süresi ve alanı optimize edilmezse gereksiz kira, işçilik ve nakliye maliyeti oluşur."'
+      '"en":"İskele leasing süresi ve areaı optimize edilmezse gereksiz rent, işçilik ve nakliye cost oluşur.","tr":"İskele leasing süresi ve areaı optimize edilmezse gereksiz rent, işçilik ve nakliye cost oluşur."',
+      '"en":"If scaffold rental duration and area are not optimized, unnecessary rent, labor, and transportation costs occur.","tr":"İskele leasing süresi ve areaı optimize edilmezse gereksiz rent, işçilik ve nakliye cost oluşur."'
     ],
   },
   'sewing-line-balance-analyzer-pro.ts': {
@@ -17,21 +17,21 @@ const fixes = {
     ],
   },
   'subcontractor-margin-leak-analyzer.ts': {
-    name: ['"en":"Taşeron Marj Kaçağı Analizi"', '"en":"Subcontractor Margin Leak Analysis"'],
+    name: ['"en":"Taşeron Margin Kaçağı Analysis"', '"en":"Subcontractor Margin Leak Analysis"'],
     pain: [
-      '"en":"Taşeron teklif marjı ile gerçekleşen marj arasındaki fark kontrol edilmezse proje kârlılığı sessizce erir.","tr":"Taşeron teklif marjı ile gerçekleşen marj arasındaki fark kontrol edilmezse proje kârlılığı sessizce erir."',
-      '"en":"If the difference between quoted subcontractor margin and actual margin is not monitored, project profitability silently erodes.","tr":"Taşeron teklif marjı ile gerçekleşen marj arasındaki fark kontrol edilmezse proje kârlılığı sessizce erir."'
+      '"en":"Taşeron teklif marginı ile gerçekleşen margin arasındaki fark control edilmezse project kârlılığı sessizce erir.","tr":"Taşeron teklif marginı ile gerçekleşen margin arasındaki fark control edilmezse project kârlılığı sessizce erir."',
+      '"en":"If the difference between quoted subcontractor margin and actual margin is not monitored, project profitability silently erodes.","tr":"Taşeron teklif marginı ile gerçekleşen margin arasındaki fark control edilmezse project kârlılığı sessizce erir."'
     ],
   },
   'supplier-currency-risk-analyzer.ts': {
-    name: ['"en":"Tedarikçi Döviz Riski Analizi"', '"en":"Supplier Currency Risk Analysis"'],
+    name: ['"en":"Supplyçi Döviz Riski Analysis"', '"en":"Supplier Currency Risk Analysis"'],
     pain: [
-      '"en":"Yabancı para tedarikçilerinde kur dalgalanması maliyeti hesaplanmazsa beklenmedik zararlar oluşur.","tr":"Yabancı para tedarikçilerinde kur dalgalanması maliyeti hesaplanmazsa beklenmedik zararlar oluşur."',
-      '"en":"If the cost of exchange rate fluctuations is not calculated for foreign currency suppliers, unexpected losses occur.","tr":"Yabancı para tedarikçilerinde kur dalgalanması maliyeti hesaplanmazsa beklenmedik zararlar oluşur."'
+      '"en":"Yabancı para supplyçilerinde kur dalgalanması cost hesaplanmazsa beklenmedik zararlar oluşur.","tr":"Yabancı para supplyçilerinde kur dalgalanması cost hesaplanmazsa beklenmedik zararlar oluşur."',
+      '"en":"If the cost of exchange rate fluctuations is not calculated for foreign currency suppliers, unexpected losses occur.","tr":"Yabancı para supplyçilerinde kur dalgalanması cost hesaplanmazsa beklenmedik zararlar oluşur."'
     ],
   },
   'taguchi-quality-loss-analyzer.ts': {
-    name: ['"en":"Taguchi Kalite Kaybı Analizi"', '"en":"Taguchi Quality Loss Analysis"'],
+    name: ['"en":"Taguchi Quality Kaybı Analysis"', '"en":"Taguchi Quality Loss Analysis"'],
   },
 };
 

@@ -39,7 +39,7 @@ const ALLOWLIST_PATTERNS = [
   /"service_account"\s*[,.\]]/,
   /"private_key"\s*[,.\]]/,
   // Taxonomy category labels (not passwords)
-  /password\s*:\s*"(?:bilisim|sifre|parola|şifre)"/i,
+  /password\s*:\s*"(?:bilisim|sifre|parola|şifre|informatics)"/i,
   // i18n message key (not a real password/api key)
   /(?:\w+\.)?MISSING_API_KEY\b/,
   // Test fixture with redacted password

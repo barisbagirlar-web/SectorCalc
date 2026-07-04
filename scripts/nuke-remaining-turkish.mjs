@@ -7,17 +7,17 @@ const files = readdirSync(SCHEMAS_DIR).filter(f => f.endsWith('.ts'));
 let changedFiles = 0;
 
 const replacements = {
-  "USD/adet/yil": "USD/unit/year",
-  "dk/adet": "min/unit",
-  "USD/adet": "USD/unit",
-  "adet/yil": "units/year",
-  "adet/ay": "units/month",
-  "adet/gun": "units/day",
-  "adet/saat": "units/hour",
-  "adet/dekar": "units/acre",
-  "adet": "units",
+  "USD/count/year": "USD/unit/year",
+  "dk/count": "min/unit",
+  "USD/count": "USD/unit",
+  "count/year": "units/year",
+  "count/ay": "units/month",
+  "count/day": "units/day",
+  "count/saat": "units/hour",
+  "count/dekar": "units/acre",
+  "count": "units",
   "Finansal Gain": "Financial Gain",
-  "SL Annual Amortisman": "SL Annual Depreciation"
+  "SL Annual Depreciation": "SL Annual Depreciation"
 };
 
 for (const file of files) {
@@ -33,17 +33,17 @@ for (const file of files) {
   
   // replace specific labels that failed
   content = content.replace(/"Finansal Gain"/g, '"Financial Gain"');
-  content = content.replace(/"SL Annual Amortisman"/g, '"SL Annual Depreciation"');
+  content = content.replace(/"SL Annual Depreciation"/g, '"SL Annual Depreciation"');
 
   // Any assumption notes that contain forbidden words will just be wiped out
   const forbidden = [
-    "maliyeti", "hesaplama", "suresi", "hesabi", "sayisi", "tuketim", "yogunluk",
-    "ucreti", "karsilastirma", "dogalgaz", "boru", "agirlik", 
-    "klima", "kamyon", "amortisman", "bakim", "armatur", "celik", "paslanmaz",
-    "cevre", "alani", "yazici", "hacmi", "omru", "kosebent", "lama",
-    "kure", "npu", "profil", "radyator", "petek", "enflasyon", "mesai",
-    "irsaliye", "fatura", "kaynak", "dikis", "kaza", "dolayli", "isleme",
-    "tasima", "cevrim", "finansal", "donusturucu", "dntrc"
+    "cost", "calculation", "duration", "hesabi", "count", "tuketim", "yogunluk",
+    "ucreti", "comparison", "dogalgaz", "boru", "weight", 
+    "klima", "kamyon", "depreciation", "maintenance", "armatur", "steel", "paslanmaz",
+    "environment", "area", "yazici", "volume", "omru", "kosebent", "lama",
+    "kure", "npu", "profil", "radyator", "petek", "inflation", "mesai",
+    "irsaliye", "fatura", "resource", "dikis", "kaza", "dolayli", "isleme",
+    "tasima", "cycle", "finansal", "donusturucu", "dntrc"
   ];
   
   const assumptionNotesRegex = /assumptionNotes:\s*\[([^\]]*)\]/g;

@@ -8,26 +8,26 @@ let changedFiles = 0;
 
 const hardcodedReplacements = {
   "Finansal obligation": "Financial obligation",
-  "dak/adet": "min/unit",
+  "dak/count": "min/unit",
   "Isleme Cost": "Machining Cost",
-  "Enerji Maliyeti": "Energy Cost",
-  "cevrim/saat": "cycles/hour",
+  "Energy Cost": "Energy Cost",
+  "cycle/saat": "cycles/hour",
   "Kamyon Says": "Truck Loads",
-  "Beton Hacmi": "Concrete Volume",
+  "Concrete Volume": "Concrete Volume",
   "Donusturucu": "Converter",
   "Finansal Loss": "Financial Loss",
-  "adet/donem": "units/period",
-  "Garanti Maliyeti/Adet": "Warranty Cost/Unit",
-  "Ariza Suresi Maliyeti": "Downtime Cost",
-  "Rework Maliyeti/Batch": "Rework Cost/Batch",
-  "Ciro Maliyeti": "Turnover Cost",
-  "Scrap Maliyeti/Adet": "Scrap Cost/Unit",
-  "SL Aylk Amortisman": "SL Monthly Depreciation",
-  "yeni hata maliyeti": "new defect cost",
-  "Enerji maliyeti": "Energy cost",
+  "count/period": "units/period",
+  "Garanti Cost/Count": "Warranty Cost/Unit",
+  "Ariza Duration Cost": "Downtime Cost",
+  "Rework Cost/Batch": "Rework Cost/Batch",
+  "Ciro Cost": "Turnover Cost",
+  "Scrap Cost/Count": "Scrap Cost/Unit",
+  "SL Aylk Depreciation": "SL Monthly Depreciation",
+  "yeni error cost": "new defect cost",
+  "Energy cost": "Energy cost",
   "Finansal": "Financial",
-  "maliyeti": "cost",
-  "Maliyeti": "Cost"
+  "cost": "cost",
+  "Cost": "Cost"
 };
 
 for (const file of files) {

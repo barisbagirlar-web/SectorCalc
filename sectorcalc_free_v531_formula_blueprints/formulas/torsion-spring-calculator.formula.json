@@ -1,0 +1,163 @@
+{
+  "tool_name": "Torsion Spring Calculator",
+  "tool_key": "torsion-spring-calculator",
+  "slug": "torsion-spring-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "shaft-torsion-and-twist",
+  "inputs": [
+    {
+      "id": "torque",
+      "label": "Torque",
+      "unit": "N*m",
+      "required": true,
+      "normalized_id": "torque",
+      "description": "Torque",
+      "min": 0
+    },
+    {
+      "id": "shaft_length",
+      "label": "Shaft Length",
+      "unit": "m",
+      "required": true,
+      "normalized_id": "shaft_length",
+      "description": "Shaft Length",
+      "min": 0.001
+    },
+    {
+      "id": "polar_moment",
+      "label": "Polar Moment of Area",
+      "unit": "m^4",
+      "required": true,
+      "normalized_id": "polar_moment",
+      "description": "Polar Moment of Area",
+      "min": 1e-12
+    },
+    {
+      "id": "shear_modulus",
+      "label": "Shear Modulus",
+      "unit": "Pa",
+      "required": true,
+      "normalized_id": "shear_modulus",
+      "description": "Shear Modulus",
+      "min": 1000000.0
+    },
+    {
+      "id": "outer_radius",
+      "label": "Outer Radius",
+      "unit": "m",
+      "required": true,
+      "normalized_id": "outer_radius",
+      "description": "Outer Radius",
+      "min": 1e-06
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "torque",
+      "source_input_id": "torque",
+      "base_unit": "N*m",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "shaft_length",
+      "source_input_id": "shaft_length",
+      "base_unit": "m",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "polar_moment",
+      "source_input_id": "polar_moment",
+      "base_unit": "m^4",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "shear_modulus",
+      "source_input_id": "shear_modulus",
+      "base_unit": "Pa",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "outer_radius",
+      "source_input_id": "outer_radius",
+      "base_unit": "m",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "angle_of_twist",
+      "label": "Angle of Twist",
+      "unit": "rad",
+      "description": "Angle of Twist"
+    },
+    {
+      "id": "maximum_shear_stress",
+      "label": "Maximum Shear Stress",
+      "unit": "Pa",
+      "description": "Maximum Shear Stress"
+    },
+    {
+      "id": "torsion_utilization",
+      "label": "Torsion Utilization",
+      "unit": "ratio",
+      "description": "Torsion Utilization"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute angle of twist from torque, shaft length, shear modulus, and polar moment.",
+    "Compute maximum torsional shear stress from torque, outer radius, and polar moment.",
+    "Return finite SI results with REVIEW status for simplified geometry assumptions."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}

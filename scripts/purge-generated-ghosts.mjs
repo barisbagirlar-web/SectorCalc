@@ -7,27 +7,27 @@ const GENERATED_FILES_TO_PURGE = [
   "src/data/free-tool-inputs-i18n.generated.json",
   "src/data/schema-catalog-metadata.generated.json",
   "src/data/free-tool-catalog-i18n.generated.json",
-  "scripts/data/generated-schema-copy-i18n.json",
+  "archive/migration-only/scripts/data/generated-schema-copy-i18n.json",
   "src/lib/features/tools/free-traffic-catalog.generated.json",
   "src/lib/features/tools/roadmap-free-batch1-catalog.generated.json",
   "src/lib/features/tools/roadmap-free-batch2-catalog.generated.json"
 ];
 
 const TURKISH_SUBSTRINGS = [
-  "maliyeti", "hesaplama", "suresi", "hesabi", "sayisi", "tuketim", "yogunluk",
-  "ucreti", "basina", "karsilastirma", "dogalgaz", "boru", "agirlik", 
-  "klima", "kamyon", "amortisman", "bakim", "armatur", "celik", "paslanmaz",
-  "hizi", "cevre", "alani", "yazici", "hacmi", "omru", "kosebent", "lama",
+  "maliyeti", "hesaplama", "duration", "hesabi", "count", "tuketim", "yogunluk",
+  "ucreti", "basina", "karsilastirma", "dogalgaz", "boru", "weight", 
+  "klima", "kamyon", "depreciation", "maintenance", "armatur", "steel", "paslanmaz",
+  "hizi", "environment", "alani", "yazici", "hacmi", "omru", "kosebent", "lama",
   "kure", "npu", "profil", "radyator", "petek", "enflasyon", "mesai",
-  "irsaliye", "fatura", "kaynak", "dikis", "kaza", "dolayli", "isleme",
-  "tasima", "cevrim", "finansal", "donusturucu", "dntrc", "adet", "gunluktasima"
+  "irsaliye", "fatura", "resource", "dikis", "kaza", "dolayli", "isleme",
+  "tasima", "cycle", "finansal", "donusturucu", "dntrc", "count", "gunluktasima"
 ];
 
 function containsTurkishGhost(str) {
   const lower = str.toLowerCase();
   for (const sub of TURKISH_SUBSTRINGS) {
     if (lower.includes(sub)) {
-      if (sub === "adet" && lower.includes("cadet")) continue; // avoid cadet
+      if (sub === "count" && lower.includes("cadet")) continue; // avoid cadet
       return true;
     }
   }

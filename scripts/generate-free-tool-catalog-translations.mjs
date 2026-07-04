@@ -540,6 +540,6 @@ for (const locale of locales) {
   }
 }
 
-const outputPath = join(root, "scripts/data/free-tool-catalog-translations.json");
+const outputPath = join(root, "archive/migration-only/scripts/data/free-tool-catalog-translations.json");
 writeFileSync(outputPath, `${JSON.stringify(out, null, 2)}\n`, "utf8");
 console.log(`Wrote ${outputPath} (${catalog.length} tools × ${locales.length} locales)`);

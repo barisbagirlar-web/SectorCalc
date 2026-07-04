@@ -13,10 +13,10 @@ const FIXES = {
     "PaybackPeriod": "(InitialInvestment / CashFlow1)",
     "DiscountedPayback": "(InitialInvestment / (CashFlow1 / (1 + DiscountRate)))",
   },
-  "ilerleme-yem-maliyet": {
+  "ilerleme-yem-cost": {
     "Opt": "0.95",
   },
-  "odeme-vadesi-optimize-edici": {
+  "payment-vadesi-optimize-edici": {
     "OptDay": "30",
     "OptDisc": "(DiscountPct / (1 - DiscountPct)) * (365 / (NetDays - DiscDays))",
     "AnnualSaving": "(CurrentCost - (CurrentCost * (0.98))) * 12",

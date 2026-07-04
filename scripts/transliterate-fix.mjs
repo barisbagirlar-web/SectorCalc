@@ -55,7 +55,7 @@ const EXCLUDE_PATHS = [
   /\/src\/data\/messages-en\.json$/,
   /internal-copy-blocklist/, /sanitize-content\.ts/,
   /free-traffic-calculators-registry\.ts$/,
-  /values\.(birimmaliyet|kredi|nakit|faiz|vade|masraf|yil|donem|taksit)/,
+  /values\.(birimmaliyet|kredi|nakit|faiz|vade|masraf|year|period|taksit)/,
   /\/src\/config\/regions\.ts/,
   /\/src\/lib\/locale-center\/region-defaults\.ts/,
   /\/src\/lib\/locale-center\/unit-currency-center\.ts/,

@@ -9,7 +9,7 @@ console.log("=== AŞAMA 1: KATALOG TEMİZLİĞİ (CLEAN SLATE) ===");
 const rawCache = fs.readFileSync(cacheFile, 'utf-8');
 const tools = JSON.parse(rawCache);
 
-// Çıkarılmış olan 400 aracın slug listesini bir Hash Map'e alalım ki hızlıca arayabilelim.
+// Çıprofitılmış olan 400 toolın slug listesini bir Hash Map'e alalım ki hızlıca arayabilelim.
 // fin-001, mech-192 vb.
 const generatedSlugs = new Set();
 tools.forEach(t => {
@@ -91,11 +91,11 @@ for (let i = 0; i < restOfContent.length; i++) {
 
 const contentAfterArray = restOfContent.substring(arrayEndIndex);
 
-// Temizlenmiş objeleri virgülle birleştir ve yeni array string'i oluştur
+// Temizlenmiş objeleri virgülle birleştir ve yeni array string'i oluştype
 const newArrayContent = '\n  ' + cleanedObjects.join(',\n  ') + '\n';
 const finalContent = contentBeforeArray + newArrayContent + contentAfterArray;
 
 fs.writeFileSync(catalogFile, finalContent, 'utf-8');
 
 console.log(`[PASS] Katalog temizlendi. Tüm dummy/eski endüstriyel araçlar (fin-xxx vb) dosyadan silindi.`);
-console.log(`[INFO] Sadece ${cleanedObjects.length} adet orijinal OMNI aracı korundu.`);
+console.log(`[INFO] Sadece ${cleanedObjects.length} count orijinal OMNI toolı korundu.`);

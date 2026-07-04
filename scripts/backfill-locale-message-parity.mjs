@@ -120,12 +120,12 @@ function loadGlossary() {
     readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),
   );
   const word = JSON.parse(
-    readFileSync(join(ROOT, "scripts/data/calculator-word-glossary.json"), "utf8"),
+    readFileSync(join(ROOT, "archive/migration-only/scripts/data/calculator-word-glossary.json"), "utf8"),
   );
   const expand = JSON.parse(
-    readFileSync(join(ROOT, "scripts/data/calculator-glossary-expand.json"), "utf8"),
+    readFileSync(join(ROOT, "archive/migration-only/scripts/data/calculator-glossary-expand.json"), "utf8"),
   );
-  const manualPath = join(ROOT, "scripts/data/marketing-surface-translations.json");
+  const manualPath = join(ROOT, "archive/migration-only/scripts/data/marketing-surface-translations.json");
   const manual = existsSync(manualPath)
     ? JSON.parse(readFileSync(manualPath, "utf8"))
     : {};

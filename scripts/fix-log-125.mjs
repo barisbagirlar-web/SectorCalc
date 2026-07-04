@@ -14,11 +14,11 @@ locales.forEach(locale => {
   if (!i18nData[locale]) i18nData[locale] = {};
   
   if (!i18nData[locale]["log-125"]) {
-    const labelCif = locale === 'tr' ? "CIF Bedeli (Mal + Sigorta + Navlun)" : "CIF Value";
-    const helperCif = locale === 'tr' ? "Gümrük vergisi matrahı olarak kullanılacak CIF değeri." : "CIF value used as tax base.";
+    const labelCif = locale === 'tr' ? "CIF Bedeli (Mal + Insurance + Navlun)" : "CIF Value";
+    const helperCif = locale === 'tr' ? "Gümrük vergisi matrahı olarak useılacak CIF değeri." : "CIF value used as tax base.";
     
-    const labelGumruk = locale === 'tr' ? "Gümrük Vergisi Oranı" : "Customs Tax Rate";
-    const helperGumruk = locale === 'tr' ? "Uygulanacak gümrük vergisi oranı." : "Applicable customs tax rate.";
+    const labelGumruk = locale === 'tr' ? "Gümrük Vergisi Ratioı" : "Customs Tax Rate";
+    const helperGumruk = locale === 'tr' ? "Uygulanacak gümrük vergisi ratioı." : "Applicable customs tax rate.";
     
     // DIRECTLY ATTACH TO SLUG (no 'inputs' wrapper)
     i18nData[locale]["log-125"] = {

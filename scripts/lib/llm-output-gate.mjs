@@ -38,13 +38,13 @@ export const EMERGENCY_GATE_MIGRATED_FREE_SLUGS = [
   "rent-vs-buy-calculator",
   "sample-size-calculator",
   "linear-regression-calculator",
-  "kdv-tevkifati-hesaplama",
-  "sgk-prim-hesaplama-isci-plus-isveren",
-  "ic-verim-orani-irr-hesaplama",
+  "kdv-tevkifati-calculation",
+  "sgk-prim-calculation-isci-plus-isveren",
+  "ic-efficiency-ratio-irr-calculation",
   "basincli-kap-cidar-kalinligi-hesabi",
-  "istatistiksel-proses-kontrol-spc-limit-hesabi",
-  "alti-sigma-dpmo-sigma-seviyesi-cevirici",
-  "navlun-maliyeti-hesaplayici",
+  "istatistiksel-process-control-spc-limit-hesabi",
+  "alti-sigma-dpmo-sigma-level-cevirici",
+  "navlun-cost-hesaplayici",
 ];
 
 export function auditLlmsTxtContent(llms, { labelPrefix = "llms.txt" } = {}) {

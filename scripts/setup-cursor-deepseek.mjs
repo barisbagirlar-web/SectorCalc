@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Cursor DeepSeek kurulum yardımcısı.
+ * Cursor DeepSeek installation yardımcısı.
  * API key doğrular, Cursor Models adımlarını basar.
  *
  *   npm run setup:cursor-deepseek

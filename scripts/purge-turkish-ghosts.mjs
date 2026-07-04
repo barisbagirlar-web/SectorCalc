@@ -6,20 +6,20 @@ const MESSAGES_DIR = join(ROOT, "messages");
 const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
 
 const TURKISH_SUBSTRINGS = [
-  "maliyeti", "hesaplama", "suresi", "hesabi", "sayisi", "tuketim", "yogunluk",
-  "ucreti", "basina", "karsilastirma", "dogalgaz", "boru", "agirlik", 
-  "klima", "kamyon", "amortisman", "bakim", "armatur", "celik", "paslanmaz",
-  "hizi", "cevre", "alani", "yazici", "hacmi", "omru", "kosebent", "lama",
+  "maliyeti", "hesaplama", "duration", "hesabi", "count", "tuketim", "yogunluk",
+  "ucreti", "basina", "karsilastirma", "dogalgaz", "boru", "weight", 
+  "klima", "kamyon", "depreciation", "maintenance", "armatur", "steel", "paslanmaz",
+  "hizi", "environment", "alani", "yazici", "hacmi", "omru", "kosebent", "lama",
   "kure", "npu", "profil", "radyator", "petek", "enflasyon", "mesai",
-  "irsaliye", "fatura", "kaynak", "dikis", "kaza", "dolayli", "isleme",
-  "tasima", "cevrim", "finansal", "donusturucu", "dntrc", "adet"
+  "irsaliye", "fatura", "resource", "dikis", "kaza", "dolayli", "isleme",
+  "tasima", "cycle", "finansal", "donusturucu", "dntrc", "count"
 ];
 
 function containsTurkishGhost(str) {
   const lower = str.toLowerCase();
   for (const sub of TURKISH_SUBSTRINGS) {
     if (lower.includes(sub)) {
-      if (sub === "adet" && lower.includes("cadet")) continue; // avoid cadet
+      if (sub === "count" && lower.includes("cadet")) continue; // avoid cadet
       return true;
     }
   }

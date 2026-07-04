@@ -1,0 +1,186 @@
+{
+  "tool_name": "Beam Reaction Calculator",
+  "tool_key": "beam-reaction-calculator",
+  "slug": "beam-reaction-calculator",
+  "package_role": "free-tool-server-formula-blueprint",
+  "v531_contract": {
+    "contract_version": "V5.3.1",
+    "runtime_target": "server-only",
+    "renderer": "UniversalIndustrialDecisionForm V5.3.1",
+    "redaction_status": "INTERNAL_TRACE_RESTRICTED",
+    "public_formula_policy": "Do not expose exact formulas in public schema, public UI, public JSON, PDF, copy summary, browser state, or public HTML.",
+    "input_policy": "Use normalized base-unit inputs only inside the formula engine.",
+    "quality_policy": "Use deterministic arithmetic, explicit validation, finite output checks, and audit-safe status classification."
+  },
+  "formula_profile": "structural-beam-serviceability-strength",
+  "inputs": [
+    {
+      "id": "span_length",
+      "label": "Span Length",
+      "unit": "m",
+      "required": true,
+      "normalized_id": "span_length",
+      "description": "Span Length",
+      "min": 0.01
+    },
+    {
+      "id": "distributed_load",
+      "label": "Uniform Distributed Load",
+      "unit": "N/m",
+      "required": true,
+      "normalized_id": "distributed_load",
+      "description": "Uniform Distributed Load",
+      "min": 0
+    },
+    {
+      "id": "point_load",
+      "label": "Point Load",
+      "unit": "N",
+      "required": true,
+      "normalized_id": "point_load",
+      "description": "Point Load",
+      "min": 0
+    },
+    {
+      "id": "elastic_modulus",
+      "label": "Elastic Modulus",
+      "unit": "Pa",
+      "required": true,
+      "normalized_id": "elastic_modulus",
+      "description": "Elastic Modulus",
+      "min": 1000000.0
+    },
+    {
+      "id": "second_moment_area",
+      "label": "Second Moment of Area",
+      "unit": "m^4",
+      "required": true,
+      "normalized_id": "second_moment_area",
+      "description": "Second Moment of Area",
+      "min": 1e-12
+    },
+    {
+      "id": "section_modulus",
+      "label": "Section Modulus",
+      "unit": "m^3",
+      "required": true,
+      "normalized_id": "section_modulus",
+      "description": "Section Modulus",
+      "min": 1e-12
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "span_length",
+      "source_input_id": "span_length",
+      "base_unit": "m",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "distributed_load",
+      "source_input_id": "distributed_load",
+      "base_unit": "N/m",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "point_load",
+      "source_input_id": "point_load",
+      "base_unit": "N",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "elastic_modulus",
+      "source_input_id": "elastic_modulus",
+      "base_unit": "Pa",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "second_moment_area",
+      "source_input_id": "second_moment_area",
+      "base_unit": "m^4",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    },
+    {
+      "id": "section_modulus",
+      "source_input_id": "section_modulus",
+      "base_unit": "m^3",
+      "conversion": "identity_or_explicit_unit_conversion_required"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "maximum_reaction",
+      "label": "Maximum Support Reaction",
+      "unit": "N",
+      "description": "Maximum Support Reaction"
+    },
+    {
+      "id": "maximum_bending_moment",
+      "label": "Maximum Bending Moment",
+      "unit": "N*m",
+      "description": "Maximum Bending Moment"
+    },
+    {
+      "id": "maximum_deflection",
+      "label": "Maximum Deflection",
+      "unit": "m",
+      "description": "Maximum Deflection"
+    },
+    {
+      "id": "bending_stress",
+      "label": "Bending Stress",
+      "unit": "Pa",
+      "description": "Bending Stress"
+    }
+  ],
+  "server_formula_steps": [
+    "Compute support reactions for a simply supported beam using uniform load and midspan point load assumptions.",
+    "Compute maximum bending moment from uniform load and point load components.",
+    "Compute elastic deflection from Euler-Bernoulli beam theory using normalized SI units.",
+    "Compute bending stress as maximum bending moment divided by section modulus.",
+    "Classify REVIEW when support condition or load placement is outside the simplified free-tool scope."
+  ],
+  "validation_contract": [
+    "Reject missing required inputs.",
+    "Reject non-finite numeric inputs.",
+    "Reject zero or negative denominators before division.",
+    "Return REVIEW when free-tool assumptions are insufficient for an irreversible field decision.",
+    "Return BLOCKED when the requested calculation cannot produce finite results."
+  ],
+  "audit_contract": {
+    "required_execute_response_fields": [
+      "status",
+      "pipeline_state",
+      "outputs",
+      "warnings",
+      "normalized_input_audit",
+      "reference_range_warnings",
+      "proof_pack_public",
+      "decision_interpretation",
+      "audit_seal",
+      "redaction_status"
+    ],
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "audit_seal_fields": [
+      "tool_id",
+      "tool_key",
+      "schema_version",
+      "formula_version",
+      "runtime_version",
+      "input_hash",
+      "normalized_input_hash",
+      "output_hash",
+      "proof_pack_hash",
+      "executed_at",
+      "redaction_status"
+    ]
+  },
+  "implementation_rules": [
+    "Implement the formula in a server-only module.",
+    "Bind inputs by normalized input IDs, not by display labels.",
+    "Do not expose exact formula steps in public UI or public schema.",
+    "Do not return OK when the formula module is missing.",
+    "Do not calculate from schema default values.",
+    "Use UniversalIndustrialDecisionForm V5.3.1 without creating a tool-specific React form."
+  ]
+}
