@@ -31,6 +31,9 @@ const FORBIDDEN_PATTERNS = [
   "machine recipe",
   "process sheet",
   "generic source",
+  // V5.3.1 UX: bare exclamation without warning context
+  'title="">!',        // empty title on exclamation
+  'aria-label="">!',   // empty aria-label on exclamation
 ];
 // Patterns skipped in source/build mode (legitimate server data, never user-visible UI):
 const SOURCE_SKIP = new Set([
@@ -64,6 +67,17 @@ const REQUIRED_UX = [
   "sc-v531-field-reference",
   "No result yet",
   "Protected methodology",
+  // V5.3.1 UX defects fix
+  "sc-v531-view-description",
+  "sc-v531-field-reference-strip",
+  "sc-v531-ref-line",
+  "Fast decision view",
+  "Engineering view",
+  "Cost view",
+  "Audit view",
+  "Allowed range",
+  "Default reference",
+  "Accepted values",
 ];
 
 // ── Test tools for live URL mode ──

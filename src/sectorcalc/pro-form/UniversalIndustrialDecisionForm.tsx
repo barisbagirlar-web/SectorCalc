@@ -48,6 +48,11 @@ import "./universal-industrial-decision-form.css";
 
 // ── ViewModel types ────────────────────────────────────────────────────────────
 
+/** True only for non-empty strings after trim. */
+function hasMessage(value: unknown): boolean {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
 interface EvidenceRow {
   valueVerified: boolean;
   sourceVerified: boolean;
@@ -73,6 +78,8 @@ interface FieldViewModel {
   referenceSource: string | null;
   tolerancePct: string | null;
   evidence: EvidenceRow;
+  /** Compact reference metadata lines rendered under the input row. */
+  referenceStrip: string[];
 }
 
 interface ActionViewModel {
@@ -197,6 +204,47 @@ function buildCalculatorViewModel(
       // Reference source: per-input if available, else tool-characteristic default
       const inputRefSource = computeInputReferenceSource(input, referenceSourceLabel);
 
+      // ── Reference strip: compact metadata lines under each input ──
+      const refStrip: string[] = [];
+
+      // Priority 1: physical hard bounds (min/max)
+      const hb = input.physical_hard_bounds;
+      if (hb && hb.min !== null && hb.max !== null) {
+        const hbUnit = hb.unit ? ` ${hb.unit}` : "";
+        refStrip.push(`Allowed range: ${hb.min}–${hb.max}${hbUnit}`);
+      }
+
+      // Priority 2: resolution / precision
+      if (input.resolution != null) {
+        refStrip.push(`Resolution: ${input.resolution}`);
+      } else if (input.precision_policy?.input_decimals != null) {
+        refStrip.push(`Precision: ${input.precision_policy.input_decimals} decimal places`);
+      }
+
+      // Priority 3: default value
+      const defVal = input.default_value ?? input.default;
+      if (defVal != null && defVal !== "") {
+        refStrip.push(`Default reference: ${String(defVal)}`);
+      }
+
+      // Priority 4: enum / allowed values
+      if (Array.isArray(input.allowed_values) && input.allowed_values.length > 0) {
+        refStrip.push(`Accepted values: ${input.allowed_values.map(humanizeEnum).join(", ")}`);
+      }
+
+      // Priority 5: evidence text (only if no richer metadata exists)
+      const hasNumericRef = refStrip.length > 0;
+      if (!hasNumericRef && input.required) {
+        refStrip.push(
+          "Evidence required: user-verified source, calibrated measurement, ERP/job record, or approved engineering note.",
+        );
+      }
+
+      // Fallback if truly no metadata
+      if (refStrip.length === 0) {
+        refStrip.push("Reference data: not specified in this tool schema.");
+      }
+
       return {
         id: input.id,
         label: input.name,
@@ -219,6 +267,7 @@ function buildCalculatorViewModel(
           evidenceRequired,
           evidenceLabel,
         },
+        referenceStrip: refStrip,
       };
     });
 
@@ -613,12 +662,18 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
             type="button"
             role="tab"
             aria-selected={activeMode === mode.id}
+            aria-pressed={activeMode === mode.id}
             className={`sc-v531-mode-tab${activeMode === mode.id ? " sc-v531-mode-tab--active" : ""}`}
             onClick={() => machine.setProfileMode(mode.id)}
           >
             {mode.label}
           </button>
         ))}
+      </div>
+
+      {/* ── View description helper ── */}
+      <div className="sc-v531-view-description" aria-live="polite">
+        {VIEW_DESCRIPTIONS[activeMode] ?? "Select a view to see its description."}
       </div>
 
       {/* ── 2. Main workspace: inputs + action panel ── */}
@@ -842,8 +897,8 @@ function CalculatorInputField({
       <div className="sc-v531-field-header">
         <label htmlFor={inputId} className="sc-v531-field-title">{field.label}</label>
         {field.symbol && <span className="sc-v531-field-symbol">({field.symbol})</span>}
-        {field.criticality === "CRITICAL" && (
-          <span className="sc-v531-field-critical" title="Critical input">!</span>
+        {field.criticality === "CRITICAL" && field.blockers.some((b) => hasMessage(b.message)) && (
+          <span className="sc-v531-field-critical" title="Critical input warning" aria-label="Critical input warning">!</span>
         )}
         {field.tolerancePct && (
           <span className="sc-v531-field-tolerance" title="Expected tolerance range">{field.tolerancePct}</span>
@@ -869,6 +924,15 @@ function CalculatorInputField({
           </select>
         )}
       </div>
+
+      {/* Compact input reference strip */}
+      {field.referenceStrip.length > 0 && (
+        <div className="sc-v531-field-reference-strip" aria-label="Input reference data">
+          {field.referenceStrip.map((line, idx) => (
+            <span key={idx} className="sc-v531-ref-line">{line}</span>
+          ))}
+        </div>
+      )}
 
       {/* Reference source label */}
       {field.referenceSource && (
@@ -1152,7 +1216,7 @@ function ExportPanel(props: { pdfAvailable: boolean; jsonAuditAvailable: boolean
 // ── Shared small components ─────────────────────────────────────────────────────
 
 function ContextItem({ label, value }: { label: string; value: string }) {
-  if (!value || !value.trim()) return null;
+  if (!hasMessage(value)) return null;
   return (
     <div className="sc-v531-context-item">
       <span className="sc-v531-context-label">{label}</span>
@@ -1162,14 +1226,24 @@ function ContextItem({ label, value }: { label: string; value: string }) {
 }
 
 function WarningCard({ severity, title, detail }: { severity: string; title: string; detail: string }) {
+  if (!hasMessage(title)) return null;
   return (
     <div className="sc-v531-warning-card" data-severity={severity.toLowerCase()}>
       <span className="sc-v531-warning-severity">{severity}</span>
       <strong className="sc-v531-warning-title">{title}</strong>
-      {detail && <p className="sc-v531-warning-detail">{detail}</p>}
+      {hasMessage(detail) && <p className="sc-v531-warning-detail">{detail}</p>}
     </div>
   );
 }
+
+// ── View descriptions ──────────────────────────────────────────
+
+const VIEW_DESCRIPTIONS: Record<string, string> = {
+  quick: "Fast decision view: enter the required values and review the primary decision result.",
+  engineering: "Engineering view: review units, allowed ranges, tolerances, references, and formula evidence.",
+  cost: "Cost view: review cost-sensitive inputs, margin impact, and financial decision outputs where available.",
+  audit: "Audit view: review assumptions, validation messages, missing evidence, and calculation trace.",
+};
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 

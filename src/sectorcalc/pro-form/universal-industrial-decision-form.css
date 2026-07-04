@@ -132,7 +132,7 @@
 .sc-v531-mode-tabs {
   display: flex;
   gap: 0;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   border-bottom: 1px solid var(--sc-v531-line);
 }
 
@@ -156,6 +156,19 @@
 .sc-v531-mode-tab--active {
   color: var(--sc-v531-accent);
   border-bottom-color: var(--sc-v531-accent);
+}
+
+/* ── View description helper ── */
+
+.sc-v531-view-description {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--sc-v531-muted-strong);
+  margin-bottom: 16px;
+  padding: 6px 10px;
+  background: var(--sc-v531-bg-alt);
+  border-left: 2px solid var(--sc-v531-accent);
+  min-height: 0;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -305,6 +318,24 @@
   margin: 0;
   cursor: pointer;
   accent-color: var(--sc-v531-accent);
+}
+
+/* ── Input reference strip ── */
+
+.sc-v531-field-reference-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 0 2px;
+  border-top: 1px dashed rgba(26, 25, 21, 0.08);
+  margin-top: 2px;
+}
+
+.sc-v531-ref-line {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--sc-v531-muted-strong);
+  font-family: var(--sc-v531-sans);
 }
 
 /* Reference source label */
