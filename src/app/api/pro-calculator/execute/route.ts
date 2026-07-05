@@ -24,6 +24,7 @@ import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { normalizeInputs } from "@/sectorcalc/pro-form/unit-normalizer";
 import { createAuditSeal, computeHash } from "@/sectorcalc/pro-runtime/audit-seal-service";
 import { redactPublicResponse } from "@/sectorcalc/pro-form/public-response-redactor";
+import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
 import { checkPhysicalBounds, hasBlockingViolation } from "@/sectorcalc/pro-runtime/physical-bounds-guard";
 import { applyDerating, validateDeratingContract } from "@/sectorcalc/pro-runtime/derating-engine";
 import { analyzeSensitivity } from "@/sectorcalc/pro-runtime/sensitivity-engine";
@@ -506,8 +507,17 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const body: ExecuteRequest = await request.json();
 
     // PASS 1 — Static Schema / Binding Control
-    // Schema is resolved from the Pro V5.3.1 schema registry only.
-    const schemaSource: SuperV4Schema | null = null;
+    // Schema is resolved from the Pro/Free V5.3.1 schema registry via resolveApprovedToolSchema.
+    const schemaResult = resolveApprovedToolSchema(body.tool_key);
+    if (!schemaResult.ok) {
+      const errorResponse = buildFullBlockedResponse(
+        "SCHEMA_NOT_FOUND",
+        schemaResult.errors.join("; "),
+      );
+      const { response: safeResponse } = redactPublicResponse(errorResponse);
+      return NextResponse.json(safeResponse, { status: 400 });
+    }
+    const schemaSource: SuperV4Schema = schemaResult.schema;
 
     const pass1 = pass1StaticControl(body, schemaSource);
     if (!pass1.ok) {

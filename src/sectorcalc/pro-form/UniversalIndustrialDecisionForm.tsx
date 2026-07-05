@@ -210,6 +210,9 @@ function buildCalculatorViewModel(
       // Reference source: per-input if available, else tool-characteristic default
       const inputRefSource = computeInputReferenceSource(input, referenceSourceLabel);
 
+      // ── V5.3.1: Normalize field metadata from schema ──
+      const meta = normalizeV531FieldMetadata(input, props.schema);
+
       // ── Reference strip: compact metadata lines under each input ──
       const refStrip: string[] = [];
 
@@ -227,10 +230,12 @@ function buildCalculatorViewModel(
         refStrip.push(`Precision: ${input.precision_policy.input_decimals} decimal places`);
       }
 
-      // Priority 3: default value
+      // Priority 3: default value (from schema default or enriched _reference_default_text)
       const defVal = input.default_value ?? input.default;
       if (defVal != null && defVal !== "") {
         refStrip.push(`Default reference: ${String(defVal)}`);
+      } else if (meta.defaultReference) {
+        refStrip.push(`Reference: ${meta.defaultReference}`);
       }
 
       // Priority 4: enum / allowed values
@@ -250,9 +255,6 @@ function buildCalculatorViewModel(
       if (refStrip.length === 0) {
         refStrip.push("Reference data: not specified in this tool schema.");
       }
-
-      // ── V5.3.1: Normalize field metadata from schema ──
-      const meta = normalizeV531FieldMetadata(input, props.schema);
 
       const declaredRange = meta.allowedRange
         ? `Allowed range: ${meta.allowedRange}`
