@@ -297,6 +297,13 @@ async function runHttpChecks() {
   // Log full response for debugging
   console.log("  Response:", JSON.stringify(freeRes.body).slice(0, 300));
   
+  // ── V5.3.1 execute-response-contract: redaction_status must be present ──
+  const VALID_REDACTION_STATUSES = ["PUBLIC_SAFE_REDACTED", "INTERNAL_TRACE_RESTRICTED", "REDACTION_NOT_REQUIRED", "REDACTION_FAILED_BLOCKED"];
+  c(typeof freeRes.body.redaction_status === "string", `Free redaction_status is string (got ${typeof freeRes.body.redaction_status})`);
+  c(VALID_REDACTION_STATUSES.includes(freeRes.body.redaction_status), `Free redaction_status valid (got ${freeRes.body.redaction_status})`);
+  c(freeRes.body.audit_seal != null && typeof freeRes.body.audit_seal === "object", "Free audit_seal present");
+  c(freeRes.body.audit_seal?.redaction_status === freeRes.body.redaction_status, "Free audit_seal.redaction_status matches top-level redaction_status");
+
   // STRICT: HTTP must be 200, no errors, no SCHEMA_NOT_FOUND, outputs must match
   c(freeRes.status === 200, `Free HTTP status = ${freeRes.status} (expected 200)`);
   if (freeRes.status === 200) {
@@ -304,7 +311,13 @@ async function runHttpChecks() {
     c(!"SERVER_ERROR BLOCKED DISABLED SCHEMA_NOT_FOUND VALIDATION_FAILED CONTRIBUTION_MARGIN_BLOCKED".split(" ").includes(freeRes.body.status),
       `Free status not blocked (got ${freeRes.body.status})`);
     c(!freeRes.body.error, `Free no error (got ${freeRes.body.error || "none"})`);
-    
+
+    // ── Verify all required top-level contract fields ──
+    const REQUIRED_FIELDS = ["status","pipeline_state","outputs","warnings","normalized_input_audit","reference_range_audit","sensitivity","scenario_compare","fmea_summary","proof_pack_public","decision_interpretation","audit_seal","redaction_status"];
+    for (const field of REQUIRED_FIELDS) {
+      c(freeRes.body[field] !== undefined, `Free response has field "${field}"`);
+    }
+
     const fom = {}; (freeRes.body.outputs || []).forEach(o => { if (typeof o.value === "number") fom[o.id] = o.value; });
     const fkeys = ["contribution_margin_per_unit", "break_even_units", "break_even_revenue", "margin_of_safety_units", "margin_of_safety_percent"];
     const ftol = fx.tolerance?.absolute ?? 0.000001;
@@ -316,6 +329,25 @@ async function runHttpChecks() {
     // Log the actual error for debugging
     console.log(`  ERROR: Free execute returned ${freeRes.status}: ${JSON.stringify(freeRes.body).slice(0, 200)}`);
   }
+
+  // ── Invalid economic case: selling_price_per_unit <= variable_cost_per_unit ──
+  console.log("\n\u2500\u2500 Free pilot: invalid case (contribution margin <= 0) \u2500\u2500");
+  const invalidBody = {
+    tool_key: FREE_SLUG,
+    raw_inputs: { fixed_costs: 10000, selling_price_per_unit: 20, variable_cost_per_unit: 30, actual_sales_units: 800 },
+    selected_units: { fixed_costs: "display_currency", selling_price_per_unit: "display_currency", variable_cost_per_unit: "display_currency" },
+    user_profile_mode: "engineering",
+  };
+  const invalidRes = await post("/api/tool-execute", invalidBody);
+  c(typeof invalidRes.body.redaction_status === "string" && VALID_REDACTION_STATUSES.includes(invalidRes.body.redaction_status),
+    `Invalid case redaction_status valid (got ${invalidRes.body.redaction_status})`);
+  c(invalidRes.body.audit_seal != null, "Invalid case audit_seal present");
+  c(invalidRes.body.audit_seal?.redaction_status === invalidRes.body.redaction_status,
+    "Invalid case audit_seal.redaction_status matches top-level");
+  // The invalid case should return BLOCKED with a business validation warning
+  c(invalidRes.body.status === "BLOCKED" || invalidRes.body.pipeline_state?.includes("CONTRIBUTION_MARGIN"),
+    `Invalid case status is BLOCKED (got ${invalidRes.body.status}, pipeline=${invalidRes.body.pipeline_state})`);
+  c(!invalidRes.body.error, "Invalid case no top-level error");
 
   // ── 5d. Pro pilot: missing tool_key must return BLOCKED ──
   console.log("\n\u2500\u2500 Pro pilot: missing tool_key check \u2500\u2500");
