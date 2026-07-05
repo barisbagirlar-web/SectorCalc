@@ -336,6 +336,36 @@ async function runHttpChecks() {
     console.log(`  ERROR: Free execute returned ${freeRes.status}: ${JSON.stringify(freeRes.body).slice(0, 200)}`);
   }
 
+  // ── 5c-ii. Payload shape adapter regression tests ──
+  console.log("\n\u2500\u2500 Free payload shape adapter regression (4 shapes) \u2500\u2500");
+  const shapeCheck = async (label, shapeBody) => {
+    const res = await post("/api/tool-execute", shapeBody);
+    const b = res.body;
+    const ok = res.status === 200
+      && b.status === "OK"
+      && b.pipeline_state === "OK"
+      && typeof b.redaction_status === "string"
+      && b.audit_seal != null
+      && typeof b.audit_seal === "object"
+      && b.audit_seal?.redaction_status === b.redaction_status;
+    const fom = {};
+    (b.outputs || []).forEach(o => { if (typeof o.value === "number") fom[o.id] = o.value; });
+    const be = Math.abs((fom.break_even_units ?? -1) - 500) <= 0.000001;
+    const mosp = Math.abs((fom.margin_of_safety_percent ?? -1) - 37.5) <= 0.000001;
+    const noInputValidationFailed = !JSON.stringify(b).includes("INPUT_VALIDATION_FAILED");
+    const noMissingInput = !JSON.stringify(b).includes("Missing required input");
+    const all = ok && be && mosp && noInputValidationFailed && noMissingInput;
+    const brief = `status=${b.status} pipeline=${b.pipeline_state} BE=${fom.break_even_units} MoS%=${fom.margin_of_safety_percent}`;
+    if (!all) console.log(`  DEBUG [${label}]:`, JSON.stringify(b).slice(0, 200));
+    c(all, `Shape "${label}": ${brief}`);
+  };
+
+  const inp = { fixed_costs: 10000, selling_price_per_unit: 50, variable_cost_per_unit: 30, actual_sales_units: 800 };
+  await shapeCheck("inputs wrapper",     { tool_key: FREE_SLUG, inputs: inp, selected_units: { fixed_costs: "display_currency" } });
+  await shapeCheck("values wrapper",     { tool_key: FREE_SLUG, values: inp, selected_units: { fixed_costs: "display_currency" } });
+  await shapeCheck("raw_inputs wrapper", { tool_key: FREE_SLUG, raw_inputs: inp, selected_units: { fixed_costs: "display_currency" } });
+  await shapeCheck("flat body",          { tool_key: FREE_SLUG, ...inp, selected_units: { fixed_costs: "display_currency" } });
+
   // ── Invalid economic case: selling_price_per_unit <= variable_cost_per_unit ──
   console.log("\n\u2500\u2500 Free pilot: invalid case (contribution margin <= 0) \u2500\u2500");
   const invalidBody = {

@@ -61,6 +61,59 @@ function extractField<T>(body: Record<string, unknown>, camel: string, snake: st
 }
 
 /**
+ * Resolve the raw input payload from any of the accepted request body shapes.
+ *
+ * Accepts (in priority order):
+ *   raw_inputs / rawInputs
+ *   inputs / input_values / inputValues
+ *   values
+ *   Flat body fallback: any key not in the reserved set is treated as an input.
+ */
+function resolveRawInputs(body: Record<string, unknown>): Record<string, unknown> {
+  const candidate =
+    body.raw_inputs ??
+    body.rawInputs ??
+    body.inputs ??
+    body.input_values ??
+    body.inputValues ??
+    body.values;
+
+  if (candidate && typeof candidate === "object" && !Array.isArray(candidate)) {
+    return candidate as Record<string, unknown>;
+  }
+
+  // Flat body fallback: treat every non-reserved key as an input value.
+  const reserved = new Set([
+    "tool_key",
+    "toolKey",
+    "tool_id",
+    "toolId",
+    "slug",
+    "locale",
+    "session_id",
+    "sessionId",
+    "source",
+    "metadata",
+    "selected_units",
+    "selectedUnits",
+    "user_profile_mode",
+    "profileMode",
+    "client_schema_hash",
+    "clientSchemaHash",
+    "display_currency",
+    "displayCurrency",
+    "usage_session_id",
+    "usageSessionId",
+    "client_request_id",
+    "clientRequestId",
+  ]);
+
+  return Object.fromEntries(
+    Object.entries(body).filter(([key]) => !reserved.has(key))
+  );
+}
+
+/**
  * Build a minimal blocked ExecuteResponse that satisfies the V5.3.1 contract
  * (status, pipeline_state, outputs, warnings, normalized_input_audit,
  *  reference_range_audit, sensitivity, scenario_compare, fmea_summary,
@@ -145,7 +198,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       toolKey = toolKey.replace(/_/g, "-");
     }
     body.toolKey = toolKey;
-    if (!body.rawInputs) body.rawInputs = (extractField<Record<string, unknown>>(raw, "rawInputs", "raw_inputs") ?? {});
+    if (!body.rawInputs) body.rawInputs = resolveRawInputs(raw);
     if (!body.selectedUnits) body.selectedUnits = (extractField<Record<string, string>>(raw, "selectedUnits", "selected_units") ?? {});
     if (!body.profileMode) body.profileMode = extractField<any>(raw, "profileMode", "user_profile_mode");
     if (!body.clientSchemaHash) body.clientSchemaHash = extractField<string>(raw, "clientSchemaHash", "client_schema_hash");
