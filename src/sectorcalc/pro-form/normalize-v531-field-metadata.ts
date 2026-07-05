@@ -11,6 +11,12 @@ export interface NormalizedFieldMetadata {
   unitLabel: string;
   /** Default / defaultValue / example / sampleValue — stringified or null */
   defaultReference: string | null;
+  /** Origin of the reference value: declared, midpoint_of_*, bound_of_*, or null */
+  referenceOrigin: string | null;
+  /** Source attribution for the reference value */
+  referenceSource: string | null;
+  /** Human-readable note about the reference value */
+  referenceNote: string | null;
   /** Range description built from min/max/minimum/maximum/range/allowedRange/recommendedRange */
   allowedRange: string | null;
   /** Accepted values from options/values/acceptedValues/allowedValues/enum/choices */
@@ -195,7 +201,10 @@ function extractHardBoundRange(field: Record<string, unknown>): string | null {
 
 /** Extract default / defaultValue / example / sampleValue */
 function extractDefaultReference(field: Record<string, unknown>): string | null {
-  // Prefer typed SuperV4Input fields
+  // Priority 1: Enriched _reference_default_text (human-readable bound/range description)
+  const rdt = field["_reference_default_text"];
+  if (typeof rdt === "string" && rdt.trim().length > 0) return rdt.trim();
+  // Priority 2: Prefer typed SuperV4Input fields
   if (field["default_value"] !== undefined && field["default_value"] !== null) {
     const dv = field["default_value"];
     if (typeof dv === "number") return String(dv);
@@ -292,6 +301,27 @@ function extractEvidenceText(field: Record<string, unknown>): string | null {
   return null;
 }
 
+/** Extract `_reference_origin` from enriched schema fields */
+function extractEnrichedOrigin(field: Record<string, unknown>): string | null {
+  const v = field["_reference_origin"];
+  if (typeof v === "string" && v.trim().length > 0) return v.trim();
+  return null;
+}
+
+/** Extract `_reference_source` from enriched schema fields */
+function extractEnrichedSource(field: Record<string, unknown>): string | null {
+  const v = field["_reference_source"];
+  if (typeof v === "string" && v.trim().length > 0) return v.trim();
+  return null;
+}
+
+/** Extract `_reference_note` from enriched schema fields */
+function extractEnrichedNote(field: Record<string, unknown>): string | null {
+  const v = field["_reference_note"];
+  if (typeof v === "string" && v.trim().length > 0) return v.trim();
+  return null;
+}
+
 /** Extract unit label */
 function extractUnitLabel(field: Record<string, unknown>): string {
   // SuperV4Input has base_unit
@@ -329,6 +359,9 @@ export function normalizeV531FieldMetadata(
   return {
     unitLabel: extractUnitLabel(f),
     defaultReference: extractDefaultReference(f),
+    referenceOrigin: extractEnrichedOrigin(f),
+    referenceSource: extractEnrichedSource(f),
+    referenceNote: extractEnrichedNote(f),
     allowedRange: extractHardBoundRange(f),
     acceptedValues: extractAcceptedValues(f),
     toleranceText: extractToleranceText(f),

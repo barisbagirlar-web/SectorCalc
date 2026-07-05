@@ -5,6 +5,20 @@ import { pathToFileURL } from "node:url";
 
 const ROOT = process.cwd();
 
+// Import enrichment layer
+let enrichV531SchemaReferencesFn = null;
+try {
+  const enrichMod = await import("../src/sectorcalc/runtime/v531-reference-enrichment.ts");
+  enrichV531SchemaReferencesFn = enrichMod.enrichV531SchemaReferences;
+} catch {
+  try {
+    const enrichMod = await import("../src/sectorcalc/runtime/v531-reference-enrichment.js");
+    enrichV531SchemaReferencesFn = enrichMod.enrichV531SchemaReferences;
+  } catch {
+    // enrichment not available
+  }
+}
+
 const PRO_DIR = path.join(ROOT, "src/sectorcalc/schemas/v531");
 const FREE_DIR = path.join(ROOT, "src/sectorcalc/schemas/free-v531");
 const OUT_DIR = path.join(ROOT, "audit-output");
@@ -30,7 +44,7 @@ const FIELD_ARRAY_KEYS = new Set([
 const ID_KEYS = ["id", "key", "name", "slug", "field", "input", "inputKey"];
 const LABEL_KEYS = ["label", "title", "name"];
 const UNIT_KEYS = ["unit", "unitLabel", "displayUnit", "baseUnit"];
-const DEFAULT_KEYS = ["default", "defaultValue", "value", "example", "sampleValue"];
+const DEFAULT_KEYS = ["default", "defaultValue", "value", "example", "sampleValue", "default_value"];
 const REFERENCE_KEYS = [
   "reference",
   "references",
@@ -76,6 +90,8 @@ const RANGE_KEYS = [
   "allowedRange",
   "recommendedRange",
 ];
+const ENRICHED_ORIGIN_KEYS = ["_reference_origin"];
+const ENRICHED_VALUE_KEYS = ["_reference_origin", "_reference_source", "_reference_note", "_reference_default_text", "default_value"];
 
 function walk(dir, exts, out = []) {
   if (!fs.existsSync(dir)) return out;
@@ -285,8 +301,13 @@ function auditSchema(schema, file, tier) {
     // V5.3.1: Metadata renderability flags
     // declaredReferenceMissing: field has NO default/nominal/typical value in schema
     const declaredReferenceMissing = !hasDefault && !hasNumericDefault && !hasReference && !hasNumericReference;
-    // renderableReferenceAvailable: normalizer WILL produce a non-null value
-    const renderableReferenceAvailable = hasDefault || hasNumericDefault || hasReference || hasNumericReference;
+    // derivedReferenceAvailable: enrichment layer has produced a _reference_origin value
+    const derivedReferenceAvailable = hasAnyKey(field, ENRICHED_ORIGIN_KEYS) && hasAnyKey(field, ENRICHED_VALUE_KEYS);
+    // renderableReferenceAvailable: normalizer WILL produce a non-null value (declared or enriched)
+    const renderableReferenceAvailable = hasDefault || hasNumericDefault || hasReference || hasNumericReference || derivedReferenceAvailable;
+    // referenceOrigin: the enrichment origin string
+    const referenceOriginVal = firstValue(field, ENRICHED_ORIGIN_KEYS);
+    const referenceOrigin = referenceOriginVal ? String(referenceOriginVal) : null;
     // declaredToleranceMissing: field has NO tolerance/uncertainty/sigma/margin in schema
     const declaredToleranceMissing = !hasTolerance && !hasNumericTolerance;
     // renderableRangeAvailable: normalizer WILL produce a range string from min/max/range objects
@@ -311,6 +332,9 @@ function auditSchema(schema, file, tier) {
       usedByFormula: formulaIds.includes(id),
       declaredReferenceMissing,
       renderableReferenceAvailable,
+      derivedReferenceAvailable,
+      referenceOrigin,
+      referenceQuality: referenceOrigin === "declared" || (referenceOrigin && referenceOrigin.includes("midpoint")) ? "midpoint" : referenceOrigin && referenceOrigin.startsWith("bound_") ? "bound" : "none",
       declaredToleranceMissing,
       renderableRangeAvailable,
       defaultValueAvailable,
@@ -327,10 +351,15 @@ function auditSchema(schema, file, tier) {
   // V5.3.1: Metadata renderability metrics
   const declaredReferenceMissingFields = fieldRows.filter((f) => f.declaredReferenceMissing).map((f) => f.id);
   const renderableReferenceAvailableFields = fieldRows.filter((f) => f.renderableReferenceAvailable).map((f) => f.id);
+  const derivedReferenceAvailableFields = fieldRows.filter((f) => f.derivedReferenceAvailable).map((f) => f.id);
   const declaredToleranceMissingFields = fieldRows.filter((f) => f.declaredToleranceMissing).map((f) => f.id);
   const renderableRangeAvailableFields = fieldRows.filter((f) => f.renderableRangeAvailable).map((f) => f.id);
   const defaultValueAvailableFields = fieldRows.filter((f) => f.defaultValueAvailable).map((f) => f.id);
   const enumOptionsAvailableFields = fieldRows.filter((f) => f.enumOptionsAvailable).map((f) => f.id);
+  const referenceOriginDeclaredFields = fieldRows.filter((f) => f.referenceOrigin === "declared").map((f) => f.id);
+  const referenceOriginMidpointFields = fieldRows.filter((f) => f.referenceQuality === "midpoint").map((f) => f.id);
+  const referenceOriginBoundFields = fieldRows.filter((f) => f.referenceQuality === "bound").map((f) => f.id);
+  const fieldReferenceMissingFields = fieldRows.filter((f) => !f.renderableReferenceAvailable && !f.derivedReferenceAvailable).map((f) => f.id);
 
   // FAIL only if formula-input binding is broken (formula references input that form does not have)
   // Absent reference/tolerance metadata is informational, not a failure condition
@@ -358,10 +387,15 @@ function auditSchema(schema, file, tier) {
     // V5.3.1: Metadata renderability
     declaredReferenceMissingFields,
     renderableReferenceAvailableFields,
+    derivedReferenceAvailableFields,
     declaredToleranceMissingFields,
     renderableRangeAvailableFields,
     defaultValueAvailableFields,
     enumOptionsAvailableFields,
+    referenceOriginDeclaredFields,
+    referenceOriginMidpointFields,
+    referenceOriginBoundFields,
+    fieldReferenceMissingFields,
   };
 }
 
@@ -381,8 +415,11 @@ async function main() {
   for (const [tier, files] of [["PRO", proFiles], ["FREE", freeFiles]]) {
     for (const file of files) {
       try {
-        const schema = await loadSchemaFile(file);
+        let schema = await loadSchemaFile(file);
         if (!schema) throw new Error("schema export not found");
+        if (typeof enrichV531SchemaReferencesFn === "function") {
+          try { schema = enrichV531SchemaReferencesFn(schema); } catch { /* enrichment optional */ }
+        }
         results.push(auditSchema(schema, file, tier));
       } catch (err) {
         results.push({
@@ -411,10 +448,15 @@ async function main() {
     // V5.3.1: Metadata renderability metrics
     declaredReferenceMissingSchemas: results.filter((r) => r.declaredReferenceMissingFields?.length > 0).length,
     renderableReferenceAvailableSchemas: results.filter((r) => (r.renderableReferenceAvailableFields?.length ?? 0) > 0).length,
+    derivedReferenceAvailableSchemas: results.filter((r) => (r.derivedReferenceAvailableFields?.length ?? 0) > 0).length,
     declaredToleranceMissingSchemas: results.filter((r) => r.declaredToleranceMissingFields?.length > 0).length,
     renderableRangeAvailableSchemas: results.filter((r) => (r.renderableRangeAvailableFields?.length ?? 0) > 0).length,
     defaultValueAvailableSchemas: results.filter((r) => (r.defaultValueAvailableFields?.length ?? 0) > 0).length,
     enumOptionsAvailableSchemas: results.filter((r) => (r.enumOptionsAvailableFields?.length ?? 0) > 0).length,
+    referenceOriginDeclaredCount: results.reduce((acc, r) => acc + (r.referenceOriginDeclaredFields?.length ?? 0), 0),
+    referenceOriginMidpointCount: results.reduce((acc, r) => acc + (r.referenceOriginMidpointFields?.length ?? 0), 0),
+    referenceOriginBoundCount: results.reduce((acc, r) => acc + (r.referenceOriginBoundFields?.length ?? 0), 0),
+    fieldReferenceMissingCount: results.reduce((acc, r) => acc + (r.fieldReferenceMissingFields?.length ?? 0), 0),
   };
 
   fs.writeFileSync(OUT_JSON, JSON.stringify({ summary, results }, null, 2));
@@ -473,16 +515,25 @@ async function main() {
   console.log(`FORMULA_INPUT_MISSING_FORM_SCHEMAS=${summary.formulaInputMissingFormSchemas}`);
   console.log(`DECLARED_REFERENCE_MISSING_SCHEMAS=${summary.declaredReferenceMissingSchemas}`);
   console.log(`RENDERABLE_REFERENCE_AVAILABLE_SCHEMAS=${summary.renderableReferenceAvailableSchemas}`);
+  console.log(`DERIVED_REFERENCE_AVAILABLE_SCHEMAS=${summary.derivedReferenceAvailableSchemas}`);
   console.log(`DECLARED_TOLERANCE_MISSING_SCHEMAS=${summary.declaredToleranceMissingSchemas}`);
   console.log(`RENDERABLE_RANGE_AVAILABLE_SCHEMAS=${summary.renderableRangeAvailableSchemas}`);
   console.log(`DEFAULT_VALUE_AVAILABLE_SCHEMAS=${summary.defaultValueAvailableSchemas}`);
   console.log(`ENUM_OPTIONS_AVAILABLE_SCHEMAS=${summary.enumOptionsAvailableSchemas}`);
+  console.log(`REFERENCE_ORIGIN_DECLARED_COUNT=${summary.referenceOriginDeclaredCount}`);
+  console.log(`REFERENCE_ORIGIN_MIDPOINT_COUNT=${summary.referenceOriginMidpointCount}`);
+  console.log(`REFERENCE_ORIGIN_BOUND_COUNT=${summary.referenceOriginBoundCount}`);
+  console.log(`FIELD_REFERENCE_MISSING_COUNT=${summary.fieldReferenceMissingCount}`);
   console.log(`JSON_REPORT=${path.relative(ROOT, OUT_JSON)}`);
   console.log(`CSV_REPORT=${path.relative(ROOT, OUT_CSV)}`);
   console.log("═══════════════════════════════════════════════════════");
 
-  if (summary.loadFail > 0 || summary.formulaInputMissingFormSchemas > 0) {
+  if (summary.loadFail > 0 || summary.formulaInputMissingFormSchemas > 0 || summary.renderableRangeAvailableSchemas < summary.totalSchemas) {
+    console.error("FAIL: Load errors, formula-input binding breaks, or missing renderable ranges detected.");
     process.exit(1);
+  }
+  if (summary.renderableReferenceAvailableSchemas === 0) {
+    console.log("WARNING: RENDERABLE_REFERENCE_AVAILABLE_SCHEMAS is 0 — enrichment layer may need more fields.");
   }
 
   process.exit(0);

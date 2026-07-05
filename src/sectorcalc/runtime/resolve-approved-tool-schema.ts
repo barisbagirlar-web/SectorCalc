@@ -5,6 +5,7 @@ import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { getProToolSchema, listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
 import { getFreeToolSchema, listFreeToolSchemaSlugs } from "@/sectorcalc/runtime/free-schema-loader";
 import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtime/assert-tool-schema-identity";
+import { enrichV531SchemaReferences } from "@/sectorcalc/runtime/v531-reference-enrichment";
 
 export type ApprovedSchemaResult =
   | { ok: true; schema: SuperV4Schema; source: "pro_v531" | "free_v531" }
@@ -48,7 +49,8 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     try { superV4 = buildFn(); } catch (err: unknown) { return { ok: false, reason: "CAUGHT_EXCEPTION", errors: ["Build threw: " + (err instanceof Error ? err.message : String(err))] }; }
     const validation = validateSuperV4Schema(superV4);
     if (validation.ok) {
-      const frozen = freezeSchemaGuard(validation.schema);
+      const enriched = enrichV531SchemaReferences(validation.schema);
+      const frozen = freezeSchemaGuard(enriched);
       const key = cacheKey(normalizedKey, frozen);
       if (!schemaCache.has(key)) { schemaCache.set(key, { schema: frozen, source }); trimCache(); }
       return { ok: true, schema: frozen, source };
