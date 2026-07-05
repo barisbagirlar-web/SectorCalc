@@ -82,7 +82,7 @@ export default async function ProToolDetailPage({
         <ProToolSessionWrapper
           schema={schema}
           toolKey={slug}
-          executeEndpoint="/api/tool-execute"
+          executeEndpoint="/api/pro-calculator/execute"
           initialProfileMode="engineering"
         />
       </article>
