@@ -493,6 +493,42 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
+/**
+ * Normalize a registry item that may be in flat format (schema V5.3.1)
+ * to the array-based format expected by the runtime.
+ *
+ * Flat format:   { "Pa": { factor: 1 }, "kPa": { factor: 1000 } }
+ * Array format:  { base_unit: "Pa", units: [{ unit: "Pa", factor: 1 }, ...] }
+ */
+function normalizeRegistryItem(
+  item: Record<string, unknown>,
+): { baseUnit: string; units: Array<{ unit: string; factor: number; offset?: number }> } {
+  if (Array.isArray(item.units)) {
+    return {
+      baseUnit: typeof item.base_unit === "string" ? item.base_unit : "",
+      units: item.units as Array<{ unit: string; factor: number; offset?: number }>,
+    };
+  }
+
+  // Flat format: materialise units array from object keys
+  const units: Array<{ unit: string; factor: number; offset?: number }> = [];
+  for (const [key, value] of Object.entries(item)) {
+    if (key === "base_unit" || key === "unit_family") continue;
+    if (value && typeof value === "object" && value !== null && typeof (value as Record<string, unknown>).factor === "number") {
+      units.push({
+        unit: key,
+        factor: (value as { factor: number }).factor,
+        offset: (value as { offset?: number }).offset,
+      });
+    }
+  }
+
+  return {
+    baseUnit: typeof item.base_unit === "string" ? item.base_unit : "",
+    units,
+  };
+}
+
 function convertDisplayToBase(
   value: number,
   displayUnit: string,
@@ -502,8 +538,9 @@ function convertDisplayToBase(
 ): { ok: true; value: number } | { ok: false; reason: string } {
   const item = registry[quantityKind];
   if (!item) return { ok: false, reason: `Missing conversion registry for ${quantityKind}.` };
-  const display = (item.units ?? []).find((entry) => entry.unit === displayUnit);
-  const base = (item.units ?? []).find((entry) => entry.unit === baseUnit) ?? { unit: item.base_unit, factor: 1, offset: 0 };
+  const { baseUnit: regBaseUnit, units } = normalizeRegistryItem(item as unknown as Record<string, unknown>);
+  const display = units.find((entry) => entry.unit === displayUnit);
+  const base = units.find((entry) => entry.unit === baseUnit) ?? { unit: regBaseUnit || item.base_unit || "", factor: 1, offset: 0 };
   if (!display) return { ok: false, reason: `Unsupported display unit ${displayUnit}.` };
   if (!base) return { ok: false, reason: `Unsupported base unit ${baseUnit}.` };
 
@@ -522,8 +559,9 @@ function preserveDisplayQuantity(
 ): { ok: true; value: number } | { ok: false; reason: string } {
   const item = registry[quantityKind];
   if (!item) return { ok: false, reason: `Missing conversion registry for ${quantityKind}.` };
-  const oldEntry = (item.units ?? []).find((entry) => entry.unit === oldUnit);
-  const newEntry = (item.units ?? []).find((entry) => entry.unit === newUnit);
+  const { units } = normalizeRegistryItem(item as unknown as Record<string, unknown>);
+  const oldEntry = units.find((entry) => entry.unit === oldUnit);
+  const newEntry = units.find((entry) => entry.unit === newUnit);
   if (!oldEntry || !newEntry) return { ok: false, reason: "Unsupported unit change." };
 
   const registryBaseValue = (value + (oldEntry.offset ?? 0)) * oldEntry.factor;
