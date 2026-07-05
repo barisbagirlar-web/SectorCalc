@@ -552,16 +552,20 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     (b) => b.severity !== "BLOCKER" && b.severity !== "CRITICAL",
   ).length;
 
+  // Admin bypass: owner email (barisbagirlar@gmail.com) has unlimited Pro access
+  // with no credit session required. The server-side API handles bypass.
+  const isBypassUser = isPro && !props.onRequestCreditSession;
+
   const primaryButtonDisabled =
     isExecuting ||
     creditSessionLoading ||
-    (isPro && !hasSession) ||
+    (isPro && !hasSession && !isBypassUser) ||
     (isPro && sessionExhausted);
 
   const primaryButtonLabel = getPrimaryCtaLabel(
     accessTier,
     isExecuting,
-    hasSession,
+    hasSession || isBypassUser,
     hasResult,
     creditSessionLoading,
   );
@@ -570,7 +574,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     if (isPro && (!hasSession || sessionExhausted)) {
       if (props.onRequestCreditSession && props.toolKey) {
         props.onRequestCreditSession(props.toolKey);
+        return;
       }
+      // No session handler provided (bypass path) → execute directly;
+      // the server-side API handles admin/owner bypass internally.
+      void machine.submitServerExecution();
       return;
     }
     void machine.submitServerExecution();

@@ -129,6 +129,23 @@ function ensureFirebasePagesManifest() {
   writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), "utf8");
 }
 
+/**
+ * Fireproof vendor-chunks against Firebase deploy stripping.
+ * Next.js vendor-chunks are lazy-loaded by webpack-runtime.js and
+ * may be stripped during Cloud Function packaging. Write module.exports = {}
+ * stubs so SSR does not crash with MODULE_NOT_FOUND.
+ */
+function ensureVendorChunks() {
+  const vendorDir = join(NEXT, "server", "vendor-chunks");
+  mkdirSync(vendorDir, { recursive: true });
+
+  const stubs = ["@opentelemetry.js"];
+  for (const file of stubs) {
+    const target = join(vendorDir, file);
+    writeFileSync(target, "module.exports = {};\n", "utf8");
+    console.log("finalize-next-build: fireproofed vendor-chunks/" + file);
+  }
+}
 
 function main() {
   if (!existsSync(join(NEXT, "BUILD_ID"))) {
@@ -141,6 +158,7 @@ function main() {
   ensureExportMarker();
   ensureExportDetail();
   ensureFirebasePagesManifest();
+  ensureVendorChunks();
 
   // Stub any .js files missing .nft.json traces in server/ (stubs, edge, API routes)
   stubMissingNftTraces(join(NEXT, "server"));
