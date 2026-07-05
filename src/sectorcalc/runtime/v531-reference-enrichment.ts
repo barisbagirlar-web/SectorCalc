@@ -181,6 +181,33 @@ function deriveFromPhysicalHardBoundsBound(
   return null;
 }
 
+// ── Guard: validate default_value against physical hard bounds ──────────────
+
+function guardDefaultAgainstPhysicalBounds(
+  field: SuperV4Input,
+  numericDefault: number,
+): number | null {
+  const phb = field.physical_hard_bounds;
+  if (!phb) return numericDefault;
+  if (phb.min !== null && numericDefault < phb.min) {
+    if (typeof process !== "undefined" && process.env?.NODE_ENV !== "production") {
+      console.warn(
+        `[v531-enrich] default_value ${numericDefault} for ${field.id} is below physical_hard_bounds.min ${phb.min}. Using lower bound.`,
+      );
+    }
+    return phb.min;
+  }
+  if (phb.max !== null && numericDefault > phb.max) {
+    if (typeof process !== "undefined" && process.env?.NODE_ENV !== "production") {
+      console.warn(
+        `[v531-enrich] default_value ${numericDefault} for ${field.id} is above physical_hard_bounds.max ${phb.max}. Using upper bound.`,
+      );
+    }
+    return phb.max;
+  }
+  return numericDefault;
+}
+
 // ── Main enrich function ────────────────────────────────────────────────────
 
 function enrichField(field: SuperV4Input): EnrichedFieldMeta | null {
@@ -258,7 +285,8 @@ export function enrichV531SchemaReferences(
       meta.referenceOrigin.includes("midpoint")
     ) {
       if (meta.defaultReferenceValue !== null) {
-        field.default_value = meta.defaultReferenceValue;
+        const guarded = guardDefaultAgainstPhysicalBounds(field, meta.defaultReferenceValue);
+        field.default_value = guarded;
       }
     }
 

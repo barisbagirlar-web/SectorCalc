@@ -1080,7 +1080,8 @@ function renderValueInput(
       onChange={(e: ChangeEvent<HTMLInputElement>) => {
         if (field.type === "number" || field.type === "integer") {
           if (e.target.value === "") { onValueChange(null); return; }
-          const next = Number(e.target.value);
+          const raw = e.target.value.replace(",", ".");
+          const next = Number(raw);
           onValueChange(Number.isFinite(next) ? next : null);
         } else {
           onValueChange(e.target.value);

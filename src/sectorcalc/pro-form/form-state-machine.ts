@@ -178,7 +178,7 @@ export function universalFormMachineReducer(
       const expandedGroups: Record<string, boolean> = {};
 
       for (const input of event.schema.inputs) {
-        rawInputState[input.id] = null;
+        rawInputState[input.id] = input.default_value !== undefined && input.default_value !== null ? input.default_value : null;
         if (input.unit_selectable && input.allowed_display_units.length > 0) {
           selectedUnitState[input.id] = input.allowed_display_units[0];
         }
