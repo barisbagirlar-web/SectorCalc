@@ -304,6 +304,12 @@ async function runHttpChecks() {
   c(freeRes.body.audit_seal != null && typeof freeRes.body.audit_seal === "object", "Free audit_seal present");
   c(freeRes.body.audit_seal?.redaction_status === freeRes.body.redaction_status, "Free audit_seal.redaction_status matches top-level redaction_status");
 
+  // ── Regression checks: production fetch failed must not appear ──
+  c(freeRes.status !== 500, `Free HTTP status is NOT 500 (got ${freeRes.status})`);
+  const bodyStr = JSON.stringify(freeRes.body);
+  c(!bodyStr.includes("fetch failed"), "Free response does NOT contain 'fetch failed'");
+  c(!bodyStr.includes("SERVER_ERROR"), "Free response does NOT contain SERVER_ERROR");
+
   // STRICT: HTTP must be 200, no errors, no SCHEMA_NOT_FOUND, outputs must match
   c(freeRes.status === 200, `Free HTTP status = ${freeRes.status} (expected 200)`);
   if (freeRes.status === 200) {

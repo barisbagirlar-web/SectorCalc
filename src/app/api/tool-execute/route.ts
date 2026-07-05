@@ -23,6 +23,14 @@ import type { ExecuteResponse } from "@/sectorcalc/pro-form/contract-types";
 import { isProBypassEmail } from "@/lib/features/billing/subscription";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { createAuditSeal, computeHash } from "@/sectorcalc/pro-runtime/audit-seal-service";
+import type { ExecuteRequest } from "@/sectorcalc/pro-form/contract-types";
+import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
+import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
+import {
+  pass2RuntimeExecution,
+  pass3PublicControl,
+  buildFullBlockedResponse,
+} from "@/app/api/pro-calculator/execute/route";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -232,7 +240,66 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     const validatedSchema = schemaResult.schema as SuperV4Schema;
 
-    // ── Forward to Pro calculator execution ────────────────────
+    // ── Execute server-side in-process (Free) or internal fetch (Pro) ──
+    if (accessTier === "FREE") {
+      // Free tools: execute entirely in-process — no internal HTTP fetch.
+      // This is the critical production fix: Firebase Cloud Functions do not
+      // support loopback HTTP within the same function environment.
+
+      // Register Free pilot formulas in the formula registry
+      registerFreePilotFormulas(validatedSchema);
+
+      // Build ExecuteRequest matching the pro-calculator contract
+      const execBody: ExecuteRequest = {
+        tool_id: validatedSchema.tool_id,
+        tool_key: body.toolKey,
+        schema_version: validatedSchema.metadata?.schema_version || "1.0.0",
+        raw_inputs: Object.fromEntries(
+          Object.entries(body.rawInputs ?? {}).filter(([, v]) => typeof v === "number" && Number.isFinite(v)),
+        ),
+        selected_units: body.selectedUnits,
+        user_profile_mode: body.profileMode ?? "engineering",
+        client_schema_hash: body.clientSchemaHash,
+        display_currency: body.displayCurrency ?? null,
+      };
+
+      // PASS 2 — Runtime Determinism / Calculation
+      const pass2 = await pass2RuntimeExecution(execBody, validatedSchema);
+      if (!pass2.ok) {
+        const blocked = buildFullBlockedResponse(pass2.pipelineState, pass2.errors.join("; "));
+        return NextResponse.json(blocked, { status: 200 });
+      }
+
+      // PASS 3 — Public Output + Audit / Export Control
+      const pass3 = pass3PublicControl(execBody, validatedSchema, pass2);
+      if (!pass3.ok) {
+        const blocked = buildFullBlockedResponse("REDACTION_FAILED", "Public response redaction failed");
+        return NextResponse.json(blocked, { status: 500 });
+      }
+
+      // Premium hook — build from normalized inputs and free outputs
+      const freeOutputs: Record<string, number> = {};
+      for (const output of pass2.outputs) {
+        if (typeof output.value === "number") {
+          freeOutputs[output.id] = output.value;
+        }
+      }
+      const premiumHook = buildPremiumHook({
+        toolKey: body.toolKey,
+        normalizedInputs: pass2.normalizedInputs,
+        freeOutputs,
+        displayCurrency: body.displayCurrency ?? null,
+      });
+
+      return NextResponse.json(
+        { ...pass3.response, premium_hook: premiumHook ?? null, accessTier },
+        { status: 200 },
+      );
+    }
+
+    // ── Pro tools: forward to Pro calculator execution (internal fetch) ──
+    // Note: internal fetch is retained for Pro tools pending the same
+    // in-process refactor. Free tools are the priority hotfix.
     const executeUrl = new URL(request.url);
     executeUrl.pathname = "/api/pro-calculator/execute";
 
@@ -255,22 +322,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     if (!internalResponse.ok) {
       const errorData = await internalResponse.json().catch(() => ({}));
-      // If the upstream already returned a valid ExecuteResponse, pass it through.
-      // Otherwise, wrap with our blocked contract response.
       const upstreamBlocked = errorData && typeof errorData === "object" && typeof errorData.redaction_status === "string"
         ? (errorData as ExecuteResponse)
         : buildBlockedToolResponse("EXECUTION_FAILED", `Upstream execution failed: ${JSON.stringify(errorData).slice(0, 200)}`);
-      // Return HTTP 200 so the client-side parseExecuteResponse() processes the body
-      // (which contains status="BLOCKED" + redaction_status) instead of treating
-      // a non-2xx status as a network/transport error.
       return NextResponse.json(upstreamBlocked, { status: 200 });
     }
 
     const executeResult = await internalResponse.json();
 
-    // ── Return result with contract guarantee ────────────────────
-    // Defensively ensure redaction_status is always set, even if the
-    // upstream response omitted it for some reason.
     const response: Record<string, unknown> = {
       ...executeResult,
       accessTier,

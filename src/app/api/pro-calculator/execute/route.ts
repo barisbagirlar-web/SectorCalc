@@ -86,7 +86,7 @@ function pass1StaticControl(toolKey: string, schema: unknown): Pass1Result {
 }
 
 // ── PASS 2: Runtime Determinism / Calculation (Section 12) ──
-interface Pass2Result {
+export interface Pass2Result {
   ok: boolean;
   pipelineState: string;
   normalizedInputs: Record<string, number>;
@@ -101,7 +101,7 @@ interface Pass2Result {
   errors: string[];
 }
 
-async function pass2RuntimeExecution(
+export async function pass2RuntimeExecution(
   body: ExecuteRequest,
   validatedSchema: SuperV4Schema,
 ): Promise<Pass2Result> {
@@ -455,13 +455,13 @@ function failResult(state: string, errs: string[]): Pass2Result {
 }
 
 // ── PASS 3: Public Output + Audit / Export Control (Section 12) ──
-interface Pass3Result {
+export interface Pass3Result {
   ok: boolean;
   response: ExecuteResponse;
   auditSeal: AuditSeal;
 }
 
-function pass3PublicControl(
+export function pass3PublicControl(
   body: ExecuteRequest,
   validatedSchema: SuperV4Schema,
   pass2Result: Pass2Result,
@@ -677,7 +677,7 @@ function emptyDecision(state: string): DecisionInterpretation {
   };
 }
 
-function buildFullBlockedResponse(pipelineState: string, reason: string): ExecuteResponse {
+export function buildFullBlockedResponse(pipelineState: string, reason: string): ExecuteResponse {
   return {
     status: "BLOCKED",
     pipeline_state: pipelineState,
