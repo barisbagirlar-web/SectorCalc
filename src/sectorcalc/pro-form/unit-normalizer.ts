@@ -38,7 +38,7 @@ export function normalizeInput(
     };
   }
 
-  const fromEntry = entry.units.find((u: ConversionEntry) => u.unit === displayUnit);
+  const fromEntry = (entry.units ?? []).find((u: ConversionEntry) => u.unit === displayUnit);
   if (!fromEntry) {
     return {
       inputId,
@@ -46,7 +46,7 @@ export function normalizeInput(
     };
   }
 
-  const toEntry = entry.units.find((u: ConversionEntry) => u.unit === baseUnit);
+  const toEntry = (entry.units ?? []).find((u: ConversionEntry) => u.unit === baseUnit);
   if (!toEntry) {
     return {
       inputId,
@@ -140,8 +140,8 @@ export function preservePhysicalQuantity(
     };
   }
 
-  const oldEntry = entry.units.find((u: ConversionEntry) => u.unit === oldUnit);
-  const newEntry = entry.units.find((u: ConversionEntry) => u.unit === newUnit);
+  const oldEntry = (entry.units ?? []).find((u: ConversionEntry) => u.unit === oldUnit);
+  const newEntry = (entry.units ?? []).find((u: ConversionEntry) => u.unit === newUnit);
 
   if (!oldEntry) {
     return { inputId: oldUnit, reason: `Unknown unit: ${oldUnit}` };

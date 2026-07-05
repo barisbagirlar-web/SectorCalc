@@ -502,8 +502,8 @@ function convertDisplayToBase(
 ): { ok: true; value: number } | { ok: false; reason: string } {
   const item = registry[quantityKind];
   if (!item) return { ok: false, reason: `Missing conversion registry for ${quantityKind}.` };
-  const display = item.units.find((entry) => entry.unit === displayUnit);
-  const base = item.units.find((entry) => entry.unit === baseUnit) ?? { unit: item.base_unit, factor: 1, offset: 0 };
+  const display = (item.units ?? []).find((entry) => entry.unit === displayUnit);
+  const base = (item.units ?? []).find((entry) => entry.unit === baseUnit) ?? { unit: item.base_unit, factor: 1, offset: 0 };
   if (!display) return { ok: false, reason: `Unsupported display unit ${displayUnit}.` };
   if (!base) return { ok: false, reason: `Unsupported base unit ${baseUnit}.` };
 
@@ -522,8 +522,8 @@ function preserveDisplayQuantity(
 ): { ok: true; value: number } | { ok: false; reason: string } {
   const item = registry[quantityKind];
   if (!item) return { ok: false, reason: `Missing conversion registry for ${quantityKind}.` };
-  const oldEntry = item.units.find((entry) => entry.unit === oldUnit);
-  const newEntry = item.units.find((entry) => entry.unit === newUnit);
+  const oldEntry = (item.units ?? []).find((entry) => entry.unit === oldUnit);
+  const newEntry = (item.units ?? []).find((entry) => entry.unit === newUnit);
   if (!oldEntry || !newEntry) return { ok: false, reason: "Unsupported unit change." };
 
   const registryBaseValue = (value + (oldEntry.offset ?? 0)) * oldEntry.factor;
