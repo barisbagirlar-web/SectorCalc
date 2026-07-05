@@ -261,7 +261,27 @@ async function runHttpChecks() {
     c(actual === exp, `GET ${rp} → ${res.status}${actual !== res.status ? " (nf)" : ""} (expected ${exp})`);
   }
 
-  // ── 5b. Free pilot HTTP POST ──
+  // ── 5b. Catalog count checks ──
+  console.log("\n\u2500\u2500 Catalog count checks \u2500\u2500");
+  const proPage = await get("/pro-tools");
+  const proToolLinks = (proPage.body.match(/href="\/tools\/pro\//g) || []).length;
+  c(proToolLinks === 1, `Pro catalog tool link count = ${proToolLinks} (expected 1)`);
+  const proContainsActive = proPage.body.includes(PRO_SLUG || "__NO_ACTIVE_PRO__");
+  c(proContainsActive, `Pro catalog contains active Pro slug "${PRO_SLUG}"`);
+  if (PRO_SLUG) {
+    // Check no inactive Pro tool slugs appear on the page
+    const inactivePattern = /href="\/tools\/pro\/(?!compressed-air-leak-cost-calculator["/#?])/g;
+    const inactiveMatches = (proPage.body.match(inactivePattern) || []).length;
+    c(inactiveMatches === 0, `Pro catalog has 0 inactive tool links (got ${inactiveMatches})`);
+  }
+
+  const freePage = await get("/free-tools");
+  const freeToolLinks = (freePage.body.match(/href="\/tools\/free\//g) || []).length;
+  c(freeToolLinks === 1, `Free catalog tool link count = ${freeToolLinks} (expected 1)`);
+  const freeContainsActive = freePage.body.includes(FREE_SLUG || "__NO_ACTIVE_FREE__");
+  c(freeContainsActive, `Free catalog contains active Free slug "${FREE_SLUG}"`);
+
+  // ── 5c. Free pilot HTTP POST ──
   console.log("\n\u2500\u2500 Free pilot HTTP execute \u2500\u2500");
   if (!fx?.inputs) { f("No Free fixture inputs"); return; }
 
@@ -297,8 +317,36 @@ async function runHttpChecks() {
     console.log(`  ERROR: Free execute returned ${freeRes.status}: ${JSON.stringify(freeRes.body).slice(0, 200)}`);
   }
 
-  //   ── 5c. Pro pilot HTTP POST — VERIFIED ONLY ──
-  console.log("\n\u2500\u2500 Pro pilot HTTP execute \u2500\u2500");
+  // ── 5d. Pro pilot: missing tool_key must return BLOCKED ──
+  console.log("\n\u2500\u2500 Pro pilot: missing tool_key check \u2500\u2500");
+  const missingKeyRes = await post("/api/pro-calculator/execute", {
+    raw_inputs: px?.inputs || {},
+    selected_units: {},
+    user_profile_mode: "engineering",
+  });
+  const missingKeyBody = missingKeyRes.body || {};
+  const missingToolKeyMsg = JSON.stringify(missingKeyBody).includes("Missing tool_key or tool_id");
+  c(missingToolKeyMsg, `Missing tool_key returns "Missing tool_key or tool_id" message`);
+
+  // ── 5e. Pro pilot: tool_key-only POST (no tool_id) must succeed ──
+  console.log("\n\u2500\u2500 Pro pilot: tool_key-only POST check \u2500\u2500");
+  if (px?.inputs) {
+    const toolKeyOnlyRes = await post("/api/pro-calculator/execute", {
+      tool_key: PRO_SLUG,
+      raw_inputs: px.inputs,
+      selected_units: {},
+      user_profile_mode: "engineering",
+    });
+    const tkoBody = toolKeyOnlyRes.body || {};
+    c(toolKeyOnlyRes.status === 200, `tool_key-only POST HTTP = ${toolKeyOnlyRes.status} (expected 200)`);
+    if (toolKeyOnlyRes.status === 200) {
+      c(tkoBody.status === "OK", `tool_key-only status = OK (got ${tkoBody.status})`);
+      c(tkoBody.pipeline_state === "OK", `tool_key-only pipeline = OK (got ${tkoBody.pipeline_state})`);
+    }
+  }
+
+  //   ── 5f. Pro pilot HTTP POST — VERIFIED EXECUTION ──
+  console.log("\n\u2500\u2500 Pro pilot HTTP execute (golden inputs) \u2500\u2500");
   
   if (!PRO_SLUG) {
     console.log("  No active Pro pilot — skipped");

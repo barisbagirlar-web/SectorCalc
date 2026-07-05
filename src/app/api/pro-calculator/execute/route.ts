@@ -46,21 +46,35 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
 
-// ── PASS 1: Static Schema / Binding Control (Section 12) ──
+// ── Tool key resolver (API compatibility: accept multiple field names) ──
+
+function resolveToolKey(body: Record<string, unknown>): string | null {
+  return (
+    (body.tool_key as string | undefined) ??
+    (body.toolKey as string | undefined) ??
+    (body.tool_id as string | undefined) ??
+    (body.toolId as string | undefined) ??
+    (body.slug as string | undefined) ??
+    ((body.schema as Record<string, unknown> | undefined)?.tool_key as string | undefined) ??
+    ((body.schema as Record<string, unknown> | undefined)?.toolKey as string | undefined) ??
+    null
+  );
+}
 
 // ── PASS 1: Static Schema / Binding Control (Section 12) ──
+
 interface Pass1Result {
   ok: boolean;
   schema: SuperV4Schema | null;
   errors: string[];
 }
 
-function pass1StaticControl(body: ExecuteRequest, schema: unknown): Pass1Result {
-  if (!body.tool_key || !body.tool_id) {
+function pass1StaticControl(toolKey: string, schema: unknown): Pass1Result {
+  if (!toolKey) {
     return { ok: false, schema: null, errors: ["Missing tool_key or tool_id"] };
   }
   if (!schema) {
-    return { ok: false, schema: null, errors: [`Schema not found for tool_key: ${body.tool_key}`] };
+    return { ok: false, schema: null, errors: [`Schema not found for tool_key: ${toolKey}`] };
   }
 
   const validation = validateSuperV4Schema(schema);
@@ -534,16 +548,32 @@ function pass3PublicControl(
 // ── Endpoint ──
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
-    const body: ExecuteRequest = await request.json();
+    const rawBody: Record<string, unknown> = await request.json();
+    const toolKey = resolveToolKey(rawBody);
+
+    // Normalize input fields: accept inputs/values as aliases for raw_inputs
+    if (rawBody.raw_inputs === undefined || rawBody.raw_inputs === null) {
+      rawBody.raw_inputs = (rawBody.inputs as Record<string, unknown>) ?? (rawBody.values as Record<string, unknown>) ?? {};
+    }
+    if (rawBody.selected_units === undefined || rawBody.selected_units === null) {
+      rawBody.selected_units = {};
+    }
+    if (!rawBody.user_profile_mode) {
+      rawBody.user_profile_mode = "engineering";
+    }
+
+    const body = rawBody as unknown as ExecuteRequest;
 
     // PASS 1 — Static Schema / Binding Control
     // Schema is resolved from the Pro/Free V5.3.1 schema registry via resolveApprovedToolSchema.
-    let schemaResult = resolveApprovedToolSchema(body.tool_key);
+    let schemaResult: import("@/sectorcalc/runtime/resolve-approved-tool-schema").ApprovedSchemaResult = toolKey
+      ? resolveApprovedToolSchema(toolKey)
+      : { ok: false, reason: "SCHEMA_NOT_FOUND", errors: ["Missing tool_key or tool_id"] };
 
     // Fallback: try direct Free schema loading if resolver fails
     // (handles dev HMR edge cases where the schema loader cache is stale).
-    if (!schemaResult.ok && body.tool_key) {
-      const directFree = getFreeToolSchema(body.tool_key);
+    if (!schemaResult.ok && toolKey) {
+      const directFree = getFreeToolSchema(toolKey);
       if (directFree) {
         const val = validateSuperV4Schema(directFree);
         if (val.ok) {
@@ -562,7 +592,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
     const schemaSource: SuperV4Schema = schemaResult.schema;
 
-    const pass1 = pass1StaticControl(body, schemaSource);
+    const pass1 = pass1StaticControl(toolKey ?? "", schemaSource);
     if (!pass1.ok) {
       const errorResponse = buildFullBlockedResponse(
         pass1.errors[0] === "Missing tool_key or tool_id" ? "VALIDATION_FAILED" : "SCHEMA_NOT_FOUND",

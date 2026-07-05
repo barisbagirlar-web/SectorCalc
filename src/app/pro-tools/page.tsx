@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
 import { getAllProToolSchemas } from "@/sectorcalc/runtime/pro-schema-loader";
+import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import {
   buildTaxonomySectorCards,
@@ -24,7 +25,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "PRO Industrial Calculators | SectorCalc",
   description:
-    "Access 135 PRO industrial calculators for structural, manufacturing, energy, quality, logistics, and food service decision support. Deterministic, auditable, server-side execution.",
+    "Access PRO industrial calculators for structural, manufacturing, energy, quality, logistics, and food service decision support. Deterministic, auditable, server-side execution.",
   robots: { index: true, follow: true },
 };
 
@@ -189,7 +190,9 @@ function proSchemaToToolListItem(
 
 export default async function ProToolsPage() {
   const locale = "en";
-  const proEntries = getAllProToolSchemas();
+  const allProEntries = getAllProToolSchemas();
+  const activeSlugs = new Set(ACTIVE_PRO_TOOL_SLUGS);
+  const proEntries = allProEntries.filter((e) => activeSlugs.has(e.toolKey));
   const count = proEntries.length;
 
   const tools: ToolListItem[] = proEntries.map(({ toolKey, schema }) =>
