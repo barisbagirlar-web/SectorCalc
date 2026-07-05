@@ -1,135 +1,173 @@
 #!/usr/bin/env node
-
-/**
- * guard-free-schema-server-boundary.mjs
- *
- * Fails if free-schema-loader.ts (which uses Node fs/path) is imported by:
- *   - src/lib/infrastructure/seo/   (shared SEO modules)
- *   - src/components/               (React components)
- *   - any file containing "use client" (client-side modules)
- *   - public manifest files           (fs-free by requirement)
- *
- * Passes only if free-schema-loader is imported ONLY by:
- *   - server routes (src/app/ server components)
- *   - server actions / runtime modules (src/sectorcalc/runtime/)
- *   - node scripts (scripts/)
- */
-
-import { readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
-import { execFileSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
 
 const ROOT = process.cwd();
-const MODULE_PATH = "src/sectorcalc/runtime/free-schema-loader";
+const TARGET = "free-schema-loader";
 
-// Forbidden import zones — free-schema-loader must never appear here
-const FORBIDDEN_ZONES = [
-  { path: "src/lib/infrastructure/seo", desc: "shared SEO modules" },
-  { path: "src/components", desc: "React components" },
-];
+const ACTIVE_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs"]);
 
-// Allowed import zones — free-schema-loader is expected here
-const ALLOWED_ZONES = [
-  { path: "src/app", desc: "server routes" },
-  { path: "src/sectorcalc/runtime", desc: "runtime modules" },
-  { path: "scripts", desc: "node scripts" },
-  // resolve-approved-tool-schema is a runtime module covered by src/sectorcalc/runtime
-];
+const SKIP_DIRS = new Set([
+  ".git",
+  ".next",
+  "node_modules",
+  "out",
+  "dist",
+  "build",
+  "coverage",
+  ".local-free-tools-quarantine",
+]);
 
-let failures = 0;
+function toRel(filePath) {
+  return path.relative(ROOT, filePath).split(path.sep).join("/");
+}
 
-function findFilesWithImport(dir, importPattern) {
-  const abs = join(ROOT, dir);
-  if (!existsSync(abs)) return [];
+function walk(dir, out = []) {
+  if (!fs.existsSync(dir)) return out;
+
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (SKIP_DIRS.has(entry.name)) continue;
+
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      walk(fullPath, out);
+      continue;
+    }
+
+    if (!entry.isFile()) continue;
+
+    if (ACTIVE_EXTENSIONS.has(path.extname(entry.name))) {
+      out.push(fullPath);
+    }
+  }
+
+  return out;
+}
+
+function read(filePath) {
   try {
-    const output = execFileSync("rg", ["-l", "--glob", "*.ts", "--glob", "*.tsx", "--glob", "*.mjs", importPattern, abs], {
-      cwd: ROOT,
-      encoding: "utf8",
-      maxBuffer: 10 * 1024 * 1024,
-    });
-    return output.trim().split("\n").filter(Boolean);
+    return fs.readFileSync(filePath, "utf8");
   } catch {
-    // rg returns exit code 1 when no matches — that's OK
-    return [];
+    return "";
   }
 }
 
-function findUseClientFilesWithImport() {
-  // Find all files containing "use client" that also import from free-schema-loader
-  const abs = join(ROOT, "src");
-  if (!existsSync(abs)) return [];
-  try {
-    const output = execFileSync("rg", [
-      "-l", "--glob", "*.tsx", "--glob", "*.ts",
-      "-U", // multiline
-      '"use client"[\\s\\S]*from.*free-schema-loader',
-      abs,
-    ], {
-      cwd: ROOT,
-      encoding: "utf8",
-      maxBuffer: 10 * 1024 * 1024,
-    });
-    return output.trim().split("\n").filter(Boolean);
-  } catch {
-    return [];
-  }
+function stripComments(source) {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/^\s*\/\/.*$/gm, "");
 }
+
+function hasUseClient(source) {
+  return /^["']use client["'];?/.test(source.trimStart().slice(0, 500));
+}
+
+function importsFreeLoader(source) {
+  const clean = stripComments(source);
+  return (
+    clean.includes("free-schema-loader") &&
+    /(?:import|export|require\s*\(|import\s*\()/.test(clean)
+  );
+}
+
+function isServerRoute(rel) {
+  return /^src\/app\/.+\/(?:page|route)\.(?:ts|tsx|js|jsx)$/.test(rel);
+}
+
+function isRuntimeModule(rel) {
+  return /^src\/sectorcalc\/runtime\/.+\.(?:ts|tsx|js|jsx|mjs|cjs)$/.test(rel);
+}
+
+function isNodeScript(rel) {
+  return /^scripts\/.+\.(?:ts|tsx|js|jsx|mjs|cjs)$/.test(rel);
+}
+
+function classify(rel, source) {
+  if (hasUseClient(source)) return { allowed: false, zone: "client" };
+  if (rel.startsWith("src/lib/infrastructure/seo/")) return { allowed: false, zone: "seo" };
+  if (rel.startsWith("src/components/")) return { allowed: false, zone: "component" };
+
+  if (isServerRoute(rel)) return { allowed: true, zone: "server route" };
+  if (isRuntimeModule(rel)) return { allowed: true, zone: "runtime module" };
+  if (isNodeScript(rel)) return { allowed: true, zone: "node script" };
+
+  return { allowed: false, zone: "unknown" };
+}
+
+const files = walk(ROOT);
+const imports = [];
+
+for (const file of files) {
+  const source = read(file);
+  if (!source) continue;
+  if (!importsFreeLoader(source)) continue;
+
+  const rel = toRel(file);
+  imports.push({
+    file: rel,
+    ...classify(rel, source),
+  });
+}
+
+const loaderExists = fs.existsSync(path.join(ROOT, "src/sectorcalc/runtime/free-schema-loader.ts"));
+const allowed = imports.filter((item) => item.allowed);
+const forbidden = imports.filter((item) => !item.allowed);
 
 console.log("═══════════════════════════════════════════════════════");
 console.log("  Free Schema Server Boundary Guard");
-console.log("═══════════════════════════════════════════════════════\n");
+console.log("═══════════════════════════════════════════════════════");
+console.log("");
 
-// ── Check 1: Forbidden zones ────────────────────────────────────
-for (const zone of FORBIDDEN_ZONES) {
-  const files = findFilesWithImport(zone.path, "free-schema-loader");
-  if (files.length > 0) {
-    console.error(`  ❌ free-schema-loader imported BY ${zone.desc}:`);
-    for (const f of files) {
-      console.error(`     - ${f}`);
-    }
-    failures++;
-  } else {
-    console.log(`  ✅ No imports in ${zone.desc}`);
-  }
-}
-
-// ── Check 2: "use client" files with free-schema-loader import ──
-const clientFiles = findUseClientFilesWithImport();
-if (clientFiles.length > 0) {
-  console.error(`  ❌ free-schema-loader imported BY "use client" files:`);
-  for (const f of clientFiles) {
-    console.error(`     - ${f}`);
-  }
-  failures++;
+if (forbidden.length === 0) {
+  console.log("  ✅ No imports in shared SEO modules");
+  console.log("  ✅ No imports in React components");
+  console.log('  ✅ No "use client" files import free-schema-loader');
 } else {
-  console.log(`  ✅ No "use client" files import free-schema-loader`);
-}
-
-// ── Check 3: Verify free-schema-loader IS used by allowed zones ──
-console.log(`\n  Verifying allowed import zones...`);
-let allowedFound = false;
-for (const zone of ALLOWED_ZONES) {
-  const files = findFilesWithImport(zone.path, "free-schema-loader");
-  if (files.length > 0) {
-    allowedFound = true;
-    console.log(`  ✅ Allowed imports in ${zone.desc}: ${files.length} file(s)`);
-  } else {
-    console.log(`  ⚠️  No imports in ${zone.desc} (may be OK if not expected)`);
+  console.log("  ❌ Forbidden imports:");
+  for (const item of forbidden) {
+    console.log(`     - ${item.file} [${item.zone}]`);
   }
 }
 
-if (!allowedFound) {
-  console.error(`\n  ❌ free-schema-loader is NOT imported by any allowed zone — dead code?`);
-  failures++;
+console.log("");
+console.log("  Verifying allowed import zones...");
+
+for (const zone of ["server route", "runtime module", "node script"]) {
+  const items = allowed.filter((item) => item.zone === zone);
+  if (items.length === 0) {
+    console.log(`  ⚠️  No imports in ${zone}s`);
+  } else {
+    console.log(`  ✅ ${items.length} import(s) in ${zone}s`);
+    for (const item of items) {
+      console.log(`     - ${item.file}`);
+    }
+  }
 }
 
-// ── Summary ─────────────────────────────────────────────────────
-console.log(`\n───────────────────────────────────────────────────────`);
-if (failures > 0) {
-  console.error(`  ❌ FREE_SCHEMA_SERVER_BOUNDARY=FAIL`);
-  console.error(`  failure_count=${failures}`);
+let failureCount = forbidden.length;
+
+if (loaderExists && allowed.length === 0) {
+  console.log("");
+  console.log("  ❌ free-schema-loader exists but is not imported by any approved server/runtime/script zone.");
+  failureCount += 1;
+}
+
+if (!loaderExists && imports.length > 0) {
+  console.log("");
+  console.log("  ❌ free-schema-loader imports exist but the loader file is missing.");
+  failureCount += 1;
+}
+
+console.log("");
+console.log("───────────────────────────────────────────────────────");
+
+if (failureCount > 0) {
+  console.log("  ❌ FREE_SCHEMA_SERVER_BOUNDARY=FAIL");
+  console.log(`  failure_count=${failureCount}`);
   process.exit(1);
 }
 
-console.log(`  ✅ FREE_SCHEMA_SERVER_BOUNDARY=PASS`);
-console.log("═══════════════════════════════════════════════════════\n");
+console.log("  ✅ FREE_SCHEMA_SERVER_BOUNDARY=PASS");
+console.log(`  allowed_imports=${allowed.length}`);
+console.log("═══════════════════════════════════════════════════════");
