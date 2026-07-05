@@ -1,0 +1,1189 @@
+{
+  "tool_id": "PRO_001_COMPRESSED_AIR_LEAK_COST_CALCULATOR",
+  "tool_key": "compressed-air-leak-cost-calculator",
+  "tool_name": "Compressed Air Leak Cost Calculator",
+  "category": "Industrial Utilities / Energy Efficiency",
+  "scope": "Compressed Air Leak Cost Calculator supports one operation: compressed_air_leak_cost_assessment. It is limited to decision-support screening using user-supplied, source-verified inputs for estimating leakage flow, energy loss, annual cost, and repair payback.",
+  "primary_operation": "compressed_air_leak_cost_assessment",
+  "decision_context": {
+    "system_boundary": "Compressed air system leak assessment — single leak point analysis. Includes orifice geometry, system pressure, operating schedule, compressor efficiency, electricity cost, and estimated repair cost.",
+    "single_operation_scope": "Evaluate compressed air leak cost as a single decision-support operation using normalized inputs, choked flow gas dynamics, evidence checks, and business impact.",
+    "decision_owner": "Engineer, maintenance technician, site lead, operations manager, energy manager",
+    "decision_after_output": "schedule repair, prioritize leak, budget allocation, adjust maintenance schedule, or escalate to energy audit",
+    "cost_of_wrong_decision": "Underestimated leak cost delays repair, causing continuous energy waste. Overestimated cost misallocates maintenance resources.",
+    "failure_mode_if_formula_wrong": "Wrong unit normalization, incorrect choked flow assumption, or missing evidence can produce misleading cost estimates and wrong repair priority.",
+    "primary_metric": "annual_leak_cost",
+    "secondary_metrics": [
+      "estimated_air_loss_m3_min",
+      "annual_energy_loss_kwh",
+      "repair_payback_days",
+      "decision_status",
+      "governing_driver"
+    ],
+    "required_source_documents": [
+      "calibrated measurement record for orifice diameter",
+      "compressor specification or measurement for specific power",
+      "electricity tariff or utility bill for cost per kWh",
+      "maintenance estimate or quote for repair cost"
+    ],
+    "excluded_use_cases": [
+      "certified compliance decision",
+      "legal proof",
+      "authority approval",
+      "replacement of qualified engineering review",
+      "system-wide compressed air audit without multi-point measurement"
+    ],
+    "field_use_limitations": [
+      "Use for screening and decision support only.",
+      "Assumes choked flow condition at orifice (critical pressure ratio met).",
+      "Single leak point analysis only — do not sum multiple leaks without independent verification.",
+      "Verify all inputs from approved source documents or direct measurement."
+    ],
+    "tool_use_classification": "DECISION_SUPPORT_ONLY_NOT_CERTIFICATION"
+  },
+  "irreversible_commitment_metric": "maintenance work order, repair expense, or capital allocation based on payback estimate",
+  "standards": [
+    {
+      "name": "ISO 8573-1 compressed air quality standard context",
+      "role": "Compressed air system assessment framework",
+      "status": "CONTEXT_ONLY",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "ISO 11011 compressed air energy efficiency assessment context",
+      "role": "Energy audit methodology context",
+      "status": "CONTEXT_ONLY",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "Ideal gas law and choked flow gas dynamics (compressible flow theory)",
+      "role": "Choked mass flow rate calculation through orifice",
+      "status": "CONTEXT_ONLY",
+      "restricted_table_reproduction": "FORBIDDEN"
+    }
+  ],
+  "standards_clause_map": [],
+  "reference_status": {
+    "overall": "NEEDS_SOURCE_VERIFICATION",
+    "exact_standard_clauses_supplied_by_user": false,
+    "standards_clause_map_policy": "EMPTY_UNLESS_USER_SUPPLIES_EXACT_REFERENCES",
+    "restricted_table_reproduction": "FORBIDDEN"
+  },
+  "risk_level": "MEDIUM",
+  "brand_safety_policy": {
+    "third_party_brand_use": "FORBIDDEN",
+    "comparative_brand_language": "FORBIDDEN",
+    "affiliation_implication": "FORBIDDEN",
+    "competitor_name_generation": "FORBIDDEN",
+    "public_output_brand_mentions": "FORBIDDEN",
+    "legal_proof_claim": "FORBIDDEN",
+    "certified_compliance_claim": "FORBIDDEN",
+    "allowed_description": "Compressed air leak cost engineering assessment",
+    "approved_terms": [
+      "review-ready calculation evidence",
+      "auditable engineering calculation note",
+      "checker-ready calculation summary",
+      "engineering proof pack",
+      "standards-context calculation dossier",
+      "source-evidence calculation record",
+      "audit-ready decision support"
+    ],
+    "violation_behavior": "REJECT_SCHEMA"
+  },
+  "calculation_basis": {
+    "mode": "SCHEMA_GENERATION_MODE",
+    "single_operation": true,
+    "not_basic_calculator": true,
+    "calculation_character": "Protected multi-node formula graph for Compressed Air Leak Cost Calculator: orifice geometry, choked flow gas dynamics, energy loss, cost, payback, and decision state.",
+    "public_formula_expression_policy": "FORBIDDEN",
+    "server_formula_registry_required": true,
+    "runtime_llm_usage": "FORBIDDEN",
+    "normalized_base_unit_inputs_only": true
+  },
+  "unit_system": {
+    "name": "SI_BASE_UNITS_WITH_DOMAIN_EXCEPTIONS",
+    "display_unit_policy": "User-selectable display units with base-unit normalization before server execution.",
+    "currency_policy": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION",
+    "temperature_policy": "DISTINGUISH_ABSOLUTE_TEMPERATURE_FROM_TEMPERATURE_INTERVAL",
+    "unit_source_status": "CONTEXT_ONLY"
+  },
+  "unit_conversion_contract": {
+    "internal_base_system": "SI_BASE_UNITS_WITH_DOMAIN_EXCEPTIONS",
+    "currency_policy": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION",
+    "temperature_policy": "DISTINGUISH_ABSOLUTE_TEMPERATURE_FROM_TEMPERATURE_INTERVAL",
+    "conversion_registry": {
+      "length": {
+        "mm": { "factor": 0.001, "offset": 0 },
+        "m": { "factor": 1, "offset": 0 },
+        "cm": { "factor": 0.01, "offset": 0 },
+        "in": { "factor": 0.0254, "offset": 0 }
+      },
+      "pressure": {
+        "bar_g": { "factor": 1, "offset": 0 },
+        "bar": { "factor": 1, "offset": 0 },
+        "kpa_g": { "factor": 0.01, "offset": 0 },
+        "psi_g": { "factor": 0.0689476, "offset": 0 },
+        "psi": { "factor": 0.0689476, "offset": 0 }
+      },
+      "time": {
+        "h_per_year": { "factor": 1, "offset": 0 },
+        "h": { "factor": 1, "offset": 0 }
+      },
+      "power_per_volumetric_flow": {
+        "kw_per_m3_min": { "factor": 1, "offset": 0 },
+        "kw_per_cfm": { "factor": 1.699, "offset": 0 }
+      },
+      "currency": {
+        "usd_per_kwh": { "factor": 1, "offset": 0 },
+        "display_currency": { "factor": 1, "offset": 0 }
+      }
+    },
+    "unsupported_conversion_behavior": "BLOCK_CALCULATION",
+    "unit_change_behavior": "PRESERVE_PHYSICAL_QUANTITY",
+    "formula_input_rule": "FORMULAS_USE_NORMALIZED_BASE_UNITS_ONLY"
+  },
+  "inputs": [
+    {
+      "id": "leak_orifice_diameter_mm",
+      "name": "Leak Orifice Diameter",
+      "symbol": "d",
+      "quantity_kind": "length",
+      "unit_selectable": false,
+      "base_unit": "mm",
+      "allowed_display_units": [],
+      "normalized_id": "n_leak_orifice_diameter_mm",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "mm",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Leak orifice diameter must be at least 0.1 mm.",
+        "semantic_error_message_max": "Leak orifice diameter exceeds maximum (20 mm)."
+      },
+      "engineering_range": {
+        "min": 0.5,
+        "max": 10,
+        "unit": "mm",
+        "source": "Typical compressed air leak orifice sizes.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "precision_policy": {
+        "input_decimals": 2,
+        "display_decimals": 2,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Orifice diameter must be measured or estimated from leak type.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Enter the estimated or measured leak orifice diameter."
+      },
+      "source_priority": [
+        "measured_value",
+        "user_verified_source",
+        "controlled_estimate"
+      ],
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "calibrated measurement",
+          "orifice gauge reading",
+          "ultrasonic leak detector estimate"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Confirm leak orifice diameter source evidence."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": ["F1"],
+      "output_bindings": [
+        "estimated_air_loss_m3_min",
+        "annual_energy_loss_kwh",
+        "annual_leak_cost"
+      ],
+      "warning_bindings": [
+        "W_REF_RANGE",
+        "W_EVIDENCE"
+      ],
+      "ui_binding": {
+        "group_id": "leak_parameters",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true
+      }
+    },
+    {
+      "id": "system_pressure_bar_g",
+      "name": "System Pressure",
+      "symbol": "p",
+      "quantity_kind": "pressure",
+      "unit_selectable": false,
+      "base_unit": "bar_g",
+      "allowed_display_units": [],
+      "normalized_id": "n_system_pressure_bar_g",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 1,
+        "max": 12,
+        "unit": "bar_g",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "System pressure must be at least 1 bar(g).",
+        "semantic_error_message_max": "System pressure exceeds maximum (12 bar(g))."
+      },
+      "engineering_range": {
+        "min": 4,
+        "max": 10,
+        "unit": "bar_g",
+        "source": "Typical industrial compressed air system pressure range.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "precision_policy": {
+        "input_decimals": 2,
+        "display_decimals": 2,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "System pressure must be measured at the leak location.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Enter the compressed air system pressure."
+      },
+      "source_priority": [
+        "measured_value",
+        "user_verified_source"
+      ],
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "pressure gauge reading",
+          "compressor controller display",
+          "system pressure log"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Confirm system pressure source evidence."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": ["F1"],
+      "output_bindings": [
+        "estimated_air_loss_m3_min",
+        "annual_energy_loss_kwh",
+        "annual_leak_cost"
+      ],
+      "warning_bindings": [
+        "W_REF_RANGE",
+        "W_EVIDENCE"
+      ],
+      "ui_binding": {
+        "group_id": "leak_parameters",
+        "field_order": 2,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true
+      }
+    },
+    {
+      "id": "operating_hours_per_year",
+      "name": "Operating Hours per Year",
+      "symbol": "H",
+      "quantity_kind": "time",
+      "unit_selectable": false,
+      "base_unit": "h_per_year",
+      "allowed_display_units": [],
+      "normalized_id": "n_operating_hours_per_year",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 1,
+        "max": 8760,
+        "unit": "h_per_year",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Operating hours must be at least 1 hour/year.",
+        "semantic_error_message_max": "Operating hours cannot exceed 8760 hours/year."
+      },
+      "engineering_range": {
+        "min": 2000,
+        "max": 8760,
+        "unit": "h_per_year",
+        "source": "Typical industrial operating schedule range.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "precision_policy": {
+        "input_decimals": 0,
+        "display_decimals": 0,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Operating hours must match the facility production schedule.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Enter annual operating hours for the compressed air system."
+      },
+      "source_priority": [
+        "user_verified_source",
+        "controlled_estimate"
+      ],
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "production schedule",
+          "compressor runtime log",
+          "shift calendar"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Confirm operating hours source evidence."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": ["F1"],
+      "output_bindings": [
+        "annual_energy_loss_kwh",
+        "annual_leak_cost"
+      ],
+      "warning_bindings": [
+        "W_REF_RANGE",
+        "W_EVIDENCE"
+      ],
+      "ui_binding": {
+        "group_id": "operating_parameters",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true
+      }
+    },
+    {
+      "id": "compressor_specific_power_kw_per_m3_min",
+      "name": "Compressor Specific Power",
+      "symbol": "P_s",
+      "quantity_kind": "power_per_volumetric_flow",
+      "unit_selectable": false,
+      "base_unit": "kw_per_m3_min",
+      "allowed_display_units": [],
+      "normalized_id": "n_compressor_specific_power_kw_per_m3_min",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 3,
+        "max": 12,
+        "unit": "kw_per_m3_min",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Specific power must be at least 3 kW per m3/min.",
+        "semantic_error_message_max": "Specific power exceeds maximum (12 kW per m3/min)."
+      },
+      "engineering_range": {
+        "min": 4.5,
+        "max": 8.5,
+        "unit": "kw_per_m3_min",
+        "source": "Typical compressor specific power range (lubricated rotary screw).",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "precision_policy": {
+        "input_decimals": 2,
+        "display_decimals": 2,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Specific power from compressor manufacturer data or measurement.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Enter the compressor specific power consumption."
+      },
+      "source_priority": [
+        "manufacturer_data",
+        "measured_value",
+        "user_verified_source"
+      ],
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "compressor datasheet",
+          "measured power and flow data",
+          "compressor controller log"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Confirm compressor specific power source evidence."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": ["F1"],
+      "output_bindings": [
+        "annual_energy_loss_kwh",
+        "annual_leak_cost"
+      ],
+      "warning_bindings": [
+        "W_REF_RANGE",
+        "W_EVIDENCE"
+      ],
+      "ui_binding": {
+        "group_id": "operating_parameters",
+        "field_order": 2,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true
+      }
+    },
+    {
+      "id": "electricity_cost_per_kwh",
+      "name": "Electricity Cost",
+      "symbol": "C_e",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "usd_per_kwh",
+      "allowed_display_units": [],
+      "normalized_id": "n_electricity_cost_per_kwh",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 2,
+        "unit": "usd_per_kwh",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Electricity cost must be non-negative.",
+        "semantic_error_message_max": "Electricity cost exceeds maximum (2 USD/kWh)."
+      },
+      "engineering_range": {
+        "min": 0.05,
+        "max": 0.50,
+        "unit": "usd_per_kwh",
+        "source": "Typical industrial electricity tariff range.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "precision_policy": {
+        "input_decimals": 4,
+        "display_decimals": 4,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Electricity cost from utility bill or tariff schedule.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Enter the blended or marginal electricity cost."
+      },
+      "source_priority": [
+        "utility_bill",
+        "tariff_schedule",
+        "user_verified_source"
+      ],
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "utility bill",
+          "tariff rate schedule",
+          "energy procurement contract"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Confirm electricity cost source evidence."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": ["F1"],
+      "output_bindings": [
+        "annual_leak_cost"
+      ],
+      "warning_bindings": [
+        "W_REF_RANGE",
+        "W_EVIDENCE"
+      ],
+      "ui_binding": {
+        "group_id": "cost_parameters",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true
+      }
+    },
+    {
+      "id": "repair_cost",
+      "name": "Estimated Repair Cost",
+      "symbol": "C_r",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "display_currency",
+      "allowed_display_units": [],
+      "normalized_id": "n_repair_cost",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 100000,
+        "unit": "display_currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Repair cost must be non-negative.",
+        "semantic_error_message_max": "Repair cost exceeds maximum (100,000 USD)."
+      },
+      "engineering_range": {
+        "min": 20,
+        "max": 5000,
+        "unit": "display_currency",
+        "source": "Typical compressed air leak repair cost range.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "precision_policy": {
+        "input_decimals": 0,
+        "display_decimals": 0,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Repair cost estimate from maintenance quote or historical data.",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Enter the estimated cost to repair the leak."
+      },
+      "source_priority": [
+        "maintenance_quote",
+        "historical_data",
+        "user_verified_source"
+      ],
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "maintenance quote",
+          "repair invoice",
+          "service contract rate"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Confirm repair cost source evidence."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": ["F1"],
+      "output_bindings": [
+        "repair_payback_days"
+      ],
+      "warning_bindings": [
+        "W_REF_RANGE",
+        "W_EVIDENCE"
+      ],
+      "ui_binding": {
+        "group_id": "cost_parameters",
+        "field_order": 2,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "estimated_air_loss_m3_min",
+      "name": "Estimated Air Loss",
+      "symbol": "Q_loss",
+      "quantity_kind": "volumetric_flow",
+      "base_unit": "m3/min",
+      "allowed_display_units": ["m3/min"],
+      "type": "number",
+      "formula_source": "F_AIR_LOSS_M3_MIN",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "TECHNICAL",
+      "acceptance_threshold": "Must be finite positive.",
+      "review_threshold": "Near zero triggers review.",
+      "failure_threshold": "Non-finite blocks.",
+      "governing_formula": "F_AIR_LOSS_M3_MIN",
+      "governing_input_sensitivity": [
+        "leak_orifice_diameter_mm",
+        "system_pressure_bar_g"
+      ],
+      "public_explanation": "Volumetric flow rate of compressed air lost through the leak orifice under choked flow conditions.",
+      "operator_explanation": "Air volume escaping through the leak per minute.",
+      "owner_cfo_explanation": "Drives energy cost magnitude.",
+      "checker_explanation": "Verify orifice diameter and system pressure inputs.",
+      "output_format": {
+        "decimals": 4,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "annual_energy_loss_kwh",
+      "name": "Annual Energy Loss",
+      "symbol": "E_loss",
+      "quantity_kind": "energy",
+      "base_unit": "kWh",
+      "allowed_display_units": ["kWh"],
+      "type": "number",
+      "formula_source": "F_ANNUAL_ENERGY",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "TECHNICAL",
+      "acceptance_threshold": "Must be finite positive.",
+      "review_threshold": "Near zero triggers review.",
+      "failure_threshold": "Non-finite blocks.",
+      "governing_formula": "F_ANNUAL_ENERGY",
+      "governing_input_sensitivity": [
+        "leak_orifice_diameter_mm",
+        "system_pressure_bar_g",
+        "operating_hours_per_year",
+        "compressor_specific_power_kw_per_m3_min"
+      ],
+      "public_explanation": "Annual energy consumed to produce the compressed air lost through the leak.",
+      "operator_explanation": "kWh lost through the leak per year.",
+      "owner_cfo_explanation": "Energy value of the leak.",
+      "checker_explanation": "Verify operating hours and specific power inputs.",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "annual_leak_cost",
+      "name": "Annual Leak Cost",
+      "symbol": "C_annual",
+      "quantity_kind": "currency",
+      "base_unit": "display_currency",
+      "allowed_display_units": ["display_currency"],
+      "type": "number",
+      "formula_source": "F_ANNUAL_COST",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "BUSINESS_IMPACT",
+      "acceptance_threshold": "Must be finite positive.",
+      "review_threshold": "Above 250 triggers review.",
+      "failure_threshold": "Non-finite blocks.",
+      "governing_formula": "F_ANNUAL_COST",
+      "governing_input_sensitivity": [
+        "leak_orifice_diameter_mm",
+        "system_pressure_bar_g",
+        "electricity_cost_per_kwh"
+      ],
+      "public_explanation": "Total annual cost of electricity wasted through the compressed air leak.",
+      "operator_explanation": "Annual cost of the leak.",
+      "owner_cfo_explanation": "Direct financial impact of the leak.",
+      "checker_explanation": "Verify electricity cost input.",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "repair_payback_days",
+      "name": "Repair Payback Period",
+      "symbol": "t_pay",
+      "quantity_kind": "time",
+      "base_unit": "days",
+      "allowed_display_units": ["days"],
+      "type": "number",
+      "formula_source": "F_PAYBACK_DAYS",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "BUSINESS_IMPACT",
+      "acceptance_threshold": "Must be finite positive.",
+      "review_threshold": "Above 365 days triggers review.",
+      "failure_threshold": "Zero annual cost returns null.",
+      "governing_formula": "F_PAYBACK_DAYS",
+      "governing_input_sensitivity": [
+        "repair_cost",
+        "electricity_cost_per_kwh"
+      ],
+      "public_explanation": "Days of energy savings needed to recover the repair cost.",
+      "operator_explanation": "Days until repair pays for itself.",
+      "owner_cfo_explanation": "Return on repair investment timeline.",
+      "checker_explanation": "Verify repair cost estimate.",
+      "output_format": {
+        "decimals": 1,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "decision_status",
+      "name": "Decision Status",
+      "symbol": "DS",
+      "quantity_kind": "dimensionless",
+      "base_unit": "enum",
+      "allowed_display_units": [],
+      "type": "string",
+      "formula_source": "POST_PROCESSED",
+      "decision_use": "STATUS",
+      "proof_status_role": "DECISION",
+      "acceptance_threshold": "Must be valid enum.",
+      "review_threshold": "REVIEW status triggers warning.",
+      "failure_threshold": "N/A",
+      "governing_formula": "POST_PROCESSED",
+      "governing_input_sensitivity": [],
+      "public_explanation": "Action priority based on payback period and annual leak cost.",
+      "operator_explanation": "What to do about this leak.",
+      "owner_cfo_explanation": "Repair priority indicator.",
+      "checker_explanation": "Verify against payback and cost thresholds.",
+      "output_format": {
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    },
+    {
+      "id": "governing_driver",
+      "name": "Governing Driver",
+      "symbol": "GD",
+      "quantity_kind": "dimensionless",
+      "base_unit": "enum",
+      "allowed_display_units": [],
+      "type": "string",
+      "formula_source": "POST_PROCESSED",
+      "decision_use": "STATUS",
+      "proof_status_role": "DECISION",
+      "acceptance_threshold": "Must be valid enum.",
+      "review_threshold": "N/A",
+      "failure_threshold": "N/A",
+      "governing_formula": "POST_PROCESSED",
+      "governing_input_sensitivity": [],
+      "public_explanation": "Primary factor driving the decision status classification.",
+      "operator_explanation": "Why this leak has this priority.",
+      "owner_cfo_explanation": "Root cause of the decision.",
+      "checker_explanation": "Review against computed thresholds.",
+      "output_format": {
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "name": "Compressed air loss model via choked flow equation",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "uses": ["n_leak_orifice_diameter_mm", "n_system_pressure_bar_g", "n_operating_hours_per_year", "n_compressor_specific_power_kw_per_m3_min", "n_electricity_cost_per_kwh", "n_repair_cost"],
+      "output": "estimated_air_loss_m3_min",
+      "unit": "m3/min",
+      "proof_role": "DETERMINISTIC_CALCULATION",
+      "standard_clause_bindings": [],
+      "input_bindings": ["leak_orifice_diameter_mm", "system_pressure_bar_g", "operating_hours_per_year", "compressor_specific_power_kw_per_m3_min", "electricity_cost_per_kwh", "repair_cost"],
+      "normalized_input_bindings": ["n_leak_orifice_diameter_mm", "n_system_pressure_bar_g", "n_operating_hours_per_year", "n_compressor_specific_power_kw_per_m3_min", "n_electricity_cost_per_kwh", "n_repair_cost"],
+      "output_bindings": ["annual_energy_loss_kwh", "annual_leak_cost", "repair_payback_days", "decision_status", "governing_driver"],
+      "assumptions": ["Choked flow condition holds (critical pressure ratio is met).", "Air is an ideal gas with constant specific heat ratio of 1.4.", "Discharge coefficient of 0.65 accounts for vena contracta and friction losses.", "Ambient temperature is 20°C (293.15 K) for density calculation.", "Single leak point is independent of other leaks in the system."],
+      "limitations": ["This is a decision-support screening model and is not a certified energy audit.", "Does not account for compressor part-load efficiency degradation.", "Does not account for distribution piping pressure losses.", "Single leak point analysis only; multiple leaks must be calculated separately."],
+      "edge_cases": ["Zero electricity cost produces zero annual leak cost (payback undefined).", "Non-finite inputs block execution.", "Pressure below atmospheric reverses flow direction (not supported)."],
+      "public_proof_summary": "Computes compressed air leakage rate and associated energy cost using choked flow gas dynamics.",
+      "protected_methodology_summary": "Server-side formula registry applies choked flow equation with discharge coefficient, absolute pressure, orifice area, and compressor specific power.",
+      "checker_note": "Verify orifice diameter is the equivalent diameter of the leak opening, not the fitting size.",
+      "acceptance_logic": "Leak cost is acceptable when annual leak cost is below advisory threshold.",
+      "rejection_logic": "Block or reject when inputs fail physical bounds or non-finite check.",
+      "review_required_logic": "Review when governing driver indicates moderate or high urgency.",
+      "uncertainty_expression": "Combined standard uncertainty is computed server-side from input measurement uncertainty.",
+      "formula_leak_risk": "HIGH"
+    }
+  ],
+  "derating_contract": {
+    "enabled": false,
+    "rules": []
+  },
+  "physical_bounds_policy": {
+    "enabled": true,
+    "server_enforced": true,
+    "client_precheck_allowed": true,
+    "violation_behavior": "BLOCK_CALCULATION",
+    "semantic_error_required": true,
+    "non_finite_number_behavior": "BLOCK_CALCULATION"
+  },
+  "validation_contract": {
+    "fail_closed": true,
+    "semantic_errors_required": true,
+    "rules": [
+      {
+        "id": "V_MISSING_REQUIRED",
+        "type": "EVIDENCE",
+        "affected_inputs": ["leak_orifice_diameter_mm", "system_pressure_bar_g", "operating_hours_per_year", "compressor_specific_power_kw_per_m3_min", "electricity_cost_per_kwh", "repair_cost"],
+        "affected_outputs": ["estimated_air_loss_m3_min", "annual_energy_loss_kwh", "annual_leak_cost", "repair_payback_days"],
+        "condition_description": "required inputs missing",
+        "severity": "BLOCKER",
+        "behavior": "BLOCK",
+        "semantic_message": "Missing required input blocks execution.",
+        "why_it_matters": "Fail-closed validation prevents false confidence and invalid results.",
+        "suggested_action": "Provide all required inputs before submitting."
+      },
+      {
+        "id": "V_PHYSICAL_BOUNDS",
+        "type": "BOUNDS",
+        "affected_inputs": ["leak_orifice_diameter_mm", "system_pressure_bar_g", "operating_hours_per_year", "compressor_specific_power_kw_per_m3_min", "electricity_cost_per_kwh", "repair_cost"],
+        "affected_outputs": ["estimated_air_loss_m3_min", "annual_energy_loss_kwh", "annual_leak_cost", "repair_payback_days"],
+        "condition_description": "input value outside physical hard bounds",
+        "severity": "BLOCKER",
+        "behavior": "BLOCK",
+        "semantic_message": "Input value is outside physically possible range.",
+        "why_it_matters": "Physically impossible values produce invalid results.",
+        "suggested_action": "Correct the input value to a physically possible range."
+      },
+      {
+        "id": "V_ZERO_COST",
+        "type": "SEMANTIC",
+        "affected_inputs": ["electricity_cost_per_kwh"],
+        "affected_outputs": ["annual_leak_cost", "repair_payback_days"],
+        "condition_description": "Electricity cost is zero, annual leak cost will be zero.",
+        "severity": "WARNING",
+        "behavior": "WARN",
+        "semantic_message": "Zero electricity cost produces zero annual leak cost.",
+        "why_it_matters": "Leak cost and payback cannot be calculated with zero energy cost.",
+        "suggested_action": "Enter a non-zero electricity cost."
+      }
+    ]
+  },
+  "ui_contract": {
+    "target_renderer": "UniversalIndustrialDecisionForm",
+    "tool_name_display": "Compressed Air Leak Cost Calculator",
+    "tool_subtitle": "Estimate leakage flow, annual energy loss, leak cost, and repair payback",
+    "primary_cta": "Calculate Leak Cost",
+    "reset_cta": "Reset Inputs",
+    "input_groups": [
+      {
+        "id": "leak_parameters",
+        "label": "Leak Parameters",
+        "description": "Orifice geometry and system pressure",
+        "fields": ["leak_orifice_diameter_mm", "system_pressure_bar_g"]
+      },
+      {
+        "id": "operating_parameters",
+        "label": "Operating Parameters",
+        "description": "Schedule and compressor efficiency",
+        "fields": ["operating_hours_per_year", "compressor_specific_power_kw_per_m3_min"]
+      },
+      {
+        "id": "cost_parameters",
+        "label": "Cost Parameters",
+        "description": "Energy and repair costs",
+        "fields": ["electricity_cost_per_kwh", "repair_cost"]
+      }
+    ],
+    "output_tabs": [
+      {
+        "id": "results",
+        "label": "Results",
+        "fields": ["estimated_air_loss_m3_min", "annual_energy_loss_kwh", "annual_leak_cost", "repair_payback_days"]
+      },
+      {
+        "id": "decision",
+        "label": "Decision",
+        "fields": ["decision_status", "governing_driver"]
+      }
+    ],
+    "tab_order": ["results", "decision"]
+  },
+  "metadata": {
+    "schema_version": "5.4.0",
+    "formula_version": "5.4.0-pro-pilot",
+    "prompt_version": "5.4.0",
+    "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
+    "runtime_llm_usage": "FORBIDDEN",
+    "schema_storage_target": "POSTGRES_JSONB_OR_OBJECT_STORAGE_AFTER_STRICT_VALIDATION",
+    "deterministic_runtime_required": true,
+    "formula_quality_gate": "SECTORCALC_FORMULA_QUALITY_GATE_V5_3_1",
+    "quality_gate_classification": "AUDIT_READY_DECISION_SUPPORT_NOT_CERTIFIED",
+    "change_log_summary": "V5.4 Core — First verified Pro pilot. Compressed Air Leak Cost Calculator using choked flow gas dynamics.",
+    "owner_review_required": true,
+    "canonical_redaction_status_required": true,
+    "state_machine_binding_required": true,
+    "approved_schema_fetch_required": true,
+    "private_formula_registry_boundary_required": true,
+    "proof_pack_builder_required": true,
+    "internal_checker_trace_restricted": true,
+    "golden_hash_storage_required": true,
+    "root_only_guard_required": true,
+    "final_integration_report_contract": "V5_3_1_FORMULA_FORM_INTEGRATION_RESULT",
+    "source_workbook": "sectorcalc-tool-portfolio-english.xlsx",
+    "source_row_number": 0,
+    "author": "SectorCalc V5.4 Core",
+    "schema_category": "Industrial Utilities / Energy Efficiency",
+    "tags": ["compressed air", "leak detection", "energy efficiency", "cost analysis", "payback", "choked flow"],
+    "golden_fixture_path": "tests/golden/schemas/compressed-air-leak-cost-calculator.fixture.json"
+  },
+  "proof_pack": {
+    "enabled": true,
+    "public_report_rules": [
+      "Report is for decision-support only and is not a certified document.",
+      "Verify all inputs from approved source documents.",
+      "Choked flow assumption applies only when critical pressure ratio is met.",
+      "Single leak point analysis only."
+    ],
+    "proof_sections": [
+      {
+        "id": "schema_version",
+        "title": "Schema Version",
+        "content_type": "SCHEMA_METADATA"
+      },
+      {
+        "id": "input_summary",
+        "title": "Normalized Input Audit",
+        "content_type": "NORMALIZED_INPUT_AUDIT"
+      },
+      {
+        "id": "output_summary",
+        "title": "Output Summary",
+        "content_type": "OUTPUT_SUMMARY"
+      },
+      {
+        "id": "decision",
+        "title": "Decision Interpretation",
+        "content_type": "DECISION_INTERPRETATION"
+      }
+    ],
+    "redaction_policy": {
+      "internal_formula_expressions": "REDACT_ALL",
+      "internal_admin_trace": "RESTRICTED_CHECKER",
+      "public_proof_pack": "PUBLIC_SAFE_REDACTED"
+    }
+  },
+  "normalized_inputs": [
+    { "id": "n_leak_orifice_diameter_mm", "from_input": "leak_orifice_diameter_mm", "quantity_kind": "length", "base_unit": "mm", "conversion_source": "unit_conversion_contract.conversion_registry", "validation_after_conversion": ["NON_FINITE_REJECT", "PHYSICAL_HARD_BOUND_ENFORCED", "REFERENCE_RANGE_REVIEW"], "audit_required": true },
+    { "id": "n_system_pressure_bar_g", "from_input": "system_pressure_bar_g", "quantity_kind": "pressure", "base_unit": "bar_g", "conversion_source": "unit_conversion_contract.conversion_registry", "validation_after_conversion": ["NON_FINITE_REJECT", "PHYSICAL_HARD_BOUND_ENFORCED", "REFERENCE_RANGE_REVIEW"], "audit_required": true },
+    { "id": "n_operating_hours_per_year", "from_input": "operating_hours_per_year", "quantity_kind": "time", "base_unit": "h_per_year", "conversion_source": "unit_conversion_contract.conversion_registry", "validation_after_conversion": ["NON_FINITE_REJECT", "PHYSICAL_HARD_BOUND_ENFORCED", "REFERENCE_RANGE_REVIEW"], "audit_required": true },
+    { "id": "n_compressor_specific_power_kw_per_m3_min", "from_input": "compressor_specific_power_kw_per_m3_min", "quantity_kind": "power_per_volumetric_flow", "base_unit": "kw_per_m3_min", "conversion_source": "unit_conversion_contract.conversion_registry", "validation_after_conversion": ["NON_FINITE_REJECT", "PHYSICAL_HARD_BOUND_ENFORCED", "REFERENCE_RANGE_REVIEW"], "audit_required": true },
+    { "id": "n_electricity_cost_per_kwh", "from_input": "electricity_cost_per_kwh", "quantity_kind": "currency", "base_unit": "usd_per_kwh", "conversion_source": "unit_conversion_contract.conversion_registry", "validation_after_conversion": ["NON_FINITE_REJECT", "PHYSICAL_HARD_BOUND_ENFORCED", "REFERENCE_RANGE_REVIEW"], "audit_required": true },
+    { "id": "n_repair_cost", "from_input": "repair_cost", "quantity_kind": "currency", "base_unit": "display_currency", "conversion_source": "unit_conversion_contract.conversion_registry", "validation_after_conversion": ["NON_FINITE_REJECT", "PHYSICAL_HARD_BOUND_ENFORCED", "REFERENCE_RANGE_REVIEW"], "audit_required": true }
+  ],
+  "reference_value_policy": {
+    "enabled": true,
+    "input_reference_ranges_required": true,
+    "reference_values_required": true,
+    "reference_values_are_advisory": true,
+    "reference_values_are_not_default_values": true,
+    "reference_values_are_not_decision_authority": true,
+    "critical_input_autofill_from_reference_value": "FORBIDDEN",
+    "range_violation_behavior": "WARN_OR_REVIEW_NOT_AUTOMATIC_FAIL_UNLESS_PHYSICAL_BOUND_IS_VIOLATED",
+    "source_label_required": true,
+    "unit_awareness_required": true,
+    "calibration_context_required_for_measured_inputs": true
+  },
+  "form_runtime_binding": {
+    "renderer": "UniversalIndustrialDecisionForm",
+    "schema_generation_runtime": "ADMIN_CLI_OR_CI_ONLY",
+    "llm_runtime_usage": "FORBIDDEN",
+    "client_formula_execution": "FORBIDDEN",
+    "server_execution_required": true,
+    "state_management_required": true,
+    "dynamic_ui_contract_required": true,
+    "json_schema_form_substrate_allowed": true,
+    "generic_json_schema_form_alone_sufficient": false,
+    "state_domains": ["schemaState","profileModeState","rawInputState","selectedUnitState","normalizedPreviewState","evidenceState","touchedState","validationState","referenceRangeState","blockerState","advancedDisclosureState","scenarioState","executionState","serverResponseState","auditSealState","exportState"],
+    "state_transitions": ["INIT_SCHEMA","VALIDATE_SCHEMA_CONTRACT","SET_PROFILE_MODE","SET_INPUT_VALUE","SET_SELECTED_UNIT","PRESERVE_PHYSICAL_QUANTITY_ON_UNIT_CHANGE","UPDATE_NORMALIZED_PREVIEW","UPDATE_EVIDENCE_STATUS","RUN_CLIENT_PRECHECK","BLOCK_CLIENT_EXECUTION","SUBMIT_SERVER_EXECUTION","RECEIVE_SERVER_RESPONSE","RECEIVE_SERVER_BLOCKERS","RECEIVE_SERVER_ERROR","RESET_INPUTS","RESET_RESULT_ONLY"],
+    "execute_request_contract": { "tool_id": "string", "tool_key": "string", "schema_version": "string", "raw_inputs": "Record<string, unknown>", "selected_units": "Record<string, string>", "output_units": "Record<string, string> | optional", "display_currency": "string | null | optional", "scenario_request": "unknown | null | optional", "user_profile_mode": "quick|engineering|cost|audit" },
+    "execute_response_contract": { "status": "OK|REVIEW|BLOCKED|REPRICE|REJECT|HOLD", "pipeline_state": "string", "outputs": "ServerOutput[]", "warnings": "ServerWarning[]", "normalized_input_audit": "NormalizedInputAudit[]", "reference_range_warnings": "ReferenceRangeWarning[]", "sensitivity": "SensitivityItem[]", "scenario_compare": "ScenarioComparison|null", "proof_pack_public": "PublicProofPack", "decision_interpretation": "DecisionInterpretation", "audit_seal": "AuditSeal", "redaction_status": "PUBLIC_SAFE_REDACTED|INTERNAL_TRACE_RESTRICTED|REDACTION_NOT_REQUIRED|REDACTION_FAILED_BLOCKED" }
+  },
+  "precision_policy": {
+    "internal_calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+    "rounding_rule": "DISPLAY_ONLY",
+    "financial_outputs_decimals": 2,
+    "engineering_outputs_decimals": 4,
+    "audit_hash_uses_unrounded_values": true
+  },
+  "output_formatting": {
+    "status_labels": ["OK","REVIEW","BLOCKED","REPRICE","REJECT","HOLD"],
+    "number_format": "DISPLAY_ONLY",
+    "currency_format": "USER_DISPLAY_CURRENCY",
+    "uncertainty_format": "value ± expanded_uncertainty unit, k=coverage_factor",
+    "no_color_only_status": true
+  },
+  "decision_interpretation_contract": {
+    "enabled": true,
+    "server_generated_only": true,
+    "public_safe": true,
+    "profile_summaries_required": true,
+    "hidden_risk_required": true,
+    "money_impact_required_when_commercial_inputs_exist": true,
+    "fields": { "primary_decision": "PASS|REVIEW|BLOCKED|REPRICE|REJECT|HOLD", "primary_reason": "Server-owned reason based on margin, evidence, uncertainty, FMEA, and money-at-risk.", "user_profile_summary": { "operator": "Use the status and blockers to decide whether the operation can proceed.", "engineer": "Review margin, evidence, uncertainty, derating, and governing driver before approval.", "owner_cfo": "Use money-at-risk to decide whether to reprice, hold, repair, outsource, or reject.", "checker_auditor": "Verify audit seal, normalized input audit, redaction status, and proof-pack completeness." }, "hidden_risk_explanations": ["Narrow margin can flip under measurement uncertainty.","Missing evidence can invalidate an apparently acceptable result.","Commercial exposure may exceed technical issue size."], "money_impact_summary": { "enabled": true, "source": "business_impact_contract" }, "what_can_flip_the_decision": ["dominant uncertainty driver","missing critical evidence","unit conversion error","derating factor","cost basis"], "next_best_actions": ["Resolve BLOCKER items.","Verify governing driver.","Rerun after evidence update.","Export proof pack only after public-safe redaction succeeds."], "premium_unlock_reason": "Unlock protected methodology, source-evidence proof pack, uncertainty, FMEA, sensitivity, and commercial impact in one auditable decision record." }
+  },
+  "business_impact_contract": {
+    "enabled": true,
+    "impact_types": ["energy_waste","maintenance_cost","repair_payback"],
+    "currency_policy": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION",
+    "required_outputs": ["annual_leak_cost","governing_driver","decision_status"],
+    "money_at_risk_output_id": "annual_leak_cost",
+    "main_cost_driver_output_id": "governing_driver",
+    "quote_or_decision_impact_output_id": "decision_status",
+    "public_value_statement": "Connects the technical leak assessment to annual cost and payback without hidden FX conversion or accounting-proof claims.",
+    "premium_unlock_reason": "Shows whether the next best business action is schedule repair, prioritize, or monitor."
+  },
+  "engine_rules": {
+    "deterministic_runtime_only": true,
+    "llm_runtime_forbidden": true,
+    "server_side_formula_execution_only": true,
+    "normalized_base_unit_formula_inputs_only": true,
+    "formula_leak_rejection": true,
+    "non_finite_rejection": true,
+    "fail_closed_behavior": true,
+    "physical_bound_blocking": true,
+    "reference_range_warning_or_review": true,
+    "derating_owned_by_server": true,
+    "uncertainty_owned_by_server": true,
+    "fmea_owned_by_server": true,
+    "audit_seal_required": true,
+    "public_response_redaction_required": true
+  },
+  "uncertainty_model": {
+    "enabled": true,
+    "type_a_uncertainty_support": true,
+    "type_b_uncertainty_support": true,
+    "combined_standard_uncertainty": true,
+    "expanded_uncertainty_with_coverage_factor": true,
+    "sensitivity_coefficients_or_ranking": true,
+    "dominant_uncertainty_driver": true,
+    "uncertainty_band_crossing_threshold_review_logic": true,
+    "display_only_rounded_uncertainty": true,
+    "missing_critical_uncertainty_behavior": "REVIEW"
+  },
+  "safety_factor_gauges": [
+    { "id": "cost_gauge", "name": "Leak Cost Gauge", "source_output": "annual_leak_cost", "states": ["PASS","REVIEW","WARNING","CRITICAL","BLOCKED"], "state_messages": { "PASS": "Leak cost is within acceptable range.", "REVIEW": "Leak cost exceeds advisory threshold.", "WARNING": "Leak cost is significant; verify inputs.", "CRITICAL": "Leak cost is severe; schedule repair immediately.", "BLOCKED": "Calculation is blocked." }, "no_color_only_status": true },
+    { "id": "payback_gauge", "name": "Payback Gauge", "source_output": "repair_payback_days", "states": ["PASS","REVIEW","WARNING","CRITICAL","BLOCKED"], "state_messages": { "PASS": "Payback period is acceptable.", "REVIEW": "Payback period exceeds review threshold.", "WARNING": "Payback period is long; verify repair cost.", "CRITICAL": "Payback period is excessive.", "BLOCKED": "Payback cannot be calculated." }, "no_color_only_status": true }
+  ],
+  "audit_trail_contract": {
+    "enabled": true,
+    "report_seal_required": true,
+    "hash_algorithm": "SHA-256",
+    "seal_fields": ["tool_id","tool_key","schema_version","formula_version","runtime_version","input_hash","normalized_input_hash","output_hash","proof_pack_hash","executed_at","redaction_status"],
+    "public_audit_fields": ["tool_id","tool_key","schema_version","formula_version","runtime_version","input_hash","normalized_input_hash","output_hash","proof_pack_hash","executed_at","redaction_status"],
+    "internal_audit_fields": ["private_formula_registry_hash","internal_checker_trace_hash","server_runtime_commit"],
+    "signature_status": "SERVER_SIGNATURE_OPTIONAL",
+    "tamper_warning": "Changing any input, unit, schema version, formula version, or output invalidates the audit seal.",
+    "redaction_status": "PUBLIC_SAFE_REDACTED|INTERNAL_TRACE_RESTRICTED|REDACTION_NOT_REQUIRED|REDACTION_FAILED_BLOCKED"
+  },
+  "export_contract": {
+    "pdf_enabled": true,
+    "json_audit_enabled": true,
+    "copy_summary_enabled": true,
+    "cad_bim_erp_export": { "status": "FUTURE_OPTIONAL_OR_CUSTOM_IMPLEMENTATION", "allowed_formats": ["STEP","IFC","BOM_JSON","ERP_CSV"], "must_not_claim_native_integration_unless_implemented": true },
+    "export_blocked_when_redaction_fails": true,
+    "public_proof_pack_source": "server_only_proof_pack_builder"
+  },
+  "reference_code": {
+    "typescript_interfaces_required": true,
+    "zod_strict_schema_validation_required": true,
+    "typescript_any_forbidden": true,
+    "eval_forbidden": true,
+    "new_function_forbidden": true,
+    "server_only_deterministic_execution": true,
+    "formula_registry_privacy": "PRIVATE_SERVER_SIDE_REGISTRY_ONLY",
+    "public_response_redaction": "REQUIRED",
+    "test_fixture_requirements": ["schema fixture","golden input fixture","golden hash artifact","public redaction fixture"],
+    "canonical_redaction_status_single_source_of_truth": true,
+    "executable_state_machine_binding_for_universal_form": true,
+    "approved_schema_fetch_path_required": true,
+    "private_server_side_formula_registry_boundary_required": true,
+    "server_only_proof_pack_builder_module_required": true,
+    "restricted_internal_checker_trace_module_required": true,
+    "golden_fixture_and_hash_storage_required": true,
+    "root_only_route_guard_verification_required": true,
+    "final_v531_integration_report_generation_required": true
+  },
+  "test_plan": [
+    "strict top-level schema keys",
+    "missing required top-level key rejects",
+    "extra top-level key rejects",
+    "schema generation prompt not used in runtime",
+    "LLM runtime usage forbidden",
+    "valid schema renders in UniversalIndustrialDecisionForm",
+    "profile mode switching",
+    "state transition coverage",
+    "unit conversion",
+    "unit-invariance",
+    "unit change preserves physical quantity",
+    "normalized preview does not execute formulas",
+    "physical hard bounds",
+    "engineering reference range warnings",
+    "reference values are visible but do not autofill critical inputs",
+    "semantic errors",
+    "evidence requirement blocking or review",
+    "cross-field derating",
+    "formula graph binding",
+    "public formula leak prevention",
+    "brand safety",
+    "hidden default prevention",
+    "smart default verification",
+    "decision interpretation",
+    "hidden risk panel",
+    "business impact",
+    "FMEA trigger at high utilization or threshold risk",
+    "uncertainty propagation",
+    "audit seal",
+    "audit reproducibility",
+    "public proof pack redaction",
+    "internal checker trace access restriction if implemented",
+    "accessibility",
+    "mobile 375px width",
+    "canonical RedactionStatus consistency between ExecuteResponse and AuditSeal",
+    "redaction failure blocks public response",
+    "state machine is actually bound to UniversalIndustrialDecisionForm",
+    "approved schema fetch path exists and missing schema blocks execution",
+    "private formula registry is server-only and not imported by client code",
+    "proof-pack-builder module exists and produces public-safe proof pack",
+    "internal checker trace module is restricted and never appears in public response",
+    "golden hash storage exists and excludes volatile fields",
+    "root-only route guard runs and passes before integration PASS",
+    "final V5.3.1 integration report format is produced from actual command outputs"
+  ],
+  "red_team_review": {
+    "single_operation_tool": true,
+    "painful_paid_industrial_decision": true,
+    "more_than_basic_calculator": true,
+    "critical_inputs_evidence_aware": true,
+    "reference_ranges_present_and_non_autofill": true,
+    "physical_bounds_separate_from_reference_ranges": true,
+    "formulas_server_only_and_normalized_input_only": true,
+    "public_formula_leakage_prevented_by_policy": true,
+    "uncertainty_fmea_business_impact_hidden_risk_next_action_present": true,
+    "runtime_avoids_llm_calls": true,
+    "universal_form_without_custom_tool_code": true,
+    "state_management_represented": true,
+    "state_machine_must_be_executable_in_integration": true,
+    "canonical_redaction_status_required": true,
+    "approved_schema_fetch_required": true,
+    "private_formula_registry_server_only_required": true,
+    "proof_pack_server_builder_required": true,
+    "internal_checker_trace_restricted": true,
+    "golden_hash_artifacts_required": true,
+    "root_only_route_guard_required_before_pass": true
+  }
+}

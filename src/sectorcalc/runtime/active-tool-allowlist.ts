@@ -8,11 +8,12 @@ export const ACTIVE_FREE_TOOL_SLUGS: readonly string[] = [
   "break-even-and-margin-of-safety-analysis",
 ];
 
-// All 135 Pro formula modules are auto-generated generic templates
-// with identical placeholder outputs across all keys.
-// No Pro tool has real semantic calculations — all are quarantined
-// until a genuinely domain-specific Pro formula module is built.
-export const ACTIVE_PRO_TOOL_SLUGS: readonly string[] = [];
+// V5.4 Core — First verified Pro pilot with real domain-specific calculations.
+// Compressed Air Leak Cost Calculator uses choked flow gas dynamics to
+// estimate leakage flow, annual energy loss, leak cost, and repair payback.
+export const ACTIVE_PRO_TOOL_SLUGS: readonly string[] = [
+  "compressed-air-leak-cost-calculator",
+];
 
 export function isActiveFreeTool(slug: string): boolean {
   return ACTIVE_FREE_TOOL_SLUGS.includes(slug);

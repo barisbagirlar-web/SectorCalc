@@ -36,11 +36,11 @@ import { formulaRegistry } from "@/sectorcalc/pro-runtime/formula-registry";
 import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-formula-engine";
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
+import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 
 // All 135 Pro formula modules are auto-generated generic templates with
-// identical placeholder outputs. No genuinely domain-specific Pro formula
-// module exists yet. PRO_FORMULA_MODULES will be populated once a verified
-// Pro pilot with real semantic calculations is built.
+// identical placeholder outputs. V5.4 Core — the compressed air leak cost
+// Pro pilot is the first genuine domain-specific Pro formula module.
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -325,6 +325,11 @@ async function pass2RuntimeExecution(
         suggested_action: "Review input values and contact support if issue persists.",
       });
     }
+
+    // V5.4 Core — Post-process string enum outputs for the Pro pilot
+    const proOutputKeys = ["decision_status", "governing_driver"];
+    const schemaOutputDefs = (validatedSchema.outputs || []).filter((o) => proOutputKeys.includes(o.id));
+    outputs = postProcessProOutputs(outputs, schemaOutputDefs);
   } else {
     // Path B: No graph registry nodes exist for this tool.
     // All 135 Pro formula modules are auto-generated generic templates
@@ -569,9 +574,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     const validatedSchema = pass1.schema!;
 
-    // V5.4 Core — Register Free Pilot formulas in the formula registry
+    // V5.4 Core — Register Free Pilot and Pro Pilot formulas in the formula registry
     // Safe to call repeatedly; first call registers, subsequent calls are no-ops.
     registerFreePilotFormulas(validatedSchema);
+    registerProPilotFormulas(validatedSchema);
 
     // PASS 2 — Runtime Determinism / Calculation
     const pass2 = await pass2RuntimeExecution(body, validatedSchema);

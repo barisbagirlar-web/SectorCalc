@@ -151,9 +151,8 @@ export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/free-tools", "hub", 0.3, "monthly"),
     createItem("/tools/free/break-even-and-margin-of-safety-analysis", "free_tool", 0.8, "monthly"),
-    // No active Pro pilot — all 135 Pro formula modules are generic templates.
-    // A genuine domain-specific Pro formula module must be built before
-    // any Pro tool can be indexed as an active pilot.
+    // V5.4 Core — First verified Pro pilot
+    createItem("/tools/pro/compressed-air-leak-cost-calculator", "premium_analyzer", 0.8, "monthly"),
   ];
 }
 

@@ -115,6 +115,21 @@ function executeOperation(op: FormulaOperation, inputs: (number | null)[], const
       const threshold = constants[0];
       return { result: value >= threshold ? 1 : 0, status: "OK" };
     }
+    case "CONSTANT": {
+      if (constants.length < 1) return { result: null, status: "BLOCKED: need constant" };
+      return { result: constants[0], status: "OK" };
+    }
+    case "SQRT": {
+      if (validInputs.length < 1) return { result: null, status: "BLOCKED: need input" };
+      if (validInputs[0] < 0) return { result: null, status: "BLOCKED: negative sqrt input" };
+      const result = Math.sqrt(validInputs[0]);
+      return { result: Number.isFinite(result) ? result : null, status: Number.isFinite(result) ? "OK" : "BLOCKED: non-finite result" };
+    }
+    case "POW": {
+      if (validInputs.length < 1 || constants.length < 1) return { result: null, status: "BLOCKED: need base and exponent" };
+      const result = Math.pow(validInputs[0], constants[0]);
+      return { result: Number.isFinite(result) ? result : null, status: Number.isFinite(result) ? "OK" : "BLOCKED: non-finite result" };
+    }
     default: {
       return { result: null, status: `BLOCKED: unknown operation ${op as string}` };
     }
@@ -129,15 +144,17 @@ export function executeFormulaGraph(
   const trace: FormulaTrace[] = [];
   const outputMap = new Map<string, number | boolean | string | null>();
 
-  // Reject raw input IDs — formulas must use normalized input IDs
+  // Validate input refs — each ref must be either a known normalized input or
+  // a formula output produced by a preceding node in the graph (resolved iteratively).
+  const allOutputRefs = new Set(nodes.map((n) => n.output_ref));
   for (const node of nodes) {
     if (node.input_refs) {
       for (const ref of node.input_refs) {
         if (ref.startsWith("raw_") || !ref.includes("_norm")) {
-          // Check if it's a known normalized input in context
           const isNorm = context.normalizedInputs[ref] !== undefined;
-          if (!isNorm) {
-            errors.push(`[${node.formula_id}] Input ref "${ref}" is not a known normalized input`);
+          const isFormulaOutput = allOutputRefs.has(ref);
+          if (!isNorm && !isFormulaOutput) {
+            errors.push(`[${node.formula_id}] Input ref "${ref}" is not a known normalized input or formula output`);
           }
         }
       }

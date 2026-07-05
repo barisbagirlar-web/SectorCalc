@@ -120,7 +120,12 @@ function scanForPlaceholders(filePath, toolKey) {
     // V5.3.1 schemas define golden test references via golden_fixture_path
     // and validation rules via validation_contract.rules
     const schemaJson = JSON.stringify(schema);
-    const hasGoldenFixtureRef = schemaJson.includes("golden_fixture_path") && schemaJson.includes("break-even-and-margin-of-safety-analysis");
+    const knownFixturePaths = [
+      "break-even-and-margin-of-safety-analysis",
+      "compressed-air-leak-cost-calculator",
+    ];
+    const hasGoldenFixtureRef = schemaJson.includes("golden_fixture_path")
+      && knownFixturePaths.some((fp) => schemaJson.includes(fp));
     const hasValidationRules = Array.isArray(schema.validation_contract?.rules)
       && schema.validation_contract.rules.length > 1;
     const hasGoldenOutputs = hasGoldenFixtureRef || hasValidationRules;

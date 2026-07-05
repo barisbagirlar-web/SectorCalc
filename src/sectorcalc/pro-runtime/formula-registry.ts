@@ -5,7 +5,8 @@ export type FormulaOperation =
   | "ADD" | "SUBTRACT" | "MULTIPLY" | "DIVIDE"
   | "MIN" | "MAX" | "ABS"
   | "RATIO" | "MARGIN" | "UTILIZATION" | "CAPACITY_REDUCTION"
-  | "WEIGHTED_SUM" | "THRESHOLD_DECISION" | "PASS_THROUGH";
+  | "WEIGHTED_SUM" | "THRESHOLD_DECISION" | "PASS_THROUGH"
+  | "SQRT" | "POW" | "CONSTANT";
 
 export interface FormulaRegistryNode {
   formula_id: string;

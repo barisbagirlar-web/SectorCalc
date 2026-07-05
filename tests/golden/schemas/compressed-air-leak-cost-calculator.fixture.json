@@ -1,0 +1,30 @@
+{
+  "purpose": "Golden fixture for Compressed Air Leak Cost Calculator — first verified Pro pilot",
+  "tool_key": "compressed-air-leak-cost-calculator",
+  "inputs": {
+    "leak_orifice_diameter_mm": 3,
+    "system_pressure_bar_g": 7,
+    "operating_hours_per_year": 6000,
+    "compressor_specific_power_kw_per_m3_min": 6.5,
+    "electricity_cost_per_kwh": 0.15,
+    "repair_cost": 120
+  },
+  "expected_outputs": {
+    "estimated_air_loss_m3_min": 0.4330876085814207,
+    "annual_energy_loss_kwh": 16890.416734675407,
+    "annual_leak_cost": 2533.562510201311,
+    "repair_payback_days": 17.287909741180908,
+    "decision_status": "ACTION_REQUIRED",
+    "governing_driver": "Fast repair payback"
+  },
+  "tolerance": {
+    "absolute": 0.000001,
+    "relative": 0.000001
+  },
+  "formula_registry_used": true,
+  "semantically_valid": true,
+  "all_outputs_identical": false,
+  "decision_status_is_numeric": false,
+  "governing_driver_is_numeric": false,
+  "description": "Standard compressed air leak: d=3mm, p=7 bar(g), H=6000h, P_s=6.5 kW/m3/min, C_e=0.15 USD/kWh, C_r=120 USD. Action required, fast payback."
+}

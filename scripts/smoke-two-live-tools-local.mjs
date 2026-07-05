@@ -68,11 +68,19 @@ c(foids.includes("contribution_margin_per_unit"), "Free output CM");
 c(foids.includes("break_even_units"), "Free output BE");
 c(foids.includes("margin_of_safety_percent"), "Free output MoS%");
 
+const proIds = proSchema?.outputs?.map(o => o.id) || [];
+c(proIds.includes("estimated_air_loss_m3_min"), "Pro output air loss");
+c(proIds.includes("annual_energy_loss_kwh"), "Pro output energy loss");
+c(proIds.includes("annual_leak_cost"), "Pro output leak cost");
+c(proIds.includes("repair_payback_days"), "Pro output payback");
+c(proIds.includes("decision_status"), "Pro output decision_status");
+c(proIds.includes("governing_driver"), "Pro output governing_driver");
+
 c(fs.existsSync(path.join(ROOT, "src/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry.ts")), "Free registry file");
 if (PRO_SLUG) {
-  c(fs.existsSync(path.join(ROOT, "src/sectorcalc/formulas/pro-v531", `${PRO_SLUG}.formula.ts`)), "Pro formula module");
+  c(fs.existsSync(path.join(ROOT, "src/sectorcalc/formulas/pro-v531", `${PRO_SLUG}.registry.ts`)), "Pro registry file");
 } else {
-  c(true, "Pro formula module check skipped (no active Pro pilot)");
+  c(true, "Pro registry file check skipped (no active Pro pilot)");
 }
 c(fs.existsSync(path.join(ROOT, "src/app/api/pro-calculator/execute/route.ts")), "Execute API route");
 const ec = fs.readFileSync(path.join(ROOT, "src/app/api/pro-calculator/execute/route.ts"), "utf8");
@@ -88,28 +96,30 @@ for (const [fp, lbl] of [
 
 const FIX = d => path.join(ROOT, "tests/golden/schemas", d);
 c(fs.existsSync(FIX("break-even-and-margin-of-safety-analysis.fixture.json")), "Free golden fixture");
-c(fs.existsSync(FIX("sc_082_boiler_excess_oxygen_fuel_penalty_and_tuning_margin_calculator.fixture.json")), "Pro golden fixture");
+c(fs.existsSync(FIX("compressed-air-leak-cost-calculator.fixture.json")), "Pro golden fixture");
 
 let fx, px;
 try { fx = JSON.parse(fs.readFileSync(FIX("break-even-and-margin-of-safety-analysis.fixture.json"), "utf8")); } catch (e) { f("Free fixture parse: " + e.message); }
-try { px = JSON.parse(fs.readFileSync(FIX("sc_082_boiler_excess_oxygen_fuel_penalty_and_tuning_margin_calculator.fixture.json"), "utf8")); } catch (e) { f("Pro fixture parse: " + e.message); }
+try { px = JSON.parse(fs.readFileSync(FIX("compressed-air-leak-cost-calculator.fixture.json"), "utf8")); } catch (e) { f("Pro fixture parse: " + e.message); }
 
 if (fx) { c(fx.tool_key === FREE_SLUG, "Free fixture slug"); c(fx.formula_registry_used === true, "Free fixture registry"); c(fx.expected_outputs?.contribution_margin_per_unit === 20, "CM=20"); c(fx.expected_outputs?.break_even_units === 500, "BE=500"); c(fx.expected_outputs?.margin_of_safety_percent === 37.5, "MoS%=37.5"); }
-if (px) {
-  if (PRO_SLUG) {
-    c(px.tool_key === PRO_SLUG, "Pro fixture slug");
-    c(typeof px.expected_outputs === "object", "Pro fixture expected_outputs");
-  } else {
-    c(px.status === "QUARANTINED", "Pro fixture marked as QUARANTINED");
-    c(px.semantically_valid === false, "Pro fixture marked semantically invalid");
-    c(px.all_outputs_identical === true, "Pro fixture confirms all outputs identical");
-    c(px.decision_status_is_numeric === true, "Pro fixture confirms numeric decision_status");
-  }
+if (px && PRO_SLUG) {
+  c(px.tool_key === PRO_SLUG, "Pro fixture slug matches");
+  c(px.semantically_valid === true, "Pro fixture marked semantically valid");
+  c(px.all_outputs_identical === false, "Pro fixture confirms outputs are NOT identical");
+  c(px.decision_status_is_numeric === false, "Pro fixture confirms decision_status is NOT numeric");
+  c(px.governing_driver_is_numeric === false, "Pro fixture confirms governing_driver is NOT numeric");
+  c(typeof px.expected_outputs?.estimated_air_loss_m3_min === "number", "Pro fixture has expected air loss");
+  c(typeof px.expected_outputs?.annual_energy_loss_kwh === "number", "Pro fixture has expected energy loss");
+  c(typeof px.expected_outputs?.annual_leak_cost === "number", "Pro fixture has expected leak cost");
+  c(typeof px.expected_outputs?.repair_payback_days === "number", "Pro fixture has expected payback");
+  c(px.expected_outputs?.decision_status === "ACTION_REQUIRED", "Pro fixture decision_status = ACTION_REQUIRED");
+  c(px.expected_outputs?.governing_driver === "Fast repair payback", "Pro fixture governing_driver = Fast repair payback");
 }
 
 const sm = fs.readFileSync(path.join(ROOT, "src/lib/infrastructure/seo/sitemap-manifest.ts"), "utf8");
 c(sm.includes(FREE_SLUG), "Sitemap Free");
-if (PRO_SLUG) { c(sm.includes(PRO_SLUG), "Sitemap Pro"); } else { c(!sm.includes("sc_082"), "Sitemap Pro removed (no active Pro pilot)"); }
+if (PRO_SLUG) { c(sm.includes(PRO_SLUG), "Sitemap Pro"); } else { c(true, "Sitemap Pro check skipped"); }
 
 const sc = JSON.parse(fs.readFileSync(path.join(ROOT, "package.json"), "utf8")).scripts || {};
 c(!!sc["guard:active-tools"], "guard:active-tools"); c(!!sc["guard:no-active-placeholder-tools"], "guard:no-active-placeholder-tools"); c(!!sc["smoke:two-live-tools"], "smoke:two-live-tools");
@@ -174,17 +184,21 @@ if (fs.existsSync(FREE_REGISTRY_PATH)) {
   }
 }
 
-console.log("\n\u2500\u2500 Pro formula module verification \u2500\u2500");
+console.log("\n\u2500\u2500 Pro formula registry verification \u2500\u2500");
 if (PRO_SLUG) {
-  const proModPath = path.join(ROOT, "src/sectorcalc/formulas/pro-v531", `${PRO_SLUG}.formula.ts`);
-  if (fs.existsSync(proModPath)) {
-    const pm = fs.readFileSync(proModPath, "utf8");
-    c(pm.includes("export function calculate"), "Pro module exports calculate()");
-    c(pm.includes(`export const toolKey = "${PRO_SLUG}"`), "Pro module correct toolKey");
-    c(pm.includes("export const formulaVersion = "), "Pro module has formulaVersion");
+  const proRegPath = path.join(ROOT, "src/sectorcalc/formulas/pro-v531", `${PRO_SLUG}.registry.ts`);
+  if (fs.existsSync(proRegPath)) {
+    const prc = fs.readFileSync(proRegPath, "utf8");
+    c(prc.includes("registerProPilotFormulas"), "Pro registry exports registerProPilotFormulas()");
+    c(prc.includes("postProcessProOutputs"), "Pro registry exports postProcessProOutputs()");
+    c(prc.includes('operation: "CONSTANT"'), "Pro registry uses CONSTANT operations");
+    c(prc.includes('operation: "SQRT"'), "Pro registry uses SQRT");
+    c(prc.includes('operation: "POW"'), "Pro registry uses POW");
+    c(prc.includes(`operation: "MULTIPLY"`), "Pro registry uses MULTIPLY");
+    c(prc.includes(`operation: "DIVIDE"`), "Pro registry uses DIVIDE");
   }
 } else {
-  console.log("  Skipped — no active Pro pilot (all Pro modules are generic templates)");
+  console.log("  Skipped — no active Pro pilot");
 }
 
 // ════════════════════════════════════════════════════
@@ -283,30 +297,21 @@ async function runHttpChecks() {
     console.log(`  ERROR: Free execute returned ${freeRes.status}: ${JSON.stringify(freeRes.body).slice(0, 200)}`);
   }
 
-  // ── 5c. Pro pilot HTTP POST — VERIFIED ONLY ──
+  //   ── 5c. Pro pilot HTTP POST — VERIFIED ONLY ──
   console.log("\n\u2500\u2500 Pro pilot HTTP execute \u2500\u2500");
   
   if (!PRO_SLUG) {
-    console.log("  ⚠️  No active Pro pilot. All 135 Pro formula modules are");
-    console.log("      auto-generated generic templates with identical placeholder");
-    console.log("      outputs across all keys. decision_status, governing_driver,");
-    console.log("      and fmea_status are numeric when they should be string enums.");
-    console.log("      A genuine domain-specific Pro formula module must be built");
-    console.log("      before any Pro tool can be activated as pilot.");
-    c(true, "No active Pro pilot — skipped (all Pro modules are generic templates)");
+    console.log("  No active Pro pilot — skipped");
     return;
   }
   
   if (!px?.inputs) { f("No Pro fixture inputs"); return; }
 
   const proBody = {
-    tool_id: proSchema?.tool_id || "SC-082",
     tool_key: PRO_SLUG,
+    tool_id: "PRO_001_COMPRESSED_AIR_LEAK_COST_CALCULATOR",
     raw_inputs: px.inputs,
-    selected_units: {
-      operating_load: "W", operating_time: "s", measured_loss_indicator: "index",
-      energy_unit_cost: "display_currency", downtime_cost: "display_currency", derating_factor: "fraction",
-    },
+    selected_units: {},
     user_profile_mode: "engineering",
   };
   
@@ -322,7 +327,7 @@ async function runHttpChecks() {
     console.log(`  Pro: HTTP=${proRes.status}, status=${proRes.body.status}, pipeline=${proRes.body.pipeline_state || "N/A"}`);
     
     const pouts = proRes.body.outputs || [];
-    for (const o of pouts.slice(0, 7)) {
+    for (const o of pouts.slice(0, 8)) {
       console.log(`    ${o.id}: ${JSON.stringify(o.value)}`);
     }
     
@@ -349,46 +354,47 @@ async function runHttpChecks() {
     const allIdentical = numericValues.length >= 2 && numericValues.every(v => v === numericValues[0]);
     c(!allIdentical, `Pro outputs are NOT all identical (${numericValues.length} values, unique=${new Set(numericValues).size})`);
     
-    // decision_status must NOT be numeric (should be string enum like "PASS"/"REVIEW"/"ACTION_REQUIRED")
+    // decision_status must be a string (not numeric)
     const ds = pouts.find(o => o.id === "decision_status");
     if (ds) {
-      c(typeof ds.value !== "number" || Number.isNaN(ds.value), `decision_status is NOT numeric (got ${typeof ds.value}: ${JSON.stringify(ds.value)})`);
+      c(typeof ds.value === "string", `decision_status is string (got ${typeof ds.value}: ${JSON.stringify(ds.value)})`);
+      c(!ds.value.includes("No formula"), "decision_status has no placeholder");
+    } else {
+      f("decision_status output missing");
     }
     
-    // governing_driver must NOT be numeric (should be string like "Excess O2")
+    // governing_driver must be a string (not numeric)
     const gd = pouts.find(o => o.id === "governing_driver");
     if (gd) {
-      c(typeof gd.value !== "number" || Number.isNaN(gd.value), `governing_driver is NOT numeric (got ${typeof gd.value}: ${JSON.stringify(gd.value)})`);
+      c(typeof gd.value === "string", `governing_driver is string (got ${typeof gd.value}: ${JSON.stringify(gd.value)})`);
+      c(!gd.value.includes("No formula"), "governing_driver has no placeholder");
+    } else {
+      f("governing_driver output missing");
     }
     
-    // fmea_status must NOT be numeric (should be string enum)
-    const fs = pouts.find(o => o.id === "fmea_status");
-    if (fs) {
-      c(typeof fs.value !== "number" || Number.isNaN(fs.value), `fmea_status is NOT numeric (got ${typeof fs.value}: ${JSON.stringify(fs.value)})`);
-    }
+    // Validate outputs against golden fixture
+    const pxpected = px.expected_outputs || {};
+    const ptol = px.tolerance?.absolute ?? 0.000001;
     
-    // Validate numeric outputs against golden fixture if fixture is semantically valid
-    if (px.semantically_valid !== false) {
-      const pexpected = px.expected_outputs || {};
-      const ptol = px.tolerance?.absolute ?? 0.0001;
-      
-      for (const [k, e] of Object.entries(pexpected)) {
-        const a = prowMap[k];
-        const num = typeof e === "number" ? e : parseFloat(e);
+    for (const [k, e] of Object.entries(pxpected)) {
+      const a = prowMap[k];
+      if (typeof e === "number") {
         if (a !== undefined) {
           c(typeof a === "number" && Number.isFinite(a), `Pro ${k} is finite number (got ${typeof a} = ${JSON.stringify(a)})`);
-          c(Math.abs(a - num) <= ptol, `Pro ${k}=${a} (exp ${num})`);
-        } else if (typeof e === "string") {
-          // String expected output — check string match
-          const actualString = pouts.find(o => o.id === k)?.value;
-          c(actualString === e, `Pro ${k}=${JSON.stringify(actualString)} (exp ${JSON.stringify(e)})`);
+          c(Math.abs(a - e) <= ptol, `Pro ${k}=${a} (exp ${e})`);
         } else {
-          c(false, `Pro ${k} missing from outputs`);
+          f(`Pro ${k} numeric output missing`);
         }
+      } else if (typeof e === "string") {
+        // String expected output — check string match
+        const actualString = pouts.find(o => o.id === k)?.value;
+        c(actualString === e, `Pro ${k}=${JSON.stringify(actualString)} (exp ${JSON.stringify(e)})`);
       }
-    } else {
-      console.log("  Fixture marked semantically_invalid=true — numeric output validation skipped");
     }
+    
+    // Blockers: ensure no blocked/failed states
+    const blockedStates = ["BLOCKED", "INVALID_UNIT", "SERVER_ERROR", "DISABLED"];
+    c(!blockedStates.includes(proRes.body.status), `Pro status not blocked (got ${proRes.body.status})`);
   } else {
     console.log(`  ERROR: Pro execute returned ${proRes.status}: ${JSON.stringify(proRes.body).slice(0, 200)}`);
   }
