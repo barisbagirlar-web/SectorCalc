@@ -1,11 +1,17 @@
-// SectorCalc V5.3.1 Canonical Schema Resolver (Pro + Free V5.3.1)
+// SectorCalc V5.4 Core — Canonical Schema Resolver with Active Tool Allowlist
+// Only allowlisted tools are resolved for public execution.
+// All other tools return SCHEMA_NOT_FOUND (quarantined until V5.4 Core rebuild).
 
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
-import { getProToolSchema, listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
-import { getFreeToolSchema, listFreeToolSchemaSlugs } from "@/sectorcalc/runtime/free-schema-loader";
+import { getProToolSchema, listProToolSchemaSlugs, clearProSchemaCache } from "@/sectorcalc/runtime/pro-schema-loader";
+import { getFreeToolSchema, listFreeToolSchemaSlugs, clearFreeSchemaCache } from "@/sectorcalc/runtime/free-schema-loader";
+import { normalizeFreeSchema } from "@/sectorcalc/runtime/free-schema-loader";
 import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { enrichV531SchemaReferences } from "@/sectorcalc/runtime/v531-reference-enrichment";
+import { isActiveTool } from "@/sectorcalc/runtime/active-tool-allowlist";
+import fs from "fs";
+import path from "path";
 
 export type ApprovedSchemaResult =
   | { ok: true; schema: SuperV4Schema; source: "pro_v531" | "free_v531" }
@@ -44,6 +50,11 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   if (!toolKey || typeof toolKey !== "string") return { ok: false, reason: "SCHEMA_NOT_FOUND", errors: ["Invalid tool key: " + toolKey] };
   const normalizedKey = toolKey.trim();
 
+  // V5.4 Core — quarantine non-allowlisted tools
+  if (!isActiveTool(normalizedKey)) {
+    return { ok: false, reason: "SCHEMA_NOT_FOUND", errors: ["Tool is under V5.4 Core rebuild verification: " + normalizedKey] };
+  }
+
   function buildAndCache(buildFn: () => SuperV4Schema, source: ResolvedSource): ApprovedSchemaResult {
     let superV4: SuperV4Schema;
     try { superV4 = buildFn(); } catch (err: unknown) { return { ok: false, reason: "CAUGHT_EXCEPTION", errors: ["Build threw: " + (err instanceof Error ? err.message : String(err))] }; }
@@ -71,6 +82,35 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
 
   const freeSchema = getFreeToolSchema(normalizedKey);
   if (freeSchema) return buildAndCache(() => freeSchema, "free_v531");
+
+  // Retry once with cache reset to handle dev module caching edge cases.
+  clearSchemaCache();
+  clearProSchemaCache();
+  clearFreeSchemaCache();
+
+  const proSchema2 = getProToolSchema(normalizedKey);
+  if (proSchema2) return buildAndCache(() => proSchema2, "pro_v531");
+
+  const freeSchema2 = getFreeToolSchema(normalizedKey);
+  if (freeSchema2) return buildAndCache(() => freeSchema2, "free_v531");
+
+  // Direct file read fallback — if the schema loaders' module-level caches
+  // are in a bad state (dev HMR edge case), read the Free schema JSON file
+  // directly and validate it inline.
+  try {
+    const freeDir = path.join(process.cwd(), "src/sectorcalc/schemas/free-v531");
+    if (fs.existsSync(freeDir)) {
+      for (const fn of fs.readdirSync(freeDir).filter((f: string) => f.endsWith(".json"))) {
+        const raw = JSON.parse(fs.readFileSync(path.join(freeDir, fn), "utf8"));
+        if (raw.tool_key === normalizedKey) {
+          const schema = normalizeFreeSchema(raw);
+          return buildAndCache(() => schema, "free_v531");
+        }
+      }
+    }
+  } catch {
+    // Fallback failed — report original error below
+  }
 
   return { ok: false, reason: "SCHEMA_NOT_FOUND", errors: ["No schema found for: " + normalizedKey] };
 }

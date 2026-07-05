@@ -14,6 +14,44 @@ export interface ConversionError {
   reason: string;
 }
 
+/**
+ * Normalize a unit registry entry that may be in either array form (format A)
+ * or flat-object form (format B) into a safe ConversionEntry array.
+ *
+ * Format A (array):
+ *   { base_unit: "W", units: [{ unit: "W", factor: 1 }, { unit: "kW", factor: 1000 }] }
+ *
+ * Format B (flat-object, used by existing Pro schemas):
+ *   { "W": { factor: 1, offset: 0 }, "kW": { factor: 1000, offset: 0 } }
+ *
+ * Returns a safe array of ConversionEntry.
+ */
+export function normalizeUnitRegistryEntry(
+  entry: Record<string, unknown>,
+): ConversionEntry[] {
+  // Format A: has a "units" array
+  if (Array.isArray(entry.units)) {
+    return entry.units as ConversionEntry[];
+  }
+
+  // Format B: keys are unit names, values are { factor, offset? }
+  const units: ConversionEntry[] = [];
+  for (const [unitName, unitValue] of Object.entries(entry)) {
+    if (unitName === "base_unit" || unitName === "unit_family") continue;
+    if (!unitValue || typeof unitValue !== "object") continue;
+    const uv = unitValue as Record<string, unknown>;
+    if (typeof uv.factor !== "number") continue;
+    units.push({
+      unit: unitName,
+      factor: uv.factor,
+      offset: typeof uv.offset === "number" ? uv.offset : undefined,
+      label: typeof uv.label === "string" ? uv.label : undefined,
+    });
+  }
+
+  return units;
+}
+
 export function normalizeInput(
   inputId: string,
   displayValue: number,
@@ -22,14 +60,9 @@ export function normalizeInput(
   quantityKind: string,
   registry: ConversionRegistry,
 ): NormalizedValue | ConversionError {
-  const entry = registry[quantityKind];
-  if (!entry) {
-    return {
-      inputId,
-      reason: `No conversion registry entry for quantity kind: ${quantityKind}`,
-    };
-  }
-
+  // Fast path: when display unit matches the base unit, no conversion needed.
+  // This also handles missing registry entries for quantity kinds whose base
+  // and display values are identical (e.g. dimensionless inputs with count units).
   if (displayUnit === baseUnit) {
     return {
       baseValue: displayValue,
@@ -38,7 +71,16 @@ export function normalizeInput(
     };
   }
 
-  const fromEntry = (entry.units ?? []).find((u: ConversionEntry) => u.unit === displayUnit);
+  const entry = registry[quantityKind];
+  if (!entry) {
+    return {
+      inputId,
+      reason: `No conversion registry entry for quantity kind: ${quantityKind}`,
+    };
+  }
+
+  const safeUnits = normalizeUnitRegistryEntry(entry as unknown as Record<string, unknown>);
+  const fromEntry = safeUnits.find((u: ConversionEntry) => u.unit === displayUnit);
   if (!fromEntry) {
     return {
       inputId,
@@ -46,7 +88,7 @@ export function normalizeInput(
     };
   }
 
-  const toEntry = (entry.units ?? []).find((u: ConversionEntry) => u.unit === baseUnit);
+  const toEntry = safeUnits.find((u: ConversionEntry) => u.unit === baseUnit);
   if (!toEntry) {
     return {
       inputId,
@@ -140,8 +182,9 @@ export function preservePhysicalQuantity(
     };
   }
 
-  const oldEntry = (entry.units ?? []).find((u: ConversionEntry) => u.unit === oldUnit);
-  const newEntry = (entry.units ?? []).find((u: ConversionEntry) => u.unit === newUnit);
+  const safeUnits = normalizeUnitRegistryEntry(entry as unknown as Record<string, unknown>);
+  const oldEntry = safeUnits.find((u: ConversionEntry) => u.unit === oldUnit);
+  const newEntry = safeUnits.find((u: ConversionEntry) => u.unit === newUnit);
 
   if (!oldEntry) {
     return { inputId: oldUnit, reason: `Unknown unit: ${oldUnit}` };

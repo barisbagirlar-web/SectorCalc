@@ -312,3 +312,7 @@ export function reloadProSchemas(): void {
   loadErrors = [];
   loadAllSchemas();
 }
+export function clearProSchemaCache(): void {
+  loadedSchemas = null;
+  loadErrors = [];
+}

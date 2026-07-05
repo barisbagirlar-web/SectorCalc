@@ -128,12 +128,9 @@ export function executeFormulaGraph(
   const errors: string[] = [];
   const trace: FormulaTrace[] = [];
   const outputMap = new Map<string, number | boolean | string | null>();
-  const resolvedNodes: FormulaRegistryNode[] = [...nodes].sort((a, b) => {
-    return (a.input_refs?.length ?? 0) - (b.input_refs?.length ?? 0);
-  });
 
   // Reject raw input IDs — formulas must use normalized input IDs
-  for (const node of resolvedNodes) {
+  for (const node of nodes) {
     if (node.input_refs) {
       for (const ref of node.input_refs) {
         if (ref.startsWith("raw_") || !ref.includes("_norm")) {
@@ -147,50 +144,68 @@ export function executeFormulaGraph(
     }
   }
 
-  for (const node of resolvedNodes) {
-    const inputs: (number | null)[] = [];
-    const refs = node.input_refs ?? [];
-    for (const ref of refs) {
-      const normInput = context.normalizedInputs[ref];
-      if (normInput && typeof normInput.baseValue === "number") {
-        inputs.push(normInput.baseValue);
-      } else if (outputMap.has(ref)) {
-        const val = outputMap.get(ref);
-        inputs.push(typeof val === "number" ? val : null);
+  // Iterative resolution: process nodes in rounds until all are resolved.
+  // Naive sort by input_refs.length is incorrect when a node with fewer refs
+  // depends on an intermediate value produced by a node with more refs.
+  const remaining = new Set(nodes);
+  let previousSize = 0;
+  while (remaining.size > 0 && remaining.size !== previousSize) {
+    previousSize = remaining.size;
+    for (const node of [...remaining]) {
+      const inputs: (number | null)[] = [];
+      const refs = node.input_refs ?? [];
+      let allReady = true;
+      for (const ref of refs) {
+        const normInput = context.normalizedInputs[ref];
+        if (normInput && typeof normInput.baseValue === "number") {
+          inputs.push(normInput.baseValue);
+        } else if (outputMap.has(ref)) {
+          const val = outputMap.get(ref);
+          inputs.push(typeof val === "number" ? val : null);
+        } else {
+          inputs.push(null);
+          allReady = false;
+        }
+      }
+      if (!allReady) continue;
+      remaining.delete(node);
+
+      // Reject non-finite inputs
+      for (const inp of inputs) {
+        if (inp !== null && !Number.isFinite(inp)) {
+          errors.push(`[${node.formula_id}] Non-finite input value detected`);
+        }
+      }
+
+      const constants = node.constant_refs ?? [];
+      const { result, status } = executeOperation(node.operation, inputs, constants);
+
+      trace.push({
+        nodeId: node.formula_id,
+        operation: node.operation,
+        inputs: [...inputs],
+        constants: [...constants],
+        result,
+        status,
+      });
+
+      // Check if operation reported a blocked status
+      if (result === null && status !== "OK") {
+        errors.push(`[${node.formula_id}] ${status}`);
+        outputMap.set(node.output_ref, null);
+      } else if (result !== null && !Number.isFinite(result)) {
+        errors.push(`[${node.formula_id}] Non-finite output value`);
+        outputMap.set(node.output_ref, null);
       } else {
-        inputs.push(null);
+        outputMap.set(node.output_ref, result);
       }
     }
+  }
 
-    // Reject non-finite inputs
-    for (const inp of inputs) {
-      if (inp !== null && !Number.isFinite(inp)) {
-        errors.push(`[${node.formula_id}] Non-finite input value detected`);
-      }
-    }
-
-    const constants = node.constant_refs ?? [];
-    const { result, status } = executeOperation(node.operation, inputs, constants);
-
-    trace.push({
-      nodeId: node.formula_id,
-      operation: node.operation,
-      inputs: [...inputs],
-      constants: [...constants],
-      result,
-      status,
-    });
-
-    // Check if operation reported a blocked status
-    if (result === null && status !== "OK") {
-      errors.push(`[${node.formula_id}] ${status}`);
-      outputMap.set(node.output_ref, null);
-    } else if (result !== null && !Number.isFinite(result)) {
-      errors.push(`[${node.formula_id}] Non-finite output value`);
-      outputMap.set(node.output_ref, null);
-    } else {
-      outputMap.set(node.output_ref, result);
-    }
+  // Report any nodes that could not be resolved (dangling references)
+  for (const node of remaining) {
+    errors.push(`[${node.formula_id}] Could not resolve: missing dependencies`);
+    outputMap.set(node.output_ref, null);
   }
 
   const outputs: FormulaOutput[] = [];

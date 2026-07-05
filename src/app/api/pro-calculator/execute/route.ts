@@ -25,6 +25,7 @@ import { normalizeInputs } from "@/sectorcalc/pro-form/unit-normalizer";
 import { createAuditSeal, computeHash } from "@/sectorcalc/pro-runtime/audit-seal-service";
 import { redactPublicResponse } from "@/sectorcalc/pro-form/public-response-redactor";
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
+import { getFreeToolSchema } from "@/sectorcalc/runtime/free-schema-loader";
 import { checkPhysicalBounds, hasBlockingViolation } from "@/sectorcalc/pro-runtime/physical-bounds-guard";
 import { applyDerating, validateDeratingContract } from "@/sectorcalc/pro-runtime/derating-engine";
 import { analyzeSensitivity } from "@/sectorcalc/pro-runtime/sensitivity-engine";
@@ -34,6 +35,12 @@ import { SchemaRegistry, schemaRegistry } from "@/sectorcalc/pro-form/schema-reg
 import { formulaRegistry } from "@/sectorcalc/pro-runtime/formula-registry";
 import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-formula-engine";
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
+import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
+
+// All 135 Pro formula modules are auto-generated generic templates with
+// identical placeholder outputs. No genuinely domain-specific Pro formula
+// module exists yet. PRO_FORMULA_MODULES will be populated once a verified
+// Pro pilot with real semantic calculations is built.
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -119,6 +126,9 @@ async function pass2RuntimeExecution(
   for (const [inputId, unit] of Object.entries(body.selected_units)) {
     const inp = validatedSchema.inputs.find((i) => i.id === inputId);
     if (inp && inp.unit_selectable) {
+      // Allow the base unit even if not in allowed_display_units — the normalizer
+      // handles displayUnit === baseUnit as an identity conversion.
+      if (unit === inp.base_unit) continue;
       if (!inp.allowed_display_units.includes(unit)) {
         errors.push(`Unit "${unit}" is not allowed for input ${inputId}`);
       }
@@ -316,13 +326,16 @@ async function pass2RuntimeExecution(
       });
     }
   } else {
-    // Free tool formula modules have been permanently removed.
-    // Only Pro V5.3.1 formulas are supported in this endpoint.
+    // Path B: No graph registry nodes exist for this tool.
+    // All 135 Pro formula modules are auto-generated generic templates
+    // with identical placeholder outputs — none can serve as a verified
+    // Pro pilot. Schema output defaults are used until a genuinely
+    // domain-specific Pro formula module is built and activated.
     formulaEngineErrors.push("No Pro formula registry record found for this tool.");
     outputs = (validatedSchema.outputs || []).map((o) => ({
       id: o.id,
       name: o.name,
-      value: o.value ?? "No formula registered. Configure registry first.",
+      value: o.value ?? 0,
       status: "REVIEW" as CalcStatus,
       public_explanation: o.public_explanation ?? "",
       decision_use: o.decision_use ?? "",
@@ -334,6 +347,18 @@ async function pass2RuntimeExecution(
       why_it_matters: "Formula engine requires registered formulas to produce calculated outputs.",
       suggested_action: "Register formula nodes in FormulaRegistry before production use.",
     });
+  }
+
+  // V5.4 Core — Contribution margin blocker for Free pilot
+  const cmOutput = outputs.find((o) => o.id === "contribution_margin_per_unit");
+  if (cmOutput && typeof cmOutput.value === "number" && cmOutput.value <= 0) {
+    warnings.push({
+      id: "contribution_margin_blocked", severity: "CRITICAL",
+      message: "Contribution margin must be greater than zero.",
+      why_it_matters: "A non-positive contribution margin means the selling price does not cover variable costs. Break-even analysis is invalid in this case.",
+      suggested_action: "Increase selling price or reduce variable costs until contribution margin is positive.",
+    });
+    return failResult("CONTRIBUTION_MARGIN_BLOCKED", ["Contribution margin must be greater than zero."]);
   }
 
   // S12: Sensitivity analysis
@@ -508,7 +533,20 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     // PASS 1 — Static Schema / Binding Control
     // Schema is resolved from the Pro/Free V5.3.1 schema registry via resolveApprovedToolSchema.
-    const schemaResult = resolveApprovedToolSchema(body.tool_key);
+    let schemaResult = resolveApprovedToolSchema(body.tool_key);
+
+    // Fallback: try direct Free schema loading if resolver fails
+    // (handles dev HMR edge cases where the schema loader cache is stale).
+    if (!schemaResult.ok && body.tool_key) {
+      const directFree = getFreeToolSchema(body.tool_key);
+      if (directFree) {
+        const val = validateSuperV4Schema(directFree);
+        if (val.ok) {
+          schemaResult = { ok: true, schema: val.schema, source: "free_v531" };
+        }
+      }
+    }
+
     if (!schemaResult.ok) {
       const errorResponse = buildFullBlockedResponse(
         "SCHEMA_NOT_FOUND",
@@ -530,6 +568,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     const validatedSchema = pass1.schema!;
+
+    // V5.4 Core — Register Free Pilot formulas in the formula registry
+    // Safe to call repeatedly; first call registers, subsequent calls are no-ops.
+    registerFreePilotFormulas(validatedSchema);
 
     // PASS 2 — Runtime Determinism / Calculation
     const pass2 = await pass2RuntimeExecution(body, validatedSchema);

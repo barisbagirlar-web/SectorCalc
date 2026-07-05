@@ -9,13 +9,13 @@ import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved
 import { UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
 import { ProToolSessionWrapper } from "@/sectorcalc/pro-form/ProToolSessionWrapper";
 import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
-import { listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
+import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 export function generateStaticParams(): Array<{ slug: string }> {
-  return listProToolSchemaSlugs().map((slug) => ({ slug }));
+  return ACTIVE_PRO_TOOL_SLUGS.map((slug) => ({ slug }));
 }
 
 interface ProToolRouteParams {

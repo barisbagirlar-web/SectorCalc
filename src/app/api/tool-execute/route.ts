@@ -16,8 +16,11 @@ import {
   decrementProSessionRuns,
 } from "@/lib/credits/tool-usage-session.server";
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
+import { getFreeToolSchema } from "@/sectorcalc/runtime/free-schema-loader";
+import { isActiveTool } from "@/sectorcalc/runtime/active-tool-allowlist";
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { isProBypassEmail } from "@/lib/features/billing/subscription";
+import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -52,10 +55,19 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const raw: Record<string, unknown> = await request.json();
     const body = raw as unknown as ToolExecuteRequest;
 
-    // Accept both camelCase (tool-execute contract) and snake_case (machine ExecuteRequest)
-    const toolKey = extractField<string>(raw, "toolKey", "tool_key");
+    // Accept camelCase, snake_case, slug, and tool_slug (machine ExecuteRequest / form submissions)
+    let toolKey = extractField<string>(raw, "toolKey", "tool_key");
+    if (!toolKey || typeof toolKey !== "string") {
+      toolKey = extractField<string>(raw, "slug", "tool_slug");
+    }
     if (!toolKey || typeof toolKey !== "string") {
       return NextResponse.json({ error: "MISSING_TOOL_KEY" }, { status: 400 });
+    }
+    // Free slugs use hyphens, but callers may send underscores.
+    // Normalize underscores to hyphens so Free schemas resolve correctly.
+    // Pro slugs (sc_*) are already underscore-canonical — do not normalize those.
+    if (!toolKey.startsWith("sc_")) {
+      toolKey = toolKey.replace(/_/g, "-");
     }
     body.toolKey = toolKey;
     if (!body.rawInputs) body.rawInputs = (extractField<Record<string, unknown>>(raw, "rawInputs", "raw_inputs") ?? {});
@@ -63,6 +75,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     if (!body.profileMode) body.profileMode = extractField<any>(raw, "profileMode", "user_profile_mode");
     if (!body.clientSchemaHash) body.clientSchemaHash = extractField<string>(raw, "clientSchemaHash", "client_schema_hash");
     if (!body.displayCurrency) body.displayCurrency = extractField<string>(raw, "displayCurrency", "display_currency");
+
+    // ── V5.4 Core — Allowlist gate ──────────────────────────────
+    if (!isActiveTool(body.toolKey)) {
+      return NextResponse.json({
+        status: "DISABLED",
+        reason: "Tool is under V5.4 Core rebuild verification.",
+      }, { status: 404 });
+    }
 
     // ── Resolve tool from manifest ─────────────────────────────
     const manifestEntry = getPublicToolBySlug(body.toolKey);
@@ -126,7 +146,22 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     // ── Resolve and validate schema ─────────────────────────────
-    const schemaResult = resolveApprovedToolSchema(body.toolKey);
+    // Try the canonical resolver first (handles Pro + cached Free).
+    let schemaResult = resolveApprovedToolSchema(body.toolKey);
+
+    // If canonical resolver fails for a Free tool, try direct Free schema
+    // loading as a robustness measure (handles dev HMR edge cases where
+    // the schema loader's module-level cache is in a bad state).
+    if ((!schemaResult.ok || !schemaResult.schema) && accessTier === "FREE") {
+      const directFree = getFreeToolSchema(body.toolKey);
+      if (directFree) {
+        const val = validateSuperV4Schema(directFree);
+        if (val.ok) {
+          schemaResult = { ok: true, schema: val.schema, source: "free_v531" };
+        }
+      }
+    }
+
     if (!schemaResult.ok || !schemaResult.schema) {
       return NextResponse.json({ error: "SCHEMA_NOT_FOUND" }, { status: 404 });
     }

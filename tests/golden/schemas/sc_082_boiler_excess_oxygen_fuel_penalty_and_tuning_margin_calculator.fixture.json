@@ -1,0 +1,20 @@
+{
+  "purpose": "Golden fixture for Boiler Excess Oxygen Fuel Penalty Pro Pilot — GENERIC (quarantined)",
+  "tool_key": "sc_082_boiler_excess_oxygen_fuel_penalty_and_tuning_margin_calculator",
+  "status": "QUARANTINED",
+  "reason": "All 135 Pro formula modules use auto-generated generic template: all 7 outputs compute the same formula (operating_load * operating_time + measured_loss_indicator). decision_status, governing_driver, fmea_status are numeric when they should be string enums. No domain-specific boiler/excess oxygen logic exists. This tool cannot serve as a verified Pro pilot until a genuine domain-specific formula module is written.",
+  "generic_outputs": {
+    "decision_status": 50050,
+    "utilization_index": 50050,
+    "safety_margin": 50050,
+    "expanded_uncertainty": 50050,
+    "money_at_risk": 50050,
+    "governing_driver": 50050,
+    "fmea_status": 50050
+  },
+  "semantically_valid": false,
+  "all_outputs_identical": true,
+  "decision_status_is_numeric": true,
+  "governing_driver_is_numeric": true,
+  "fmea_status_is_numeric": true
+}

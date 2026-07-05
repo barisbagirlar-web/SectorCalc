@@ -1,0 +1,23 @@
+{
+  "purpose": "Golden fixture for Break-Even & Margin of Safety Analysis (Free Pilot)",
+  "tool_key": "break-even-and-margin-of-safety-analysis",
+  "inputs": {
+    "fixed_costs": 10000,
+    "selling_price_per_unit": 50,
+    "variable_cost_per_unit": 30,
+    "actual_sales_units": 800
+  },
+  "expected_outputs": {
+    "contribution_margin_per_unit": 20,
+    "break_even_units": 500,
+    "break_even_revenue": 25000,
+    "margin_of_safety_units": 300,
+    "margin_of_safety_percent": 37.5
+  },
+  "tolerance": {
+    "absolute": 0.000001,
+    "relative": 0.000001
+  },
+  "formula_registry_used": true,
+  "description": "Standard CVP analysis: FC=10000, SP=50, VC=30, Q=800. CM=20, BE=500 units, BER=25000, MoS=300 units, MoS%=37.5%"
+}

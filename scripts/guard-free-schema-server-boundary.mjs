@@ -16,6 +16,7 @@ const SKIP_DIRS = new Set([
   "build",
   "coverage",
   ".local-free-tools-quarantine",
+  "backup",
 ]);
 
 function toRel(filePath) {

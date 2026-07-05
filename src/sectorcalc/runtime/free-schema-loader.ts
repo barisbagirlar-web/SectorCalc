@@ -20,21 +20,65 @@ function getSchemasDir(): string {
 /**
  * Normalize a Free V5.3.1 schema for validation.
  */
-function normalizeFreeSchema(raw: Record<string, unknown>): SuperV4Schema {
+export function normalizeFreeSchema(raw: Record<string, unknown>): SuperV4Schema {
   const s = JSON.parse(JSON.stringify(raw)) as Record<string, unknown>;
 
   const outputs = Array.isArray(s.outputs) ? s.outputs as Array<Record<string, unknown>> : [];
   const outputIdSet = new Set(outputs.map((o) => o.id as string));
 
-  if (Array.isArray(s.formulas)) {
-    for (const f of s.formulas as Record<string, unknown>[]) {
-      delete f.expression;
-      delete f.uncertainty_expression;
-      delete f.public_formula_expression;
-      const fOutput = f.output as string | undefined;
-      if (fOutput && !outputIdSet.has(fOutput)) {
-        delete f.output;
+  // Collect all formula IDs referenced by input formula_bindings
+  const referencedFormulaIds = new Set<string>();
+  if (Array.isArray(s.inputs)) {
+    for (const inp of s.inputs as Array<Record<string, unknown>>) {
+      const fb = inp.formula_bindings as string[] | undefined;
+      if (Array.isArray(fb)) {
+        for (const id of fb) {
+          if (typeof id === "string" && !id.startsWith("server_formula.")) {
+            referencedFormulaIds.add(id);
+          }
+        }
       }
+    }
+  }
+
+  const inputIds = new Set((s.inputs as Array<Record<string, unknown>> | undefined)?.map((i) => i.id as string) ?? []);
+
+  const formulasArr = Array.isArray(s.formulas) ? s.formulas as Array<Record<string, unknown>> : [];
+  const definedFormulaIds = new Set(formulasArr.map((f) => f.id as string));
+
+  // Remove orphan formulas (not referenced by any input and not serving a known output)
+  s.formulas = formulasArr.filter((f) => {
+    const fid = f.id as string;
+    if (referencedFormulaIds.has(fid)) return true;
+    const fOutput = f.output as string | undefined;
+    if (fOutput && outputIdSet.has(fOutput)) return true;
+    // Keep server-internal formulas
+    if (typeof fid === "string" && fid.startsWith("F_SERVER_")) return true;
+    return false;
+  });
+
+  // Add stub formula entries for referenced formula IDs missing from the formulas array
+  for (const refId of referencedFormulaIds) {
+    if (!definedFormulaIds.has(refId)) {
+      (s.formulas as Array<Record<string, unknown>>).push({
+        id: refId,
+        name: refId,
+        operation: "SUBCALC",  // Sub-calculation handled by formula_registry
+        output: null,
+        description: `Formula ${refId} — computed via formula registry`,
+        formula_bindings: [],
+        standard_clause_bindings: [],
+      });
+    }
+  }
+
+  for (const f of (s.formulas as Array<Record<string, unknown>>) ?? []) {
+    delete f.expression;
+    delete f.uncertainty_expression;
+    delete f.public_formula_expression;
+    const fOutput = f.output as string | undefined;
+    if (fOutput && !outputIdSet.has(fOutput)) {
+      delete f.output;
     }
   }
 
@@ -138,4 +182,8 @@ export function getFreeSchemaLoadErrors(): string[] {
 }
 export function getFreeSchemaCount(): number {
   loadAllSchemas(); return loadedSchemas?.size ?? 0;
+}
+export function clearFreeSchemaCache(): void {
+  loadedSchemas = null;
+  loadErrors = [];
 }

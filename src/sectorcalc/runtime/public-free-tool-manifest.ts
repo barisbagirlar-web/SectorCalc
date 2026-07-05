@@ -42,7 +42,7 @@ const FREE_TOOLS: FreeToolManifestEntry[] = [
   { slug: "bobbin_yarn_length_calculator", toolKey: "bobbin_yarn_length_calculator", toolName: "Bobbin Yarn Length Calculator", route: "/tools/free/bobbin_yarn_length_calculator", accessTier: "FREE" },
   { slug: "bond_price_calculator", toolKey: "bond_price_calculator", toolName: "Bond Price Calculator", route: "/tools/free/bond_price_calculator", accessTier: "FREE" },
   { slug: "bottleneck_analysis_calculator", toolKey: "bottleneck_analysis_calculator", toolName: "Bottleneck Analysis Calculator", route: "/tools/free/bottleneck_analysis_calculator", accessTier: "FREE" },
-  { slug: "break_even_and_margin_of_safety_analysis", toolKey: "break_even_and_margin_of_safety_analysis", toolName: "Break-Even & Margin of Safety Analysis", route: "/tools/free/break_even_and_margin_of_safety_analysis", accessTier: "FREE" },
+  { slug: "break-even-and-margin-of-safety-analysis", toolKey: "break-even-and-margin-of-safety-analysis", toolName: "Break-Even & Margin of Safety Analysis", route: "/tools/free/break-even-and-margin-of-safety-analysis", accessTier: "FREE" },
   { slug: "breeam_leed_score_calculator", toolKey: "breeam_leed_score_calculator", toolName: "Breeam Leed Score Calculator", route: "/tools/free/breeam_leed_score_calculator", accessTier: "FREE" },
   { slug: "building_load_factor_calculator", toolKey: "building_load_factor_calculator", toolName: "Building Load Factor Calculator", route: "/tools/free/building_load_factor_calculator", accessTier: "FREE" },
   { slug: "building_shadow_duration_calculator", toolKey: "building_shadow_duration_calculator", toolName: "Building Shadow Duration Calculator", route: "/tools/free/building_shadow_duration_calculator", accessTier: "FREE" },
