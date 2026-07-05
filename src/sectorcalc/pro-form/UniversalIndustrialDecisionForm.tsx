@@ -44,6 +44,7 @@ import {
   safeDisplayScope,
   formatDisplayUnit,
 } from "./form-render-helpers";
+import { normalizeV531FieldMetadata } from "./normalize-v531-field-metadata";
 import "./universal-industrial-decision-form.css";
 
 // ── ViewModel types ────────────────────────────────────────────────────────────
@@ -80,6 +81,11 @@ interface FieldViewModel {
   evidence: EvidenceRow;
   /** Compact reference metadata lines rendered under the input row. */
   referenceStrip: string[];
+  /** V5.3.1: Always-present metadata block values or neutral "No declared..." messages. */
+  declaredRange: string;
+  declaredDefaultReference: string;
+  declaredAcceptedValues: string;
+  declaredTolerance: string;
 }
 
 interface ActionViewModel {
@@ -185,7 +191,7 @@ function buildCalculatorViewModel(
     })
     .map((input) => {
       const basePreviewVal = (() => {
-        const preview = machine.normalizedPreview.find((item) => item.input_id === input.id);
+        const preview = (machine.normalizedPreview ?? []).find((item) => item.input_id === input.id);
         if (!preview || preview.base_value === null || preview.base_value === undefined) return null;
         return safeBasePreview(preview.base_value, preview.base_unit ?? input.base_unit ?? null);
       })();
@@ -245,6 +251,25 @@ function buildCalculatorViewModel(
         refStrip.push("Reference data: not specified in this tool schema.");
       }
 
+      // ── V5.3.1: Normalize field metadata from schema ──
+      const meta = normalizeV531FieldMetadata(input, props.schema);
+
+      const declaredRange = meta.allowedRange
+        ? `Allowed range: ${meta.allowedRange}`
+        : "No declared range in schema";
+
+      const declaredDefaultReference = meta.defaultReference
+        ? `Default reference: ${meta.defaultReference}`
+        : "No declared reference value in schema";
+
+      const declaredAcceptedValues = Array.isArray(meta.acceptedValues) && meta.acceptedValues.length > 0
+        ? `Accepted values: ${meta.acceptedValues.join(", ")}`
+        : "No declared accepted values in schema";
+
+      const declaredTolerance = meta.toleranceText
+        ? `Tolerance: ${meta.toleranceText}`
+        : "No declared tolerance in schema";
+
       return {
         id: input.id,
         label: input.name,
@@ -268,6 +293,10 @@ function buildCalculatorViewModel(
           evidenceLabel,
         },
         referenceStrip: refStrip,
+        declaredRange,
+        declaredDefaultReference,
+        declaredAcceptedValues,
+        declaredTolerance,
       };
     });
 
@@ -941,6 +970,14 @@ function CalculatorInputField({
           ))}
         </div>
       )}
+
+      {/* V5.3.1: Structured metadata block — always shown */}
+      <div className="sc-v531-field-metadata-block" aria-label="Field metadata">
+        <span className="sc-v531-meta-line">{field.declaredRange}</span>
+        <span className="sc-v531-meta-line">{field.declaredDefaultReference}</span>
+        <span className="sc-v531-meta-line">{field.declaredAcceptedValues}</span>
+        <span className="sc-v531-meta-line">{field.declaredTolerance}</span>
+      </div>
 
       {/* Reference source label */}
       {field.referenceSource && (

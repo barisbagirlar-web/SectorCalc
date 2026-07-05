@@ -338,6 +338,29 @@
   font-family: var(--sc-v531-sans);
 }
 
+/* ── V5.3.1: Structured metadata block ── */
+
+.sc-v531-field-metadata-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 6px 0 2px;
+  border-top: 1px solid var(--sc-v531-line-strong);
+  margin-top: 4px;
+}
+
+.sc-v531-meta-line {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--sc-v531-muted-strong);
+  font-family: var(--sc-v531-sans);
+  letter-spacing: -0.01em;
+}
+
+.sc-v531-meta-line:first-letter {
+  text-transform: none;
+}
+
 /* Reference source label */
 .sc-v531-field-reference {
   font-size: 12px;
