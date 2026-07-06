@@ -44,6 +44,10 @@ import {
 } from "./form-render-helpers";
 import { normalizeV531FieldMetadata } from "./normalize-v531-field-metadata";
 import { resolveIndustrialExampleValue } from "./example-value-resolver";
+import {
+  convertDisplayToCanonical,
+  convertCanonicalToDisplay,
+} from "./unit-display-resolver";
 import "./universal-industrial-decision-form.css";
 
 // ── ViewModel types ────────────────────────────────────────────────────────────
@@ -69,6 +73,7 @@ interface FieldViewModel {
   selectedUnit: string;
   allowedUnits: string[];
   unitSelectable: boolean;
+  canonicalUnit: string;
   allowedValues: string[];
   helpText: string;
   criticality: string;
@@ -164,6 +169,7 @@ function buildCalculatorViewModel(
   displayCategory: string,
   displayOperation: string,
   identityCheck: { ok: boolean; reason?: string } | null,
+  selectedCurrency: CurrencyCode,
 ): CalculatorViewModel {
   const decision = response?.decision_interpretation;
   const isFree = accessTier === "FREE";
@@ -307,6 +313,15 @@ function buildCalculatorViewModel(
         ? `Tolerance: ${meta.toleranceText}`
         : "No declared tolerance in schema";
 
+      // Build unit options context for currency-aware resolution
+      const isMonetary = isMonetaryField(input);
+      const isMonetaryPerUnit = isMonetary && isMonetaryPerUnitField(input);
+      const isCount = isCountField(input);
+      const unitCtx = { selectedCurrency, isMonetary, isMonetaryPerUnit, isCount, inputId: input.id, inputName: input.name };
+      const resolvedUnitOptions = buildSafeDisplayUnitOptions(input.base_unit ?? "", unitCtx);
+      // For count fields, always use resolver to get Units/pcs/batches/cycles options.
+      // For other fields, prefer schema-allowed_display_units when defined.
+      const useResolverForUnit = isCount;
       return {
         id: input.id,
         label: input.name,
@@ -314,13 +329,18 @@ function buildCalculatorViewModel(
         type: input.type === "integer" ? "integer" : (input.type as FieldViewModel["type"]),
         value: state.rawInputState[input.id] ?? null,
         selectedUnit: state.selectedUnitState[input.id]
-          ?? (input.allowed_display_units?.length
-            ? input.allowed_display_units[0]
-            : (input.base_unit ? buildSafeDisplayUnitOptions(input.base_unit)[0] : "")),
-        allowedUnits: input.allowed_display_units?.length
-          ? input.allowed_display_units
-          : (input.base_unit ? buildSafeDisplayUnitOptions(input.base_unit) : []),
+          ?? (useResolverForUnit
+            ? (resolvedUnitOptions[0] ?? "")
+            : (input.allowed_display_units?.length
+              ? input.allowed_display_units[0]
+              : (resolvedUnitOptions[0] ?? ""))),
+        allowedUnits: useResolverForUnit
+          ? resolvedUnitOptions
+          : (input.allowed_display_units?.length
+            ? input.allowed_display_units
+            : resolvedUnitOptions),
         unitSelectable: !!input.unit_selectable,
+        canonicalUnit: input.base_unit ?? "",
         allowedValues: input.allowed_values ?? [],
         helpText: input.user_help_text ?? input.help_text ?? "",
         criticality: input.criticality,
@@ -546,6 +566,36 @@ function computeTolerancePct(input: SuperV4Input): string | null {
     return `±${((bounds.max - bounds.min) / (bounds.max + bounds.min) * 100).toFixed(1)}%`;
   }
   return null;
+}
+
+/** Detect if a field is monetary by base_unit or semantic tag. */
+function isMonetaryField(input: SuperV4Input): boolean {
+  const bu = (input.base_unit ?? "").toLowerCase();
+  if (bu === "display_currency" || bu === "currency") return true;
+  if (["usd", "eur", "gbp", "try", "inr", "cny", "jpy", "aud", "cad", "brl"].some((c) => bu.startsWith(c))) return true;
+  const tag = (input.ui_binding as Record<string, unknown> | undefined)?.semantic_tag;
+  if (typeof tag === "string" && String(tag).toLowerCase().includes("monet")) return true;
+  // /unit and /year patterns
+  if (bu.includes("/unit") || bu.includes("/year") || bu.includes("/kwh") || bu.includes("/mwh")) return true;
+  return false;
+}
+
+/** Detect if a monetary field is per-unit (price/cost per unit). */
+function isMonetaryPerUnitField(input: SuperV4Input): boolean {
+  const name = (input.name ?? "").toLowerCase();
+  const id = (input.id ?? "").toLowerCase();
+  if (name.includes("per unit") || name.includes("price") || name.includes("cost per")) return true;
+  if (id.endsWith("per_unit") || id.includes("price")) return true;
+  return false;
+}
+
+/** Detect if a field is a count/quantity field. */
+function isCountField(input: SuperV4Input): boolean {
+  const bu = (input.base_unit ?? "").toLowerCase();
+  if (bu === "count" || bu === "units") return true;
+  const tag = (input.ui_binding as Record<string, unknown> | undefined)?.semantic_tag;
+  if (typeof tag === "string" && String(tag).toLowerCase() === "count") return true;
+  return false;
 }
 
 // ── Component ──────────────────────────────────────────────────────────────────
@@ -844,13 +894,14 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       clientBlockerCount, toolName, vmPurpose,
       displayCategory, displayOperation,
       identityCheck as { ok: boolean; reason?: string } | null,
+      selectedCurrency,
     ),
     [
       props.schema, state, machine, props, state.profileModeState.mode, response,
       accessTier, hasSession, runsRemaining, isExecuting, hasResult,
       primaryButtonDisabled, primaryButtonLabel, primaryButtonAction,
       clientBlockerCount, toolName, vmPurpose,
-      displayCategory, displayOperation, identityCheck,
+      displayCategory, displayOperation, identityCheck, selectedCurrency,
     ],
   );
 
@@ -915,7 +966,17 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       field={field}
                       currencyCode={selectedCurrency}
                       onValueChange={(value) => machine.setInputValue(field.id, value)}
-                      onUnitChange={(unit) => machine.setSelectedUnit(field.id, unit)}
+                      onUnitChange={(newUnit) => {
+                      const oldVal = field.value;
+                      const oldUnit = field.selectedUnit;
+                      const canonUnit = field.canonicalUnit;
+                      if (typeof oldVal === "number" && Number.isFinite(oldVal) && oldUnit && oldUnit !== newUnit) {
+                        const canonVal = convertDisplayToCanonical(oldVal, oldUnit, canonUnit);
+                        const newVal = convertCanonicalToDisplay(canonVal, newUnit, canonUnit);
+                        machine.setInputValue(field.id, newVal);
+                      }
+                      machine.setSelectedUnit(field.id, newUnit);
+                    }}
                       onEvidenceChange={(valueVerified, sourceVerified) => {
                         machine.updateEvidence(field.id, {
                           enabled: valueVerified || sourceVerified,
@@ -926,30 +987,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     />
                   ))}
                 </div>
-                {/* Cockpit CTA + Reset */}
-                <div className="sc-v531-cockpit-actions">
-                  <button
-                    type="button"
-                    className="sc-v531-primary-action"
-                    disabled={vm.action.disabled}
-                    aria-disabled={vm.action.disabled}
-                    onClick={vm.action.onAction}
-                  >
-                    {vm.action.label}
-                  </button>
-                  <button
-                    type="button"
-                    className="sc-v531-action-secondary"
-                    onClick={machine.resetInputs}
-                  >
-                    Reset inputs
-                  </button>
-                </div>
-                {vm.action.disabled && vm.action.disabledReason && (
-                  <p className="sc-v531-disabled-reason" role="status">
-                    {vm.action.disabledReason}
-                  </p>
-                )}
+                {/* PRO Desktop CTA is in right Decision Panel only — no duplicate here */}
               </div>
               <aside className="sc-v531-pro-cockpit-right">
                 <div className="sc-v531-cockpit-panel">
@@ -998,7 +1036,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                             {paybackValue !== null && (
                               <div className="sc-v531-cockpit-row">
                                 <span className="sc-v531-cockpit-row-label">Repair Payback</span>
-                                <span className="sc-v531-cockpit-row-value">{paybackValue} days</span>
+                                <span className="sc-v531-cockpit-row-value">{formatDisplayNumber(paybackValue)} days</span>
                               </div>
                             )}
                             {(() => {
@@ -1086,7 +1124,17 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     field={field}
                     currencyCode={selectedCurrency}
                     onValueChange={(value) => machine.setInputValue(field.id, value)}
-                    onUnitChange={(unit) => machine.setSelectedUnit(field.id, unit)}
+                    onUnitChange={(newUnit) => {
+                      const oldVal = field.value;
+                      const oldUnit = field.selectedUnit;
+                      const canonUnit = field.canonicalUnit;
+                      if (typeof oldVal === "number" && Number.isFinite(oldVal) && oldUnit && oldUnit !== newUnit) {
+                        const canonVal = convertDisplayToCanonical(oldVal, oldUnit, canonUnit);
+                        const newVal = convertCanonicalToDisplay(canonVal, newUnit, canonUnit);
+                        machine.setInputValue(field.id, newVal);
+                      }
+                      machine.setSelectedUnit(field.id, newUnit);
+                    }}
                     onEvidenceChange={(valueVerified, sourceVerified) => {
                       machine.updateEvidence(field.id, {
                         enabled: valueVerified || sourceVerified,

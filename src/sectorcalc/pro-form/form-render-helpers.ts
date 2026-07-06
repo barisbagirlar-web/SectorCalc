@@ -4,6 +4,7 @@
 
 import type { ExecuteResponse, RedactionStatus, ReferenceValuesObject, LegacyReferenceValue } from "./contract-types";
 import { getDisplayUnitLabel, UNIT_DISPLAY_LABELS } from "./display-labels";
+import { resolveDisplayUnitOptions } from "./unit-display-resolver";
 
 // ── Currency codes for display selector ───────────────────────────────────────
 
@@ -33,27 +34,45 @@ const EXTENDED_UNIT_LABELS: Record<string, string> = {
   bar: "bar",
   h_per_year: "h/year",
   "h/year": "h/year",
+  "h/day": "h/day",
   "kW/(m³/min)": "kW/(m³/min)",
   "kW_per_m3_min": "kW/(m³/min)",
   "kw_per_m3_min": "kW/(m³/min)",
+  "kW/(100 cfm)": "kW/(100 cfm)",
   "USD/kWh": "USD/kWh",
+  "USD/MWh": "USD/MWh",
   "usd_per_kwh": "USD/kWh",
   count: "Units",
   h: "h",
   kw: "kW",
   kwh: "kWh",
   kWh: "kWh",
+  MWh: "MWh",
   usd: "USD",
   mm: "mm",
   display_currency: "Currency",
   // PRO output units
   "m3/min": "m³/min",
+  "m³/min": "m³/min",
+  "m³/h": "m³/h",
+  "L/min": "L/min",
+  cfm: "cfm",
   days: "days",
+  "day/year": "day/year",
   // Common engineering display units from buildSafeDisplayUnitOptions
-  in: "in",
-  ft: "ft",
-  cm: "cm",
-  m: "m",
+  "in": "in",
+  "ft": "ft",
+  "cm": "cm",
+  "m": "m",
+  "m²": "m²",
+  "m2": "m²",
+  "cm²": "cm²",
+  "ft²": "ft²",
+  "m³": "m³",
+  "m3": "m³",
+  "L": "L",
+  "ft³": "ft³",
+  "gal": "gal",
   kPa: "kPa",
   psi: "psi",
   MPa: "MPa",
@@ -61,8 +80,11 @@ const EXTENDED_UNIT_LABELS: Record<string, string> = {
   C: "°C",
   F: "°F",
   K: "K",
+  "°C": "°C",
+  "°F": "°F",
   kg: "kg",
   g: "g",
+  t: "t",
   lb: "lb",
   N: "N",
   kN: "kN",
@@ -70,9 +92,12 @@ const EXTENDED_UNIT_LABELS: Record<string, string> = {
   "kN·m": "kN·m",
   Hz: "Hz",
   rpm: "rpm",
-  L: "L",
   mL: "mL",
-  gal: "gal",
+  pcs: "pcs",
+  batches: "batches",
+  cycles: "cycles",
+  decimal: "decimal",
+  "%": "%",
 };
 
 /**
@@ -91,30 +116,89 @@ export function formatCleanUnitLabel(unit: string): string {
  * Returns at least one option (the base unit itself).
  * For known convertible units, returns commonly used engineering alternatives
  * without adding unsupported conversions or currency FX.
+ *
+ * When ctx is provided, uses the unit-display-resolver for richer options.
  */
-export function buildSafeDisplayUnitOptions(baseUnit: string): string[] {
+export function buildSafeDisplayUnitOptions(
+  baseUnit: string,
+  ctx?: { inputId?: string; inputName?: string; selectedCurrency?: CurrencyCode; isMonetary?: boolean; isMonetaryPerUnit?: boolean; isCount?: boolean },
+): string[] {
+  // When resolver context is provided, delegate to the universal resolver
+  if (ctx) {
+    const options = resolveDisplayUnitOptions({
+      canonicalUnit: baseUnit,
+      inputId: ctx.inputId ?? "",
+      inputName: ctx.inputName ?? "",
+      selectedCurrency: ctx.selectedCurrency ?? "USD",
+      isMonetary: ctx.isMonetary ?? false,
+      isMonetaryPerUnit: ctx.isMonetaryPerUnit ?? false,
+      isCount: ctx.isCount ?? false,
+    });
+    return options.map((o) => o.unit);
+  }
+
   const key = baseUnit.toLowerCase().trim();
   if (key === "mm" || key === "millimeter") {
     return ["mm", "cm", "m", "in"];
   }
   if (key === "bar" || key === "bar_g" || key === "bar(g)") {
-    return ["bar", "kPa", "psi"];
+    return ["bar", "kPa", "psi", "MPa"];
   }
   if (key === "h_per_year" || key === "h/year") {
-    return ["h/year"];
+    return ["h/year", "h/day"];
   }
   if (key === "kw_per_m3_min" || key === "kw/(m³/min)" || key === "kW_per_m3_min" || key === "kW/(m³/min)") {
-    return ["kW/(m³/min)"];
+    return ["kW/(m³/min)", "kW/(100 cfm)"];
   }
   if (key === "usd_per_kwh" || key === "usd/kwh" || key === "USD/kWh") {
-    return ["USD/kWh"];
+    return ["USD/kWh", "USD/MWh"];
+  }
+  if (key === "m" || key === "meter") {
+    return ["m", "cm", "mm", "ft"];
+  }
+  if (key === "cm") {
+    return ["cm", "mm", "m", "in"];
+  }
+  if (key === "in" || key === "inch" || key === "inches") {
+    return ["in", "mm", "cm", "ft"];
+  }
+  if (key === "ft" || key === "feet") {
+    return ["ft", "m", "in", "mm"];
+  }
+  if (key === "psi") {
+    return ["psi", "bar", "kPa", "MPa"];
+  }
+  if (key === "kpa") {
+    return ["kPa", "bar", "psi", "MPa"];
+  }
+  if (key === "mpa") {
+    return ["MPa", "bar", "kPa", "psi"];
+  }
+  if (key === "m3/min" || key === "m³/min") {
+    return ["m³/min", "m³/h", "L/min", "cfm"];
+  }
+  if (key === "m3/h" || key === "m³/h") {
+    return ["m³/h", "m³/min", "L/min", "cfm"];
+  }
+  if (key === "l/min" || key === "lmin") {
+    return ["L/min", "m³/min", "m³/h", "cfm"];
+  }
+  if (key === "cfm") {
+    return ["cfm", "m³/min", "m³/h", "L/min"];
+  }
+  if (key === "kwh") {
+    return ["kWh", "MWh"];
+  }
+  if (key === "mwh") {
+    return ["MWh", "kWh"];
+  }
+  if (key === "count" || key === "units") {
+    return ["Units", "pcs", "batches", "cycles"];
   }
   if (key === "display_currency" || key === "currency") {
     return ["display_currency"];
   }
-  if (key === "count") {
-    return ["count"];
-  }
+  // % handled via buildSafeDisplayUnitOptions callers that use isMonetary/isCount flags
   // For unknown base units, return just the base unit
   return [baseUnit];
 }
@@ -324,7 +408,7 @@ export function formatDisplayNumber(
   let maxDecimals: number;
 
   if (decimals !== undefined) {
-    minDecimals = decimals;
+    minDecimals = stripTrailingZeros ? 0 : decimals;
     maxDecimals = decimals;
   } else {
     const absValue = Math.abs(value);

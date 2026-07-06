@@ -12,6 +12,7 @@ import type {
   StateTransitionId,
   SuperV4Schema,
 } from "./contract-types";
+import { resolveIndustrialExampleValue } from "./example-value-resolver";
 
 export interface ValidationIssue {
   id: string;
@@ -176,9 +177,22 @@ export function universalFormMachineReducer(
       const selectedUnitState: Record<string, string> = {};
       const evidenceState: Record<string, EvidenceFieldState> = {};
       const expandedGroups: Record<string, boolean> = {};
+      const initToolSlug = event.schema.tool_key;
 
       for (const input of event.schema.inputs) {
-        rawInputState[input.id] = input.default_value !== undefined && input.default_value !== null ? input.default_value : null;
+        // Resolve via tool-specific example map first, fall back to schema default
+        const exampleVal = resolveIndustrialExampleValue({
+          toolSlug: initToolSlug,
+          toolKey: initToolSlug,
+          inputId: input.id,
+          inputName: input.name,
+          unit: input.base_unit,
+          rangeMin: input.physical_hard_bounds?.min ?? null,
+          rangeMax: input.physical_hard_bounds?.max ?? null,
+          schemaExampleValue: null,
+          schemaDefaultValue: input.default_value ?? null,
+        });
+        rawInputState[input.id] = exampleVal !== "" ? exampleVal : (input.default_value ?? null);
         if (input.unit_selectable && input.allowed_display_units.length > 0) {
           selectedUnitState[input.id] = input.allowed_display_units[0];
         }
@@ -385,12 +399,32 @@ export function universalFormMachineReducer(
         premiumHookState: resetPremiumHook(),
       };
 
-    case "RESET_INPUTS":
+    case "RESET_INPUTS": {
+      const resetBase = createInitialUniversalFormState(state.profileModeState.mode);
+      const resetSchema = state.schemaState.schema;
+      if (resetSchema) {
+        const resetSlug = resetSchema.tool_key;
+        for (const input of resetSchema.inputs) {
+          const exVal = resolveIndustrialExampleValue({
+            toolSlug: resetSlug,
+            toolKey: resetSlug,
+            inputId: input.id,
+            inputName: input.name,
+            unit: input.base_unit,
+            rangeMin: input.physical_hard_bounds?.min ?? null,
+            rangeMax: input.physical_hard_bounds?.max ?? null,
+            schemaExampleValue: null,
+            schemaDefaultValue: input.default_value ?? null,
+          });
+          resetBase.rawInputState[input.id] = exVal !== "" ? exVal : null;
+        }
+      }
       return {
-        ...createInitialUniversalFormState(state.profileModeState.mode),
+        ...resetBase,
         schemaState: state.schemaState,
         executionState: state.schemaState.validation_status === "valid" ? "schema_ready" : "idle",
       };
+    }
 
     case "RESET_RESULT_ONLY":
       return {
