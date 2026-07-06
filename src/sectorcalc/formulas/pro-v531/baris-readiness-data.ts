@@ -1,7 +1,7 @@
-// SectorCalc PRO V5.3.1 — Baris Schema Readiness Classification (BATCH 1 LIVE)
-// LIVE_ENGINE_READY: 10 tools with individual deterministic formula files + golden fixtures
+// SectorCalc PRO V5.3.1 — Baris Schema Readiness Classification (BATCH 1+2 LIVE)
+// LIVE_ENGINE_READY: 20 tools with individual deterministic formula files + golden fixtures
 // BLOCKED_SOURCE_REQUIRED: 15 tools requiring restricted standard reference data
-// BLOCKED_RUNTIME_CONTRACT_MISMATCH: 20 tools without individual formula + fixture
+// BLOCKED_RUNTIME_CONTRACT_MISMATCH: 10 tools without individual formula + fixture
 
 import "server-only";
 
@@ -13,9 +13,10 @@ export interface BarisReadinessRecord {
 }
 
 // ── LIVE_ENGINE_READY ──────────────────────────────────────────────────────
-// COUNT: 10 — Batch 1 finance/cost/operations tools with real deterministic engines
+// COUNT: 20 — Batch 1 + Batch 2 finance/cost/operations tools with real deterministic engines
 
 export const LIVE_ENGINE_READY_TOOLS: BarisReadinessRecord[] = [
+  // ── BATCH 1 ──────────────────────────────────────────────────────────────
   {
     tool_key: "break-even-survival-cash-calculator",
     tool_id: "PRO_031",
@@ -75,6 +76,68 @@ export const LIVE_ENGINE_READY_TOOLS: BarisReadinessRecord[] = [
     tool_id: "PRO_016",
     category: "LIVE_ENGINE_READY",
     reason: "Deterministic formula at capital-equipment-investment-appraisal-npv-irr.formula.ts. Golden fixture at tests/golden/pro-v531-baris/capital-equipment-investment-appraisal-npv-irr.golden.json."
+  },
+
+  // ── BATCH 2 ──────────────────────────────────────────────────────────────
+  {
+    tool_key: "customer-sku-profitability-forensics",
+    tool_id: "PRO_018",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at customer-sku-profitability-forensics.formula.ts. Golden fixture at tests/golden/pro-v531-baris/customer-sku-profitability-forensics.golden.json."
+  },
+  {
+    tool_key: "downtime-scrap-loss-statement",
+    tool_id: "PRO_026",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at downtime-scrap-loss-statement.formula.ts. Golden fixture at tests/golden/pro-v531-baris/downtime-scrap-loss-statement.golden.json."
+  },
+  {
+    tool_key: "oee-loss-monetization-improvement-business-case",
+    tool_id: "PRO_019",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at oee-loss-monetization-improvement-business-case.formula.ts. Golden fixture at tests/golden/pro-v531-baris/oee-loss-monetization-improvement-business-case.golden.json."
+  },
+  {
+    tool_key: "scrap-rework-cost-tracker",
+    tool_id: "PRO_039",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at scrap-rework-cost-tracker.formula.ts. Golden fixture at tests/golden/pro-v531-baris/scrap-rework-cost-tracker.golden.json."
+  },
+  {
+    tool_key: "outsource-vs-in-house-analyzer",
+    tool_id: "PRO_033",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at outsource-vs-in-house-analyzer.formula.ts. Golden fixture at tests/golden/pro-v531-baris/outsource-vs-in-house-analyzer.golden.json."
+  },
+  {
+    tool_key: "plant-wide-shop-rate-cost-structure-audit",
+    tool_id: "PRO_014",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at plant-wide-shop-rate-cost-structure-audit.formula.ts. Golden fixture at tests/golden/pro-v531-baris/plant-wide-shop-rate-cost-structure-audit.golden.json."
+  },
+  {
+    tool_key: "fx-commodity-pass-through-pricer",
+    tool_id: "PRO_030",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at fx-commodity-pass-through-pricer.formula.ts. Golden fixture at tests/golden/pro-v531-baris/fx-commodity-pass-through-pricer.golden.json."
+  },
+  {
+    tool_key: "energy-efficiency-grant-incentive-feasibility-pack",
+    tool_id: "PRO_029",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at energy-efficiency-grant-incentive-feasibility-pack.formula.ts. Golden fixture at tests/golden/pro-v531-baris/energy-efficiency-grant-incentive-feasibility-pack.golden.json."
+  },
+  {
+    tool_key: "motor-compressor-replacement-roi",
+    tool_id: "PRO_045",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at motor-compressor-replacement-roi.formula.ts. Golden fixture at tests/golden/pro-v531-baris/motor-compressor-replacement-roi.golden.json."
+  },
+  {
+    tool_key: "weld-procedure-cost-consumable-estimation-suite",
+    tool_id: "PRO_027",
+    category: "LIVE_ENGINE_READY",
+    reason: "Deterministic formula at weld-procedure-cost-consumable-estimation-suite.formula.ts. Golden fixture at tests/golden/pro-v531-baris/weld-procedure-cost-consumable-estimation-suite.golden.json."
   }
 ];
 
@@ -105,24 +168,14 @@ export const BLOCKED_SOURCE_REQUIRED_TOOLS: BarisReadinessRecord[] = [
 export const BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS: BarisReadinessRecord[] = [
   { tool_key: "ppap-gauge-rr-cpk-ppk-quality-submission-bundle", tool_id: "PRO_002", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Multi-stage workflow incompatible with single formula-graph runtime." },
   { tool_key: "bank-grade-financial-projection-covenant-model", tool_id: "PRO_015", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "customer-sku-profitability-forensics", tool_id: "PRO_018", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "downtime-scrap-loss-statement", tool_id: "PRO_026", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "energy-efficiency-grant-incentive-feasibility-pack", tool_id: "PRO_029", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "fx-commodity-pass-through-pricer", tool_id: "PRO_030", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
   { tool_key: "hydraulic-cylinder-pump-sizing", tool_id: "PRO_044", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
   { tool_key: "machining-cycle-time-part-cost-sheet", tool_id: "PRO_025", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "motor-compressor-replacement-roi", tool_id: "PRO_045", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "oee-loss-monetization-improvement-business-case", tool_id: "PRO_019", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "outsource-vs-in-house-analyzer", tool_id: "PRO_033", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "plant-wide-shop-rate-cost-structure-audit", tool_id: "PRO_014", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
   { tool_key: "pump-system-curve-npsh-verifier", tool_id: "PRO_041", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "scrap-rework-cost-tracker", tool_id: "PRO_039", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
   { tool_key: "scope-1-2-3-splitter-for-smes", tool_id: "PRO_037", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
   { tool_key: "sealed-job-quote-certificate-fire-setup-vade", tool_id: "PRO_023", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
   { tool_key: "shaft-deflection-critical-speed-check", tool_id: "PRO_043", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
   { tool_key: "steel-structure-weight-cost-takeoff", tool_id: "PRO_028", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "compressed-air-pipe-sizing-pressure-drop", tool_id: "PRO_040", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." },
-  { tool_key: "weld-procedure-cost-consumable-estimation-suite", tool_id: "PRO_027", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." }
+  { tool_key: "compressed-air-pipe-sizing-pressure-drop", tool_id: "PRO_040", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "No individual deterministic formula source file and no golden execution fixture exist." }
 ];
 
 // ── VALIDATION ──────────────────────────────────────────────────────────────

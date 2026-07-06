@@ -295,10 +295,10 @@ function escapeRegex(str) {
 // ─── Check 6: All tool_keys routed or explicitly blocked ────────────────────
 
 function readBarisLiveToolKeys() {
-  // Read LIVE_BATCH_1_KEYS from baris-formula-registry.ts
+  // Read LIVE_BATCH_KEYS from baris-formula-registry.ts
   if (!existsSync(BARIS_REGISTRY_PATH)) return [];
   const content = readFileSync(BARIS_REGISTRY_PATH, "utf8");
-  const liveMatch = content.match(/LIVE_BATCH_1_KEYS.*?new\s+Set\(LIVE_TOOLS\.map\(t\s*=>\s*t\.toolKey\)\)/);
+  const liveMatch = content.match(/LIVE_BATCH_(?:1_)?KEYS.*?new\s+Set\(LIVE_TOOLS\.map\(t\s*=>\s*t\.toolKey\)\)/);
   if (!liveMatch) return [];
 
   // Also collect toolKey entries from LIVE_TOOLS array

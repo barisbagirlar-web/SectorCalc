@@ -1,0 +1,19 @@
+{
+  "tool_key": "downtime-scrap-loss-statement",
+  "schema_version": "5.3.1-pro-schema.1",
+  "formula_version": "5.3.1-pro-baris.1",
+  "raw_inputs": { "productive_hours": 200, "actual_hours": 180 },
+  "expected_outputs": {
+    "out_evidence_completeness": 0.9,
+    "out_normalized_demand": 200,
+    "out_money_at_risk": 1000,
+    "out_final_decision_state": 0
+  },
+  "expected_hashes": {
+    "output_hash": "oh-b2-down-",
+    "proof_pack_hash": "pph-b2-down-",
+    "audit_seal_stable_hash": "ash-b2-down-"
+  },
+  "expected_decision_status": "OK",
+  "expected_warnings": []
+}

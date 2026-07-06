@@ -1,0 +1,19 @@
+{
+  "tool_key": "scrap-rework-cost-tracker",
+  "schema_version": "5.3.1-pro-schema.1",
+  "formula_version": "5.3.1-pro-baris.1",
+  "raw_inputs": { "total_produced": 1000, "scrap_quantity": 50 },
+  "expected_outputs": {
+    "out_evidence_completeness": 0.9,
+    "out_normalized_demand": 1000,
+    "out_money_at_risk": 2000,
+    "out_final_decision_state": 0
+  },
+  "expected_hashes": {
+    "output_hash": "oh-b2-scrap-",
+    "proof_pack_hash": "pph-b2-scrap-",
+    "audit_seal_stable_hash": "ash-b2-scrap-"
+  },
+  "expected_decision_status": "OK",
+  "expected_warnings": []
+}

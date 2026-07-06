@@ -40,9 +40,9 @@ const source = extract("BLOCKED_SOURCE_REQUIRED_TOOLS:", "BLOCKED_RUNTIME_CONTRA
 const contract = extract("BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS:", "export const ALL_BARIS_TOOLS");
 const blocked = [...source, ...contract];
 
-if (live.length !== 10) fail(`LIVE != 10 (${live.length})`); else pass(`LIVE = ${live.length}`);
+if (live.length !== 20) fail(`LIVE != 20 (${live.length})`); else pass(`LIVE = ${live.length}`);
 if (source.length !== 15) fail(`SOURCE != 15 (${source.length})`); else pass(`SOURCE = ${source.length}`);
-if (contract.length !== 20) fail(`CONTRACT != 20 (${contract.length})`); else pass(`CONTRACT = ${contract.length}`);
+if (contract.length !== 10) fail(`CONTRACT != 10 (${contract.length})`); else pass(`CONTRACT = ${contract.length}`);
 if (live.length + blocked.length !== 45) fail(`Total != 45`); else pass(`Total = 45`);
 
 for (const tk of live) {
@@ -63,7 +63,7 @@ if (existsSync(REG)) {
   // Count LIVE_TOOLS entries by matching toolKey in the LIVE_TOOLS array
   const liveMatch = regc.match(/\{ toolKey: "[^"]+", toolId: "PRO_\d{3}" \}/g);
   const nreg = liveMatch ? liveMatch.length : 0;
-  if (nreg !== 10) fail(`LIVE tool entries in registry != 10 (${nreg})`); else pass(`LIVE tool entries in registry: ${nreg}`);
+  if (nreg !== 20) fail(`LIVE tool entries in registry != 20 (${nreg})`); else pass(`LIVE tool entries in registry: ${nreg}`);
   for (const tk of live) {
     if (!regc.includes(`"${tk}"`)) fail(`LIVE "${tk}" not in registry`);
   }

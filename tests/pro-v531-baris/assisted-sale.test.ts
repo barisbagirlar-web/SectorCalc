@@ -5,19 +5,17 @@ import { LIVE_BATCH_1_KEYS, isBarisToolLiveExecutable } from "../../src/sectorca
 const BLOCKED_TOOLS = [...BLOCKED_SOURCE_REQUIRED_TOOLS, ...BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS];
 
 describe("pro-v531-baris: assisted sale lock", () => {
-  it("should have 35 blocked tools", () => expect(BLOCKED_TOOLS.length).toBe(35));
-  it("should have 10 live tools", () => expect(LIVE_ENGINE_READY_TOOLS.length).toBe(10));
-  it("10+35=45", () => expect(LIVE_ENGINE_READY_TOOLS.length + BLOCKED_TOOLS.length).toBe(45));
+  it("should have 25 blocked tools", () => expect(BLOCKED_TOOLS.length).toBe(25));
+  it("should have 20 live tools (Batches 1+2)", () => expect(LIVE_ENGINE_READY_TOOLS.length).toBe(20));
+  it("20+25=45", () => expect(LIVE_ENGINE_READY_TOOLS.length + BLOCKED_TOOLS.length).toBe(45));
   it("each blocked tool should NOT be live-executable", () => {
     for (const t of BLOCKED_TOOLS) {
       expect(isBarisToolLiveExecutable(t.tool_key)).toBe(false);
-      expect(LIVE_BATCH_1_KEYS.has(t.tool_key)).toBe(false);
     }
   });
   it("each live tool should be live-executable", () => {
     for (const t of LIVE_ENGINE_READY_TOOLS) {
       expect(isBarisToolLiveExecutable(t.tool_key)).toBe(true);
-      expect(LIVE_BATCH_1_KEYS.has(t.tool_key)).toBe(true);
     }
   });
   it("no overlap between live and blocked", () => {

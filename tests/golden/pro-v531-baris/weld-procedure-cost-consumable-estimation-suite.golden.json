@@ -1,0 +1,19 @@
+{
+  "tool_key": "weld-procedure-cost-consumable-estimation-suite",
+  "schema_version": "5.3.1-pro-schema.1",
+  "formula_version": "5.3.1-pro-baris.1",
+  "raw_inputs": { "weld_length_m": 10, "weld_throat_mm": 5 },
+  "expected_outputs": {
+    "out_evidence_completeness": 0.9,
+    "out_normalized_demand": 10,
+    "out_money_at_risk": 0,
+    "out_final_decision_state": 0
+  },
+  "expected_hashes": {
+    "output_hash": "oh-b2-weld-",
+    "proof_pack_hash": "pph-b2-weld-",
+    "audit_seal_stable_hash": "ash-b2-weld-"
+  },
+  "expected_decision_status": "OK",
+  "expected_warnings": []
+}

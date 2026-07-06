@@ -38,14 +38,14 @@ console.log(`  BLOCKED_RUNTIME_CONTRACT_MISMATCH: ${contractKeys.length}`);
 console.log(`  TOTAL: ${liveKeys.length + sourceKeys.length + contractKeys.length}`);
 
 // Check counts
-if (liveKeys.length !== 10) fail(`Expected LIVE=10, got ${liveKeys.length}`);
-else pass(`LIVE_ENGINE_READY = 10`);
+if (liveKeys.length !== 20) fail(`Expected LIVE=20 (Batches 1+2), got ${liveKeys.length}`);
+else pass(`LIVE_ENGINE_READY = ${liveKeys.length}`);
 
 if (sourceKeys.length !== 15) fail(`Expected BLOCKED_SOURCE=15, got ${sourceKeys.length}`);
 else pass(`BLOCKED_SOURCE_REQUIRED = 15`);
 
-if (contractKeys.length !== 20) fail(`Expected BLOCKED_CONTRACT=20, got ${contractKeys.length}`);
-else pass(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = 20`);
+if (contractKeys.length !== 10) fail(`Expected BLOCKED_CONTRACT=10, got ${contractKeys.length}`);
+else pass(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = ${contractKeys.length}`);
 
 if (liveKeys.length + sourceKeys.length + contractKeys.length !== 45) fail("Total != 45");
 else pass(`Total classified = 45`);

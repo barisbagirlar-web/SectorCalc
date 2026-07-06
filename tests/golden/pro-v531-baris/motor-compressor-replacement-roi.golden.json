@@ -1,0 +1,19 @@
+{
+  "tool_key": "motor-compressor-replacement-roi",
+  "schema_version": "5.3.1-pro-schema.1",
+  "formula_version": "5.3.1-pro-baris.1",
+  "raw_inputs": { "motor_power_kw": 100, "annual_operating_hours": 8000 },
+  "expected_outputs": {
+    "out_evidence_completeness": 0.9,
+    "out_normalized_demand": 100,
+    "out_money_at_risk": 0,
+    "out_final_decision_state": 0
+  },
+  "expected_hashes": {
+    "output_hash": "oh-b2-motor-",
+    "proof_pack_hash": "pph-b2-motor-",
+    "audit_seal_stable_hash": "ash-b2-motor-"
+  },
+  "expected_decision_status": "OK",
+  "expected_warnings": []
+}

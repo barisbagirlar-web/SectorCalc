@@ -34,10 +34,10 @@ const sourceKeys = extractKeys(content, "BLOCKED_SOURCE_REQUIRED_TOOLS:", "BLOCK
 const contractKeys = extractKeys(content, "BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS:", "export const ALL_BARIS_TOOLS");
 const allBlocked = [...sourceKeys, ...contractKeys];
 
-if (liveKeys.length !== 10) fail(`Expected 10 LIVE, got ${liveKeys.length}`);
-else pass(`LIVE tools: ${liveKeys.length}`);
+if (liveKeys.length !== 20) fail(`Expected 20 LIVE (Batches 1+2), got ${liveKeys.length}`);
+else pass(`LIVE tools: ${liveKeys.length} (Batches 1+2)`);
 
-if (allBlocked.length !== 35) fail(`Expected 35 BLOCKED, got ${allBlocked.length}`);
+if (allBlocked.length !== 25) fail(`Expected 25 BLOCKED, got ${allBlocked.length}`);
 else pass(`BLOCKED tools: ${allBlocked.length}`);
 
 // Check all blocked tools exist in schema dir
@@ -70,11 +70,11 @@ for (const tk of liveKeys) {
 }
 pass(`All ${liveKeys.length} LIVE tools have formula files + golden fixtures`);
 
-// Check registry registers exactly 10 tools
+// Check registry registers exactly 20 tools
 if (existsSync(REGISTRY_PATH)) {
   const regContent = readFileSync(REGISTRY_PATH, "utf-8");
   const regCalls = (regContent.match(/\{ toolKey: "[^"]+", toolId: "PRO_\d{3}" \}/g) || []).length;
-  if (regCalls !== 10) fail(`Expected 10 live tool entries, found ${regCalls}`);
+  if (regCalls !== 20) fail(`Expected 20 live tool entries, found ${regCalls}`);
   else pass(`Registry has ${regCalls} register() calls`);
 }
 
