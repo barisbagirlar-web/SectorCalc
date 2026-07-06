@@ -1058,6 +1058,23 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                           </>
                         );
                       })()}
+                      <div className="sc-v531-cockpit-actions">
+                        <button
+                          type="button"
+                          className="sc-v531-primary-action"
+                          disabled={vm.action.disabled}
+                          onClick={vm.action.onAction}
+                        >
+                          {vm.action.label}
+                        </button>
+                        <button
+                          type="button"
+                          className="sc-v531-action-secondary"
+                          onClick={machine.resetInputs}
+                        >
+                          Reset inputs
+                        </button>
+                      </div>
                       {vm.action.disabled && vm.action.disabledReason && (
                         <p className="sc-v531-disabled-reason" role="status">
                           {vm.action.disabledReason}
@@ -1066,9 +1083,21 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     </div>
                   ) : (
                     <div className="sc-v531-cockpit-panel-placeholder">
-                      <p className="sc-v531-cockpit-placeholder-text">
-                        Enter values and calculate to see the decision summary.
-                      </p>
+                      <button
+                        type="button"
+                        className="sc-v531-primary-action"
+                        disabled={vm.action.disabled}
+                        onClick={vm.action.onAction}
+                      >
+                        {vm.action.label}
+                      </button>
+                      <button
+                        type="button"
+                        className="sc-v531-action-secondary"
+                        onClick={machine.resetInputs}
+                      >
+                        Reset inputs
+                      </button>
                     </div>
                   )}
                 </div>
