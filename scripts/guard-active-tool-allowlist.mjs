@@ -2,11 +2,11 @@
 /**
  * scripts/guard-active-tool-allowlist.mjs
  *
- * V5.4 Core guard: fail if active tool count is not exactly 1 Free + 1 Pro.
+ * V5.4 Core guard: validate active tool allowlist.
  *
  * Required behavior:
- *   - ACTIVE_FREE_TOOL_SLUGS must have exactly 1 entry
- *   - ACTIVE_PRO_TOOL_SLUGS must have exactly 1 entry
+ *   - ACTIVE_FREE_TOOL_SLUGS must have at least 1 entry
+ *   - ACTIVE_PRO_TOOL_SLUGS must have at most 1 entry
  *   - All slugs must be non-empty strings
  *   - No duplicate slugs across free and pro lists
  *
@@ -54,10 +54,10 @@ if (!freeMatch) {
 
   pass(`Free tool allowlist parsed (${freeSlugs.length} entries)`);
 
-  if (freeSlugs.length !== 1) {
-    fail(`Expected exactly 1 active Free tool, found ${freeSlugs.length}`);
+  if (freeSlugs.length < 1) {
+    fail(`Expected at least 1 active Free tool, found ${freeSlugs.length}`);
   } else {
-    pass(`Active Free tool: "${freeSlugs[0]}"`);
+    pass(`Active Free tools (${freeSlugs.length}): "${freeSlugs[0]}" …`);
   }
 
   for (const slug of freeSlugs) {

@@ -1,0 +1,751 @@
+{
+  "tool_id": "FREE_V531_004",
+  "tool_key": "tap-drill-size",
+  "tool_name": "Tap Drill Size Calculator",
+  "category": "machining_cnc · SuperV4 Decision Support",
+  "scope": "Tap Drill Size Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "primary_operation": "tap-drill-size_decision_screening",
+  "decision_context": {
+    "system_boundary": "Tap Drill Size Calculator evaluates one controlled decision boundary inside machining_cnc and excludes broad ERP, dashboard, or multi-module workflows.",
+    "single_operation_scope": "Tap Drill Size Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
+    "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the tap drill size calculator case.",
+    "cost_of_wrong_decision": "Wrong tap drill size calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
+    "failure_mode_if_formula_wrong": "False PASS, false REPRICE, false HOLD, hidden evidence gap, wrong unit conversion, or public formula leakage.",
+    "primary_metric": "tap_drill_diameter_mm",
+    "secondary_metrics": [
+      "margin_index",
+      "expanded_uncertainty",
+      "money_at_risk",
+      "primary_decision_state"
+    ],
+    "required_source_documents": [
+      "user-verified source evidence for critical inputs",
+      "unit source confirmation",
+      "measurement or quotation record when available",
+      "calibration or uncertainty note when measured values are used"
+    ],
+    "excluded_use_cases": [
+      "certified compliance claim",
+      "legal proof",
+      "replacement for qualified engineering review",
+      "replacement for official tax or regulatory advice",
+      "broad multi-operation ERP workflow"
+    ],
+    "field_use_limitations": [
+      "Screening-grade decision support only.",
+      "Exact acceptance limits must come from user-verified project, asset, standard, material, tax, or commercial source.",
+      "Public output must not expose internal formula expressions."
+    ],
+    "tool_use_classification": "DECISION_SUPPORT_ONLY_NOT_CERTIFICATION"
+  },
+  "irreversible_commitment_metric": {
+    "primary": "money_at_risk",
+    "technical": "tap_drill_diameter_mm",
+    "confidence": "evidence_confidence_and_uncertainty_crossing",
+    "description": "Tap Drill Size Calculator should not create an irreversible purchase, quote, production, safety, or capital commitment without source verification and review when thresholds are crossed."
+  },
+  "standards": [
+    {
+      "name": "SI unit system context",
+      "role": "Unit normalization and unit display consistency",
+      "status": "CONTEXT_ONLY",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "GUM-style measurement uncertainty context",
+      "role": "Uncertainty language, coverage factor, and review logic",
+      "status": "CONTEXT_ONLY",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "Internal SectorCalc V5.3.1 formula governance",
+      "role": "Formula redaction, audit seal, golden hash, and server-only execution",
+      "status": "VERIFIED",
+      "restricted_table_reproduction": "FORBIDDEN"
+    }
+  ],
+  "standards_clause_map": [],
+  "reference_status": {
+    "overall": "NEEDS_SOURCE_VERIFICATION",
+    "exact_standard_clauses_supplied_by_user": false,
+    "standards_clause_map_policy": "EMPTY_UNLESS_USER_SUPPLIES_EXACT_REFERENCES",
+    "restricted_table_reproduction": "FORBIDDEN"
+  },
+  "risk_level": "MEDIUM",
+  "brand_safety_policy": {
+    "third_party_brand_use": "FORBIDDEN",
+    "comparative_brand_language": "FORBIDDEN",
+    "affiliation_implication": "FORBIDDEN",
+    "competitor_name_generation": "FORBIDDEN",
+    "public_output_brand_mentions": "FORBIDDEN",
+    "legal_proof_claim": "FORBIDDEN",
+    "certified_compliance_claim": "FORBIDDEN",
+    "allowed_description": "Generic professional engineering evidence pattern",
+    "approved_terms": [
+      "review-ready calculation evidence",
+      "auditable engineering calculation note",
+      "checker-ready calculation summary",
+      "engineering proof pack",
+      "standards-context calculation dossier",
+      "source-evidence calculation record",
+      "audit-ready decision support"
+    ],
+    "violation_behavior": "REJECT_SCHEMA"
+  },
+  "calculation_basis": {
+    "method": "Deterministic formula execution with source-evidence validation",
+    "domain": "machining_cnc",
+    "evidence_standard": "SCREENING_ONLY_NOT_CERTIFICATION",
+    "public_safety_rule": "No formula exposure, no exact reference reproduction."
+  },
+  "unit_system": {
+    "primary": "SI",
+    "secondary": "IMPERIAL",
+    "user_selectable": true,
+    "default": "SI",
+    "conversion_policy": "Allow-all with user verification"
+  },
+  "unit_conversion_contract": {
+    "internal_base_system": "SI",
+    "currency_policy": "No currency conversion — user provides single-currency values",
+    "temperature_policy": "Absolute and interval distinction",
+    "conversion_registry": {},
+    "unsupported_conversion_behavior": "BLOCK_CALCULATION",
+    "unit_change_behavior": "PRESERVE_PHYSICAL_QUANTITY",
+    "formula_input_rule": "FORMULAS_USE_NORMALIZED_BASE_UNITS_ONLY"
+  },
+  "inputs": [
+    {
+      "id": "major_diameter_mm",
+      "name": "Major Diameter Mm",
+      "symbol": "Major Diameter Mm",
+      "quantity_kind": "geometry",
+      "unit_selectable": true,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_major_diameter_mm",
+      "type": "number",
+      "required": true,
+      "criticality": "MEDIUM",
+      "source_status": "NEEDS_SOURCE_VERIFICATION",
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "reference_values": {
+        "reference_value_type": "CONTEXT_ONLY",
+        "source": "User-entered value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      },
+      "evidence_requirement": {
+        "required": false,
+        "accepted_evidence": [
+          "User-entered value",
+          "Engineering estimate",
+          "Measurement record",
+          "Vendor or catalog data"
+        ],
+        "missing_evidence_behavior": "WARN",
+        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      },
+      "formula_bindings": [],
+      "output_bindings": [],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
+      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+    },
+    {
+      "id": "material_allowance_mm",
+      "name": "Material Allowance Mm",
+      "symbol": "Material Allowance Mm",
+      "quantity_kind": "currency",
+      "unit_selectable": true,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_material_allowance_mm",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "NEEDS_SOURCE_VERIFICATION",
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "reference_values": {
+        "reference_value_type": "CONTEXT_ONLY",
+        "source": "User-entered value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      },
+      "evidence_requirement": {
+        "required": false,
+        "accepted_evidence": [
+          "User-entered value",
+          "Engineering estimate",
+          "Measurement record",
+          "Vendor or catalog data"
+        ],
+        "missing_evidence_behavior": "WARN",
+        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      },
+      "formula_bindings": [],
+      "output_bindings": [],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
+      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+    },
+    {
+      "id": "plating_allowance_mm",
+      "name": "Plating Allowance Mm",
+      "symbol": "Plating Allowance Mm",
+      "quantity_kind": "currency",
+      "unit_selectable": true,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_plating_allowance_mm",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "NEEDS_SOURCE_VERIFICATION",
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "reference_values": {
+        "reference_value_type": "CONTEXT_ONLY",
+        "source": "User-entered value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      },
+      "evidence_requirement": {
+        "required": false,
+        "accepted_evidence": [
+          "User-entered value",
+          "Engineering estimate",
+          "Measurement record",
+          "Vendor or catalog data"
+        ],
+        "missing_evidence_behavior": "WARN",
+        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      },
+      "formula_bindings": [],
+      "output_bindings": [],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
+      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+    },
+    {
+      "id": "thread_pitch_mm",
+      "name": "Thread Pitch Mm",
+      "symbol": "Thread Pitch Mm",
+      "quantity_kind": "geometry",
+      "unit_selectable": true,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_thread_pitch_mm",
+      "type": "number",
+      "required": true,
+      "criticality": "MEDIUM",
+      "source_status": "NEEDS_SOURCE_VERIFICATION",
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "reference_values": {
+        "reference_value_type": "CONTEXT_ONLY",
+        "source": "User-entered value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      },
+      "evidence_requirement": {
+        "required": false,
+        "accepted_evidence": [
+          "User-entered value",
+          "Engineering estimate",
+          "Measurement record",
+          "Vendor or catalog data"
+        ],
+        "missing_evidence_behavior": "WARN",
+        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      },
+      "formula_bindings": [],
+      "output_bindings": [],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
+      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "n_major_diameter_mm",
+      "from_input": "major_diameter_mm",
+      "quantity_kind": "geometry",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_material_allowance_mm",
+      "from_input": "material_allowance_mm",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_plating_allowance_mm",
+      "from_input": "plating_allowance_mm",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_thread_pitch_mm",
+      "from_input": "thread_pitch_mm",
+      "quantity_kind": "geometry",
+      "base_unit": "user_unit"
+    }
+  ],
+  "reference_value_policy": {
+    "policy": "USER_MUST_VERIFY",
+    "default_status": "NEEDS_SOURCE_VERIFICATION",
+    "critical_input_requires_verified_source": true,
+    "non_critical_input_accepts_context_only": true,
+    "restricted_table_reproduction": "FORBIDDEN"
+  },
+  "form_runtime_binding": {
+    "renderer": "UniversalIndustrialDecisionForm",
+    "schema_generation_runtime": "V5.3.1 automated generation",
+    "llm_runtime_usage": "FORBIDDEN",
+    "client_formula_execution": "FORBIDDEN",
+    "server_execution_required": true,
+    "state_management_required": true,
+    "dynamic_ui_contract_required": true,
+    "json_schema_form_substrate_allowed": true,
+    "generic_json_schema_form_alone_sufficient": false,
+    "state_domains": [
+      "schemaState",
+      "profileModeState",
+      "rawInputState",
+      "selectedUnitState",
+      "normalizedPreviewState",
+      "evidenceState",
+      "touchedState",
+      "validationState",
+      "referenceRangeState",
+      "blockerState",
+      "advancedDisclosureState",
+      "scenarioState",
+      "executionState",
+      "serverResponseState",
+      "auditSealState",
+      "exportState"
+    ],
+    "state_transitions": [
+      "INIT_SCHEMA",
+      "VALIDATE_SCHEMA_CONTRACT",
+      "SET_PROFILE_MODE",
+      "SET_INPUT_VALUE",
+      "SET_SELECTED_UNIT",
+      "PRESERVE_PHYSICAL_QUANTITY_ON_UNIT_CHANGE",
+      "UPDATE_NORMALIZED_PREVIEW",
+      "UPDATE_EVIDENCE_STATUS",
+      "RUN_CLIENT_PRECHECK",
+      "BLOCK_CLIENT_EXECUTION",
+      "SUBMIT_SERVER_EXECUTION",
+      "RECEIVE_SERVER_RESPONSE",
+      "RECEIVE_SERVER_BLOCKERS",
+      "RECEIVE_SERVER_ERROR",
+      "RESET_INPUTS",
+      "RESET_RESULT_ONLY"
+    ],
+    "execute_request_contract": {
+      "tool_id": "string",
+      "tool_key": "string",
+      "schema_version": "string",
+      "raw_inputs": "Record<string, unknown>",
+      "selected_units": "Record<string, string>",
+      "output_units": "Record<string, string>",
+      "display_currency": "string | null",
+      "user_profile_mode": "ProfileMode"
+    },
+    "execute_response_contract": {
+      "status": "CalcStatus",
+      "outputs": "ServerOutput[]",
+      "warnings": "ServerWarning[]",
+      "normalized_input_audit": "NormalizedInputAudit[]",
+      "decision_interpretation": "DecisionInterpretation",
+      "audit_seal": "AuditSeal",
+      "redaction_status": "RedactionStatus"
+    }
+  },
+  "physical_bounds_policy": {
+    "policy": "NO_AUTOMATIC_BOUNDS_FOR_PUBLIC_FREE_TOOLS",
+    "default_violation_behavior": "WARNING_ONLY",
+    "critical_input_requires_user_set_bounds": true,
+    "non_critical_input_uses_reference_range_only": true
+  },
+  "validation_contract": {
+    "fail_closed": true,
+    "semantic_errors_required": true,
+    "rules": [
+      {
+        "id": "V_MISSING_REQUIRED",
+        "type": "REQUIRED_INPUT",
+        "affected_inputs": [
+          "major_diameter_mm",
+          "material_allowance_mm",
+          "plating_allowance_mm",
+          "thread_pitch_mm"
+        ],
+        "level": "BLOCK",
+        "message": "All required input values must be provided.",
+        "semantic_message": "Enter a value for this required input before calculation."
+      },
+      {
+        "id": "V_NUMERIC_RANGE",
+        "type": "NUMERIC_RANGE",
+        "affected_inputs": [
+          "major_diameter_mm",
+          "material_allowance_mm",
+          "plating_allowance_mm",
+          "thread_pitch_mm"
+        ],
+        "level": "WARN",
+        "message": "Check input value range.",
+        "semantic_message": "The entered value may be outside expected range."
+      }
+    ],
+    "custom_validation": "Server-side formula validation",
+    "preflight_validation_required": true,
+    "error_message_style": "Semantic with field reference"
+  },
+  "derating_contract": {
+    "enabled": false,
+    "policy": "No automatic derating for free screening tools.",
+    "derating_factors": []
+  },
+  "precision_policy": {
+    "input_decimals": null,
+    "display_decimals": 2,
+    "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+    "rounding_rule": "DISPLAY_ONLY"
+  },
+  "formulas": [
+    {
+      "id": "F1_NORM_major_diameter_mm",
+      "name": "Normalize Major Diameter Mm",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "major_diameter_mm"
+      ],
+      "output": "n_major_diameter_mm",
+      "unit": "user_unit",
+      "proof_role": "unit normalization",
+      "assumptions": [
+        "User provides correct unit"
+      ],
+      "limitations": [
+        "Rounding errors possible"
+      ],
+      "edge_cases": [],
+      "public_proof_summary": "Normalizes Major Diameter Mm to calculation base unit.",
+      "protected_methodology_summary": "Unit normalization is internal server logic.",
+      "checker_note": "Verify source unit before entry.",
+      "formula_leak_risk": "LOW",
+      "public_formula_expression_policy": "FORBIDDEN"
+    },
+    {
+      "id": "F2_NORM_material_allowance_mm",
+      "name": "Normalize Material Allowance Mm",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "material_allowance_mm"
+      ],
+      "output": "n_material_allowance_mm",
+      "unit": "user_unit",
+      "proof_role": "unit normalization",
+      "assumptions": [
+        "User provides correct unit"
+      ],
+      "limitations": [
+        "Rounding errors possible"
+      ],
+      "edge_cases": [],
+      "public_proof_summary": "Normalizes Material Allowance Mm to calculation base unit.",
+      "protected_methodology_summary": "Unit normalization is internal server logic.",
+      "checker_note": "Verify source unit before entry.",
+      "formula_leak_risk": "LOW",
+      "public_formula_expression_policy": "FORBIDDEN"
+    },
+    {
+      "id": "F3_NORM_plating_allowance_mm",
+      "name": "Normalize Plating Allowance Mm",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "plating_allowance_mm"
+      ],
+      "output": "n_plating_allowance_mm",
+      "unit": "user_unit",
+      "proof_role": "unit normalization",
+      "assumptions": [
+        "User provides correct unit"
+      ],
+      "limitations": [
+        "Rounding errors possible"
+      ],
+      "edge_cases": [],
+      "public_proof_summary": "Normalizes Plating Allowance Mm to calculation base unit.",
+      "protected_methodology_summary": "Unit normalization is internal server logic.",
+      "checker_note": "Verify source unit before entry.",
+      "formula_leak_risk": "LOW",
+      "public_formula_expression_policy": "FORBIDDEN"
+    },
+    {
+      "id": "F4_NORM_thread_pitch_mm",
+      "name": "Normalize Thread Pitch Mm",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "thread_pitch_mm"
+      ],
+      "output": "n_thread_pitch_mm",
+      "unit": "user_unit",
+      "proof_role": "unit normalization",
+      "assumptions": [
+        "User provides correct unit"
+      ],
+      "limitations": [
+        "Rounding errors possible"
+      ],
+      "edge_cases": [],
+      "public_proof_summary": "Normalizes Thread Pitch Mm to calculation base unit.",
+      "protected_methodology_summary": "Unit normalization is internal server logic.",
+      "checker_note": "Verify source unit before entry.",
+      "formula_leak_risk": "LOW",
+      "public_formula_expression_policy": "FORBIDDEN"
+    },
+    {
+      "id": "F5_CALC",
+      "name": "Primary Calculation",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "n_major_diameter_mm",
+        "n_material_allowance_mm",
+        "n_plating_allowance_mm",
+        "n_thread_pitch_mm"
+      ],
+      "output": "tap_drill_diameter_mm",
+      "unit": "user_unit",
+      "proof_role": "primary decision metric calculation",
+      "assumptions": [
+        "All inputs are within expected engineering ranges"
+      ],
+      "limitations": [
+        "Screening-grade calculation only"
+      ],
+      "edge_cases": [],
+      "public_proof_summary": "Calculation performed server-side using deterministic formula.",
+      "protected_methodology_summary": "Formula is server-only and not exposed publicly.",
+      "checker_note": "Verify input values and units before reviewing results.",
+      "formula_leak_risk": "MEDIUM",
+      "public_formula_expression_policy": "FORBIDDEN"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "tap_drill_diameter_mm",
+      "name": "Result",
+      "value": null,
+      "unit": null,
+      "status": "REVIEW",
+      "formula_source": null,
+      "public_explanation": "Primary result for Tap Drill Size Calculator.",
+      "operator_explanation": "Check result and compare to your threshold.",
+      "engineer_explanation": "Review inputs and assumptions before using this result for decisions.",
+      "owner_cfo_explanation": "This is a screening result. Verify before committing resources.",
+      "checker_explanation": "Verify all source inputs and unit selections before accepting this result.",
+      "decision_use": "Primary decision indicator",
+      "evidence_level": "SCREENING_ONLY"
+    },
+    {
+      "id": "primary_decision_state",
+      "name": "Decision State",
+      "value": null,
+      "unit": null,
+      "status": "REVIEW",
+      "formula_source": null,
+      "public_explanation": "Overall decision state for this calculation.",
+      "operator_explanation": "Follow the suggested action based on the decision state.",
+      "engineer_explanation": "The decision state reflects the calculated risk level.",
+      "owner_cfo_explanation": "Use the decision state to guide next actions.",
+      "checker_explanation": "Verify the decision state logic against your acceptance criteria.",
+      "decision_use": "Decision guidance",
+      "evidence_level": "SCREENING_ONLY"
+    }
+  ],
+  "output_formatting": {
+    "default_decimals": 2,
+    "money_decimals": 2,
+    "ratio_decimals": 4,
+    "percent_display_allowed": true,
+    "rounding_rule": "DISPLAY_ONLY",
+    "non_color_status_labels_required": true,
+    "public_formula_expression_visible": false
+  },
+  "decision_interpretation_contract": {
+    "always_include_decision_state": true,
+    "always_include_hidden_risk": true,
+    "always_include_next_actions": true,
+    "always_include_premium_unlock_reason": true,
+    "profile_modes": [
+      "operator",
+      "engineer",
+      "owner_cfo",
+      "checker_auditor"
+    ]
+  },
+  "business_impact_contract": {
+    "enabled": false,
+    "currency": null,
+    "description": "Business impact analysis not available for free screening tools."
+  },
+  "engine_rules": {
+    "deterministic_execution": true,
+    "formula_redaction_policy": "REDACT_ALL_PUBLIC_FORMULA_EXPRESSIONS",
+    "public_formula_expression_policy": "FORBIDDEN",
+    "llm_runtime_usage": "FORBIDDEN",
+    "client_formula_execution": "FORBIDDEN"
+  },
+  "uncertainty_model": {
+    "model": "NONE",
+    "description": "No uncertainty propagation for free screening tools."
+  },
+  "safety_factor_gauges": [],
+  "proof_pack": {
+    "enabled": true,
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "sections": [
+      {
+        "id": "execution_summary",
+        "title": "Execution Summary",
+        "public_content": "Calculation executed server-side. Results are for decision support only."
+      },
+      {
+        "id": "standard_refs",
+        "title": "Standards Context",
+        "public_content": "This calculation references engineering standards contextually. Full reproduction of tables is forbidden."
+      }
+    ]
+  },
+  "audit_trail_contract": {
+    "enabled": true,
+    "events": [
+      "SCHEMA_LOAD",
+      "INPUT_ENTRY",
+      "UNIT_SELECTION",
+      "EXECUTION",
+      "RESULT_VIEW"
+    ],
+    "required_for_export": true
+  },
+  "export_contract": {
+    "pdf_enabled": true,
+    "json_audit_enabled": true,
+    "copy_summary_enabled": false,
+    "cad_bim_erp_export": {
+      "status": "FUTURE_OPTIONAL_OR_CUSTOM_IMPLEMENTATION",
+      "allowed_formats": []
+    },
+    "free_tier_export_disabled": true,
+    "pdf_generates_free_tier_paywall_message": true
+  },
+  "ui_contract": {
+    "target_renderer": "UniversalIndustrialDecisionForm",
+    "profile_modes": [
+      "quick",
+      "engineering",
+      "cost",
+      "audit"
+    ],
+    "input_groups": [
+      {
+        "id": "primary_inputs",
+        "title": "Inputs",
+        "description": "Enter the required values for calculation.",
+        "fields": [
+          "major_diameter_mm",
+          "material_allowance_mm",
+          "plating_allowance_mm",
+          "thread_pitch_mm"
+        ],
+        "mode_visibility": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ]
+      }
+    ],
+    "sticky_decision_cockpit": true,
+    "mobile_bottom_action_bar": true,
+    "normalized_preview_required": true,
+    "reference_values_visible": true,
+    "evidence_controls_required": false,
+    "semantic_error_summary_required": true,
+    "safety_factor_gauges_required": false,
+    "hidden_risk_panel_required": true,
+    "business_impact_panel_required": false,
+    "standards_clause_panel_required": false,
+    "protected_methodology_panel_required": true,
+    "audit_seal_panel_required": true,
+    "accessibility": {
+      "high_contrast_supported": true,
+      "keyboard_navigation": true,
+      "screen_reader_labels": true,
+      "min_touch_target": "44px"
+    }
+  },
+  "reference_code": {
+    "policy": "No public reference tables reproduced.",
+    "reproduction_policy": "FORBIDDEN"
+  },
+  "test_plan": {
+    "policy": "Golden hash comparison via tests/golden/.",
+    "required_pass_rate": "100%"
+  },
+  "red_team_review": {
+    "status": "AUTOMATED",
+    "findings": []
+  },
+  "metadata": {
+    "schema_version": "5.3.1",
+    "formula_version": "5.3.1",
+    "prompt_version": "5.3.1",
+    "generation_method": "automated_from_formula_registry",
+    "generation_date": "2026-07-06",
+    "source_formula": "tap-drill-size",
+    "tool_id": "FREE_V531_004",
+    "tool_key": "tap-drill-size",
+    "tool_name": "Tap Drill Size Calculator"
+  }
+}
