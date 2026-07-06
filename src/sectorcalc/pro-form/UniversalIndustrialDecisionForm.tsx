@@ -5,7 +5,7 @@
 "use client";
 
 import type { ChangeEvent, ReactNode } from "react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type {
   CalcStatus,
   ExecuteResponse,
@@ -753,21 +753,25 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("USD");
 
   // ── Desktop detection for PRO cockpit layout (>= 1100px) ──
+  // useLayoutEffect ensures correct layout before first paint.
+  // Initial client render matches the real viewport synchronously.
   const [isDesktop, setIsDesktop] = useState(() => {
     if (typeof window === "undefined") return false;
     return window.matchMedia("(min-width: 1100px)").matches;
   });
-  useEffect(() => {
+  useLayoutEffect(() => {
     const mq = window.matchMedia("(min-width: 1100px)");
     const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // ── Industrial example values (initial mount only) ──
+  // ── Industrial example values (initial mount — useLayoutEffect for no flicker) ──
+  // useLayoutEffect runs synchronously before browser paint, so the form
+  // never shows empty/null inputs before example values are set.
   const examplesInitializedRef = useRef<string | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (contractErrors.length > 0) return;
     if (!props.schema || !Array.isArray(props.schema.inputs) || props.schema.inputs.length === 0) return;
 
@@ -835,7 +839,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     ? (isExecuting ? "Calculating..." : (hasResult ? "Recalculate" : "Calculate"))
     : getPrimaryCtaLabel(accessTier, isExecuting, hasSession || isBypassUser, hasResult, creditSessionLoading);
 
-  const primaryButtonAction = () => {
+  const primaryButtonAction = useCallback(() => {
     if (isPro && (!hasSession || sessionExhausted)) {
       if (props.onRequestCreditSession && props.toolKey) {
         props.onRequestCreditSession(props.toolKey);
@@ -847,7 +851,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       return;
     }
     void machine.submitServerExecution();
-  };
+  }, [isPro, hasSession, sessionExhausted, props.onRequestCreditSession, props.toolKey, machine.submitServerExecution]);
 
   // Display-safe labels
   const schemaRecord = props.schema as unknown as Record<string, unknown>;
@@ -896,8 +900,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       identityCheck as { ok: boolean; reason?: string } | null,
       selectedCurrency,
     ),
+    // machine and props omitted intentionally:
+    // - machine callbacks (setInputValue, submitServerExecution, resetInputs, etc.)
+    //   are stable references from useUniversalIndustrialDecisionFormMachine.
+    // - props object identity changes every parent render and would defeat memoization.
+    //   All values needed from props (schema, toolKey, etc.) are already listed individually.
     [
-      props.schema, state, machine, props, state.profileModeState.mode, response,
+      props.schema, state, state.profileModeState.mode, response,
       accessTier, hasSession, runsRemaining, isExecuting, hasResult,
       primaryButtonDisabled, primaryButtonLabel, primaryButtonAction,
       clientBlockerCount, toolName, vmPurpose,
@@ -1143,7 +1152,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 ))}
               </div>
 
-              {/* Full-width action bar */}
+              {/* Full-width action bar (desktop only — mobile uses sticky bar below) */}
+              {isDesktop && (
               <div className="sc-v531-action-bar">
                   <div className="sc-v531-action-bar-buttons">
                     <button
@@ -1169,6 +1179,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     </p>
                   )}
               </div>
+              )}
             </main>
           </div>
         </>
@@ -1597,30 +1608,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
             <PremiumPanel hook={premiumHook} onCheckout={() => machine.requestCheckout()} />
           )}
 
-      {/* ── 3. Advanced details (collapsed by default — native <details>) ── */}
-      <details className="sc-v531-advanced" data-testid="advanced-details">
-        <summary className="sc-v531-advanced-summary">
-          <span>Advanced details</span>
-          <span className="sc-v531-advanced-links">
-            {isFreeTier
-              ? "Formula logic · Validation notes · Calculation assumptions"
-              : "Formula logic · Validation notes · Sensitivity · Audit trail · Export"
-            }
-          </span>
-        </summary>
-        <div className="sc-v531-advanced-body">
-          <FormulaLogicSection toolKey={props.toolKey} schema={props.schema} />
-          <ValidationNotesSection isFreeTier={isFreeTier} />
-          {isFreeTier && <CalculationAssumptionsSection currencyCode={selectedCurrency} />}
-          {!isFreeTier && (
-            <>
-              <SensitivitySection toolKey={props.toolKey} />
-              <ProAuditTrailSection />
-              <ProExportSection />
-            </>
-          )}
-          </div>
-      </details>
+      {/* ── 3. Advanced details (collapsed by default — lazy body) ── */}
+      <AdvancedDetailsWrapper isFreeTier={isFreeTier} toolKey={props.toolKey} schema={props.schema} selectedCurrency={selectedCurrency} />
 
       {/* Mobile bar */}
       <div className="sc-v531-mobile-action-bar">
@@ -1938,6 +1927,59 @@ function ProExportSection() {
         Export-ready report structure is prepared for production workflows.
       </p>
     </section>
+  );
+}
+
+/**
+ * Advanced details with lazy body — only renders when the user expands it.
+ * Prevents heavy section content (FormulaLogic, Sensitivity, Audit, Export)
+ * from being rendered before the user opens the panel.
+ */
+function AdvancedDetailsWrapper({
+  isFreeTier,
+  toolKey,
+  schema,
+  selectedCurrency,
+}: {
+  isFreeTier: boolean;
+  toolKey?: string;
+  schema: SuperV4Schema;
+  selectedCurrency: CurrencyCode;
+}) {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+  const [open, setOpen] = useState(false);
+
+  return (
+    <details
+      ref={detailsRef}
+      className="sc-v531-advanced"
+      data-testid="advanced-details"
+      onToggle={() => setOpen(detailsRef.current?.open ?? false)}
+    >
+      <summary className="sc-v531-advanced-summary">
+        <span>Advanced details</span>
+        <span className="sc-v531-advanced-links">
+          {isFreeTier
+            ? "Formula logic · Validation notes · Calculation assumptions"
+            : "Formula logic · Validation notes · Sensitivity · Audit trail · Export"
+          }
+        </span>
+      </summary>
+      {open && (
+        <div className="sc-v531-advanced-body">
+          <FormulaLogicSection toolKey={toolKey} schema={schema} />
+          <ValidationNotesSection isFreeTier={isFreeTier} />
+          {isFreeTier && <CalculationAssumptionsSection currencyCode={selectedCurrency} />}
+          {!isFreeTier && (
+            <>
+              <SensitivitySection toolKey={toolKey} />
+              <ProAuditTrailSection />
+              <ProExportSection />
+            </>
+          )}
+        </div>
+      )}
+    </details>
   );
 }
 

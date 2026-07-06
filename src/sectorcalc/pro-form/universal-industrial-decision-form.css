@@ -1730,12 +1730,4 @@
    TRACE AI OVERLAP PREVENTION — Bottom spacing
    ═══════════════════════════════════════════════════════ */
 
-.sc-v531-shell {
-  padding-bottom: 64px;
-}
-
-@media (max-width: 720px) {
-  .sc-v531-shell {
-    padding-bottom: 80px !important;
-  }
-}
+/* Already applied via .sc-v531-shell base rule — no duplicate needed. */
