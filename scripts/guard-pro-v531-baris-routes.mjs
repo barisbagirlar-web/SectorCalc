@@ -31,6 +31,7 @@ const PRO_TOOLS_DIR = join(ROOT, "src/app/pro-tools");
 const REFERENCE_REGISTRY_PATH = join(ROOT, "src/generated/reference-registry.ts");
 const MONETIZATION_REGISTRY_PATH = join(ROOT, "src/sectorcalc/monetization/monetization-registry.ts");
 const ACTIVE_ALLOWLIST_PATH = join(ROOT, "src/sectorcalc/runtime/active-tool-allowlist.ts");
+const BARIS_REGISTRY_PATH = join(ROOT, "src/sectorcalc/formulas/pro-v531/baris-formula-registry.ts");
 
 // ─── Constants ──────────────────────────────────────────────────────────────
 
@@ -293,6 +294,23 @@ function escapeRegex(str) {
 
 // ─── Check 6: All tool_keys routed or explicitly blocked ────────────────────
 
+function readBarisLiveToolKeys() {
+  // Read LIVE_BATCH_1_KEYS from baris-formula-registry.ts
+  if (!existsSync(BARIS_REGISTRY_PATH)) return [];
+  const content = readFileSync(BARIS_REGISTRY_PATH, "utf8");
+  const liveMatch = content.match(/LIVE_BATCH_1_KEYS.*?new\s+Set\(LIVE_TOOLS\.map\(t\s*=>\s*t\.toolKey\)\)/);
+  if (!liveMatch) return [];
+
+  // Also collect toolKey entries from LIVE_TOOLS array
+  const keys = [];
+  const keyRegex = /toolKey:\s*"([^"]+)"/g;
+  let m;
+  while ((m = keyRegex.exec(content)) !== null) {
+    keys.push(m[1]);
+  }
+  return keys;
+}
+
 function checkAllToolsRoutedOrBlocked(toolKeys, routeResults) {
   // Read the active allowlist
   let activeSlugs = [];
@@ -308,28 +326,42 @@ function checkAllToolsRoutedOrBlocked(toolKeys, routeResults) {
     }
   }
 
+  // Also read Baris LIVE tool keys from baris-formula-registry.ts
+  const barisLiveKeys = readBarisLiveToolKeys();
+
   const isRouted = toolKeys.map((tk) => {
-    // A tool is considered "routed" if:
-    // 1. A dynamic route handler exists AND
-    // 2. The tool is in ACTIVE_PRO_TOOL_SLUGS
     const hasDynamicHandler = routeResults.hasToolsProSlug || routeResults.hasProToolsSlug;
     const inActiveList = activeSlugs.includes(tk);
+    const inBarisLive = barisLiveKeys.includes(tk);
 
-    // A tool is "explicitly BLOCKED" if the schema exists but is not in active slugs
-    // (this is the V5.4 quarantine state)
+    // A tool is "routed/active" if:
+    // - dynamic handler exists AND (in active allowlist OR in Baris LIVE registry)
+    const isRoutedTool = hasDynamicHandler && (inActiveList || inBarisLive);
+
+    // A tool is "explicitly BLOCKED" if schema exists but is NOT routed
     const schemaExists = existsSync(join(SCHEMAS_DIR, `${tk}.schema.json`));
-    const isBlocked = schemaExists && !inActiveList;
+    const isBlocked = schemaExists && !isRoutedTool;
 
-    return { toolKey: tk, hasDynamicHandler, inActiveList, schemaExists, isBlocked };
+    return { toolKey: tk, hasDynamicHandler, inActiveList, inBarisLive, schemaExists, isBlocked, isRoutedTool };
   });
 
-  const routed = isRouted.filter((r) => r.hasDynamicHandler && r.inActiveList);
+  const routed = isRouted.filter((r) => r.isRoutedTool);
   const blocked = isRouted.filter((r) => r.isBlocked);
-  const unaccounted = isRouted.filter((r) => !r.hasDynamicHandler && !r.isBlocked && !r.inActiveList);
+  const unaccounted = isRouted.filter((r) => !r.hasDynamicHandler && !r.isBlocked && !r.isRoutedTool);
 
-  console.log(`  ├─ Routed (active):     ${routed.length}/${toolKeys.length}`);
-  console.log(`  ├─ Blocked (quarantine): ${blocked.length}/${toolKeys.length}`);
-  console.log(`  └─ Unaccounted:          ${unaccounted.length}/${toolKeys.length}`);
+  // Determine routed/blocked breakdown
+  const barisRouted = isRouted.filter((r) => r.inBarisLive && !r.inActiveList);
+  const allowlistRouted = isRouted.filter((r) => r.inActiveList);
+
+  console.log(`  ├─ Routed (active):        ${routed.length}/${toolKeys.length}`);
+  if (barisRouted.length > 0) {
+    console.log(`  │    ├─ via Baris LIVE registry: ${barisRouted.length} tools`);
+  }
+  if (allowlistRouted.length > 0) {
+    console.log(`  │    └─ via active allowlist:    ${allowlistRouted.length} tools`);
+  }
+  console.log(`  ├─ Blocked (assisted dossier): ${blocked.length}/${toolKeys.length}`);
+  console.log(`  └─ Unaccounted:                ${unaccounted.length}/${toolKeys.length}`);
 
   if (unaccounted.length > 0) {
     addViolation(
@@ -342,7 +374,7 @@ function checkAllToolsRoutedOrBlocked(toolKeys, routeResults) {
     addWarning("No baris tool_keys are in the active PRO allowlist. All are in quarantine state.");
   }
 
-  return { isRouted, routed, blocked, unaccounted };
+  return { isRouted, routed, blocked, unaccounted, barisRouted };
 }
 
 // ─── Check 7: Full scan of src/app/ for locale prefixes ─────────────────────
