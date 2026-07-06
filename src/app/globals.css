@@ -329,7 +329,7 @@ select {
 
 /* Container for form groups */
 .form-group {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   width: 100%;
 }
 
@@ -416,14 +416,14 @@ select {
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 16px;
   width: 100%;
 }
 
 @media (max-width: 640px) {
   .form-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 }
 

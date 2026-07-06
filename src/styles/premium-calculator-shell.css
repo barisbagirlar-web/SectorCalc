@@ -1,20 +1,20 @@
 .sc-premium-tool-shell {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 32px 24px 56px;
+  padding: 24px 20px 40px;
 }
 
 .sc-tool-header {
   border: 1px solid rgba(26, 25, 21, 0.10);
   background: #faf9f5;
-  padding: 28px 32px;
-  margin-bottom: 24px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
 }
 
 .sc-tool-header .sc-tool-eyebrow {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   color: #696764;
   font-size: 12px;
   font-weight: 700;
@@ -31,7 +31,7 @@
 }
 
 .sc-tool-header p {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   max-width: 760px;
   color: #696764;
   font-size: 16px;
@@ -42,8 +42,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 22px;
-  padding: 4px;
+  margin-top: 14px;
+  padding: 3px;
   border: 1px solid rgba(26, 25, 21, 0.10);
   background: #f0eee6;
 }
@@ -52,7 +52,7 @@
   border: 0;
   background: transparent;
   color: #696764;
-  padding: 10px 14px;
+  padding: 8px 12px;
   font-size: 13px;
   font-weight: 650;
   cursor: pointer;
@@ -66,7 +66,7 @@
 
 .sc-tool-workspace {
   display: grid;
-  gap: 24px;
+  gap: 16px;
   align-items: start;
 }
 
@@ -77,12 +77,12 @@
 .sc-tool-panel {
   border: 1px solid rgba(26, 25, 21, 0.10);
   background: #faf9f5;
-  padding: 24px 22px;
+  padding: 18px;
   min-width: 0;
 }
 
 .sc-tool-panel h2 {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   color: #1a1915;
   font-size: 13px;
   font-weight: 750;
@@ -105,15 +105,15 @@
 
 @media (max-width: 768px) {
   .sc-premium-tool-shell {
-    padding: 24px 16px 44px;
+    padding: 16px 12px 32px;
   }
 
   .sc-tool-header {
-    padding: 24px 20px;
+    padding: 16px;
   }
 
   .sc-tool-panel {
-    padding: 22px 18px;
+    padding: 14px 12px;
   }
 
   .sc-mode-switch {
@@ -122,5 +122,7 @@
 
   .sc-mode-switch button {
     flex: 1;
+    padding: 8px 10px;
+    font-size: 12px;
   }
 }

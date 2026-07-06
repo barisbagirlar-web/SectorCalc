@@ -42,19 +42,19 @@ const t = {
 
 const INDUSTRY_GROUPS = [
   { groupEn:'Production', groupTr:'Production', items:[
-    { slug:'manufacturing', href:'/industries', icon:'🏭', en:'Manufacturing', count:40 },
-    { slug:'lean-oee',      href:'/industries', icon:'📊', en:'Lean & OEE',     count:33 },
-    { slug:'quality-spc',   href:'/industries', icon:'🎯', en:'Quality & SPC',  count:14 },
+    { slug:'manufacturing', href:'/industries', en:'Manufacturing', count:40 },
+    { slug:'lean-oee',      href:'/industries', en:'Lean & OEE',     count:33 },
+    { slug:'quality-spc',   href:'/industries', en:'Quality & SPC',  count:14 },
   ]},
   { groupEn:'Engineering', groupTr:'Engineering', items:[
-    { slug:'mechanical-hvac',  href:'/industries', icon:'⚙️', en:'Mechanical & HVAC', count:48 },
-    { slug:'electrical-power', href:'/industries', icon:'⚡', en:'Electrical & Power', count:16 },
-    { slug:'construction',     href:'/industries', icon:'🏗️', en:'Construction',       count:28 },
+    { slug:'mechanical-hvac',  href:'/industries', en:'Mechanical & HVAC', count:48 },
+    { slug:'electrical-power', href:'/industries', en:'Electrical & Power', count:16 },
+    { slug:'construction',     href:'/industries', en:'Construction',       count:28 },
   ]},
   { groupEn:'Operations', groupTr:'Operasyon', items:[
-    { slug:'supply-chain',     href:'/industries', icon:'🚚', en:'Supply Chain',   count:17 },
-    { slug:'energy-esg',       href:'/industries', icon:'🌱', en:'Energy & ESG',    count:16 },
-    { slug:'technology-cloud', href:'/industries', icon:'☁️', en:'Technology & AI', count:17 },
+    { slug:'supply-chain',     href:'/industries', en:'Supply Chain',   count:17 },
+    { slug:'energy-esg',       href:'/industries', en:'Energy & ESG',    count:16 },
+    { slug:'technology-cloud', href:'/industries', en:'Technology & AI', count:17 },
   ]},
 ];
 
@@ -114,7 +114,7 @@ export function SiteHeader({
         .sc-nav{display:flex;align-items:center;gap:6px;flex:1;justify-content:center;}
         .sc-navbtn{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;padding:8px 12px;border-radius:8px;text-decoration:none;transition:background .12s,color .12s;white-space:nowrap;min-height:36px;}
         .sc-navbtn:hover,.sc-navbtn.open{background:rgba(15,23,42,0.04);color:var(--accent);}
-        .sc-navbtn .chev{font-size:8px;color:var(--hint);transition:transform .16s;}
+        .sc-navbtn .chev{width:14px;height:14px;color:var(--hint);transition:transform .16s;flex-shrink:0;}
         .sc-navbtn.open .chev{transform:rotate(180deg);}
         .sc-right{display:flex;align-items:center;gap:14px;flex-shrink:0;}
         .sc-signin{font-size:14px;font-weight:500;color:var(--text);text-decoration:none;padding:8px 6px;border-radius:7px;transition:color .12s;white-space:nowrap;display:inline-flex;align-items:center;min-height:36px;}
@@ -130,7 +130,7 @@ export function SiteHeader({
         .sc-mega-panel{padding:16px;border-radius:12px;text-decoration:none;display:block;transition:background .12s;}
         .sc-mega-panel:hover{background:var(--bg);}
         .sc-mega-panel .pt{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
-        .sc-mega-panel .pico{font-size:20px;}
+        .sc-mega-panel .pico{width:22px;height:22px;flex-shrink:0;color:var(--accent);}
         .sc-mega-panel .ph{font-size:15px;font-weight:600;color:var(--text);}
         .sc-mega-panel .pd{font-size:12px;color:var(--muted);line-height:1.5;}
         .sc-mega-panel .pcount{font-size:11px;color:var(--accent);font-weight:600;margin-top:8px;font-variant-numeric:tabular-nums;}
@@ -138,7 +138,7 @@ export function SiteHeader({
         .sc-mega-col h4{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--hint);font-weight:600;margin:0 0 8px;padding:0 8px;}
         .sc-mega-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;text-decoration:none;transition:background .1s;}
         .sc-mega-item:hover{background:var(--bg);}
-        .sc-mega-item .ico{font-size:17px;flex-shrink:0;}
+        .sc-mega-item .ico{width:20px;height:20px;flex-shrink:0;color:var(--muted);}
         .sc-mega-item .txt{display:flex;flex-direction:column;}
         .sc-mega-item .txt b{font-size:13px;font-weight:500;color:var(--text);}
         .sc-mega-item .txt span{font-size:11px;color:var(--hint);font-variant-numeric:tabular-nums;}
@@ -147,7 +147,7 @@ export function SiteHeader({
         .sc-mega-foot .promo{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;}
         .sc-res-item{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:10px;text-decoration:none;transition:background .1s;}
         .sc-res-item:hover{background:var(--bg);}
-        .sc-res-item .rico{font-size:18px;flex-shrink:0;margin-top:1px;}
+        .sc-res-item .rico{width:20px;height:20px;flex-shrink:0;margin-top:1px;color:var(--accent);}
         .sc-res-item .rt b{display:block;font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px;}
         .sc-res-item .rt span{font-size:12px;color:var(--muted);}
         .sc-burger{display:none;background:none;border:none;cursor:pointer;padding:10px;min-width:44px;min-height:44px;color:var(--text);border-radius:8px;}
@@ -175,7 +175,7 @@ export function SiteHeader({
         }
         .sc-draw-sec{border-bottom:1px solid var(--border);}
         .sc-draw-head{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;font-size:16px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;text-align:start;min-height:44px;}
-        .sc-draw-head .dchev{font-size:10px;color:var(--hint);transition:transform .16s;}
+        .sc-draw-head .dchev{width:16px;height:16px;color:var(--hint);transition:transform .16s;flex-shrink:0;}
         .sc-draw-head.open .dchev{transform:rotate(180deg);}
         .sc-draw-link{display:flex;align-items:center;padding:16px 24px;font-size:16px;font-weight:500;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);min-height:44px;}
         .sc-draw-body{padding:0 24px 12px;}
@@ -196,18 +196,18 @@ export function SiteHeader({
           <nav className="sc-nav" ref={navRef}>
             <div onMouseEnter={()=>openWithIntent('products')} onMouseLeave={closeWithIntent}>
               <button className={`sc-navbtn${openMenu==='products'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='products'?null:'products')} aria-expanded={openMenu==='products'}>
-                {t.products} <span className="chev">▼</span>
+                {t.products} <svg className="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
             </div>
             <div onMouseEnter={()=>openWithIntent('industries')} onMouseLeave={closeWithIntent}>
               <button className={`sc-navbtn${openMenu==='industries'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='industries'?null:'industries')} aria-expanded={openMenu==='industries'}>
-                {t.industries} <span className="chev">▼</span>
+                {t.industries} <svg className="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
             </div>
             <Link href="/pricing" className="sc-navbtn">{t.pricing}</Link>
             <div onMouseEnter={()=>openWithIntent('resources')} onMouseLeave={closeWithIntent}>
               <button className={`sc-navbtn${openMenu==='resources'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='resources'?null:'resources')} aria-expanded={openMenu==='resources'}>
-                {t.resources} <span className="chev">▼</span>
+                {t.resources} <svg className="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
             </div>
 
@@ -216,17 +216,17 @@ export function SiteHeader({
                 {openMenu==='products' && (
                   <div className="sc-mega sc-mega-products">
                     <Link href="/free-tools" className="sc-mega-panel">
-                      <div className="pt"><span className="pico">🧮</span><span className="ph">{t.col_free}</span></div>
+                      <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></path></svg><span className="ph">{t.col_free}</span></div>
                       <div className="pd">{t.products_free_desc}</div>
                       <div className="pcount">{freeToolsCount} {t.tools}</div>
                     </Link>
                     <Link href="/pro-tools" className="sc-mega-panel">
-                      <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>
+                      <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
                       <div className="pcount">{proToolsCount} {t.tools}</div>
                     </Link>
                     <Link href="/engineering-diagnostics" className="sc-mega-panel">
-                      <div className="pt"><span className="pico">🔍</span><span className="ph">{t.col_engdiag}</span></div>
+                      <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span className="ph">{t.col_engdiag}</span></div>
                       <div className="pd">{t.products_engdiag_desc}</div>
                     </Link>
                   </div>
@@ -239,7 +239,7 @@ export function SiteHeader({
                           <h4>{g.groupEn}</h4>
                           {g.items.map((it)=>(
                             <Link key={it.slug} href={it.href} className="sc-mega-item">
-                              <span className="ico">{it.icon}</span>
+                              <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
                               <span className="txt"><b>{it.en}</b><span>{it.count} {t.tools}</span></span>
                             </Link>
                           ))}
@@ -247,7 +247,7 @@ export function SiteHeader({
                       ))}
                     </div>
                     <div className="sc-mega-foot">
-                      <Link href="/industries">{t.view_all_industries} →</Link>
+                      <Link href="/industries">{t.view_all_industries} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle'}}><polyline points="9 18 15 12 9 6"/></svg></Link>
                       <span className="promo">18 sectors · 300+ {t.tools}</span>
                     </div>
                   </div>
@@ -255,10 +255,10 @@ export function SiteHeader({
                 {openMenu==='resources' && (
                   <div className="sc-mega sc-mega-resources">
                     <Link href="/case-studies" className="sc-res-item">
-                      <span className="rico">📝</span><span className="rt"><b>{t.res_blog}</b><span>{t.res_blog_d}</span></span>
+                      <svg className="rico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span className="rt"><b>{t.res_blog}</b><span>{t.res_blog_d}</span></span>
                     </Link>
                     <Link href="/calculators/fmea-rpn" className="sc-res-item">
-                      <span className="rico">📐</span><span className="rt"><b>{t.res_docs}</b><span>{t.res_docs_d}</span></span>
+                      <svg className="rico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span className="rt"><b>{t.res_docs}</b><span>{t.res_docs_d}</span></span>
                     </Link>
                   </div>
                 )}
@@ -272,7 +272,7 @@ export function SiteHeader({
               <Link href="/signup" className="sc-getstarted">{t.getStarted}</Link>
             )}
             <button className="sc-burger" onClick={()=>setMobileOpen(!mobileOpen)} aria-label="Menu" aria-expanded={mobileOpen}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 {mobileOpen
                   ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>
                   : <><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>}
@@ -284,40 +284,40 @@ export function SiteHeader({
         <div className={`sc-drawer${mobileOpen?' open':''}`} dir="ltr">
           <div className="sc-draw-sec">
             <button className={`sc-draw-head${mobileSection==='products'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='products'?null:'products')}>
-              {t.products} <span className="dchev">▼</span>
+              {t.products} <svg className="dchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             {mobileSection==='products' && (
               <div className="sc-draw-body">
-                <Link href="/free-tools" onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">{freeToolsCount}+</span></Link>
-                <Link href="/pro-tools" onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
-                <Link href="/engineering-diagnostics" onClick={()=>setMobileOpen(false)}>🔍 {t.col_engdiag}</Link>
+                <Link href="/free-tools" onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>{t.col_free} <span className="c">{freeToolsCount}+</span></Link>
+                <Link href="/pro-tools" onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>{t.col_pro} <span className="c">{proToolsCount}</span></Link>
+                <Link href="/engineering-diagnostics" onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>{t.col_engdiag}</Link>
               </div>
             )}
           </div>
           <div className="sc-draw-sec">
             <button className={`sc-draw-head${mobileSection==='industries'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='industries'?null:'industries')}>
-              {t.industries} <span className="dchev">▼</span>
+              {t.industries} <svg className="dchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             {mobileSection==='industries' && (
               <div className="sc-draw-body">
                 {INDUSTRY_GROUPS.flatMap((g)=>g.items).map((it)=>(
                   <Link key={it.slug} href={it.href} onClick={()=>setMobileOpen(false)}>
-                    {it.icon} {it.en} <span className="c">{it.count}</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8,flexShrink:0}}><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>{it.en} <span className="c">{it.count}</span>
                   </Link>
                 ))}
-                <Link href="/industries" onClick={()=>setMobileOpen(false)} style={{color:'var(--accent)',fontWeight:600}}>{t.view_all_industries} →</Link>
+                <Link href="/industries" onClick={()=>setMobileOpen(false)} style={{color:'var(--accent)',fontWeight:600}}>{t.view_all_industries} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle'}}><polyline points="9 18 15 12 9 6"/></svg></Link>
               </div>
             )}
           </div>
           <Link href="/pricing" className="sc-draw-link" onClick={()=>setMobileOpen(false)}>{t.pricing}</Link>
           <div className="sc-draw-sec">
             <button className={`sc-draw-head${mobileSection==='resources'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='resources'?null:'resources')}>
-              {t.resources} <span className="dchev">▼</span>
+              {t.resources} <svg className="dchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             {mobileSection==='resources' && (
               <div className="sc-draw-body">
-                <Link href="/case-studies" onClick={()=>setMobileOpen(false)}>📝 {t.res_blog}</Link>
-                <Link href="/calculators/fmea-rpn" onClick={()=>setMobileOpen(false)}>📐 {t.res_docs}</Link>
+                <Link href="/case-studies" onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>{t.res_blog}</Link>
+                <Link href="/calculators/fmea-rpn" onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>{t.res_docs}</Link>
               </div>
             )}
           </div>

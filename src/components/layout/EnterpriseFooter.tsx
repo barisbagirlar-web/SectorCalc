@@ -160,14 +160,8 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
 
             <div className="bottom-row-legal">
               <span>&copy; 2026 SectorCalc</span>
-              <span className="sep" aria-hidden="true">
-                ·
-              </span>
               <span className="origin">
                 Stuttgart, Germany · Global Engineering Standards
-              </span>
-              <span className="sep" aria-hidden="true">
-                ·
               </span>
               <span>
                 <a href="mailto:hello@sectorcalc.com" style={{ textDecoration: "none", color: "inherit" }} className="footer-email-link">hello@sectorcalc.com</a>
@@ -265,10 +259,14 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             text-overflow: ellipsis;
             max-width: 100%;
           }
+          .bottom-row-legal span + span::before {
+            content: "·";
+            margin-right: 8px;
+            opacity: 0.3;
+          }
           .bottom-row-legal a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
           .bottom-row-legal a:hover { opacity: 1; color: var(--accent-terracotta); text-decoration: underline; }
 
-          .sep { opacity: 0.3; user-select: none; }
           .origin { letter-spacing: 0.02em; }
 
           @media (max-width: 900px) {
