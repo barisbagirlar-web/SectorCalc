@@ -207,24 +207,35 @@ const registeredToolKeys = (toolKeyMatches || []).map((m) =>
   m.replace(/toolKey:\s*"/, "").replace(/"$/, ""),
 );
 
-// Also extract from BARIS_REGISTRATIONS entries (baris registry pattern)
-const barisKeyMatches = barisRegistryContent.match(/"([a-z0-9][a-z0-9-]+[a-z0-9])"/g);
+// Also extract from BARIS_REGISTRATIONS toolKey entries (actual registry bindings, not string array literals)
+const barisKeyMatches = barisRegistryContent.match(/toolKey:\s*"([^"]+)"/g);
 const barisKeysFromRegistry = (barisKeyMatches || [])
-  .map((m) => m.replace(/"/g, ""))
-  .filter((k) => k.includes("-"));
+  .map((m) => m.replace(/toolKey:\s*"/, "").replace(/"$/, ""));
 
-// Check LIVE tools: should be in registry
-const liveMissing = liveToolKeys.filter(tk => !(registeredToolKeys.includes(tk) || barisKeysFromRegistry.includes(tk)));
+// Check LIVE tools: should be 0 and should NOT be in executable registry
+if (liveToolKeys.length > 0) {
+  fail(`${liveToolKeys.length} tools marked LIVE but no individual formula file or golden fixture exists. LIVE count must be 0.`);
+}
 
-// Check BLOCKED tools: should NOT be in registry
+// Check BLOCKED tools: should NOT be in executable registry
 const blockedInRegistry = [...blockedSourceKeys, ...blockedContractKeys].filter(tk =>
   registeredToolKeys.includes(tk) || barisKeysFromRegistry.includes(tk)
 );
 
-if (liveMissing.length === 0) {
-  pass(`All ${liveToolKeys.length} LIVE tools have registry entries`);
-} else {
-  fail(`${liveMissing.length} LIVE tools missing from registry: ${liveMissing.join(", ")}`);
+// Also check baris-formula-registry.ts does NOT contain register() calls
+const barisRegisterCallMatch = barisRegistryContent.match(/formulaRegistry\.register\(/g);
+if (barisRegisterCallMatch && barisRegisterCallMatch.length > 0) {
+  fail(`baris-formula-registry.ts contains ${barisRegisterCallMatch.length} register() calls. No Baris tool should be executable.`);
+}
+
+// Check no placeholder schema_hash_binding
+const placeholderHashMatch = barisRegistryContent.match(/schema_hash_binding:\s*""/g);
+if (placeholderHashMatch && placeholderHashMatch.length > 0) {
+  fail(`baris-formula-registry.ts has ${placeholderHashMatch.length} placeholder schema_hash_binding entries. Forbidden.`);
+}
+
+if (liveToolKeys.length === 0) {
+  pass(`LIVE_ENGINE_READY = 0 (correct: no Baris tool has individual formula + golden fixture)`);
 }
 
 if (blockedInRegistry.length === 0) {
@@ -262,9 +273,10 @@ for (const file of formulaFiles) {
   const registerMatches = content.match(/formulaRegistry\.register\(/g);
   if (registerMatches) {
     totalRegisterCalls += registerMatches.length;
-    // Check if any of the registered record contains a PRO_xxx tool_id (baris pattern)
-    const barisIdMatch = content.match(/TOOL_ID\s*=\s*"PRO_\d{3}/);
-    const barisKeyMatch = content.match(/tool_id:\s*"PRO_\d{3}/);
+    // Check if any of the registered record contains a pure PRO_xxx tool_id (baris pattern)
+    // This matches "PRO_001" through "PRO_045" but NOT "PRO_001_COMPRESSED_AIR..."
+    const barisIdMatch = content.match(/TOOL_ID\s*=\s*"PRO_\d{3}"[^_]/);
+    const barisKeyMatch = content.match(/tool_id:\s*"PRO_\d{3}"[^_A-Z]/);
     if (barisIdMatch || barisKeyMatch) {
       barisRegisterCount += registerMatches.length;
     }
@@ -273,18 +285,18 @@ for (const file of formulaFiles) {
 
 // Also check the private registry file itself for any register() calls with baris pattern
 const privateRegistryContent = readFileSync(PRIVATE_REGISTRY_PATH, "utf-8");
-const privateBarisMatch = privateRegistryContent.match(/PRO_\d{3}/g);
+const privateBarisMatch = privateRegistryContent.match(/"PRO_\d{3}"[^_A-Z]/g);
 if (privateBarisMatch) {
   barisRegisterCount += privateBarisMatch.length;
 }
 
-if (barisRegisterCount > 0) {
+if (barisRegisterCount === 0) {
   pass(
-    `Found ${barisRegisterCount} baris-related register() references across ${formulaFiles.length} .registry.ts files + private registry`,
+    `No baris register() calls found — correct. All Baris tools are BLOCKED.`,
   );
 } else {
   fail(
-    `No baris register() calls found in pro-v531 registry files or private formula registry`,
+    `${barisRegisterCount} baris register() calls found. Baris tools must NOT be executable.`,
   );
 }
 

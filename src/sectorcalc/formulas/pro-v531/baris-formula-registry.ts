@@ -1,144 +1,73 @@
-// SectorCalc V5.3.1 — Baris PRO Schema Formula Registry
-// Registers formula nodes for LIVE_ENGINE_READY baris tools.
-// BLOCKED_SOURCE_REQUIRED tools are NOT registered (cannot execute without source data).
+// SectorCalc V5.3.1 — Baris PRO Schema Formula Registry (FAIL-CLOSED)
+// All 45 Baris tools are BLOCKED. No tool has individual deterministic formula source.
+// This module exports metadata/classification helpers only.
+// It does NOT register any Baris tool as live-executable.
 // Server-side only. Never imported by client modules.
 import "server-only";
-import { formulaRegistry, FormulaRegistry, FormulaRegistryNode } from "@/sectorcalc/pro-runtime/formula-registry";
-import type { FormulaOperation } from "@/sectorcalc/pro-runtime/formula-registry";
 
 const FORMULA_VERSION = "5.3.1-pro-schema.1";
-const SCHEMA_HASH_PLACEHOLDER = "baris-v531-approved";
 
-// ── Helper to build a generic arithmetic formula node ──
-function arithNode(
-  formulaId: string,
-  operation: FormulaOperation,
-  inputRefs: string[],
-  outputRef: string,
-  unitDim: string,
-  constantRefs: number[] = [],
-  acceptanceRule?: string,
-): FormulaRegistryNode {
-  return {
-    formula_id: formulaId,
-    formula_version: FORMULA_VERSION,
-    schema_hash_binding: SCHEMA_HASH_PLACEHOLDER,
-    formula_registry_hash: "",
-    operation,
-    constant_refs: constantRefs,
-    input_refs: inputRefs,
-    output_ref: outputRef,
-    unit_dimension_rule: unitDim,
-    uncertainty_rule: "ANALYTICAL",
-    sensitivity_rule: "DERIVATIVE",
-    fmea_trigger_rule: null,
-    acceptance_rule: acceptanceRule ?? `${outputRef} !== null`,
-    review_rule: `${outputRef} === null`,
-    rejection_rule: `${outputRef} === null`,
-    redaction_rule: "PUBLIC_SAFE_REDACTED",
-  };
-}
+// ── Blocker registry ────────────────────────────────────────────────────────
+// All Baris tools are registered as BLOCKED_RUNTIME_CONTRACT_MISMATCH or
+// BLOCKED_SOURCE_REQUIRED. No LIVE tool exists.
 
-// ── Baris tool formula registrations ──
-// Each LIVE_ENGINE_READY tool gets its own set of formula nodes.
-// Nodes implement arithmetic relationships on normalized inputs.
-// No standard table values are embedded.
-
-const BARIS_REGISTRATIONS: Record<string, FormulaRegistryNode[]> = {};
-
-// ── bank-grade-financial-projection-covenant-model ──────────────────────────
-BARIS_REGISTRATIONS["bank-grade-financial-projection-covenant-model"] = [
-  arithNode("F001", "PASS_THROUGH", ["n_source_confidence_ratio"], "out_evidence_completeness", "DIMENSIONLESS"),
-  arithNode("F002", "MULTIPLY", ["n_annual_volume", "n_labor_rate"], "out_normalized_demand", "CURRENCY"),
-  arithNode("F003", "DIVIDE", ["n_annual_net_cash_flow", "n_initial_investment"], "out_utilization_index", "DIMENSIONLESS"),
-  arithNode("F004", "DIVIDE", ["n_annual_net_cash_flow", "n_initial_investment"], "out_safety_margin", "DIMENSIONLESS"),
-  arithNode("F005", "MULTIPLY", ["out_safety_margin", "n_stress_downside_factor"], "out_money_at_risk", "CURRENCY"),
-  arithNode("F006", "PASS_THROUGH", ["n_discount_rate"], "out_governing_driver", "DIMENSIONLESS"),
-  arithNode("F007", "THRESHOLD_DECISION", ["out_utilization_index"], "out_fmea_status", "DIMENSIONLESS", [0.8]),
-];
-
-// ── break-even-survival-cash-calculator ────────────────────────────────────
-BARIS_REGISTRATIONS["break-even-survival-cash-calculator"] = [
-  arithNode("F001", "PASS_THROUGH", ["n_source_confidence_ratio"], "out_evidence_completeness", "DIMENSIONLESS"),
-  arithNode("F002", "MULTIPLY", ["n_annual_volume", "n_labor_rate"], "out_normalized_demand", "CURRENCY"),
-  arithNode("F003", "DIVIDE", ["n_annual_net_cash_flow", "n_initial_investment"], "out_utilization_index", "DIMENSIONLESS"),
-  arithNode("F004", "SUBTRACT", ["n_annual_net_cash_flow", "n_stress_downside_factor"], "out_safety_margin", "CURRENCY"),
-  arithNode("F005", "MULTIPLY", ["out_safety_margin", "n_stress_downside_factor"], "out_money_at_risk", "CURRENCY"),
-  arithNode("F006", "PASS_THROUGH", ["n_discount_rate"], "out_governing_driver", "DIMENSIONLESS"),
-  arithNode("F007", "THRESHOLD_DECISION", ["out_utilization_index"], "out_fmea_status", "DIMENSIONLESS", [0.8]),
-];
-
-// ── machine-hourly-rate-proof-report ─────────────────────────────────────────
-BARIS_REGISTRATIONS["machine-hourly-rate-proof-report"] = [
-  arithNode("F001", "PASS_THROUGH", ["n_source_confidence_ratio"], "out_evidence_completeness", "DIMENSIONLESS"),
-  arithNode("F002", "MULTIPLY", ["n_annual_volume", "n_labor_rate"], "out_normalized_demand", "CURRENCY"),
-  arithNode("F003", "DIVIDE", ["n_machine_rate", "n_cycle_time"], "out_utilization_index", "DIMENSIONLESS"),
-  arithNode("F004", "SUBTRACT", ["n_machine_rate", "n_setup_time"], "out_safety_margin", "CURRENCY"),
-  arithNode("F005", "MULTIPLY", ["out_safety_margin", "n_overhead_rate"], "out_money_at_risk", "CURRENCY"),
-  arithNode("F006", "PASS_THROUGH", ["n_machine_rate"], "out_governing_driver", "CURRENCY"),
-  arithNode("F007", "THRESHOLD_DECISION", ["out_utilization_index"], "out_fmea_status", "DIMENSIONLESS", [1.0]),
-];
-
-// ── Generic registrations for remaining LIVE_ENGINE_READY tools ──
-const GENERIC_TOOL_KEYS = [
+export const BARIS_TOOL_IDS: string[] = [
+  "bank-grade-financial-projection-covenant-model",
+  "bolt-torque-preload-spec-card-vdi-2230",
+  "bolted-connection-verifier",
+  "break-even-survival-cash-calculator",
   "capital-equipment-investment-appraisal-npv-irr",
+  "cbam-cost-exposure-hedging-forecaster",
+  "cbam-definitive-period-compliance-package",
+  "cbam-supplier-emissions-data-sheet",
+  "compressed-air-leak-energy-audit-report-iso-11011",
+  "compressed-air-pipe-sizing-pressure-drop",
   "customer-sku-profitability-forensics",
   "downtime-scrap-loss-statement",
+  "energy-efficiency-grant-incentive-feasibility-pack",
+  "fillet-weld-sizing-verification-sheet-ec3-aws-d11",
+  "first-article-inspection-report-builder-as9102-lite",
   "fx-commodity-pass-through-pricer",
+  "gdt-fit-clearance-calculator-iso-286",
+  "hydraulic-cylinder-pump-sizing",
   "job-quote-builder-pro-pack",
+  "lifting-rigging-crane-plan-suite",
   "loss-making-job-detector",
+  "machine-hourly-rate-proof-report",
   "machine-investment-feasibility-buy-lease-keep",
   "machining-cycle-time-part-cost-sheet",
+  "measurement-uncertainty-budget-gum-iso-17025",
   "motor-compressor-replacement-roi",
   "oee-loss-monetization-improvement-business-case",
   "outsource-vs-in-house-analyzer",
+  "plant-wide-shop-rate-cost-structure-audit",
+  "ppap-gauge-rr-cpk-ppk-quality-submission-bundle",
+  "pressure-relief-valve-sizing-sheet-api-520",
+  "pressure-vessel-wall-thickness-mawp-hydrotest-package",
   "product-sku-margin-ranker",
+  "pump-system-curve-npsh-verifier",
   "receivables-cost-payment-term-addendum",
+  "scope-1-2-3-splitter-for-smes",
   "scrap-rework-cost-tracker",
   "sealed-job-quote-certificate-fire-setup-vade",
   "setup-time-reduction-roi-smed",
-  "true-employee-cost-statement",
-  "weld-procedure-cost-consumable-estimation-suite",
-  "compressed-air-pipe-sizing-pressure-drop",
-  "energy-efficiency-grant-incentive-feasibility-pack",
-  "hydraulic-cylinder-pump-sizing",
-  "plant-wide-shop-rate-cost-structure-audit",
-  "pump-system-curve-npsh-verifier",
-  "scope-1-2-3-splitter-for-smes",
   "shaft-deflection-critical-speed-check",
   "steel-structure-weight-cost-takeoff",
+  "structural-connection-verification-dossier-ec3-aisc",
+  "tolerance-stack-up-root-cause-report-wc-rss",
+  "true-employee-cost-statement",
+  "weld-procedure-cost-consumable-estimation-suite",
 ];
 
-for (const tKey of GENERIC_TOOL_KEYS) {
-  BARIS_REGISTRATIONS[tKey] = [
-    arithNode("F001", "PASS_THROUGH", ["n_source_confidence_ratio"], "out_evidence_completeness", "DIMENSIONLESS"),
-    arithNode("F002", "MULTIPLY", ["n_annual_volume", "n_labor_rate"], "out_normalized_demand", "CURRENCY"),
-    arithNode("F003", "DIVIDE", ["out_normalized_demand", "n_annual_volume"], "out_utilization_index", "DIMENSIONLESS"),
-    arithNode("F004", "SUBTRACT", ["n_labor_rate", "n_overhead_rate"], "out_safety_margin", "CURRENCY"),
-    arithNode("F005", "MULTIPLY", ["out_safety_margin", "n_uncertainty_multiplier"], "out_money_at_risk", "CURRENCY"),
-    arithNode("F006", "PASS_THROUGH", ["n_labor_rate"], "out_governing_driver", "CURRENCY"),
-    arithNode("F007", "THRESHOLD_DECISION", ["out_utilization_index"], "out_fmea_status", "DIMENSIONLESS", [0.85]),
-  ];
+// ── Status helpers ─────────────────────────────────────────────────────────
+
+export function isBarisTool(toolKey: string): boolean {
+  return BARIS_TOOL_IDS.includes(toolKey);
 }
 
-// ── Register all LIVE_ENGINE_READY baris tools ──
-export function registerBarisFormulas(): void {
-  for (const [toolKey, nodes] of Object.entries(BARIS_REGISTRATIONS)) {
-    const toolId = `PRO_BARIS_${toolKey.replace(/-/g, "_").toUpperCase()}`;
-    const existing = formulaRegistry.fetch(toolId, FORMULA_VERSION);
-    if (!existing) {
-      formulaRegistry.register({
-        tool_id: toolId,
-        tool_key: toolKey,
-        formula_version: FORMULA_VERSION,
-        formula_registry_hash: FormulaRegistry.computeRegistryHash(nodes),
-        schema_hash_binding: SCHEMA_HASH_PLACEHOLDER,
-        nodes,
-        internal_trace_policy: "RESTRICTED_CHECKER",
-        created_at: "2026-07-07T00:00:00Z",
-        approved_at: "2026-07-07T00:00:00Z",
-        approved_by: "system-baris-integration",
-      });
-    }
-  }
+export function isBarisToolLiveExecutable(_toolKey: string): boolean {
+  // NO baris tool is live-executable. This function always returns false.
+  return false;
 }
+
+export { FORMULA_VERSION };
