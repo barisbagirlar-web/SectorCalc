@@ -1,4 +1,4 @@
-import type { DomainId, DecisionState } from "../diagnostic-types";
+import type { DomainId, DecisionState, VisualObservation } from "../diagnostic-types";
 
 export const REPORT_TYPE = "ENGINEERING_DIAGNOSTIC_PREVIEW" as const;
 export type ReportType = typeof REPORT_TYPE;
@@ -146,4 +146,19 @@ export interface DiagnosticReport {
   methodology_section: MethodologySection;
   limitation_section: LimitationSection;
   audit_log: AuditEvent[];
+  /** Only present for full paid diagnostics with AI interpretation */
+  ai_section?: AiReportSection;
+}
+
+export interface AiReportSection {
+  visual_observations: VisualObservation[];
+  engineering_interpretation: string;
+  root_cause_hypotheses: string[];
+  ncr_statement: string;
+  capa_statement: string;
+  executive_summary: string;
+  action_narrative: string;
+  provider: "openai";
+  model: string;
+  generated_at: string;
 }

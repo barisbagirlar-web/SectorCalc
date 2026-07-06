@@ -129,6 +129,26 @@ export const LimitationSectionSchema = z.object({
   manual_verification_required: z.boolean(),
 });
 
+const VisualObservationSchema = z.object({
+  description: z.string().min(1),
+  severity_hint: z.enum(["LOW", "MEDIUM", "HIGH"]),
+  confidence: z.number().min(0).max(1),
+  manual_verification_required: z.boolean(),
+});
+
+export const AiReportSectionSchema = z.object({
+  visual_observations: z.array(VisualObservationSchema),
+  engineering_interpretation: z.string().min(1),
+  root_cause_hypotheses: z.array(z.string().min(1)),
+  ncr_statement: z.string().min(1),
+  capa_statement: z.string().min(1),
+  executive_summary: z.string().min(1),
+  action_narrative: z.string().min(1),
+  provider: z.literal("openai"),
+  model: z.string().min(1),
+  generated_at: z.string().min(1),
+});
+
 export const DiagnosticReportSchema = z.object({
   report_id: z.string().min(1),
   report_type: z.literal(REPORT_TYPE),
@@ -147,4 +167,5 @@ export const DiagnosticReportSchema = z.object({
   methodology_section: MethodologySectionSchema,
   limitation_section: LimitationSectionSchema,
   audit_log: z.array(AuditEventSchema),
+  ai_section: AiReportSectionSchema.optional(),
 });

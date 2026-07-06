@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
 
 /* ── Constants ── */
 
@@ -164,6 +165,9 @@ export default function EngineeringDiagnosticsStartPage() {
   const lastRequestBodyRef = useRef<unknown>(null);
   const [previewLoading, setPreviewLoading] = useState(false);
   const [previewError, setPreviewError] = useState<string | null>(null);
+  const [remainingUses, setRemainingUses] = useState<number | null>(null);
+  const [fullDiagLoading, setFullDiagLoading] = useState(false);
+  const [fullDiagError, setFullDiagError] = useState<string | null>(null);
   const [form, setForm] = useState<FormState>({
     domain_id: "",
     problem_context: "",
@@ -196,6 +200,25 @@ export default function EngineeringDiagnosticsStartPage() {
   const [result, setResult] = useState<DiagnosticResult | null>(null);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [serverError, setServerError] = useState<string | null>(null);
+
+  // Fetch remaining diagnostic uses on mount
+  useEffect(() => {
+    (async () => {
+      try {
+        const token = await getCurrentUserIdToken();
+        if (!token) return;
+        const res = await fetch("/api/engineering-diagnostics/usage", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const data = await res.json();
+        if (data.ok && typeof data.remainingUses === "number") {
+          setRemainingUses(data.remainingUses);
+        }
+      } catch {
+        // silent — usage info is non-critical
+      }
+    })();
+  }, []);
 
   function setField(path: string, value: string) {
     setFieldErrors((prev) => {
@@ -568,6 +591,126 @@ export default function EngineeringDiagnosticsStartPage() {
           )}
         </div>
 
+        {/* Full Engineering Diagnostic */}
+        <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
+          {(remainingUses !== null && remainingUses > 0) || remainingUses === null ? (
+            <>
+              <button
+                onClick={async () => {
+                  setFullDiagError(null);
+                  setFullDiagLoading(true);
+                  try {
+                    const token = await getCurrentUserIdToken();
+                    if (!token) {
+                      setFullDiagError("Please sign in to generate a Full Diagnostic.");
+                      setFullDiagLoading(false);
+                      return;
+                    }
+                    const res = await fetch("/api/engineering-diagnostics/full-diagnostic", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                      },
+                      body: JSON.stringify(lastRequestBodyRef.current),
+                    });
+                    const data = await res.json();
+                    if (!res.ok || !data.ok) {
+                      if (data.error === "INSUFFICIENT_DIAGNOSTIC_CREDITS") {
+                        setFullDiagError(data.message || "Diagnostic credits required.");
+                      } else {
+                        setFullDiagError(data.error || "Failed to generate Full Diagnostic.");
+                      }
+                      setFullDiagLoading(false);
+                      return;
+                    }
+                    if (data.report) {
+                      try {
+                        sessionStorage.setItem("ediag_report_" + data.report_id, JSON.stringify(data.report));
+                      } catch {
+                        // sessionStorage may be full
+                      }
+                    }
+                    setFullDiagLoading(false);
+                    router.push("/engineering-diagnostics/reports/" + encodeURIComponent(data.report_id));
+                  } catch {
+                    setFullDiagError("Unable to generate Full Diagnostic. Please try again.");
+                    setFullDiagLoading(false);
+                  }
+                }}
+                disabled={fullDiagLoading}
+                style={{
+                  padding: "0.9rem 2rem",
+                  background: fullDiagLoading ? "#D6D4CC" : "#BD5D3A",
+                  color: fullDiagLoading ? "#6B6B68" : "#fff",
+                  border: "none",
+                  borderRadius: "8px",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  cursor: fullDiagLoading ? "not-allowed" : "pointer",
+                  minHeight: "48px",
+                  transition: "background 0.13s",
+                }}
+              >
+                {fullDiagLoading ? "Generating Full Diagnostic..." : "Generate Full Engineering Diagnostic"}
+              </button>
+              {remainingUses !== null && remainingUses > 0 && (
+                <div style={{ fontSize: "0.8rem", color: "#6B6B68", marginTop: "0.4rem" }}>
+                  {remainingUses} Full Diagnostic use{remainingUses > 1 ? "s" : ""} remaining
+                </div>
+              )}
+            </>
+          ) : (
+            <div
+              style={{
+                padding: "1rem 1.25rem",
+                background: "#FFF0D6",
+                border: "1px solid #E8D4A0",
+                borderRadius: "8px",
+                color: "#8A7A23",
+                fontSize: "0.9rem",
+                lineHeight: 1.5,
+              }}
+            >
+              <div style={{ fontWeight: 600, marginBottom: "0.25rem" }}>Diagnostic Credits Required</div>
+              <div style={{ fontSize: "0.85rem" }}>
+                You need Diagnostic Credits to generate a Full Engineering Diagnostic.
+              </div>
+              <Link
+                href="/pricing"
+                style={{
+                  display: "inline-block",
+                  marginTop: "0.75rem",
+                  padding: "0.5rem 1.25rem",
+                  background: "#BD5D3A",
+                  color: "#fff",
+                  borderRadius: "6px",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontSize: "0.85rem",
+                }}
+              >
+                Get Diagnostic Credits
+              </Link>
+            </div>
+          )}
+        </div>
+
+        {fullDiagError && (
+          <div
+            style={{
+              marginTop: "0.75rem",
+              padding: "0.5rem 0.75rem",
+              background: "#F5D6D6",
+              borderRadius: "6px",
+              fontSize: "0.85rem",
+              color: "#A12323",
+            }}
+          >
+            {fullDiagError}
+          </div>
+        )}
+
         {/* Back to top */}
         <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <button
@@ -636,6 +779,26 @@ export default function EngineeringDiagnosticsStartPage() {
             engine will evaluate measurement confidence, cost exposure, and
             suggest a decision state with an action plan.
           </p>
+
+          {/* Package Info Card */}
+          <div
+            style={{
+              padding: "1rem 1.25rem",
+              background: "#F0EEE6",
+              border: "1px solid #D6D4CC",
+              borderRadius: "8px",
+              marginBottom: "1.5rem",
+            }}
+          >
+            <div style={{ fontSize: "0.85rem", color: "#1A1915", fontWeight: 600, marginBottom: "0.25rem" }}>
+              Full Engineering Diagnostics
+            </div>
+            <div style={{ fontSize: "0.85rem", color: "#4A4A48", lineHeight: 1.5 }}>
+              5 Credits includes 3 Full Engineering Diagnostics, including
+              AI-assisted engineering interpretation, deterministic risk assessment,
+              action planning, PDF export, and verification record.
+            </div>
+          </div>
 
           {!result && (
             <form onSubmit={handleSubmit} noValidate>
