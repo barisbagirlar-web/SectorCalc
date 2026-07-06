@@ -91,15 +91,44 @@ export default function EngineeringDiagnosticsReportPreviewPage({
   useEffect(() => {
     params.then((p) => {
       setId(p.id);
+      // Try sessionStorage first (recently generated preview)
       try {
         const stored = sessionStorage.getItem("ediag_report_" + p.id);
         if (stored) {
           setReport(JSON.parse(stored));
+          setLoading(false);
+          return;
         }
       } catch {
         // ignore parse errors
       }
-      setLoading(false);
+
+      // Fallback to Firestore via API
+      const token =
+        typeof window !== "undefined"
+          ? (window as unknown as Record<string, unknown>).__firebaseAuthToken
+          : null;
+      const headers: Record<string, string> = {};
+      if (token && typeof token === "string") {
+        headers["Authorization"] = `Bearer ${token}`;
+      }
+
+      fetch(`/api/engineering-diagnostics/reports/${p.id}`, { headers })
+        .then((res) => {
+          if (!res.ok) return null;
+          return res.json();
+        })
+        .then((data) => {
+          if (data?.ok && data?.report) {
+            setReport(data.report);
+          }
+        })
+        .catch(() => {
+          // silent fallback
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     });
   }, [params]);
 

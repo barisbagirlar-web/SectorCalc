@@ -9,12 +9,14 @@ import { VerifyReportForm } from "@/components/trust-trace/VerifyReportForm";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
+import { redirect } from "next/navigation";
+
 type PageProps = {
   params: Promise<{  }>;
-  searchParams: Promise<{ reportId?: string; hash?: string }>;
+  searchParams: Promise<{ reportId?: string; hash?: string; doc?: string }>;
 };
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params: _params }: PageProps): Promise<Metadata> {
   const locale = "en";
   const t = await getTranslations({ locale, namespace: "verify" });
   return createPageMetadata({
@@ -25,9 +27,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-export default async function VerifyPage({ params, searchParams }: PageProps) {
+export default async function VerifyPage({ params: _params, searchParams }: PageProps) {
   const locale = "en";
-  const { reportId, hash } = await searchParams;
+  const { reportId, hash, doc } = await searchParams;
+
+  // Support ?doc=HASH for direct inspection verification
+  if (doc && /^[a-f0-9]{64}$/.test(doc)) {
+    redirect(`/verify/${doc}`);
+  }
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "verify" });
 

@@ -2,21 +2,26 @@
  * POST /api/engineering-diagnostics/pdf
  *
  * Generates a sealed Engineering Diagnostics PDF from the V2 report contract.
+ * Persists the report and minimal verify metadata to Firestore.
  *
  * Input: { report: DiagnosticReport }
+ * Auth: Bearer <Firebase ID token> (optional — reports saved without auth have no owner)
  * Output: application/pdf binary with Content-Disposition header.
  *
  * STRICT:
  * - PDF reads only from the report contract — never recomputes risk, cost, decision, or measurements
  * - No payment integration
  * - No OpenAI calls
- * - No Firestore writes
  */
 
 import { NextResponse } from "next/server";
 import { DiagnosticReportSchema } from "@/sectorcalc/diagnostics/report/diagnostic-report-schema";
 import { buildDiagnosticPdf, buildDiagnosticPdfFileName } from "@/lib/inspection/pdf-builder";
 import { registerDiagnosticVerify } from "@/lib/inspection/verify-store";
+import {
+  saveDiagnosticReport,
+  getUidFromRequest,
+} from "@/lib/inspection/inspection-firestore-service";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -51,10 +56,16 @@ export async function POST(req: Request) {
 
     const report = parsed.data;
 
-    /* Register verify metadata (in-memory, no persistence yet) */
+    /* Register verify metadata (in-memory) */
     const { hash } = registerDiagnosticVerify(report);
 
-    const verifyUrl = `https://sectorcalc.com/verify/${hash}`;
+    /* Persist to Firestore */
+    const ownerUid = await getUidFromRequest(req);
+    const persistedHash = await saveDiagnosticReport(report, ownerUid);
+
+    /* Use persisted hash if available, fall back to in-memory */
+    const reportHash = persistedHash ?? hash;
+    const verifyUrl = `https://sectorcalc.com/verify/${reportHash}`;
 
     /* Build PDF — reads only from the report contract */
     const pdfBuffer = await buildDiagnosticPdf(report, { verifyUrl });
@@ -67,7 +78,7 @@ export async function POST(req: Request) {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `attachment; filename="${fileName}"`,
-        "X-Report-Hash": hash,
+        "X-Report-Hash": reportHash,
         "X-Verify-Url": verifyUrl,
       },
     });
