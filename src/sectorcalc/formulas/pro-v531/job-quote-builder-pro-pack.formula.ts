@@ -1,0 +1,67 @@
+import "server-only";
+
+export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
+export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+
+export interface CalculationResult {
+  status: CalculationStatus;
+  outputs: Record<string, number>;
+  warnings: string[];
+  outputKeys: string[];
+  redaction_status: RedactionStatus;
+}
+
+export const toolKey = "job-quote-builder-pro-pack";
+export const formulaVersion = "5.3.1-pro-baris.1";
+
+function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
+function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
+function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+
+export function calculate(inputs: Record<string, number>): CalculationResult {
+  const warnings: string[] = [];
+  const outputs: Record<string, number> = {};
+
+
+  const mr = get(inputs, "n_machine_rate");
+  const ct = get(inputs, "n_cycle_time");
+  const st = get(inputs, "n_setup_time");
+  const mc = get(inputs, "n_material_cost");
+  const tm = get(inputs, "n_target_margin");
+  const bq = get(inputs, "n_batch_quantity");
+  const vol = get(inputs, "n_annual_volume");
+  const lr = get(inputs, "n_labor_rate");
+  const oh = get(inputs, "n_overhead_rate");
+  const dc = get(inputs, "n_defect_or_loss_cost");
+  const conf = get(inputs, "n_source_confidence_ratio");
+  const unc = get(inputs, "n_uncertainty_multiplier");
+  const tc = ct + st;
+  const lc = lr * tc / 60;
+  const mac = mr * tc / 60;
+  const sc = dc * 0.1;
+  const oa = vol > 0 ? oh / vol * bq : 0;
+  const tjc = lc + mac + mc * bq + sc + oa;
+  const mu = 1 + tm;
+  const rp = tjc * mu;
+  const ra = rp * (1 + unc * 0.1);
+  const mp = ra > 0 ? (ra - tjc) / ra : 0;
+  outputs["out_evidence_completeness"] = round(conf, 3);
+  outputs["out_normalized_demand"] = round(tjc, 2);
+  outputs["out_demand_metric"] = round(tjc, 2);
+  outputs["out_capacity_metric"] = round(rp, 2);
+  outputs["out_utilization_margin"] = round(mp, 4);
+  outputs["out_money_at_risk"] = round(tjc * (tm - Math.max(mp, 0)), 2);
+  outputs["out_threshold_crossing"] = mp >= tm ? 0 : 1;
+  outputs["out_fmea_trigger"] = mp < tm * 0.5 ? 1 : 0;
+  outputs["out_final_decision_state"] = mp >= tm ? 0 : (mp >= tm * 0.5 ? 1 : 2);
+
+
+  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
+  return {
+    status: ok ? "OK" : "REVIEW",
+    outputs,
+    warnings: warnings.length ? warnings : [],
+    outputKeys: Object.keys(outputs),
+    redaction_status: "PUBLIC_SAFE_REDACTED"
+  };
+}
