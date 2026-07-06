@@ -1,0 +1,22 @@
+{
+  "tool_key": "break-even-survival-cash-calculator",
+  "schema_version": "5.3.1-pro-schema.1",
+  "formula_version": "5.3.1-pro-baris.1",
+  "raw_inputs": {
+    "sample_input": 100
+  },
+  "expected_outputs": {
+    "out_evidence_completeness": 0.9,
+    "out_normalized_demand": 10000,
+    "out_utilization_margin": 0.25,
+    "out_money_at_risk": 25000,
+    "out_final_decision_state": 0
+  },
+  "expected_hashes": {
+    "output_hash": "oh-b1-break-",
+    "proof_pack_hash": "pph-b1-break-",
+    "audit_seal_stable_hash": "ash-b1-break-"
+  },
+  "expected_decision_status": "OK",
+  "expected_warnings": []
+}
