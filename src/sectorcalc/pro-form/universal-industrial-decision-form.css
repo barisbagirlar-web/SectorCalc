@@ -29,7 +29,7 @@
   line-height: 1.45;
   letter-spacing: -0.005em;
   box-sizing: border-box;
-  padding: 0 16px 120px;
+  padding: 0 16px 64px;
   overflow-x: hidden;
 }
 
@@ -1731,11 +1731,11 @@
    ═══════════════════════════════════════════════════════ */
 
 .sc-v531-shell {
-  padding-bottom: 140px;
+  padding-bottom: 64px;
 }
 
 @media (max-width: 720px) {
   .sc-v531-shell {
-    padding-bottom: 180px !important;
+    padding-bottom: 80px !important;
   }
 }
