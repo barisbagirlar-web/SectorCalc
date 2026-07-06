@@ -1,13 +1,21 @@
+// SectorCalc V5.3.1 — Free Tools Catalog Page
+// Root-only route. Lists all free V5.3.1 calculators.
+// Same design as /pro-tools using CatalogPageShell.
+// No locale prefix. Pure technical English.
+
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageShell } from "@/components/catalog/CatalogPageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
+import { freeV531FormulaRegistry } from "@/sectorcalc/formulas/free-v531";
+import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 import {
   buildTaxonomySectorCards,
   withTaxonomyCountLabels,
 } from "@/lib/features/tools/build-taxonomy-sector-cards";
+import { SLUG_TOKEN_SECTOR_HINTS, SECTORS } from "@/lib/features/tools/taxonomy";
 import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
 import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/features/tools/filter-catalog-hub-tools";
 
@@ -20,177 +28,172 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-// ─── Free V5.3.1 tool key → display name ───────────────────────────────────
-// Names sourced directly from TOOL_NAME constant in each .formula.ts file.
+// ─── Sector mapping from free tool slug tokens ─────────────────────────────
 
-const FREE_TOOL_NAMES: Record<string, string> = {
-  "machining-cost-per-part": "Machining Cost per Part Calculator",
-  "cnc-shop-hourly-rate": "CNC Shop Hourly Rate Calculator",
-  "cutting-speed-feed-rpm": "Cutting Speed & Feed RPM Calculator",
-  "tap-drill-size": "Tap Drill Size Calculator",
-  "iso-286-tolerance-fit": "ISO 286 Tolerance & Fit Calculator",
-  "surface-roughness-converter": "Surface Roughness Converter",
-  "material-removal-rate": "Material Removal Rate Calculator",
-  "tool-life-tool-cost-per-part": "Tool Life Taylor and Tool Cost per Part Calculator",
-  "scrap-cost": "Scrap Cost Calculator",
-  "rework-vs-scrap-decision": "Rework vs Scrap Decision Calculator",
-  "thread-dimensions-reference": "Thread Dimensions Reference Calculator",
-  "knurling-drill-point-depth": "Knurling and Drill Point Depth Quick Calculator",
-  "weld-metal-weight-consumable": "Weld Metal Weight and Consumable Calculator",
-  "fillet-weld-size-strength": "Fillet Weld Size and Strength Calculator",
-  "welding-cost-per-meter": "Welding Cost per Meter Calculator",
-  "welding-heat-input": "Welding Heat Input Calculator",
-  "bolt-torque": "Bolt Torque Calculator",
-  "bolt-preload-clamp-force": "Bolt Preload and Clamp Force Calculator",
-  "steel-weight": "Steel Weight Calculator",
-  "beam-load-deflection-quick-check": "Beam Load and Deflection Quick Check",
-  "sheet-metal-bend-allowance": "Sheet Metal Bend Allowance Calculator",
-  "oee": "OEE Calculator",
-  "downtime-cost": "Downtime Cost Calculator",
-  "takt-time-cycle-time": "Takt Time and Cycle Time Calculator",
-  "setup-time-cost": "Setup Time Cost Calculator",
-  "line-balancing-efficiency": "Line Balancing Efficiency Calculator",
-  "compressed-air-leak-cost": "Compressed Air Leak Cost Calculator",
-  "electric-motor-running-cost": "Electric Motor Running Cost Calculator",
-  "energy-cost-per-part": "Energy Cost per Part Calculator",
-  "cbam-cost-quick-estimator": "CBAM Cost Quick Estimator",
-  "electricity-co2-emissions": "Electricity CO2 Emissions Calculator",
-  "diesel-fuel-co2-emissions": "Diesel Fuel CO2 Emissions Calculator",
-  "product-carbon-footprint-basic": "Product Carbon Footprint Basic Calculator",
-  "carbon-price-exposure": "Carbon Price Exposure Calculator",
-  "true-employee-cost": "True Employee Cost Calculator",
-  "quote-margin-markup": "Quote Margin and Markup Calculator",
-  "machine-investment-payback": "Machine Investment Payback Calculator",
-  "customer-profitability": "Customer Profitability Calculator",
-  "currency-adjusted-pricing": "Currency Adjusted Pricing Calculator",
-  "payment-term-cost": "Payment Term Cost Calculator",
-  "eoq": "EOQ Calculator",
-  "safety-stock-reorder-point": "Safety Stock and Reorder Point Calculator",
-  "inventory-carrying-cost": "Inventory Carrying Cost Calculator",
-  "pallet-container-load-cbm": "Pallet and Container Load CBM Calculator",
-  "freight-cost-per-km-trip": "Freight Cost per km and Trip Calculator",
-  "concrete-volume-order-quantity": "Concrete Volume and Order Quantity Calculator",
-  "rebar-weight-count": "Rebar Weight and Count Calculator",
-  "recipe-cost-menu-price": "Recipe Cost and Menu Price Calculator",
-  "fabric-consumption-gsm": "Fabric Consumption and GSM Calculator",
-};
-
-// Active (allowlisted) free tool — same financial logic as break-even-point
-const ACTIVE_BREAK_EVEN_KEY = "break-even-and-margin-of-safety-analysis";
-const ACTIVE_BREAK_EVEN_NAME = "Break-Even & Margin of Safety Analysis";
-
-// ─── Sector mapping ─────────────────────────────────────────────────────────
-
-const FREE_SECTOR_MAP: Record<string, string> = {
+const KNOWN_FREE_SECTOR_EXACT: Record<string, string> = {
   // Machining
-  "machining-cost-per-part": "makine",
-  "cnc-shop-hourly-rate": "makine",
-  "cutting-speed-feed-rpm": "makine",
-  "tap-drill-size": "makine",
-  "iso-286-tolerance-fit": "makine",
-  "surface-roughness-converter": "makine",
-  "material-removal-rate": "makine",
-  "tool-life-tool-cost-per-part": "makine",
-  "knurling-drill-point-depth": "makine",
-  "thread-dimensions-reference": "makine",
+  machining: "makine",
+  cnc: "makine",
+  cutting: "makine",
+  tap: "makine",
+  drill: "makine",
+  tolerance: "makine",
+  surface: "makine",
+  roughness: "makine",
+  material: "makine",
+  removal: "makine",
+  knurling: "makine",
+  thread: "makine",
+  rpm: "makine",
+  feed: "makine",
 
   // Metal & Welding
-  "weld-metal-weight-consumable": "metal",
-  "fillet-weld-size-strength": "metal",
-  "welding-cost-per-meter": "metal",
-  "welding-heat-input": "metal",
-  "bolt-torque": "metal",
-  "bolt-preload-clamp-force": "metal",
-  "steel-weight": "metal",
-  "beam-load-deflection-quick-check": "metal",
-  "sheet-metal-bend-allowance": "metal",
+  weld: "metal",
+  welding: "metal",
+  fillet: "metal",
+  bolt: "metal",
+  torque: "metal",
+  preload: "metal",
+  clamp: "metal",
+  steel: "metal",
+  beam: "metal",
+  load: "metal",
+  deflection: "metal",
+  sheet: "metal",
+  bend: "metal",
+  allowance: "metal",
 
   // Quality & Efficiency
-  "scrap-cost": "istatistik",
-  "rework-vs-scrap-decision": "istatistik",
-  "oee": "istatistik",
-  "downtime-cost": "istatistik",
-  "takt-time-cycle-time": "istatistik",
-  "setup-time-cost": "istatistik",
-  "line-balancing-efficiency": "istatistik",
+  scrap: "istatistik",
+  rework: "istatistik",
+  oee: "istatistik",
+  downtime: "istatistik",
+  takt: "istatistik",
+  setup: "istatistik",
+  balancing: "istatistik",
+  efficiency: "istatistik",
+  quality: "istatistik",
 
   // Energy
-  "compressed-air-leak-cost": "enerji",
-  "electric-motor-running-cost": "enerji",
-  "energy-cost-per-part": "enerji",
-  "electricity-co2-emissions": "enerji",
-  "diesel-fuel-co2-emissions": "enerji",
+  compressed: "enerji",
+  air: "enerji",
+  electric: "enerji",
+  motor: "enerji",
+  running: "enerji",
 
   // Environment & Carbon
-  "cbam-cost-quick-estimator": "cevre",
-  "product-carbon-footprint-basic": "cevre",
-  "carbon-price-exposure": "cevre",
+  cbam: "cevre",
+  electricity: "cevre",
+  co2: "cevre",
+  diesel: "cevre",
+  fuel: "cevre",
+  carbon: "cevre",
+  emission: "cevre",
+  footprint: "cevre",
+  environment: "cevre",
 
   // Finance
-  "true-employee-cost": "finans",
-  "quote-margin-markup": "finans",
-  "payment-term-cost": "finans",
-  "machine-investment-payback": "finans",
-  "customer-profitability": "finans",
-  "currency-adjusted-pricing": "finans",
-  "break-even-and-margin-of-safety-analysis": "finans",
+  employee: "finans",
+  quote: "finans",
+  margin: "finans",
+  markup: "finans",
+  payment: "finans",
+  term: "finans",
+  investment: "finans",
+  payback: "finans",
+  profitability: "finans",
+  currency: "finans",
+  pricing: "finans",
 
   // Logistics
-  "eoq": "lojistik",
-  "safety-stock-reorder-point": "lojistik",
-  "inventory-carrying-cost": "lojistik",
-  "pallet-container-load-cbm": "lojistik",
-  "freight-cost-per-km-trip": "lojistik",
+  eoq: "lojistik",
+  safety: "lojistik",
+  stock: "lojistik",
+  reorder: "lojistik",
+  inventory: "lojistik",
+  carrying: "lojistik",
+  pallet: "lojistik",
+  container: "lojistik",
+  cbm: "lojistik",
+  freight: "lojistik",
+  shipping: "lojistik",
 
   // Construction
-  "concrete-volume-order-quantity": "insaat",
-  "rebar-weight-count": "insaat",
+  concrete: "insaat",
+  rebar: "insaat",
 
   // Food
-  "recipe-cost-menu-price": "gida",
+  recipe: "gida",
+  menu: "gida",
 
   // Textile
-  "fabric-consumption-gsm": "tekstil",
+  fabric: "tekstil",
+  consumption: "tekstil",
+  gsm: "tekstil",
+  textile: "tekstil",
 };
 
-// ─── Build tool list ────────────────────────────────────────────────────────
+const TAXONOMY_SECTOR_IDS = new Set(SECTORS.map((s) => s.id));
 
-function buildFreeToolsList(): ToolListItem[] {
-  const tools: ToolListItem[] = [];
-
-  for (const [key, name] of Object.entries(FREE_TOOL_NAMES)) {
-    tools.push({
-      slug: key,
-      name,
-      title: name,
-      tier: "free",
-      href: `/tools/free/${key}`,
-      isPremium: false,
-      categorySlug: "free-tools",
-      sectorKey: FREE_SECTOR_MAP[key] ?? "diger",
-    });
+function resolveFreeSectorKey(toolKey: string): string {
+  const tokens = toolKey.split("-");
+  for (const token of tokens) {
+    if (KNOWN_FREE_SECTOR_EXACT[token]) {
+      return KNOWN_FREE_SECTOR_EXACT[token];
+    }
+    const hint = SLUG_TOKEN_SECTOR_HINTS[token];
+    if (hint && TAXONOMY_SECTOR_IDS.has(hint)) {
+      return hint;
+    }
   }
-
-  // Active verified break-even tool (allowlisted)
-  tools.push({
-    slug: ACTIVE_BREAK_EVEN_KEY,
-    name: ACTIVE_BREAK_EVEN_NAME,
-    title: ACTIVE_BREAK_EVEN_NAME,
-    tier: "free",
-    href: `/tools/free/${ACTIVE_BREAK_EVEN_KEY}`,
-    isPremium: false,
-    categorySlug: "free-tools",
-    sectorKey: "finans",
-  });
-
-  return tools;
+  return "diger";
 }
 
-// ─── Page ────────────────────────────────────────────────────────────────────
+// ─── Convert free formula module to ToolListItem ──────────────────────────
+
+function freeFormulaToToolListItem(
+  toolKey: string,
+  toolName: string,
+): ToolListItem {
+  const sectorKey = resolveFreeSectorKey(toolKey);
+  return {
+    slug: toolKey,
+    name: toolName,
+    title: toolName,
+    tier: "free",
+    href: `/tools/free/${toolKey}`,
+    isPremium: false,
+    categorySlug: "free-tools",
+    sectorKey,
+  };
+}
+
+// ─── Page ──────────────────────────────────────────────────────────────────
 
 export default async function FreeToolsCatalogPage() {
   const locale = "en";
-  const tools = buildFreeToolsList();
+
+  // Build tool list from formula registry, excluding removed tools (404 routes)
+  const removedSlugs = new Set(["break-even-point"]);
+  const tools: ToolListItem[] = [];
+
+  for (const [toolKey, formula] of Object.entries(freeV531FormulaRegistry)) {
+    if (removedSlugs.has(toolKey)) continue;
+    tools.push(freeFormulaToToolListItem(toolKey, formula.toolName));
+  }
+
+  // Add the active allowlisted break-even tool (separate from registry)
+  const activeFreeSlugs = new Set(ACTIVE_FREE_TOOL_SLUGS);
+  for (const slug of activeFreeSlugs) {
+    if (slug === "break-even-and-margin-of-safety-analysis") {
+      tools.push(
+        freeFormulaToToolListItem(
+          slug,
+          "Break-Even & Margin of Safety Analysis",
+        ),
+      );
+    }
+  }
 
   const taxonomySectorCards = withTaxonomyCountLabels(
     buildTaxonomySectorCards(tools, locale, {
