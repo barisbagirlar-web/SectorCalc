@@ -12,8 +12,10 @@ import { isProBypassEmail } from "@/lib/features/billing/subscription";
 
 const BYPASS_SESSION_ID = "bypass-unlimited";
 
-type ProToolSessionWrapperProps = Omit<UniversalIndustrialDecisionFormProps, "accessTier" | "onRequestCreditSession" | "usageSessionId" | "remainingRuns" | "creditSessionLoading"> & {
+type ProToolSessionWrapperProps = Omit<UniversalIndustrialDecisionFormProps, "onRequestCreditSession" | "usageSessionId" | "remainingRuns" | "creditSessionLoading"> & {
   toolKey: string;
+  /** Access tier: "PRO" (default) requires credits; "FREE" skips credit gating. */
+  accessTier?: "FREE" | "PRO";
 };
 
 export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
@@ -83,7 +85,7 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
   return (
     <UniversalIndustrialDecisionForm
       {...props}
-      accessTier="PRO"
+      accessTier={props.accessTier ?? "PRO"}
       usageSessionId={usageSessionId}
       remainingRuns={remainingRuns}
       creditSessionLoading={creditSessionLoading}

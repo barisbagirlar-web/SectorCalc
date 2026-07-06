@@ -10,7 +10,6 @@ import type {
   CalcStatus,
   ExecuteResponse,
   ProfileMode,
-  RedactionStatus,
   ServerOutput,
   ServerWarning,
   SuperV4Input,
@@ -28,21 +27,17 @@ import {
 } from "./display-labels";
 import {
   hasServerResponse,
-  shouldShowHiddenRiskPanel,
-  shouldShowBusinessImpactPanel,
-  shouldShowFmeaPanel,
-  shouldShowAuditSealPanel,
-  shouldShowExportPanel,
   safeBasePreview,
-  safeReferenceLabel,
-  hasUsefulReferenceValues,
   safeDisplayCategory,
-  hasClientBlockers,
   getPrimaryCtaLabel,
-  safeRedactionDisplay,
   formatSafeValue,
+  formatDisplayNumber,
+  formatBusinessResult,
   safeDisplayScope,
-  formatDisplayUnit,
+  formatCleanUnitLabel,
+  buildSafeDisplayUnitOptions,
+  getProOutputSymbol,
+  getProOutputDisplayUnit,
 } from "./form-render-helpers";
 import { normalizeV531FieldMetadata } from "./normalize-v531-field-metadata";
 import "./universal-industrial-decision-form.css";
@@ -86,6 +81,8 @@ interface FieldViewModel {
   declaredDefaultReference: string;
   declaredAcceptedValues: string;
   declaredTolerance: string;
+  /** Single clean user-facing reference helper line. Shown in both FREE and PRO. */
+  cleanReferenceHelper: string;
 }
 
 interface ActionViewModel {
@@ -158,7 +155,6 @@ function buildCalculatorViewModel(
   primaryButtonLabel: string,
   primaryButtonAction: () => void,
   clientBlockerCount: number,
-  clientWarningCount: number,
   toolName: string,
   displayScope: string,
   displayCategory: string,
@@ -166,15 +162,19 @@ function buildCalculatorViewModel(
   identityCheck: { ok: boolean; reason?: string } | null,
 ): CalculatorViewModel {
   const decision = response?.decision_interpretation;
+  const isFree = accessTier === "FREE";
 
-  // Badges
+  // Badges — only category + tier in primary UI
   const badges: CalculatorViewModel["badges"] = [];
-  badges.push({ label: displayCategory || "Calculator", type: "category" });
-  badges.push({ label: accessTier === "PRO" ? "Pro" : "Free", type: "tier" });
-  badges.push({ label: `Risk: ${schema.risk_level}`, type: "risk" });
-  badges.push({ label: `v${schema.metadata.schema_version}`, type: "version" });
-  if (accessTier === "PRO" && hasSession) {
-    badges.push({ label: `${runsRemaining}/10 runs`, type: "runs" });
+  const cleanBadgeLabel = (label: string) =>
+    label.replace(/[·\s]*SuperV4[^·]*/gi, "").replace(/[·\s]*V5[.\d]*/gi, "").replace(/\s{2,}/g, " ").replace(/[·\s]*$/g, "").trim() || label;
+  if (isFree) {
+    // FREE mode: only category + tier, no version/risk/runs badges
+    badges.push({ label: cleanBadgeLabel(displayCategory) || "Calculator", type: "category" });
+    badges.push({ label: "Free", type: "tier" });
+  } else {
+    badges.push({ label: cleanBadgeLabel(displayCategory) || "Calculator", type: "category" });
+    badges.push({ label: accessTier === "PRO" ? "Pro" : "Free", type: "tier" });
   }
 
   // Compute tool-characteristic reference source label based on category
@@ -212,6 +212,37 @@ function buildCalculatorViewModel(
 
       // ── V5.3.1: Normalize field metadata from schema ──
       const meta = normalizeV531FieldMetadata(input, props.schema);
+
+      // Clean reference helper — one user-facing line per input, en-US format
+      // Priority: 1. engineering_range / engineering_reference_range, 2. meta.allowedRange, 3. physical_hard_bounds as "Input limit"
+      const cleanReferenceHelper = (() => {
+        // Priority 1: engineering_reference_range or engineering_range
+        const er = input.engineering_reference_range ?? input.engineering_range;
+        if (er && er.min !== null && er.max !== null) {
+          const uLabel = er.unit ? formatCleanUnitLabel(er.unit) : "";
+          const minF = formatDisplayNumber(er.min, { decimals: 6, stripTrailingZeros: true });
+          const maxF = formatDisplayNumber(er.max, { decimals: 6, stripTrailingZeros: true });
+          const uStr = uLabel ? ` ${uLabel}` : "";
+          return `Reference: ${minF}–${maxF}${uStr}`;
+        }
+        // Priority 2: normalized allowedRange (from physical_hard_bounds or other)
+        if (meta.allowedRange) {
+          return `Reference: ${meta.allowedRange}`;
+        }
+        // Priority 3: physical_hard_bounds as "Input limit"
+        const hb = input.physical_hard_bounds;
+        if (hb && hb.min !== null && hb.max !== null) {
+          const unitLabel = hb.unit ? formatCleanUnitLabel(hb.unit) : "";
+          const minFormatted = formatDisplayNumber(hb.min, { decimals: 0, stripTrailingZeros: true });
+          const maxFormatted = formatDisplayNumber(hb.max, { decimals: 0, stripTrailingZeros: true });
+          const unitStr = unitLabel ? ` ${unitLabel}` : "";
+          return `Input limit: ${minFormatted}–${maxFormatted}${unitStr}`;
+        }
+        if (meta.defaultReference) {
+          return `Reference: ${meta.defaultReference}`;
+        }
+        return "";
+      })();
 
       // ── Reference strip: compact metadata lines under each input ──
       const refStrip: string[] = [];
@@ -278,27 +309,35 @@ function buildCalculatorViewModel(
         symbol: input.symbol ?? null,
         type: input.type === "integer" ? "integer" : (input.type as FieldViewModel["type"]),
         value: state.rawInputState[input.id] ?? null,
-        selectedUnit: state.selectedUnitState[input.id] ?? "",
-        allowedUnits: input.allowed_display_units ?? [],
+        selectedUnit: state.selectedUnitState[input.id]
+          ?? (input.allowed_display_units?.length
+            ? input.allowed_display_units[0]
+            : (input.base_unit ? buildSafeDisplayUnitOptions(input.base_unit)[0] : "")),
+        allowedUnits: input.allowed_display_units?.length
+          ? input.allowed_display_units
+          : (input.base_unit ? buildSafeDisplayUnitOptions(input.base_unit) : []),
         unitSelectable: !!input.unit_selectable,
         allowedValues: input.allowed_values ?? [],
         helpText: input.user_help_text ?? input.help_text ?? "",
         criticality: input.criticality,
         blockers: state.validationState.client_precheck_errors.filter((issue) => issue.input_id === input.id),
-        basePreview: basePreviewVal,
-        referenceSource: inputRefSource,
-        tolerancePct: tolPct,
-        evidence: {
-          valueVerified: evState?.user_verified === true || evState?.enabled === true,
-          sourceVerified: evState?.source_verified === true,
-          evidenceRequired,
-          evidenceLabel,
-        },
-        referenceStrip: refStrip,
-        declaredRange,
-        declaredDefaultReference,
-        declaredAcceptedValues,
-        declaredTolerance,
+        basePreview: isFree ? null : basePreviewVal,
+        referenceSource: isFree ? null : inputRefSource,
+        tolerancePct: isFree ? null : tolPct,
+        evidence: isFree
+          ? { valueVerified: false, sourceVerified: false, evidenceRequired: false, evidenceLabel: "" }
+          : {
+              valueVerified: evState?.user_verified === true || evState?.enabled === true,
+              sourceVerified: evState?.source_verified === true,
+              evidenceRequired,
+              evidenceLabel,
+            },
+        referenceStrip: isFree ? [] : refStrip,
+        declaredRange: isFree ? "" : declaredRange,
+        declaredDefaultReference: isFree ? "" : declaredDefaultReference,
+        declaredAcceptedValues: isFree ? "" : declaredAcceptedValues,
+        declaredTolerance: isFree ? "" : declaredTolerance,
+        cleanReferenceHelper,
       };
     });
 
@@ -308,7 +347,7 @@ function buildCalculatorViewModel(
     disabled: primaryButtonDisabled,
     disabledReason: primaryButtonDisabled
       ? (isExecuting
-          ? "Server execution in progress."
+          ? (isFree ? "Processing..." : "Server execution in progress.")
           : (accessTier === "PRO" && !hasSession)
             ? "Use 1 credit to start."
             : (accessTier === "PRO" && runsRemaining <= 0)
@@ -344,9 +383,10 @@ function buildCalculatorViewModel(
     nextAction: decision?.next_best_actions?.[0] ?? null,
   };
 
-  // Warnings
+  // Warnings (filtered — hide internal/system warnings for both FREE and PRO)
   const warnings: CalculatorViewModel["warnings"] = [];
   for (const issue of state.validationState.client_precheck_errors) {
+    if (isInternalWarning(issue.message)) continue;
     warnings.push({
       severity: issue.severity,
       title: issue.message,
@@ -355,11 +395,71 @@ function buildCalculatorViewModel(
   }
   if (response?.warnings) {
     for (const w of response.warnings) {
+      if (isInternalWarning(w.message)) continue;
       warnings.push({ severity: w.severity, title: w.message, detail: w.suggested_action ?? "" });
     }
   }
 
   return { title: toolName, purpose: displayScope, badges, fields, action, secondaryActions, resultState, warnings };
+}
+
+/** True if an output is a status/decision output and should not appear in primary result grid. */
+function isStatusOutput(out: { name?: string; decision_use?: string | null }): boolean {
+  const key = (out.name ?? "").toLowerCase().replace(/[\s-]+/g, "_");
+  return (
+    key.includes("decision_status") ||
+    key.includes("governing_driver") ||
+    out.decision_use === "STATUS"
+  );
+}
+
+/** Warnings to hide in primary UI — applied for both FREE and PRO. */
+function isInternalWarning(message: string): boolean {
+  const lower = message.toLowerCase();
+  return (
+    lower.includes("derating") ||
+    lower.includes("trigger_inputs") ||
+    lower.includes("source evidence") ||
+    lower.includes("source verified") ||
+    lower.includes("evidence required") ||
+    lower.includes("review derating contract") ||
+    lower.includes("no declared accepted values") ||
+    lower.includes("no declared range") ||
+    lower.includes("no declared tolerance") ||
+    lower.includes("no declared reference") ||
+    lower.includes("superv4") ||
+    lower.includes("single-operation")
+  );
+}
+
+// ── FREE output unit suffix map (tool-specific) ────────────────────────────
+// Maps output IDs to their proper customer-facing unit suffix in FREE result cards.
+// This is needed because server output units may be raw/empty for FREE tools.
+const FREE_OUTPUT_UNIT_SUFFIX: Record<string, string> = {
+  "contribution_margin_per_unit": "Currency/unit",
+  "break_even_units": "Units",
+  "break_even_revenue": "Currency",
+  "margin_of_safety_units": "Units",
+  "margin_of_safety_percent": "%",
+};
+
+/**
+ * Get the display-ready unit suffix for a FREE tool output.
+ * Uses a safe map for known outputs, falls back to server unit formatting.
+ */
+function getFreeOutputUnitSuffix(
+  out: { id?: string | null; name?: string; unit?: string | null },
+): string {
+  const outputKey = (out.id ?? out.name ?? "").toLowerCase().replace(/[\s-]+/g, "_");
+  const mapped = FREE_OUTPUT_UNIT_SUFFIX[outputKey];
+  if (mapped) return mapped;
+  // Fallback: use server unit if available
+  if (out.unit) {
+    if (out.unit === "display_currency") return "Currency";
+    const label = formatCleanUnitLabel(out.unit);
+    if (label) return label;
+  }
+  return "";
 }
 
 // ── Reference source helper ────────────────────────────────────────────────────
@@ -551,24 +651,35 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       } as SuperV4Schema)
     : props.schema;
 
+  // ── FREE-route detection ──
+  // Synchronous check — no state needed. Safe because this is a client component.
+  const isFreeRoute: boolean =
+    typeof window !== "undefined" &&
+    (window.location.pathname.includes("/tools/free/") ||
+      window.location.pathname.startsWith("/free-tools/"));
+
+  const effectiveAccessTier: "FREE" | "PRO" =
+    isFreeRoute ? "FREE" : (props.accessTier ?? "FREE");
+  const effectiveInitialMode: ProfileMode =
+    isFreeRoute ? "quick" : (props.initialProfileMode ?? "engineering");
+
   // ── Hooks (unconditional) ──
   const machine = useUniversalIndustrialDecisionFormMachine({
     schema: machineSchema,
     schemaHash: props.schemaHash,
     executeEndpoint: props.executeEndpoint,
-    initialProfileMode: props.initialProfileMode ?? "engineering",
+    initialProfileMode: effectiveInitialMode,
   });
 
   const { state } = machine;
   const response = state.serverResponseState.response;
-  const activeMode = state.profileModeState.mode;
   const premiumHook = state.premiumHookState.hook;
 
-  const status = response?.status ?? executionStateToStatus(state.executionState);
-
-  // Access tier
-  const accessTier = props.accessTier ?? "FREE";
+  // Access tier (effective — FREE route overrides wrapper PRO)
+  const accessTier = effectiveAccessTier;
   const isPro = accessTier === "PRO";
+  // Hydration-safe tier check — use accessTier (from props) not isFreeRoute (uses window)
+  const isFreeTier = accessTier === "FREE";
   const hasSession = isPro && !!props.usageSessionId;
   const runsRemaining = props.remainingRuns ?? 0;
   const sessionExhausted = isPro && hasSession && runsRemaining <= 0;
@@ -578,9 +689,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
   const clientBlockerCount = state.blockerState.blockers.filter(
     (b) => b.severity === "BLOCKER" || b.severity === "CRITICAL",
-  ).length;
-  const clientWarningCount = state.validationState.client_precheck_errors.filter(
-    (b) => b.severity !== "BLOCKER" && b.severity !== "CRITICAL",
   ).length;
 
   // Admin bypass: owner email (barisbagirlar@gmail.com) has unlimited Pro access
@@ -593,13 +701,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     (isPro && !hasSession && !isBypassUser) ||
     (isPro && sessionExhausted);
 
-  const primaryButtonLabel = getPrimaryCtaLabel(
-    accessTier,
-    isExecuting,
-    hasSession || isBypassUser,
-    hasResult,
-    creditSessionLoading,
-  );
+  const primaryButtonLabel = isFreeTier
+    ? (isExecuting ? "Calculating..." : "Calculate")
+    : getPrimaryCtaLabel(accessTier, isExecuting, hasSession || isBypassUser, hasResult, creditSessionLoading);
 
   const primaryButtonAction = () => {
     if (isPro && (!hasSession || sessionExhausted)) {
@@ -623,9 +727,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const rawCategoryLabel =
     props.renderContract?.categoryLabel ??
     String(schemaRecord.category_label ?? schemaRecord.categoryLabel ?? schemaRecord.category ?? "");
-  const operationLabel =
-    props.renderContract?.operationLabel ??
-    String(schemaRecord.primary_operation ?? "Calculate");
 
   const displayToolName = getDisplayToolName(
     props.schema?.tool_name as string | null | undefined,
@@ -645,27 +746,33 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     displayCategory,
   );
 
+  // FREE-mode hero override for break-even tool
+  const freeHeroSubtitle =
+    isFreeTier &&
+    (props.toolKey === "break-even-and-margin-of-safety-analysis" ||
+      props.schema?.tool_key === "break-even-and-margin-of-safety-analysis")
+      ? "Find how many units you must sell to cover costs and how much sales buffer you have."
+      : displayScope;
+
   // ── ViewModel ──
+  const vmPurpose = isFreeTier ? freeHeroSubtitle : displayScope;
   const vm = useMemo(
     () => buildCalculatorViewModel(
-      props.schema, state, machine, props, activeMode, response,
+      props.schema, state, machine, props, state.profileModeState.mode, response,
       accessTier, hasSession, runsRemaining, isExecuting, hasResult,
       primaryButtonDisabled, primaryButtonLabel, primaryButtonAction,
-      clientBlockerCount, clientWarningCount, toolName, displayScope,
+      clientBlockerCount, toolName, vmPurpose,
       displayCategory, displayOperation,
       identityCheck as { ok: boolean; reason?: string } | null,
     ),
     [
-      props.schema, state, machine, props, activeMode, response,
+      props.schema, state, machine, props, state.profileModeState.mode, response,
       accessTier, hasSession, runsRemaining, isExecuting, hasResult,
       primaryButtonDisabled, primaryButtonLabel, primaryButtonAction,
-      clientBlockerCount, clientWarningCount, toolName, displayScope,
+      clientBlockerCount, toolName, vmPurpose,
       displayCategory, displayOperation, identityCheck,
     ],
   );
-
-  // ── State for collapsed advanced section ──
-  const [advancedOpen, setAdvancedOpen] = useState(false);
 
   // ── Guard blocks (after hooks) ──
   if (contractErrors.length > 0) {
@@ -693,40 +800,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         </div>
       </header>
 
-      {/* ── Mode selector (subtle row) ── */}
-      <div className="sc-v531-mode-tabs" role="tablist" aria-label="Profile mode">
-        {PROFILE_MODE_OPTIONS.map((mode) => (
-          <button
-            key={mode.id}
-            type="button"
-            role="tab"
-            aria-selected={activeMode === mode.id}
-            aria-pressed={activeMode === mode.id}
-            className={`sc-v531-mode-tab${activeMode === mode.id ? " sc-v531-mode-tab--active" : ""}`}
-            onClick={() => machine.setProfileMode(mode.id)}
-          >
-            {mode.label}
-          </button>
-        ))}
-      </div>
-
-      {/* ── View description helper ── */}
-      <div className="sc-v531-view-description" aria-live="polite">
-        {VIEW_DESCRIPTIONS[activeMode] ?? "Select a view to see its description."}
-      </div>
-
-      {/* ── 2. Main workspace: inputs + action panel ── */}
+      {/* ── Main workspace: inputs + action panel ── */}
       <div className="sc-v531-layout">
         <main className="sc-v531-main-panel">
-          {/* Warnings */}
-          {vm.warnings.length > 0 && (
-            <div className="sc-v531-warning-stack">
-              {vm.warnings.map((w, i) => (
-                <WarningCard key={i} severity={w.severity} title={w.title} detail={w.detail} />
-              ))}
-            </div>
-          )}
-
           {/* Input cards */}
           {vm.fields.length === 0 && (
             <p className="sc-v531-empty">No inputs defined for this tool.</p>
@@ -749,47 +825,426 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
             ))}
           </div>
 
-          {/* Results */}
-          <section className="sc-v531-section sc-v531-results" aria-label="Results">
-            {vm.resultState.hasResult ? (
-              <div className="sc-v531-result-content">
-                {vm.resultState.primaryOutput && (
-                  <div className="sc-v531-result-primary">
-                    <span className="sc-v531-result-label">{vm.resultState.primaryOutput.name}</span>
-                    <span className="sc-v531-result-value">
-                      {vm.resultState.primaryOutput.value}
-                      {vm.resultState.primaryOutput.unit ? ` ${vm.resultState.primaryOutput.unit}` : ""}
-                    </span>
-                    <p className="sc-v531-result-explanation">{vm.resultState.primaryOutput.explanation}</p>
+        {/* Results */}
+        <section className="sc-v531-section sc-v531-results" aria-label="Results">
+          {vm.resultState.hasResult ? (
+            <div className="sc-v531-result-content">
+              {/* FREE mode: show all outputs in a clean summary panel */}
+              {isFreeTier && response?.outputs && response.outputs.length > 0 && (
+                <div className="sc-v531-free-results">
+                  <h3 className="sc-v531-free-results-title">Business Summary</h3>
+                  <div className="sc-v531-free-results-grid">
+                    {response.outputs.filter((o) => !isStatusOutput(o)).map((out, idx) => {
+                      const formattedValue = typeof out.value === "number"
+                        ? formatBusinessResult(out.name, out.value)
+                        : formatSafeValue(out.value);
+                      const freeUnitSuffix = getFreeOutputUnitSuffix(out);
+                      const displayStr = freeUnitSuffix
+                        ? (formattedValue.endsWith(freeUnitSuffix) ? formattedValue : `${formattedValue} ${freeUnitSuffix}`)
+                        : formattedValue;
+                      const isLarge = displayStr.length > 20;
+                      return (
+                        <div key={idx} className="sc-v531-free-result-item">
+                          <span className="sc-v531-free-result-name">{out.name}</span>
+                          <span
+                            className={`sc-v531-free-result-value${isLarge ? " sc-v531-free-result-value--large" : ""}`}
+                          >
+                            {displayStr}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
-                )}
-                {vm.resultState.decision && (
-                  <div className="sc-v531-result-decision">
-                    <span className="sc-v531-decision-label">Decision</span>
-                    <span className="sc-v531-decision-value">{vm.resultState.decision}</span>
-                    {vm.resultState.reason && <p className="sc-v531-decision-reason">{vm.resultState.reason}</p>}
-                  </div>
-                )}
-                {vm.resultState.nextAction && (
-                  <div className="sc-v531-result-next">
-                    <span className="sc-v531-next-label">Next action</span>
-                    <p className="sc-v531-next-text">{vm.resultState.nextAction}</p>
-                  </div>
-                )}
+                </div>
+              )}
+
+              {/* Decision in FREE mode — structured status + governing driver */}
+              {isFreeTier && response?.outputs && response.outputs.length > 0 && (
+                <div className="sc-v531-free-decision">
+                  {(() => {
+                    const mosOutput = response.outputs.find((o) => {
+                      const key = (o.name ?? "").toLowerCase().replace(/[\s-]+/g, "_");
+                      return key.includes("margin_of_safety_percent")
+                        || (key.includes("margin") && key.includes("safety") && (key.includes("percent") || key.includes("%")));
+                    });
+                    const mosPercent = typeof mosOutput?.value === "number" ? mosOutput.value : null;
+
+                    let decisionStatus: string;
+                    let governingDriver: string;
+
+                    if (mosPercent !== null && mosPercent < 0) {
+                      decisionStatus = "ACTION REQUIRED";
+                      governingDriver = "Actual sales are below break-even";
+                    } else if (mosPercent !== null && mosPercent >= 50) {
+                      decisionStatus = "HEALTHY BUFFER";
+                      governingDriver = "Sales are far above break-even";
+                    } else if (mosPercent !== null && mosPercent >= 0) {
+                      decisionStatus = "MONITOR";
+                      governingDriver = "Sales are above break-even but buffer is limited";
+                    } else {
+                      decisionStatus = "";
+                      governingDriver = "";
+                    }
+
+                    const dsCssKey = decisionStatus.toLowerCase().replace(/\s+/g, "_");
+
+                    return (
+                      <>
+                        {decisionStatus && (
+                          <div className="sc-v531-free-decision-row">
+                            <span className="sc-v531-free-decision-label">Decision Status</span>
+                            <span className={`sc-v531-free-decision-status sc-v531-fds-${dsCssKey}`}>
+                              {decisionStatus}
+                            </span>
+                          </div>
+                        )}
+                        {governingDriver && (
+                          <div className="sc-v531-free-decision-row">
+                            <span className="sc-v531-free-decision-label">Governing Driver</span>
+                            <span className="sc-v531-free-decision-driver">{governingDriver}</span>
+                          </div>
+                        )}
+                      </>
+                    );
+                  })()}
+                </div>
+              )}
+
+              {/* PRO mode: Decision Summary + Primary Results + Professional Interpretation */}
+              {!isFreeTier && response?.outputs && (
+                <div className="sc-v531-pro-results-container">
+                  {/* Decision Summary */}
+                  {(() => {
+                    const dsOutput = response.outputs.find((o) =>
+                      (o.name ?? "").toLowerCase().replace(/[\s-]+/g, "_").includes("decision_status")
+                    );
+                    const gdOutput = response.outputs.find((o) =>
+                      (o.name ?? "").toLowerCase().replace(/[\s-]+/g, "_").includes("governing_driver")
+                    );
+                    const dsValue = typeof dsOutput?.value === "string" ? dsOutput.value : "";
+                    const gdValue = typeof gdOutput?.value === "string" ? gdOutput.value : "";
+
+                    const isCompressedAir = props.toolKey === "compressed-air-leak-cost-calculator" ||
+                      props.schema?.tool_key === "compressed-air-leak-cost-calculator";
+
+                    let displayStatus = dsValue.replace(/_/g, " ");
+                    let displayDriver = gdValue;
+                    let nextAction = "";
+                    let whyItMatters = "";
+                    let keyAssumptionCheck = "";
+
+                    if (isCompressedAir) {
+                      if (dsValue === "ACTION_REQUIRED") {
+                        displayStatus = "ACTION REQUIRED";
+                        displayDriver = "Fast repair payback";
+                        nextAction = "Repair this leak immediately and verify system pressure after repair.";
+                        whyItMatters = "This leak creates recurring energy loss. Under the entered operating hours and electricity price, the repair pays back quickly.";
+                        keyAssumptionCheck = "Confirm leak diameter, operating hours, compressor specific power, system pressure and electricity price before using this for procurement or maintenance planning.";
+                      } else if (dsValue === "REVIEW") {
+                        displayStatus = "MONITOR";
+                        displayDriver = "Moderate economic impact";
+                        nextAction = "Monitor the leak and schedule repair with the next maintenance window.";
+                        whyItMatters = "The estimated annual loss exists, but urgency depends on repair access, downtime and operating schedule.";
+                        keyAssumptionCheck = "Confirm operating hours and energy cost before deferring action.";
+                      } else if (dsValue === "MONITOR") {
+                        displayStatus = "OK";
+                        displayDriver = "Low immediate economic impact";
+                        nextAction = "Document the result and recheck if pressure, operating hours or electricity price changes.";
+                        whyItMatters = "The current estimate does not justify urgent intervention under the entered values.";
+                        keyAssumptionCheck = "Confirm that the leak size and compressor power assumptions are realistic.";
+                      }
+                    }
+
+                    return (
+                      <section className="sc-v531-pro-decision-summary" aria-label="Decision Summary">
+                        <h3 className="sc-v531-pro-section-title">Decision Summary</h3>
+                        {displayStatus && (
+                          <div className="sc-v531-pro-ds-row">
+                            <span className="sc-v531-pro-ds-label">Decision Status</span>
+                            <span className={`sc-v531-pro-ds-value sc-v531-ds-${displayStatus.toLowerCase().replace(/\s+/g, "_")}`}>
+                              {displayStatus}
+                            </span>
+                          </div>
+                        )}
+                        {displayDriver && (
+                          <div className="sc-v531-pro-ds-row">
+                            <span className="sc-v531-pro-ds-label">Governing Driver</span>
+                            <span className="sc-v531-pro-ds-text">{displayDriver}</span>
+                          </div>
+                        )}
+                        {nextAction && (
+                          <div className="sc-v531-pro-ds-block">
+                            <span className="sc-v531-pro-ds-label">Recommended Next Action</span>
+                            <p className="sc-v531-pro-ds-text">{nextAction}</p>
+                          </div>
+                        )}
+                        {whyItMatters && (
+                          <div className="sc-v531-pro-ds-block">
+                            <span className="sc-v531-pro-ds-label">Why It Matters</span>
+                            <p className="sc-v531-pro-ds-text">{whyItMatters}</p>
+                          </div>
+                        )}
+                        {keyAssumptionCheck && (
+                          <div className="sc-v531-pro-ds-block">
+                            <span className="sc-v531-pro-ds-label">Key Assumption Check</span>
+                            <p className="sc-v531-pro-ds-text">{keyAssumptionCheck}</p>
+                          </div>
+                        )}
+                      </section>
+                    );
+                  })()}
+
+                  {/* Primary Results */}
+                  <section className="sc-v531-pro-results" aria-label="Primary Results">
+                    <h3 className="sc-v531-pro-section-title">Primary Results</h3>
+                    <div className="sc-v531-pro-results-grid">
+                      {response.outputs
+                        .filter((o) => !isStatusOutput(o))
+                        .map((out, idx) => {
+                          const formattedValue = typeof out.value === "number"
+                            ? formatDisplayNumber(out.value)
+                            : formatSafeValue(out.value);
+                          const cleanUnit = getProOutputDisplayUnit(out.id ?? "", out.unit);
+                          // Avoid duplicating unit when label already contains it
+                          const outLabel = out.name || "";
+                          const unitNeeded = cleanUnit && !outLabel.toLowerCase().includes(cleanUnit.toLowerCase());
+                          const displayStr = unitNeeded ? `${formattedValue} ${cleanUnit}` : formattedValue;
+                          const cleanSymbol = out.id ? getProOutputSymbol(out.id) : "";
+                          const meaning = out.public_explanation || "";
+                          return (
+                            <div key={idx} className="sc-v531-pro-result-card">
+                              <span className="sc-v531-pro-result-name">{out.name}</span>
+                              <span className="sc-v531-pro-result-value">{displayStr}</span>
+                              {cleanSymbol && <span className="sc-v531-pro-result-varid">{cleanSymbol}</span>}
+                              {meaning && <p className="sc-v531-pro-result-meaning">{meaning}</p>}
+                            </div>
+                          );
+                        })}
+                    </div>
+                  </section>
+
+                  {/* ── Result Intelligence (PRO only) ── */}
+                  {(() => {
+                    const isCompressedAir = props.toolKey === "compressed-air-leak-cost-calculator" ||
+                      props.schema?.tool_key === "compressed-air-leak-cost-calculator";
+                    if (!isCompressedAir) return null;
+
+                    const annualLeakOutput = response.outputs.find((o) =>
+                      (o.id ?? "").includes("annual_leak_cost")
+                    );
+                    const annualLeakCost = typeof annualLeakOutput?.value === "number" ? annualLeakOutput.value : null;
+                    const costUnit = annualLeakOutput?.unit
+                      ? getProOutputDisplayUnit("annual_leak_cost", annualLeakOutput.unit)
+                      : "Currency/year";
+                    const formattedCost = annualLeakCost !== null
+                      ? `${formatDisplayNumber(annualLeakCost)} ${costUnit}`
+                      : "";
+
+                    const paybackOutput = response.outputs.find((o) =>
+                      (o.id ?? "").includes("repair_payback_days")
+                    );
+                    const paybackDays = typeof paybackOutput?.value === "number" ? paybackOutput.value : null;
+
+                    let actionPriorityLabel = "";
+                    let actionPriorityText = "";
+                    if (paybackDays !== null) {
+                      if (paybackDays <= 30) {
+                        actionPriorityLabel = "High";
+                        actionPriorityText = "Repair should be prioritized because the expected payback is under 30 days.";
+                      } else if (paybackDays <= 180) {
+                        actionPriorityLabel = "Medium";
+                        actionPriorityText = "Repair can be scheduled in the next maintenance window.";
+                      } else {
+                        actionPriorityLabel = "Low";
+                        actionPriorityText = "Repair may be deferred unless reliability, safety or production constraints require action.";
+                      }
+                    } else {
+                      actionPriorityLabel = "Review Required";
+                      actionPriorityText = "Repair priority could not be determined from the available payback output.";
+                    }
+
+                    return (
+                      <section className="sc-v531-pro-intelligence" aria-label="Result Intelligence">
+                        <h3 className="sc-v531-pro-section-title">Result Intelligence</h3>
+                        <p className="sc-v531-pro-ri-intro">
+                          Use this decision layer to prioritize action, verify assumptions and translate the calculation into maintenance, cost and operational decisions.
+                        </p>
+                        <div className="sc-v531-pro-ri-grid">
+                          {/* 1. Financial Impact */}
+                          <div className="sc-v531-pro-ri-card">
+                            <h4 className="sc-v531-pro-ri-card-title">Financial Impact</h4>
+                            {annualLeakCost !== null ? (
+                              <p className="sc-v531-pro-ri-card-text">
+                                The estimated annual leak cost is {formattedCost}. This is recurring avoidable energy cost under the entered operating schedule and electricity price.
+                              </p>
+                            ) : (
+                              <p className="sc-v531-pro-ri-card-text">
+                                The annual cost impact could not be estimated from the available outputs.
+                              </p>
+                            )}
+                          </div>
+
+                          {/* 2. Operational Impact */}
+                          <div className="sc-v531-pro-ri-card">
+                            <h4 className="sc-v531-pro-ri-card-title">Operational Impact</h4>
+                            <p className="sc-v531-pro-ri-card-text">
+                              The leak increases compressor load during operating hours. Larger leak diameter, higher pressure and longer annual runtime increase the energy penalty.
+                            </p>
+                          </div>
+
+                          {/* 3. Action Priority */}
+                          <div className="sc-v531-pro-ri-card">
+                            <h4 className="sc-v531-pro-ri-card-title">Action Priority</h4>
+                            <p className="sc-v531-pro-ri-card-priority">
+                              Priority: <strong>{actionPriorityLabel}</strong>
+                            </p>
+                            <p className="sc-v531-pro-ri-card-text">{actionPriorityText}</p>
+                          </div>
+
+                          {/* 4. Assumption Quality */}
+                          <div className="sc-v531-pro-ri-card">
+                            <h4 className="sc-v531-pro-ri-card-title">Assumption Quality</h4>
+                            <p className="sc-v531-pro-ri-card-priority">
+                              Status: <strong>Review Required</strong>
+                            </p>
+                            <p className="sc-v531-pro-ri-card-text">
+                              Result quality depends on the accuracy of leak diameter, system pressure, operating hours, compressor specific power, electricity price and repair cost.
+                            </p>
+                            <ul className="sc-v531-pro-ri-verify-list">
+                              <li>Leak diameter</li>
+                              <li>System pressure</li>
+                              <li>Operating hours</li>
+                              <li>Compressor specific power</li>
+                              <li>Electricity price</li>
+                              <li>Repair cost</li>
+                            </ul>
+                          </div>
+
+                          {/* 5. Key Sensitivity Drivers */}
+                          <div className="sc-v531-pro-ri-card">
+                            <h4 className="sc-v531-pro-ri-card-title">Key Sensitivity Drivers</h4>
+                            <ul className="sc-v531-pro-ri-verify-list">
+                              <li>Leak diameter</li>
+                              <li>System pressure</li>
+                              <li>Operating hours</li>
+                              <li>Compressor specific power</li>
+                              <li>Electricity price</li>
+                              <li>Repair cost</li>
+                            </ul>
+                          </div>
+
+                          {/* 6. Verification Checklist */}
+                          <div className="sc-v531-pro-ri-card">
+                            <h4 className="sc-v531-pro-ri-card-title">Verification Checklist</h4>
+                            <ul className="sc-v531-pro-ri-verify-list sc-v531-pro-ri-check-list">
+                              <li>Confirm leak diameter by site measurement.</li>
+                              <li>Confirm pressure at or near the leak location.</li>
+                              <li>Confirm annual operating hours.</li>
+                              <li>Confirm compressor specific power from equipment or audit records.</li>
+                              <li>Confirm electricity tariff.</li>
+                              <li>Confirm repair cost estimate.</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </section>
+                    );
+                  })()}
+
+                  {/* Professional Interpretation (PRO only) */}
+                  {(() => {
+                    const isCompressedAir = props.toolKey === "compressed-air-leak-cost-calculator" ||
+                      props.schema?.tool_key === "compressed-air-leak-cost-calculator";
+                    if (!isCompressedAir) return null;
+
+                    const paybackOutput = response.outputs.find((o) =>
+                      (o.id ?? "").includes("repair_payback_days")
+                    );
+                    const paybackDays = typeof paybackOutput?.value === "number" ? paybackOutput.value : null;
+
+                    let priorityLabel = "";
+                    let priorityText = "";
+                    if (paybackDays !== null) {
+                      if (paybackDays <= 30) {
+                        priorityLabel = "High";
+                        priorityText = "Repair should be prioritized because the expected payback is under 30 days.";
+                      } else if (paybackDays <= 180) {
+                        priorityLabel = "Medium";
+                        priorityText = "Repair can be scheduled in the next maintenance window.";
+                      } else {
+                        priorityLabel = "Low";
+                        priorityText = "Repair may be deferred unless reliability, safety or production constraints require action.";
+                      }
+                    }
+
+                    return (
+                      <section className="sc-v531-pro-professional-interpretation" aria-label="Professional Interpretation">
+                        <h3 className="sc-v531-pro-section-title">Professional Interpretation</h3>
+                        <p className="sc-v531-pro-pi-intro">
+                          Use this interpretation to prioritize leak repair, energy-cost reduction and maintenance scheduling.
+                        </p>
+
+                        <div className="sc-v531-pro-pi-block">
+                          <h4 className="sc-v531-pro-pi-subtitle">1. Operating Impact</h4>
+                          <p className="sc-v531-pro-pi-text">
+                            The estimated air loss increases compressor load during operating hours. Higher pressure, larger leak diameter and longer annual runtime increase the loss.
+                          </p>
+                        </div>
+
+                        <div className="sc-v531-pro-pi-block">
+                          <h4 className="sc-v531-pro-pi-subtitle">2. Cost Impact</h4>
+                          <p className="sc-v531-pro-pi-text">
+                            Annual leak cost is driven by air loss, compressor specific power, operating hours and electricity price. Use site-specific energy tariffs for final maintenance decisions.
+                          </p>
+                        </div>
+
+                        <div className="sc-v531-pro-pi-block">
+                          <h4 className="sc-v531-pro-pi-subtitle">3. Payback Interpretation</h4>
+                          <p className="sc-v531-pro-pi-text">
+                            The repair payback period compares estimated repair cost against annualized leakage cost. Short payback indicates high maintenance priority.
+                          </p>
+                        </div>
+
+                        <div className="sc-v531-pro-pi-block">
+                          <h4 className="sc-v531-pro-pi-subtitle">4. Action Priority</h4>
+                          {paybackDays !== null ? (
+                            <>
+                              <p className="sc-v531-pro-pi-priority">
+                                Priority: <strong>{priorityLabel}</strong>
+                              </p>
+                              <p className="sc-v531-pro-pi-text">{priorityText}</p>
+                            </>
+                          ) : (
+                            <p className="sc-v531-pro-pi-text">Payback period could not be determined.</p>
+                          )}
+                        </div>
+
+                        <div className="sc-v531-pro-pi-block">
+                          <h4 className="sc-v531-pro-pi-subtitle">5. Assumption Quality</h4>
+                          <p className="sc-v531-pro-pi-text">
+                            Result quality depends on the accuracy of leak diameter, pressure, operating hours, compressor specific power and electricity price. For final procurement decisions, validate these values from site measurements or maintenance records.
+                          </p>
+                        </div>
+                      </section>
+                    );
+                  })()}
+                </div>
+              )}
               </div>
             ) : (
               <div className="sc-v531-placeholder">
                 <p className="sc-v531-placeholder-title">No result yet</p>
                 <p className="sc-v531-placeholder-text">
-                  Enter inputs and run the server calculation. Results, decision guidance, risk
-                  analysis, and audit status will appear here.
+                  {isFreeTier
+                    ? "Enter your values and click \"Calculate\" to see your results."
+                    : "Enter values and run the calculation. Results and decision guidance will appear here."
+                  }
                 </p>
               </div>
             )}
           </section>
 
-          {/* Premium hook */}
-          {premiumHook && (
+          {/* Premium hook (hidden in FREE mode) */}
+          {!isFreeRoute && premiumHook && (
             <PremiumPanel hook={premiumHook} onCheckout={() => machine.requestCheckout()} />
           )}
         </main>
@@ -813,74 +1268,36 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               </p>
             )}
 
-            <div className="sc-v531-side-metrics">
-              <div className="sc-v531-side-metric">
-                <span className="sc-v531-side-metric-label">Blockers</span>
-                <span className="sc-v531-side-metric-value">{clientBlockerCount}</span>
-              </div>
-              <div className="sc-v531-side-metric">
-                <span className="sc-v531-side-metric-label">Warnings</span>
-                <span className="sc-v531-side-metric-value">{clientWarningCount + (response?.warnings ?? []).length}</span>
-              </div>
-              <div className="sc-v531-side-metric">
-                <span className="sc-v531-side-metric-label">State</span>
-                <span className="sc-v531-side-metric-value">{vm.resultState.executionLabel}</span>
-              </div>
-            </div>
-
-            <button type="button" className="sc-v531-side-secondary" onClick={machine.runClientPrecheck}>
-              Check inputs
-            </button>
             <button type="button" className="sc-v531-side-secondary" onClick={machine.resetInputs}>
               Reset inputs
             </button>
-
-            {vm.resultState.hasResult && (
-              <button type="button" className="sc-v531-side-ghost" onClick={machine.resetResultOnly}>
-                Clear result
-              </button>
-            )}
           </div>
         </aside>
       </div>
 
-      {/* ── 3. Advanced details (collapsed) ── */}
-      <details
-        className="sc-v531-advanced"
-        open={advancedOpen}
-        onToggle={(e) => setAdvancedOpen((e.target as HTMLDetailsElement).open)}
-      >
+      {/* ── 3. Advanced details (collapsed by default — native <details>) ── */}
+      <details className="sc-v531-advanced" data-testid="advanced-details">
         <summary className="sc-v531-advanced-summary">
           <span>Advanced details</span>
-          <span className="sc-v531-advanced-meta">
-            Hidden risk · Business impact · FMEA · Methodology · Audit · Export
+          <span className="sc-v531-advanced-links">
+            {isFreeTier
+              ? "Formula logic · Validation notes · Calculation assumptions"
+              : "Formula logic · Validation notes · Sensitivity · Audit trail · Export"
+            }
           </span>
         </summary>
-        {advancedOpen && (
-          <div className="sc-v531-advanced-body">
-            {hasResult && shouldShowHiddenRiskPanel(response) && (
-              <HiddenRiskPanel response={response} />
-            )}
-            {hasResult && shouldShowBusinessImpactPanel(response) && (
-              <BusinessImpactPanel response={response} />
-            )}
-            {hasResult && shouldShowFmeaPanel(response) && (
-              <FmeaPanel response={response} />
-            )}
-            <ProtectedMethodologyPanel schema={props.schema} response={response} />
-            {hasResult && shouldShowAuditSealPanel(response) && (
-              <AuditSealPanel response={response} redactionStatus={response!.redaction_status} />
-            )}
-            {hasResult && shouldShowExportPanel(response) && (
-              <ExportPanel
-                pdfAvailable={state.exportState.pdf_available}
-                jsonAuditAvailable={state.exportState.json_audit_available}
-                copySummaryAvailable={state.exportState.copy_summary_available}
-                redactionStatus={response!.redaction_status}
-              />
-            )}
+        <div className="sc-v531-advanced-body">
+          <FormulaLogicSection toolKey={props.toolKey} schema={props.schema} />
+          <ValidationNotesSection isFreeTier={isFreeTier} />
+          {isFreeTier && <CalculationAssumptionsSection />}
+          {!isFreeTier && (
+            <>
+              <SensitivitySection toolKey={props.toolKey} />
+              <ProAuditTrailSection />
+              <ProExportSection />
+            </>
+          )}
           </div>
-        )}
       </details>
 
       {/* Mobile bar */}
@@ -905,16 +1322,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   );
 }
 
-// ── Profile mode tabs ─────────────────────────────────────────────────────────
-
-const PROFILE_MODE_OPTIONS: Array<{ id: ProfileMode; label: string }> = [
-  { id: "quick", label: "Quick" },
-  { id: "engineering", label: "Engineering" },
-  { id: "cost", label: "Cost" },
-  { id: "audit", label: "Audit" },
-];
-
-// ── Input field with full reference/evidence structure ──────────────────────────
+// ── Input field — clean primary UI ──────────────────────────────────────────────
 
 function CalculatorInputField({
   field,
@@ -932,16 +1340,10 @@ function CalculatorInputField({
 
   return (
     <div className="sc-v531-field-card" data-criticality={field.criticality.toLowerCase()} data-error={hasBlocker}>
-      {/* Header: label + symbol + tolerance */}
+      {/* Header: label + symbol */}
       <div className="sc-v531-field-header">
         <label htmlFor={inputId} className="sc-v531-field-title">{field.label}</label>
         {field.symbol && <span className="sc-v531-field-symbol">({field.symbol})</span>}
-        {field.criticality === "CRITICAL" && field.blockers.some((b) => hasMessage(b.message)) && (
-          <span className="sc-v531-field-critical" title="Critical input warning" aria-label="Critical input warning">!</span>
-        )}
-        {field.tolerancePct && (
-          <span className="sc-v531-field-tolerance" title="Expected tolerance range">{field.tolerancePct}</span>
-        )}
       </div>
 
       {/* Help text */}
@@ -950,86 +1352,23 @@ function CalculatorInputField({
       {/* Input + unit row */}
       <div className="sc-v531-input-row">
         {renderValueInput(inputId, field, onValueChange)}
-        {field.unitSelectable && field.allowedUnits.length > 0 && (
+        {field.allowedUnits.length > 0 && (
           <select
             className="sc-v531-unit-select"
-            value={field.selectedUnit}
+            value={field.selectedUnit || field.allowedUnits[0]}
             aria-label={`${field.label} unit`}
             onChange={(e: ChangeEvent<HTMLSelectElement>) => onUnitChange(e.target.value)}
           >
             {field.allowedUnits.map((unit) => (
-              <option key={unit} value={unit}>{formatDisplayUnit(unit)}</option>
+              <option key={unit} value={unit}>{formatCleanUnitLabel(unit)}</option>
             ))}
           </select>
         )}
       </div>
 
-      {/* Compact input reference strip */}
-      {field.referenceStrip.length > 0 && (
-        <div className="sc-v531-field-reference-strip" aria-label="Input reference data">
-          {field.referenceStrip.map((line, idx) => (
-            <span key={idx} className="sc-v531-ref-line">{line}</span>
-          ))}
-        </div>
-      )}
-
-      {/* V5.3.1: Structured metadata block — always shown */}
-      <div className="sc-v531-field-metadata-block" aria-label="Field metadata">
-        <span className="sc-v531-meta-line">{field.declaredRange}</span>
-        <span className="sc-v531-meta-line">{field.declaredDefaultReference}</span>
-        <span className="sc-v531-meta-line">{field.declaredAcceptedValues}</span>
-        <span className="sc-v531-meta-line">{field.declaredTolerance}</span>
-      </div>
-
-      {/* Reference source label */}
-      {field.referenceSource && (
-        <p className="sc-v531-field-reference">{field.referenceSource}</p>
-      )}
-
-      {/* Base preview */}
-      {field.basePreview && (
-        <div className="sc-v531-field-preview">
-          <span className="sc-v531-field-preview-label">Base</span>
-          <span>{field.basePreview}</span>
-        </div>
-      )}
-
-      {/* Evidence row (compact) */}
-      <div className="sc-v531-field-evidence" aria-label={`${field.label} evidence`}>
-        <span className="sc-v531-evidence-title">{field.evidence.evidenceLabel}</span>
-        <div className="sc-v531-evidence-options">
-          <label>
-            <input
-              type="checkbox"
-              checked={field.evidence.valueVerified}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                onEvidenceChange(e.target.checked, field.evidence.sourceVerified)
-              }
-            />
-            <span>Verified</span>
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={field.evidence.sourceVerified}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                onEvidenceChange(field.evidence.valueVerified, e.target.checked)
-              }
-            />
-            <span>Source verified</span>
-          </label>
-        </div>
-      </div>
-
-      {/* Validation blockers */}
-      {hasBlocker && (
-        <ul className="sc-v531-field-issues">
-          {field.blockers.map((issue) => (
-            <li key={issue.id} data-severity={issue.severity.toLowerCase()}>
-              {issue.message}
-            </li>
-          ))}
-        </ul>
+      {/* Clean reference helper — one line per input */}
+      {field.cleanReferenceHelper && (
+        <p className="sc-v531-ref-helper">{field.cleanReferenceHelper}</p>
       )}
     </div>
   );
@@ -1069,22 +1408,39 @@ function renderValueInput(
     );
   }
 
+  const unitHint = field.allowedUnits.some((u) => /[\$€£¥₺]/i.test(u) || /usd|eur|gbp|try|tl/i.test(u))
+    ? "Use decimal point for cents, e.g. 500000.005"
+    : "";
+
   return (
     <input
       id={inputId}
       className="sc-v531-input"
       inputMode={field.type === "number" || field.type === "integer" ? "decimal" : "text"}
-      type={field.type === "number" || field.type === "integer" ? "number" : "text"}
-      step={field.type === "integer" ? "1" : "0.000001"}
+      type="text"
+      placeholder={unitHint || ""}
       value={field.type === "number" || field.type === "integer" ? (typeof field.value === "number" ? String(field.value) : "") : (typeof field.value === "string" ? field.value : "")}
       onChange={(e: ChangeEvent<HTMLInputElement>) => {
         if (field.type === "number" || field.type === "integer") {
           if (e.target.value === "") { onValueChange(null); return; }
           const raw = e.target.value.replace(",", ".");
           const next = Number(raw);
-          onValueChange(Number.isFinite(next) ? next : null);
+          if (Number.isFinite(next)) {
+            onValueChange(next);
+          }
+          // else: ignore invalid intermediate text (controlled input reverts to last valid value)
         } else {
           onValueChange(e.target.value);
+        }
+      }}
+      onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+        // Normalize comma decimals on blur (e.g. "500000,005" → "500000.005")
+        if ((field.type === "number" || field.type === "integer") && e.target.value.includes(",")) {
+          const normalized = e.target.value.replace(",", ".");
+          const next = Number(normalized);
+          if (Number.isFinite(next)) {
+            onValueChange(next);
+          }
         }
       }}
     />
@@ -1117,34 +1473,137 @@ function IdentityBlocker({ reason }: { reason: string }) {
   );
 }
 
-// ── Post-execution panels (in advanced details) ────────────────────────────────
+// ── Post-execution panels (in advanced details) —────────────────────────────────
+// ── NO server response data rendered here. Only controlled static text. ─────────
 
-function HiddenRiskPanel({ response }: { response: ExecuteResponse | null }) {
-  const risks = response?.decision_interpretation?.hidden_risk_explanations ?? [];
-  if (risks.length === 0) return null;
+/**
+ * Static formula description by tool_key.
+ * No server response data (proof_pack_public.sections) is rendered in normal Advanced.
+ */
+function getFormulaText(toolKey: string | undefined): string {
+  switch (toolKey) {
+    case "compressed-air-leak-cost-calculator":
+      return "The calculation estimates air loss from leak diameter and pressure, converts air loss into annual energy use using compressor specific power and operating hours, then estimates annual cost and repair payback.";
+    case "break-even-and-margin-of-safety-analysis":
+      return "This calculator uses the entered cost, price, variable cost and sales volume values to estimate break-even volume, break-even revenue and margin of safety.";
+    default:
+      return "Calculation uses standard engineering formulas based on input parameters. Exact formula expressions are protected.";
+  }
+}
+
+/** Controlled formula logic — static text, no server data. */
+function FormulaLogicSection({
+  toolKey,
+  schema,
+}: {
+  toolKey?: string;
+  schema: SuperV4Schema;
+}) {
+  const formulaText = getFormulaText(toolKey);
+  const standards = Array.isArray(schema.standards) ? (schema.standards as Array<{ name?: string }>) : [];
+  const standardNames = standards
+    .map((s) => s.name)
+    .filter((n): n is string => Boolean(n));
+
   return (
-    <section className="sc-v531-advanced-section" aria-label="Risk explanations">
-      <h3 className="sc-v531-advanced-title">Hidden risk explanations</h3>
-      <div className="sc-v531-warning-stack">
-        {risks.map((risk) => (
-          <WarningCard key={risk.id} severity={risk.severity} title={risk.message} detail={risk.suggested_action} />
-        ))}
-      </div>
+    <section className="sc-v531-advanced-section" aria-label="Formula logic">
+      <h3 className="sc-v531-advanced-title">Formula logic</h3>
+      <p className="sc-v531-methodology-text">{formulaText}</p>
+      {standardNames.length > 0 && (
+        <div className="sc-v531-methodology-stack">
+          <p className="sc-v531-methodology-text">
+            <strong>Standards referenced:</strong> {standardNames.join(", ")}
+          </p>
+        </div>
+      )}
     </section>
   );
 }
 
-function BusinessImpactPanel({ response }: { response: ExecuteResponse | null }) {
-  if (!response) return null;
-  const impact = response.decision_interpretation?.money_impact_summary;
+/** Controlled validation notes — static text, no server warnings. */
+function ValidationNotesSection({ isFreeTier }: { isFreeTier: boolean }) {
   return (
-    <section className="sc-v531-advanced-section" aria-label="Business impact">
-      <h3 className="sc-v531-advanced-title">Business impact</h3>
-      <dl className="sc-v531-advanced-grid">
-        {impact?.money_at_risk_formatted ? <ContextItem label="Money at risk" value={impact.money_at_risk_formatted} /> : null}
-        {impact?.main_cost_driver ? <ContextItem label="Main cost driver" value={impact.main_cost_driver} /> : null}
-        {impact?.quote_or_decision_impact ? <ContextItem label="Decision impact" value={impact.quote_or_decision_impact} /> : null}
-      </dl>
+    <section className="sc-v531-advanced-section" aria-label="Validation notes">
+      <h3 className="sc-v531-advanced-title">Validation notes</h3>
+      <ul className="sc-v531-assumption-list">
+        <li className="sc-v531-assumption-item">Inputs are checked against visible reference ranges.</li>
+        <li className="sc-v531-assumption-item">Values outside the reference range may reduce decision quality.</li>
+        <li className="sc-v531-assumption-item">
+          {isFreeTier
+            ? "Verify commercial values before using the result for pricing or planning."
+            : "Evidence is recommended before final maintenance or procurement decision."
+          }
+        </li>
+      </ul>
+    </section>
+  );
+}
+
+/** Controlled calculation assumptions — static text for FREE. */
+function CalculationAssumptionsSection() {
+  return (
+    <section className="sc-v531-advanced-section" aria-label="Calculation assumptions">
+      <h3 className="sc-v531-advanced-title">Calculation assumptions</h3>
+      <ul className="sc-v531-assumption-list">
+        <li className="sc-v531-assumption-item">Currency values use the selected display currency.</li>
+        <li className="sc-v531-assumption-item">Results depend on user-entered values.</li>
+        <li className="sc-v531-assumption-item">This output is decision support, not audited financial advice.</li>
+      </ul>
+    </section>
+  );
+}
+
+/** Controlled sensitivity — static text from tool_key map. */
+function SensitivitySection({ toolKey }: { toolKey?: string }) {
+  const bullets = getSensitivityBullets(toolKey);
+  return (
+    <section className="sc-v531-advanced-section" aria-label="Sensitivity">
+      <h3 className="sc-v531-advanced-title">Sensitivity</h3>
+      <ul className="sc-v531-assumption-list">
+        {bullets.map((b, i) => (
+          <li key={i} className="sc-v531-assumption-item">{b}</li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function getSensitivityBullets(toolKey: string | undefined): string[] {
+  switch (toolKey) {
+    case "compressed-air-leak-cost-calculator":
+      return [
+        "Leak diameter and system pressure strongly affect estimated air loss.",
+        "Operating hours and compressor specific power strongly affect annual energy loss.",
+        "Electricity price and repair cost drive the economic payback.",
+      ];
+    default:
+      return [
+        "Verify key input values before making decisions based on results.",
+      ];
+  }
+}
+
+/** Controlled audit trail — PRO only. Clean text only. */
+function ProAuditTrailSection() {
+  return (
+    <section className="sc-v531-advanced-section" aria-label="Audit trail">
+      <h3 className="sc-v531-advanced-title">Audit trail</h3>
+      <p className="sc-v531-methodology-text">
+        Calculation inputs, normalized values, outputs and proof-pack metadata are
+        audit-traceable. Raw developer payload is not displayed in the customer interface.
+      </p>
+    </section>
+  );
+}
+
+/** Controlled export — PRO only. Clean text only. */
+function ProExportSection() {
+  return (
+    <section className="sc-v531-advanced-section" aria-label="Export">
+      <h3 className="sc-v531-advanced-title">Export</h3>
+      <p className="sc-v531-methodology-text">
+        Export-ready report structure is prepared for production workflows.
+      </p>
     </section>
   );
 }
@@ -1185,93 +1644,7 @@ function PremiumPanel({
   );
 }
 
-function FmeaPanel({ response }: { response: ExecuteResponse | null }) {
-  const fmea = response?.fmea_summary;
-  if (!fmea?.triggered) return null;
-  return (
-    <section className="sc-v531-advanced-section" aria-label="FMEA analysis">
-      <h3 className="sc-v531-advanced-title">FMEA analysis</h3>
-      <div className="sc-v531-fmea-grid">
-        <div className="sc-v531-fmea-metric"><span>Highest RPN</span><strong>{fmea.highest_rpn}</strong></div>
-        <div className="sc-v531-fmea-metric"><span>Total RPN</span><strong>{fmea.total_rpn}</strong></div>
-        <div className="sc-v531-fmea-metric"><span>Threshold</span><strong>{fmea.threshold_exceeded ? "Exceeded" : "OK"}</strong></div>
-      </div>
-      {fmea.items.map((item, i) => (
-        <div key={i} className="sc-v531-fmea-item">
-          <strong>{item.failure_mode}</strong>
-          <p>{item.effect}</p>
-          <span>RPN {item.rpn}</span>
-        </div>
-      ))}
-    </section>
-  );
-}
-
-function ProtectedMethodologyPanel({ schema, response }: { schema: SuperV4Schema; response: ExecuteResponse | null }) {
-  const proofSections = response?.proof_pack_public?.sections ?? [];
-  return (
-    <section className="sc-v531-advanced-section" aria-label="Methodology">
-      <h3 className="sc-v531-advanced-title">Protected methodology</h3>
-      <p className="sc-v531-methodology-text">
-        This public form shows method context and audit status without exposing exact formulas or private execution logic.
-      </p>
-      {proofSections.length > 0 && (
-        <div className="sc-v531-methodology-stack">
-          {proofSections.map((section) => (
-            <div key={section.id} className="sc-v531-methodology-item">
-              <strong>{section.title}</strong>
-              <p>{section.public_content}</p>
-            </div>
-          ))}
-        </div>
-      )}
-    </section>
-  );
-}
-
-function AuditSealPanel({ response, redactionStatus }: { response: ExecuteResponse | null; redactionStatus: RedactionStatus | null }) {
-  const seal = response?.audit_seal;
-  if (!seal) return null;
-  return (
-    <section className="sc-v531-advanced-section" aria-label="Audit seal">
-      <h3 className="sc-v531-advanced-title">Audit seal</h3>
-      <dl className="sc-v531-advanced-grid">
-        <ContextItem label="Status" value={seal.seal_status} />
-        <ContextItem label="Schema" value={seal.schema_version} />
-        <ContextItem label="Formula" value={seal.formula_version} />
-        <ContextItem label="Runtime" value={seal.runtime_version} />
-        <ContextItem label="Redaction" value={safeRedactionDisplay(redactionStatus)} />
-        <ContextItem label="Algorithm" value={seal.hash_algorithm} />
-      </dl>
-    </section>
-  );
-}
-
-function ExportPanel(props: { pdfAvailable: boolean; jsonAuditAvailable: boolean; copySummaryAvailable: boolean; redactionStatus: RedactionStatus | null }) {
-  return (
-    <section className="sc-v531-advanced-section" aria-label="Export">
-      <h3 className="sc-v531-advanced-title">Export</h3>
-      <div className="sc-v531-export-row">
-        <button type="button" className="sc-v531-secondary-button" disabled={!props.pdfAvailable}>PDF</button>
-        <button type="button" className="sc-v531-secondary-button" disabled={!props.jsonAuditAvailable}>JSON audit</button>
-        <button type="button" className="sc-v531-secondary-button" disabled={!props.copySummaryAvailable}>Copy summary</button>
-      </div>
-      <p className="sc-v531-export-redaction">Redaction: {safeRedactionDisplay(props.redactionStatus)}</p>
-    </section>
-  );
-}
-
 // ── Shared small components ─────────────────────────────────────────────────────
-
-function ContextItem({ label, value }: { label: string; value: string }) {
-  if (!hasMessage(value)) return null;
-  return (
-    <div className="sc-v531-context-item">
-      <span className="sc-v531-context-label">{label}</span>
-      <span className="sc-v531-context-value">{value}</span>
-    </div>
-  );
-}
 
 function WarningCard({ severity, title, detail }: { severity: string; title: string; detail: string }) {
   if (!hasMessage(title)) return null;
@@ -1283,15 +1656,6 @@ function WarningCard({ severity, title, detail }: { severity: string; title: str
     </div>
   );
 }
-
-// ── View descriptions ──────────────────────────────────────────
-
-const VIEW_DESCRIPTIONS: Record<string, string> = {
-  quick: "Fast decision view: enter the required values and review the primary decision result.",
-  engineering: "Engineering view: review units, allowed ranges, tolerances, references, and formula evidence.",
-  cost: "Cost view: review cost-sensitive inputs, margin impact, and financial decision outputs where available.",
-  audit: "Audit view: review assumptions, validation messages, missing evidence, and calculation trace.",
-};
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 

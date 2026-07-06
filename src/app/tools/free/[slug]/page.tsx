@@ -84,6 +84,7 @@ export default async function FreeToolDetailPage({
           toolKey={slug}
           executeEndpoint="/api/tool-execute"
           initialProfileMode="engineering"
+          accessTier="FREE"
         />
       </article>
     </PageLayout>

@@ -3,7 +3,165 @@
 // These functions NEVER execute formulas. They only determine UI visibility and safe display text.
 
 import type { ExecuteResponse, RedactionStatus, ReferenceValuesObject, LegacyReferenceValue } from "./contract-types";
-import { getDisplayUnitLabel } from "./display-labels";
+import { getDisplayUnitLabel, UNIT_DISPLAY_LABELS } from "./display-labels";
+
+// ── Extended unit display labels (overrides for PRO tool technical units) ──────
+
+const EXTENDED_UNIT_LABELS: Record<string, string> = {
+  // Physical hard bounds units that need clean display
+  bar_g: "bar",
+  bar: "bar",
+  h_per_year: "h/year",
+  "h/year": "h/year",
+  "kW/(m³/min)": "kW/(m³/min)",
+  "kW_per_m3_min": "kW/(m³/min)",
+  "kw_per_m3_min": "kW/(m³/min)",
+  "USD/kWh": "USD/kWh",
+  "usd_per_kwh": "USD/kWh",
+  count: "Units",
+  h: "h",
+  kw: "kW",
+  kwh: "kWh",
+  kWh: "kWh",
+  usd: "USD",
+  mm: "mm",
+  display_currency: "Currency",
+  // PRO output units
+  "m3/min": "m³/min",
+  days: "days",
+  // Common engineering display units from buildSafeDisplayUnitOptions
+  in: "in",
+  ft: "ft",
+  cm: "cm",
+  m: "m",
+  kPa: "kPa",
+  psi: "psi",
+  MPa: "MPa",
+  Pa: "Pa",
+  C: "°C",
+  F: "°F",
+  K: "K",
+  kg: "kg",
+  g: "g",
+  lb: "lb",
+  N: "N",
+  kN: "kN",
+  "N·m": "N·m",
+  "kN·m": "kN·m",
+  Hz: "Hz",
+  rpm: "rpm",
+  L: "L",
+  mL: "mL",
+  gal: "gal",
+};
+
+/**
+ * Get a display-ready unit label.
+ * Checks extended labels first, then falls back to the standard display-labels registry.
+ */
+export function formatCleanUnitLabel(unit: string): string {
+  if (!unit) return "";
+  return EXTENDED_UNIT_LABELS[unit] ?? getDisplayUnitLabel(unit);
+}
+
+// ── Safe fallback unit options ────────────────────────────────────────────
+
+/**
+ * Build a safe array of display unit options for a given base unit.
+ * Returns at least one option (the base unit itself).
+ * For known convertible units, returns commonly used engineering alternatives
+ * without adding unsupported conversions or currency FX.
+ */
+export function buildSafeDisplayUnitOptions(baseUnit: string): string[] {
+  const key = baseUnit.toLowerCase().trim();
+  if (key === "mm" || key === "millimeter") {
+    return ["mm", "cm", "m", "in"];
+  }
+  if (key === "bar" || key === "bar_g" || key === "bar(g)") {
+    return ["bar", "kPa", "psi"];
+  }
+  if (key === "h_per_year" || key === "h/year") {
+    return ["h/year"];
+  }
+  if (key === "kw_per_m3_min" || key === "kw/(m³/min)" || key === "kW_per_m3_min" || key === "kW/(m³/min)") {
+    return ["kW/(m³/min)"];
+  }
+  if (key === "usd_per_kwh" || key === "usd/kwh" || key === "USD/kWh") {
+    return ["USD/kWh"];
+  }
+  if (key === "display_currency" || key === "currency") {
+    return ["display_currency"];
+  }
+  if (key === "count") {
+    return ["count"];
+  }
+  // For unknown base units, return just the base unit
+  return [baseUnit];
+}
+
+// ── PRO output display helpers ────────────────────────────────────────────
+
+/**
+ * Map known PRO output IDs to clean display symbols.
+ * Returns the snake_case id as fallback when no mapping exists.
+ */
+const PRO_OUTPUT_SYMBOL_MAP: Record<string, string> = {
+  estimated_air_loss_m3_min: "Q_leak",
+  annual_energy_loss_kwh: "E_loss",
+  annual_leak_cost: "C_annual",
+  repair_payback_days: "Payback",
+  contribution_margin_per_unit: "CM",
+  break_even_units: "BE",
+  break_even_revenue: "BER",
+  margin_of_safety_units: "MoS",
+  margin_of_safety_percent: "MoS%",
+  decision_status: "DS",
+  governing_driver: "GD",
+};
+
+/**
+ * Get a clean display symbol for a PRO output by its ID.
+ */
+export function getProOutputSymbol(outputId: string): string {
+  return PRO_OUTPUT_SYMBOL_MAP[outputId] ?? outputId;
+}
+
+/**
+ * Get the display-ready unit string for a PRO output.
+ * Falls back to inference from output ID when server unit is missing.
+ */
+export function getProOutputDisplayUnit(
+  outputId: string,
+  serverUnit: string | null | undefined,
+): string {
+  // If server provides a known unit, use it
+  if (serverUnit && serverUnit !== "display_currency") {
+    return formatCleanUnitLabel(serverUnit);
+  }
+  if (serverUnit === "display_currency") {
+    // Determine context: annual cost gets /year, others get Currency
+    const id = (outputId ?? "").toLowerCase();
+    if (id.includes("annual_leak") || id.includes("annual_cost") || id.includes("annual_energy")) {
+      return "Currency/year";
+    }
+    return "Currency";
+  }
+  // Infer from output ID when server unit is missing
+  const id = (outputId ?? "").toLowerCase();
+  if (id.includes("air_loss") || id.includes("m3_min") || id.includes("volumetric_flow")) {
+    return "m³/min";
+  }
+  if (id.includes("energy") || id.includes("kwh")) {
+    return "kWh/year";
+  }
+  if (id.includes("cost") || id.includes("annual_leak")) {
+    return "Currency/year";
+  }
+  if (id.includes("payback") || id.includes("days")) {
+    return "days";
+  }
+  return "";
+}
 
 // ── Response state predicates ──────────────────────────────────────────────────
 
@@ -115,11 +273,120 @@ export function formatSafeValue(value: number | string | boolean | null | undefi
   if (value === null || value === undefined) return "—";
   if (typeof value === "number") {
     if (!Number.isFinite(value)) return "—";
-    return Number.isInteger(value) ? String(value) : value.toPrecision(6).replace(/\.?0+$/, "");
+    return formatDisplayNumber(value);
   }
   if (typeof value === "boolean") return value ? "Yes" : "No";
   if (typeof value === "string") return value || "—";
   return "—";
+}
+
+/**
+ * Format a number for primary UI display.
+ * Never uses scientific notation. Adds en-US thousands separators.
+ * Applies sensible decimal rules by output context.
+ *
+ * @param value - The raw numeric value
+ * @param options - Formatting options
+ * @param options.decimals - Fixed number of decimal places (overrides smart logic)
+ * @param options.suffix - Optional suffix appended after the number (e.g. "%")
+ * @param options.stripTrailingZeros - Remove trailing zeros from decimal part (default true)
+ */
+export function formatDisplayNumber(
+  value: number,
+  options?: { decimals?: number; suffix?: string; stripTrailingZeros?: boolean },
+): string {
+  if (!Number.isFinite(value)) return "—";
+
+  const { decimals, suffix = "", stripTrailingZeros = true } = options ?? {};
+  const negative = value < 0;
+  const absValue = Math.abs(value);
+
+  let decimalPart: string;
+  let integerPart: string;
+
+  if (decimals !== undefined) {
+    // Fixed decimals via toFixed — safe up to 1e21
+    const fixed = absValue.toFixed(decimals);
+    const dotIdx = fixed.indexOf(".");
+    integerPart = dotIdx === -1 ? fixed : fixed.slice(0, dotIdx);
+    decimalPart = dotIdx === -1 ? "" : fixed.slice(dotIdx + 1);
+  } else {
+    // Smart decimals
+    if (Number.isInteger(absValue) && absValue < 1e15) {
+      integerPart = String(absValue);
+      decimalPart = "";
+    } else if (absValue < 1) {
+      // Show up to 6 significant decimal digits, strip trailing zeros
+      const raw = absValue.toFixed(6);
+      const dotIdx = raw.indexOf(".");
+      integerPart = "0";
+      decimalPart = raw.slice(dotIdx + 1).replace(/0+$/, "");
+    } else {
+      // Default: 2 decimals, strip trailing zeros
+      const raw = absValue.toFixed(2);
+      const dotIdx = raw.indexOf(".");
+      integerPart = dotIdx === -1 ? raw : raw.slice(0, dotIdx);
+      decimalPart = dotIdx === -1 ? "" : raw.slice(dotIdx + 1);
+    }
+  }
+
+  // Strip trailing zeros from decimal part
+  let cleanedDecimal = decimalPart;
+  if (stripTrailingZeros && cleanedDecimal.length > 0) {
+    cleanedDecimal = cleanedDecimal.replace(/0+$/, "");
+  }
+
+  // Add thousands separators to integer part
+  const separatedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  const formatted = cleanedDecimal.length > 0
+    ? `${separatedInteger}.${cleanedDecimal}`
+    : separatedInteger;
+
+  const sign = negative ? "-" : "";
+  return suffix ? `${sign}${formatted}${suffix}` : `${sign}${formatted}`;
+}
+
+/**
+ * Format a business result value by output name.
+ * Applies output-specific precision rules for break-even and margin-of-safety results.
+ */
+export function formatBusinessResult(name: string, rawValue: number): string {
+  if (!Number.isFinite(rawValue)) return "—";
+
+  const key = name.toLowerCase().replace(/[\s-]+/g, "_");
+
+  // Contribution margin per unit: 6 decimals if < 1, integer if clean, otherwise 2 decimals
+  if (key.includes("contribution_margin") || key.includes("contribution")) {
+    if (Math.abs(rawValue) < 1) return formatDisplayNumber(rawValue, { decimals: 6, stripTrailingZeros: true });
+    if (Number.isInteger(rawValue) && Math.abs(rawValue) < 1e15) return formatDisplayNumber(rawValue, { decimals: 0 });
+    return formatDisplayNumber(rawValue, { decimals: 2, stripTrailingZeros: true });
+  }
+
+  // Break-even units: 2 decimals if not integer
+  if (key.includes("break_even_units") || (key.includes("break") && key.includes("even") && key.includes("unit"))) {
+    if (Number.isInteger(rawValue)) return formatDisplayNumber(rawValue, { decimals: 0 });
+    return formatDisplayNumber(rawValue, { decimals: 2, stripTrailingZeros: false });
+  }
+
+  // Break-even revenue: always with separators, 2 decimals
+  if (key.includes("break_even_revenue") || (key.includes("break") && key.includes("even") && key.includes("revenue"))) {
+    if (Number.isInteger(rawValue) && Math.abs(rawValue) < 1e15) return formatDisplayNumber(rawValue, { decimals: 0 });
+    return formatDisplayNumber(rawValue, { decimals: 2, stripTrailingZeros: false });
+  }
+
+  // Margin of safety units: always 2 decimals with separators
+  if (key.includes("margin_of_safety_units") || (key.includes("margin") && key.includes("safety") && key.includes("unit"))) {
+    return formatDisplayNumber(rawValue, { decimals: 2, stripTrailingZeros: false });
+  }
+
+  // Margin of safety percent: always 2 decimals + %
+  if (key.includes("margin_of_safety_percent") || (key.includes("margin") && key.includes("safety") && (key.includes("percent") || key.includes("%")))) {
+    return formatDisplayNumber(rawValue, { decimals: 2, stripTrailingZeros: false, suffix: "%" });
+  }
+
+  // Default: generic smart formatting for unknown outputs
+  return formatDisplayNumber(rawValue);
 }
 
 /**
