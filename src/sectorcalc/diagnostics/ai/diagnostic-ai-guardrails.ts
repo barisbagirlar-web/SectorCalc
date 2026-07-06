@@ -2,6 +2,9 @@
  * Engineering Diagnostics AI Guardrails
  *
  * Validates AI output before it enters the report pipeline.
+ * Two validation paths:
+ *   1. validateAiOutput — legacy guard for AiDiagnosticOutput (existing flow)
+ *   2. validateEngineeringDraft — new guard for AiEngineeringDraft (ai-draft flow)
  *
  * STRICT:
  * - AI may not override numeric deterministic values
@@ -11,6 +14,9 @@
  */
 
 import type { AiDiagnosticOutput, AiDiagnosticInput } from "./diagnostic-ai-types";
+import type { AiEngineeringDraft } from "./diagnostic-ai-types";
+import { AiEngineeringDraftSchema } from "./diagnostic-ai-schema";
+import { redactUserText } from "../report/diagnostic-report-redaction";
 
 /* ── Forbidden claim patterns ── */
 
@@ -20,13 +26,32 @@ const FORBIDDEN_CLAIMS = [
   /defect-free/i,
   /detects? all/i,
   /final acceptance/i,
-  /100%/, 
+  /RUN_OK/i,
+  /RUN OK/i,
+  /100%/,
   /zero defect/i,
   /legally binding/i,
   /warrant(y|ed)/i,
+  /approval/i,
 ];
 
-/* ── Output shape validation ── */
+/* ── Deterministic field names that AI must not restate as value overrides ── */
+
+const NUMERIC_DETERMINISTIC_FIELDS = [
+  "risk_score",
+  "total_risk_score",
+  "cost_at_risk",
+  "expanded_uncertainty",
+];
+
+const STATE_DETERMINISTIC_FIELDS = [
+  "decision",
+  "decision_state",
+  "tolerance_status",
+  "measurement_confidence",
+];
+
+/* ── Output shape validation (legacy) ── */
 
 interface GuardrailResult {
   ok: boolean;
@@ -47,12 +72,12 @@ const EXPECTED_KEYS: (keyof AiDiagnosticOutput)[] = [
 const ALLOWED_SEVERITY = ["LOW", "MEDIUM", "HIGH"];
 
 /**
- * Validate AI output against guardrails.
+ * Validate AI output against guardrails (legacy path).
  * Returns cleaned output or error list.
  */
 export function validateAiOutput(
   raw: unknown,
-  input: AiDiagnosticInput,
+  _input: AiDiagnosticInput,
 ): GuardrailResult {
   const errors: string[] = [];
 
@@ -113,13 +138,11 @@ export function validateAiOutput(
   }
 
   // 3. Check for numeric override attempts
-  // Scan all string values for numeric patterns near decision/risk keywords
   const stringValues = EXPECTED_KEYS
     .filter((k) => k !== "visual_observations" && k !== "root_cause_hypotheses")
     .map((k) => String(obj[k] ?? ""));
   const allText = stringValues.join(" ").toLowerCase();
 
-  // Detect attempts to restate risk score as if AI computed it
   const numericRiskPatterns = [
     /risk score[:\s]*\d+/i,
     /risk.?score[:\s]*\d+/i,
@@ -161,4 +184,117 @@ export function validateAiOutput(
   };
 
   return { ok: true, output, errors: [] };
+}
+
+/* ── New guard: Engineering Draft validation ── */
+
+export interface EngineeringDraftGuardResult {
+  ok: boolean;
+  draft: AiEngineeringDraft | null;
+  errors: string[];
+}
+
+/**
+ * Validate the richer engineering draft.
+ * Uses Zod schema + additional text-level guardrails.
+ */
+export function validateEngineeringDraft(
+  raw: unknown,
+): EngineeringDraftGuardResult {
+  const errors: string[] = [];
+
+  // 1. Must be an object
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+    return { ok: false, draft: null, errors: ["AI output is not a valid object"] };
+  }
+
+  // 2. Zod structural validation
+  const zodResult = AiEngineeringDraftSchema.safeParse(raw);
+  if (!zodResult.success) {
+    for (const issue of zodResult.error.issues) {
+      errors.push(`${issue.path.join(".")}: ${issue.message}`);
+    }
+    return { ok: false, draft: null, errors };
+  }
+
+  const draft = zodResult.data;
+
+  // 3. Scan all string fields for deterministic field overrides
+  const allText = JSON.stringify(draft);
+
+  // 3a. Numeric deterministic fields: field name followed within 30 chars by a digit
+  for (const field of NUMERIC_DETERMINISTIC_FIELDS) {
+    const pattern = new RegExp(
+      `\\b${field.replace(/_/g, "[ _]")}\\b.{0,30}?\\d+`,
+      "i",
+    );
+    if (pattern.test(allText)) {
+      errors.push(`AI output contains forbidden numeric reference to deterministic field: ${field}`);
+    }
+  }
+
+  // 3b. State deterministic fields: field name followed by an uppercase state value
+  for (const field of STATE_DETERMINISTIC_FIELDS) {
+    const pattern = new RegExp(
+      `\\b${field.replace(/_/g, "[ _]")}\\b.{0,30}?[A-Z_]{3,}`,
+      "s",
+    );
+    if (pattern.test(allText)) {
+      errors.push(`AI output contains forbidden state reference to deterministic field: ${field}`);
+    }
+  }
+
+  // 4. Scan for forbidden claims
+  for (const pat of FORBIDDEN_CLAIMS) {
+    if (pat.test(allText)) {
+      errors.push(`AI output contains forbidden claim: ${pat.source}`);
+    }
+  }
+
+  if (errors.length > 0) {
+    return { ok: false, draft: null, errors };
+  }
+
+  // 5. Redact secrets in all string fields
+  const redacted = redactDraftSecrets(draft);
+
+  return { ok: true, draft: redacted, errors: [] };
+}
+
+/**
+ * Walk all string fields of an AiEngineeringDraft and redact secrets.
+ */
+function redactDraftSecrets(draft: AiEngineeringDraft): AiEngineeringDraft {
+  return {
+    ...draft,
+    engineering_interpretation: redactUserText(draft.engineering_interpretation),
+    executive_summary: redactUserText(draft.executive_summary),
+    visual_observations: draft.visual_observations.map((o) => ({
+      ...o,
+      observation: redactUserText(o.observation),
+    })),
+    root_cause_hypotheses: draft.root_cause_hypotheses.map((h) => ({
+      ...h,
+      cause: redactUserText(h.cause),
+      verification_method: redactUserText(h.verification_method),
+    })),
+    required_manual_checks: draft.required_manual_checks.map(redactUserText),
+    containment_actions: draft.containment_actions.map(redactUserText),
+    temporary_fix: draft.temporary_fix.map(redactUserText),
+    permanent_corrective_action: draft.permanent_corrective_action.map(redactUserText),
+    limitations: draft.limitations.map(redactUserText),
+    ncr_draft: {
+      nonconformity: redactUserText(draft.ncr_draft.nonconformity),
+      affected_process: redactUserText(draft.ncr_draft.affected_process),
+      containment: redactUserText(draft.ncr_draft.containment),
+      corrective_action: redactUserText(draft.ncr_draft.corrective_action),
+      verification_method: redactUserText(draft.ncr_draft.verification_method),
+    },
+    capa_draft: {
+      root_cause_hypothesis: redactUserText(draft.capa_draft.root_cause_hypothesis),
+      corrective_action: redactUserText(draft.capa_draft.corrective_action),
+      preventive_action: redactUserText(draft.capa_draft.preventive_action),
+      evidence_required: redactUserText(draft.capa_draft.evidence_required),
+    },
+  };
 }
