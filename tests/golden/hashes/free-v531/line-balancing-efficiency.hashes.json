@@ -1,0 +1,20 @@
+{
+  "tool_key": "line-balancing-efficiency",
+  "tool_id": "FREE_V531_026",
+  "source_sha256": "73f1ead7e61a1a082ef67f50f8fa1bb3a57e50f74dcc50eb516ccf5d2f7a72da",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:e83f94e4",
+  "output_hash": "fnv1a32:24693c3e",
+  "public_response_hash": "fnv1a32:bd94a89e",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:16569f5e"
+}

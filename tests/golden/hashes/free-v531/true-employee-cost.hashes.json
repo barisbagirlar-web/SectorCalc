@@ -1,0 +1,20 @@
+{
+  "tool_key": "true-employee-cost",
+  "tool_id": "FREE_V531_035",
+  "source_sha256": "6ea64680f8fd1e3dfc794c9843dc023e8081f53512c9971760a690ffde2029ec",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:c239af5a",
+  "output_hash": "fnv1a32:0c8e0be4",
+  "public_response_hash": "fnv1a32:0ad29627",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:0a28d869"
+}

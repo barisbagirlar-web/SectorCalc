@@ -1,0 +1,20 @@
+{
+  "tool_key": "electricity-co2-emissions",
+  "tool_id": "FREE_V531_031",
+  "source_sha256": "7ea85312e35522df50f3bfe99c86a838bb7570e25bec4c5f57ddae261ea5f967",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:ed00d760",
+  "output_hash": "fnv1a32:68374e0e",
+  "public_response_hash": "fnv1a32:bff1cc7a",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:3f65fe5e"
+}

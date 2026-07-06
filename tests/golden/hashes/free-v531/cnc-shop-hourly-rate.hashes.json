@@ -1,0 +1,20 @@
+{
+  "tool_key": "cnc-shop-hourly-rate",
+  "tool_id": "FREE_V531_002",
+  "source_sha256": "861cebc0d3ead7fe551120cb6dcee4f3a06cfdb5bb0f58d3bd00517b9e1833ed",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:33f62c1c",
+  "output_hash": "fnv1a32:b9292204",
+  "public_response_hash": "fnv1a32:81873aae",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:422ac252"
+}

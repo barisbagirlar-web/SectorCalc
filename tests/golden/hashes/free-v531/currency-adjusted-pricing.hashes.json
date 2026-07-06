@@ -1,0 +1,20 @@
+{
+  "tool_key": "currency-adjusted-pricing",
+  "tool_id": "FREE_V531_041",
+  "source_sha256": "0fa99d82e45401b03f04b7e55898343b3a5e3687767a1f402c2bd471183d72f7",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:2a6ecc2d",
+  "output_hash": "fnv1a32:35cb8707",
+  "public_response_hash": "fnv1a32:45353b30",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:71bb45ac"
+}

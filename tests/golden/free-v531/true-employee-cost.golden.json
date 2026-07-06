@@ -1,0 +1,15 @@
+{
+  "tool_key": "true-employee-cost",
+  "tool_id": "FREE_V531_035",
+  "raw_inputs": {
+    "employer_tax_percent": 10,
+    "gross_salary": 10,
+    "monthly_benefits_cost": 10,
+    "monthly_insurance_cost": 10,
+    "monthly_overtime_cost": 10,
+    "monthly_productive_hours": 10,
+    "monthly_severance_accrual": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

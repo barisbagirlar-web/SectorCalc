@@ -1,0 +1,13 @@
+{
+  "tool_key": "material-removal-rate",
+  "tool_id": "FREE_V531_007",
+  "raw_inputs": {
+    "depth_of_cut_mm": 10,
+    "feed_rate_mm_min": 10,
+    "machine_hourly_rate": 10,
+    "material_density_kg_m3": 10,
+    "width_of_cut_mm": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

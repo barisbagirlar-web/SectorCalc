@@ -1,0 +1,20 @@
+{
+  "tool_key": "energy-cost-per-part",
+  "tool_id": "FREE_V531_029",
+  "source_sha256": "9be472e9fbc5cd777bdf407788ec2a0e4fb51bb69cf2d3ceba70e9229b225e15",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:59e72413",
+  "output_hash": "fnv1a32:2d2ef8dc",
+  "public_response_hash": "fnv1a32:67da752d",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:8fa1a424"
+}

@@ -1,0 +1,20 @@
+{
+  "tool_key": "downtime-cost",
+  "tool_id": "FREE_V531_023",
+  "source_sha256": "9ce0daac15db1c068eb8a98c57e1400f78b666d20479d4f2f6d912d9c7b43d31",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:9f4eb782",
+  "output_hash": "fnv1a32:c6491614",
+  "public_response_hash": "fnv1a32:f689e87f",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:0f329b8a"
+}

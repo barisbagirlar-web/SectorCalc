@@ -1,0 +1,14 @@
+{
+  "tool_key": "sheet-metal-bend-allowance",
+  "tool_id": "FREE_V531_021",
+  "raw_inputs": {
+    "bend_angle_deg": 10,
+    "flange_a_mm": 10,
+    "flange_b_mm": 10,
+    "inside_radius_mm": 10,
+    "k_factor": 10,
+    "material_thickness_mm": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

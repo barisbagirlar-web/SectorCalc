@@ -1,0 +1,20 @@
+{
+  "tool_key": "setup-time-cost",
+  "tool_id": "FREE_V531_025",
+  "source_sha256": "d1d41051f37c48f6a6e406de4c40c66c3d12b54055985d4df0e866f289940bc7",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:0082cc0a",
+  "output_hash": "fnv1a32:b25d330e",
+  "public_response_hash": "fnv1a32:a75200aa",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:da7e99ba"
+}

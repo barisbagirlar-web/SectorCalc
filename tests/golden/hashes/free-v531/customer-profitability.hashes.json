@@ -1,0 +1,20 @@
+{
+  "tool_key": "customer-profitability",
+  "tool_id": "FREE_V531_040",
+  "source_sha256": "d89bf1980b2e38151b937c43eaee6dc6a4c4ae2a472586deb2832eeac81862a8",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:f02cd923",
+  "output_hash": "fnv1a32:87372b21",
+  "public_response_hash": "fnv1a32:1ad4ca6b",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:a23eb269"
+}

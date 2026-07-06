@@ -1,0 +1,12 @@
+{
+  "tool_key": "diesel-fuel-co2-emissions",
+  "tool_id": "FREE_V531_032",
+  "raw_inputs": {
+    "bio_blend_reduction_percent": 10,
+    "fuel_volume_liters": 10,
+    "payload_ton_km": 10,
+    "user_verified_emission_factor_kgco2e_liter": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

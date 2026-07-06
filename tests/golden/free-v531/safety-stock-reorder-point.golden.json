@@ -1,0 +1,13 @@
+{
+  "tool_key": "safety-stock-reorder-point",
+  "tool_id": "FREE_V531_043",
+  "raw_inputs": {
+    "average_daily_demand": 10,
+    "daily_demand_std_dev": 10,
+    "lead_time_days": 10,
+    "lead_time_std_dev_days": 10,
+    "service_level_z_score": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

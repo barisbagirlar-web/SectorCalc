@@ -1,0 +1,20 @@
+{
+  "tool_key": "carbon-price-exposure",
+  "tool_id": "FREE_V531_034",
+  "source_sha256": "a389bed2c7ee183d3f72e87532ca708ea4f25868689927b2e47902d7756698f5",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:f96c39e0",
+  "output_hash": "fnv1a32:06fb4e82",
+  "public_response_hash": "fnv1a32:fd851cf3",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:9c98288f"
+}

@@ -1,0 +1,20 @@
+{
+  "tool_key": "cbam-cost-quick-estimator",
+  "tool_id": "FREE_V531_030",
+  "source_sha256": "45979a02c0c498a5dcb59ee8cdfad4eddf130cbf8ed5d4ce338cb23dafeefeed",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:e9ac9263",
+  "output_hash": "fnv1a32:a6becc7d",
+  "public_response_hash": "fnv1a32:5a6bd087",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:08b17451"
+}

@@ -1,0 +1,13 @@
+{
+  "tool_key": "carbon-price-exposure",
+  "tool_id": "FREE_V531_034",
+  "raw_inputs": {
+    "base_carbon_price": 10,
+    "customer_pass_through_percent": 10,
+    "exposed_emissions_tco2e": 10,
+    "high_carbon_price": 10,
+    "low_carbon_price": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

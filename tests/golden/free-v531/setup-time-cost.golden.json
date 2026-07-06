@@ -1,0 +1,14 @@
+{
+  "tool_key": "setup-time-cost",
+  "tool_id": "FREE_V531_025",
+  "raw_inputs": {
+    "batch_quantity": 10,
+    "changeovers_per_month": 10,
+    "labor_hourly_rate": 10,
+    "machine_hourly_rate": 10,
+    "setup_minutes": 10,
+    "target_setup_cost_per_part": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

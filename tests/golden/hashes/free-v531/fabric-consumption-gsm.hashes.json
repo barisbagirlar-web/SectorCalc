@@ -1,0 +1,20 @@
+{
+  "tool_key": "fabric-consumption-gsm",
+  "tool_id": "FREE_V531_050",
+  "source_sha256": "0dd862e722cf343790a0f778b126b1ffcec4d2cc03ecd87b818b024ac06eff9c",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:369996a1",
+  "output_hash": "fnv1a32:f08bfdd7",
+  "public_response_hash": "fnv1a32:c15613fa",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:a765582a"
+}

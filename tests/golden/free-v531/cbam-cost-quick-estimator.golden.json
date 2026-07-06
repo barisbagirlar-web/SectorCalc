@@ -1,0 +1,13 @@
+{
+  "tool_key": "cbam-cost-quick-estimator",
+  "tool_id": "FREE_V531_030",
+  "raw_inputs": {
+    "carbon_price_per_tco2e": 10,
+    "embedded_emission_tco2e_per_ton": 10,
+    "evidence_confidence_percent": 10,
+    "export_product_mass_ton": 10,
+    "free_allocation_factor_percent": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

@@ -1,0 +1,12 @@
+{
+  "tool_key": "electricity-co2-emissions",
+  "tool_id": "FREE_V531_031",
+  "raw_inputs": {
+    "electricity_kwh": 10,
+    "evidence_confidence_percent": 10,
+    "renewable_share_percent": 10,
+    "user_verified_grid_factor_kgco2e_kwh": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

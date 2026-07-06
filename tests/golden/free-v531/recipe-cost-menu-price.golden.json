@@ -1,0 +1,14 @@
+{
+  "tool_key": "recipe-cost-menu-price",
+  "tool_id": "FREE_V531_049",
+  "raw_inputs": {
+    "batch_yield_portions": 10,
+    "ingredient_cost_per_batch": 10,
+    "kitchen_waste_percent": 10,
+    "labor_cost_per_portion": 10,
+    "overhead_cost_per_portion": 10,
+    "target_food_cost_percent": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

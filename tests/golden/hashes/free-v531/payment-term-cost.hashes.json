@@ -1,0 +1,20 @@
+{
+  "tool_key": "payment-term-cost",
+  "tool_id": "FREE_V531_038",
+  "source_sha256": "914d3c545b4e4c7c4fce2ae7aa561b38d697318350822a12e937da48dd6d26dd",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:45ba9e2a",
+  "output_hash": "fnv1a32:00d79777",
+  "public_response_hash": "fnv1a32:d609535a",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:fff7149f"
+}

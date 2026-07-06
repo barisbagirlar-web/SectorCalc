@@ -1,0 +1,15 @@
+{
+  "tool_key": "freight-cost-per-km-trip",
+  "tool_id": "FREE_V531_046",
+  "raw_inputs": {
+    "distance_km": 10,
+    "economic_minimum_units": 10,
+    "fixed_trip_cost": 10,
+    "fuel_surcharge_percent": 10,
+    "rate_per_km": 10,
+    "units_shipped": 10,
+    "waiting_cost": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

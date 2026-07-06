@@ -1,0 +1,13 @@
+{
+  "tool_key": "payment-term-cost",
+  "tool_id": "FREE_V531_038",
+  "raw_inputs": {
+    "annual_finance_rate_percent": 10,
+    "cash_discount_percent": 10,
+    "default_risk_percent": 10,
+    "invoice_amount": 10,
+    "payment_term_days": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

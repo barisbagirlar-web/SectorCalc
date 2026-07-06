@@ -1,0 +1,14 @@
+{
+  "tool_key": "pallet-container-load-cbm",
+  "tool_id": "FREE_V531_045",
+  "raw_inputs": {
+    "container_capacity_cbm": 10,
+    "item_height_m": 10,
+    "item_length_m": 10,
+    "item_quantity": 10,
+    "item_width_m": 10,
+    "void_allowance_percent": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

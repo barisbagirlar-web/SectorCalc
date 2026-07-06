@@ -1,0 +1,14 @@
+{
+  "tool_key": "scrap-cost",
+  "tool_id": "FREE_V531_009",
+  "raw_inputs": {
+    "conversion_cost_per_unit": 10,
+    "material_cost_per_unit": 10,
+    "produced_quantity": 10,
+    "reinspection_cost_per_scrap": 10,
+    "salvage_value_per_unit": 10,
+    "scrap_quantity": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

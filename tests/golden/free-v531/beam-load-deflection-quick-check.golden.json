@@ -1,0 +1,15 @@
+{
+  "tool_key": "beam-load-deflection-quick-check",
+  "tool_id": "FREE_V531_020",
+  "raw_inputs": {
+    "deflection_limit_ratio": 10,
+    "elastic_modulus_gpa": 10,
+    "second_moment_area_cm4": 10,
+    "section_modulus_cm3": 10,
+    "span_m": 10,
+    "uniform_load_kn_m": 10,
+    "user_verified_yield_stress_mpa": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

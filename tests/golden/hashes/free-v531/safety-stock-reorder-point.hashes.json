@@ -1,0 +1,20 @@
+{
+  "tool_key": "safety-stock-reorder-point",
+  "tool_id": "FREE_V531_043",
+  "source_sha256": "b92f92031166739e46b92e3b144542d6e2eb96ddfdbf3d557d5cb19593b2b93a",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:a41c51b6",
+  "output_hash": "fnv1a32:55fb3716",
+  "public_response_hash": "fnv1a32:b7550507",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:6ae5c9c6"
+}

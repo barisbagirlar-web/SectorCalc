@@ -1,0 +1,20 @@
+{
+  "tool_key": "inventory-carrying-cost",
+  "tool_id": "FREE_V531_044",
+  "source_sha256": "f358f8345f11b02396b8eb84d4f902334416534d9517f968da820c2466d7fc58",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:af782729",
+  "output_hash": "fnv1a32:e94c763a",
+  "public_response_hash": "fnv1a32:8d2b98ef",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:83ce4819"
+}

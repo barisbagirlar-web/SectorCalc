@@ -1,0 +1,15 @@
+{
+  "tool_key": "customer-profitability",
+  "tool_id": "FREE_V531_040",
+  "raw_inputs": {
+    "customer_revenue": 10,
+    "logistics_cost": 10,
+    "payment_delay_cost": 10,
+    "product_cost": 10,
+    "return_rework_cost": 10,
+    "sales_support_cost": 10,
+    "service_cost": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

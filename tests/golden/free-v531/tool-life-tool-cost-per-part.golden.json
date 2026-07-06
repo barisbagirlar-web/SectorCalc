@@ -1,0 +1,15 @@
+{
+  "tool_key": "tool-life-tool-cost-per-part",
+  "tool_id": "FREE_V531_008",
+  "raw_inputs": {
+    "cutting_speed_m_min": 10,
+    "cutting_time_seconds_per_part": 10,
+    "edge_cost": 10,
+    "machine_hourly_rate": 10,
+    "taylor_c": 10,
+    "taylor_n": 10,
+    "tool_change_minutes": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

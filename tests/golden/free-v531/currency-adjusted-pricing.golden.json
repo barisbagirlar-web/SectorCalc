@@ -1,0 +1,14 @@
+{
+  "tool_key": "currency-adjusted-pricing",
+  "tool_id": "FREE_V531_041",
+  "raw_inputs": {
+    "base_cost_local_currency": 10,
+    "current_fx_rate": 10,
+    "freight_cost_local_currency": 10,
+    "fx_buffer_percent": 10,
+    "quote_fx_rate": 10,
+    "target_margin_percent": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

@@ -1,0 +1,13 @@
+{
+  "tool_key": "electric-motor-running-cost",
+  "tool_id": "FREE_V531_028",
+  "raw_inputs": {
+    "electricity_rate": 10,
+    "load_factor_percent": 10,
+    "motor_efficiency_percent": 10,
+    "motor_power_kw": 10,
+    "operating_hours": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

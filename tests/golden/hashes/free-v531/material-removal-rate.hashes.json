@@ -1,0 +1,20 @@
+{
+  "tool_key": "material-removal-rate",
+  "tool_id": "FREE_V531_007",
+  "source_sha256": "4e2bd5f3ac1f3b3dfba1c8ccf29cfb3609c9c6010cdb310db675e465ff3ff010",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:2710e500",
+  "output_hash": "fnv1a32:02879f95",
+  "public_response_hash": "fnv1a32:3425d06b",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:a019e41f"
+}

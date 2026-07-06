@@ -1,0 +1,15 @@
+{
+  "tool_key": "rework-vs-scrap-decision",
+  "tool_id": "FREE_V531_010",
+  "raw_inputs": {
+    "delivery_penalty_cost": 10,
+    "reinspection_cost": 10,
+    "rework_labor_cost": 10,
+    "rework_material_cost": 10,
+    "rework_success_probability_percent": 10,
+    "scrap_replacement_cost": 10,
+    "scrap_salvage_credit": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

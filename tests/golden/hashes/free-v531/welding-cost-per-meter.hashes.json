@@ -1,0 +1,20 @@
+{
+  "tool_key": "welding-cost-per-meter",
+  "tool_id": "FREE_V531_015",
+  "source_sha256": "9bf4111b4d9ab376d97c085ec0aa463fe6b0a8f3fc7edf872a2cf8c22b648062",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:bf80a793",
+  "output_hash": "fnv1a32:127972f1",
+  "public_response_hash": "fnv1a32:36eb2188",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:a464378e"
+}

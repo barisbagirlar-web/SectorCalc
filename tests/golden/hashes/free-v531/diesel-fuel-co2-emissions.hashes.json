@@ -1,0 +1,20 @@
+{
+  "tool_key": "diesel-fuel-co2-emissions",
+  "tool_id": "FREE_V531_032",
+  "source_sha256": "1243b934b2a09c02197d4573e8e3090d835eb82cc149120e2104259d6b22c104",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:5226bb8a",
+  "output_hash": "fnv1a32:3e526708",
+  "public_response_hash": "fnv1a32:ff45b5a1",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:1b6cdf25"
+}

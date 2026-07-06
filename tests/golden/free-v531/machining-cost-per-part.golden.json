@@ -1,0 +1,19 @@
+{
+  "tool_key": "machining-cost-per-part",
+  "tool_id": "FREE_V531_001",
+  "raw_inputs": {
+    "batch_quantity": 10,
+    "cycle_seconds": 10,
+    "edge_life_parts": 10,
+    "labor_hourly_rate": 10,
+    "machine_hourly_rate": 10,
+    "material_cost_per_blank": 10,
+    "overhead_percent": 10,
+    "scrap_percent": 10,
+    "setup_minutes": 10,
+    "target_margin_percent": 10,
+    "tooling_cost_per_edge": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

@@ -1,0 +1,20 @@
+{
+  "tool_key": "freight-cost-per-km-trip",
+  "tool_id": "FREE_V531_046",
+  "source_sha256": "6e45a0d9b32f29d71149cba8d37e024d3bacb89ff066bb4260972145fb0e1203",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:edecd410",
+  "output_hash": "fnv1a32:35dba113",
+  "public_response_hash": "fnv1a32:fa84816a",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:fbbb0abf"
+}

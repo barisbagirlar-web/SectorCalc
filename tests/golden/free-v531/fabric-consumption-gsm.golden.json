@@ -1,0 +1,13 @@
+{
+  "tool_key": "fabric-consumption-gsm",
+  "tool_id": "FREE_V531_050",
+  "raw_inputs": {
+    "fabric_cost_per_kg": 10,
+    "fabric_gsm": 10,
+    "garment_area_m2": 10,
+    "marker_efficiency_percent": 10,
+    "shrinkage_percent": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

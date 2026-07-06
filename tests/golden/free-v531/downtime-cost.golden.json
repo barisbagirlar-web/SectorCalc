@@ -1,0 +1,14 @@
+{
+  "tool_key": "downtime-cost",
+  "tool_id": "FREE_V531_023",
+  "raw_inputs": {
+    "contribution_margin_per_unit": 10,
+    "delivery_penalty_cost": 10,
+    "downtime_hours": 10,
+    "idle_labor_cost_per_hour": 10,
+    "planned_units_per_hour": 10,
+    "repair_cost": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

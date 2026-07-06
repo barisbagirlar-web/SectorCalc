@@ -1,0 +1,13 @@
+{
+  "tool_key": "compressed-air-leak-cost",
+  "tool_id": "FREE_V531_027",
+  "raw_inputs": {
+    "annual_operating_hours": 10,
+    "compressor_specific_power_kw_per_cfm": 10,
+    "electricity_rate": 10,
+    "estimated_leak_flow_cfm": 10,
+    "estimated_repair_cost": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

@@ -1,0 +1,807 @@
+{
+  "manifest_name": "free-v531-committed-package-manifest",
+  "generated_from": "current_worktree_after_free_v531_commit",
+  "hash_algorithm": "SHA-256",
+  "files": [
+    {
+      "path": "package.json",
+      "sha256": "b88e3c3bfe8e5b2ff5e1b6f913a1d4d95919a61e325413f7475c905ae9aab6ad",
+      "bytes": 9089
+    },
+    {
+      "path": "scripts/guard-free-v531-formula-line-count.mjs",
+      "sha256": "a55cda641ff409fb961ca52c8dad0811f78ea751e2ef62450cacb3a03acbe649",
+      "bytes": 690
+    },
+    {
+      "path": "scripts/guard-free-v531-formula-safety.mjs",
+      "sha256": "7ffa59cf42c9eb1d25f7d9ae7b5d9aae239afffacdc20f2f9505c3f9926d3c8a",
+      "bytes": 744
+    },
+    {
+      "path": "scripts/run-golden-tests.ts",
+      "sha256": "cbc0d294dd14273b5b0e69f8407058615512c6f60175d796b3ee74210432f587",
+      "bytes": 9499
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/beam-load-deflection-quick-check.formula.ts",
+      "sha256": "61e8eda83e35d4e51e3460d4ada1e6f9a0e44be33bb9e3a9178b1046680b1008",
+      "bytes": 141396
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/bolt-preload-clamp-force.formula.ts",
+      "sha256": "e9fc900993037e0c1b09efdb98e6c50b43a98d9ea3df30bb7b3ef0d8b95118b3",
+      "bytes": 144126
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/bolt-torque.formula.ts",
+      "sha256": "581eeb25ca0780163b57fdc72c1f3dae62558cd491da471edf27b082bd428cf7",
+      "bytes": 136990
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry.ts",
+      "sha256": "c78c0cfcf92fea8dafeeff90a07acc9ba9e5779273f99cb17619fdb69019f16e",
+      "bytes": 5345
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/break-even-point.formula.ts",
+      "sha256": "160b8bad45913522adf155cb83fcf2d0d0cf443c4e7d1a45d56bbc49f6d7de6d",
+      "bytes": 137631
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/carbon-price-exposure.formula.ts",
+      "sha256": "a389bed2c7ee183d3f72e87532ca708ea4f25868689927b2e47902d7756698f5",
+      "bytes": 140435
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/cbam-cost-quick-estimator.formula.ts",
+      "sha256": "45979a02c0c498a5dcb59ee8cdfad4eddf130cbf8ed5d4ce338cb23dafeefeed",
+      "bytes": 142592
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/cnc-shop-hourly-rate.formula.ts",
+      "sha256": "861cebc0d3ead7fe551120cb6dcee4f3a06cfdb5bb0f58d3bd00517b9e1833ed",
+      "bytes": 125549
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/compressed-air-leak-cost.formula.ts",
+      "sha256": "cd04ec09c7d6aa224bbb5d5f6d42104181bd0b50138eb066cc67749d4f1a5fd0",
+      "bytes": 141998
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/concrete-volume-order-quantity.formula.ts",
+      "sha256": "cb861d76c428728e647993e714d19cfab174e1847ce27bab3fd366f10022bf08",
+      "bytes": 142475
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/currency-adjusted-pricing.formula.ts",
+      "sha256": "0fa99d82e45401b03f04b7e55898343b3a5e3687767a1f402c2bd471183d72f7",
+      "bytes": 140563
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/customer-profitability.formula.ts",
+      "sha256": "d89bf1980b2e38151b937c43eaee6dc6a4c4ae2a472586deb2832eeac81862a8",
+      "bytes": 136728
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/cutting-speed-feed-rpm.formula.ts",
+      "sha256": "3a53bc133bd39a4696ac412044288d94b6ebeab69859798ea43abe06d8c892dd",
+      "bytes": 140882
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/diesel-fuel-co2-emissions.formula.ts",
+      "sha256": "1243b934b2a09c02197d4573e8e3090d835eb82cc149120e2104259d6b22c104",
+      "bytes": 144806
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/downtime-cost.formula.ts",
+      "sha256": "9ce0daac15db1c068eb8a98c57e1400f78b666d20479d4f2f6d912d9c7b43d31",
+      "bytes": 134049
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/electric-motor-running-cost.formula.ts",
+      "sha256": "8b09ef007af957016657a641a27c2b20f4113e21693f4d5d2c53feb4a05ddbff",
+      "bytes": 143466
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/electricity-co2-emissions.formula.ts",
+      "sha256": "7ea85312e35522df50f3bfe99c86a838bb7570e25bec4c5f57ddae261ea5f967",
+      "bytes": 144680
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/energy-cost-per-part.formula.ts",
+      "sha256": "9be472e9fbc5cd777bdf407788ec2a0e4fb51bb69cf2d3ceba70e9229b225e15",
+      "bytes": 137744
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/eoq.formula.ts",
+      "sha256": "d60c9aa089de64247833fab0266b513f1112aa5675d8674c29eda1206b785d29",
+      "bytes": 132561
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/fabric-consumption-gsm.formula.ts",
+      "sha256": "0dd862e722cf343790a0f778b126b1ffcec4d2cc03ecd87b818b024ac06eff9c",
+      "bytes": 140873
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/fillet-weld-size-strength.formula.ts",
+      "sha256": "b3fb687aaa7ea79bf25ab3ebd18e85f064381a2a90ac819d570394adbfd2b74c",
+      "bytes": 142398
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/free-v531-formula-registry.ts",
+      "sha256": "3c10da4371c68b8769834b515df4e4214bee78a2754ab70cedccc726b83b7e3c",
+      "bytes": 220
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/freight-cost-per-km-trip.formula.ts",
+      "sha256": "6e45a0d9b32f29d71149cba8d37e024d3bacb89ff066bb4260972145fb0e1203",
+      "bytes": 137943
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/index.ts",
+      "sha256": "77140dc1b874241a9bab7041c859f33a16cf0f4b5fef7fdf1ed191d7c557b3c9",
+      "bytes": 11135
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/inventory-carrying-cost.formula.ts",
+      "sha256": "f358f8345f11b02396b8eb84d4f902334416534d9517f968da820c2466d7fc58",
+      "bytes": 139680
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/iso-286-tolerance-fit.formula.ts",
+      "sha256": "aba4cd0451d62ca13e9c60df6152cf6a061e37f1504fd41a25e889183be6449c",
+      "bytes": 139725
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/knurling-drill-point-depth.formula.ts",
+      "sha256": "0043128b8634f6920297489351062159886812b25a305f67254980616e09d6d3",
+      "bytes": 145213
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/line-balancing-efficiency.formula.ts",
+      "sha256": "73f1ead7e61a1a082ef67f50f8fa1bb3a57e50f74dcc50eb516ccf5d2f7a72da",
+      "bytes": 142530
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/machine-investment-payback.formula.ts",
+      "sha256": "60bc9959bc7d01ce3ffb07a35abf75ce430464b27d2a790d54396cb408fbfd9f",
+      "bytes": 136992
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/machining-cost-per-part.formula.ts",
+      "sha256": "b9edeb61e8eeee9082e59f3a5cea4e9794f282827fa47f83d978198357cd5e20",
+      "bytes": 127867
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/material-removal-rate.formula.ts",
+      "sha256": "4e2bd5f3ac1f3b3dfba1c8ccf29cfb3609c9c6010cdb310db675e465ff3ff010",
+      "bytes": 140091
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/oee.formula.ts",
+      "sha256": "6b3887cb0776ab1b65cb41b4905c058200cd89242181ed15a00b476d41fa89d9",
+      "bytes": 128554
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/pallet-container-load-cbm.formula.ts",
+      "sha256": "2847f965ff4527bc8977eeec74c9f3a386db971857bdc71a2dc2bb0e997faf38",
+      "bytes": 140280
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/payment-term-cost.formula.ts",
+      "sha256": "914d3c545b4e4c7c4fce2ae7aa561b38d697318350822a12e937da48dd6d26dd",
+      "bytes": 138263
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/product-carbon-footprint-basic.formula.ts",
+      "sha256": "b357a712705bd356d2b211a706e097e76b5b38083e4f0c37ed375dc078902da2",
+      "bytes": 145196
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/quote-margin-markup.formula.ts",
+      "sha256": "0fa6a3fb7b8256e9b4cfbbbe23df7cbb77ee8fb4e4a1b18ede2e8c1444157108",
+      "bytes": 137291
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/rebar-weight-count.formula.ts",
+      "sha256": "7543d96fafd7ded42df812f97a15d66e0a7ef21925e50065be68f3fc93677ee0",
+      "bytes": 138483
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/recipe-cost-menu-price.formula.ts",
+      "sha256": "ff7d4c436bc75c6bc89815b59ef20cfe7d01fd1a385b2621d5ccb2dda170cc16",
+      "bytes": 138877
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/registry.ts",
+      "sha256": "a71425bd5991a517f1f511df5ced1fa509e5c658495732f2f1cf4b7c285a5096",
+      "bytes": 11141
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/rework-vs-scrap-decision.formula.ts",
+      "sha256": "29d957b911936c54927224897cab56ea2f9ef84d9c63daaf07094b6d59d3e079",
+      "bytes": 137983
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/safety-stock-reorder-point.formula.ts",
+      "sha256": "b92f92031166739e46b92e3b144542d6e2eb96ddfdbf3d557d5cb19593b2b93a",
+      "bytes": 143267
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/scrap-cost.formula.ts",
+      "sha256": "a593537997b18b7c9a62dbed77f4199f99ec57d435d51bdfa80365885f30b83b",
+      "bytes": 132845
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/setup-time-cost.formula.ts",
+      "sha256": "d1d41051f37c48f6a6e406de4c40c66c3d12b54055985d4df0e866f289940bc7",
+      "bytes": 135403
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/shared.ts",
+      "sha256": "d3a6a00e1a5a1622d43c9a706d8e998acecee5b79872be10b40d7bf949b1e7cb",
+      "bytes": 3058
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/sheet-metal-bend-allowance.formula.ts",
+      "sha256": "d130a9096f9580f63a4476801bd8e232c31ba7ac38ceadeab2371238608c9463",
+      "bytes": 140849
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/steel-weight.formula.ts",
+      "sha256": "47cbdade693ec636706afd511a438fcf080f00071844af165799bcadfbaf6066",
+      "bytes": 135475
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/surface-roughness-converter.formula.ts",
+      "sha256": "fb083a5f103f2bfe259c4548a3fabb7ea8b2239f927c013a26014a1daf905376",
+      "bytes": 147692
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/takt-time-cycle-time.formula.ts",
+      "sha256": "665ed76463f3ebb7eb5b1eada177a8a9e0a214984763a4f089ec7e87f328813a",
+      "bytes": 141668
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/tap-drill-size.formula.ts",
+      "sha256": "bdd5b785120d5cd53867e1da9121141c54912bb6a077ea8e2e4c1ad77590df11",
+      "bytes": 139012
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/thread-dimensions-reference.formula.ts",
+      "sha256": "5a85bd461bbf56b595ce8fad02137e19af9f5269f277ceb99c9a6e9e9a46e19a",
+      "bytes": 145616
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/tool-life-tool-cost-per-part.formula.ts",
+      "sha256": "efe3fc5e8399d61f49b266da93f718629343be3983d5719ae73f7015364196e7",
+      "bytes": 139708
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/true-employee-cost.formula.ts",
+      "sha256": "6ea64680f8fd1e3dfc794c9843dc023e8081f53512c9971760a690ffde2029ec",
+      "bytes": 135106
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/types.ts",
+      "sha256": "97f91a1571274ca276fad084fd7600056f60a35e7b87e06722e4aaf0008e4a5b",
+      "bytes": 2710
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/weld-metal-weight-consumable.formula.ts",
+      "sha256": "3debf5a5b9284eb3ecc1fe0197925f123c35ec87c028a75016835fa057aef766",
+      "bytes": 144187
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/welding-cost-per-meter.formula.ts",
+      "sha256": "9bf4111b4d9ab376d97c085ec0aa463fe6b0a8f3fc7edf872a2cf8c22b648062",
+      "bytes": 134718
+    },
+    {
+      "path": "src/sectorcalc/formulas/free-v531/welding-heat-input.formula.ts",
+      "sha256": "7fe6e44475909b0cd381d724f5712093875296de17c7fb1824c229b5bc2c7a2e",
+      "bytes": 139135
+    },
+    {
+      "path": "tests/golden/free-v531/beam-load-deflection-quick-check.golden.json",
+      "sha256": "518b72c41f920ca220288dd61706fbebd005a493b00aa0de2d0da49bb1332aea",
+      "bytes": 425
+    },
+    {
+      "path": "tests/golden/free-v531/bolt-preload-clamp-force.golden.json",
+      "sha256": "1c12c18c164fba542ed6265cabbb452a46a850e7e22ecb4ee457ec38cc31f04c",
+      "bytes": 343
+    },
+    {
+      "path": "tests/golden/free-v531/bolt-torque.golden.json",
+      "sha256": "88b2d80fc7d5330881ea7b9b7a0af5efa3133ad7b1240771aafc13df0cc45307",
+      "bytes": 304
+    },
+    {
+      "path": "tests/golden/free-v531/break-even-point.golden.json",
+      "sha256": "ec83f3b0658774bd23892820719dd49b1b8a10646a1deae91bb762f5c94d0215",
+      "bytes": 353
+    },
+    {
+      "path": "tests/golden/free-v531/carbon-price-exposure.golden.json",
+      "sha256": "e0d40d544e4be739477c5c0c7f06b088b96226c6d15b3c93b74d3ca4d66a8643",
+      "bytes": 357
+    },
+    {
+      "path": "tests/golden/free-v531/cbam-cost-quick-estimator.golden.json",
+      "sha256": "82d41efa2d4bd68409d935b1923c30a3fa89be4eafd528052a1fce1e5201a6b5",
+      "bytes": 392
+    },
+    {
+      "path": "tests/golden/free-v531/cnc-shop-hourly-rate.golden.json",
+      "sha256": "6855b0bd7bafeafa9e8e24c98614711ea6452dcd0ad0a356438bbd927a4ed5fb",
+      "bytes": 575
+    },
+    {
+      "path": "tests/golden/free-v531/compressed-air-leak-cost.golden.json",
+      "sha256": "283fcf2cf94689e436a344511a65ec261a9aa57ceb9dd2868bb854fe3d5e68d9",
+      "bytes": 376
+    },
+    {
+      "path": "tests/golden/free-v531/concrete-volume-order-quantity.golden.json",
+      "sha256": "28abae1dd3a3e42da202670739ec0d3e2efd5e1b3ebc5f3cb6175b4b41681043",
+      "bytes": 348
+    },
+    {
+      "path": "tests/golden/free-v531/currency-adjusted-pricing.golden.json",
+      "sha256": "c75ce91c5b986bd99cfc690bb11fe8fb35d8b2d953628f8a07942a5f41710757",
+      "bytes": 388
+    },
+    {
+      "path": "tests/golden/free-v531/customer-profitability.golden.json",
+      "sha256": "9b7475155a0638c313bc23c0e9e4b77573d7ecc00f471cec12df582a2362ae6e",
+      "bytes": 388
+    },
+    {
+      "path": "tests/golden/free-v531/cutting-speed-feed-rpm.golden.json",
+      "sha256": "466f24f10f5a458c2de7a8dfad39d1fbb0cfe950b4b2a2fe90de40ca87d4f6e0",
+      "bytes": 339
+    },
+    {
+      "path": "tests/golden/free-v531/diesel-fuel-co2-emissions.golden.json",
+      "sha256": "9f8f6067c6acce1fa1aa9abb0fec0ab9d860b59b3c80427a3faa6295c62c131b",
+      "bytes": 348
+    },
+    {
+      "path": "tests/golden/free-v531/downtime-cost.golden.json",
+      "sha256": "90ad30c605a74c6b90f59bf5dfe7d6d7d36bc71d864a3f3ae8df820831a3f656",
+      "bytes": 379
+    },
+    {
+      "path": "tests/golden/free-v531/electric-motor-running-cost.golden.json",
+      "sha256": "98a9c58b87590fdf544c367780e5f7000cfca02c3c800dff3b31fc6a6e3db3c1",
+      "bytes": 349
+    },
+    {
+      "path": "tests/golden/free-v531/electricity-co2-emissions.golden.json",
+      "sha256": "96c896c5f802ec42accf29fa8ad3868afbeffe7c9636e7befb273ffc7ca48c79",
+      "bytes": 348
+    },
+    {
+      "path": "tests/golden/free-v531/energy-cost-per-part.golden.json",
+      "sha256": "34f3976c207c00e33a420d51dfbb8dcbff848efc67da7ab579ec87e4a34bcdf1",
+      "bytes": 379
+    },
+    {
+      "path": "tests/golden/free-v531/eoq.golden.json",
+      "sha256": "09430f0d54e24d723f7105e72b77106e4d10a6efbf0d7ac85948298ec3b5c3dc",
+      "bytes": 304
+    },
+    {
+      "path": "tests/golden/free-v531/fabric-consumption-gsm.golden.json",
+      "sha256": "436b318eb48a1e36c616a77a1945c0e6d219598055f6033b2d4b729ef95ffef9",
+      "bytes": 341
+    },
+    {
+      "path": "tests/golden/free-v531/fillet-weld-size-strength.golden.json",
+      "sha256": "82d6f002a012964745b151a9095ab2d58fc2cf4a2f188b1e4f9780d823afd87f",
+      "bytes": 367
+    },
+    {
+      "path": "tests/golden/free-v531/freight-cost-per-km-trip.golden.json",
+      "sha256": "d632f998dc9c294e10bae8220d04505514f9bc6722417518c7dc6d99096c2c95",
+      "bytes": 388
+    },
+    {
+      "path": "tests/golden/free-v531/inventory-carrying-cost.golden.json",
+      "sha256": "2389f477c147b7af910d71879b33e02d1a403f0e05056956e9c9a14ffe880375",
+      "bytes": 389
+    },
+    {
+      "path": "tests/golden/free-v531/iso-286-tolerance-fit.golden.json",
+      "sha256": "6c9b6031ed9d4d286be6aa506a99fddc68b73995a38141d81960c9ae33ff8c64",
+      "bytes": 368
+    },
+    {
+      "path": "tests/golden/free-v531/knurling-drill-point-depth.golden.json",
+      "sha256": "250154cb87ade362f6078a78bb051a7000e8b4488c40a8cb403ed6131d06510e",
+      "bytes": 321
+    },
+    {
+      "path": "tests/golden/free-v531/line-balancing-efficiency.golden.json",
+      "sha256": "d8a2a000ae019a1d8ebb2e3c13e3df8c0539ad00dc1712bcc6e39c7a21c62276",
+      "bytes": 365
+    },
+    {
+      "path": "tests/golden/free-v531/machine-investment-payback.golden.json",
+      "sha256": "75ef90db20edcd4156cc05c27cfc1ae011650c011583b1d5e6283945d831e746",
+      "bytes": 451
+    },
+    {
+      "path": "tests/golden/free-v531/machining-cost-per-part.golden.json",
+      "sha256": "7d6339098d6dad023fcdfc00b304b82b8a447e750475924b4a3977926348f00a",
+      "bytes": 514
+    },
+    {
+      "path": "tests/golden/free-v531/material-removal-rate.golden.json",
+      "sha256": "62b824b59ba2a76f1339417116ffe6b1c102bc1116bcbdf29319fa7ca2fb1516",
+      "bytes": 342
+    },
+    {
+      "path": "tests/golden/free-v531/oee.golden.json",
+      "sha256": "9a26929ba42d9cd00a06b1952667937c262fe05c3e7a86ba06cc21c25a7e81b9",
+      "bytes": 364
+    },
+    {
+      "path": "tests/golden/free-v531/pallet-container-load-cbm.golden.json",
+      "sha256": "a8229d80cc5d508bb72949212a12ffe8ea96d88a0aab6ce768fda678199c397e",
+      "bytes": 366
+    },
+    {
+      "path": "tests/golden/free-v531/payment-term-cost.golden.json",
+      "sha256": "afa23689b3d24dd39e9a28154f62a337b04dadc13ed14755f46fbe10601fca75",
+      "bytes": 350
+    },
+    {
+      "path": "tests/golden/free-v531/product-carbon-footprint-basic.golden.json",
+      "sha256": "6a9031d96b970d89ad62744bb384f878a7bcbb89309420f48d190079cb3a7689",
+      "bytes": 378
+    },
+    {
+      "path": "tests/golden/free-v531/quote-margin-markup.golden.json",
+      "sha256": "6d2e45e49e784727131742ef0b4fdd2b9f639fcfbd2a9a408e85bb00533e4a15",
+      "bytes": 356
+    },
+    {
+      "path": "tests/golden/free-v531/rebar-weight-count.golden.json",
+      "sha256": "36b2290df2f08970a7047de82dee36340fd3a58d240645170abd4869156305ff",
+      "bytes": 322
+    },
+    {
+      "path": "tests/golden/free-v531/recipe-cost-menu-price.golden.json",
+      "sha256": "d01b6af61f787a4515fa2a6ff6647385bfd6a60b53497e141380be465c88f7a7",
+      "bytes": 405
+    },
+    {
+      "path": "tests/golden/free-v531/rework-vs-scrap-decision.golden.json",
+      "sha256": "6226787d03d96b43fe4482bb5c1097a1ecd2a856f1344175d9bd0e026f1e1488",
+      "bytes": 433
+    },
+    {
+      "path": "tests/golden/free-v531/safety-stock-reorder-point.golden.json",
+      "sha256": "90da3ba8960bcefa444e27ebbdaf91fa4d93dec6e36aed8f73ac5186618d9989",
+      "bytes": 357
+    },
+    {
+      "path": "tests/golden/free-v531/scrap-cost.golden.json",
+      "sha256": "cda1ce60171bb01bd2a97bd1198e906e06068c6ccd2a236f82ebec9b2d250f76",
+      "bytes": 382
+    },
+    {
+      "path": "tests/golden/free-v531/setup-time-cost.golden.json",
+      "sha256": "6629faa9bcc4bd55ee28687ed91b68bf92541d714e09bd476a1c25f71a7dad2e",
+      "bytes": 371
+    },
+    {
+      "path": "tests/golden/free-v531/sheet-metal-bend-allowance.golden.json",
+      "sha256": "a5816f9adba44256829889c489a94468a097fedc2aab886a63e84495be9a1e35",
+      "bytes": 353
+    },
+    {
+      "path": "tests/golden/free-v531/steel-weight.golden.json",
+      "sha256": "4bd19377f45f694d864c56c187a1576033f5673903839818ee66a936c95ce433",
+      "bytes": 322
+    },
+    {
+      "path": "tests/golden/free-v531/surface-roughness-converter.golden.json",
+      "sha256": "7e30971e2557615693b3155c87d1d4129fba92b96c2537d7bedfbf4f90350d16",
+      "bytes": 271
+    },
+    {
+      "path": "tests/golden/free-v531/takt-time-cycle-time.golden.json",
+      "sha256": "6fd5b343730039219c9fc0fde9510437052f0f056ba383f2bca2af79568d08e1",
+      "bytes": 334
+    },
+    {
+      "path": "tests/golden/free-v531/tap-drill-size.golden.json",
+      "sha256": "c23ceeda017a9ee4ac0784703512a4c6c9fad1eedb0e2a47044fc76d29e7bbfa",
+      "bytes": 309
+    },
+    {
+      "path": "tests/golden/free-v531/thread-dimensions-reference.golden.json",
+      "sha256": "017fa90a752c413a0559ea79702bcf75f59c5f05059f2d1d77f13218ca6c2a92",
+      "bytes": 306
+    },
+    {
+      "path": "tests/golden/free-v531/tool-life-tool-cost-per-part.golden.json",
+      "sha256": "b7ae21a5367bfb2c20664562e98483a959805a5e7aca32ac908ec57833a34ef1",
+      "bytes": 397
+    },
+    {
+      "path": "tests/golden/free-v531/true-employee-cost.golden.json",
+      "sha256": "a4c0f38dd59bfdab559ec55b6def94a60d9ab2c3ca3f20525d027f4980c9ca0b",
+      "bytes": 421
+    },
+    {
+      "path": "tests/golden/free-v531/weld-metal-weight-consumable.golden.json",
+      "sha256": "ba35dd7698ed1ad281aa4ea6fc6e005160fa16fff1dcacbf7c8f555f531db7cc",
+      "bytes": 374
+    },
+    {
+      "path": "tests/golden/free-v531/welding-cost-per-meter.golden.json",
+      "sha256": "e9b7932809f6864cd0bc43179092e1f67f66be16a64a029136f1633e4677fbf5",
+      "bytes": 461
+    },
+    {
+      "path": "tests/golden/free-v531/welding-heat-input.golden.json",
+      "sha256": "29685c5e71ec5429ef856044d1e0fbf8abe43bdebae40d2b60e3efccfc277e02",
+      "bytes": 361
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/beam-load-deflection-quick-check.hashes.json",
+      "sha256": "01f67f090b5d4b5f84767babc9bb93ef23804410682b31443f006d029fbde1c0",
+      "bytes": 573
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/bolt-preload-clamp-force.hashes.json",
+      "sha256": "98d6d6b81233a9fabefe7ed612cc37c0b4bcfdfe9c6a9daa0beb47fe8379a1cf",
+      "bytes": 565
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/bolt-torque.hashes.json",
+      "sha256": "b3566d6816ca1d32c24e859b7c8c02f02ccad2c6bf256b39b9a0c5ab962e410d",
+      "bytes": 552
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/break-even-point.hashes.json",
+      "sha256": "8c0d997daa114396df58a0fbc80a29b910e840a180b19b71acda56699cf91b1f",
+      "bytes": 557
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/carbon-price-exposure.hashes.json",
+      "sha256": "94a2d4784d08043358ba4b18cbfe144cf6a1b76d3e80fd3cf50d863b44008a2c",
+      "bytes": 562
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/cbam-cost-quick-estimator.hashes.json",
+      "sha256": "16e7a191b72396968ecc8bf493ea2f495603dcf594a35c430f588382d67c6b34",
+      "bytes": 566
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/cnc-shop-hourly-rate.hashes.json",
+      "sha256": "f0420d5e9f3b77e2bd42825800184876925e5ecfdc31ec1e95555f66e06c6bd3",
+      "bytes": 561
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/compressed-air-leak-cost.hashes.json",
+      "sha256": "9f0e31996ba71eab08ec59301a49fb0e942d7f5228f7bcad9ab2c5009a926c3b",
+      "bytes": 565
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/concrete-volume-order-quantity.hashes.json",
+      "sha256": "6c761c08965799f09a306b5be8bce1099f214ae6b415c256dedcb615d250042c",
+      "bytes": 571
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/currency-adjusted-pricing.hashes.json",
+      "sha256": "81750afc0b34bc5f5ee891afb49e58586b7027a586edb62c7d07033344021770",
+      "bytes": 566
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/customer-profitability.hashes.json",
+      "sha256": "ffdb5258caa587d94f8fcdabe411063fe235909122aebc647649924ecf9a8979",
+      "bytes": 563
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/cutting-speed-feed-rpm.hashes.json",
+      "sha256": "0f885390b2c60a4820a77b7487d19f1e8759cd506c4d25145c720ccf9451733f",
+      "bytes": 563
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/diesel-fuel-co2-emissions.hashes.json",
+      "sha256": "ed8e58957ffb890e10ba7418951f87208a48834a6bc04b6a688f86d740f98e7a",
+      "bytes": 566
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/downtime-cost.hashes.json",
+      "sha256": "19d81e46f4dd1654bf59bc6c4b008a4782a45f78ce81f75b00200472ba3e20c2",
+      "bytes": 554
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/electric-motor-running-cost.hashes.json",
+      "sha256": "3e1f5b9e75b4bb9509c237d0596139ab4570d6f481f513d227fe89a0332a95af",
+      "bytes": 568
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/electricity-co2-emissions.hashes.json",
+      "sha256": "0ba881e2db82c5418ced25993643a3075f9fa46b78d579b983c37dcd067fb8cd",
+      "bytes": 566
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/energy-cost-per-part.hashes.json",
+      "sha256": "a37818610518f5a0f5d0b28c6c189da33dca5056d10bf00accb2245b8c7c0bdd",
+      "bytes": 561
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/eoq.hashes.json",
+      "sha256": "01091180576cfa0f840faab78d2d97f853fce4c273d9deeb0fa6b24aeb7d1c55",
+      "bytes": 544
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/fabric-consumption-gsm.hashes.json",
+      "sha256": "b5c0a63e50711a903e837dbbb04ac481688f6ebaab1e0b21bba7e9323bc12141",
+      "bytes": 563
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/fillet-weld-size-strength.hashes.json",
+      "sha256": "6ad4890de294359ccdd481fb8ed8187ab23ca8c42be6f4fa3faef0bf1e7b804a",
+      "bytes": 566
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/freight-cost-per-km-trip.hashes.json",
+      "sha256": "6d5fcfc13e72e3e5fb2dbf22a1d9b59e79f7d236ecd054444d4ccef107f02a33",
+      "bytes": 565
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/inventory-carrying-cost.hashes.json",
+      "sha256": "ec7cfe073ad1235309318ebd4475c87de31d1ca506af40dc61ac7a0ced0cee21",
+      "bytes": 564
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/iso-286-tolerance-fit.hashes.json",
+      "sha256": "3673215c753f612331ad343718758c878593c95065ae0b0fd78fc3a010f157d9",
+      "bytes": 562
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/knurling-drill-point-depth.hashes.json",
+      "sha256": "c0c774cff89eb8012d74ab0eff984ecb1e2fde1f3c612ce4bd293afe14129cfe",
+      "bytes": 567
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/line-balancing-efficiency.hashes.json",
+      "sha256": "d9efa1005bf054d16edf1c474c400059fe10b61515a621c07308afd8e9fa3315",
+      "bytes": 566
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/machine-investment-payback.hashes.json",
+      "sha256": "3c08fe485092f46c9fb1b8659aabd7d0e1027a434f4c7cd1744e3dafcf210734",
+      "bytes": 567
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/machining-cost-per-part.hashes.json",
+      "sha256": "a10607bec7674b658f63b2d50ae0e805ce33f45f10d7c79fa56a161e3d2e1055",
+      "bytes": 564
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/material-removal-rate.hashes.json",
+      "sha256": "bc2f5264180a863f6a00fdd389d7b83f8192aac0d2aa6290c33fa3dad49c9290",
+      "bytes": 562
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/oee.hashes.json",
+      "sha256": "9102db496dcdfa4c8c89b74d0f0c5c753acae9ba0b9c5957e58022ae0ab2b35c",
+      "bytes": 544
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/pallet-container-load-cbm.hashes.json",
+      "sha256": "5d3f2d822243207abce47a73287cd7cf94c4c9af1319630a8d46cc91c069467c",
+      "bytes": 566
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/payment-term-cost.hashes.json",
+      "sha256": "16f35fcb9089687c24db48f1c4f819ea57df228d88e595a27e792f20919061f6",
+      "bytes": 558
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/product-carbon-footprint-basic.hashes.json",
+      "sha256": "7c86b873051a4458ba2fc5210100bd425325f1c920cd8dbabd711f6c71096f59",
+      "bytes": 571
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/quote-margin-markup.hashes.json",
+      "sha256": "b11001fdd26f5ee3e432f166419bb51a14f9f0ae5596cff56225d5f41f39d0d9",
+      "bytes": 560
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/rebar-weight-count.hashes.json",
+      "sha256": "9f790a48fd627219a3323c342b46db5497eb2eaf7e38db668b4306233f531eac",
+      "bytes": 559
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/recipe-cost-menu-price.hashes.json",
+      "sha256": "fc9e4fb9b4a9e27fb3350164a455f4ef78e2c5c9844379c3a8c4f4eb01cc2b96",
+      "bytes": 563
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/rework-vs-scrap-decision.hashes.json",
+      "sha256": "d8ba14fee85588383002fb1ae4801979a8d131c2ca00098f8a3b67d037cb3396",
+      "bytes": 565
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/safety-stock-reorder-point.hashes.json",
+      "sha256": "5bb1eae54924d52509acc5a28fb1bdb67843b0a5dc54ea2ca45829d7202738a9",
+      "bytes": 567
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/scrap-cost.hashes.json",
+      "sha256": "8bdc3a90959304f45a9bcf6bb5916b431a7960ccb9e808b286769fa4e7a85090",
+      "bytes": 551
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/setup-time-cost.hashes.json",
+      "sha256": "0e54b48df0d0ea8d50096bdaff529a66d67d202c9ef3b026457151933035f17e",
+      "bytes": 556
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/sheet-metal-bend-allowance.hashes.json",
+      "sha256": "3fa6e94f6843b74417f3c9ee760e727d64d5a83c1672f9ac368fffeae39b5258",
+      "bytes": 567
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/steel-weight.hashes.json",
+      "sha256": "04eff83ad5f3cfa12e3299fcb1c30f59cf50401909e071b251b7b1752c503242",
+      "bytes": 553
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/surface-roughness-converter.hashes.json",
+      "sha256": "b651777e6ca369a3107da7d3eeb5a051e239f6774b50748bb247d989e140d013",
+      "bytes": 568
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/takt-time-cycle-time.hashes.json",
+      "sha256": "dcfb63d8777563ba94ffcb31df2538ea7314d87b1ff60674d6576a2ff9d8d564",
+      "bytes": 561
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/tap-drill-size.hashes.json",
+      "sha256": "f792537dc6b45cf660fef1dcb19218cbd7dc87accd6758c929774cf23267e0dd",
+      "bytes": 555
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/thread-dimensions-reference.hashes.json",
+      "sha256": "a6720410e3cd173c1539afd4f052d368dc417191e83e72b5337feb532f31559b",
+      "bytes": 568
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/tool-life-tool-cost-per-part.hashes.json",
+      "sha256": "4c1fdfc95cc2ae6dec3e86285b0e0a8ab5452208eafbcc8747ef1c44f461ffa3",
+      "bytes": 569
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/true-employee-cost.hashes.json",
+      "sha256": "c7014ba507434a9ee915b730a29e916f2c7fd6f248897f61195f43393114da72",
+      "bytes": 559
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/weld-metal-weight-consumable.hashes.json",
+      "sha256": "e505a0e3fb9aa4b34385f2a4539665105ee5fb84202ab70ba400c0d1a085c94d",
+      "bytes": 569
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/welding-cost-per-meter.hashes.json",
+      "sha256": "05f51244dce1f5d847f705cff2e8590b61242932f8069b5fea3f59068980b797",
+      "bytes": 563
+    },
+    {
+      "path": "tests/golden/hashes/free-v531/welding-heat-input.hashes.json",
+      "sha256": "07ec1db5e675ce5b6d3c01258cdf78ba658107ef2ad26802841fdfad86d47a89",
+      "bytes": 559
+    }
+  ]
+}

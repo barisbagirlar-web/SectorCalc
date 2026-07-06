@@ -1,0 +1,14 @@
+{
+  "tool_key": "energy-cost-per-part",
+  "tool_id": "FREE_V531_029",
+  "raw_inputs": {
+    "auxiliary_kwh_per_part": 10,
+    "average_machine_power_kw": 10,
+    "batch_idle_kwh": 10,
+    "cycle_seconds_per_part": 10,
+    "electricity_rate": 10,
+    "parts_per_batch": 10
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}
