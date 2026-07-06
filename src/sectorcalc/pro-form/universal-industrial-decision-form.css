@@ -1731,3 +1731,165 @@
    ═══════════════════════════════════════════════════════ */
 
 /* Already applied via .sc-v531-shell base rule — no duplicate needed. */
+
+/* ═══════════════════════════════════════════════════════
+   SITE-WIDE MOBILE HARDENING — Calculator pages
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 760px) {
+  .sc-v531-shell {
+    padding: 0 0 80px !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    box-shadow: none !important;
+    overflow-x: hidden !important;
+  }
+
+  .sc-v531-hero {
+    padding: 22px 18px 18px !important;
+  }
+
+  .sc-v531-title {
+    font-size: clamp(28px, 8vw, 38px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .sc-v531-hero__scope {
+    font-size: 16px !important;
+    line-height: 1.42 !important;
+  }
+
+  .sc-v531-layout {
+    padding: 8px 8px 132px !important;
+  }
+
+  .sc-v531-main-panel {
+    gap: 12px !important;
+  }
+
+  .sc-v531-status-card,
+  .sc-v531-execution-state-card,
+  [data-execution-state] {
+    display: none !important;
+  }
+
+  .sc-v531-mode-panel,
+  .sc-v531-mode-tabs,
+  [data-mode-tabs] {
+    display: none !important;
+  }
+
+  /* Input fields mobile — 48px touch target */
+  .sc-v531-field-card {
+    padding: 14px !important;
+    border: 1px solid rgba(26,25,21,.12) !important;
+    background: #FAF9F5 !important;
+  }
+
+  .sc-v531-field-grid {
+    gap: 12px !important;
+  }
+
+  .sc-v531-input-row {
+    grid-template-columns: minmax(0, 1fr) 112px !important;
+    gap: 8px !important;
+  }
+
+  .sc-v531-input,
+  .sc-v531-unit-select,
+  input,
+  select {
+    min-width: 0;
+  }
+
+  .sc-v531-input,
+  .sc-v531-unit-select {
+    height: 48px !important;
+    font-size: 16px !important;
+    padding: 0 12px !important;
+  }
+
+  .sc-v531-field-reference {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+
+  .sc-v531-field-evidence {
+    border: 0 !important;
+    background: transparent !important;
+    padding: 4px 0 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px 10px !important;
+  }
+
+  /* Results mobile */
+  .sc-v531-pro-decision-summary {
+    padding: 16px !important;
+    margin: 0 0 14px !important;
+    border-left: 4px solid #BD5D3A !important;
+  }
+
+  .sc-v531-pro-results-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .sc-v531-pro-result-card {
+    padding: 14px !important;
+  }
+
+  .sc-v531-pro-result-value {
+    font-size: 28px !important;
+    line-height: 1.05 !important;
+  }
+
+  /* CTA action bar mobile */
+  .sc-v531-action-bar {
+    position: fixed !important;
+    left: 14px !important;
+    right: 14px !important;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 14px) !important;
+    z-index: 90 !important;
+    background: #FAF9F5 !important;
+    border: 1px solid rgba(26,25,21,.12) !important;
+    box-shadow: 0 -4px 20px rgba(26,25,21,.10) !important;
+    padding: 12px 14px !important;
+  }
+
+  .sc-v531-action-bar-buttons {
+    flex-direction: row !important;
+    gap: 8px !important;
+  }
+
+  .sc-v531-action-bar .sc-v531-primary-action {
+    height: 48px !important;
+    font-size: 15px !important;
+  }
+
+  .sc-v531-action-secondary {
+    height: 48px !important;
+    font-size: 14px !important;
+  }
+
+  .sc-v531-cockpit-panel {
+    padding: 14px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .sc-v531-input-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sc-v531-input,
+  .sc-v531-unit-select {
+    height: 48px !important;
+    font-size: 16px !important;
+  }
+
+  .sc-v531-side-metrics {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -74,6 +74,7 @@
     "guard:working-tree-clean": "node scripts/guard-working-tree-clean.mjs",
     "guard:active-tools": "node scripts/guard-active-tool-allowlist.mjs",
     "guard:no-active-placeholder-tools": "node scripts/guard-no-active-placeholder-tools.mjs",
+    "smoke:mobile-layout": "node scripts/smoke-mobile-layout.mjs",
     "smoke:two-live-tools": "node scripts/smoke-two-live-tools-local.mjs",
     "resolve:pro-schema-loader-dirty": "node scripts/resolve-pro-schema-loader-dirty-file.mjs",
     "dump:routes": "tsx scripts/dump-routes-to-json.ts",

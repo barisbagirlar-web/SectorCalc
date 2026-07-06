@@ -157,6 +157,7 @@ function useInjectedStyles(): void {
 @media(prefers-reduced-motion:reduce){.traceai-dot,.traceai-ring{animation:none}}
 .traceai-scroll::-webkit-scrollbar{width:8px}
 .traceai-scroll::-webkit-scrollbar-thumb{background:${C.line}}
+@media(max-width:760px){.traceai-trigger{left:14px!important;right:14px!important;bottom:calc(env(safe-area-inset-bottom,0px)+78px)!important;width:auto!important;max-width:none!important;justify-content:center!important;gap:8px!important;padding:8px 14px!important}}
 `;
     document.head.appendChild(el);
   }, []);

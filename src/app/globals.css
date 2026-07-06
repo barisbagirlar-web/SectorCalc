@@ -467,3 +467,118 @@ input[type="number"] {
 @media (max-width: 768px) {
   .sc-mobile-only { display: flex !important; }
 }
+
+/* ============================================================
+   SectorCalc Mobile Foundation
+   Site-wide responsive hardening (July 2026)
+   ============================================================ */
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #F0EEE6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -- Safe-area tokens for mobile CTA/Trace AI overlap protection -- */
+:root {
+  --sc-mobile-cta-height: 64px;
+  --sc-mobile-trace-height: 48px;
+  --sc-mobile-safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (max-width: 760px) {
+  body {
+    min-width: 0 !important;
+  }
+
+  main,
+  section,
+  article,
+  aside,
+  header,
+  footer {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .page,
+  .container,
+  .site-container,
+  .shell,
+  .content-shell,
+  .sc-page,
+  .sc-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Safe-area for all pages with mobile CTA */
+  .has-mobile-cta,
+  .sc-v531-shell,
+  .sc-premium-tool-shell,
+  main,
+  .sc-app-main {
+    padding-bottom: calc(var(--sc-mobile-safe-bottom) + 140px) !important;
+  }
+
+  /* Primary CTA bottom-fixed */
+  .sc-v531-primary-action,
+  .mobile-primary-cta,
+  .bottom-primary-cta,
+  [data-primary-action] {
+    position: fixed !important;
+    left: 14px !important;
+    right: 14px !important;
+    bottom: calc(var(--sc-mobile-safe-bottom) + 14px) !important;
+    z-index: 90 !important;
+    height: 54px !important;
+  }
+
+  /* Trace AI trigger — never overlaps CTA */
+  .traceai-trigger,
+  [data-trace-assistant="true"] .sc-trace__fab,
+  .sc-trace__fab {
+    position: fixed !important;
+    left: 14px !important;
+    right: 14px !important;
+    bottom: calc(var(--sc-mobile-safe-bottom) + 78px) !important;
+    width: auto !important;
+    max-width: none !important;
+    height: 44px !important;
+    z-index: 80 !important;
+  }
+
+  /* Trace AI dialog panel */
+  [role="dialog"][aria-label*="Trace AI"],
+  [role="dialog"][aria-label*="assistant"] {
+    left: 14px !important;
+    right: 14px !important;
+    bottom: calc(var(--sc-mobile-safe-bottom) + 78px) !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: min(60vh, 400px) !important;
+  }
+}

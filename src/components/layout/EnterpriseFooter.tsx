@@ -273,10 +273,12 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             .brand-col { grid-column: span 2; }
           }
 
-          @media (max-width: 600px) {
-            .site-footer { padding: 32px 24px 24px; }
+          @media (max-width: 760px) {
+            .site-footer { padding: 40px 20px calc(env(safe-area-inset-bottom, 0px) + 132px) !important; }
             .footer-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 24px; padding-bottom: 24px; }
             .brand-col { grid-column: span 1; }
+            .footer-tagline { max-width: 100% !important; }
+            .footer-heading { margin-bottom: 16px !important; }
             
             .bottom-row-legal {
               white-space: normal;
@@ -285,6 +287,12 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
               text-align: center;
               line-height: 1.4;
             }
+            .footer-cta { padding: 40px 20px !important; }
+            .footer-cta p,
+            .footer-cta .cta-text { font-size: clamp(20px, 5vw, 28px) !important; }
+            .footer-cta .description { font-size: 15px !important; }
+            .footer-cta .cta-buttons { margin-top: 24px !important; }
+            .footer-cta .btn { width: 100%; max-width: 100% !important; padding: 14px 24px !important; font-size: 15px !important; }
           }
 
           /* Pre-footer CTA/Tagline section */
