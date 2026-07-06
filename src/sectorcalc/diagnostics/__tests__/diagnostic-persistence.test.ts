@@ -232,3 +232,55 @@ describe("firestore-persistence — import integrity", () => {
     });
   }
 });
+
+/* ── 6. PDF route auth+credit gate ── */
+
+describe("pdf-route — auth and credit gate", () => {
+  it("pdf route imports parseBearerToken and verifySignedInUser", () => {
+    const fullPath = resolve(__dirname, "..", "..", "..", "..",
+      "src/app/api/engineering-diagnostics/pdf/route.ts");
+    const content = readFileSync(fullPath, "utf-8");
+    expect(content).toMatch(/parseBearerToken/);
+    expect(content).toMatch(/verifySignedInUser/);
+  });
+
+  it("pdf route imports credit functions", () => {
+    const fullPath = resolve(__dirname, "..", "..", "..", "..",
+      "src/app/api/engineering-diagnostics/pdf/route.ts");
+    const content = readFileSync(fullPath, "utf-8");
+    expect(content).toMatch(/checkUserCreditBalance/);
+    expect(content).toMatch(/decrementCredits/);
+  });
+
+  it("pdf route returns 401 when no auth token", () => {
+    // Static analysis: route.ts has 401 return for missing token
+    const fullPath = resolve(__dirname, "..", "..", "..", "..",
+      "src/app/api/engineering-diagnostics/pdf/route.ts");
+    const content = readFileSync(fullPath, "utf-8");
+    expect(content).toMatch(/status: 401/);
+    expect(content).toMatch(/status: 402/);
+  });
+
+  it("pdf route has credit cost constant", () => {
+    const fullPath = resolve(__dirname, "..", "..", "..", "..",
+      "src/app/api/engineering-diagnostics/pdf/route.ts");
+    const content = readFileSync(fullPath, "utf-8");
+    expect(content).toMatch(/PDF_CREDIT_COST/);
+  });
+
+  it("pdf route does not import openai or deepseek", () => {
+    const fullPath = resolve(__dirname, "..", "..", "..", "..",
+      "src/app/api/engineering-diagnostics/pdf/route.ts");
+    const content = readFileSync(fullPath, "utf-8");
+    expect(content).not.toMatch(/from\s+["']openai["']/);
+    expect(content).not.toMatch(/from\s+["']deepseek["']/);
+  });
+
+  it("tool-usage-session export checkUserCreditBalance and decrementCredits", () => {
+    const fullPath = resolve(__dirname, "..", "..", "..", "..",
+      "src/lib/credits/tool-usage-session.server.ts");
+    const content = readFileSync(fullPath, "utf-8");
+    expect(content).toMatch(/^export async function checkUserCreditBalance/m);
+    expect(content).toMatch(/^export async function decrementCredits/m);
+  });
+});

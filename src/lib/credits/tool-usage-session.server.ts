@@ -50,7 +50,7 @@ export interface CreditBalance {
 /**
  * Check if a user has sufficient credit balance.
  */
-async function checkUserCreditBalance(userId: string, required: number): Promise<boolean> {
+export async function checkUserCreditBalance(userId: string, required: number): Promise<boolean> {
   const db = getAdminFirestore();
   if (!db) return false;
 
@@ -65,7 +65,7 @@ async function checkUserCreditBalance(userId: string, required: number): Promise
 /**
  * Decrement user credit balance by the given amount.
  */
-async function decrementCredits(userId: string, amount: number): Promise<boolean> {
+export async function decrementCredits(userId: string, amount: number): Promise<boolean> {
   const db = getAdminFirestore();
   if (!db) return false;
 

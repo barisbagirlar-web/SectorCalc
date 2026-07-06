@@ -211,13 +211,13 @@ describe("pdf-verify — import integrity", () => {
   }
 });
 
-/* ── 6. No credit spend imports ── */
+/* ── 6. No credit spend imports (PDF builder and verify store only) ── */
 
 describe("pdf-verify — no credit spend", () => {
+  // PDF route intentionally imports credit functions — excluded from this check
   const checkFiles = [
     "src/lib/inspection/pdf-builder.tsx",
     "src/lib/inspection/verify-store.ts",
-    "src/app/api/engineering-diagnostics/pdf/route.ts",
   ];
 
   for (const relPath of checkFiles) {
