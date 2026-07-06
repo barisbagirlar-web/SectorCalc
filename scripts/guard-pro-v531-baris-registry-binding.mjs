@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+
 // Guard: validate Baris PRO V5.3.1 registry binding. Expected: 10 LIVE registered, 35 BLOCKED not registered.
+
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";

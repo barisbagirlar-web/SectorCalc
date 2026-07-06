@@ -73,8 +73,8 @@ pass(`All ${liveKeys.length} LIVE tools have formula files + golden fixtures`);
 // Check registry registers exactly 10 tools
 if (existsSync(REGISTRY_PATH)) {
   const regContent = readFileSync(REGISTRY_PATH, "utf-8");
-  const regCalls = (regContent.match(/formulaRegistry\.register\(/g) || []).length;
-  if (regCalls !== 10) fail(`Expected 10 register() calls, found ${regCalls}`);
+  const regCalls = (regContent.match(/\{ toolKey: "[^"]+", toolId: "PRO_\d{3}" \}/g) || []).length;
+  if (regCalls !== 10) fail(`Expected 10 live tool entries, found ${regCalls}`);
   else pass(`Registry has ${regCalls} register() calls`);
 }
 
