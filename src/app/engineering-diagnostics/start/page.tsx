@@ -780,23 +780,50 @@ export default function EngineeringDiagnosticsStartPage() {
             suggest a decision state with an action plan.
           </p>
 
-          {/* Package Info Card */}
+          {/* Professional Diagnostic Package */}
           <div
             style={{
-              padding: "1rem 1.25rem",
+              padding: "1.25rem",
               background: "#F0EEE6",
               border: "1px solid #D6D4CC",
               borderRadius: "8px",
               marginBottom: "1.5rem",
             }}
           >
-            <div style={{ fontSize: "0.85rem", color: "#1A1915", fontWeight: 600, marginBottom: "0.25rem" }}>
-              Full Engineering Diagnostics
+            <div style={{ fontSize: "0.9rem", color: "#1A1915", fontWeight: 600, marginBottom: "0.5rem" }}>
+              Professional Diagnostic Package
             </div>
-            <div style={{ fontSize: "0.85rem", color: "#4A4A48", lineHeight: 1.5 }}>
-              5 Credits includes 3 Full Engineering Diagnostics, including
-              AI-assisted engineering interpretation, deterministic risk assessment,
-              action planning, PDF export, and verification record.
+            <div style={{ fontSize: "0.85rem", color: "#4A4A48", lineHeight: 1.6, marginBottom: "0.75rem" }}>
+              Engineering Diagnostics is a professional report service. A 5-credit
+              package includes 3 Full Engineering Diagnostics. Each Full Diagnostic
+              includes AI-assisted engineering interpretation, deterministic risk
+              assessment, action planning, PDF export, audit trail, and verification
+              record.
+            </div>
+            <div style={{ fontSize: "0.8rem", color: "#6B6B68", lineHeight: 1.5, marginBottom: "0.75rem" }}>
+              Preview analysis may be available before export. Camera/photo-based
+              interpretation, Full Diagnostic report generation, PDF export,
+              verification record, and report history require available Diagnostic
+              Credits.
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <Link
+                href="/pricing"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  padding: "0.5rem 1.25rem",
+                  background: "#BD5D3A",
+                  color: "#fff",
+                  borderRadius: "6px",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontSize: "0.85rem",
+                  transition: "background 0.13s",
+                }}
+              >
+                Get Diagnostic Credits
+              </Link>
             </div>
           </div>
 

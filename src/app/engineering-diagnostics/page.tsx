@@ -104,6 +104,80 @@ export default function EngineeringDiagnosticsPage() {
         </div>
       </section>
 
+      {/* Professional Diagnostic Package */}
+      <section
+        className="sc-pro-section sc-pro-section--border"
+        style={{ padding: "3rem 1.5rem", background: "#F5F3ED" }}
+      >
+        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <div
+            style={{
+              padding: "1.5rem",
+              background: "#F0EEE6",
+              border: "1px solid #D6D4CC",
+              borderRadius: "10px",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "1.2rem",
+                fontWeight: 600,
+                marginBottom: "1rem",
+                color: "#1A1915",
+              }}
+            >
+              Professional Diagnostic Package
+            </h2>
+            <p
+              style={{
+                fontSize: "0.9rem",
+                lineHeight: 1.6,
+                color: "#4A4A48",
+                margin: "0 0 1rem",
+              }}
+            >
+              Engineering Diagnostics is a professional report service. A 5-credit
+              package includes 3 Full Engineering Diagnostics. Each Full Diagnostic
+              includes AI-assisted engineering interpretation, deterministic risk
+              assessment, action planning, PDF export, audit trail, and verification
+              record.
+            </p>
+            <p
+              style={{
+                fontSize: "0.85rem",
+                lineHeight: 1.5,
+                color: "#6B6B68",
+                margin: "0 0 1rem",
+              }}
+            >
+              Preview analysis may be available before export. Camera/photo-based
+              interpretation, Full Diagnostic report generation, PDF export,
+              verification record, and report history require available Diagnostic
+              Credits.
+            </p>
+            <div style={{ textAlign: "right" }}>
+              <Link
+                href="/pricing"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  padding: "0.6rem 1.5rem",
+                  background: "#BD5D3A",
+                  color: "#fff",
+                  borderRadius: "6px",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontSize: "0.9rem",
+                  transition: "background 0.13s",
+                }}
+              >
+                Get Diagnostic Credits
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Engine Overview */}
       <section
         className="sc-pro-section sc-pro-section--border"
