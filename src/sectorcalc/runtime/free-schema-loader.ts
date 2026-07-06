@@ -3,6 +3,10 @@ import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
+import {
+  getFreeV531SchemaBySlug,
+  hasFreeV531Schema,
+} from "@/sectorcalc/schemas/free-v531/registry.generated";
 
 interface LoadedSchema { schema: SuperV4Schema; errors: string[]; }
 let loadedSchemas: Map<string, LoadedSchema> | null = null;
@@ -102,6 +106,58 @@ export function normalizeFreeSchema(raw: Record<string, unknown>): SuperV4Schema
     });
   }
 
+  // V5.4 Core — Fix unit-selectable inputs that are missing allowed_display_units
+  if (Array.isArray(s.inputs)) {
+    for (const inp of s.inputs as Array<Record<string, unknown>>) {
+      const isUnitSelectable = (inp.unit_selectable as boolean) === true;
+      if (isUnitSelectable) {
+        const allowedUnits = inp.allowed_display_units as string[] | undefined;
+        const baseUnit = inp.base_unit as string | undefined;
+        if (!allowedUnits || allowedUnits.length === 0) {
+          if (baseUnit && typeof baseUnit === "string" && baseUnit.length > 0) {
+            (inp as Record<string, unknown>).allowed_display_units = [baseUnit];
+          } else {
+            (inp as Record<string, unknown>).unit_selectable = false;
+            (inp as Record<string, unknown>).allowed_display_units = [];
+          }
+        }
+      } else {
+        if (!inp.allowed_display_units) {
+          (inp as Record<string, unknown>).allowed_display_units = [];
+        }
+      }
+    }
+  }
+
+  // V5.4 Core — Bind formulas from formula.uses to input.formula_bindings
+  const filteredFormulas = Array.isArray(s.formulas) ? s.formulas as Array<Record<string, unknown>> : [];
+  const inputById = new Map<string, Record<string, unknown>>();
+  if (Array.isArray(s.inputs)) {
+    for (const inp of s.inputs as Array<Record<string, unknown>>) {
+      inputById.set(inp.id as string, inp);
+    }
+  }
+  for (const f of filteredFormulas) {
+    const fid = f.id as string;
+    const uses = f.uses as string[] | undefined;
+    if (Array.isArray(uses)) {
+      for (const useId of uses) {
+        const rawId = useId.startsWith("n_") ? useId.slice(2) : useId;
+        const inp = inputById.get(rawId) || inputById.get(useId);
+        if (inp) {
+          let fb = inp.formula_bindings as string[] | undefined;
+          if (!Array.isArray(fb)) {
+            fb = [];
+            inp.formula_bindings = fb;
+          }
+          if (!fb.includes(fid)) {
+            fb.push(fid);
+          }
+        }
+      }
+    }
+  }
+
   if (Array.isArray(s.inputs)) {
     for (const inp of s.inputs as Array<Record<string, unknown>>) {
       const isCritical = (inp.criticality as string) === "CRITICAL";
@@ -138,6 +194,56 @@ export function normalizeFreeSchema(raw: Record<string, unknown>): SuperV4Schema
     }
   }
 
+  // V5.4 Core — Ensure audit_trail_contract has hash_algorithm or seal_config
+  const auditTrail = s.audit_trail_contract as Record<string, unknown> | undefined;
+  if (auditTrail && typeof auditTrail === "object") {
+    if (!("hash_algorithm" in auditTrail) && !("seal_config" in auditTrail)) {
+      (auditTrail as Record<string, unknown>).hash_algorithm = "SHA-256";
+    }
+  } else {
+    (s as Record<string, unknown>).audit_trail_contract = {
+      version: "1.0",
+      hash_algorithm: "SHA-256",
+      scope: "decision-support",
+    };
+  }
+
+  // V5.4 Core — Ensure unit_conversion_contract with conversion_registry exists
+  const convContract = s.unit_conversion_contract as Record<string, unknown> | undefined;
+  const hasConvRegistry = convContract?.conversion_registry !== undefined &&
+    typeof convContract.conversion_registry === "object" &&
+    Object.keys(convContract.conversion_registry as Record<string, unknown>).length > 0;
+  if (!hasConvRegistry) {
+    let needsConversion = false;
+    if (Array.isArray(s.inputs)) {
+      for (const inp of s.inputs as Array<Record<string, unknown>>) {
+        const allowed = inp.allowed_display_units as string[] | undefined;
+        if (Array.isArray(allowed) && allowed.length > 1) {
+          needsConversion = true;
+          break;
+        }
+      }
+    }
+    if (needsConversion) {
+      const registry: Record<string, unknown> = {};
+      if (Array.isArray(s.inputs)) {
+        for (const inp of s.inputs as Array<Record<string, unknown>>) {
+          const allowed = inp.allowed_display_units as string[] | undefined;
+          if (Array.isArray(allowed) && allowed.length > 0 && inp.base_unit) {
+            const qk = inp.quantity_kind as string || "dimensionless";
+            if (!registry[qk]) {
+              registry[qk] = { base: inp.base_unit, units: {} };
+            }
+          }
+        }
+      }
+      (s as Record<string, unknown>).unit_conversion_contract = {
+        unit_system: "GLOBAL",
+        conversion_registry: registry,
+      };
+    }
+  }
+
   return s as unknown as SuperV4Schema;
 }
 
@@ -168,6 +274,14 @@ function loadAllSchemas(): void {
 }
 
 export function getFreeToolSchema(toolKey: string): SuperV4Schema | null {
+  // V5.4 Core — Check bundle-safe static registry first (no runtime fs).
+  // This resolves all active Free V5.3.1 schemas in production.
+  if (hasFreeV531Schema(toolKey)) {
+    const rawSchema = getFreeV531SchemaBySlug(toolKey);
+    if (!rawSchema) return null;
+    // Normalize the raw JSON schema (removes orphan formulas, expressions, etc.)
+    return normalizeFreeSchema(rawSchema as unknown as Record<string, unknown>);
+  }
   loadAllSchemas(); const entry = loadedSchemas?.get(toolKey); return entry?.schema ?? null;
 }
 export function listFreeToolSchemaSlugs(): string[] {
