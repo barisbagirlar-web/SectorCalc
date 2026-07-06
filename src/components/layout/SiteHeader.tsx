@@ -216,7 +216,7 @@ export function SiteHeader({
                 {openMenu==='products' && (
                   <div className="sc-mega sc-mega-products">
                     <Link href="/free-tools" className="sc-mega-panel">
-                      <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></path></svg><span className="ph">{t.col_free}</span></div>
+                      <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg><span className="ph">{t.col_free}</span></div>
                       <div className="pd">{t.products_free_desc}</div>
                       <div className="pcount">{freeToolsCount} {t.tools}</div>
                     </Link>
