@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
 
 interface ReportPageParams {
   id: string;
@@ -89,7 +90,7 @@ export default function EngineeringDiagnosticsReportPreviewPage({
   const [pdfError, setPdfError] = useState<string | null>(null);
 
   useEffect(() => {
-    params.then((p) => {
+    params.then(async (p) => {
       setId(p.id);
       // Try sessionStorage first (recently generated preview)
       try {
@@ -104,31 +105,24 @@ export default function EngineeringDiagnosticsReportPreviewPage({
       }
 
       // Fallback to Firestore via API
-      const token =
-        typeof window !== "undefined"
-          ? (window as unknown as Record<string, unknown>).__firebaseAuthToken
-          : null;
+      const token = await getCurrentUserIdToken();
       const headers: Record<string, string> = {};
-      if (token && typeof token === "string") {
+      if (token) {
         headers["Authorization"] = `Bearer ${token}`;
       }
 
-      fetch(`/api/engineering-diagnostics/reports/${p.id}`, { headers })
-        .then((res) => {
-          if (!res.ok) return null;
-          return res.json();
-        })
-        .then((data) => {
+      try {
+        const res = await fetch(`/api/engineering-diagnostics/reports/${p.id}`, { headers });
+        if (res.ok) {
+          const data = await res.json();
           if (data?.ok && data?.report) {
             setReport(data.report);
           }
-        })
-        .catch(() => {
-          // silent fallback
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+        }
+      } catch {
+        // silent fallback
+      }
+      setLoading(false);
     });
   }, [params]);
 
@@ -371,9 +365,14 @@ export default function EngineeringDiagnosticsReportPreviewPage({
                 setPdfError(null);
                 setPdfLoading(true);
                 try {
+                  const pdfToken = await getCurrentUserIdToken();
+                  const pdfHeaders: Record<string, string> = { "Content-Type": "application/json" };
+                  if (pdfToken) {
+                    pdfHeaders["Authorization"] = `Bearer ${pdfToken}`;
+                  }
                   const res = await fetch("/api/engineering-diagnostics/pdf", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: pdfHeaders,
                     body: JSON.stringify({ report }),
                   });
                   if (!res.ok) {

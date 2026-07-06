@@ -103,7 +103,18 @@ export async function POST(req: Request) {
 
     const report = parsed.data;
 
+    /* ── Persist to Firestore + register verify ───────────────── */
+    const { hash } = registerDiagnosticVerify(report);
+    const persistedHash = await saveDiagnosticReport(report, ownerUid);
+    const reportHash = persistedHash ?? hash;
+    const verifyUrl = `https://sectorcalc.com/verify/${reportHash}`;
+
+    /* ── Build PDF — reads only from the report contract ──────── */
+    const pdfBuffer = await buildDiagnosticPdf(report, { verifyUrl });
+    const pdfUint8 = new Uint8Array(pdfBuffer);
+
     /* ── Deduct credit (atomic transaction) ───────────────────── */
+    // Deduct AFTER PDF generation succeeds — never charge for a failed PDF
     // Owner bypass skips deduction entirely
     if (!isOwner) {
       const deducted = await decrementCredits(ownerUid, PDF_CREDIT_COST);
@@ -114,16 +125,6 @@ export async function POST(req: Request) {
         );
       }
     }
-
-    /* ── Persist to Firestore + register verify ───────────────── */
-    const { hash } = registerDiagnosticVerify(report);
-    const persistedHash = await saveDiagnosticReport(report, ownerUid);
-    const reportHash = persistedHash ?? hash;
-    const verifyUrl = `https://sectorcalc.com/verify/${reportHash}`;
-
-    /* ── Build PDF — reads only from the report contract ──────── */
-    const pdfBuffer = await buildDiagnosticPdf(report, { verifyUrl });
-    const pdfUint8 = new Uint8Array(pdfBuffer);
 
     const fileName = buildDiagnosticPdfFileName(report.report_id);
 

@@ -5,6 +5,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
 
 interface ReportSummary {
   report_id: string;
@@ -50,12 +51,8 @@ export default function EngineeringDiagnosticsDashboardPage() {
     setLoading(true);
     setError(null);
 
-    // Get token from Firebase Auth (via sign-in flow)
-    // For now, try to get it from window.__firebase_auth or session
-    const token =
-      typeof window !== "undefined"
-        ? (window as unknown as Record<string, unknown>).__firebaseAuthToken
-        : null;
+    // Get Firebase ID token — real SectorCalc pattern
+    const token = await getCurrentUserIdToken();
 
     const headers: Record<string, string> = { "Content-Type": "application/json" };
     if (token && typeof token === "string") {
@@ -165,7 +162,17 @@ export default function EngineeringDiagnosticsDashboardPage() {
                 marginBottom: "1rem",
               }}
             >
-              {error}
+              {error === "Please sign in to view your reports." ? (
+                <>
+                  Please{" "}
+                  <Link href="/login" style={{ color: "#BD5D3A", fontWeight: 600 }}>
+                    sign in
+                  </Link>{" "}
+                  to view your reports.
+                </>
+              ) : (
+                error
+              )}
             </div>
           )}
 
