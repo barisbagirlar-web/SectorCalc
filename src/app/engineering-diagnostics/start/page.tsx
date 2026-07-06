@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { PageLayout } from "@/components/layout/PageLayout";
 
 /* ── Constants ── */
@@ -159,6 +160,10 @@ function decisionBadgeClass(state: string): { background: string; color: string 
 /* ── Page Component ── */
 
 export default function EngineeringDiagnosticsStartPage() {
+  const router = useRouter();
+  const lastRequestBodyRef = useRef<unknown>(null);
+  const [previewLoading, setPreviewLoading] = useState(false);
+  const [previewError, setPreviewError] = useState<string | null>(null);
   const [form, setForm] = useState<FormState>({
     domain_id: "",
     problem_context: "",
@@ -300,6 +305,8 @@ export default function EngineeringDiagnosticsStartPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
+
+      lastRequestBodyRef.current = body;
 
       const data: DiagnosticResult = await res.json();
 
@@ -497,8 +504,72 @@ export default function EngineeringDiagnosticsStartPage() {
           {result.disclaimer}
         </div>
 
+        {/* Create Report Preview */}
+        <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
+          <button
+            onClick={async () => {
+              setPreviewError(null);
+              setPreviewLoading(true);
+              try {
+                const res = await fetch("/api/engineering-diagnostics/report-preview", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(lastRequestBodyRef.current),
+                });
+                const data = await res.json();
+                if (!res.ok || !data.ok) {
+                  setPreviewError(data.error || "Failed to create report preview.");
+                  setPreviewLoading(false);
+                  return;
+                }
+                const report = data.report;
+                const reportId = report.report_id;
+                try {
+                  sessionStorage.setItem("ediag_report_" + reportId, JSON.stringify(report));
+                } catch {
+                  // sessionStorage may be full or unavailable; navigate anyway
+                }
+                setPreviewLoading(false);
+                router.push("/engineering-diagnostics/reports/" + encodeURIComponent(reportId));
+              } catch {
+                setPreviewError("Unable to create report preview. Please try again.");
+                setPreviewLoading(false);
+              }
+            }}
+            disabled={previewLoading}
+            style={{
+              padding: "0.9rem 2rem",
+              background: previewLoading ? "#D6D4CC" : "#1A1915",
+              color: previewLoading ? "#6B6B68" : "#fff",
+              border: "none",
+              borderRadius: "8px",
+              fontSize: "1rem",
+              fontWeight: 600,
+              cursor: previewLoading ? "not-allowed" : "pointer",
+              minHeight: "48px",
+              transition: "background 0.13s",
+            }}
+          >
+            {previewLoading ? "Creating Report Preview..." : "Create Report Preview"}
+          </button>
+          {previewError && (
+            <div
+              style={{
+                marginTop: "0.75rem",
+                padding: "0.5rem 0.75rem",
+                background: "#F5D6D6",
+                borderRadius: "6px",
+                fontSize: "0.85rem",
+                color: "#A12323",
+              }}
+            >
+              {previewError}
+            </div>
+          )}
+        </div>
+
         {/* Back to top */}
-        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+        <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <button
             onClick={() => {
               setResult(null);
