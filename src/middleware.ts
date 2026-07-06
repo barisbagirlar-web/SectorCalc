@@ -51,13 +51,118 @@ const SW_KILL_HEADERS = {
   Expires: "0",
 };
 
+// ── Rate limiter (defense-in-depth: POST-only, never GET/RSC) ────────────────
+
+const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minute
+const RATE_LIMIT_MAX_REQUESTS = 30;  // 30 POST requests per minute per IP
+const rateLimitMap = new Map<string, number[]>();
+
+// Clean stale entries every 5 minutes
+let lastCleanup = Date.now();
+const CLEANUP_INTERVAL_MS = 300_000;
+
+function cleanupRateLimitMap(): void {
+  const now = Date.now();
+  if (now - lastCleanup < CLEANUP_INTERVAL_MS) return;
+  lastCleanup = now;
+  const cutoff = now - RATE_LIMIT_WINDOW_MS * 2;
+  for (const [key, timestamps] of rateLimitMap) {
+    const recent = timestamps.filter((t) => t > cutoff);
+    if (recent.length === 0) {
+      rateLimitMap.delete(key);
+    } else {
+      rateLimitMap.set(key, recent);
+    }
+  }
+}
+
+/**
+ * Sliding-window rate limit check per IP.
+ * Returns true if request is allowed, false if rate-limited.
+ */
+function isBelowRateLimit(ip: string): boolean {
+  cleanupRateLimitMap();
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_WINDOW_MS;
+  const timestamps = rateLimitMap.get(ip) ?? [];
+  const recent = timestamps.filter((t) => t > windowStart);
+
+  if (recent.length >= RATE_LIMIT_MAX_REQUESTS) {
+    return false;
+  }
+
+  recent.push(now);
+  rateLimitMap.set(ip, recent);
+  return true;
+}
+
+/**
+ * RSC / public navigation requests must NEVER receive 429.
+ * Only POST to non-API expensive endpoints is rate-limited here.
+ */
+function shouldSkipRateLimit(request: NextRequest): boolean {
+  // Method check: never rate-limit GET, HEAD, OPTIONS
+  const method = request.method;
+  if (method !== "POST") return true;
+
+  // RSC prefetch requests must never be rate-limited
+  if (request.nextUrl.searchParams.has("_rsc")) return true;
+
+  // Static / assets / sitemap / robots / favicon
+  const pathname = request.nextUrl.pathname;
+  if (pathname.startsWith("/_next")) return true;
+  if (pathname.startsWith("/api")) return true;
+  if (pathname.startsWith("/admin")) return true;
+  if (pathname.startsWith("/sitemap")) return true;
+  if (pathname === "/robots.txt" || pathname === "/favicon.ico") return true;
+  if (pathname === "/sw.js") return true;
+  if (pathname.includes(".")) return true;
+
+  // Tool page routes: public GET navigation must not be rate-limited
+  // Note: these normally arrive as GET, but defense-in-depth also covers POST
+  if (pathname.startsWith("/tools/pro/")) return true;
+  if (pathname.startsWith("/tools/free/")) return true;
+
+  // Public listing / catalog pages
+  if (pathname === "/") return true;
+  if (pathname === "/pro-tools") return true;
+  if (pathname === "/free-tools") return true;
+  if (pathname === "/pricing") return true;
+  if (pathname === "/industries") return true;
+
+  return false;
+}
+
+// ── Middleware ────────────────────────────────────────────────────────────────
+
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // ── Defense-in-depth: rate limit POST to non-API expensive endpoints ──
+  // Public GET/RSC navigation is always exempt (shouldSkipRateLimit returns true for those).
+  if (!shouldSkipRateLimit(request)) {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      request.headers.get("x-real-ip") ??
+      "127.0.0.1";
+
+    if (!isBelowRateLimit(ip)) {
+      return new NextResponse(
+        JSON.stringify({ error: "Too many requests. Please slow down." }),
+        {
+          status: 429,
+          headers: {
+            "Content-Type": "application/json",
+            "Retry-After": "60",
+            "x-ratelimit-policy": "post-only",
+          },
+        },
+      );
+    }
+  }
+
   const response = NextResponse.next();
   annotateAuthGate(request, response);
-
-
 
   if (response.headers.get("x-auth-gate") === "challenge") {
     return applyRegionHeaders(response, request);

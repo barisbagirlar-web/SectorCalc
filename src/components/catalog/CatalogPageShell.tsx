@@ -293,7 +293,7 @@ export function CatalogPageShell({
             ) : (
               <div className={`cc-cols c${colCount}`}>
                 {visibleTools.map((tool) => (
-                  <Link key={tool.slug} href={tool.href} className="cc-link">
+                  <Link key={tool.slug} href={tool.href} prefetch={false} className="cc-link">
                     <span className="bullet">●</span>
                     <span className="ltext">{tool.title}</span>
                   </Link>
