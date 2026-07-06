@@ -85,6 +85,8 @@ export default function EngineeringDiagnosticsReportPreviewPage({
   const [report, setReport] = useState<Record<string, unknown> | null>(null);
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(true);
+  const [pdfLoading, setPdfLoading] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
 
   useEffect(() => {
     params.then((p) => {
@@ -333,7 +335,71 @@ export default function EngineeringDiagnosticsReportPreviewPage({
             </div>
           </Card>
 
-          <div style={{ textAlign: "center", marginTop: "2rem" }}>
+          {/* PDF Generation */}
+          <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
+            <button
+              onClick={async () => {
+                setPdfError(null);
+                setPdfLoading(true);
+                try {
+                  const res = await fetch("/api/engineering-diagnostics/pdf", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ report }),
+                  });
+                  if (!res.ok) {
+                    const data = await res.json().catch(() => ({}));
+                    setPdfError(data.error || "Failed to generate PDF.");
+                    setPdfLoading(false);
+                    return;
+                  }
+                  const blob = await res.blob();
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement("a");
+                  a.href = url;
+                  a.download = `sectorcalc-diagnostic-${reportId}.pdf`;
+                  document.body.appendChild(a);
+                  a.click();
+                  document.body.removeChild(a);
+                  URL.revokeObjectURL(url);
+                } catch {
+                  setPdfError("Unable to generate PDF. Please try again.");
+                }
+                setPdfLoading(false);
+              }}
+              disabled={pdfLoading}
+              style={{
+                padding: "0.8rem 2rem",
+                background: pdfLoading ? "#D6D4CC" : "#BD5D3A",
+                color: pdfLoading ? "#6B6B68" : "#fff",
+                border: "none",
+                borderRadius: "8px",
+                fontSize: "1rem",
+                fontWeight: 600,
+                cursor: pdfLoading ? "not-allowed" : "pointer",
+                minHeight: "48px",
+                transition: "background 0.13s",
+              }}
+            >
+              {pdfLoading ? "Generating PDF..." : "Generate PDF Preview"}
+            </button>
+            {pdfError && (
+              <div
+                style={{
+                  marginTop: "0.75rem",
+                  padding: "0.5rem 0.75rem",
+                  background: "#F5D6D6",
+                  borderRadius: "6px",
+                  fontSize: "0.85rem",
+                  color: "#A12323",
+                }}
+              >
+                {pdfError}
+              </div>
+            )}
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
             <Link href="/engineering-diagnostics/start" style={{ display: "inline-block", padding: "0.8rem 2rem", background: "#BD5D3A", color: "#fff", borderRadius: "8px", textDecoration: "none", fontWeight: 600, fontSize: "1rem" }}>
               Start New Diagnostic
             </Link>
