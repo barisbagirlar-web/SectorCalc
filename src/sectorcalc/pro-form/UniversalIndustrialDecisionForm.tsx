@@ -5,7 +5,7 @@
 "use client";
 
 import type { ChangeEvent, ReactNode } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type {
   CalcStatus,
   ExecuteResponse,
@@ -38,8 +38,12 @@ import {
   buildSafeDisplayUnitOptions,
   getProOutputSymbol,
   getProOutputDisplayUnit,
+  SUPPORTED_CURRENCIES,
+  type CurrencyCode,
+  replaceCurrencyLabel,
 } from "./form-render-helpers";
 import { normalizeV531FieldMetadata } from "./normalize-v531-field-metadata";
+import { resolveIndustrialExampleValue } from "./example-value-resolver";
 import "./universal-industrial-decision-form.css";
 
 // ── ViewModel types ────────────────────────────────────────────────────────────
@@ -443,19 +447,32 @@ const FREE_OUTPUT_UNIT_SUFFIX: Record<string, string> = {
   "margin_of_safety_percent": "%",
 };
 
+/** Outputs in this set have their "Currency" placeholder replaced with selected ISO code. */
+const FREE_CURRENCY_OUTPUTS = new Set([
+  "contribution_margin_per_unit",
+  "break_even_revenue",
+]);
+
 /**
  * Get the display-ready unit suffix for a FREE tool output.
  * Uses a safe map for known outputs, falls back to server unit formatting.
  */
 function getFreeOutputUnitSuffix(
   out: { id?: string | null; name?: string; unit?: string | null },
+  currencyCode: CurrencyCode = "USD",
 ): string {
   const outputKey = (out.id ?? out.name ?? "").toLowerCase().replace(/[\s-]+/g, "_");
   const mapped = FREE_OUTPUT_UNIT_SUFFIX[outputKey];
-  if (mapped) return mapped;
+  if (mapped) {
+    // Replace "Currency" placeholder with selected ISO code
+    if (FREE_CURRENCY_OUTPUTS.has(outputKey)) {
+      return replaceCurrencyLabel(mapped, currencyCode);
+    }
+    return mapped;
+  }
   // Fallback: use server unit if available
   if (out.unit) {
-    if (out.unit === "display_currency") return "Currency";
+    if (out.unit === "display_currency") return currencyCode;
     const label = formatCleanUnitLabel(out.unit);
     if (label) return label;
   }
@@ -681,6 +698,69 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   // Hydration-safe tier check — use accessTier (from props) not isFreeRoute (uses window)
   const isFreeTier = accessTier === "FREE";
   const hasSession = isPro && !!props.usageSessionId;
+
+  // ── Currency display selector ──
+  const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("USD");
+
+  // ── Desktop detection for PRO cockpit layout (>= 1100px) ──
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(min-width: 1100px)").matches;
+  });
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1100px)");
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  // ── Industrial example values (initial mount only) ──
+  const examplesInitializedRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (contractErrors.length > 0) return;
+    if (!props.schema || !Array.isArray(props.schema.inputs) || props.schema.inputs.length === 0) return;
+
+    const toolSlug = props.toolKey ?? props.schema.tool_key;
+
+    // If already initialized for this tool, skip (avoid re-applying on deps change)
+    if (examplesInitializedRef.current === toolSlug) return;
+    examplesInitializedRef.current = toolSlug;
+
+    let anySet = false;
+
+    for (const input of props.schema.inputs) {
+      const currentValue = state.rawInputState[input.id];
+      const resolved = resolveIndustrialExampleValue({
+        toolSlug,
+        toolKey: props.schema.tool_key,
+        inputId: input.id,
+        inputName: input.name,
+        unit: input.base_unit,
+        rangeMin: input.physical_hard_bounds?.min ?? null,
+        rangeMax: input.physical_hard_bounds?.max ?? null,
+        schemaExampleValue: null,
+        schemaDefaultValue: input.default_value ?? null,
+      });
+
+      if (resolved === "") continue;
+
+      const needsUpdate =
+        currentValue === null ||
+        currentValue === undefined ||
+        currentValue !== resolved;
+
+      if (needsUpdate) {
+        machine.setInputValue(input.id, resolved);
+        anySet = true;
+      }
+    }
+
+    if (anySet) {
+      // Run client precheck so validation state reflects the new values
+      machine.runClientPrecheck();
+    }
+  }, [props.schema, props.toolKey, contractErrors.length]);
   const runsRemaining = props.remainingRuns ?? 0;
   const sessionExhausted = isPro && hasSession && runsRemaining <= 0;
   const creditSessionLoading = props.creditSessionLoading ?? false;
@@ -702,7 +782,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     (isPro && sessionExhausted);
 
   const primaryButtonLabel = isFreeTier
-    ? (isExecuting ? "Calculating..." : "Calculate")
+    ? (isExecuting ? "Calculating..." : (hasResult ? "Recalculate" : "Calculate"))
     : getPrimaryCtaLabel(accessTier, isExecuting, hasSession || isBypassUser, hasResult, creditSessionLoading);
 
   const primaryButtonAction = () => {
@@ -783,47 +863,271 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     return <IdentityBlocker reason={identityCheck.reason!} />;
   }
 
+  // ── Shared hero content (title/desc/badges/currency) ──
+  const heroContent = (
+    <>
+      <h1 className="sc-v531-title">{vm.title}</h1>
+      <p className="sc-v531-hero__scope">{vm.purpose}</p>
+      <div className="sc-v531-meta-row" aria-label="Tool metadata">
+        {vm.badges.map((badge, i) => (
+          <span key={i} className="sc-v531-chip">{badge.label}</span>
+        ))}
+      </div>
+      {/* Currency display selector */}
+      <div className="sc-v531-currency-row" aria-label="Currency selector">
+        <label className="sc-v531-currency-label" htmlFor="sc-currency-select">Display currency</label>
+        <select
+          id="sc-currency-select"
+          className="sc-v531-currency-select"
+          value={selectedCurrency}
+          onChange={(e: ChangeEvent<HTMLSelectElement>) => setSelectedCurrency(e.target.value as CurrencyCode)}
+        >
+          {SUPPORTED_CURRENCIES.map((code) => (
+            <option key={code} value={code}>{code}</option>
+          ))}
+        </select>
+      </div>
+    </>
+  );
+
   return (
     <section
       className={`sc-v531-shell ${props.className ?? ""}`}
       data-renderer="UniversalIndustrialDecisionForm"
       data-v531="true"
     >
-      {/* ── 1. Compact hero ── */}
-      <header className="sc-v531-hero">
-        <h1 className="sc-v531-title">{vm.title}</h1>
-        <p className="sc-v531-hero__scope">{vm.purpose}</p>
-        <div className="sc-v531-meta-row" aria-label="Tool metadata">
-          {vm.badges.map((badge, i) => (
-            <span key={i} className="sc-v531-chip">{badge.label}</span>
-          ))}
+      {isPro && isDesktop ? (
+        /* ── PRO Desktop: hero inside cockpit left panel ── */
+        <div className="sc-v531-layout">
+          <main className="sc-v531-main-panel">
+            <div className="sc-v531-pro-cockpit">
+              <div className="sc-v531-pro-cockpit-left">
+                <header className="sc-v531-hero sc-v531-hero--cockpit">
+                  {heroContent}
+                </header>
+                {vm.fields.length === 0 && (
+                  <p className="sc-v531-empty">No inputs defined for this tool.</p>
+                )}
+                <div className="sc-v531-field-grid">
+                  {vm.fields.map((field) => (
+                    <CalculatorInputField
+                      key={field.id}
+                      field={field}
+                      currencyCode={selectedCurrency}
+                      onValueChange={(value) => machine.setInputValue(field.id, value)}
+                      onUnitChange={(unit) => machine.setSelectedUnit(field.id, unit)}
+                      onEvidenceChange={(valueVerified, sourceVerified) => {
+                        machine.updateEvidence(field.id, {
+                          enabled: valueVerified || sourceVerified,
+                          user_verified: valueVerified,
+                          source_verified: sourceVerified,
+                        });
+                      }}
+                    />
+                  ))}
+                </div>
+                {/* Cockpit CTA + Reset */}
+                <div className="sc-v531-cockpit-actions">
+                  <button
+                    type="button"
+                    className="sc-v531-primary-action"
+                    disabled={vm.action.disabled}
+                    aria-disabled={vm.action.disabled}
+                    onClick={vm.action.onAction}
+                  >
+                    {vm.action.label}
+                  </button>
+                  <button
+                    type="button"
+                    className="sc-v531-action-secondary"
+                    onClick={machine.resetInputs}
+                  >
+                    Reset inputs
+                  </button>
+                </div>
+                {vm.action.disabled && vm.action.disabledReason && (
+                  <p className="sc-v531-disabled-reason" role="status">
+                    {vm.action.disabledReason}
+                  </p>
+                )}
+              </div>
+              <aside className="sc-v531-pro-cockpit-right">
+                <div className="sc-v531-cockpit-panel">
+                  <h4 className="sc-v531-cockpit-panel-title">Decision Panel</h4>
+                  {hasResult && response?.outputs ? (
+                    <div className="sc-v531-cockpit-panel-content">
+                      {(() => {
+                        const dsOutput = response.outputs.find((o) =>
+                          (o.name ?? "").toLowerCase().replace(/[\s-]+/g, "_").includes("decision_status")
+                        );
+                        const gdOutput = response.outputs.find((o) =>
+                          (o.name ?? "").toLowerCase().replace(/[\s-]+/g, "_").includes("governing_driver")
+                        );
+                        const costOutput = response.outputs.find((o) =>
+                          (o.id ?? "").includes("annual_leak_cost")
+                        );
+                        const paybackOutput = response.outputs.find((o) =>
+                          (o.id ?? "").includes("repair_payback_days")
+                        );
+                        const dsValue = typeof dsOutput?.value === "string" ? dsOutput.value.replace(/_/g, " ") : "";
+                        const gdValue = typeof gdOutput?.value === "string" ? gdOutput.value : "";
+                        const costValue = typeof costOutput?.value === "number" ? costOutput.value : null;
+                        const paybackValue = typeof paybackOutput?.value === "number" ? paybackOutput.value : null;
+                        const costUnit = getProOutputDisplayUnit("annual_leak_cost", costOutput?.unit, selectedCurrency);
+                        const dsKey = dsValue.toLowerCase().replace(/\s+/g, "_");
+                        return (
+                          <>
+                            {dsValue && (
+                              <div className="sc-v531-cockpit-row">
+                                <span className="sc-v531-cockpit-row-label">Decision Status</span>
+                                <span className={`sc-v531-cockpit-row-value sc-v531-ds-${dsKey}`}>{dsValue}</span>
+                              </div>
+                            )}
+                            {gdValue && (
+                              <div className="sc-v531-cockpit-row">
+                                <span className="sc-v531-cockpit-row-label">Governing Driver</span>
+                                <span className="sc-v531-cockpit-row-text">{gdValue}</span>
+                              </div>
+                            )}
+                            {costValue !== null && (
+                              <div className="sc-v531-cockpit-row">
+                                <span className="sc-v531-cockpit-row-label">Annual Leak Cost</span>
+                                <span className="sc-v531-cockpit-row-value">{formatDisplayNumber(costValue)} {costUnit}</span>
+                              </div>
+                            )}
+                            {paybackValue !== null && (
+                              <div className="sc-v531-cockpit-row">
+                                <span className="sc-v531-cockpit-row-label">Repair Payback</span>
+                                <span className="sc-v531-cockpit-row-value">{paybackValue} days</span>
+                              </div>
+                            )}
+                            {(() => {
+                              let actionText = "";
+                              if (dsValue === "ACTION REQUIRED") {
+                                actionText = "Repair this leak immediately.";
+                              } else if (dsValue === "MONITOR") {
+                                actionText = "Schedule repair in next maintenance window.";
+                              } else if (dsValue === "OK") {
+                                actionText = "No urgent action needed. Monitor pressure.";
+                              }
+                              return actionText ? (
+                                <div className="sc-v531-cockpit-block">
+                                  <span className="sc-v531-cockpit-row-label">Recommended Action</span>
+                                  <p className="sc-v531-cockpit-row-text">{actionText}</p>
+                                </div>
+                              ) : null;
+                            })()}
+                          </>
+                        );
+                      })()}
+                      <div className="sc-v531-cockpit-actions">
+                        <button
+                          type="button"
+                          className="sc-v531-primary-action"
+                          disabled={vm.action.disabled}
+                          onClick={vm.action.onAction}
+                        >
+                          {vm.action.label}
+                        </button>
+                        <button
+                          type="button"
+                          className="sc-v531-action-secondary"
+                          onClick={machine.resetInputs}
+                        >
+                          Reset inputs
+                        </button>
+                      </div>
+                      {vm.action.disabled && vm.action.disabledReason && (
+                        <p className="sc-v531-disabled-reason" role="status">
+                          {vm.action.disabledReason}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="sc-v531-cockpit-panel-placeholder">
+                      <p className="sc-v531-cockpit-placeholder-text">
+                        Enter values and calculate to see the decision summary.
+                      </p>
+                      <button
+                        type="button"
+                        className="sc-v531-primary-action"
+                        disabled={vm.action.disabled}
+                        onClick={vm.action.onAction}
+                      >
+                        {vm.action.label}
+                      </button>
+                      <button
+                        type="button"
+                        className="sc-v531-action-secondary"
+                        onClick={machine.resetInputs}
+                      >
+                        Reset inputs
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </aside>
+            </div>
+          </main>
         </div>
-      </header>
+      ) : (
+        /* ── FREE / mobile PRO: standalone hero + inputs + action bar ── */
+        <>
+          <header className="sc-v531-hero">{heroContent}</header>
+          <div className="sc-v531-layout">
+            <main className="sc-v531-main-panel">
+              {vm.fields.length === 0 && (
+                <p className="sc-v531-empty">No inputs defined for this tool.</p>
+              )}
+              <div className="sc-v531-field-grid">
+                {vm.fields.map((field) => (
+                  <CalculatorInputField
+                    key={field.id}
+                    field={field}
+                    currencyCode={selectedCurrency}
+                    onValueChange={(value) => machine.setInputValue(field.id, value)}
+                    onUnitChange={(unit) => machine.setSelectedUnit(field.id, unit)}
+                    onEvidenceChange={(valueVerified, sourceVerified) => {
+                      machine.updateEvidence(field.id, {
+                        enabled: valueVerified || sourceVerified,
+                        user_verified: valueVerified,
+                        source_verified: sourceVerified,
+                      });
+                    }}
+                  />
+                ))}
+              </div>
 
-      {/* ── Main workspace: inputs + action panel ── */}
-      <div className="sc-v531-layout">
-        <main className="sc-v531-main-panel">
-          {/* Input cards */}
-          {vm.fields.length === 0 && (
-            <p className="sc-v531-empty">No inputs defined for this tool.</p>
-          )}
-          <div className="sc-v531-field-grid">
-            {vm.fields.map((field) => (
-              <CalculatorInputField
-                key={field.id}
-                field={field}
-                onValueChange={(value) => machine.setInputValue(field.id, value)}
-                onUnitChange={(unit) => machine.setSelectedUnit(field.id, unit)}
-                onEvidenceChange={(valueVerified, sourceVerified) => {
-                  machine.updateEvidence(field.id, {
-                    enabled: valueVerified || sourceVerified,
-                    user_verified: valueVerified,
-                    source_verified: sourceVerified,
-                  });
-                }}
-              />
-            ))}
+              {/* Full-width action bar */}
+              <div className="sc-v531-action-bar">
+                <div className="sc-v531-action-bar-buttons">
+                  <button
+                    type="button"
+                    className="sc-v531-primary-action"
+                    disabled={vm.action.disabled}
+                    aria-disabled={vm.action.disabled}
+                    onClick={vm.action.onAction}
+                  >
+                    {vm.action.label}
+                  </button>
+                  <button
+                    type="button"
+                    className="sc-v531-action-secondary"
+                    onClick={machine.resetInputs}
+                  >
+                    Reset inputs
+                  </button>
+                </div>
+                {vm.action.disabled && vm.action.disabledReason && (
+                  <p className="sc-v531-disabled-reason" role="status">
+                    {vm.action.disabledReason}
+                  </p>
+                )}
+              </div>
+            </main>
           </div>
+        </>
+      )}
 
         {/* Results */}
         <section className="sc-v531-section sc-v531-results" aria-label="Results">
@@ -838,7 +1142,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       const formattedValue = typeof out.value === "number"
                         ? formatBusinessResult(out.name, out.value)
                         : formatSafeValue(out.value);
-                      const freeUnitSuffix = getFreeOutputUnitSuffix(out);
+                      const freeUnitSuffix = getFreeOutputUnitSuffix(out, selectedCurrency);
                       const displayStr = freeUnitSuffix
                         ? (formattedValue.endsWith(freeUnitSuffix) ? formattedValue : `${formattedValue} ${freeUnitSuffix}`)
                         : formattedValue;
@@ -913,8 +1217,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               {/* PRO mode: Decision Summary + Primary Results + Professional Interpretation */}
               {!isFreeTier && response?.outputs && (
                 <div className="sc-v531-pro-results-container">
-                  {/* Decision Summary */}
-                  {(() => {
+                  {/* Decision Summary — skipped when desktop cockpit already shows it */}
+                  {!(isPro && isDesktop) && (() => {
                     const dsOutput = response.outputs.find((o) =>
                       (o.name ?? "").toLowerCase().replace(/[\s-]+/g, "_").includes("decision_status")
                     );
@@ -1004,7 +1308,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                           const formattedValue = typeof out.value === "number"
                             ? formatDisplayNumber(out.value)
                             : formatSafeValue(out.value);
-                          const cleanUnit = getProOutputDisplayUnit(out.id ?? "", out.unit);
+                          const cleanUnit = getProOutputDisplayUnit(out.id ?? "", out.unit, selectedCurrency);
                           // Avoid duplicating unit when label already contains it
                           const outLabel = out.name || "";
                           const unitNeeded = cleanUnit && !outLabel.toLowerCase().includes(cleanUnit.toLowerCase());
@@ -1034,8 +1338,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     );
                     const annualLeakCost = typeof annualLeakOutput?.value === "number" ? annualLeakOutput.value : null;
                     const costUnit = annualLeakOutput?.unit
-                      ? getProOutputDisplayUnit("annual_leak_cost", annualLeakOutput.unit)
-                      : "Currency/year";
+                      ? getProOutputDisplayUnit("annual_leak_cost", annualLeakOutput.unit, selectedCurrency)
+                      : `${selectedCurrency}/year`;
                     const formattedCost = annualLeakCost !== null
                       ? `${formatDisplayNumber(annualLeakCost)} ${costUnit}`
                       : "";
@@ -1247,33 +1551,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
           {!isFreeRoute && premiumHook && (
             <PremiumPanel hook={premiumHook} onCheckout={() => machine.requestCheckout()} />
           )}
-        </main>
-
-        {/* Right: action panel */}
-        <aside className="sc-v531-side-panel" aria-label="Action panel">
-          <div className="sc-v531-side-panel-inner">
-            <button
-              type="button"
-              className="sc-v531-primary-action"
-              disabled={vm.action.disabled}
-              aria-disabled={vm.action.disabled}
-              onClick={vm.action.onAction}
-            >
-              {vm.action.label}
-            </button>
-
-            {vm.action.disabled && vm.action.disabledReason && (
-              <p className="sc-v531-disabled-reason" role="status">
-                {vm.action.disabledReason}
-              </p>
-            )}
-
-            <button type="button" className="sc-v531-side-secondary" onClick={machine.resetInputs}>
-              Reset inputs
-            </button>
-          </div>
-        </aside>
-      </div>
 
       {/* ── 3. Advanced details (collapsed by default — native <details>) ── */}
       <details className="sc-v531-advanced" data-testid="advanced-details">
@@ -1289,7 +1566,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         <div className="sc-v531-advanced-body">
           <FormulaLogicSection toolKey={props.toolKey} schema={props.schema} />
           <ValidationNotesSection isFreeTier={isFreeTier} />
-          {isFreeTier && <CalculationAssumptionsSection />}
+          {isFreeTier && <CalculationAssumptionsSection currencyCode={selectedCurrency} />}
           {!isFreeTier && (
             <>
               <SensitivitySection toolKey={props.toolKey} />
@@ -1326,17 +1603,28 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
 function CalculatorInputField({
   field,
+  currencyCode,
   onValueChange,
   onUnitChange,
   onEvidenceChange,
 }: {
   field: FieldViewModel;
+  currencyCode: CurrencyCode;
   onValueChange: (value: string | number | boolean | null) => void;
   onUnitChange: (unit: string) => void;
   onEvidenceChange: (valueVerified: boolean, sourceVerified: boolean) => void;
 }) {
   const inputId = `sc-v531-input-${field.id}`;
   const hasBlocker = field.blockers.length > 0;
+
+  // Resolve unit label — replace "Currency" placeholder with selected ISO code
+  const resolveUnitLabel = (unit: string): string => {
+    const label = formatCleanUnitLabel(unit);
+    if (label === "Currency" || label.includes("Currency")) {
+      return replaceCurrencyLabel(label, currencyCode);
+    }
+    return label;
+  };
 
   return (
     <div className="sc-v531-field-card" data-criticality={field.criticality.toLowerCase()} data-error={hasBlocker}>
@@ -1360,15 +1648,15 @@ function CalculatorInputField({
             onChange={(e: ChangeEvent<HTMLSelectElement>) => onUnitChange(e.target.value)}
           >
             {field.allowedUnits.map((unit) => (
-              <option key={unit} value={unit}>{formatCleanUnitLabel(unit)}</option>
+              <option key={unit} value={unit}>{resolveUnitLabel(unit)}</option>
             ))}
           </select>
         )}
       </div>
 
-      {/* Clean reference helper — one line per input */}
+      {/* Clean reference helper — one line per input, "Currency" placeholder replaced */}
       {field.cleanReferenceHelper && (
-        <p className="sc-v531-ref-helper">{field.cleanReferenceHelper}</p>
+        <p className="sc-v531-ref-helper">{replaceCurrencyLabel(field.cleanReferenceHelper, currencyCode)}</p>
       )}
     </div>
   );
@@ -1540,12 +1828,12 @@ function ValidationNotesSection({ isFreeTier }: { isFreeTier: boolean }) {
 }
 
 /** Controlled calculation assumptions — static text for FREE. */
-function CalculationAssumptionsSection() {
+function CalculationAssumptionsSection({ currencyCode }: { currencyCode: CurrencyCode }) {
   return (
     <section className="sc-v531-advanced-section" aria-label="Calculation assumptions">
       <h3 className="sc-v531-advanced-title">Calculation assumptions</h3>
       <ul className="sc-v531-assumption-list">
-        <li className="sc-v531-assumption-item">Currency values use the selected display currency.</li>
+        <li className="sc-v531-assumption-item">Monetary values shown in {currencyCode}. Currency selector changes display only.</li>
         <li className="sc-v531-assumption-item">Results depend on user-entered values.</li>
         <li className="sc-v531-assumption-item">This output is decision support, not audited financial advice.</li>
       </ul>

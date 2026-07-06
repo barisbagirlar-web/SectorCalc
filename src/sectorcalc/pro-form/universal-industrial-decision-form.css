@@ -89,6 +89,14 @@
   border-top: 0;
 }
 
+.sc-v531-hero--cockpit {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
 .sc-v531-title {
   margin: 0;
   font-size: clamp(25px, 2.8vw, 36px) !important;
@@ -127,14 +135,52 @@
 }
 
 /* ═══════════════════════════════════════════════════════
-   MAIN LAYOUT — Inputs left, action right
+   CURRENCY SELECTOR — Compact inline row in hero
+   ═══════════════════════════════════════════════════════ */
+
+.sc-v531-currency-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.sc-v531-currency-label {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--sc-v531-muted-strong);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sc-v531-currency-select {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--sc-v531-line);
+  background: #fff;
+  color: var(--sc-v531-text);
+  font-family: var(--sc-v531-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  min-width: 80px;
+  appearance: auto;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+}
+
+.sc-v531-currency-select:focus {
+  border-color: var(--sc-v531-accent);
+  box-shadow: 0 0 0 2px var(--sc-v531-accent-soft);
+}
+
+/* ═══════════════════════════════════════════════════════
+   MAIN LAYOUT — Single column, inputs then action bar then results
    ═══════════════════════════════════════════════════════ */
 
 .sc-v531-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
-  gap: 24px;
-  align-items: start;
+  display: block;
 }
 
 .sc-v531-main-panel {
@@ -429,6 +475,41 @@
   margin: 0;
   cursor: pointer;
   accent-color: var(--sc-v531-accent);
+}
+
+/* ═══════════════════════════════════════════════════════
+   ACTION BAR — Full-width between inputs and results
+   ═══════════════════════════════════════════════════════ */
+
+.sc-v531-action-bar {
+  background: var(--sc-v531-bg-alt);
+  border: 1px solid var(--sc-v531-line);
+  padding: 18px 20px;
+}
+
+.sc-v531-action-bar-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sc-v531-action-secondary {
+  height: 40px;
+  padding: 0 20px;
+  border: 1px solid rgba(26, 25, 21, 0.16);
+  background: var(--sc-v531-surface);
+  color: var(--sc-v531-text);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.sc-v531-action-secondary:hover {
+  border-color: var(--sc-v531-accent);
+  background: rgba(189, 93, 58, 0.05);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1013,14 +1094,143 @@
    ═══════════════════════════════════════════════════════ */
 
 @media (max-width: 1100px) {
-  .sc-v531-layout {
-    grid-template-columns: 1fr;
-  }
-
   .sc-v531-side-panel {
     position: static;
     max-width: none;
   }
+
+  .sc-v531-pro-cockpit {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-v531-pro-cockpit-right {
+    position: static;
+    max-width: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   PRO DESKTOP COCKPIT (>= 1100px)
+   ═══════════════════════════════════════════════════════ */
+
+.sc-v531-pro-cockpit {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+  align-items: start;
+  min-width: 0;
+}
+
+.sc-v531-pro-cockpit-left {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.sc-v531-pro-cockpit-right {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  z-index: 1;
+  min-width: 0;
+}
+
+.sc-v531-cockpit-panel {
+  background: var(--sc-v531-surface);
+  border: 1px solid var(--sc-v531-line);
+  border-left: 3px solid var(--sc-v531-accent);
+  box-shadow: var(--sc-v531-shadow);
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sc-v531-cockpit-panel-title {
+  margin: 0;
+  font-family: var(--sc-v531-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--sc-v531-text);
+  letter-spacing: -0.02em;
+}
+
+.sc-v531-cockpit-panel-content {
+  display: grid;
+  gap: 10px;
+}
+
+.sc-v531-cockpit-panel-placeholder {
+  display: grid;
+  gap: 12px;
+}
+
+.sc-v531-cockpit-placeholder-text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--sc-v531-muted-strong);
+  line-height: 1.45;
+}
+
+.sc-v531-cockpit-row {
+  display: grid;
+  gap: 2px;
+  padding: 6px 0;
+}
+
+.sc-v531-cockpit-row + .sc-v531-cockpit-row {
+  border-top: 1px solid var(--sc-v531-line);
+}
+
+.sc-v531-cockpit-block {
+  display: grid;
+  gap: 3px;
+  padding: 6px 0;
+}
+
+.sc-v531-cockpit-block + .sc-v531-cockpit-row {
+  border-top: 1px solid var(--sc-v531-line);
+}
+
+.sc-v531-cockpit-row-label {
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sc-v531-muted);
+}
+
+.sc-v531-cockpit-row-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--sc-v531-text);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.sc-v531-cockpit-row-text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--sc-v531-text);
+  line-height: 1.4;
+}
+
+.sc-v531-cockpit-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.sc-v531-cockpit-actions .sc-v531-primary-action {
+  flex: 1;
+  min-width: 0;
+}
+
+.sc-v531-cockpit-actions .sc-v531-action-secondary {
+  flex-shrink: 0;
 }
 
 @media (max-width: 720px) {
@@ -1050,6 +1260,18 @@
 
   .sc-v531-field-card {
     padding: 12px;
+  }
+
+  .sc-v531-action-bar-buttons {
+    flex-direction: column;
+  }
+
+  .sc-v531-action-bar .sc-v531-primary-action {
+    max-width: none;
+  }
+
+  .sc-v531-action-secondary {
+    width: 100%;
   }
 }
 

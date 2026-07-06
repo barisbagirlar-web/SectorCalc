@@ -5,6 +5,26 @@
 import type { ExecuteResponse, RedactionStatus, ReferenceValuesObject, LegacyReferenceValue } from "./contract-types";
 import { getDisplayUnitLabel, UNIT_DISPLAY_LABELS } from "./display-labels";
 
+// ── Currency codes for display selector ───────────────────────────────────────
+
+export const SUPPORTED_CURRENCIES = [
+  "USD", "EUR", "GBP", "TRY", "INR", "CNY", "JPY", "AUD", "CAD", "BRL",
+] as const;
+
+export type CurrencyCode = (typeof SUPPORTED_CURRENCIES)[number];
+
+/**
+ * Replace "Currency" placeholder in a label with the selected ISO currency code.
+ * Leaves non-currency labels unchanged.
+ * Never uses currency symbols (USD not $).
+ */
+export function replaceCurrencyLabel(label: string, code: CurrencyCode): string {
+  return label
+    .replace(/\bCurrency\/year\b/g, `${code}/year`)
+    .replace(/\bCurrency\/unit\b/g, `${code}/unit`)
+    .replace(/\bCurrency\b/g, code);
+}
+
 // ── Extended unit display labels (overrides for PRO tool technical units) ──────
 
 const EXTENDED_UNIT_LABELS: Record<string, string> = {
@@ -129,22 +149,23 @@ export function getProOutputSymbol(outputId: string): string {
 /**
  * Get the display-ready unit string for a PRO output.
  * Falls back to inference from output ID when server unit is missing.
+ * @param currencyCode - ISO code for "Currency" placeholder replacement
  */
 export function getProOutputDisplayUnit(
   outputId: string,
   serverUnit: string | null | undefined,
+  currencyCode: CurrencyCode = "USD",
 ): string {
   // If server provides a known unit, use it
   if (serverUnit && serverUnit !== "display_currency") {
     return formatCleanUnitLabel(serverUnit);
   }
   if (serverUnit === "display_currency") {
-    // Determine context: annual cost gets /year, others get Currency
     const id = (outputId ?? "").toLowerCase();
     if (id.includes("annual_leak") || id.includes("annual_cost") || id.includes("annual_energy")) {
-      return "Currency/year";
+      return `${currencyCode}/year`;
     }
-    return "Currency";
+    return currencyCode;
   }
   // Infer from output ID when server unit is missing
   const id = (outputId ?? "").toLowerCase();
@@ -155,7 +176,7 @@ export function getProOutputDisplayUnit(
     return "kWh/year";
   }
   if (id.includes("cost") || id.includes("annual_leak")) {
-    return "Currency/year";
+    return `${currencyCode}/year`;
   }
   if (id.includes("payback") || id.includes("days")) {
     return "days";
@@ -298,53 +319,34 @@ export function formatDisplayNumber(
   if (!Number.isFinite(value)) return "—";
 
   const { decimals, suffix = "", stripTrailingZeros = true } = options ?? {};
-  const negative = value < 0;
-  const absValue = Math.abs(value);
 
-  let decimalPart: string;
-  let integerPart: string;
+  let minDecimals: number;
+  let maxDecimals: number;
 
   if (decimals !== undefined) {
-    // Fixed decimals via toFixed — safe up to 1e21
-    const fixed = absValue.toFixed(decimals);
-    const dotIdx = fixed.indexOf(".");
-    integerPart = dotIdx === -1 ? fixed : fixed.slice(0, dotIdx);
-    decimalPart = dotIdx === -1 ? "" : fixed.slice(dotIdx + 1);
+    minDecimals = decimals;
+    maxDecimals = decimals;
   } else {
-    // Smart decimals
+    const absValue = Math.abs(value);
     if (Number.isInteger(absValue) && absValue < 1e15) {
-      integerPart = String(absValue);
-      decimalPart = "";
+      minDecimals = 0;
+      maxDecimals = 0;
     } else if (absValue < 1) {
-      // Show up to 6 significant decimal digits, strip trailing zeros
-      const raw = absValue.toFixed(6);
-      const dotIdx = raw.indexOf(".");
-      integerPart = "0";
-      decimalPart = raw.slice(dotIdx + 1).replace(/0+$/, "");
+      minDecimals = 0;
+      maxDecimals = 6;
     } else {
-      // Default: 2 decimals, strip trailing zeros
-      const raw = absValue.toFixed(2);
-      const dotIdx = raw.indexOf(".");
-      integerPart = dotIdx === -1 ? raw : raw.slice(0, dotIdx);
-      decimalPart = dotIdx === -1 ? "" : raw.slice(dotIdx + 1);
+      minDecimals = stripTrailingZeros ? 0 : 2;
+      maxDecimals = 2;
     }
   }
 
-  // Strip trailing zeros from decimal part
-  let cleanedDecimal = decimalPart;
-  if (stripTrailingZeros && cleanedDecimal.length > 0) {
-    cleanedDecimal = cleanedDecimal.replace(/0+$/, "");
-  }
+  const formatted = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: minDecimals,
+    maximumFractionDigits: maxDecimals,
+    useGrouping: true,
+  }).format(value);
 
-  // Add thousands separators to integer part
-  const separatedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-  const formatted = cleanedDecimal.length > 0
-    ? `${separatedInteger}.${cleanedDecimal}`
-    : separatedInteger;
-
-  const sign = negative ? "-" : "";
-  return suffix ? `${sign}${formatted}${suffix}` : `${sign}${formatted}`;
+  return suffix ? `${formatted}${suffix}` : formatted;
 }
 
 /**
@@ -511,22 +513,22 @@ export type AccessMode = "FREE" | "PRO";
 export type ExecutionStateLabel = "idle" | "executing" | "done" | "error";
 
 /**
- * Returns the correct primary CTA button label per V5.3.1 spec.
+ * Returns the correct primary CTA button label.
+ *
+ * "Run again" and "Run free calculation" are forbidden customer UI strings.
+ * Use "Calculate" before first run, "Recalculate" after result.
  *
  * Free tool:
- *   - Before: "Run free calculation"
+ *   - Before/after: "Calculate" / "Recalculate"
  *   - During: "Calculating..."
- *   - After:  "Run again"
  *
  * Pro tool, no active session:
  *   - "Use 1 credit"
  *
- * Pro tool, active session, not executing:
- *   - Before result: "Run calculation"
- *   - After result:  "Run again"
- *
- * Pro tool, active session, executing:
- *   - "Calculating..."
+ * Pro tool, active session:
+ *   - Before result: "Calculate"
+ *   - After result:  "Recalculate"
+ *   - During: "Calculating..."
  */
 export function getPrimaryCtaLabel(
   accessMode: AccessMode,
@@ -539,15 +541,15 @@ export function getPrimaryCtaLabel(
 
   if (accessMode === "FREE") {
     if (isExecuting) return "Calculating...";
-    if (hasResult) return "Run again";
-    return "Run free calculation";
+    if (hasResult) return "Recalculate";
+    return "Calculate";
   }
 
   // PRO
   if (!hasSession) return "Use 1 credit";
   if (isExecuting) return "Calculating...";
-  if (hasResult) return "Run again";
-  return "Run calculation";
+  if (hasResult) return "Recalculate";
+  return "Calculate";
 }
 
 /**
