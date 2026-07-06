@@ -40,10 +40,11 @@ export const SITE = {
  defaultCurrency: "USD" as const,
 } as const;
 
-/** Desktop header nav - Free → Premium → Industry → Pricing. */
+/** Desktop header nav - Free → Premium → Engineering Diagnostics → Industry → Pricing. */
 export const DESKTOP_HEADER_NAV = [
   { key: "freeCalculators", href: "/free-tools" },
   { key: "premiumCalculators", href: "/pro-tools" },
+  { key: "engineeringDiagnostics", href: "/engineering-diagnostics" },
   { key: "industryCalculators", href: "/industries" },
   { key: "pricing", href: "/pricing" },
 ] as const;
@@ -60,6 +61,7 @@ export const FOOTER_PLATFORM_NAV = [
 export const PUBLIC_NAV_ITEMS = [
  { label: "Free Calculators", href: "/free-tools" },
  { label: "Pro Calculators", href: "/pro-tools" },
+ { label: "Engineering Diagnostics", href: "/engineering-diagnostics" },
  { label: "Industry Calculators", href: "/industries" },
 ] as const;
 

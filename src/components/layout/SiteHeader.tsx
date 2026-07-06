@@ -30,9 +30,10 @@ import { AuthStatusIndicator } from "@/lib/ui-shared/auth/AuthStatusIndicator";
 const t = {
   products: 'Products', industries: 'Industries', pricing: 'Pricing', resources: 'Resources',
   signin: 'Sign in', getStarted: 'Get started',
-  col_free: 'Free tools', col_pro: 'Pro tools',
+  col_free: 'Free tools', col_pro: 'Pro tools', col_engdiag: 'Engineering Diagnostics',
   products_free_desc: 'Engineering calculators, no login',
   products_pro_desc: 'Real parameters, PDF export',
+  products_engdiag_desc: 'Capture problems, find root causes and generate action reports',
   view_all_industries: 'All industries',
   res_blog: 'Case Studies', res_blog_d: 'Methods & case studies',
   res_docs: 'FMEA RPN Calculator', res_docs_d: 'Failure Mode & Effects Analysis',
@@ -111,19 +112,19 @@ export function SiteHeader({
         .sc-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
         .sc-logo-img{height:30px;width:auto;}
         .sc-nav{display:flex;align-items:center;gap:6px;flex:1;justify-content:center;}
-        .sc-navbtn{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;padding:8px 12px;border-radius:8px;text-decoration:none;transition:background .12s,color .12s;white-space:nowrap;}
+        .sc-navbtn{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;padding:8px 12px;border-radius:8px;text-decoration:none;transition:background .12s,color .12s;white-space:nowrap;min-height:36px;}
         .sc-navbtn:hover,.sc-navbtn.open{background:rgba(15,23,42,0.04);color:var(--accent);}
         .sc-navbtn .chev{font-size:8px;color:var(--hint);transition:transform .16s;}
         .sc-navbtn.open .chev{transform:rotate(180deg);}
         .sc-right{display:flex;align-items:center;gap:14px;flex-shrink:0;}
-        .sc-signin{font-size:14px;font-weight:500;color:var(--text);text-decoration:none;padding:8px 6px;border-radius:7px;transition:color .12s;white-space:nowrap;}
+        .sc-signin{font-size:14px;font-weight:500;color:var(--text);text-decoration:none;padding:8px 6px;border-radius:7px;transition:color .12s;white-space:nowrap;display:inline-flex;align-items:center;min-height:36px;}
         .sc-signin:hover{color:var(--accent);}
-        .sc-getstarted{display:inline-flex;align-items:center;padding:9px 18px;border-radius:8px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .13s,transform .07s;}
+        .sc-getstarted{display:inline-flex;align-items:center;padding:9px 18px;border-radius:8px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .13s,transform .07s;min-height:36px;}
         .sc-getstarted:hover{background:var(--accent-dk);}
         .sc-getstarted:active{transform:scale(.98);}
         .sc-megawrap{position:absolute;top:100%;left:0;right:0;display:flex;justify-content:center;pointer-events:none;}
         .sc-mega{pointer-events:auto;margin-top:6px;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--mega-shadow);padding:22px;}
-        .sc-mega-products{width:600px;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+        .sc-mega-products{width:760px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
         .sc-mega-industries{width:720px;}
         .sc-mega-resources{width:340px;}
         .sc-mega-panel{padding:16px;border-radius:12px;text-decoration:none;display:block;transition:background .12s;}
@@ -149,8 +150,9 @@ export function SiteHeader({
         .sc-res-item .rico{font-size:18px;flex-shrink:0;margin-top:1px;}
         .sc-res-item .rt b{display:block;font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px;}
         .sc-res-item .rt span{font-size:12px;color:var(--muted);}
-        .sc-burger{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text);}
-        .sc-burger svg{width:24px;height:24px;}
+        .sc-burger{display:none;background:none;border:none;cursor:pointer;padding:10px;min-width:44px;min-height:44px;color:var(--text);border-radius:8px;}
+        .sc-burger:hover{background:rgba(15,23,42,0.04);}
+        .sc-burger svg{width:24px;height:24px;display:block;}
         .sc-drawer{display:none;}
         @media(max-width:1080px){
           .sc-nav{display:none;}
@@ -165,23 +167,23 @@ export function SiteHeader({
           .auth-status__text,.auth-status__label{display:none !important;}
           .auth-status{width:auto !important;}
           .sc-drawer.open{max-height:calc(100dvh - 56px);padding-bottom:max(env(safe-area-inset-bottom,0px),16px);}
-          .sc-draw-head{padding:14px 18px !important;font-size:15px !important;}
-          .sc-draw-link{padding:14px 18px !important;font-size:15px !important;}
-          .sc-draw-body{padding:0 18px 8px !important;}
-          .sc-draw-body a{padding:10px 8px !important;font-size:14px !important;}
-          .sc-draw-cta{padding:16px 18px !important;}
+          .sc-draw-head{padding:12px 18px !important;font-size:15px !important;min-height:44px !important;}
+          .sc-draw-link{padding:12px 18px !important;font-size:15px !important;min-height:44px !important;}
+          .sc-draw-body{padding:0 18px 6px !important;}
+          .sc-draw-body a{padding:10px 8px !important;font-size:14px !important;min-height:44px !important;}
+          .sc-draw-cta{padding:14px 18px max(env(safe-area-inset-bottom,0px),14px) !important;}
         }
         .sc-draw-sec{border-bottom:1px solid var(--border);}
-        .sc-draw-head{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;font-size:16px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;text-align:start;}
+        .sc-draw-head{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;font-size:16px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;text-align:start;min-height:44px;}
         .sc-draw-head .dchev{font-size:10px;color:var(--hint);transition:transform .16s;}
         .sc-draw-head.open .dchev{transform:rotate(180deg);}
-        .sc-draw-link{display:block;padding:16px 24px;font-size:16px;font-weight:500;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);}
+        .sc-draw-link{display:flex;align-items:center;padding:16px 24px;font-size:16px;font-weight:500;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);min-height:44px;}
         .sc-draw-body{padding:0 24px 12px;}
-        .sc-draw-body a{display:flex;align-items:center;gap:10px;padding:11px 8px;font-size:14px;color:var(--text);text-decoration:none;}
+        .sc-draw-body a{display:flex;align-items:center;gap:10px;padding:12px 8px;font-size:14px;color:var(--text);text-decoration:none;min-height:44px;}
         .sc-draw-body a span.c{margin-inline-start:auto;font-size:11px;color:var(--hint);font-variant-numeric:tabular-nums;}
-        .sc-draw-cta{padding:20px 24px;display:flex;flex-direction:column;gap:10px;}
-        .sc-draw-cta .sc-getstarted{display:flex;justify-content:center;}
-        .sc-draw-cta .sc-signin{text-align:center;padding:12px;border:1px solid var(--border-2);border-radius:8px;}
+        .sc-draw-cta{padding:20px 24px max(env(safe-area-inset-bottom,0px),20px);display:flex;flex-direction:column;gap:10px;}
+          .sc-draw-cta .sc-getstarted{display:flex;justify-content:center;padding:12px 20px;min-height:48px;}
+        .sc-draw-cta .sc-signin{display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;min-height:44px;border:1px solid var(--border-2);border-radius:8px;}
       `}</style>
 
       <header className="sc-h">
@@ -222,6 +224,10 @@ export function SiteHeader({
                       <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
                       <div className="pcount">{proToolsCount} {t.tools}</div>
+                    </Link>
+                    <Link href="/engineering-diagnostics" className="sc-mega-panel">
+                      <div className="pt"><span className="pico">🔍</span><span className="ph">{t.col_engdiag}</span></div>
+                      <div className="pd">{t.products_engdiag_desc}</div>
                     </Link>
                   </div>
                 )}
@@ -284,6 +290,7 @@ export function SiteHeader({
               <div className="sc-draw-body">
                 <Link href="/free-tools" onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">{freeToolsCount}+</span></Link>
                 <Link href="/pro-tools" onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
+                <Link href="/engineering-diagnostics" onClick={()=>setMobileOpen(false)}>🔍 {t.col_engdiag}</Link>
               </div>
             )}
           </div>

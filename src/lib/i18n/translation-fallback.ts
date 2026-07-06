@@ -359,6 +359,12 @@ export const FALLBACK_MAP: Record<string, string> = {
   "freeTools.searchPlaceholder": "Search free calculators...",
   "freeTools.categoryTitle": "Categories",
 
+  // ─── Engineering Diagnostics ──────────────────────────────────────
+  "engineeringDiagnostics.metaTitle": "Engineering Diagnostics | SectorCalc",
+  "engineeringDiagnostics.metaDescription":
+    "AI-assisted preliminary screening for industrial diagnostics. Capture problems, find root causes and generate action reports.",
+  "nav.engineeringDiagnostics": "Engineering Diagnostics",
+
   // ─── Premium Tools ────────────────────────────────────────────────
   "premiumTools.metaTitle": "Premium Analyzers | SectorCalc",
   "premiumTools.meta.description":

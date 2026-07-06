@@ -59,6 +59,9 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                   <Link href="/free-tools">Free Calculators</Link>
                 </li>
                 <li>
+                  <Link href="/engineering-diagnostics">Engineering Diagnostics</Link>
+                </li>
+                <li>
                   <Link href="/pricing">Credit Pricing</Link>
                 </li>
                 <li>
@@ -181,7 +184,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           .site-footer {
             background: var(--bg-surface);
             border-top: 1px solid var(--border-light);
-            padding: 64px 48px 40px;
+            padding: 48px 48px 32px;
             font-family: var(--font-sans);
             color: var(--text-primary);
             width: 100%;
@@ -197,21 +200,21 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           .footer-grid {
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 48px;
-            margin-bottom: 48px;
-            padding-bottom: 48px;
+            gap: 32px;
+            margin-bottom: 32px;
+            padding-bottom: 32px;
             border-bottom: 1px solid var(--border-light);
           }
 
           .footer-logo { display: block; margin-bottom: 16px; }
           .footer-logo-img { height: 32px; width: auto; }
-          .footer-tagline { font-size: 14px; line-height: 1.6; opacity: 0.7; max-width: 280px; margin-bottom: 24px; }
+          .footer-tagline { font-size: 13px; line-height: 1.5; opacity: 0.7; max-width: 280px; margin-bottom: 16px; }
           .trust-badges { display: flex; flex-wrap: wrap; gap: 8px; }
           .badge { font-size: 11px; font-family: var(--font-mono); padding: 4px 8px; background: var(--bg-ground); border: 1px solid var(--border-light); border-radius: 4px; opacity: 0.8; white-space: nowrap; }
           
-          .footer-heading { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px; opacity: 0.9; }
-          .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-          .footer-links a { font-size: 14px; color: var(--text-primary); text-decoration: none; opacity: 0.6; transition: all 0.2s ease; display: inline-block; }
+          .footer-heading { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; opacity: 0.9; }
+          .footer-links { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+          .footer-links a { font-size: 13px; color: var(--text-primary); text-decoration: none; opacity: 0.6; transition: all 0.2s ease; display: inline-block; padding: 2px 0; }
           .footer-links a:hover { opacity: 1; color: var(--accent-terracotta); transform: translateX(2px); }
 
           /* BOTTOM BAR: VERTICAL STACK - NO HORIZONTAL CONFLICT POSSIBLE */
@@ -232,8 +235,8 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
 
           .social-link {
             display: flex; align-items: center; justify-content: center;
-            width: 36px; height: 36px;
-            border-radius: 6px;
+            width: 44px; height: 44px;
+            border-radius: 8px;
             color: var(--text-primary); opacity: 0.5;
             transition: all 0.2s ease;
           }
@@ -251,8 +254,9 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           .bottom-row-legal {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            font-size: 13px;
+            font-size: 12px;
             font-family: var(--font-mono);
             opacity: 0.5;
             line-height: 1;
@@ -268,31 +272,34 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           .origin { letter-spacing: 0.02em; }
 
           @media (max-width: 900px) {
-            .site-footer { padding: 48px 32px 32px; }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; padding-bottom: 32px; }
+            .site-footer { padding: 36px 24px 24px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; padding-bottom: 24px; }
             .brand-col { grid-column: span 2; }
           }
 
           @media (max-width: 760px) {
-            .site-footer { padding: 40px 20px calc(env(safe-area-inset-bottom, 0px) + 132px) !important; }
-            .footer-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 24px; padding-bottom: 24px; }
+            .site-footer { padding: 28px 16px calc(env(safe-area-inset-bottom, 0px) + 16px) !important; }
+            .footer-grid { grid-template-columns: 1fr; gap: 20px; margin-bottom: 20px; padding-bottom: 20px; }
             .brand-col { grid-column: span 1; }
-            .footer-tagline { max-width: 100% !important; }
-            .footer-heading { margin-bottom: 16px !important; }
+            .footer-tagline { max-width: 100% !important; margin-bottom: 12px !important; }
+            .footer-heading { margin-bottom: 10px !important; }
+            .footer-links { gap: 4px !important; }
+            .footer-links a { font-size: 13px !important; padding: 4px 0 !important; min-height: 32px; }
             
             .bottom-row-legal {
               white-space: normal;
               flex-direction: column;
-              gap: 4px;
+              gap: 3px;
               text-align: center;
               line-height: 1.4;
             }
-            .footer-cta { padding: 40px 20px !important; }
+            .footer-bottom { gap: 12px !important; padding-top: 8px !important; }
+            .footer-cta { padding: 32px 16px !important; }
             .footer-cta p,
-            .footer-cta .cta-text { font-size: clamp(20px, 5vw, 28px) !important; }
-            .footer-cta .description { font-size: 15px !important; }
-            .footer-cta .cta-buttons { margin-top: 24px !important; }
-            .footer-cta .btn { width: 100%; max-width: 100% !important; padding: 14px 24px !important; font-size: 15px !important; }
+            .footer-cta .cta-text { font-size: clamp(18px, 5vw, 24px) !important; }
+            .footer-cta .description { font-size: 14px !important; margin-top: 8px !important; }
+            .footer-cta .cta-buttons { margin-top: 16px !important; gap: 10px !important; }
+            .footer-cta .btn { width: 100%; max-width: 100% !important; padding: 14px 20px !important; font-size: 15px !important; min-height: 48px; }
           }
 
           /* Pre-footer CTA/Tagline section */
@@ -301,7 +308,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           .bottom-cta-section {
             width: 100%;
             max-width: 100%;
-            padding: 100px 24px;
+            padding: 60px 24px;
             margin: 0;
             background: #F9FAFB;
             border-top: 1px solid #E5E7EB;
@@ -343,16 +350,16 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
 
           /* If there are CTA buttons */
           .footer-cta .cta-buttons {
-            margin-top: 40px;
+            margin-top: 24px;
             display: flex;
-            gap: 16px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
           }
 
           .footer-cta .btn {
-            padding: 16px 32px;
-            font-size: 16px;
+            padding: 14px 28px;
+            font-size: 15px;
             font-weight: 600;
             border-radius: 8px;
             text-decoration: none;
@@ -360,6 +367,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            min-height: 48px;
           }
 
           .footer-cta .btn-primary {
@@ -388,12 +396,12 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           /* Responsive layout */
           @media (max-width: 768px) {
             .footer-cta {
-              padding: 60px 20px;
+              padding: 40px 16px;
             }
             
             .footer-cta .container,
             .footer-cta .content-wrapper {
-              padding: 0 16px;
+              padding: 0 12px;
             }
             
             .footer-cta .cta-buttons {
@@ -403,7 +411,8 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             
             .footer-cta .btn {
               width: 100%;
-              max-width: 300px;
+              max-width: 100%;
+              min-height: 48px;
             }
           }
 
