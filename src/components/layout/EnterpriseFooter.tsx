@@ -278,28 +278,33 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           }
 
           @media (max-width: 760px) {
-            .site-footer { padding: 28px 16px calc(env(safe-area-inset-bottom, 0px) + 16px) !important; }
-            .footer-grid { grid-template-columns: 1fr; gap: 20px; margin-bottom: 20px; padding-bottom: 20px; }
+            .site-footer { padding: 24px 16px calc(env(safe-area-inset-bottom, 0px) + 12px) !important; }
+            .footer-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; padding-bottom: 14px; }
             .brand-col { grid-column: span 1; }
-            .footer-tagline { max-width: 100% !important; margin-bottom: 12px !important; }
-            .footer-heading { margin-bottom: 10px !important; }
-            .footer-links { gap: 4px !important; }
-            .footer-links a { font-size: 13px !important; padding: 4px 0 !important; min-height: 32px; }
+            .footer-logo-img { height: 26px !important; }
+            .footer-tagline { max-width: 100% !important; margin-bottom: 10px !important; font-size: 12px !important; }
+            .trust-badges { display: none !important; }
+            .footer-heading { margin-bottom: 6px !important; font-size: 11px !important; }
+            .footer-links { gap: 2px !important; }
+            .footer-links a { font-size: 13px !important; padding: 3px 0 !important; min-height: 28px; }
             
             .bottom-row-legal {
               white-space: normal;
               flex-direction: column;
-              gap: 3px;
+              gap: 2px;
               text-align: center;
-              line-height: 1.4;
+              line-height: 1.3;
+              font-size: 11px !important;
             }
-            .footer-bottom { gap: 12px !important; padding-top: 8px !important; }
-            .footer-cta { padding: 32px 16px !important; }
+            .footer-bottom { gap: 8px !important; padding-top: 4px !important; }
+            .bottom-row-social { gap: 10px !important; }
+            .social-link { width: 36px !important; height: 36px !important; }
+            .footer-cta { padding: 24px 16px !important; }
             .footer-cta p,
-            .footer-cta .cta-text { font-size: clamp(18px, 5vw, 24px) !important; }
-            .footer-cta .description { font-size: 14px !important; margin-top: 8px !important; }
-            .footer-cta .cta-buttons { margin-top: 16px !important; gap: 10px !important; }
-            .footer-cta .btn { width: 100%; max-width: 100% !important; padding: 14px 20px !important; font-size: 15px !important; min-height: 48px; }
+            .footer-cta .cta-text { font-size: clamp(16px, 4.5vw, 20px) !important; }
+            .footer-cta .description { font-size: 13px !important; margin-top: 6px !important; }
+            .footer-cta .cta-buttons { margin-top: 12px !important; gap: 8px !important; }
+            .footer-cta .btn { width: 100%; max-width: 100% !important; padding: 12px 16px !important; font-size: 14px !important; min-height: 44px; }
           }
 
           /* Pre-footer CTA/Tagline section */

@@ -1109,6 +1109,96 @@
   .claude-landing .cta-row a {
     width: 100%;
   }
+
+  /* Compact section vertical spacing on mobile */
+  .claude-landing .hero {
+    padding: 34px 0 28px;
+  }
+
+  .claude-landing .corp-trust-strip {
+    padding: 28px 0;
+  }
+
+  .claude-landing .corp-trust-strip .trust-title {
+    margin-bottom: 14px;
+  }
+
+  .claude-landing .corp-trust-strip .trust-items {
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .claude-landing .corp-trust-strip .trust-items span {
+    font-size: 16px;
+    padding: 5px 11px;
+  }
+
+  .claude-landing section.sec-section {
+    padding: 36px 0;
+  }
+
+  .claude-landing .sec-head {
+    margin-bottom: 20px;
+  }
+
+  .claude-landing .sec-head h2 {
+    font-size: clamp(22px, 5vw, 28px);
+  }
+
+  .claude-landing .section-desc {
+    font-size: 14px;
+  }
+
+  .claude-landing .flex-cards {
+    gap: 10px;
+  }
+
+  .claude-landing .flex-cards .card {
+    padding: 20px;
+  }
+
+  .claude-landing .cat-card {
+    padding: 20px;
+  }
+
+  .claude-landing .feature-card {
+    padding: 20px;
+  }
+
+  .claude-landing .split-grid {
+    gap: 20px;
+  }
+
+  .claude-landing .split-col {
+    padding: 24px;
+  }
+
+  .claude-landing .pricing-split {
+    padding: 36px 0;
+  }
+
+  .claude-landing .community-section {
+    padding: 32px 0;
+  }
+
+  .claude-landing .final-cta {
+    padding: 36px 0;
+  }
+
+  .claude-landing .uc-grid {
+    gap: 12px;
+  }
+
+  .claude-landing .uc-card {
+    padding: 20px;
+  }
+
+  .claude-landing .btn-primary,
+  .claude-landing .btn-secondary {
+    min-height: 48px;
+    font-size: 15px;
+    padding: 12px 24px;
+  }
 }
 
 /* ── Container/wrapper global fallback (no center override) ── */

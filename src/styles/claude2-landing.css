@@ -486,4 +486,10 @@
   .cl2-method-grid { grid-template-columns: 1fr 1fr; }
   .cl2-result-box { flex-direction: column; gap: 16px; }
   .cl2-result-div { display: none; }
+
+  .cl2-final { padding: 48px 1.25rem; }
+  .cl2-final h2 { font-size: 24px; }
+  .cl2-final p { font-size: 14px; margin-bottom: 24px; }
+  .cl2-final-cta { padding: 14px 24px; font-size: 15px; min-height: 48px; }
+  .cl2-final-sec-btn { padding: 10px 24px; min-height: 44px; }
 }

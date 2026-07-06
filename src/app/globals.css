@@ -582,3 +582,69 @@ canvas {
     max-height: min(60vh, 400px) !important;
   }
 }
+
+/* ============================================================
+   GLOBAL MOBILE BUTTON SIZING & TOUCH TARGETS
+   Every interactive element must have 44px min touch target
+   ============================================================ */
+@media (max-width: 760px) {
+  /* All clickable elements get minimum touch target */
+  a,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .btn,
+  [role="button"] {
+    min-height: 44px;
+  }
+
+  /* Inline links should not be stretched */
+  a:not([class]):not([href*="javascript"]) {
+    min-height: auto;
+    display: inline;
+  }
+
+  /* Targeted dead space removal — only for custom section wrappers, NOT semantic sections */
+  .dead-space-mobile,
+  .spacer-block {
+    display: none;
+  }
+
+  /* Remove excessive top/bottom whitespace from generic content containers on mobile.
+     Does NOT affect <section> elements that have explicit background/hero roles. */
+  .content-wrapper > :first-child {
+    margin-top: 0;
+  }
+
+  .content-wrapper > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* Compact card grids — only affect .grid where gap is defined inline */
+  .grid:not([class*="gap"]) {
+    gap: 12px !important;
+  }
+
+  /* Reset form groups for tighter mobile layout — safe */
+  .form-group {
+    margin-bottom: 16px !important;
+  }
+
+  /* Full-width buttons on mobile for better tap targets */
+  .btn-block-mobile {
+    width: 100%;
+  }
+
+  /* Prevent horizontal overflow — safe approach: only on html/body/containers */
+  html, body, main, .sc-page, .container, .shell, .content-shell {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* Safe word-break only for text-heavy elements, not layout */
+  p, h1, h2, h3, h4, h5, h6, li, td, th, label, .text-block {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
