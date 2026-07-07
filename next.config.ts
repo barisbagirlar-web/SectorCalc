@@ -171,8 +171,8 @@ const nextConfig: NextConfig = {
     return [
       // www → non-www handled at firebase.json hosting redirects (Firebase CDN level)
       // Note: has:host redirect not supported in Firebase SSR framework integration
-      { source: "/premium-tools", destination: "/free-tools", permanent: true },
-      { source: "/premium-tools/:path*", destination: "/free-tools/:path*", permanent: true },
+      { source: "/premium-tools", destination: "/pro-tools", permanent: true },
+      { source: "/premium-tools/:path*", destination: "/pro-tools/:path*", permanent: true },
       { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/tools/fmea-rpn-calculator", destination: "/calculators/fmea-rpn", permanent: true },
     ];
