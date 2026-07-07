@@ -251,7 +251,7 @@ try {
       "firebase",
       "deploy",
       "--only",
-      "functions:firebase-frameworks-sectorcalc-bf412",
+      "functions:ssrsectorcalcbf412",
       "--project",
       "sectorcalc-bf412",
     ], {
