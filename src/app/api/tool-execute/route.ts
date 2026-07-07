@@ -324,16 +324,20 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         return NextResponse.json(blocked, { status: 200 });
       }
 
-      // V5.4 Core — If formula graph engine fell back to Path B (static defaults),
-      // use the Free V5.3.1 formula module's execute() for real computed values.
+      // V5.4 Core — Inject Free V5.3.1 formula module computed values
+      // when the graph engine produced static defaults. The formula engine
+      // stores registry-missing errors in a local variable not exposed in
+      // pass2.errors, so we detect Path B by checking if all output values
+      // are schema defaults (0 | null).
       const formulaModule = freeV531FormulaRegistry[body.toolKey];
-      if (formulaModule && pass2.errors.some(e => e.includes("No Pro formula registry record"))) {
+      const allZero = pass2.outputs.every(o => o.value === 0 || o.value === null);
+      if (formulaModule && allZero) {
         try {
           const formulaResult = formulaModule.execute(execBody.raw_inputs);
           if (formulaResult && formulaResult.outputs) {
             for (const fo of formulaResult.outputs) {
               const existing = pass2.outputs.find(o => o.id === fo.id);
-              if (existing) {
+              if (existing && typeof fo.value === "number" && Number.isFinite(fo.value)) {
                 existing.value = fo.value;
                 existing.status = "OK";
                 (existing as any).public_explanation = fo.publicExplanation;
