@@ -291,7 +291,9 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           .footer-mobile-legal { display: none; }
 
           @media (max-width: 760px) {
+            .footer-cta { display: none !important; }
             .site-footer { padding: 24px 16px calc(env(safe-area-inset-bottom, 0px) + 12px) !important; }
+            .footer-bottom { display: none !important; }
             .footer-grid { display: none !important; }
             .footer-mobile-essential {
               display: flex; flex-wrap: wrap; gap: 12px 20px;
@@ -322,15 +324,6 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
               color: inherit; text-decoration: none;
               min-height: 44px; display: flex; align-items: center;
             }
-            .footer-bottom { gap: 8px !important; padding-top: 4px !important; }
-            .bottom-row-social { gap: 10px !important; }
-            .social-link { width: 36px !important; height: 36px !important; }
-            .footer-cta { padding: 24px 16px !important; }
-            .footer-cta p,
-            .footer-cta .cta-text { font-size: clamp(16px, 4.5vw, 20px) !important; }
-            .footer-cta .description { font-size: 13px !important; margin-top: 6px !important; }
-            .footer-cta .cta-buttons { margin-top: 12px !important; gap: 8px !important; }
-            .footer-cta .btn { width: 100%; max-width: 100% !important; padding: 12px 16px !important; font-size: 14px !important; min-height: 44px; }
           }
 
           /* Pre-footer CTA/Tagline section */
