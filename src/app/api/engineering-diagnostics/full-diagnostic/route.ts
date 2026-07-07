@@ -2,21 +2,27 @@
  * POST /api/engineering-diagnostics/full-diagnostic
  *
  * Generates a Full Engineering Diagnostic with AI-assisted interpretation.
+ * Accepts optional photo evidence for vision-based AI analysis.
+ *
  * Requires:
  * - Bearer auth token
- * - Diagnostic package entitlement (or sufficient credits to purchase)
+ * - Diagnostic package entitlement
  *
- * Flow: auth → package check → validate → deterministic engines →
- *       OpenAI interpretation → guardrails → report build → persist →
- *       decrement use → return JSON report
+ * Flow: auth → package check → validate (JSON + photos) →
+ *       deterministic engines → EXIF strip → hash photos →
+ *       OpenAI interpretation (with vision if photos provided) →
+ *       guardrails → report build → persist → decrement use → return
  *
  * STRICT:
  * - OpenAI NEVER overrides deterministic numeric values
- * - Credit/use deduction ONLY after successful PDF and report generation
- * - No API key committed
+ * - Photos processed server-side only — EXIF stripped before AI call
+ * - OpenAI key never exposed to client
+ * - If no credits, photos are NOT processed
  */
 
+import "server-only";
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import {
   parseBearerToken,
   verifySignedInUser,
@@ -30,19 +36,25 @@ import { AnalyzeRequestSchema, runDiagnostic } from "@/sectorcalc/diagnostics/di
 import { buildDiagnosticReport } from "@/sectorcalc/diagnostics/report/diagnostic-report-builder";
 import { DiagnosticReportSchema } from "@/sectorcalc/diagnostics/report/diagnostic-report-schema";
 import {
-  createDiagnosticReportHash,
   createShortInputHash,
 } from "@/sectorcalc/diagnostics/report/diagnostic-report-canonicalize";
 import { redactUserText } from "@/sectorcalc/diagnostics/report/diagnostic-report-redaction";
 import { saveDiagnosticReport } from "@/lib/inspection/inspection-firestore-service";
 import { registerDiagnosticVerify } from "@/lib/inspection/verify-store";
 import { callAiDiagnosticProvider } from "@/sectorcalc/diagnostics/ai/openai-diagnostics-provider";
+import { processPhotos } from "@/sectorcalc/diagnostics/photo/photo-validator";
 import type { AiReportSection } from "@/sectorcalc/diagnostics/ai/diagnostic-ai-types";
+import type { ProcessedPhoto } from "@/sectorcalc/diagnostics/photo/photo-validator";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const AI_MODEL = "gpt-4o";
+const MAX_PHOTOS = 8;
+
+const FullDiagnosticRequestSchema = AnalyzeRequestSchema.extend({
+  photos: z.array(z.string()).max(MAX_PHOTOS).optional(),
+});
 
 export async function POST(req: Request) {
   try {
@@ -90,7 +102,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const parsed = AnalyzeRequestSchema.safeParse(body);
+    const parsed = FullDiagnosticRequestSchema.safeParse(body);
     if (!parsed.success) {
       const issues = parsed.error.issues.map((i) => ({
         path: i.path.join("."),
@@ -103,11 +115,26 @@ export async function POST(req: Request) {
     }
 
     const analyzeInput = parsed.data;
+    const rawPhotos = parsed.data.photos;
 
-    /* ── 4. Run deterministic engines ── */
+    /* ── 4. Process photos (server-side only) ── */
+    let processedPhotos: ProcessedPhoto[] = [];
+    if (rawPhotos && rawPhotos.length > 0) {
+      try {
+        processedPhotos = processPhotos(rawPhotos);
+      } catch (photoErr) {
+        const msg = photoErr instanceof Error ? photoErr.message : "Photo validation failed";
+        return NextResponse.json(
+          { ok: false, error: msg },
+          { status: 422 },
+        );
+      }
+    }
+
+    /* ── 5. Run deterministic engines ── */
     const deterministicResult = runDiagnostic(analyzeInput);
 
-    /* ── 5. Build preliminary report ── */
+    /* ── 6. Build preliminary report ── */
     const preliminaryReport = buildDiagnosticReport(deterministicResult, analyzeInput.privacy_mode);
     preliminaryReport.problem_section.problem_context = redactUserText(
       preliminaryReport.problem_section.problem_context,
@@ -119,13 +146,12 @@ export async function POST(req: Request) {
       decision: deterministicResult.decision.decision,
     });
 
-    // Override report_id to indicate full diagnostic
     preliminaryReport.report_id = "full_" + shortHash;
 
-    /* ── 6. AI interpretation ── */
+    /* ── 7. AI interpretation (with photos if available) ── */
     let aiSection: AiReportSection | null = null;
     try {
-      const aiOutput = await callAiDiagnosticProvider({
+      const aiInput = {
         domain_id: analyzeInput.domain_id,
         domain_label: deterministicResult.domain.label,
         problem_context: analyzeInput.problem_context,
@@ -154,7 +180,12 @@ export async function POST(req: Request) {
             deterministicResult.action_plan.temporary_fix.length +
             deterministicResult.action_plan.required_manual_checks.length,
         },
-      });
+        photos: processedPhotos.length > 0
+          ? processedPhotos.map((p) => `data:${p.mime};base64,${p.data}`)
+          : undefined,
+      };
+
+      const aiOutput = await callAiDiagnosticProvider(aiInput);
 
       aiSection = {
         visual_observations: aiOutput.visual_observations,
@@ -169,18 +200,21 @@ export async function POST(req: Request) {
         generated_at: new Date().toISOString(),
       };
     } catch (aiErr) {
-      // AI failure is non-fatal — deterministic report still available
       console.error("[full-diagnostic] AI provider error:", aiErr);
     }
 
-    /* ── 7. Merge AI section into report ── */
+    /* ── 8. Merge AI section into report ── */
     const fullReport = {
       ...preliminaryReport,
       ai_section: aiSection ?? undefined,
       report_type: "ENGINEERING_DIAGNOSTIC_PREVIEW" as const,
+      evidence_section: {
+        ...preliminaryReport.evidence_section,
+        photo_count: processedPhotos.length,
+        image_hashes: processedPhotos.map((p) => p.hash),
+      },
     };
 
-    // Validate final report contract
     const schemaValidation = DiagnosticReportSchema.safeParse(fullReport);
     if (!schemaValidation.success) {
       return NextResponse.json(
@@ -196,20 +230,19 @@ export async function POST(req: Request) {
       );
     }
 
-    /* ── 8. Persist to Firestore + register verify ── */
+    /* ── 9. Persist to Firestore + register verify ── */
     const { hash } = registerDiagnosticVerify(schemaValidation.data);
     const persistedHash = await saveDiagnosticReport(schemaValidation.data, ownerUid);
     const reportHash = persistedHash ?? hash;
     const verifyUrl = `https://sectorcalc.com/verify/${reportHash}`;
 
-    /* ── 9. Decrement diagnostic use (only after successful generation) ── */
+    /* ── 10. Decrement diagnostic use ── */
     const useDecremented = await decrementDiagnosticUse(ownerUid);
     if (!useDecremented) {
-      // Log but don't fail — the report is already persisted
       console.error("[full-diagnostic] Failed to decrement diagnostic use for user:", ownerUid);
     }
 
-    /* ── 10. Return JSON report ── */
+    /* ── 11. Return JSON report ── */
     return NextResponse.json({
       ok: true,
       report_id: fullReport.report_id,
@@ -217,6 +250,7 @@ export async function POST(req: Request) {
       report: fullReport,
       verify_url: verifyUrl,
       has_ai: aiSection !== null,
+      photo_count: processedPhotos.length,
       diagnostic_use_consumed: useDecremented,
     });
   } catch (err) {

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
+import { PhotoUpload } from "@/components/diagnostics/PhotoUpload";
+import type { PhotoEntry } from "@/components/diagnostics/PhotoUpload";
 
 /* ── Constants ── */
 
@@ -196,6 +198,8 @@ export default function EngineeringDiagnosticsStartPage() {
     privacy_mode: "standard",
   });
 
+  const [photos, setPhotos] = useState<PhotoEntry[]>([]);
+  const [hasDiagnosticAccess, setHasDiagnosticAccess] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<DiagnosticResult | null>(null);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
@@ -213,6 +217,7 @@ export default function EngineeringDiagnosticsStartPage() {
         const data = await res.json();
         if (data.ok && typeof data.remainingUses === "number") {
           setRemainingUses(data.remainingUses);
+          setHasDiagnosticAccess(data.remainingUses > 0);
         }
       } catch {
         // silent — usage info is non-critical
@@ -612,7 +617,10 @@ export default function EngineeringDiagnosticsStartPage() {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,
                       },
-                      body: JSON.stringify(lastRequestBodyRef.current),
+                      body: JSON.stringify({
+                        ...(lastRequestBodyRef.current as Record<string, unknown>),
+                        photos: photos.map((p) => p.data),
+                      }),
                     });
                     const data = await res.json();
                     if (!res.ok || !data.ok) {
@@ -869,6 +877,24 @@ export default function EngineeringDiagnosticsStartPage() {
                   />
                 </Field>
               </FieldSet>
+
+              {/* Photo Evidence */}
+              <div
+                style={{
+                  padding: "1.25rem",
+                  background: "#F0EEE6",
+                  border: "1px solid #D6D4CC",
+                  borderRadius: "8px",
+                  marginBottom: "1rem",
+                }}
+              >
+                <PhotoUpload
+                  photos={photos}
+                  onPhotosChange={setPhotos}
+                  disabled={loading}
+                  accessGated={remainingUses !== null && remainingUses <= 0}
+                />
+              </div>
 
               {/* Measurement */}
               <FieldSet legend="Measurement">

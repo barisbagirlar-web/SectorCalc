@@ -1,14 +1,15 @@
 /**
- * Engineering Diagnostics — OpenAI Provider
+ * Engineering Diagnostics — OpenAI Provider (Vision-enabled)
  *
  * Server-side OpenAI integration for AI-assisted engineering interpretation.
- * Called only after auth, credit, and deterministic engine steps pass.
+ * Supports text-only and vision (photo) analysis.
  *
  * STRICT:
  * - OpenAI NEVER computes or overrides numeric values
  * - OpenAI only drafts descriptive/narrative content
  * - API key loaded from process.env.OPENAI_API_KEY only
  * - Output passes through guardrails before use
+ * - Photos are sent as base64 — EXIF must be stripped before calling this
  */
 
 import "server-only";
@@ -18,20 +19,21 @@ import { validateAiOutput } from "./diagnostic-ai-guardrails";
 const GPT_MODEL = "gpt-4o";
 const MAX_RETRIES = 2;
 
-/**
- * Build the system prompt for the AI engineering interpreter.
- * The prompt enforces strict boundaries:
- * - NEVER output risk scores, costs, or decisions
- * - NEVER certify or guarantee results
- * - ALWAYS base observations on provided context
- */
+type Message =
+  | { role: "system" | "user"; content: string }
+  | { role: "user"; content: Array<{ type: "text"; text: string } | { type: "image_url"; image_url: { url: string; detail?: string } }> };
+
 function buildSystemPrompt(input: AiDiagnosticInput): string {
+  const photoNote = input.photos && input.photos.length > 0
+    ? `\nPHOTOS PROVIDED: ${input.photos.length} field photo(s) attached. Incorporate visual observations from these images. Describe what is visibly apparent — cracks, wear, discoloration, deformation, contaminants, or other visible indicators.`
+    : "\nNo field photos provided. Base observations on the problem context and measurement data only.";
+
   return `You are an AI engineering diagnostic assistant. Your role is to help engineers interpret measurement data by providing structured observations and narrative analysis.
 
 CONTEXT:
 - Domain: ${input.domain_label} (${input.domain_id})
 - Problem: ${input.problem_context}
-- Number of measurements: ${input.measurements.length}
+- Number of measurements: ${input.measurements.length}${photoNote}
 
 DETERMINISTIC RESULTS (for context only — do NOT restate numbers):
 - Decision: ${input.deterministic.decision}
@@ -46,9 +48,10 @@ ABSOLUTE RULES:
 4. ALWAYS recommend manual verification for critical findings
 5. ALWAYS base observations only on the provided measurement context
 6. NEVER make up measurement values or technical specifications
+7. When photos are provided, describe only what is visibly apparent in the images
 
 YOUR TASK:
-1. Provide structured visual observations based on the problem context
+1. Provide structured visual observations based on the problem context and any photos
 2. Write an engineering interpretation of the situation
 3. Suggest possible root cause hypotheses
 4. Draft an NCR (Non-Conformance Report) statement
@@ -66,10 +69,33 @@ OUTPUT FORMAT: JSON object with these exact keys:
 - action_narrative: string (step-by-step guidance)`;
 }
 
-/**
- * Call OpenAI to generate AI-assisted engineering interpretation.
- * Only called after deterministic engines have run and access is verified.
- */
+function buildUserMessage(input: AiDiagnosticInput): Message[] {
+  const textContent = `Provide engineering diagnostics interpretation for a ${input.domain_label} problem. Measurements: ${input.measurements.length} readings. Decision state: ${input.deterministic.decision}.`;
+
+  if (!input.photos || input.photos.length === 0) {
+    return [{ role: "user", content: textContent }];
+  }
+
+  const content: Array<{ type: "text"; text: string } | { type: "image_url"; image_url: { url: string; detail?: string } }> = [
+    {
+      type: "text" as const,
+      text: `${textContent}\n\nThe user has attached ${input.photos.length} field photo(s). Analyze the visible features in these images and incorporate your observations into the diagnostic assessment.`,
+    },
+  ];
+
+  for (const photo of input.photos.slice(0, 8)) {
+    content.push({
+      type: "image_url" as const,
+      image_url: {
+        url: photo,
+        detail: "auto" as const,
+      },
+    });
+  }
+
+  return [{ role: "user" as const, content }];
+}
+
 export async function callAiDiagnosticProvider(
   input: AiDiagnosticInput,
 ): Promise<AiDiagnosticOutput> {
@@ -79,13 +105,11 @@ export async function callAiDiagnosticProvider(
   }
 
   const systemPrompt = buildSystemPrompt(input);
+  const userMessages = buildUserMessage(input);
 
-  const messages: Array<{ role: "system" | "user"; content: string }> = [
+  const messages: Message[] = [
     { role: "system", content: systemPrompt },
-    {
-      role: "user",
-      content: `Provide engineering diagnostics interpretation for a ${input.domain_label} problem. Measurements: ${input.measurements.length} readings. Decision state: ${input.deterministic.decision}.`,
-    },
+    ...userMessages,
   ];
 
   let lastError: Error | null = null;
@@ -128,7 +152,6 @@ export async function callAiDiagnosticProvider(
         throw new Error("OpenAI response was not valid JSON");
       }
 
-      // Pass through guardrails
       const guardrailResult = validateAiOutput(parsed, input);
       if (!guardrailResult.ok || !guardrailResult.output) {
         throw new Error(`Guardrail rejection: ${guardrailResult.errors?.join("; ") ?? "unknown"}`);
@@ -138,7 +161,6 @@ export async function callAiDiagnosticProvider(
     } catch (err) {
       lastError = err instanceof Error ? err : new Error(String(err));
       if (attempt < MAX_RETRIES) {
-        // Wait before retry (simple linear backoff)
         await new Promise((r) => setTimeout(r, 1000 * (attempt + 1)));
       }
     }
