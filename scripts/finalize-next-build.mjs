@@ -263,6 +263,20 @@ function main() {
     cpSync(srcSchemas, dstSchemas, { recursive: true, force: true });
   }
 
+  // Copy PRO V5.3.1 schemas (Baris tools) into .next/server/
+  const srcProV531 = join(ROOT, "src/sectorcalc/schemas/pro-v531");
+  if (existsSync(srcProV531)) {
+    mkdirSync(join(NEXT, "server/src/sectorcalc/schemas"), { recursive: true });
+    cpSync(srcProV531, join(NEXT, "server/src/sectorcalc/schemas/pro-v531"), { recursive: true, force: true });
+  }
+
+  // Copy V5.3.1 engineering schemas into .next/server/
+  const srcV531 = join(ROOT, "src/sectorcalc/schemas/v531");
+  if (existsSync(srcV531)) {
+    mkdirSync(join(NEXT, "server/src/sectorcalc/schemas"), { recursive: true });
+    cpSync(srcV531, join(NEXT, "server/src/sectorcalc/schemas/v531"), { recursive: true, force: true });
+  }
+
   const buildId = readFileSync(join(NEXT, "BUILD_ID"), "utf8").trim();
   console.log(`finalize-next-build: ready (BUILD_ID=${buildId})`);
 }

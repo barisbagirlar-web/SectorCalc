@@ -1,7 +1,7 @@
 // SectorCalc V5.3.1 — PRO Schema Loader
-// Server-only loader for the 135 V5.3.1 PRO calculator schemas.
-// Schemas are loaded from src/sectorcalc/schemas/v531/ and normalized
-// to match the SuperV4Schema contract expected by the schema validator.
+// Server-only loader for PRO calculator schemas.
+// Loads from BOTH src/sectorcalc/schemas/v531/ (136 engineering schemas)
+// AND src/sectorcalc/schemas/pro-v531/ (45 Baris PRO tool schemas).
 
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { validateProV531Schema } from "@/sectorcalc/runtime/validate-pro-v531-schema";
@@ -18,19 +18,33 @@ interface LoadedSchema {
 let loadedSchemas: Map<string, LoadedSchema> | null = null;
 let loadErrors: string[] = [];
 
-function getSchemasDir(): string {
+function getSchemasDirs(): string[] {
   const cwd = process.cwd();
+  const dirs: string[] = [];
 
-  // Try .next/standalone path first (Firebase Cloud Functions bundle)
-  const fnBundle = join(cwd, ".next/standalone/src/sectorcalc/schemas/v531");
-  if (existsSync(fnBundle)) return fnBundle;
+  // Direct paths (local dev, standalone server) — check first
+  const directPro = join(cwd, "src/sectorcalc/schemas/pro-v531");
+  const directV531 = join(cwd, "src/sectorcalc/schemas/v531");
+  if (existsSync(directPro)) dirs.push(directPro);
+  if (existsSync(directV531)) dirs.push(directV531);
 
-  // Direct path (local dev, standalone server)
-  const direct = join(cwd, "src/sectorcalc/schemas/v531");
-  if (existsSync(direct)) return direct;
+  // .next/server paths (Firebase SSR function bundle — copied by finalize-next-build)
+  const nextServerPro = join(cwd, ".next/server/src/sectorcalc/schemas/pro-v531");
+  const nextServerV531 = join(cwd, ".next/server/src/sectorcalc/schemas/v531");
+  if (existsSync(nextServerPro) && !dirs.includes(nextServerPro)) dirs.push(nextServerPro);
+  if (existsSync(nextServerV531) && !dirs.includes(nextServerV531)) dirs.push(nextServerV531);
 
-  // Fallback — will produce a clear error in loadAllSchemas
-  return direct;
+  // .next/standalone paths (Firebase Cloud Functions bundle)
+  const fnBundlePro = join(cwd, ".next/standalone/src/sectorcalc/schemas/pro-v531");
+  const fnBundleV531 = join(cwd, ".next/standalone/src/sectorcalc/schemas/v531");
+  if (existsSync(fnBundlePro) && !dirs.includes(fnBundlePro)) dirs.push(fnBundlePro);
+  if (existsSync(fnBundleV531) && !dirs.includes(fnBundleV531)) dirs.push(fnBundleV531);
+
+  if (dirs.length === 0) {
+    dirs.push(join(cwd, "src/sectorcalc/schemas/v531"));
+  }
+
+  return dirs;
 }
 
 /**
@@ -128,8 +142,6 @@ function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema {
       const uses = f.uses as string[] | undefined;
       if (Array.isArray(uses)) {
         f.uses = uses.filter((u: string) => {
-          // Keep if it's a normalized input (starts with norm_ or ends with _norm)
-          // or if it references an existing formula
           return true; // Don't filter — keep all bindings
         });
       }
@@ -137,7 +149,6 @@ function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema {
   }
 
   // ── Fix validation_contract ──
-  // Remove NaN/Infinity references in rule descriptions
   const vc = s.validation_contract as Record<string, unknown> | undefined;
   if (vc && Array.isArray(vc.rules)) {
     for (const rule of vc.rules as Record<string, unknown>[]) {
@@ -151,7 +162,6 @@ function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema {
   }
 
   // ── Fix brand safety ──
-  // Excluded use cases contain denial phrases like "certified compliance decision"
   const dc2 = s.decision_context as Record<string, unknown> | undefined;
   if (dc2 && Array.isArray(dc2.excluded_use_cases)) {
     dc2.excluded_use_cases = (dc2.excluded_use_cases as string[])
@@ -175,10 +185,6 @@ function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema {
   }
 
   // ── Add fields array to input_groups ──
-  // PRO schemas define groups without field-to-group mapping.
-  // Ensure every group has a non-null fields array so UniversalIndustrialDecisionForm
-  // doesn't crash on group.fields.map().
-  // First group gets all input IDs; remaining groups get empty arrays.
   const inputIds = Array.isArray(s.inputs)
     ? (s.inputs as Array<Record<string, unknown>>).map((inp) => inp.id as string)
     : [];
@@ -202,56 +208,56 @@ function loadAllSchemas(): void {
   loadErrors = [];
 
   try {
-    const schemasDir = getSchemasDir();
-    if (!existsSync(schemasDir)) {
-      loadErrors.push(`PRO schemas directory not found: ${schemasDir}`);
-      return;
-    }
+    const schemasDirs = getSchemasDirs();
 
-    const files = readdirSync(schemasDir)
-      .filter((f: string) => f.endsWith(".schema.json"))
-      .sort();
+    for (const schemasDir of schemasDirs) {
+      if (!existsSync(schemasDir)) {
+        loadErrors.push(`PRO schemas directory not found: ${schemasDir}`);
+        continue;
+      }
 
-    if (files.length === 0) {
-      loadErrors.push("No PRO schema files found in v531 directory");
-      return;
-    }
+      const files = readdirSync(schemasDir)
+        .filter((f: string) => f.endsWith(".schema.json"))
+        .sort();
 
-    for (const file of files) {
-      try {
-        const filePath = join(schemasDir, file);
-        const raw = readFileSync(filePath, "utf8");
-        const rawSchema = JSON.parse(raw);
+      if (files.length === 0) {
+        loadErrors.push(`No PRO schema files found in ${schemasDir}`);
+        continue;
+      }
 
-        if (!rawSchema.tool_key || typeof rawSchema.tool_key !== "string") {
-          loadErrors.push(`Missing or invalid tool_key in ${file}`);
-          continue;
+      for (const file of files) {
+        try {
+          const filePath = join(schemasDir, file);
+          const raw = readFileSync(filePath, "utf8");
+          const rawSchema = JSON.parse(raw);
+
+          if (!rawSchema.tool_key || typeof rawSchema.tool_key !== "string") {
+            loadErrors.push(`Missing or invalid tool_key in ${file}`);
+            continue;
+          }
+
+          // Skip duplicates — first directory wins (pro-v531 overrides v531)
+          if (loadedSchemas.has(rawSchema.tool_key)) continue;
+
+          // Normalize PRO schema to SuperV4Schema format
+          const schema = normalizeProSchema(rawSchema);
+
+          // Validate against PRO V5.3.1 contract
+          const validation = validateProV531Schema(schema);
+          if (!validation.ok) {
+            loadErrors.push(`Schema validation failed for ${rawSchema.tool_key}: ${validation.errors.join("; ")}`);
+            continue;
+          }
+
+          if (validation.schema) {
+            loadedSchemas.set(rawSchema.tool_key, {
+              schema: validation.schema,
+              errors: [],
+            });
+          }
+        } catch (err) {
+          loadErrors.push(`Error loading ${file}: ${err instanceof Error ? err.message : String(err)}`);
         }
-
-        // Normalize PRO schema to SuperV4Schema format
-        const schema = normalizeProSchema(rawSchema);
-
-        // Validate against PRO V5.3.1 contract
-        const validation = validateProV531Schema(schema);
-        if (!validation.ok) {
-          loadErrors.push(`Schema validation failed for ${rawSchema.tool_key}: ${validation.errors.join("; ")}`);
-          continue;
-        }
-
-        const existing = loadedSchemas.get(rawSchema.tool_key);
-        if (existing) {
-          loadErrors.push(`Duplicate tool_key: ${rawSchema.tool_key} in ${file}`);
-          continue;
-        }
-
-        if (validation.schema) {
-          loadedSchemas.set(rawSchema.tool_key, {
-            schema: validation.schema,
-            errors: [],
-          });
-        }
-      } catch (err) {
-        loadErrors.push(`Error loading ${file}: ${err instanceof Error ? err.message : String(err)}`);
       }
     }
   } catch (err) {
