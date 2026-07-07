@@ -2,11 +2,11 @@
   "tool_id": "FREE_V531_014",
   "tool_key": "fillet-weld-size-strength",
   "tool_name": "Fillet Weld Size and Strength Calculator",
-  "category": "welding_steel · SuperV4 Decision Support",
+  "category": "Welding & Steel",
   "scope": "Fillet Weld Size and Strength Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
   "primary_operation": "fillet-weld-size-strength_decision_screening",
   "decision_context": {
-    "system_boundary": "Fillet Weld Size and Strength Calculator evaluates one controlled decision boundary inside welding_steel and excludes broad ERP, dashboard, or multi-module workflows.",
+    "system_boundary": "Fillet Weld Size and Strength Calculator evaluates one controlled decision boundary inside Welding & Steel and excludes broad ERP, dashboard, or multi-module workflows.",
     "single_operation_scope": "Fillet Weld Size and Strength Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the fillet weld size and strength calculator case.",
@@ -95,7 +95,7 @@
   },
   "calculation_basis": {
     "method": "Deterministic formula execution with source-evidence validation",
-    "domain": "welding_steel",
+    "domain": "Welding & Steel",
     "evidence_standard": "SCREENING_ONLY_NOT_CERTIFICATION",
     "public_safety_rule": "No formula exposure, no exact reference reproduction."
   },
@@ -119,7 +119,7 @@
     {
       "id": "applied_load_kn",
       "name": "Applied Load Kn",
-      "symbol": "Applied Load Kn",
+      "symbol": null,
       "quantity_kind": "engineering",
       "unit_selectable": true,
       "base_unit": null,
@@ -135,7 +135,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -146,18 +146,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "effective_weld_length_mm",
-      "name": "Effective Weld Length Mm",
-      "symbol": "Effective Weld Length Mm",
+      "name": "Effective Weld Length",
+      "symbol": null,
       "quantity_kind": "geometry",
       "unit_selectable": true,
       "base_unit": null,
@@ -173,7 +173,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -184,18 +184,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "fillet_leg_size_mm",
-      "name": "Fillet Leg Size Mm",
-      "symbol": "Fillet Leg Size Mm",
+      "name": "Fillet Leg Size",
+      "symbol": null,
       "quantity_kind": "number",
       "unit_selectable": true,
       "base_unit": null,
@@ -211,7 +211,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -222,18 +222,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "load_angle_factor",
       "name": "Load Angle Factor",
-      "symbol": "Load Angle Factor",
+      "symbol": null,
       "quantity_kind": "ratio_or_percent",
       "unit_selectable": true,
       "base_unit": null,
@@ -249,7 +249,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -260,18 +260,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "user_verified_allowable_stress_mpa",
       "name": "User Verified Allowable Stress Mpa",
-      "symbol": "User Verified Allowable Stress Mpa",
+      "symbol": null,
       "quantity_kind": "engineering",
       "unit_selectable": true,
       "base_unit": null,
@@ -287,7 +287,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -298,13 +298,13 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     }
   ],
   "normalized_inputs": [
@@ -497,7 +497,7 @@
     },
     {
       "id": "F2_NORM_effective_weld_length_mm",
-      "name": "Normalize Effective Weld Length Mm",
+      "name": "Normalize Effective Weld Length",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -517,7 +517,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Effective Weld Length Mm to calculation base unit.",
+      "public_proof_summary": "Normalizes Effective Weld Length to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -525,7 +525,7 @@
     },
     {
       "id": "F3_NORM_fillet_leg_size_mm",
-      "name": "Normalize Fillet Leg Size Mm",
+      "name": "Normalize Fillet Leg Size",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -545,7 +545,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Fillet Leg Size Mm to calculation base unit.",
+      "public_proof_summary": "Normalizes Fillet Leg Size to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -818,7 +818,7 @@
     "formula_version": "5.3.1",
     "prompt_version": "5.3.1",
     "generation_method": "automated_from_formula_registry",
-    "generation_date": "2026-07-06",
+    "generation_date": "2026-07-07",
     "source_formula": "fillet-weld-size-strength",
     "tool_id": "FREE_V531_014",
     "tool_key": "fillet-weld-size-strength",

@@ -29,6 +29,11 @@ class EnsureManifestStubsPlugin {
         }
       }
 
+      const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
+      if (!fs.existsSync(pagesManifestPath)) {
+        fs.writeFileSync(pagesManifestPath, JSON.stringify({ "/500": "pages/500.html" }), "utf8");
+      }
+
       const fontManifestPath = path.join(serverDir, "next-font-manifest.json");
       if (!fs.existsSync(fontManifestPath)) {
         fs.writeFileSync(fontManifestPath, JSON.stringify({

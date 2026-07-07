@@ -2,11 +2,11 @@
   "tool_id": "FREE_V531_043",
   "tool_key": "safety-stock-reorder-point",
   "tool_name": "Safety Stock and Reorder Point Calculator",
-  "category": "inventory_logistics · SuperV4 Decision Support",
+  "category": "Inventory & Logistics",
   "scope": "Safety Stock and Reorder Point Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
   "primary_operation": "safety-stock-reorder-point_decision_screening",
   "decision_context": {
-    "system_boundary": "Safety Stock and Reorder Point Calculator evaluates one controlled decision boundary inside inventory_logistics and excludes broad ERP, dashboard, or multi-module workflows.",
+    "system_boundary": "Safety Stock and Reorder Point Calculator evaluates one controlled decision boundary inside Inventory & Logistics and excludes broad ERP, dashboard, or multi-module workflows.",
     "single_operation_scope": "Safety Stock and Reorder Point Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the safety stock and reorder point calculator case.",
@@ -95,7 +95,7 @@
   },
   "calculation_basis": {
     "method": "Deterministic formula execution with source-evidence validation",
-    "domain": "inventory_logistics",
+    "domain": "Inventory & Logistics",
     "evidence_standard": "SCREENING_ONLY_NOT_CERTIFICATION",
     "public_safety_rule": "No formula exposure, no exact reference reproduction."
   },
@@ -119,7 +119,7 @@
     {
       "id": "average_daily_demand",
       "name": "Average Daily Demand",
-      "symbol": "Average Daily Demand",
+      "symbol": null,
       "quantity_kind": "count",
       "unit_selectable": true,
       "base_unit": null,
@@ -135,7 +135,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -146,18 +146,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "daily_demand_std_dev",
       "name": "Daily Demand Std Dev",
-      "symbol": "Daily Demand Std Dev",
+      "symbol": null,
       "quantity_kind": "count",
       "unit_selectable": true,
       "base_unit": null,
@@ -173,7 +173,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -184,18 +184,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "lead_time_days",
       "name": "Lead Time Days",
-      "symbol": "Lead Time Days",
+      "symbol": null,
       "quantity_kind": "time",
       "unit_selectable": true,
       "base_unit": null,
@@ -211,7 +211,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -222,18 +222,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "lead_time_std_dev_days",
       "name": "Lead Time Std Dev Days",
-      "symbol": "Lead Time Std Dev Days",
+      "symbol": null,
       "quantity_kind": "time",
       "unit_selectable": true,
       "base_unit": null,
@@ -249,7 +249,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -260,18 +260,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "service_level_z_score",
       "name": "Service Level Z Score",
-      "symbol": "Service Level Z Score",
+      "symbol": null,
       "quantity_kind": "number",
       "unit_selectable": true,
       "base_unit": null,
@@ -287,7 +287,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -298,13 +298,13 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     }
   ],
   "normalized_inputs": [
@@ -818,7 +818,7 @@
     "formula_version": "5.3.1",
     "prompt_version": "5.3.1",
     "generation_method": "automated_from_formula_registry",
-    "generation_date": "2026-07-06",
+    "generation_date": "2026-07-07",
     "source_formula": "safety-stock-reorder-point",
     "tool_id": "FREE_V531_043",
     "tool_key": "safety-stock-reorder-point",

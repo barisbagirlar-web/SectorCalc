@@ -2,11 +2,11 @@
   "tool_id": "FREE_V531_011",
   "tool_key": "thread-dimensions-reference",
   "tool_name": "Thread Dimensions Reference Calculator",
-  "category": "machining_cnc · SuperV4 Decision Support",
+  "category": "Machining & CNC",
   "scope": "Thread Dimensions Reference Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
   "primary_operation": "thread-dimensions-reference_decision_screening",
   "decision_context": {
-    "system_boundary": "Thread Dimensions Reference Calculator evaluates one controlled decision boundary inside machining_cnc and excludes broad ERP, dashboard, or multi-module workflows.",
+    "system_boundary": "Thread Dimensions Reference Calculator evaluates one controlled decision boundary inside Machining & CNC and excludes broad ERP, dashboard, or multi-module workflows.",
     "single_operation_scope": "Thread Dimensions Reference Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the thread dimensions reference calculator case.",
@@ -95,7 +95,7 @@
   },
   "calculation_basis": {
     "method": "Deterministic formula execution with source-evidence validation",
-    "domain": "machining_cnc",
+    "domain": "Machining & CNC",
     "evidence_standard": "SCREENING_ONLY_NOT_CERTIFICATION",
     "public_safety_rule": "No formula exposure, no exact reference reproduction."
   },
@@ -118,8 +118,8 @@
   "inputs": [
     {
       "id": "allowance_mm",
-      "name": "Allowance Mm",
-      "symbol": "Allowance Mm",
+      "name": "Allowance",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -135,7 +135,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -146,18 +146,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "engagement_length_mm",
-      "name": "Engagement Length Mm",
-      "symbol": "Engagement Length Mm",
+      "name": "Engagement Length",
+      "symbol": null,
       "quantity_kind": "geometry",
       "unit_selectable": true,
       "base_unit": null,
@@ -173,7 +173,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -184,18 +184,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "major_diameter_mm",
-      "name": "Major Diameter Mm",
-      "symbol": "Major Diameter Mm",
+      "name": "Major Diameter",
+      "symbol": null,
       "quantity_kind": "geometry",
       "unit_selectable": true,
       "base_unit": null,
@@ -211,7 +211,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -222,18 +222,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "pitch_mm",
-      "name": "Pitch Mm",
-      "symbol": "Pitch Mm",
+      "name": "Pitch",
+      "symbol": null,
       "quantity_kind": "geometry",
       "unit_selectable": true,
       "base_unit": null,
@@ -249,7 +249,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -260,13 +260,13 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     }
   ],
   "normalized_inputs": [
@@ -423,7 +423,7 @@
   "formulas": [
     {
       "id": "F1_NORM_allowance_mm",
-      "name": "Normalize Allowance Mm",
+      "name": "Normalize Allowance",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -443,7 +443,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Allowance Mm to calculation base unit.",
+      "public_proof_summary": "Normalizes Allowance to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -451,7 +451,7 @@
     },
     {
       "id": "F2_NORM_engagement_length_mm",
-      "name": "Normalize Engagement Length Mm",
+      "name": "Normalize Engagement Length",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -471,7 +471,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Engagement Length Mm to calculation base unit.",
+      "public_proof_summary": "Normalizes Engagement Length to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -479,7 +479,7 @@
     },
     {
       "id": "F3_NORM_major_diameter_mm",
-      "name": "Normalize Major Diameter Mm",
+      "name": "Normalize Major Diameter",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -499,7 +499,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Major Diameter Mm to calculation base unit.",
+      "public_proof_summary": "Normalizes Major Diameter to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -507,7 +507,7 @@
     },
     {
       "id": "F4_NORM_pitch_mm",
-      "name": "Normalize Pitch Mm",
+      "name": "Normalize Pitch",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -527,7 +527,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Pitch Mm to calculation base unit.",
+      "public_proof_summary": "Normalizes Pitch to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -742,7 +742,7 @@
     "formula_version": "5.3.1",
     "prompt_version": "5.3.1",
     "generation_method": "automated_from_formula_registry",
-    "generation_date": "2026-07-06",
+    "generation_date": "2026-07-07",
     "source_formula": "thread-dimensions-reference",
     "tool_id": "FREE_V531_011",
     "tool_key": "thread-dimensions-reference",

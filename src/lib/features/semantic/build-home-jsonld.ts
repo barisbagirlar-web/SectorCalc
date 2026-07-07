@@ -1,65 +1,8 @@
 import { organizationDescriptionForLocale, ORGANIZATION_TRUST } from "@/config/organization-trust";
 import { buildOrganizationJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
-import { buildPlatformFinancialServiceSchema } from "@/lib/features/semantic/build-financial-service-schema";
 import { buildHomeSoftwareApplicationSchema } from "@/lib/features/semantic/build-software-application-schema";
-import { absoluteLocalizedUrl, absoluteUrl, SITE_URL } from "@/lib/features/semantic/site-url";
+import { absoluteLocalizedUrl, SITE_URL } from "@/lib/features/semantic/site-url";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/infrastructure/seo/schema-mesh";
-
-const CATALOG_NAMES: Record<string, Record<string, string>> = {
-  en: {
-    main: "SectorCalc calculator catalog",
-    free: "Free calculators",
-    premium: "Premium analyzers",
-    showcase: "Developer showcase",
-    llm: "LLM index",
-    sitemap: "Sitemap",
-  },
-  tr: {
-    main: "SectorCalc hesap makinesi katalogu",
-    free: "Ucretsiz hesap makineleri",
-    premium: "Premium analiz araclari",
-    showcase: "Gelistirici vitrini",
-    llm: "LLM dizini",
-    sitemap: "Site haritasi",
-  },
-  de: {
-    main: "SectorCalc-Rechner-Katalog",
-    free: "Kostenlose Rechner",
-    premium: "Premium-Analysatoren",
-    showcase: "Entwickler-Schaufenster",
-    llm: "LLM-Index",
-    sitemap: "Sitemap",
-  },
-  fr: {
-    main: "Catalogue de calculatrices SectorCalc",
-    free: "Calculatrices gratuites",
-    premium: "Analyseurs premium",
-    showcase: "Vitrine développeur",
-    llm: "Index LLM",
-    sitemap: "Plan du site",
-  },
-  es: {
-    main: "Catálogo de calculadoras SectorCalc",
-    free: "Calculadoras gratuitas",
-    premium: "Analizadores premium",
-    showcase: "Escaparate de desarrolladores",
-    llm: "Índice LLM",
-    sitemap: "Mapa del sitio",
-  },
-  ar: {
-    main: "كتالوج آلات حاسبة SectorCalc",
-    free: "آلات حاسبة مجانية",
-    premium: "محللات مميزة",
-    showcase: "واجهة المطورين",
-    llm: "فهرس LLM",
-    sitemap: "خريطة الموقع",
-  },
-};
-
-function catalogLabel(locale: string, key: string): string {
-  const base = locale.split("-")[0];
-  return CATALOG_NAMES[base]?.[key] ?? CATALOG_NAMES.en[key];
-}
 
 export function buildWebsiteSchema(locale: string): JsonLdRecord {
   return sanitizeJsonLd({
@@ -68,7 +11,7 @@ export function buildWebsiteSchema(locale: string): JsonLdRecord {
     "@id": `${SITE_URL}/#website`,
     name: "SectorCalc",
     url: absoluteLocalizedUrl(locale, "/"),
-    description: organizationDescriptionForLocale(locale),
+    description: "SectorCalc helps engineers, technicians, production teams, workshops and managers calculate cost, risk, downtime, FMEA RPN, OEE, quotes, energy loss and engineering diagnostics with review-ready decision reports.",
     inLanguage: locale,
     publisher: {
       "@id": `${SITE_URL}/#organization`,
@@ -85,37 +28,58 @@ export function buildWebsiteSchema(locale: string): JsonLdRecord {
   }) as JsonLdRecord;
 }
 
-export function buildHomeOfferCatalogSchema(locale: string): JsonLdRecord {
+export function buildBreadcrumbJsonLd(locale: string): JsonLdRecord {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
-    "@type": "OfferCatalog",
-    name: catalogLabel(locale, "main"),
-    url: absoluteLocalizedUrl(locale, "/calculator-library"),
+    "@type": "BreadcrumbList",
+    "@id": `${SITE_URL}/#breadcrumb`,
     itemListElement: [
       {
-        "@type": "Offer",
-        name: catalogLabel(locale, "free"),
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: absoluteLocalizedUrl(locale, "/"),
+      },
+    ],
+  }) as JsonLdRecord;
+}
+
+export function buildItemListJsonLd(locale: string): JsonLdRecord {
+  return sanitizeJsonLd({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${SITE_URL}/#itemlist`,
+    name: "SectorCalc core product paths",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Free Tools",
         url: absoluteLocalizedUrl(locale, "/free-tools"),
       },
       {
-        "@type": "Offer",
-        name: catalogLabel(locale, "premium"),
-        url: absoluteLocalizedUrl(locale, "/free-tools"),
+        "@type": "ListItem",
+        position: 2,
+        name: "Pro Tools",
+        url: absoluteLocalizedUrl(locale, "/pro-tools"),
       },
       {
-        "@type": "Offer",
-        name: catalogLabel(locale, "showcase"),
-        url: absoluteLocalizedUrl(locale, "/developer-showcase"),
+        "@type": "ListItem",
+        position: 3,
+        name: "Engineering Diagnostics",
+        url: absoluteLocalizedUrl(locale, "/engineering-diagnostics"),
       },
       {
-        "@type": "Offer",
-        name: catalogLabel(locale, "llm"),
-        url: absoluteUrl("/llms.txt"),
+        "@type": "ListItem",
+        position: 4,
+        name: "Case Studies",
+        url: absoluteLocalizedUrl(locale, "/case-studies"),
       },
       {
-        "@type": "Offer",
-        name: catalogLabel(locale, "sitemap"),
-        url: absoluteUrl("/sitemap.xml"),
+        "@type": "ListItem",
+        position: 5,
+        name: "FMEA RPN Calculator",
+        url: absoluteLocalizedUrl(locale, "/calculators/fmea-rpn"),
       },
     ],
   }) as JsonLdRecord;
@@ -126,7 +90,7 @@ export function buildHomeJsonLd(locale: string): readonly JsonLdRecord[] {
     buildWebsiteSchema(locale),
     buildOrganizationJsonLd(locale),
     buildHomeSoftwareApplicationSchema(locale),
-    buildHomeOfferCatalogSchema(locale),
-    buildPlatformFinancialServiceSchema(locale),
+    buildBreadcrumbJsonLd(locale),
+    buildItemListJsonLd(locale),
   ];
 }

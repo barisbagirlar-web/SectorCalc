@@ -149,6 +149,7 @@ if (exists("src/sectorcalc/pro-form/universal-industrial-decision-form.css")) {
 }
 
 for (const file of trackedFiles().filter(shouldScan)) {
+  if (!exists(file)) continue; // skip deleted files
   const text = read(file);
   const isGuardScript = file === "scripts/guard-v531-form-architecture-lock.mjs";
 

@@ -2,11 +2,11 @@
   "tool_id": "FREE_V531_034",
   "tool_key": "carbon-price-exposure",
   "tool_name": "Carbon Price Exposure Calculator",
-  "category": "carbon_cbam · SuperV4 Decision Support",
+  "category": "Carbon & CBAM",
   "scope": "Carbon Price Exposure Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
   "primary_operation": "carbon-price-exposure_decision_screening",
   "decision_context": {
-    "system_boundary": "Carbon Price Exposure Calculator evaluates one controlled decision boundary inside carbon_cbam and excludes broad ERP, dashboard, or multi-module workflows.",
+    "system_boundary": "Carbon Price Exposure Calculator evaluates one controlled decision boundary inside Carbon & CBAM and excludes broad ERP, dashboard, or multi-module workflows.",
     "single_operation_scope": "Carbon Price Exposure Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the carbon price exposure calculator case.",
@@ -95,7 +95,7 @@
   },
   "calculation_basis": {
     "method": "Deterministic formula execution with source-evidence validation",
-    "domain": "carbon_cbam",
+    "domain": "Carbon & CBAM",
     "evidence_standard": "SCREENING_ONLY_NOT_CERTIFICATION",
     "public_safety_rule": "No formula exposure, no exact reference reproduction."
   },
@@ -119,7 +119,7 @@
     {
       "id": "base_carbon_price",
       "name": "Base Carbon Price",
-      "symbol": "Base Carbon Price",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -135,7 +135,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -146,18 +146,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "customer_pass_through_percent",
       "name": "Customer Pass Through Percent",
-      "symbol": "Customer Pass Through Percent",
+      "symbol": null,
       "quantity_kind": "ratio_or_percent",
       "unit_selectable": true,
       "base_unit": null,
@@ -173,7 +173,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -184,18 +184,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "exposed_emissions_tco2e",
-      "name": "Exposed Emissions Tco2E",
-      "symbol": "Exposed Emissions Tco2e",
+      "name": "Exposed Emissions Tco2e",
+      "symbol": null,
       "quantity_kind": "energy_or_emissions",
       "unit_selectable": true,
       "base_unit": null,
@@ -211,7 +211,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -222,18 +222,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "high_carbon_price",
       "name": "High Carbon Price",
-      "symbol": "High Carbon Price",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -249,7 +249,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -260,18 +260,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "low_carbon_price",
       "name": "Low Carbon Price",
-      "symbol": "Low Carbon Price",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -287,7 +287,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -298,13 +298,13 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     }
   ],
   "normalized_inputs": [
@@ -525,7 +525,7 @@
     },
     {
       "id": "F3_NORM_exposed_emissions_tco2e",
-      "name": "Normalize Exposed Emissions Tco2E",
+      "name": "Normalize Exposed Emissions Tco2e",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -545,7 +545,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Exposed Emissions Tco2E to calculation base unit.",
+      "public_proof_summary": "Normalizes Exposed Emissions Tco2e to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -818,7 +818,7 @@
     "formula_version": "5.3.1",
     "prompt_version": "5.3.1",
     "generation_method": "automated_from_formula_registry",
-    "generation_date": "2026-07-06",
+    "generation_date": "2026-07-07",
     "source_formula": "carbon-price-exposure",
     "tool_id": "FREE_V531_034",
     "tool_key": "carbon-price-exposure",

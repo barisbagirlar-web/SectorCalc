@@ -3,6 +3,13 @@
  * Reads the formula registry, builds minimal valid schemas.
  * Output: src/sectorcalc/schemas/free-v531/ (prefix 295-344)
  *
+ * PUBLIC UI QUALITY:
+ * - Labels are auto-cleaned: trailing unit suffixes stripped, title casing corrected
+ * - Category strings mapped to human-readable display vocabulary
+ * - symbol set to null (no debug parentheses in public UI)
+ * - allowed_display_units populated with base_unit (no empty dropdowns)
+ * - Help text shortened to professional English
+ *
  * Run: npx tsx scripts/generate-free-v531-schemas.ts
  */
 import { writeFileSync, existsSync, mkdirSync } from "node:fs";
@@ -19,6 +26,118 @@ if (!existsSync(SCHEMAS_DIR)) {
 }
 
 const formulaEntries = Object.entries(freeV531FormulaRegistry);
+
+// ─── PUBLIC UI DISPLAY VOCABULARY ────────────────────────────────────────
+
+const CATEGORY_DISPLAY_MAP: Record<string, string> = {
+  machining_cnc: "Machining & CNC",
+  welding_steel: "Welding & Steel",
+  production_operations: "Production Operations",
+  carbon_cbam: "Carbon & CBAM",
+  quote_sme_finance: "Quote & SME Finance",
+  inventory_logistics: "Inventory & Logistics",
+  sector_hooks: "Industrial Decision Support",
+};
+
+// ─── LABEL CLEANUP ────────────────────────────────────────────────────────
+
+/** Patterns to strip from end of a label (trailing unit/technical suffixes). */
+const TRAILING_UNIT_PATTERNS = [
+  /\s+M\s+Min$/i,
+  /\s+Mm$/i,
+  /\s+Kg$/i,
+  /\s+Kwh$/i,
+  /\s+Co2$/i,
+  /\s+M\/Min$/i,
+  /\s*\/\s*Min$/i,
+  /\s*\/\s*Tooth$/i,
+  /\s+Cm$/i,
+  /\s+Km$/i,
+  /\s+Lb$/i,
+  /\s+Lbs$/i,
+  /\s+Hz$/i,
+  /\s+Kw$/i,
+];
+
+/** Known label expansions (short → long). */
+const KNOWN_EXPANSIONS: Record<string, string> = {
+  max: "Maximum",
+  min: "Minimum",
+  rpm: "RPM",
+  cnc: "CNC",
+  co2: "CO₂",
+  cbam: "CBAM",
+  oee: "OEE",
+  eoq: "EOQ",
+  gsm: "GSM",
+  fmea: "FMEA",
+  iso: "ISO",
+  en: "EN",
+  astm: "ASTM",
+  aws: "AWS",
+  aisi: "AISI",
+  sae: "SAE",
+};
+
+/** Words that should remain lowercase in English titles (except first/last). */
+const LOWERCASE_WORDS = new Set([
+  "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
+  "of", "by", "with", "from", "per", "vs",
+]);
+
+/**
+ * Clean a label from the formula registry into a human-readable English label.
+ * Steps:
+ * 1. Strip trailing unit suffixes
+ * 2. Expand known abbreviations
+ * 3. Apply proper English title casing
+ */
+function cleanLabel(raw: string): string {
+  let label = raw.trim();
+
+  // Strip trailing unit patterns
+  for (const pattern of TRAILING_UNIT_PATTERNS) {
+    label = label.replace(pattern, "");
+  }
+
+  // Strip leading/trailing whitespace again after stripping
+  label = label.trim();
+
+  // Expand known abbreviations (case-insensitive word replacement)
+  const words = label.split(/\s+/);
+  const expanded = words.map((w) => {
+    const lower = w.toLowerCase();
+    const expansion = KNOWN_EXPANSIONS[lower];
+    if (expansion) return expansion;
+    return w;
+  });
+  label = expanded.join(" ");
+
+  // Proper English title casing
+  const titleWords = label.split(/\s+/);
+  const cased = titleWords.map((w, i) => {
+    const lower = w.toLowerCase();
+    // First and last words always capitalize first letter
+    if (i === 0 || i === titleWords.length - 1) {
+      return w.charAt(0).toUpperCase() + lower.slice(1);
+    }
+    // Known expansion words or acronyms (all-uppercase) keep their form
+    if (w === w.toUpperCase() && w.length > 1) return w;
+    // Lowercase words stay lowercase
+    if (LOWERCASE_WORDS.has(lower)) return lower;
+    // Otherwise capitalize first letter
+    return w.charAt(0).toUpperCase() + lower.slice(1);
+  });
+
+  return cased.join(" ");
+}
+
+// ─── HELP TEXT ────────────────────────────────────────────────────────────
+
+const SHORT_HELP_TEXT =
+  "Enter the verified shop-floor value. Reference ranges are advisory only.";
+
+// ─── SCHEMA BUILDERS ─────────────────────────────────────────────────────
 
 // Helper: map FreeV531RiskLevel to risk_level string
 function mapRiskLevel(level: string): string {
@@ -43,14 +162,19 @@ function buildSchemaInput(
         ? "NON_CRITICAL_SAFE_DEFAULT"
         : "NO_DEFAULT";
 
+  const cleanName = cleanLabel(spec.label);
+  const baseUnit = spec.baseUnit === "user_unit" ? null : spec.baseUnit;
+  // Populate allowed_display_units with base_unit to prevent empty dropdowns
+  const allowedUnits = baseUnit ? [baseUnit] : [];
+
   return {
     id: spec.id,
-    name: spec.label,
-    symbol: spec.id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+    name: cleanName,
+    symbol: null, // Free tools: no debug parentheses in public UI
     quantity_kind: spec.quantityKind,
     unit_selectable: true,
-    base_unit: spec.baseUnit === "user_unit" ? null : spec.baseUnit,
-    allowed_display_units: [],
+    base_unit: baseUnit,
+    allowed_display_units: allowedUnits,
     normalized_id: `n_${spec.id}`,
     type: "number",
     required: spec.required,
@@ -62,19 +186,19 @@ function buildSchemaInput(
       source: "User-entered value",
       reference_status: sourceStatus as any,
       user_must_verify: true,
-      public_note: spec.publicHelpText,
+      public_note: SHORT_HELP_TEXT,
     },
     evidence_requirement: {
       required: false,
       accepted_evidence: ["User-entered value", "Engineering estimate", "Measurement record", "Vendor or catalog data"],
       missing_evidence_behavior: "WARN",
-      public_help_text: spec.publicHelpText,
+      public_help_text: SHORT_HELP_TEXT,
     },
     formula_bindings: [],
     output_bindings: [],
     default_policy: defaultPolicy as any,
-    user_help_text: spec.publicHelpText,
-    help_text: spec.publicHelpText,
+    user_help_text: SHORT_HELP_TEXT,
+    help_text: SHORT_HELP_TEXT,
   };
 }
 
@@ -95,11 +219,11 @@ function buildFormulas(inputs: Array<{ id: string; label: string }>, primaryMetr
   const formulas: Array<Record<string, any>> = [];
   let idx = 1;
 
-  // One formula per input for normalization
   for (const inp of inputs) {
+    const cleanName = cleanLabel(inp.label);
     formulas.push({
       id: `F${idx}_NORM_${inp.id}`,
-      name: `Normalize ${inp.label}`,
+      name: `Normalize ${cleanName}`,
       visibility: {
         public_ui: false,
         public_export: false,
@@ -113,7 +237,7 @@ function buildFormulas(inputs: Array<{ id: string; label: string }>, primaryMetr
       assumptions: ["User provides correct unit"],
       limitations: ["Rounding errors possible"],
       edge_cases: [],
-      public_proof_summary: `Normalizes ${inp.label} to calculation base unit.`,
+      public_proof_summary: `Normalizes ${cleanName} to calculation base unit.`,
       protected_methodology_summary: "Unit normalization is internal server logic.",
       checker_note: "Verify source unit before entry.",
       formula_leak_risk: "LOW",
@@ -226,7 +350,8 @@ function sanitizeFileName(toolKey: string): string {
   return toolKey;
 }
 
-// For each formula, generate schema
+// ─── MAIN LOOP ────────────────────────────────────────────────────────────
+
 let idx = 0;
 const generated: string[] = [];
 
@@ -234,7 +359,8 @@ for (const [toolKey, formula] of formulaEntries) {
   const num = START_INDEX + idx;
   const toolId = formula.toolId;
   const toolName = formula.toolName;
-  const category = formula.category || "Industrial Decision Support";
+  const rawCategory = formula.category || "Industrial Decision Support";
+  const displayCategory = CATEGORY_DISPLAY_MAP[rawCategory] ?? rawCategory;
   const riskLevel = mapRiskLevel(formula.riskLevel);
   const inputs = formula.inputs;
   const primaryMetricId = formula.primaryMetricId;
@@ -243,15 +369,18 @@ for (const [toolKey, formula] of formulaEntries) {
   const schemaInputs = inputs.map((spec: any) => buildSchemaInput(spec as any));
   const normalizedInputs = buildNormalizedInputs(inputs as any);
 
+  // Category in schema: human-readable display name without internal suffix
+  const categoryDisplay = `${displayCategory}`;
+
   const schema = {
     tool_id: toolId,
     tool_key: toolKey,
     tool_name: toolName,
-    category: `${category} · SuperV4 Decision Support`,
+    category: categoryDisplay,
     scope: `${toolName} as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.`,
     primary_operation: `${toolKey}_decision_screening`,
     decision_context: {
-      system_boundary: `${toolName} evaluates one controlled decision boundary inside ${category} and excludes broad ERP, dashboard, or multi-module workflows.`,
+      system_boundary: `${toolName} evaluates one controlled decision boundary inside ${displayCategory} and excludes broad ERP, dashboard, or multi-module workflows.`,
       single_operation_scope: `${toolName} as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.`,
       decision_owner: "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
       decision_after_output: `Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the ${toolName.toLowerCase()} case.`,
@@ -340,7 +469,7 @@ for (const [toolKey, formula] of formulaEntries) {
     },
     calculation_basis: {
       method: "Deterministic formula execution with source-evidence validation",
-      domain: category,
+      domain: displayCategory,
       evidence_standard: "SCREENING_ONLY_NOT_CERTIFICATION",
       public_safety_rule: "No formula exposure, no exact reference reproduction.",
     },

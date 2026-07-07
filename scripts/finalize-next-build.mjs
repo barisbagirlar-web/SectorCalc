@@ -40,6 +40,19 @@ function ensureMiddlewareManifest() {
   );
 }
 
+function ensurePagesManifest() {
+  const manifestPath = join(NEXT, "server/pages-manifest.json");
+  if (existsSync(manifestPath)) {
+    return;
+  }
+  mkdirSync(join(NEXT, "server"), { recursive: true });
+  writeFileSync(
+    manifestPath,
+    JSON.stringify({ "/500": "pages/500.html" }),
+    "utf8",
+  );
+}
+
 function ensureExportMarker() {
   const markerPath = join(NEXT, "export-marker.json");
   if (existsSync(markerPath)) {
@@ -130,38 +143,65 @@ function ensureFirebasePagesManifest() {
 }
 
 /**
- * Copy the build output into standalone so the SSR function can serve it.
- * The standalone server.js starts from .next/standalone/ and looks for
- * .next/ under that directory (since next.config has distDir: "./.next").
- * Without this copy, chunks, pages, and server infrastructure are missing
- * and all SSR routes fall through to the 404 notFound boundary.
+ * Create a patched server.js in the standalone directory that
+ * uses distDir: ".." so Next.js finds chunks and pages at
+ * .next/server/... (one level above standalone) instead of
+ * the empty .next/standalone/.next/server/...
+ * Create the file preemptively so the Firebase frameworks
+ * integration does not overwrite it with the default distDir.
  */
-function ensureStandaloneServer() {
+function ensurePatchedServerJs() {
   const STANDALONE = join(NEXT, "standalone");
   const STANDALONE_NEXT = join(STANDALONE, ".next");
-  if (!existsSync(STANDALONE_NEXT)) {
-    mkdirSync(STANDALONE_NEXT, { recursive: true });
+  mkdirSync(STANDALONE_NEXT, { recursive: true });
+
+  // Copy .next/server content into standalone/.next/server so chunks
+  // and pages are available if frameworks integration uses this path.
+  const serverSrc = join(NEXT, "server");
+  const serverDst = join(STANDALONE_NEXT, "server");
+  if (existsSync(serverSrc)) {
+    cpSync(serverSrc, serverDst, { recursive: true, force: true });
   }
 
-  // Directories critical for SSR — must be inside standalone/.next/
-  const criticalDirs = ["BUILD_ID", "server", "prerender-manifest.json", "routes-manifest.json", "required-server-files.json"];
-  for (const item of criticalDirs) {
-    const src = join(NEXT, item);
-    const dst = join(STANDALONE_NEXT, item);
-    if (!existsSync(src)) continue;
-    if (item === "BUILD_ID") {
-      const content = readFileSync(src, "utf8");
-      writeFileSync(dst, content, "utf8");
-    } else if (item === "server") {
-      cpSync(src, dst, { recursive: true, force: true });
-    } else {
-      const content = readFileSync(src, "utf8");
-      writeFileSync(dst, content, "utf8");
+  // Copy BUILD_ID
+  const buildIdSrc = join(NEXT, "BUILD_ID");
+  const buildIdDst = join(STANDALONE_NEXT, "BUILD_ID");
+  if (existsSync(buildIdSrc)) {
+    writeFileSync(buildIdDst, readFileSync(buildIdSrc, "utf8"), "utf8");
+  }
+
+  // Now create/fix server.js with distDir: ".."
+  const SERVER_JS = join(STANDALONE, "server.js");
+  if (!existsSync(SERVER_JS)) {
+    // Read the real Next.js server template to extract distDir
+    const buildId = readFileSync(buildIdSrc, "utf8").trim();
+    // Build a complete server.js with minimal essential config and distDir: ".."
+    writeFileSync(SERVER_JS, `const path = require('path')
+const dir = path.join(__dirname)
+process.env.NODE_ENV = 'production'
+process.chdir(__dirname)
+const currentPort = parseInt(process.env.PORT, 10) || 3000
+const hostname = process.env.HOSTNAME || '0.0.0.0'
+let keepAliveTimeout = parseInt(process.env.KEEP_ALIVE_TIMEOUT, 10)
+const nextConfig = {"distDir":"..","output":"standalone","outputFileTracingRoot":${JSON.stringify(ROOT)}}
+process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig)
+require('next')
+const { startServer } = require('next/dist/server/lib/start-server')
+if (Number.isNaN(keepAliveTimeout) || !Number.isFinite(keepAliveTimeout) || keepAliveTimeout < 0) { keepAliveTimeout = undefined }
+startServer({ dir, isDev: false, config: nextConfig, hostname, port: currentPort, allowRetry: false, keepAliveTimeout }).catch((err) => { console.error(err); process.exit(1); });
+`);
+    console.log("finalize-next-build: created standalone/server.js with distDir=..");
+  } else {
+    let content = readFileSync(SERVER_JS, "utf8");
+    const patched = content.replace(/"distDir":"\.\/\.next"/g, '"distDir":".."');
+    if (patched !== content) {
+      writeFileSync(SERVER_JS, patched, "utf8");
+      console.log("finalize-next-build: patched standalone/server.js (distDir → ..)");
     }
   }
 
-  const tail = readdirSync(STANDALONE_NEXT);
-  console.log(`finalize-next-build: standalone/.next seeded (${tail.length} entries)`);
+  const standbyEntries = existsSync(STANDALONE_NEXT) ? readdirSync(STANDALONE_NEXT).length : 0;
+  console.log(`finalize-next-build: standalone/.next has ${standbyEntries} entries`);
 }
 
 /**
@@ -190,11 +230,12 @@ function main() {
 
   ensure500StaticFiles();
   ensureMiddlewareManifest();
+  ensurePagesManifest();
   ensureExportMarker();
   ensureExportDetail();
   ensureFirebasePagesManifest();
   ensureVendorChunks();
-  ensureStandaloneServer();
+  ensurePatchedServerJs();
 
   // Stub any .js files missing .nft.json traces in server/ (stubs, edge, API routes)
   stubMissingNftTraces(join(NEXT, "server"));

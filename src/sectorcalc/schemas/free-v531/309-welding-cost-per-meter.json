@@ -2,11 +2,11 @@
   "tool_id": "FREE_V531_015",
   "tool_key": "welding-cost-per-meter",
   "tool_name": "Welding Cost per Meter Calculator",
-  "category": "welding_steel · SuperV4 Decision Support",
+  "category": "Welding & Steel",
   "scope": "Welding Cost per Meter Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
   "primary_operation": "welding-cost-per-meter_decision_screening",
   "decision_context": {
-    "system_boundary": "Welding Cost per Meter Calculator evaluates one controlled decision boundary inside welding_steel and excludes broad ERP, dashboard, or multi-module workflows.",
+    "system_boundary": "Welding Cost per Meter Calculator evaluates one controlled decision boundary inside Welding & Steel and excludes broad ERP, dashboard, or multi-module workflows.",
     "single_operation_scope": "Welding Cost per Meter Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the welding cost per meter calculator case.",
@@ -95,7 +95,7 @@
   },
   "calculation_basis": {
     "method": "Deterministic formula execution with source-evidence validation",
-    "domain": "welding_steel",
+    "domain": "Welding & Steel",
     "evidence_standard": "SCREENING_ONLY_NOT_CERTIFICATION",
     "public_safety_rule": "No formula exposure, no exact reference reproduction."
   },
@@ -118,8 +118,8 @@
   "inputs": [
     {
       "id": "arc_on_ratio_percent",
-      "name": "Arc On Ratio Percent",
-      "symbol": "Arc On Ratio Percent",
+      "name": "Arc on Ratio Percent",
+      "symbol": null,
       "quantity_kind": "ratio_or_percent",
       "unit_selectable": true,
       "base_unit": null,
@@ -135,7 +135,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -146,18 +146,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "consumable_cost_per_kg",
-      "name": "Consumable Cost Per Kg",
-      "symbol": "Consumable Cost Per Kg",
+      "name": "Consumable Cost Per",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -173,7 +173,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -184,18 +184,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "consumable_kg_per_meter",
-      "name": "Consumable Kg Per Meter",
-      "symbol": "Consumable Kg Per Meter",
+      "name": "Consumable Kg per Meter",
+      "symbol": null,
       "quantity_kind": "number",
       "unit_selectable": true,
       "base_unit": null,
@@ -211,7 +211,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -222,18 +222,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "energy_cost_per_meter",
-      "name": "Energy Cost Per Meter",
-      "symbol": "Energy Cost Per Meter",
+      "name": "Energy Cost per Meter",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -249,7 +249,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -260,18 +260,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "labor_hourly_rate",
       "name": "Labor Hourly Rate",
-      "symbol": "Labor Hourly Rate",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -287,7 +287,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -298,18 +298,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "machine_hourly_rate",
       "name": "Machine Hourly Rate",
-      "symbol": "Machine Hourly Rate",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -325,7 +325,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -336,18 +336,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "shielding_gas_cost_per_meter",
-      "name": "Shielding Gas Cost Per Meter",
-      "symbol": "Shielding Gas Cost Per Meter",
+      "name": "Shielding Gas Cost per Meter",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -363,7 +363,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -374,18 +374,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "travel_speed_mm_min",
-      "name": "Travel Speed Mm Min",
-      "symbol": "Travel Speed Mm Min",
+      "name": "Travel Speed Mm Minimum",
+      "symbol": null,
       "quantity_kind": "number",
       "unit_selectable": true,
       "base_unit": null,
@@ -401,7 +401,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -412,13 +412,13 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     }
   ],
   "normalized_inputs": [
@@ -607,7 +607,7 @@
   "formulas": [
     {
       "id": "F1_NORM_arc_on_ratio_percent",
-      "name": "Normalize Arc On Ratio Percent",
+      "name": "Normalize Arc on Ratio Percent",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -627,7 +627,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Arc On Ratio Percent to calculation base unit.",
+      "public_proof_summary": "Normalizes Arc on Ratio Percent to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -635,7 +635,7 @@
     },
     {
       "id": "F2_NORM_consumable_cost_per_kg",
-      "name": "Normalize Consumable Cost Per Kg",
+      "name": "Normalize Consumable Cost Per",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -655,7 +655,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Consumable Cost Per Kg to calculation base unit.",
+      "public_proof_summary": "Normalizes Consumable Cost Per to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -663,7 +663,7 @@
     },
     {
       "id": "F3_NORM_consumable_kg_per_meter",
-      "name": "Normalize Consumable Kg Per Meter",
+      "name": "Normalize Consumable Kg per Meter",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -683,7 +683,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Consumable Kg Per Meter to calculation base unit.",
+      "public_proof_summary": "Normalizes Consumable Kg per Meter to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -691,7 +691,7 @@
     },
     {
       "id": "F4_NORM_energy_cost_per_meter",
-      "name": "Normalize Energy Cost Per Meter",
+      "name": "Normalize Energy Cost per Meter",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -711,7 +711,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Energy Cost Per Meter to calculation base unit.",
+      "public_proof_summary": "Normalizes Energy Cost per Meter to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -775,7 +775,7 @@
     },
     {
       "id": "F7_NORM_shielding_gas_cost_per_meter",
-      "name": "Normalize Shielding Gas Cost Per Meter",
+      "name": "Normalize Shielding Gas Cost per Meter",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -795,7 +795,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Shielding Gas Cost Per Meter to calculation base unit.",
+      "public_proof_summary": "Normalizes Shielding Gas Cost per Meter to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -803,7 +803,7 @@
     },
     {
       "id": "F8_NORM_travel_speed_mm_min",
-      "name": "Normalize Travel Speed Mm Min",
+      "name": "Normalize Travel Speed Mm Minimum",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -823,7 +823,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Travel Speed Mm Min to calculation base unit.",
+      "public_proof_summary": "Normalizes Travel Speed Mm Minimum to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -1046,7 +1046,7 @@
     "formula_version": "5.3.1",
     "prompt_version": "5.3.1",
     "generation_method": "automated_from_formula_registry",
-    "generation_date": "2026-07-06",
+    "generation_date": "2026-07-07",
     "source_formula": "welding-cost-per-meter",
     "tool_id": "FREE_V531_015",
     "tool_key": "welding-cost-per-meter",

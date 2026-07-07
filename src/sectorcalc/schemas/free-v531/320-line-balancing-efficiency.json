@@ -2,11 +2,11 @@
   "tool_id": "FREE_V531_026",
   "tool_key": "line-balancing-efficiency",
   "tool_name": "Line Balancing Efficiency Calculator",
-  "category": "production_operations · SuperV4 Decision Support",
+  "category": "Production Operations",
   "scope": "Line Balancing Efficiency Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
   "primary_operation": "line-balancing-efficiency_decision_screening",
   "decision_context": {
-    "system_boundary": "Line Balancing Efficiency Calculator evaluates one controlled decision boundary inside production_operations and excludes broad ERP, dashboard, or multi-module workflows.",
+    "system_boundary": "Line Balancing Efficiency Calculator evaluates one controlled decision boundary inside Production Operations and excludes broad ERP, dashboard, or multi-module workflows.",
     "single_operation_scope": "Line Balancing Efficiency Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the line balancing efficiency calculator case.",
@@ -95,7 +95,7 @@
   },
   "calculation_basis": {
     "method": "Deterministic formula execution with source-evidence validation",
-    "domain": "production_operations",
+    "domain": "Production Operations",
     "evidence_standard": "SCREENING_ONLY_NOT_CERTIFICATION",
     "public_safety_rule": "No formula exposure, no exact reference reproduction."
   },
@@ -118,8 +118,8 @@
   "inputs": [
     {
       "id": "labor_cost_per_hour_per_station",
-      "name": "Labor Cost Per Hour Per Station",
-      "symbol": "Labor Cost Per Hour Per Station",
+      "name": "Labor Cost per Hour per Station",
+      "symbol": null,
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": null,
@@ -135,7 +135,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -146,18 +146,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "line_cycle_time_seconds",
       "name": "Line Cycle Time Seconds",
-      "symbol": "Line Cycle Time Seconds",
+      "symbol": null,
       "quantity_kind": "time",
       "unit_selectable": true,
       "base_unit": null,
@@ -173,7 +173,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -184,18 +184,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "number_of_stations",
-      "name": "Number Of Stations",
-      "symbol": "Number Of Stations",
+      "name": "Number of Stations",
+      "symbol": null,
       "quantity_kind": "count",
       "unit_selectable": true,
       "base_unit": null,
@@ -211,7 +211,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -222,18 +222,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "shift_hours",
       "name": "Shift Hours",
-      "symbol": "Shift Hours",
+      "symbol": null,
       "quantity_kind": "time",
       "unit_selectable": true,
       "base_unit": null,
@@ -249,7 +249,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -260,18 +260,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "total_task_time_seconds",
       "name": "Total Task Time Seconds",
-      "symbol": "Total Task Time Seconds",
+      "symbol": null,
       "quantity_kind": "time",
       "unit_selectable": true,
       "base_unit": null,
@@ -287,7 +287,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -298,13 +298,13 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     }
   ],
   "normalized_inputs": [
@@ -469,7 +469,7 @@
   "formulas": [
     {
       "id": "F1_NORM_labor_cost_per_hour_per_station",
-      "name": "Normalize Labor Cost Per Hour Per Station",
+      "name": "Normalize Labor Cost per Hour per Station",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -489,7 +489,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Labor Cost Per Hour Per Station to calculation base unit.",
+      "public_proof_summary": "Normalizes Labor Cost per Hour per Station to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -525,7 +525,7 @@
     },
     {
       "id": "F3_NORM_number_of_stations",
-      "name": "Normalize Number Of Stations",
+      "name": "Normalize Number of Stations",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -545,7 +545,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Number Of Stations to calculation base unit.",
+      "public_proof_summary": "Normalizes Number of Stations to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -818,7 +818,7 @@
     "formula_version": "5.3.1",
     "prompt_version": "5.3.1",
     "generation_method": "automated_from_formula_registry",
-    "generation_date": "2026-07-06",
+    "generation_date": "2026-07-07",
     "source_formula": "line-balancing-efficiency",
     "tool_id": "FREE_V531_026",
     "tool_key": "line-balancing-efficiency",

@@ -36,13 +36,12 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                 <img src={BRAND_ASSETS.logo.onDark} alt="SectorCalc Logo" className="footer-logo-img" loading="lazy" fetchPriority="low" />
               </Link>
               <p className="footer-tagline">
-                Audit-proof engineering calculations built on VDI, ISO, and DIN
-                standards. Digitize operational losses before they compound.
+                Review-ready industrial calculators for cost, risk, quality, production, energy and engineering decisions. Built for decision support, documentation and qualified review.
               </p>
               <div className="trust-badges">
-                <span className="badge">ISO 9001 Aligned</span>
-                <span className="badge">GDPR Compliant</span>
-                <span className="badge">Paddle Secure</span>
+                <span className="badge">Standards-context methodology</span>
+                <span className="badge">Privacy-first processing</span>
+                <span className="badge">Secure checkout</span>
               </div>
             </div>
 

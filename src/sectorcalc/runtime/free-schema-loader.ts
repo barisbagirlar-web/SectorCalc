@@ -276,13 +276,6 @@ export function getFreeToolSchema(toolKey: string): SuperV4Schema | null {
   // V5.4 Core — Check inline schema registry (same module scope, no tree-shaking).
   const rawSchema = getFreeV531SchemaRaw(toolKey);
   if (rawSchema) {
-    // Verify raw schema has expected properties
-    const hasToolKey = typeof (rawSchema as any).tool_key === 'string';
-    const hasToolName = typeof (rawSchema as any).tool_name === 'string';
-    if (!hasToolKey || !hasToolName) {
-      console.error(`[FREE_SCHEMA_LOADER] Raw schema for "${toolKey}" missing critical properties`, { hasToolKey, hasToolName });
-      return null;
-    }
     return normalizeFreeSchema(rawSchema as any);
   }
   loadAllSchemas(); const entry = loadedSchemas?.get(toolKey); return entry?.schema ?? null;

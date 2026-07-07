@@ -2,11 +2,11 @@
   "tool_id": "FREE_V531_003",
   "tool_key": "cutting-speed-feed-rpm",
   "tool_name": "Cutting Speed & Feed RPM Calculator",
-  "category": "machining_cnc · SuperV4 Decision Support",
+  "category": "Machining & CNC",
   "scope": "Cutting Speed & Feed RPM Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
   "primary_operation": "cutting-speed-feed-rpm_decision_screening",
   "decision_context": {
-    "system_boundary": "Cutting Speed & Feed RPM Calculator evaluates one controlled decision boundary inside machining_cnc and excludes broad ERP, dashboard, or multi-module workflows.",
+    "system_boundary": "Cutting Speed & Feed RPM Calculator evaluates one controlled decision boundary inside Machining & CNC and excludes broad ERP, dashboard, or multi-module workflows.",
     "single_operation_scope": "Cutting Speed & Feed RPM Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the cutting speed & feed rpm calculator case.",
@@ -95,7 +95,7 @@
   },
   "calculation_basis": {
     "method": "Deterministic formula execution with source-evidence validation",
-    "domain": "machining_cnc",
+    "domain": "Machining & CNC",
     "evidence_standard": "SCREENING_ONLY_NOT_CERTIFICATION",
     "public_safety_rule": "No formula exposure, no exact reference reproduction."
   },
@@ -118,8 +118,8 @@
   "inputs": [
     {
       "id": "cutting_speed_m_min",
-      "name": "Cutting Speed M Min",
-      "symbol": "Cutting Speed M Min",
+      "name": "Cutting Speed",
+      "symbol": null,
       "quantity_kind": "number",
       "unit_selectable": true,
       "base_unit": null,
@@ -135,7 +135,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -146,18 +146,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "feed_per_tooth_mm",
-      "name": "Feed Per Tooth Mm",
-      "symbol": "Feed Per Tooth Mm",
+      "name": "Feed per Tooth",
+      "symbol": null,
       "quantity_kind": "number",
       "unit_selectable": true,
       "base_unit": null,
@@ -173,7 +173,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -184,18 +184,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "max_chip_load_mm",
-      "name": "Max Chip Load Mm",
-      "symbol": "Max Chip Load Mm",
+      "name": "Maximum Chip Load",
+      "symbol": null,
       "quantity_kind": "engineering",
       "unit_selectable": true,
       "base_unit": null,
@@ -211,7 +211,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -222,18 +222,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "number_of_teeth",
-      "name": "Number Of Teeth",
-      "symbol": "Number Of Teeth",
+      "name": "Number of Teeth",
+      "symbol": null,
       "quantity_kind": "count",
       "unit_selectable": true,
       "base_unit": null,
@@ -249,7 +249,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -260,18 +260,18 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     },
     {
       "id": "tool_diameter_mm",
-      "name": "Tool Diameter Mm",
-      "symbol": "Tool Diameter Mm",
+      "name": "Tool Diameter",
+      "symbol": null,
       "quantity_kind": "geometry",
       "unit_selectable": true,
       "base_unit": null,
@@ -287,7 +287,7 @@
         "source": "User-entered value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_note": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "evidence_requirement": {
         "required": false,
@@ -298,13 +298,13 @@
           "Vendor or catalog data"
         ],
         "missing_evidence_behavior": "WARN",
-        "public_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+        "public_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
       },
       "formula_bindings": [],
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
-      "user_help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field.",
-      "help_text": "User-entered verified value only. Reference values are advisory and must not autofill this field."
+      "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
     }
   ],
   "normalized_inputs": [
@@ -469,7 +469,7 @@
   "formulas": [
     {
       "id": "F1_NORM_cutting_speed_m_min",
-      "name": "Normalize Cutting Speed M Min",
+      "name": "Normalize Cutting Speed",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -489,7 +489,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Cutting Speed M Min to calculation base unit.",
+      "public_proof_summary": "Normalizes Cutting Speed to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -497,7 +497,7 @@
     },
     {
       "id": "F2_NORM_feed_per_tooth_mm",
-      "name": "Normalize Feed Per Tooth Mm",
+      "name": "Normalize Feed per Tooth",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -517,7 +517,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Feed Per Tooth Mm to calculation base unit.",
+      "public_proof_summary": "Normalizes Feed per Tooth to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -525,7 +525,7 @@
     },
     {
       "id": "F3_NORM_max_chip_load_mm",
-      "name": "Normalize Max Chip Load Mm",
+      "name": "Normalize Maximum Chip Load",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -545,7 +545,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Max Chip Load Mm to calculation base unit.",
+      "public_proof_summary": "Normalizes Maximum Chip Load to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -553,7 +553,7 @@
     },
     {
       "id": "F4_NORM_number_of_teeth",
-      "name": "Normalize Number Of Teeth",
+      "name": "Normalize Number of Teeth",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -573,7 +573,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Number Of Teeth to calculation base unit.",
+      "public_proof_summary": "Normalizes Number of Teeth to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -581,7 +581,7 @@
     },
     {
       "id": "F5_NORM_tool_diameter_mm",
-      "name": "Normalize Tool Diameter Mm",
+      "name": "Normalize Tool Diameter",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -601,7 +601,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Tool Diameter Mm to calculation base unit.",
+      "public_proof_summary": "Normalizes Tool Diameter to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
@@ -818,7 +818,7 @@
     "formula_version": "5.3.1",
     "prompt_version": "5.3.1",
     "generation_method": "automated_from_formula_registry",
-    "generation_date": "2026-07-06",
+    "generation_date": "2026-07-07",
     "source_formula": "cutting-speed-feed-rpm",
     "tool_id": "FREE_V531_003",
     "tool_key": "cutting-speed-feed-rpm",

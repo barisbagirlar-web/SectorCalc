@@ -1,504 +1,233 @@
 "use client";
 
-import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
-import { CalculationFeedbackModal } from "@/components/feedback/CalculationFeedbackModal";
 import "@/styles/landing-page.css";
-
-interface Sector {
-  k: string;
-  name: string;
-  n: number;
-}
-
-interface Tool {
-  sec: string;
-  name: string;
-  eq: string;
-  slug: string;
-}
-
-interface ApiTool {
-  id: string;
-  title: string;
-  sector: string;
-  slug: string;
-  tags: string[];
-}
 
 export function LandingPageContent({
   freeCount = 0,
-  sectors = [],
-  tools = [],
 }: {
   freeCount?: number;
-  sectors?: Sector[];
-  tools?: Tool[];
 }) {
-  const [query, setQuery] = useState("");
-  const [debouncedQuery, setDebouncedQuery] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [calculators, setCalculators] = useState<ApiTool[]>([]);
-  const [expanded, setExpanded] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
-  const [openFeedback, setOpenFeedback] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  const getSectorToolCount = (sectorName: string): number => {
-    const term = sectorName.toLowerCase();
-    let sum = 0;
-    
-    sectors.forEach(s => {
-      const name = s.name.toLowerCase();
-      
-      if (term === "manufacturing") {
-        if (name.includes("manufacturing") || name.includes("production") || name.includes("imalat") || name.includes("uretim")) {
-          sum += s.n;
-        }
-      } else if (term === "workshops") {
-        if (name.includes("workshop") || name.includes("atolye") || name.includes("repair") || name.includes("tamir")) {
-          sum += s.n;
-        }
-      } else if (term === "engineering") {
-        if (name.includes("engineering") || name.includes("design") || name.includes("tasarim") || name.includes("technical") || name.includes("mechanical") || name.includes("makine") || name.includes("metal")) {
-          sum += s.n;
-        }
-      } else if (term === "construction") {
-        if (name.includes("construction") || name.includes("building") || name.includes("insaat") || name.includes("yapi")) {
-          sum += s.n;
-        }
-      } else if (term === "energy") {
-        if (name.includes("energy") || name.includes("enerji") || name.includes("electricity") || name.includes("power") || name.includes("carbon")) {
-          sum += s.n;
-        }
-      } else if (term === "logistics") {
-        if (name.includes("logistics") || name.includes("shipping") || name.includes("freight") || name.includes("transport") || name.includes("kargo") || name.includes("sevkiyat") || name.includes("routing")) {
-          sum += s.n;
-        }
-      } else if (term === "finance") {
-        if (name.includes("finance") || name.includes("accounting") || name.includes("finans") || name.includes("muhasebe") || name.includes("cost") || name.includes("maliyet") || name.includes("budget")) {
-          sum += s.n;
-        }
-      } else if (term === "business") {
-        if (name.includes("business") || name.includes("retail") || name.includes("commerce") || name.includes("perakende") || name.includes("store") || name.includes("hr") || name.includes("personnel") || name.includes("other") || name.includes("diger")) {
-          sum += s.n;
-        }
-      }
-    });
-    
-    return sum;
-  };
-
-  useEffect(() => {
-    if (tools && tools.length > 0) {
-      const mappedTools = tools.map((t) => ({
-        id: t.slug,
-        title: t.name,
-        sector: t.sec,
-        slug: t.slug,
-        tags: [t.eq].filter(Boolean),
-      }));
-      setCalculators(mappedTools);
-    }
-  }, [tools]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setDebouncedQuery(query), 200);
-    return () => clearTimeout(timer);
-  }, [query]);
-
-  const fuzzyMatch = (q: string, text: string) => {
-    const qLower = q.toLowerCase().trim();
-    const tLower = text?.toLowerCase() || "";
-    return qLower.split(/\s+/).every((word) => tLower.includes(word));
-  };
-
-  const matches = useMemo(() => {
-    if (!debouncedQuery || debouncedQuery.length < 2) return [];
-    return calculators.filter((c) =>
-      fuzzyMatch(debouncedQuery, c.title) ||
-      fuzzyMatch(debouncedQuery, c.sector) ||
-      (c.tags && c.tags.some((t) => fuzzyMatch(debouncedQuery, t)))
-    );
-  }, [debouncedQuery, calculators]);
-
-  const highlight = (text: string, q: string) => {
-    if (!q.trim()) return text;
-    const words = q.trim().split(/\s+/).filter(Boolean);
-    if (words.length === 0) return text;
-    const regex = new RegExp(`(${words.join('|')})`, 'gi');
-    return text.replace(regex, '<mark>$1</mark>');
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
-        setIsFocused(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    const handleKeydown = (e: KeyboardEvent) => {
-      if (e.key === "/" && document.activeElement !== inputRef.current) {
-        e.preventDefault();
-        inputRef.current?.focus();
-      }
-      if (e.key === "Escape") {
-        setQuery("");
-        inputRef.current?.blur();
-        setIsFocused(false);
-      }
-    };
-    document.addEventListener("keydown", handleKeydown);
-    return () => document.removeEventListener("keydown", handleKeydown);
-  }, []);
-
   return (
     <div className="claude-landing">
       <main>
         {/* HERO */}
         <section className="hero">
           <div className="wrap">
-            <p className="eyebrow">Trusted by industrial engineering teams</p>
-            <h1>Engineering-Grade Calculation &amp; Decision Platform</h1>
+            <p className="eyebrow">Industrial calculators for real production decisions</p>
+            <h1>Calculate cost, risk, downtime and engineering decisions before they become expensive mistakes.</h1>
             <p className="subhead">
-              {freeCount} standards-backed models for manufacturing, engineering, and operations. Built on ISO, ASME, VDI, and DIN references. Calculate, verify, and document your technical decisions.
+              SectorCalc helps technicians, operators, engineers, production managers and workshop owners turn field data into clear decisions: estimate the cost, check the risk, compare scenarios, diagnose failures, prepare FMEA RPN, and document the result for review.
             </p>
-
-            <div className="search-wrapper" id="searchWrapper" ref={wrapperRef}>
-              <input
-                ref={inputRef}
-                type="text"
-                id="searchInput"
-                placeholder={`Search ${freeCount} engineering calculators...`}
-                autoComplete="off"
-                aria-label="Search calculators"
-                value={query}
-                onChange={(e) => {
-                  setQuery(e.target.value);
-                  setExpanded(false);
-                  setIsFocused(true);
-                }}
-                onFocus={() => setIsFocused(true)}
-              />
-              <span className="search-kbd">/</span>
-              {isFocused && debouncedQuery.length >= 2 && (
-                <div id="searchResults" className="search-results">
-                  {matches.length === 0 ? (
-                    <div className="search-result-item">
-                      <span className="result-title">No results found</span>
-                    </div>
-                  ) : (
-                    <>
-                      {(expanded ? matches : matches.slice(0, 10)).map((c) => (
-                        <Link
-                          key={c.id}
-                          href={`/tools/generated/${c.slug}`}
-                          className="search-result-item"
-                        >
-                          <span
-                            className="result-title"
-                            dangerouslySetInnerHTML={{ __html: highlight(c.title, debouncedQuery) }}
-                          ></span>
-                          <span className="result-sector">{c.sector}</span>
-                        </Link>
-                      ))}
-                      {matches.length > 10 && !expanded && (
-                        <button
-                          className="show-more-btn"
-                          onClick={() => setExpanded(true)}
-                        >
-                          Show {matches.length - 10} more results
-                        </button>
-                      )}
-                    </>
-                  )}
-                </div>
-              )}
-            </div>
 
             <div className="cta-row">
-              <Link href="#sectorGrid" className="btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('sectorGrid')?.scrollIntoView({ behavior: 'smooth' }); }}>Browse Calculation Models</Link>
-              <Link href="/pricing" className="btn-secondary">Explore Pro Features</Link>
+              <Link href="/free-tools" className="btn-primary">Browse Free Tools</Link>
+              <Link href="/pro-tools" className="btn-secondary">Explore Pro Tools</Link>
+              <Link href="/engineering-diagnostics" className="btn-tertiary">Start Engineering Diagnostics</Link>
             </div>
 
-            <div className="standards-strip">
-              <span>Verified against:</span>
-              <span>ISO 9001</span><span>ASME BPVC</span><span>VDI 2230</span>
-              <span>DIN EN 1990</span><span>IEC 60071</span><span>EN 1090</span>
+            <div className="trust-row">
+              <span>{freeCount || 195}+ Pro calculators</span>
+              <span>Free industrial calculators</span>
+              <span>Engineering Diagnostics with PDF reports</span>
+              <span>FMEA RPN risk scoring</span>
+              <span>Real case studies</span>
+              <span>Pay-as-you-go credits</span>
             </div>
           </div>
         </section>
 
-        {/* TRUST STRIP */}
-        <section className="corp-trust-strip">
+        {/* OUTCOME CARDS */}
+        <section className="sec-section outcome-section">
           <div className="wrap">
-            <h3 className="trust-title">Built for Industrial Decision Workflows</h3>
-            <div className="trust-items">
-              <span>Manufacturing & Workshops</span>
-              <span>Engineering & Construction</span>
-              <span>Energy & Operations</span>
-              <span>Logistics & Service</span>
-              <span>Finance & Business</span>
+            <div className="grid outcome-grid">
+              <div className="outcome-card">
+                <h3>Find the number behind the problem</h3>
+                <p>Calculate machine cost, OEE, scrap, quote margin, energy loss, payback, downtime, FMEA RPN and engineering risk using structured inputs instead of rough guesses.</p>
+                <Link href="/free-tools" className="btn-link">Search calculators &rarr;</Link>
+              </div>
+              <div className="outcome-card">
+                <h3>Decide what to do next</h3>
+                <p>Each result must explain the decision: proceed, hold, reprice, inspect, repair, reduce risk, escalate or prepare a review-ready report.</p>
+                <Link href="/pro-tools" className="btn-link">Explore Pro Tools &rarr;</Link>
+              </div>
+              <div className="outcome-card">
+                <h3>Diagnose field issues from evidence</h3>
+                <p>Upload photos, add measurements, confirm context and generate an Engineering Diagnostics report with root-cause hypotheses, cost exposure, NCR/CAPA drafts and verification records.</p>
+                <Link href="/engineering-diagnostics" className="btn-link">Start Diagnostics &rarr;</Link>
+              </div>
             </div>
-            <p className="trust-support">
-              Use SectorCalc to screen decisions, compare scenarios, and identify hidden cost, risk, waste, and performance gaps.
+          </div>
+        </section>
+
+        {/* PROBLEM SECTION */}
+        <section className="sec-section problem-section">
+          <div className="wrap">
+            <h2>Built for the moments where a wrong estimate costs money</h2>
+            <p className="section-intro">
+              SectorCalc is not a general calculator library. It is built for the daily decisions where missing one variable can create scrap, rework, idle machines, bad quotes, energy loss, quality disputes or delayed projects.
             </p>
-          </div>
-        </section>
-
-        {/* CATEGORY SECTION */}
-        <section className="sec-section corp-categories" id="sectorGrid">
-          <div className="wrap">
-            <div className="sec-head">
-              <h2>Find the Right Calculation Model by Sector</h2>
-              <div className="meta">Choose a sector and start with the model that matches your workflow.</div>
-            </div>
-            
-            <div className="grid cat-grid">
-              <div className="cat-card">
-                <h4>Manufacturing {getSectorToolCount("manufacturing") > 0 && `(${getSectorToolCount("manufacturing")})`}</h4>
-                <p>Machine hour rate, OEE, scrap, setup time, throughput, and production cost models.</p>
-                <Link href="/tools/category/imalat-uretim" className="btn-link">
-                  Browse {getSectorToolCount("manufacturing") > 0 ? `${getSectorToolCount("manufacturing")} ` : ""}Manufacturing Models &rarr;
-                </Link>
+            <div className="problem-list">
+              <div className="problem-item">
+                <span className="problem-label">CNC / machining:</span>
+                <span className="problem-text">wrong cycle time, weak hourly rate, tool wear, low OEE, underpriced jobs.</span>
               </div>
-              <div className="cat-card">
-                <h4>Workshops {getSectorToolCount("workshops") > 0 && `(${getSectorToolCount("workshops")})`}</h4>
-                <p>Quote pricing, labor rate, job costing, material yield, and margin models for shop-floor decisions.</p>
-                <Link href="/tools/category/bakim-guvenilirlik" className="btn-link">
-                  Browse {getSectorToolCount("workshops") > 0 ? `${getSectorToolCount("workshops")} ` : ""}Workshop Models &rarr;
-                </Link>
+              <div className="problem-item">
+                <span className="problem-label">Welding / fabrication:</span>
+                <span className="problem-text">weld cost, rework risk, WPS preheat checks, distortion, material and labor exposure.</span>
               </div>
-              <div className="cat-card">
-                <h4>Engineering {getSectorToolCount("engineering") > 0 && `(${getSectorToolCount("engineering")})`}</h4>
-                <p>Torque, tolerance, load, sizing, conversion, and technical calculation tools for engineering checks.</p>
-                <Link href="/tools/category/makine-tasarim" className="btn-link">
-                  Browse {getSectorToolCount("engineering") > 0 ? `${getSectorToolCount("engineering")} ` : ""}Engineering Models &rarr;
-                </Link>
+              <div className="problem-item">
+                <span className="problem-label">Quality / maintenance:</span>
+                <span className="problem-text">FMEA RPN, gage error, calibration drift, recurring defects, downtime and CAPA evidence.</span>
               </div>
-              <div className="cat-card">
-                <h4>Construction {getSectorToolCount("construction") > 0 && `(${getSectorToolCount("construction")})`}</h4>
-                <p>Concrete, volume, quantity, material, roof, labor, and project estimation models.</p>
-                <Link href="/tools/category/insaat-yapi" className="btn-link">
-                  Browse {getSectorToolCount("construction") > 0 ? `${getSectorToolCount("construction")} ` : ""}Construction Models &rarr;
-                </Link>
+              <div className="problem-item">
+                <span className="problem-label">Construction / engineering:</span>
+                <span className="problem-text">quantity checks, roof/load estimates, concrete and steel cost exposure, project delay risk.</span>
               </div>
-              <div className="cat-card">
-                <h4>Energy {getSectorToolCount("energy") > 0 && `(${getSectorToolCount("energy")})`}</h4>
-                <p>kWh, compressor leak, carbon footprint, peak load, efficiency, and consumption models.</p>
-                <Link href="/tools/category/enerji-surdurulebilirlik" className="btn-link">
-                  Browse {getSectorToolCount("energy") > 0 ? `${getSectorToolCount("energy")} ` : ""}Energy Models &rarr;
-                </Link>
+              <div className="problem-item">
+                <span className="problem-label">Energy / facilities:</span>
+                <span className="problem-text">compressed air leaks, kWh cost, peak demand, HVAC load, compressor loss and carbon exposure.</span>
               </div>
-              <div className="cat-card">
-                <h4>Logistics {getSectorToolCount("logistics") > 0 && `(${getSectorToolCount("logistics")})`}</h4>
-                <p>Freight, route, fuel, dimensional weight, delivery cost, and service efficiency models.</p>
-                <Link href="/tools/category/lojistik-tedarik-zinciri" className="btn-link">
-                  Browse {getSectorToolCount("logistics") > 0 ? `${getSectorToolCount("logistics")} ` : ""}Logistics Models &rarr;
-                </Link>
+              <div className="problem-item">
+                <span className="problem-label">Logistics / inventory:</span>
+                <span className="problem-text">freight cost, EOQ, stock risk, route loss, warehouse layout and working capital impact.</span>
               </div>
-              <div className="cat-card">
-                <h4>Finance {getSectorToolCount("finance") > 0 && `(${getSectorToolCount("finance")})`}</h4>
-                <p>VAT, payroll, depreciation, loan, margin, break-even, and cash impact models.</p>
-                <Link href="/tools/category/maliyet-butceleme" className="btn-link">
-                  Browse {getSectorToolCount("finance") > 0 ? `${getSectorToolCount("finance")} ` : ""}Finance Models &rarr;
-                </Link>
-              </div>
-              <div className="cat-card">
-                <h4>Retail & Business {getSectorToolCount("business") > 0 && `(${getSectorToolCount("business")})`}</h4>
-                <p>Stock, waste, discount, margin, pricing, and operational cost models.</p>
-                <Link href="/tools/category/proje-yatirim" className="btn-link">
-                  Browse {getSectorToolCount("business") > 0 ? `${getSectorToolCount("business")} ` : ""}Business Models &rarr;
-                </Link>
+              <div className="problem-item">
+                <span className="problem-label">Finance / controlling:</span>
+                <span className="problem-text">break-even, margin leakage, payback, NPV, IRR, cash-flow gap and pricing decisions.</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* WHY SECTORCALC */}
-        <section className="sec-section why-section">
+        {/* PRODUCT SYSTEM */}
+        <section className="sec-section product-system-section">
           <div className="wrap">
-            <div className="sec-head">
-              <h2>Calculations Built for Audit and Review</h2>
-              <div className="meta">A calculation is useful only when the result is fully explainable. SectorCalc is designed to document the logic behind the output.</div>
-            </div>
-            <div className="grid feature-grid">
-              <div className="feature-card">
-                <h4>Transparent Formula Logic</h4>
-                <p>Understand exactly what the model measures, how your inputs affect the result, and where input variations can alter the output.</p>
-              </div>
-              <div className="feature-card">
-                <h4>Tolerance & Risk Zones</h4>
-                <p>Classify results into practical decision zones: optimal, acceptable, watch, warning, or professional review recommended.</p>
-              </div>
-              <div className="feature-card">
-                <h4>Assumptions & Limitations</h4>
-                <p>Review declared operational assumptions and mathematical limitations before relying on a result for your technical decisions.</p>
-              </div>
-              <div className="feature-card">
-                <h4>Professional Review Triggers</h4>
-                <p>Know exactly when the result indicates a condition that requires escalation to a qualified professional or a site-specific assessment.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FREE VS PRO */}
-        <section className="sec-section pricing-split">
-          <div className="wrap">
-            <h2>Scalable Calculation Logic: Free and Pro Tiers</h2>
-            <div className="split-grid">
-              <div className="split-col free-col">
+            <h2>One platform. Four decision paths.</h2>
+            <div className="grid product-grid">
+              <div className="product-card">
                 <h3>Free Tools</h3>
-                <p>Use our open tools for fast estimates on production, energy, logistics, and finance questions.</p>
-                <ul>
-                  <li>Instant, formula-based results</li>
-                  <li>No sign-up or credit card required</li>
-                  <li>Basic result interpretation</li>
-                  <li>Calculation transparency where applicable</li>
-                  <li>Practical starting point for everyday decisions</li>
-                </ul>
-                <Link href="/free-tools" className="btn-primary">Browse Free Tools</Link>
+                <p>Start with fast industrial calculators for everyday checks: cost, margin, energy, production, logistics, finance and basic engineering questions.</p>
+                <Link href="/free-tools" className="btn-link">Browse Free Tools &rarr;</Link>
               </div>
-              <div className="split-col pro-col">
-                <h3>Pro Platform</h3>
-                <p>Upgrade when the decision requires deeper inputs, scenario analysis, tolerance guidance, and audit-ready reports.</p>
-                <ul>
-                  <li>Advanced formula logic and variable control</li>
-                  <li>Deeper interpretation and sensitivity analysis</li>
-                  <li>Tolerance and risk classification zones</li>
-                  <li>Engineering authority and standards validation</li>
-                  <li>Decision summaries and exportable reports</li>
-                </ul>
-                <Link href="/free-tools" className="btn-secondary">Explore Free Tools</Link>
+              <div className="product-card">
+                <h3>Pro Tools</h3>
+                <p>Use deeper calculators when the decision needs sensitivity, tolerance guidance, business impact, scenario comparison, uncertainty notes, PDF output or review-ready documentation.</p>
+                <Link href="/pro-tools" className="btn-link">Explore Pro Tools &rarr;</Link>
+              </div>
+              <div className="product-card">
+                <h3>Engineering Diagnostics</h3>
+                <p>Use photos, measurements and field context to create structured diagnostic reports for visible defects, failures, quality issues, maintenance problems and corrective-action discussions.</p>
+                <Link href="/engineering-diagnostics" className="btn-link">Start Engineering Diagnostics &rarr;</Link>
+              </div>
+              <div className="product-card">
+                <h3>FMEA RPN Calculator</h3>
+                <p>Score severity, occurrence and detection, rank failure modes, identify the highest-risk causes and turn quality discussions into a clear action list.</p>
+                <Link href="/calculators/fmea-rpn" className="btn-link">Open FMEA RPN Calculator &rarr;</Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* FORMULA TRANSPARENCY */}
-        <section className="sec-section transparency-section">
+        {/* CASE STUDIES */}
+        <section className="sec-section casestudies-section">
           <div className="wrap">
-            <h2>Formula-Backed Results You Can Explain</h2>
-            <p className="section-desc">SectorCalc is built so calculation outputs can expose formula logic, variable definitions, tolerance boundaries, assumptions, and professional review triggers.</p>
-            <div className="flex-cards">
-              <div className="card">What was calculated</div>
-              <div className="card">Why each input matters</div>
-              <div className="card">How the result should be interpreted</div>
-              <div className="card">When the result needs review</div>
+            <h2>Real calculation workflows, real operational impact</h2>
+            <p className="section-intro">
+              SectorCalc case studies show how calculation-backed decisions can expose wasted cost, weak process controls, quote leakage and avoidable operational losses. Company names are anonymized where required.
+            </p>
+            <div className="grid cs-grid">
+              <div className="cs-card">
+                <h4>CNC workshop</h4>
+                <p>Quote leakage, machining cost, OEE and annual savings.</p>
+              </div>
+              <div className="cs-card">
+                <h4>Energy / carbon</h4>
+                <p>Consumption, efficiency gap and annual savings.</p>
+              </div>
+              <div className="cs-card">
+                <h4>Welding / metal</h4>
+                <p>Rework, weld cost and corrective-action impact.</p>
+              </div>
+              <div className="cs-card">
+                <h4>Automotive supply chain</h4>
+                <p>5S audit score improvement and operational savings.</p>
+              </div>
             </div>
             <div className="cta-center">
-              <Link href="/calculator-library" className="btn-primary">Search Calculators</Link>
+              <Link href="/case-studies" className="btn-primary">View Case Studies</Link>
             </div>
           </div>
         </section>
 
-        {/* PROFESSIONAL USE CASES */}
-        <section className="sec-section usecases-section">
+        {/* METHODOLOGY */}
+        <section className="sec-section methodology-section">
           <div className="wrap">
-            <h2>Built for Workflows Where Minor Variances Cause Major Costs</h2>
-            <div className="uc-grid">
-              <div className="uc-card">
-                <h4>Production & Operations</h4>
-                <p><strong>Challenge:</strong> Scrap, downtime, setup delays, and weak quoting models erode margins.</p>
-                <p><strong>Solution:</strong> Convert shop-floor inputs into measurable cost, time, and performance metrics.</p>
-              </div>
-              <div className="uc-card">
-                <h4>Workshops & Fabrication</h4>
-                <p><strong>Challenge:</strong> Jobs are often priced from estimation rather than modeled cost data.</p>
-                <p><strong>Solution:</strong> Compare material, labor, setup, overhead, and margin before finalizing a quote.</p>
-              </div>
-              <div className="uc-card">
-                <h4>Technical Engineering</h4>
-                <p><strong>Challenge:</strong> Engineering checks require transparent formula logic and documented assumptions.</p>
-                <p><strong>Solution:</strong> Turn declared parameters into reviewable, standards-backed calculation outputs.</p>
-              </div>
-              <div className="uc-card">
-                <h4>Finance & Controlling</h4>
-                <p><strong>Challenge:</strong> Margins, taxes, payroll, loans, and cash impacts are often realized too late.</p>
-                <p><strong>Solution:</strong> Screen financial scenarios and run sensitivity analysis before decisions lock.</p>
-              </div>
-              <div className="uc-card">
-                <h4>Energy & Facilities</h4>
-                <p><strong>Challenge:</strong> Leaks, inefficient equipment, and peak demands create invisible financial losses.</p>
-                <p><strong>Solution:</strong> Translate consumption variables and efficiency gaps into direct cost signals.</p>
-              </div>
-              <div className="uc-card">
-                <h4>Supply Chain & Inventory</h4>
-                <p><strong>Challenge:</strong> Demand forecast errors, lead time variability, multi-tier visibility gaps, and working capital inefficiencies cascade across global networks.</p>
-                <p><strong>Solution:</strong> Transform inventory parameters, supplier constraints, and demand signals into optimized stock levels and cash-flow impacts.</p>
-              </div>
+            <h2>What every serious calculation should show</h2>
+            <div className="grid meth-grid">
+              <div className="meth-card">What was calculated</div>
+              <div className="meth-card">Which inputs changed the result</div>
+              <div className="meth-card">Where the tolerance or risk zone starts</div>
+              <div className="meth-card">What can flip the decision</div>
+              <div className="meth-card">What evidence is missing</div>
+              <div className="meth-card">What action should be taken next</div>
+              <div className="meth-card meth-card-wide">When qualified professional review is required</div>
             </div>
           </div>
         </section>
 
-        {/* SOCIAL PROOF */}
-        <section className="sec-section community-section">
+        {/* FMEA FEATURE */}
+        <section className="sec-section fmea-section">
           <div className="wrap">
-            <h2>User Feedback &amp; Reviews</h2>
-            <p className="section-desc">
-              SectorCalc feedback is manually reviewed before publication. We don&apos;t publish fake reviews or paid testimonials.
+            <h2>FMEA RPN for quality, maintenance and production risk</h2>
+            <p className="section-intro">
+              Use FMEA RPN when a defect, failure mode or process weakness must be ranked before action. Enter severity, occurrence and detection values, identify the highest-risk failure modes, and produce a clear mitigation list for review.
             </p>
-            
-            <div className="empty-feedback" style={{
-              background: "var(--surface)",
-              border: "2px dashed var(--border-strong)",
-              borderRadius: "12px",
-              padding: "48px 32px",
-              marginBottom: "32px",
-              textAlign: "center"
-            }}>
-              <div style={{ fontSize: "48px", marginBottom: "16px" }}>💬</div>
-              <h3 style={{
-                fontFamily: "var(--serif)",
-                fontSize: "20px",
-                fontWeight: 600,
-                color: "var(--ink)",
-                marginBottom: "12px"
-              }}>
-                Be the First to Share Your Experience
-              </h3>
-              <p style={{
-                color: "var(--muted)",
-                fontSize: "14.5px",
-                lineHeight: 1.6,
-                marginBottom: "24px",
-                maxWidth: "480px",
-                marginLeft: "auto",
-                marginRight: "auto"
-              }}>
-                Help others by sharing how you used SectorCalc in a real calculation workflow.
-              </p>
-              <button
-                onClick={() => setOpenFeedback(true)}
-                className="btn-primary"
-                style={{
-                  border: "none",
-                  cursor: "pointer",
-                  fontFamily: "var(--sans)",
-                  fontWeight: 600,
-                  fontSize: "15px"
-                }}
-              >
-                Share Feedback
-              </button>
+            <ul className="feature-bullets">
+              <li>Rank failure modes by RPN</li>
+              <li>Separate high-risk issues from noise</li>
+              <li>Support NCR, CAPA, maintenance and quality meetings</li>
+              <li>Connect risk priority to cost, downtime and rework exposure</li>
+              <li>Use Pro reports when documentation is needed</li>
+            </ul>
+            <div className="cta-center">
+              <Link href="/calculators/fmea-rpn" className="btn-primary">Open FMEA RPN Calculator</Link>
             </div>
           </div>
         </section>
 
-        {/* FINAL CTA */}
-        <section className="sec-section final-cta">
+        {/* DIAGNOSTICS FEATURE */}
+        <section className="sec-section diagnostics-section">
+          <div className="wrap">
+            <h2>Engineering Diagnostics for field photos, failures and defects</h2>
+            <p className="section-intro">
+              Upload field photos, add measurements and describe the issue. SectorCalc helps structure the investigation with visible observations, measurement confidence, root-cause hypotheses, cost-at-risk, corrective-action drafts and a verification record.
+            </p>
+            <ul className="feature-bullets">
+              <li>CNC, welding, steel, concrete, electrical and mechanical domains</li>
+              <li>Photo-based issue capture</li>
+              <li>Measurement and calibration context</li>
+              <li>NCR / CAPA draft support</li>
+              <li>PDF report and verification hash</li>
+              <li>Decision-support only; qualified review required</li>
+            </ul>
+            <div className="cta-center">
+              <Link href="/engineering-diagnostics" className="btn-primary">Start Engineering Diagnostics</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA BAND */}
+        <section className="sec-section cta-band">
           <div className="wrap text-center">
-            <h2>Start With the Model That Matches Your Decision</h2>
-            <p className="meta-subtitle">Use free tools for fast checks. Use the Pro Platform when the result requires deeper explanation, tolerance analysis, or audit-ready documentation.</p>
-            
+            <h2>Start with the decision you need to make today.</h2>
+            <p className="cta-band-text">
+              Use a free calculator for a quick check. Use Pro when the result affects price, production, quality, energy cost, rework, downtime, safety margin or customer commitment.
+            </p>
             <div className="cta-row main-actions center">
               <Link href="/free-tools" className="btn-primary">Browse Free Tools</Link>
-              <Link href="/free-tools" className="btn-secondary">Explore Free Tools</Link>
+              <Link href="/pro-tools" className="btn-secondary">Explore Pro Tools</Link>
+              <Link href="/case-studies" className="btn-secondary">View Case Studies</Link>
             </div>
           </div>
         </section>
@@ -506,20 +235,10 @@ export function LandingPageContent({
         {/* SEO BLOCK */}
         <section className="seo-block">
           <div className="wrap">
-            <p>SectorCalc provides professional calculation models for manufacturing, engineering, fabrication, construction, logistics, energy, finance, and business operations. Use the platform to estimate costs, conduct sensitivity analysis, verify engineering outputs, and document technical decisions with fully transparent calculation logic based on global standards.</p>
+            <p>SectorCalc provides industrial calculators for manufacturing, engineering, workshops, quality, maintenance, energy, construction, logistics, and finance. Use the platform to calculate cost, risk, downtime, FMEA RPN, OEE, quotes, energy loss and engineering diagnostics with review-ready decision reports. Review-ready industrial calculators for cost, risk, quality, production, energy and engineering decisions. Built for decision support, documentation and qualified review.</p>
           </div>
         </section>
       </main>
-
-      {openFeedback && (
-        <CalculationFeedbackModal
-          toolSlug=""
-          toolType="free"
-          locale="en"
-          routePath="/"
-          onClose={() => setOpenFeedback(false)}
-        />
-      )}
     </div>
   );
 }

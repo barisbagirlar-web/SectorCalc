@@ -76,31 +76,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── Require productKey ────────────────────────────────────────────
-    if (!rawProductKey) {
-      return NextResponse.json(
-        { error: "productKey is required" },
-        { status: 400 },
-      );
-    }
-
-    // ── Require stable user reference ─────────────────────────────────
-    if (!rawUserId) {
-      return NextResponse.json(
-        {
-          error:
-            "userId is required. Authenticate before creating a checkout session.",
-        },
-        { status: 401 },
-      );
-    }
-
-    // ── BARIS_PRO_PURCHASE: resolve from Baris product registry ──────
+    // ── BARIS_PRO_PURCHASE: does not need productKey, resolves from Baris registry ──
     if (rawIntent === "BARIS_PRO_PURCHASE") {
       if (!rawToolKey) {
         return NextResponse.json(
           { error: "toolKey is required for BARIS_PRO_PURCHASE" },
           { status: 400 },
+        );
+      }
+      if (!rawUserId) {
+        return NextResponse.json(
+          {
+            error:
+              "userId is required. Authenticate before creating a checkout session.",
+          },
+          { status: 401 },
         );
       }
       const product = getBarisProduct(rawToolKey);
@@ -153,6 +143,25 @@ export async function POST(req: NextRequest) {
         provider: "PADDLE",
         paymentProductType: product.paymentProductType,
       });
+    }
+
+    // ── Require productKey for non-Baris purchases ────────────────────
+    if (!rawProductKey) {
+      return NextResponse.json(
+        { error: "productKey is required" },
+        { status: 400 },
+      );
+    }
+
+    // ── Require stable user reference for standard purchases ──────────
+    if (!rawUserId) {
+      return NextResponse.json(
+        {
+          error:
+            "userId is required. Authenticate before creating a checkout session.",
+        },
+        { status: 401 },
+      );
     }
 
     // ── Resolve Paddle price server-side ──────────────────────────────
