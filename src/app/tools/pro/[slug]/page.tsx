@@ -12,6 +12,7 @@ import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schem
 import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 import { getBarisToolCategory } from "@/sectorcalc/formulas/pro-v531/baris-readiness-data";
 import { ProToolAssistedDossier } from "@/components/pro-commerce/ProToolAssistedDossier";
+import { ProToolPaywallGate } from "@/components/pro-commerce/ProToolPaywallGate";
 import "server-only";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
@@ -81,11 +82,13 @@ export default async function ProToolDetailPage({
     notFound();
   }
 
-  // BLOCKED_SOURCE_REQUIRED tools render an assisted dossier CTA
+  // BLOCKED_SOURCE_REQUIRED and BLOCKED_RUNTIME_CONTRACT_MISMATCH tools
+  // render an assisted dossier CTA instead of the calculator form
   const barisEntry = getBarisToolCategory(slug);
   const isBlockedSource = barisEntry?.category === "BLOCKED_SOURCE_REQUIRED";
+  const isBlockedRuntime = barisEntry?.category === "BLOCKED_RUNTIME_CONTRACT_MISMATCH";
 
-  if (isBlockedSource) {
+  if (isBlockedSource || isBlockedRuntime) {
     return (
       <PageLayout>
         <ProToolAssistedDossier toolKey={slug} toolName={schema.tool_name} />
@@ -96,12 +99,14 @@ export default async function ProToolDetailPage({
   return (
     <PageLayout>
       <article aria-label={schema.tool_name} className="sc-v531-shell">
-        <ProToolSessionWrapper
-          schema={schema}
-          toolKey={slug}
-          executeEndpoint="/api/pro-calculator/execute"
-          initialProfileMode="engineering"
-        />
+        <ProToolPaywallGate toolName={slug}>
+          <ProToolSessionWrapper
+            schema={schema}
+            toolKey={slug}
+            executeEndpoint="/api/pro-calculator/execute"
+            initialProfileMode="engineering"
+          />
+        </ProToolPaywallGate>
       </article>
     </PageLayout>
   );
