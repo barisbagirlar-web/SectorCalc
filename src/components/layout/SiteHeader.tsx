@@ -70,18 +70,20 @@ export function SiteHeader({
   const [openMenu,setOpenMenu]=useState<string | null>(null);
   const [mobileOpen,setMobileOpen]=useState(false);
   const [mobileSection,setMobileSection]=useState<string | null>(null);
+  const [searchQuery,setSearchQuery]=useState('');
+  const handleSearch=(e:React.FormEvent)=>{e.preventDefault();};
 
-  const navRef=useRef(null);
-  const closeTimer=useRef(null);
+  const navRef=useRef<HTMLElement>(null);
+  const closeTimer=useRef<ReturnType<typeof setTimeout>>(null);
 
-  const openWithIntent=useCallback((m)=>{ if(closeTimer.current)clearTimeout(closeTimer.current); setOpenMenu(m); },[]);
+  const openWithIntent=useCallback((m:string)=>{ if(closeTimer.current)clearTimeout(closeTimer.current); setOpenMenu(m); },[]);
   const closeWithIntent=useCallback(()=>{ if(closeTimer.current)clearTimeout(closeTimer.current); closeTimer.current=setTimeout(()=>setOpenMenu(null),120); },[]);
 
   useEffect(()=>{
-    function onClick(e){
-      if(navRef.current && !navRef.current.contains(e.target)) setOpenMenu(null);
+    function onClick(e:MouseEvent){
+      if(navRef.current && !navRef.current.contains(e.target as Node)) setOpenMenu(null);
     }
-    function onKey(e){ if(e.key==='Escape'){ setOpenMenu(null); } }
+    function onKey(e:KeyboardEvent){ if(e.key==='Escape'){ setOpenMenu(null); } }
     document.addEventListener('mousedown',onClick);
     document.addEventListener('keydown',onKey);
     return ()=>{ document.removeEventListener('mousedown',onClick); document.removeEventListener('keydown',onKey); };
@@ -93,11 +95,11 @@ export function SiteHeader({
     <>
       <style>{`
         .sc-h{
-          --bg:#FAF8F2;--surface:#FFFFFF;--text:#0F172A;--muted:#64748B;
-          --hint:#94A3B8;--accent:#2563EB;--accent-dk:#1D4ED8;
-          --border:rgba(15,23,42,0.08);--border-2:rgba(15,23,42,0.14);
-          --mega-shadow:0 16px 48px rgba(15,23,42,0.14);
-          font-family:'DM Sans','SF Pro Text',-apple-system,BlinkMacSystemFont,sans-serif;
+          --bg:#FAF8F2;--surface:#FFFFFF;--text:#1A1915;--muted:#696764;
+          --hint:#94A3B8;--accent:#BD5D3A;--accent-dk:#A34D2E;
+          --border:rgba(26,25,21,0.10);--border-2:rgba(26,25,21,0.18);
+          --mega-shadow:0 16px 48px rgba(26,25,21,0.14);
+          font-family:var(--font-inter),'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
           position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);
         }
         .sc-h *,.sc-h *::before,.sc-h *::after{box-sizing:border-box;}
