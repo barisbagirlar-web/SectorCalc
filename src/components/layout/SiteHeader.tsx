@@ -190,7 +190,7 @@ export function SiteHeader({
         <div className="sc-inner">
 
           <Link href="/" className="sc-logo" aria-label="SectorCalc home">
-            <img src={BRAND_ASSETS.logo.headerDefault} alt="SectorCalc Logo" className="sc-logo-img" />
+            <img src={BRAND_ASSETS.logo.headerDefault} alt="SectorCalc Logo" className="sc-logo-img" fetchPriority="low" />
           </Link>
 
           <nav className="sc-nav" ref={navRef}>

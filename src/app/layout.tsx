@@ -14,7 +14,14 @@ import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap
 import { THEME_COLOR } from "@/config/organization-trust";
 import { metadataRobots } from "@/lib/infrastructure/seo/seo-indexing-control";
 import "./globals.css";
-import "./site-styles.ts";
+/* Base design system — always loaded */
+import "../styles/industrial-ui.css";
+import "../styles/industrial-os.css";
+import "../styles/apple-ui.css";
+import "../styles/contrast-system.css";
+/* Eager CSS for client components rendered on every page */
+import "../lib/ui-shared/auth/auth-status.css";
+/* Page-specific CSS is imported in the components that use its selectors */
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],

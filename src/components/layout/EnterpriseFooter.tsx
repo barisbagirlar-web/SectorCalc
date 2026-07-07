@@ -33,7 +33,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           <div className="footer-grid">
             <div className="footer-col brand-col">
               <Link href="/" aria-label="SectorCalc home" className="footer-logo">
-                <img src={BRAND_ASSETS.logo.onDark} alt="SectorCalc Logo" className="footer-logo-img" />
+                <img src={BRAND_ASSETS.logo.onDark} alt="SectorCalc Logo" className="footer-logo-img" loading="lazy" fetchPriority="low" />
               </Link>
               <p className="footer-tagline">
                 Audit-proof engineering calculations built on VDI, ISO, and DIN

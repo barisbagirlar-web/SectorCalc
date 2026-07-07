@@ -10,6 +10,8 @@ import { UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
 import { ProToolSessionWrapper } from "@/sectorcalc/pro-form/ProToolSessionWrapper";
 import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
+/* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
+import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
