@@ -7,6 +7,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
 import { PhotoUpload } from "@/components/diagnostics/PhotoUpload";
 import type { PhotoEntry } from "@/components/diagnostics/PhotoUpload";
+import { CameraOnlyPreview } from "@/components/diagnostics/CameraOnlyPreview";
 
 /* ── Constants ── */
 
@@ -256,6 +257,7 @@ function decisionBadgeClass(state: string): { background: string; color: string 
 export default function EngineeringDiagnosticsStartPage() {
   const router = useRouter();
   const lastRequestBodyRef = useRef<unknown>(null);
+  const [entryMode, setEntryMode] = useState<"photo" | "full" | null>(null);
   const [previewLoading, setPreviewLoading] = useState(false);
   const [previewError, setPreviewError] = useState<string | null>(null);
   const [remainingUses, setRemainingUses] = useState<number | null>(null);
@@ -1065,63 +1067,188 @@ export default function EngineeringDiagnosticsStartPage() {
               fontSize: "0.95rem",
               lineHeight: 1.6,
               color: "#4A4A48",
-              marginBottom: "2rem",
-            }}
-          >
-            Describe the problem and enter measurement data. The diagnostic
-            engine will evaluate measurement confidence, cost exposure, and
-            suggest a decision state with an action plan.
-          </p>
-
-          {/* Professional Diagnostic Package */}
-          <div
-            style={{
-              padding: "1.25rem",
-              background: "#F0EEE6",
-              border: "1px solid #D6D4CC",
-              borderRadius: "8px",
               marginBottom: "1.5rem",
             }}
           >
-            <div style={{ fontSize: "0.9rem", color: "#1A1915", fontWeight: 600, marginBottom: "0.5rem" }}>
-              Professional Diagnostic Package
-            </div>
-            <div style={{ fontSize: "0.85rem", color: "#4A4A48", lineHeight: 1.6, marginBottom: "0.75rem" }}>
-              Engineering Diagnostics is a professional report service. A 5-credit
-              package includes 3 Full Engineering Diagnostics. Each Full Diagnostic
-              includes AI-assisted engineering interpretation, deterministic risk
-              assessment, action planning, PDF export, audit trail, and verification
-              record.
-            </div>
-            <div style={{ fontSize: "0.8rem", color: "#6B6B68", lineHeight: 1.5, marginBottom: "0.75rem" }}>
-              Preview analysis may be available before export. Camera/photo-based
-              interpretation, Full Diagnostic report generation, PDF export,
-              verification record, and report history require available Diagnostic
-              Credits.
-            </div>
-            <div style={{ textAlign: "right" }}>
-              <Link
-                href="/pricing"
+            Choose how you want to start. Upload photos for a quick visual
+            assessment or enter full measurement data for a complete engineering
+            diagnostic report.
+          </p>
+
+          {/* Entry Mode Selection */}
+          {!entryMode && (
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "1rem",
+                marginBottom: "2rem",
+              }}
+            >
+              {/* Photo Preview Option */}
+              <button
+                onClick={() => setEntryMode("photo")}
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  padding: "0.5rem 1.25rem",
-                  background: "#BD5D3A",
-                  color: "#fff",
-                  borderRadius: "6px",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  fontSize: "0.85rem",
-                  transition: "background 0.13s",
+                  padding: "1.5rem",
+                  background: "#F0EEE6",
+                  border: "2px solid #D6D4CC",
+                  borderRadius: "12px",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "border-color 0.13s",
+                  minHeight: "160px",
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
-                Get Diagnostic Credits
-              </Link>
+                <div
+                  style={{
+                    fontSize: "1.8rem",
+                    marginBottom: "0.75rem",
+                    color: "#6B6B68",
+                  }}
+                >
+                  📷
+                </div>
+                <div style={{ fontSize: "1.1rem", fontWeight: 600, color: "#1A1915", marginBottom: "0.4rem" }}>
+                  Start with Photos
+                </div>
+                <div style={{ fontSize: "0.85rem", color: "#4A4A48", lineHeight: 1.5, flex: 1 }}>
+                  Get a preliminary visual assessment and learn what data is
+                  needed for a full engineering report.
+                </div>
+                <div
+                  style={{
+                    marginTop: "0.75rem",
+                    fontSize: "0.75rem",
+                    color: "#6B6B68",
+                    fontStyle: "italic",
+                  }}
+                >
+                  No credit required
+                </div>
+              </button>
+
+              {/* Full Diagnostic Option */}
+              <button
+                onClick={() => setEntryMode("full")}
+                style={{
+                  padding: "1.5rem",
+                  background: "#FFF9F0",
+                  border: "2px solid #BD5D3A",
+                  borderRadius: "12px",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  transition: "border-color 0.13s",
+                  minHeight: "160px",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "1.8rem",
+                    marginBottom: "0.75rem",
+                    color: "#6B6B68",
+                  }}
+                >
+                  ⚙️
+                </div>
+                <div style={{ fontSize: "1.1rem", fontWeight: 600, color: "#1A1915", marginBottom: "0.4rem" }}>
+                  Create Full Engineering Diagnostic
+                </div>
+                <div style={{ fontSize: "0.85rem", color: "#4A4A48", lineHeight: 1.5, flex: 1 }}>
+                  Add photos, measurements, tolerances, cost exposure, and
+                  context to generate a professional report.
+                </div>
+                <div
+                  style={{
+                    marginTop: "0.75rem",
+                    fontSize: "0.75rem",
+                    color: "#BD5D3A",
+                    fontWeight: 600,
+                  }}
+                >
+                  1 credit per diagnostic
+                </div>
+              </button>
             </div>
-          </div>
+          )}
+
+          {/* Back button when mode selected */}
+          {entryMode && (
+            <button
+              onClick={() => { setEntryMode(null); setResult(null); }}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#BD5D3A",
+                fontSize: "0.85rem",
+                cursor: "pointer",
+                padding: 0,
+                marginBottom: "1.5rem",
+                display: "inline-block",
+                textDecoration: "underline",
+              }}
+            >
+              &larr; Choose Different Mode
+            </button>
+          )}
+
+          {/* Photo Preview Mode */}
+          {entryMode === "photo" && <CameraOnlyPreview />}
+
+          {/* Professional Diagnostic Package (shown only in full mode) */}
+          {entryMode === "full" && (
+            <div
+              style={{
+                padding: "1.25rem",
+                background: "#F0EEE6",
+                border: "1px solid #D6D4CC",
+                borderRadius: "8px",
+                marginBottom: "1.5rem",
+              }}
+            >
+              <div style={{ fontSize: "0.9rem", color: "#1A1915", fontWeight: 600, marginBottom: "0.5rem" }}>
+                Professional Diagnostic Package
+              </div>
+              <div style={{ fontSize: "0.85rem", color: "#4A4A48", lineHeight: 1.6, marginBottom: "0.75rem" }}>
+                Engineering Diagnostics is a professional report service. A 5-credit
+                package includes 3 Full Engineering Diagnostics. Each Full Diagnostic
+                includes AI-assisted engineering interpretation, deterministic risk
+                assessment, action planning, PDF export, audit trail, and verification
+                record.
+              </div>
+              <div style={{ fontSize: "0.8rem", color: "#6B6B68", lineHeight: 1.5, marginBottom: "0.75rem" }}>
+                Preview analysis may be available before export. Camera/photo-based
+                interpretation, Full Diagnostic report generation, PDF export,
+                verification record, and report history require available Diagnostic
+                Credits.
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <Link
+                  href="/pricing"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    padding: "0.5rem 1.25rem",
+                    background: "#BD5D3A",
+                    color: "#fff",
+                    borderRadius: "6px",
+                    textDecoration: "none",
+                    fontWeight: 600,
+                    fontSize: "0.85rem",
+                    transition: "background 0.13s",
+                  }}
+                >
+                  Get Diagnostic Credits
+                </Link>
+              </div>
+            </div>
+          )}
 
           {/* Loading skeleton during Full Diagnostic generation */}
-          {fullDiagLoading && (
+          {entryMode === "full" && fullDiagLoading && (
             <div style={{ marginBottom: "1.5rem", padding: "2rem", borderRadius: "12px", border: "1px solid #D6D4CC", background: "#F0EEE6" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
                 <div style={{ width: "48px", height: "48px", border: "3px solid #D6D4CC", borderTopColor: "#BD5D3A", borderRadius: "50%", animation: "diagSpin 0.8s linear infinite" }} />
@@ -1142,7 +1269,7 @@ export default function EngineeringDiagnosticsStartPage() {
           )}
           <style>{`@keyframes diagSpin { to { transform: rotate(360deg); } } @keyframes diagPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }`}</style>
 
-          {!result && (
+          {entryMode === "full" && !result && (
             <form onSubmit={handleSubmit} noValidate>
               {/* Domain */}
               <FieldSet legend="Domain & Context">
