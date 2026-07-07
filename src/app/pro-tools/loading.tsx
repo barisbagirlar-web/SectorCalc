@@ -1,0 +1,84 @@
+/**
+ * Pro-tools page loading skeleton.
+ * Shows a card grid while the schema loader computes tool data.
+ */
+export default function ProToolsLoading() {
+  return (
+    <div
+      role="status"
+      aria-live="polite"
+      aria-label="Loading PRO tools"
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "2rem 1.5rem",
+      }}
+    >
+      {/* Header skeleton */}
+      <div
+        style={{
+          height: "2rem",
+          width: "35%",
+          background: "#E0DDD4",
+          borderRadius: "6px",
+          marginBottom: "0.75rem",
+        }}
+        className="skeleton-pulse"
+      />
+      <div
+        style={{
+          height: "1rem",
+          width: "55%",
+          background: "#E0DDD4",
+          borderRadius: "4px",
+          marginBottom: "1.5rem",
+        }}
+        className="skeleton-pulse"
+      />
+
+      {/* Search bar */}
+      <div
+        style={{
+          height: "3rem",
+          background: "#F0EEE6",
+          borderRadius: "8px",
+          border: "1px solid #E0DDD4",
+          marginBottom: "2rem",
+        }}
+        className="skeleton-pulse"
+      />
+
+      {/* Tool card grid */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+          gap: "1rem",
+        }}
+      >
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div
+            key={i}
+            style={{
+              height: "220px",
+              background: "#F0EEE6",
+              borderRadius: "8px",
+              border: "1px solid #E0DDD4",
+            }}
+            className="skeleton-pulse"
+          />
+        ))}
+      </div>
+
+      <style>{`
+        @keyframes skeletonPulse {
+          0%, 100% { opacity: 0.6; }
+          50% { opacity: 1; }
+        }
+        .skeleton-pulse {
+          animation: skeletonPulse 2s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
+  );
+}

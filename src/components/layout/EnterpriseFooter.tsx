@@ -16,10 +16,10 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
               Start with a free sector check or unlock the full premium library of calculators and decision reports.
             </p>
             <div className="cta-buttons">
-              <Link href="/free-tools" className="btn btn-primary">
+              <Link href="/free-tools" prefetch={true} className="btn btn-primary">
                 Browse Free Tools
               </Link>
-              <Link href="/pricing" className="btn btn-secondary">
+              <Link href="/pricing" prefetch={true} className="btn btn-secondary">
                 View Pricing
               </Link>
             </div>
@@ -32,7 +32,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           {/* Top Section: 4-Column Grid */}
           <div className="footer-grid">
             <div className="footer-col brand-col">
-              <Link href="/" aria-label="SectorCalc home" className="footer-logo">
+              <Link href="/" prefetch={true} aria-label="SectorCalc home" className="footer-logo">
                 <img src={BRAND_ASSETS.logo.onDark} alt="SectorCalc Logo" className="footer-logo-img" loading="lazy" fetchPriority="low" />
               </Link>
               <p className="footer-tagline">
@@ -52,16 +52,16 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                   <Link href="/calculator-library">All Calculators</Link>
                 </li>
                 <li>
-                  <Link href="/free-tools">Pro Calculators</Link>
+                  <Link href="/free-tools" prefetch={true}>Pro Calculators</Link>
                 </li>
                 <li>
-                  <Link href="/free-tools">Free Calculators</Link>
+                  <Link href="/free-tools" prefetch={true}>Free Calculators</Link>
                 </li>
                 <li>
-                  <Link href="/engineering-diagnostics">Engineering Diagnostics</Link>
+                  <Link href="/engineering-diagnostics" prefetch={true}>Engineering Diagnostics</Link>
                 </li>
                 <li>
-                  <Link href="/pricing">Credit Pricing</Link>
+                  <Link href="/pricing" prefetch={true}>Credit Pricing</Link>
                 </li>
                 <li>
                   <Link href="/how-it-works">How it Works</Link>
@@ -88,7 +88,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                   <Link href="/benchmarks">Benchmarks</Link>
                 </li>
                 <li>
-                  <Link href="/industries">Industry Data</Link>
+                  <Link href="/industries" prefetch={true}>Industry Data</Link>
                 </li>
                 <li>
                   <Link href="/beta-partner">Beta Partner Program</Link>

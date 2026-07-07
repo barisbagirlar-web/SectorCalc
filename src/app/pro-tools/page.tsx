@@ -1,13 +1,12 @@
 // SectorCalc V5.3.1 — PRO Tools Catalog Page
-// Root-only route. Lists all 135 PRO calculators.
-// Same design as /free-tools using CatalogPageShell.
-// No locale prefix. Pure technical English.
+// Progressive rendering: page shell renders immediately,
+// catalog content streams via Suspense.
 
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageShell } from "@/components/catalog/CatalogPageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
 import { getAllProToolSchemas } from "@/sectorcalc/runtime/pro-schema-loader";
 import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
@@ -18,7 +17,6 @@ import {
 } from "@/lib/features/tools/build-taxonomy-sector-cards";
 import { SLUG_TOKEN_SECTOR_HINTS, SECTORS } from "@/lib/features/tools/taxonomy";
 import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
-import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/features/tools/filter-catalog-hub-tools";
 
 export const dynamic = "force-dynamic";
 
@@ -32,7 +30,6 @@ export const metadata: Metadata = {
 // ─── Sector mapping from PRO tool_key tokens ───────────────────────────────
 
 const KNOWN_SECTOR_EXACT: Record<string, string> = {
-  // Manual overrides for PRO tool_key → sector ID
   eurocode: "yapisal-muhendislik",
   steel: "metal",
   welding: "metal",
@@ -151,28 +148,17 @@ const KNOWN_SECTOR_EXACT: Record<string, string> = {
 const TAXONOMY_SECTOR_IDS = new Set(SECTORS.map((s) => s.id));
 
 function resolveProSectorKey(toolKey: string): string {
-  // Strip "sc_NNN_" prefix
   const stripped = toolKey.replace(/^sc_\d+_/, "").replace(/_calculator$/, "");
-  // Check manual overrides
   const tokens = stripped.split("_");
   for (const token of tokens) {
-    if (KNOWN_SECTOR_EXACT[token]) {
-      return KNOWN_SECTOR_EXACT[token];
-    }
+    if (KNOWN_SECTOR_EXACT[token]) return KNOWN_SECTOR_EXACT[token];
     const hint = SLUG_TOKEN_SECTOR_HINTS[token];
-    if (hint && TAXONOMY_SECTOR_IDS.has(hint)) {
-      return hint;
-    }
+    if (hint && TAXONOMY_SECTOR_IDS.has(hint)) return hint;
   }
   return "diger";
 }
 
-// ─── Convert PRO schemas to ToolListItem ────────────────────────────────────
-
-function proSchemaToToolListItem(
-  toolKey: string,
-  schema: SuperV4Schema,
-): ToolListItem {
+function proSchemaToToolListItem(toolKey: string, schema: SuperV4Schema): ToolListItem {
   const sectorKey = resolveProSectorKey(toolKey);
   return {
     slug: toolKey,
@@ -186,9 +172,9 @@ function proSchemaToToolListItem(
   };
 }
 
-// ─── Page ────────────────────────────────────────────────────────────────────
+// ─── Streamed catalog content ──────────────────────────────────────────────
 
-export default async function ProToolsPage() {
+async function ProCatalogContent() {
   const locale = "en";
   const allProEntries = getAllProToolSchemas();
   const activeSlugs = new Set(ACTIVE_PRO_TOOL_SLUGS);
@@ -206,6 +192,104 @@ export default async function ProToolsPage() {
     (toolCount) => `${toolCount} tools`,
   );
 
+  return (
+    <section className="sc-pro-section sc-pro-section--border">
+      <CatalogPageShell
+        tools={tools}
+        sectors={taxonomySectorCards}
+        title="PRO Industrial Calculators"
+        subtitle={`${count} deterministic, auditable calculators across industrial engineering domains. Server-side execution. No exact formula exposure. Decision-support only.`}
+        searchPlaceholder="Search PRO calculators..."
+        categoryTitle="Industry sectors"
+        proToolsHref="/pricing"
+      />
+    </section>
+  );
+}
+
+function ProCatalogSkeleton() {
+  return (
+    <section className="sc-pro-section sc-pro-section--border">
+      <div
+        role="status"
+        aria-label="Loading PRO tools"
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "2rem 1.5rem",
+        }}
+      >
+        <div
+          style={{
+            height: "2rem",
+            width: "35%",
+            background: "#E0DDD4",
+            borderRadius: "6px",
+            marginBottom: "0.75rem",
+          }}
+          className="skeleton-pulse"
+        />
+        <div
+          style={{
+            height: "1rem",
+            width: "55%",
+            background: "#E0DDD4",
+            borderRadius: "4px",
+            marginBottom: "1.5rem",
+          }}
+          className="skeleton-pulse"
+        />
+        <div
+          style={{
+            height: "3rem",
+            background: "#F0EEE6",
+            borderRadius: "8px",
+            border: "1px solid #E0DDD4",
+            marginBottom: "2rem",
+          }}
+          className="skeleton-pulse"
+        />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gap: "1rem",
+          }}
+        >
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div
+              key={i}
+              style={{
+                height: "220px",
+                background: "#F0EEE6",
+                borderRadius: "8px",
+                border: "1px solid #E0DDD4",
+              }}
+              className="skeleton-pulse"
+            />
+          ))}
+        </div>
+        <style>{`
+          @keyframes skeletonPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+          }
+          .skeleton-pulse {
+            animation: skeletonPulse 2s ease-in-out infinite;
+          }
+        `}</style>
+      </div>
+    </section>
+  );
+}
+
+// ─── Page ────────────────────────────────────────────────────────────────────
+
+export default async function ProToolsPage() {
+  const locale = "en";
+
+  // Lightweight: only breadcrumb JSON-LD — no schema loading here.
+  // Catalog content streams in ProCatalogContent via Suspense.
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
       [
@@ -214,30 +298,14 @@ export default async function ProToolsPage() {
       ],
       locale,
     ),
-    buildItemListJsonLd(
-      tools.slice(0, CATALOG_HUB_JSONLD_MAX_ITEMS).map((tool) => ({
-        name: tool.title,
-        path: tool.href,
-      })),
-      "PRO Industrial Calculators",
-      locale,
-    ),
   ];
 
   return (
     <PageLayout>
       <JsonLd data={jsonLd} />
-      <section className="sc-pro-section sc-pro-section--border">
-        <CatalogPageShell
-          tools={tools}
-          sectors={taxonomySectorCards}
-          title="PRO Industrial Calculators"
-          subtitle={`${count} deterministic, auditable calculators across industrial engineering domains. Server-side execution. No exact formula exposure. Decision-support only.`}
-          searchPlaceholder="Search PRO calculators..."
-          categoryTitle="Industry sectors"
-          proToolsHref="/pricing"
-        />
-      </section>
+      <Suspense fallback={<ProCatalogSkeleton />}>
+        <ProCatalogContent />
+      </Suspense>
     </PageLayout>
   );
 }

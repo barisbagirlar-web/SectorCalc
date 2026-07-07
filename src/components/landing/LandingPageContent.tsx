@@ -21,9 +21,9 @@ export function LandingPageContent({
             </p>
 
             <div className="cta-row">
-              <Link href="/free-tools" className="btn-primary">Browse Free Tools</Link>
-              <Link href="/pro-tools" className="btn-secondary">Explore Pro Tools</Link>
-              <Link href="/engineering-diagnostics" className="btn-tertiary">Start Engineering Diagnostics</Link>
+              <Link href="/free-tools" prefetch={true} className="btn-primary">Browse Free Tools</Link>
+              <Link href="/pro-tools" prefetch={true} className="btn-secondary">Explore Pro Tools</Link>
+              <Link href="/engineering-diagnostics" prefetch={true} className="btn-tertiary">Start Engineering Diagnostics</Link>
             </div>
 
             <div className="trust-row">
@@ -44,17 +44,17 @@ export function LandingPageContent({
               <div className="outcome-card">
                 <h3>Find the number behind the problem</h3>
                 <p>Calculate machine cost, OEE, scrap, quote margin, energy loss, payback, downtime, FMEA RPN and engineering risk using structured inputs instead of rough guesses.</p>
-                <Link href="/free-tools" className="btn-link">Search calculators &rarr;</Link>
+                <Link href="/free-tools" prefetch={true} className="btn-link">Search calculators &rarr;</Link>
               </div>
               <div className="outcome-card">
                 <h3>Decide what to do next</h3>
                 <p>Each result must explain the decision: proceed, hold, reprice, inspect, repair, reduce risk, escalate or prepare a review-ready report.</p>
-                <Link href="/pro-tools" className="btn-link">Explore Pro Tools &rarr;</Link>
+                <Link href="/pro-tools" prefetch={true} className="btn-link">Explore Pro Tools &rarr;</Link>
               </div>
               <div className="outcome-card">
                 <h3>Diagnose field issues from evidence</h3>
                 <p>Upload photos, add measurements, confirm context and generate an Engineering Diagnostics report with root-cause hypotheses, cost exposure, NCR/CAPA drafts and verification records.</p>
-                <Link href="/engineering-diagnostics" className="btn-link">Start Diagnostics &rarr;</Link>
+                <Link href="/engineering-diagnostics" prefetch={true} className="btn-link">Start Diagnostics &rarr;</Link>
               </div>
             </div>
           </div>
@@ -108,22 +108,22 @@ export function LandingPageContent({
               <div className="product-card">
                 <h3>Free Tools</h3>
                 <p>Start with fast industrial calculators for everyday checks: cost, margin, energy, production, logistics, finance and basic engineering questions.</p>
-                <Link href="/free-tools" className="btn-link">Browse Free Tools &rarr;</Link>
+                <Link href="/free-tools" prefetch={true} className="btn-link">Browse Free Tools &rarr;</Link>
               </div>
               <div className="product-card">
                 <h3>Pro Tools</h3>
                 <p>Use deeper calculators when the decision needs sensitivity, tolerance guidance, business impact, scenario comparison, uncertainty notes, PDF output or review-ready documentation.</p>
-                <Link href="/pro-tools" className="btn-link">Explore Pro Tools &rarr;</Link>
+                <Link href="/pro-tools" prefetch={true} className="btn-link">Explore Pro Tools &rarr;</Link>
               </div>
               <div className="product-card">
                 <h3>Engineering Diagnostics</h3>
                 <p>Use photos, measurements and field context to create structured diagnostic reports for visible defects, failures, quality issues, maintenance problems and corrective-action discussions.</p>
-                <Link href="/engineering-diagnostics" className="btn-link">Start Engineering Diagnostics &rarr;</Link>
+                <Link href="/engineering-diagnostics" prefetch={true} className="btn-link">Start Engineering Diagnostics &rarr;</Link>
               </div>
               <div className="product-card">
                 <h3>FMEA RPN Calculator</h3>
                 <p>Score severity, occurrence and detection, rank failure modes, identify the highest-risk causes and turn quality discussions into a clear action list.</p>
-                <Link href="/calculators/fmea-rpn" className="btn-link">Open FMEA RPN Calculator &rarr;</Link>
+                <Link href="/calculators/fmea-rpn" prefetch={true} className="btn-link">Open FMEA RPN Calculator &rarr;</Link>
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@ export function LandingPageContent({
               </div>
             </div>
             <div className="cta-center">
-              <Link href="/case-studies" className="btn-primary">View Case Studies</Link>
+              <Link href="/case-studies" prefetch={true} className="btn-primary">View Case Studies</Link>
             </div>
           </div>
         </section>
@@ -191,7 +191,7 @@ export function LandingPageContent({
               <li>Use Pro reports when documentation is needed</li>
             </ul>
             <div className="cta-center">
-              <Link href="/calculators/fmea-rpn" className="btn-primary">Open FMEA RPN Calculator</Link>
+              <Link href="/calculators/fmea-rpn" prefetch={true} className="btn-primary">Open FMEA RPN Calculator</Link>
             </div>
           </div>
         </section>
@@ -212,7 +212,7 @@ export function LandingPageContent({
               <li>Decision-support only; qualified review required</li>
             </ul>
             <div className="cta-center">
-              <Link href="/engineering-diagnostics" className="btn-primary">Start Engineering Diagnostics</Link>
+              <Link href="/engineering-diagnostics" prefetch={true} className="btn-primary">Start Engineering Diagnostics</Link>
             </div>
           </div>
         </section>
@@ -225,9 +225,9 @@ export function LandingPageContent({
               Use a free calculator for a quick check. Use Pro when the result affects price, production, quality, energy cost, rework, downtime, safety margin or customer commitment.
             </p>
             <div className="cta-row main-actions center">
-              <Link href="/free-tools" className="btn-primary">Browse Free Tools</Link>
-              <Link href="/pro-tools" className="btn-secondary">Explore Pro Tools</Link>
-              <Link href="/case-studies" className="btn-secondary">View Case Studies</Link>
+              <Link href="/free-tools" prefetch={true} className="btn-primary">Browse Free Tools</Link>
+              <Link href="/pro-tools" prefetch={true} className="btn-secondary">Explore Pro Tools</Link>
+              <Link href="/case-studies" prefetch={true} className="btn-secondary">View Case Studies</Link>
             </div>
           </div>
         </section>

@@ -189,7 +189,7 @@ export function SiteHeader({
       <header className="sc-h">
         <div className="sc-inner">
 
-          <Link href="/" className="sc-logo" aria-label="SectorCalc home">
+          <Link href="/" prefetch={true} className="sc-logo" aria-label="SectorCalc home">
             <img src={BRAND_ASSETS.logo.headerDefault} alt="SectorCalc Logo" className="sc-logo-img" fetchPriority="low" />
           </Link>
 
@@ -204,7 +204,7 @@ export function SiteHeader({
                 {t.industries} <svg className="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
             </div>
-            <Link href="/pricing" className="sc-navbtn">{t.pricing}</Link>
+            <Link href="/pricing" prefetch={true} className="sc-navbtn">{t.pricing}</Link>
             <div onMouseEnter={()=>openWithIntent('resources')} onMouseLeave={closeWithIntent}>
               <button className={`sc-navbtn${openMenu==='resources'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='resources'?null:'resources')} aria-expanded={openMenu==='resources'}>
                 {t.resources} <svg className="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -215,17 +215,17 @@ export function SiteHeader({
               <div className="sc-megawrap" onMouseEnter={()=>openWithIntent(openMenu)} onMouseLeave={closeWithIntent}>
                 {openMenu==='products' && (
                   <div className="sc-mega sc-mega-products">
-                    <Link href="/free-tools" className="sc-mega-panel">
+                    <Link href="/free-tools" prefetch={true} className="sc-mega-panel">
                       <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg><span className="ph">{t.col_free}</span></div>
                       <div className="pd">{t.products_free_desc}</div>
                       <div className="pcount">{freeToolsCount} {t.tools}</div>
                     </Link>
-                    <Link href="/pro-tools" className="sc-mega-panel">
+                    <Link href="/pro-tools" prefetch={true} className="sc-mega-panel">
                       <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
                       <div className="pcount">{proToolsCount} {t.tools}</div>
                     </Link>
-                    <Link href="/engineering-diagnostics" className="sc-mega-panel">
+                    <Link href="/engineering-diagnostics" prefetch={true} className="sc-mega-panel">
                       <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span className="ph">{t.col_engdiag}</span></div>
                       <div className="pd">{t.products_engdiag_desc}</div>
                     </Link>
@@ -247,7 +247,7 @@ export function SiteHeader({
                       ))}
                     </div>
                     <div className="sc-mega-foot">
-                      <Link href="/industries">{t.view_all_industries} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle'}}><polyline points="9 18 15 12 9 6"/></svg></Link>
+                      <Link href="/industries" prefetch={true}>{t.view_all_industries} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle'}}><polyline points="9 18 15 12 9 6"/></svg></Link>
                       <span className="promo">18 sectors · 300+ {t.tools}</span>
                     </div>
                   </div>
@@ -288,9 +288,9 @@ export function SiteHeader({
             </button>
             {mobileSection==='products' && (
               <div className="sc-draw-body">
-                <Link href="/free-tools" onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>{t.col_free} <span className="c">{freeToolsCount}+</span></Link>
-                <Link href="/pro-tools" onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>{t.col_pro} <span className="c">{proToolsCount}</span></Link>
-                <Link href="/engineering-diagnostics" onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>{t.col_engdiag}</Link>
+                <Link href="/free-tools" prefetch={true} onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>{t.col_free} <span className="c">{freeToolsCount}+</span></Link>
+                <Link href="/pro-tools" prefetch={true} onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>{t.col_pro} <span className="c">{proToolsCount}</span></Link>
+                <Link href="/engineering-diagnostics" prefetch={true} onClick={()=>setMobileOpen(false)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>{t.col_engdiag}</Link>
               </div>
             )}
           </div>
@@ -305,11 +305,11 @@ export function SiteHeader({
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle',marginRight:8,flexShrink:0}}><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>{it.en} <span className="c">{it.count}</span>
                   </Link>
                 ))}
-                <Link href="/industries" onClick={()=>setMobileOpen(false)} style={{color:'var(--accent)',fontWeight:600}}>{t.view_all_industries} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle'}}><polyline points="9 18 15 12 9 6"/></svg></Link>
+                <Link href="/industries" prefetch={true} onClick={()=>setMobileOpen(false)} style={{color:'var(--accent)',fontWeight:600}}>{t.view_all_industries} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign:'middle'}}><polyline points="9 18 15 12 9 6"/></svg></Link>
               </div>
             )}
           </div>
-          <Link href="/pricing" className="sc-draw-link" onClick={()=>setMobileOpen(false)}>{t.pricing}</Link>
+          <Link href="/pricing" prefetch={true} className="sc-draw-link" onClick={()=>setMobileOpen(false)}>{t.pricing}</Link>
           <div className="sc-draw-sec">
             <button className={`sc-draw-head${mobileSection==='resources'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='resources'?null:'resources')}>
               {t.resources} <svg className="dchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>

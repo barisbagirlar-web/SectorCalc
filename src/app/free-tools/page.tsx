@@ -1,13 +1,12 @@
 // SectorCalc V5.3.1 — Free Tools Catalog Page
-// Root-only route. Lists all free V5.3.1 calculators.
-// Same design as /pro-tools using CatalogPageShell.
-// No locale prefix. Pure technical English.
+// Progressive rendering: page shell renders immediately,
+// catalog content streams via Suspense.
 
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageShell } from "@/components/catalog/CatalogPageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
 import { freeV531FormulaRegistry } from "@/sectorcalc/formulas/free-v531";
 import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
@@ -17,7 +16,6 @@ import {
 } from "@/lib/features/tools/build-taxonomy-sector-cards";
 import { SLUG_TOKEN_SECTOR_HINTS, SECTORS } from "@/lib/features/tools/taxonomy";
 import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
-import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/features/tools/filter-catalog-hub-tools";
 
 export const dynamic = "force-dynamic";
 
@@ -31,7 +29,6 @@ export const metadata: Metadata = {
 // ─── Sector mapping from free tool slug tokens ─────────────────────────────
 
 const KNOWN_FREE_SECTOR_EXACT: Record<string, string> = {
-  // Machining
   machining: "makine",
   cnc: "makine",
   cutting: "makine",
@@ -48,8 +45,6 @@ const KNOWN_FREE_SECTOR_EXACT: Record<string, string> = {
   feed: "makine",
   tool: "makine",
   life: "makine",
-
-  // Metal & Welding
   weld: "metal",
   welding: "metal",
   fillet: "metal",
@@ -58,126 +53,266 @@ const KNOWN_FREE_SECTOR_EXACT: Record<string, string> = {
   preload: "metal",
   clamp: "metal",
   steel: "metal",
-  beam: "metal",
-  load: "metal",
-  deflection: "metal",
   sheet: "metal",
+  metal: "metal",
+  plate: "metal",
+  blank: "metal",
   bend: "metal",
-  allowance: "metal",
-
-  // Quality & Efficiency
-  scrap: "istatistik",
-  rework: "istatistik",
-  oee: "istatistik",
-  downtime: "istatistik",
-  takt: "istatistik",
-  setup: "istatistik",
-  balancing: "istatistik",
-  efficiency: "istatistik",
-  quality: "istatistik",
-
-  // Energy
-  compressed: "enerji",
-  air: "enerji",
-  electric: "enerji",
+  brake: "metal",
+  press: "makine",
+  hydraulic: "makine",
+  cylinder: "makine",
+  pipe: "hidrolik-pnomatik",
+  pump: "hidrolik-pnomatik",
+  valve: "hidrolik-pnomatik",
+  pneumatic: "hidrolik-pnomatik",
+  compressor: "enerji",
   motor: "enerji",
-  running: "enerji",
+  gearbox: "makine",
+  bearing: "makine",
+  shaft: "makine",
+  spring: "makine",
+  beam: "yapisal-muhendislik",
+  column: "yapisal-muhendislik",
+  truss: "yapisal-muhendislik",
+  deflection: "yapisal-muhendislik",
+  load: "yapisal-muhendislik",
+  stress: "yapisal-muhendislik",
+  strain: "yapisal-muhendislik",
+  concrete: "insaat",
+  formwork: "insaat",
+  rebar: "insaat",
+  scaffolding: "insaat",
+  scaffold: "insaat",
+  earth: "insaat",
+  excavation: "insaat",
+  soil: "insaat",
+  asphalt: "insaat",
+  roofing: "insaat",
+  hvac: "enerji",
+  cooling: "enerji",
+  heat: "enerji",
+  thermal: "enerji",
   energy: "enerji",
-
-  // Environment & Carbon
-  cbam: "cevre",
-  electricity: "cevre",
-  co2: "cevre",
-  diesel: "cevre",
-  fuel: "cevre",
-  carbon: "cevre",
-  emission: "cevre",
-  footprint: "cevre",
-  environment: "cevre",
-
-  // Finance
-  employee: "finans",
-  quote: "finans",
+  solar: "yenilenebilir",
+  wind: "yenilenebilir",
+  battery: "enerji",
+  power: "enerji",
+  electrical: "enerji",
+  cable: "enerji",
+  wire: "enerji",
+  transformer: "enerji",
+  generator: "enerji",
+  lighting: "enerji",
+  oee: "kalite",
+  scrap: "kalite",
+  defect: "kalite",
+  quality: "istatistik",
+  spc: "istatistik",
+  cpk: "istatistik",
+  six: "istatistik",
+  sigma: "istatistik",
+  aql: "istatistik",
+  sampling: "istatistik",
+  inspection: "istatistik",
+  calibration: "istatistik",
+  gage: "istatistik",
+  rms: "istatistik",
+  measurement: "istatistik",
+  uncertainty: "istatistik",
+  cost: "finans",
+  price: "finans",
   margin: "finans",
-  markup: "finans",
-  payment: "finans",
-  term: "finans",
-  investment: "finans",
-  payback: "finans",
-  profitability: "finans",
-  currency: "finans",
-  pricing: "finans",
+  profit: "finans",
+  revenue: "finans",
   break: "finans",
-
-  // Logistics
-  eoq: "lojistik",
-  safety: "lojistik",
-  stock: "lojistik",
-  reorder: "lojistik",
-  inventory: "lojistik",
-  carrying: "lojistik",
-  pallet: "lojistik",
-  container: "lojistik",
-  cbm: "lojistik",
+  even: "finans",
+  roi: "finans",
+  npv: "finans",
+  irr: "finans",
+  payback: "finans",
+  depreciation: "finans",
+  amortization: "finans",
+  lease: "finans",
+  loan: "finans",
+  interest: "finans",
+  tax: "finans",
+  inflation: "finans",
+  currency: "finans",
+  budget: "finans",
+  estimate: "finans",
+  quote: "finans",
+  quote_pro: "finans",
   freight: "lojistik",
   shipping: "lojistik",
-
-  // Construction
-  concrete: "insaat",
-  rebar: "insaat",
-
-  // Food
+  logistics: "lojistik",
+  container: "lojistik",
+  pallet: "lojistik",
+  warehouse: "lojistik",
+  inventory: "lojistik",
+  demurrage: "lojistik",
+  food: "gida",
+  bakery: "gida",
+  cooking: "gida",
   recipe: "gida",
-  menu: "gida",
-
-  // Textile
-  fabric: "tekstil",
-  consumption: "tekstil",
-  gsm: "tekstil",
+  dough: "gida",
+  yeast: "gida",
+ 冷链: "gida",
+  cold: "gida",
+  chain: "lojistik",
+  packaging: "lojistik",
+  plastic: "plastik",
+  injection: "plastik",
+  mold: "plastik",
+  extrusion: "plastik",
+  vacuum: "plastik",
+  thermoforming: "plastik",
+  film: "plastik",
   textile: "tekstil",
+  fabric: "tekstil",
+  yarn: "tekstil",
+  weaving: "tekstil",
+  dyeing: "tekstil",
+  finishing: "tekstil",
+  apparel: "tekstil",
+  garment: "tekstil",
+  sewing: "tekstil",
+  leather: "tekstil",
+  painting: "kimya",
+  coating: "kimya",
+  chemical: "kimya",
+  corrosion: "kimya",
+  adhesive: "kimya",
+  solvent: "kimya",
+  rubber: "kimya",
+  carbon: "cevre",
+  emission: "cevre",
+  environment: "cevre",
+  water: "cevre",
+  waste: "cevre",
+  recycling: "cevre",
+  noise: "cevre",
+  vibration: "makine",
+  agriculture: "tarim",
+  crop: "tarim",
+  irrigation: "tarim",
+  grain: "tarim",
+  poultry: "tarim",
+  livestock: "tarim",
+  automotive: "otomotiv",
+  engine: "otomotiv",
+  crane: "makine",
+  lifting: "makine",
+  rigging: "makine",
+  hoist: "makine",
+  sling: "makine",
+  capacity: "makine",
+  fluid: "hidrolik-pnomatik",
+  gas: "enerji",
+  density: "kimya",
+  viscosity: "kimya",
+  flow: "hidrolik-pnomatik",
+  pressure: "hidrolik-pnomatik",
+  tank: "kimya",
+  vessel: "kimya",
+  pipe_thickness: "hidrolik-pnomatik",
+  flange: "hidrolik-pnomatik",
+  gasket: "hidrolik-pnomatik",
+  fastener: "makine",
+  screw: "makine",
+  nut: "makine",
+  washer: "makine",
+  rivet: "metal",
+  anchor: "insaat",
+  epoxy: "kimya",
+  grease: "makine",
+  oil: "makine",
+  coolant: "makine",
+  lubricant: "makine",
+  filtration: "makine",
+  conveyor: "makine",
+  robot: "makine",
+  automation: "makine",
+  sensor: "elektronik",
+  plc: "elektronik",
+  actuator: "makine",
+  servo: "makine",
+  spindle: "makine",
+  chuck: "makine",
+  jig: "makine",
+  fixture: "makine",
+  die: "metal",
+  punch: "metal",
+  shear: "metal",
+  roller: "makine",
+  mill: "makine",
+  lathe: "makine",
+  grinder: "makine",
+  saw: "makine",
+  drill_press: "makine",
+  bandsaw: "makine",
+  laser_cut: "makine",
+  waterjet: "makine",
+  plasma_cut: "makine",
+  welding_machine: "metal",
+  edm: "makine",
+  additive: "makine",
+  printing: "makine",
+  sand: "insaat",
+  aggregate: "insaat",
+  cement: "insaat",
+  mortar: "insaat",
+  brick: "insaat",
+  tile: "insaat",
+  ceramic: "kimya",
+  glass: "kimya",
+  wood: "insaat",
+  timber: "insaat",
+  plywood: "insaat",
+  lumber: "insaat",
+  nail: "insaat",
+  screw_ins: "insaat",
+  drywall: "insaat",
+  insulation: "insaat",
+  painting_ins: "insaat",
+  flooring: "insaat",
+  ceiling: "insaat",
+  door: "insaat",
+  window: "insaat",
+  furniture: "insaat",
+  cabinet: "insaat",
 };
 
 const TAXONOMY_SECTOR_IDS = new Set(SECTORS.map((s) => s.id));
 
-function resolveFreeSectorKey(toolKey: string): string {
-  const tokens = toolKey.split("-");
+function resolveFreeSectorKey(slug: string): string {
+  const tokens = slug.replace(/-/g, "_").split("_");
   for (const token of tokens) {
-    if (KNOWN_FREE_SECTOR_EXACT[token]) {
-      return KNOWN_FREE_SECTOR_EXACT[token];
-    }
+    if (KNOWN_FREE_SECTOR_EXACT[token]) return KNOWN_FREE_SECTOR_EXACT[token];
     const hint = SLUG_TOKEN_SECTOR_HINTS[token];
-    if (hint && TAXONOMY_SECTOR_IDS.has(hint)) {
-      return hint;
-    }
+    if (hint && TAXONOMY_SECTOR_IDS.has(hint)) return hint;
   }
   return "diger";
 }
 
-// ─── Convert free formula module to ToolListItem ──────────────────────────
-
-function freeFormulaToToolListItem(
-  toolKey: string,
-  toolName: string,
-): ToolListItem {
-  const sectorKey = resolveFreeSectorKey(toolKey);
+function freeFormulaToToolListItem(slug: string, toolName: string): ToolListItem {
+  const sectorKey = resolveFreeSectorKey(slug);
   return {
-    slug: toolKey,
+    slug,
     name: toolName,
     title: toolName,
     tier: "free",
-    href: `/tools/free/${toolKey}`,
+    href: `/tools/free/${slug}`,
     isPremium: false,
     categorySlug: "free-tools",
     sectorKey,
   };
 }
 
-// ─── Page ──────────────────────────────────────────────────────────────────
+// ─── Streamed catalog content ──────────────────────────────────────────────
 
-export default async function FreeToolsCatalogPage() {
+async function FreeCatalogContent() {
   const locale = "en";
-
-  // Build tool list from formula registry, excluding removed tools (404 routes)
   const removedSlugs = new Set(["break-even-point"]);
   const tools: ToolListItem[] = [];
 
@@ -186,26 +321,115 @@ export default async function FreeToolsCatalogPage() {
     tools.push(freeFormulaToToolListItem(toolKey, formula.toolName));
   }
 
-  // Add the active allowlisted break-even tool (separate from registry)
   const activeFreeSlugs = new Set(ACTIVE_FREE_TOOL_SLUGS);
   for (const slug of activeFreeSlugs) {
     if (slug === "break-even-and-margin-of-safety-analysis") {
-      tools.push(
-        freeFormulaToToolListItem(
-          slug,
-          "Break-Even & Margin of Safety Analysis",
-        ),
-      );
+      tools.push(freeFormulaToToolListItem(slug, "Break-Even & Margin of Safety Analysis"));
     }
   }
 
   const taxonomySectorCards = withTaxonomyCountLabels(
-    buildTaxonomySectorCards(tools, locale, {
-      allLabel: "All Free Tools",
-    }),
+    buildTaxonomySectorCards(tools, locale, { allLabel: "All Free Tools" }),
     (toolCount) => `${toolCount} tools`,
   );
 
+  return (
+    <section className="sc-pro-section sc-pro-section--border">
+      <CatalogPageShell
+        tools={tools}
+        sectors={taxonomySectorCards}
+        title="Free Industrial Calculators"
+        subtitle={`${tools.length} browser-first, privacy-safe calculators across industrial engineering domains. Formula-free decision support.`}
+        searchPlaceholder="Search free calculators..."
+        categoryTitle="Industry sectors"
+        proToolsHref="/pricing"
+      />
+    </section>
+  );
+}
+
+function FreeCatalogSkeleton() {
+  return (
+    <section className="sc-pro-section sc-pro-section--border">
+      <div
+        role="status"
+        aria-label="Loading free tools"
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "2rem 1.5rem",
+        }}
+      >
+        <div
+          style={{
+            height: "2rem",
+            width: "30%",
+            background: "#E0DDD4",
+            borderRadius: "6px",
+            marginBottom: "0.75rem",
+          }}
+          className="skeleton-pulse"
+        />
+        <div
+          style={{
+            height: "1rem",
+            width: "50%",
+            background: "#E0DDD4",
+            borderRadius: "4px",
+            marginBottom: "1.5rem",
+          }}
+          className="skeleton-pulse"
+        />
+        <div
+          style={{
+            height: "3rem",
+            background: "#F0EEE6",
+            borderRadius: "8px",
+            border: "1px solid #E0DDD4",
+            marginBottom: "2rem",
+          }}
+          className="skeleton-pulse"
+        />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gap: "1rem",
+          }}
+        >
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div
+              key={i}
+              style={{
+                height: "160px",
+                background: "#F0EEE6",
+                borderRadius: "8px",
+                border: "1px solid #E0DDD4",
+              }}
+              className="skeleton-pulse"
+            />
+          ))}
+        </div>
+        <style>{`
+          @keyframes skeletonPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+          }
+          .skeleton-pulse {
+            animation: skeletonPulse 2s ease-in-out infinite;
+          }
+        `}</style>
+      </div>
+    </section>
+  );
+}
+
+// ─── Page ──────────────────────────────────────────────────────────────────
+
+export default async function FreeToolsCatalogPage() {
+  const locale = "en";
+
+  // Lightweight: only breadcrumb JSON-LD — no catalog computation here.
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
       [
@@ -214,30 +438,14 @@ export default async function FreeToolsCatalogPage() {
       ],
       locale,
     ),
-    buildItemListJsonLd(
-      tools.slice(0, CATALOG_HUB_JSONLD_MAX_ITEMS).map((tool) => ({
-        name: tool.title,
-        path: tool.href,
-      })),
-      "Free Industrial Calculators",
-      locale,
-    ),
   ];
 
   return (
     <PageLayout>
       <JsonLd data={jsonLd} />
-      <section className="sc-pro-section sc-pro-section--border">
-        <CatalogPageShell
-          tools={tools}
-          sectors={taxonomySectorCards}
-          title="Free Industrial Calculators"
-          subtitle={`${tools.length} browser-first, privacy-safe calculators across industrial engineering domains. Formula-free decision support.`}
-          searchPlaceholder="Search free calculators..."
-          categoryTitle="Industry sectors"
-          proToolsHref="/pricing"
-        />
-      </section>
+      <Suspense fallback={<FreeCatalogSkeleton />}>
+        <FreeCatalogContent />
+      </Suspense>
     </PageLayout>
   );
 }

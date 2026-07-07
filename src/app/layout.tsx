@@ -13,6 +13,8 @@ import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegi
 import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap";
 import { THEME_COLOR } from "@/config/organization-trust";
 import { metadataRobots } from "@/lib/infrastructure/seo/seo-indexing-control";
+import { RootShell } from "@/components/layout/RootShell";
+import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool-counts";
 import "./globals.css";
 import "./site-styles";
 /* Eager CSS for client components — prevents lazy preload chunks */
@@ -54,6 +56,8 @@ export default async function RootLayout({
   const { freeToolInputs, ...clientMessages } = messages as any;
 
   const { region, source } = await getServerRegion(locale);
+  const freeToolsCount = getFreeToolCount();
+  const proToolsCount = getPremiumToolCount();
 
   return (
     <html
@@ -104,7 +108,9 @@ export default async function RootLayout({
           <RegionProvider region={region} source={source}>
             <AttributionBootstrap />
             <ServiceWorkerRegister />
-            {children}
+            <RootShell freeToolsCount={freeToolsCount} proToolsCount={proToolsCount}>
+              {children}
+            </RootShell>
           </RegionProvider>
         </NextIntlClientProvider>
       </body>

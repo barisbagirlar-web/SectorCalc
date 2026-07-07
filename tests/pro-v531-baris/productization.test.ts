@@ -43,9 +43,9 @@ describe("Baris PRO Productization", () => {
     expect(BARIS_PRO_PRODUCTS.every(p => p.entitlementRequired === true)).toBe(true);
   });
 
-  it("all products should have stripePriceEnvKey", () => {
+  it("all products should have keyCost", () => {
     const allHaveKey = BARIS_PRO_PRODUCTS.every(p =>
-      p.stripePriceEnvKey && p.stripePriceEnvKey.startsWith("STRIPE_PRICE_BARIS_")
+      p.keyCost && p.keyCost > 0
     );
     expect(allHaveKey).toBe(true);
   });
@@ -83,10 +83,10 @@ describe("Baris PRO Productization", () => {
     }
   });
 
-  it("should not have hardcoded Stripe price IDs", () => {
+  it("should not have hardcoded price IDs (keyCost should be numeric)", () => {
     for (const p of BARIS_PRO_PRODUCTS) {
-      expect(p.stripePriceEnvKey).not.toMatch(/^pi_/);
-      expect(p.stripePriceEnvKey).not.toContain("price_");
+      expect(p.keyCost).toEqual(expect.any(Number));
+      expect(p.keyCost).toBeGreaterThan(0);
     }
   });
 

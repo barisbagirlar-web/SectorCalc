@@ -33,6 +33,7 @@ class EnsureManifestStubsPlugin {
       /* ── Manifest stubs ── */
       const manifestStubs: Array<[string, unknown]> = [
         ["pages-manifest.json", {}],
+        ["app-paths-manifest.json", {}],
         ["next-font-manifest.json", { pages: {}, app: {}, appUsingSizeAdjust: false, pagesUsingSizeAdjust: false }],
         ["middleware-manifest.json", {}],
       ];

@@ -1,26 +1,17 @@
 import type { ReactNode } from "react";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { EnterpriseFooter } from "@/components/layout/EnterpriseFooter";
-import { MainLandmark } from "@/components/layout/MainLandmark";
-import { AppProviders } from "@/components/providers/AppProviders";
-import { TraceAI } from "@/components/trace/TraceAI";
-import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool-counts";
 
 interface PageLayoutProps {
   children: ReactNode;
+  /** @deprecated Footer CTA is now managed by RootShell in root layout. */
   hideFooterCta?: boolean;
 }
 
-export function PageLayout({ children, hideFooterCta }: PageLayoutProps) {
-  const freeToolsCount = getFreeToolCount();
-  const proToolsCount = getPremiumToolCount();
-
-  return (
-    <AppProviders>
-      <SiteHeader freeToolsCount={freeToolsCount} proToolsCount={proToolsCount} />
-      <MainLandmark>{children}</MainLandmark>
-      <EnterpriseFooter hideCta={hideFooterCta} />
-      <TraceAI demoMode defaultOpen={false} title="Trace AI" />
-    </AppProviders>
-  );
+/**
+ * PageLayout — thin content wrapper (legacy interface preserved).
+ * The persistent app shell (SiteHeader, EnterpriseFooter, AppProviders)
+ * is now rendered at root layout level in RootShell.
+ * This component is kept as a pass-through to avoid modifying every page file.
+ */
+export function PageLayout({ children }: PageLayoutProps) {
+  return <>{children}</>;
 }

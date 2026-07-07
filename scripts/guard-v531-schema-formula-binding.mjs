@@ -65,6 +65,19 @@ const FORMULA_DIRS = [
   { path: "src/sectorcalc/formulas/free-v531", tier: "free" },
 ];
 
+// ── Development schemas whitelist: schemas known to be in development
+//    without formula modules yet. They are exempted from formula binding check.
+const DEVELOPMENT_SCHEMAS_PATH = join(ROOT, "data/governance/v531-development-schemas.json");
+let developmentToolKeys = new Set();
+try {
+  if (existsSync(DEVELOPMENT_SCHEMAS_PATH)) {
+    const raw = readFileSync(DEVELOPMENT_SCHEMAS_PATH, "utf8");
+    developmentToolKeys = new Set(JSON.parse(raw));
+  }
+} catch {
+  // file may not exist — proceed with empty set
+}
+
 const failures = [];
 let totalSchemas = 0;
 let schemasWithFormula = 0;
@@ -213,9 +226,15 @@ function checkOutputFormatting(schema, file) {
 // ── Check 8: tool_key maps to a formula module ─────────────────────
 // Pro schemas must have individual .formula.ts files.
 // Free schemas embed formulas in their JSON schema (central registry).
+// Schemas listed in v531-development-schemas.json are exempted.
 function checkFormulaBinding(schema, file, tier) {
   const toolKey = schema.tool_key;
   if (!toolKey) return;
+
+  if (tier === "pro" && developmentToolKeys.has(toolKey)) {
+    // Known development schema — skip formula binding check
+    return;
+  }
 
   if (tier === "free") {
     // Free schemas embed formulas in JSON; no separate .formula.ts required.

@@ -1,0 +1,26 @@
+
+--- build attempt ---
+ ⚠ Linting is disabled.
+   ▲ Next.js 15.5.19
+   - Environments: .env.local, .env.production
+   - Experiments (use with caution):
+     · cpus: 1
+     · staleTimes
+     · optimizePackageImports
+     · staticGenerationRetryCount: 5
+     · staticGenerationMaxConcurrency: 1
+     · staticGenerationMinPagesPerWorker: 50
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 81s
+   Skipping validation of types
+   Collecting page data ...
+
+> Build error occurred
+[Error: Cannot find module '/Users/macair1/projects/SectorCalc-p5a/.next/server/server-reference-manifest.json'
+Require stack:
+- /Users/macair1/projects/SectorCalc-p5a/node_modules/next/dist/build/index.js
+- /Users/macair1/projects/SectorCalc-p5a/node_modules/next/dist/cli/next-build.js] {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
