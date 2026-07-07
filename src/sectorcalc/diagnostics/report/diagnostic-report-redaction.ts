@@ -11,14 +11,15 @@ export function redactUserText(input: string): string {
   let text = input ?? "";
   text = text.trim();
   text = text.replace(/\s{3,}/g, "  ");
-  if (text.length > MAX_LENGTH) {
-    text = text.slice(0, MAX_LENGTH);
-  }
+  // Redact BEFORE truncate — a secret past byte MAX_LENGTH must still be caught
   text = text.replace(API_KEY_PATTERN, REDACTED);
   text = text.replace(OPENAI_PATTERN, "OPENAI_API_KEY=" + REDACTED);
   text = text.replace(DEEPSEEK_PATTERN, "DEEPSEEK_API_KEY=" + REDACTED);
   text = text.replace(PASSWORD_PATTERN, "password=[REDACTED]");
   text = text.replace(BEARER_PATTERN, "bearer [REDACTED]");
+  if (text.length > MAX_LENGTH) {
+    text = text.slice(0, MAX_LENGTH);
+  }
   return text;
 }
 

@@ -34,7 +34,10 @@ export async function POST(req: Request) {
 
     const result = runDiagnostic(parsed.data);
 
-    const report = buildDiagnosticReport(result, parsed.data.privacy_mode);
+    const report = buildDiagnosticReport(result, parsed.data.privacy_mode, {
+      costs: parsed.data.costs,
+      measurements: parsed.data.measurements,
+    });
 
     report.problem_section.problem_context = redactUserText(
       report.problem_section.problem_context

@@ -135,7 +135,14 @@ export async function POST(req: Request) {
     const deterministicResult = runDiagnostic(analyzeInput);
 
     /* ── 6. Build preliminary report ── */
-    const preliminaryReport = buildDiagnosticReport(deterministicResult, analyzeInput.privacy_mode);
+    const preliminaryReport = buildDiagnosticReport(
+      deterministicResult,
+      analyzeInput.privacy_mode,
+      {
+        costs: analyzeInput.costs,
+        measurements: analyzeInput.measurements,
+      },
+    );
     preliminaryReport.problem_section.problem_context = redactUserText(
       preliminaryReport.problem_section.problem_context,
     );
@@ -231,11 +238,18 @@ export async function POST(req: Request) {
       );
     }
 
-    /* ── 9. Persist to Firestore + register verify ── */
-    const { hash } = registerDiagnosticVerify(schemaValidation.data);
-    const persistedHash = await saveDiagnosticReport(schemaValidation.data, ownerUid);
-    const reportHash = persistedHash ?? hash;
-    const verifyUrl = `https://sectorcalc.com/verify/${reportHash}`;
+    const isStrictPrivacy = analyzeInput.privacy_mode === "strict";
+
+    /* ── 9. Persist to Firestore + register verify (skip in strict privacy mode) ── */
+    let reportHash: string | null = null;
+    let verifyUrl: string | null = null;
+
+    if (!isStrictPrivacy) {
+      const { hash } = registerDiagnosticVerify(schemaValidation.data);
+      const persistedHash = await saveDiagnosticReport(schemaValidation.data, ownerUid);
+      reportHash = persistedHash ?? hash;
+      verifyUrl = `https://sectorcalc.com/verify/${reportHash}`;
+    }
 
     /* ── 10. Decrement diagnostic use ── */
     const useDecremented = await decrementDiagnosticUse(ownerUid);
