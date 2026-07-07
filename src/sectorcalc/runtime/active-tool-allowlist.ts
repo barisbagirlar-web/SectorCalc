@@ -55,7 +55,6 @@ export const ACTIVE_FREE_TOOL_SLUGS: readonly string[] = [
   "rebar-weight-count",
   "recipe-cost-menu-price",
   "fabric-consumption-gsm",
-  "break-even-and-margin-of-safety-analysis",
 ];
 
 // V5.4 Core — First verified Pro pilot with real domain-specific calculations.
