@@ -204,14 +204,15 @@ export async function POST(req: Request) {
     }
 
     /* ── 8. Merge AI section into report ── */
+    const evidence = preliminaryReport.evidence_section;
     const fullReport = {
       ...preliminaryReport,
       ai_section: aiSection ?? undefined,
       report_type: "ENGINEERING_DIAGNOSTIC_PREVIEW" as const,
       evidence_section: {
-        ...preliminaryReport.evidence_section,
-        photo_count: processedPhotos.length,
-        image_hashes: processedPhotos.map((p) => p.hash),
+        photo_status: processedPhotos.length > 0 ? "HASH_ONLY" : "NOT_ATTACHED",
+        image_hash: processedPhotos.length > 0 ? processedPhotos[0].hash : null,
+        privacy_mode: evidence.privacy_mode,
       },
     };
 

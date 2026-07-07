@@ -5,7 +5,6 @@ import { readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
 import {
   getFreeV531SchemaBySlug,
-  hasFreeV531Schema,
 } from "@/sectorcalc/schemas/free-v531/registry.generated";
 
 interface LoadedSchema { schema: SuperV4Schema; errors: string[]; }
@@ -277,10 +276,9 @@ function loadAllSchemas(): void {
 
 export function getFreeToolSchema(toolKey: string): SuperV4Schema | null {
   // V5.4 Core — Check bundle-safe static registry first (no runtime fs).
-  // This resolves all active Free V5.3.1 schemas in production.
-  if (hasFreeV531Schema(toolKey)) {
-    const rawSchema = getFreeV531SchemaBySlug(toolKey);
-    if (!rawSchema) return null;
+  // Directly get the schema (avoids bundler inlining that drops the getter).
+  const rawSchema = getFreeV531SchemaBySlug(toolKey);
+  if (rawSchema) {
     // Normalize the raw JSON schema (removes orphan formulas, expressions, etc.)
     return normalizeFreeSchema(rawSchema as unknown as Record<string, unknown>);
   }
