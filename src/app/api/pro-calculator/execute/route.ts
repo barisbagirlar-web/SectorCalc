@@ -599,6 +599,37 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
     }
 
+    // Fallback: if schema not found but tool is in formula registry, create minimal schema
+    // This handles deployed SSR environments where schema files may not be at the expected path.
+    if (!schemaResult.ok && toolKey) {
+      const registryRecord = formulaRegistry.fetchByToolKey(toolKey);
+      if (registryRecord) {
+        // Create a minimal schema from registry record data
+        const minimalSchema: Record<string, unknown> = {
+          tool_id: registryRecord.tool_id,
+          tool_key: registryRecord.tool_key,
+          tool_name: toolKey.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+          category: "PRO",
+          decision_context: {
+            system_boundary: "Baris PRO tool — schema derived from formula registry",
+            decision_owner: "operator",
+          },
+          inputs: [],
+          outputs: registryRecord.nodes.map((n) => ({
+            id: n.output_ref,
+            name: n.output_ref,
+            type: "string",
+          })),
+          formulas: [],
+          unit_conversion_contract: { conversion_registry: {} },
+        };
+        const val = validateSuperV4Schema(minimalSchema);
+        if (val.ok) {
+          schemaResult = { ok: true, schema: val.schema, source: "pro_v531" };
+        }
+      }
+    }
+
     if (!schemaResult.ok) {
       const errorResponse = buildFullBlockedResponse(
         "SCHEMA_NOT_FOUND",
