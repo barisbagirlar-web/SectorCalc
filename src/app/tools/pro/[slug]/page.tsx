@@ -10,6 +10,9 @@ import { UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
 import { ProToolSessionWrapper } from "@/sectorcalc/pro-form/ProToolSessionWrapper";
 import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
+import { getBarisToolCategory } from "@/sectorcalc/formulas/pro-v531/baris-readiness-data";
+import { ProToolAssistedDossier } from "@/components/pro-commerce/ProToolAssistedDossier";
+import "server-only";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 
@@ -76,6 +79,18 @@ export default async function ProToolDetailPage({
 
   if (!identityCheck.ok) {
     notFound();
+  }
+
+  // BLOCKED_SOURCE_REQUIRED tools render an assisted dossier CTA
+  const barisEntry = getBarisToolCategory(slug);
+  const isBlockedSource = barisEntry?.category === "BLOCKED_SOURCE_REQUIRED";
+
+  if (isBlockedSource) {
+    return (
+      <PageLayout>
+        <ProToolAssistedDossier toolKey={slug} toolName={schema.tool_name} />
+      </PageLayout>
+    );
   }
 
   return (

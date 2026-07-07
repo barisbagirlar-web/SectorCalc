@@ -332,6 +332,8 @@ try {
         "src/components/diagnostics/",
         "src/lib/diagnostics/",
         "scripts/generate-",
+        "src/app/tools/",
+        "src/components/pro-commerce/",
       ];
 
       const unrelated = modifiedLines.filter(l => {
