@@ -34,7 +34,7 @@ const SECONDARY_FEATURES = [
     icon: "security" as const,
     title: "Secure Validation Flow",
     description:
-      "Lead intent capture is designed for controlled MVP validation before payment and export are enabled.",
+      "Premium tools are live for structured decision-support workflows. Export and report access depend on your active account permissions and available credits. Outputs are technical decision-support materials and do not replace financial, legal, regulatory, or engineering review.",
   },
 ] as const;
 

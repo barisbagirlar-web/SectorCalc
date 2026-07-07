@@ -88,7 +88,9 @@
     "audit:live:free-v531": "MAX_FAIL=5 node scripts/audit-live-free-v531-tools.mjs",
     "guard:free-v531:schema-binding": "tsx scripts/guard-free-v531-schema-binding.ts",
     "generate:free-v531-registry": "tsx scripts/generate-free-v531-static-registry.ts",
-    "guard:baris-v531-commercial-lock": "node scripts/guard-baris-v531-commercial-state-lock.mjs"
+    "guard:baris-v531-commercial-lock": "node scripts/guard-baris-v531-commercial-state-lock.mjs",
+    "guard:baris-v531-runtime-registration": "node scripts/guard-baris-v531-runtime-registration-import.mjs",
+    "guard:baris-v531-commercial-copy": "node scripts/guard-sectorcalc-live-commercial-copy-consistency.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

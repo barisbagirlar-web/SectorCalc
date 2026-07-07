@@ -21,7 +21,7 @@ const PILLARS = [
  Illustration: PillarSecurityIllustration,
  titleLines: ["Report-Ready", "Outputs"],
  description:
- "Premium flows are designed around PDF, Excel and Word report packaging. In the MVP, export is preview-only; report structure and lead intent are live today.",
+ "Premium tools are live for structured decision-support workflows. Export and report access depend on your active account permissions and available credits. Outputs are technical decision-support materials and do not replace financial, legal, regulatory, or engineering review.",
  },
 ] as const;
 

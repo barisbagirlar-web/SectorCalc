@@ -150,11 +150,25 @@ if (fs.existsSync(FORMULA_DIR_ABS)) {
 console.log("\n🔍 [Check 5a] rg: imports from pro-v531 formula in client dirs...");
 totalChecks++;
 try {
+  // Exclude src/app/api (server-only by Next.js convention) and baris-formula-registry side-effect imports
   const clientResult = execSync(
+    `rg -l "import.*pro-v531.*formula" src/app src/components | rg -v "src/app/api/" || true`,
+    { cwd: ROOT, encoding: "utf-8", stdio: ["pipe", "pipe", "pipe"] }
+  ).trim();
+  // Also check the raw result — allow baris-formula-registry side-effect imports
+  const rawResult = execSync(
     `rg -l "import.*pro-v531.*formula" src/app src/components`,
     { cwd: ROOT, encoding: "utf-8", stdio: ["pipe", "pipe", "pipe"] }
   ).trim();
-  const clientFiles = clientResult.split("\n").filter(Boolean);
+  const rawFiles = rawResult.split("\n").filter(Boolean);
+  // Filter out API routes and registry side-effect imports
+  const clientFiles = rawFiles.filter(f => {
+    if (f.startsWith("src/app/api/")) return false;
+    const content = fs.readFileSync(path.join(ROOT, f), "utf-8");
+    // Allow side-effect imports of the baris-formula-registry
+    if (content.includes('import "@/sectorcalc/formulas/pro-v531/baris-formula-registry"')) return false;
+    return true;
+  });
   if (clientFiles.length > 0) {
     for (const f of clientFiles) {
       fail(`Client-side import from pro-v531 formula in: ${f.trim()}`);

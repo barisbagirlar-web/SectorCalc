@@ -19,8 +19,7 @@ export function SplitFeatureSection() {
  </p>
  <p className="mt-4 text-base leading-relaxed text-text-secondary sm:text-lg">
  Free tools deliver fast estimates; decision tools add the report layer when the cost of
- being wrong is real - without changing routes, formulas or validation behavior in the
- MVP.
+being wrong is real - using deterministic calculation engines built for technical decision-support workflows.
  </p>
  </div>
 
