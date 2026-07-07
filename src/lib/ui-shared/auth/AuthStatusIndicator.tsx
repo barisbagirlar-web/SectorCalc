@@ -6,7 +6,6 @@ import { useUserSubscription, warmUserSubscriptionStore } from "@/lib/features/b
 import { getAccountHref, getLoginHref } from "@/lib/features/tools/tool-links";
 import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
 import { clearSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
-import "./auth-status.css";
 
 function LockIcon() {
   return (

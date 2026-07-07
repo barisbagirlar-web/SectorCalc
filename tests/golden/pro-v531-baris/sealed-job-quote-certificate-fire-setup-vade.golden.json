@@ -1,0 +1,33 @@
+{
+  "tool_key": "sealed-job-quote-certificate-fire-setup-vade",
+  "schema_version": "5.3.1-pro-schema.1",
+  "formula_version": "5.3.1-pro-baris.1",
+  "raw_inputs": {
+    "A": 100,
+    "B": 50,
+    "C": 10,
+    "D": 50,
+    "E": 0.9,
+    "CF": 0.8
+  },
+  "expected_outputs": {
+    "out_evidence_completeness": 1,
+    "out_normalized_demand": 100,
+    "out_reference_deviation": 4,
+    "out_derating_factor": 0.9,
+    "out_demand_metric": 5000,
+    "out_capacity_metric": 50,
+    "out_utilization_margin": 100,
+    "out_expanded_uncertainty": 2.5,
+    "out_threshold_crossing": 1,
+    "out_sensitivity_driver": 5,
+    "out_fmea_trigger": 1,
+    "out_money_at_risk": 495000,
+    "out_scenario_delta": -4750,
+    "out_audit_hash_payload": 5100,
+    "out_final_decision_state": -1
+  },
+  "expected_hashes": {},
+  "expected_decision_status": "REVIEW",
+  "expected_warnings": []
+}

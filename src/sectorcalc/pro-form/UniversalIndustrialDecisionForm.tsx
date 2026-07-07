@@ -48,7 +48,6 @@ import {
   convertDisplayToCanonical,
   convertCanonicalToDisplay,
 } from "./unit-display-resolver";
-import "./universal-industrial-decision-form.css";
 
 // ── ViewModel types ────────────────────────────────────────────────────────────
 
