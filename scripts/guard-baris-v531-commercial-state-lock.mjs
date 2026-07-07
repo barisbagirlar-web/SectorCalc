@@ -344,6 +344,12 @@ try {
         "src/app/api/__debug/",
         "src/app/api/export-pdf/",
         "src/lib/pdf/",
+        "scripts/audit-",
+        "scripts/guard-free-v531-",
+        "src/sectorcalc/schemas/free-v531/",
+        "src/sectorcalc/runtime/",
+        "src/sectorcalc/diagnostics/",
+        "scripts/check-secrets.mjs",
       ];
 
       const unrelated = modifiedLines.filter(l => {

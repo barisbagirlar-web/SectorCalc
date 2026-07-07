@@ -46,6 +46,10 @@ const ALLOWLIST_PATTERNS = [
   /password\s*:\s*"(?:redacted|placeholder|PASSWORD_TO_BE_REPLACED)"/i,
   // Regex pattern literal containing PRIVATE KEY (used for redaction detection, not a real key)
   /\/-----BEGIN PRIVATE KEY-----/,
+  // Pattern variable declarations (not actual env values — used for redaction)
+  /const (?:OPENAI|DEEPSEEK)_PATTERN\s*=\s*\//,
+  // Test fixture API key values used to verify redaction works (not real credentials)
+  /OPENAI_API_KEY=sk-abc|DEEPSEEK_API_KEY=sk-xyz/,
   // Environment variable name reference (not actual value)
   /FIREBASE_SERVICE_ACCOUNT_JSON/,
   // Test fixture object with apiKey property (not a real credential)

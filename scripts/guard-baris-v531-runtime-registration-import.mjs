@@ -105,7 +105,7 @@ if (routeContent.includes(EXPECTED_IMPORT) || routeContent.includes(EXPECTED_IMP
 // ── CHECK 8: Registry must register exactly 20 LIVE tools ────────────────
 console.log("\n[8/5] Checking registry registers exactly 20 LIVE tools...");
 const regEntries = (regContent.match(/\{ toolKey: "[^"]+", toolId: "PRO_\d{3}" \}/g) || []).length;
-if (regEntries !== 30) fail(`Expected 30 registry entries, got ${regEntries}`);
+if (regEntries !== 20) fail(`Expected 20 registry entries, got ${regEntries}`);
 else pass(`Registry has ${regEntries} entries`);
 
 // ── CHECK 9: Every LIVE tool must be registered ─────────────────────────

@@ -113,6 +113,24 @@ function cleanLabel(raw: string): string {
   });
   label = expanded.join(" ");
 
+  // Label override map: fix labels where unit stripping produces bad English.
+  // These are checked AFTER unit-pattern strip but BEFORE title casing.
+  const LABEL_OVERRIDE_MAP: Record<string, string> = {
+    "Rate Per": "Rate per Distance",
+    "Consumable Cost Per": "Consumable Cost",
+    "Material Cost Per": "Material Cost",
+    "Rebar Cost Per": "Rebar Cost",
+    "Fabric Cost Per": "Fabric Cost",
+    "Batch Idle": "Batch Idle Energy",
+    "Electricity": "Electricity Consumption",
+    "Fuel Surcharge Percent": "Fuel Surcharge",
+    "User Verified Grid Factor Kgco2E": "Grid Emission Factor",
+  };
+  const overrideKey = label.trim();
+  if (LABEL_OVERRIDE_MAP[overrideKey]) {
+    label = LABEL_OVERRIDE_MAP[overrideKey];
+  }
+
   // Proper English title casing
   const titleWords = label.split(/\s+/);
   const cased = titleWords.map((w, i) => {
@@ -164,15 +182,16 @@ function buildSchemaInput(
 
   const cleanName = cleanLabel(spec.label);
   const baseUnit = spec.baseUnit === "user_unit" ? null : spec.baseUnit;
-  // Populate allowed_display_units with base_unit to prevent empty dropdowns
-  const allowedUnits = baseUnit ? [baseUnit] : [];
+  // Only allow unit selection when a real base unit exists
+  const hasRealUnit = baseUnit !== null && baseUnit !== "user_unit" && baseUnit !== "";
+  const allowedUnits = hasRealUnit ? [baseUnit] : [];
 
   return {
     id: spec.id,
     name: cleanName,
     symbol: null, // Free tools: no debug parentheses in public UI
     quantity_kind: spec.quantityKind,
-    unit_selectable: true,
+    unit_selectable: hasRealUnit,
     base_unit: baseUnit,
     allowed_display_units: allowedUnits,
     normalized_id: `n_${spec.id}`,

@@ -118,10 +118,10 @@
   "inputs": [
     {
       "id": "fabric_cost_per_kg",
-      "name": "Fabric Cost Per",
+      "name": "Fabric Cost",
       "symbol": null,
       "quantity_kind": "currency",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": null,
       "allowed_display_units": [],
       "normalized_id": "n_fabric_cost_per_kg",
@@ -159,7 +159,7 @@
       "name": "Fabric Gsm",
       "symbol": null,
       "quantity_kind": "number",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": null,
       "allowed_display_units": [],
       "normalized_id": "n_fabric_gsm",
@@ -197,7 +197,7 @@
       "name": "Garment Area M2",
       "symbol": null,
       "quantity_kind": "geometry",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": null,
       "allowed_display_units": [],
       "normalized_id": "n_garment_area_m2",
@@ -235,7 +235,7 @@
       "name": "Marker Efficiency Percent",
       "symbol": null,
       "quantity_kind": "ratio_or_percent",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": null,
       "allowed_display_units": [],
       "normalized_id": "n_marker_efficiency_percent",
@@ -273,7 +273,7 @@
       "name": "Shrinkage Percent",
       "symbol": null,
       "quantity_kind": "ratio_or_percent",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": null,
       "allowed_display_units": [],
       "normalized_id": "n_shrinkage_percent",
@@ -469,7 +469,7 @@
   "formulas": [
     {
       "id": "F1_NORM_fabric_cost_per_kg",
-      "name": "Normalize Fabric Cost Per",
+      "name": "Normalize Fabric Cost",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -489,7 +489,7 @@
         "Rounding errors possible"
       ],
       "edge_cases": [],
-      "public_proof_summary": "Normalizes Fabric Cost Per to calculation base unit.",
+      "public_proof_summary": "Normalizes Fabric Cost to calculation base unit.",
       "protected_methodology_summary": "Unit normalization is internal server logic.",
       "checker_note": "Verify source unit before entry.",
       "formula_leak_risk": "LOW",
