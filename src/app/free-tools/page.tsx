@@ -46,6 +46,8 @@ const KNOWN_FREE_SECTOR_EXACT: Record<string, string> = {
   thread: "makine",
   rpm: "makine",
   feed: "makine",
+  tool: "makine",
+  life: "makine",
 
   // Metal & Welding
   weld: "metal",
@@ -80,6 +82,7 @@ const KNOWN_FREE_SECTOR_EXACT: Record<string, string> = {
   electric: "enerji",
   motor: "enerji",
   running: "enerji",
+  energy: "enerji",
 
   // Environment & Carbon
   cbam: "cevre",
@@ -104,6 +107,7 @@ const KNOWN_FREE_SECTOR_EXACT: Record<string, string> = {
   profitability: "finans",
   currency: "finans",
   pricing: "finans",
+  break: "finans",
 
   // Logistics
   eoq: "lojistik",

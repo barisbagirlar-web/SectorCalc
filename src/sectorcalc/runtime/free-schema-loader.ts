@@ -117,8 +117,10 @@ export function normalizeFreeSchema(raw: Record<string, unknown>): SuperV4Schema
           if (baseUnit && typeof baseUnit === "string" && baseUnit.length > 0) {
             (inp as Record<string, unknown>).allowed_display_units = [baseUnit];
           } else {
-            (inp as Record<string, unknown>).unit_selectable = false;
-            (inp as Record<string, unknown>).allowed_display_units = [];
+            // base_unit is null/empty but input is unit_selectable
+            // Use "user_unit" as fallback to preserve unit display in UI
+            (inp as Record<string, unknown>).base_unit = "user_unit";
+            (inp as Record<string, unknown>).allowed_display_units = ["user_unit"];
           }
         }
       } else {
