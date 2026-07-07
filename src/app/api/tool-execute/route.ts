@@ -25,6 +25,7 @@ import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { createAuditSeal, computeHash } from "@/sectorcalc/pro-runtime/audit-seal-service";
 import type { ExecuteRequest } from "@/sectorcalc/pro-form/contract-types";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
+import { freeV531FormulaRegistry } from "@/sectorcalc/formulas/free-v531/index";
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import {
   pass2RuntimeExecution,
@@ -321,6 +322,27 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       if (!pass2.ok) {
         const blocked = buildFullBlockedResponse(pass2.pipelineState, pass2.errors.join("; "));
         return NextResponse.json(blocked, { status: 200 });
+      }
+
+      // V5.4 Core — If formula graph engine fell back to Path B (static defaults),
+      // use the Free V5.3.1 formula module's execute() for real computed values.
+      const formulaModule = freeV531FormulaRegistry[body.toolKey];
+      if (formulaModule && pass2.errors.some(e => e.includes("No Pro formula registry record"))) {
+        try {
+          const formulaResult = formulaModule.execute(execBody.raw_inputs);
+          if (formulaResult && formulaResult.outputs) {
+            for (const fo of formulaResult.outputs) {
+              const existing = pass2.outputs.find(o => o.id === fo.id);
+              if (existing) {
+                existing.value = fo.value;
+                existing.status = "OK";
+                (existing as any).public_explanation = fo.publicExplanation;
+              }
+            }
+          }
+        } catch {
+          // Formula module threw — keep Path B default values
+        }
       }
 
       // PASS 3 — Public Output + Audit / Export Control
