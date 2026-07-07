@@ -87,7 +87,8 @@
     "audit:seo-gates": "npm run dump:routes && node scripts/sitemap-lock.mjs --routes public/routes.json --sample 50 && npm run audit:seo-copy",
     "audit:live:free-v531": "MAX_FAIL=5 node scripts/audit-live-free-v531-tools.mjs",
     "guard:free-v531:schema-binding": "tsx scripts/guard-free-v531-schema-binding.ts",
-    "generate:free-v531-registry": "tsx scripts/generate-free-v531-static-registry.ts"
+    "generate:free-v531-registry": "tsx scripts/generate-free-v531-static-registry.ts",
+    "guard:baris-v531-commercial-lock": "node scripts/guard-baris-v531-commercial-state-lock.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
