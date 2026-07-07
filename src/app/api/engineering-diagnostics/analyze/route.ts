@@ -5,15 +5,18 @@ import {
   verifySignedInUser,
 } from "@/lib/infrastructure/firebase/verify-signed-in-user";
 import {
-  checkUserCreditBalance,
-  decrementCredits,
-} from "@/lib/credits/tool-usage-session.server";
+  checkProductUsage,
+  grantProductUsesFromCredits,
+  decrementProductUse,
+  getProductUsageDoc,
+  PRODUCT_KEYS,
+} from "@/lib/credits/product-usage-policy";
 import { isProBypassEmail } from "@/lib/features/billing/subscription";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const ANALYZE_CREDIT_COST = 1;
+const PRODUCT_KEY = PRODUCT_KEYS.ENGINEERING_DIAGNOSTICS;
 
 export async function POST(req: Request) {
   try {
@@ -34,19 +37,26 @@ export async function POST(req: Request) {
       );
     }
 
-    /* ── Credit gate ───────────────────────────────────────────── */
+    /* ── Product usage gate ────────────────────────────────────── */
     const isOwner = user.email ? isProBypassEmail(user.email) : false;
+
     if (!isOwner) {
-      const hasCredits = await checkUserCreditBalance(user.uid, ANALYZE_CREDIT_COST);
-      if (!hasCredits) {
-        return NextResponse.json(
-          {
-            ok: false,
-            error: "INSUFFICIENT_CREDITS",
-            message: "1 credit is required to run a diagnostic analysis.",
-          },
-          { status: 402 }
-        );
+      const hasUsage = await checkProductUsage(user.uid, PRODUCT_KEY);
+      if (!hasUsage) {
+        // No remaining uses — try to grant from credits
+        const grantResult = await grantProductUsesFromCredits(user.uid, PRODUCT_KEY);
+        if (!grantResult.ok) {
+          return NextResponse.json(
+            {
+              ok: false,
+              error: "INSUFFICIENT_CREDITS",
+              message: "5 credits are required to unlock 3 Full Engineering Diagnostics.",
+              credits_required: 5,
+              usage_grant: 3,
+            },
+            { status: 402 }
+          );
+        }
       }
     }
 
@@ -77,12 +87,22 @@ export async function POST(req: Request) {
     /* ── Execute ───────────────────────────────────────────────── */
     const result = runDiagnostic(parsed.data);
 
-    /* ── Deduct credit (compute first, spend after) ────────────── */
+    /* ── Deduct 1 product use (compute first, spend after) ─────── */
     if (!isOwner) {
-      await decrementCredits(user.uid, ANALYZE_CREDIT_COST);
+      await decrementProductUse(user.uid, PRODUCT_KEY);
     }
 
-    return NextResponse.json(result, { status: 200 });
+    const usageDoc = !isOwner ? await getProductUsageDoc(user.uid, PRODUCT_KEY) : null;
+    const remainingUses = usageDoc?.remainingUses ?? null;
+
+    return NextResponse.json(
+      {
+        ...result,
+        remaining_uses: remainingUses,
+        product: "ENGINEERING_DIAGNOSTICS",
+      },
+      { status: 200 }
+    );
   } catch (error) {
     return NextResponse.json(
       { ok: false, error: "Internal server error" },

@@ -5,14 +5,14 @@
  * Persists the report and minimal verify metadata to Firestore.
  *
  * Auth: Required — Bearer <Firebase ID token>
- * Credit: 1 credit deducted on successful PDF generation.
+ *
+ * CREDIT RULES:
+ * - Reports prefixed with "full_" come from Engineering Diagnostics product
+ *   (already consumed a diagnostic use) → no additional charge
+ * - Standalone PDF export → 1 credit deducted (via general credit balance)
  *
  * Input: { report: DiagnosticReport }
  * Output: application/pdf binary with Content-Disposition header.
- *
- * STRICT:
- * - PDF reads only from the report contract — never recomputes risk, cost, decision, or measurements
- * - No OpenAI calls
  */
 
 import { NextResponse } from "next/server";

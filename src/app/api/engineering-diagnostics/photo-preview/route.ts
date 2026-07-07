@@ -1,9 +1,16 @@
 /**
  * POST /api/engineering-diagnostics/photo-preview
  *
- * Camera-first / photo-only visual preview.
- * No auth required — free tier for funnel conversion.
- * Rate-limited: 10 req/hour per IP.
+ * AI Photo Diagnosis — 2 credits = 3 uses.
+ *
+ * FLOW:
+ * 1. Auth gate
+ * 2. Product usage check (grant from credits if needed)
+ * 3. Rate limit
+ * 4. Parse + validate photos (EXIF strip, hash)
+ * 5. Call OpenAI Vision
+ * 6. On success → decrement 1 use, return result
+ * 7. On failure → NO use decrement, return fallback
  *
  * CONSTRAINTS:
  * - Only visual observations — no deterministic values
@@ -12,10 +19,24 @@
  */
 
 import { NextResponse } from "next/server";
+import {
+  parseBearerToken,
+  verifySignedInUser,
+} from "@/lib/infrastructure/firebase/verify-signed-in-user";
+import {
+  checkProductUsage,
+  grantProductUsesFromCredits,
+  decrementProductUse,
+  getProductUsageDoc,
+  PRODUCT_KEYS,
+} from "@/lib/credits/product-usage-policy";
+import { isProBypassEmail } from "@/lib/features/billing/subscription";
 import { VISUAL_OBSERVATION_SYSTEM_PROMPT } from "@/lib/diagnostics/visualObservationPrompt";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+const PRODUCT_KEY = PRODUCT_KEYS.AI_PHOTO_DIAGNOSIS;
 
 /* ── Rate limit: in-memory map, 10 req/hour per IP ── */
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
@@ -76,7 +97,46 @@ function stripExif(buffer: Buffer, mime: string): Buffer {
 
 export async function POST(req: Request) {
   try {
-    /* ── 1. Rate limit (free tier — 10 req/hour per IP) ── */
+    /* ── 1. Auth gate ── */
+    const token = parseBearerToken(req);
+    if (!token) {
+      return NextResponse.json(
+        { ok: false, error: "Authentication required. Sign in to use AI Photo Diagnosis." },
+        { status: 401 }
+      );
+    }
+
+    const user = await verifySignedInUser(token);
+    if (!user) {
+      return NextResponse.json(
+        { ok: false, error: "Invalid or expired authentication token." },
+        { status: 401 }
+      );
+    }
+
+    /* ── 2. Product usage gate ── */
+    const isOwner = user.email ? isProBypassEmail(user.email) : false;
+
+    if (!isOwner) {
+      const hasUsage = await checkProductUsage(user.uid, PRODUCT_KEY);
+      if (!hasUsage) {
+        const grantResult = await grantProductUsesFromCredits(user.uid, PRODUCT_KEY);
+        if (!grantResult.ok) {
+          return NextResponse.json(
+            {
+              ok: false,
+              error: "INSUFFICIENT_CREDITS",
+              message: "2 Diagnostic Credits are required for AI Photo Diagnosis.",
+              credits_required: 2,
+              usage_grant: 3,
+            },
+            { status: 402 }
+          );
+        }
+      }
+    }
+
+    /* ── 3. Rate limit ── */
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
@@ -155,7 +215,7 @@ export async function POST(req: Request) {
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
-        { ok: false, error: "AI visual service not configured. Set OPENAI_API_KEY." },
+        { ok: false, error: "AI visual service not configured." },
         { status: 400 }
       );
     }
@@ -206,12 +266,13 @@ export async function POST(req: Request) {
       if (!visualResult) throw new Error("OpenAI returned empty response");
     } catch (err) {
       openAiFailed = true;
-      // Return fallback response — NO credit deduction
+      // Return fallback — NO use decrement
       return NextResponse.json(
         {
           ok: true,
           mode: "visual_preview",
-          credits_consumed: 0,
+          uses_consumed: 0,
+          remaining_uses: null,
           probable_domain: "UNKNOWN",
           probable_issue_type: "UNKNOWN",
           observations: [
@@ -268,13 +329,20 @@ export async function POST(req: Request) {
       ? (aiOutput as Record<string, unknown>)
       : null;
 
-    /* ── 8. Return result — no credit deduction (free tier) ── */
+    /* ── 8. AI succeeded → decrement 1 product use ── */
+    if (!isOwner) {
+      await decrementProductUse(user.uid, PRODUCT_KEY);
+    }
+
+    const usageDoc = !isOwner ? await getProductUsageDoc(user.uid, PRODUCT_KEY) : null;
+    const remainingUses = usageDoc?.remainingUses ?? null;
 
     return NextResponse.json(
       {
         ok: true,
         mode: "visual_preview",
-        credits_consumed: 0,
+        uses_consumed: 1,
+        remaining_uses: remainingUses,
         probable_domain: (observations && typeof observations.probable_domain === "string" ? observations.probable_domain : "UNKNOWN"),
         probable_issue_type: (observations && typeof observations.probable_issue_type === "string" ? observations.probable_issue_type : "UNKNOWN"),
         observations: observations?.observations || [
