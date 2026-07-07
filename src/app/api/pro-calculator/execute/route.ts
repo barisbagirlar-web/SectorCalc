@@ -37,9 +37,11 @@ import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-form
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
-import { initBarisFormulaRegistry } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
-// Initialize formula registry — explicit call prevents Webpack tree-shaking
-initBarisFormulaRegistry();
+import { initBarisFormulaRegistry, LIVE_BATCH_KEYS } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
+// Initialize formula registry — explicit call with result used to prevent Webpack tree-shaking
+if (initBarisFormulaRegistry() < (LIVE_BATCH_KEYS?.size ?? 0)) {
+  throw new Error("Baris PRO formula registry initialization failed — schema resolution will be unavailable");
+}
 import { getBarisExecutionBlockReason, checkBarisExecutionEntitlement } from "@/sectorcalc/pro-commerce/baris-entitlement-guard";
 import { getAdminFirestore, getAdminAuth } from "@/lib/infrastructure/firebase/admin";
 import { FieldValue } from "firebase-admin/firestore";

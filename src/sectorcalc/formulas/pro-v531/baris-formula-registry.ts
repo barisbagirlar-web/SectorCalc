@@ -141,12 +141,22 @@ export function isBarisBatch2Tool(toolKey: string): boolean {
  * Calling this ensures the module is NOT tree-shaken by Webpack
  * and all formulaRegistry.register() calls execute at runtime.
  * Must be called once before any PRO tool execution.
+ *
+ * Webpack anti-tree-shake strategy:
+ * - Iterates the LIVE_TOOLS array so the registration loop cannot be DCE'd.
+ * - Uses formulaRegistry instance methods to create a visible data dependency.
  */
-export function initBarisFormulaRegistry(): boolean {
-  // Registration already happens at module level (import side-effect).
-  // This function exists solely to force the module to be retained
-  // in the production bundle. Return true to confirm initialization.
-  return true;
+export function initBarisFormulaRegistry(): number {
+  let count = 0;
+  for (const t of LIVE_TOOLS) {
+    // Touch each tool_key to prevent DCE of the registration loop
+    if (formulaRegistry.fetchByToolKey(t.toolKey)) count++;
+  }
+  for (const t of LIVE_TOOLS) {
+    if (formulaRegistry.fetchByToolKey(t.toolKey)) count++;
+  }
+  // Touch exported symbols so the module-level registration loop is retained
+  return count + LIVE_BATCH_KEYS.size + BATCH_1_KEYS.size + BARIS_TOOL_IDS.length;
 }
 
 export { FORMULA_VERSION };
