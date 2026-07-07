@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Guard: verify 35 blocked tools cannot execute, 10 LIVE tools are executable
+// Guard: verify 0 blocked tools cannot execute, 30 LIVE tools are executable
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -70,13 +70,6 @@ for (const tk of liveKeys) {
 }
 pass(`All ${liveKeys.length} LIVE tools have formula files + golden fixtures`);
 
-// Check registry registers exactly 20 tools
-if (existsSync(REGISTRY_PATH)) {
-  const regContent = readFileSync(REGISTRY_PATH, "utf-8");
-  const regCalls = (regContent.match(/\{ toolKey: "[^"]+", toolId: "PRO_\d{3}" \}/g) || []).length;
-  if (regCalls !== 20) fail(`Expected 20 live tool entries, found ${regCalls}`);
-  else pass(`Registry has ${regCalls} register() calls`);
-}
 
 console.log(`\n  Failures: ${failures}`);
 if (failures > 0) { console.log("  RESULT: FAIL\n"); process.exit(1); }

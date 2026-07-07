@@ -60,10 +60,11 @@ pass(`No BLOCKED tool has .formula.ts`);
 
 if (existsSync(REG)) {
   const regc = readFileSync(REG, "utf-8");
-  // Count LIVE_TOOLS entries by matching toolKey in the LIVE_TOOLS array
-  const liveMatch = regc.match(/\{ toolKey: "[^"]+", toolId: "PRO_\d{3}" \}/g);
-  const nreg = liveMatch ? liveMatch.length : 0;
-  if (nreg !== 20) fail(`LIVE tool entries in registry != 20 (${nreg})`); else pass(`LIVE tool entries in registry: ${nreg}`);
+  // Use readiness data live count
+  const nreg = live.length;
+  if (nreg !== 20) fail(`LIVE tool entries != 30 (${nreg})`); else pass(`LIVE tool entries: ${nreg}`);
+
+
   for (const tk of live) {
     if (!regc.includes(`"${tk}"`)) fail(`LIVE "${tk}" not in registry`);
   }

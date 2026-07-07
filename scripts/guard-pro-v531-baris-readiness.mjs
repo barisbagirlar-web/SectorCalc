@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // guard-pro-v531-baris-readiness.mjs
-// Validates Baris PRO readiness classification (Batch 1: LIVE=10, BLOCKED=35)
+// Validates Baris PRO readiness classification (Batch 1-3: LIVE=30, BLOCKED=15)
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
