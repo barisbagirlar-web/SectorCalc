@@ -242,7 +242,7 @@ function runNextBuild() {
       // and other CDNs).
       NODE_OPTIONS:
         process.env.NODE_OPTIONS ??
-        "--max-old-space-size=3072 --dns-result-order=ipv4first",
+        "--max-old-space-size=2048 --dns-result-order=ipv4first",
       FORCE_COLOR: "0",
     },
     stdio: ["inherit", logFd, logFd],
@@ -392,6 +392,15 @@ try {
     }
 
     if (shouldRetryWithFullClean(result) && attempt < MAX_ATTEMPTS) {
+      // SIGKILL = OOM: DO NOT clean artifacts — cache reduces memory pressure on retry.
+      const isOom = result.signal === "SIGKILL" || (result.status ?? 0) === 137;
+      if (isOom) {
+        console.warn("next-build-with-500-fallback: OOM (SIGKILL) — retrying WITHOUT cache cleanup.");
+        process.env.SECTORCALC_BUILD_LOCK_SKIP = "1";
+        acquireBuildLock();
+        ensureNextTypeAndBuildManifestStubs();
+        continue;
+      }
       console.warn("next-build-with-500-fallback: SSG race detected — full clean retry…");
       preserveBuildLogForDiagnostics();
       cleanNextArtifacts();
@@ -413,8 +422,13 @@ try {
       }
       console.warn("next-build-with-500-fallback: full clean before next attempt…");
       preserveBuildLogForDiagnostics();
-      cleanNextArtifacts();
-      try { rmSync(WEBPACK_CACHE_DIR, { recursive: true, force: true }); } catch {}
+      // SIGKILL/OOM: preserve cache for lower memory on retry
+      if (result.signal !== "SIGKILL" && (result.status ?? 0) !== 137) {
+        cleanNextArtifacts();
+        try { rmSync(WEBPACK_CACHE_DIR, { recursive: true, force: true }); } catch {}
+      } else {
+        console.warn("next-build-with-500-fallback: OOM — keeping cache for retry.");
+      }
       acquireBuildLock();
       ensureNextTypeAndBuildManifestStubs();
     }
