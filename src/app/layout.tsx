@@ -21,6 +21,8 @@ import "../styles/apple-ui.css";
 import "../styles/contrast-system.css";
 /* Eager CSS for client components rendered on every page */
 import "../lib/ui-shared/auth/auth-status.css";
+/* Tool form CSS — eagerly loaded to prevent lazy preload chunk on calculator pages */
+import "../sectorcalc/pro-form/universal-industrial-decision-form.css";
 /* Page-specific CSS is imported in the components that use its selectors */
 
 const inter = Inter({
