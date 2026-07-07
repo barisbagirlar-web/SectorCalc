@@ -277,6 +277,24 @@ function main() {
     cpSync(srcV531, join(NEXT, "server/src/sectorcalc/schemas/v531"), { recursive: true, force: true });
   }
 
+  // NOW copy server → standalone (after schemas are in place)
+  ensurePatchedServerJs();
+
+  // Also copy schemas directly to standalone root path
+  // (Firebase SSR runs server.js from .next/standalone/ and uses process.cwd() which is standalone dir)
+  const STANDALONE = join(NEXT, "standalone");
+  const standaloneSchemasDir = join(STANDALONE, "src/sectorcalc/schemas");
+  // Copy pro-v531 schemas to standalone/src/sectorcalc/schemas/pro-v531
+  if (existsSync(srcProV531)) {
+    mkdirSync(join(standaloneSchemasDir, "pro-v531"), { recursive: true });
+    cpSync(srcProV531, join(standaloneSchemasDir, "pro-v531"), { recursive: true, force: true });
+  }
+  // Copy v531 schemas to standalone/src/sectorcalc/schemas/v531
+  if (existsSync(srcV531)) {
+    mkdirSync(join(standaloneSchemasDir, "v531"), { recursive: true });
+    cpSync(srcV531, join(standaloneSchemasDir, "v531"), { recursive: true, force: true });
+  }
+
   const buildId = readFileSync(join(NEXT, "BUILD_ID"), "utf8").trim();
   console.log(`finalize-next-build: ready (BUILD_ID=${buildId})`);
 }

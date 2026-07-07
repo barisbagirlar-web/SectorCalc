@@ -40,6 +40,12 @@ function getSchemasDirs(): string[] {
   if (existsSync(fnBundlePro) && !dirs.includes(fnBundlePro)) dirs.push(fnBundlePro);
   if (existsSync(fnBundleV531) && !dirs.includes(fnBundleV531)) dirs.push(fnBundleV531);
 
+  // .next/standalone/.next/server paths (Firebase SSR — ensurePatchedServerJs copies server into standalone/.next/server)
+  const standaloneNextPro = join(cwd, ".next/server/src/sectorcalc/schemas/pro-v531");
+  const standaloneNextV531 = join(cwd, ".next/server/src/sectorcalc/schemas/v531");
+  if (existsSync(standaloneNextPro) && !dirs.includes(standaloneNextPro)) dirs.push(standaloneNextPro);
+  if (existsSync(standaloneNextV531) && !dirs.includes(standaloneNextV531)) dirs.push(standaloneNextV531);
+
   if (dirs.length === 0) {
     dirs.push(join(cwd, "src/sectorcalc/schemas/v531"));
   }

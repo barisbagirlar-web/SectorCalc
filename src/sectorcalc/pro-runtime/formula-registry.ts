@@ -64,6 +64,13 @@ export class FormulaRegistry {
     return null;
   }
 
+  fetchByToolKey(toolKey: string): FormulaRegistryRecord | null {
+    for (const record of this.store.values()) {
+      if (record.tool_key === toolKey) return record;
+    }
+    return null;
+  }
+
   verifyHashBinding(schemaHash: string, formulaVersion: string): boolean {
     const key = `${schemaHash}::${formulaVersion}`;
     for (const record of this.store.values()) {
