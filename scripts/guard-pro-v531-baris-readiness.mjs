@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// SectorCalc PRO V5.3.1 — Baris Readiness Guard v2
+// SectorCalc PRO V5.3.1 — Baris Readiness Guard
 // Manifest-driven: reads actual data instead of hardcoded expectations.
 
 import { readFileSync, existsSync } from "fs";
@@ -13,7 +13,7 @@ let failCount = 0;
 function fail(msg) { failCount++; console.error(`  \u274c FAIL: ${msg}`); }
 function pass(msg) { console.log(`  \u2705 PASS: ${msg}`); }
 
-console.log("\n\u2550\u2550\u2550 PRO V5.3.1 Baris Readiness Guard v2 \u2550\u2550\u2550\n");
+console.log("\n\u2550\u2550\u2550 PRO V5.3.1 Baris Readiness Guard \u2550\u2550\u2550\n");
 
 const raw = readFileSync(READINESS, "utf-8");
 const liveMatch = raw.match(/LIVE_ENGINE_READY_TOOLS.*?\[\n([\s\S]*?)\];/);
@@ -40,12 +40,14 @@ console.log(`  BLOCKED_SOURCE_REQUIRED: ${nsource}`);
 console.log(`  BLOCKED_RUNTIME_CONTRACT_MISMATCH: ${ncontract}`);
 console.log(`  TOTAL: ${ntotal}`);
 
-if (nlive > 0) pass(`LIVE_ENGINE_READY = ${nlive}`);
-if (nsource > 0) pass(`BLOCKED_SOURCE_REQUIRED = ${nsource}`);
+if (nlive === 30) pass(`LIVE_ENGINE_READY = ${nlive}`); else fail(`LIVE_ENGINE_READY = ${nlive} (expected 20)`);
+if (nsource === 15) pass(`BLOCKED_SOURCE_REQUIRED = ${nsource}`); else fail(`BLOCKED_SOURCE_REQUIRED = ${nsource} (expected 15)`);
+if (ncontract === 0) pass(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = ${ncontract}`); else fail(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = ${ncontract} (expected 10)`);
 if (ntotal === 45) pass(`Total classified = ${ntotal}`); else fail(`Total classified = ${ntotal} (expected 45)`);
 if (dupes.length === 0) pass("No duplicate tool keys"); else fail(`Duplicate tool keys: ${dupes.join(", ")}`);
 
 const FORMULA_DIR = resolve(__dirname, "../src/sectorcalc/formulas/pro-v531");
+const GOLDEN_DIR = resolve(__dirname, "../tests/golden/pro-v531-baris");
 let liveOk = 0;
 for (const k of liveKeys) {
   if (existsSync(resolve(FORMULA_DIR, `${k}.formula.ts`))) liveOk++;

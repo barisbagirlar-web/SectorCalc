@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// SectorCalc PRO V5.3.1 — Baris Registry Binding Guard v2
+// SectorCalc PRO V5.3.1 — Baris Registry Binding Guard
 // Manifest-driven: reads actual readiness data instead of hardcoded counts.
 
 import { readFileSync, existsSync, readdirSync } from "fs";
@@ -14,7 +14,7 @@ let failCount = 0;
 function fail(msg) { failCount++; console.error(`  \u274c FAIL: ${msg}`); }
 function pass(msg) { console.log(`  \u2705 PASS: ${msg}`); }
 
-console.log("\n\u2550\u2550\u2550 PRO V5.3.1 Baris Registry Binding Guard v2 \u2550\u2550\u2550\n");
+console.log("\n\u2550\u2550\u2550 PRO V5.3.1 Baris Registry Binding Guard \u2550\u2550\u2550\n");
 
 const raw = readFileSync(READINESS, "utf-8");
 const liveMatch = raw.match(/LIVE_ENGINE_READY_TOOLS.*?\[\n([\s\S]*?)\];/);
@@ -47,8 +47,9 @@ try { schemaCount = readdirSync(SCHEMA_DIR).filter(f => f.endsWith(".schema.json
 console.log(`  Schema files: ${schemaCount}, LIVE: ${nlive}, SOURCE: ${nsource}, CONTRACT: ${ncontract}, Registry: ${regToolKeys.length}`);
 
 if (schemaCount === 45) pass(`Manifest: ${schemaCount} schemas`); else fail(`Manifest schemas: ${schemaCount}`);
-if (nlive >= 20) pass(`LIVE = ${nlive}`); else fail(`LIVE = ${nlive} (expected >= 20)`);
-if (nsource >= 10) pass(`SOURCE = ${nsource}`);
+if (nlive === 30) pass(`LIVE = ${nlive}`); else fail(`LIVE = ${nlive} (expected 20)`);
+if (nsource === 15) pass(`SOURCE = ${nsource}`); else fail(`SOURCE = ${nsource}`);
+if (ncontract === 0) pass(`CONTRACT = ${ncontract}`); else fail(`CONTRACT = ${ncontract}`);
 if (ntotal === 45) pass(`Total = ${ntotal}`); else fail(`Total = ${ntotal}`);
 
 let liveFilesOk = 0;

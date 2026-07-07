@@ -16,10 +16,10 @@ describe("pro-v531-baris: readiness classification (Batches 1-3 LIVE)", () => {
   it("should have no duplicate tool keys", () => {
     expect(new Set(ALL_BARIS_TOOLS.map(t => t.tool_key)).size).toBe(ALL_BARIS_TOOLS.length);
   });
-  it("should have LIVE_ENGINE_READY = 20 (Batches 1-2 activated)", () => expect(LIVE_ENGINE_READY_TOOLS.length).toBe(20));
+  it("should have LIVE_ENGINE_READY = 30 (Batches 1-3 activated)", () => expect(LIVE_ENGINE_READY_TOOLS.length).toBe(30));
   it("should have BLOCKED_SOURCE_REQUIRED = 15", () => expect(BLOCKED_SOURCE_REQUIRED_TOOLS.length).toBe(15));
-  it("should have BLOCKED_RUNTIME_CONTRACT_MISMATCH = 10", () => expect(BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS.length).toBe(10));
-  it("all 45 tools classified (20+15+10=45)", () => {
+  it("should have BLOCKED_RUNTIME_CONTRACT_MISMATCH = 0", () => expect(BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS.length).toBe(0));
+  it("all 45 tools classified (30+15+0=45)", () => {
     const s = barisClassificationSummary();
     expect(s.total).toBe(45);
     expect(s.live + s.blockedSource + s.blockedContract).toBe(45);
