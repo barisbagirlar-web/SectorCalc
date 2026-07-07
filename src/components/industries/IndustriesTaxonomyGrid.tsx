@@ -44,6 +44,7 @@ function TaxonomySectorTile({
     <Link
       href={href}
       scroll={false}
+      prefetch={false}
       aria-current={active ? "page" : undefined}
       className={cn(
         "group flex min-h-[148px] flex-col items-center justify-center rounded-xl border bg-kil-surface px-3 py-5 text-center transition",

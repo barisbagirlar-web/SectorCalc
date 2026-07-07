@@ -32,6 +32,7 @@ function ToolListItems({ tools }: { tools: readonly ToolListItem[] }) {
           </span>
           <Link
             href={tool.href}
+            prefetch={false}
             className="text-sm leading-5 text-blue-700 hover:text-blue-800 hover:underline truncate"
           >
             {tool.title}

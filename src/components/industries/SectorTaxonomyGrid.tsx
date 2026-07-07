@@ -49,6 +49,7 @@ export function SectorTaxonomyGrid({
             key={sector.id}
             href={href}
             scroll={false}
+            prefetch={false}
             aria-current={active ? "page" : undefined}
             className={cn(
               "group flex min-h-[110px] flex-col items-center justify-center rounded-xl border bg-white px-3 py-4 text-center transition",

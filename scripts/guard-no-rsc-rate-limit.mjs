@@ -100,7 +100,33 @@ if (!existsSync(catalogShellPath)) {
   }
 }
 
-// ── 3. Check carbon-price-exposure page does not call API during render ──
+// ── 3. Check all tool listing/grid Components for prefetch={false} ─────────
+
+const PREFETCH_CHECK_FILES = [
+  { path: "src/components/tools/ToolAlphaList.tsx", label: "ToolAlphaList" },
+  { path: "src/components/industries/IndustriesTaxonomyGrid.tsx", label: "IndustriesTaxonomyGrid" },
+  { path: "src/components/industries/SectorTaxonomyGrid.tsx", label: "SectorTaxonomyGrid" },
+  { path: "src/components/categories/CategoriesHubGrid.tsx", label: "CategoriesHubGrid" },
+];
+
+for (const { path: relPath, label } of PREFETCH_CHECK_FILES) {
+  const absPath = resolve(ROOT, relPath);
+  if (!existsSync(absPath)) {
+    fail(`${relPath} not found`);
+    continue;
+  }
+  const src = readFileSync(absPath, "utf8");
+  // Every Link that renders a list item must have prefetch={false}
+  const linkLines = src.split("\n").filter((l) => l.includes("next/link") || l.includes("<Link"));
+  const hasPrefetch = src.includes('prefetch={false}');
+  if (hasPrefetch) {
+    pass(`${label} has prefetch={false} ✅`);
+  } else {
+    fail(`${label} is missing prefetch={false} — may trigger RSC prefetch storms`);
+  }
+}
+
+// ── 4. Check carbon-price-exposure page does not call API during render ──
 
 // The page is rendered via /tools/free/[slug]/page.tsx and /tools/pro/[slug]/page.tsx
 const freeToolPagePath = resolve(ROOT, "src/app/tools/free/[slug]/page.tsx");
