@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
 
 export interface VisualObservation {
   element: string;
@@ -14,6 +15,7 @@ export interface VisualObservation {
 export interface PhotoPreviewResponse {
   ok: boolean;
   mode: "visual_preview";
+  credits_consumed: number;
   probable_domain: string;
   probable_issue_type: string;
   observations: VisualObservation[];
@@ -43,6 +45,7 @@ export function CameraOnlyPreview() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<PhotoPreviewResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [needsCredits, setNeedsCredits] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
@@ -57,6 +60,7 @@ export function CameraOnlyPreview() {
     setPreviewUrls(valid.map((f) => URL.createObjectURL(f)));
     setResult(null);
     setError(null);
+    setNeedsCredits(false);
   }
 
   function removePhoto(index: number) {
@@ -70,8 +74,16 @@ export function CameraOnlyPreview() {
     if (photos.length === 0) return;
     setLoading(true);
     setError(null);
+    setNeedsCredits(false);
 
     try {
+      const token = await getCurrentUserIdToken();
+      if (!token) {
+        setError("Please sign in to use AI Photo Diagnosis.");
+        setLoading(false);
+        return;
+      }
+
       // Convert files to base64 for the API
       const photoPromises = photos.map(
         (f) =>
@@ -90,6 +102,7 @@ export function CameraOnlyPreview() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           photos: photoData.map((p) => p.data),
@@ -101,8 +114,13 @@ export function CameraOnlyPreview() {
       const data = await res.json();
 
       if (!res.ok) {
-        if (res.status === 429) {
+        if (res.status === 402) {
+          setNeedsCredits(true);
+          setError("2 Diagnostic Credits are required for AI Photo Diagnosis.");
+        } else if (res.status === 429) {
           setError("Rate limit exceeded. Please wait before trying again.");
+        } else if (res.status === 401) {
+          setError("Please sign in to use AI Photo Diagnosis.");
         } else {
           setError(data.error || "Visual analysis failed.");
         }
@@ -135,7 +153,7 @@ export function CameraOnlyPreview() {
 
   return (
     <div>
-      {/* Entry description */}
+      {/* Pricing card */}
       <div
         style={{
           padding: "1.25rem",
@@ -143,15 +161,52 @@ export function CameraOnlyPreview() {
           border: "1px solid #E8D5B5",
           borderRadius: "8px",
           marginBottom: "1.5rem",
-          fontSize: "0.9rem",
-          color: "#4A4A48",
-          lineHeight: 1.6,
         }}
       >
-        <strong style={{ color: "#1A1915" }}>Start with Photos</strong>
-        <br />
-        Get a preliminary visual assessment and learn what data is needed for a
-        full engineering report. No credit required.
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            flexWrap: "wrap",
+            gap: "0.75rem",
+          }}
+        >
+          <div>
+            <div style={{ fontSize: "0.9rem", fontWeight: 600, color: "#1A1915", marginBottom: "0.25rem" }}>
+              AI Photo Diagnosis
+            </div>
+            <div style={{ fontSize: "0.85rem", color: "#4A4A48", lineHeight: 1.5 }}>
+              Upload photos to receive an AI-assisted visual engineering assessment.
+            </div>
+          </div>
+          <div
+            style={{
+              padding: "0.4rem 0.75rem",
+              background: "#1A1915",
+              borderRadius: "6px",
+              color: "#fff",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+              whiteSpace: "nowrap",
+            }}
+          >
+            2 Diagnostic Credits
+          </div>
+        </div>
+        <div
+          style={{
+            marginTop: "0.75rem",
+            padding: "0.5rem 0.75rem",
+            background: "#F0EEE6",
+            borderRadius: "6px",
+            fontSize: "0.8rem",
+            color: "#6B6B68",
+            lineHeight: 1.5,
+          }}
+        >
+          AI Photo Diagnosis requires 2 Diagnostic Credits. Analysis begins only after credits are verified.
+        </div>
       </div>
 
       {/* Optional problem note */}
@@ -350,7 +405,7 @@ export function CameraOnlyPreview() {
                   minHeight: "44px",
                 }}
               >
-                {loading ? "Analyzing..." : "Analyze Photos"}
+                {loading ? "Analyzing..." : "Start AI Photo Diagnosis (2 Credits)"}
               </button>
             </div>
           </div>
@@ -362,39 +417,80 @@ export function CameraOnlyPreview() {
         <div
           style={{
             padding: "0.75rem 1rem",
-            background: "#F5D6D6",
-            border: "1px solid #D99A9A",
+            background: needsCredits ? "#FFF8D6" : "#F5D6D6",
+            border: needsCredits ? "1px solid #E8D5B5" : "1px solid #D99A9A",
             borderRadius: "6px",
-            color: "#A12323",
+            color: needsCredits ? "#8A7A23" : "#A12323",
             fontSize: "0.85rem",
             marginBottom: "1rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
           }}
         >
-          <span>{error}</span>
-          <button
-            onClick={() => setError(null)}
-            style={{
-              background: "#A12323",
-              color: "#fff",
-              border: "none",
-              borderRadius: "4px",
-              padding: "0.3rem 0.7rem",
-              fontSize: "0.8rem",
-              cursor: "pointer",
-              fontWeight: 600,
-            }}
-          >
-            Dismiss
-          </button>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <span>{error}</span>
+            {!needsCredits && (
+              <button
+                onClick={() => setError(null)}
+                style={{
+                  background: "#A12323",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "4px",
+                  padding: "0.3rem 0.7rem",
+                  fontSize: "0.8rem",
+                  cursor: "pointer",
+                  fontWeight: 600,
+                  flexShrink: 0,
+                  marginLeft: "0.75rem",
+                }}
+              >
+                Dismiss
+              </button>
+            )}
+          </div>
+          {needsCredits && (
+            <div style={{ marginTop: "0.75rem" }}>
+              <Link
+                href="/pricing"
+                style={{
+                  display: "inline-block",
+                  padding: "0.5rem 1.25rem",
+                  background: "#BD5D3A",
+                  color: "#fff",
+                  borderRadius: "6px",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontSize: "0.85rem",
+                  minHeight: "44px",
+                  lineHeight: "44px",
+                }}
+              >
+                Get Diagnostic Credits
+              </Link>
+            </div>
+          )}
         </div>
       )}
 
       {/* Results */}
       {result && (
         <div style={{ marginTop: "1.5rem" }}>
+          {/* Credit consumption */}
+          {result.credits_consumed > 0 && (
+            <div
+              style={{
+                padding: "0.5rem 0.75rem",
+                background: "#F0EEE6",
+                borderRadius: "6px",
+                fontSize: "0.8rem",
+                color: "#6B6B68",
+                marginBottom: "1rem",
+                textAlign: "center",
+              }}
+            >
+              2 Diagnostic Credits consumed for this analysis.
+            </div>
+          )}
+
           {/* Summary */}
           <div
             style={{
@@ -555,7 +651,7 @@ export function CameraOnlyPreview() {
               }}
             >
               AI visual analysis is temporarily unavailable. Manual inspection is
-              recommended.
+              recommended. No credits were consumed.
             </div>
           )}
 

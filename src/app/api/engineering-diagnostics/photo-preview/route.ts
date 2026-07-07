@@ -1,30 +1,42 @@
 /**
  * POST /api/engineering-diagnostics/photo-preview
  *
- * Camera-first / photo-only visual preview.
+ * AI Photo Diagnosis — 2 Diagnostic Credits.
  *
- * SECURITY:
- * - Rate-limited: 10 req/hour per IP (no auth required)
- * - NO credit deduction — free tier for funnel conversion
+ * FLOW:
+ * 1. Auth gate
+ * 2. Credit check (2 credits required, owner bypass)
+ * 3. Rate limit
+ * 4. Parse + validate photos (EXIF strip, hash)
+ * 5. Call OpenAI Vision
+ * 6. On success → deduct 2 credits, return result
+ * 7. On failure → NO credit deduction, return error
  *
- * STORAGE:
- * - Photos are EXIF-stripped before processing
- * - Only hashes retained long-term
- *
- * AI CONSTRAINT:
+ * CONSTRAINTS:
  * - Only visual observations — no deterministic values
  * - No cost_at_risk, tolerance_result, measurement_confidence,
  *   risk_score_numeric, final_decision
  */
 
 import { NextResponse } from "next/server";
+import {
+  parseBearerToken,
+  verifySignedInUser,
+} from "@/lib/infrastructure/firebase/verify-signed-in-user";
+import {
+  checkUserCreditBalance,
+  decrementCredits,
+} from "@/lib/credits/tool-usage-session.server";
+import { isProBypassEmail } from "@/lib/features/billing/subscription";
 import { VISUAL_OBSERVATION_SYSTEM_PROMPT } from "@/lib/diagnostics/visualObservationPrompt";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const PHOTO_CREDIT_COST = 2;
+
 /* ── Rate limit: in-memory map, 10 req/hour per IP ── */
-const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const RATE_LIMIT_MAX = 10;
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
@@ -47,7 +59,7 @@ const MAX_PHOTOS = 8;
 const MAX_SIZE_BYTES = 8 * 1024 * 1024;
 
 interface PhotoEntry {
-  data: string; // base64
+  data: string;
   mime: string;
   hash: string;
 }
@@ -82,7 +94,41 @@ function stripExif(buffer: Buffer, mime: string): Buffer {
 
 export async function POST(req: Request) {
   try {
-    /* ── 1. Rate limit only (no auth — free funnel tier) ── */
+    /* ── 1. Auth gate ── */
+    const token = parseBearerToken(req);
+    if (!token) {
+      return NextResponse.json(
+        { ok: false, error: "Authentication required. Sign in to use AI Photo Diagnosis." },
+        { status: 401 }
+      );
+    }
+
+    const user = await verifySignedInUser(token);
+    if (!user) {
+      return NextResponse.json(
+        { ok: false, error: "Invalid or expired authentication token." },
+        { status: 401 }
+      );
+    }
+
+    /* ── 2. Credit gate (2 credits required, owner bypass) ── */
+    const isOwner = user.email ? isProBypassEmail(user.email) : false;
+    if (!isOwner) {
+      const hasCredits = await checkUserCreditBalance(user.uid, PHOTO_CREDIT_COST);
+      if (!hasCredits) {
+        return NextResponse.json(
+          {
+            ok: false,
+            error: "INSUFFICIENT_CREDITS",
+            message: "2 Diagnostic Credits are required for AI Photo Diagnosis.",
+            credits_required: PHOTO_CREDIT_COST,
+          },
+          { status: 402 }
+        );
+      }
+    }
+
+    /* ── 3. Rate limit ── */
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
@@ -91,7 +137,7 @@ export async function POST(req: Request) {
       );
     }
 
-    /* ── 2. Parse body ── */
+    /* ── 4. Parse body ── */
     let body: unknown;
     try {
       body = await req.json();
@@ -120,7 +166,7 @@ export async function POST(req: Request) {
       );
     }
 
-    /* ── 4. Validate each photo (RM-16: strip EXIF, hash, apply TTL) ── */
+    /* ── 5. Validate each photo (strip EXIF, hash) ── */
     const validated: PhotoEntry[] = [];
     const errors: string[] = [];
 
@@ -140,7 +186,6 @@ export async function POST(req: Request) {
         continue;
       }
 
-      // Strip EXIF (RM-16: privacy)
       const cleanBuffer = stripExif(buffer, mime);
       const hash = simpleHash(cleanBuffer);
 
@@ -158,7 +203,7 @@ export async function POST(req: Request) {
       );
     }
 
-    /* ── 5. Call OpenAI for visual observation only (RM-18) ── */
+    /* ── 6. Call OpenAI for visual observation only ── */
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
@@ -174,11 +219,15 @@ export async function POST(req: Request) {
 
     let visualResult: string;
     const userMessage: { type: "text"; text: string }[] = [
-      { type: "text", text: problemNote
-        ? `Problem context: ${problemNote}\n\nAnalyze these photos for visible conditions based on the context above. Output only visual observations.`
-        : `Analyze these photos for visible conditions. Output only visual observations.` },
+      {
+        type: "text",
+        text: problemNote
+          ? `Problem context: ${problemNote}\n\nAnalyze these photos for visible conditions based on the context above. Output only visual observations.`
+          : "Analyze these photos for visible conditions. Output only visual observations.",
+      },
     ];
 
+    let openAiFailed = false;
     try {
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
@@ -190,10 +239,7 @@ export async function POST(req: Request) {
           model: "gpt-4o",
           messages: [
             { role: "system", content: VISUAL_OBSERVATION_SYSTEM_PROMPT },
-            {
-              role: "user",
-              content: [...userMessage, ...imageContents],
-            },
+            { role: "user", content: [...userMessage, ...imageContents] },
           ],
           max_tokens: 2048,
           temperature: 0.3,
@@ -211,10 +257,13 @@ export async function POST(req: Request) {
       visualResult = data.choices?.[0]?.message?.content || "";
       if (!visualResult) throw new Error("OpenAI returned empty response");
     } catch (err) {
+      openAiFailed = true;
+      // Return fallback response — NO credit deduction
       return NextResponse.json(
         {
           ok: true,
           mode: "visual_preview",
+          credits_consumed: 0,
           probable_domain: "UNKNOWN",
           probable_issue_type: "UNKNOWN",
           observations: [
@@ -241,7 +290,7 @@ export async function POST(req: Request) {
       );
     }
 
-    /* ── 6. Parse + validate AI output against constraints (RM-18) ── */
+    /* ── 7. Parse + validate AI output against constraints ── */
     let aiOutput: unknown;
     try {
       const cleaned = visualResult
@@ -267,18 +316,23 @@ export async function POST(req: Request) {
     const hasForbiddenNumeric = forbiddenNumericFieldPattern.test(rawText);
     const hasForbiddenClaim = forbiddenClaimPattern.test(rawText);
 
-    /* ── 7. Build safe response ── */
     const observations = aiOutput && typeof aiOutput === "object" && !hasForbiddenNumeric && !hasForbiddenClaim
       ? (aiOutput as Record<string, unknown>)
       : null;
 
-      return NextResponse.json(
-        {
-          ok: true,
-          mode: "visual_preview",
-          probable_domain: (observations && typeof observations.probable_domain === "string" ? observations.probable_domain : "UNKNOWN"),
-          probable_issue_type: (observations && typeof observations.probable_issue_type === "string" ? observations.probable_issue_type : "UNKNOWN"),
-          observations: observations?.observations || [
+    /* ── 8. AI succeeded → deduct 2 credits (only now) ── */
+    if (!isOwner) {
+      await decrementCredits(user.uid, PHOTO_CREDIT_COST);
+    }
+
+    return NextResponse.json(
+      {
+        ok: true,
+        mode: "visual_preview",
+        credits_consumed: PHOTO_CREDIT_COST,
+        probable_domain: (observations && typeof observations.probable_domain === "string" ? observations.probable_domain : "UNKNOWN"),
+        probable_issue_type: (observations && typeof observations.probable_issue_type === "string" ? observations.probable_issue_type : "UNKNOWN"),
+        observations: observations?.observations || [
           {
             element: "General assessment",
             observation: "Visual analysis was completed. Manual verification is required before any engineering decision.",
