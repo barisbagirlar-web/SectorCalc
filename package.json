@@ -6,6 +6,9 @@
     "guard:removed-free-tools": "node scripts/guard-removed-free-tools.mjs",
     "guard:no-legacy-free-tools": "node scripts/guards/assert-no-legacy-free-tools.mjs",
     "guard:monetization": "node scripts/guard-monetization-safety.mjs",
+    "guard:payment-release": "node scripts/guard-payment-credit-invariants.mjs",
+    "guard:payment-release-all": "node scripts/guard-payment-credit-invariants.mjs && npx vitest run tests/pro-commerce/ && node scripts/smoke-paddle-credit-e2e.mjs",
+    "smoke:paddle-credit-e2e": "node scripts/smoke-paddle-credit-e2e.mjs",
     "dev": "next dev",
     "build": "NODE_OPTIONS='--max-old-space-size=8192' node scripts/next-build-with-500-fallback.mjs",
     "start": "next start",
@@ -94,7 +97,9 @@
     "guard:baris-v531-commercial-lock": "node scripts/guard-baris-v531-commercial-state-lock.mjs",
     "guard:baris-v531-runtime-registration": "node scripts/guard-baris-v531-runtime-registration-import.mjs",
     "guard:baris-v531-commercial-copy": "node scripts/guard-sectorcalc-live-commercial-copy-consistency.mjs",
-    "guard:release": "node scripts/guard-batch3-state.mjs && node scripts/guard-baris-v531-commercial-state-lock.mjs",
+    "guard:release": "node scripts/guard-batch3-state.mjs && node scripts/guard-baris-v531-commercial-state-lock.mjs && node scripts/guard-no-inactive-pro-tools-public.mjs",
+    "audit:inactive-pro-tools": "node scripts/list-inactive-pro-tools.mjs",
+    "guard:no-inactive-pro-tools-public": "node scripts/guard-no-inactive-pro-tools-public.mjs",
     "deploy": "firebase deploy --only hosting --project sectorcalc-bf412"
   },
   "dependencies": {

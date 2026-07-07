@@ -148,11 +148,10 @@ export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[
 export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
   // V5.4 Core — Only the allowlisted Free pilot is indexed.
   // All other Free tools remain quarantined until V5.4 Core rebuild.
+  // PRO inactive tools removed from sitemap.
   return [
     createItem("/free-tools", "hub", 0.3, "monthly"),
     createItem("/tools/free/break-even-and-margin-of-safety-analysis", "free_tool", 0.8, "monthly"),
-    // V5.4 Core — First verified Pro pilot
-    createItem("/tools/pro/compressed-air-leak-cost-calculator", "premium_analyzer", 0.8, "monthly"),
   ];
 }
 
