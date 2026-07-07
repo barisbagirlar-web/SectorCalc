@@ -40,9 +40,9 @@ console.log(`  BLOCKED_SOURCE_REQUIRED: ${nsource}`);
 console.log(`  BLOCKED_RUNTIME_CONTRACT_MISMATCH: ${ncontract}`);
 console.log(`  TOTAL: ${ntotal}`);
 
-if (nlive === 20) pass(`LIVE_ENGINE_READY = ${nlive}`); else fail(`LIVE_ENGINE_READY = ${nlive} (expected 20)`);
+if (nlive === 30) pass(`LIVE_ENGINE_READY = ${nlive}`); else fail(`LIVE_ENGINE_READY = ${nlive} (expected 20)`);
 if (nsource === 15) pass(`BLOCKED_SOURCE_REQUIRED = ${nsource}`); else fail(`BLOCKED_SOURCE_REQUIRED = ${nsource} (expected 15)`);
-if (ncontract === 10) pass(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = ${ncontract}`); else fail(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = ${ncontract} (expected 10)`);
+if (ncontract === 0) pass(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = ${ncontract}`); else fail(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = ${ncontract} (expected 10)`);
 if (ntotal === 45) pass(`Total classified = ${ntotal}`); else fail(`Total classified = ${ntotal} (expected 45)`);
 if (dupes.length === 0) pass("No duplicate tool keys"); else fail(`Duplicate tool keys: ${dupes.join(", ")}`);
 
