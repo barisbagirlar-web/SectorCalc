@@ -22,7 +22,8 @@
 
 import { readdirSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { getFreeV531SchemaBySlug, FREE_V531_SCHEMA_SLUGS } from "../src/sectorcalc/schemas/free-v531/registry.generated";
+import { getFreeV531SchemaRaw } from "../src/sectorcalc/runtime/inline-free-v531-registry";
+import { FREE_V531_SCHEMA_SLUGS } from "../src/sectorcalc/schemas/free-v531/registry.generated";
 
 const ROOT = process.cwd();
 const FORMULA_DIR = join(ROOT, "src/sectorcalc/formulas/free-v531");
@@ -333,7 +334,7 @@ function main(): void {
   const resolvedSchemas: Array<{ slug: string; schema: Record<string, unknown> }> = [];
 
   for (const slug of V531_SLUGS) {
-    const schema = getFreeV531SchemaBySlug(slug);
+    const schema = getFreeV531SchemaRaw(slug);
     if (!schema) {
       resolverNull++;
       blockerList.push(`RESOLVER_NULL: ${slug} (not found in static registry)`);

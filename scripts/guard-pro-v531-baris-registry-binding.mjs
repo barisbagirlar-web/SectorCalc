@@ -47,7 +47,7 @@ try { schemaCount = readdirSync(SCHEMA_DIR).filter(f => f.endsWith(".schema.json
 console.log(`  Schema files: ${schemaCount}, LIVE: ${nlive}, SOURCE: ${nsource}, CONTRACT: ${ncontract}, Registry: ${regToolKeys.length}`);
 
 if (schemaCount === 45) pass(`Manifest: ${schemaCount} schemas`); else fail(`Manifest schemas: ${schemaCount}`);
-if (nlive === 30) pass(`LIVE = ${nlive}`); else fail(`LIVE = ${nlive} (expected 20)`);
+if (nlive === 30) pass(`LIVE = ${nlive}`); else fail(`LIVE = ${nlive} (expected 30)`);
 if (nsource === 15) pass(`SOURCE = ${nsource}`); else fail(`SOURCE = ${nsource}`);
 if (ncontract === 0) pass(`CONTRACT = ${ncontract}`); else fail(`CONTRACT = ${ncontract}`);
 if (ntotal === 45) pass(`Total = ${ntotal}`); else fail(`Total = ${ntotal}`);

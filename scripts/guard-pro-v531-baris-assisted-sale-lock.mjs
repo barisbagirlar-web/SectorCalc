@@ -38,8 +38,8 @@ const SCHEMA_DIR = resolve(__dirname, "../src/sectorcalc/schemas/pro-v531");
 
 console.log(`  LIVE: ${nlive} | BLOCKED: ${nblocked}`);
 
-if (nlive === 30) pass(`LIVE tools: ${nlive} (Batches 1+2)`); else fail(`LIVE tools: ${nlive} (expected 20)`);
-if (nblocked === 15) pass(`BLOCKED tools: ${nblocked}`); else fail(`BLOCKED tools: ${nblocked} (expected 25)`);
+if (nlive === 30) pass(`LIVE tools: ${nlive} (Batches 1-3)`); else fail(`LIVE tools: ${nlive} (expected 30)`);
+if (nblocked === 15) pass(`BLOCKED tools: ${nblocked}`); else fail(`BLOCKED tools: ${nblocked} (expected 15)`);
 
 let schemaOk = 0;
 for (const k of blockedKeys) { if (existsSync(resolve(SCHEMA_DIR, `${k}.schema.json`))) schemaOk++; }

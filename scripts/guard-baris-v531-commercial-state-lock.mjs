@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // guard-baris-v531-commercial-state-lock.mjs
-// Permanent commercial state lock for Baris PRO V5.3.1 (Batches 1+2)
+// Permanent commercial state lock for Baris PRO V5.3.1 (Batches 1-3)
 // Freezes accepted baseline and prevents regressions, fake PASS, formula leaks,
 // accidental /en routes, fake formulas, blocked-tool activation, and unrelated-file pollution.
 //
 // ACCEPTED BASELINE:
-//   VISIBLE=45 SELLABLE=45 LIVE_ENGINE_READY=20 EXECUTABLE=20
-//   ASSISTED_OR_BLOCKED=25 BLOCKED_SOURCE_REQUIRED=15
-//   BLOCKED_RUNTIME_CONTRACT_MISMATCH=10 GOLDEN_FIXTURES=20
+//   VISIBLE=45 SELLABLE=45 LIVE_ENGINE_READY=30 EXECUTABLE=30
+//   ASSISTED_OR_BLOCKED=15 BLOCKED_SOURCE_REQUIRED=15
+//   BLOCKED_RUNTIME_CONTRACT_MISMATCH=0 GOLDEN_FIXTURES=30
 //   CLIENT_FORMULA_EXECUTION=NO PUBLIC_FORMULA_LEAK=NO
 //   FAKE_FORMULA=NO GENERIC_FORMULA_NODE=NO
 //   LOCALE_PREFIX_ROUTE_CREATED=NO EN_ROUTE_CREATED=NO
@@ -71,7 +71,7 @@ else pass(`Readiness data contains ${totalKeys} tools`);
 // ═══════════════════════════════════════════════════════════════════════════
 console.log("\n[2/16] Checking LIVE_ENGINE_READY count...");
 
-if (liveKeys.length !== 20) fail(`Expected LIVE_ENGINE_READY=20, got ${liveKeys.length}`);
+if (liveKeys.length !== 30) fail(`Expected LIVE_ENGINE_READY=30, got ${liveKeys.length}`);
 else pass(`LIVE_ENGINE_READY = ${liveKeys.length}`);
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -83,7 +83,7 @@ if (!existsSync(REGISTRY_PATH)) { fail("baris-formula-registry.ts not found"); p
 const regContent = readFileSync(REGISTRY_PATH, "utf-8");
 const regEntries = (regContent.match(/\{ toolKey: "[^"]+", toolId: "PRO_\d{3}" \}/g) || []).length;
 
-if (regEntries !== 20) fail(`Expected 20 registry entries, got ${regEntries}`);
+if (regEntries !== 30) fail(`Expected 30 registry entries, got ${regEntries}`);
 else pass(`Registry has ${regEntries} entries`);
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -92,7 +92,7 @@ else pass(`Registry has ${regEntries} entries`);
 console.log("\n[4/16] Checking assisted/blocked count...");
 
 const blockedTotal = sourceKeys.length + contractKeys.length;
-if (blockedTotal !== 25) fail(`Expected ASSISTED_OR_BLOCKED=25, got ${blockedTotal}`);
+if (blockedTotal !== 15) fail(`Expected ASSISTED_OR_BLOCKED=15, got ${blockedTotal}`);
 else pass(`ASSISTED_OR_BLOCKED = ${blockedTotal}`);
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -108,7 +108,7 @@ else pass(`BLOCKED_SOURCE_REQUIRED = ${sourceKeys.length}`);
 // ═══════════════════════════════════════════════════════════════════════════
 console.log("\n[6/16] Checking BLOCKED_RUNTIME_CONTRACT_MISMATCH count...");
 
-if (contractKeys.length !== 10) fail(`Expected BLOCKED_RUNTIME_CONTRACT_MISMATCH=10, got ${contractKeys.length}`);
+if (contractKeys.length !== 0) fail(`Expected BLOCKED_RUNTIME_CONTRACT_MISMATCH=0, got ${contractKeys.length}`);
 else pass(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = ${contractKeys.length}`);
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -117,7 +117,7 @@ else pass(`BLOCKED_RUNTIME_CONTRACT_MISMATCH = ${contractKeys.length}`);
 console.log("\n[7/16] Checking golden fixture count...");
 
 const goldenFiles = readdirSync(GOLDEN_DIR).filter(f => f.endsWith(".golden.json"));
-if (goldenFiles.length !== 20) fail(`Expected 20 golden fixtures, got ${goldenFiles.length}`);
+if (goldenFiles.length !== 30) fail(`Expected 30 golden fixtures, got ${goldenFiles.length}`);
 else pass(`Golden fixtures = ${goldenFiles.length}`);
 
 // ═══════════════════════════════════════════════════════════════════════════

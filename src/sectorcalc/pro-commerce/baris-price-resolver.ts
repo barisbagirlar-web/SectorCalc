@@ -50,7 +50,7 @@ export function resolveBarisStripePriceId(envKey: string): PriceResolution {
 
 export interface CheckoutPriceCheck {
   ok: boolean;
-  priceId: string | null;
+  priceId: string | undefined;
   reason: string | null;
 }
 
@@ -59,7 +59,7 @@ export function requireBarisCheckoutPrice(envKey: string): CheckoutPriceCheck {
   if (!resolved.configured || !resolved.resolvedPriceId) {
     return {
       ok: false,
-      priceId: null,
+      priceId: undefined,
       reason: resolved.error || "STRIPE_PRICE_ID_REQUIRED",
     };
   }

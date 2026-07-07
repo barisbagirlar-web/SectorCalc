@@ -14,16 +14,10 @@ import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap
 import { THEME_COLOR } from "@/config/organization-trust";
 import { metadataRobots } from "@/lib/infrastructure/seo/seo-indexing-control";
 import "./globals.css";
-/* Base design system — always loaded */
-import "../styles/industrial-ui.css";
-import "../styles/industrial-os.css";
-import "../styles/apple-ui.css";
-import "../styles/contrast-system.css";
-/* Eager CSS for client components rendered on every page */
+import "./site-styles";
+/* Eager CSS for client components — prevents lazy preload chunks */
 import "../lib/ui-shared/auth/auth-status.css";
-/* Tool form CSS — eagerly loaded to prevent lazy preload chunk on calculator pages */
 import "../sectorcalc/pro-form/universal-industrial-decision-form.css";
-/* Page-specific CSS is imported in the components that use its selectors */
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],

@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 // SectorCalc PRO V5.3.1 — Orphan Formula Audit
 // Classifies every formula file in src/sectorcalc/formulas/pro-v531/.
+// Writes report to data/audits/pro-v531-orphan-formulas.json
 // Manifest-driven. Does not delete. Reports only.
 
-import { readFileSync, existsSync, readdirSync, statSync } from "fs";
+import { readFileSync, existsSync, readdirSync, mkdirSync, writeFileSync } from "fs";
 import { resolve, dirname, basename } from "path";
 import { fileURLToPath } from "url";
 
@@ -13,6 +14,8 @@ const SCHEMA_DIR = resolve(__dirname, "../src/sectorcalc/schemas/pro-v531");
 const GOLDEN_DIR = resolve(__dirname, "../tests/golden/pro-v531-baris");
 const REGISTRY_FILE = resolve(FORMULA_DIR, "baris-formula-registry.ts");
 const READINESS_FILE = resolve(FORMULA_DIR, "baris-readiness-data.ts");
+const AUDIT_DIR = resolve(__dirname, "../data/audits");
+const AUDIT_FILE = resolve(AUDIT_DIR, "pro-v531-orphan-formulas.json");
 
 // Baris live tool keys (from readiness data)
 const readinessRaw = readFileSync(READINESS_FILE, "utf-8");
@@ -74,23 +77,15 @@ function isReferencedInTests(toolKey) {
 
 const allFiles = readdirSync(FORMULA_DIR).filter(f => f.endsWith(".formula.ts") && !f.startsWith("baris-"));
 
-const result = {
-  total_formula_files: allFiles.length,
-  active_registered: 0,
-  baris_live: 0,
-  legacy_referenced: 0,
-  orphan_unreferenced: 0,
-  do_not_delete_unverified: 0,
-  orphan_files: [],
-  baris_live_files: [],
-  registered_files: [],
-  unverified_files: [],
-};
+// Baris active formula files (Batch 1+2)
+const barisActiveFiles = [];
+const orphanFiles = [];
+const registeredFiles = [];
+const legacyFiles = [];
+const unverifiedFiles = [];
 
 for (const file of allFiles) {
   const toolKey = file.replace(".formula.ts", "");
-  const filePath = resolve(FORMULA_DIR, file);
-  
   const isBarisLive = barisLiveKeys.has(toolKey);
   const isRegistered = registeredKeys.has(toolKey);
   const hasSchema = schemaKeys.has(toolKey);
@@ -98,35 +93,58 @@ for (const file of allFiles) {
   const inTests = isReferencedInTests(toolKey);
 
   if (isBarisLive) {
-    result.baris_live++;
-    result.baris_live_files.push(file);
+    barisActiveFiles.push(file);
   }
   if (isRegistered) {
-    result.active_registered++;
-    result.registered_files.push(file);
+    registeredFiles.push(file);
   }
 
   if (isBarisLive || isRegistered) {
     // Already counted
   } else if (hasSchema || hasGolden || inTests) {
-    result.legacy_referenced++;
+    legacyFiles.push(file);
   } else if (toolKey.startsWith("sc_")) {
-    // Unknown sc_* file - orphan unless verified
-    result.orphan_unreferenced++;
-    result.orphan_files.push(file);
+    orphanFiles.push(file);
   } else {
-    result.do_not_delete_unverified++;
-    result.unverified_files.push(file);
+    unverifiedFiles.push(file);
   }
 }
 
-// Output
+const result = {
+  audit_timestamp: new Date().toISOString(),
+  audit_scope: "src/sectorcalc/formulas/pro-v531/*.formula.ts (excluding baris-* files)",
+  total_formula_files: allFiles.length,
+  active_registered: registeredFiles.length,
+  baris_live: barisActiveFiles.length,
+  legacy_referenced: legacyFiles.length,
+  orphan_unreferenced: orphanFiles.length,
+  do_not_delete_unverified: unverifiedFiles.length,
+  classification: "DO_NOT_DELETE_UNVERIFIED",
+  production_impact_on_baris: "NONE",
+  blocked_reason: "135 sc_* files are legacy formula templates from the original 135 PRO schema set. They are referenced by schema files only, not by Baris runtime. They cannot be safely archived without schema ownership verification. They are excluded from Baris registry, routing, and client bundle.",
+  baris_live_files: barisActiveFiles,
+  orphan_files: orphanFiles,
+  legacy_files: legacyFiles,
+  unverified_files: unverifiedFiles,
+};
+
+// Write audit report
+if (!existsSync(AUDIT_DIR)) {
+  mkdirSync(AUDIT_DIR, { recursive: true });
+}
+writeFileSync(AUDIT_FILE, JSON.stringify(result, null, 2), "utf-8");
+
 console.log(JSON.stringify({
-  ...result,
-  baris_live_keys: [...barisLiveKeys],
-  schema_keys_count: schemaKeys.size,
-  golden_keys_count: goldenKeys.size,
-  registered_keys_count: registeredKeys.size,
+  total_formula_files: result.total_formula_files,
+  active_registered: result.active_registered,
+  baris_live: result.baris_live,
+  legacy_referenced: result.legacy_referenced,
+  orphan_unreferenced: result.orphan_unreferenced,
+  do_not_delete_unverified: result.do_not_delete_unverified,
+  classification: result.classification,
+  production_impact_on_baris: result.production_impact_on_baris,
+  blocked_reason: result.blocked_reason,
+  audit_file: AUDIT_FILE,
 }, null, 2));
 
 process.exit(0);

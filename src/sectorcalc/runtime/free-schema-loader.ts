@@ -3,9 +3,7 @@ import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
-import {
-  getFreeV531SchemaBySlug,
-} from "@/sectorcalc/schemas/free-v531/registry.generated";
+import { getFreeV531SchemaRaw } from "./inline-free-v531-registry";
 
 interface LoadedSchema { schema: SuperV4Schema; errors: string[]; }
 let loadedSchemas: Map<string, LoadedSchema> | null = null;
@@ -275,12 +273,10 @@ function loadAllSchemas(): void {
 }
 
 export function getFreeToolSchema(toolKey: string): SuperV4Schema | null {
-  // V5.4 Core — Check bundle-safe static registry first (no runtime fs).
-  // Directly get the schema (avoids bundler inlining that drops the getter).
-  const rawSchema = getFreeV531SchemaBySlug(toolKey);
+  // V5.4 Core — Check inline schema registry (same module scope, no tree-shaking).
+  const rawSchema = getFreeV531SchemaRaw(toolKey);
   if (rawSchema) {
-    // Normalize the raw JSON schema (removes orphan formulas, expressions, etc.)
-    return normalizeFreeSchema(rawSchema as unknown as Record<string, unknown>);
+    return normalizeFreeSchema(rawSchema);
   }
   loadAllSchemas(); const entry = loadedSchemas?.get(toolKey); return entry?.schema ?? null;
 }
