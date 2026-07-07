@@ -191,6 +191,13 @@ export default function middleware(request: NextRequest) {
     });
   }
 
+  // ── Legacy singular /guide/ → /guides/ redirect ──
+  if (pathname.startsWith("/guide/")) {
+    const url = new URL(request.url);
+    url.pathname = pathname.replace(/^\/guide\//, "/guides/");
+    return NextResponse.redirect(url, 301);
+  }
+
   // Root-level language-only paths — return 404
   if (LEGACY_LANGUAGE_ROUTES.has(pathname)) {
     return new Response("Not Found", {
