@@ -43,7 +43,7 @@ export interface TraceContext {
 
 /** PRO surfaces: premium hubs and any premium/PRO tool page. */
 const PRO_PATH_PATTERNS: RegExp[] = [
-  /^\/premium-tools(\/|$)/,
+  /^\/pro-tools(\/|$)/,
   /^\/tools\/pro(\/|$)/,
   /[?&]tool=PRO_/i, // universal PRO engine query, e.g. ?tool=PRO_117
 ];
@@ -215,7 +215,7 @@ export interface ResolveArgs {
 // Real, verified URL patterns from sectorcalc.com sitemaps:
 export const URL_PATTERNS = {
   freeTool: (slug: string) => `/tools/generated/${slug}`,
-  proCategory: (cat: string) => `/premium-tools/${cat}`,
+  proCategory: (cat: string) => `/pro-tools/${cat}`,
   guide: (slug: string) => `/guides/${slug}`,
   pricing: "/pricing",
 } as const;

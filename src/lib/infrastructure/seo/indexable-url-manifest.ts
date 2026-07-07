@@ -45,7 +45,7 @@ export const INDEXABLE_LOCALES: readonly IndexableLocale[] = SUPPORTED_LOCALES.f
 const CRITICAL_INSPECTION_PATHS: readonly string[] = [
   "/",
   "/free-tools",
-  "/premium-tools",
+  "/pro-tools",
   "/categories",
   "/industries",
   "/pricing",
@@ -98,7 +98,7 @@ function mapManifestPriority(item: SitemapManifestItem): IndexableUrlPriority {
   if (
     item.path === "/" ||
     item.path === "/free-tools" ||
-    item.path === "/premium-tools" ||
+    item.path === "/pro-tools" ||
     item.path === "/categories" ||
     item.path === "/industries" ||
     item.path === "/pricing"

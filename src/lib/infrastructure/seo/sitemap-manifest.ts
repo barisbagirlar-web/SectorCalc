@@ -97,7 +97,7 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
 export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/categories", "hub", 0.9, "weekly"),
-    createItem("/premium-tools", "hub", 0.9, "weekly"),
+    createItem("/pro-tools", "hub", 0.9, "weekly"),
     createItem("/calculator-library", "hub", 0.85, "monthly"),
     createItem("/industries", "hub", 0.9, "monthly"),
     createItem("/how-it-works", "hub", 0.7, "monthly"),
@@ -234,7 +234,7 @@ export function countAuthorityGuideSitemapEntries(): number {
 /** @deprecated Use getSitemapManifest - legacy static route list for tests. */
 export const SITEMAP_STATIC_ROUTES = [
   "/",
-  "/premium-tools",
+  "/pro-tools",
   "/categories",
   "/industries",
   "/pricing",

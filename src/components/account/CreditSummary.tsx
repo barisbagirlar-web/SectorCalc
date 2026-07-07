@@ -79,7 +79,7 @@ export function CreditSummary() {
               <span className="credit-summary__stat-value">{data.usedThisMonth}</span>
             </div>
           </div>
-          <Link href="/billing" className="sc-cta-secondary credit-summary__cta">
+          <Link href="/account" className="sc-cta-secondary credit-summary__cta">
             Manage Subscription
           </Link>
         </>

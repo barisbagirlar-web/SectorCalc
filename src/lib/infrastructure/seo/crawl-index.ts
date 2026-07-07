@@ -59,7 +59,7 @@ export function buildCoreHubCrawlGroups(): readonly CrawlIndexGroup[] {
       label: "Core pages",
       links: [
         { href: "/free-tools", label: "Free Calculators" },
-        { href: "/premium-tools", label: "Premium Calculators" },
+        { href: "/pro-tools", label: "Premium Calculators" },
         { href: "/categories", label: "Categories" },
         { href: "/industries", label: "Industry Calculators" },
         { href: "/pricing", label: "Pricing" },

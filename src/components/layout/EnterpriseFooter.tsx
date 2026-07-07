@@ -130,7 +130,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             <Link href="/free-tools">All Calculators</Link>
             <Link href="/verify">Report Verification</Link>
             <Link href="/about">About</Link>
-            <Link href="/sitemap" className="footer-mobile-sitemap-link">Full site map</Link>
+            <Link href="/sitemap.xml" className="footer-mobile-sitemap-link">Full site map</Link>
           </div>
           <div className="footer-mobile-legal">
             <Link href="/privacy">Privacy</Link>

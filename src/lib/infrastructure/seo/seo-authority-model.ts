@@ -60,7 +60,7 @@ export const SECTORCALC_CORE_ENTITIES: readonly SeoAuthorityEntity[] = [
     name: "Premium Decision Reports",
     description:
       "Premium analyzers with hidden drivers, threshold checks, suggested actions and export-ready output.",
-    url: entityUrl("en", "/premium-tools"),
+    url: entityUrl("en", "/pro-tools"),
     keywords: ["decision report", "premium calculator", "hidden drivers", "PDF export"],
     relatedEntityIds: ["sectorcalc", "free-calculators", "hidden-loss-diagnostics"],
   },
@@ -70,7 +70,7 @@ export const SECTORCALC_CORE_ENTITIES: readonly SeoAuthorityEntity[] = [
     name: "Hidden Loss Diagnostics",
     description:
       "Diagnostic layer that surfaces margin leaks, threshold pressure and operational exposure before cash damage.",
-    url: entityUrl("en", "/premium-tools"),
+    url: entityUrl("en", "/pro-tools"),
     keywords: ["hidden loss", "margin leak", "threshold check", "diagnostic"],
     relatedEntityIds: ["premium-decision-reports", "sectorcalc"],
   },

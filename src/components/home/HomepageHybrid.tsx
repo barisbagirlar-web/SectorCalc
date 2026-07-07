@@ -81,7 +81,7 @@ function HomepagePositioningLayout({
                 <Link href="/free-tools" className="sc-cta-primary">
                   {t("hero.ctaPrimary")}
                 </Link>
-                <Link href="/premium-tools" className="sc-cta-secondary">
+                <Link href="/pro-tools" className="sc-cta-secondary">
                   {t("hero.ctaSecondary")}
                 </Link>
               </div>
@@ -183,7 +183,7 @@ function HomepagePositioningLayout({
                   <li key={id}>{t(`freePremium.premiumItems.${id}`)}</li>
                 ))}
               </ul>
-              <Link href="/premium-tools" className="sc-cta-primary sc-home-omni__split-cta">
+              <Link href="/pro-tools" className="sc-cta-primary sc-home-omni__split-cta">
                 {t("freePremium.premiumCta")}
               </Link>
             </article>
@@ -292,7 +292,7 @@ function HomepagePositioningLayout({
             <Link href="/free-tools" className="sc-cta-primary sc-home-omni__mission-cta">
               {t("finalCta.ctaPrimary")}
             </Link>
-            <Link href="/premium-tools" className="sc-cta-secondary">
+            <Link href="/pro-tools" className="sc-cta-secondary">
               {t("finalCta.ctaSecondary")}
             </Link>
           </div>
