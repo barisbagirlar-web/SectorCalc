@@ -1,6 +1,7 @@
-// SectorCalc V5.3.1 - Baris PRO Batch 1-3 LIVE Formula Registry
-// 30 LIVE tools registered with individual deterministic formula modules.
-// 15 tools remain blocked from instant execution (assisted-dossier-only).
+// SectorCalc V5.3.1 - Baris PRO Batch 1+2 LIVE Formula Registry
+// 20 LIVE tools registered with individual deterministic formula modules.
+// 25 tools remain blocked from instant execution (assisted-dossier-only).
+// Batch 3 is NOT activated. Do not add BATCH_3_TOOLS to LIVE_TOOLS.
 // Server-side only. Never imported by client modules.
 import "server-only";
 import { formulaRegistry, FormulaRegistryNode } from "@/sectorcalc/pro-runtime/formula-registry";
@@ -70,22 +71,12 @@ const BATCH_2_TOOLS: LiveToolEntry[] = [
 ];
 
 // -- BATCH 3 (10 tools) ---
-const BATCH_3_TOOLS: LiveToolEntry[] = [
-  { toolKey: "machining-cycle-time-part-cost-sheet", toolId: "PRO_025" },
-  { toolKey: "sealed-job-quote-certificate-fire-setup-vade", toolId: "PRO_023" },
-  { toolKey: "steel-structure-weight-cost-takeoff", toolId: "PRO_028" },
-  { toolKey: "compressed-air-pipe-sizing-pressure-drop", toolId: "PRO_040" },
-  { toolKey: "hydraulic-cylinder-pump-sizing", toolId: "PRO_044" },
-  { toolKey: "pump-system-curve-npsh-verifier", toolId: "PRO_041" },
-  { toolKey: "shaft-deflection-critical-speed-check", toolId: "PRO_043" },
-  { toolKey: "scope-1-2-3-splitter-for-smes", toolId: "PRO_037" },
-  { toolKey: "bank-grade-financial-projection-covenant-model", toolId: "PRO_015" },
-  { toolKey: "ppap-gauge-rr-cpk-ppk-quality-submission-bundle", toolId: "PRO_002" },
-];
+// BATCH_3_TOOLS are NOT activated. Do not uncomment.
+// const BATCH_3_TOOLS: LiveToolEntry[] = [];
 
-const LIVE_TOOLS: LiveToolEntry[] = [...BATCH_1_TOOLS, ...BATCH_2_TOOLS, ...BATCH_3_TOOLS];
+const LIVE_TOOLS: LiveToolEntry[] = [...BATCH_1_TOOLS, ...BATCH_2_TOOLS];
 
-// Register 30 LIVE tools (Batch 1 + Batch 2 + Batch 3)
+// Register 20 LIVE tools (Batch 1 + Batch 2)
 for (const t of LIVE_TOOLS) {
   formulaRegistry.register({
     tool_id: t.toolId,
@@ -97,14 +88,14 @@ for (const t of LIVE_TOOLS) {
     internal_trace_policy: "RESTRICTED_CHECKER",
     created_at: new Date().toISOString(),
     approved_at: new Date().toISOString(),
-    approved_by: "batch-3-activation",
+    approved_by: "batch-2-activation",
   });
 }
 
 export const LIVE_BATCH_KEYS: Set<string> = new Set(LIVE_TOOLS.map(t => t.toolKey));
 export const BATCH_1_KEYS: Set<string> = new Set(BATCH_1_TOOLS.map(t => t.toolKey));
 export const BATCH_2_KEYS: Set<string> = new Set(BATCH_2_TOOLS.map(t => t.toolKey));
-export const BATCH_3_KEYS: Set<string> = new Set(BATCH_3_TOOLS.map(t => t.toolKey));
+export const BATCH_3_KEYS: Set<string> = new Set();
 
 export const LIVE_BATCH_1_KEYS: Set<string> = LIVE_BATCH_KEYS;
 
