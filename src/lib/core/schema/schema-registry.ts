@@ -30,22 +30,26 @@ class SchemaRegistry {
       return cached as T;
     }
 
-    // Try with and without -schema suffix
+    // Try with and without -schema suffix, and .schema.json pattern
     const jsonPath = `${dirPath}/${schemaId}.json`;
     const schemaPathWithSuffix = `${dirPath}/${schemaId}-schema.json`;
+    const schemaDotPattern = `${dirPath}/${schemaId}.schema.json`;
 
-    // Check which file exists (prefer -schema.json convention)
+    // Check which file exists (prefer .schema.json pattern, then -schema.json, then .json)
     const absolutePathSimple = path.join(process.cwd(), jsonPath);
     const absolutePathWithSuffix = path.join(process.cwd(), schemaPathWithSuffix);
+    const absolutePathDotPattern = path.join(process.cwd(), schemaDotPattern);
 
     let schemaPath: string;
-    if (fs.existsSync(absolutePathWithSuffix)) {
+    if (fs.existsSync(absolutePathDotPattern)) {
+      schemaPath = schemaDotPattern;
+    } else if (fs.existsSync(absolutePathWithSuffix)) {
       schemaPath = schemaPathWithSuffix;
     } else if (fs.existsSync(absolutePathSimple)) {
       schemaPath = jsonPath;
     } else {
       throw new Error(
-        `Schema not found: ${schemaId} in ${dirPath} (tried ${jsonPath} and ${schemaPathWithSuffix})`,
+        `Schema not found: ${schemaId} in ${dirPath} (tried ${jsonPath}, ${schemaPathWithSuffix}, ${schemaDotPattern})`,
       );
     }
 

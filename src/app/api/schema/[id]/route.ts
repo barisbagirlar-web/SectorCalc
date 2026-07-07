@@ -12,9 +12,11 @@ export async function GET(
   const { id } = await params;
   const schemaId = id.replace(/-schema$/, ""); // normalize: strip trailing -schema
 
-  // Search order: generated/schemas
+  // Search order: generated/schemas, then pro-v531, then v531
   const searchPaths = [
     "generated/schemas",
+    "src/sectorcalc/schemas/pro-v531",
+    "src/sectorcalc/schemas/v531",
   ];
 
   for (const dirPath of searchPaths) {
@@ -45,6 +47,8 @@ export async function POST(
 
   const searchPaths = [
     "generated/schemas",
+    "src/sectorcalc/schemas/pro-v531",
+    "src/sectorcalc/schemas/v531",
   ];
 
   // Try to load the schema; if found, it's already translated
