@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
 import Link from "next/link";
 
 export interface VisualObservation {
@@ -73,18 +72,6 @@ export function CameraOnlyPreview() {
     setError(null);
 
     try {
-      const token = await getCurrentUserIdToken();
-      if (!token) {
-        setError("Please sign in to use photo preview.");
-        setLoading(false);
-        return;
-      }
-
-      const formData = new FormData();
-      for (const photo of photos) {
-        formData.append("photos", photo);
-      }
-
       // Convert files to base64 for the API
       const photoPromises = photos.map(
         (f) =>
@@ -103,7 +90,6 @@ export function CameraOnlyPreview() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           photos: photoData.map((p) => p.data),

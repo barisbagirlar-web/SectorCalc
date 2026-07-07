@@ -3,26 +3,21 @@
  *
  * Camera-first / photo-only visual preview.
  *
- * SECURITY (RM-15):
- * - Auth required (parseBearerToken + verifySignedInUser)
- * - Rate-limited: 10 req/hour per IP
- * - NO credit deduction (RM-17: free tier)
+ * SECURITY:
+ * - Rate-limited: 10 req/hour per IP (no auth required)
+ * - NO credit deduction — free tier for funnel conversion
  *
- * STORAGE (RM-16):
- * - Photos are stored temporarily with 24h TTL, then deleted
+ * STORAGE:
+ * - Photos are EXIF-stripped before processing
  * - Only hashes retained long-term
  *
- * AI CONSTRAINT (RM-18):
+ * AI CONSTRAINT:
  * - Only visual observations — no deterministic values
  * - No cost_at_risk, tolerance_result, measurement_confidence,
  *   risk_score_numeric, final_decision
  */
 
 import { NextResponse } from "next/server";
-import {
-  parseBearerToken,
-  verifySignedInUser,
-} from "@/lib/infrastructure/firebase/verify-signed-in-user";
 import { VISUAL_OBSERVATION_SYSTEM_PROMPT } from "@/lib/diagnostics/visualObservationPrompt";
 
 export const runtime = "nodejs";
@@ -87,23 +82,7 @@ function stripExif(buffer: Buffer, mime: string): Buffer {
 
 export async function POST(req: Request) {
   try {
-    /* ── 1. Auth gate (RM-15) ── */
-    const token = parseBearerToken(req);
-    if (!token) {
-      return NextResponse.json(
-        { ok: false, error: "Authentication required." },
-        { status: 401 }
-      );
-    }
-    const user = await verifySignedInUser(token);
-    if (!user) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid or expired authentication token." },
-        { status: 401 }
-      );
-    }
-
-    /* ── 2. Rate limit (RM-15) ── */
+    /* ── 1. Rate limit only (no auth — free funnel tier) ── */
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
@@ -112,7 +91,7 @@ export async function POST(req: Request) {
       );
     }
 
-    /* ── 3. Parse body ── */
+    /* ── 2. Parse body ── */
     let body: unknown;
     try {
       body = await req.json();
