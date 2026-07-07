@@ -143,6 +143,14 @@ function shouldSkipRateLimit(request: NextRequest): boolean {
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // ── www → non-www canonical redirect (Firebase SSR host match fix) ──
+  const host = request.headers.get("host") ?? "";
+  if (host === "www.sectorcalc.com" || host.startsWith("www.")) {
+    const url = new URL(request.url);
+    url.host = "sectorcalc.com";
+    return NextResponse.redirect(url, 301);
+  }
+
   // ── Defense-in-depth: rate limit POST to non-API expensive endpoints ──
   // Public GET/RSC navigation is always exempt (shouldSkipRateLimit returns true for those).
   if (!shouldSkipRateLimit(request)) {
