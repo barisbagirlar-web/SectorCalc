@@ -332,8 +332,12 @@ try {
         "src/components/diagnostics/",
         "src/lib/diagnostics/",
         "scripts/generate-",
+        "scripts/finalize-next-build.mjs",
         "src/app/tools/",
         "src/components/pro-commerce/",
+        "src/app/api/__debug/",
+        "src/app/api/export-pdf/",
+        "src/lib/pdf/",
       ];
 
       const unrelated = modifiedLines.filter(l => {
