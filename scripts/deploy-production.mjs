@@ -2,16 +2,19 @@
 import { spawnSync } from "node:child_process";
 import {
   chmodSync,
+  chownSync,
   closeSync,
   copyFileSync,
+  cpSync,
   existsSync,
+  mkdirSync,
   openSync,
   readFileSync,
   symlinkSync,
   unlinkSync,
   writeFileSync,
 } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 
 const ROOT = process.cwd();
 const DEPLOY_LOCK_PATH = join(ROOT, ".next-deploy.lock");
@@ -115,6 +118,58 @@ function ensureBuildReady() {
   return run("node", ["scripts/finalize-next-build.mjs"]) === 0;
 }
 
+/**
+ * After Firebase frameworks creates the standalone directory,
+ * copy .next/server/ into standalone/.next/server/ and patch
+ * server.js so the SSR function can resolve all chunks and pages.
+ * Without this, the standalone .next/ directory is empty and
+ * all SSR routes fall through to the 404 notFound boundary.
+ */
+function patchStandaloneAfterDeploy() {
+  const functionsDir = join(ROOT, ".firebase", "sectorcalc-bf412", "functions");
+  const standaloneDir = join(functionsDir, ".next", "standalone");
+  const standaloneNextDir = join(standaloneDir, ".next");
+
+  if (!existsSync(standaloneDir)) {
+    console.error("deploy-production: standalone dir not found — cannot patch.");
+    return false;
+  }
+
+  // Copy .next/server/ content into standalone/.next/server/
+  const srcServer = join(ROOT, ".next", "server");
+  const dstServer = join(standaloneNextDir, "server");
+  if (existsSync(srcServer)) {
+    mkdirSync(standaloneNextDir, { recursive: true });
+    cpSync(srcServer, dstServer, { recursive: true, force: true });
+    console.log(`deploy-production: copied .next/server → ${dstServer}`);
+  }
+
+  // Copy BUILD_ID
+  const srcBuildId = join(ROOT, ".next", "BUILD_ID");
+  const dstBuildId = join(standaloneNextDir, "BUILD_ID");
+  if (existsSync(srcBuildId)) {
+    writeFileSync(dstBuildId, readFileSync(srcBuildId, "utf8"), "utf8");
+  }
+
+  // Patch server.js: fix distDir to "." and dir to parent
+  const serverJsPath = join(standaloneDir, "server.js");
+  if (existsSync(serverJsPath)) {
+    let serverJs = readFileSync(serverJsPath, "utf8");
+    // Change distDir from "./.next" to "."
+    serverJs = serverJs.replace(/"distDir":"\.\/\.next"/g, '"distDir":"."');
+    // Change dir from __dirname to parent (repo root) so distDir="." resolves correctly
+    serverJs = serverJs.replace(
+      'const dir = path.join(__dirname)',
+      'const dir = path.resolve(__dirname, "..", "..", "..", "..", "..")'
+    );
+    writeFileSync(serverJsPath, serverJs, "utf8");
+    console.log(`deploy-production: patched ${serverJsPath}`);
+  }
+
+  console.log("deploy-production: standalone patched successfully.");
+  return true;
+}
+
 if (!acquireDeployLock()) {
   console.error("deploy-production: another deploy is already running (.next-deploy.lock).");
   console.error("deploy-production: run npm run stop:builds if the lock is stale.");
@@ -163,7 +218,32 @@ try {
       SECTORCALC_FIREBASE_REUSE_BUILD: "1",
     },
   });
-  process.exit(deployStatus);
+
+  if (deployStatus !== 0) {
+    process.exit(deployStatus);
+  }
+
+  // Post-deploy: patch standalone with server chunks and fix paths
+  console.log("deploy-production: patching standalone SSR function…");
+  if (patchStandaloneAfterDeploy()) {
+    console.log("deploy-production: redeploying patched functions…");
+    const fnStatus = run("npx", [
+      "firebase",
+      "deploy",
+      "--only",
+      "functions:firebase-frameworks-sectorcalc-bf412",
+      "--project",
+      "sectorcalc-bf412",
+    ], {
+      env: {
+        ...process.env,
+        NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      },
+    });
+    process.exit(fnStatus);
+  }
+
+  process.exit(0);
 } finally {
   if (shimInstalled) {
     restoreNextBin();

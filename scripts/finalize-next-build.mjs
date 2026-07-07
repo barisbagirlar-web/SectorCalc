@@ -130,6 +130,41 @@ function ensureFirebasePagesManifest() {
 }
 
 /**
+ * Copy the build output into standalone so the SSR function can serve it.
+ * The standalone server.js starts from .next/standalone/ and looks for
+ * .next/ under that directory (since next.config has distDir: "./.next").
+ * Without this copy, chunks, pages, and server infrastructure are missing
+ * and all SSR routes fall through to the 404 notFound boundary.
+ */
+function ensureStandaloneServer() {
+  const STANDALONE = join(NEXT, "standalone");
+  const STANDALONE_NEXT = join(STANDALONE, ".next");
+  if (!existsSync(STANDALONE_NEXT)) {
+    mkdirSync(STANDALONE_NEXT, { recursive: true });
+  }
+
+  // Directories critical for SSR — must be inside standalone/.next/
+  const criticalDirs = ["BUILD_ID", "server", "prerender-manifest.json", "routes-manifest.json", "required-server-files.json"];
+  for (const item of criticalDirs) {
+    const src = join(NEXT, item);
+    const dst = join(STANDALONE_NEXT, item);
+    if (!existsSync(src)) continue;
+    if (item === "BUILD_ID") {
+      const content = readFileSync(src, "utf8");
+      writeFileSync(dst, content, "utf8");
+    } else if (item === "server") {
+      cpSync(src, dst, { recursive: true, force: true });
+    } else {
+      const content = readFileSync(src, "utf8");
+      writeFileSync(dst, content, "utf8");
+    }
+  }
+
+  const tail = readdirSync(STANDALONE_NEXT);
+  console.log(`finalize-next-build: standalone/.next seeded (${tail.length} entries)`);
+}
+
+/**
  * Fireproof vendor-chunks against Firebase deploy stripping.
  * Next.js vendor-chunks are lazy-loaded by webpack-runtime.js and
  * may be stripped during Cloud Function packaging. Write module.exports = {}
@@ -159,6 +194,7 @@ function main() {
   ensureExportDetail();
   ensureFirebasePagesManifest();
   ensureVendorChunks();
+  ensureStandaloneServer();
 
   // Stub any .js files missing .nft.json traces in server/ (stubs, edge, API routes)
   stubMissingNftTraces(join(NEXT, "server"));
