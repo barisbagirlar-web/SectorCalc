@@ -34,6 +34,7 @@ class EnsureManifestStubsPlugin {
       const manifestStubs: Array<[string, unknown]> = [
         ["pages-manifest.json", {}],
         ["app-paths-manifest.json", {}],
+        ["server-reference-manifest.json", {}],
         ["next-font-manifest.json", { pages: {}, app: {}, appUsingSizeAdjust: false, pagesUsingSizeAdjust: false }],
         ["middleware-manifest.json", {}],
       ];
@@ -92,7 +93,7 @@ const nextConfig: NextConfig = {
   },
 
   reactStrictMode: true,
-  output: "standalone",
+  // output: "standalone", // disabled — Firebase framework handles wrapping
   serverExternalPackages: ["@react-pdf/renderer"],
   eslint: {
     ignoreDuringBuilds: true,
@@ -189,7 +190,6 @@ const nextConfig: NextConfig = {
       // Note: has:host redirect not supported in Firebase SSR framework integration
       { source: "/premium-tools", destination: "/pro-tools", permanent: true },
       { source: "/premium-tools/:path*", destination: "/pro-tools/:path*", permanent: true },
-      { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/tools/fmea-rpn-calculator", destination: "/calculators/fmea-rpn", permanent: true },
     ];
   },
