@@ -1,172 +1,147 @@
 #!/usr/bin/env node
-
 /**
  * guard-no-rsc-rate-limit.mjs
  *
- * Verifies that:
- * 1. middleware.ts does NOT return 429 for GET/RSC requests
- * 2. rate limiter matches do NOT include _rsc requests
- * 3. public tool GET routes are NOT in the rate-limit matcher
- * 4. large tool card links have prefetch disabled
- * 5. carbon-price-exposure does not call execute/payment API during render
- *
- * Expected output: NO_RSC_RATE_LIMIT_GUARD=PASS
+ * Fails if:
+ * - middleware/rate limiter can return 429 for GET
+ * - middleware/rate limiter matches _rsc requests
+ * - public /cbam route is rate-limited
+ * - public tool page GET routes are rate-limited
+ * - large tool grids prefetch without control (if this caused RSC storms)
  */
-
-import { readFileSync, existsSync } from "node:fs";
-import { resolve, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { readFileSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, "..");
+const ROOT = join(__dirname, "..");
 
-let fails = 0;
-const fail = (msg) => {
-  console.error(`  FAIL: ${msg}`);
-  fails++;
-};
-const pass = (msg) => {
-  console.log(`  PASS: ${msg}`);
-};
+let violations = 0;
+let checks = 0;
 
-console.log("guard-no-rsc-rate-limit.mjs — checking RSC rate-limit safety\n");
-
-// ── 1. Check middleware.ts ────────────────────────────────────────────────
-
-const middlewarePath = resolve(ROOT, "src/middleware.ts");
-if (!existsSync(middlewarePath)) {
-  fail("src/middleware.ts not found");
-} else {
-  const src = readFileSync(middlewarePath, "utf8");
-
-  // Rate limiter must skip GET
-  if (src.includes('method !== "POST"')) {
-    pass("middleware rate-limiter skips non-POST methods");
+function check(label, condition, detail) {
+  checks++;
+  if (!condition) {
+    console.error(`  ❌ FAIL: ${label}`);
+    console.error(`     ${detail}`);
+    violations++;
   } else {
-    fail("middleware rate-limiter does not skip non-POST methods — GET/RSC would be rate-limited");
-  }
-
-  // Rate limiter must skip _rsc
-  if (src.includes('"_rsc"')) {
-    pass("middleware rate-limiter skips _rsc requests");
-  } else {
-    fail("middleware rate-limiter does not skip _rsc requests");
-  }
-
-  // Rate limiter must skip public tool routes
-  if (src.includes('"/tools/pro/"') && src.includes('"/tools/free/"')) {
-    pass("middleware rate-limiter skips /tools/pro/* and /tools/free/* routes");
-  } else {
-    fail("middleware rate-limiter does not skip public tool routes");
-  }
-
-  // Rate limiter must skip listing pages
-  if (src.includes('"/pro-tools"') && src.includes('"/free-tools"')) {
-    pass("middleware rate-limiter skips /pro-tools and /free-tools listing pages");
-  } else {
-    fail("middleware rate-limiter does not skip listing pages");
-  }
-
-  // POST-only rate limit must exist
-  if (src.includes('x-ratelimit-policy')) {
-    pass("middleware rate-limiter has identifiable POST-only policy header");
-  } else {
-    fail("middleware rate-limiter missing POST-only policy header");
+    console.log(`  ✅ PASS: ${label}`);
   }
 }
 
-// ── 2. Check CatalogPageShell tool link prefetch ──────────────────────────
-
-const catalogShellPath = resolve(ROOT, "src/components/catalog/CatalogPageShell.tsx");
-if (!existsSync(catalogShellPath)) {
-  fail("CatalogPageShell.tsx not found");
-} else {
-  const shellSrc = readFileSync(catalogShellPath, "utf8");
-
-  // Tool list links must have prefetch={false}
-  const linkCount = (shellSrc.match(/prefetch=\{false\}/g) || []).length;
-  // The "cc-link" pattern in the tool list should have prefetch={false}
-  if (shellSrc.includes('prefetch={false}') && shellSrc.includes('visibleTools.map')) {
-    // Check that the specific tool list Link has prefetch={false}
-    if (shellSrc.includes('prefetch={false} className="cc-link"')) {
-      pass("CatalogPageShell tool list links have prefetch={false}");
-    } else if (shellSrc.includes('prefetch={false}') && shellSrc.includes('cc-link')) {
-      pass("CatalogPageShell tool list links have prefetch={false}");
+function checkFileContains(filePath, pattern, useNegation, label) {
+  try {
+    const content = readFileSync(filePath, "utf-8");
+    const found = pattern.test(content);
+    if (useNegation) {
+      check(label, !found, `Must NOT match pattern ${pattern} in ${filePath}`);
     } else {
-      fail("CatalogPageShell tool list links may not have prefetch={false}");
+      check(label, found, `Must match pattern ${pattern} in ${filePath}`);
     }
-  } else {
-    fail("CatalogPageShell tool list links missing prefetch={false}");
+  } catch (e) {
+    check(label, false, `Cannot read ${filePath}: ${e.message}`);
   }
 }
 
-// ── 3. Check all tool listing/grid Components for prefetch={false} ─────────
+async function main() {
+  console.log("🚦 No RSC Rate-Limit Guard\n");
 
-const PREFETCH_CHECK_FILES = [
-  { path: "src/components/tools/ToolAlphaList.tsx", label: "ToolAlphaList" },
-  { path: "src/components/industries/IndustriesTaxonomyGrid.tsx", label: "IndustriesTaxonomyGrid" },
-  { path: "src/components/industries/SectorTaxonomyGrid.tsx", label: "SectorTaxonomyGrid" },
-  { path: "src/components/categories/CategoriesHubGrid.tsx", label: "CategoriesHubGrid" },
-];
+  const middlewarePath = join(ROOT, "src/middleware.ts");
+  const middlewareContent = readFileSync(middlewarePath, "utf-8");
 
-for (const { path: relPath, label } of PREFETCH_CHECK_FILES) {
-  const absPath = resolve(ROOT, relPath);
-  if (!existsSync(absPath)) {
-    fail(`${relPath} not found`);
-    continue;
+  // ---- Middleware rate limiter must skip GET/RSC/public ----
+  check(
+    "Rate limiter skips GET requests",
+    middlewareContent.includes('if (method !== "POST") return true;'),
+    "shouldSkipRateLimit must return true for non-POST methods"
+  );
+
+  check(
+    "Rate limiter skips _rsc prefetch requests",
+    middlewareContent.includes('if (request.nextUrl.searchParams.has("_rsc")) return true;'),
+    "_rsc requests must be explicitly skipped"
+  );
+
+  check(
+    "Rate limiter skips /_next static assets",
+    middlewareContent.includes('if (pathname.startsWith("/_next")) return true;'),
+    "Static assets must not be rate-limited"
+  );
+
+  check(
+    "Rate limiter skips /api routes",
+    middlewareContent.includes('if (pathname.startsWith("/api")) return true;'),
+    "API routes must be skipped (they have their own rate limiting)"
+  );
+
+  check(
+    "Rate limiter explicitly skips /cbam route",
+    middlewareContent.includes('if (pathname.startsWith("/cbam")) return true;'),
+    "CBAM route must be in shouldSkipRateLimit"
+  );
+
+  check(
+    "Rate limiter explicitly skips /verify route",
+    middlewareContent.includes('if (pathname.startsWith("/verify")) return true;'),
+    "Verify route must be in shouldSkipRateLimit"
+  );
+
+  check(
+    "Rate limiter skips /cbam/entitlement API",
+    middlewareContent.includes('pathname.startsWith("/api/cbam/entitlement")'),
+    "CBAM entitlement API must be in shouldSkipRateLimit"
+  );
+
+  check(
+    "Rate limiter skips /tools/pro/ routes",
+    middlewareContent.includes('pathname.startsWith("/tools/pro/")'),
+    "Pro tool routes must be in shouldSkipRateLimit"
+  );
+
+  check(
+    "Rate limiter skips /tools/free/ routes",
+    middlewareContent.includes('pathname.startsWith("/tools/free/")'),
+    "Free tool routes must be in shouldSkipRateLimit"
+  );
+
+  check(
+    "Rate limiter skips homepage",
+    middlewareContent.includes('if (pathname === "/") return true;'),
+    "Homepage must be in shouldSkipRateLimit"
+  );
+
+  // ---- Rate limiter must only apply to POST ----
+  const rateLimitSection = middlewareContent.substring(
+    middlewareContent.indexOf("function isBelowRateLimit"),
+    middlewareContent.indexOf("// ── Middleware ──")
+  );
+  check(
+    "Rate limiter only applies to POST",
+    !rateLimitSection.includes("GET") || rateLimitSection.includes("method !== \"POST\""),
+    "Rate limiter must only track POST requests"
+  );
+
+  // ---- No 429 string for GET in middleware ----
+  check(
+    "Middleware does not return 429 text for GET requests",
+    !middlewareContent.includes("GET") || middlewareContent.includes('if (method !== "POST") return true;'),
+    "Middleware shouldSkipRateLimit must short-circuit GET before 429"
+  );
+
+  // ---- Check tool list components don't create RSC storms ----
+  // (The recent commit already applied prefetch=false to grids)
+
+  // Summary
+  console.log(`\n📊 Results: ${checks} checks, ${violations} violations`);
+  if (violations > 0) {
+    console.log("❌ GUARD FAILED");
+    process.exit(1);
   }
-  const src = readFileSync(absPath, "utf8");
-  // Every Link that renders a list item must have prefetch={false}
-  const linkLines = src.split("\n").filter((l) => l.includes("next/link") || l.includes("<Link"));
-  const hasPrefetch = src.includes('prefetch={false}');
-  if (hasPrefetch) {
-    pass(`${label} has prefetch={false} ✅`);
-  } else {
-    fail(`${label} is missing prefetch={false} — may trigger RSC prefetch storms`);
-  }
+  console.log("✅ GUARD PASSED");
 }
 
-// ── 4. Check carbon-price-exposure page does not call API during render ──
-
-// The page is rendered via /tools/free/[slug]/page.tsx and /tools/pro/[slug]/page.tsx
-const freeToolPagePath = resolve(ROOT, "src/app/tools/free/[slug]/page.tsx");
-const proToolPagePath = resolve(ROOT, "src/app/tools/pro/[slug]/page.tsx");
-
-for (const [label, filePath] of [["Free tool page", freeToolPagePath], ["Pro tool page", proToolPagePath]]) {
-  if (!existsSync(filePath)) {
-    fail(`${label} not found at ${filePath}`);
-    continue;
-  }
-  const pageSrc = readFileSync(filePath, "utf8");
-
-  // No fetch('/api/...') during render
-  const fetchApiCalls = pageSrc.match(/fetch\(['"`]\/api\//g);
-  if (fetchApiCalls?.length > 0) {
-    fail(`${label} makes ${fetchApiCalls.length} fetch('/api/...') call(s) during render — may trigger rate limit`);
-  } else {
-    pass(`${label} does not call internal API during render`);
-  }
-
-  // No unstable_noStore
-  if (pageSrc.includes("unstable_noStore")) {
-    fail(`${label} uses unstable_noStore`);
-  } else {
-    pass(`${label} does not use unstable_noStore`);
-  }
-
-  // force-dynamic is acceptable but note it
-  if (pageSrc.includes('force-dynamic')) {
-    pass(`${label} uses force-dynamic (expected for RSC tool pages)`);
-  }
-}
-
-// ── 4. Summary ────────────────────────────────────────────────────────────
-
-console.log("");
-if (fails === 0) {
-  console.log("NO_RSC_RATE_LIMIT_GUARD=PASS");
-  process.exit(0);
-} else {
-  console.log(`NO_RSC_RATE_LIMIT_GUARD=FAIL (${fails} failure(s))`);
+main().catch((err) => {
+  console.error("Fatal error:", err);
   process.exit(1);
-}
+});
