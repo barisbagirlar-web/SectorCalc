@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { schemaRegistry } from "@/lib/core/schema/schema-registry";
+import { getAllProToolSchemas } from "@/sectorcalc/runtime/pro-schema-loader";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GET /api/schema/[id] - Dynamic schema loading with auto-translation
+// GET /api/schema/[id] - Dynamic schema loading
+// Searches: generated/schemas, then pro-v531, then v531
 // ─────────────────────────────────────────────────────────────────────────────
 
 export async function GET(
@@ -12,7 +14,7 @@ export async function GET(
   const { id } = await params;
   const schemaId = id.replace(/-schema$/, ""); // normalize: strip trailing -schema
 
-  // Search order: generated/schemas, then pro-v531, then v531
+  // Strategy 1: Try the registry-based paths (generated/schemas, pro-v531, v531)
   const searchPaths = [
     "generated/schemas",
     "src/sectorcalc/schemas/pro-v531",
@@ -28,6 +30,18 @@ export async function GET(
     }
   }
 
+  // Strategy 2: Pre-loaded pro-v531 schemas (works in all environments)
+  try {
+    const proEntries = getAllProToolSchemas();
+    for (const { toolKey, schema } of proEntries) {
+      if (toolKey === schemaId) {
+        return NextResponse.json(schema);
+      }
+    }
+  } catch {
+    // Fallback failed too
+  }
+
   return NextResponse.json(
     { error: `Schema not found: ${schemaId}` },
     { status: 404 },
@@ -35,7 +49,7 @@ export async function GET(
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// POST /api/schema/[id] - Bulk translate (batch endpoint for clients)
+// POST /api/schema/[id] - Check if schema exists (batch endpoint for clients)
 // ─────────────────────────────────────────────────────────────────────────────
 
 export async function POST(
@@ -45,23 +59,32 @@ export async function POST(
   const { id } = await params;
   const schemaId = id.replace(/-schema$/, "");
 
+  // Try registry-based paths
   const searchPaths = [
     "generated/schemas",
     "src/sectorcalc/schemas/pro-v531",
     "src/sectorcalc/schemas/v531",
   ];
 
-  // Try to load the schema; if found, it's already translated
   for (const dirPath of searchPaths) {
     try {
       const schema = schemaRegistry.getSchema(schemaId, dirPath);
-      return NextResponse.json({
-        translated: true,
-        schema,
-      });
+      return NextResponse.json({ translated: true, schema });
     } catch {
       // Continue
     }
+  }
+
+  // Fallback to pre-loaded schemas
+  try {
+    const proEntries = getAllProToolSchemas();
+    for (const { toolKey, schema } of proEntries) {
+      if (toolKey === schemaId) {
+        return NextResponse.json({ translated: true, schema });
+      }
+    }
+  } catch {
+    // Fallback failed too
   }
 
   return NextResponse.json(
