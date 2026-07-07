@@ -1,140 +1,123 @@
 "use client";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
-import { useCallback, useEffect, useId, useState } from "react";
-import { createPortal } from "react-dom";
-import { useTranslations } from "@/lib/i18n-stub";
-import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
-import { MobileHeaderNav } from "@/components/layout/HeaderNav";
-import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
-import { RegionSelector } from "@/components/layout/RegionSelector";
-import { ScIcon } from "@/components/icons/ScIcon";
-import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";
+type NavGroup = {
+  id: string;
+  label: string;
+  items: { label: string; href: string }[];
+};
 
-const DEFAULT_PANEL_TOP_PX = 58;
-
-function readHeaderBottomOffset(): number {
-  if (typeof document === "undefined") {
-    return DEFAULT_PANEL_TOP_PX;
-  }
-
-  const header = document.getElementById("header");
-  if (!header) {
-    return DEFAULT_PANEL_TOP_PX;
-  }
-
-  return Math.round(header.getBoundingClientRect().bottom);
-}
+const NAV_GROUPS: NavGroup[] = [
+  {
+    id: "products",
+    label: "Products",
+    items: [
+      { label: "Free Tools", href: "/free-tools" },
+      { label: "Pro Tools", href: "/pricing" },
+      { label: "Engineering Diagnostics", href: "/engineering-diagnostics" },
+    ],
+  },
+  {
+    id: "industries",
+    label: "Industries",
+    items: [], // placeholder
+  },
+  {
+    id: "resources",
+    label: "Resources",
+    items: [], // placeholder
+  },
+];
 
 export function MobileNav() {
-  const a11y = useTranslations("a11y");
-  const panelId = useId();
-  const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const [panelTop, setPanelTop] = useState(DEFAULT_PANEL_TOP_PX);
-
-  const closeMenu = useCallback(() => {
-    setOpen(false);
-  }, []);
-
-  const toggleMenu = useCallback(() => {
-    setPanelTop(readHeaderBottomOffset());
-    setOpen((current) => !current);
-  }, []);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    const syncPanelTop = () => {
-      setPanelTop(readHeaderBottomOffset());
-    };
-
-    syncPanelTop();
-    window.addEventListener("resize", syncPanelTop);
-    window.addEventListener("scroll", syncPanelTop, { passive: true });
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeMenu();
-      }
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("resize", syncPanelTop);
-      window.removeEventListener("scroll", syncPanelTop);
-    };
-  }, [closeMenu, open]);
-
-  const drawer =
-    open && mounted
-      ? createPortal(
-          <div className="sc-mobile-drawer lg:hidden" data-open>
-            <button
-              type="button"
-              className="sc-mobile-drawer__backdrop"
-              aria-label={a11y("closeMenu")}
-              onClick={closeMenu}
-            />
-            <nav
-              id={panelId}
-              className="sc-mobile-drawer__panel"
-              role="navigation"
-              aria-label={a11y("mobileNavigation")}
-              style={{ top: panelTop }}
-            >
-              <div className="sc-mobile-drawer__section sc-mobile-drawer__section--locale">
-                <div className="sc-header-locale-group flex w-full items-center justify-end gap-2">
-                  <RegionSelector className="sc-header-locale-control" variant="compact" />
-                  <LocaleSwitcher className="sc-header-locale-control" variant="compact" />
-                </div>
-              </div>
-              <ul className="sc-mobile-drawer__links">
-                <MobileHeaderNav
-                  onNavigate={closeMenu}
-                  linkClassName="sc-mobile-drawer__link"
-                  activeLinkClassName="sc-mobile-drawer__link sc-mobile-drawer__link--active"
-                />
-              </ul>
-              <div className="sc-mobile-drawer__section sc-mobile-drawer__section--auth">
-                <HeaderAuthCta mobile onNavigate={closeMenu} />
-              </div>
-            </nav>
-          </div>,
-          document.body,
-        )
-      : null;
+  const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <>
-      <div className="apple-nav__mobile-menu relative z-[2] shrink-0 lg:hidden">
-        <button
-          type="button"
-          className="apple-nav__menu-btn sc-mobile-menu-trigger min-h-[44px] min-w-[44px]"
-          aria-label={open ? a11y("closeMenu") : a11y("openMenu")}
-          aria-expanded={open}
-          aria-controls={panelId}
-          onClick={toggleMenu}
-        >
-          <ScIcon
-            icon={open ? UI_ICON.close : UI_ICON.menu}
-            size="compact"
-            className="text-current"
-          />
-        </button>
+    <nav className="mobile-nav" role="navigation">
+      {NAV_GROUPS.map((g) => (
+        <div key={g.id} className="nav-row-group">
+          <button
+            className="nav-row"
+            aria-expanded={openId === g.id}
+            onClick={() => setOpenId(openId === g.id ? null : g.id)}
+          >
+            <span>{g.label}</span>
+            <ChevronDown
+              size={18}
+              style={{
+                transform: openId === g.id ? "rotate(180deg)" : "none",
+                transition: "transform 150ms ease",
+              }}
+            />
+          </button>
+          {openId === g.id && (
+            <div className="nav-subrow-list">
+              {g.items.map((item) => (
+                <a key={item.href} href={item.href} className="nav-subrow">
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+      <a href="/pricing" className="nav-row nav-row--plain">
+        Pricing
+      </a>
+      <div className="nav-cta-block">
+        <a href="/signup" className="btn-primary">
+          Get started
+        </a>
+        <a href="/signin" className="btn-secondary">
+          Sign in
+        </a>
       </div>
-      {drawer}
-    </>
+
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+        .mobile-nav { font-family: Inter, sans-serif; }
+        .nav-row {
+          display: flex; justify-content: space-between; align-items: center;
+          min-height: 48px;
+          padding: 0 16px;
+          font-family: Inter, sans-serif;
+          border-bottom: 1px solid rgba(26,25,21,0.08);
+          background: transparent; width: 100%; cursor: pointer;
+          color: var(--sc-text, #1a1915); font-size: 15px;
+        }
+        .nav-row--plain {
+          text-decoration: none; color: var(--sc-text, #1a1915);
+        }
+        .nav-subrow-list {
+          padding-left: 16px;
+          background: rgba(26,25,21,0.02);
+        }
+        .nav-subrow {
+          display: block; min-height: 44px; line-height: 44px;
+          padding-left: 16px; font-size: 15px;
+          text-decoration: none; color: var(--sc-muted, #696764);
+        }
+        .nav-cta-block {
+          display: flex; flex-direction: column; gap: 8px; padding: 16px;
+        }
+        .nav-cta-block .btn-primary,
+        .nav-cta-block .btn-secondary {
+          display: flex; align-items: center; justify-content: center;
+          min-height: 48px; padding: 12px 16px; font-size: 15px;
+          font-weight: 600; border-radius: 8px; text-decoration: none;
+        }
+        .nav-cta-block .btn-primary {
+          background: var(--sc-copper, #bd5d3a); color: #fff; border: none;
+        }
+        .nav-cta-block .btn-secondary {
+          background: transparent; color: var(--sc-text, #1a1915);
+          border: 1px solid var(--sc-border, rgba(26,25,21,0.10));
+        }
+      `,
+        }}
+      />
+    </nav>
   );
 }

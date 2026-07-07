@@ -124,6 +124,19 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             </div>
           </div>
 
+          {/* Mobile essential view */}
+          <div className="footer-mobile-essential">
+            <Link href="/pricing">Pricing</Link>
+            <Link href="/free-tools">All Calculators</Link>
+            <Link href="/verify">Report Verification</Link>
+            <Link href="/about">About</Link>
+            <Link href="/sitemap" className="footer-mobile-sitemap-link">Full site map</Link>
+          </div>
+          <div className="footer-mobile-legal">
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+          </div>
+
           {/* Bottom Bar: VERTICAL STACK DESIGN */}
           <div className="footer-bottom">
             <div className="bottom-row-social">
@@ -274,24 +287,40 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             .brand-col { grid-column: span 2; }
           }
 
+          .footer-mobile-essential { display: none; }
+          .footer-mobile-legal { display: none; }
+
           @media (max-width: 760px) {
             .site-footer { padding: 24px 16px calc(env(safe-area-inset-bottom, 0px) + 12px) !important; }
-            .footer-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; padding-bottom: 14px; }
-            .brand-col { grid-column: span 1; }
-            .footer-logo-img { height: 26px !important; }
-            .footer-tagline { max-width: 100% !important; margin-bottom: 10px !important; font-size: 12px !important; }
-            .trust-badges { display: none !important; }
-            .footer-heading { margin-bottom: 6px !important; font-size: 11px !important; }
-            .footer-links { gap: 2px !important; }
-            .footer-links a { font-size: 13px !important; padding: 3px 0 !important; min-height: 28px; }
-            
-            .bottom-row-legal {
-              white-space: normal;
-              flex-direction: column;
-              gap: 2px;
-              text-align: center;
-              line-height: 1.3;
-              font-size: 11px !important;
+            .footer-grid { display: none !important; }
+            .footer-mobile-essential {
+              display: flex; flex-wrap: wrap; gap: 12px 20px;
+              padding: 24px 16px; font-size: 14px;
+            }
+            .footer-mobile-essential a {
+              color: var(--sc-text, #1a1915);
+              text-decoration: none;
+              min-height: 44px;
+              display: flex;
+              align-items: center;
+            }
+            .footer-mobile-essential a:hover {
+              color: var(--sc-copper, #bd5d3a);
+            }
+            .footer-mobile-sitemap-link {
+              width: 100%;
+              font-size: 12px;
+              opacity: 0.6;
+              margin-top: 4px;
+            }
+            .footer-mobile-legal {
+              display: flex; gap: 16px; padding: 12px 16px;
+              font-size: 12px; opacity: 0.6;
+              border-top: 1px solid rgba(26,25,21,0.08);
+            }
+            .footer-mobile-legal a {
+              color: inherit; text-decoration: none;
+              min-height: 44px; display: flex; align-items: center;
             }
             .footer-bottom { gap: 8px !important; padding-top: 4px !important; }
             .bottom-row-social { gap: 10px !important; }
