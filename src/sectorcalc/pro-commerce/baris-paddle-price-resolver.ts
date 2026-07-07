@@ -1,58 +1,9 @@
-// SectorCalc PRO V5.3.1 — Baris Paddle Price Resolver
-// Server-side only. Resolves Paddle price IDs from environment variables.
-// Uses PADDLE_PRICE_BARIS_* env keys. Never hardcodes price IDs.
+// SectorCalc PRO V5.3.1 — Baris Key Pack Paddle Price Resolver
+// Server-side only. Resolves the single Baris PRO key pack price ID from env.
+// No per-tool pricing — key-pool model. Users buy key packs, not individual tools.
 import "server-only";
 
-export interface PriceResolution {
-  toolKey: string;
-  configured: boolean;
-  resolvedPriceId: string | null;
-  error: string | null;
-}
-
-export function resolveBarisPaddlePriceId(envKey: string): PriceResolution {
-  const toolKey = envKey.replace("PADDLE_PRICE_BARIS_", "").toLowerCase();
-  try {
-    if (!envKey || !envKey.startsWith("PADDLE_PRICE_BARIS_")) {
-      return {
-        toolKey,
-        configured: false,
-        resolvedPriceId: null,
-        error: "Invalid env key format",
-      };
-    }
-    const priceId = process.env[envKey];
-    if (!priceId) {
-      return {
-        toolKey,
-        configured: false,
-        resolvedPriceId: null,
-        error: `Missing env key: ${envKey}`,
-      };
-    }
-    if (!priceId.startsWith("pri_")) {
-      return {
-        toolKey,
-        configured: false,
-        resolvedPriceId: null,
-        error: `Invalid Paddle price ID format for ${envKey}`,
-      };
-    }
-    return {
-      toolKey,
-      configured: true,
-      resolvedPriceId: priceId.trim(),
-      error: null,
-    };
-  } catch (err) {
-    return {
-      toolKey,
-      configured: false,
-      resolvedPriceId: null,
-      error: err instanceof Error ? err.message : "Unknown error",
-    };
-  }
-}
+const KEY_PACK_ENV_KEY = "PADDLE_PRICE_BARIS_KEY_PACK";
 
 export interface CheckoutPriceCheck {
   ok: boolean;
@@ -60,18 +11,29 @@ export interface CheckoutPriceCheck {
   reason: string | null;
 }
 
-export function requireBarisPaddleCheckoutPrice(envKey: string): CheckoutPriceCheck {
-  const resolved = resolveBarisPaddlePriceId(envKey);
-  if (!resolved.configured || !resolved.resolvedPriceId) {
+/**
+ * Resolve the single Baris PRO key pack Paddle price ID.
+ * Returns { ok: false, reason: "PADDLE_PRICE_ID_REQUIRED" } if not configured.
+ */
+export function requireBarisKeyPackPrice(): CheckoutPriceCheck {
+  const priceId = process.env[KEY_PACK_ENV_KEY];
+  if (!priceId) {
     return {
       ok: false,
       priceId: undefined,
-      reason: resolved.error || "PADDLE_PRICE_ID_REQUIRED",
+      reason: "PADDLE_PRICE_ID_REQUIRED",
+    };
+  }
+  if (!priceId.startsWith("pri_")) {
+    return {
+      ok: false,
+      priceId: undefined,
+      reason: "Invalid Paddle price ID format",
     };
   }
   return {
     ok: true,
-    priceId: resolved.resolvedPriceId,
+    priceId: priceId.trim(),
     reason: null,
   };
 }

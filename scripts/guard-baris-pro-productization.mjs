@@ -97,7 +97,7 @@ if (dossierCount === 25) pass(`Assisted dossier products: ${dossierCount}`); els
 if (visibleCount >= 45) pass("All products visible"); else fail(`Visible: ${visibleCount}`);
 if (sellableCount >= 45) pass("All products sellable"); else fail(`Sellable: ${sellableCount}`);
 if (entitlementCount >= 45) pass("All products require entitlement"); else fail(`Entitlement: ${entitlementCount}`);
-if (envKeys.length === 45) pass(`All 45 products have stripe price env keys`); else fail(`Env keys: ${envKeys.length} (expected 45)`);
+if (envKeys.length === 0) pass(`Key-pool model: no per-product Stripe env keys (single PADDLE_PRICE_BARIS_KEY_PACK)`); else fail(`Unexpected env keys: ${envKeys.length}`);
 
 // ── Live tool integrity ──
 let liveOk = 0;

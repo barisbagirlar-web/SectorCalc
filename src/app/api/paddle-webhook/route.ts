@@ -87,7 +87,7 @@ interface FulfillmentParams {
   intent: string;
   productKey: string;
   purchaseType: string;
-  barisToolKey?: string;
+  barisKeyQuantity?: number;
   paddleCustomerId?: string;
 }
 
@@ -191,24 +191,18 @@ async function fulfillAtomically(
         );
       }
 
-      // 4b. Baris PRO entitlement write
-      if (intent === "BARIS_PRO_PURCHASE" && params.barisToolKey) {
-        const entitlementId = `baris_pro_${transactionId}`;
-        const entitlementRef = db
-          .collection("premiumEntitlements")
-          .doc(entitlementId);
-        txn.set(entitlementRef, {
-          userId,
-          provider: "PADDLE",
-          paddleTransactionId: transactionId,
-          paddleCustomerId: params.paddleCustomerId,
-          toolKey: params.barisToolKey,
-          plan: "single_report",
-          status: "active",
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-          source: "baris_pro_purchase",
-        });
+      // 4b. Baris PRO key pack purchase — credit keys to user's key pool
+      if (intent === "BARIS_PRO_PURCHASE" && (params.barisKeyQuantity || 0) > 0) {
+        txn.set(
+          userRef,
+          {
+            barisProKeys: adminIncrement(params.barisKeyQuantity!),
+            lastPaddleTransactionId: transactionId,
+            lastPaddleEventId: eventId,
+            updatedAt: new Date().toISOString(),
+          },
+          { merge: true },
+        );
       }
 
       // 5. Write billing event record
@@ -325,7 +319,7 @@ export async function POST(req: NextRequest) {
   let credits = 0;
   let planId = "";
   let userId = "";
-  let barisToolKey = "";
+  let barisKeyQuantity = 0;
 
   // Try canonical format first
   if (customDataRaw && customDataRaw.intent) {
@@ -342,13 +336,13 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Check for baris_pro_purchase source
+  // Check for baris_pro_purchase source (key-pack transaction)
   if (
     customDataRaw &&
     String(customDataRaw.source ?? "") === "baris_pro_purchase"
   ) {
     intent = "BARIS_PRO_PURCHASE";
-    barisToolKey = String(customDataRaw.tool_key ?? "");
+    barisKeyQuantity = Math.max(1, parseInt(String(customDataRaw.quantity ?? "1"), 10) || 1);
     purchaseType = "baris_pro_purchase";
     userId = String(customDataRaw.userId ?? "");
   }
@@ -405,7 +399,7 @@ export async function POST(req: NextRequest) {
     intent,
     productKey,
     purchaseType,
-    barisToolKey: barisToolKey || undefined,
+    barisKeyQuantity: barisKeyQuantity || undefined,
     paddleCustomerId: paddleCustomerId || undefined,
   });
 

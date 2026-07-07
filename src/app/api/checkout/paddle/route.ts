@@ -18,8 +18,7 @@ import {
   type PaddleCustomData,
 } from "@/lib/payments/paddle-custom-data";
 import { resolvePaddlePriceId } from "@/lib/payments/paddle-price-lookup.server";
-import { getBarisProduct, type BarisProProduct } from "@/sectorcalc/pro-commerce/baris-pro-products";
-import { requireBarisPaddleCheckoutPrice } from "@/sectorcalc/pro-commerce/baris-paddle-price-resolver";
+import { requireBarisKeyPackPrice } from "@/sectorcalc/pro-commerce/baris-paddle-price-resolver";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -76,38 +75,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── BARIS_PRO_PURCHASE: does not need productKey, resolves from Baris registry ──
+    // ── BARIS_PRO_PURCHASE: key-pack model — users buy key packs via Paddle ──
     if (rawIntent === "BARIS_PRO_PURCHASE") {
-      if (!rawToolKey) {
-        return NextResponse.json(
-          { error: "toolKey is required for BARIS_PRO_PURCHASE" },
-          { status: 400 },
-        );
-      }
       if (!rawUserId) {
         return NextResponse.json(
-          {
-            error:
-              "userId is required. Authenticate before creating a checkout session.",
-          },
+          { error: "userId is required. Authenticate before creating a checkout session." },
           { status: 401 },
         );
       }
-      const product = getBarisProduct(rawToolKey);
-      if (!product) {
-        return NextResponse.json(
-          { error: `Unknown Baris product: ${rawToolKey}` },
-          { status: 400 },
-        );
-      }
-      if (!product.sellable) {
-        return NextResponse.json(
-          { error: "Product is not sellable" },
-          { status: 403 },
-        );
-      }
 
-      const priceCheck = requireBarisPaddleCheckoutPrice(product.paddlePriceEnvKey);
+      const keyQuantity = Math.max(1, parseInt(String(body.quantity ?? "1"), 10) || 1);
+
+      const priceCheck = requireBarisKeyPackPrice();
       if (!priceCheck.ok) {
         return NextResponse.json(
           { error: priceCheck.reason || "PADDLE_PRICE_ID_REQUIRED" },
@@ -123,16 +102,13 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      const successUrl = `${getPublicAppUrl()}/tools/pro/${encodeURIComponent(rawToolKey)}?transaction_id={transaction.id}`;
+      const successUrl = `${getPublicAppUrl()}/dashboard?transaction_id={transaction.id}`;
 
       const transaction = await paddle.transactions.create({
-        items: [{ priceId: priceCheck.priceId!, quantity: 1 }],
+        items: [{ priceId: priceCheck.priceId!, quantity: keyQuantity }],
         customData: {
           source: "baris_pro_purchase",
-          tool_key: rawToolKey,
-          product_mode: product.productMode,
-          payment_product_type: product.paymentProductType,
-          execution_mode: product.executionMode,
+          quantity: String(keyQuantity),
           userId: rawUserId,
         } as Record<string, string>,
         checkout: { url: successUrl },
@@ -141,7 +117,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         checkoutUrl: transaction.checkout?.url ?? null,
         provider: "PADDLE",
-        paymentProductType: product.paymentProductType,
+        keysPurchased: keyQuantity,
       });
     }
 

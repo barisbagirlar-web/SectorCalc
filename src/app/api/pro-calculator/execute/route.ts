@@ -39,6 +39,8 @@ import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 import "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
 import { getBarisExecutionBlockReason, checkBarisExecutionEntitlement } from "@/sectorcalc/pro-commerce/baris-entitlement-guard";
+import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+import { FieldValue } from "firebase-admin/firestore";
 
 // All 135 Pro formula modules are auto-generated generic templates with
 // identical placeholder outputs. V5.4 Core — the compressed air leak cost
@@ -609,6 +611,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // V5.3.1 — Baris PRO Entitlement & Execution Guard
     // Block assisted dossier tools immediately.
     // Block instant calculators unless entitled.
+    let userId: string | null = null;
     const barisBlockReason = getBarisExecutionBlockReason(toolKey ?? "");
     if (barisBlockReason === "ASSISTED_DOSSIER_ONLY") {
       const errorResponse = buildFullBlockedResponse(
@@ -623,20 +626,21 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       // This is a Baris tool. Check entitlement before execution.
       const product = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey));
       if (product) {
-        // Entitlement check: require authenticated user + pro access
+        // Key-pool entitlement check: require authenticated user + sufficient barisProKeys
         const userEmail = request.headers.get("x-user-email") ?? process.env.NODE_ENV === "development" ? process.env.DEV_BYPASS_EMAIL ?? null : null;
-        const subStatus = request.headers.get("x-subscription-status") ?? null;
-        const entitlement = checkBarisExecutionEntitlement({
+        // userId is set in outer scope for key deduction after calculation
+        userId = request.headers.get("x-user-id") ?? null;
+        const entitlement = await checkBarisExecutionEntitlement({
           toolKey,
+          userId,
           userEmail,
-          subscriptionStatus: subStatus ?? undefined,
         });
         if (!entitlement.ok) {
           const statusCode = entitlement.reason === "PRO_ENTITLEMENT_REQUIRED" ? 402 : 403;
           const errorResponse = buildFullBlockedResponse(
             entitlement.reason,
             entitlement.reason === "PRO_ENTITLEMENT_REQUIRED"
-              ? "Paid PRO entitlement is required before execution."
+              ? "Paid PRO key is required before execution. Purchase a key pack from your dashboard."
               : entitlement.reason === "BLOCKED_PAYMENT_INFRASTRUCTURE_NOT_BOUND"
                 ? "Payment infrastructure is not configured. Please contact support."
                 : "Execution blocked.",
@@ -683,6 +687,25 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       freeOutputs,
       displayCurrency: body.display_currency ?? null,
     });
+
+    // Key-pool deduction: deduct 1 key if this is a Baris PRO instant calculator
+    if (toolKey && userId) {
+      const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey));
+      if (barisProduct && barisProduct.productMode === "INSTANT_PRO_CALCULATOR") {
+        try {
+          const db = getAdminFirestore();
+          if (db) {
+            await db.collection("users").doc(userId).update({
+              barisProKeys: FieldValue.increment(-1),
+              updatedAt: new Date().toISOString(),
+            });
+          }
+        } catch (err) {
+          // Non-critical: user got result, log failure for reconciliation
+          console.warn(`[key-pool] Failed to deduct key for ${toolKey} user ${userId}:`, err);
+        }
+      }
+    }
 
     return NextResponse.json(
       { ...pass3.response, premium_hook: premiumHook ?? null },
