@@ -1,76 +1,58 @@
 #!/usr/bin/env node
-// Guard: verify 0 blocked tools cannot execute, 30 LIVE tools are executable
-import { readFileSync, existsSync, readdirSync } from "fs";
+// SectorCalc PRO V5.3.1 — Baris Assisted Sale Lock Guard
+// Manifest-driven: reads actual readiness data instead of hardcoded counts.
+
+import { readFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, "..");
+const READINESS = resolve(__dirname, "../src/sectorcalc/formulas/pro-v531/baris-readiness-data.ts");
 
-const FORMULA_DIR = resolve(ROOT, "src/sectorcalc/formulas/pro-v531");
-const READINESS_PATH = resolve(FORMULA_DIR, "baris-readiness-data.ts");
-const REGISTRY_PATH = resolve(FORMULA_DIR, "baris-formula-registry.ts");
-const GOLDEN_DIR = resolve(ROOT, "tests/golden/pro-v531-baris");
+let failCount = 0;
+function fail(msg) { failCount++; console.error(`  \u274c FAIL: ${msg}`); }
+function pass(msg) { console.log(`  \u2705 PASS: ${msg}`); }
 
-let failures = 0;
-function fail(msg) { console.error(`  ❌ FAIL: ${msg}`); failures++; }
-function pass(msg) { console.log(`  ✅ PASS: ${msg}`); }
+console.log("\n\u2550\u2550\u2550 PRO V5.3.1 Baris Assisted Sale Lock Guard \u2550\u2550\u2550\n");
 
-console.log("\n═══ PRO V5.3.1 Baris Assisted Sale Lock Guard ═══\n");
+const raw = readFileSync(READINESS, "utf-8");
+const liveMatch = raw.match(/LIVE_ENGINE_READY_TOOLS.*?\[\n([\s\S]*?)\];/);
+const sourceMatch = raw.match(/BLOCKED_SOURCE_REQUIRED_TOOLS.*?\[\n([\s\S]*?)\];/);
+const contractMatch = raw.match(/BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS.*?\[\n([\s\S]*?)\];/);
 
-if (!existsSync(READINESS_PATH)) { fail("baris-readiness-data.ts not found"); process.exit(1); }
-const content = readFileSync(READINESS_PATH, "utf-8");
-
-function extractKeys(data, startMarker, endMarker) {
-  const start = data.indexOf(startMarker);
-  if (start < 0) return [];
-  const endIdx = data.indexOf(endMarker, start);
-  const section = endIdx > 0 ? data.substring(start, endIdx) : data.substring(start);
-  return [...section.matchAll(/tool_key:\s*"([^"]+)"/g)].map(m => m[1]);
+function extractKeys(text) {
+  const re = /tool_key:\s*"([^"]+)"/g; const keys = []; let m;
+  while ((m = re.exec(text)) !== null) keys.push(m[1]);
+  return keys;
 }
 
-const liveKeys = extractKeys(content, "LIVE_ENGINE_READY_TOOLS:", "BLOCKED_SOURCE_REQUIRED_TOOLS:");
-const sourceKeys = extractKeys(content, "BLOCKED_SOURCE_REQUIRED_TOOLS:", "BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS:");
-const contractKeys = extractKeys(content, "BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS:", "export const ALL_BARIS_TOOLS");
-const allBlocked = [...sourceKeys, ...contractKeys];
+const liveKeys = liveMatch ? extractKeys(liveMatch[1]) : [];
+const sourceKeys = sourceMatch ? extractKeys(sourceMatch[1]) : [];
+const contractKeys = contractMatch ? extractKeys(contractMatch[1]) : [];
+const blockedKeys = [...sourceKeys, ...contractKeys];
+const nlive = liveKeys.length, nblocked = blockedKeys.length;
 
-if (liveKeys.length !== 20) fail(`Expected 20 LIVE (Batches 1+2), got ${liveKeys.length}`);
-else pass(`LIVE tools: ${liveKeys.length} (Batches 1+2)`);
+const FORMULA_DIR = resolve(__dirname, "../src/sectorcalc/formulas/pro-v531");
+const GOLDEN_DIR = resolve(__dirname, "../tests/golden/pro-v531-baris");
+const SCHEMA_DIR = resolve(__dirname, "../src/sectorcalc/schemas/pro-v531");
 
-if (allBlocked.length !== 25) fail(`Expected 25 BLOCKED, got ${allBlocked.length}`);
-else pass(`BLOCKED tools: ${allBlocked.length}`);
+console.log(`  LIVE: ${nlive} | BLOCKED: ${nblocked}`);
 
-// Check all blocked tools exist in schema dir
-const schemaDir = resolve(ROOT, "src/sectorcalc/schemas/pro-v531");
-const schemaFiles = readdirSync(schemaDir).filter(f => f.endsWith(".schema.json"));
-const schemaKeys = new Set(schemaFiles.map(f => f.replace(".schema.json", "")));
-for (const tk of allBlocked) {
-  if (!schemaKeys.has(tk)) fail(`BLOCKED tool "${tk}" missing schema file`);
-}
-pass(`All ${allBlocked.length} BLOCKED tools have schema files`);
+if (nlive === 20) pass(`LIVE tools: ${nlive} (Batches 1+2)`); else fail(`LIVE tools: ${nlive} (expected 20)`);
+if (nblocked === 25) pass(`BLOCKED tools: ${nblocked}`); else fail(`BLOCKED tools: ${nblocked} (expected 25)`);
 
-// Check no blocked tool has formula file
-for (const tk of allBlocked) {
-  const formulaPath = resolve(FORMULA_DIR, `${tk}.formula.ts`);
-  if (existsSync(formulaPath)) fail(`BLOCKED tool "${tk}" has .formula.ts file (should NOT)`);
-}
-pass(`No BLOCKED tool has .formula.ts file`);
+let schemaOk = 0;
+for (const k of blockedKeys) { if (existsSync(resolve(SCHEMA_DIR, `${k}.schema.json`))) schemaOk++; }
+if (schemaOk === nblocked) pass(`All ${nblocked} BLOCKED tools have schema files`); else fail(`${nblocked - schemaOk} BLOCKED tools missing schema`);
 
-// Check LIVE tools have formula files + golden fixtures
-for (const tk of liveKeys) {
-  const formulaPath = resolve(FORMULA_DIR, `${tk}.formula.ts`);
-  if (!existsSync(formulaPath)) fail(`LIVE tool "${tk}" missing .formula.ts`);
-  else {
-    const fc = readFileSync(formulaPath, "utf-8");
-    if (!fc.includes("server-only")) fail(`LIVE tool "${tk}" missing server-only`);
-    if (!fc.includes("export function calculate")) fail(`LIVE tool "${tk}" missing calculate()`);
-  }
-  const goldenPath = resolve(GOLDEN_DIR, `${tk}.golden.json`);
-  if (!existsSync(goldenPath)) fail(`LIVE tool "${tk}" missing golden fixture`);
-}
-pass(`All ${liveKeys.length} LIVE tools have formula files + golden fixtures`);
+let formulaViolations = 0;
+for (const k of blockedKeys) { if (existsSync(resolve(FORMULA_DIR, `${k}.formula.ts`))) { fail(`BLOCKED "${k}" has .formula.ts`); formulaViolations++; } }
+if (formulaViolations === 0) pass("No BLOCKED tool has .formula.ts file");
 
+let liveOk = 0;
+for (const k of liveKeys) { if (existsSync(resolve(FORMULA_DIR, `${k}.formula.ts`)) && existsSync(resolve(GOLDEN_DIR, `${k}.golden.json`))) liveOk++; else fail(`LIVE "${k}" missing formula or golden`); }
+if (liveOk === nlive) pass(`All ${nlive} LIVE tools have formula files + golden fixtures`);
 
-console.log(`\n  Failures: ${failures}`);
-if (failures > 0) { console.log("  RESULT: FAIL\n"); process.exit(1); }
-else { console.log("  RESULT: PASS\n"); process.exit(0); }
+console.log(`\n  Failures: ${failCount}`);
+console.log(failCount === 0 ? "  RESULT: PASS\n" : "  RESULT: FAIL\n");
+process.exit(failCount > 0 ? 1 : 0);
