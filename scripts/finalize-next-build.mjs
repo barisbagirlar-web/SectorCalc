@@ -53,6 +53,19 @@ function ensurePagesManifest() {
   );
 }
 
+function ensureAppPathsManifest() {
+  const manifestPath = join(NEXT, "server/app-paths-manifest.json");
+  if (existsSync(manifestPath)) {
+    return;
+  }
+  mkdirSync(join(NEXT, "server"), { recursive: true });
+  writeFileSync(
+    manifestPath,
+    JSON.stringify({}),
+    "utf8",
+  );
+}
+
 function ensureExportMarker() {
   const markerPath = join(NEXT, "export-marker.json");
   if (existsSync(markerPath)) {
@@ -231,6 +244,7 @@ function main() {
   ensure500StaticFiles();
   ensureMiddlewareManifest();
   ensurePagesManifest();
+  ensureAppPathsManifest();
   ensureExportMarker();
   ensureExportDetail();
   ensureFirebasePagesManifest();

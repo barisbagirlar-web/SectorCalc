@@ -13,11 +13,12 @@ class EnsureManifestStubsPlugin {
     compiler.hooks.done.tap("EnsureManifestStubsPlugin", () => {
       const nextDir = path.join(process.cwd(), ".next");
       const serverDir = path.join(nextDir, "server");
-      
+
       if (!fs.existsSync(serverDir)) {
         fs.mkdirSync(serverDir, { recursive: true });
       }
 
+      /* ── Pages Router stubs (App Router-only projects still need these for Firebase) ── */
       const pagesDir = path.join(serverDir, "pages");
       if (!fs.existsSync(pagesDir)) {
         fs.mkdirSync(pagesDir, { recursive: true });
@@ -29,19 +30,17 @@ class EnsureManifestStubsPlugin {
         }
       }
 
-      const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
-      if (!fs.existsSync(pagesManifestPath)) {
-        fs.writeFileSync(pagesManifestPath, JSON.stringify({ "/500": "pages/500.html" }), "utf8");
-      }
-
-      const fontManifestPath = path.join(serverDir, "next-font-manifest.json");
-      if (!fs.existsSync(fontManifestPath)) {
-        fs.writeFileSync(fontManifestPath, JSON.stringify({
-          "pages": {},
-          "app": {},
-          "appUsingSizeAdjust": false,
-          "pagesUsingSizeAdjust": false
-        }), "utf8");
+      /* ── Manifest stubs ── */
+      const manifestStubs: Array<[string, unknown]> = [
+        ["pages-manifest.json", {}],
+        ["next-font-manifest.json", { pages: {}, app: {}, appUsingSizeAdjust: false, pagesUsingSizeAdjust: false }],
+        ["middleware-manifest.json", {}],
+      ];
+      for (const [name, content] of manifestStubs) {
+        const p = path.join(serverDir, name);
+        if (!fs.existsSync(p)) {
+          fs.writeFileSync(p, JSON.stringify(content), "utf8");
+        }
       }
 
       const appBuildManifestPath = path.join(nextDir, "app-build-manifest.json");
@@ -49,13 +48,24 @@ class EnsureManifestStubsPlugin {
         fs.writeFileSync(appBuildManifestPath, JSON.stringify({ pages: {} }), "utf8");
       }
 
-      const notFoundDir = path.join(serverDir, "app", "_not-found");
-      if (!fs.existsSync(notFoundDir)) {
-        fs.mkdirSync(notFoundDir, { recursive: true });
-      }
-      const notFoundNftPath = path.join(notFoundDir, "page.js.nft.json");
-      if (!fs.existsSync(notFoundNftPath)) {
-        fs.writeFileSync(notFoundNftPath, JSON.stringify({ version: 1, files: [] }), "utf8");
+      /* ── .nft.json stubs (Firebase trace collection requires these for every server file) ── */
+      const appDir = path.join(serverDir, "app");
+      if (fs.existsSync(appDir)) {
+        function walk(dir: string) {
+          let entries: fs.Dirent[];
+          try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
+          for (const entry of entries) {
+            const full = path.join(dir, entry.name);
+            if (entry.isDirectory()) walk(full);
+            else if (entry.name.endsWith(".js") && !entry.name.endsWith(".nft.json")) {
+              const nftPath = full + ".nft.json";
+              if (!fs.existsSync(nftPath)) {
+                fs.writeFileSync(nftPath, JSON.stringify({ version: 1, files: [] }), "utf8");
+              }
+            }
+          }
+        }
+        walk(appDir);
       }
     });
   }

@@ -116,6 +116,11 @@ function ensureNextTypeAndBuildManifestStubs() {
     writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
   }
 
+  const appPathsManifestPath = join(serverDir, "app-paths-manifest.json");
+  if (!existsSync(appPathsManifestPath)) {
+    writeFileSync(appPathsManifestPath, JSON.stringify({}), "utf8");
+  }
+
   const middlewareManifestPath = join(serverDir, "middleware-manifest.json");
   if (!existsSync(middlewareManifestPath)) {
     writeFileSync(middlewareManifestPath, JSON.stringify({}));
