@@ -44,6 +44,35 @@ function formatSize(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
+/* ── Client-side photo compression ── */
+
+const COMPRESS_MAX_DIM = 1920; // px — longest side
+const COMPRESS_QUALITY = 0.85; // JPEG quality
+
+function compressImage(dataUrl: string, mime: string): Promise<{ data: string; mime: string }> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      let { width, height } = img;
+      if (width > COMPRESS_MAX_DIM || height > COMPRESS_MAX_DIM) {
+        const ratio = Math.min(COMPRESS_MAX_DIM / width, COMPRESS_MAX_DIM / height);
+        width = Math.round(width * ratio);
+        height = Math.round(height * ratio);
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) { resolve({ data: dataUrl, mime }); return; }
+      ctx.drawImage(img, 0, 0, width, height);
+      const compressed = canvas.toDataURL("image/jpeg", COMPRESS_QUALITY);
+      resolve({ data: compressed, mime: "image/jpeg" });
+    };
+    img.onerror = () => reject(new Error("Failed to load image for compression"));
+    img.src = dataUrl;
+  });
+}
+
 /* ── Component ── */
 
 export function PhotoUpload({
@@ -95,15 +124,30 @@ export function PhotoUpload({
           continue;
         }
 
-        // Read as data URL
+        // Read as data URL, then compress
         const reader = new FileReader();
-        reader.onload = (e) => {
+        reader.onload = async (e) => {
           const data = e.target?.result as string;
           if (data) {
-            onPhotosChange([
-              ...photos,
-              { id, data, name: file.name, size_bytes: file.size, mime: file.type },
-            ]);
+            try {
+              const compressed = await compressImage(data, file.type);
+              onPhotosChange([
+                ...photos,
+                {
+                  id,
+                  data: compressed.data,
+                  name: file.name,
+                  size_bytes: Math.round(data.length * 0.75),
+                  mime: compressed.mime,
+                },
+              ]);
+            } catch {
+              // Fallback: use original if compression fails
+              onPhotosChange([
+                ...photos,
+                { id, data, name: file.name, size_bytes: file.size, mime: file.type },
+              ]);
+            }
           }
         };
         reader.onerror = () => {

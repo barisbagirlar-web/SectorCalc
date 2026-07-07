@@ -251,7 +251,18 @@ export async function POST(req: Request) {
       verifyUrl = `https://sectorcalc.com/verify/${reportHash}`;
     }
 
-    /* ── 10. Decrement diagnostic use ── */
+    /* ── 10. Decrement diagnostic use (after response prepared, before returning) ── */
+    const responseBody = {
+      ok: true as const,
+      report_id: fullReport.report_id,
+      report_hash: reportHash,
+      report: fullReport,
+      verify_url: verifyUrl,
+      has_ai: aiSection !== null,
+      photo_count: processedPhotos.length,
+    };
+
+    // Decrement AFTER response body is fully built — never charge for a failed generation
     const useDecremented = await decrementDiagnosticUse(ownerUid);
     if (!useDecremented) {
       console.error("[full-diagnostic] Failed to decrement diagnostic use for user:", ownerUid);
@@ -259,13 +270,7 @@ export async function POST(req: Request) {
 
     /* ── 11. Return JSON report ── */
     return NextResponse.json({
-      ok: true,
-      report_id: fullReport.report_id,
-      report_hash: reportHash,
-      report: fullReport,
-      verify_url: verifyUrl,
-      has_ai: aiSection !== null,
-      photo_count: processedPhotos.length,
+      ...responseBody,
       diagnostic_use_consumed: useDecremented,
     });
   } catch (err) {

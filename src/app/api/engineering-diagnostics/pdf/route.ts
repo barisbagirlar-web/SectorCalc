@@ -103,6 +103,11 @@ export async function POST(req: Request) {
 
     const report = parsed.data;
 
+    /* ── Detect diagnostic-generated reports ──────────────────── */
+    // full_ prefix means the report was generated via the Full Diagnostic package,
+    // which already consumed a diagnostic use. Skip additional credit charge.
+    const isDiagnosticGenerated = report.report_id.startsWith("full_");
+
     /* ── Persist to Firestore + register verify ───────────────── */
     const { hash } = registerDiagnosticVerify(report);
     const persistedHash = await saveDiagnosticReport(report, ownerUid);
@@ -113,10 +118,11 @@ export async function POST(req: Request) {
     const pdfBuffer = await buildDiagnosticPdf(report, { verifyUrl });
     const pdfUint8 = new Uint8Array(pdfBuffer);
 
-    /* ── Deduct credit (atomic transaction) ───────────────────── */
-    // Deduct AFTER PDF generation succeeds — never charge for a failed PDF
+    /* ── Deduct credit ONLY if not diagnostic-generated ───────── */
+    // Diagnostic package users already paid — PDF is included
     // Owner bypass skips deduction entirely
-    if (!isOwner) {
+    let creditSpent = 0;
+    if (!isOwner && !isDiagnosticGenerated) {
       const deducted = await decrementCredits(ownerUid, PDF_CREDIT_COST);
       if (!deducted) {
         return NextResponse.json(
@@ -124,6 +130,7 @@ export async function POST(req: Request) {
           { status: 402 }
         );
       }
+      creditSpent = PDF_CREDIT_COST;
     }
 
     const fileName = buildDiagnosticPdfFileName(report.report_id);
@@ -135,7 +142,7 @@ export async function POST(req: Request) {
         "Content-Disposition": `attachment; filename="${fileName}"`,
         "X-Report-Hash": reportHash,
         "X-Verify-Url": verifyUrl,
-        "X-Credit-Spent": String(PDF_CREDIT_COST),
+        "X-Credit-Spent": String(creditSpent),
       },
     });
   } catch (err) {

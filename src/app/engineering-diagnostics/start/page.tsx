@@ -206,6 +206,27 @@ export default function EngineeringDiagnosticsStartPage() {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [serverError, setServerError] = useState<string | null>(null);
 
+  // Auto-save form state to localStorage
+  const STORAGE_KEY = "ediag_form_state";
+  useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        setForm((prev) => ({ ...prev, ...parsed }));
+      } catch { /* ignore */ }
+    }
+  }, []);
+  const autoSaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (autoSaveTimerRef.current) clearTimeout(autoSaveTimerRef.current);
+    autoSaveTimerRef.current = setTimeout(() => {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(form)); } catch { /* quota */ }
+    }, 400);
+    return () => { if (autoSaveTimerRef.current) clearTimeout(autoSaveTimerRef.current); };
+  }, [form]);
+  function clearAutosave() { try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ } }
+
   // Fetch remaining diagnostic uses on mount
   useEffect(() => {
     (async () => {
@@ -720,11 +741,39 @@ export default function EngineeringDiagnosticsStartPage() {
           </div>
         )}
 
+        {/* Download as JSON */}
+        <div style={{ textAlign: "center", marginTop: "1rem" }}>
+          <button
+            onClick={() => {
+              if (!result) return;
+              const blob = new Blob([JSON.stringify(result, null, 2)], { type: "application/json" });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = `diagnostic-result-${result.domain.id}-${Date.now()}.json`;
+              a.click();
+              URL.revokeObjectURL(url);
+            }}
+            style={{
+              background: "none",
+              border: "1px solid #6B6B68",
+              color: "#6B6B68",
+              padding: "0.5rem 1.25rem",
+              borderRadius: "6px",
+              cursor: "pointer",
+              fontSize: "0.85rem",
+            }}
+          >
+            Download Result as JSON
+          </button>
+        </div>
+
         {/* Back to top */}
         <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <button
             onClick={() => {
               setResult(null);
+              clearAutosave();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             style={{
@@ -835,6 +884,28 @@ export default function EngineeringDiagnosticsStartPage() {
               </Link>
             </div>
           </div>
+
+          {/* Loading skeleton during Full Diagnostic generation */}
+          {fullDiagLoading && (
+            <div style={{ marginBottom: "1.5rem", padding: "2rem", borderRadius: "12px", border: "1px solid #D6D4CC", background: "#F0EEE6" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
+                <div style={{ width: "48px", height: "48px", border: "3px solid #D6D4CC", borderTopColor: "#BD5D3A", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+                <div style={{ fontSize: "1rem", fontWeight: 600, color: "#1A1915" }}>Generating Full Engineering Diagnostic</div>
+                <div style={{ fontSize: "0.85rem", color: "#6B6B68", textAlign: "center", maxWidth: "400px" }}>
+                  Analyzing measurements, calculating risk scores, running AI interpretation, and building your professional diagnostic report.
+                </div>
+                <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", justifyContent: "center" }}>
+                  {["Domain Analysis", "Uncertainty Check", "Cost at Risk", "AI Interpretation", "Action Plan"].map((step) => (
+                    <div key={step} style={{ display: "flex", alignItems: "center", gap: "0.35rem", padding: "0.3rem 0.7rem", background: "#E8E6DE", borderRadius: "20px", fontSize: "0.75rem", color: "#4A4A48" }}>
+                      <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#BD5D3A", animation: "pulse 1.2s ease-in-out infinite" }} />
+                      {step}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } } @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }`}</style>
 
           {!result && (
             <form onSubmit={handleSubmit} noValidate>

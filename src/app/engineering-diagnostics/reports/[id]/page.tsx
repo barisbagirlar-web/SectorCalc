@@ -57,6 +57,7 @@ function decisionBadge(state: string): { background: string; color: string } {
     case "PROCEED_WITH_CAUTION": return { background: "#FFF8D6", color: "#8A7A23" };
     case "STOP_AND_INSPECT": return { background: "#FFF0D6", color: "#A16A23" };
     case "QC_REQUIRED": return { background: "#F5D6D6", color: "#A12323" };
+    case "HIGH_SCRAP_RISK": return { background: "#F5D0D0", color: "#8A1010" };
     default: return { background: "#F5D0D0", color: "#8A1010" };
   }
 }
