@@ -131,8 +131,8 @@ const routeCheck = execSync('rg "/en/" src/app --include="*.ts" --include="*.tsx
 if (!routeCheck) pass("No /en locale routes");
 else fail("Locale routes detected");
 
-// ── 12. CBAM not modified ──
-const cbamCheck = execSync('git diff HEAD~1..HEAD --name-only 2>/dev/null | grep -i cbam || echo "NONE"', { cwd: ROOT }).toString().trim();
+// ── 12. CBAM not modified (only real CBAM pipeline files) ──
+const cbamCheck = execSync('git diff HEAD~1..HEAD --name-only 2>/dev/null | grep -E "src/components/cbam/|src/lib/cbam/|src/app/api/cbam/" || echo "NONE"', { cwd: ROOT }).toString().trim();
 if (cbamCheck === "NONE" || !cbamCheck) pass("CBAM files not modified in latest commit");
 else fail(`CBAM modified: ${cbamCheck}`);
 
