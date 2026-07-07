@@ -10,6 +10,7 @@ import { normalizeFreeSchema } from "@/sectorcalc/runtime/free-schema-loader";
 import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { enrichV531SchemaReferences } from "@/sectorcalc/runtime/v531-reference-enrichment";
 import { isActiveTool } from "@/sectorcalc/runtime/active-tool-allowlist";
+import { getBarisProSchema, clearBarisSchemaCache } from "@/sectorcalc/runtime/baris-schema-loader";
 import fs from "fs";
 import path from "path";
 
@@ -80,6 +81,10 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   const proSchema = getProToolSchema(normalizedKey);
   if (proSchema) return buildAndCache(() => proSchema, "pro_v531");
 
+  // Baris PRO V5.3.1 schemas are in the pro-v531 directory
+  const barisSchema = getBarisProSchema(normalizedKey);
+  if (barisSchema) return buildAndCache(() => barisSchema, "pro_v531");
+
   const freeSchema = getFreeToolSchema(normalizedKey);
   if (freeSchema) return buildAndCache(() => freeSchema, "free_v531");
 
@@ -87,9 +92,13 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   clearSchemaCache();
   clearProSchemaCache();
   clearFreeSchemaCache();
+  clearBarisSchemaCache();
 
   const proSchema2 = getProToolSchema(normalizedKey);
   if (proSchema2) return buildAndCache(() => proSchema2, "pro_v531");
+
+  const barisSchema2 = getBarisProSchema(normalizedKey);
+  if (barisSchema2) return buildAndCache(() => barisSchema2, "pro_v531");
 
   const freeSchema2 = getFreeToolSchema(normalizedKey);
   if (freeSchema2) return buildAndCache(() => freeSchema2, "free_v531");
