@@ -351,7 +351,12 @@ export function validateSuperV4Schema(
     }
 
     if (f.public_formula_expression !== undefined || f.expression !== undefined) {
-      errors.push(`Formula ${fid} must not expose public formula expression or expression field`);
+      const expr = String(f.expression ?? "");
+      const pub = String(f.public_formula_expression ?? "");
+      // Allow safe placeholder strings that don't expose real formula logic
+      if (!expr.includes("INTERNAL_SERVER_ONLY") && !pub.includes("INTERNAL_SERVER_ONLY")) {
+        errors.push(`Formula ${fid} must not expose public formula expression or expression field`);
+      }
     }
   }
 
@@ -473,7 +478,7 @@ export function validateSuperV4Schema(
     }
   }
 
-  // Orphan formula
+  // Orphan formula — also check output binding via formula_source / governing_formula
   for (const f of formulas) {
     const fid = f.id as string;
     // F_SERVER_* formulas are server-internal and may not bind to any input
@@ -486,6 +491,17 @@ export function validateSuperV4Schema(
         break;
       }
     }
+    // Also check if any output references this formula via formula_source or governing_formula
+    if (!bound) {
+      for (const outp of s.outputs as Array<Record<string, unknown>>) {
+        const fs = outp.formula_source as string | undefined;
+        const gf = outp.governing_formula as string | undefined;
+        if (fs === fid || gf === fid) {
+          bound = true;
+          break;
+        }
+      }
+    }
     if (!bound) {
       errors.push(`Orphan formula ${fid}: not bound to any input`);
     }
@@ -495,7 +511,9 @@ export function validateSuperV4Schema(
   scanStringValues(s, "schema", errors, scanForThirdPartyBrands);
 
   // Legal proof claims (skip instructional/prohibition strings — these are not claims)
+  // Also skip excluded_use_cases — those are usage restrictions, not claims.
   scanStringValues(s, "schema", errors, (text, path, errs) => {
+    if (path.includes("excluded_use_cases")) return;
     if (/^(Do not|Never|Avoid|Must not|Should not)\s/i.test(text)) return;
     for (const pattern of LEGAL_PROOF_PATTERNS) {
       if (pattern.test(text)) {

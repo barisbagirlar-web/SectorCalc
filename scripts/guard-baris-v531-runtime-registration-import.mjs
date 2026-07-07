@@ -18,13 +18,25 @@ const READINESS_PATH = resolve(ROOT, "src/sectorcalc/formulas/pro-v531/baris-rea
 const FORMULA_DIR = resolve(ROOT, "src/sectorcalc/formulas/pro-v531");
 const GOLDEN_DIR = resolve(ROOT, "tests/golden/pro-v531-baris");
 
-const EXPECTED_IMPORT = `import "@/sectorcalc/formulas/pro-v531/baris-formula-registry"`;
+const EXPECTED_IMPORTS = [
+  `import "@/sectorcalc/formulas/pro-v531/baris-formula-registry"`,
+  `import { initBarisFormulaRegistry } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry"`,
+];
 
 let failures = 0;
 let blockers = [];
 
 function fail(msg) { console.error(`  ❌ FAIL: ${msg}`); failures++; blockers.push(msg); }
 function pass(msg) { console.log(`  ✅ PASS: ${msg}`); }
+
+function matchesAnyImport(line) {
+  const t = line.trim();
+  return EXPECTED_IMPORTS.some(p => t === p || t === p + ";");
+}
+
+function routeContainsAnyImport(content) {
+  return EXPECTED_IMPORTS.some(p => content.includes(p) || content.includes(p + ";"));
+}
 
 console.log("\n" + "═".repeat(60));
 console.log("  BARIS V5.3.1 — RUNTIME REGISTRATION IMPORT GUARD");
@@ -55,13 +67,13 @@ const contractKeys = extractKeys(readContent, "BLOCKED_RUNTIME_CONTRACT_MISMATCH
 
 // ── CHECK 1: Import exists at top level ──────────────────────────────────
 console.log("[1/5] Checking execute route import...");
-const importLine = lines.findIndex(l => l.trim() === EXPECTED_IMPORT || l.trim() === EXPECTED_IMPORT + ";");
-if (importLine === -1) { fail(`Missing side-effect import: ${EXPECTED_IMPORT}`); }
-else { pass(`Side-effect import found at line ${importLine + 1}`); }
+const importLine = lines.findIndex(matchesAnyImport);
+if (importLine === -1) { fail(`Missing expected import in route.ts`); }
+else { pass(`Import found at line ${importLine + 1}`); }
 
 // ── CHECK 2: Top-level (before function/export) ──────────────────────────
 const topLevelCheck = lines.slice(0, 45).join("\n");
-if (topLevelCheck.includes(EXPECTED_IMPORT) || topLevelCheck.includes(EXPECTED_IMPORT + ";")) {
+if (routeContainsAnyImport(topLevelCheck)) {
   pass("Import is top-level (before any function/export block)");
 } else { fail("Import must be top-level"); }
 
@@ -83,7 +95,7 @@ if (fnBeforeImport) { fail("Import appears after function declaration"); }
 else { pass("Import is not inside a function body"); }
 
 // ── CHECK 5: Not commented out ───────────────────────────────────────────
-const uncommented = lines.filter(l => l.trim() === EXPECTED_IMPORT || l.trim() === EXPECTED_IMPORT + ";");
+const uncommented = lines.filter(matchesAnyImport);
 if (uncommented.length === 0) { fail("Import is commented out or missing"); }
 else { pass("Import is not commented out"); }
 
@@ -98,7 +110,7 @@ else { pass("Route does not import Baris formula files directly"); }
 
 // ── CHECK 7: Route imports the registry side-effect entrypoint ──────────
 console.log("\n[7/5] Route imports the registry side-effect entrypoint...");
-if (routeContent.includes(EXPECTED_IMPORT) || routeContent.includes(EXPECTED_IMPORT + ";")) {
+if (routeContainsAnyImport(routeContent)) {
   pass("Route imports the registry side-effect entrypoint");
 } else { fail("Route must import the registry side-effect entrypoint"); }
 

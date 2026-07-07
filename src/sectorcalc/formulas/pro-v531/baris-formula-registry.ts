@@ -136,4 +136,17 @@ export function isBarisBatch2Tool(toolKey: string): boolean {
   return BATCH_2_KEYS.has(toolKey);
 }
 
+/**
+ * Explicit initialization function.
+ * Calling this ensures the module is NOT tree-shaken by Webpack
+ * and all formulaRegistry.register() calls execute at runtime.
+ * Must be called once before any PRO tool execution.
+ */
+export function initBarisFormulaRegistry(): boolean {
+  // Registration already happens at module level (import side-effect).
+  // This function exists solely to force the module to be retained
+  // in the production bundle. Return true to confirm initialization.
+  return true;
+}
+
 export { FORMULA_VERSION };

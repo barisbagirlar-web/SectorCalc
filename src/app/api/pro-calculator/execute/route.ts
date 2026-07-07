@@ -37,7 +37,9 @@ import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-form
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
-import "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
+import { initBarisFormulaRegistry } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
+// Initialize formula registry — explicit call prevents Webpack tree-shaking
+initBarisFormulaRegistry();
 import { getBarisExecutionBlockReason, checkBarisExecutionEntitlement } from "@/sectorcalc/pro-commerce/baris-entitlement-guard";
 import { getAdminFirestore, getAdminAuth } from "@/lib/infrastructure/firebase/admin";
 import { FieldValue } from "firebase-admin/firestore";
