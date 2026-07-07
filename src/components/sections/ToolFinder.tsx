@@ -73,7 +73,7 @@ export function ToolFinder() {
 
  <div className="mx-auto max-w-3xl space-y-8">
  <div>
- <p className="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
+ <p className="mb-3 text-center text-xs font-semibold uppercase tracking-wider text-text-secondary">
  {t("decisionFocus")}
  </p>
  <div className="flex flex-wrap justify-center gap-2">
@@ -122,7 +122,7 @@ export function ToolFinder() {
  </div>
 
  <div>
- <p className="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
+ <p className="mb-3 text-center text-xs font-semibold uppercase tracking-wider text-text-secondary">
  {t("industry")}
  </p>
  <div className="flex flex-wrap justify-center gap-2">

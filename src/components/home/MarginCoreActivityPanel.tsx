@@ -31,7 +31,7 @@ export async function MarginCoreActivityPanel({ locale }: { locale: string }) {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 border-b border-border-subtle pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-amber">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-amber">
               {t("activity.eyebrow")}
             </p>
             <h2

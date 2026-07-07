@@ -115,14 +115,14 @@ export function StrategicPremiumRoadmapPanel({ items }: StrategicPremiumRoadmapP
             <li key={item.id} className="min-w-0">
               <article className="flex h-full flex-col border border-technical-gray bg-white p-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-sm bg-industrial-matte px-2 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-wide text-body-charcoal">
+                  <span className="rounded-sm bg-industrial-matte px-2 py-0.5 font-mono text-xs font-semibold uppercase tracking-wide text-body-charcoal">
                     {copy.phaseBadge(item.phase)}
                   </span>
-                  <span className="rounded-sm border border-technical-gray px-2 py-0.5 font-mono text-[11px] font-semibold text-premium-velvet">
+                  <span className="rounded-sm border border-technical-gray px-2 py-0.5 font-mono text-xs font-semibold text-premium-velvet">
                     {copy.scoreLabel(item.score.toFixed(1))}
                   </span>
                   <span
-                    className={`rounded-sm px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide ${
+                    className={`rounded-sm px-2 py-0.5 text-xs font-semibold uppercase tracking-wide ${
                       item.status === "live"
                         ? "bg-safe-green/10 text-safe-green"
                         : "bg-warn-amber/10 text-warn-amber"

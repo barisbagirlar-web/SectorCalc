@@ -22,7 +22,7 @@ export function ReportPreviewCard() {
  <div className="border-b border-border-subtle bg-bg-primary px-6 py-5 sm:px-8">
  <div className="flex flex-wrap items-start justify-between gap-4">
  <div>
- <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-deep-navy">
+ <p className="text-xs font-semibold uppercase tracking-[0.2em] text-deep-navy">
  Decision report
  </p>
  <h3 className="mt-2 text-xl font-bold text-premium-velvet sm:text-2xl">
@@ -76,7 +76,7 @@ export function ReportPreviewCard() {
 
  <div className="mt-6 flex flex-col gap-4 border-t border-border-subtle pt-6 sm:flex-row sm:items-center sm:justify-between">
  <div>
- <p className="text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
+ <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
  Export package
  </p>
  <div className="mt-3 flex flex-wrap gap-2">

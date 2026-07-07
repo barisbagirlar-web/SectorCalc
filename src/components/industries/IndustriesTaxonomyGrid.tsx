@@ -67,7 +67,7 @@ function TaxonomySectorTile({
       <span className="line-clamp-2 text-sm font-bold text-gray-800">{label}</span>
       <span className="mt-2 text-xs font-medium text-slate-500">{countLabel}</span>
       {professions && professions.length > 0 ? (
-        <span className="mt-2 line-clamp-1 text-[11px] text-slate-400">
+        <span className="mt-2 line-clamp-1 text-xs text-slate-400">
           {professions.slice(0, 3).join(" · ")}
         </span>
       ) : null}

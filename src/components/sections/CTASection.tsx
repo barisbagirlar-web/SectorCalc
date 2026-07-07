@@ -29,7 +29,7 @@ export function CTASection({
  />
  <Container size="wide" className="relative py-12 md:py-16 lg:py-20">
  {eyebrow ? (
- <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber">
+ <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber">
  {eyebrow}
  </p>
  ) : null}

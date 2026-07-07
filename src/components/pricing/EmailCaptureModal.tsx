@@ -57,7 +57,7 @@ export function EmailCaptureModal({ open, onClose, onSubmit, onSkip, email, setE
             Skip - I don&apos;t need an email receipt
           </button>
         </form>
-        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 flex justify-center gap-4 text-[11px] text-gray-400">
+        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 flex justify-center gap-4 text-xs text-gray-400">
           <span>🔒 Paddle secure</span><span>·</span><span>No auto-renew</span><span>·</span><span>7-day guarantee</span>
         </div>
       </div>

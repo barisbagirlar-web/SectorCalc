@@ -37,7 +37,7 @@ export function FormulaSourceAuditBadge({ slug, locale, className, surface }: Pr
   return (
     <span
       className={[
-        "inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 shadow-sm",
+        "inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 shadow-sm",
         className ?? "",
       ].join(" ")}
       title={title}

@@ -58,7 +58,7 @@ function CatalogItemCard({
         <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-body-charcoal">{item.promise}</p>
       ) : null}
       {item.meta ? (
-        <p className="mt-2 font-mono text-[11px] leading-snug text-sc-navy line-clamp-2">
+        <p className="mt-2 font-mono text-xs leading-snug text-sc-navy line-clamp-2">
           {isPremiumCard && item.claimTypeLabel ? `${item.claimTypeLabel} · ` : ""}
           {item.meta}
         </p>

@@ -15,7 +15,7 @@ export function BenchmarkCard({ band }: BenchmarkCardProps) {
     <div className="rounded-lg border border-navy/10 bg-white/60 p-3">
       <div className="flex items-center justify-between gap-2">
         <p className="text-sm font-semibold text-navy">{t(`metric.${band.metric}`)}</p>
-        <span className="rounded-full bg-navy/5 px-2 py-0.5 text-[11px] font-medium text-body-charcoal">
+        <span className="rounded-full bg-navy/5 px-2 py-0.5 text-xs font-medium text-body-charcoal">
           {t(`confidence.${band.confidence}`)}
         </span>
       </div>

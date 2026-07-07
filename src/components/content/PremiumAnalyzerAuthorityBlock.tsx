@@ -62,13 +62,13 @@ export function PremiumAnalyzerAuthorityBlock({
         {labels.whenToUseBody}
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
-        <span className="inline-flex items-center rounded-full border border-[#BD5D3A]/20 bg-[#BD5D3A]/5 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#BD5D3A]">
+        <span className="inline-flex items-center rounded-full border border-[#BD5D3A]/20 bg-[#BD5D3A]/5 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-[#BD5D3A]">
           ISO Standards
         </span>
-        <span className="inline-flex items-center rounded-full border border-[#1A1915]/15 bg-[#1A1915]/5 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#1A1915]/60">
+        <span className="inline-flex items-center rounded-full border border-[#1A1915]/15 bg-[#1A1915]/5 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-[#1A1915]/60">
           Engineering Review
         </span>
-        <span className="inline-flex items-center rounded-full border border-[#1A1915]/15 bg-[#1A1915]/5 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#1A1915]/60">
+        <span className="inline-flex items-center rounded-full border border-[#1A1915]/15 bg-[#1A1915]/5 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-[#1A1915]/60">
           Decision Support
         </span>
       </div>

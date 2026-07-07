@@ -27,7 +27,7 @@ export async function MarginCoreExecutiveGrid() {
     >
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <header className="border-b border-border-subtle pb-6">
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-amber">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-amber">
             {t("grid.eyebrow")}
           </p>
           <h2

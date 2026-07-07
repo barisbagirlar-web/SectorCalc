@@ -85,15 +85,15 @@ export function ExpertAuthoritySection({
             {/* Expertise tags */}
             <div className="mt-3 flex flex-wrap gap-2">
               <span
-                className="inline-flex items-center gap-1 rounded-full border border-[#BD5D3A]/20 bg-[#BD5D3A]/5 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#BD5D3A]"
+                className="inline-flex items-center gap-1 rounded-full border border-[#BD5D3A]/20 bg-[#BD5D3A]/5 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-[#BD5D3A]"
                 itemProp="knowsAbout"
               >
                 Mathematical Modeling
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[#1A1915]/15 bg-[#1A1915]/5 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#1A1915]/60">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#1A1915]/15 bg-[#1A1915]/5 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-[#1A1915]/60">
                 Formula Validation
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[#1A1915]/15 bg-[#1A1915]/5 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#1A1915]/60">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#1A1915]/15 bg-[#1A1915]/5 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-[#1A1915]/60">
                 Industry Standards
               </span>
             </div>
@@ -105,7 +105,7 @@ export function ExpertAuthoritySection({
                 href="https://www.linkedin.com/in/neela-nataraj-06531b28/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#1A1915]/50 transition-colors hover:text-[#BD5D3A]"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1A1915]/50 transition-colors hover:text-[#BD5D3A]"
                 aria-label="Prof. Dr. Neela Nataraj on LinkedIn"
               >
                 <svg viewBox="0 0 24 24" width={16} height={16} aria-hidden fill="currentColor">
@@ -119,7 +119,7 @@ export function ExpertAuthoritySection({
                 href="https://www.researchgate.net/profile/Neela-Nataraj"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#1A1915]/50 transition-colors hover:text-[#BD5D3A]"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1A1915]/50 transition-colors hover:text-[#BD5D3A]"
                 aria-label="Prof. Dr. Neela Nataraj on ResearchGate"
               >
                 <svg viewBox="0 0 24 24" width={16} height={16} aria-hidden fill="currentColor">
@@ -133,7 +133,7 @@ export function ExpertAuthoritySection({
                 href="https://www.math.iitb.ac.in/~neela/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#1A1915]/50 transition-colors hover:text-[#BD5D3A]"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1A1915]/50 transition-colors hover:text-[#BD5D3A]"
                 aria-label="Prof. Dr. Neela Nataraj faculty website"
               >
                 <svg viewBox="0 0 24 24" width={16} height={16} aria-hidden fill="currentColor">

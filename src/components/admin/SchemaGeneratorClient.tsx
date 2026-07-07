@@ -956,7 +956,7 @@ export function SchemaGeneratorClient() {
                         <li key={item.formulaId} className="rounded border border-slate/15 p-2">
                           <p className="font-semibold">{item.formulaId}</p>
                           <p className="text-text-secondary">{item.description}</p>
-                          <p className="mt-1 font-mono text-[11px]">
+                          <p className="mt-1 font-mono text-xs">
                             {item.requiredInputs.join(", ")}
                           </p>
                         </li>

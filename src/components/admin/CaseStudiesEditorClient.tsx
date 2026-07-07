@@ -477,21 +477,21 @@ ${inputsStr}
               <button
                 type="button"
                 onClick={() => loadExample("cnc")}
-                className="rounded border border-slate/15 bg-white px-2 py-1 text-[11px] font-medium text-copper hover:bg-off-white"
+                className="rounded border border-slate/15 bg-white px-2 py-1 text-xs font-medium text-copper hover:bg-off-white"
               >
                 CNC
               </button>
               <button
                 type="button"
                 onClick={() => loadExample("construction")}
-                className="rounded border border-slate/15 bg-white px-2 py-1 text-[11px] font-medium text-copper hover:bg-off-white"
+                className="rounded border border-slate/15 bg-white px-2 py-1 text-xs font-medium text-copper hover:bg-off-white"
               >
                 Construction
               </button>
               <button
                 type="button"
                 onClick={resetForm}
-                className="rounded border border-amber/35 bg-white px-2 py-1 text-[11px] font-medium text-amber hover:bg-amber/5"
+                className="rounded border border-amber/35 bg-white px-2 py-1 text-xs font-medium text-amber hover:bg-amber/5"
               >
                 Clear
               </button>

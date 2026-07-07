@@ -277,12 +277,12 @@ export function AccountFeedbackQueueClient() {
                         >
                           <div className="flex flex-wrap items-center gap-2">
                             <span
-                              className={`inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold ${statusBadgeClass(item.status)}`}
+                              className={`inline-flex rounded-full border px-2 py-0.5 text-xs font-semibold ${statusBadgeClass(item.status)}`}
                             >
                               {t(`admin.status.${item.status}`)}
                             </span>
                             <span
-                              className={`inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold ${severityBadgeClass(item.severity)}`}
+                              className={`inline-flex rounded-full border px-2 py-0.5 text-xs font-semibold ${severityBadgeClass(item.severity)}`}
                             >
                               {t(`admin.severity.${item.severity}`)}
                             </span>
@@ -291,7 +291,7 @@ export function AccountFeedbackQueueClient() {
                             {t(`kind.${item.kind}`)} · {item.toolSlug}
                           </p>
                           <p className="mt-1 line-clamp-2 text-xs text-body-charcoal">{item.message}</p>
-                          <p className="mt-2 text-[11px] text-body-charcoal">
+                          <p className="mt-2 text-xs text-body-charcoal">
                             {item.locale} · {formatLocalDateTime(item.createdAt)}
                           </p>
                         </button>
@@ -303,7 +303,7 @@ export function AccountFeedbackQueueClient() {
                     <article className="min-w-0 rounded-lg border border-slate/20 bg-white p-4">
                       <div className="flex flex-wrap items-center gap-2">
                         <span
-                          className={`inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold ${statusBadgeClass(selectedItem.status)}`}
+                          className={`inline-flex rounded-full border px-2 py-0.5 text-xs font-semibold ${statusBadgeClass(selectedItem.status)}`}
                         >
                           {t(`admin.status.${selectedItem.status}`)}
                         </span>

@@ -1,3 +1,13 @@
+// Auth+Credit gate — RM-04: parseBearerToken + verifySignedInUser pattern from engineering-diagnostics/pdf/route.ts
+import {
+  parseBearerToken,
+  verifySignedInUser,
+} from "@/lib/infrastructure/firebase/verify-signed-in-user";
+import {
+  checkUserCreditBalance,
+  decrementCredits,
+} from "@/lib/credits/tool-usage-session.server";
+import { isProBypassEmail } from "@/lib/features/billing/subscription";
 // @ts-nocheck
 type AppLocale = "en";
 import { NextResponse } from "next/server";
@@ -16,10 +26,12 @@ import {
   type CalculationReportRow,
 } from "@/lib/content/pdf/calculation-report-types";
 import { renderCalculationReportPdf } from "@/lib/content/pdf/render-calculation-report";
+import { isAppLocale } from "@/i18n/routing";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const PDF_EXPORT_CREDIT_COST = 1;
 const RATE_LIMIT = new Map<string, number>();
 const RATE_WINDOW_MS = 60_000;
 const RATE_MAX = 5;
@@ -67,11 +79,30 @@ function sanitizePrimaryResult(value: unknown): string | null {
 }
 
 export async function POST(request: NextRequest) {
+  /* ── Rate limit ──────────────────────────────────────────────── */
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
   if (!checkRateLimit(ip)) {
     return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429 });
   }
 
+  /* ── Auth gate ──────────────────────────────────────────────── */
+  const token = parseBearerToken(request);
+  if (!token) {
+    return NextResponse.json(
+      { ok: false, error: "Authentication required." },
+      { status: 401 }
+    );
+  }
+
+  const user = await verifySignedInUser(token);
+  if (!user) {
+    return NextResponse.json(
+      { ok: false, error: "Invalid or expired authentication token." },
+      { status: 401 }
+    );
+  }
+
+  /* ── Parse body ─────────────────────────────────────────────── */
   let body: unknown;
   try {
     body = await request.json();
@@ -110,6 +141,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "missing_inputs" }, { status: 400 });
   }
 
+  /* ── Credit gate (compute-before-spend) ─────────────────────── */
+  const isOwner = user.email ? isProBypassEmail(user.email) : false;
+  if (!isOwner) {
+    const hasCredits = await checkUserCreditBalance(user.uid, PDF_EXPORT_CREDIT_COST);
+    if (!hasCredits) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "INSUFFICIENT_CREDITS",
+          message: "1 credit is required to export a PDF report.",
+        },
+        { status: 402 }
+      );
+    }
+  }
+
+  /* ── Generate PDF ───────────────────────────────────────────── */
   const copy = getCalculationReportCopy(locale);
   const generatedAt = new Intl.DateTimeFormat(locale, {
     dateStyle: "medium",
@@ -128,6 +176,13 @@ export async function POST(request: NextRequest) {
     });
 
     const fileName = buildCalculationReportFileName(toolName);
+
+    /* ── Deduct credit (spend-after-compute) ──────────────────── */
+    if (!isOwner) {
+      await decrementCredits(user.uid, PDF_EXPORT_CREDIT_COST);
+    }
+
+    /* ── Send email ───────────────────────────────────────────── */
     const emailResult = await sendCalculationReportEmail({
       to: email.trim().toLowerCase(),
       toolName,

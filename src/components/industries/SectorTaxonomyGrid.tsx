@@ -74,7 +74,7 @@ export function SectorTaxonomyGrid({
               {toolCountLabel(count)}
             </span>
             {sector.professions.length > 0 ? (
-              <span className="mt-2 line-clamp-1 text-[11px] text-slate-400">
+              <span className="mt-2 line-clamp-1 text-xs text-slate-400">
                 {sector.professions.slice(0, 3).join(" · ")}
               </span>
             ) : null}

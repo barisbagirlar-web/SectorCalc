@@ -173,14 +173,14 @@ export function PricingPageContent() {
             <PricingCard key={plan.id} plan={plan} email={email} onEmailNeeded={() => handleEmailNeeded(plan)} loading={loadingPlan === plan.id} setLoading={setLoadingPlanId} />
           ))}
         </div>
-        <p className="text-left text-[11px] text-body-charcoal mb-2">
+        <p className="text-left text-xs text-body-charcoal mb-2">
           All prices are in USD. Local taxes may apply based on your billing address. Payments securely processed by Paddle.
         </p>
         <Guarantee />
         <Testimonial />
         <UseCaseGrid />
         <FAQ />
-        <footer className="text-center text-[11px] text-body-charcoal leading-7 border-t border-technical-gray pt-8 mt-4">
+        <footer className="text-center text-xs text-body-charcoal leading-7 border-t border-technical-gray pt-8 mt-4">
           © 2024 SectorCalc. All rights reserved.<br/>
           <a href="mailto:info@sectorcalc.com" className="hover:text-sc-navy">info@sectorcalc.com</a>
           {' · '}<Link href="/terms" className="hover:text-sc-navy">Terms of Service</Link>

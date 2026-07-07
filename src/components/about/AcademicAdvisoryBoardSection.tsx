@@ -44,10 +44,10 @@ export async function AcademicAdvisoryBoardSection() {
                 <div className="min-w-0">
                   <h3 className="text-sm font-medium text-text-primary">{person.name}</h3>
                   <p className="mt-0.5 text-xs text-text-secondary">{person.affiliation}</p>
-                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-text-secondary">
+                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-text-secondary">
                     {roleLabel}
                   </p>
-                  <p className="mt-1 text-[11px] text-text-secondary">
+                  <p className="mt-1 text-xs text-text-secondary">
                     {t("mathSciNetMrBadge", { mrId: person.mrId })}
                   </p>
                 </div>

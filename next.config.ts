@@ -169,6 +169,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // www → non-www canonical (SEO duplicate-content prevention)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.sectorcalc.com" }],
+        destination: "https://sectorcalc.com/:path*",
+        permanent: true,
+      },
       { source: "/premium-tools", destination: "/free-tools", permanent: true },
       { source: "/premium-tools/:path*", destination: "/free-tools/:path*", permanent: true },
       { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
