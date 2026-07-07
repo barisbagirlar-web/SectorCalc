@@ -53,14 +53,26 @@ function pidAlive(pid) {
 export function acquireGlobalBuildLock(label) {
   const existing = readLock();
   if (existing && pidAlive(existing.pid)) {
-    if (existing.pid === process.pid) {
-      return;
+    // Time-based expiry: if lock is older than 15 minutes, treat as stale
+    const startedAt = existing.startedAt ? new Date(existing.startedAt).getTime() : 0;
+    const age = Date.now() - startedAt;
+    const MAX_LOCK_AGE_MS = 15 * 60 * 1000; // 15 minutes
+    
+    if (age > MAX_LOCK_AGE_MS) {
+      console.warn(
+        `global-build-lock: stale lock from "${existing.label}" (pid ${existing.pid}, age ${Math.round(age/1000)}s) — evicting`,
+      );
+      rmSync(GLOBAL_BUILD_LOCK_PATH, { force: true });
+    } else {
+      if (existing.pid === process.pid) {
+        return;
+      }
+      console.error(
+        `global-build-lock: blocked — "${existing.label}" (pid ${existing.pid}) running since ${existing.startedAt ?? "unknown"}`,
+      );
+      console.error("global-build-lock: stop other builds first: npm run stop:builds");
+      process.exit(1);
     }
-    console.error(
-      `global-build-lock: blocked — "${existing.label}" (pid ${existing.pid}) running since ${existing.startedAt ?? "unknown"}`,
-    );
-    console.error("global-build-lock: stop other builds first: npm run stop:builds");
-    process.exit(1);
   }
 
   if (existing) {

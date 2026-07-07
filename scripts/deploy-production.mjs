@@ -202,7 +202,14 @@ try {
 
   if (!hasBuild) {
     console.log("deploy-production: running full npm run build pipeline…");
-    if (run("npm", ["run", "build"]) !== 0) {
+    // Skip global build lock during deploy — deploy-production.mjs has its own lock.
+    const buildStatus = run("npm", ["run", "build"], {
+      env: {
+        ...process.env,
+        SECTORCALC_BUILD_LOCK_SKIP: "1",
+      },
+    });
+    if (buildStatus !== 0) {
       console.error("deploy-production: build failed.");
       process.exit(1);
     }
