@@ -62,6 +62,8 @@ public/routes.json
 
 # Generated audit output
 audit-output/
+tmp/
+*.env.generated
 
 # Batch 3 ghost files (must never be tracked)
 src/sectorcalc/formulas/pro-v531/bank-grade-financial-projection-covenant-model.formula.ts

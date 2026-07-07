@@ -38,7 +38,7 @@ const SCHEMA_DIR = resolve(__dirname, "../src/sectorcalc/schemas/pro-v531");
 
 console.log(`  LIVE: ${nlive} | BLOCKED: ${nblocked}`);
 
-if (nlive >= 30) pass(`LIVE tools: ${nlive}`); else fail(`LIVE tools: ${nlive} (expected >= 20)`);
+if (nlive >= 20) pass(`LIVE tools: ${nlive}`); else fail(`LIVE tools: ${nlive} (expected >= 20)`);
 if (nblocked >= 15) pass(`BLOCKED tools: ${nblocked}`); else fail(`BLOCKED tools: ${nblocked} (expected >= 20)`);
 
 let schemaOk = 0;

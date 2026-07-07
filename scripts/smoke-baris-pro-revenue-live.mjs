@@ -9,6 +9,8 @@ const ASSISTED_TOOL = "pressure-vessel-wall-thickness-mawp-hydrotest-package";
 
 let failures = 0;
 let passed = 0;
+let instantUrlCreated = false;
+let assistedUrlCreated = false;
 
 function check(label, ok, detail) {
   if (ok) {
@@ -85,6 +87,7 @@ async function smoke() {
       ok5 ? `Stripe URL: ${data5.url.substring(0, 50)}...` :
       isControlledBlock ? `controlled block: ${data5.error}` :
       `unexpected: ${r5.status} ${body5.substring(0, 100)}`);
+    if (ok5) instantUrlCreated = true;
   } catch (e) {
     check("POST checkout: live tool", false, `fetch error: ${e.message}`);
   }
@@ -109,6 +112,7 @@ async function smoke() {
       ok6 ? `Stripe URL: ${data6.url.substring(0, 50)}...` :
       isControlledBlock6 ? `controlled block: ${data6.error}` :
       `unexpected: ${r6.status} ${body6.substring(0, 100)}`);
+    if (ok6) assistedUrlCreated = true;
   } catch (e) {
     check("POST checkout: assisted tool", false, `fetch error: ${e.message}`);
   }
@@ -177,6 +181,8 @@ async function smoke() {
   // ── Summary ──
   const total = passed + failures;
   console.log(`\n  Checks: ${passed} passed, ${failures} failed out of ${total}`);
+  console.log(`  CHECKOUT_INSTANT_URL_CREATED=${instantUrlCreated ? "YES" : "NO"}`);
+  console.log(`  CHECKOUT_ASSISTED_URL_CREATED=${assistedUrlCreated ? "YES" : "NO"}`);
 
   if (failures > 0) {
     console.log("\n  \u26a0\ufe0f BARIS_PRO_REVENUE_SMOKE=FAIL (see failures above)\n");
