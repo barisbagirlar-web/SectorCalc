@@ -123,6 +123,11 @@ function shouldSkipRateLimit(request: NextRequest): boolean {
   if (pathname.startsWith("/tools/pro/")) return true;
   if (pathname.startsWith("/tools/free/")) return true;
 
+  // CBAM service and verification pages
+  if (pathname.startsWith("/cbam")) return true;
+  if (pathname.startsWith("/verify")) return true;
+  if (pathname.startsWith("/api/cbam/entitlement")) return true;
+
   // Public listing / catalog pages
   if (pathname === "/") return true;
   if (pathname === "/pro-tools") return true;

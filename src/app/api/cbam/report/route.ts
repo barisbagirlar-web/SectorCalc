@@ -2,7 +2,7 @@
 // Execution order:
 //   1. Authenticate user
 //   2. Validate request body (Zod)
-//   3. Check CBAM quarter config is verified
+//   3. Check CBAM verified config (source lock + golden fixture + audit seal)
 //   4. Check CBAM entitlement remainingUses > 0
 //   5. Execute deterministic CBAM calculation
 //   6. Build public-safe PDF/report
@@ -25,6 +25,7 @@ import {
   parseBearerToken,
   verifySignedInUser,
 } from "@/lib/infrastructure/firebase/verify-signed-in-user";
+import { isCbamPaidReportAllowed } from "@/sectorcalc/cbam/cbam-verified-config";
 
 // Minimal validation schema for report request
 const ReportBodySchema = z.object({
@@ -36,11 +37,6 @@ const ReportBodySchema = z.object({
 });
 
 export const runtime = "nodejs";
-
-// Verification status: when the CBAM source data has been officially verified,
-// change this to "VERIFIED_AGAINST_OFFICIAL_EU_SOURCE".
-// Production gate: must be verified before paid product release.
-const CBAM_CONFIG_VERIFICATION_STATUS: string = "ILLUSTRATIVE_PLACEHOLDER_DO_NOT_SHIP";
 
 export async function POST(request: Request) {
   // 1. Authenticate user
@@ -81,14 +77,16 @@ export async function POST(request: Request) {
     );
   }
 
-  // 3. Check CBAM quarter config is verified (placeholder interlock)
-  if (CBAM_CONFIG_VERIFICATION_STATUS !== "VERIFIED_AGAINST_OFFICIAL_EU_SOURCE") {
+  // 3. Check CBAM verified config — fail-closed unless all unlock requirements pass
+  const paidReportGate = isCbamPaidReportAllowed();
+  if (!paidReportGate.allowed) {
     return NextResponse.json(
       {
-        status: "CONFIG_NOT_VERIFIED_FOR_SALE",
+        status: "BLOCKED",
+        reason: "CBAM_VERIFIED_CONFIG_REQUIRED",
         service: "cbam_definitive_period_report",
-        error:
-          "CBAM default values have not been verified against official EU sources.",
+        verificationStatus: paidReportGate.status,
+        error: paidReportGate.reason ?? "CBAM verified configuration is not complete.",
       },
       { status: 503 }
     );
