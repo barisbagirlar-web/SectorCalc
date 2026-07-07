@@ -26,10 +26,10 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
 }
 
 /**
- * Known ISO 639-1 locale paths at root level — return 404.
+ * Known ISO 639-1 language paths at root level — return 404.
  * These are not active routes; they exist only as legacy/misguided URL patterns.
  */
-const LEGACY_LOCALE_ROUTES = new Set([
+const LEGACY_LANGUAGE_ROUTES = new Set([
   "/en", "/tr", "/de", "/fr", "/es", "/ar",
   "/ru", "/zh", "/ja", "/ko", "/pt", "/it",
   "/nl", "/pl", "/sv", "/da", "/fi", "/nb",
@@ -191,8 +191,8 @@ export default function middleware(request: NextRequest) {
     });
   }
 
-  // Legacy locale-only paths at root — return 404
-  if (LEGACY_LOCALE_ROUTES.has(pathname)) {
+  // Root-level language-only paths — return 404
+  if (LEGACY_LANGUAGE_ROUTES.has(pathname)) {
     return new Response("Not Found", {
       status: 404,
       headers: {

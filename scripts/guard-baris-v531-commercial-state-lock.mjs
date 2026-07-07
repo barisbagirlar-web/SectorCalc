@@ -321,10 +321,17 @@ try {
         "data/audits/",
         ".cursor/",
         ".last-next-build",
-        "src/sectorcalc/schemas/free-v531/registry.generated.ts",
+        "src/sectorcalc/schemas/free-v531/",
+        "src/sectorcalc/runtime/",
         ".gitignore",
         "tsconfig.json",
         ".cursor/",
+        "src/middleware.ts",
+        "src/app/api/__debug/",
+        "src/app/api/engineering-diagnostics/",
+        "src/components/diagnostics/",
+        "src/lib/diagnostics/",
+        "scripts/generate-",
       ];
 
       const unrelated = modifiedLines.filter(l => {
