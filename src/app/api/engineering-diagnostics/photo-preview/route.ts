@@ -1,16 +1,9 @@
 /**
  * POST /api/engineering-diagnostics/photo-preview
  *
- * AI Photo Diagnosis — 2 Diagnostic Credits.
- *
- * FLOW:
- * 1. Auth gate
- * 2. Credit check (2 credits required, owner bypass)
- * 3. Rate limit
- * 4. Parse + validate photos (EXIF strip, hash)
- * 5. Call OpenAI Vision
- * 6. On success → deduct 2 credits, return result
- * 7. On failure → NO credit deduction, return error
+ * Camera-first / photo-only visual preview.
+ * No auth required — free tier for funnel conversion.
+ * Rate-limited: 10 req/hour per IP.
  *
  * CONSTRAINTS:
  * - Only visual observations — no deterministic values
@@ -19,21 +12,10 @@
  */
 
 import { NextResponse } from "next/server";
-import {
-  parseBearerToken,
-  verifySignedInUser,
-} from "@/lib/infrastructure/firebase/verify-signed-in-user";
-import {
-  checkUserCreditBalance,
-  decrementCredits,
-} from "@/lib/credits/tool-usage-session.server";
-import { isProBypassEmail } from "@/lib/features/billing/subscription";
 import { VISUAL_OBSERVATION_SYSTEM_PROMPT } from "@/lib/diagnostics/visualObservationPrompt";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-const PHOTO_CREDIT_COST = 2;
 
 /* ── Rate limit: in-memory map, 10 req/hour per IP ── */
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
@@ -94,41 +76,7 @@ function stripExif(buffer: Buffer, mime: string): Buffer {
 
 export async function POST(req: Request) {
   try {
-    /* ── 1. Auth gate ── */
-    const token = parseBearerToken(req);
-    if (!token) {
-      return NextResponse.json(
-        { ok: false, error: "Authentication required. Sign in to use AI Photo Diagnosis." },
-        { status: 401 }
-      );
-    }
-
-    const user = await verifySignedInUser(token);
-    if (!user) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid or expired authentication token." },
-        { status: 401 }
-      );
-    }
-
-    /* ── 2. Credit gate (2 credits required, owner bypass) ── */
-    const isOwner = user.email ? isProBypassEmail(user.email) : false;
-    if (!isOwner) {
-      const hasCredits = await checkUserCreditBalance(user.uid, PHOTO_CREDIT_COST);
-      if (!hasCredits) {
-        return NextResponse.json(
-          {
-            ok: false,
-            error: "INSUFFICIENT_CREDITS",
-            message: "2 Diagnostic Credits are required for AI Photo Diagnosis.",
-            credits_required: PHOTO_CREDIT_COST,
-          },
-          { status: 402 }
-        );
-      }
-    }
-
-    /* ── 3. Rate limit ── */
+    /* ── 1. Rate limit (free tier — 10 req/hour per IP) ── */
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
@@ -207,8 +155,8 @@ export async function POST(req: Request) {
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
-        { ok: false, error: "Visual analysis service not configured." },
-        { status: 503 }
+        { ok: false, error: "AI visual service not configured. Set OPENAI_API_KEY." },
+        { status: 400 }
       );
     }
 
@@ -320,16 +268,13 @@ export async function POST(req: Request) {
       ? (aiOutput as Record<string, unknown>)
       : null;
 
-    /* ── 8. AI succeeded → deduct 2 credits (only now) ── */
-    if (!isOwner) {
-      await decrementCredits(user.uid, PHOTO_CREDIT_COST);
-    }
+    /* ── 8. Return result — no credit deduction (free tier) ── */
 
     return NextResponse.json(
       {
         ok: true,
         mode: "visual_preview",
-        credits_consumed: PHOTO_CREDIT_COST,
+        credits_consumed: 0,
         probable_domain: (observations && typeof observations.probable_domain === "string" ? observations.probable_domain : "UNKNOWN"),
         probable_issue_type: (observations && typeof observations.probable_issue_type === "string" ? observations.probable_issue_type : "UNKNOWN"),
         observations: observations?.observations || [
