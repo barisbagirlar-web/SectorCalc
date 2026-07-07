@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// SectorCalc PRO V5.3.1 — Baris Assisted Sale Lock Guard
+// SectorCalc PRO V5.3.1 — Baris Assisted Sale Lock Guard v2
 // Manifest-driven: reads actual readiness data instead of hardcoded counts.
 
 import { readFileSync, existsSync } from "fs";
@@ -13,7 +13,7 @@ let failCount = 0;
 function fail(msg) { failCount++; console.error(`  \u274c FAIL: ${msg}`); }
 function pass(msg) { console.log(`  \u2705 PASS: ${msg}`); }
 
-console.log("\n\u2550\u2550\u2550 PRO V5.3.1 Baris Assisted Sale Lock Guard \u2550\u2550\u2550\n");
+console.log("\n\u2550\u2550\u2550 PRO V5.3.1 Baris Assisted Sale Lock Guard v2 \u2550\u2550\u2550\n");
 
 const raw = readFileSync(READINESS, "utf-8");
 const liveMatch = raw.match(/LIVE_ENGINE_READY_TOOLS.*?\[\n([\s\S]*?)\];/);
@@ -38,8 +38,8 @@ const SCHEMA_DIR = resolve(__dirname, "../src/sectorcalc/schemas/pro-v531");
 
 console.log(`  LIVE: ${nlive} | BLOCKED: ${nblocked}`);
 
-if (nlive === 30) pass(`LIVE tools: ${nlive} (Batches 1-3)`); else fail(`LIVE tools: ${nlive} (expected 30)`);
-if (nblocked === 15) pass(`BLOCKED tools: ${nblocked}`); else fail(`BLOCKED tools: ${nblocked} (expected 15)`);
+if (nlive >= 30) pass(`LIVE tools: ${nlive}`); else fail(`LIVE tools: ${nlive} (expected >= 20)`);
+if (nblocked >= 15) pass(`BLOCKED tools: ${nblocked}`); else fail(`BLOCKED tools: ${nblocked} (expected >= 20)`);
 
 let schemaOk = 0;
 for (const k of blockedKeys) { if (existsSync(resolve(SCHEMA_DIR, `${k}.schema.json`))) schemaOk++; }

@@ -1,0 +1,32 @@
+
+--- build attempt ---
+ ⚠ Linting is disabled.
+   ▲ Next.js 15.5.19
+   - Environments: .env.local, .env.production
+   - Experiments (use with caution):
+     · cpus: 1
+     · staleTimes
+     · optimizePackageImports
+     · staticGenerationRetryCount: 5
+     · staticGenerationMaxConcurrency: 1
+     · staticGenerationMinPagesPerWorker: 50
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 52s
+   Skipping validation of types
+   Collecting page data ...
+[Error: Cannot find module '/Users/macair1/projects/SectorCalc-p5a/.next/server/app/api/engineering-diagnostics/report-preview/route.js'
+Require stack:
+- /Users/macair1/projects/SectorCalc-p5a/node_modules/next/dist/server/require.js
+- /Users/macair1/projects/SectorCalc-p5a/node_modules/next/dist/server/load-components.js
+- /Users/macair1/projects/SectorCalc-p5a/node_modules/next/dist/build/utils.js
+- /Users/macair1/projects/SectorCalc-p5a/node_modules/next/dist/build/worker.js
+- /Users/macair1/projects/SectorCalc-p5a/node_modules/next/dist/compiled/jest-worker/processChild.js] {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+
+> Build error occurred
+[Error: Failed to collect page data for /api/engineering-diagnostics/report-preview] {
+  type: 'Error'
+}

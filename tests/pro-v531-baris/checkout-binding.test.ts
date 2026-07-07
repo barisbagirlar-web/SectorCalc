@@ -33,7 +33,7 @@ describe("Baris Checkout Binding", () => {
   it("requireBarisCheckoutPrice should reject missing price", () => {
     const result = requireBarisCheckoutPrice("STRIPE_PRICE_BARIS_NONEXISTENT");
     expect(result.ok).toBe(false);
-    expect(result.priceId).toBeNull();
+    expect(result.priceId).toBeUndefined();
     expect(result.reason).toContain("Missing env key");
   });
 

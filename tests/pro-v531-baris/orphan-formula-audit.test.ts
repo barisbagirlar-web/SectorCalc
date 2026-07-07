@@ -25,8 +25,8 @@ describe("Baris Orphan Formula Audit", () => {
     const output = execSync(`node ${auditScript}`, { encoding: "utf-8" });
     const result = JSON.parse(output);
 
-    // Baris live should be 20 (Batch 1 + Batch 2)
-    expect(result.baris_live).toBe(20);
+    // Baris live should be 30 (Batch 1 + Batch 2)
+    expect(result.baris_live).toBe(30);
   });
 
   it("should report total_formula_files > 20 (includes sc_* files)", () => {
