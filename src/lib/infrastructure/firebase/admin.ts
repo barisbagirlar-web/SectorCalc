@@ -5,7 +5,8 @@ import {
  type App,
  type ServiceAccount,
 } from "firebase-admin/app";
-import { getFirestore, FieldValue, type Firestore } from "firebase-admin/firestore";
+import { getFirestore, type Firestore } from "firebase-admin/firestore";
+import { getAuth, type Auth } from "firebase-admin/auth";
 
 function parseServiceAccountJson(): Record<string, string> | null {
  const raw = process.env.FIREBASE_SERVICE_ACCOUNT_JSON?.trim();
@@ -45,4 +46,12 @@ export function getAdminFirestore(): Firestore | null {
  return null;
  }
  return getFirestore(app);
+}
+
+export function getAdminAuth(): Auth | null {
+ const app = getFirebaseAdminApp();
+ if (!app) {
+ return null;
+ }
+ return getAuth(app);
 }

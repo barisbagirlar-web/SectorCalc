@@ -1,17 +1,23 @@
 /**
- * SectorCalc Paddle Webhook — canonical handler.
+ * SectorCalc Paddle Webhook — canonical handler (v2).
  * Route: POST /api/paddle-webhook
  *
  * Verification:    Manual HMAC (raw-body, no SDK dependency).
- * Fulfillment:     Atomic Firestore transaction — idempotency check, credit
- *                  increment, and purchase record are committed in a single
- *                  transaction, making duplicate concurrent retries safe.
+ * Fulfillment:     Atomic Firestore transaction with triple-ledger idempotency:
+ *   1. paddle_processed_events/{eventId} — event-level dedup
+ *   2. credit_ledger/{transactionId} — transaction-level dedup
+ *   3. paddle_customers/{paddleCustomerId} — stable UID mapping
+ *
+ * User ID resolution (strict priority):
+ *   1. customData.userId (must be a non-ctm_ value)
+ *   2. paddle_customers/{customerId}.uid mapping
+ *   3. Email-based Firestore lookup (single match only) + create mapping
+ *   4. manual_review queue — NO fulfillment, NO ctm_* as UID
  *
  * Legacy support:
  *   - customData.credits / .planId (from CreditWall client-side Paddle.js)
  *   - customData.userId (from old CheckoutButton)
  *
- * The webhook at /api/webhooks/paddle does NOT exist — no duplicate processing.
  * Stripe webhook in Cloud Functions (functions/src/stripeWebhook.ts) is
  * completely separate and unaffected.
  */
@@ -33,7 +39,10 @@ export const dynamic = "force-dynamic";
 
 const PADDLE_WEBHOOK_SECRET = process.env.PADDLE_WEBHOOK_SECRET ?? "";
 const USERS_COLLECTION = "users";
-const IDEMPOTENCY_COLLECTION = "webhook_idempotency";
+const EVENTS_COLLECTION = "paddle_processed_events";
+const CREDIT_LEDGER_COLLECTION = "credit_ledger";
+const CUSTOMERS_COLLECTION = "paddle_customers";
+const MANUAL_REVIEW_COLLECTION = "paddle_manual_review";
 
 // ── Verification (manual HMAC) ───────────────────────────────────────────
 
@@ -75,7 +84,7 @@ function requireWebhookSecret(): string {
   return PADDLE_WEBHOOK_SECRET;
 }
 
-// ── Atomic fulfillment — single Firestore transaction ─────────────────────
+// ── Atomic fulfillment — triple-ledger transaction ────────────────────────
 
 interface FulfillmentParams {
   userId: string;
@@ -92,16 +101,12 @@ interface FulfillmentParams {
 }
 
 /**
- * Atomically process a webhook event inside a Firestore transaction.
+ * Atomically process a webhook event inside a single Firestore transaction.
  *
- * Steps inside the same transaction:
- * 1. Read webhook_idempotency/{eventId}
- * 2. If exists → return { skipped: true } (deduplicate)
- * 3. If not exists → create idempotency doc, update user credits/entitlement,
- *    write purchase/billing event record
- * 4. Commit — all or nothing
- *
- * This eliminates the race between check-before-fulfill and fulfill-mark.
+ * Triple-ledger idempotency:
+ *   1. paddle_processed_events/{eventId} — event-level dedup
+ *   2. credit_ledger/{transactionId} — transaction-level dedup
+ *   3. All writes (user credits + customer mapping + ledgers) commit together
  */
 async function fulfillAtomically(
   params: FulfillmentParams,
@@ -121,28 +126,33 @@ async function fulfillAtomically(
     intent,
     productKey,
     purchaseType,
+    paddleCustomerId,
   } = params;
 
-  const idempotencyRef = db
-    .collection(IDEMPOTENCY_COLLECTION)
-    .doc(eventId);
+  const eventRef = db.collection(EVENTS_COLLECTION).doc(eventId);
+  const creditLedgerRef = db.collection(CREDIT_LEDGER_COLLECTION).doc(transactionId);
   const userRef = db.collection(USERS_COLLECTION).doc(userId);
-  const billingEventRef = userRef
-    .collection("billing_events")
-    .doc(eventId);
+  const billingEventRef = userRef.collection("billing_events").doc(eventId);
 
   try {
     await db.runTransaction(async (txn) => {
-      // 1. Check idempotency INSIDE the transaction
-      const idempotencySnap = await txn.get(idempotencyRef);
-      if (idempotencySnap.exists) {
-        // Already processed — skip silently (txn will abort harmlessly)
-        // We return via exception to abort the transaction
+      // 1. Check event-level idempotency (paddle_processed_events)
+      const eventSnap = await txn.get(eventRef);
+      if (eventSnap.exists) {
         throw new IdempotencySkip();
       }
 
-      // 2. Create idempotency document
-      txn.create(idempotencyRef, {
+      // 2. Check transaction-level idempotency (credit_ledger)
+      //    Same transactionId must not be credited twice even across events
+      if (credits > 0 || (params.barisKeyQuantity || 0) > 0) {
+        const ledgerSnap = await txn.get(creditLedgerRef);
+        if (ledgerSnap.exists) {
+          throw new IdempotencySkip();
+        }
+      }
+
+      // 3. Create event ledger entry
+      txn.create(eventRef, {
         eventId,
         transactionId,
         intent,
@@ -157,8 +167,23 @@ async function fulfillAtomically(
         processedAt: new Date().toISOString(),
       });
 
-      // 3. Update user credits (FieldValue.increment works in transactions
-      //    as a server-side sentinel that resolves on commit)
+      // 4. Create credit ledger entry (if credit/baris transaction)
+      if (credits > 0 || (params.barisKeyQuantity || 0) > 0) {
+        txn.set(creditLedgerRef, {
+          transactionId,
+          eventId,
+          userId,
+          credits,
+          intent,
+          productKey,
+          purchaseType,
+          provider: "paddle",
+          status: "completed",
+          processedAt: new Date().toISOString(),
+        });
+      }
+
+      // 5. Update user credits
       if (credits > 0) {
         txn.set(
           userRef,
@@ -172,7 +197,7 @@ async function fulfillAtomically(
         );
       }
 
-      // 4. Update subscription/entitlement if plan unlock
+      // 6. Update subscription/entitlement if plan unlock
       if (planId && intent !== "SECTORCALC_CREDIT_PACK_PURCHASE") {
         txn.set(
           userRef,
@@ -191,7 +216,7 @@ async function fulfillAtomically(
         );
       }
 
-      // 4b. Baris PRO key pack purchase — credit keys to user's key pool
+      // 7. Baris PRO key pack purchase — credit keys
       if (intent === "BARIS_PRO_PURCHASE" && (params.barisKeyQuantity || 0) > 0) {
         txn.set(
           userRef,
@@ -205,7 +230,22 @@ async function fulfillAtomically(
         );
       }
 
-      // 5. Write billing event record
+      // 8. Create/update paddle_customers mapping (if we have paddleCustomerId)
+      if (paddleCustomerId) {
+        const customerRef = db.collection(CUSTOMERS_COLLECTION).doc(paddleCustomerId);
+        txn.set(
+          customerRef,
+          {
+            uid: userId,
+            email: "", // filled by caller if available
+            lastSeenAt: new Date().toISOString(),
+            lastTransactionId: transactionId,
+          },
+          { merge: true },
+        );
+      }
+
+      // 9. Write billing event record
       txn.create(billingEventRef, {
         eventId,
         transactionId,
@@ -219,8 +259,6 @@ async function fulfillAtomically(
         userId,
         processedAt: new Date().toISOString(),
       });
-
-      // If we reach here, the transaction will commit with all writes
     });
 
     return { fulfilled: true };
@@ -228,7 +266,6 @@ async function fulfillAtomically(
     if (err instanceof IdempotencySkip) {
       return { fulfilled: false, reason: "duplicate" };
     }
-    // Real error
     console.error(
       `[paddle-webhook] Transaction failed:`,
       err instanceof Error ? err.message : String(err),
@@ -248,13 +285,85 @@ function adminIncrement(n: number) {
   return FieldValue.increment(n);
 }
 
+// ── Safe userId resolver ─────────────────────────────────────────────────
+
+/** Priority-ordered userId resolution. Never returns a Paddle ctm_* ID. */
+async function resolveUserId(
+  customDataUserId: string,
+  paddleCustomerId: string,
+  paddleCustomerEmail: string,
+): Promise<string | null> {
+  const db = getAdminFirestore();
+  if (!db) return null;
+
+  // Priority 1: customData.userId — must be a real UID (not ctm_)
+  if (
+    customDataUserId &&
+    customDataUserId.length >= 12 &&
+    !customDataUserId.startsWith("ctm_")
+  ) {
+    return customDataUserId;
+  }
+
+  // Priority 2: paddle_customers/{customerId} mapping
+  if (paddleCustomerId && !paddleCustomerId.startsWith("ctm_")) {
+    // Only proceed if paddleCustomerId itself looks like a usable ID
+    const mappingSnap = await db.collection(CUSTOMERS_COLLECTION).doc(paddleCustomerId).get();
+    if (mappingSnap.exists) {
+      const uid = mappingSnap.data()?.uid;
+      if (typeof uid === "string" && uid.length >= 12) {
+        return uid;
+      }
+    }
+  }
+
+  // Priority 3: Email-based lookup from paddle_customers collection
+  // (paddleCustomerId is ctm_xxx, use mapping if exists)
+  if (paddleCustomerId && paddleCustomerId.startsWith("ctm_")) {
+    const mappingSnap = await db.collection(CUSTOMERS_COLLECTION).doc(paddleCustomerId).get();
+    if (mappingSnap.exists) {
+      const uid = mappingSnap.data()?.uid;
+      if (typeof uid === "string" && uid.length >= 12) {
+        return uid;
+      }
+    }
+  }
+
+  // Priority 4: Email lookup — only if single exact match
+  if (paddleCustomerEmail) {
+    const emailNorm = paddleCustomerEmail.trim().toLowerCase();
+    const userQuery = await db
+      .collection(USERS_COLLECTION)
+      .where("email", "==", emailNorm)
+      .limit(2)
+      .get();
+
+    if (!userQuery.empty && userQuery.docs.length === 1) {
+      const uid = userQuery.docs[0].id;
+
+      // Create mapping for future lookups
+      if (paddleCustomerId) {
+        try {
+          await db
+            .collection(CUSTOMERS_COLLECTION)
+            .doc(paddleCustomerId)
+            .set({ uid, email: emailNorm, firstSeenAt: new Date().toISOString() }, { merge: true });
+        } catch {
+          // Non-critical
+        }
+      }
+
+      return uid;
+    }
+  }
+
+  // No safe match found — do NOT use ctm_* as UID
+  return null;
+}
+
 // ── Handler ──────────────────────────────────────────────────────────────
 
 export async function POST(req: NextRequest) {
-  // ── Require POST ────────────────────────────────────────────────────
-  // (Next.js App Router already routes POST here, but the guard is explicit)
-
-  // ── Raw body verification ───────────────────────────────────────────
   const rawBody = await req.text();
   const signatureHeader = req.headers.get("paddle-signature") ?? "";
 
@@ -279,7 +388,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
   }
 
-  // ── Parse event ─────────────────────────────────────────────────────
+  // ── Parse event ────────────────────────────────────────────────────
   let event: Record<string, unknown>;
   try {
     event = JSON.parse(rawBody);
@@ -291,16 +400,12 @@ export async function POST(req: NextRequest) {
   const eventId = String(event.event_id ?? "");
   const txn = event.data as Record<string, unknown> | undefined;
 
-  // ── Only process completed/paid transaction events ──────────────────
   if (eventType !== "transaction.completed" && eventType !== "transaction.paid") {
     return NextResponse.json({ received: true, event: eventType });
   }
 
   if (!txn) {
-    return NextResponse.json(
-      { error: "Missing transaction data" },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Missing transaction data" }, { status: 400 });
   }
 
   const transactionId = String(txn.id ?? "");
@@ -310,7 +415,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ received: true, event: eventType, status });
   }
 
-  // ── Extract and validate customData ─────────────────────────────────
+  // ── Extract customData ─────────────────────────────────────────────
   const customDataRaw = txn.custom_data as Record<string, unknown> | undefined;
 
   let intent = "";
@@ -318,7 +423,7 @@ export async function POST(req: NextRequest) {
   let purchaseType = "unknown";
   let credits = 0;
   let planId = "";
-  let userId = "";
+  let customDataUserId = "";
   let barisKeyQuantity = 0;
 
   // Try canonical format first
@@ -330,13 +435,13 @@ export async function POST(req: NextRequest) {
       purchaseType = validated.purchaseType;
       credits = validated.credits ?? 0;
       planId = validated.planId ?? "";
-      userId = validated.userId ?? "";
+      customDataUserId = validated.userId ?? "";
     } catch {
       // Falls through to legacy parsing
     }
   }
 
-  // Check for baris_pro_purchase source (key-pack transaction)
+  // Check for baris_pro_purchase source
   if (
     customDataRaw &&
     String(customDataRaw.source ?? "") === "baris_pro_purchase"
@@ -344,51 +449,71 @@ export async function POST(req: NextRequest) {
     intent = "BARIS_PRO_PURCHASE";
     barisKeyQuantity = Math.max(1, parseInt(String(customDataRaw.quantity ?? "1"), 10) || 1);
     purchaseType = "baris_pro_purchase";
-    userId = String(customDataRaw.userId ?? "");
+    customDataUserId = String(customDataRaw.userId ?? "");
   }
 
-  // Fall back to legacy if canonical parsing failed or missing
+  // Fall back to legacy
   if (!intent) {
     const legacy = parseLegacyCustomData(customDataRaw);
     if (legacy) {
       credits = legacy.credits;
       planId = legacy.planId;
-      userId = legacy.userId;
+      customDataUserId = legacy.userId;
       intent = credits > 0 ? "SECTORCALC_CREDIT_PACK_PURCHASE" : "";
-      productKey = credits > 0 ? "credit_pack_15" : ""; // best guess for legacy
+      productKey = credits > 0 ? "credit_pack_15" : "";
       purchaseType = credits > 0 ? "credit_pack" : "subscription";
     }
   }
 
-  // Attempt to extract userId from Paddle customer data as last resort
-  if (!userId) {
-    const customer = txn.customer as Record<string, unknown> | undefined;
-    if (customer?.id) {
-      userId = String(customer.id);
-    }
-  }
+  // Extract Paddle customer info
+  const customer = txn.customer as Record<string, unknown> | undefined;
+  const paddleCustomerId = customer?.id ? String(customer.id) : "";
+  const paddleCustomerEmail =
+    typeof customer?.email === "string" ? String(customer.email).trim().toLowerCase() : "";
 
-  // ── No fulfillment without a user reference ─────────────────────────
+  // ── Safe userId resolution (NEVER use ctm_* as Firebase UID) ─────
+  const userId = await resolveUserId(customDataUserId, paddleCustomerId, paddleCustomerEmail);
+
   if (!userId) {
     console.warn(
-      `[paddle-webhook] ⚠ No userId for event ${eventId} — not fulfilling`,
+      `[paddle-webhook] ⚠ Cannot resolve userId for event ${eventId} (paddleCustomerId=${paddleCustomerId}) — queueing for manual review`,
     );
-    return NextResponse.json({ received: true, warning: "no_user" });
+
+    // Write to manual_review queue instead of dropping
+    if (paddleCustomerId) {
+      try {
+        const db = getAdminFirestore();
+        if (db) {
+          await db.collection(MANUAL_REVIEW_COLLECTION).doc(eventId).set({
+            eventId,
+            transactionId,
+            paddleCustomerId,
+            paddleCustomerEmail,
+            intent,
+            credits,
+            planId,
+            eventType,
+            receivedAt: new Date().toISOString(),
+            status: "pending_review",
+          });
+        }
+      } catch {
+        // Best-effort
+      }
+    }
+
+    return NextResponse.json({ received: true, warning: "no_user_resolved" });
   }
 
-  // ── No fulfillment without an actionable intent ─────────────────────
+  // ── No fulfillment without actionable intent ──────────────────────
   if (!intent && !credits && !planId) {
     console.warn(
-      `[paddle-webhook] ⚠ No actionable intent/credits/planId for event ${eventId} — not fulfilling`,
+      `[paddle-webhook] ⚠ No actionable intent for event ${eventId}`,
     );
     return NextResponse.json({ received: true, warning: "no_actionable_data" });
   }
 
-  // Extract Paddle customer ID for entitlement
-  const customer = txn.customer as Record<string, unknown> | undefined;
-  const paddleCustomerId = customer?.id ? String(customer.id) : "";
-
-  // ── Atomic fulfillment ──────────────────────────────────────────────
+  // ── Atomic fulfillment (triple-ledger) ────────────────────────────
   const result = await fulfillAtomically({
     userId,
     credits,
@@ -405,7 +530,7 @@ export async function POST(req: NextRequest) {
 
   if (!result.fulfilled && result.reason === "duplicate") {
     console.log(
-      `[paddle-webhook] ⏭ Duplicate event ${eventId} — atomic dedup inside transaction`,
+      `[paddle-webhook] ⏭ Duplicate event ${eventId} — triple-ledger dedup`,
     );
     return NextResponse.json({ received: true, deduplicated: true });
   }

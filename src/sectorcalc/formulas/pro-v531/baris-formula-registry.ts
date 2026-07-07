@@ -1,6 +1,6 @@
-// SectorCalc V5.3.1 - Baris PRO Batch 1-3 LIVE Formula Registry
-// 30 LIVE tools registered with individual deterministic formula modules.
-// 15 tools remain blocked from instant execution (assisted-dossier-only).
+// SectorCalc V5.3.1 - Baris PRO Batch 1-2 LIVE Formula Registry
+// 20 LIVE tools registered with individual deterministic formula modules.
+// 25 tools remain blocked from instant execution (assisted-dossier-only).
 // Server-side only. Never imported by client modules.
 import "server-only";
 import { formulaRegistry, FormulaRegistryNode } from "@/sectorcalc/pro-runtime/formula-registry";

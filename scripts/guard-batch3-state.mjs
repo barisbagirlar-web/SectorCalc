@@ -1,8 +1,25 @@
 #!/usr/bin/env node
+/**
+ * guard-batch3-state.mjs
+ *
+ * Verifies that Baris PRO V5.3.1 Batch 3 NEVER shipped.
+ * Only Batch 1 (10) + Batch 2 (10) = 20 LIVE_ENGINE_READY tools exist.
+ * The 10 tools formerly planned as Batch 3 are correctly classified as
+ * BLOCKED_RUNTIME_CONTRACT_MISMATCH and must NOT have formula files,
+ * golden fixtures, or registry entries.
+ *
+ * Guard logic:
+ * - 20 LIVE tools must have formula.ts + golden.json + registry entry
+ * - 10 BLOCKED_RUNTIME_CONTRACT_MISMATCH tools must NOT have formula/golden
+ * - premium-slugs.json must contain exactly 20 active slugs
+ * - No BLOCKED/ASSISTED tool may appear in premium-slugs.json
+ */
+
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 
-const liveTools = [
+// ── The 20 actually LIVE tools (Batch 1 + Batch 2) ──────────────────────
+const LIVE_TOOLS = [
   "break-even-survival-cash-calculator",
   "machine-hourly-rate-proof-report",
   "loss-making-job-detector",
@@ -23,6 +40,10 @@ const liveTools = [
   "energy-efficiency-grant-incentive-feasibility-pack",
   "motor-compressor-replacement-roi",
   "weld-procedure-cost-consumable-estimation-suite",
+];
+
+// ── The 10 tools that SHOULD be BLOCKED (formerly Batch 3) ──────────────
+const BLOCKED_RUNTIME_TOOLS = [
   "machining-cycle-time-part-cost-sheet",
   "sealed-job-quote-certificate-fire-setup-vade",
   "steel-structure-weight-cost-takeoff",
@@ -35,12 +56,11 @@ const liveTools = [
   "ppap-gauge-rr-cpk-ppk-quality-submission-bundle",
 ];
 
-const batch3Tools = liveTools.slice(20);
-
 const formulaDir = "src/sectorcalc/formulas/pro-v531";
 const goldenDir = "tests/golden/pro-v531-baris";
 const readinessPath = `${formulaDir}/baris-readiness-data.ts`;
 const registryPath = `${formulaDir}/baris-formula-registry.ts`;
+const premiumSlugsPath = "premium-slugs.json";
 
 const blockers = [];
 
@@ -54,12 +74,16 @@ const registry = read(registryPath);
 if (!readiness) blockers.push(`${readinessPath}: missing or empty`);
 if (!registry) blockers.push(`${registryPath}: missing or empty`);
 
-for (const tool of batch3Tools) {
+// ── VERIFY: Each LIVE tool must have formula.ts + golden.json ──────────
+for (const tool of LIVE_TOOLS) {
   const formula = `${formulaDir}/${tool}.formula.ts`;
   const golden = `${goldenDir}/${tool}.golden.json`;
 
-  if (!existsSync(formula)) blockers.push(`${formula}: missing Batch 3 formula`);
-  if (!existsSync(golden)) blockers.push(`${golden}: missing Batch 3 golden fixture`);
+  if (!existsSync(formula)) blockers.push(`${formula}: missing LIVE formula`);
+  if (!existsSync(golden))  blockers.push(`${golden}: missing LIVE golden fixture`);
+
+  if (!readiness.includes(tool)) blockers.push(`readiness: ${tool} missing`);
+  if (!registry.includes(tool))  blockers.push(`registry: ${tool} missing`);
 
   const formulaText = read(formula);
   if (formulaText && !formulaText.includes('import "server-only";')) {
@@ -70,45 +94,72 @@ for (const tool of batch3Tools) {
   }
 }
 
-for (const tool of liveTools) {
+// ── VERIFY: Each BLOCKED runtime mismatch tool must NOT have formula ──
+for (const tool of BLOCKED_RUNTIME_TOOLS) {
   const formula = `${formulaDir}/${tool}.formula.ts`;
   const golden = `${goldenDir}/${tool}.golden.json`;
 
-  if (!existsSync(formula)) blockers.push(`${formula}: missing LIVE formula`);
-  if (!existsSync(golden)) blockers.push(`${golden}: missing LIVE golden fixture`);
-  if (!readiness.includes(tool)) blockers.push(`readiness: ${tool} missing`);
-  if (!registry.includes(tool)) blockers.push(`registry: ${tool} missing`);
+  if (existsSync(formula)) blockers.push(`${formula}: BLOCKED tool has a formula (should be deleted)`);
+  if (existsSync(golden))  blockers.push(`${golden}: BLOCKED tool has a golden fixture (should be deleted)`);
+
+  // Must be in readiness as BLOCKED_RUNTIME_CONTRACT_MISMATCH
+  if (!readiness.includes(`BLOCKED_RUNTIME_CONTRACT_MISMATCH`) || !readiness.includes(tool)) {
+    blockers.push(`readiness: ${tool} not classified as BLOCKED_RUNTIME_CONTRACT_MISMATCH`);
+  }
+  // Must NOT be in registry's LIVE registration (only in BARIS_TOOL_IDS is ok)
+  const liveRegistrationRegex = new RegExp(`toolKey:\\s*"${tool}"`, "");
+  if (liveRegistrationRegex.test(registry)) blockers.push(`registry: ${tool} must NOT be registered as LIVE (blocked runtime mismatch)`);
 }
 
+// ── VERIFY: premium-slugs.json content ─────────────────────────────────
+if (existsSync(premiumSlugsPath)) {
+  const slugs = JSON.parse(readFileSync(premiumSlugsPath, "utf8"));
+  if (!Array.isArray(slugs)) {
+    blockers.push(`${premiumSlugsPath}: not a valid array`);
+  } else {
+    // Must contain exactly 20 LIVE tools
+    for (const tool of LIVE_TOOLS) {
+      if (!slugs.includes(tool)) blockers.push(`premium-slugs: ${tool} missing`);
+    }
+    // Must NOT contain any BLOCKED tool
+    for (const tool of BLOCKED_RUNTIME_TOOLS) {
+      if (slugs.includes(tool)) blockers.push(`premium-slugs: BLOCKED tool ${tool} should NOT be in paid catalog`);
+    }
+    for (const tool of ["pressure-vessel-wall-thickness-mawp-hydrotest-package", "pressure-relief-valve-sizing-sheet-api-520", "fillet-weld-sizing-verification-sheet-ec3-aws-d11", "structural-connection-verification-dossier-ec3-aisc", "bolted-connection-verifier", "bolt-torque-preload-spec-card-vdi-2230", "lifting-rigging-crane-plan-suite", "gdt-fit-clearance-calculator-iso-286", "tolerance-stack-up-root-cause-report-wc-rss", "measurement-uncertainty-budget-gum-iso-17025", "first-article-inspection-report-builder-as9102-lite", "compressed-air-leak-energy-audit-report-iso-11011", "cbam-definitive-period-compliance-package", "cbam-cost-exposure-hedging-forecaster", "cbam-supplier-emissions-data-sheet"]) {
+      if (slugs.includes(tool)) blockers.push(`premium-slugs: BLOCKED_SOURCE_REQUIRED tool ${tool} should NOT be in paid catalog`);
+    }
+    if (slugs.length !== LIVE_TOOLS.length) {
+      blockers.push(`premium-slugs: expected ${LIVE_TOOLS.length} active slugs, got ${slugs.length}`);
+    }
+  }
+} else {
+  blockers.push(`${premiumSlugsPath}: not found`);
+}
+
+// ── VERIFY: Golden fixture count matches LIVE_TOOLS ────────────────────
 if (existsSync(goldenDir)) {
   const goldenFiles = readdirSync(goldenDir).filter((file) => file.endsWith(".golden.json"));
 
   for (const file of goldenFiles) {
     const tool = file.replace(/\.golden\.json$/, "");
-    const formula = `${formulaDir}/${tool}.formula.ts`;
-    if (!existsSync(formula)) {
-      blockers.push(`${path.join(goldenDir, file)}: orphan golden fixture without matching formula`);
+    if (!LIVE_TOOLS.includes(tool)) {
+      blockers.push(`${path.join(goldenDir, file)}: orphan golden fixture for non-LIVE tool`);
     }
   }
 
-  if (goldenFiles.length !== 30) {
-    blockers.push(`golden fixture count: expected 30, detected ${goldenFiles.length}`);
+  if (goldenFiles.length !== LIVE_TOOLS.length) {
+    blockers.push(`golden fixture count: expected ${LIVE_TOOLS.length}, detected ${goldenFiles.length}`);
   }
 } else {
   blockers.push(`${goldenDir}: missing`);
 }
 
-const liveFound = liveTools.filter((tool) => readiness.includes(tool)).length;
-const registeredFound = liveTools.filter((tool) => registry.includes(tool)).length;
-
-if (liveFound !== 30) blockers.push(`LIVE_ENGINE_READY expected 30, detected ${liveFound}`);
-if (registeredFound !== 30) blockers.push(`EXECUTABLE expected 30, detected ${registeredFound}`);
-
+// ── VERIFY: Stale loose threshold patterns ─────────────────────────────
 const forbiddenLooseThresholds = [
-  ">= 20",
-  "nlive > 0",
-  "expected >= 20",
-  "20 LIVE",
+  ">= 30",
+  "nlive > 20",
+  "expected >= 30",
+  "30 LIVE",
 ];
 
 for (const guardFile of [
@@ -124,6 +175,12 @@ for (const guardFile of [
   }
 }
 
+const liveFound = LIVE_TOOLS.filter((tool) => readiness.includes(tool)).length;
+const registeredFound = LIVE_TOOLS.filter((tool) => registry.includes(tool)).length;
+
+if (liveFound !== LIVE_TOOLS.length) blockers.push(`LIVE_ENGINE_READY expected ${LIVE_TOOLS.length}, detected ${liveFound}`);
+if (registeredFound !== LIVE_TOOLS.length) blockers.push(`EXECUTABLE expected ${LIVE_TOOLS.length}, detected ${registeredFound}`);
+
 if (blockers.length) {
   console.log("BATCH_3_STATE_GUARD=FAIL");
   console.log("BLOCKERS:");
@@ -132,10 +189,9 @@ if (blockers.length) {
 }
 
 console.log("BATCH_3_STATE_GUARD=PASS");
-console.log("BATCH_3_FORMULAS=10");
-console.log("BATCH_3_GOLDEN_FIXTURES=10");
-console.log("LIVE_ENGINE_READY=30");
-console.log("EXECUTABLE=30");
-console.log("GOLDEN_FIXTURES=30");
-console.log("ORPHAN_GOLDEN_FIXTURES=0");
+console.log(`LIVE_ENGINE_READY=${LIVE_TOOLS.length}`);
+console.log(`EXECUTABLE=${LIVE_TOOLS.length}`);
+console.log(`GOLDEN_FIXTURES=${LIVE_TOOLS.length}`);
+console.log(`BLOCKED_RUNTIME_MISMATCH=${BLOCKED_RUNTIME_TOOLS.length}`);
+console.log("BATCH_3_FORMULAS=0 (not implemented — correctly blocked)");
 console.log("BLOCKERS=NONE");
