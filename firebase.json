@@ -34,7 +34,14 @@
       "**/*.log",
       ".env.local"
     ],
-    "redirects": [],
+    "redirects": [
+      {
+        "host": "www.sectorcalc.com",
+        "source": "/<path>",
+        "destination": "https://sectorcalc.com/<path>",
+        "type": 301
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
