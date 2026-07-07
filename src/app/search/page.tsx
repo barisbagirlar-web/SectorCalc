@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { searchTools, type SearchResult } from "@/lib/features/tools/build-search-index";
+import { querySearchResults, type SearchResult } from "@/lib/features/tools/build-search-index";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 type PageProps = {
@@ -52,7 +52,7 @@ function SearchResultCard({ item }: { item: SearchResult }) {
 export default async function SearchPage({ searchParams }: PageProps) {
   const sp = await searchParams;
   const q = sp.q?.trim() ?? "";
-  const results = q ? searchTools(q) : [];
+  const results = q ? querySearchResults(q) : [];
 
   return (
     <PageLayout>
