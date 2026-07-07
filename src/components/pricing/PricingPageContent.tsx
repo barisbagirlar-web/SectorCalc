@@ -55,6 +55,7 @@ function Testimonial() {
 
 function UseCaseGrid() {
   const cases = [
+    {tool:'Engineering Diagnostics',output:'Upload photos, identify root causes, generate engineering reports. 5 credits = 3 full diagnostics.',sector:'Quality'},
     {tool:'OEE Calculator',output:'Availability, performance, quality breakdown with monthly loss estimate',sector:'Manufacturing'},
     {tool:'Machine Hourly Rate',output:'Depreciation + energy + labor cost basis - ready for quoting',sector:'Costing'},
     {tool:'Break-Even Analysis',output:'Fixed/variable cost model with sensitivity graph',sector:'Finance'},

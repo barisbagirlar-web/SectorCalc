@@ -53,6 +53,64 @@ const PROB_SOURCE_OPTIONS = [
 
 /* ── Types ── */
 
+type DomainType = "dimensional" | "electrical" | "operational";
+
+function getDomainType(domainId: string): DomainType {
+  const dim = ["CNC_MACHINING", "WELDING", "STEEL_CONSTRUCTION", "CONCRETE", "MECHANICAL"];
+  if (domainId === "ELECTRICAL") return "electrical";
+  if (dim.includes(domainId)) return "dimensional";
+  return "operational";
+}
+
+interface DomainFieldLabels {
+  measuredLabel: string;
+  nominalLabel: string;
+  tolerancePlusLabel: string;
+  toleranceMinusLabel: string;
+  unitPlaceholder: string;
+  toolPlaceholder: string;
+  conditionLabel: string;
+  showNominalTolerance: boolean;
+}
+
+function getDomainLabels(domainId: string): DomainFieldLabels {
+  const dt = getDomainType(domainId);
+  if (dt === "electrical") {
+    return {
+      measuredLabel: "Measured Value (Voltage / Current / Resistance)",
+      nominalLabel: "Nominal / Expected Value",
+      tolerancePlusLabel: "Upper Tolerance",
+      toleranceMinusLabel: "Lower Tolerance",
+      unitPlaceholder: "V, A, Ohm, degC",
+      toolPlaceholder: "Multimeter, Clamp Meter, Thermal Imager",
+      conditionLabel: "Component Condition",
+      showNominalTolerance: false,
+    };
+  }
+  if (dt === "operational") {
+    return {
+      measuredLabel: "Observed Quantity / Count",
+      nominalLabel: "Expected / Baseline Quantity",
+      tolerancePlusLabel: "Upper Acceptable Deviation",
+      toleranceMinusLabel: "Lower Acceptable Deviation",
+      unitPlaceholder: "Units, hours, kg, m",
+      toolPlaceholder: "Observation, Log, Gauge, Scale",
+      conditionLabel: "Current State Description",
+      showNominalTolerance: false,
+    };
+  }
+  return {
+    measuredLabel: "Measured Value",
+    nominalLabel: "Nominal / Design Value",
+    tolerancePlusLabel: "Tolerance (+)",
+    toleranceMinusLabel: "Tolerance (−)",
+    unitPlaceholder: "mm, in, deg",
+    toolPlaceholder: "Caliper, Micrometer, CMM",
+    conditionLabel: "Part Condition",
+    showNominalTolerance: true,
+  };
+}
+
 type FormState = {
   domain_id: string;
   problem_context: string;
@@ -316,10 +374,15 @@ export default function EngineeringDiagnosticsStartPage() {
     };
 
     const m = form.measurement;
+    const dt = form.domain_id ? getDomainType(form.domain_id) : "dimensional";
+    const labels = form.domain_id ? getDomainLabels(form.domain_id) : null;
+
     if (num(m.measured_value) === null) errors["measurement.measured_value"] = "Required";
-    if (num(m.nominal_value) === null) errors["measurement.nominal_value"] = "Required";
-    if (num(m.tolerance_plus) === null) errors["measurement.tolerance_plus"] = "Required";
-    if (num(m.tolerance_minus) === null) errors["measurement.tolerance_minus"] = "Required";
+    if (dt === "dimensional" || (labels && labels.showNominalTolerance)) {
+      if (num(m.nominal_value) === null) errors["measurement.nominal_value"] = "Required";
+      if (num(m.tolerance_plus) === null) errors["measurement.tolerance_plus"] = "Required";
+      if (num(m.tolerance_minus) === null) errors["measurement.tolerance_minus"] = "Required";
+    }
     if (!m.unit.trim()) errors["measurement.unit"] = "Required";
     if (!m.part_condition.trim()) errors["measurement.part_condition"] = "Required";
 
@@ -351,15 +414,23 @@ export default function EngineeringDiagnosticsStartPage() {
     setResult(null);
     setServerError(null);
 
+    const dt = form.domain_id ? getDomainType(form.domain_id) : "dimensional";
+
     const body = {
       domain_id: form.domain_id,
       problem_context: form.problem_context.trim(),
       measurements: [
         {
           measured_value: parseFloat(form.measurement.measured_value),
-          nominal_value: parseFloat(form.measurement.nominal_value),
-          tolerance_plus: parseFloat(form.measurement.tolerance_plus),
-          tolerance_minus: parseFloat(form.measurement.tolerance_minus),
+          nominal_value: dt === "dimensional"
+            ? parseFloat(form.measurement.nominal_value)
+            : parseFloat(form.measurement.measured_value) * 0.5,
+          tolerance_plus: dt === "dimensional"
+            ? parseFloat(form.measurement.tolerance_plus)
+            : parseFloat(form.measurement.measured_value) * 0.1,
+          tolerance_minus: dt === "dimensional"
+            ? parseFloat(form.measurement.tolerance_minus)
+            : parseFloat(form.measurement.measured_value) * 0.1,
           unit: form.measurement.unit.trim(),
           measurement_tool: form.measurement.measurement_tool,
           calibration_status: form.measurement.calibration_status,
@@ -1053,15 +1124,15 @@ export default function EngineeringDiagnosticsStartPage() {
           {fullDiagLoading && (
             <div style={{ marginBottom: "1.5rem", padding: "2rem", borderRadius: "12px", border: "1px solid #D6D4CC", background: "#F0EEE6" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
-                <div style={{ width: "48px", height: "48px", border: "3px solid #D6D4CC", borderTopColor: "#BD5D3A", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+                <div style={{ width: "48px", height: "48px", border: "3px solid #D6D4CC", borderTopColor: "#BD5D3A", borderRadius: "50%", animation: "diagSpin 0.8s linear infinite" }} />
                 <div style={{ fontSize: "1rem", fontWeight: 600, color: "#1A1915" }}>Generating Full Engineering Diagnostic</div>
                 <div style={{ fontSize: "0.85rem", color: "#6B6B68", textAlign: "center", maxWidth: "400px" }}>
-                  Analyzing measurements, calculating risk scores, running AI interpretation, and building your professional diagnostic report.
+                  Processing photos, analyzing measurements, calculating risk scores, running AI interpretation, and building your professional diagnostic report.
                 </div>
                 <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", justifyContent: "center" }}>
-                  {["Domain Analysis", "Uncertainty Check", "Cost at Risk", "AI Interpretation", "Action Plan"].map((step) => (
+                  {["Photo Processing", "Domain Analysis", "Uncertainty Check", "Cost at Risk", "AI Interpretation", "Action Plan", "Report Generation"].map((step) => (
                     <div key={step} style={{ display: "flex", alignItems: "center", gap: "0.35rem", padding: "0.3rem 0.7rem", background: "#E8E6DE", borderRadius: "20px", fontSize: "0.75rem", color: "#4A4A48" }}>
-                      <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#BD5D3A", animation: "pulse 1.2s ease-in-out infinite" }} />
+                      <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#BD5D3A", animation: "diagPulse 1.2s ease-in-out infinite" }} />
                       {step}
                     </div>
                   ))}
@@ -1069,7 +1140,7 @@ export default function EngineeringDiagnosticsStartPage() {
               </div>
             </div>
           )}
-          <style>{`@keyframes spin { to { transform: rotate(360deg); } } @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }`}</style>
+          <style>{`@keyframes diagSpin { to { transform: rotate(360deg); } } @keyframes diagPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }`}</style>
 
           {!result && (
             <form onSubmit={handleSubmit} noValidate>
@@ -1151,94 +1222,108 @@ export default function EngineeringDiagnosticsStartPage() {
 
               {/* Measurement */}
               <FieldSet legend="Measurement">
-                <FieldRow>
-                  <Field label="Measured Value" error={fieldErrors["measurement.measured_value"]} required>
-                    <input
-                      type="number"
-                      step="any"
-                      value={form.measurement.measured_value}
-                      onChange={(e) => setField("measurement.measured_value", e.target.value)}
-                      style={inputStyle}
-                    />
-                  </Field>
-                  <Field label="Nominal Value" error={fieldErrors["measurement.nominal_value"]} required>
-                    <input
-                      type="number"
-                      step="any"
-                      value={form.measurement.nominal_value}
-                      onChange={(e) => setField("measurement.nominal_value", e.target.value)}
-                      style={inputStyle}
-                    />
-                  </Field>
-                </FieldRow>
-                <FieldRow>
-                  <Field label="Tolerance (+)" error={fieldErrors["measurement.tolerance_plus"]} required>
-                    <input
-                      type="number"
-                      step="any"
-                      value={form.measurement.tolerance_plus}
-                      onChange={(e) => setField("measurement.tolerance_plus", e.target.value)}
-                      style={inputStyle}
-                    />
-                  </Field>
-                  <Field label="Tolerance (-)" error={fieldErrors["measurement.tolerance_minus"]} required>
-                    <input
-                      type="number"
-                      step="any"
-                      value={form.measurement.tolerance_minus}
-                      onChange={(e) => setField("measurement.tolerance_minus", e.target.value)}
-                      style={inputStyle}
-                    />
-                  </Field>
-                </FieldRow>
-                <FieldRow>
-                  <Field label="Unit" error={fieldErrors["measurement.unit"]} required>
-                    <input
-                      type="text"
-                      value={form.measurement.unit}
-                      onChange={(e) => setField("measurement.unit", e.target.value)}
-                      placeholder="mm"
-                      style={inputStyle}
-                    />
-                  </Field>
-                  <Field label="Measurement Tool" required>
-                    <select
-                      value={form.measurement.measurement_tool}
-                      onChange={(e) => setField("measurement.measurement_tool", e.target.value)}
-                      style={selectStyle}
-                    >
-                      {MEASUREMENT_TOOL_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                  </Field>
-                </FieldRow>
-                <FieldRow>
-                  <Field label="Calibration Status" required>
-                    <select
-                      value={form.measurement.calibration_status}
-                      onChange={(e) => setField("measurement.calibration_status", e.target.value)}
-                      style={selectStyle}
-                    >
-                      {CALIBRATION_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                  </Field>
-                  <Field label="Part Condition" error={fieldErrors["measurement.part_condition"]} required>
-                    <input
-                      type="text"
-                      value={form.measurement.part_condition}
-                      onChange={(e) => setField("measurement.part_condition", e.target.value)}
-                      placeholder="e.g. good, worn, rough surface"
-                      style={inputStyle}
-                    />
-                  </Field>
-                </FieldRow>
+                <div style={{ fontSize: "0.8rem", color: "#BD5D3A", marginBottom: "0.75rem", fontWeight: 500 }}>
+                  {form.domain_id ? getDomainLabels(form.domain_id).toolPlaceholder : "Select a domain above"}
+                </div>
+                {(function() {
+                  const labels = form.domain_id ? getDomainLabels(form.domain_id) : getDomainLabels("");
+                  return (
+                    <>
+                      <FieldRow>
+                        <Field label={labels.measuredLabel} error={fieldErrors["measurement.measured_value"]} required>
+                          <input
+                            type="number"
+                            step="any"
+                            value={form.measurement.measured_value}
+                            onChange={(e) => setField("measurement.measured_value", e.target.value)}
+                            style={inputStyle}
+                          />
+                        </Field>
+                        {labels.showNominalTolerance && (
+                          <Field label={labels.nominalLabel} error={fieldErrors["measurement.nominal_value"]} required>
+                            <input
+                              type="number"
+                              step="any"
+                              value={form.measurement.nominal_value}
+                              onChange={(e) => setField("measurement.nominal_value", e.target.value)}
+                              style={inputStyle}
+                            />
+                          </Field>
+                        )}
+                      </FieldRow>
+                      {labels.showNominalTolerance && (
+                        <FieldRow>
+                          <Field label={labels.tolerancePlusLabel} error={fieldErrors["measurement.tolerance_plus"]} required>
+                            <input
+                              type="number"
+                              step="any"
+                              value={form.measurement.tolerance_plus}
+                              onChange={(e) => setField("measurement.tolerance_plus", e.target.value)}
+                              style={inputStyle}
+                            />
+                          </Field>
+                          <Field label={labels.toleranceMinusLabel} error={fieldErrors["measurement.tolerance_minus"]} required>
+                            <input
+                              type="number"
+                              step="any"
+                              value={form.measurement.tolerance_minus}
+                              onChange={(e) => setField("measurement.tolerance_minus", e.target.value)}
+                              style={inputStyle}
+                            />
+                          </Field>
+                        </FieldRow>
+                      )}
+                      <FieldRow>
+                        <Field label="Unit" error={fieldErrors["measurement.unit"]} required>
+                          <input
+                            type="text"
+                            value={form.measurement.unit}
+                            onChange={(e) => setField("measurement.unit", e.target.value)}
+                            placeholder={labels.unitPlaceholder}
+                            style={inputStyle}
+                          />
+                        </Field>
+                        <Field label="Measurement Tool" required>
+                          <select
+                            value={form.measurement.measurement_tool}
+                            onChange={(e) => setField("measurement.measurement_tool", e.target.value)}
+                            style={selectStyle}
+                          >
+                            {MEASUREMENT_TOOL_OPTIONS.map((opt) => (
+                              <option key={opt.value} value={opt.value}>
+                                {opt.label}
+                              </option>
+                            ))}
+                          </select>
+                        </Field>
+                      </FieldRow>
+                      <FieldRow>
+                        <Field label="Calibration Status" required>
+                          <select
+                            value={form.measurement.calibration_status}
+                            onChange={(e) => setField("measurement.calibration_status", e.target.value)}
+                            style={selectStyle}
+                          >
+                            {CALIBRATION_OPTIONS.map((opt) => (
+                              <option key={opt.value} value={opt.value}>
+                                {opt.label}
+                              </option>
+                            ))}
+                          </select>
+                        </Field>
+                        <Field label={labels.conditionLabel} error={fieldErrors["measurement.part_condition"]} required>
+                          <input
+                            type="text"
+                            value={form.measurement.part_condition}
+                            onChange={(e) => setField("measurement.part_condition", e.target.value)}
+                            placeholder="e.g. good, worn, rough surface"
+                            style={inputStyle}
+                          />
+                        </Field>
+                      </FieldRow>
+                    </>
+                  );
+                })()}
               </FieldSet>
 
               {/* Costs */}
@@ -1377,9 +1462,30 @@ export default function EngineeringDiagnosticsStartPage() {
                     color: "#A12323",
                     fontSize: "0.9rem",
                     marginBottom: "1rem",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "0.75rem",
+                    flexWrap: "wrap",
                   }}
                 >
-                  {serverError}
+                  <span>{serverError}</span>
+                  <button
+                    onClick={() => { setServerError(null); }}
+                    style={{
+                      background: "#A12323",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: "4px",
+                      padding: "0.4rem 0.8rem",
+                      fontSize: "0.8rem",
+                      cursor: "pointer",
+                      fontWeight: 600,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Retry
+                  </button>
                 </div>
               )}
 
