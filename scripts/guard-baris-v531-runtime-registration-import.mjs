@@ -21,6 +21,7 @@ const GOLDEN_DIR = resolve(ROOT, "tests/golden/pro-v531-baris");
 const EXPECTED_IMPORTS = [
   `import "@/sectorcalc/formulas/pro-v531/baris-formula-registry"`,
   `import { initBarisFormulaRegistry } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry"`,
+  `import { initBarisFormulaRegistry, LIVE_BATCH_KEYS } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry"`,
 ];
 
 let failures = 0;
