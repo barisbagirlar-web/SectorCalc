@@ -217,7 +217,7 @@ export function normalizeFreeSchema(raw: Record<string, unknown>): SuperV4Schema
     if (Array.isArray(s.inputs)) {
       for (const inp of s.inputs as Array<Record<string, unknown>>) {
         const allowed = inp.allowed_display_units as string[] | undefined;
-        if (Array.isArray(allowed) && allowed.length > 1) {
+        if (Array.isArray(allowed) && allowed.length > 0) {
           needsConversion = true;
           break;
         }
