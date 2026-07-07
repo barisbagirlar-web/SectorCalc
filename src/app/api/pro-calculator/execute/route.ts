@@ -37,6 +37,7 @@ import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-form
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
+import "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
 
 // All 135 Pro formula modules are auto-generated generic templates with
 // identical placeholder outputs. V5.4 Core — the compressed air leak cost
