@@ -39,8 +39,14 @@ import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 import "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
 import { getBarisExecutionBlockReason, checkBarisExecutionEntitlement } from "@/sectorcalc/pro-commerce/baris-entitlement-guard";
-import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+import { getAdminFirestore, getAdminAuth } from "@/lib/infrastructure/firebase/admin";
 import { FieldValue } from "firebase-admin/firestore";
+import {
+  checkProductUsage,
+  grantProductUsesFromCredits,
+  decrementProductUse,
+  PRODUCT_KEYS,
+} from "@/lib/credits/product-usage-policy";
 
 // All 135 Pro formula modules are auto-generated generic templates with
 // identical placeholder outputs. V5.4 Core — the compressed air leak cost
@@ -551,9 +557,16 @@ export function pass3PublicControl(
 
 // ── Endpoint ──
 export async function POST(request: NextRequest): Promise<NextResponse> {
+  // Baris PRO tracking vars — hoisted to function scope for catch access
+  let userId: string | null = null;
+  let userEmail: string | null = null;
+  let keyWasDeducted = false;
+  let barisRequestId: string | null = null;
+  let toolKey: string | null = null;
+
   try {
     const rawBody: Record<string, unknown> = await request.json();
-    const toolKey = resolveToolKey(rawBody);
+    toolKey = resolveToolKey(rawBody);
 
     // Normalize input fields: accept inputs/values as aliases for raw_inputs
     if (rawBody.raw_inputs === undefined || rawBody.raw_inputs === null) {
@@ -611,7 +624,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // V5.3.1 — Baris PRO Entitlement & Execution Guard
     // Block assisted dossier tools immediately.
     // Block instant calculators unless entitled.
-    let userId: string | null = null;
     const barisBlockReason = getBarisExecutionBlockReason(toolKey ?? "");
     if (barisBlockReason === "ASSISTED_DOSSIER_ONLY") {
       const errorResponse = buildFullBlockedResponse(
@@ -624,12 +636,46 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     if (barisBlockReason === null && toolKey) {
       // This is a Baris tool. Check entitlement before execution.
-      const product = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey));
+      const product = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey!));
       if (product) {
-        // Key-pool entitlement check: require authenticated user + sufficient barisProKeys
-        const userEmail = request.headers.get("x-user-email") ?? process.env.NODE_ENV === "development" ? process.env.DEV_BYPASS_EMAIL ?? null : null;
-        // userId is set in outer scope for key deduction after calculation
-        userId = request.headers.get("x-user-id") ?? null;
+        // ── Firebase Auth ID Token verification ──────────────────────
+        // Priority 1: Verify Firebase Auth ID token from Authorization header.
+        // Priority 2: Fall back to x-user-email for admin owner bypass only.
+        // x-user-email is NEVER trusted for non-owner users.
+        let verifiedUserId: string | null = null;
+        let verifiedEmail: string | null = null;
+        let authMethod: "token" | "bypass" | "none" = "none";
+
+        const authHeader = request.headers.get("authorization");
+        if (authHeader?.startsWith("Bearer ")) {
+          const idToken = authHeader.slice(7);
+          try {
+            const auth = getAdminAuth();
+            if (auth) {
+              const decoded = await auth.verifyIdToken(idToken);
+              verifiedUserId = decoded.uid;
+              verifiedEmail = decoded.email ?? null;
+              authMethod = "token";
+            }
+          } catch {
+            // Token verification failed — fall through to bypass check
+          }
+        }
+
+        // Owner bypass: x-user-email header only for admin testing
+        if (authMethod === "none") {
+          const headerEmail = request.headers.get("x-user-email") ?? null;
+          const ownerBypass = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
+          if (headerEmail === ownerBypass || process.env.NODE_ENV === "development") {
+            verifiedEmail = headerEmail;
+            authMethod = "bypass";
+          }
+        }
+
+        // Set outer-scope vars for downstream use (key deduction, etc.)
+        userId = verifiedUserId;
+        userEmail = verifiedEmail;
+
         const entitlement = await checkBarisExecutionEntitlement({
           toolKey,
           userId,
@@ -651,29 +697,95 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
     }
 
+    // ── Product-usage-policy gate (non-Baris, non-free Pro tools) ──
+    // Pro tools that are not Baris INSTANT_PRO_CALCULATOR and not Free
+    // use the centralized product-usage-policy: 1 credit → 3 uses.
+    let isPaidProTool = false;
+    if (!keyWasDeducted && userId && toolKey) {
+      const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey!));
+      const isFreeTool = schemaResult.source === "free_v531";
+      if (!barisProduct && !isFreeTool) {
+        const hasUsage = await checkProductUsage(userId, PRODUCT_KEYS.PRO_TOOLS);
+        if (!hasUsage) {
+          const grantResult = await grantProductUsesFromCredits(userId, PRODUCT_KEYS.PRO_TOOLS);
+          if (!grantResult.ok) {
+            const errorResponse = buildFullBlockedResponse(
+              "KEY_DEDUCTION_FAILED",
+              "1 credit is required to unlock 3 Pro Tool uses.",
+            );
+            const { response: safeResponse } = redactPublicResponse(errorResponse);
+            return NextResponse.json(safeResponse, { status: 402 });
+          }
+        }
+        isPaidProTool = true;
+      }
+    }
+
     // V5.4 Core — Register Free Pilot and Pro Pilot formulas in the formula registry
-    // Safe to call repeatedly; first call registers, subsequent calls are no-ops.
     registerFreePilotFormulas(validatedSchema);
     registerProPilotFormulas(validatedSchema);
 
-    // PASS 2 — Runtime Determinism / Calculation
+    // ── Key-pool deduction setup (before calculation) ──────────────────
+    // Determine if this is a Baris PRO instant calculator.
+    // If yes, we generate a requestId and deduct atomically with ledger.
+
+    if (toolKey && userId) {
+      const tk: string = toolKey;
+      const uid: string = userId;
+      const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(tk));
+      if (barisProduct && barisProduct.productMode === "INSTANT_PRO_CALCULATOR") {
+        const { generateKeyRequestId, deductBarisProKeyAtomic } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
+        barisRequestId = generateKeyRequestId(uid, tk);
+        const deduction = await deductBarisProKeyAtomic(uid, tk, barisRequestId);
+
+        if (!deduction.ok) {
+          const errorResponse = buildFullBlockedResponse(
+            "KEY_DEDUCTION_FAILED",
+            deduction.reason === "INSUFFICIENT_KEYS"
+              ? "Insufficient PRO keys. Purchase a key pack from your dashboard."
+              : deduction.reason === "ALREADY_REFUNDED"
+                ? "This request was already refunded — cannot execute again."
+                : `Key deduction failed: ${deduction.reason}`,
+          );
+          const { response: safeResponse } = redactPublicResponse(errorResponse);
+          const statusCode = deduction.reason === "INSUFFICIENT_KEYS" ? 402 : 500;
+          return NextResponse.json(safeResponse, { status: statusCode });
+        }
+
+        keyWasDeducted = true;
+      }
+    }
+
+    // ── PASS 2 — Runtime Calculation ──────────────────────────────────
     const pass2 = await pass2RuntimeExecution(body, validatedSchema);
     if (!pass2.ok) {
+      // Refund key if deducted
+      if (keyWasDeducted && userId && barisRequestId && toolKey) {
+        const { refundBarisProKey } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
+        await refundBarisProKey(userId!, toolKey!, barisRequestId!);
+        keyWasDeducted = false;
+      }
       const errorResponse = buildFullBlockedResponse(pass2.pipelineState, pass2.errors.join("; "));
       const { response: safeResponse } = redactPublicResponse(errorResponse);
       return NextResponse.json(safeResponse, { status: 400 });
     }
 
-    // PASS 3 — Public Output + Audit / Export Control
+    // ── PASS 3 — Public Output + Audit / Export Control ───────────────
     const pass3 = pass3PublicControl(body, validatedSchema, pass2);
     if (!pass3.ok) {
+      // Refund key if deducted
+      if (keyWasDeducted && userId && barisRequestId && toolKey) {
+        const { refundBarisProKey } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
+        await refundBarisProKey(userId!, toolKey!, barisRequestId!);
+        keyWasDeducted = false;
+      }
       return NextResponse.json(
         buildFullBlockedResponse("REDACTION_FAILED", "Public response redaction failed"),
         { status: 500 },
       );
     }
 
-    // Premium hook — build from normalized inputs and free outputs
+    // ── Premium hook ──────────────────────────────────────────────────
     const freeOutputs: Record<string, number> = {};
     for (const output of pass2.outputs) {
       if (typeof output.value === "number") {
@@ -688,23 +800,15 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       displayCurrency: body.display_currency ?? null,
     });
 
-    // Key-pool deduction: deduct 1 key if this is a Baris PRO instant calculator
-    if (toolKey && userId) {
-      const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey));
-      if (barisProduct && barisProduct.productMode === "INSTANT_PRO_CALCULATOR") {
-        try {
-          const db = getAdminFirestore();
-          if (db) {
-            await db.collection("users").doc(userId).update({
-              barisProKeys: FieldValue.increment(-1),
-              updatedAt: new Date().toISOString(),
-            });
-          }
-        } catch (err) {
-          // Non-critical: user got result, log failure for reconciliation
-          console.warn(`[key-pool] Failed to deduct key for ${toolKey} user ${userId}:`, err);
-        }
-      }
+    // ── Mark key as EXECUTED (success) ────────────────────────────────
+    if (keyWasDeducted && userId && barisRequestId) {
+      const { markKeyExecuted } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
+      await markKeyExecuted(userId!, barisRequestId!);
+    }
+
+    // ── Decrement product use (non-Baris Pro tools) ─────────────────
+    if (isPaidProTool && userId) {
+      await decrementProductUse(userId, PRODUCT_KEYS.PRO_TOOLS);
     }
 
     return NextResponse.json(
@@ -712,6 +816,15 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       { status: 200 },
     );
   } catch (error) {
+    // ── Catch-all: refund key on unhandled exception ──────────────────
+    if (keyWasDeducted && userId && barisRequestId && toolKey) {
+      try {
+        const { refundBarisProKey } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
+        await refundBarisProKey(userId!, toolKey!, barisRequestId!);
+      } catch {
+        // Best-effort — log already emitted by refundBarisProKey
+      }
+    }
     const message = error instanceof Error ? error.message : "Unknown server error";
     return NextResponse.json(
       { status: "BLOCKED", pipeline_state: "SERVER_ERROR", error: message } as unknown as ExecuteResponse,

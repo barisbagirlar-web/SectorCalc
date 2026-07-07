@@ -1,16 +1,19 @@
-// POST /api/cbam/report — CBAM report generation with entitlement model.
+// POST /api/cbam/report — CBAM report generation with dual entitlement model.
 // Execution order:
 //   1. Authenticate user
 //   2. Validate request body (Zod)
 //   3. Check CBAM verified config (source lock + golden fixture + audit seal)
-//   4. Check CBAM entitlement remainingUses > 0
+//   4. Check entitlement:
+//      a. Primary: product-usage-policy remainingUses > 0
+//      b. Fallback: legacy CBAM entitlement remainingUses > 0
 //   5. Execute deterministic CBAM calculation
 //   6. Build public-safe PDF/report
 //   7. Create verify-store record
-//   8. Consume exactly 1 CBAM report use (idempotent by reportId)
+//   8. Consume exactly 1 use (via product-usage-policy or legacy)
 //   9. Return report response
 //
 // Never consumes a use before all preflight blockers pass.
+// On failure, does NOT consume a use.
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import {
@@ -26,6 +29,12 @@ import {
   verifySignedInUser,
 } from "@/lib/infrastructure/firebase/verify-signed-in-user";
 import { isCbamPaidReportAllowed } from "@/sectorcalc/cbam/cbam-verified-config";
+import {
+  checkProductUsage,
+  getProductUsageDoc,
+  decrementProductUse,
+  PRODUCT_KEYS,
+} from "@/lib/credits/product-usage-policy";
 
 // Minimal validation schema for report request
 const ReportBodySchema = z.object({
@@ -92,21 +101,26 @@ export async function POST(request: Request) {
     );
   }
 
-  // 4. Check CBAM entitlement remainingUses > 0
+  // 4. Check entitlement: primary = product-usage-policy, fallback = legacy
+  const productUsageOk = await checkProductUsage(user.uid, PRODUCT_KEYS.CBAM);
   const entitlement = await getCbamEntitlement(user.uid);
-  if (!entitlement || entitlement.remainingUses <= 0) {
+  const legacyOk = entitlement && entitlement.remainingUses > 0;
+
+  if (!productUsageOk && !legacyOk) {
     return NextResponse.json(
       {
         status: "ENTITLEMENT_REQUIRED",
         service: "cbam_definitive_period_report",
-        requiredCredits: CBAM_PACKAGE_CREDITS,
-        includedUses: CBAM_PACKAGE_INCLUDED_USES,
+        requiredCredits: 100,
+        includedUses: 3,
         message:
-          "Unlock the CBAM package with 100 credits to generate 5 report-ready CBAM outputs.",
+          "Unlock the CBAM module with 100 credits to generate 3 CBAM reports.",
       },
       { status: 402 }
     );
   }
+
+  const useNewModel = productUsageOk;
 
   // 5. Execute deterministic CBAM calculation
   // (CBAM engine integration point — replace with runAutonomousAudit call)
@@ -126,29 +140,51 @@ export async function POST(request: Request) {
   // 7. Create verify-store record
   // (verify-store integration point — replace with storeVerifyRecord call)
 
-  // 8. Consume exactly 1 CBAM report use (idempotent by reportId)
-  const consumeResult = await consumeCbamReportUse(user.uid, body.report_id);
-  if (!consumeResult.ok) {
-    return NextResponse.json(
-      {
-        error: "USE_CONSUMPTION_FAILED",
-        detail: consumeResult.error,
-      },
-      { status: 500 }
-    );
+  // 8. Consume exactly 1 use — new model or legacy
+  if (useNewModel) {
+    const consumed = await decrementProductUse(user.uid, PRODUCT_KEYS.CBAM);
+    if (!consumed) {
+      return NextResponse.json(
+        {
+          error: "USE_CONSUMPTION_FAILED",
+          detail: "Failed to decrement CBAM product use.",
+        },
+        { status: 500 }
+      );
+    }
+  } else {
+    const consumeResult = await consumeCbamReportUse(user.uid, body.report_id);
+    if (!consumeResult.ok) {
+      return NextResponse.json(
+        {
+          error: "USE_CONSUMPTION_FAILED",
+          detail: consumeResult.error,
+        },
+        { status: 500 }
+      );
+    }
   }
 
-  const remainingUses = consumeResult.data?.remainingUses ?? 0;
+  // 9. Get remaining uses from active model for response
+  let remainingUses = 0;
+  if (useNewModel) {
+    const usageDoc = await getProductUsageDoc(user.uid, PRODUCT_KEYS.CBAM);
+    remainingUses = usageDoc?.remainingUses ?? 0;
+  } else {
+    const updatedEntitlement = await getCbamEntitlement(user.uid);
+    remainingUses = updatedEntitlement?.remainingUses ?? 0;
+  }
 
-  // 9. Return report response
+  // 10. Return report response
   return NextResponse.json({
     status: "REPORT_GENERATED",
     service: "cbam_definitive_period_report",
     reportId: body.report_id,
     documentHash: pdfResult.hash,
     remainingUsesAfterThisReport: remainingUses,
-    includedUsesPerPackage: CBAM_PACKAGE_INCLUDED_USES,
-    packageCreditCost: CBAM_PACKAGE_CREDITS,
+    includedUsesPerPackage: useNewModel ? 3 : CBAM_PACKAGE_INCLUDED_USES,
+    packageCreditCost: useNewModel ? 100 : CBAM_PACKAGE_CREDITS,
+    model: useNewModel ? "new" : "legacy",
     computationStatus: computationResult.status,
     message:
       "Report generated successfully. Use consumption recorded.",
