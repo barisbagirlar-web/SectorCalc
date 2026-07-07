@@ -206,8 +206,9 @@ pass(`No public formula expression leak detected in LIVE tools`);
 console.log("\n[13/16] Checking client imports of Baris formula files...");
 
 try {
+  const livePattern = liveKeys.join("|");
   const clientImports = execSync(
-    `rg -l "formulas/pro-v531/(${liveKeys.join("|")})\"" src/app src/components --type tsx --type ts 2>/dev/null || true`,
+    `rg -l "formulas/pro-v531/(${livePattern})" src/app src/components --type tsx --type ts 2>/dev/null || true`,
     { cwd: ROOT, encoding: "utf-8", maxBuffer: 10 * 1024 * 1024 }
   ).trim();
   if (clientImports) fail(`Client-side import(s) of Baris formula files:\n${clientImports}`);
