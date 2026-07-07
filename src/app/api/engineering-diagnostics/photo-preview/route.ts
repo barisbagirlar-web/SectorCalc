@@ -123,9 +123,10 @@ export async function POST(req: Request) {
       );
     }
 
-    const reqBody = body as { photos?: string[]; mime_types?: string[] };
+    const reqBody = body as { photos?: string[]; mime_types?: string[]; problem_note?: string };
     const rawPhotos: string[] = Array.isArray(reqBody.photos) ? reqBody.photos : [];
     const mimeTypes: string[] = Array.isArray(reqBody.mime_types) ? reqBody.mime_types : [];
+    const problemNote: string = typeof reqBody.problem_note === "string" ? reqBody.problem_note.trim() : "";
 
     if (rawPhotos.length === 0) {
       return NextResponse.json(
@@ -193,6 +194,12 @@ export async function POST(req: Request) {
     }));
 
     let visualResult: string;
+    const userMessage: { type: "text"; text: string }[] = [
+      { type: "text", text: problemNote
+        ? `Problem context: ${problemNote}\n\nAnalyze these photos for visible conditions based on the context above. Output only visual observations.`
+        : `Analyze these photos for visible conditions. Output only visual observations.` },
+    ];
+
     try {
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
@@ -206,10 +213,7 @@ export async function POST(req: Request) {
             { role: "system", content: VISUAL_OBSERVATION_SYSTEM_PROMPT },
             {
               role: "user",
-              content: [
-                { type: "text", text: "Analyze these photos for visible conditions. Output only visual observations." },
-                ...imageContents,
-              ],
+              content: [...userMessage, ...imageContents],
             },
           ],
           max_tokens: 2048,
@@ -232,6 +236,8 @@ export async function POST(req: Request) {
         {
           ok: true,
           mode: "visual_preview",
+          probable_domain: "UNKNOWN",
+          probable_issue_type: "UNKNOWN",
           observations: [
             {
               element: "General assessment",
@@ -287,11 +293,13 @@ export async function POST(req: Request) {
       ? (aiOutput as Record<string, unknown>)
       : null;
 
-    return NextResponse.json(
-      {
-        ok: true,
-        mode: "visual_preview",
-        observations: observations?.observations || [
+      return NextResponse.json(
+        {
+          ok: true,
+          mode: "visual_preview",
+          probable_domain: (observations && typeof observations.probable_domain === "string" ? observations.probable_domain : "UNKNOWN"),
+          probable_issue_type: (observations && typeof observations.probable_issue_type === "string" ? observations.probable_issue_type : "UNKNOWN"),
+          observations: observations?.observations || [
           {
             element: "General assessment",
             observation: "Visual analysis was completed. Manual verification is required before any engineering decision.",

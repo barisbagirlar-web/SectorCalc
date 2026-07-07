@@ -27,9 +27,14 @@ STRICT RULES — YOU MUST FOLLOW THESE:
 5. NEVER restate or reference deterministic field names: risk_score, cost_at_risk, tolerance_result, measurement_confidence, risk_score_numeric, final_decision.
 6. If a photo is unclear, blurry, or insufficient, say so. Do not invent details.
 7. All observations must include a manual verification reminder.
+8. Determine the probable engineering domain from visual cues (welding, machining, concrete, electrical, etc.).
+9. Determine the probable issue type from visual appearance (corrosion, crack, discoloration, misalignment, wear, etc.).
+10. If the user provides a problem note, use it as context for the assessment but do not repeat it verbatim.
 
 Output ONLY valid JSON with this exact schema:
 {
+  "probable_domain": "one of: CNC_MACHINING, WELDING, STEEL_CONSTRUCTION, CONCRETE, ELECTRICAL, MECHANICAL, LOGISTICS, FACILITY, AGRICULTURE, TEXTILE, WAREHOUSE, RESTAURANT, or UNKNOWN",
+  "probable_issue_type": "short label describing the likely type of issue (e.g. Surface Discoloration, Corrosion, Misalignment, Wear, Cracking, Contamination, or UNKNOWN)",
   "observations": [
     {
       "element": "brief label for the observed element or area",
@@ -48,6 +53,8 @@ Output ONLY valid JSON with this exact schema:
 
 EXAMPLE OUTPUT:
 {
+  "probable_domain": "WELDING",
+  "probable_issue_type": "Surface Discoloration",
   "observations": [
     {
       "element": "Weld bead - heat affected zone",

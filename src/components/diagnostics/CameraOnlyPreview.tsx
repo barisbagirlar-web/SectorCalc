@@ -15,6 +15,8 @@ export interface VisualObservation {
 export interface PhotoPreviewResponse {
   ok: boolean;
   mode: "visual_preview";
+  probable_domain: string;
+  probable_issue_type: string;
   observations: VisualObservation[];
   summary: string;
   photo_quality_note: string;
@@ -38,6 +40,7 @@ const LOCKED_FEATURES = [
 export function CameraOnlyPreview() {
   const [photos, setPhotos] = useState<File[]>([]);
   const [previewUrls, setPreviewUrls] = useState<string[]>([]);
+  const [problemNote, setProblemNote] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<PhotoPreviewResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -105,6 +108,7 @@ export function CameraOnlyPreview() {
         body: JSON.stringify({
           photos: photoData.map((p) => p.data),
           mime_types: photoData.map((p) => p.mime),
+          problem_note: problemNote.trim() || undefined,
         }),
       });
 
@@ -162,6 +166,48 @@ export function CameraOnlyPreview() {
         <br />
         Get a preliminary visual assessment and learn what data is needed for a
         full engineering report. No credit required.
+      </div>
+
+      {/* Optional problem note */}
+      <div
+        style={{
+          marginBottom: "1rem",
+          padding: "0.75rem 1rem",
+          background: "#F0EEE6",
+          border: "1px solid #D6D4CC",
+          borderRadius: "8px",
+        }}
+      >
+        <label
+          style={{
+            fontSize: "0.85rem",
+            fontWeight: 500,
+            color: "#1A1915",
+            display: "block",
+            marginBottom: "0.4rem",
+          }}
+        >
+          Problem Note <span style={{ color: "#6B6B68", fontWeight: 400 }}>(optional)</span>
+        </label>
+        <textarea
+          value={problemNote}
+          onChange={(e) => setProblemNote(e.target.value)}
+          placeholder="Briefly describe what you are investigating (e.g. unusual vibration on motor bearing, surface rust on structural beam)"
+          rows={2}
+          style={{
+            width: "100%",
+            padding: "0.5rem 0.75rem",
+            fontSize: "0.85rem",
+            border: "1px solid #D6D4CC",
+            borderRadius: "6px",
+            background: "#fff",
+            color: "#1A1915",
+            boxSizing: "border-box",
+            resize: "vertical",
+            minHeight: "60px",
+            fontFamily: "inherit",
+          }}
+        />
       </div>
 
       {/* Photo upload area */}
@@ -393,6 +439,49 @@ export function CameraOnlyPreview() {
               </p>
             )}
           </div>
+
+          {/* Probable Domain + Issue Type */}
+          {(result.probable_domain || result.probable_issue_type) && (
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "0.75rem",
+                marginBottom: "1rem",
+              }}
+            >
+              <div
+                style={{
+                  padding: "0.75rem 1rem",
+                  background: "#F0EEE6",
+                  borderRadius: "6px",
+                  border: "1px solid #D6D4CC",
+                }}
+              >
+                <div style={{ fontSize: "0.75rem", color: "#6B6B68", marginBottom: "0.2rem" }}>
+                  Probable Domain
+                </div>
+                <div style={{ fontSize: "0.95rem", fontWeight: 600, color: "#1A1915" }}>
+                  {result.probable_domain === "UNKNOWN" ? "Not determined from photos" : result.probable_domain}
+                </div>
+              </div>
+              <div
+                style={{
+                  padding: "0.75rem 1rem",
+                  background: "#F0EEE6",
+                  borderRadius: "6px",
+                  border: "1px solid #D6D4CC",
+                }}
+              >
+                <div style={{ fontSize: "0.75rem", color: "#6B6B68", marginBottom: "0.2rem" }}>
+                  Probable Issue Type
+                </div>
+                <div style={{ fontSize: "0.95rem", fontWeight: 600, color: "#1A1915" }}>
+                  {result.probable_issue_type === "UNKNOWN" ? "Not determined from photos" : result.probable_issue_type}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Observations */}
           {result.observations.length > 0 && (
