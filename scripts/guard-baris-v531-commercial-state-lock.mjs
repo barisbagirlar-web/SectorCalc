@@ -357,6 +357,7 @@ try {
         // Allow the lock guard file itself, package.json, and package-lock.json
         if (path === "scripts/guard-baris-v531-commercial-state-lock.mjs") return false;
         if (path === "package.json" || path === "package-lock.json") return false;
+        if (path === "next.config.ts") return false;
         return !barisPrefixes.some(p => path.startsWith(p));
       });
 

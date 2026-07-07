@@ -193,6 +193,11 @@ const nextConfig: NextConfig = {
       { source: "/tools/fmea-rpn-calculator", destination: "/calculators/fmea-rpn", permanent: true },
       { source: "/tools/generated/:slug", destination: "/tools/pro/:slug", permanent: true },
       { source: "/tools/premium/:slug", destination: "/tools/pro/:slug", permanent: true },
+      // Slugless index redirects — prevent 404 on bare directory routes
+      { source: "/guide", destination: "/guides", permanent: true },
+      { source: "/upgrade-guide", destination: "/pricing", permanent: true },
+      { source: "/tools/premium", destination: "/pricing", permanent: true },
+      { source: "/resources", destination: "/calculator-library", permanent: true },
     ];
   },
 };
