@@ -145,7 +145,7 @@ function buildPremiumItems(): CategorizedToolItem[] {
       tier: "premium",
       categorySlug,
       source: "existing-premium",
-      routePath: `/tools/generated/${slug}`,
+      routePath: `/tools/pro/${slug}`,
       formulaContractStatus: resolveFormulaContractStatus(slug),
       publicStatus: "active",
     };

@@ -41,7 +41,7 @@ export function getAllTools(_locale?: string): ToolEntry[] {
     sectorKey: "lean-production" as PremiumCategorySlug,
     premiumRequired: true,
     description: "",
-    href: `/tools/premium/${slug}`,
+    href: `/tools/pro/${slug}`,
   }));
 }
 

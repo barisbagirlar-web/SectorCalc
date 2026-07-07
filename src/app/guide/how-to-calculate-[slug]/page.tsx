@@ -108,7 +108,7 @@ export default async function HowToCalculatePage({ params }: PageProps) {
           </p>
           <div className="mt-6">
             <a
-              href={`/${tool.slug}`}
+              href={`/tools/pro/${tool.slug}`}
               className="rounded-full bg-accent-terracotta px-8 py-4 font-semibold text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-accent-terracotta-dark hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-accent-terracotta/50"
             >
               Calculate {tool.name} Now

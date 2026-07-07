@@ -191,6 +191,8 @@ const nextConfig: NextConfig = {
       { source: "/premium-tools", destination: "/pro-tools", permanent: true },
       { source: "/premium-tools/:path*", destination: "/pro-tools/:path*", permanent: true },
       { source: "/tools/fmea-rpn-calculator", destination: "/calculators/fmea-rpn", permanent: true },
+      { source: "/tools/generated/:slug", destination: "/tools/pro/:slug", permanent: true },
+      { source: "/tools/premium/:slug", destination: "/tools/pro/:slug", permanent: true },
     ];
   },
 };
