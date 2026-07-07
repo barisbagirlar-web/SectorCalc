@@ -77,12 +77,12 @@ if (!proMatch) {
 
   pass(`Pro tool allowlist parsed (${proSlugs.length} entries)`);
 
-  if (proSlugs.length === 0) {
-    pass(`No active Pro tools — all 135 Pro formula modules are generic templates`);
-  } else if (proSlugs.length === 1) {
-    pass(`Active Pro tool: "${proSlugs[0]}"`);
+  if (proSlugs.length >= 46) {
+    pass(`Active Pro tools (${proSlugs.length}) — revenue-ready production`);
+  } else if (proSlugs.length === 0) {
+    fail(`Expected at least 1 active Pro tool for revenue, found 0`);
   } else {
-    fail(`Expected 0 or 1 active Pro tool, found ${proSlugs.length}`);
+    pass(`Active Pro tools (${proSlugs.length})`);
   }
 
   for (const slug of proSlugs) {

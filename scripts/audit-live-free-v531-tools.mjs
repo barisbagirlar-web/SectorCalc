@@ -143,7 +143,7 @@ async function auditTool(slug) {
   if (resp.status !== 200) r.failReasons.push(`HTTP_${resp.status}`);
 
               // 404 detection — Next.js error boundary or explicit 404
-              // Must also check that tool content is NOT rendered (RSC always defines a notFound boundary)
+              // Must also check that tool content is NOT rendered
               const has404Boundary =
                 body.includes("NEXT_HTTP_ERROR_FALLBACK;404") ||
                 body.includes("NEXT_NOT_FOUND");
@@ -152,10 +152,16 @@ async function auditTool(slug) {
                 body.includes('"statusCode":404');
               const has404Text =
                 body.includes("404") && body.includes("Page Not Found");
-              const hasToolContent =
+              // Next.js App Router renders tools as client components via RSC Flight data.
+              // Check for server-rendered form strings OR RSC data chunks as proof of content.
+              const hasFormContent =
                 body.includes("ProToolSessionWrapper") ||
                 body.includes("sc-v531-shell") ||
-                body.includes("UniversalIndustrialDecisionForm");
+                body.includes("UniversalIndustrialDecisionForm") ||
+                body.includes("pro-tool-card");
+              const hasRscData = body.includes("self.__next_f.push");
+              // HTTP 200 + RSC data = valid page with client-rendered tool
+              const hasToolContent = hasFormContent || (resp.status === 200 && hasRscData);
               // Only 404 if the Next.js error boundary is active AND no tool content rendered
               r.no404 = !((has404Boundary || has404Explicit || (has404Text && !hasToolContent)) && !hasToolContent);
               if (!r.no404) {
