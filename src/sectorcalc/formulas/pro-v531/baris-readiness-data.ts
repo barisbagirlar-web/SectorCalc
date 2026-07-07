@@ -1,17 +1,14 @@
-// SectorCalc PRO V5.3.1 - Baris Schema Readiness Classification (BATCH 1+2+3 LIVE)
-// LIVE_ENGINE_READY: 30 tools
-// BLOCKED_SOURCE_REQUIRED: 15 tools
-// BLOCKED_RUNTIME_CONTRACT_MISMATCH: 0 tools
-
+// SectorCalc PRO V5.3.1 — Baris Schema Readiness Classification (BATCH 1+2 LIVE)
+// LIVE_ENGINE_READY: 20 tools with individual deterministic formula files + golden fixtures
+// BLOCKED_SOURCE_REQUIRED: 15 tools requiring restricted standard reference data
+// BLOCKED_RUNTIME_CONTRACT_MISMATCH: 10 tools awaiting Batch 3 engine activation
 import "server-only";
-
 export interface BarisReadinessRecord {
   tool_key: string;
   tool_id: string;
   category: "LIVE_ENGINE_READY" | "BLOCKED_SOURCE_REQUIRED" | "BLOCKED_RUNTIME_CONTRACT_MISMATCH";
   reason: string;
 }
-
 export const LIVE_ENGINE_READY_TOOLS: BarisReadinessRecord[] = [
   { tool_key: "break-even-survival-cash-calculator", tool_id: "PRO_031", category: "LIVE_ENGINE_READY", reason: "Batch 1." },
   { tool_key: "machine-hourly-rate-proof-report", tool_id: "PRO_017", category: "LIVE_ENGINE_READY", reason: "Batch 1." },
@@ -33,18 +30,7 @@ export const LIVE_ENGINE_READY_TOOLS: BarisReadinessRecord[] = [
   { tool_key: "energy-efficiency-grant-incentive-feasibility-pack", tool_id: "PRO_029", category: "LIVE_ENGINE_READY", reason: "Batch 2." },
   { tool_key: "motor-compressor-replacement-roi", tool_id: "PRO_045", category: "LIVE_ENGINE_READY", reason: "Batch 2." },
   { tool_key: "weld-procedure-cost-consumable-estimation-suite", tool_id: "PRO_027", category: "LIVE_ENGINE_READY", reason: "Batch 2." },
-  { tool_key: "machining-cycle-time-part-cost-sheet", tool_id: "PRO_025", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
-  { tool_key: "sealed-job-quote-certificate-fire-setup-vade", tool_id: "PRO_023", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
-  { tool_key: "steel-structure-weight-cost-takeoff", tool_id: "PRO_028", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
-  { tool_key: "compressed-air-pipe-sizing-pressure-drop", tool_id: "PRO_040", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
-  { tool_key: "hydraulic-cylinder-pump-sizing", tool_id: "PRO_044", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
-  { tool_key: "pump-system-curve-npsh-verifier", tool_id: "PRO_041", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
-  { tool_key: "shaft-deflection-critical-speed-check", tool_id: "PRO_043", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
-  { tool_key: "scope-1-2-3-splitter-for-smes", tool_id: "PRO_037", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
-  { tool_key: "bank-grade-financial-projection-covenant-model", tool_id: "PRO_015", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
-  { tool_key: "ppap-gauge-rr-cpk-ppk-quality-submission-bundle", tool_id: "PRO_002", category: "LIVE_ENGINE_READY", reason: "Batch 3." },
 ];
-
 export const BLOCKED_SOURCE_REQUIRED_TOOLS: BarisReadinessRecord[] = [
   { tool_key: "pressure-vessel-wall-thickness-mawp-hydrotest-package", tool_id: "PRO_004", category: "BLOCKED_SOURCE_REQUIRED", reason: "Source gate." },
   { tool_key: "pressure-relief-valve-sizing-sheet-api-520", tool_id: "PRO_003", category: "BLOCKED_SOURCE_REQUIRED", reason: "Source gate." },
@@ -62,20 +48,27 @@ export const BLOCKED_SOURCE_REQUIRED_TOOLS: BarisReadinessRecord[] = [
   { tool_key: "cbam-cost-exposure-hedging-forecaster", tool_id: "PRO_007", category: "BLOCKED_SOURCE_REQUIRED", reason: "Source gate." },
   { tool_key: "cbam-supplier-emissions-data-sheet", tool_id: "PRO_021", category: "BLOCKED_SOURCE_REQUIRED", reason: "Source gate." },
 ];
-
-export const BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS: BarisReadinessRecord[] = [];
-
+export const BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS: BarisReadinessRecord[] = [
+  { tool_key: "machining-cycle-time-part-cost-sheet", tool_id: "PRO_025", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+  { tool_key: "sealed-job-quote-certificate-fire-setup-vade", tool_id: "PRO_023", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+  { tool_key: "steel-structure-weight-cost-takeoff", tool_id: "PRO_028", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+  { tool_key: "compressed-air-pipe-sizing-pressure-drop", tool_id: "PRO_040", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+  { tool_key: "hydraulic-cylinder-pump-sizing", tool_id: "PRO_044", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+  { tool_key: "pump-system-curve-npsh-verifier", tool_id: "PRO_041", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+  { tool_key: "shaft-deflection-critical-speed-check", tool_id: "PRO_043", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+  { tool_key: "scope-1-2-3-splitter-for-smes", tool_id: "PRO_037", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+  { tool_key: "bank-grade-financial-projection-covenant-model", tool_id: "PRO_015", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+  { tool_key: "ppap-gauge-rr-cpk-ppk-quality-submission-bundle", tool_id: "PRO_002", category: "BLOCKED_RUNTIME_CONTRACT_MISMATCH", reason: "Batch 3 not activated." },
+];
 export const ALL_BARIS_TOOLS: BarisReadinessRecord[] = [
   ...LIVE_ENGINE_READY_TOOLS,
   ...BLOCKED_SOURCE_REQUIRED_TOOLS,
   ...BLOCKED_RUNTIME_CONTRACT_MISMATCH_TOOLS
 ];
-
-export function getBarisToolCategory(toolKey: string) {
+export function getBarisToolCategory(toolKey: string): BarisReadinessRecord | null {
   return ALL_BARIS_TOOLS.find(t => t.tool_key === toolKey) ?? null;
 }
-
-export function barisClassificationSummary() {
+export function barisClassificationSummary(): { total: number; live: number; blockedSource: number; blockedContract: number } {
   return {
     total: ALL_BARIS_TOOLS.length,
     live: LIVE_ENGINE_READY_TOOLS.length,

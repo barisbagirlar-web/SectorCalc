@@ -1,0 +1,12 @@
+---
+description: Mobile UI and component conventions
+globs: ["**/components/**/*.tsx"]
+alwaysApply: false
+---
+
+# Frontend
+
+- Interactive elements: button semantics for actions, anchor+underline for content links.
+- No hover-only interaction states.
+- Font sizes: never below 14px body text on mobile.
+- Grid: mobile-first, 2-col default, verify against IndustriesTaxonomyGrid.tsx pattern before introducing a new grid component.

@@ -1,0 +1,11 @@
+---
+description: API route auth and credit gating
+globs: ["**/app/api/**/route.ts", "**/engineering-diagnostics/**"]
+alwaysApply: false
+---
+
+# Route security
+
+- Every route under app/api/** must verify Firebase Admin token server-side before body parsing.
+- Credit deduction must be atomic (Firestore transaction), never read-then-write.
+- `analyze/route.ts` and `pdf/route.ts` currently lack both — flag any edit to these files that doesn't add auth+credit check.

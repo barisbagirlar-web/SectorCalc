@@ -136,7 +136,7 @@ See `docs/sectorcalc-stability-settings.md`.
 
 ## UI Standard
 
-Premium, clean, restrained. Mobile-first, no horizontal scroll, 44px touch targets, no clutter hero, no emoji in premium cards, no excessive animation.
+Premium, clean, restrained. Mobile-first, no horizontal scroll, 48px touch targets, no clutter hero, no emoji in premium cards, no excessive animation.
 
 ## SEO Standard
 
@@ -174,3 +174,12 @@ One phase per session when possible. Commit per phase. Working tree clean after 
 - `docs/cursor-workflow.md` — copy-paste task prompt + final report template
 - `docs/full-catalog-qa.md` — 17-sector QA
 - `docs/revenue-flow-v1-production-readiness.md` — Stripe go/no-go
+
+## Core Execution Rules
+
+- English only: code, comments, commits, PRs, UI strings. Turkish text = reject.
+- No `eval`, no `new Function`. Formula execution server-side only.
+- Design tokens locked: bg #F0EEE6, ink #1A1915, accent #BD5D3A, radius 0px. Never propose border-radius or dark theme.
+- Schema contract: 25-key top-level. Any schema change must pass `npm run ci:gate` before considered done.
+- No incomplete work: no TODO/stub left as "done". If blocked, say so explicitly, don't fake completion.
+- Touch targets mobile: min 48x48px, gap 8px.
