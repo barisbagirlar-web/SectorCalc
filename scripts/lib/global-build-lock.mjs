@@ -4,6 +4,7 @@
  * Used by local Firebase deploy, npm run build, and Firebase deploy.
  */
 import { existsSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { execSync } from "node:child_process";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
@@ -25,7 +26,21 @@ function pidAlive(pid) {
     return false;
   }
   try {
+    // Send signal 0 to check existence
     process.kill(pid, 0);
+    // Double-check: verify the process is actually node/next (not recycled PID)
+    try {
+      const comm = execSync(`ps -p ${pid} -o comm= 2>/dev/null || echo "unknown"`, {
+        encoding: 'utf8',
+        timeout: 2000,
+      }).trim();
+      // Allow node, next, npm, sh/zsh build processes; reject recycled PIDs
+      if (comm && !comm.includes('node') && !comm.includes('next') && !comm.includes('npm') && !comm.includes('sh') && comm !== 'unknown') {
+        return false; // PID recycled by a non-build process
+      }
+    } catch {
+      // Can't determine process name — fall through to kill check
+    }
     return true;
   } catch {
     return false;

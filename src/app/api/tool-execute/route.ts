@@ -335,8 +335,23 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         try {
           const formulaResult = formulaModule.execute(execBody.raw_inputs);
           if (formulaResult && formulaResult.outputs) {
+            // Mapping from formula output ID → schema output ID for tools where IDs differ
+            const FORMULA_TO_SCHEMA_OUTPUT_MAP: Record<string, Record<string, string>> = {
+              "cnc-shop-hourly-rate": { "true_hourly_rate": "hourly_rate" },
+              "iso-286-tolerance-fit": { "minimum_clearance_mm": "fit_clearance_range_mm" },
+              "surface-roughness-converter": { "roughness_ra_um": "roughness_equivalent" },
+              "thread-dimensions-reference": { "pitch_diameter_approx_mm": "thread_reference_dimensions" },
+              "knurling-drill-point-depth": { "drill_point_depth_mm": "depth_or_pitch_mm" },
+              "weld-metal-weight-consumable": { "deposited_weld_metal_kg": "weld_consumable_mass" },
+              "bolt-preload-clamp-force": { "initial_preload_kn": "clamp_force_kn" },
+              "steel-weight": { "net_steel_weight_kg": "steel_weight_kg" },
+              "takt-time-cycle-time": { "takt_time_seconds": "capacity_gap" },
+            };
+            const outputMap = FORMULA_TO_SCHEMA_OUTPUT_MAP[body.toolKey];
+
             for (const fo of formulaResult.outputs) {
-              const existing = pass2.outputs.find(o => o.id === fo.id);
+              const schemaId = outputMap?.[fo.id] ?? fo.id;
+              const existing = pass2.outputs.find(o => o.id === schemaId);
               if (existing && typeof fo.value === "number" && Number.isFinite(fo.value)) {
                 existing.value = fo.value;
                 existing.status = "OK";

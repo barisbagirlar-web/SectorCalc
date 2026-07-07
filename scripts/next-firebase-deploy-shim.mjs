@@ -26,11 +26,9 @@ function finalizeExistingBuild() {
 }
 
 if (args[0] === "build") {
-  if (existsSync(BUILD_ID_PATH) && finalizeExistingBuild()) {
-    console.log("next-firebase-deploy-shim: reusing validated .next build for Firebase deploy.");
-    process.exit(0);
-  }
-
+  // Always run the build with retry logic. Do NOT early-exit even if .next/BUILD_ID exists,
+  // because Firebase framework integration needs to run its full pipeline (including function
+  // source packaging at .firebase/sectorcalc-bf412/functions/).
   const status = spawnSync("node", ["scripts/next-build-with-500-fallback.mjs"], {
     cwd: ROOT,
     stdio: "inherit",

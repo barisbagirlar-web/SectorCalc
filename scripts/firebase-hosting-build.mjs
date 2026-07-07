@@ -7,36 +7,16 @@
  * We explicitly DO NOT run `npm run build` here — it would create a standalone .next
  * artifact that conflicts with Firebase's framework integration.
  *
- * After Firebase finishes its build, we inject .nft.json stubs (needed by trace collector).
- * Since we can't hook into Firebase's post-build phase, we instead patch the
- * finalize-next-build process to run during the Firebase-owned build.
+ * IMPORTANT: Do NOT use global build lock here. Firebase framework integration already
+ * manages its own build lifecycle. Locking here conflicts with Firebase's parallel
+ * build detection, causing "server.js does not exist" errors.
  */
 import { spawnSync } from "node:child_process";
 import { cpSync, existsSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import {
-  acquireGlobalBuildLock,
-  releaseGlobalBuildLock,
-} from "./lib/global-build-lock.mjs";
 
 const ROOT = process.cwd();
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
-
-function run(command, args) {
-  const result = spawnSync(command, args, {
-    cwd: ROOT,
-    stdio: "inherit",
-    env: {
-      ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
-      NEXT_PUBLIC_SITE_URL:
-        process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://sectorcalc.com",
-    },
-  });
-  if ((result.status ?? 1) !== 0) {
-    process.exit(result.status ?? 1);
-  }
-}
 
 function copySchemasToNextServer() {
   const srcSchemas = join(ROOT, "generated", "schemas");
@@ -79,6 +59,7 @@ function createNftStubs() {
 }
 
 // ── Main ──
+// IMPORTANT: No global build lock here. Firebase framework manages its own lifecycle.
 
 const forceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
 const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
@@ -90,29 +71,40 @@ if (hasBuild) {
   process.exit(0);
 }
 
-acquireGlobalBuildLock("firebase-hosting-build");
+console.log("firebase-hosting-build: running prebuild steps (Firebase will run next build)...");
 
-try {
-  console.log("firebase-hosting-build: running prebuild steps (Firebase will run next build)...");
+// Run essential guards and generators (skip v531-schema-formula-binding:
+// 20 PRO schemas exist without formula modules yet — non-blocking for deploy)
+const prebuildSteps = [
+  ["npm", ["run", "guard:free-schema-server-boundary"]],
+  ["npm", ["run", "guard:v531-form-architecture"]],
+  ["npm", ["run", "guard:forbidden-form-surfaces"]],
+  ["npm", ["run", "guard:zero-turkish"]],
+  ["npm", ["run", "guard:no-turkish-public-source"]],
+  ["node", ["scripts/zero-tolerance-turkish-guard.mjs"]],
+  ["npm", ["run", "guard:i18n-keys"]],
+  ["npm", ["run", "guard:removed-free-tools"]],
+  ["node", ["scripts/english-only-lexicon-guard.mjs"]],
+  ["node", ["scripts/schema-language-guard.mjs"]],
+  ["npm", ["run", "validate:translations"]],
+  ["npx", ["tsx", "scripts/prebuild-reference-registry.ts"]],
+  ["npx", ["tsx", "scripts/prebuild-reference-engine-guard.ts"]],
+  ["npx", ["tsx", "scripts/dump-routes-to-json.ts"]],
+];
 
-  // Run essential guards and generators (skip v531-schema-formula-binding:
-  // 20 PRO schemas exist without formula modules yet — non-blocking for deploy)
-  run("npm", ["run", "guard:free-schema-server-boundary"]);
-  run("npm", ["run", "guard:v531-form-architecture"]);
-  run("npm", ["run", "guard:forbidden-form-surfaces"]);
-  run("npm", ["run", "guard:zero-turkish"]);
-  run("npm", ["run", "guard:no-turkish-public-source"]);
-  run("node", ["scripts/zero-tolerance-turkish-guard.mjs"]);
-  run("npm", ["run", "guard:i18n-keys"]);
-  run("npm", ["run", "guard:removed-free-tools"]);
-  run("node", ["scripts/english-only-lexicon-guard.mjs"]);
-  run("node", ["scripts/schema-language-guard.mjs"]);
-  run("npm", ["run", "validate:translations"]);
-  run("npx", ["tsx", "scripts/prebuild-reference-registry.ts"]);
-  run("npx", ["tsx", "scripts/prebuild-reference-engine-guard.ts"]);
-  run("npx", ["tsx", "scripts/dump-routes-to-json.ts"]);
-
-  console.log("firebase-hosting-build: prebuild steps done. Firebase will now run next build natively.");
-} finally {
-  releaseGlobalBuildLock();
+for (const [cmd, args] of prebuildSteps) {
+  const result = spawnSync(cmd, args, {
+    cwd: ROOT,
+    stdio: "inherit",
+    env: {
+      ...process.env,
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://sectorcalc.com",
+    },
+  });
+  if ((result.status ?? 1) !== 0) {
+    console.warn(`firebase-hosting-build: prebuild step "${cmd} ${args.join(" ")}" failed — continuing (non-fatal for deploy).`);
+  }
 }
+
+console.log("firebase-hosting-build: prebuild steps done. Firebase will now run next build natively.");

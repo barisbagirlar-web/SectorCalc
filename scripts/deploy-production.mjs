@@ -10,6 +10,7 @@ import {
   mkdirSync,
   openSync,
   readFileSync,
+  rmSync,
   symlinkSync,
   unlinkSync,
   writeFileSync,
@@ -17,6 +18,19 @@ import {
 import { join, resolve } from "node:path";
 
 const ROOT = process.cwd();
+
+// ── Stale process cleanup ──────────────────────────────────────────────
+// Kill any remaining next/firebase build processes from previous failed deploys
+try { spawnSync("pkill", ["-f", "next.firebase-backup build"], { stdio: "ignore", timeout: 3000 }); } catch {}
+try { spawnSync("pkill", ["-f", "next-firebase-deploy-shim"], { stdio: "ignore", timeout: 3000 }); } catch {}
+try { spawnSync("pkill", ["-f", "next-build-with-500"], { stdio: "ignore", timeout: 3000 }); } catch {}
+try { spawnSync("pkill", ["-f", "firebase-hosting-build"], { stdio: "ignore", timeout: 3000 }); } catch {}
+// Remove stale lock files
+try { unlinkSync(join(ROOT, ".sectorcalc-build.lock")); } catch {}
+try { unlinkSync(join(ROOT, ".next-deploy.lock")); } catch {}
+// Remove stale .firebase/hosting directory (leftover from failed deploy)
+try { rmSync(join(ROOT, ".firebase", "sectorcalc-bf412", "hosting"), { recursive: true, force: true }); } catch {}
+
 const DEPLOY_LOCK_PATH = join(ROOT, ".next-deploy.lock");
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
 const NEXT_BIN_PATH = join(ROOT, "node_modules/.bin/next");
@@ -181,28 +195,17 @@ let shimInstalled = false;
 try {
   restoreNextBin();
 
-  const forceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
-  const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
-
-  if (!hasBuild) {
-    console.log("deploy-production: running full npm run build pipeline…");
-    if (run("npm", ["run", "build"]) !== 0) {
-      console.error("deploy-production: build failed.");
-      process.exit(1);
-    }
-  } else {
-    console.log(`deploy-production: reusing existing build (${readFileSync(BUILD_ID_PATH, "utf8").trim()}).`);
-  }
-
-  if (!ensureBuildReady()) {
-    console.error("deploy-production: .next output invalid — rerun with DEPLOY_FORCE_REBUILD=1");
-    process.exit(1);
-  }
-
+  // Don't pre-build — Firebase framework integration runs its own build.
+  // Our shim (next-firebase-deploy-shim.mjs) intercepts next build for retry logic.
+  console.log("deploy-production: cleaning stale .next for fresh Firebase-managed build…");
+  try { rmSync(join(ROOT, ".next"), { recursive: true, force: true }); } catch {}
+  
   installNextBuildShim();
   shimInstalled = true;
 
   console.log("deploy-production: deploying Firebase Hosting + Firestore rules…");
+  console.log("deploy-production: Firebase will run next build natively via its framework integration.");
+  console.log("deploy-production: Our shim intercepts the build for retry logic.");
   const deployStatus = run("npx", [
     "firebase",
     "deploy",
@@ -215,7 +218,9 @@ try {
       ...process.env,
       NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
       FIREBASE_FRAMEWORKS_BUILD_TARGET: "production",
-      SECTORCALC_FIREBASE_REUSE_BUILD: "1",
+      // Do NOT set SECTORCALC_FIREBASE_REUSE_BUILD — Firebase framework
+      // needs to run next build through its full pipeline to create the
+      // function source directory at .firebase/sectorcalc-bf412/functions/
     },
   });
 
