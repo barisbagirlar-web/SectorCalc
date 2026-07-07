@@ -22,7 +22,7 @@
 
 import { readdirSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { getFreeV531SchemaBySlug, FREE_V531_SCHEMA_BY_SLUG } from "../src/sectorcalc/schemas/free-v531/registry.generated";
+import { getFreeV531SchemaBySlug, FREE_V531_SCHEMA_SLUGS } from "../src/sectorcalc/schemas/free-v531/registry.generated";
 
 const ROOT = process.cwd();
 const FORMULA_DIR = join(ROOT, "src/sectorcalc/formulas/free-v531");
@@ -313,7 +313,7 @@ function main(): void {
   ];
 
   // Schema resolver check — using static imports
-  const registrySlugs = [...FREE_V531_SCHEMA_BY_SLUG.keys()];
+  const registrySlugs = [...FREE_V531_SCHEMA_SLUGS];
   const missingFromRegistry = V531_SLUGS.filter((s) => !registrySlugs.includes(s));
   const registryCheck: CheckResult = { pass: missingFromRegistry.length === 0, messages: [] };
   if (missingFromRegistry.length > 0) {
