@@ -332,6 +332,7 @@ try {
         "src/components/diagnostics/",
         "src/lib/diagnostics/",
         "scripts/generate-",
+        "scripts/guard-",
         "scripts/finalize-next-build.mjs",
         "src/app/tools/",
         "src/components/pro-commerce/",
