@@ -51,7 +51,7 @@ function getSchemasDirs(): string[] {
  * Normalize a raw PRO schema JSON object to match SuperV4Schema format.
  * PRO schemas use different naming conventions than the free-tool schema adapter expects.
  */
-function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema {
+export function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema {
   // Deep clone to avoid mutating the original
   const s = JSON.parse(JSON.stringify(raw)) as Record<string, unknown>;
 

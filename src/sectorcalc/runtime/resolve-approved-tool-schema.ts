@@ -4,7 +4,7 @@
 
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
-import { getProToolSchema, listProToolSchemaSlugs, clearProSchemaCache } from "@/sectorcalc/runtime/pro-schema-loader";
+import { getProToolSchema, listProToolSchemaSlugs, clearProSchemaCache, normalizeProSchema } from "@/sectorcalc/runtime/pro-schema-loader";
 import { getFreeToolSchema, listFreeToolSchemaSlugs, clearFreeSchemaCache } from "@/sectorcalc/runtime/free-schema-loader";
 import { normalizeFreeSchema } from "@/sectorcalc/runtime/free-schema-loader";
 import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtime/assert-tool-schema-identity";
@@ -104,9 +104,24 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   if (freeSchema2) return buildAndCache(() => freeSchema2, "free_v531");
 
   // Direct file read fallback — if the schema loaders' module-level caches
-  // are in a bad state (dev HMR edge case), read the Free schema JSON file
+  // are in a bad state (dev HMR edge case), read the schema JSON file
   // directly and validate it inline.
   try {
+    // Check pro-v531 directory first (Baris PRO tools)
+    const proDir = path.join(process.cwd(), "src/sectorcalc/schemas/pro-v531");
+    if (fs.existsSync(proDir)) {
+      for (const fn of fs.readdirSync(proDir).filter((f: string) => f.endsWith(".schema.json"))) {
+        const raw = JSON.parse(fs.readFileSync(path.join(proDir, fn), "utf8"));
+        if (raw.tool_key === normalizedKey) {
+          const schema = normalizeProSchema(raw);
+          const val = validateSuperV4Schema(schema);
+          if (val.ok) {
+            return buildAndCache(() => val.schema, "pro_v531");
+          }
+        }
+      }
+    }
+    // Fall back to free-v531 directory (Free tools)
     const freeDir = path.join(process.cwd(), "src/sectorcalc/schemas/free-v531");
     if (fs.existsSync(freeDir)) {
       for (const fn of fs.readdirSync(freeDir).filter((f: string) => f.endsWith(".json"))) {
@@ -114,6 +129,20 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
         if (raw.tool_key === normalizedKey) {
           const schema = normalizeFreeSchema(raw);
           return buildAndCache(() => schema, "free_v531");
+        }
+      }
+    }
+    // Also try .next/server paths (Firebase SSR bundle)
+    const nextProDir = path.join(process.cwd(), ".next/server/src/sectorcalc/schemas/pro-v531");
+    if (fs.existsSync(nextProDir)) {
+      for (const fn of fs.readdirSync(nextProDir).filter((f: string) => f.endsWith(".schema.json"))) {
+        const raw = JSON.parse(fs.readFileSync(path.join(nextProDir, fn), "utf8"));
+        if (raw.tool_key === normalizedKey) {
+          const schema = normalizeProSchema(raw);
+          const val = validateSuperV4Schema(schema);
+          if (val.ok) {
+            return buildAndCache(() => val.schema, "pro_v531");
+          }
         }
       }
     }
