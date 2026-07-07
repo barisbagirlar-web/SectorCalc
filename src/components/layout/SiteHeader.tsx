@@ -1,7 +1,4 @@
-// @ts-nocheck
 "use client";
-/* eslint-disable */
-// @ts-nocheck
 
 /**
  * SectorCalc - Premium Global Header
@@ -282,6 +279,14 @@ export function SiteHeader({
         </div>
 
         <div className={`sc-drawer${mobileOpen?' open':''}`} dir="ltr">
+          <div className="sc-draw-search" style={{padding:'10px 18px'}}>
+            <form onSubmit={handleSearch} role="search" style={{display:'flex',alignItems:'center',gap:'6px'}}>
+              <input type="search" placeholder="Search tools..." value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} aria-label="Search tools" style={{flex:1,padding:'10px 14px',fontSize:'15px',border:'1px solid var(--border)',borderRadius:'8px',background:'var(--surface)',color:'var(--text)',minHeight:'44px',fontFamily:'inherit'}} />
+              <button type="submit" style={{display:'flex',alignItems:'center',justifyContent:'center',minWidth:'44px',minHeight:'44px',background:'var(--accent)',color:'#fff',border:'none',borderRadius:'8px',cursor:'pointer'}} aria-label="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </button>
+            </form>
+          </div>
           <div className="sc-draw-sec">
             <button className={`sc-draw-head${mobileSection==='products'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='products'?null:'products')}>
               {t.products} <svg className="dchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>

@@ -102,6 +102,9 @@
     "guard:release": "node scripts/guard-batch3-state.mjs && node scripts/guard-baris-v531-commercial-state-lock.mjs && node scripts/guard-no-inactive-pro-tools-public.mjs",
     "audit:inactive-pro-tools": "node scripts/list-inactive-pro-tools.mjs",
     "guard:no-inactive-pro-tools-public": "node scripts/guard-no-inactive-pro-tools-public.mjs",
+    "guard:no-blocked-free-tools": "node scripts/guard-no-blocked-free-tools.mjs",
+    "guard:no-duplicate-empty-inputs": "node scripts/guard-no-duplicate-empty-inputs.mjs",
+    "guard:mobile-form-state-machine": "node scripts/guard-mobile-form-state-machine.mjs",
     "stop:builds": "pkill -f 'next build' 2>/dev/null; pkill -f 'next-build-with-500' 2>/dev/null; pkill -f 'next-firebase-deploy' 2>/dev/null; pkill -f 'firebase-hosting-build' 2>/dev/null; rm -f .sectorcalc-build.lock .next-deploy.lock; echo 'Build processes cleaned.'",
     "deploy": "node scripts/deploy-production.mjs"
   },

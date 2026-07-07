@@ -818,6 +818,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const sessionExhausted = isPro && hasSession && runsRemaining <= 0;
   const creditSessionLoading = props.creditSessionLoading ?? false;
   const isExecuting = state.executionState === "executing";
+  const isServerBlocked = state.executionState === "server_blocked";
+  const isClientBlocked = state.executionState === "client_precheck_blocked";
   const hasResult = hasServerResponse(response);
 
   const clientBlockerCount = state.blockerState.blockers.filter(
@@ -834,9 +836,22 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     (isPro && !hasSession && !isBypassUser) ||
     (isPro && sessionExhausted);
 
-  const primaryButtonLabel = isFreeTier
-    ? (isExecuting ? "Calculating..." : (hasResult ? "Recalculate" : "Calculate"))
-    : getPrimaryCtaLabel(accessTier, isExecuting, hasSession || isBypassUser, hasResult, creditSessionLoading);
+  // ── Button label state machine (V5.3.1) ──
+  const primaryButtonLabel = (() => {
+    if (isFreeTier) {
+      if (isExecuting) return "Calculating...";
+      if (isServerBlocked) return "Calculate";
+      if (hasResult) return "Recalculate";
+      return "Calculate";
+    }
+    // PRO
+    if (creditSessionLoading) return "Processing credit...";
+    if (props.accessTier === "PRO" && !hasSession && !isBypassUser) return "Sign in to calculate";
+    if (props.accessTier === "PRO" && sessionExhausted) return "Unlock Pro access";
+    if (isExecuting) return "Calculating...";
+    if (hasResult) return "Recalculate";
+    return "Calculate";
+  })();
 
   const primaryButtonAction = useCallback(() => {
     if (isPro && (!hasSession || sessionExhausted)) {
@@ -1187,6 +1202,19 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         {/* Results */}
         <section className="sc-v531-section sc-v531-results" aria-label="Results">
           {vm.resultState.hasResult ? (
+            (isFreeTier && isServerBlocked) ? (
+              <div className="sc-v531-free-validation-error">
+                <p>Calculation not run</p>
+                <ul>
+                  {(response?.warnings ?? []).length > 0
+                    ? response!.warnings.map((w, i) => (
+                        <li key={i}>{w.message}</li>
+                      ))
+                    : [<li key="0">Required fields are missing or invalid.</li>]
+                  }
+                </ul>
+              </div>
+            ) : (
             <div className="sc-v531-result-content">
               {/* FREE mode: show all outputs in a clean summary panel */}
               {isFreeTier && response?.outputs && response.outputs.length > 0 && (
@@ -1589,6 +1617,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 </div>
               )}
               </div>
+            )
             ) : (
               <div className="sc-v531-placeholder">
                 <p className="sc-v531-placeholder-title">No result yet</p>
