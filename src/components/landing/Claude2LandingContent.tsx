@@ -294,7 +294,7 @@ export function Claude2LandingContent() {
               </div>
             </div>
 
-            <Link href="/tools/generated/scrap-rate-optimizer" className="cl2-btn-primary" style={{ marginTop: 20, textDecoration: "none" }}>
+            <Link href="/tools/free/scrap-cost" className="cl2-btn-primary" style={{ marginTop: 20, textDecoration: "none" }}>
               {t("calc.cta")}
             </Link>
             <p className="cl2-micro" style={{ marginTop: 10 }}>

@@ -4,5 +4,5 @@ import { redirect } from "next/navigation";
 type PageProps = { params: Promise<{  }> };
 
 export default async function ToolsIndexPage({ params }: PageProps) {
-  redirect("/tools/generated");
+  redirect("/free-tools");
 }

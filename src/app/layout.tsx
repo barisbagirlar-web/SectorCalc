@@ -80,8 +80,7 @@ export default async function RootLayout({
         <AuthorAuthorityHeadLinks />
 
         <link rel="hub" href="https://pubsubhubbub.appspot.com/" />
-        <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="SectorCalc Guides" />
-        <link rel="manifest" href="/manifest.webmanifest" />
+                <link rel="manifest" href="/manifest.webmanifest" />
 
         <meta name="theme-color" content={THEME_COLOR} />
         <meta name="color-scheme" content="light dark" />
