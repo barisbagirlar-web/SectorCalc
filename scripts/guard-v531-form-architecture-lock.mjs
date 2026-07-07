@@ -181,12 +181,18 @@ for (const file of trackedFiles().filter(shouldScan)) {
     !file.includes("/print/");
 
   if (isToolSlugRoute && file.endsWith(".tsx")) {
-    const usesCanonical =
-      text.includes("UniversalIndustrialDecisionForm") ||
-      text.includes("ProToolSessionWrapper");
+    // Skip Next.js framework files — loading, error, layout don't render the form
+    const basename = file.split("/").pop() || "";
+    if (["loading.tsx", "error.tsx", "layout.tsx", "not-found.tsx"].includes(basename)) {
+      // skip — no form component needed
+    } else {
+      const usesCanonical =
+        text.includes("UniversalIndustrialDecisionForm") ||
+        text.includes("ProToolSessionWrapper");
 
-    if (!usesCanonical) {
-      failures.push(`${file}: tool route must use UniversalIndustrialDecisionForm or ProToolSessionWrapper`);
+      if (!usesCanonical) {
+        failures.push(`${file}: tool route must use UniversalIndustrialDecisionForm or ProToolSessionWrapper`);
+      }
     }
   }
 }
