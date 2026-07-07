@@ -21,9 +21,9 @@ import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "PRO Industrial Calculators | SectorCalc",
+  title: "Pro industrial calculators for audit-safe cost, margin, downtime, and engineering decisions.",
   description:
-    "Access PRO industrial calculators for structural, manufacturing, energy, quality, logistics, and food service decision support. Deterministic, auditable, server-side execution.",
+    "Access 20 live Pro industrial calculators for manufacturing, energy, quality, logistics, and engineering decision support. Deterministic, auditable, server-side execution. Assisted dossiers for source-required cases.",
   robots: { index: true, follow: true },
 };
 
@@ -197,10 +197,14 @@ async function ProCatalogContent() {
       <CatalogPageShell
         tools={tools}
         sectors={taxonomySectorCards}
-        title="PRO Industrial Calculators"
-        subtitle={`${count} deterministic, auditable calculators across industrial engineering domains. Server-side execution. No exact formula exposure. Decision-support only.`}
-        searchPlaceholder="Search PRO calculators..."
-        categoryTitle="Industry sectors"
+        title="PRO INDUSTRIAL CALCULATORS"
+        subtitle="Pro calculators for cost, margin, downtime, and engineering decisions."
+        subheadline="Run 20 live server-side calculators with entitlement-gated execution, audit-safe outputs, and decision-support summaries. Source-required cases are handled as assisted Pro dossiers."
+        primaryCta={{"href":"#search","label":"Run a Pro Calculator"}}
+        secondaryCta={{"href":"/pricing","label":"View Pricing"}}
+        assistedClarifier="20 live calculators are self-service. Assisted dossiers are available for source-required decisions."
+        searchPlaceholder="Search Pro calculators..."
+        categoryTitle="Browse Pro tools"
         proToolsHref="/pricing"
       />
     </section>

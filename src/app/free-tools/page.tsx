@@ -20,9 +20,9 @@ import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Free Industrial Calculators | SectorCalc",
+  title: "Free industrial calculators for cost, risk, capacity, and shop-floor decisions.",
   description:
-    "Browse 50 free industrial calculators across machining, metal, energy, finance, logistics, and more. Browser-first, privacy-safe, decision-support tools.",
+    "Browse 49 free industrial calculators across machining, metal, energy, finance, logistics, and more. Browser-first, privacy-safe, decision-support tools. Quick checks before Pro reports.",
   robots: { index: true, follow: true },
 };
 
@@ -338,10 +338,13 @@ async function FreeCatalogContent() {
       <CatalogPageShell
         tools={tools}
         sectors={taxonomySectorCards}
-        title="Free Industrial Calculators"
-        subtitle={`${tools.length} browser-first, privacy-safe calculators across industrial engineering domains. Formula-free decision support.`}
+        title="FREE INDUSTRIAL CALCULATORS"
+        subtitle="Free calculators for quick cost, risk, capacity, and production checks."
+        subheadline="Run browser-first calculators for machining, finance, energy, welding, materials, logistics, and workshop decisions. Use them for fast estimates before moving to Pro reports when the decision needs deeper evidence."
+        primaryCta={{"href":"#search","label":"Start a Free Calculation"}}
+        secondaryCta={{"href":"/pro-tools","label":"View Pro Tools"}}
         searchPlaceholder="Search free calculators..."
-        categoryTitle="Industry sectors"
+        categoryTitle="Browse by industry"
         proToolsHref="/pricing"
       />
     </section>

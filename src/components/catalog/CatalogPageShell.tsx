@@ -26,6 +26,11 @@ type CatalogPageShellProps = {
   readonly categoryTitle: string;
   readonly freeToolsHref?: string;
   readonly proToolsHref?: string;
+  readonly subheadline?: string;
+  readonly primaryCta?: { readonly href: string; readonly label: string };
+  readonly secondaryCta?: { readonly href: string; readonly label: string };
+  readonly proofLine?: string;
+  readonly assistedClarifier?: string;
 };
 
 // ─── Helper ──────────────────────────────────────────────────────────────────
@@ -64,6 +69,11 @@ export function CatalogPageShell({
   categoryTitle,
   freeToolsHref,
   proToolsHref,
+  subheadline,
+  primaryCta,
+  secondaryCta,
+  proofLine,
+  assistedClarifier,
 }: CatalogPageShellProps) {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState("all");
@@ -151,8 +161,17 @@ export function CatalogPageShell({
         .cc-kick{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:18px;text-transform:uppercase;letter-spacing:0.05em;}
         .cc-h1{font-family:var(--serif);font-size:clamp(32px,4.5vw,46px);font-weight:400;line-height:1.1;letter-spacing:-0.02em;color:var(--ink);}
         .cc-lede{margin-top:18px;font-size:16px;line-height:1.6;color:var(--ink-soft);max-width:540px;}
+        .cc-sub{margin-top:20px;font-size:clamp(17px,1.8vw,22px);line-height:1.55;color:var(--ink-soft);max-width:720px;}
 
         /* Search */
+        .cc-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
+        .cc-cta-row .btn-primary,.cc-cta-row .btn-secondary{display:inline-flex;align-items:center;padding:14px 28px;font-size:15px;font-weight:500;font-family:var(--sans);text-decoration:none;transition:background .14s,color .14s,border-color .14s;}
+        .cc-cta-row .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent);}
+        .cc-cta-row .btn-primary:hover{background:var(--accent-dk);border-color:var(--accent-dk);}
+        .cc-cta-row .btn-secondary{background:transparent;color:var(--ink);border:1px solid var(--line);}
+        .cc-cta-row .btn-secondary:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+        .cc-proof{margin-top:22px;font-size:14px;color:var(--ink-soft);line-height:1.5;max-width:620px;}
+        .cc-assisted{margin-top:20px;padding:16px 20px;background:rgba(189,93,58,0.04);border:1px solid var(--line);font-size:14px;color:var(--ink-soft);line-height:1.5;max-width:620px;}
         .cc-search{position:relative;margin:8px 0 36px;}
         .cc-search input{width:100%;height:64px;padding:0 24px 0 56px;background:var(--surface);border:1px solid var(--line);border-radius:14px;font-size:17px;color:var(--ink);font-family:var(--sans);outline:none;transition:border-color .15s,background .15s;}
         .cc-search input::placeholder{color:var(--ink-faint);}
@@ -222,6 +241,18 @@ export function CatalogPageShell({
           <header className="cc-hero">
             <div className="cc-kick">{title}</div>
             <h1 className="cc-h1">{subtitle}</h1>
+            {(primaryCta || secondaryCta) && (
+              <div className="cc-cta-row">
+                {primaryCta && (primaryCta.href.startsWith("#") ? (
+                  <button type="button" className="btn-primary" onClick={() => searchRef.current?.focus()}>{primaryCta.label}</button>
+                ) : (
+                  <Link href={primaryCta.href} prefetch={false} className="btn-primary">{primaryCta.label}</Link>
+                ))}
+                {secondaryCta && <Link href={secondaryCta.href} prefetch={false} className="btn-secondary">{secondaryCta.label}</Link>}
+              </div>
+            )}
+            {proofLine && <p className="cc-proof">{proofLine}</p>}
+            {assistedClarifier && <div className="cc-assisted">{assistedClarifier}</div>}
           </header>
 
           {/* Search */}
