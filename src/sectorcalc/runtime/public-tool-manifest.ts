@@ -3,6 +3,7 @@ import type { AccessTier, ToolSource } from "./build-tool-render-contract";
 import { listProToolSchemaSlugs } from "@/sectorcalc/runtime/pro-schema-loader";
 import { listFreeToolSlugs } from "@/sectorcalc/runtime/public-free-tool-manifest";
 import { isActiveTool } from "@/sectorcalc/runtime/active-tool-allowlist";
+import { freeV531FormulaRegistry } from "@/sectorcalc/formulas/free-v531/index";
 
 export interface PublicToolManifestEntry {
   toolKey: string; slug: string; toolName: string; categoryLabel: string;
@@ -41,6 +42,13 @@ function buildManifest(): Map<string, PublicToolManifestEntry> {
   // V5.4 Core — only allowlisted Free tools are published
   for (const slug of listFreeToolSlugs()) {
     if (!isActiveTool(slug)) continue;
+    entries.push({ slug, entry: { toolKey: slug, slug, toolName: "", categoryLabel: "", source: "free_v531" as ToolSource, accessTier: "FREE" as AccessTier, route: "/tools/free/" + slug, renderMode: "V531_UNIVERSAL_FORM", formulaMode: "SERVER_ONLY", sitemap: true, public: true } });
+  }
+
+  // V5.3.1 — include all Free V5.3.1 formula modules in manifest
+  for (const slug of Object.keys(freeV531FormulaRegistry)) {
+    if (!isActiveTool(slug)) continue;
+    if (entries.some(e => e.slug === slug)) continue;
     entries.push({ slug, entry: { toolKey: slug, slug, toolName: "", categoryLabel: "", source: "free_v531" as ToolSource, accessTier: "FREE" as AccessTier, route: "/tools/free/" + slug, renderMode: "V531_UNIVERSAL_FORM", formulaMode: "SERVER_ONLY", sitemap: true, public: true } });
   }
 
