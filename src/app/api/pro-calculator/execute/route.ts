@@ -38,6 +38,7 @@ import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 import "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
+import { getBarisExecutionBlockReason, checkBarisExecutionEntitlement } from "@/sectorcalc/pro-commerce/baris-entitlement-guard";
 
 // All 135 Pro formula modules are auto-generated generic templates with
 // identical placeholder outputs. V5.4 Core — the compressed air leak cost
@@ -604,6 +605,47 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     const validatedSchema = pass1.schema!;
+
+    // V5.3.1 — Baris PRO Entitlement & Execution Guard
+    // Block assisted dossier tools immediately.
+    // Block instant calculators unless entitled.
+    const barisBlockReason = getBarisExecutionBlockReason(toolKey ?? "");
+    if (barisBlockReason === "ASSISTED_DOSSIER_ONLY") {
+      const errorResponse = buildFullBlockedResponse(
+        "ASSISTED_DOSSIER_ONLY",
+        "This tool is available as an assisted PRO Dossier request only. Instant calculation is not supported.",
+      );
+      const { response: safeResponse } = redactPublicResponse(errorResponse);
+      return NextResponse.json(safeResponse, { status: 403 });
+    }
+
+    if (barisBlockReason === null && toolKey) {
+      // This is a Baris tool. Check entitlement before execution.
+      const product = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey));
+      if (product) {
+        // Entitlement check: require authenticated user + pro access
+        const userEmail = request.headers.get("x-user-email") ?? process.env.NODE_ENV === "development" ? process.env.DEV_BYPASS_EMAIL ?? null : null;
+        const subStatus = request.headers.get("x-subscription-status") ?? null;
+        const entitlement = checkBarisExecutionEntitlement({
+          toolKey,
+          userEmail,
+          subscriptionStatus: subStatus ?? undefined,
+        });
+        if (!entitlement.ok) {
+          const statusCode = entitlement.reason === "PRO_ENTITLEMENT_REQUIRED" ? 402 : 403;
+          const errorResponse = buildFullBlockedResponse(
+            entitlement.reason,
+            entitlement.reason === "PRO_ENTITLEMENT_REQUIRED"
+              ? "Paid PRO entitlement is required before execution."
+              : entitlement.reason === "BLOCKED_PAYMENT_INFRASTRUCTURE_NOT_BOUND"
+                ? "Payment infrastructure is not configured. Please contact support."
+                : "Execution blocked.",
+          );
+          const { response: safeResponse } = redactPublicResponse(errorResponse);
+          return NextResponse.json(safeResponse, { status: statusCode });
+        }
+      }
+    }
 
     // V5.4 Core — Register Free Pilot and Pro Pilot formulas in the formula registry
     // Safe to call repeatedly; first call registers, subsequent calls are no-ops.

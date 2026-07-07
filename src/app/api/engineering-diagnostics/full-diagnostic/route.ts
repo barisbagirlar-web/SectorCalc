@@ -238,13 +238,13 @@ export async function POST(req: Request) {
       );
     }
 
-    const isStrictPrivacy = analyzeInput.privacy_mode === "strict";
+    const isReducedRetention = analyzeInput.privacy_mode === "reduced_retention";
 
-    /* ── 9. Persist to Firestore + register verify (skip in strict privacy mode) ── */
+    /* ── 9. Persist to Firestore + register verify (skip in reduced retention mode) ── */
     let reportHash: string | null = null;
     let verifyUrl: string | null = null;
 
-    if (!isStrictPrivacy) {
+    if (!isReducedRetention) {
       const { hash } = registerDiagnosticVerify(schemaValidation.data);
       const persistedHash = await saveDiagnosticReport(schemaValidation.data, ownerUid);
       reportHash = persistedHash ?? hash;

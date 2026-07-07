@@ -98,7 +98,7 @@ export const ActionPlanSectionSchema = z.object({
 export const EvidenceSectionSchema = z.object({
   photo_status: z.enum(["NOT_ATTACHED", "HASH_ONLY", "ATTACHED_IN_MEMORY"]),
   image_hash: z.string().nullable(),
-  privacy_mode: z.enum(["standard", "privacy"]),
+  privacy_mode: z.enum(["standard", "reduced_retention"]),
 });
 
 export const RelatedToolEntrySchema = z.object({

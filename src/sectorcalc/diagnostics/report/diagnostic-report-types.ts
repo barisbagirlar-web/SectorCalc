@@ -95,7 +95,7 @@ export type PhotoStatus = "NOT_ATTACHED" | "HASH_ONLY" | "ATTACHED_IN_MEMORY";
 export interface EvidenceSection {
   photo_status: PhotoStatus;
   image_hash: string | null;
-  privacy_mode: "standard" | "privacy";
+  privacy_mode: "standard" | "reduced_retention";
 }
 
 export type ToolStatus = "ACTIVE" | "PLANNED" | "MISSING";

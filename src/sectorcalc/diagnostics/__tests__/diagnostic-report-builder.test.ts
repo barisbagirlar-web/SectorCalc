@@ -67,7 +67,7 @@ const WELDING_PRIVACY_INPUT = {
     rework_probability: 0.40,
     probability_source: "USER_ADJUSTED" as const,
   },
-  privacy_mode: "strict" as const,
+  privacy_mode: "reduced_retention" as const,
 };
 
 describe("determinism", () => {
@@ -238,8 +238,8 @@ describe("evidence section", () => {
     expect(r.evidence_section.photo_status).toBe("NOT_ATTACHED");
     expect(r.evidence_section.image_hash).toBeNull();
   });
-  it("strict privacy mode", () => {
-    expect(buildFixture(WELDING_PRIVACY_INPUT).evidence_section.privacy_mode).toBe("privacy");
+  it("reduced retention privacy mode", () => {
+    expect(buildFixture(WELDING_PRIVACY_INPUT).evidence_section.privacy_mode).toBe("reduced_retention");
   });
 });
 

@@ -138,7 +138,7 @@ function buildEvidenceSection(privacyMode: string): EvidenceSection {
   return {
     photo_status: "NOT_ATTACHED",
     image_hash: null,
-    privacy_mode: privacyMode === "strict" ? "privacy" : "standard",
+    privacy_mode: privacyMode === "reduced_retention" ? "reduced_retention" : "standard",
   };
 }
 

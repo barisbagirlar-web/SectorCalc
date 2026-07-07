@@ -39,7 +39,7 @@ export const AnalyzeRequestSchema = z.object({
     probability_source: z.enum(["DEFAULT_TABLE", "USER_ADJUSTED"]),
   }),
   visual_observations: z.array(VisualObservationSchema).max(20).optional(),
-  privacy_mode: z.enum(["standard", "strict"]).default("standard"),
+  privacy_mode: z.enum(["standard", "reduced_retention"]).default("standard"),
 });
 
 export type AnalyzeRequest = z.infer<typeof AnalyzeRequestSchema>;

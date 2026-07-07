@@ -43,7 +43,7 @@ const CALIBRATION_OPTIONS = [
 
 const PRIVACY_OPTIONS = [
   { value: "standard", label: "Standard" },
-  { value: "strict", label: "Strict (no data retention)" },
+  { value: "reduced_retention", label: "Reduced Retention" },
 ];
 
 const PROB_SOURCE_OPTIONS = [
@@ -130,6 +130,38 @@ type DiagnosticResult = {
   error?: string;
   issues?: Array<{ path: string; message: string }>;
 };
+
+/* ── Gated Preview (free, no commercial value) ── */
+type GatedPreviewResult = {
+  ok: boolean;
+  mode: "gated_preview";
+  preview: {
+    domain_detected: string;
+    domain_category: string;
+    risk_band: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
+    risk_band_label: string;
+    brief_explanation: string;
+  };
+  requires_upgrade: boolean;
+  disclaimer: string;
+  error?: string;
+};
+
+type AnalyzeResponse = DiagnosticResult | GatedPreviewResult;
+
+function isGatedPreview(r: AnalyzeResponse): r is GatedPreviewResult {
+  return (r as GatedPreviewResult).mode === "gated_preview";
+}
+
+function riskBandBadge(band: string): { bg: string; fg: string } {
+  switch (band) {
+    case "LOW": return { bg: "#D6F5D6", fg: "#238A23" };
+    case "MEDIUM": return { bg: "#FFF8D6", fg: "#8A7A23" };
+    case "HIGH": return { bg: "#FFF0D6", fg: "#A16A23" };
+    case "CRITICAL": return { bg: "#F5D6D6", fg: "#A12323" };
+    default: return { bg: "#F0EEE6", fg: "#6B6B68" };
+  }
+}
 
 /* ── Helpers ── */
 
@@ -386,6 +418,125 @@ export default function EngineeringDiagnosticsStartPage() {
   function renderResult() {
     if (!result) return null;
 
+    /* ── Gated Preview (free, no commercial value) ── */
+    if (isGatedPreview(result)) {
+      const bandBadge = riskBandBadge(result.preview.risk_band);
+      return (
+        <div style={{ marginTop: "2.5rem" }}>
+          {/* Risk Band Banner */}
+          <div
+            style={{
+              padding: "1.25rem 1.5rem",
+              borderRadius: "8px",
+              background: bandBadge.bg,
+              border: `1px solid ${bandBadge.fg}`,
+              marginBottom: "1.5rem",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "0.75rem",
+              }}
+            >
+              <div>
+                <div style={{ fontSize: "0.8rem", color: "#6B6B68", marginBottom: "0.25rem" }}>
+                  Engineering Risk Assessment
+                </div>
+                <div style={{ fontSize: "1.25rem", fontWeight: 700, color: bandBadge.fg }}>
+                  {result.preview.risk_band_label}
+                </div>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontSize: "0.8rem", color: "#6B6B68", marginBottom: "0.25rem" }}>
+                  Condition
+                </div>
+                <div style={{ fontSize: "1.25rem", fontWeight: 600, color: bandBadge.fg }}>
+                  {result.preview.risk_band}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Domain Info */}
+          <Card title="Detected Domain">
+            <InfoRow label="Domain" value={result.preview.domain_detected} />
+            <InfoRow label="Category" value={result.preview.domain_category} />
+          </Card>
+
+          {/* Brief Explanation */}
+          <Card title="Summary">
+            <p style={{ lineHeight: 1.6, color: "#3A3A38", margin: 0 }}>
+              {result.preview.brief_explanation}
+            </p>
+          </Card>
+
+          {/* Upgrade CTA */}
+          <div
+            style={{
+              marginTop: "1.5rem",
+              padding: "1.5rem",
+              background: "linear-gradient(135deg, #F0EEE6 0%, #E8E6DE 100%)",
+              border: "2px solid #BD5D3A",
+              borderRadius: "12px",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "#1A1915", marginBottom: "0.5rem" }}>
+              Unlock Full Engineering Diagnostic
+            </div>
+            <div style={{ fontSize: "0.9rem", color: "#6B6B68", lineHeight: 1.5, marginBottom: "1rem" }}>
+              Get the complete analysis including root cause hypotheses, cost exposure,
+              corrective action plan, and professional report with AI interpretation.
+            </div>
+            <div style={{ fontSize: "0.85rem", color: "#BD5D3A", fontWeight: 600, marginBottom: "1rem" }}>
+              5 Credits &middot; 3 Full Diagnostics included
+            </div>
+            <Link
+              href="/pricing"
+              style={{
+                display: "inline-block",
+                padding: "0.8rem 2rem",
+                background: "#BD5D3A",
+                color: "#fff",
+                borderRadius: "8px",
+                textDecoration: "none",
+                fontWeight: 600,
+                fontSize: "1rem",
+                minHeight: "48px",
+                lineHeight: "48px",
+              }}
+            >
+              Get Diagnostic Credits
+            </Link>
+          </div>
+
+          {/* Manual Inspection Reminder */}
+          <div
+            style={{
+              marginTop: "1rem",
+              padding: "1rem 1.25rem",
+              background: "#FFF9F0",
+              border: "1px solid #E8D5B5",
+              borderRadius: "8px",
+              fontSize: "0.85rem",
+              color: "#6B6B68",
+              lineHeight: 1.6,
+            }}
+          >
+            <strong>Important:</strong> This is a preliminary engineering assessment. A qualified
+            professional must perform an on-site inspection before any production decision is made.
+            The full diagnostic report includes engineering reasoning, root cause analysis, and a
+            corrective action plan.
+          </div>
+        </div>
+      );
+    }
+
+    /* ── Full Deterministic Result (authenticated + entitled) ── */
     const dec = result.decision;
     const dBadge = decisionBadgeClass(dec.decision);
 
@@ -554,21 +705,34 @@ export default function EngineeringDiagnosticsStartPage() {
           {result.disclaimer}
         </div>
 
-        {/* Create Report Preview */}
+        {/* Create Report Preview (requires auth + entitlement) */}
         <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <button
             onClick={async () => {
               setPreviewError(null);
               setPreviewLoading(true);
               try {
+                const token = await getCurrentUserIdToken();
+                if (!token) {
+                  setPreviewError("Please sign in to create a report preview.");
+                  setPreviewLoading(false);
+                  return;
+                }
                 const res = await fetch("/api/engineering-diagnostics/report-preview", {
                   method: "POST",
-                  headers: { "Content-Type": "application/json" },
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                  },
                   body: JSON.stringify(lastRequestBodyRef.current),
                 });
                 const data = await res.json();
                 if (!res.ok || !data.ok) {
-                  setPreviewError(data.error || "Failed to create report preview.");
+                  if (res.status === 402) {
+                    setPreviewError("Diagnostic credits required for report generation.");
+                  } else {
+                    setPreviewError(data.error || "Failed to create report preview.");
+                  }
                   setPreviewLoading(false);
                   return;
                 }
@@ -741,7 +905,7 @@ export default function EngineeringDiagnosticsStartPage() {
           </div>
         )}
 
-        {/* Download as JSON */}
+        {/* Download as JSON (auth-gated) */}
         <div style={{ textAlign: "center", marginTop: "1rem" }}>
           <button
             onClick={() => {
@@ -937,6 +1101,23 @@ export default function EngineeringDiagnosticsStartPage() {
                         </option>
                       ))}
                     </select>
+                    {form.privacy_mode === "reduced_retention" && (
+                      <div
+                        style={{
+                          marginTop: "0.4rem",
+                          fontSize: "0.8rem",
+                          color: "#8A7A23",
+                          background: "#FFF8D6",
+                          padding: "0.4rem 0.6rem",
+                          borderRadius: "4px",
+                          lineHeight: 1.4,
+                        }}
+                      >
+                        Photos are not stored on servers. Only image hashes, report metadata,
+                        and required verification records are retained. Full diagnostics with
+                        AI interpretation are always processed server-side.
+                      </div>
+                    )}
                   </Field>
                 </FieldRow>
                 <Field label="Problem Context" error={fieldErrors.problem_context} required>
