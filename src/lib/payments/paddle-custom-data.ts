@@ -15,12 +15,14 @@ import "server-only";
 export type PaddlePurchaseIntent =
   | "SECTORCALC_CREDIT_PACK_PURCHASE"
   | "SECTORCALC_PRO_SUBSCRIPTION_PURCHASE"
-  | "SECTORCALC_PREMIUM_UNLOCK";
+  | "SECTORCALC_PREMIUM_UNLOCK"
+  | "BARIS_PRO_PURCHASE";
 
 export const ALLOWED_INTENTS: readonly PaddlePurchaseIntent[] = [
   "SECTORCALC_CREDIT_PACK_PURCHASE",
   "SECTORCALC_PRO_SUBSCRIPTION_PURCHASE",
   "SECTORCALC_PREMIUM_UNLOCK",
+  "BARIS_PRO_PURCHASE",
 ];
 
 export function isAllowedIntent(value: string): value is PaddlePurchaseIntent {
@@ -115,8 +117,25 @@ export function validateCustomData(
   const isCreditKey = isCreditPackKey(productKey);
   const isSubKey = isSubscriptionPackKey(productKey);
 
-  if (!isCreditKey && !isSubKey) {
+  if (!isCreditKey && !isSubKey && intent !== "BARIS_PRO_PURCHASE") {
     throw new Error(`Unknown product key: ${productKey}`);
+  }
+
+  // BARIS_PRO_PURCHASE bypasses product key validation
+  if (intent === "BARIS_PRO_PURCHASE") {
+    const toolKey = String(raw.toolKey ?? "");
+    const userId = String(raw.userId ?? "");
+    return {
+      intent,
+      productKey: "baris_pro" as PaddleProductKey,
+      purchaseType: "baris_pro_purchase" as PurchaseType,
+      credits: 0,
+      planId: undefined,
+      toolKey: toolKey || undefined,
+      userId: userId || undefined,
+      source: String(raw.source ?? ""),
+      requestId: String(raw.requestId ?? ""),
+    };
   }
 
   // Resolve purchase type server-side

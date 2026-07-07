@@ -8,8 +8,6 @@ import {
   getPublicAppUrl,
   resolveStripePriceId,
 } from "@/sectorcalc/monetization/price-lookup.server";
-import { getBarisProduct } from "@/sectorcalc/pro-commerce/baris-pro-products";
-import { requireBarisCheckoutPrice } from "@/sectorcalc/pro-commerce/baris-price-resolver";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -30,55 +28,12 @@ export async function POST(req: NextRequest) {
     const intent = typeof body.intent === "string" ? body.intent : "";
 
     if (intent === "BARIS_PRO_PURCHASE") {
-      // Baris PRO purchase: resolve from product registry
-      const product = getBarisProduct(toolKey);
-      if (!product) {
-        return NextResponse.json({ error: "Unknown Baris product" }, { status: 400 });
-      }
-      if (!product.sellable) {
-        return NextResponse.json({ error: "Product is not sellable" }, { status: 403 });
-      }
-
-      const priceCheck = requireBarisCheckoutPrice(product.stripePriceEnvKey);
-      if (!priceCheck.ok) {
-        return NextResponse.json(
-          { error: priceCheck.reason || "STRIPE_PRICE_ID_REQUIRED" },
-          { status: 500 },
-        );
-      }
-
-      const appUrl = getPublicAppUrl();
-      if (!appUrl) {
-        return NextResponse.json({ error: "Application URL is not configured" }, { status: 500 });
-      }
-
-      const stripe = getStripeClient();
-      if (!stripe) {
-        return NextResponse.json({ error: "Checkout is not configured" }, { status: 500 });
-      }
-
-      const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
-        line_items: [{ price: priceCheck.priceId!, quantity: 1 }],
-        mode: "payment",
-        success_url: `${appUrl}/tools/pro/${encodeURIComponent(toolKey)}?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${appUrl}/tools/pro/${encodeURIComponent(toolKey)}`,
-        metadata: {
-          tool_key: toolKey,
-          product_mode: product.productMode,
-          payment_product_type: product.paymentProductType,
-          execution_mode: product.executionMode,
-          source: "baris_pro_purchase",
-          entitlementLevel: "single_report",
-          plan: "single_report",
-        },
-      });
-
-      if (!session.url) {
-        return NextResponse.json({ error: "Checkout session did not return a URL" }, { status: 500 });
-      }
-
-      return NextResponse.json({ url: session.url });
+      // Baris PRO purchases must use Paddle checkout, not Stripe
+      return NextResponse.json({
+        error: "Baris PRO purchases must use /api/checkout/paddle",
+        provider: "PADDLE",
+        checkoutEndpoint: "/api/checkout/paddle",
+      }, { status: 400 });
     }
 
     if (intent !== "FREE_TOOL_PREMIUM_UPSELL") {

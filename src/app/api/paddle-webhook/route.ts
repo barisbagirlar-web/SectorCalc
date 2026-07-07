@@ -87,6 +87,8 @@ interface FulfillmentParams {
   intent: string;
   productKey: string;
   purchaseType: string;
+  barisToolKey?: string;
+  paddleCustomerId?: string;
 }
 
 /**
@@ -187,6 +189,26 @@ async function fulfillAtomically(
           },
           { merge: true },
         );
+      }
+
+      // 4b. Baris PRO entitlement write
+      if (intent === "BARIS_PRO_PURCHASE" && params.barisToolKey) {
+        const entitlementId = `baris_pro_${transactionId}`;
+        const entitlementRef = db
+          .collection("premiumEntitlements")
+          .doc(entitlementId);
+        txn.set(entitlementRef, {
+          userId,
+          provider: "PADDLE",
+          paddleTransactionId: transactionId,
+          paddleCustomerId: params.paddleCustomerId,
+          toolKey: params.barisToolKey,
+          plan: "single_report",
+          status: "active",
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          source: "baris_pro_purchase",
+        });
       }
 
       // 5. Write billing event record
@@ -303,6 +325,7 @@ export async function POST(req: NextRequest) {
   let credits = 0;
   let planId = "";
   let userId = "";
+  let barisToolKey = "";
 
   // Try canonical format first
   if (customDataRaw && customDataRaw.intent) {
@@ -317,6 +340,17 @@ export async function POST(req: NextRequest) {
     } catch {
       // Falls through to legacy parsing
     }
+  }
+
+  // Check for baris_pro_purchase source
+  if (
+    customDataRaw &&
+    String(customDataRaw.source ?? "") === "baris_pro_purchase"
+  ) {
+    intent = "BARIS_PRO_PURCHASE";
+    barisToolKey = String(customDataRaw.tool_key ?? "");
+    purchaseType = "baris_pro_purchase";
+    userId = String(customDataRaw.userId ?? "");
   }
 
   // Fall back to legacy if canonical parsing failed or missing
@@ -356,6 +390,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ received: true, warning: "no_actionable_data" });
   }
 
+  // Extract Paddle customer ID for entitlement
+  const customer = txn.customer as Record<string, unknown> | undefined;
+  const paddleCustomerId = customer?.id ? String(customer.id) : "";
+
   // ── Atomic fulfillment ──────────────────────────────────────────────
   const result = await fulfillAtomically({
     userId,
@@ -367,6 +405,8 @@ export async function POST(req: NextRequest) {
     intent,
     productKey,
     purchaseType,
+    barisToolKey: barisToolKey || undefined,
+    paddleCustomerId: paddleCustomerId || undefined,
   });
 
   if (!result.fulfilled && result.reason === "duplicate") {
