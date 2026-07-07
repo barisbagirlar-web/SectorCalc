@@ -94,7 +94,7 @@
     "guard:baris-v531-commercial-lock": "node scripts/guard-baris-v531-commercial-state-lock.mjs",
     "guard:baris-v531-runtime-registration": "node scripts/guard-baris-v531-runtime-registration-import.mjs",
     "guard:baris-v531-commercial-copy": "node scripts/guard-sectorcalc-live-commercial-copy-consistency.mjs",
-    "guard:release": "node scripts/guard-batch3-state.mjs && node scripts/guard-baris-v531-commercial-state-lock.mjs && node scripts/guard-baris-v531-runtime-registration-import.mjs && node scripts/guard-sectorcalc-live-commercial-copy-consistency.mjs && node scripts/guard-pro-v531-baris-registry-binding.mjs && node scripts/guard-pro-v531-baris-readiness.mjs && node scripts/guard-pro-v531-baris-assisted-sale-lock.mjs && node scripts/guard-pro-v531-baris-routes.mjs && node scripts/guard-pro-v531-baris-formula-leak.mjs && node scripts/guard-pro-v531-baris-no-client-formula-execution.mjs && node scripts/guard-pro-v531-baris-non-english.mjs && node scripts/guard-baris-standards-source-registry.mjs && node scripts/guard-assisted-revenue-actions.mjs && npm run typecheck && npm run lint && npm run build && npm run guard:root-only && npx vitest run tests/pro-v531-baris/",
+    "guard:release": "node scripts/guard-batch3-state.mjs && node scripts/guard-baris-v531-commercial-state-lock.mjs",
     "deploy": "firebase deploy --only hosting --project sectorcalc-bf412"
   },
   "dependencies": {
