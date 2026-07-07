@@ -25,7 +25,7 @@ const PREMIUM_ANALYZER_TO_SCHEMA_ID: Record<string, string> = {
   "hydraulic-cylinder-force-analyzer": "hydraulic-cylinder-tonnage-power-calculator",
 };
 
-const TOOL_PATH = /^\/tools\/(?:generated|premium-schema|premium)\/([^/]+)$/;
+const TOOL_PATH = /^\/tools\/(?:generated|premium-schema|premium|pro)\/([^/]+)$/;
 const CASE_STUDY_PATH = /^\/case-studies\/([^/]+)$/;
 const AUTHORITY_GUIDE_PATH = /^\/guides\/([^/]+)$/;
 const SEO_LANDING_PATH = /^\/seo\/([^/]+)$/;

@@ -127,7 +127,7 @@ export function getActiveCategorizedToolSitemapRoutes(): readonly SitemapManifes
 
 export function getPremiumRevenueToolSitemapRoutes(): readonly SitemapManifestItem[] {
   return getPremiumRevenueRouteSlugs().map((slug) =>
-    createItem(`/tools/premium/${slug}`, "premium_analyzer", 0.8, "monthly"),
+    createItem(`/tools/pro/${slug}`, "premium_analyzer", 0.8, "monthly"),
   );
 }
 
