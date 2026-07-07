@@ -147,7 +147,10 @@ async function writeSingleReportPurchase(
     typeof session.metadata?.toolSlug === "string" &&
     session.metadata.toolSlug.trim().length > 0
       ? session.metadata.toolSlug.trim()
-      : "cnc-quote-risk-analyzer";
+      : typeof session.metadata?.tool_key === "string" &&
+          session.metadata.tool_key.trim().length > 0
+        ? session.metadata.tool_key.trim()
+        : "cnc-quote-risk-analyzer";
 
   const purchase: SingleReportPurchase = {
     plan: CHECKOUT_PLAN_SINGLE_REPORT,
@@ -246,6 +249,15 @@ export async function handleStripeWebhook(
           if (Number.isFinite(credits) && credits > 0) {
             await addUserCredits(uid, credits, { stripeSessionId: session.id });
           }
+          break;
+        }
+
+        if (
+          session.mode === "payment" &&
+          session.metadata?.source === "baris_pro_purchase"
+        ) {
+          await writeSingleReportPurchase(uid, session);
+          await upsertCheckoutSessionEntitlement(uid, session);
           break;
         }
 

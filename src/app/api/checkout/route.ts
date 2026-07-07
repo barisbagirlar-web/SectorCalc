@@ -69,6 +69,8 @@ export async function POST(req: NextRequest) {
           payment_product_type: product.paymentProductType,
           execution_mode: product.executionMode,
           source: "baris_pro_purchase",
+          entitlementLevel: "single_report",
+          plan: "single_report",
         },
       });
 
