@@ -557,12 +557,10 @@ canvas {
     padding-right: 16px !important;
   }
 
-  /* Safe-area for all pages with mobile CTA */
+  /* Safe-area for tool pages with mobile sticky action bar */
   .has-mobile-cta,
   .sc-v531-shell,
-  .sc-premium-tool-shell,
-  main,
-  .sc-app-main {
+  .sc-premium-tool-shell {
     padding-bottom: calc(var(--sc-mobile-safe-bottom) + 140px) !important;
   }
 
