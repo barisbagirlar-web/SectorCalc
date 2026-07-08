@@ -56,9 +56,6 @@ function setStoreState(next: UseUserSubscriptionState) {
 
 function subscribeStore(listener: StoreListener): () => void {
   storeListeners.add(listener);
-  // Always warm the auth store - AuthStatusIndicator in the header needs
-  // the user state on every page, not just protected routes.
-  bootstrapAuthStore();
   return () => {
     storeListeners.delete(listener);
   };
@@ -220,7 +217,20 @@ function bootstrapAuthStore() {
 
 /** Shared subscription store - one Firebase listener for the whole app. */
 export function useUserSubscription(): UseUserSubscriptionState {
-  return useSyncExternalStore(subscribeStore, getStoreSnapshot, () => INITIAL_STATE);
+  const state = useSyncExternalStore(subscribeStore, getStoreSnapshot, () => INITIAL_STATE);
+
+  // Auth bootstrap moved to useEffect (not subscribeStore) to prevent
+  // a synchronous store mutation during React hydration. When
+  // subscribeStore called bootstrapAuthStore() directly, the store
+  // transition from loading:false → loading:true during hydration
+  // caused the DOM to mutate while Next.js streaming SSR was still
+  // resolving deferred template nodes, producing the error:
+  // "The deferred DOM Node could not be resolved to a valid node."
+  useEffect(() => {
+    bootstrapAuthStore();
+  }, []);
+
+  return state;
 }
 
 /** Warm auth/subscription listener early (header mount). */

@@ -135,8 +135,13 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     // Also try .next/server paths (Firebase SSR bundle)
     const nextProDir = path.join(process.cwd(), ".next/server/src/sectorcalc/schemas/pro-v531");
     if (fs.existsSync(nextProDir)) {
-      for (const fn of fs.readdirSync(nextProDir).filter((f: string) => f.endsWith(".schema.json"))) {
-        const raw = JSON.parse(fs.readFileSync(path.join(nextProDir, fn), "utf8"));
+      // ... same logic ...
+    }
+    // Also try .next/standalone/.next/server paths (Firebase SSR standalone deployment)
+    const standaloneNextProDir = path.join(process.cwd(), ".next/standalone/.next/server/src/sectorcalc/schemas/pro-v531");
+    if (fs.existsSync(standaloneNextProDir)) {
+      for (const fn of fs.readdirSync(standaloneNextProDir).filter((f: string) => f.endsWith(".schema.json"))) {
+        const raw = JSON.parse(fs.readFileSync(path.join(standaloneNextProDir, fn), "utf8"));
         if (raw.tool_key === normalizedKey) {
           const schema = normalizeProSchema(raw);
           const val = validateSuperV4Schema(schema);
