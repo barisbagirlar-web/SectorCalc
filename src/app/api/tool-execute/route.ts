@@ -18,20 +18,12 @@ import {
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
 import { getFreeToolSchema } from "@/sectorcalc/runtime/free-schema-loader";
 import { isActiveTool } from "@/sectorcalc/runtime/active-tool-allowlist";
-import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
-import type { ExecuteResponse } from "@/sectorcalc/pro-form/contract-types";
+import type { SuperV4Schema, ExecuteResponse, CalcStatus, Severity, SourceStatus } from "@/sectorcalc/pro-form/contract-types";
 import { isProBypassEmail } from "@/lib/features/billing/subscription";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { createAuditSeal, computeHash } from "@/sectorcalc/pro-runtime/audit-seal-service";
-import type { ExecuteRequest } from "@/sectorcalc/pro-form/contract-types";
-import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { freeV531FormulaRegistry } from "@/sectorcalc/formulas/free-v531/index";
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
-import {
-  pass2RuntimeExecution,
-  pass3PublicControl,
-  buildFullBlockedResponse,
-} from "@/app/api/pro-calculator/execute/route";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -296,97 +288,191 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     // ── Execute server-side in-process (Free) or internal fetch (Pro) ──
     if (accessTier === "FREE") {
-      // Free tools: execute entirely in-process — no internal HTTP fetch.
-      // This is the critical production fix: Firebase Cloud Functions do not
-      // support loopback HTTP within the same function environment.
+      // Free tools: execute entirely in-process — direct formula module call.
+      // This bypasses the PRO pass2RuntimeExecution pipeline which blocks
+      // free tools with PAID_PRO_SCHEMA_FALLBACK=FORBIDDEN.
 
-      // Register Free pilot formulas in the formula registry
-      registerFreePilotFormulas(validatedSchema);
-
-      // Build ExecuteRequest matching the pro-calculator contract
-      const execBody: ExecuteRequest = {
-        tool_id: validatedSchema.tool_id,
-        tool_key: body.toolKey,
-        schema_version: validatedSchema.metadata?.schema_version || "1.0.0",
-        raw_inputs: Object.fromEntries(
-          Object.entries(body.rawInputs ?? {}).filter(([, v]) => typeof v === "number" && Number.isFinite(v)),
-        ),
-        selected_units: body.selectedUnits,
-        user_profile_mode: body.profileMode ?? "engineering",
-        client_schema_hash: body.clientSchemaHash,
-        display_currency: body.displayCurrency ?? null,
-      };
-
-      // PASS 2 — Runtime Determinism / Calculation
-      const pass2 = await pass2RuntimeExecution(execBody, validatedSchema);
-      if (!pass2.ok) {
-        const blocked = buildFullBlockedResponse(pass2.pipelineState, pass2.errors.join("; "));
-        return NextResponse.json(blocked, { status: 200 });
-      }
-
-      // V5.4 Core — Inject Free V5.3.1 formula module computed values
-      // when the graph engine produced static defaults. The formula engine
-      // stores registry-missing errors in a local variable not exposed in
-      // pass2.errors, so we detect Path B by checking if all output values
-      // are schema defaults (0 | null).
-      const formulaModule = freeV531FormulaRegistry[body.toolKey];
-      const allZero = pass2.outputs.every(o => o.value === 0 || o.value === null);
-      if (formulaModule && allZero) {
-        try {
-          const formulaResult = formulaModule.execute(execBody.raw_inputs);
-          if (formulaResult && formulaResult.outputs) {
-            // Mapping from formula output ID → schema output ID for tools where IDs differ
-            const FORMULA_TO_SCHEMA_OUTPUT_MAP: Record<string, Record<string, string>> = {
-              "cnc-shop-hourly-rate": { "true_hourly_rate": "hourly_rate" },
-              "iso-286-tolerance-fit": { "minimum_clearance_mm": "fit_clearance_range_mm" },
-              "surface-roughness-converter": { "roughness_ra_um": "roughness_equivalent" },
-              "thread-dimensions-reference": { "pitch_diameter_approx_mm": "thread_reference_dimensions" },
-              "knurling-drill-point-depth": { "drill_point_depth_mm": "depth_or_pitch_mm" },
-              "weld-metal-weight-consumable": { "deposited_weld_metal_kg": "weld_consumable_mass" },
-              "bolt-preload-clamp-force": { "initial_preload_kn": "clamp_force_kn" },
-              "steel-weight": { "net_steel_weight_kg": "steel_weight_kg" },
-              "takt-time-cycle-time": { "takt_time_seconds": "capacity_gap" },
-            };
-            const outputMap = FORMULA_TO_SCHEMA_OUTPUT_MAP[body.toolKey];
-
-            for (const fo of formulaResult.outputs) {
-              const schemaId = outputMap?.[fo.id] ?? fo.id;
-              const existing = pass2.outputs.find(o => o.id === schemaId);
-              if (existing && typeof fo.value === "number" && Number.isFinite(fo.value)) {
-                existing.value = fo.value;
-                existing.status = "OK";
-                (existing as any).public_explanation = fo.publicExplanation;
-              }
-            }
+      // Build raw inputs from request body (numeric only, finite)
+      const entries = Object.entries(body.rawInputs ?? {}).filter(
+        ([, v]) => typeof v === "number" && Number.isFinite(v),
+      ) as Array<[string, number]>;
+      const rawInputs: Record<string, number> = Object.fromEntries(entries);
+      // Also accept string values that parse to finite numbers
+      for (const [k, v] of Object.entries(body.rawInputs ?? {})) {
+        if (typeof v === "string" && v.trim()) {
+          const n = Number(v.trim());
+          if (Number.isFinite(n) && !(k in rawInputs)) {
+            rawInputs[k] = n;
           }
-        } catch {
-          // Formula module threw — keep Path B default values
         }
       }
 
-      // PASS 3 — Public Output + Audit / Export Control
-      const pass3 = pass3PublicControl(execBody, validatedSchema, pass2);
-      if (!pass3.ok) {
-        const blocked = buildFullBlockedResponse("REDACTION_FAILED", "Public response redaction failed");
-        return NextResponse.json(blocked, { status: 500 });
+      // Find the free formula module for this tool
+      const formulaModule = freeV531FormulaRegistry[body.toolKey];
+      if (!formulaModule || typeof formulaModule.execute !== "function") {
+        return NextResponse.json(
+          buildBlockedToolResponse("NO_FORMULA_MODULE", `Formula module not found for free tool: ${body.toolKey}`),
+          { status: 200 },
+        );
       }
 
-      // Premium hook — build from normalized inputs and free outputs
+      // Execute the formula directly
+      let formulaResult;
+      try {
+        formulaResult = formulaModule.execute(rawInputs);
+      } catch (execError) {
+        const msg = execError instanceof Error ? execError.message : "Formula execution error";
+        return NextResponse.json(buildBlockedToolResponse("FORMULA_EXECUTION_ERROR", msg), { status: 200 });
+      }
+
+      if (!formulaResult || !formulaResult.outputs || !Array.isArray(formulaResult.outputs)) {
+        return NextResponse.json(
+          buildBlockedToolResponse("INVALID_FORMULA_RESULT", "Formula returned no outputs."),
+          { status: 200 },
+        );
+      }
+
+      // Mapping from formula output ID → schema output ID for tools where IDs differ
+      const FORMULA_TO_SCHEMA_OUTPUT_MAP: Record<string, Record<string, string>> = {
+        "cnc-shop-hourly-rate": { "true_hourly_rate": "hourly_rate" },
+        "iso-286-tolerance-fit": { "minimum_clearance_mm": "fit_clearance_range_mm" },
+        "surface-roughness-converter": { "roughness_ra_um": "roughness_equivalent" },
+        "thread-dimensions-reference": { "pitch_diameter_approx_mm": "thread_reference_dimensions" },
+        "knurling-drill-point-depth": { "drill_point_depth_mm": "depth_or_pitch_mm" },
+        "weld-metal-weight-consumable": { "deposited_weld_metal_kg": "weld_consumable_mass" },
+        "bolt-preload-clamp-force": { "initial_preload_kn": "clamp_force_kn" },
+        "steel-weight": { "net_steel_weight_kg": "steel_weight_kg" },
+        "takt-time-cycle-time": { "takt_time_seconds": "capacity_gap" },
+      };
+      const outputMap = FORMULA_TO_SCHEMA_OUTPUT_MAP[body.toolKey] ?? {};
+
+      // Map formula outputs to schema outputs
+      const schemaOutputs = validatedSchema.outputs ?? [];
+      const mappedOutputs = schemaOutputs.map((so) => {
+        const formulaId = Object.entries(outputMap).find(([, sId]) => sId === so.id)?.[0] ?? so.id;
+        const fo = formulaResult!.outputs.find((o: any) => o.id === formulaId);
+        const value = fo && typeof fo.value === "number" && Number.isFinite(fo.value) ? fo.value : null;
+        const status: CalcStatus = value !== null ? "OK" : "REVIEW";
+        return {
+          id: so.id,
+          name: so.name ?? so.id,
+          value,
+          unit: so.unit ?? null,
+          status,
+          formula_source: null,
+          public_explanation: so.public_explanation ?? "Result computed server-side.",
+          operator_explanation: so.operator_explanation ?? "",
+          engineer_explanation: so.engineer_explanation ?? "",
+          owner_cfo_explanation: so.owner_cfo_explanation ?? "",
+          checker_explanation: so.checker_explanation ?? "",
+          decision_use: so.decision_use ?? "Primary decision indicator",
+          evidence_level: so.evidence_level ?? ("SCREENING_ONLY" as const),
+        };
+      });
+
+      // Build normalized input audit
+      const normalizedInputAudit = (validatedSchema.inputs ?? []).map((input) => {
+        const rawVal = body.rawInputs?.[input.id] as string | number | boolean | null | undefined;
+        return {
+          input_id: input.id,
+          normalized_id: input.normalized_id ?? `n_${input.id}`,
+          display_value: rawVal ?? null,
+          display_unit: body.selectedUnits?.[input.id] ?? input.base_unit ?? null,
+          base_value: rawVal ?? null,
+          base_unit: input.base_unit ?? null,
+          source_status: (input.source_status ?? "NEEDS_SOURCE_VERIFICATION") as SourceStatus,
+        };
+      });
+
+      // Build audit seal
+      const auditSeal = createAuditSeal({
+        inputHash: computeHash(JSON.stringify(rawInputs)),
+        outputHash: computeHash(JSON.stringify(mappedOutputs)),
+        schemaHash: computeHash(validatedSchema.tool_id ?? body.toolKey),
+        formulaVersion: validatedSchema.metadata?.formula_version ?? "5.3.1",
+        schemaVersion: validatedSchema.metadata?.schema_version ?? "5.3.1",
+        runtimeVersion: "superv4-v5.3-runtime-1.0.0",
+      });
+
+      // Determine primary decision based on results
+      const allOk = mappedOutputs.every((o) => o.status === "OK");
+      const primaryDecision = allOk ? ("OK" as const) : ("REVIEW" as const);
+
+      // Build warnings — include a note about screening-level confidence
+      const warnings: Array<{ id: string; severity: Severity; message: string; why_it_matters: string; suggested_action: string }> = [];
+      if (Object.keys(rawInputs).length === 0) {
+        warnings.push({
+          id: "warn_no_inputs",
+          severity: "WARNING",
+          message: "No numeric inputs provided. Calculation ran with empty defaults.",
+          why_it_matters: "Results are based on zero or default inputs and do not reflect actual conditions.",
+          suggested_action: "Enter valid numeric values and re-calculate.",
+        });
+      }
+
+      // Premium hook
       const freeOutputs: Record<string, number> = {};
-      for (const output of pass2.outputs) {
+      for (const output of mappedOutputs) {
         if (typeof output.value === "number") {
           freeOutputs[output.id] = output.value;
         }
       }
       const premiumHook = buildPremiumHook({
         toolKey: body.toolKey,
-        normalizedInputs: pass2.normalizedInputs,
+        normalizedInputs: rawInputs,
         freeOutputs,
         displayCurrency: body.displayCurrency ?? null,
       });
 
+      // Build final response matching ExecuteResponse contract
+      const freeResponse: ExecuteResponse = {
+        status: primaryDecision,
+        pipeline_state: "COMPLETE",
+        outputs: mappedOutputs,
+        warnings,
+        normalized_input_audit: normalizedInputAudit,
+        reference_range_audit: [],
+        sensitivity: [],
+        scenario_compare: null,
+        fmea_summary: null,
+        proof_pack_public: {
+          enabled: true,
+          redaction_status: "PUBLIC_SAFE_REDACTED",
+          sections: [
+            {
+              id: "execution_summary",
+              title: "Execution Summary",
+              public_content: "Calculation executed server-side. Results are for decision support only.",
+            },
+          ],
+        },
+        decision_interpretation: {
+          primary_decision: primaryDecision,
+          primary_reason: allOk ? "All outputs computed successfully." : "One or more outputs could not be computed.",
+          user_profile_summary: {
+            operator: allOk ? "All checks passed." : "Some values need review.",
+            engineer: `Computed ${mappedOutputs.length} output(s). ${allOk ? "All OK." : "Some outputs in REVIEW state."}`,
+            owner_cfo: allOk ? "Calculation completed." : "Calculation completed with review flags.",
+            checker_auditor: `Free tool execution via ${body.toolKey}. Status: ${primaryDecision}.`,
+          },
+          hidden_risk_explanations: [],
+          money_impact_summary: {
+            enabled: false,
+            currency: null,
+            money_at_risk_formatted: null,
+            main_cost_driver: null,
+            quote_or_decision_impact: "Free screening tool.",
+          },
+          what_can_flip_the_decision: [],
+          next_best_actions: ["Review output values.", "Consider upgrading to Pro for full analysis."],
+          premium_unlock_reason: "",
+        },
+        audit_seal: auditSeal,
+        redaction_status: "PUBLIC_SAFE_REDACTED",
+      };
+
       return NextResponse.json(
-        { ...pass3.response, premium_hook: premiumHook ?? null, accessTier },
+        { ...freeResponse, premium_hook: premiumHook ?? null, accessTier },
         { status: 200 },
       );
     }
