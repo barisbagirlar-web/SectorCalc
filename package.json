@@ -8,6 +8,8 @@
     "guard:removed-free-tools": "node scripts/guard-removed-free-tools.mjs",
     "guard:no-legacy-free-tools": "node scripts/guards/assert-no-legacy-free-tools.mjs",
     "guard:monetization": "node scripts/guard-monetization-safety.mjs",
+    "guard:paddle-webhook-route": "node scripts/guard-paddle-webhook-route.mjs",
+    "test:paddle-webhook": "npx vitest run tests/paddle-webhook/",
     "guard:payment-release": "node scripts/guard-payment-credit-invariants.mjs",
     "guard:free-release": "node scripts/guard-free-schema-contract.mjs && node scripts/guard-free-formula-contract.mjs && node scripts/guard-free-units-and-currency.mjs && node scripts/guard-free-public-copy-quality.mjs && node scripts/guard-free-form-render-contract.mjs && node scripts/guard-free-catalog-integrity.mjs && node scripts/smoke-free-tools-execution.mjs && node scripts/smoke-free-tools-mobile-ux.mjs && npx vitest run tests/free-tools/",
     "guard:free-schema-contract": "node scripts/guard-free-schema-contract.mjs",
