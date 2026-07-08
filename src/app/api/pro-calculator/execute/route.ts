@@ -35,6 +35,8 @@ import { SchemaRegistry, schemaRegistry } from "@/sectorcalc/pro-form/schema-reg
 import { formulaRegistry } from "@/sectorcalc/pro-runtime/formula-registry";
 import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-formula-engine";
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
+import { buildUniversalResult } from "@/sectorcalc/result-perspectives/universal-result-adapter";
+import type { UniversalCalculationResult } from "@/sectorcalc/pro-form/contract-types";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 import { initBarisFormulaRegistry, LIVE_BATCH_KEYS } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
@@ -926,8 +928,17 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       await decrementProductUse(userId, PRODUCT_KEYS.PRO_TOOLS);
     }
 
+    // Enrich with Universal Result Perspectives for Pro tools (V5.4)
+    let universalResult: UniversalCalculationResult | undefined;
+    try {
+      const ur = buildUniversalResult(validatedSchema, body.raw_inputs ?? {}, pass3.response.outputs ?? []);
+      if (ur) universalResult = ur;
+    } catch {
+      // non-blocking — Pro tools still get normal response
+    }
+
     return NextResponse.json(
-      { ...pass3.response, premium_hook: premiumHook ?? null },
+      { ...pass3.response, premium_hook: premiumHook ?? null, ...(universalResult ? { universal_result: universalResult } : {}) },
       { status: 200 },
     );
   } catch (error) {
