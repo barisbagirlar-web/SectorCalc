@@ -103,22 +103,78 @@ export function normalizeFreeSchema(raw: Record<string, unknown>): SuperV4Schema
     });
   }
 
-  // V5.4 Core — Fix unit-selectable inputs that are missing allowed_display_units
+  // V5.4 Core — Auto-enable unit_selectable + populate allowed_display_units
+  // for numeric inputs with a physical base_unit. This ensures inline-registry
+  // schemas (which predate the batch unit fix) get selectable unit dropdowns.
+  const KNOWN_NON_PHYSICAL_FIELDS = new Set([
+    "nut_factor_k", "taylor_c", "taylor_n", "k_factor",
+    "load_angle_factor", "service_level_z_score",
+    "annual_carrying_rate_percent", "deflection_limit_ratio",
+    "fx_buffer_percent", "free_allocation_factor_percent",
+    "bio_blend_reduction_percent", "renewable_share_percent",
+    "evidence_confidence_percent",
+  ]);
+  const KNOWN_METRIC_ONLY = new Set([
+    "drill_point_angle_deg", "bend_angle_deg",
+  ]);
+  // Unit pair map: base_unit -> [base_unit, imperial_alternative]
+  const UNIT_PAIRS: Record<string, string[]> = {
+    "mm": ["mm", "in"],
+    "m": ["m", "ft"],
+    "cm": ["cm", "in"],
+    "kg": ["kg", "lb"],
+    "kg/m3": ["kg/m3", "lb/ft3"],
+    "kN": ["kN", "lbf"],
+    "MPa": ["MPa", "psi"],
+    "GPa": ["GPa", "ksi"],
+    "N": ["N", "lbf"],
+    "kW": ["kW", "HP"],
+    "V": ["V", "V"],
+    "A": ["A", "A"],
+    "g": ["g", "oz"],
+    "L": ["L", "gal"],
+    "m2": ["m2", "ft2"],
+    "m3": ["m3", "ft3"],
+    "cm4": ["cm4", "in4"],
+    "cm3": ["cm3", "in3"],
+    "kgco2e": ["kgCO2e", "lbCO2e"],
+    "tco2e": ["tCO2e", "tCO2e"],
+    "kgco2e_kwh": ["kgCO2e/kWh", "lbCO2e/kWh"],
+    "kgco2e_liter": ["kgCO2e/L", "lbCO2e/gal"],
+    "kj_mm": ["kJ/mm", "kJ/mm"],
+    "kj_m": ["kJ/m", "kJ/m"],
+    "kn_m": ["kN/m", "lbf/ft"],
+    "currency": ["currency", "currency"],
+    "usd": ["USD", "EUR"],
+    "eur": ["EUR", "USD"],
+  };
   if (Array.isArray(s.inputs)) {
     for (const inp of s.inputs as Array<Record<string, unknown>>) {
+      const inpType = inp.type as string | undefined;
+      const baseUnit = inp.base_unit as string | undefined;
+      const inpId = inp.id as string;
+      const isNumeric = inpType === "number" || inpType === "integer";
+      const isPhysical = baseUnit && typeof baseUnit === "string" && baseUnit.length > 0 && baseUnit !== "user_unit";
+      const isNonPhysical = KNOWN_NON_PHYSICAL_FIELDS.has(inpId);
+      // Auto-enable unit_selectable for physical numeric fields not in the exclusion list
+      if (isNumeric && isPhysical && !isNonPhysical && !inp.unit_selectable) {
+        (inp as Record<string, unknown>).unit_selectable = true;
+      }
       const isUnitSelectable = (inp.unit_selectable as boolean) === true;
       if (isUnitSelectable) {
-        const allowedUnits = inp.allowed_display_units as string[] | undefined;
-        const baseUnit = inp.base_unit as string | undefined;
+        let allowedUnits = inp.allowed_display_units as string[] | undefined;
         if (!allowedUnits || allowedUnits.length === 0) {
-          if (baseUnit && typeof baseUnit === "string" && baseUnit.length > 0) {
-            (inp as Record<string, unknown>).allowed_display_units = [baseUnit];
+          if (KNOWN_METRIC_ONLY.has(inpId)) {
+            allowedUnits = [baseUnit!];
+          } else if (baseUnit && UNIT_PAIRS[baseUnit]) {
+            allowedUnits = [...UNIT_PAIRS[baseUnit]];
+          } else if (baseUnit) {
+            allowedUnits = [baseUnit];
           } else {
-            // base_unit is null/empty but input is unit_selectable
-            // Use "user_unit" as fallback to preserve unit display in UI
             (inp as Record<string, unknown>).base_unit = "user_unit";
-            (inp as Record<string, unknown>).allowed_display_units = ["user_unit"];
+            allowedUnits = ["user_unit"];
           }
+          (inp as Record<string, unknown>).allowed_display_units = allowedUnits;
         }
       } else {
         if (!inp.allowed_display_units) {
