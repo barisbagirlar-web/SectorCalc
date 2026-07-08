@@ -2,9 +2,19 @@
 
 import { Plan } from '@/lib/features/plans'
 import { usePaddle } from '@/lib/ui-shared/paddle-provider'
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription"
 import { IconListItem } from "@/components/icons/ScIcon"
 import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry"
 import { useTranslations } from '@/lib/i18n-stub'
+
+/** Map plan credits count → canonical product key for Paddle customData. */
+const PLAN_CREDITS_TO_PRODUCT_KEY: Record<number, string> = {
+  1: "credit_pack_1",
+  5: "credit_pack_5",
+  15: "credit_pack_15",
+  30: "credit_pack_30",
+  100: "credit_pack_100",
+};
 
 interface Props {
   plan: Plan
@@ -17,6 +27,7 @@ interface Props {
 export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }: Props) {
   const t = useTranslations('pricing_v2')
   const { ready, openCheckout } = usePaddle()
+  const { user } = useUserSubscription()
 
   const isFeatured = plan.badge === 'popular'
   const isEnterprise = plan.badge === 'team' || plan.badge === 'bestval'
@@ -40,10 +51,19 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
     }
     if (!email) { onEmailNeeded(); return }
     setLoading(plan.id)
+    const uid = user?.uid ?? ""
+    const productKey = PLAN_CREDITS_TO_PRODUCT_KEY[plan.credits] ?? "credit_pack_" + plan.credits
     openCheckout({
       items: [{ priceId: plan.paddlePriceId, quantity: 1 }],
       customer: { email },
-      customData: { planId: plan.id, credits: String(plan.credits) },
+      customData: {
+        planId: plan.id,
+        credits: String(plan.credits),
+        userId: uid || "unknown",
+        intent: "SECTORCALC_CREDIT_PACK_PURCHASE",
+        productKey,
+        source: "sectorcalc_pricing_card",
+      },
       settings: {
         displayMode: 'overlay',
         theme: 'light',

@@ -2,7 +2,17 @@
 
 import { useState } from 'react'
 import { usePaddle } from '@/lib/ui-shared/paddle-provider'
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription"
 import { PLANS } from '@/lib/features/plans'
+
+/** Map plan credits count → canonical product key for Paddle customData. */
+const PLAN_CREDITS_TO_PRODUCT_KEY: Record<number, string> = {
+  1: "credit_pack_1",
+  5: "credit_pack_5",
+  15: "credit_pack_15",
+  30: "credit_pack_30",
+  100: "credit_pack_100",
+};
 
 interface Props {
   toolName: string
@@ -12,6 +22,7 @@ interface Props {
 
 export function CreditWall({ toolName, hasFreeMode, onFreeMode }: Props) {
   const { ready, openCheckout } = usePaddle()
+  const { user } = useUserSubscription()
   const [email, setEmail] = useState('')
   const [emailSaved, setEmailSaved] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -22,10 +33,20 @@ export function CreditWall({ toolName, hasFreeMode, onFreeMode }: Props) {
   function triggerCheckout(plan: typeof PLANS[0], resolvedEmail?: string) {
     if (!ready || !plan.paddlePriceId) return
     setLoading(true)
+    const uid = user?.uid ?? ""
+    const productKey = PLAN_CREDITS_TO_PRODUCT_KEY[plan.credits] ?? "credit_pack_" + plan.credits
     openCheckout({
       items: [{ priceId: plan.paddlePriceId, quantity: 1 }],
       ...(resolvedEmail ? { customer: { email: resolvedEmail } } : {}),
-      customData: { planId: plan.id, credits: String(plan.credits), source: 'credit_wall', toolName },
+      customData: {
+        planId: plan.id,
+        credits: String(plan.credits),
+        userId: uid || "unknown",
+        intent: "SECTORCALC_CREDIT_PACK_PURCHASE",
+        productKey,
+        source: "credit_wall",
+        toolName,
+      },
       settings: {
         displayMode: 'overlay',
         theme: 'light',

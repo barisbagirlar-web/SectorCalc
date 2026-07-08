@@ -5,9 +5,10 @@ interface CheckoutButtonProps {
   priceId: string;
   userId: string;
   buttonText: string;
+  productKey?: string;
 }
 
-export default function CheckoutButton({ priceId, userId, buttonText }: CheckoutButtonProps) {
+export default function CheckoutButton({ priceId, userId, buttonText, productKey }: CheckoutButtonProps) {
   const { ready, openCheckout } = usePaddle();
 
   const handleCheckout = () => {
@@ -21,10 +22,15 @@ export default function CheckoutButton({ priceId, userId, buttonText }: Checkout
 
     if (!ready) return alert("Payment system is loading, please wait...");
     
-    // Open Paddle checkout and secretly pass the user ID (userId) for Firebase identification
+    // Open Paddle checkout and pass user ID + canonical fields for webhook fulfillment
     openCheckout({
       items: [{ priceId: priceId, quantity: 1 }],
-      customData: { userId: userId }, 
+      customData: {
+        userId: userId,
+        intent: "SECTORCALC_CREDIT_PACK_PURCHASE",
+        productKey: productKey || "credit_pack_1",
+        source: "checkout_button",
+      }, 
     });
   };
 
