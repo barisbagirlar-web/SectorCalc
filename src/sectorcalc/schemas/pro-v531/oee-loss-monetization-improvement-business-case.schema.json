@@ -219,12 +219,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "s",
+        "max": 50000,
+        "unit": "h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Planned Production Time is below the physical or process hard bound.",
-        "semantic_error_message_max": "Planned Production Time is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -299,12 +297,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "s",
+        "max": 50000,
+        "unit": "h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Operating Time is below the physical or process hard bound.",
-        "semantic_error_message_max": "Operating Time is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -379,12 +375,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "s",
+        "max": 50000,
+        "unit": "h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Net Operating Time is below the physical or process hard bound.",
-        "semantic_error_message_max": "Net Operating Time is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -459,12 +453,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "s",
+        "max": 50000,
+        "unit": "h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Valuable Operating Time is below the physical or process hard bound.",
-        "semantic_error_message_max": "Valuable Operating Time is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -539,12 +531,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "s",
+        "max": 10000,
+        "unit": "h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Ideal Cycle Time is below the physical or process hard bound.",
-        "semantic_error_message_max": "Ideal Cycle Time is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -619,12 +609,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "ratio",
+        "max": 100000,
+        "unit": "units",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Total Parts is below the physical or process hard bound.",
-        "semantic_error_message_max": "Total Parts is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -699,12 +687,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "ratio",
+        "max": 100000,
+        "unit": "units",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Good Parts is below the physical or process hard bound.",
-        "semantic_error_message_max": "Good Parts is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -779,12 +765,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit_per_h",
+        "max": 10000,
+        "unit": "USD/h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Hourly Contribution is below the physical or process hard bound.",
-        "semantic_error_message_max": "Hourly Contribution is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -859,12 +843,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit",
+        "max": 50000000,
+        "unit": "USD",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Improvement Cost is below the physical or process hard bound.",
-        "semantic_error_message_max": "Improvement Cost is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -939,12 +921,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
+        "max": 1,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Source Confidence Ratio is below the physical or process hard bound.",
-        "semantic_error_message_max": "Source Confidence Ratio is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "setup:paddle-env": "node scripts/setup-firebase-paddle-env.mjs",
+    "setup:paddle-env:check": "node scripts/setup-firebase-paddle-env.mjs --check-only",
     "guard:removed-free-tools": "node scripts/guard-removed-free-tools.mjs",
     "guard:no-legacy-free-tools": "node scripts/guards/assert-no-legacy-free-tools.mjs",
     "guard:monetization": "node scripts/guard-monetization-safety.mjs",

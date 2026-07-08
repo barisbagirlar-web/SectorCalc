@@ -218,12 +218,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit",
+        "max": 1000000,
+        "unit": "USD",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Unit Price is below the physical or process hard bound.",
-        "semantic_error_message_max": "Unit Price is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -298,12 +296,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit",
+        "max": 1000000,
+        "unit": "USD",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Unit Variable Cost is below the physical or process hard bound.",
-        "semantic_error_message_max": "Unit Variable Cost is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -378,12 +374,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "unit_per_s",
+        "max": 10000000,
+        "unit": "units/year",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Annual Volume is below the physical or process hard bound.",
-        "semantic_error_message_max": "Annual Volume is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -458,12 +452,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "ratio",
+        "max": 100,
+        "unit": "%",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Logistics Cost % is below the physical or process hard bound.",
-        "semantic_error_message_max": "Logistics Cost % is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -538,12 +530,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "ratio",
+        "max": 100,
+        "unit": "%",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Service Cost % is below the physical or process hard bound.",
-        "semantic_error_message_max": "Service Cost % is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -618,12 +608,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "ratio",
+        "max": 100,
+        "unit": "%",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Return Rate % is below the physical or process hard bound.",
-        "semantic_error_message_max": "Return Rate % is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -698,12 +686,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "ratio",
+        "max": 100,
+        "unit": "%",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Target Margin is below the physical or process hard bound.",
-        "semantic_error_message_max": "Target Margin is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -778,12 +764,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit_per_h",
+        "max": 5000,
+        "unit": "USD/h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Labor Rate is below the physical or process hard bound.",
-        "semantic_error_message_max": "Labor Rate is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -858,12 +842,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit_per_h",
+        "max": 10000,
+        "unit": "USD/h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Overhead Rate is below the physical or process hard bound.",
-        "semantic_error_message_max": "Overhead Rate is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -938,12 +920,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
+        "max": 1,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Source Confidence Ratio is below the physical or process hard bound.",
-        "semantic_error_message_max": "Source Confidence Ratio is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,

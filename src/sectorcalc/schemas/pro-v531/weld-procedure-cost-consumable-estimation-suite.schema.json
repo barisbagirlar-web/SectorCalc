@@ -458,12 +458,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit",
+        "max": 1000,
+        "unit": "USD/kg",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Wire Cost per kg is below the physical or process hard bound.",
-        "semantic_error_message_max": "Wire Cost per kg is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -538,12 +536,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit_per_h",
+        "max": 100,
+        "unit": "USD/h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Gas Cost per Minute is below the physical or process hard bound.",
-        "semantic_error_message_max": "Gas Cost per Minute is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -618,12 +614,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
+        "max": 36000,
         "unit": "s",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Arc Time (min) is below the physical or process hard bound.",
-        "semantic_error_message_max": "Arc Time (min) is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -698,12 +692,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
+        "max": 36000,
         "unit": "s",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Weld Time (min) is below the physical or process hard bound.",
-        "semantic_error_message_max": "Weld Time (min) is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -778,12 +770,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit_per_h",
+        "max": 5000,
+        "unit": "USD/h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Labor Rate is below the physical or process hard bound.",
-        "semantic_error_message_max": "Labor Rate is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -858,12 +848,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit_per_h",
+        "max": 10000,
+        "unit": "USD/h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Overhead Rate is below the physical or process hard bound.",
-        "semantic_error_message_max": "Overhead Rate is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -938,12 +926,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
+        "max": 1,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Deposition Efficiency % is below the physical or process hard bound.",
-        "semantic_error_message_max": "Deposition Efficiency % is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,
@@ -1018,12 +1004,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
+        "max": 1,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Source Confidence Ratio is below the physical or process hard bound.",
-        "semantic_error_message_max": "Source Confidence Ratio is above the physical or process hard bound."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": null,
       "resolution": null,

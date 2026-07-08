@@ -218,12 +218,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit",
+        "max": 50000000,
+        "unit": "USD",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Initial Investment is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Initial Investment is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 1000,
@@ -337,13 +335,11 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": -1000000000,
-        "max": 1000000000,
-        "unit": "currency_unit",
+        "min": -50000000,
+        "max": 50000000,
+        "unit": "USD",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Annual Net Cash Flow is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Annual Net Cash Flow is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": -100000,
@@ -462,9 +458,7 @@
         "max": 1,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Discount Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Discount Rate is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 0.02,
@@ -583,13 +577,11 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 31536000,
-        "max": 946080000,
-        "unit": "s",
+        "min": 0,
+        "max": 50,
+        "unit": "year",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Analysis Period is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Analysis Period is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 94608000,
@@ -704,12 +696,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "currency_unit",
+        "max": 50000000,
+        "unit": "USD",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Residual Value is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Residual Value is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 0,
@@ -828,9 +818,7 @@
         "max": 1,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Downside Stress Factor is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Downside Stress Factor is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 0.5,
@@ -947,13 +935,11 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 1e-8,
-        "max": 10,
-        "unit": "unit_per_s",
+        "min": 0,
+        "max": 10000000,
+        "unit": "units/year",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Annual Decision Volume is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Annual Decision Volume is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 0.000001,
@@ -1073,12 +1059,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 10000,
-        "unit": "currency_unit_per_h",
+        "max": 5000,
+        "unit": "USD/h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Fully Loaded Labor Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Fully Loaded Labor Rate is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 20,
@@ -1198,12 +1182,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100000,
-        "unit": "currency_unit_per_h",
+        "max": 10000,
+        "unit": "USD/h",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Allocated Overhead Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Allocated Overhead Rate is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 10,
@@ -1317,12 +1299,10 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100000000,
-        "unit": "currency_unit",
+        "max": 50000000,
+        "unit": "USD",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Unit Loss Cost is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Unit Loss Cost is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 1,
@@ -1440,9 +1420,7 @@
         "max": 1,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Source Confidence Ratio is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Source Confidence Ratio is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 0.6,
@@ -1556,13 +1534,11 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 1,
+        "min": 0,
         "max": 5,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Uncertainty Coverage Multiplier is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Uncertainty Coverage Multiplier is above the physical or process hard bound for this calculation boundary."
+        "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 1.5,

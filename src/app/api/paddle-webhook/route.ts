@@ -82,6 +82,12 @@ function verifyPaddleSignature(
 
 function requireWebhookSecret(): string {
   if (!PADDLE_WEBHOOK_SECRET) {
+    console.error(
+      "[paddle-webhook] ❌ PADDLE_WEBHOOK_SECRET is not configured. " +
+        "Credits will NOT be granted. Fix: add PADDLE_WEBHOOK_SECRET to .env.production " +
+        "or set as Firebase SSR env var (Cloud Functions → ssrsectorcalcbf412 → Edit). " +
+        "Get the secret from Paddle Dashboard → Developer Tools → Notifications → Webhook settings."
+    );
     throw new Error("PADDLE_WEBHOOK_SECRET is not configured");
   }
   return PADDLE_WEBHOOK_SECRET;
