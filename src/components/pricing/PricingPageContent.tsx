@@ -8,7 +8,17 @@ import { usePaddle } from '@/lib/ui-shared/paddle-provider'
 import { PricingCard } from '@/components/pricing/PricingCard'
 import { EmailCaptureModal } from '@/components/pricing/EmailCaptureModal'
 import { Container } from "@/components/ui/Container"
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription"
 import Link from "next/link";
+
+/** Map plan credits count → canonical product key for Paddle customData. */
+const PLAN_CREDITS_TO_PRODUCT_KEY: Record<number, string> = {
+  1: "credit_pack_1",
+  5: "credit_pack_5",
+  15: "credit_pack_15",
+  30: "credit_pack_30",
+  100: "credit_pack_100",
+};
 
 function TrustRow() {
   return (
@@ -111,6 +121,7 @@ function FAQ() {
 
 export function PricingPageContent() {
   const { openCheckout } = usePaddle()
+  const { user } = useUserSubscription()
   const [email, setEmail] = useState('')
   const [modalOpen, setModalOpen] = useState(false)
   const [pendingPlan, setPendingPlan] = useState<Plan | null>(null)
@@ -139,10 +150,19 @@ export function PricingPageContent() {
         return;
       }
       setLoadingPlanId(pendingPlan.id)
+      const uid = user?.uid ?? ""
+      const productKey = PLAN_CREDITS_TO_PRODUCT_KEY[pendingPlan.credits] ?? "credit_pack_" + pendingPlan.credits
       openCheckout({
         items: [{ priceId: pendingPlan.paddlePriceId, quantity: 1 }],
         ...(resolvedEmail ? { customer: { email: resolvedEmail } } : {}),
-        customData: { planId: pendingPlan.id, credits: String(pendingPlan.credits), userId: "sample_user_abc123" },
+        customData: {
+          planId: pendingPlan.id,
+          credits: String(pendingPlan.credits),
+          userId: uid || "unknown",
+          intent: "SECTORCALC_CREDIT_PACK_PURCHASE",
+          productKey,
+          source: "sectorcalc_pricing",
+        },
         settings: {
           displayMode: 'overlay',
           theme: 'light',
@@ -151,7 +171,7 @@ export function PricingPageContent() {
       setTimeout(() => setLoadingPlanId(null), 1500)
     }
     setPendingPlan(null)
-  }, [pendingPlan, openCheckout])
+  }, [pendingPlan, openCheckout, user?.uid])
 
   return (
     <div className="sc-pro-section sc-pro-section--alt">

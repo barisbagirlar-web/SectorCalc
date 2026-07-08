@@ -26,6 +26,7 @@ export interface MachineOptions {
   schemaHash?: string | null;
   initialProfileMode?: ProfileMode;
   executeEndpoint?: string;
+  usageSessionId?: string | null;
   fetcher?: (url: string, init: RequestInit) => Promise<Response>;
   validateSchema?: (schema: SuperV4Schema) => string[];
 }
@@ -114,7 +115,7 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
     pendingToolKeyRef.current = requestToolKey;
     dispatch({ type: "SUBMIT_SERVER_EXECUTION" });
 
-    const request: ExecuteRequest = {
+    const request: ExecuteRequest & { usageSessionId?: string | null } = {
       tool_id: options.schema.tool_id,
       tool_key: options.schema.tool_key,
       schema_version: options.schema.metadata.schema_version,
@@ -126,6 +127,7 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
       user_profile_mode: state.profileModeState.mode,
       evidence_state: serializeEvidenceState(state.evidenceState),
       client_schema_hash: state.schemaState.schema_hash ?? undefined,
+      usageSessionId: options.usageSessionId ?? null,
     };
 
     try {

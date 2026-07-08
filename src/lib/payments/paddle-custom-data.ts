@@ -93,6 +93,8 @@ export interface PaddleCustomData {
   toolKey?: string;
   /** User identifier (Firebase UID or customer reference) */
   userId?: string;
+  /** User email for fallback user resolution in webhook */
+  email?: string;
   /** Source of checkout for tracing */
   source?: string;
   /** Unique request/checkout-attempt identifier */

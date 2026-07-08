@@ -43,6 +43,9 @@ const EVENTS_COLLECTION = "paddle_processed_events";
 const CREDIT_LEDGER_COLLECTION = "credit_ledger";
 const CUSTOMERS_COLLECTION = "paddle_customers";
 const MANUAL_REVIEW_COLLECTION = "paddle_manual_review";
+const CREDIT_BALANCE_COLLECTION = "credits";
+const CREDIT_BALANCE_DOC = "balance";
+const CREDIT_TRANSACTIONS_COLLECTION = "creditTransactions";
 
 // ── Verification (manual HMAC) ───────────────────────────────────────────
 
@@ -98,6 +101,7 @@ interface FulfillmentParams {
   purchaseType: string;
   barisKeyQuantity?: number;
   paddleCustomerId?: string;
+  resolvedEmail?: string;
 }
 
 /**
@@ -183,18 +187,42 @@ async function fulfillAtomically(
         });
       }
 
-      // 5. Update user credits
+      // 5. Update user credits balance (canonical path: users/{userId}/credits/balance.amount)
+      //    Must match the path read by useCredits, credits-manager, CBAM entitlement service,
+      //    tool-usage-session, creditPersistence Cloud Function, and GET /api/user/credits.
       if (credits > 0) {
+        const creditBalanceRef = userRef.collection(CREDIT_BALANCE_COLLECTION).doc(CREDIT_BALANCE_DOC);
+        txn.set(
+          creditBalanceRef,
+          {
+            amount: adminIncrement(credits),
+            updatedAt: new Date().toISOString(),
+          },
+          { merge: true },
+        );
         txn.set(
           userRef,
           {
-            credits: adminIncrement(credits),
             lastPaddleTransactionId: transactionId,
             lastPaddleEventId: eventId,
             updatedAt: new Date().toISOString(),
           },
           { merge: true },
         );
+      }
+
+      // 5b. Record in creditTransactions collection for API audit trail
+      //     (read by GET /api/user/credits for totalPurchased/usedThisMonth)
+      if (credits > 0) {
+        const creditTxnRef = db.collection(CREDIT_TRANSACTIONS_COLLECTION).doc();
+        txn.create(creditTxnRef, {
+          userId,
+          type: "purchase",
+          credits,
+          paddleTransactionId: transactionId,
+          paddleEventId: eventId,
+          timestamp: new Date().toISOString(),
+        });
       }
 
       // 6. Update subscription/entitlement if plan unlock
@@ -424,6 +452,7 @@ export async function POST(req: NextRequest) {
   let credits = 0;
   let planId = "";
   let customDataUserId = "";
+  let customDataEmail = "";
   let barisKeyQuantity = 0;
 
   // Try canonical format first
@@ -436,6 +465,7 @@ export async function POST(req: NextRequest) {
       credits = validated.credits ?? 0;
       planId = validated.planId ?? "";
       customDataUserId = validated.userId ?? "";
+      customDataEmail = validated.email ?? "";
     } catch {
       // Falls through to legacy parsing
     }
@@ -470,9 +500,11 @@ export async function POST(req: NextRequest) {
   const paddleCustomerId = customer?.id ? String(customer.id) : "";
   const paddleCustomerEmail =
     typeof customer?.email === "string" ? String(customer.email).trim().toLowerCase() : "";
+  // Fallback: if Paddle customer API returned no email, try customData.email (set by PricingPageContent)
+  const resolvedEmail = paddleCustomerEmail || customDataEmail;
 
   // ── Safe userId resolution (NEVER use ctm_* as Firebase UID) ─────
-  const userId = await resolveUserId(customDataUserId, paddleCustomerId, paddleCustomerEmail);
+  const userId = await resolveUserId(customDataUserId, paddleCustomerId, resolvedEmail);
 
   if (!userId) {
     console.warn(

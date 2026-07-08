@@ -406,6 +406,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       user_profile_mode: body.profileMode ?? "engineering",
       client_schema_hash: body.clientSchemaHash,
       display_currency: body.displayCurrency ?? null,
+      usageSessionId: body.usageSessionId ?? null,
     };
 
     const internalResponse = await fetch(executeUrl, {

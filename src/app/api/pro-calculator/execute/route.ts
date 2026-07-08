@@ -786,8 +786,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // ── Product-usage-policy gate (non-Baris, non-free Pro tools) ──
     // Pro tools that are not Baris INSTANT_PRO_CALCULATOR and not Free
     // use the centralized product-usage-policy: 1 credit → 3 uses.
+    // Skip when a usageSessionId is present (session already deducted 1 credit).
     let isPaidProTool = false;
-    if (!keyWasDeducted && userId && toolKey) {
+    if (!keyWasDeducted && userId && toolKey && !rawBody.usageSessionId) {
       const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey!));
       const isFreeTool = schemaResult.source === "free_v531";
       if (!barisProduct && !isFreeTool) {

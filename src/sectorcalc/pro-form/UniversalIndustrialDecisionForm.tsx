@@ -740,6 +740,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     schemaHash: props.schemaHash,
     executeEndpoint: props.executeEndpoint,
     initialProfileMode: effectiveInitialMode,
+    usageSessionId: props.usageSessionId,
   });
 
   const { state } = machine;

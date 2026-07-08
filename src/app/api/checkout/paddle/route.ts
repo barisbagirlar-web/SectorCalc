@@ -58,6 +58,7 @@ export async function POST(req: NextRequest) {
     const rawProductKey = String(body.productKey ?? "").trim();
     const rawToolKey = String(body.toolKey ?? "").trim();
     const rawUserId = String(body.userId ?? "").trim();
+    const rawEmail = String(body.email ?? "").trim();
 
     // ── Reject client-supplied raw priceId ────────────────────────────
     if (body.priceId) {
@@ -187,6 +188,7 @@ export async function POST(req: NextRequest) {
         priceLookup.purchaseType === "subscription" ? rawProductKey : undefined,
       toolKey: rawToolKey || undefined,
       userId: rawUserId,
+      email: rawEmail || undefined,
       source: "checkout_paddle",
       requestId: cryptoRandomId(),
     };
