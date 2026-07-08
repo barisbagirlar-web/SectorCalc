@@ -250,41 +250,31 @@
   },
   "inputs": [
     {
-      "id": "system_pressure",
-      "name": "System Pressure",
-      "symbol": "P_sys",
-      "quantity_kind": "pressure",
-      "unit_selectable": true,
-      "base_unit": "Pa",
+      "id": "current_kwh_per_year",
+      "name": "Current kWh/Year",
+      "symbol": "CKWH",
+      "quantity_kind": "energy",
+      "unit_selectable": false,
+      "base_unit": "J",
       "allowed_display_units": [
-        "Pa",
-        "kPa",
-        "MPa",
-        "bar",
-        "psi"
+        "J"
       ],
-      "normalized_id": "n_system_pressure",
+      "normalized_id": "n_current_kwh_per_year",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 10000,
-        "max": 5000000,
-        "unit": "Pa",
-        "basis": "PHYSICS",
+        "min": 0,
+        "max": 1000000000,
+        "unit": "J",
+        "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "System Pressure is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "System Pressure is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Current kWh/Year is below the physical or process hard bound.",
+        "semantic_error_message_max": "Current kWh/Year is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 400000,
-        "max": 1200000,
-        "unit": "Pa",
-        "source": "SectorCalc industrial screening reference range based on compressor log; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -297,69 +287,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "compressor log",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Operating pressure for compressed-air loss and pressure-drop calculations."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "compressor log",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "compressor log",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "compressor log",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for System Pressure; critical values are not defaulted."
+        "public_help_text": "Provide the current kwh/year."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
         "group_id": "operation_context",
         "field_order": 1,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -370,23 +326,20 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for System Pressure. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing System Pressure can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the current kwh/year. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Current kWh/Year will downgrade evidence confidence."
     },
     {
-      "id": "leak_flow_rate",
-      "name": "Measured Leak Flow Rate",
-      "symbol": "Q_leak",
-      "quantity_kind": "flow_rate",
-      "unit_selectable": true,
-      "base_unit": "m3_s",
+      "id": "target_kwh_per_year",
+      "name": "Target kWh/Year",
+      "symbol": "TKWH",
+      "quantity_kind": "energy",
+      "unit_selectable": false,
+      "base_unit": "J",
       "allowed_display_units": [
-        "m3_s",
-        "m3_h",
-        "L_min",
-        "cfm"
+        "J"
       ],
-      "normalized_id": "n_leak_flow_rate",
+      "normalized_id": "n_target_kwh_per_year",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -394,23 +347,17 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100,
-        "unit": "m3_s",
+        "max": 1000000000,
+        "unit": "J",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Measured Leak Flow Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Measured Leak Flow Rate is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Target kWh/Year is below the physical or process hard bound.",
+        "semantic_error_message_max": "Target kWh/Year is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 0.0001,
-        "max": 2,
-        "unit": "m3_s",
-        "source": "SectorCalc industrial screening reference range based on ultrasonic survey or flow test; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
-        "input_decimals": 6,
+        "input_decimals": 3,
         "display_decimals": 3,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
@@ -420,69 +367,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "ultrasonic survey or flow test",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Estimated leak flow rate at operating pressure."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "ultrasonic survey or flow test",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "ultrasonic survey or flow test",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "ultrasonic survey or flow test",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Measured Leak Flow Rate; critical values are not defaulted."
+        "public_help_text": "Provide the target kwh/year."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "geometry_or_process_definition",
+        "group_id": "operation_context",
         "field_order": 2,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -493,271 +406,20 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Measured Leak Flow Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Measured Leak Flow Rate can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the target kwh/year. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Target kWh/Year will downgrade evidence confidence."
     },
     {
-      "id": "annual_operating_hours",
-      "name": "Annual Operating Hours",
-      "symbol": "H",
-      "quantity_kind": "time",
-      "unit_selectable": true,
-      "base_unit": "s",
-      "allowed_display_units": [
-        "s",
-        "min",
-        "h",
-        "day",
-        "month",
-        "year"
-      ],
-      "normalized_id": "n_annual_operating_hours",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 31536000,
-        "unit": "s",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Annual Operating Hours is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Annual Operating Hours is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 7200000,
-        "max": 31536000,
-        "unit": "s",
-        "source": "SectorCalc industrial screening reference range based on production schedule; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "production schedule",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Annual hours where the leak or compressed-air line is pressurized."
-      },
-      "source_priority": [
-        "production schedule",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "production schedule",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "production schedule",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Annual Operating Hours; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "material_or_asset_data",
-        "field_order": 3,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Annual Operating Hours. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Operating Hours can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "specific_power",
-      "name": "Compressor Specific Power",
-      "symbol": "SP",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "normalized_id": "n_specific_power",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0.01,
-        "max": 100,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Compressor Specific Power is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Compressor Specific Power is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 0.08,
-        "max": 0.25,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on compressor test or energy audit; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "compressor test or energy audit",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Power demand per air flow in compatible normalized basis."
-      },
-      "source_priority": [
-        "compressor test or energy audit",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "compressor test or energy audit",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "compressor test or energy audit",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Compressor Specific Power; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "load_or_demand",
-        "field_order": 4,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Compressor Specific Power. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Compressor Specific Power can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "electricity_price",
-      "name": "Electricity Price",
-      "symbol": "C_e",
+      "id": "avg_kwh_rate",
+      "name": "Avg kWh Rate",
+      "symbol": "AKR",
       "quantity_kind": "currency_rate",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "currency_unit_per_h",
       "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
+        "currency_unit_per_h"
       ],
-      "normalized_id": "n_electricity_price",
+      "normalized_id": "n_avg_kwh_rate",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -765,20 +427,14 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 10,
+        "max": 1000000000,
         "unit": "currency_unit_per_h",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Electricity Price is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Electricity Price is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Avg kWh Rate is below the physical or process hard bound.",
+        "semantic_error_message_max": "Avg kWh Rate is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 0.02,
-        "max": 1,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on utility invoice; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -791,69 +447,195 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "utility invoice",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "User-entered electricity unit cost; no hidden currency or tariff conversion."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "utility invoice",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "utility invoice",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "utility invoice",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Electricity Price; critical values are not defaulted."
+        "public_help_text": "Provide the avg kwh rate."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "capacity_or_process_capability",
+        "group_id": "operation_context",
+        "field_order": 3,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the avg kwh rate. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Avg kWh Rate will downgrade evidence confidence."
+    },
+    {
+      "id": "implementation_cost",
+      "name": "Implementation Cost",
+      "symbol": "IC",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_implementation_cost",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Implementation Cost is below the physical or process hard bound.",
+        "semantic_error_message_max": "Implementation Cost is above the physical or process hard bound."
+      },
+      "engineering_range": null,
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "user-provided value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-provided input value."
+      },
+      "source_priority": [
+        "user-provided value",
+        "engineering estimate"
+      ],
+      "source": "user-provided value",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "user-provided value",
+          "engineering estimate"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the implementation cost."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "operation_context",
+        "field_order": 4,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the implementation cost. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Implementation Cost will downgrade evidence confidence."
+    },
+    {
+      "id": "grant_coverage_pct",
+      "name": "Grant Coverage %",
+      "symbol": "GC",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio"
+      ],
+      "normalized_id": "n_grant_coverage_pct",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000,
+        "unit": "ratio",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Grant Coverage % is below the physical or process hard bound.",
+        "semantic_error_message_max": "Grant Coverage % is above the physical or process hard bound."
+      },
+      "engineering_range": null,
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "user-provided value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-provided input value."
+      },
+      "source_priority": [
+        "user-provided value",
+        "engineering estimate"
+      ],
+      "source": "user-provided value",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "user-provided value",
+          "engineering estimate"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the grant coverage %."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "operation_context",
         "field_order": 5,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -864,20 +646,20 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Electricity Price. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Electricity Price can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the grant coverage %. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Grant Coverage % will downgrade evidence confidence."
     },
     {
-      "id": "repair_cost",
-      "name": "Repair Cost",
-      "symbol": "C_repair",
+      "id": "maintenance_saving",
+      "name": "Maintenance Cost Saving",
+      "symbol": "MCS",
       "quantity_kind": "currency",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "currency_unit",
       "allowed_display_units": [
         "currency_unit"
       ],
-      "normalized_id": "n_repair_cost",
+      "normalized_id": "n_maintenance_cost_saving",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -885,20 +667,14 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 10000000,
+        "max": 1000000000,
         "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Repair Cost is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Repair Cost is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Maintenance Cost Saving is below the physical or process hard bound.",
+        "semantic_error_message_max": "Maintenance Cost Saving is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 10,
-        "max": 50000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on maintenance quote; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -911,69 +687,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "maintenance quote",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Cost to eliminate the leak or improve the air system."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "maintenance quote",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "maintenance quote",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "maintenance quote",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Repair Cost; critical values are not defaulted."
+        "public_help_text": "Provide the maintenance cost saving."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "quality_tolerance_calibration",
+        "group_id": "operation_context",
         "field_order": 6,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -984,41 +726,35 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Repair Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Repair Cost can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the maintenance cost saving. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Maintenance Cost Saving will downgrade evidence confidence."
     },
     {
-      "id": "initial_investment",
-      "name": "Initial Investment",
-      "symbol": "I0",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "currency_unit",
+      "id": "emission_factor",
+      "name": "Emission Factor (kgCO₂/kWh)",
+      "symbol": "EF",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
       "allowed_display_units": [
-        "currency_unit"
+        "ratio"
       ],
-      "normalized_id": "n_initial_investment",
+      "normalized_id": "n_emission_factor_kgco2_per_kwh",
       "type": "number",
       "required": true,
-      "criticality": "HIGH",
+      "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
         "max": 1000000000,
-        "unit": "currency_unit",
+        "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Initial Investment is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Initial Investment is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Emission Factor (kgCO₂/kWh) is below the physical or process hard bound.",
+        "semantic_error_message_max": "Emission Factor (kgCO₂/kWh) is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 1000,
-        "max": 10000000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on vendor quote or capex budget; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -1031,69 +767,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "vendor quote or capex budget",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Up-front investment including installation and implementation costs."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "vendor quote or capex budget",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "vendor quote or capex budget",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "vendor quote or capex budget",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Initial Investment; critical values are not defaulted."
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the emission factor (kgco₂/kwh)."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "commercial_impact_inputs",
+        "group_id": "operation_context",
         "field_order": 7,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -1104,41 +806,35 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Initial Investment. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Initial Investment can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the emission factor (kgco₂/kwh). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Emission Factor (kgCO₂/kWh) will downgrade evidence confidence."
     },
     {
-      "id": "annual_net_cash_flow",
-      "name": "Annual Net Cash Flow",
-      "symbol": "CF",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "currency_unit",
+      "id": "equipment_life_years",
+      "name": "Equipment Life (Years)",
+      "symbol": "ELY",
+      "quantity_kind": "time",
+      "unit_selectable": false,
+      "base_unit": "s",
       "allowed_display_units": [
-        "currency_unit"
+        "s"
       ],
-      "normalized_id": "n_annual_net_cash_flow",
+      "normalized_id": "n_equipment_life_years",
       "type": "number",
       "required": true,
-      "criticality": "HIGH",
+      "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": -1000000000,
+        "min": 0,
         "max": 1000000000,
-        "unit": "currency_unit",
+        "unit": "s",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Annual Net Cash Flow is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Annual Net Cash Flow is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Equipment Life (Years) is below the physical or process hard bound.",
+        "semantic_error_message_max": "Equipment Life (Years) is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": -100000,
-        "max": 5000000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on projection model; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -1151,69 +847,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "projection model",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Annual incremental cash flow after operating cost and tax assumptions supplied by user."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "projection model",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "projection model",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "projection model",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Annual Net Cash Flow; critical values are not defaulted."
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the equipment life (years)."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "evidence_and_source_status",
+        "group_id": "operation_context",
         "field_order": 8,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -1224,285 +886,35 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Annual Net Cash Flow. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Net Cash Flow can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the equipment life (years). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Equipment Life (Years) will downgrade evidence confidence."
     },
     {
       "id": "discount_rate",
-      "name": "Discount Rate",
-      "symbol": "r",
+      "name": "Discount Rate %",
+      "symbol": "DR",
       "quantity_kind": "dimensionless",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "ratio"
       ],
       "normalized_id": "n_discount_rate",
       "type": "number",
       "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Discount Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Discount Rate is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 0.02,
-        "max": 0.35,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on finance policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "finance policy",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Risk-adjusted discount rate used for present value screening."
-      },
-      "source_priority": [
-        "finance policy",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "finance policy",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "finance policy",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Discount Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "advanced_derating_inputs",
-        "field_order": 9,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Discount Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Discount Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "analysis_years",
-      "name": "Analysis Period",
-      "symbol": "n",
-      "quantity_kind": "time",
-      "unit_selectable": true,
-      "base_unit": "s",
-      "allowed_display_units": [
-        "s",
-        "min",
-        "h",
-        "day",
-        "month",
-        "year"
-      ],
-      "normalized_id": "n_analysis_years",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 31536000,
-        "max": 946080000,
-        "unit": "s",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Analysis Period is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Analysis Period is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 94608000,
-        "max": 315360000,
-        "unit": "s",
-        "source": "SectorCalc industrial screening reference range based on investment policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "investment policy",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Economic analysis period; terminal assumptions must be separately evidenced."
-      },
-      "source_priority": [
-        "investment policy",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "investment policy",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "investment policy",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Analysis Period; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 10,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Analysis Period. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Analysis Period can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "residual_value",
-      "name": "Residual Value",
-      "symbol": "RV",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
-      "normalized_id": "n_residual_value",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
+      "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
         "max": 1000000000,
-        "unit": "currency_unit",
+        "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Residual Value is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Residual Value is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Discount Rate % is below the physical or process hard bound.",
+        "semantic_error_message_max": "Discount Rate % is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 0,
-        "max": 5000000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on asset valuation; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -1515,71 +927,38 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "asset valuation",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Estimated terminal residual value at the end of the analysis period."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "asset valuation",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "asset valuation",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "asset valuation",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Residual Value; critical values are not defaulted."
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the discount rate %."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "geometry_or_process_definition",
-        "field_order": 11,
+        "group_id": "operation_context",
+        "field_order": 9,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
         "visible_in_modes": [
+          "quick",
           "engineering",
           "cost",
           "audit"
@@ -1587,164 +966,35 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Residual Value. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Residual Value can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the discount rate %. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Discount Rate % will downgrade evidence confidence."
     },
     {
-      "id": "stress_downside_factor",
-      "name": "Downside Stress Factor",
-      "symbol": "S_down",
+      "id": "source_confidence",
+      "name": "Source Confidence Ratio",
+      "symbol": "SCR",
       "quantity_kind": "dimensionless",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "ratio"
       ],
-      "normalized_id": "n_stress_downside_factor",
+      "normalized_id": "n_source_confidence_ratio",
       "type": "number",
       "required": true,
-      "criticality": "MEDIUM",
+      "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1,
+        "max": 1000000000,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Downside Stress Factor is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Downside Stress Factor is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Source Confidence Ratio is below the physical or process hard bound.",
+        "semantic_error_message_max": "Source Confidence Ratio is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 0.5,
-        "max": 1,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on stress-test policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "stress-test policy",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Cash-flow haircut for downside scenario review."
-      },
-      "source_priority": [
-        "stress-test policy",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "stress-test policy",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "stress-test policy",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Downside Stress Factor; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "material_or_asset_data",
-        "field_order": 12,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Downside Stress Factor. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Downside Stress Factor can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "annual_volume",
-      "name": "Annual Decision Volume",
-      "symbol": "N",
-      "quantity_kind": "rate",
-      "unit_selectable": true,
-      "base_unit": "unit_per_s",
-      "allowed_display_units": [
-        "unit_per_s",
-        "unit_per_min",
-        "unit_per_h",
-        "unit_per_day"
-      ],
-      "normalized_id": "n_annual_volume",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 1e-8,
-        "max": 10,
-        "unit": "unit_per_s",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Annual Decision Volume is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Annual Decision Volume is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 0.000001,
-        "max": 0.5,
-        "unit": "unit_per_s",
-        "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -1757,71 +1007,38 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "planning or ERP schedule",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Annualized operating or sales volume used for impact normalization."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "planning or ERP schedule",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "planning or ERP schedule",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "planning or ERP schedule",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Annual Decision Volume; critical values are not defaulted."
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the source confidence ratio."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "load_or_demand",
-        "field_order": 13,
+        "group_id": "operation_context",
+        "field_order": 10,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
         "visible_in_modes": [
+          "quick",
           "engineering",
           "cost",
           "audit"
@@ -1829,479 +1046,112 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Annual Decision Volume. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Decision Volume can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "labor_rate",
-      "name": "Fully Loaded Labor Rate",
-      "symbol": "C_labor",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_labor_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 10000,
-        "unit": "currency_unit_per_h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Fully Loaded Labor Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Fully Loaded Labor Rate is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 20,
-        "max": 250,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on payroll and overhead allocation; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "payroll and overhead allocation",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Loaded labor rate including wages, burden, and reasonable supervision allocation."
-      },
-      "source_priority": [
-        "payroll and overhead allocation",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "payroll and overhead allocation",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "payroll and overhead allocation",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Fully Loaded Labor Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "capacity_or_process_capability",
-        "field_order": 14,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Fully Loaded Labor Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Fully Loaded Labor Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "overhead_rate",
-      "name": "Allocated Overhead Rate",
-      "symbol": "C_oh",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_overhead_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 100000,
-        "unit": "currency_unit_per_h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Allocated Overhead Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Allocated Overhead Rate is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 10,
-        "max": 1000,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on cost accounting ledger; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "cost accounting ledger",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Allocated support cost used only for commercial impact and quote governance."
-      },
-      "source_priority": [
-        "cost accounting ledger",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "cost accounting ledger",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "cost accounting ledger",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Allocated Overhead Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "quality_tolerance_calibration",
-        "field_order": 15,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Allocated Overhead Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Allocated Overhead Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "defect_or_loss_cost",
-      "name": "Unit Loss Cost",
-      "symbol": "C_loss",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
-      "normalized_id": "n_defect_or_loss_cost",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 100000000,
-        "unit": "currency_unit",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Unit Loss Cost is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Unit Loss Cost is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 1,
-        "max": 100000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on invoice, replacement cost, or management estimate; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "invoice, replacement cost, or management estimate",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Monetary exposure if the decision is wrong or a unit fails the intended requirement."
-      },
-      "source_priority": [
-        "invoice, replacement cost, or management estimate",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "invoice, replacement cost, or management estimate",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "invoice, replacement cost, or management estimate",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Unit Loss Cost; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "commercial_impact_inputs",
-        "field_order": 16,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Unit Loss Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Unit Loss Cost can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
     }
   ],
   "normalized_inputs": [
     {
-      "id": "n_system_pressure",
-      "from_input": "system_pressure",
-      "quantity_kind": "pressure",
-      "base_unit": "Pa",
+      "id": "n_current_kwh_per_year",
+      "from_input": "current_kwh_per_year",
+      "quantity_kind": "energy",
+      "base_unit": "J",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for system_pressure after unit conversion.",
-        "Evaluate engineering reference range for system_pressure after conversion.",
-        "Reject non-finite normalized value for system_pressure."
+        "Apply physical hard bounds for current_kwh_per_year after unit conversion.",
+        "Evaluate engineering reference range for current_kwh_per_year after conversion.",
+        "Reject non-finite normalized value for current_kwh_per_year."
       ],
       "audit_required": true
     },
     {
-      "id": "n_leak_flow_rate",
-      "from_input": "leak_flow_rate",
-      "quantity_kind": "flow_rate",
-      "base_unit": "m3_s",
+      "id": "n_target_kwh_per_year",
+      "from_input": "target_kwh_per_year",
+      "quantity_kind": "energy",
+      "base_unit": "J",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for leak_flow_rate after unit conversion.",
-        "Evaluate engineering reference range for leak_flow_rate after conversion.",
-        "Reject non-finite normalized value for leak_flow_rate."
+        "Apply physical hard bounds for target_kwh_per_year after unit conversion.",
+        "Evaluate engineering reference range for target_kwh_per_year after conversion.",
+        "Reject non-finite normalized value for target_kwh_per_year."
       ],
       "audit_required": true
     },
     {
-      "id": "n_annual_operating_hours",
-      "from_input": "annual_operating_hours",
-      "quantity_kind": "time",
-      "base_unit": "s",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for annual_operating_hours after unit conversion.",
-        "Evaluate engineering reference range for annual_operating_hours after conversion.",
-        "Reject non-finite normalized value for annual_operating_hours."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_specific_power",
-      "from_input": "specific_power",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for specific_power after unit conversion.",
-        "Evaluate engineering reference range for specific_power after conversion.",
-        "Reject non-finite normalized value for specific_power."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_electricity_price",
-      "from_input": "electricity_price",
+      "id": "n_avg_kwh_rate",
+      "from_input": "avg_kwh_rate",
       "quantity_kind": "currency_rate",
       "base_unit": "currency_unit_per_h",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for electricity_price after unit conversion.",
-        "Evaluate engineering reference range for electricity_price after conversion.",
-        "Reject non-finite normalized value for electricity_price."
+        "Apply physical hard bounds for avg_kwh_rate after unit conversion.",
+        "Evaluate engineering reference range for avg_kwh_rate after conversion.",
+        "Reject non-finite normalized value for avg_kwh_rate."
       ],
       "audit_required": true
     },
     {
-      "id": "n_repair_cost",
-      "from_input": "repair_cost",
+      "id": "n_implementation_cost",
+      "from_input": "implementation_cost",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for repair_cost after unit conversion.",
-        "Evaluate engineering reference range for repair_cost after conversion.",
-        "Reject non-finite normalized value for repair_cost."
+        "Apply physical hard bounds for implementation_cost after unit conversion.",
+        "Evaluate engineering reference range for implementation_cost after conversion.",
+        "Reject non-finite normalized value for implementation_cost."
       ],
       "audit_required": true
     },
     {
-      "id": "n_initial_investment",
-      "from_input": "initial_investment",
-      "quantity_kind": "currency",
-      "base_unit": "currency_unit",
+      "id": "n_grant_coverage_pct",
+      "from_input": "grant_coverage_pct",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for initial_investment after unit conversion.",
-        "Evaluate engineering reference range for initial_investment after conversion.",
-        "Reject non-finite normalized value for initial_investment."
+        "Apply physical hard bounds for grant_coverage_pct after unit conversion.",
+        "Evaluate engineering reference range for grant_coverage_pct after conversion.",
+        "Reject non-finite normalized value for grant_coverage_pct."
       ],
       "audit_required": true
     },
     {
-      "id": "n_annual_net_cash_flow",
-      "from_input": "annual_net_cash_flow",
+      "id": "n_maintenance_cost_saving",
+      "from_input": "maintenance_saving",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for annual_net_cash_flow after unit conversion.",
-        "Evaluate engineering reference range for annual_net_cash_flow after conversion.",
-        "Reject non-finite normalized value for annual_net_cash_flow."
+        "Apply physical hard bounds for maintenance_saving after unit conversion.",
+        "Evaluate engineering reference range for maintenance_saving after conversion.",
+        "Reject non-finite normalized value for maintenance_saving."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_emission_factor_kgco2_per_kwh",
+      "from_input": "emission_factor",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for emission_factor after unit conversion.",
+        "Evaluate engineering reference range for emission_factor after conversion.",
+        "Reject non-finite normalized value for emission_factor."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_equipment_life_years",
+      "from_input": "equipment_life_years",
+      "quantity_kind": "time",
+      "base_unit": "s",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for equipment_life_years after unit conversion.",
+        "Evaluate engineering reference range for equipment_life_years after conversion.",
+        "Reject non-finite normalized value for equipment_life_years."
       ],
       "audit_required": true
     },
@@ -2319,93 +1169,15 @@
       "audit_required": true
     },
     {
-      "id": "n_analysis_years",
-      "from_input": "analysis_years",
-      "quantity_kind": "time",
-      "base_unit": "s",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for analysis_years after unit conversion.",
-        "Evaluate engineering reference range for analysis_years after conversion.",
-        "Reject non-finite normalized value for analysis_years."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_residual_value",
-      "from_input": "residual_value",
-      "quantity_kind": "currency",
-      "base_unit": "currency_unit",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for residual_value after unit conversion.",
-        "Evaluate engineering reference range for residual_value after conversion.",
-        "Reject non-finite normalized value for residual_value."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_stress_downside_factor",
-      "from_input": "stress_downside_factor",
+      "id": "n_source_confidence_ratio",
+      "from_input": "source_confidence",
       "quantity_kind": "dimensionless",
       "base_unit": "ratio",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for stress_downside_factor after unit conversion.",
-        "Evaluate engineering reference range for stress_downside_factor after conversion.",
-        "Reject non-finite normalized value for stress_downside_factor."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_annual_volume",
-      "from_input": "annual_volume",
-      "quantity_kind": "rate",
-      "base_unit": "unit_per_s",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for annual_volume after unit conversion.",
-        "Evaluate engineering reference range for annual_volume after conversion.",
-        "Reject non-finite normalized value for annual_volume."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_labor_rate",
-      "from_input": "labor_rate",
-      "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for labor_rate after unit conversion.",
-        "Evaluate engineering reference range for labor_rate after conversion.",
-        "Reject non-finite normalized value for labor_rate."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_overhead_rate",
-      "from_input": "overhead_rate",
-      "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for overhead_rate after unit conversion.",
-        "Evaluate engineering reference range for overhead_rate after conversion.",
-        "Reject non-finite normalized value for overhead_rate."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_defect_or_loss_cost",
-      "from_input": "defect_or_loss_cost",
-      "quantity_kind": "currency",
-      "base_unit": "currency_unit",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for defect_or_loss_cost after unit conversion.",
-        "Evaluate engineering reference range for defect_or_loss_cost after conversion.",
-        "Reject non-finite normalized value for defect_or_loss_cost."
+        "Apply physical hard bounds for source_confidence after unit conversion.",
+        "Evaluate engineering reference range for source_confidence after conversion.",
+        "Reject non-finite normalized value for source_confidence."
       ],
       "audit_required": true
     }

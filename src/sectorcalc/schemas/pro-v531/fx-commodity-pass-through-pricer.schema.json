@@ -201,21 +201,16 @@
   },
   "inputs": [
     {
-      "id": "machine_rate",
-      "name": "Machine Hourly Rate",
-      "symbol": "C_machine",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
+      "id": "base_price",
+      "name": "Base Price",
+      "symbol": "BP",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
+        "currency_unit"
       ],
-      "normalized_id": "n_machine_rate",
+      "normalized_id": "n_base_price",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -223,20 +218,14 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100000,
-        "unit": "currency_unit_per_h",
+        "max": 1000000000,
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Machine Hourly Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Machine Hourly Rate is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Base Price is below the physical or process hard bound.",
+        "semantic_error_message_max": "Base Price is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 20,
-        "max": 2000,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on shop rate proof; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -249,69 +238,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "shop rate proof",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Fully loaded machine hourly rate."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "shop rate proof",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "shop rate proof",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "shop rate proof",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Machine Hourly Rate; critical values are not defaulted."
+        "public_help_text": "Provide the base price."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
         "group_id": "operation_context",
         "field_order": 1,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -322,46 +277,35 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Machine Hourly Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Machine Hourly Rate can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the base price. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Base Price will downgrade evidence confidence."
     },
     {
-      "id": "cycle_time",
-      "name": "Cycle Time per Unit",
-      "symbol": "t_cycle",
-      "quantity_kind": "time",
-      "unit_selectable": true,
-      "base_unit": "s",
+      "id": "fx_rate_spot",
+      "name": "FX Rate (Spot)",
+      "symbol": "FXS",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
       "allowed_display_units": [
-        "s",
-        "min",
-        "h",
-        "day",
-        "month",
-        "year"
+        "ratio"
       ],
-      "normalized_id": "n_cycle_time",
+      "normalized_id": "n_fx_rate_spot",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 0.001,
-        "max": 1000000,
-        "unit": "s",
+        "min": 0,
+        "max": 1000000000,
+        "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Cycle Time per Unit is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Cycle Time per Unit is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "FX Rate (Spot) is below the physical or process hard bound.",
+        "semantic_error_message_max": "FX Rate (Spot) is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 30,
-        "max": 36000,
-        "unit": "s",
-        "source": "SectorCalc industrial screening reference range based on time study or CAM estimate; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -374,69 +318,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "time study or CAM estimate",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Run time per unit excluding batch setup unless stated."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "time study or CAM estimate",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "time study or CAM estimate",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "time study or CAM estimate",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Cycle Time per Unit; critical values are not defaulted."
+        "public_help_text": "Provide the fx rate (spot)."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "geometry_or_process_definition",
+        "group_id": "operation_context",
         "field_order": 2,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -447,25 +357,20 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Cycle Time per Unit. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Cycle Time per Unit can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the fx rate (spot). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated FX Rate (Spot) will downgrade evidence confidence."
     },
     {
-      "id": "setup_time",
-      "name": "Batch Setup Time",
-      "symbol": "t_setup",
-      "quantity_kind": "time",
-      "unit_selectable": true,
-      "base_unit": "s",
+      "id": "fx_rate_budget",
+      "name": "FX Rate (Budget)",
+      "symbol": "FXB",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
       "allowed_display_units": [
-        "s",
-        "min",
-        "h",
-        "day",
-        "month",
-        "year"
+        "ratio"
       ],
-      "normalized_id": "n_setup_time",
+      "normalized_id": "n_fx_rate_budget",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -473,20 +378,14 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000,
-        "unit": "s",
+        "max": 1000000000,
+        "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Batch Setup Time is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Batch Setup Time is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "FX Rate (Budget) is below the physical or process hard bound.",
+        "semantic_error_message_max": "FX Rate (Budget) is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 300,
-        "max": 72000,
-        "unit": "s",
-        "source": "SectorCalc industrial screening reference range based on setup log; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -499,69 +398,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "setup log",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Setup time that must be absorbed across the batch."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "setup log",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "setup log",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "setup log",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Batch Setup Time; critical values are not defaulted."
+        "public_help_text": "Provide the fx rate (budget)."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "material_or_asset_data",
+        "group_id": "operation_context",
         "field_order": 3,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -572,141 +437,20 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Batch Setup Time. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Batch Setup Time can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the fx rate (budget). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated FX Rate (Budget) will downgrade evidence confidence."
     },
     {
-      "id": "batch_quantity",
-      "name": "Batch Quantity",
-      "symbol": "Q_batch",
+      "id": "commodity_index_current",
+      "name": "Commodity Index (Current)",
+      "symbol": "CIC",
       "quantity_kind": "dimensionless",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "ratio"
       ],
-      "normalized_id": "n_batch_quantity",
-      "type": "integer",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 1,
-        "max": 10000000,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Batch Quantity is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Batch Quantity is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 1,
-        "max": 100000,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on work order; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "work order",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Number of units over which setup and fixed charges are absorbed."
-      },
-      "source_priority": [
-        "work order",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "work order",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "work order",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Batch Quantity; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "load_or_demand",
-        "field_order": 4,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Batch Quantity. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Batch Quantity can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "material_cost",
-      "name": "Material Cost per Unit",
-      "symbol": "C_mat",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
-      "normalized_id": "n_material_cost",
+      "normalized_id": "n_commodity_index_current",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -714,20 +458,14 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 10000000,
-        "unit": "currency_unit",
+        "max": 1000000000,
+        "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Material Cost per Unit is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Material Cost per Unit is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Commodity Index (Current) is below the physical or process hard bound.",
+        "semantic_error_message_max": "Commodity Index (Current) is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 0.1,
-        "max": 100000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on purchase invoice or BOM; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -740,69 +478,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "purchase invoice or BOM",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Material cost per unit including yield basis when applicable."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "purchase invoice or BOM",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "purchase invoice or BOM",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "purchase invoice or BOM",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
+        "public_help_text": "Provide the commodity index (current)."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "capacity_or_process_capability",
-        "field_order": 5,
+        "group_id": "operation_context",
+        "field_order": 4,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -813,45 +517,38 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Material Cost per Unit. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Material Cost per Unit can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the commodity index (current). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Commodity Index (Current) will downgrade evidence confidence."
     },
     {
-      "id": "target_margin",
-      "name": "Target Gross Margin",
-      "symbol": "GM",
+      "id": "commodity_index_budget",
+      "name": "Commodity Index (Budget)",
+      "symbol": "CIB",
       "quantity_kind": "dimensionless",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "ratio"
       ],
-      "normalized_id": "n_target_margin",
+      "normalized_id": "n_commodity_index_budget",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": -1,
-        "max": 0.95,
+        "min": 0,
+        "max": 1000000000,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Target Gross Margin is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Target Gross Margin is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Commodity Index (Budget) is below the physical or process hard bound.",
+        "semantic_error_message_max": "Commodity Index (Budget) is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 0.05,
-        "max": 0.7,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on pricing policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
-        "input_decimals": 6,
+        "input_decimals": 3,
         "display_decimals": 3,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
@@ -861,69 +558,35 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "pricing policy",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Target margin used to convert cost into quote price."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "pricing policy",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "pricing policy",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "pricing policy",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Target Gross Margin; critical values are not defaulted."
+        "public_help_text": "Provide the commodity index (budget)."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "quality_tolerance_calibration",
-        "field_order": 6,
+        "group_id": "operation_context",
+        "field_order": 5,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
@@ -934,44 +597,275 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Target Gross Margin. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Target Gross Margin can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the commodity index (budget). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Commodity Index (Budget) will downgrade evidence confidence."
+    },
+    {
+      "id": "material_cost_pct",
+      "name": "Material Cost %",
+      "symbol": "MCP",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio"
+      ],
+      "normalized_id": "n_material_cost_pct",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000,
+        "unit": "ratio",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Material Cost % is below the physical or process hard bound.",
+        "semantic_error_message_max": "Material Cost % is above the physical or process hard bound."
+      },
+      "engineering_range": null,
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "user-provided value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-provided input value."
+      },
+      "source_priority": [
+        "user-provided value",
+        "engineering estimate"
+      ],
+      "source": "user-provided value",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "user-provided value",
+          "engineering estimate"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the material cost %."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "operation_context",
+        "field_order": 6,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the material cost %. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Material Cost % will downgrade evidence confidence."
+    },
+    {
+      "id": "fx_hedge_pct",
+      "name": "FX Hedge %",
+      "symbol": "FXH",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio"
+      ],
+      "normalized_id": "n_fx_hedge_pct",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000,
+        "unit": "ratio",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "FX Hedge % is below the physical or process hard bound.",
+        "semantic_error_message_max": "FX Hedge % is above the physical or process hard bound."
+      },
+      "engineering_range": null,
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "user-provided value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-provided input value."
+      },
+      "source_priority": [
+        "user-provided value",
+        "engineering estimate"
+      ],
+      "source": "user-provided value",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "user-provided value",
+          "engineering estimate"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the fx hedge %."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "operation_context",
+        "field_order": 7,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the fx hedge %. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated FX Hedge % will downgrade evidence confidence."
+    },
+    {
+      "id": "commodity_hedge_pct",
+      "name": "Commodity Hedge %",
+      "symbol": "CH",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio"
+      ],
+      "normalized_id": "n_commodity_hedge_pct",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000,
+        "unit": "ratio",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Commodity Hedge % is below the physical or process hard bound.",
+        "semantic_error_message_max": "Commodity Hedge % is above the physical or process hard bound."
+      },
+      "engineering_range": null,
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "user-provided value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-provided input value."
+      },
+      "source_priority": [
+        "user-provided value",
+        "engineering estimate"
+      ],
+      "source": "user-provided value",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "user-provided value",
+          "engineering estimate"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the commodity hedge %."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "operation_context",
+        "field_order": 8,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the commodity hedge %. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Commodity Hedge % will downgrade evidence confidence."
     },
     {
       "id": "annual_volume",
-      "name": "Annual Decision Volume",
-      "symbol": "N",
+      "name": "Annual Volume",
+      "symbol": "AV",
       "quantity_kind": "rate",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "unit_per_s",
       "allowed_display_units": [
-        "unit_per_s",
-        "unit_per_min",
-        "unit_per_h",
-        "unit_per_day"
+        "unit_per_s"
       ],
       "normalized_id": "n_annual_volume",
       "type": "number",
       "required": true,
-      "criticality": "HIGH",
+      "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 1e-8,
-        "max": 10,
+        "min": 0,
+        "max": 1000000000,
         "unit": "unit_per_s",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Annual Decision Volume is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Annual Decision Volume is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Annual Volume is below the physical or process hard bound.",
+        "semantic_error_message_max": "Annual Volume is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 0.000001,
-        "max": 0.5,
-        "unit": "unit_per_s",
-        "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -984,440 +878,38 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "planning or ERP schedule",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Annualized operating or sales volume used for impact normalization."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "planning or ERP schedule",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "planning or ERP schedule",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "planning or ERP schedule",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Annual Decision Volume; critical values are not defaulted."
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the annual volume."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "commercial_impact_inputs",
-        "field_order": 7,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Annual Decision Volume. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Decision Volume can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "labor_rate",
-      "name": "Fully Loaded Labor Rate",
-      "symbol": "C_labor",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_labor_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 10000,
-        "unit": "currency_unit_per_h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Fully Loaded Labor Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Fully Loaded Labor Rate is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 20,
-        "max": 250,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on payroll and overhead allocation; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "payroll and overhead allocation",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Loaded labor rate including wages, burden, and reasonable supervision allocation."
-      },
-      "source_priority": [
-        "payroll and overhead allocation",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "payroll and overhead allocation",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "payroll and overhead allocation",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Fully Loaded Labor Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "evidence_and_source_status",
-        "field_order": 8,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Fully Loaded Labor Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Fully Loaded Labor Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "overhead_rate",
-      "name": "Allocated Overhead Rate",
-      "symbol": "C_oh",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_overhead_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 100000,
-        "unit": "currency_unit_per_h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Allocated Overhead Rate is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Allocated Overhead Rate is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 10,
-        "max": 1000,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on cost accounting ledger; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "cost accounting ledger",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Allocated support cost used only for commercial impact and quote governance."
-      },
-      "source_priority": [
-        "cost accounting ledger",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "cost accounting ledger",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "cost accounting ledger",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Allocated Overhead Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "advanced_derating_inputs",
-        "field_order": 9,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Allocated Overhead Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Allocated Overhead Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "defect_or_loss_cost",
-      "name": "Unit Loss Cost",
-      "symbol": "C_loss",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
-      "normalized_id": "n_defect_or_loss_cost",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 100000000,
-        "unit": "currency_unit",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Unit Loss Cost is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Unit Loss Cost is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 1,
-        "max": 100000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on invoice, replacement cost, or management estimate; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "invoice, replacement cost, or management estimate",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Monetary exposure if the decision is wrong or a unit fails the intended requirement."
-      },
-      "source_priority": [
-        "invoice, replacement cost, or management estimate",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "invoice, replacement cost, or management estimate",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "invoice, replacement cost, or management estimate",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Unit Loss Cost; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
         "group_id": "operation_context",
-        "field_order": 10,
+        "field_order": 9,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
         "visible_in_modes": [
+          "quick",
           "engineering",
           "cost",
           "audit"
@@ -1425,45 +917,38 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Unit Loss Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Unit Loss Cost can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the annual volume. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Annual Volume will downgrade evidence confidence."
     },
     {
-      "id": "source_confidence_ratio",
+      "id": "source_confidence",
       "name": "Source Confidence Ratio",
-      "symbol": "Q_src",
+      "symbol": "SCR",
       "quantity_kind": "dimensionless",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "ratio"
       ],
       "normalized_id": "n_source_confidence_ratio",
       "type": "number",
       "required": true,
-      "criticality": "MEDIUM",
+      "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1,
+        "max": 1000000000,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Source Confidence Ratio is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Source Confidence Ratio is above the physical or process hard bound for this calculation boundary."
+        "semantic_error_message_min": "Source Confidence Ratio is below the physical or process hard bound.",
+        "semantic_error_message_max": "Source Confidence Ratio is above the physical or process hard bound."
       },
-      "engineering_range": {
-        "min": 0.6,
-        "max": 1,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on evidence review; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
+      "engineering_range": null,
       "resolution": null,
       "precision_policy": {
-        "input_decimals": 6,
+        "input_decimals": 3,
         "display_decimals": 3,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
@@ -1473,71 +958,38 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "evidence review",
+        "source": "user-provided value",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Reviewer-assigned confidence in source traceability."
+        "public_note": "User-provided input value."
       },
       "source_priority": [
-        "evidence review",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
+        "user-provided value",
+        "engineering estimate"
       ],
-      "source": "evidence review",
+      "source": "user-provided value",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "evidence review",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
+          "user-provided value",
+          "engineering estimate"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Source Confidence Ratio; critical values are not defaulted."
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the source confidence ratio."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "geometry_or_process_definition",
-        "field_order": 11,
+        "group_id": "operation_context",
+        "field_order": 10,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
         "visible_in_modes": [
+          "quick",
           "engineering",
           "cost",
           "audit"
@@ -1545,206 +997,112 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Source Confidence Ratio. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "uncertainty_multiplier",
-      "name": "Uncertainty Coverage Multiplier",
-      "symbol": "k_u",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "normalized_id": "n_uncertainty_multiplier",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 1,
-        "max": 5,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Uncertainty Coverage Multiplier is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Uncertainty Coverage Multiplier is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 1.5,
-        "max": 2.5,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on uncertainty policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "uncertainty policy",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Coverage multiplier used by the server uncertainty model."
-      },
-      "source_priority": [
-        "uncertainty policy",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "uncertainty policy",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "uncertainty policy",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Uncertainty Coverage Multiplier; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "material_or_asset_data",
-        "field_order": 12,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Uncertainty Coverage Multiplier. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
     }
   ],
   "normalized_inputs": [
     {
-      "id": "n_machine_rate",
-      "from_input": "machine_rate",
-      "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for machine_rate after unit conversion.",
-        "Evaluate engineering reference range for machine_rate after conversion.",
-        "Reject non-finite normalized value for machine_rate."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_cycle_time",
-      "from_input": "cycle_time",
-      "quantity_kind": "time",
-      "base_unit": "s",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for cycle_time after unit conversion.",
-        "Evaluate engineering reference range for cycle_time after conversion.",
-        "Reject non-finite normalized value for cycle_time."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_setup_time",
-      "from_input": "setup_time",
-      "quantity_kind": "time",
-      "base_unit": "s",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for setup_time after unit conversion.",
-        "Evaluate engineering reference range for setup_time after conversion.",
-        "Reject non-finite normalized value for setup_time."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_batch_quantity",
-      "from_input": "batch_quantity",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for batch_quantity after unit conversion.",
-        "Evaluate engineering reference range for batch_quantity after conversion.",
-        "Reject non-finite normalized value for batch_quantity."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_material_cost",
-      "from_input": "material_cost",
+      "id": "n_base_price",
+      "from_input": "base_price",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for material_cost after unit conversion.",
-        "Evaluate engineering reference range for material_cost after conversion.",
-        "Reject non-finite normalized value for material_cost."
+        "Apply physical hard bounds for base_price after unit conversion.",
+        "Evaluate engineering reference range for base_price after conversion.",
+        "Reject non-finite normalized value for base_price."
       ],
       "audit_required": true
     },
     {
-      "id": "n_target_margin",
-      "from_input": "target_margin",
+      "id": "n_fx_rate_spot",
+      "from_input": "fx_rate_spot",
       "quantity_kind": "dimensionless",
       "base_unit": "ratio",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for target_margin after unit conversion.",
-        "Evaluate engineering reference range for target_margin after conversion.",
-        "Reject non-finite normalized value for target_margin."
+        "Apply physical hard bounds for fx_rate_spot after unit conversion.",
+        "Evaluate engineering reference range for fx_rate_spot after conversion.",
+        "Reject non-finite normalized value for fx_rate_spot."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_fx_rate_budget",
+      "from_input": "fx_rate_budget",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for fx_rate_budget after unit conversion.",
+        "Evaluate engineering reference range for fx_rate_budget after conversion.",
+        "Reject non-finite normalized value for fx_rate_budget."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_commodity_index_current",
+      "from_input": "commodity_index_current",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for commodity_index_current after unit conversion.",
+        "Evaluate engineering reference range for commodity_index_current after conversion.",
+        "Reject non-finite normalized value for commodity_index_current."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_commodity_index_budget",
+      "from_input": "commodity_index_budget",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for commodity_index_budget after unit conversion.",
+        "Evaluate engineering reference range for commodity_index_budget after conversion.",
+        "Reject non-finite normalized value for commodity_index_budget."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_material_cost_pct",
+      "from_input": "material_cost_pct",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for material_cost_pct after unit conversion.",
+        "Evaluate engineering reference range for material_cost_pct after conversion.",
+        "Reject non-finite normalized value for material_cost_pct."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_fx_hedge_pct",
+      "from_input": "fx_hedge_pct",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for fx_hedge_pct after unit conversion.",
+        "Evaluate engineering reference range for fx_hedge_pct after conversion.",
+        "Reject non-finite normalized value for fx_hedge_pct."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_commodity_hedge_pct",
+      "from_input": "commodity_hedge_pct",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for commodity_hedge_pct after unit conversion.",
+        "Evaluate engineering reference range for commodity_hedge_pct after conversion.",
+        "Reject non-finite normalized value for commodity_hedge_pct."
       ],
       "audit_required": true
     },
@@ -1762,67 +1120,15 @@
       "audit_required": true
     },
     {
-      "id": "n_labor_rate",
-      "from_input": "labor_rate",
-      "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for labor_rate after unit conversion.",
-        "Evaluate engineering reference range for labor_rate after conversion.",
-        "Reject non-finite normalized value for labor_rate."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_overhead_rate",
-      "from_input": "overhead_rate",
-      "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for overhead_rate after unit conversion.",
-        "Evaluate engineering reference range for overhead_rate after conversion.",
-        "Reject non-finite normalized value for overhead_rate."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_defect_or_loss_cost",
-      "from_input": "defect_or_loss_cost",
-      "quantity_kind": "currency",
-      "base_unit": "currency_unit",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for defect_or_loss_cost after unit conversion.",
-        "Evaluate engineering reference range for defect_or_loss_cost after conversion.",
-        "Reject non-finite normalized value for defect_or_loss_cost."
-      ],
-      "audit_required": true
-    },
-    {
       "id": "n_source_confidence_ratio",
-      "from_input": "source_confidence_ratio",
+      "from_input": "source_confidence",
       "quantity_kind": "dimensionless",
       "base_unit": "ratio",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for source_confidence_ratio after unit conversion.",
-        "Evaluate engineering reference range for source_confidence_ratio after conversion.",
-        "Reject non-finite normalized value for source_confidence_ratio."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_uncertainty_multiplier",
-      "from_input": "uncertainty_multiplier",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for uncertainty_multiplier after unit conversion.",
-        "Evaluate engineering reference range for uncertainty_multiplier after conversion.",
-        "Reject non-finite normalized value for uncertainty_multiplier."
+        "Apply physical hard bounds for source_confidence after unit conversion.",
+        "Evaluate engineering reference range for source_confidence after conversion.",
+        "Reject non-finite normalized value for source_confidence."
       ],
       "audit_required": true
     }
