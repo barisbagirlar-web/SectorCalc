@@ -146,6 +146,8 @@ export interface UniversalIndustrialDecisionFormProps {
   onRequestCreditSession?: (toolKey: string) => void;
   /** Whether a credit session is being created. */
   creditSessionLoading?: boolean;
+  /** Whether the user is signed in (for button label gating). */
+  isSignedIn?: boolean;
   /** Pre-validated render contract from buildToolRenderContract. */
   renderContract?: ToolRenderContract;
 }
@@ -842,12 +844,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   // with no credit session required. The server-side API handles bypass.
   // Detected by the "bypass-unlimited" usageSessionId set in ProToolSessionWrapper.
   const isBypassUser = isPro && props.usageSessionId === "bypass-unlimited";
+  const isSignedIn = props.isSignedIn ?? false;
 
   const primaryButtonDisabled =
     isExecuting ||
     creditSessionLoading ||
-    (isPro && !hasSession && !isBypassUser) ||
-    (isPro && sessionExhausted);
+    (isPro && !isSignedIn) ||
+    (isPro && sessionExhausted && !isSignedIn);
 
   // ── Button label state machine (V5.3.1) ──
   const primaryButtonLabel = (() => {
@@ -859,8 +862,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     }
     // PRO
     if (creditSessionLoading) return "Processing credit...";
-    if (props.accessTier === "PRO" && !hasSession && !isBypassUser) return "Sign in to calculate";
-    if (props.accessTier === "PRO" && sessionExhausted) return "Unlock Pro access";
+    if (isPro && !isSignedIn) return "Sign in to calculate";
+    if (isPro && !hasSession && !isBypassUser) return "Calculate (1 credit)";
+    if (isPro && sessionExhausted) return "Unlock Pro access";
     if (isExecuting) return "Calculating...";
     if (hasResult) return "Recalculate";
     return "Calculate";
@@ -1587,8 +1591,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 return null;
               })()}
 
-              {/* PRO mode: Decision Summary + Primary Results + Professional Interpretation */}
-              {!isFreeTier && response?.outputs && (
+              {/* PRO mode: Decision Summary + Primary Results + Professional Interpretation (fallback when no universal_result) */}
+              {!isFreeTier && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && (
                 <div className="sc-v531-pro-results-container">
                   {/* Decision Summary — skipped when desktop cockpit already shows it */}
                   {!(isPro && isDesktop) && (() => {

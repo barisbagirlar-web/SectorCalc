@@ -20,7 +20,7 @@ import { FieldValue } from "firebase-admin/firestore";
 import { createExecutionIdempotencyKey } from "./tool-execution-idempotency.server";
 
 const PRO_SESSION_COST = 1;
-const PRO_SESSION_MAX_RUNS = 10;
+const PRO_SESSION_MAX_RUNS = 3;
 
 export type UsageSessionStatus = "ACTIVE" | "EXHAUSTED" | "CANCELLED";
 

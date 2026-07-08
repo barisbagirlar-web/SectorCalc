@@ -225,7 +225,9 @@ function enrichCommercialDecision(
   const primaryOutput = outputs.find((o) => typeof o.value === "number" && Number.isFinite(o.value));
 
   if (primaryOutput) {
-    const prefix = primaryOutput.name ?? "Result";
+    const prefix = (primaryOutput.name && primaryOutput.name !== "Result")
+      ? primaryOutput.name
+      : primaryOutput.id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
     const pv = typeof primaryOutput.value === "number" ? round2(primaryOutput.value) : String(primaryOutput.value ?? "");
     cards.push({
       id: primaryOutput.id,
@@ -245,7 +247,7 @@ function enrichCommercialDecision(
     if (o.id.includes("decision") || o.id.includes("status")) continue;
     cards.push({
       id: o.id,
-      label: o.name ?? o.id,
+      label: (o.name && o.name !== "Result") ? o.name : o.id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
       value: round2(o.value),
       unit: o.unit ?? undefined,
       perspective: "cost_basis",
@@ -300,7 +302,7 @@ function enrichPassFailWithSafetyMargin(
     if (typeof o.value !== "number" || !Number.isFinite(o.value)) continue;
     cards.push({
       id: o.id,
-      label: o.name ?? o.id,
+      label: (o.name && o.name !== "Result") ? o.name : o.id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
       value: round2(o.value),
       unit: o.unit ?? undefined,
       perspective: "technical_limit",
@@ -364,7 +366,7 @@ export function buildUniversalResult(
   // Primary is the first (highest priority) card
   const primary = enriched.cards[0] ?? {
     id: "result",
-    label: "Result",
+    label: "Calculation Result",
     value: "",
     perspective: "primary" as ResultPerspective,
     priority: 0,

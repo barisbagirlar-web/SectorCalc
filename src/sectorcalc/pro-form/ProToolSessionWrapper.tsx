@@ -86,6 +86,7 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
     <UniversalIndustrialDecisionForm
       {...props}
       accessTier={props.accessTier ?? "PRO"}
+      isSignedIn={!!user}
       usageSessionId={usageSessionId}
       remainingRuns={remainingRuns}
       creditSessionLoading={creditSessionLoading}

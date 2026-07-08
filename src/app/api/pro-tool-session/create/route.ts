@@ -1,7 +1,7 @@
 // SectorCalc Pro Session Creation API
 // Authenticated user required.
 // Creates exactly one Pro session for the given toolKey, deducting exactly 1 credit.
-// Session maxRuns = 10.
+// Session maxRuns = 3 (1 credit = 3 uses).
 
 import { NextRequest, NextResponse } from "next/server";
 import { parseBearerToken, verifySignedInUser } from "@/lib/infrastructure/firebase/verify-signed-in-user";
