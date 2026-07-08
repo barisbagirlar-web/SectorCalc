@@ -480,6 +480,8 @@ export interface ExecuteResponse {
   audit_seal: AuditSeal;
   redaction_status: RedactionStatus;
   premium_hook?: import("@/sectorcalc/monetization/monetization-types").PremiumHookPublic | null;
+  /** V5.4 Universal Result Perspectives — enriched multi-card result display. */
+  universal_result?: UniversalCalculationResult;
 }
 
 export interface UIInputGroup {
@@ -655,3 +657,54 @@ export const V531_APPROVED_TOP_LEVEL_KEYS = [
   "red_team_review",
   "metadata",
 ] as const;
+
+// ══════════════════════════════════════════════════════════════════════════════
+// Universal Result Perspectives Layer — V5.4
+// ══════════════════════════════════════════════════════════════════════════════
+
+export type ResultPerspective =
+  | "primary"
+  | "cost_basis"
+  | "commercial_price"
+  | "technical_limit"
+  | "risk_sensitivity"
+  | "decision_state"
+  | "audit_note";
+
+export type ResultCardSeverity = "info" | "pass" | "warning" | "danger";
+
+export interface UniversalResultCard {
+  id: string;
+  label: string;
+  value: number | string;
+  unit?: string;
+  perspective: ResultPerspective;
+  priority: number;
+  formula?: string;
+  explanation?: string;
+  severity?: ResultCardSeverity;
+}
+
+export interface DecisionStateCard {
+  label: string;
+  severity: ResultCardSeverity;
+  reason: string;
+}
+
+export interface UniversalCalculationResult {
+  primary: UniversalResultCard;
+  cards: UniversalResultCard[];
+  decisionState: DecisionStateCard;
+  assumptions: string[];
+  warnings: string[];
+}
+
+export type ResultProfileId =
+  | "cost_plus_margin"
+  | "technical_limit_with_cost"
+  | "pass_fail_with_safety_margin"
+  | "savings_roi"
+  | "cost_capacity_efficiency"
+  | "commercial_decision"
+  | "risk_quality_decision"
+  | "compliance_audit_package";

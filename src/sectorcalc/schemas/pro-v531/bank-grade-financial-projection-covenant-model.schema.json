@@ -449,8 +449,8 @@
       "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "percent",
+        "ratio"
       ],
       "normalized_id": "n_discount_rate",
       "type": "number",
@@ -568,14 +568,14 @@
       "symbol": "n",
       "quantity_kind": "time",
       "unit_selectable": true,
-      "base_unit": "s",
+      "base_unit": "year",
       "allowed_display_units": [
-        "s",
-        "min",
-        "h",
-        "day",
+        "year",
         "month",
-        "year"
+        "day",
+        "h",
+        "min",
+        "s"
       ],
       "normalized_id": "n_analysis_years",
       "type": "number",
@@ -584,18 +584,18 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 31536000,
-        "max": 946080000,
-        "unit": "s",
+        "min": 1,
+        "max": 30,
+        "unit": "year",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
         "semantic_error_message_min": "Analysis Period is below the physical or process hard bound for this calculation boundary.",
         "semantic_error_message_max": "Analysis Period is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 94608000,
-        "max": 315360000,
-        "unit": "s",
+        "min": 3,
+        "max": 10,
+        "unit": "year",
         "source": "SectorCalc industrial screening reference range based on investment policy; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
       },

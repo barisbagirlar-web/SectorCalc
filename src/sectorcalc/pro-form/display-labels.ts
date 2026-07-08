@@ -134,9 +134,12 @@ export const UNIT_DISPLAY_LABELS: Record<string, string> = {
   currency: "Currency",
   fraction: "Ratio",
   index: "Index",
-  min: "Minutes",
-  h: "Hours",
-  s: "Seconds",
+  s: "seconds",
+  min: "minutes",
+  h: "hours",
+  day: "days",
+  month: "months",
+  year: "years",
   kg: "kg",
   m: "m",
   mm: "mm",
@@ -148,7 +151,11 @@ export const UNIT_DISPLAY_LABELS: Record<string, string> = {
   rpm: "rpm",
   pct: "%",
   percent: "%",
+  ratio: "Ratio",
   usd: "USD",
+  currency_unit: "Currency",
+  currency_unit_per_h: "Currency/h",
+  unit_per_s: "units/s",
 };
 
 /**

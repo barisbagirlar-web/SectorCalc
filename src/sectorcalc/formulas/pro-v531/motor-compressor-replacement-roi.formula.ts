@@ -34,7 +34,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const installation_cost = get(inputs, "n_installation_cost");
   const maint_saving = get(inputs, "n_maintenance_saving_per_year");
   const life = Math.max(1, Math.round(get(inputs, "n_equipment_life_years")));
-  const dr = get(inputs, "n_discount_rate") / 100;
+  const dr = get(inputs, "n_discount_rate");
   const conf = get(inputs, "n_source_confidence_ratio");
 
   if (!isFiniteNumber(inputs["n_motor_power_kw"])) warnings.push("Missing: n_motor_power_kw");

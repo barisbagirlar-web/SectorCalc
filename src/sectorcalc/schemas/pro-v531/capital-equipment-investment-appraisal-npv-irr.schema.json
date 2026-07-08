@@ -445,8 +445,8 @@
       "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "percent",
+        "ratio"
       ],
       "normalized_id": "n_discount_rate",
       "type": "number",
@@ -562,14 +562,14 @@
       "symbol": "n",
       "quantity_kind": "time",
       "unit_selectable": true,
-      "base_unit": "s",
+      "base_unit": "year",
       "allowed_display_units": [
-        "s",
-        "min",
-        "h",
-        "day",
+        "year",
         "month",
-        "year"
+        "day",
+        "h",
+        "min",
+        "s"
       ],
       "normalized_id": "n_analysis_years",
       "type": "number",
@@ -585,9 +585,9 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 94608000,
-        "max": 315360000,
-        "unit": "s",
+        "min": 3,
+        "max": 10,
+        "unit": "year",
         "source": "SectorCalc industrial screening reference range based on investment policy; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
       },

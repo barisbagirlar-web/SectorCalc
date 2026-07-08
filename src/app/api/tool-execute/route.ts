@@ -24,6 +24,7 @@ import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { createAuditSeal, computeHash } from "@/sectorcalc/pro-runtime/audit-seal-service";
 import { freeV531FormulaRegistry } from "@/sectorcalc/formulas/free-v531/index";
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
+import { buildUniversalResult } from "@/sectorcalc/result-perspectives/universal-result-adapter";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -425,6 +426,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       });
 
       // Build final response matching ExecuteResponse contract
+      const universalResult = buildUniversalResult(validatedSchema, rawInputs, mappedOutputs);
       const freeResponse: ExecuteResponse = {
         status: primaryDecision,
         pipeline_state: "COMPLETE",
@@ -469,6 +471,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         },
         audit_seal: auditSeal,
         redaction_status: "PUBLIC_SAFE_REDACTED",
+        universal_result: universalResult ?? undefined,
       };
 
       return NextResponse.json(

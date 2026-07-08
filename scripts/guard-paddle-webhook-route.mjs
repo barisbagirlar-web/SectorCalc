@@ -115,8 +115,8 @@ function checkRoutes() {
       "resolveUserId",
     ];
     for (const exp of requiredExports) {
-      if (content.includes(`function ${exp}`) || content.includes(`export async function ${exp}`)) {
-        pass(`Handler exports ${exp}`);
+      if (content.includes(`function ${exp}`) || content.includes(`async function ${exp}`)) {
+        pass(`Handler contains ${exp} function`);
       } else {
         fail(`Handler missing function: ${exp}`);
       }

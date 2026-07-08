@@ -1,0 +1,31 @@
+{
+  "tool_key": "machining-cost-per-part",
+  "tool_id": "FREE_V531_001",
+  "raw_inputs": {
+    "batch_quantity": 500,
+    "cycle_seconds": 180,
+    "edge_life_parts": 200,
+    "labor_hourly_rate": 45,
+    "machine_hourly_rate": 85,
+    "material_cost_per_blank": 4.5,
+    "overhead_percent": 15,
+    "scrap_percent": 3,
+    "setup_minutes": 30,
+    "target_margin_percent": 20,
+    "tooling_cost_per_edge": 12
+  },
+  "expected_outputs": {
+    "cost_per_part": 13.27,
+    "cycle_cost_per_part": 6.88
+  },
+  "expected_result_perspectives": {
+    "primary_label": "Unit Cost per Part",
+    "primary_value": 13.27,
+    "has_commercial_price": true,
+    "decision_state_blank": false,
+    "decision_state_dash": false,
+    "min_cards": 4
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

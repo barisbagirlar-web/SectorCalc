@@ -114,6 +114,10 @@ const EXTENDED_UNIT_LABELS: Record<string, string> = {
   unit_per_min: "units/min",
   unit_per_h: "units/h",
   unit_per_day: "units/day",
+  year: "years",
+  month: "months",
+  day: "days",
+  ratio: "Ratio",
 };
 
 /**

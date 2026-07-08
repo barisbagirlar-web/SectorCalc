@@ -840,7 +840,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
   // Admin bypass: owner email (barisbagirlar@gmail.com) has unlimited Pro access
   // with no credit session required. The server-side API handles bypass.
-  const isBypassUser = isPro && !props.onRequestCreditSession;
+  // Detected by the "bypass-unlimited" usageSessionId set in ProToolSessionWrapper.
+  const isBypassUser = isPro && props.usageSessionId === "bypass-unlimited";
 
   const primaryButtonDisabled =
     isExecuting ||
@@ -1281,8 +1282,217 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               </div>
             ) : (
             <div className="sc-v531-result-content">
-              {/* FREE mode: show all outputs in a clean summary panel */}
-              {isFreeTier && response?.outputs && response.outputs.length > 0 && (
+              {/* FREE mode: multi-perspective result cards (V5.4 Universal Result Perspectives Layer) */}
+              {isFreeTier && response?.universal_result && response.universal_result.cards.length > 0 && (() => {
+                const ur = response!.universal_result!;
+                const primaryCard = ur.primary;
+                const commercialCards = ur.cards.filter((c) => c.perspective === "commercial_price");
+                const costCards = ur.cards.filter((c) => c.perspective === "cost_basis" && c.id !== primaryCard.id);
+                const riskCards = ur.cards.filter((c) => c.perspective === "risk_sensitivity");
+                const technicalCards = ur.cards.filter((c) => c.perspective === "technical_limit");
+                const auditCards = ur.cards.filter((c) => c.perspective === "audit_note");
+
+                const severityClass = (s?: string) => {
+                  if (s === "danger") return "sc-v531-card-danger";
+                  if (s === "warning") return "sc-v531-card-warning";
+                  return "sc-v531-card-info";
+                };
+
+                const renderCardValue = (card: typeof primaryCard) => {
+                  const val = typeof card.value === "number" ? formatBusinessResult("", card.value) : String(card.value);
+                  return card.unit ? `${val} ${card.unit}` : val;
+                };
+
+                return (
+                  <div className="sc-v531-free-results sc-v531-universal-results">
+                    {/* Primary Result */}
+                    <div className="sc-v531-free-results-section">
+                      <h3 className="sc-v531-free-results-title">Business Summary</h3>
+                      <div className="sc-v531-universal-primary-card">
+                        <span className="sc-v531-upc-label">{primaryCard.label}</span>
+                        <span className={`sc-v531-upc-value ${severityClass(primaryCard.severity)}`}>
+                          {renderCardValue(primaryCard)}
+                        </span>
+                        {primaryCard.explanation && (
+                          <span className="sc-v531-upc-explanation">{primaryCard.explanation}</span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Commercial View */}
+                    {commercialCards.length > 0 && (
+                      <div className="sc-v531-free-results-section">
+                        <h4 className="sc-v531-free-results-subtitle">Commercial View</h4>
+                        <div className="sc-v531-free-results-grid">
+                          {commercialCards.map((card, ci) => (
+                            <div key={ci} className={`sc-v531-free-result-item ${severityClass(card.severity)}`}>
+                              <span className="sc-v531-free-result-name">{card.label}</span>
+                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Cost Breakdown */}
+                    {costCards.length > 0 && (
+                      <div className="sc-v531-free-results-section">
+                        <h4 className="sc-v531-free-results-subtitle">Cost Breakdown</h4>
+                        <div className="sc-v531-free-results-grid">
+                          {costCards.map((card, ci) => (
+                            <div key={ci} className="sc-v531-free-result-item">
+                              <span className="sc-v531-free-result-name">{card.label}</span>
+                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Risk Sensitivity */}
+                    {riskCards.length > 0 && (
+                      <div className="sc-v531-free-results-section">
+                        <h4 className="sc-v531-free-results-subtitle">Risk & Sensitivity</h4>
+                        <div className="sc-v531-free-results-grid">
+                          {riskCards.map((card, ci) => (
+                            <div key={ci} className={`sc-v531-free-result-item ${severityClass(card.severity)}`}>
+                              <span className="sc-v531-free-result-name">{card.label}</span>
+                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Technical Limit */}
+                    {technicalCards.length > 0 && (
+                      <div className="sc-v531-free-results-section">
+                        <h4 className="sc-v531-free-results-subtitle">Technical Assessment</h4>
+                        <div className="sc-v531-free-results-grid">
+                          {technicalCards.map((card, ci) => (
+                            <div key={ci} className={`sc-v531-free-result-item ${severityClass(card.severity)}`}>
+                              <span className="sc-v531-free-result-name">{card.label}</span>
+                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Audit Notes */}
+                    {auditCards.length > 0 && (
+                      <div className="sc-v531-free-results-section">
+                        <h4 className="sc-v531-free-results-subtitle">Audit Notes</h4>
+                        <div className="sc-v531-free-results-grid">
+                          {auditCards.map((card, ci) => (
+                            <div key={ci} className="sc-v531-free-result-item">
+                              <span className="sc-v531-free-result-name">{card.label}</span>
+                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Additional output cards not yet grouped */}
+                    {(() => {
+                      const groupedIds = new Set([
+                        primaryCard.id,
+                        ...commercialCards.map((c) => c.id),
+                        ...costCards.map((c) => c.id),
+                        ...riskCards.map((c) => c.id),
+                        ...technicalCards.map((c) => c.id),
+                        ...auditCards.map((c) => c.id),
+                      ]);
+                      const remaining = ur.cards.filter((c) => !groupedIds.has(c.id));
+                      if (remaining.length === 0) return null;
+                      return (
+                        <div className="sc-v531-free-results-section">
+                          <h4 className="sc-v531-free-results-subtitle">Additional Results</h4>
+                          <div className="sc-v531-free-results-grid">
+                            {remaining.map((card, ci) => (
+                              <div key={ci} className="sc-v531-free-result-item">
+                                <span className="sc-v531-free-result-name">{card.label}</span>
+                                <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })()}
+
+                    {/* Computed Values (outputs not covered by cards) */}
+                    {response?.outputs && response.outputs.filter((o) => {
+                      const inCard = ur.cards.some((c) => c.id === o.id);
+                      return !isStatusOutput(o) && !inCard;
+                    }).length > 0 && (
+                      <div className="sc-v531-free-results-section">
+                        <h4 className="sc-v531-free-results-subtitle">Computed Values</h4>
+                        <div className="sc-v531-free-results-grid">
+                          {response.outputs.filter((o) => {
+                            const inCard = ur.cards.some((c) => c.id === o.id);
+                            return !isStatusOutput(o) && !inCard;
+                          }).map((out, idx) => {
+                            const formattedValue = typeof out.value === "number"
+                              ? formatBusinessResult(out.name, out.value)
+                              : formatSafeValue(out.value);
+                            const freeUnitSuffix = getFreeOutputUnitSuffix(out, selectedCurrency);
+                            const displayStr = freeUnitSuffix
+                              ? (formattedValue.endsWith(freeUnitSuffix) ? formattedValue : `${formattedValue} ${freeUnitSuffix}`)
+                              : formattedValue;
+                            const isLarge = displayStr.length > 20;
+                            return (
+                              <div key={idx} className="sc-v531-free-result-item">
+                                <span className="sc-v531-free-result-name">{out.name}</span>
+                                <span className={`sc-v531-free-result-value${isLarge ? " sc-v531-free-result-value--large" : ""}`}>
+                                  {displayStr}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Decision State — always shown, never "—" */}
+                    <div className="sc-v531-free-results-section sc-v531-universal-decision">
+                      <h4 className="sc-v531-free-results-subtitle">Decision State</h4>
+                      <div className={`sc-v531-universal-decision-badge sc-v531-uds-${ur.decisionState.severity}`}>
+                        <span className="sc-v531-uds-label">{ur.decisionState.label || "Review complete."}</span>
+                        {ur.decisionState.reason && (
+                          <span className="sc-v531-uds-reason">{ur.decisionState.reason}</span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Assumptions */}
+                    {ur.assumptions.length > 0 && (
+                      <div className="sc-v531-free-results-section">
+                        <h4 className="sc-v531-free-results-subtitle">Assumptions & Notes</h4>
+                        <ul className="sc-v531-free-assumptions">
+                          {ur.assumptions.map((a, ai) => (
+                            <li key={ai}>{a}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Warnings */}
+                    {ur.warnings.length > 0 && (
+                      <div className="sc-v531-free-results-section">
+                        <h4 className="sc-v531-free-results-subtitle">Warnings</h4>
+                        <ul className="sc-v531-free-warnings">
+                          {ur.warnings.map((w, wi) => (
+                            <li key={wi}>{w}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
+              {/* FREE fallback (no universal_result enrichment) */}
+              {isFreeTier && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && response.outputs.length > 0 && (
                 <div className="sc-v531-free-results">
                   <h3 className="sc-v531-free-results-title">Business Summary</h3>
                   <div className="sc-v531-free-results-grid">
@@ -1298,9 +1508,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       return (
                         <div key={idx} className="sc-v531-free-result-item">
                           <span className="sc-v531-free-result-name">{out.name}</span>
-                          <span
-                            className={`sc-v531-free-result-value${isLarge ? " sc-v531-free-result-value--large" : ""}`}
-                          >
+                          <span className={`sc-v531-free-result-value${isLarge ? " sc-v531-free-result-value--large" : ""}`}>
                             {displayStr}
                           </span>
                         </div>
@@ -1309,9 +1517,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   </div>
                 </div>
               )}
-
-              {/* Decision in FREE mode — structured status + governing driver */}
-              {isFreeTier && response?.outputs && response.outputs.length > 0 && (
+              {/* FREE fallback decision */}
+              {isFreeTier && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && response.outputs.length > 0 && (
                 <div className="sc-v531-free-decision">
                   {(() => {
                     const mosOutput = response.outputs.find((o) => {
@@ -1320,10 +1527,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         || (key.includes("margin") && key.includes("safety") && (key.includes("percent") || key.includes("%")));
                     });
                     const mosPercent = typeof mosOutput?.value === "number" ? mosOutput.value : null;
-
                     let decisionStatus: string;
                     let governingDriver: string;
-
                     if (mosPercent !== null && mosPercent < 0) {
                       decisionStatus = "ACTION REQUIRED";
                       governingDriver = "Actual sales are below break-even";
@@ -1337,9 +1542,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       decisionStatus = "";
                       governingDriver = "";
                     }
-
                     const dsCssKey = decisionStatus.toLowerCase().replace(/\s+/g, "_");
-
                     return (
                       <>
                         {decisionStatus && (
@@ -1361,22 +1564,14 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   })()}
                 </div>
               )}
-
-              {/* FREE mode: result interpretation */}
-              {isFreeTier && response?.outputs && response.outputs.length > 0 && (() => {
-                // Show a brief interpretation: pick the first meaningful numeric output
+              {/* FREE fallback interpretation */}
+              {isFreeTier && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && response.outputs.length > 0 && (() => {
                 const primaryOutput = response.outputs.find(o => 
                   !isStatusOutput(o) && typeof o.value === "number" && Number.isFinite(o.value)
                 );
                 if (primaryOutput) {
-                  const rawName = primaryOutput.name
-                    .replace(/_/g, " ")
-                    .replace(/\s+(mm|in|ft|m|kg|lb|n|mpa|psi|%)\s*$/i, "")
-                    .trim();
-                  const cleanName = rawName
-                    .split(" ")
-                    .map(w => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)
-                    .join(" ");
+                  const rawName = primaryOutput.name.replace(/_/g, " ").replace(/\s+(mm|in|ft|m|kg|lb|n|mpa|psi|%)\s*$/i, "").trim();
+                  const cleanName = rawName.split(" ").map(w => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w).join(" ");
                   const val = formatBusinessResult(primaryOutput.name, primaryOutput.value as number);
                   const unit = getFreeOutputUnitSuffix(primaryOutput, selectedCurrency);
                   const displayVal = unit ? `${val} ${unit}` : val;

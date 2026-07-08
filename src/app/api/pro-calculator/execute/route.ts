@@ -168,8 +168,37 @@ export async function pass2RuntimeExecution(
     return failResult("INVALID_UNIT", errors);
   }
 
-  // S4: Physical bounds check
-  const boundsCheck = checkPhysicalBounds(validatedSchema.inputs, rawNumericInputs);
+  // S5: Unit normalization (moved before physical bounds check so that
+  // raw display-unit values are converted to base-unit values first.
+  // Physical bounds are defined in base-unit, so the check must happen
+  // after normalization to avoid false BLOCKED (e.g. percent entered as
+  // 18 but ratio bound max=0.95).
+  const conversionRegistry = validatedSchema.unit_conversion_contract.conversion_registry;
+  const { normalized, errors: normErrors } = normalizeInputs(
+    rawNumericInputs,
+    body.selected_units,
+    validatedSchema,
+    conversionRegistry,
+  );
+  if (normErrors.length > 0) {
+    return failResult("UNIT_NORMALIZATION_FAILED", normErrors.map((e) => e.reason));
+  }
+
+  // Helper: get numeric value from normalized
+  const getNum = (id: string): number | null => {
+    const n = normalized[id];
+    return n && typeof n.baseValue === "number" ? n.baseValue : null;
+  };
+
+  // S4 (moved after normalization): Physical bounds check on normalized base values
+  // Physical_hard_bounds are defined in base_unit, and normalized values are in base_unit,
+  // so the comparison is now dimensionally correct.
+  const normalizedForBoundCheck = validatedSchema.inputs.reduce((acc, inp) => {
+    const nv = getNum(inp.id);
+    if (nv !== null) acc[inp.id] = nv;
+    return acc;
+  }, {} as Record<string, number>);
+  const boundsCheck = checkPhysicalBounds(validatedSchema.inputs, normalizedForBoundCheck);
   if (hasBlockingViolation(boundsCheck)) {
     for (const v of boundsCheck.violations) {
       warnings.push({
@@ -189,24 +218,6 @@ export async function pass2RuntimeExecution(
       suggested_action: "Verify against source documentation.",
     });
   }
-
-  // S5: Unit normalization
-  const conversionRegistry = validatedSchema.unit_conversion_contract.conversion_registry;
-  const { normalized, errors: normErrors } = normalizeInputs(
-    rawNumericInputs,
-    body.selected_units,
-    validatedSchema,
-    conversionRegistry,
-  );
-  if (normErrors.length > 0) {
-    return failResult("UNIT_NORMALIZATION_FAILED", normErrors.map((e) => e.reason));
-  }
-
-  // Helper: get numeric value from normalized
-  const getNum = (id: string): number | null => {
-    const n = normalized[id];
-    return n && typeof n.baseValue === "number" ? n.baseValue : null;
-  };
 
   // S6: Build normalized input audit
   const normalizedAudit: NormalizedInputAudit[] = validatedSchema.inputs.map((inp) => {
@@ -236,8 +247,15 @@ export async function pass2RuntimeExecution(
     }
   }
 
-  // S8: Reference range evaluation
-  const refRangeResult = evaluateAllReferenceRanges(validatedSchema.inputs, rawNumericInputs);
+  // S8: Reference range evaluation — use normalized base values so that
+  // display units (e.g. percent=18) are compared against ranges defined in
+  // base units (e.g. ratio=0.05-0.7), not against raw display values.
+  const normalizedForRange: Record<string, number> = {};
+  for (const inp of validatedSchema.inputs) {
+    const nv = getNum(inp.id);
+    if (nv !== null) normalizedForRange[inp.id] = nv;
+  }
+  const refRangeResult = evaluateAllReferenceRanges(validatedSchema.inputs, normalizedForRange);
   const referenceRangeAudit: ReferenceRangeAudit[] = refRangeResult.audit;
   for (const w of refRangeResult.warnings) {
     warnings.push({

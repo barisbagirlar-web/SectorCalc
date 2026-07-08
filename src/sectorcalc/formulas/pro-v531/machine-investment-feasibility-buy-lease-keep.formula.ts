@@ -82,7 +82,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // --- Derived parameters ---
   const years = Math.max(1, Math.round(n_analysis_years));
-  const rate = n_discount_rate / 100;
+  const rate = n_discount_rate;
   const stress = Math.max(0, Math.min(1, n_stress_downside_factor));
 
   // --- Buy scenario NPV ---

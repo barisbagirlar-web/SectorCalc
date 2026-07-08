@@ -26,7 +26,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const outputs: Record<string, number> = {};
   const ci = get(inputs, "n_initial_investment");
   const cf = get(inputs, "n_annual_net_cash_flow");
-  const dr = get(inputs, "n_discount_rate") / 100;
+  const dr = get(inputs, "n_discount_rate");
   const yrs = Math.max(1, Math.round(get(inputs, "n_analysis_years")));
   const rv = get(inputs, "n_residual_value");
   const stress = get(inputs, "n_stress_downside_factor");

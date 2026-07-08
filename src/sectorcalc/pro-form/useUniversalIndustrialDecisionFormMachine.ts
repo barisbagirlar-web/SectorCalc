@@ -146,6 +146,11 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
       const contractResult = parseExecuteResponse(payload);
 
       if (!response.ok || !contractResult.ok) {
+        // Even on HTTP error, try to extract structured BLOCKED response with warnings
+        if (!response.ok && contractResult.ok) {
+          // HTTP error with valid response body — show BLOCKED state with server warnings
+          dispatch({ type: "RECEIVE_SERVER_BLOCKERS", blockers: contractResult.response.warnings });
+        }
         dispatch({
           type: "RECEIVE_SERVER_ERROR",
           message: contractResult.ok ? `Server execution failed with HTTP ${response.status}.` : contractResult.error,
