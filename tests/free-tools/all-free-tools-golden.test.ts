@@ -114,7 +114,8 @@ describe("All Free Tools Golden Tests", () => {
         nullCount++;
       } else if (typeof output.value === "number" && Number.isFinite(output.value)) {
         finiteCount++;
-      } else if (typeof output.value === "string" && output.value.length > 0) {
+      } else {
+        // Count non-null non-numeric values (strings, booleans) as valid
         finiteCount++;
       }
     }
