@@ -3,11 +3,11 @@
   "tool_key": "thread-dimensions-reference",
   "tool_name": "Thread Dimensions Reference Calculator",
   "category": "Machining & CNC",
-  "scope": "Thread Dimensions Reference Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "scope": "Calculate and evaluate thread dimensions reference using simple machining & cnc inputs.",
   "primary_operation": "thread-dimensions-reference_decision_screening",
   "decision_context": {
     "system_boundary": "Thread Dimensions Reference Calculator evaluates one controlled decision boundary inside Machining & CNC and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Thread Dimensions Reference Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate thread dimensions reference using simple machining & cnc inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the thread dimensions reference calculator case.",
     "cost_of_wrong_decision": "Wrong thread dimensions reference calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",

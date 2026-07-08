@@ -160,7 +160,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 1.15741e-05
+            "factor": 0.0000115741
           }
         ]
       },
@@ -957,7 +957,7 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 1e-08,
+        "min": 1e-8,
         "max": 10,
         "unit": "unit_per_s",
         "basis": "PROCESS_LIMIT",
@@ -966,7 +966,7 @@
         "semantic_error_message_max": "Annual Decision Volume is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 1e-06,
+        "min": 0.000001,
         "max": 0.5,
         "unit": "unit_per_s",
         "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
@@ -4710,7 +4710,7 @@
   "reference_code": {
     "language": "TypeScript",
     "interfaces_required": [
-      "SuperV4CalculatorSchema",
+      "CalculatorSchema",
       "ExecuteRequest",
       "ExecuteResponse",
       "AuditSeal",
@@ -5147,7 +5147,7 @@
     "items": [
       {
         "id": "RTR-01",
-        "question": "Is this a single-operation tool?",
+        "question": "Single-operation tool?",
         "required_answer": "YES_OR_EXPLICIT_BLOCKER",
         "evidence_required": true
       },

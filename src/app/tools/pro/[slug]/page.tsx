@@ -13,6 +13,8 @@ import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlis
 import { getBarisToolCategory } from "@/sectorcalc/formulas/pro-v531/baris-readiness-data";
 import { ProToolAssistedDossier } from "@/components/pro-commerce/ProToolAssistedDossier";
 import { ProToolPaywallGate } from "@/components/pro-commerce/ProToolPaywallGate";
+import { getPublicToolTitle, getPublicProMetaDescription } from "@/sectorcalc/public/public-tool-copy-adapter";
+import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 import "server-only";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
@@ -41,16 +43,18 @@ export async function generateMetadata({
   }
 
   const schema = result.schema;
-  const title = `${schema.tool_name} | SectorCalc PRO`;
-  const description = `${schema.tool_name} — ${schema.primary_operation.replace(/_/g, " ")}. Risk level: ${schema.risk_level}. Deterministic industrial decision-support calculator.`;
+  const category = getDisplayCategoryLabel(schema.category);
+  const publicTitle = getPublicToolTitle(schema.tool_key, schema.tool_name);
+  const publicDesc = getPublicProMetaDescription(schema.tool_key, schema.tool_name, category);
+  const seoTitle = `${publicTitle} | SectorCalc PRO`;
 
   return {
-    title,
-    description,
+    title: seoTitle,
+    description: publicDesc,
     robots: { index: true, follow: true },
     openGraph: {
-      title,
-      description,
+      title: seoTitle,
+      description: publicDesc,
     },
   };
 }

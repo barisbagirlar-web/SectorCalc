@@ -5,6 +5,10 @@
 import type { ExecuteResponse, RedactionStatus, ReferenceValuesObject, LegacyReferenceValue } from "./contract-types";
 import { getDisplayUnitLabel, UNIT_DISPLAY_LABELS } from "./display-labels";
 import { resolveDisplayUnitOptions } from "./unit-display-resolver";
+import {
+  isGenericHelpText as adapterIsGenericHelpText,
+  deriveFieldHelpText,
+} from "@/sectorcalc/public/public-tool-copy-adapter";
 
 // ── Currency codes for display selector ───────────────────────────────────────
 
@@ -528,6 +532,63 @@ export function safeDisplayCategory(category: string | null | undefined): string
  * Safe scope display: never renders raw slug keys, "Daily Renovation", or empty strings.
  * Falls back to a generated default based on tool_name or category.
  */
+/**
+ * Remove SuperV4 internal jargon from scope text.
+ * These phrases are internal schema descriptors, not customer-facing content.
+ */
+function stripSuperV4Jargon(text: string): string {
+  const JARGON_PATTERNS = [
+    /\s*as\s+one\s+SuperV\d+[^.]*\./gi,
+    /\s*SuperV\d+\s+single-operation[^.]*\./gi,
+    /\s*single-operation[^.]*superv\d+[^.]*\./gi,
+    /\s*SuperV\d+[^.]*(?:schema|contract|renderer)[^.]*\./gi,
+    /\s*for\s+screening,?\s*review,?\s*audit\s+evidence,?\s*and\s+commercial\s+risk\s+interpretation\.?/gi,
+    /\s*as\s+a\s+SuperV\d+[^.]*\./gi,
+    /\s*V\d+[.\d]*\s+(?:decision-support|schema|contract|renderer)[^.]*\./gi,
+  ];
+  let result = text;
+  for (const pattern of JARGON_PATTERNS) {
+    result = result.replace(pattern, ".");
+  }
+  // Clean up leading/trailing whitespace and repeated dots
+  result = result.replace(/\.{2,}/g, ".").replace(/\s{2,}/g, " ").trim();
+  return result;
+}
+
+/**
+ * Generate a practical, customer-facing description for a free tool.
+ * Used when the schema scope contains SuperV4 jargon or is too technical.
+ * Maps known tool keys to plain descriptions; falls back to a generic but
+ * useful pattern based on tool name and category.
+ */
+const FREE_TOOL_DESCRIPTIONS: Record<string, string> = {
+  "knurling-drill-point-depth":
+    "Estimate drill point depth and knurling-related shop-floor dimensions using simple machining inputs. Use this quick calculator for early checks before final process validation.",
+};
+
+export function getFreeToolDescription(toolKey: string, toolName: string, category: string): string {
+  const key = toolKey.replace(/[_-]/g, "-").toLowerCase();
+  if (FREE_TOOL_DESCRIPTIONS[key]) return FREE_TOOL_DESCRIPTIONS[key];
+  return `Estimate ${toolName.toLowerCase()} using simple ${(category || "industrial").toLowerCase()} inputs. Use this quick calculator for early checks before detailed analysis.`;
+}
+
+/**
+ * True if the help text is the generic "Enter the verified shop-floor value" fallback.
+ * This text is used as a schema-wide default and provides no useful guidance.
+ */
+
+export function isGenericHelpText(text: string | null | undefined): boolean {
+  return adapterIsGenericHelpText(text);
+}
+
+export function deriveFieldDescription(
+  fieldName: string,
+  toolKey: string,
+  unit: string | null | undefined,
+): string {
+  return deriveFieldHelpText(fieldName, toolKey, unit);
+}
+
 export function safeDisplayScope(scope: string | null | undefined, toolName?: string, categoryLabel?: string): string {
   if (!scope) {
     return toolName
@@ -542,12 +603,25 @@ export function safeDisplayScope(scope: string | null | undefined, toolName?: st
       : "Industrial decision support for measured inputs and server-side calculation.";
   }
 
+  // Strip SuperV4 internal jargon
+  const cleanScope = stripSuperV4Jargon(trimmed);
+  if (cleanScope.length < 5) {
+    return toolName
+      ? `Industrial decision support for ${toolName}.`
+      : "Industrial decision support for measured inputs and server-side calculation.";
+  }
+  if (cleanScope !== trimmed) {
+    return cleanScope;
+  }
+
   // Reject: "Daily Renovation" or "daily-renovation" or "Daily · Renovation"
   const lower = trimmed.toLowerCase();
   const dailyRenovation = ["daily", "renov", "ation"].join("");
   const REJECTED_SCOPES = new Set(["daily renovation", dailyRenovation, "daily·renovation", "daily-renovation"]);
   if (REJECTED_SCOPES.has(lower)) {
-    return "Industrial decision support for measured inputs and server-side calculation.";
+    return toolName
+      ? `Industrial decision support for ${toolName}.`
+      : "Industrial decision support for measured inputs and server-side calculation.";
   }
 
   // Reject: scope looks like a raw slug (hyphenated, no spaces)

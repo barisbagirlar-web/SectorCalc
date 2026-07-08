@@ -3,11 +3,11 @@
   "tool_key": "iso-286-tolerance-fit",
   "tool_name": "ISO 286 Tolerance & Fit Calculator",
   "category": "Machining & CNC",
-  "scope": "ISO 286 Tolerance & Fit Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "scope": "Calculate and evaluate iso 286 tolerance & fit using simple machining & cnc inputs.",
   "primary_operation": "iso-286-tolerance-fit_decision_screening",
   "decision_context": {
     "system_boundary": "ISO 286 Tolerance & Fit Calculator evaluates one controlled decision boundary inside Machining & CNC and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "ISO 286 Tolerance & Fit Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate iso 286 tolerance & fit using simple machining & cnc inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the iso 286 tolerance & fit calculator case.",
     "cost_of_wrong_decision": "Wrong iso 286 tolerance & fit calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",

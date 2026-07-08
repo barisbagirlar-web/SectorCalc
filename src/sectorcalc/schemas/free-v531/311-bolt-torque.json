@@ -3,11 +3,11 @@
   "tool_key": "bolt-torque",
   "tool_name": "Bolt Torque Calculator",
   "category": "Welding & Steel",
-  "scope": "Bolt Torque Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "scope": "Calculate and evaluate bolt torque using simple welding & steel inputs.",
   "primary_operation": "bolt-torque_decision_screening",
   "decision_context": {
     "system_boundary": "Bolt Torque Calculator evaluates one controlled decision boundary inside Welding & Steel and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Bolt Torque Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate bolt torque using simple welding & steel inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the bolt torque calculator case.",
     "cost_of_wrong_decision": "Wrong bolt torque calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",

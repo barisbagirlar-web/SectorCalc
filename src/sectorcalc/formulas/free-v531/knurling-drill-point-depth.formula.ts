@@ -1,5 +1,5 @@
 // SECTORCALC FREE V5.3.1 SERVER-ONLY FORMULA MODULE
-// TOOL: Knurling and Drill Point Depth Quick Calculator
+// TOOL: Knurling and Drill Point Depth
 // TOOL_ID: FREE_V531_012
 // TOOL_KEY: knurling-drill-point-depth
 // CATEGORY: machining_cnc
@@ -16,7 +16,7 @@ import { buildAuditSeal, deriveStatus, finiteNumber, outputMetric, warning } fro
 
 const TOOL_ID = "FREE_V531_012";
 const TOOL_KEY = "knurling-drill-point-depth";
-const TOOL_NAME = "Knurling and Drill Point Depth Quick Calculator";
+const TOOL_NAME = "Knurling and Drill Point Depth";
 const CATEGORY = "machining_cnc";
 const FUNNEL_TARGET = "Inspection Copilot";
 const PRIMARY_METRIC_ID = "depth_or_pitch_mm";

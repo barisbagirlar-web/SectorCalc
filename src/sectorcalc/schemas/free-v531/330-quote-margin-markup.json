@@ -3,11 +3,11 @@
   "tool_key": "quote-margin-markup",
   "tool_name": "Quote Margin and Markup Calculator",
   "category": "Quote & SME Finance",
-  "scope": "Quote Margin and Markup Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "scope": "Calculate and evaluate quote margin and markup using simple quote & sme finance inputs.",
   "primary_operation": "quote-margin-markup_decision_screening",
   "decision_context": {
     "system_boundary": "Quote Margin and Markup Calculator evaluates one controlled decision boundary inside Quote & SME Finance and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Quote Margin and Markup Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate quote margin and markup using simple quote & sme finance inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the quote margin and markup calculator case.",
     "cost_of_wrong_decision": "Wrong quote margin and markup calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",

@@ -10,6 +10,8 @@ import { UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
 import { ProToolSessionWrapper } from "@/sectorcalc/pro-form/ProToolSessionWrapper";
 import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
+import { getPublicToolTitle, getPublicToolMetaDescription } from "@/sectorcalc/public/public-tool-copy-adapter";
+import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 
@@ -99,16 +101,18 @@ export async function generateMetadata({
   }
 
   const schema = result.schema;
-  const title = `${schema.tool_name} | SectorCalc FREE`;
-  const description = `${schema.tool_name} — ${schema.primary_operation.replace(/_/g, " ")}. Free industrial decision-support calculator.`;
+  const category = getDisplayCategoryLabel(schema.category);
+  const publicTitle = getPublicToolTitle(schema.tool_key, schema.tool_name);
+  const publicDesc = getPublicToolMetaDescription(schema.tool_key, schema.tool_name, category);
+  const seoTitle = `${publicTitle} | SectorCalc FREE`;
 
   return {
-    title,
-    description,
+    title: seoTitle,
+    description: publicDesc,
     robots: { index: true, follow: true },
     openGraph: {
-      title,
-      description,
+      title: seoTitle,
+      description: publicDesc,
     },
   };
 }

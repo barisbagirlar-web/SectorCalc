@@ -17,6 +17,7 @@ import {
 } from "@/lib/features/tools/build-taxonomy-sector-cards";
 import { SLUG_TOKEN_SECTOR_HINTS, SECTORS } from "@/lib/features/tools/taxonomy";
 import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
+import { getPublicCatalogTitle } from "@/sectorcalc/public/public-tool-copy-adapter";
 
 export const dynamic = "force-dynamic";
 
@@ -223,10 +224,11 @@ function resolveProSectorKey(toolKey: string): string {
 
 function proSchemaToToolListItem(toolKey: string, schema: SuperV4Schema): ToolListItem {
   const sectorKey = resolveProSectorKey(toolKey);
+  const catalogTitle = getPublicCatalogTitle(toolKey, schema.tool_name);
   return {
     slug: toolKey,
     name: schema.tool_name,
-    title: schema.tool_name,
+    title: catalogTitle,
     tier: "premium",
     href: `/tools/pro/${toolKey}`,
     isPremium: true,

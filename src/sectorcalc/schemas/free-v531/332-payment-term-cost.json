@@ -3,11 +3,11 @@
   "tool_key": "payment-term-cost",
   "tool_name": "Payment Term Cost Calculator",
   "category": "Quote & SME Finance",
-  "scope": "Payment Term Cost Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "scope": "Calculate and evaluate payment term cost using simple quote & sme finance inputs.",
   "primary_operation": "payment-term-cost_decision_screening",
   "decision_context": {
     "system_boundary": "Payment Term Cost Calculator evaluates one controlled decision boundary inside Quote & SME Finance and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Payment Term Cost Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate payment term cost using simple quote & sme finance inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the payment term cost calculator case.",
     "cost_of_wrong_decision": "Wrong payment term cost calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",

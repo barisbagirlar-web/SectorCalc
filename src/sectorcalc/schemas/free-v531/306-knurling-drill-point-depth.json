@@ -1,16 +1,16 @@
 {
   "tool_id": "FREE_V531_012",
   "tool_key": "knurling-drill-point-depth",
-  "tool_name": "Knurling and Drill Point Depth Quick Calculator",
+  "tool_name": "Knurling and Drill Point Depth",
   "category": "Machining & CNC",
-  "scope": "Knurling and Drill Point Depth Quick Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "scope": "Estimate drill point depth and knurling-related shop-floor dimensions using simple machining inputs. Use this calculator for early checks before final process validation.",
   "primary_operation": "knurling-drill-point-depth_decision_screening",
   "decision_context": {
-    "system_boundary": "Knurling and Drill Point Depth Quick Calculator evaluates one controlled decision boundary inside Machining & CNC and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Knurling and Drill Point Depth Quick Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "system_boundary": "Knurling and Drill Point Depth evaluates one controlled decision boundary inside Machining & CNC and excludes broad ERP, dashboard, or multi-module workflows.",
+    "single_operation_scope": "Quick estimate of drill point depth and knurling dimensions.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
-    "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the knurling and drill point depth quick calculator case.",
-    "cost_of_wrong_decision": "Wrong knurling and drill point depth quick calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
+    "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the knurling and drill point depth case.",
+    "cost_of_wrong_decision": "Wrong knurling and drill point depth result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
     "failure_mode_if_formula_wrong": "False PASS, false REPRICE, false HOLD, hidden evidence gap, wrong unit conversion, or public formula leakage.",
     "primary_metric": "depth_or_pitch_mm",
     "secondary_metrics": [
@@ -43,7 +43,7 @@
     "primary": "money_at_risk",
     "technical": "depth_or_pitch_mm",
     "confidence": "evidence_confidence_and_uncertainty_crossing",
-    "description": "Knurling and Drill Point Depth Quick Calculator should not create an irreversible purchase, quote, production, safety, or capital commitment without source verification and review when thresholds are crossed."
+    "description": "Knurling and Drill Point Depth should not create an irreversible purchase, quote, production, safety, or capital commitment without source verification and review when thresholds are crossed."
   },
   "standards": [
     {
@@ -573,7 +573,7 @@
       "unit": null,
       "status": "REVIEW",
       "formula_source": null,
-      "public_explanation": "Primary result for Knurling and Drill Point Depth Quick Calculator.",
+      "public_explanation": "Primary result for Knurling and Drill Point Depth.",
       "operator_explanation": "Check result and compare to your threshold.",
       "engineer_explanation": "Review inputs and assumptions before using this result for decisions.",
       "owner_cfo_explanation": "This is a screening result. Verify before committing resources.",
@@ -746,6 +746,6 @@
     "source_formula": "knurling-drill-point-depth",
     "tool_id": "FREE_V531_012",
     "tool_key": "knurling-drill-point-depth",
-    "tool_name": "Knurling and Drill Point Depth Quick Calculator"
+    "tool_name": "Knurling and Drill Point Depth"
   }
 }

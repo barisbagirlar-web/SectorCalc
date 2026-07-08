@@ -41,9 +41,13 @@ import {
   SUPPORTED_CURRENCIES,
   type CurrencyCode,
   replaceCurrencyLabel,
+  getFreeToolDescription,
+  isGenericHelpText,
+  deriveFieldDescription,
 } from "./form-render-helpers";
 import { normalizeV531FieldMetadata } from "./normalize-v531-field-metadata";
 import { resolveIndustrialExampleValue } from "./example-value-resolver";
+import { MobileStickyActionBar, resolveToolStickyBarState } from "@/components/layout/mobile/MobileStickyActionBar";
 import {
   convertDisplayToCanonical,
   convertCanonicalToDisplay,
@@ -341,7 +345,13 @@ function buildCalculatorViewModel(
         unitSelectable: !!input.unit_selectable,
         canonicalUnit: input.base_unit ?? "",
         allowedValues: input.allowed_values ?? [],
-        helpText: input.user_help_text ?? input.help_text ?? "",
+        helpText: (() => {
+          const raw = input.user_help_text ?? input.help_text ?? "";
+          if (isGenericHelpText(raw)) {
+            return deriveFieldDescription(input.name, props.toolKey ?? props.schema?.tool_key ?? "", input.base_unit);
+          }
+          return raw;
+        })(),
         criticality: input.criticality,
         blockers: state.validationState.client_precheck_errors.filter((issue) => issue.input_id === input.id),
         basePreview: isFree ? null : basePreviewVal,
@@ -380,11 +390,13 @@ function buildCalculatorViewModel(
     onAction: primaryButtonAction,
   };
 
-  // Secondary actions
-  const secondaryActions: CalculatorViewModel["secondaryActions"] = [
-    { label: "Check inputs", onAction: machine.runClientPrecheck, variant: "secondary" },
-    { label: "Reset", onAction: machine.resetInputs, variant: "ghost" },
-  ];
+  // Secondary actions — FREE gets only Reset inputs, PRO gets Check inputs + Reset inputs
+  const secondaryActions: CalculatorViewModel["secondaryActions"] = isFree
+    ? [{ label: "Reset inputs", onAction: machine.resetInputs, variant: "ghost" }]
+    : [
+        { label: "Check inputs", onAction: machine.runClientPrecheck, variant: "secondary" },
+        { label: "Reset inputs", onAction: machine.resetInputs, variant: "ghost" },
+      ];
 
   // Result state
   const primaryOutput = hasResult && response?.outputs?.length
@@ -751,6 +763,10 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   // ── Currency display selector ──
   const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("USD");
 
+  // ── Submission tracking: prevent early red validation state ──
+  // Only show field-level validation errors after user attempts Calculate.
+  const [submissionAttempted, setSubmissionAttempted] = useState(false);
+
   // ── Desktop detection for PRO cockpit layout (>= 1100px) ──
   // useLayoutEffect ensures correct layout before first paint.
   // Initial client render matches the real viewport synchronously.
@@ -809,17 +825,16 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       }
     }
 
-    if (anySet) {
-      // Run client precheck so validation state reflects the new values
-      machine.runClientPrecheck();
-    }
+    // NOTE: runClientPrecheck is NOT called on mount.
+    // Validation is deferred until the user explicitly clicks Calculate.
+    // This prevents showing red error borders on initial page load.
+    void anySet;
   }, [props.schema, props.toolKey, contractErrors.length]);
   const runsRemaining = props.remainingRuns ?? 0;
   const sessionExhausted = isPro && hasSession && runsRemaining <= 0;
   const creditSessionLoading = props.creditSessionLoading ?? false;
   const isExecuting = state.executionState === "executing";
   const isServerBlocked = state.executionState === "server_blocked";
-  const isClientBlocked = state.executionState === "client_precheck_blocked";
   const hasResult = hasServerResponse(response);
 
   const clientBlockerCount = state.blockerState.blockers.filter(
@@ -854,6 +869,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   })();
 
   const primaryButtonAction = useCallback(() => {
+    setSubmissionAttempted(true);
     if (isPro && (!hasSession || sessionExhausted)) {
       if (props.onRequestCreditSession && props.toolKey) {
         props.onRequestCreditSession(props.toolKey);
@@ -866,6 +882,12 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     }
     void machine.submitServerExecution();
   }, [isPro, hasSession, sessionExhausted, props.onRequestCreditSession, props.toolKey, machine.submitServerExecution]);
+
+  // Reset handler: clears submission state + form inputs
+  const handleReset = useCallback(() => {
+    setSubmissionAttempted(false);
+    machine.resetInputs();
+  }, [machine.resetInputs]);
 
   // Display-safe labels
   const schemaRecord = props.schema as unknown as Record<string, unknown>;
@@ -894,12 +916,18 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     displayCategory,
   );
 
-  // FREE-mode hero override for break-even tool
+  // FREE-mode: use practical descriptions, not SuperV4 jargon
+  const freeToolDescription = isFreeTier
+    ? getFreeToolDescription(
+        props.toolKey ?? props.schema?.tool_key ?? "",
+        displayToolName || toolName,
+        displayCategory,
+      )
+    : "";
+
   const freeHeroSubtitle =
-    isFreeTier &&
-    (props.toolKey === "break-even-and-margin-of-safety-analysis" ||
-      props.schema?.tool_key === "break-even-and-margin-of-safety-analysis")
-      ? "Find how many units you must sell to cover costs and how much sales buffer you have."
+    isFreeTier
+      ? freeToolDescription || displayScope
       : displayScope;
 
   // ── ViewModel ──
@@ -947,20 +975,28 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
           <span key={i} className="sc-v531-chip">{badge.label}</span>
         ))}
       </div>
-      {/* Currency display selector */}
-      <div className="sc-v531-currency-row" aria-label="Currency selector">
-        <label className="sc-v531-currency-label" htmlFor="sc-currency-select">Display currency</label>
-        <select
-          id="sc-currency-select"
-          className="sc-v531-currency-select"
-          value={selectedCurrency}
-          onChange={(e: ChangeEvent<HTMLSelectElement>) => setSelectedCurrency(e.target.value as CurrencyCode)}
-        >
-          {SUPPORTED_CURRENCIES.map((code) => (
-            <option key={code} value={code}>{code}</option>
-          ))}
-        </select>
-      </div>
+      {/* Currency display selector — only show when the tool has monetary fields */}
+      {(() => {
+        const hasMonetaryField = props.schema?.inputs?.some((input) => {
+          const bu = (input.base_unit ?? "").toLowerCase();
+          return bu === "display_currency" || bu === "currency" || ["usd","eur","gbp","try","inr","cny","jpy","aud","cad","brl"].some(c => bu.startsWith(c));
+        });
+        return hasMonetaryField ? (
+        <div className="sc-v531-currency-row" aria-label="Currency selector">
+          <label className="sc-v531-currency-label" htmlFor="sc-currency-select">Display currency</label>
+          <select
+            id="sc-currency-select"
+            className="sc-v531-currency-select"
+            value={selectedCurrency}
+            onChange={(e: ChangeEvent<HTMLSelectElement>) => setSelectedCurrency(e.target.value as CurrencyCode)}
+          >
+            {SUPPORTED_CURRENCIES.map((code) => (
+              <option key={code} value={code}>{code}</option>
+            ))}
+          </select>
+        </div>
+        ) : null;
+      })()}
     </>
   );
 
@@ -969,6 +1005,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       className={`sc-v531-shell ${props.className ?? ""}`}
       data-renderer="UniversalIndustrialDecisionForm"
       data-v531="true"
+      data-access-tier={accessTier}
     >
       {isPro && isDesktop ? (
         /* ── PRO Desktop: hero inside cockpit left panel ── */
@@ -1007,6 +1044,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                           source_verified: sourceVerified,
                         });
                       }}
+                      showErrors={submissionAttempted}
                     />
                   ))}
                 </div>
@@ -1093,7 +1131,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         <button
                           type="button"
                           className="sc-v531-action-secondary"
-                          onClick={machine.resetInputs}
+                          onClick={handleReset}
                         >
                           Reset inputs
                         </button>
@@ -1117,7 +1155,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       <button
                         type="button"
                         className="sc-v531-action-secondary"
-                        onClick={machine.resetInputs}
+                        onClick={handleReset}
                       >
                         Reset inputs
                       </button>
@@ -1162,6 +1200,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         source_verified: sourceVerified,
                       });
                     }}
+                    showErrors={submissionAttempted}
                   />
                 ))}
               </div>
@@ -1182,7 +1221,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     <button
                       type="button"
                       className="sc-v531-action-secondary"
-                      onClick={machine.resetInputs}
+                      onClick={handleReset}
                     >
                       Reset inputs
                     </button>
@@ -1639,24 +1678,22 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       {/* ── 3. Advanced details (collapsed by default — lazy body) ── */}
       <AdvancedDetailsWrapper isFreeTier={isFreeTier} toolKey={props.toolKey} schema={props.schema} selectedCurrency={selectedCurrency} />
 
-      {/* Mobile bar */}
-      <div className="sc-v531-mobile-action-bar">
-        <span>
-          {hasResult
-            ? (response?.decision_interpretation?.primary_decision ?? vm.resultState.executionLabel)
-            : clientBlockerCount > 0
-              ? "Review required"
-              : "Ready"}
-        </span>
-        <button
-          type="button"
-          className="sc-v531-primary-button"
-          disabled={vm.action.disabled}
-          onClick={vm.action.onAction}
-        >
-          {vm.action.label}
-        </button>
-      </div>
+      {/* Mobile bar — status + action (shared component with resolver) */}
+      <MobileStickyActionBar
+        config={resolveToolStickyBarState(
+          isFreeTier ? "FREE" : "PRO",
+          hasResult,
+          isPro && !!props.usageSessionId,
+          isExecuting,
+          clientBlockerCount,
+          hasResult ? vm.resultState.executionLabel : "",
+          true, // isAuthenticated — form is only mounted when user is authenticated (guarded by ProToolPaywallGate)
+          primaryButtonAction,
+          () => {}, // onSignIn — guarded by ProToolPaywallGate
+          () => props.onRequestCreditSession?.(props.toolKey ?? ""),
+          () => {}, // onRequestAssisted — handled by ProToolAssistedDossierShell
+        )}
+      />
     </section>
   );
 }
@@ -1669,15 +1706,20 @@ function CalculatorInputField({
   onValueChange,
   onUnitChange,
   onEvidenceChange,
+  showErrors,
 }: {
   field: FieldViewModel;
   currencyCode: CurrencyCode;
   onValueChange: (value: string | number | boolean | null) => void;
   onUnitChange: (unit: string) => void;
   onEvidenceChange: (valueVerified: boolean, sourceVerified: boolean) => void;
+  showErrors?: boolean;
 }) {
   const inputId = `sc-v531-input-${field.id}`;
   const hasBlocker = field.blockers.length > 0;
+
+  // Only show red validation border when the user has attempted Calculate
+  const showErrorState = showErrors === true && hasBlocker;
 
   // Resolve unit label — replace "Currency" placeholder with selected ISO code
   const resolveUnitLabel = (unit: string): string => {
@@ -1688,8 +1730,15 @@ function CalculatorInputField({
     return label;
   };
 
+  // Real units: filter out empty strings from resolver fallback.
+  // This prevents unitless numeric fields and SELECT fields from
+  // rendering an empty unit suffix.
+  const nonEmptyUnits = field.allowedUnits.filter((u) => u.length > 0);
+  const isNumeric = field.type === "number" || field.type === "integer";
+  const hasRealUnits = isNumeric && nonEmptyUnits.length > 0;
+
   return (
-    <div className="sc-v531-field-card" data-criticality={field.criticality.toLowerCase()} data-error={hasBlocker}>
+    <div className="sc-v531-field-card" data-criticality={field.criticality.toLowerCase()} data-error={showErrorState}>
       {/* Header: label + symbol */}
       <div className="sc-v531-field-header">
         <label htmlFor={inputId} className="sc-v531-field-title">{field.label}</label>
@@ -1699,22 +1748,35 @@ function CalculatorInputField({
       {/* Help text */}
       {field.helpText && <p className="sc-v531-field-help">{field.helpText}</p>}
 
-      {/* Input + unit row */}
-      <div className="sc-v531-input-row">
-        {renderValueInput(inputId, field, onValueChange)}
-        {field.allowedUnits.length > 0 && (
+      {/* Numeric with units: use field-control layout (input dominant, unit as suffix) */}
+      {hasRealUnits && field.unitSelectable ? (
+        <div className="sc-v531-field-control">
+          {renderValueInput(inputId, field, onValueChange, true)}
           <select
             className="sc-v531-unit-select"
-            value={field.selectedUnit || field.allowedUnits[0]}
+            value={field.selectedUnit || nonEmptyUnits[0]}
             aria-label={`${field.label} unit`}
             onChange={(e: ChangeEvent<HTMLSelectElement>) => onUnitChange(e.target.value)}
           >
-            {field.allowedUnits.map((unit) => (
+            {nonEmptyUnits.map((unit) => (
               <option key={unit} value={unit}>{resolveUnitLabel(unit)}</option>
             ))}
           </select>
-        )}
-      </div>
+        </div>
+      ) : hasRealUnits && !field.unitSelectable ? (
+        /* Fixed unit: passive suffix, no select */
+        <div className="sc-v531-field-control">
+          {renderValueInput(inputId, field, onValueChange, true)}
+          <span className="sc-v531-unit-suffix">
+            {resolveUnitLabel(field.selectedUnit || nonEmptyUnits[0])}
+          </span>
+        </div>
+      ) : (
+        /* No units: single input only */
+        <div className="sc-v531-input-row">
+          {renderValueInput(inputId, field, onValueChange, false)}
+        </div>
+      )}
 
       {/* Clean reference helper — one line per input, "Currency" placeholder replaced */}
       {field.cleanReferenceHelper && (
@@ -1728,6 +1790,7 @@ function renderValueInput(
   inputId: string,
   field: FieldViewModel,
   onValueChange: (value: string | number | boolean | null) => void,
+  useValueInputClass?: boolean,
 ) {
   if (field.type === "boolean") {
     return (
@@ -1762,10 +1825,12 @@ function renderValueInput(
     ? "Use decimal point for cents, e.g. 500000.005"
     : "";
 
+  const inputClass = useValueInputClass ? "sc-v531-value-input" : "sc-v531-input";
+
   return (
     <input
       id={inputId}
-      className="sc-v531-input"
+      className={inputClass}
       inputMode={field.type === "number" || field.type === "integer" ? "decimal" : "text"}
       type="text"
       placeholder={unitHint || ""}

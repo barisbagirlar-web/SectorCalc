@@ -20,6 +20,7 @@ import "./site-styles";
 /* Eager CSS for client components — prevents lazy preload chunks */
 import "../lib/ui-shared/auth/auth-status.css";
 import "../sectorcalc/pro-form/universal-industrial-decision-form.css";
+import "../styles/mobile-navigation.css";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],

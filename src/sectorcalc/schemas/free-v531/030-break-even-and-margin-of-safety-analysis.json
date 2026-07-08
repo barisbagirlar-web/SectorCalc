@@ -2,12 +2,12 @@
   "tool_id": "FREE_030_BREAK_EVEN_MARGIN_OF_SAFETY_ANALYSIS",
   "tool_key": "break-even-and-margin-of-safety-analysis",
   "tool_name": "Break-Even & Margin of Safety Analysis",
-  "category": "Finance and Investment Decision Support · SuperV4 Decision Support",
-  "scope": "Break-Even & Margin of Safety Analysis as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "category": "Finance and Investment Decision Support",
+  "scope": "Break-Even & Margin of Safety Analysis.",
   "primary_operation": "break-even-and-margin-of-safety-analysis_decision_screening",
   "decision_context": {
     "system_boundary": "Break-Even & Margin of Safety Analysis evaluates one controlled decision boundary inside Finance and Investment Decision Support and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Break-Even & Margin of Safety Analysis as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Break-Even & Margin of Safety Analysis.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the break-even & margin of safety analysis case.",
     "cost_of_wrong_decision": "Wrong break-even & margin of safety analysis result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
@@ -1109,7 +1109,7 @@
         "demand_index"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -1176,7 +1176,7 @@
         "capacity_index"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -1243,7 +1243,7 @@
         "derated_capacity_index"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -1318,7 +1318,7 @@
         "utilization_index"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -1393,7 +1393,7 @@
         "margin_index"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -1458,7 +1458,7 @@
         "expanded_uncertainty"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -1537,7 +1537,7 @@
         "dominant_sensitivity_driver"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -1606,7 +1606,7 @@
         "money_at_risk"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -1685,7 +1685,7 @@
         "fmea_required"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -1764,7 +1764,7 @@
         "primary_decision_state"
       ],
       "assumptions": [
-        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening decision.",
+        "Break-Even & Margin of Safety Analysis is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -5271,15 +5271,13 @@
           "fixed_costs": "USER_SUPPLIED_OR_FIXTURE_VALUE",
           "selling_price_per_unit": "USER_SUPPLIED_OR_FIXTURE_VALUE",
           "variable_cost_per_unit": "USER_SUPPLIED_OR_FIXTURE_VALUE",
-          "actual_sales_units": "USER_SUPPLIED_OR_FIXTURE_VALUE",
-          "selling_price_per_unit": "USER_SUPPLIED_OR_FIXTURE_VALUE"
+          "actual_sales_units": "USER_SUPPLIED_OR_FIXTURE_VALUE"
         },
         "selected_units": {
           "fixed_costs": "display_currency",
-          "selling_price_per_unit": "display_currency",
+          "selling_price_per_unit": "ratio_per_year",
           "variable_cost_per_unit": "display_currency",
-          "actual_sales_units": "count",
-          "selling_price_per_unit": "ratio_per_year"
+          "actual_sales_units": "count"
         },
         "expected_decision": "PASS",
         "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
@@ -5292,15 +5290,13 @@
           "fixed_costs": "USER_SUPPLIED_OR_FIXTURE_VALUE",
           "selling_price_per_unit": "USER_SUPPLIED_OR_FIXTURE_VALUE",
           "variable_cost_per_unit": "USER_SUPPLIED_OR_FIXTURE_VALUE",
-          "actual_sales_units": "USER_SUPPLIED_OR_FIXTURE_VALUE",
-          "selling_price_per_unit": "USER_SUPPLIED_OR_FIXTURE_VALUE"
+          "actual_sales_units": "USER_SUPPLIED_OR_FIXTURE_VALUE"
         },
         "selected_units": {
           "fixed_costs": "display_currency",
-          "selling_price_per_unit": "display_currency",
+          "selling_price_per_unit": "ratio_per_year",
           "variable_cost_per_unit": "display_currency",
-          "actual_sales_units": "count",
-          "selling_price_per_unit": "ratio_per_year"
+          "actual_sales_units": "count"
         },
         "expected_decision": "REVIEW",
         "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
@@ -5313,15 +5309,13 @@
           "fixed_costs": "USER_SUPPLIED_OR_FIXTURE_VALUE",
           "selling_price_per_unit": "USER_SUPPLIED_OR_FIXTURE_VALUE",
           "variable_cost_per_unit": "USER_SUPPLIED_OR_FIXTURE_VALUE",
-          "actual_sales_units": "USER_SUPPLIED_OR_FIXTURE_VALUE",
-          "selling_price_per_unit": "USER_SUPPLIED_OR_FIXTURE_VALUE"
+          "actual_sales_units": "USER_SUPPLIED_OR_FIXTURE_VALUE"
         },
         "selected_units": {
           "fixed_costs": "display_currency",
-          "selling_price_per_unit": "display_currency",
+          "selling_price_per_unit": "ratio_per_year",
           "variable_cost_per_unit": "display_currency",
-          "actual_sales_units": "count",
-          "selling_price_per_unit": "ratio_per_year"
+          "actual_sales_units": "count"
         },
         "expected_decision": "BLOCKED",
         "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
@@ -5349,11 +5343,11 @@
     "checks": [
       {
         "id": "RT001",
-        "check": "Is this a single-operation tool?",
+        "check": "Single-operation tool?",
         "status": "REQUIRED_FOR_PASS",
         "failure_behavior": "REJECT_SCHEMA_OR_FAIL_INTEGRATION",
         "evidence_required": true,
-        "public_note": "Break-Even & Margin of Safety Analysis: Is this a single-operation tool?"
+        "public_note": "Break-Even & Margin of Safety Analysis: Single-operation tool?"
       },
       {
         "id": "RT002",
@@ -5904,7 +5898,7 @@
   },
   "metadata": {
     "schema_version": "5.3.1",
-    "formula_version": "5.3.1-superv4-pro-grade",
+    "formula_version": "5.3.1-pro-grade",
     "prompt_version": "5.3.1",
     "prompt_sha256": "7078a679d623da58fa9d8ebbf8d62b780504a659e4944f5602b30565581ab3f1",
     "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
@@ -5913,7 +5907,7 @@
     "deterministic_runtime_required": true,
     "formula_quality_gate": "SECTORCALC_FORMULA_QUALITY_GATE_V5_3_1",
     "quality_gate_classification": "AUDIT_READY_DECISION_SUPPORT_NOT_CERTIFIED",
-    "change_log_summary": "Generated as prompt-compliant SuperV4 schema with exact top-level keys, server-only formula graph contract, public redaction, state machine binding, proof pack, audit seal, golden hash storage, and reference-range guard.",
+    "change_log_summary": "Generated as prompt-compliant schema with exact top-level keys, server-only formula graph contract, public redaction, state machine binding, proof pack, audit seal, golden hash storage, and reference-range guard.",
     "owner_review_required": true,
     "canonical_redaction_status_required": true,
     "state_machine_binding_required": true,

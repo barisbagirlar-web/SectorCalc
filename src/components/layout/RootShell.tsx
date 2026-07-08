@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { EnterpriseFooter } from "@/components/layout/EnterpriseFooter";
 import { MainLandmark } from "@/components/layout/MainLandmark";
 import { TraceAI } from "@/components/trace/TraceAI";
+import { NavigationLoadingBar } from "@/components/layout/NavigationLoadingBar";
 
 interface RootShellProps {
   children: ReactNode;
@@ -21,6 +22,7 @@ interface RootShellProps {
 export function RootShell({ children, freeToolsCount, proToolsCount }: RootShellProps) {
   return (
     <AppProviders>
+      <NavigationLoadingBar />
       <SiteHeader freeToolsCount={freeToolsCount} proToolsCount={proToolsCount} />
       <MainLandmark>{children}</MainLandmark>
       <EnterpriseFooter />

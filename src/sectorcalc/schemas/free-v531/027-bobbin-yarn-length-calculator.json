@@ -2,12 +2,12 @@
   "tool_id": "FREE_027_BOBBIN_YARN_LENGTH_CALCULATOR",
   "tool_key": "bobbin_yarn_length_calculator",
   "tool_name": "Bobbin Yarn Length Calculator",
-  "category": "Textile Production and Apparel Operations · SuperV4 Decision Support",
-  "scope": "Bobbin Yarn Length Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "category": "Textile Production and Apparel Operations",
+  "scope": "Calculate and evaluate bobbin yarn length using simple textile production and apparel operations inputs.",
   "primary_operation": "bobbin_yarn_length_calculator_decision_screening",
   "decision_context": {
     "system_boundary": "Bobbin Yarn Length Calculator evaluates one controlled decision boundary inside Textile Production and Apparel Operations and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Bobbin Yarn Length Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate bobbin yarn length using simple textile production and apparel operations inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the bobbin yarn length calculator case.",
     "cost_of_wrong_decision": "Wrong bobbin yarn length calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
@@ -315,7 +315,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000.0,
+        "max": 1000000,
         "unit": "m",
         "basis": "PHYSICS",
         "violation_behavior": "BLOCK",
@@ -879,7 +879,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100000000.0,
+        "max": 100000000,
         "unit": "display_currency",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
@@ -2019,7 +2019,7 @@
         "demand_index"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2086,7 +2086,7 @@
         "capacity_index"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2153,7 +2153,7 @@
         "derated_capacity_index"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2228,7 +2228,7 @@
         "utilization_index"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2303,7 +2303,7 @@
         "margin_index"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2368,7 +2368,7 @@
         "expanded_uncertainty"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2447,7 +2447,7 @@
         "dominant_sensitivity_driver"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2516,7 +2516,7 @@
         "money_at_risk"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2595,7 +2595,7 @@
         "fmea_required"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2674,7 +2674,7 @@
         "primary_decision_state"
       ],
       "assumptions": [
-        "Bobbin Yarn Length Calculator is treated as a single-operation screening decision.",
+        "Bobbin Yarn Length Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -3303,7 +3303,7 @@
       {
         "id": "geometry_or_process_definition",
         "title": "Geometry Or Process Definition",
-        "description": "Inputs required for geometry or process definition in the SuperV4 decision cockpit.",
+        "description": "Inputs required for geometry or process definition.",
         "order": 1,
         "input_ids": [
           "fabric_width",
@@ -3319,7 +3319,7 @@
       {
         "id": "material_or_asset_data",
         "title": "Material Or Asset Data",
-        "description": "Inputs required for material or asset data in the SuperV4 decision cockpit.",
+        "description": "Inputs required for material or asset data.",
         "order": 2,
         "input_ids": [
           "gsm_or_mass_density"
@@ -3334,7 +3334,7 @@
       {
         "id": "load_demand_or_production_demand",
         "title": "Load Demand Or Production Demand",
-        "description": "Inputs required for load demand or production demand in the SuperV4 decision cockpit.",
+        "description": "Inputs required for load demand or production demand.",
         "order": 3,
         "input_ids": [
           "cycle_time"
@@ -3349,7 +3349,7 @@
       {
         "id": "quality_tolerance_calibration_data",
         "title": "Quality Tolerance Calibration Data",
-        "description": "Inputs required for quality tolerance calibration data in the SuperV4 decision cockpit.",
+        "description": "Inputs required for quality tolerance calibration data.",
         "order": 4,
         "input_ids": [
           "defect_or_shrinkage_rate",
@@ -3364,7 +3364,7 @@
       {
         "id": "capacity_resistance_or_process_capability",
         "title": "Capacity Resistance Or Process Capability",
-        "description": "Inputs required for capacity resistance or process capability in the SuperV4 decision cockpit.",
+        "description": "Inputs required for capacity resistance or process capability.",
         "order": 5,
         "input_ids": [
           "machine_efficiency"
@@ -3378,7 +3378,7 @@
       {
         "id": "commercial_impact_inputs",
         "title": "Commercial Impact Inputs",
-        "description": "Inputs required for commercial impact inputs in the SuperV4 decision cockpit.",
+        "description": "Inputs required for commercial impact inputs.",
         "order": 6,
         "input_ids": [
           "unit_material_cost",
@@ -3393,7 +3393,7 @@
       {
         "id": "evidence_and_source_status",
         "title": "Evidence And Source Status",
-        "description": "Inputs required for evidence and source status in the SuperV4 decision cockpit.",
+        "description": "Inputs required for evidence and source status.",
         "order": 7,
         "input_ids": [
           "evidence_confidence"
@@ -6510,11 +6510,11 @@
     "checks": [
       {
         "id": "RT001",
-        "check": "Is this a single-operation tool?",
+        "check": "Single-operation tool?",
         "status": "REQUIRED_FOR_PASS",
         "failure_behavior": "REJECT_SCHEMA_OR_FAIL_INTEGRATION",
         "evidence_required": true,
-        "public_note": "Bobbin Yarn Length Calculator: Is this a single-operation tool?"
+        "public_note": "Bobbin Yarn Length Calculator: Single-operation tool?"
       },
       {
         "id": "RT002",
@@ -7065,7 +7065,7 @@
   },
   "metadata": {
     "schema_version": "5.3.1",
-    "formula_version": "5.3.1-superv4-pro-grade",
+    "formula_version": "5.3.1-pro-grade",
     "prompt_version": "5.3.1",
     "prompt_sha256": "7078a679d623da58fa9d8ebbf8d62b780504a659e4944f5602b30565581ab3f1",
     "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
@@ -7074,7 +7074,7 @@
     "deterministic_runtime_required": true,
     "formula_quality_gate": "SECTORCALC_FORMULA_QUALITY_GATE_V5_3_1",
     "quality_gate_classification": "AUDIT_READY_DECISION_SUPPORT_NOT_CERTIFIED",
-    "change_log_summary": "Generated as prompt-compliant SuperV4 schema with exact top-level keys, server-only formula graph contract, public redaction, state machine binding, proof pack, audit seal, golden hash storage, and reference-range guard.",
+    "change_log_summary": "Generated as prompt-compliant schema with exact top-level keys, server-only formula graph contract, public redaction, state machine binding, proof pack, audit seal, golden hash storage, and reference-range guard.",
     "owner_review_required": true,
     "canonical_redaction_status_required": true,
     "state_machine_binding_required": true,

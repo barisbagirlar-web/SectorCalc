@@ -1,0 +1,954 @@
+/* ═══════════════════════════════════════════════════════
+   SectorCalc Mobile Navigation — Premium Drawer
+   Apple-level clarity · Stripe hierarchy · Linear cleanliness
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Design tokens ── */
+.sc-mnav {
+  --bg: #FAF8F2;
+  --surface: #FFFFFF;
+  --text: #1A1915;
+  --muted: #696764;
+  --hint: #94A3B8;
+  --accent: #BD5D3A;
+  --accent-dk: #A34D2E;
+  --border: rgba(26,25,21,0.10);
+  --border-2: rgba(26,25,21,0.18);
+  --card-bg: #FFFFFF;
+  --card-hover: #F3F1E9;
+  --shadow: 0 16px 48px rgba(26,25,21,0.14);
+  --fade: rgba(26,25,21,0.32);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --mnav-header-h: 60px;
+  --mnav-accordion-speed: 200ms;
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+}
+
+.sc-mnav *,
+.sc-mnav *::before,
+.sc-mnav *::after {
+  box-sizing: border-box;
+}
+
+/* ── Overlay backdrop ── */
+.sc-mnav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--fade);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sc-mnav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Drawer panel ── */
+.sc-mnav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  transform: translateY(-100%);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  /* Prevent overscroll on iOS */
+  overscroll-behavior: contain;
+}
+
+.sc-mnav-drawer.open {
+  transform: translateY(0);
+}
+
+/* ── Header bar (logo + close) ── */
+.sc-mnav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--mnav-header-h);
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--bg);
+}
+
+.sc-mnav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.sc-mnav-logo-img {
+  height: 28px;
+  width: auto;
+}
+
+.sc-mnav-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--text);
+  transition: background 0.12s;
+}
+
+.sc-mnav-close:hover {
+  background: rgba(15, 23, 42, 0.04);
+}
+
+.sc-mnav-close:active {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.sc-mnav-close svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* ── Scrollable body ── */
+.sc-mnav-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: calc(12px + var(--safe-bottom));
+}
+
+/* ── Search section ── */
+.sc-mnav-search {
+  padding: 14px 20px 10px;
+  flex-shrink: 0;
+}
+
+.sc-mnav-search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sc-mnav-search-input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: 0;
+  outline: none;
+  min-height: 48px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.sc-mnav-search-input::placeholder {
+  color: var(--hint);
+  font-weight: 400;
+}
+
+.sc-mnav-search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(189, 93, 58, 0.12);
+}
+
+.sc-mnav-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.13s;
+  flex-shrink: 0;
+}
+
+.sc-mnav-search-btn:hover {
+  background: var(--accent-dk);
+}
+
+.sc-mnav-search-btn:active {
+  transform: scale(0.97);
+}
+
+.sc-mnav-search-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* ── Section card (accordion trigger) ── */
+.sc-mnav-section {
+  border-bottom: 1px solid var(--border);
+}
+
+.sc-mnav-section-trigger {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: start;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  min-height: 52px;
+  gap: 12px;
+  transition: background 0.1s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sc-mnav-section-trigger:hover {
+  background: var(--card-hover);
+}
+
+.sc-mnav-section-trigger:active {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.sc-mnav-section-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: rgba(189, 93, 58, 0.10);
+  border-radius: 6px;
+}
+
+.sc-mnav-section-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.sc-mnav-section-label {
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+.sc-mnav-section-chevron {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--hint);
+  transition: transform var(--mnav-accordion-speed) ease;
+}
+
+.sc-mnav-section-trigger[aria-expanded="true"] .sc-mnav-section-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Section body (accordion content) ── */
+.sc-mnav-section-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--mnav-accordion-speed) ease;
+}
+
+.sc-mnav-section-body.expanded {
+  max-height: 800px; /* plenty for any section content */
+}
+
+.sc-mnav-section-inner {
+  padding: 2px 20px 14px;
+}
+
+/* ── Nav item (link row) ── */
+.sc-mnav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.1s, box-shadow 0.1s;
+  min-height: 48px;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.sc-mnav-item:hover {
+  background: var(--card-hover);
+  border-color: var(--border-2);
+}
+
+.sc-mnav-item:active {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.sc-mnav-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background: rgba(189, 93, 58, 0.10);
+  border-radius: 6px;
+}
+
+.sc-mnav-item-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
+.sc-mnav-item-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sc-mnav-item-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.sc-mnav-item-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sc-mnav-item-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(189, 93, 58, 0.08);
+  padding: 3px 8px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+
+.sc-mnav-item-arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--hint);
+}
+
+/* ── Pricing section special ── */
+.sc-mnav-pricing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sc-mnav-pricing-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.1s;
+  min-height: 44px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.sc-mnav-pricing-item:hover {
+  background: var(--card-hover);
+  border-color: var(--border-2);
+}
+
+.sc-mnav-pricing-item-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.sc-mnav-pricing-item-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.sc-mnav-pricing-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 13px 20px;
+  margin-top: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background 0.13s;
+  min-height: 48px;
+  gap: 8px;
+}
+
+.sc-mnav-pricing-cta:hover {
+  background: var(--accent-dk);
+}
+
+.sc-mnav-pricing-cta:active {
+  transform: scale(0.98);
+}
+
+.sc-mnav-pricing-cta svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Plain link (non-accordion items like Pricing top level) ── */
+.sc-mnav-plain-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  min-height: 52px;
+  transition: background 0.1s;
+}
+
+.sc-mnav-plain-link:hover {
+  background: var(--card-hover);
+}
+
+.sc-mnav-plain-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background: rgba(189, 93, 58, 0.10);
+  border-radius: 6px;
+}
+
+.sc-mnav-plain-link-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
+.sc-mnav-plain-link-label {
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+.sc-mnav-plain-link-arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--hint);
+}
+
+/* ── CTA block ── */
+.sc-mnav-cta-block {
+  padding: 18px 20px calc(18px + var(--safe-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--bg);
+}
+
+.sc-mnav-cta-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 15px 20px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0;
+  min-height: 50px;
+  transition: background 0.13s, transform 0.07s;
+  border: none;
+  cursor: pointer;
+}
+
+.sc-mnav-cta-primary:hover {
+  background: var(--accent-dk);
+}
+
+.sc-mnav-cta-primary:active {
+  transform: scale(0.98);
+}
+
+.sc-mnav-cta-primary svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sc-mnav-cta-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 14px 20px;
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--border-2);
+  border-radius: 0;
+  min-height: 48px;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.sc-mnav-cta-secondary:hover {
+  background: var(--card-hover);
+  border-color: var(--border);
+}
+
+.sc-mnav-cta-secondary:active {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.sc-mnav-cta-trust {
+  text-align: center;
+  padding-top: 6px;
+}
+
+.sc-mnav-cta-trust p {
+  margin: 0;
+  font-size: 11px;
+  color: var(--hint);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.sc-mnav-cta-trust strong {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ── Divider between sections ── */
+.sc-mnav-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 20px;
+}
+
+/* ── Icon row (industry grid variant) ── */
+.sc-mnav-industry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.sc-mnav-industry-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.1s;
+  min-height: 44px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.sc-mnav-industry-item:hover {
+  background: var(--card-hover);
+  border-color: var(--border-2);
+}
+
+.sc-mnav-industry-item-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.sc-mnav-industry-item-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.sc-mnav-industry-item-count {
+  font-size: 11px;
+  color: var(--hint);
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}
+
+/* ── Body scroll lock ── */
+body.sc-mnav-locked {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+}
+
+/* ── Accessibility ── */
+.sc-mnav-section-trigger:focus-visible,
+.sc-mnav-close:focus-visible,
+.sc-mnav-search-input:focus-visible,
+.sc-mnav-search-btn:focus-visible,
+.sc-mnav-item:focus-visible,
+.sc-mnav-pricing-item:focus-visible,
+.sc-mnav-pricing-cta:focus-visible,
+.sc-mnav-plain-link:focus-visible,
+.sc-mnav-cta-primary:focus-visible,
+.sc-mnav-cta-secondary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* ── Breakpoints ── */
+
+/* Tablet portrait */
+@media (min-width: 768px) {
+  .sc-mnav-drawer {
+    max-width: 420px;
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+    border-left: 1px solid var(--border);
+  }
+
+  .sc-mnav-drawer.open {
+    transform: translateX(0);
+  }
+}
+
+/* Large phones */
+@media (max-width: 430px) {
+  .sc-mnav-header {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .sc-mnav-logo-img {
+    height: 24px;
+  }
+
+  .sc-mnav-search {
+    padding: 10px 16px;
+  }
+
+  .sc-mnav-search-input {
+    padding: 10px 14px;
+    min-height: 44px;
+    font-size: 15px;
+  }
+
+  .sc-mnav-search-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .sc-mnav-section-trigger {
+    padding: 14px 16px;
+    min-height: 48px;
+    font-size: 15px;
+  }
+
+  .sc-mnav-plain-link {
+    padding: 14px 16px;
+    min-height: 48px;
+    font-size: 15px;
+  }
+
+  .sc-mnav-section-inner {
+    padding: 2px 16px 12px;
+  }
+
+  .sc-mnav-item {
+    padding: 10px 10px;
+    min-height: 44px;
+  }
+
+  .sc-mnav-cta-block {
+    padding: 14px 16px calc(14px + var(--safe-bottom));
+  }
+
+  .sc-mnav-cta-primary {
+    padding: 13px 16px;
+    min-height: 48px;
+    font-size: 15px;
+  }
+
+  .sc-mnav-cta-secondary {
+    padding: 12px 16px;
+    min-height: 44px;
+    font-size: 14px;
+  }
+
+  .sc-mnav-industry-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* iPhone 14 Pro Max / Pixel 8 Pro / Galaxy S24+ */
+@media (max-width: 412px) {
+  .sc-mnav-item {
+    padding: 9px 10px;
+  }
+
+  .sc-mnav-item-title {
+    font-size: 14px;
+  }
+
+  .sc-mnav-item-desc {
+    font-size: 11px;
+  }
+
+  .sc-mnav-industry-item {
+    padding: 8px 10px;
+    min-height: 40px;
+  }
+
+  .sc-mnav-industry-item-label {
+    font-size: 12px;
+  }
+
+  .sc-mnav-pricing-item {
+    padding: 10px 12px;
+    min-height: 42px;
+  }
+
+  .sc-mnav-pricing-cta {
+    padding: 12px 16px;
+    min-height: 46px;
+    font-size: 14px;
+  }
+}
+
+/* iPhone 14 Pro / Galaxy S23 */
+@media (max-width: 393px) {
+  .sc-mnav-section-trigger {
+    padding: 12px 14px;
+    min-height: 46px;
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .sc-mnav-section-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .sc-mnav-section-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .sc-mnav-plain-link {
+    padding: 12px 14px;
+    min-height: 46px;
+    font-size: 14px;
+  }
+
+  .sc-mnav-search-input {
+    font-size: 14px;
+  }
+
+  .sc-mnav-search-btn {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .sc-mnav-cta-primary {
+    padding: 12px 14px;
+    min-height: 46px;
+    font-size: 14px;
+  }
+
+  .sc-mnav-cta-secondary {
+    padding: 11px 14px;
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .sc-mnav-industry-grid {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}
+
+/* iPhone 14 / iPhone 13 / Galaxy S22 */
+@media (max-width: 390px) {
+  .sc-mnav-header {
+    height: 52px;
+  }
+
+  .sc-mnav-search {
+    padding: 8px 14px;
+  }
+
+  .sc-mnav-search-input {
+    padding: 8px 12px;
+    min-height: 40px;
+    font-size: 14px;
+  }
+
+  .sc-mnav-search-btn {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .sc-mnav-section-trigger {
+    padding: 10px 14px;
+    min-height: 44px;
+    font-size: 13.5px;
+  }
+
+  .sc-mnav-section-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .sc-mnav-section-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .sc-mnav-plain-link {
+    padding: 10px 14px;
+    min-height: 44px;
+    font-size: 13.5px;
+  }
+
+  .sc-mnav-item {
+    padding: 8px 10px;
+    min-height: 42px;
+  }
+
+  .sc-mnav-item-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sc-mnav-item-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .sc-mnav-item-title {
+    font-size: 13.5px;
+  }
+
+  .sc-mnav-item-desc {
+    font-size: 11px;
+  }
+
+  .sc-mnav-item-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .sc-mnav-plain-link-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sc-mnav-plain-link-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .sc-mnav-cta-primary {
+    padding: 11px 14px;
+    min-height: 44px;
+    font-size: 13.5px;
+  }
+
+  .sc-mnav-cta-secondary {
+    padding: 10px 14px;
+    min-height: 40px;
+    font-size: 13px;
+  }
+
+  .sc-mnav-pricing-item {
+    padding: 8px 10px;
+    min-height: 40px;
+  }
+
+  .sc-mnav-industry-item {
+    padding: 7px 8px;
+    min-height: 38px;
+  }
+
+  .sc-mnav-industry-item-label {
+    font-size: 12px;
+  }
+}
+
+/* iPhone SE / small phones */
+@media (max-width: 375px) {
+  .sc-mnav-industry-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .sc-mnav-drawer {
+    transition: none;
+  }
+
+  .sc-mnav-overlay {
+    transition: none;
+  }
+
+  .sc-mnav-section-body {
+    transition: none;
+  }
+
+  .sc-mnav-section-chevron {
+    transition: none;
+  }
+}

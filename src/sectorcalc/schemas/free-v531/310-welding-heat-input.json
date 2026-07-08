@@ -3,11 +3,11 @@
   "tool_key": "welding-heat-input",
   "tool_name": "Welding Heat Input Calculator",
   "category": "Welding & Steel",
-  "scope": "Welding Heat Input Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "scope": "Calculate and evaluate welding heat input using simple welding & steel inputs.",
   "primary_operation": "welding-heat-input_decision_screening",
   "decision_context": {
     "system_boundary": "Welding Heat Input Calculator evaluates one controlled decision boundary inside Welding & Steel and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Welding Heat Input Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate welding heat input using simple welding & steel inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the welding heat input calculator case.",
     "cost_of_wrong_decision": "Wrong welding heat input calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",

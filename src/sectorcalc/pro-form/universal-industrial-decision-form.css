@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════
-   SectorCalc SuperV4 Universal Industrial Decision Form — V5.3.1
+   SectorCalc Universal Industrial Decision Form — V5.3.1
    ═══════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════════════════════
@@ -112,6 +112,66 @@
   border-color: var(--sc-v531-danger);
 }
 
+/* ── Meta row (badge container in hero) ── */
+
+.sc-v531-meta-row {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  align-items: center;
+}
+
+.sc-v531-chip {
+  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 0;
+  background: var(--sc-v531-bg);
+  border: 1px solid var(--sc-v531-line);
+  color: var(--sc-v531-muted-strong);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.sc-v531-chip:last-child {
+  background: var(--sc-v531-accent);
+  border-color: var(--sc-v531-accent);
+  color: #fff;
+}
+
+/* Currency selector row */
+
+.sc-v531-currency-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--sc-v531-line);
+}
+
+.sc-v531-currency-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--sc-v531-muted-strong);
+}
+
+.sc-v531-currency-select {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid var(--sc-v531-line);
+  border-radius: 0;
+  background: var(--sc-v531-bg);
+  color: var(--sc-v531-fg);
+  cursor: pointer;
+}
+
 /* ═══════════════════════════════════════════════════════
    MAIN LAYOUT — Single column, inputs then action bar then results
    ═══════════════════════════════════════════════════════ */
@@ -184,16 +244,105 @@
   line-height: 1.4;
 }
 
+.sc-v531-field-control {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+}
+
+.sc-v531-field-control .sc-v531-value-input {
+  flex: 1 1 auto;
+  min-width: 60px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--sc-v531-line);
+  border-right: none;
+  border-radius: 0;
+  background: var(--sc-v531-bg);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 15px;
+  color: var(--sc-v531-fg);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+}
+.sc-v531-field-control .sc-v531-value-input:focus {
+  outline: none;
+  border-color: var(--sc-v531-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sc-v531-accent) 20%, transparent);
+  z-index: 1;
+  position: relative;
+}
+.sc-v531-field-control .sc-v531-value-input::placeholder {
+  color: var(--sc-v531-muted);
+  opacity: 0.6;
+}
+
+.sc-v531-unit-select {
+  flex: 0 0 140px;
+  width: auto;
+  min-width: 120px;
+  max-width: 180px;
+  padding: 10px 8px;
+  border: 1px solid var(--sc-v531-line);
+  border-radius: 0;
+  background: color-mix(in srgb, var(--sc-v531-line) 35%, var(--sc-v531-bg));
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--sc-v531-muted-strong);
+  cursor: pointer;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
+  transition: background 0.15s;
+}
+.sc-v531-unit-select:hover {
+  background: color-mix(in srgb, var(--sc-v531-line) 55%, var(--sc-v531-bg));
+}
+.sc-v531-unit-select:focus {
+  outline: none;
+  border-color: var(--sc-v531-accent);
+}
+
+/* ── Passive unit suffix (non-selectable fixed unit label) ── */
+.sc-v531-unit-suffix {
+  flex: 0 0 140px;
+  min-width: 120px;
+  max-width: 180px;
+  padding: 10px 12px;
+  border: 1px solid var(--sc-v531-line);
+  border-radius: 0;
+  background: color-mix(in srgb, var(--sc-v531-line) 25%, var(--sc-v531-bg));
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--sc-v531-muted-strong);
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+/* ── Input row (legacy / unitless fallback) ── */
 .sc-v531-input-row {
   display: flex;
   align-items: stretch;
   gap: 6px;
+  width: 100%;
 }
 .sc-v531-input-row input[type="text"],
 .sc-v531-input-row input[type="number"] {
   flex: 1;
   min-width: 0;
-  padding: 8px 10px;
+  padding: 10px 12px;
   border: 1px solid var(--sc-v531-line);
   border-radius: 0;
   background: var(--sc-v531-bg);
@@ -206,19 +355,6 @@
   outline: none;
   border-color: var(--sc-v531-accent);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sc-v531-accent) 20%, transparent);
-}
-.sc-v531-unit-select {
-  width: auto;
-  min-width: 72px;
-  flex-shrink: 0;
-  padding: 8px 6px;
-  border: 1px solid var(--sc-v531-line);
-  border-radius: 0;
-  background: var(--sc-v531-bg);
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 12px;
-  color: var(--sc-v531-fg);
-  cursor: pointer;
 }
 
 .sc-v531-ref-helper {
@@ -894,9 +1030,11 @@
   border-bottom: 0;
 }
 
-.sc-v531-mobile-action-bar span {
+.sc-v531-mobile-action-bar span,
+.sc-v531-mobile-bar-status {
   color: var(--sc-v531-muted);
   font-size: 0.82rem;
+  font-weight: 500;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -948,6 +1086,29 @@
   }
 }
 
+/* ── Mobile: keep input+unit side by side, shrink unit select ── */
+@media (max-width: 640px) {
+  .sc-v531-field-control {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .sc-v531-field-control .sc-v531-value-input {
+    border-right: none;
+    font-size: 16px !important;
+    padding: 10px 10px;
+    min-width: 0;
+  }
+
+  .sc-v531-unit-select,
+  .sc-v531-unit-suffix {
+    min-width: 72px;
+    max-width: 96px;
+    font-size: 11px;
+    padding: 10px 4px;
+  }
+}
+
 @media (max-width: 375px) {
   .sc-v531-hero,
   .sc-v531-section,
@@ -973,6 +1134,13 @@
     border-right: 0 !important;
     box-shadow: none !important;
     overflow-x: hidden !important;
+    min-height: 100vh;
+  }
+
+  /* Ensure last section has enough bottom margin so sticky bar never overlaps */
+  .sc-v531-section:last-child,
+  .sc-v531-advanced {
+    margin-bottom: calc(var(--sc-actionbar-height, 88px) + env(safe-area-inset-bottom, 0px) + 8px);
   }
 
   .sc-v531-hero {

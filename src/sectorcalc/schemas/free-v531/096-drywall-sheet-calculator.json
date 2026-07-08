@@ -2,12 +2,12 @@
   "tool_id": "FREE_096_DRYWALL_SHEET_CALCULATOR",
   "tool_key": "drywall_sheet_calculator",
   "tool_name": "Drywall Sheet Calculator",
-  "category": "Construction and Building Materials · SuperV4 Decision Support",
-  "scope": "Drywall Sheet Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "category": "Construction and Building Materials",
+  "scope": "Calculate and evaluate drywall sheet using simple construction and building materials inputs.",
   "primary_operation": "drywall_sheet_calculator_decision_screening",
   "decision_context": {
     "system_boundary": "Drywall Sheet Calculator evaluates one controlled decision boundary inside Construction and Building Materials and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Drywall Sheet Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate drywall sheet using simple construction and building materials inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the drywall sheet calculator case.",
     "cost_of_wrong_decision": "Wrong drywall sheet calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
@@ -351,8 +351,8 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 1e-06,
-        "max": 10000000.0,
+        "min": 0.000001,
+        "max": 10000000,
         "unit": "m2",
         "basis": "PHYSICS",
         "violation_behavior": "BLOCK",
@@ -466,7 +466,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000.0,
+        "max": 1000000000,
         "unit": "N",
         "basis": "PHYSICS",
         "violation_behavior": "BLOCK",
@@ -475,7 +475,7 @@
       },
       "engineering_range": {
         "min": 100,
-        "max": 10000000.0,
+        "max": 10000000,
         "unit": "N",
         "source": "Applied load or material quantity screening band for this load demand or production demand decision; user must verify with measured, quoted, or source-controlled data.",
         "status": "NEEDS_SOURCE_VERIFICATION"
@@ -580,7 +580,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0.001,
-        "max": 10000000000.0,
+        "max": 10000000000,
         "unit": "N",
         "basis": "PHYSICS",
         "violation_behavior": "BLOCK",
@@ -589,7 +589,7 @@
       },
       "engineering_range": {
         "min": 1000,
-        "max": 100000000.0,
+        "max": 100000000,
         "unit": "N",
         "source": "Allowable capacity or coverage screening band for this capacity resistance or process capability decision; user must verify with measured, quoted, or source-controlled data.",
         "status": "NEEDS_SOURCE_VERIFICATION"
@@ -916,7 +916,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100000000.0,
+        "max": 100000000,
         "unit": "display_currency",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
@@ -2055,7 +2055,7 @@
         "demand_index"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2122,7 +2122,7 @@
         "capacity_index"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2189,7 +2189,7 @@
         "derated_capacity_index"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2264,7 +2264,7 @@
         "utilization_index"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2339,7 +2339,7 @@
         "margin_index"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2404,7 +2404,7 @@
         "expanded_uncertainty"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2483,7 +2483,7 @@
         "dominant_sensitivity_driver"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2552,7 +2552,7 @@
         "money_at_risk"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2631,7 +2631,7 @@
         "fmea_required"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2710,7 +2710,7 @@
         "primary_decision_state"
       ],
       "assumptions": [
-        "Drywall Sheet Calculator is treated as a single-operation screening decision.",
+        "Drywall Sheet Calculator is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -3339,7 +3339,7 @@
       {
         "id": "geometry_or_process_definition",
         "title": "Geometry Or Process Definition",
-        "description": "Inputs required for geometry or process definition in the SuperV4 decision cockpit.",
+        "description": "Inputs required for geometry or process definition.",
         "order": 1,
         "input_ids": [
           "measured_span_or_length",
@@ -3355,7 +3355,7 @@
       {
         "id": "load_demand_or_production_demand",
         "title": "Load Demand Or Production Demand",
-        "description": "Inputs required for load demand or production demand in the SuperV4 decision cockpit.",
+        "description": "Inputs required for load demand or production demand.",
         "order": 2,
         "input_ids": [
           "applied_load_or_quantity"
@@ -3370,7 +3370,7 @@
       {
         "id": "capacity_resistance_or_process_capability",
         "title": "Capacity Resistance Or Process Capability",
-        "description": "Inputs required for capacity resistance or process capability in the SuperV4 decision cockpit.",
+        "description": "Inputs required for capacity resistance or process capability.",
         "order": 3,
         "input_ids": [
           "allowable_capacity"
@@ -3385,7 +3385,7 @@
       {
         "id": "advanced_derating_inputs",
         "title": "Advanced Derating Inputs",
-        "description": "Inputs required for advanced derating inputs in the SuperV4 decision cockpit.",
+        "description": "Inputs required for advanced derating inputs.",
         "order": 4,
         "input_ids": [
           "waste_or_derating_factor",
@@ -3400,7 +3400,7 @@
       {
         "id": "commercial_impact_inputs",
         "title": "Commercial Impact Inputs",
-        "description": "Inputs required for commercial impact inputs in the SuperV4 decision cockpit.",
+        "description": "Inputs required for commercial impact inputs.",
         "order": 5,
         "input_ids": [
           "unit_material_cost",
@@ -3415,7 +3415,7 @@
       {
         "id": "quality_tolerance_calibration_data",
         "title": "Quality Tolerance Calibration Data",
-        "description": "Inputs required for quality tolerance calibration data in the SuperV4 decision cockpit.",
+        "description": "Inputs required for quality tolerance calibration data.",
         "order": 6,
         "input_ids": [
           "measurement_uncertainty"
@@ -3429,7 +3429,7 @@
       {
         "id": "evidence_and_source_status",
         "title": "Evidence And Source Status",
-        "description": "Inputs required for evidence and source status in the SuperV4 decision cockpit.",
+        "description": "Inputs required for evidence and source status.",
         "order": 7,
         "input_ids": [
           "evidence_confidence"
@@ -6546,11 +6546,11 @@
     "checks": [
       {
         "id": "RT001",
-        "check": "Is this a single-operation tool?",
+        "check": "Single-operation tool?",
         "status": "REQUIRED_FOR_PASS",
         "failure_behavior": "REJECT_SCHEMA_OR_FAIL_INTEGRATION",
         "evidence_required": true,
-        "public_note": "Drywall Sheet Calculator: Is this a single-operation tool?"
+        "public_note": "Drywall Sheet Calculator: Single-operation tool?"
       },
       {
         "id": "RT002",
@@ -7101,7 +7101,7 @@
   },
   "metadata": {
     "schema_version": "5.3.1",
-    "formula_version": "5.3.1-superv4-pro-grade",
+    "formula_version": "5.3.1-pro-grade",
     "prompt_version": "5.3.1",
     "prompt_sha256": "7078a679d623da58fa9d8ebbf8d62b780504a659e4944f5602b30565581ab3f1",
     "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
@@ -7110,7 +7110,7 @@
     "deterministic_runtime_required": true,
     "formula_quality_gate": "SECTORCALC_FORMULA_QUALITY_GATE_V5_3_1",
     "quality_gate_classification": "AUDIT_READY_DECISION_SUPPORT_NOT_CERTIFIED",
-    "change_log_summary": "Generated as prompt-compliant SuperV4 schema with exact top-level keys, server-only formula graph contract, public redaction, state machine binding, proof pack, audit seal, golden hash storage, and reference-range guard.",
+    "change_log_summary": "Generated as prompt-compliant schema with exact top-level keys, server-only formula graph contract, public redaction, state machine binding, proof pack, audit seal, golden hash storage, and reference-range guard.",
     "owner_review_required": true,
     "canonical_redaction_status_required": true,
     "state_machine_binding_required": true,

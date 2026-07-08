@@ -3,11 +3,11 @@
   "tool_key": "pallet-container-load-cbm",
   "tool_name": "Pallet and Container Load CBM Calculator",
   "category": "Inventory & Logistics",
-  "scope": "Pallet and Container Load CBM Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "scope": "Calculate and evaluate pallet and container load cbm using simple inventory & logistics inputs.",
   "primary_operation": "pallet-container-load-cbm_decision_screening",
   "decision_context": {
     "system_boundary": "Pallet and Container Load CBM Calculator evaluates one controlled decision boundary inside Inventory & Logistics and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Pallet and Container Load CBM Calculator as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate pallet and container load cbm using simple inventory & logistics inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the pallet and container load cbm calculator case.",
     "cost_of_wrong_decision": "Wrong pallet and container load cbm calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",

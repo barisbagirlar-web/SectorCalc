@@ -16,6 +16,7 @@ import {
 } from "@/lib/features/tools/build-taxonomy-sector-cards";
 import { SLUG_TOKEN_SECTOR_HINTS, SECTORS } from "@/lib/features/tools/taxonomy";
 import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
+import { getPublicCatalogTitle } from "@/sectorcalc/public/public-tool-copy-adapter";
 
 export const dynamic = "force-dynamic";
 
@@ -297,10 +298,11 @@ function resolveFreeSectorKey(slug: string): string {
 
 function freeFormulaToToolListItem(slug: string, toolName: string): ToolListItem {
   const sectorKey = resolveFreeSectorKey(slug);
+  const catalogTitle = getPublicCatalogTitle(slug, toolName);
   return {
     slug,
     name: toolName,
-    title: toolName,
+    title: catalogTitle,
     tier: "free",
     href: `/tools/free/${slug}`,
     isPremium: false,

@@ -2,12 +2,12 @@
   "tool_id": "FREE_104_EMPLOYEE_TURNOVER_COST_ANALYZER",
   "tool_key": "employee_turnover_cost_analyzer",
   "tool_name": "Employee Turnover Cost Analyzer",
-  "category": "Industrial Operations Quality and Process Control · SuperV4 Decision Support",
-  "scope": "Employee Turnover Cost Analyzer as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+  "category": "Industrial Operations Quality and Process Control",
+  "scope": "Calculate and evaluate employee turnover cost using simple industrial operations quality and process control inputs.",
   "primary_operation": "employee_turnover_cost_analyzer_decision_screening",
   "decision_context": {
     "system_boundary": "Employee Turnover Cost Analyzer evaluates one controlled decision boundary inside Industrial Operations Quality and Process Control and excludes broad ERP, dashboard, or multi-module workflows.",
-    "single_operation_scope": "Employee Turnover Cost Analyzer as one SuperV4 single-operation decision-support schema for screening, review, audit evidence, and commercial risk interpretation.",
+    "single_operation_scope": "Calculate and evaluate employee turnover cost using simple industrial operations quality and process control inputs.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, reprice, reject, repair, inspect, derate, outsource, scrap, rework, or escalate the employee turnover cost analyzer case.",
     "cost_of_wrong_decision": "Wrong employee turnover cost analyzer result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
@@ -171,7 +171,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000000.0,
+        "max": 1000000000000,
         "unit": "display_currency",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
@@ -180,7 +180,7 @@
       },
       "engineering_range": {
         "min": 1000,
-        "max": 100000000.0,
+        "max": 100000000,
         "unit": "display_currency",
         "source": "Opening or invested value screening band for this operation context decision; user must verify with measured, quoted, or source-controlled data.",
         "status": "NEEDS_SOURCE_VERIFICATION"
@@ -283,7 +283,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000000.0,
+        "max": 1000000000000,
         "unit": "display_currency",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
@@ -292,7 +292,7 @@
       },
       "engineering_range": {
         "min": 1000,
-        "max": 100000000.0,
+        "max": 100000000,
         "unit": "display_currency",
         "source": "Closing or recoverable value screening band for this operation context decision; user must verify with measured, quoted, or source-controlled data.",
         "status": "NEEDS_SOURCE_VERIFICATION"
@@ -394,8 +394,8 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": -1000000000000.0,
-        "max": 1000000000000.0,
+        "min": -1000000000000,
+        "max": 1000000000000,
         "unit": "display_currency",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
@@ -403,8 +403,8 @@
         "semantic_error_message_max": "Case cash flow amount is above the physically meaningful or operationally permitted upper bound."
       },
       "engineering_range": {
-        "min": -10000000.0,
-        "max": 10000000.0,
+        "min": -10000000,
+        "max": 10000000,
         "unit": "display_currency",
         "source": "Case cash flow amount screening band for this commercial impact inputs decision; user must verify with measured, quoted, or source-controlled data.",
         "status": "NEEDS_SOURCE_VERIFICATION"
@@ -731,7 +731,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000000.0,
+        "max": 1000000000000,
         "unit": "display_currency",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
@@ -740,7 +740,7 @@
       },
       "engineering_range": {
         "min": 0,
-        "max": 10000000.0,
+        "max": 10000000,
         "unit": "display_currency",
         "source": "Transaction or implementation cost screening band for this commercial impact inputs decision; user must verify with measured, quoted, or source-controlled data.",
         "status": "NEEDS_SOURCE_VERIFICATION"
@@ -1978,7 +1978,7 @@
         "demand_index"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2045,7 +2045,7 @@
         "capacity_index"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2112,7 +2112,7 @@
         "derated_capacity_index"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2187,7 +2187,7 @@
         "utilization_index"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2262,7 +2262,7 @@
         "margin_index"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2327,7 +2327,7 @@
         "expanded_uncertainty"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2406,7 +2406,7 @@
         "dominant_sensitivity_driver"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2475,7 +2475,7 @@
         "money_at_risk"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2554,7 +2554,7 @@
         "fmea_required"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -2633,7 +2633,7 @@
         "primary_decision_state"
       ],
       "assumptions": [
-        "Employee Turnover Cost Analyzer is treated as a single-operation screening decision.",
+        "Employee Turnover Cost Analyzer is treated as a single-operation screening step.",
         "Inputs are normalized to base units before the private server formula registry executes.",
         "Reference ranges are advisory and never replace measured or user-verified values.",
         "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
@@ -3262,7 +3262,7 @@
       {
         "id": "operation_context",
         "title": "Operation Context",
-        "description": "Inputs required for operation context in the SuperV4 decision cockpit.",
+        "description": "Inputs required for operation context.",
         "order": 1,
         "input_ids": [
           "opening_value",
@@ -3279,7 +3279,7 @@
       {
         "id": "commercial_impact_inputs",
         "title": "Commercial Impact Inputs",
-        "description": "Inputs required for commercial impact inputs in the SuperV4 decision cockpit.",
+        "description": "Inputs required for commercial impact inputs.",
         "order": 2,
         "input_ids": [
           "cash_flow_amount",
@@ -3297,7 +3297,7 @@
       {
         "id": "evidence_and_source_status",
         "title": "Evidence And Source Status",
-        "description": "Inputs required for evidence and source status in the SuperV4 decision cockpit.",
+        "description": "Inputs required for evidence and source status.",
         "order": 3,
         "input_ids": [
           "confidence_score"
@@ -3312,7 +3312,7 @@
       {
         "id": "quality_tolerance_calibration_data",
         "title": "Quality Tolerance Calibration Data",
-        "description": "Inputs required for quality tolerance calibration data in the SuperV4 decision cockpit.",
+        "description": "Inputs required for quality tolerance calibration data.",
         "order": 4,
         "input_ids": [
           "uncertainty_band"
@@ -3326,7 +3326,7 @@
       {
         "id": "capacity_resistance_or_process_capability",
         "title": "Capacity Resistance Or Process Capability",
-        "description": "Inputs required for capacity resistance or process capability in the SuperV4 decision cockpit.",
+        "description": "Inputs required for capacity resistance or process capability.",
         "order": 5,
         "input_ids": [
           "decision_threshold"
@@ -6443,11 +6443,11 @@
     "checks": [
       {
         "id": "RT001",
-        "check": "Is this a single-operation tool?",
+        "check": "Single-operation tool?",
         "status": "REQUIRED_FOR_PASS",
         "failure_behavior": "REJECT_SCHEMA_OR_FAIL_INTEGRATION",
         "evidence_required": true,
-        "public_note": "Employee Turnover Cost Analyzer: Is this a single-operation tool?"
+        "public_note": "Employee Turnover Cost Analyzer: Single-operation tool?"
       },
       {
         "id": "RT002",
@@ -6998,7 +6998,7 @@
   },
   "metadata": {
     "schema_version": "5.3.1",
-    "formula_version": "5.3.1-superv4-pro-grade",
+    "formula_version": "5.3.1-pro-grade",
     "prompt_version": "5.3.1",
     "prompt_sha256": "7078a679d623da58fa9d8ebbf8d62b780504a659e4944f5602b30565581ab3f1",
     "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
@@ -7007,7 +7007,7 @@
     "deterministic_runtime_required": true,
     "formula_quality_gate": "SECTORCALC_FORMULA_QUALITY_GATE_V5_3_1",
     "quality_gate_classification": "AUDIT_READY_DECISION_SUPPORT_NOT_CERTIFIED",
-    "change_log_summary": "Generated as prompt-compliant SuperV4 schema with exact top-level keys, server-only formula graph contract, public redaction, state machine binding, proof pack, audit seal, golden hash storage, and reference-range guard.",
+    "change_log_summary": "Generated as prompt-compliant schema with exact top-level keys, server-only formula graph contract, public redaction, state machine binding, proof pack, audit seal, golden hash storage, and reference-range guard.",
     "owner_review_required": true,
     "canonical_redaction_status_required": true,
     "state_machine_binding_required": true,
