@@ -1286,8 +1286,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               </div>
             ) : (
             <div className="sc-v531-result-content">
-              {/* FREE mode: multi-perspective result cards (V5.4 Universal Result Perspectives Layer) */}
-              {isFreeTier && response?.universal_result && response.universal_result.cards.length > 0 && (() => {
+              {/* FREE + PRO mode: multi-perspective result cards (V5.4 Universal Result Perspectives Layer) */}
+              {response?.universal_result && response.universal_result.cards.length > 0 && (() => {
                 const ur = response!.universal_result!;
                 const primaryCard = ur.primary;
                 const commercialCards = ur.cards.filter((c) => c.perspective === "commercial_price");

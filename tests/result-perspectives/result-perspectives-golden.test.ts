@@ -145,4 +145,48 @@ describe("Result Perspectives — Golden Tests", () => {
   test("hasCommercialPrice returns false for null result", () => {
     expect(hasCommercialPrice(null)).toBe(false);
   });
+
+  test("Adapter converts generic 'Result' name to readable label from id", () => {
+    // Simulate a tool schema where output name is "Result" (common in free schemas)
+    const outputs = [
+      {
+        id: "freight_cost_per_km",
+        name: "Result",
+        value: 5.75,
+        unit: "USD",
+        status: "OK" as const,
+        formula_source: null,
+        public_explanation: "Test",
+        operator_explanation: "",
+        engineer_explanation: "",
+        owner_cfo_explanation: "",
+        checker_explanation: "",
+        decision_use: "Primary decision indicator",
+        evidence_level: "SCREENING_ONLY" as const,
+      },
+    ];
+    const schema = {
+      tool_id: "FREE_TEST_001",
+      tool_key: "test-tool",
+      category: "Cost & Finance",
+      inputs: [],
+      outputs: [{ id: "freight_cost_per_km", name: "Result", type: "number" }],
+    } as any;
+
+    const result = buildUniversalResult(schema, {}, outputs);
+    expect(result).not.toBeNull();
+    if (!result) return;
+
+    // Primary label should be derived from id (not raw "Result")
+    expect(result.primary.label).not.toBe("Result");
+    expect(result.primary.label).toBe("Freight Cost Per Km");
+
+    // Cards should also have readable labels
+    for (const card of result.cards) {
+      expect(card.label.toLowerCase()).not.toBe("result");
+    }
+
+    // Decision state must be valid
+    expect(hasValidDecisionState(result)).toBe(true);
+  });
 });

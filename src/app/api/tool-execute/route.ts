@@ -18,7 +18,7 @@ import {
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
 import { getFreeToolSchema } from "@/sectorcalc/runtime/free-schema-loader";
 import { isActiveTool } from "@/sectorcalc/runtime/active-tool-allowlist";
-import type { SuperV4Schema, ExecuteResponse, CalcStatus, Severity, SourceStatus } from "@/sectorcalc/pro-form/contract-types";
+import type { SuperV4Schema, ExecuteResponse, CalcStatus, Severity, SourceStatus, ServerOutput } from "@/sectorcalc/pro-form/contract-types";
 import { isProBypassEmail } from "@/lib/features/billing/subscription";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { createAuditSeal, computeHash } from "@/sectorcalc/pro-runtime/audit-seal-service";
@@ -512,12 +512,23 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       return NextResponse.json(upstreamBlocked, { status: 200 });
     }
 
-    const executeResult = await internalResponse.json();
+    const executeResult = await internalResponse.json() as Record<string, unknown>;
+    const proOutputs = (executeResult?.outputs ?? []) as ServerOutput[];
+
+    // Enrich with Universal Result Perspectives for Pro tools too
+    let universalResult: import("@/sectorcalc/pro-form/contract-types").UniversalCalculationResult | undefined;
+    try {
+      const enriched = buildUniversalResult(validatedSchema, body.rawInputs ?? {}, proOutputs);
+      if (enriched) universalResult = enriched;
+    } catch {
+      // adapter error — non-blocking; Pro tools still get normal response
+    }
 
     const response: Record<string, unknown> = {
       ...executeResult,
       accessTier,
       redaction_status: (executeResult as Record<string, unknown>)?.redaction_status ?? "PUBLIC_SAFE_REDACTED",
+      ...(universalResult ? { universal_result: universalResult } : {}),
     };
 
     if (accessTier === "PRO" && body.usageSessionId) {
