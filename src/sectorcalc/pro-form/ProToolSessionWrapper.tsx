@@ -41,16 +41,15 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
 
     setCreditSessionLoading(true);
     try {
-      // Get auth token
-      const tokenResult = await fetch("/api/auth/session");
-      if (!tokenResult.ok) {
-        // Redirect to login
-        window.location.href = `/auth/login?redirect=${encodeURIComponent(window.location.pathname)}`;
+      // Get Firebase Auth ID token directly from the user object
+      // fetch("/api/auth/session") with GET returned 405 (POST-only endpoint)
+      // so we use the client-side getIdToken() instead
+      if (!user) {
+        window.location.href = `/login?next=${encodeURIComponent(window.location.pathname)}`;
         return;
       }
 
-      const tokenData = await tokenResult.json();
-      const idToken = tokenData.idToken;
+      const idToken = await user.getIdToken(false);
 
       // Create session
       const response = await fetch("/api/pro-tool-session/create", {
@@ -80,7 +79,7 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
     } finally {
       setCreditSessionLoading(false);
     }
-  }, [user?.email]);
+  }, [user]);
 
   return (
     <UniversalIndustrialDecisionForm
