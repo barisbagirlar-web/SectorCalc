@@ -114,9 +114,11 @@ function main(): void {
   // This prevents TypeScript from generating any runtime typecast code that might
   // confuse the bundler.
   const caseLines: string[] = [];
+  const boolLines: string[] = [];
   for (const slug of sortedKeys) {
     const schemaJSON = JSON.stringify(combined[slug]);
     caseLines.push(`    case "${slug}": return (${schemaJSON});`);
+    boolLines.push(`    case "${slug}": return true;`);
   }
 
   const slugArray = JSON.stringify(sortedKeys);
@@ -141,7 +143,7 @@ ${caseLines.join("\n")}
 /** Check if a Free V5.3.1 schema exists for the given slug. */
 export function hasFreeV531Schema(slug: string): boolean {
   switch (slug) {
-${caseLines.join("\n")}
+${boolLines.join("\n")}
     default: return false;
   }
 }
