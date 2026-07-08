@@ -120,7 +120,6 @@ interface CalculatorViewModel {
   badges: Array<{ label: string; type: "category" | "tier" | "risk" | "version" | "runs" }>;
   fields: FieldViewModel[];
   action: ActionViewModel;
-  secondaryActions: Array<{ label: string; onAction: () => void; variant: "secondary" | "ghost" }>;
   resultState: ResultViewModel;
   warnings: Array<{ severity: string; title: string; detail: string }>;
 }
@@ -392,14 +391,6 @@ function buildCalculatorViewModel(
     onAction: primaryButtonAction,
   };
 
-  // Secondary actions — FREE gets only Reset inputs, PRO gets Check inputs + Reset inputs
-  const secondaryActions: CalculatorViewModel["secondaryActions"] = isFree
-    ? [{ label: "Reset inputs", onAction: machine.resetInputs, variant: "ghost" }]
-    : [
-        { label: "Check inputs", onAction: machine.runClientPrecheck, variant: "secondary" },
-        { label: "Reset inputs", onAction: machine.resetInputs, variant: "ghost" },
-      ];
-
   // Result state
   const primaryOutput = hasResult && response?.outputs?.length
     ? {
@@ -437,7 +428,7 @@ function buildCalculatorViewModel(
     }
   }
 
-  return { title: toolName, purpose: displayScope, badges, fields, action, secondaryActions, resultState, warnings };
+  return { title: toolName, purpose: displayScope, badges, fields, action, resultState, warnings };
 }
 
 /** True if an output is a status/decision output and should not appear in primary result grid. */
@@ -1140,6 +1131,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         <button
                           type="button"
                           className="sc-v531-action-secondary"
+                          onClick={machine.runClientPrecheck}
+                        >
+                          Check inputs
+                        </button>
+                        <button
+                          type="button"
+                          className="sc-v531-action-secondary"
                           onClick={handleReset}
                         >
                           Reset inputs
@@ -1160,6 +1158,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         onClick={vm.action.onAction}
                       >
                         {vm.action.label}
+                      </button>
+                      <button
+                        type="button"
+                        className="sc-v531-action-secondary"
+                        onClick={machine.runClientPrecheck}
+                      >
+                        Check inputs
                       </button>
                       <button
                         type="button"
@@ -1227,6 +1232,15 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     >
                       {vm.action.label}
                     </button>
+                    {isPro && (
+                      <button
+                        type="button"
+                        className="sc-v531-action-secondary"
+                        onClick={machine.runClientPrecheck}
+                      >
+                        Check inputs
+                      </button>
+                    )}
                     <button
                       type="button"
                       className="sc-v531-action-secondary"
@@ -1344,6 +1358,28 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   })()}
                 </div>
               )}
+
+              {/* FREE mode: result interpretation */}
+              {isFreeTier && response?.outputs && response.outputs.length > 0 && (() => {
+                // Show a brief interpretation: pick the first meaningful numeric output
+                const primaryOutput = response.outputs.find(o => 
+                  !isStatusOutput(o) && typeof o.value === "number" && Number.isFinite(o.value)
+                );
+                if (primaryOutput) {
+                  const val = formatBusinessResult(primaryOutput.name, primaryOutput.value);
+                  const unit = getFreeOutputUnitSuffix(primaryOutput, selectedCurrency);
+                  const displayVal = unit ? `${val} ${unit}` : val;
+                  return (
+                    <div className="sc-v531-free-interpretation">
+                      <p className="sc-v531-free-interp-text">
+                        Result: <strong>{primaryOutput.name}: {displayVal}</strong>. 
+                        Verify all input values before using this result for production or planning decisions.
+                      </p>
+                    </div>
+                  );
+                }
+                return null;
+              })()}
 
               {/* PRO mode: Decision Summary + Primary Results + Professional Interpretation */}
               {!isFreeTier && response?.outputs && (
@@ -1709,6 +1745,23 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
 // ── Input field — clean primary UI ──────────────────────────────────────────────
 
+/**
+ * Infer a unit suffix from a field id/name when the schema has no explicit units.
+ * Maps common field name patterns to display labels.
+ */
+function inferFieldUnit(fieldId: string, fieldName: string): string | null {
+  const combined = `${fieldId} ${fieldName}`.toLowerCase().replace(/_/g, " ");
+  if (/\bmm\b/.test(combined)) return "mm";
+  if (/\binch\b/.test(combined)) return "in";
+  if (/\bfeet\b/.test(combined) || /\bfoot\b/.test(combined)) return "ft";
+  if (/\bkg\b/.test(combined)) return "kg";
+  if (/\blb\b/.test(combined) || /\bpound\b/.test(combined)) return "lb";
+  if (/\bnewton\b/.test(combined)) return "N";
+  if (/\bmpa\b/.test(combined)) return "MPa";
+  if (/\bpsi\b/.test(combined)) return "psi";
+  return null;
+}
+
 function CalculatorInputField({
   field,
   currencyCode,
@@ -1745,6 +1798,8 @@ function CalculatorInputField({
   const nonEmptyUnits = field.allowedUnits.filter((u) => u.length > 0);
   const isNumeric = field.type === "number" || field.type === "integer";
   const hasRealUnits = isNumeric && nonEmptyUnits.length > 0;
+  // Infer a unit suffix from field name/id when schema has no explicit units
+  const inferredUnit = !hasRealUnits && isNumeric ? inferFieldUnit(field.id, field.label) : null;
 
   return (
     <div className="sc-v531-field-card" data-criticality={field.criticality.toLowerCase()} data-error={showErrorState}>
@@ -1779,6 +1834,12 @@ function CalculatorInputField({
           <span className="sc-v531-unit-suffix">
             {resolveUnitLabel(field.selectedUnit || nonEmptyUnits[0])}
           </span>
+        </div>
+      ) : !hasRealUnits && isNumeric && inferredUnit ? (
+        /* Inferred unit: passive suffix from field name (no explicit schema unit) */
+        <div className="sc-v531-field-control">
+          {renderValueInput(inputId, field, onValueChange, true)}
+          <span className="sc-v531-unit-suffix">{inferredUnit}</span>
         </div>
       ) : (
         /* No units: single input only */
@@ -1906,6 +1967,8 @@ function IdentityBlocker({ reason }: { reason: string }) {
  */
 function getFormulaText(toolKey: string | undefined): string {
   switch (toolKey) {
+    case "tap-drill-size":
+      return "The tap drill diameter is calculated as the major diameter minus thread pitch multiplied by a thread-dependent factor. For standard metric threads, the factor is approximately 1.0825 × pitch. The tool also accounts for material and plating allowances that adjust the final drill size.";
     case "compressed-air-leak-cost-calculator":
       return "The calculation estimates air loss from leak diameter and pressure, converts air loss into annual energy use using compressor specific power and operating hours, then estimates annual cost and repair payback.";
     case "break-even-and-margin-of-safety-analysis":
@@ -2061,10 +2124,21 @@ function AdvancedDetailsWrapper({
       <summary className="sc-v531-advanced-summary">
         <span>Advanced details</span>
         <span className="sc-v531-advanced-links">
-          {isFreeTier
-            ? "Formula logic · Validation notes · Calculation assumptions"
-            : "Formula logic · Validation notes · Sensitivity · Audit trail · Export"
-          }
+          {isFreeTier ? (
+            <>
+              <span>Formula logic</span>
+              <span>Validation notes</span>
+              <span>Calculation assumptions</span>
+            </>
+          ) : (
+            <>
+              <span>Formula logic</span>
+              <span>Validation notes</span>
+              <span>Sensitivity</span>
+              <span>Audit trail</span>
+              <span>Export</span>
+            </>
+          )}
         </span>
       </summary>
       {open && (
