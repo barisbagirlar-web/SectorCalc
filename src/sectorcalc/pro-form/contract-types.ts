@@ -1,7 +1,7 @@
 // SectorCalc SuperV4 Universal Industrial Decision Form — Contract Types V5.3.1
 // All UI text, identifiers, and schema-facing strings are pure technical English.
 
-export type ProfileMode = "quick" | "engineering" | "cost" | "audit";
+export type ProfileMode = "quick" | "engineering" | "cost" | "audit" | "diagnostic";
 
 export type CalcStatus = "OK" | "REVIEW" | "BLOCKED" | "REPRICE" | "REJECT" | "HOLD";
 

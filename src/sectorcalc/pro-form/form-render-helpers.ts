@@ -1,4 +1,4 @@
-// SectorCalc SuperV4 — Form Render Helpers V5.3.1
+// SectorCalc — Form Render Helpers V5.3.1
 // Pure, side-effect-free helper functions for UniversalIndustrialDecisionForm rendering.
 // These functions NEVER execute formulas. They only determine UI visibility and safe display text.
 

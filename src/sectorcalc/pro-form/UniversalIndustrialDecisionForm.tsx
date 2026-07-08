@@ -1,4 +1,4 @@
-// SectorCalc SuperV4 Universal Industrial Decision Form — V5.3.1
+// SectorCalc Universal Industrial Decision Form — V5.3.1
 // Calculator-first renderer (V2). Temporary build-and-verify file.
 // The public client never executes formulas.
 
@@ -1366,7 +1366,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   !isStatusOutput(o) && typeof o.value === "number" && Number.isFinite(o.value)
                 );
                 if (primaryOutput) {
-                  const val = formatBusinessResult(primaryOutput.name, primaryOutput.value);
+                  const val = formatBusinessResult(primaryOutput.name, primaryOutput.value as number);
                   const unit = getFreeOutputUnitSuffix(primaryOutput, selectedCurrency);
                   const displayVal = unit ? `${val} ${unit}` : val;
                   return (
