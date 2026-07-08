@@ -25,19 +25,29 @@ function parseServiceAccountJson(): Record<string, string> | null {
 }
 
 export function getFirebaseAdminApp(): App | null {
- const existing = getApps()[0];
- if (existing) {
- return existing;
- }
+  const existing = getApps()[0];
+  if (existing) {
+    return existing;
+  }
 
- const serviceAccount = parseServiceAccountJson();
- if (!serviceAccount) {
- return null;
- }
+  // Priority 1: service account JSON from env var (local dev, CI, manual config)
+  const serviceAccount = parseServiceAccountJson();
+  if (serviceAccount) {
+    return initializeApp({
+      credential: cert(serviceAccount as ServiceAccount),
+    });
+  }
 
- return initializeApp({
- credential: cert(serviceAccount as ServiceAccount),
- });
+  // Priority 2: Application Default Credentials (Cloud Functions, GCP,
+  //              App Engine, Cloud Run, Compute Engine)
+  // In Firebase Cloud Functions the default compute service account has
+  // Firestore access via the built-in metadata server credential chain.
+  // This is the production path when FIREBASE_SERVICE_ACCOUNT_JSON is not set.
+  try {
+    return initializeApp();
+  } catch {
+    return null;
+  }
 }
 
 export function getAdminFirestore(): Firestore | null {
