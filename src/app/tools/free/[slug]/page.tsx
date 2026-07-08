@@ -153,6 +153,7 @@ export default async function FreeToolDetailPage({
           executeEndpoint="/api/tool-execute"
           initialProfileMode="engineering"
           accessTier="FREE"
+          presentationMode="FREE_COMPACT"
         />
       </article>
     </PageLayout>

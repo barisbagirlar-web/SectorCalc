@@ -38,6 +38,7 @@ import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 import { initBarisFormulaRegistry, LIVE_BATCH_KEYS } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
+import { resolveFormulaModule } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
 // Initialize formula registry — explicit call with result used to prevent Webpack tree-shaking
 if (initBarisFormulaRegistry() < (LIVE_BATCH_KEYS?.size ?? 0)) {
   throw new Error("Baris PRO formula registry initialization failed — schema resolution will be unavailable");
@@ -301,7 +302,7 @@ export async function pass2RuntimeExecution(
     });
   }
 
-  // S11: Formula execution — V5.3.1 deterministic engine or generated calculator fallback
+  // S11: Formula execution — V5.3.1 deterministic engine, .formula.ts module, or schema fallback
   let outputs: ServerOutput[];
   let formulaEngineErrors: string[] = [];
 
@@ -318,12 +319,27 @@ export async function pass2RuntimeExecution(
     }
   }
 
+  // Build flat normalized numeric dict (normalized_id → baseValue) for .formula.ts modules
+  const flatNormInputs: Record<string, number> = {};
+  for (const [k, v] of Object.entries(engineNormInputs)) {
+    flatNormInputs[k] = v.baseValue;
+  }
+
   // Look up formula registry for this tool
   const schemaMetadata = validatedSchema.metadata;
   const registryRecord = formulaRegistry.fetch(validatedSchema.tool_id, schemaMetadata?.formula_version ?? "1.0.0");
 
-  if (registryRecord && registryRecord.nodes.length > 0) {
-    // Path A: Use V5.3.1 formula registry engine
+  // Check if registry nodes are all PASS_THROUGH stubs (empty input_refs = no real calculation)
+  const isPassThroughStub = registryRecord
+    && registryRecord.nodes.length > 0
+    && registryRecord.nodes.every((n) => n.operation === "PASS_THROUGH" && n.input_refs.length === 0);
+
+  // Try Path A: formula registry with real (non-stub) nodes
+  // Try Path B: .formula.ts module fallback when registry only has PASS_THROUGH stubs
+  // Try Path C: schema output defaults
+
+  if (registryRecord && registryRecord.nodes.length > 0 && !isPassThroughStub) {
+    // Path A: Use V5.3.1 formula registry engine (real typed-op nodes)
     const engineResult = executeFormulaGraph(registryRecord.nodes, {
       normalizedInputs: engineNormInputs,
       formulaVersion: registryRecord.formula_version,
@@ -359,27 +375,57 @@ export async function pass2RuntimeExecution(
     const schemaOutputDefs = (validatedSchema.outputs || []).filter((o) => proOutputKeys.includes(o.id));
     outputs = postProcessProOutputs(outputs, schemaOutputDefs);
   } else {
-    // Path B: No graph registry nodes exist for this tool.
-    // All 135 Pro formula modules are auto-generated generic templates
-    // with identical placeholder outputs — none can serve as a verified
-    // Pro pilot. Schema output defaults are used until a genuinely
-    // domain-specific Pro formula module is built and activated.
-    formulaEngineErrors.push("No Pro formula registry record found for this tool.");
-    outputs = (validatedSchema.outputs || []).map((o) => ({
-      id: o.id,
-      name: o.name,
-      value: o.value ?? 0,
-      status: "REVIEW" as CalcStatus,
-      public_explanation: o.public_explanation ?? "",
-      decision_use: o.decision_use ?? "",
-    }));
+    // Path B: Try to load the .formula.ts module for real calculation
+    // (each PRO tool has a standalone formula module imported via resolve-formula-module.ts)
+    const toolKey = validatedSchema.tool_key;
+    const formulaModule = toolKey ? resolveFormulaModule(toolKey) : null;
+    if (formulaModule?.calculate) {
+      const moduleResult = formulaModule.calculate(flatNormInputs);
+      const moduleOutputs = moduleResult.outputs ?? {};
+      const moduleWarnings = moduleResult.warnings ?? [];
+      const moduleStatus = moduleResult.status ?? "OK";
 
-    warnings.push({
-      id: "formula_registry_missing", severity: "WARNING",
-      message: `No formula registry found for tool ${validatedSchema.tool_id} version ${schemaMetadata?.formula_version ?? "unknown"}. Schema output defaults used.`,
-      why_it_matters: "Formula engine requires registered formulas to produce calculated outputs.",
-      suggested_action: "Register formula nodes in FormulaRegistry before production use.",
-    });
+      outputs = (validatedSchema.outputs || []).map((o) => {
+        const val = moduleOutputs[o.id];
+        return {
+          id: o.id,
+          name: o.name,
+          value: typeof val === "number" ? val : (val ?? null),
+          status: (moduleStatus === "OK" && typeof val === "number" && Number.isFinite(val)) ? "OK" as CalcStatus : "REVIEW" as CalcStatus,
+          public_explanation: o.public_explanation ?? "",
+          decision_use: o.decision_use ?? "",
+        };
+      });
+
+      for (const w of moduleWarnings) {
+        warnings.push({
+          id: "formula_module", severity: "WARNING",
+          message: w,
+          why_it_matters: "Formula module reported a warning.",
+          suggested_action: "Review input values.",
+        });
+      }
+
+      formulaEngineErrors = moduleWarnings;
+    } else {
+      // Path C: No .formula.ts module exists — use schema output defaults
+      formulaEngineErrors.push(`No Pro formula registry record found for this tool (toolKey: ${toolKey}).`);
+      outputs = (validatedSchema.outputs || []).map((o) => ({
+        id: o.id,
+        name: o.name,
+        value: o.value ?? 0,
+        status: "REVIEW" as CalcStatus,
+        public_explanation: o.public_explanation ?? "",
+        decision_use: o.decision_use ?? "",
+      }));
+
+      warnings.push({
+        id: "formula_registry_missing", severity: "WARNING",
+        message: `No formula registry found for tool ${validatedSchema.tool_id} version ${schemaMetadata?.formula_version ?? "unknown"}. Schema output defaults used.`,
+        why_it_matters: "Formula engine requires registered formulas to produce calculated outputs.",
+        suggested_action: "Register formula nodes in FormulaRegistry before production use.",
+      });
+    }
   }
 
   // V5.4 Core — Contribution margin blocker for Free pilot

@@ -137,6 +137,8 @@ export interface UniversalIndustrialDecisionFormProps {
   toolKey?: string;
   /** Access tier: FREE tools require no payment, PRO tools are credit-gated. */
   accessTier?: "FREE" | "PRO";
+  /** Presentation mode: FREE_COMPACT (compact calculator), PRO_AUDIT (full audit), ASSISTED_DOSSIER (file-based). */
+  presentationMode?: "FREE_COMPACT" | "PRO_AUDIT" | "ASSISTED_DOSSIER";
   /** Usage session ID for Pro tool execution tracking. */
   usageSessionId?: string | null;
   /** Remaining runs for the active Pro usage session. */
@@ -760,6 +762,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const isFreeTier = accessTier === "FREE";
   const hasSession = isPro && !!props.usageSessionId;
 
+  // Presentation mode: prefer explicit prop, fall back to accessTier-based default
+  const presentationMode = props.presentationMode ?? (isFreeTier ? "FREE_COMPACT" : "PRO_AUDIT");
+
   // ── Currency display selector ──
   const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("USD");
 
@@ -977,10 +982,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       </div>
       {/* Currency display selector — only show when the tool has monetary fields */}
       {(() => {
-        const hasMonetaryField = props.schema?.inputs?.some((input) => {
-          const bu = (input.base_unit ?? "").toLowerCase();
+        const isCurrencyUnit = (u: string) => {
+          const bu = (u ?? "").toLowerCase();
           return bu === "display_currency" || bu === "currency" || ["usd","eur","gbp","try","inr","cny","jpy","aud","cad","brl"].some(c => bu.startsWith(c));
-        });
+        };
+        const inputMonetary = props.schema?.inputs?.some((input) => isCurrencyUnit(input.base_unit ?? "")) ?? false;
+        const outputMonetary = (props.schema as any)?.outputs?.some((o: any) => isCurrencyUnit(o.unit ?? "")) ?? false;
+        const hasMonetaryField = inputMonetary || outputMonetary;
         return hasMonetaryField ? (
         <div className="sc-v531-currency-row" aria-label="Currency selector">
           <label className="sc-v531-currency-label" htmlFor="sc-currency-select">Display currency</label>
@@ -1006,6 +1014,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       data-renderer="UniversalIndustrialDecisionForm"
       data-v531="true"
       data-access-tier={accessTier}
+      data-presentation-mode={presentationMode}
     >
       {isPro && isDesktop ? (
         /* ── PRO Desktop: hero inside cockpit left panel ── */

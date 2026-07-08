@@ -109,6 +109,7 @@ export default async function ProToolDetailPage({
             toolKey={slug}
             executeEndpoint="/api/pro-calculator/execute"
             initialProfileMode="engineering"
+            presentationMode="PRO_AUDIT"
           />
         </ProToolPaywallGate>
       </article>

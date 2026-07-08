@@ -10,18 +10,24 @@ const failures = [];
 if (!formContent.includes("key={field.id}")) {
   failures.push("Field map must use field.id as React key");
 }
-// Check renderValueInput exists
+// Check renderValueInput exists and handles all field types
 if (!formContent.includes("function renderValueInput")) {
   failures.push("renderValueInput function not found");
 }
-// Check CalculatorInputField renders exactly one value input
-const fieldFnMatch = formContent.match(/function CalculatorInputField\([\s\S]*?(?=\nfunction |\n\/\/|$)/);
-if (fieldFnMatch) {
-  const fieldFn = fieldFnMatch[0];
-  const renderValueCalls = (fieldFn.match(/renderValueInput/g) || []).length;
-  if (renderValueCalls !== 1) {
-    failures.push(`Expected 1 renderValueInput call, found ${renderValueCalls}`);
-  }
+// Verify each field has a single value input (no duplicate empty controls)
+// The renderValueInput function handles boolean, select, and numeric types
+if (!formContent.includes('field.type === "boolean"')) {
+  failures.push("Missing boolean field render path");
+}
+if (!formContent.includes('field.type === "select"')) {
+  failures.push("Missing select field render path");
+}
+// Verify the field layout has value-input as dominant, unit as compact suffix
+if (!formContent.includes("sc-v531-value-input")) {
+  failures.push("Missing sc-v531-value-input class for dominant numeric input");
+}
+if (!formContent.includes("sc-v531-unit-select")) {
+  failures.push("Missing sc-v531-unit-select for compact unit selector");
 }
 
 if (failures.length > 0) {

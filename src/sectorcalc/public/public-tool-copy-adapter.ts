@@ -158,12 +158,41 @@ export function isGenericHelpText(text: string | null | undefined): boolean {
   return GENERIC_HELP_PATTERNS.some((p) => lower.includes(p)) || lower.length < 15;
 }
 
+// ── Tool-specific field help overrides ──────────────────────────────────────
+// Maps toolKey -> field name (lowercase) -> exact help text.
+// When a match is found, this takes priority over the generic derivation.
+const TOOL_FIELD_HELP: Record<string, Record<string, string>> = {
+  "tap-drill-size": {
+    "major diameter": "Enter the nominal thread diameter (e.g. 10 for M10).",
+    "thread pitch": "Enter the distance between thread peaks in mm.",
+    "material allowance": "Enter the machining allowance for the material, if applicable.",
+    "plating allowance": "Enter the coating allowance if the part will be plated.",
+  },
+  "knurling-drill-point-depth": {
+    "drill diameter": "Enter the drill diameter used for the hole.",
+    "point angle": "Enter the drill point angle (standard: 118°).",
+    "knurling depth": "Enter the knurl depth per side.",
+    "material thickness": "Enter the workpiece thickness.",
+  },
+};
+
 /** Derive a meaningful field description from the field name and context. */
 export function deriveFieldHelpText(
   fieldName: string,
-  _toolKey?: string,
+  toolKey?: string,
   _unit?: string | null,
 ): string {
+  // Check tool-specific overrides first
+  if (toolKey) {
+    const normalizedToolKey = normalizeKey(toolKey);
+    const toolOverrides = TOOL_FIELD_HELP[normalizedToolKey];
+    if (toolOverrides) {
+      const fieldKey = fieldName.toLowerCase().trim();
+      const override = toolOverrides[fieldKey];
+      if (override) return override;
+    }
+  }
+
   const name = fieldName.toLowerCase();
   if (name.includes("diameter") || name.includes("drill"))
     return `Enter the ${fieldName} used for the operation.`;
