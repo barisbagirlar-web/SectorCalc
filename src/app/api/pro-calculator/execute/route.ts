@@ -758,6 +758,16 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           }
         }
 
+        // Owner bypass check 2: usageSessionId "bypass-unlimited" set by
+        // ProToolSessionWrapper for owner/admin users (isProBypassEmail on client).
+        if (authMethod === "none") {
+          const bypassSessionId = (rawBody as Record<string, unknown>).usageSessionId;
+          if (bypassSessionId === "bypass-unlimited") {
+            verifiedEmail = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
+            authMethod = "bypass";
+          }
+        }
+
         // Set outer-scope vars for downstream use (key deduction, etc.)
         userId = verifiedUserId;
         userEmail = verifiedEmail;
