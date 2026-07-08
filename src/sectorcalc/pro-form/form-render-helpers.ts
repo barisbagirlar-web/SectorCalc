@@ -102,6 +102,18 @@ const EXTENDED_UNIT_LABELS: Record<string, string> = {
   cycles: "cycles",
   decimal: "decimal",
   "%": "%",
+  // PRO V5.3.1 schema internal unit IDs → human-readable labels
+  currency_unit: "$",
+  currency_unit_per_h: "$/h",
+  currency_unit_per_unit: "$/unit",
+  currency_unit_per_kg: "$/kg",
+  currency_unit_per_m: "$/m",
+  currency_unit_per_kWh: "$/kWh",
+  currency_unit_per_tonne: "$/tonne",
+  unit_per_s: "units/s",
+  unit_per_min: "units/min",
+  unit_per_h: "units/h",
+  unit_per_day: "units/day",
 };
 
 /**
