@@ -221,6 +221,8 @@ async function main() {
 
   // Check CSS has FREE_COMPACT overrides
   const cssPath = resolve(ROOT, "src/sectorcalc/pro-form/universal-industrial-decision-form.css");
+  let formContent = "";
+
   if (existsSync(cssPath)) {
     const cssContent = readFileSync(cssPath, "utf-8");
     if (cssContent.includes('data-presentation-mode="FREE_COMPACT"')) {
@@ -233,8 +235,64 @@ async function main() {
     } else {
       fail("CSS missing advanced summary spacing fix");
     }
+    if (cssContent.includes("sc-v531-free-interpretation")) {
+      pass("CSS has free result interpretation styles");
+    } else {
+      fail("CSS missing free result interpretation styles");
+    }
   } else {
     fail("CSS file not found");
+  }
+
+  // Check inferred unit function exists in form component
+  if (existsSync(formPath)) {
+    formContent = readFileSync(formPath, "utf-8");
+    if (formContent.includes("inferFieldUnit")) {
+      pass("UniversalIndustrialDecisionForm has inferred unit fallback");
+    } else {
+      fail("UniversalIndustrialDecisionForm missing inferred unit fallback");
+    }
+    // Check that SuperV4 only appears in type definitions and code patterns, not in public-facing string literals
+    const superV4Lines = formContent.split("\n").filter((l, i) => {
+      if (l.includes("SuperV4") || l.includes("superv4")) {
+        // Skip type definitions
+        if (l.includes("SuperV4Input") || l.includes("SuperV4Schema")) return false;
+        // Skip internal lowercase version strings (runtime metadata)
+        if (l.includes("superv4")) return false;
+        // Skip regex patterns used for cleaning SuperV4 jargon from display labels
+        if (/\bnew RegExp|\.replace\(|regex|pattern/i.test(l)) return false;
+        // Skip comments explaining to avoid jargon
+        if (l.includes("not SuperV4 jargon")) return false;
+        // Check if it's a string literal (inside quotes)
+        const hasQuote = l.includes('"') || l.includes("'") || l.includes("`");
+        return hasQuote;
+      }
+      return false;
+    });
+    if (superV4Lines.length === 0) {
+      pass("Form component has no SuperV4 in public-facing text");
+    } else {
+      fail(`Form component has SuperV4 in ${superV4Lines.length} public text line(s): ${superV4Lines.join("; ")}`);
+    }
+  }
+
+  // Check hero description does not contain "quick calculator" phrase
+  if (existsSync(adapterPath)) {
+    const adapterContent = readFileSync(adapterPath, "utf-8");
+    // Only flag actual descriptive string values, not code patterns or JSDoc comments
+    const descLines = adapterContent.split("\n").filter((l, i) => {
+      if (!l.includes("quick calculator") && !l.includes("Quick Calculator")) return false;
+      // Skip code patterns (regex replace)
+      if (l.includes("replace(") || l.includes("/ Quick")) return false;
+      // Skip JSDoc comments
+      if (l.includes("*")) return false;
+      return true;
+    });
+    if (descLines.length === 0) {
+      pass("public-tool-copy-adapter has no 'quick calculator' in descriptions");
+    } else {
+      fail(`public-tool-copy-adapter has 'quick calculator' in ${descLines.length} description line(s)`);
+    }
   }
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);

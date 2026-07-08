@@ -1,4 +1,5 @@
 import "server-only";
+import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
 export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
 export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
@@ -33,6 +34,8 @@ function safeDiv(n: number, d: number): number {
   if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
   return n / d;
 }
+
+export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
 export function calculate(inputs: Record<string, number>): CalculationResult {
   const warnings: string[] = [];

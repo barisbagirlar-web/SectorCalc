@@ -1366,13 +1366,21 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   !isStatusOutput(o) && typeof o.value === "number" && Number.isFinite(o.value)
                 );
                 if (primaryOutput) {
+                  const rawName = primaryOutput.name
+                    .replace(/_/g, " ")
+                    .replace(/\s+(mm|in|ft|m|kg|lb|n|mpa|psi|%)\s*$/i, "")
+                    .trim();
+                  const cleanName = rawName
+                    .split(" ")
+                    .map(w => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)
+                    .join(" ");
                   const val = formatBusinessResult(primaryOutput.name, primaryOutput.value as number);
                   const unit = getFreeOutputUnitSuffix(primaryOutput, selectedCurrency);
                   const displayVal = unit ? `${val} ${unit}` : val;
                   return (
                     <div className="sc-v531-free-interpretation">
                       <p className="sc-v531-free-interp-text">
-                        Result: <strong>{primaryOutput.name}: {displayVal}</strong>. 
+                        Result: <strong>{cleanName}: {displayVal}</strong>. 
                         Verify all input values before using this result for production or planning decisions.
                       </p>
                     </div>

@@ -1,23 +1,10 @@
-// SectorCalc V5.4 Core — PRO Formula Module Resolver
-// Static registry that maps toolKey → calculate() for all 20 live PRO tools.
+// SectorCalc PRO Engine Governance — Formula Module Resolver
+// Static registry that maps toolKey → calculate() for all 20 LIVE PRO tools.
 // Server-side only. Never imported by client modules.
-// Avoids dynamic import() which Next.js/Webpack cannot tree-shake reliably.
+// No PASS_THROUGH. No stubs. No dynamic import.
 
 import "server-only";
-
-export interface FormulaModuleResult {
-  status: string;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: string;
-}
-
-interface FormulaModule {
-  toolKey: string;
-  formulaVersion: string;
-  calculate: (inputs: Record<string, number>) => FormulaModuleResult;
-}
+import type { ProFormulaModule } from "./pro-formula-contract";
 
 // Static imports — all 20 PRO tool formula modules
 // Batch 1 (10 tools)
@@ -44,25 +31,23 @@ import * as energyEfficiency from "./energy-efficiency-grant-incentive-feasibili
 import * as motorCompressor from "./motor-compressor-replacement-roi.formula";
 import * as weldProcedure from "./weld-procedure-cost-consumable-estimation-suite.formula";
 
-const MODULES: FormulaModule[] = [
-  // Batch 1
+const MODULES: ProFormulaModule[] = [
   breakEven, machineHourly, lossMakingJob, receivablesCost,
   setupTimeRoi, productSku, trueEmployee, jobQuote,
   machineFeasibility, capitalEquipment,
-  // Batch 2
   customerSku, downtimeScrap, oeeLoss, scrapRework,
   outsource, plantWide, fxCommodity, energyEfficiency,
   motorCompressor, weldProcedure,
-] as unknown as FormulaModule[];
+] as ProFormulaModule[];
 
-const moduleByToolKey = new Map<string, FormulaModule>();
+const moduleByToolKey = new Map<string, ProFormulaModule>();
 for (const mod of MODULES) {
   if (mod.toolKey) {
     moduleByToolKey.set(mod.toolKey, mod);
   }
 }
 
-export function resolveFormulaModule(toolKey: string): FormulaModule | null {
+export function resolveFormulaModule(toolKey: string): ProFormulaModule | null {
   return moduleByToolKey.get(toolKey) ?? null;
 }
 
@@ -73,3 +58,9 @@ export function hasFormulaModule(toolKey: string): boolean {
 export function getRegisteredToolKeys(): string[] {
   return Array.from(moduleByToolKey.keys());
 }
+
+export function getAllModules(): ProFormulaModule[] {
+  return [...MODULES];
+}
+
+export { type ProFormulaModule };

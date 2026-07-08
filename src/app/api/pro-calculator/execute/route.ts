@@ -38,7 +38,8 @@ import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 import { initBarisFormulaRegistry, LIVE_BATCH_KEYS } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
-import { resolveFormulaModule } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
+import { resolveFormulaModule, hasFormulaModule } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
+import type { ProFormulaModule } from "@/sectorcalc/formulas/pro-v531/pro-formula-contract";
 // Initialize formula registry — explicit call with result used to prevent Webpack tree-shaking
 if (initBarisFormulaRegistry() < (LIVE_BATCH_KEYS?.size ?? 0)) {
   throw new Error("Baris PRO formula registry initialization failed — schema resolution will be unavailable");
@@ -302,7 +303,10 @@ export async function pass2RuntimeExecution(
     });
   }
 
-  // S11: Formula execution — V5.3.1 deterministic engine, .formula.ts module, or schema fallback
+  // S11: Formula execution — Permanent Governance Engine
+  // Path A (PRIMARY): .formula.ts module for all LIVE tools (20 tools)
+  // Path B (FALLBACK): typed-op registry engine for compressed-air pilot
+  // Path C (RESTRICTED): schema fallback — BLOCKED for paid PRO, allowed only for dev/diagnostic
   let outputs: ServerOutput[];
   let formulaEngineErrors: string[] = [];
 
@@ -328,18 +332,48 @@ export async function pass2RuntimeExecution(
   // Look up formula registry for this tool
   const schemaMetadata = validatedSchema.metadata;
   const registryRecord = formulaRegistry.fetch(validatedSchema.tool_id, schemaMetadata?.formula_version ?? "1.0.0");
+  const isSchemaFallbackForbidden = !(process.env.NODE_ENV === "development" || body.user_profile_mode === "diagnostic");
 
   // Check if registry nodes are all PASS_THROUGH stubs (empty input_refs = no real calculation)
   const isPassThroughStub = registryRecord
     && registryRecord.nodes.length > 0
     && registryRecord.nodes.every((n) => n.operation === "PASS_THROUGH" && n.input_refs.length === 0);
 
-  // Try Path A: formula registry with real (non-stub) nodes
-  // Try Path B: .formula.ts module fallback when registry only has PASS_THROUGH stubs
-  // Try Path C: schema output defaults
+  // Path A (PRIMARY): formula module execution for all LIVE tools
+  const toolKey = validatedSchema.tool_key;
+  const formulaModule = toolKey ? resolveFormulaModule(toolKey) : null;
 
-  if (registryRecord && registryRecord.nodes.length > 0 && !isPassThroughStub) {
-    // Path A: Use V5.3.1 formula registry engine (real typed-op nodes)
+  if (formulaModule?.calculate) {
+    // PERMANENT ENGINE GOVERNANCE: Formula module is the only real execution source for LIVE tools
+    const moduleResult = formulaModule.calculate(flatNormInputs);
+    const moduleOutputs = moduleResult.outputs ?? {};
+    const moduleWarnings = moduleResult.warnings ?? [];
+    const moduleStatus = moduleResult.status ?? "OK";
+
+    outputs = (validatedSchema.outputs || []).map((o) => {
+      const val = moduleOutputs[o.id];
+      return {
+        id: o.id,
+        name: o.name,
+        value: typeof val === "number" ? val : (val ?? null),
+        status: (moduleStatus === "OK" && typeof val === "number" && Number.isFinite(val)) ? "OK" as CalcStatus : "REVIEW" as CalcStatus,
+        public_explanation: o.public_explanation ?? "",
+        decision_use: o.decision_use ?? "",
+      };
+    });
+
+    for (const w of moduleWarnings) {
+      warnings.push({
+        id: "formula_module", severity: "WARNING",
+        message: w,
+        why_it_matters: "Formula module reported a warning.",
+        suggested_action: "Review input values.",
+      });
+    }
+
+    formulaEngineErrors = moduleWarnings;
+  } else if (registryRecord && registryRecord.nodes.length > 0 && !isPassThroughStub) {
+    // Path B (FALLBACK): typed-op registry engine (compressed-air-leak-cost-calculator pilot)
     const engineResult = executeFormulaGraph(registryRecord.nodes, {
       normalizedInputs: engineNormInputs,
       formulaVersion: registryRecord.formula_version,
@@ -374,58 +408,29 @@ export async function pass2RuntimeExecution(
     const proOutputKeys = ["decision_status", "governing_driver"];
     const schemaOutputDefs = (validatedSchema.outputs || []).filter((o) => proOutputKeys.includes(o.id));
     outputs = postProcessProOutputs(outputs, schemaOutputDefs);
+  } else if (!isSchemaFallbackForbidden) {
+    // Path C (RESTRICTED): schema fallback — only in dev/diagnostic mode
+    formulaEngineErrors.push(`Schema fallback used for tool ${validatedSchema.tool_id} (dev/diagnostic mode only).`);
+    outputs = (validatedSchema.outputs || []).map((o) => ({
+      id: o.id,
+      name: o.name,
+      value: o.value ?? 0,
+      status: "REVIEW" as CalcStatus,
+      public_explanation: o.public_explanation ?? "",
+      decision_use: o.decision_use ?? "",
+    }));
+
+    warnings.push({
+      id: "schema_fallback_dev_mode", severity: "WARNING",
+      message: `Schema fallback used (dev/diagnostic): ${validatedSchema.tool_id} has no formula module or real registry.`,
+      why_it_matters: "Schema fallback is not a valid execution path — results are not calculated.",
+      suggested_action: "Add a formula module or register real formula nodes.",
+    });
   } else {
-    // Path B: Try to load the .formula.ts module for real calculation
-    // (each PRO tool has a standalone formula module imported via resolve-formula-module.ts)
-    const toolKey = validatedSchema.tool_key;
-    const formulaModule = toolKey ? resolveFormulaModule(toolKey) : null;
-    if (formulaModule?.calculate) {
-      const moduleResult = formulaModule.calculate(flatNormInputs);
-      const moduleOutputs = moduleResult.outputs ?? {};
-      const moduleWarnings = moduleResult.warnings ?? [];
-      const moduleStatus = moduleResult.status ?? "OK";
-
-      outputs = (validatedSchema.outputs || []).map((o) => {
-        const val = moduleOutputs[o.id];
-        return {
-          id: o.id,
-          name: o.name,
-          value: typeof val === "number" ? val : (val ?? null),
-          status: (moduleStatus === "OK" && typeof val === "number" && Number.isFinite(val)) ? "OK" as CalcStatus : "REVIEW" as CalcStatus,
-          public_explanation: o.public_explanation ?? "",
-          decision_use: o.decision_use ?? "",
-        };
-      });
-
-      for (const w of moduleWarnings) {
-        warnings.push({
-          id: "formula_module", severity: "WARNING",
-          message: w,
-          why_it_matters: "Formula module reported a warning.",
-          suggested_action: "Review input values.",
-        });
-      }
-
-      formulaEngineErrors = moduleWarnings;
-    } else {
-      // Path C: No .formula.ts module exists — use schema output defaults
-      formulaEngineErrors.push(`No Pro formula registry record found for this tool (toolKey: ${toolKey}).`);
-      outputs = (validatedSchema.outputs || []).map((o) => ({
-        id: o.id,
-        name: o.name,
-        value: o.value ?? 0,
-        status: "REVIEW" as CalcStatus,
-        public_explanation: o.public_explanation ?? "",
-        decision_use: o.decision_use ?? "",
-      }));
-
-      warnings.push({
-        id: "formula_registry_missing", severity: "WARNING",
-        message: `No formula registry found for tool ${validatedSchema.tool_id} version ${schemaMetadata?.formula_version ?? "unknown"}. Schema output defaults used.`,
-        why_it_matters: "Formula engine requires registered formulas to produce calculated outputs.",
-        suggested_action: "Register formula nodes in FormulaRegistry before production use.",
-      });
-    }
+    // BLOCKED: Paid PRO execution with no formula module — forbidden by governance
+    const msg = `PAID_PRO_SCHEMA_FALLBACK=FORBIDDEN: Tool ${validatedSchema.tool_id} has no formula module or real registry. Schema fallback is not permitted for paid PRO execution.`;
+    formulaEngineErrors.push(msg);
+    return failResult("SCHEMA_FALLBACK_FORBIDDEN", [msg]);
   }
 
   // V5.4 Core — Contribution margin blocker for Free pilot

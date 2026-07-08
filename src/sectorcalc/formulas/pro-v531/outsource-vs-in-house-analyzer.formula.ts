@@ -1,4 +1,5 @@
 import "server-only";
+import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
 export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
 export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
@@ -33,6 +34,8 @@ function round(v: number, d: number): number {
   const f = Math.pow(10, d);
   return Math.round(v * f) / f;
 }
+
+export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
 export function calculate(inputs: Record<string, number>): CalculationResult {
   const warnings: string[] = [];

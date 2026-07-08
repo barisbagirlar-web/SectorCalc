@@ -45,9 +45,9 @@ const KNOWN_TOOL_COPY: Record<string, ToolPublicCopy> = {
   "knurling-drill-point-depth": {
     title: "Knurling & Drill Point Depth",
     metaDescription:
-      "Estimate drill point depth and knurling-related shop-floor dimensions using simple machining inputs. Use this quick check before final process validation.",
+      "Estimate drill point depth and knurling-related shop-floor dimensions from your machining inputs. Use for early process checks before validation.",
     heroDescription:
-      "Estimate drill point depth and knurling-related shop-floor dimensions using simple machining inputs. Use this quick calculator for early checks before final process validation.",
+      "Estimate drill point depth and knurling-related shop-floor dimensions from your machining inputs. Use this tool for early checks before process validation.",
     catalogTitle: "Knurling & Drill Point Depth",
   },
   "beam-load-deflection-quick-check": {
@@ -55,7 +55,7 @@ const KNOWN_TOOL_COPY: Record<string, ToolPublicCopy> = {
     metaDescription:
       "Estimate beam deflection and load capacity for simple structural members. Use for early-stage design checks before detailed structural analysis.",
     heroDescription:
-      "Estimate beam deflection and load capacity for simple structural members. Use this quick check before final structural validation.",
+      "Estimate beam deflection and load capacity for simple structural members. Use this tool for early-stage design checks.",
     catalogTitle: "Beam Load & Deflection Quick Check",
   },
   "break-even-and-margin-of-safety-analysis": {
@@ -63,8 +63,16 @@ const KNOWN_TOOL_COPY: Record<string, ToolPublicCopy> = {
     metaDescription:
       "Find how many units you must sell to cover costs and how much sales buffer you have. Quick break-even analysis for pricing and planning.",
     heroDescription:
-      "Find how many units you must sell to cover costs and how much sales buffer you have. Use this calculator for quick break-even checks before pricing decisions.",
+      "Find how many units you must sell to cover costs and how much sales buffer you have. Use this tool for quick break-even checks before pricing decisions.",
     catalogTitle: "Break-Even & Margin of Safety Analysis",
+  },
+  "tap-drill-size": {
+    title: "Tap Drill Size",
+    metaDescription:
+      "Find the correct tap drill diameter from thread size and pitch. Quick shop-floor reference for threaded hole preparation.",
+    heroDescription:
+      "Find the correct tap drill diameter from thread size, pitch, and machining allowance. Use this tool for quick shop-floor checks before threading operations.",
+    catalogTitle: "Tap Drill Size",
   },
 };
 
@@ -88,13 +96,13 @@ function fallbackTitle(toolKey: string, schemaName: string): string {
 function fallbackMetaDescription(toolName: string, category: string): string {
   const clean = cleanToolName(toolName);
   const cat = (category || "industrial").toLowerCase();
-  return `Calculate ${clean.toLowerCase()} using simple ${cat} inputs. Quick, browser-first estimate for early checks before detailed analysis.`;
+  return `Calculate ${clean.toLowerCase()} from your ${cat} inputs. Browser-first estimate for early checks.`;
 }
 
 function fallbackHeroDescription(toolName: string, category: string): string {
   const clean = cleanToolName(toolName);
   const cat = (category || "industrial").toLowerCase();
-  return `Estimate ${clean.toLowerCase()} using simple ${cat} inputs. Use this quick calculator for early checks before final process validation.`;
+  return `Estimate ${clean.toLowerCase()} directly from your ${cat} inputs. Use this tool for early checks before detailed analysis.`;
 }
 
 // ── Public API ───────────────────────────────────────────────────────────────
