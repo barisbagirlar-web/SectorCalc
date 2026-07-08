@@ -197,9 +197,15 @@
       "name": "Nominal Diameter",
       "symbol": null,
       "quantity_kind": "geometry",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "mm",
+      "allowed_display_units": [
+        "mm",
+        "cm",
+        "m",
+        "in",
+        "ft"
+      ],
       "normalized_id": "n_nominal_diameter_mm",
       "type": "number",
       "required": true,

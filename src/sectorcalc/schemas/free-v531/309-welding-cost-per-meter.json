@@ -159,9 +159,13 @@
       "name": "Consumable Cost",
       "symbol": null,
       "quantity_kind": "currency",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "kg",
+      "allowed_display_units": [
+        "g",
+        "kg",
+        "lb"
+      ],
       "normalized_id": "n_consumable_cost_per_kg",
       "type": "number",
       "required": true,
@@ -387,9 +391,13 @@
       "name": "Travel Speed Mm Minimum",
       "symbol": null,
       "quantity_kind": "number",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "mm/min",
+      "allowed_display_units": [
+        "mm/min",
+        "m/min",
+        "in/min"
+      ],
       "normalized_id": "n_travel_speed_mm_min",
       "type": "number",
       "required": true,

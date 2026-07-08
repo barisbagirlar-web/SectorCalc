@@ -121,9 +121,13 @@
       "name": "Distance",
       "symbol": null,
       "quantity_kind": "number",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "km",
+      "allowed_display_units": [
+        "m",
+        "km",
+        "mi"
+      ],
       "normalized_id": "n_distance_km",
       "type": "number",
       "required": true,
@@ -273,9 +277,13 @@
       "name": "Rate per Distance",
       "symbol": null,
       "quantity_kind": "currency",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "km",
+      "allowed_display_units": [
+        "m",
+        "km",
+        "mi"
+      ],
       "normalized_id": "n_rate_per_km",
       "type": "number",
       "required": true,

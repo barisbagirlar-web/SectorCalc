@@ -1811,8 +1811,7 @@ function CalculatorInputField({
   const isNumeric = field.type === "number" || field.type === "integer";
   const hasRealUnits = isNumeric && nonEmptyUnits.length > 0;
   // Infer a unit suffix from field name/id when schema has no explicit units.
-  // Skip inference for FREE tools — their labels already carry unit context.
-  const inferredUnit = !isFreeTier && !hasRealUnits && isNumeric ? inferFieldUnit(field.id, field.label) : null;
+  const inferredUnit = !hasRealUnits && isNumeric ? inferFieldUnit(field.id, field.label) : null;
 
   return (
     <div className="sc-v531-field-card" data-criticality={field.criticality.toLowerCase()} data-error={showErrorState}>

@@ -108,7 +108,7 @@
   },
   "unit_conversion_contract": {
     "internal_base_system": "SI",
-    "currency_policy": "No currency conversion — user provides single-currency values",
+    "currency_policy": "No currency conversion \u2014 user provides single-currency values",
     "temperature_policy": "Absolute and interval distinction",
     "conversion_registry": {},
     "unsupported_conversion_behavior": "BLOCK_CALCULATION",
@@ -121,9 +121,12 @@
       "name": "Desired Preload Kn",
       "symbol": null,
       "quantity_kind": "engineering",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "kN",
+      "allowed_display_units": [
+        "N",
+        "kN"
+      ],
       "normalized_id": "n_desired_preload_kn",
       "type": "number",
       "required": true,
@@ -159,9 +162,15 @@
       "name": "Nominal Diameter",
       "symbol": null,
       "quantity_kind": "geometry",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "mm",
+      "allowed_display_units": [
+        "mm",
+        "cm",
+        "m",
+        "in",
+        "ft"
+      ],
       "normalized_id": "n_nominal_diameter_mm",
       "type": "number",
       "required": true,

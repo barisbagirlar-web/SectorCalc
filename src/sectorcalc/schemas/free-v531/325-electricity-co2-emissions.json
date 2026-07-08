@@ -121,9 +121,13 @@
       "name": "Electricity Consumption",
       "symbol": null,
       "quantity_kind": "energy_or_emissions",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "kWh",
+      "allowed_display_units": [
+        "kWh",
+        "J",
+        "MJ"
+      ],
       "normalized_id": "n_electricity_kwh",
       "type": "number",
       "required": true,
@@ -235,9 +239,12 @@
       "name": "Grid Emission Factor",
       "symbol": null,
       "quantity_kind": "ratio_or_percent",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "kgCO₂e/kWh",
+      "allowed_display_units": [
+        "kgCO₂e/kWh",
+        "lbCO₂e/kWh"
+      ],
       "normalized_id": "n_user_verified_grid_factor_kgco2e_kwh",
       "type": "number",
       "required": true,

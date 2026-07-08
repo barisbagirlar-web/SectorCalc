@@ -121,9 +121,12 @@
       "name": "External Tension Kn",
       "symbol": null,
       "quantity_kind": "number",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "kN",
+      "allowed_display_units": [
+        "N",
+        "kN"
+      ],
       "normalized_id": "n_external_tension_kn",
       "type": "number",
       "required": true,
@@ -235,9 +238,12 @@
       "name": "User Verified Proof Load Kn",
       "symbol": null,
       "quantity_kind": "engineering",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "kN",
+      "allowed_display_units": [
+        "N",
+        "kN"
+      ],
       "normalized_id": "n_user_verified_proof_load_kn",
       "type": "number",
       "required": true,

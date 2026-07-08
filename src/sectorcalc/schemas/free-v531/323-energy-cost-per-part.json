@@ -197,9 +197,13 @@
       "name": "Batch Idle Energy",
       "symbol": null,
       "quantity_kind": "energy_or_emissions",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "kWh",
+      "allowed_display_units": [
+        "kWh",
+        "J",
+        "MJ"
+      ],
       "normalized_id": "n_batch_idle_kwh",
       "type": "number",
       "required": true,

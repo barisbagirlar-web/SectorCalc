@@ -197,9 +197,12 @@
       "name": "Payload Ton",
       "symbol": null,
       "quantity_kind": "engineering",
-      "unit_selectable": false,
-      "base_unit": null,
-      "allowed_display_units": [],
+      "unit_selectable": true,
+      "base_unit": "t·km",
+      "allowed_display_units": [
+        "t·km",
+        "lb·mi"
+      ],
       "normalized_id": "n_payload_ton_km",
       "type": "number",
       "required": true,
