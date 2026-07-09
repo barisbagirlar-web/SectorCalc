@@ -771,47 +771,63 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       // This is a Baris tool. Check entitlement before execution.
       const product = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey!));
       if (product) {
-        // ── Firebase Auth ID Token verification ──────────────────────
-        // Priority 1: Verify Firebase Auth ID token from Authorization header.
-        // Priority 2: Fall back to x-user-email for admin owner bypass only.
-        // x-user-email is NEVER trusted for non-owner users.
+        // ── Session-based auth: derive userId from session doc ───────
+        // Priority 0: if usageSessionId is present and not bypass-unlimited,
+        // the session creation already verified Firebase Auth + credit balance.
+        // No need for Authorization header or entitlement re-check.
         let verifiedUserId: string | null = null;
         let verifiedEmail: string | null = null;
-        let authMethod: "token" | "bypass" | "none" = "none";
+        let authMethod: "token" | "bypass" | "session" | "none" = "none";
 
-        const authHeader = request.headers.get("authorization");
-        if (authHeader?.startsWith("Bearer ")) {
-          const idToken = authHeader.slice(7);
-          try {
-            const auth = getAdminAuth();
-            if (auth) {
-              const decoded = await auth.verifyIdToken(idToken);
-              verifiedUserId = decoded.uid;
-              verifiedEmail = decoded.email ?? null;
-              authMethod = "token";
+        const rawUsageSessionId = (rawBody as Record<string, unknown>).usageSessionId;
+        if (rawUsageSessionId && rawUsageSessionId !== "bypass-unlimited") {
+          const resolved = await resolveUserIdFromSession(String(rawUsageSessionId));
+          if (resolved) {
+            verifiedUserId = resolved.userId;
+            authMethod = "session";
+          }
+        }
+
+        // ── Firebase Auth ID Token verification (fallback) ───────────
+        // Only runs if no session-based auth was resolved above.
+        if (authMethod === "none") {
+          // Priority 1: Verify Firebase Auth ID token from Authorization header.
+          // Priority 2: Fall back to x-user-email for admin owner bypass only.
+          // x-user-email is NEVER trusted for non-owner users.
+          const authHeader = request.headers.get("authorization");
+          if (authHeader?.startsWith("Bearer ")) {
+            const idToken = authHeader.slice(7);
+            try {
+              const auth = getAdminAuth();
+              if (auth) {
+                const decoded = await auth.verifyIdToken(idToken);
+                verifiedUserId = decoded.uid;
+                verifiedEmail = decoded.email ?? null;
+                authMethod = "token";
+              }
+            } catch {
+              // Token verification failed — fall through to bypass check
             }
-          } catch {
-            // Token verification failed — fall through to bypass check
           }
-        }
 
-        // Owner bypass: x-user-email header only for admin testing
-        if (authMethod === "none") {
-          const headerEmail = request.headers.get("x-user-email") ?? null;
-          const ownerBypass = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
-          if (headerEmail === ownerBypass || process.env.NODE_ENV === "development") {
-            verifiedEmail = headerEmail;
-            authMethod = "bypass";
+          // Owner bypass: x-user-email header only for admin testing
+          if (authMethod === "none") {
+            const headerEmail = request.headers.get("x-user-email") ?? null;
+            const ownerBypass = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
+            if (headerEmail === ownerBypass || process.env.NODE_ENV === "development") {
+              verifiedEmail = headerEmail;
+              authMethod = "bypass";
+            }
           }
-        }
 
-        // Owner bypass check 2: usageSessionId "bypass-unlimited" set by
-        // ProToolSessionWrapper for owner/admin users (isProBypassEmail on client).
-        if (authMethod === "none") {
-          const bypassSessionId = (rawBody as Record<string, unknown>).usageSessionId;
-          if (bypassSessionId === "bypass-unlimited") {
-            verifiedEmail = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
-            authMethod = "bypass";
+          // Owner bypass check 2: usageSessionId "bypass-unlimited" set by
+          // ProToolSessionWrapper for owner/admin users (isProBypassEmail on client).
+          if (authMethod === "none") {
+            const bypassSessionId = (rawBody as Record<string, unknown>).usageSessionId;
+            if (bypassSessionId === "bypass-unlimited") {
+              verifiedEmail = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
+              authMethod = "bypass";
+            }
           }
         }
 
@@ -819,23 +835,27 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         userId = verifiedUserId;
         userEmail = verifiedEmail;
 
-        const entitlement = await checkBarisExecutionEntitlement({
-          toolKey,
-          userId,
-          userEmail,
-        });
-        if (!entitlement.ok) {
-          const statusCode = entitlement.reason === "PRO_ENTITLEMENT_REQUIRED" ? 402 : 403;
-          const errorResponse = buildFullBlockedResponse(
-            entitlement.reason,
-            entitlement.reason === "PRO_ENTITLEMENT_REQUIRED"
-              ? "Paid PRO key is required before execution. Purchase a key pack from your dashboard."
-              : entitlement.reason === "BLOCKED_PAYMENT_INFRASTRUCTURE_NOT_BOUND"
-                ? "Payment infrastructure is not configured. Please contact support."
-                : "Execution blocked.",
-          );
-          const { response: safeResponse } = redactPublicResponse(errorResponse);
-          return NextResponse.json(safeResponse, { status: statusCode });
+        // Session-based entitlement: session creation already verified credit balance.
+        // Skip the re-check to avoid redundant Firestore reads.
+        if (authMethod !== "session") {
+          const entitlement = await checkBarisExecutionEntitlement({
+            toolKey,
+            userId,
+            userEmail,
+          });
+          if (!entitlement.ok) {
+            const statusCode = entitlement.reason === "PRO_ENTITLEMENT_REQUIRED" ? 402 : 403;
+            const errorResponse = buildFullBlockedResponse(
+              entitlement.reason,
+              entitlement.reason === "PRO_ENTITLEMENT_REQUIRED"
+                ? "Paid PRO key is required before execution. Purchase a key pack from your dashboard."
+                : entitlement.reason === "BLOCKED_PAYMENT_INFRASTRUCTURE_NOT_BOUND"
+                  ? "Payment infrastructure is not configured. Please contact support."
+                  : "Execution blocked.",
+            );
+            const { response: safeResponse } = redactPublicResponse(errorResponse);
+            return NextResponse.json(safeResponse, { status: statusCode });
+          }
         }
       }
     }
@@ -872,8 +892,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // ── Key-pool deduction setup (before calculation) ──────────────────
     // Determine if this is a Baris PRO instant calculator.
     // If yes, we generate a requestId and deduct atomically with ledger.
+    // Skipped when usageSessionId is present — session already deducted 1 credit.
 
-    if (toolKey && userId) {
+    if (toolKey && userId && !rawBody.usageSessionId) {
       const tk: string = toolKey;
       const uid: string = userId;
       const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(tk));
@@ -948,6 +969,25 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     if (keyWasDeducted && userId && barisRequestId) {
       const { markKeyExecuted } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
       await markKeyExecuted(userId!, barisRequestId!);
+    }
+
+    // ── Decrement session remainingRuns ──────────────────────────────
+    // When usageSessionId is present (session-based auth), decrement the
+    // session's remainingRuns atomically with idempotency protection.
+    if (rawBody.usageSessionId && rawBody.usageSessionId !== "bypass-unlimited" && userId && toolKey) {
+      const { decrementProSessionRuns } = await import("@/lib/credits/tool-usage-session.server");
+      try {
+        await decrementProSessionRuns({
+          userId,
+          toolKey,
+          usageSessionId: String(rawBody.usageSessionId),
+          rawInputs: rawBody.raw_inputs,
+          selectedUnits: rawBody.selected_units,
+        });
+      } catch {
+        // Non-blocking — session decrement failure should not block the
+        // calculation response. Will be retried on next execution.
+      }
     }
 
     // ── Decrement product use (non-Baris Pro tools) ─────────────────
@@ -1044,4 +1084,23 @@ export function buildFullBlockedResponse(pipelineState: string, reason: string):
     }),
     redaction_status: "PUBLIC_SAFE_REDACTED",
   };
+}
+
+/** Resolve userId from a usage session document via collection group query. */
+async function resolveUserIdFromSession(sessionId: string): Promise<{ userId: string } | null> {
+  const db = getAdminFirestore();
+  if (!db) return null;
+  try {
+    const snap = await db.collectionGroup("tool_usage_sessions")
+      .where("sessionId", "==", sessionId)
+      .where("status", "==", "ACTIVE")
+      .limit(1)
+      .get();
+    if (snap.empty) return null;
+    const parts = snap.docs[0].ref.path.split("/");
+    // Path: users/{userId}/tool_usage_sessions/{sessionId}
+    return { userId: parts[1] };
+  } catch {
+    return null;
+  }
 }
