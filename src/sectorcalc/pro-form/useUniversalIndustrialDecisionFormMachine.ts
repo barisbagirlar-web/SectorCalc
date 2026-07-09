@@ -425,7 +425,23 @@ function runV531ClientPrecheck(
 
     const bounds = input.physical_hard_bounds;
     if (typeof value === "number" && bounds) {
-      if (bounds.min !== null && value < bounds.min) {
+      // BUG FIX: When input is unit_selectable, the display value may be in a different
+      // unit than the bounds unit (e.g. percent display vs ratio bounds).
+      // Convert to base unit before comparing to avoid false BLOCKER.
+      let effectiveValue = value;
+      if (input.unit_selectable && selectedUnit && input.base_unit) {
+        const converted = convertDisplayToBase(
+          value,
+          selectedUnit,
+          input.base_unit,
+          input.quantity_kind,
+          schema.unit_conversion_contract.conversion_registry,
+        );
+        if (converted.ok) {
+          effectiveValue = converted.value;
+        }
+      }
+      if (bounds.min !== null && effectiveValue < bounds.min) {
         issues.push({
           id: `PHYSICAL_BOUND_MIN_${input.id}`,
           severity: bounds.violation_behavior === "BLOCK" ? "BLOCKER" : "WARNING",
@@ -434,7 +450,7 @@ function runV531ClientPrecheck(
           suggested_action: "Check the entered value, unit, measurement source, or schema hard bound.",
         });
       }
-      if (bounds.max !== null && value > bounds.max) {
+      if (bounds.max !== null && effectiveValue > bounds.max) {
         issues.push({
           id: `PHYSICAL_BOUND_MAX_${input.id}`,
           severity: bounds.violation_behavior === "BLOCK" ? "BLOCKER" : "WARNING",
