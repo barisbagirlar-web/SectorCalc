@@ -13,6 +13,7 @@ const jobGeometryGroup: ProFieldGroup = {
       id: "weld_length",
       label: "Weld Length",
       symbol: "L",
+      type: "number",
       unitFamily: "length",
       defaultUnit: "m",
       allowedUnits: [
@@ -35,6 +36,7 @@ const jobGeometryGroup: ProFieldGroup = {
       id: "weld_throat",
       label: "Weld Size / Throat",
       symbol: "a",
+      type: "number",
       unitFamily: "small_length",
       defaultUnit: "mm",
       allowedUnits: [
@@ -54,13 +56,15 @@ const jobGeometryGroup: ProFieldGroup = {
       id: "material",
       label: "Material",
       symbol: "Mat",
-      unitFamily: "factor",
-      defaultUnit: "factor 0-1",
-      allowedUnits: [{ unit: "factor 0-1", label: "factor" }],
+      type: "select",
+      options: [
+        { value: "carbon_steel", label: "Carbon steel" },
+        { value: "stainless_steel", label: "Stainless steel" },
+        { value: "aluminum", label: "Aluminum" },
+      ],
       required: true,
-      placeholder: "e.g. Carbon steel, Stainless steel",
-      helpText: "Base material being welded",
-      defaultValue: "Carbon steel",
+      helpText: "Base material being welded. Density is handled internally.",
+      defaultValue: "carbon_steel",
     },
   ],
 };
@@ -73,6 +77,7 @@ const consumablesGroup: ProFieldGroup = {
       id: "wire_cost",
       label: "Wire / Electrode Cost",
       symbol: "C_w",
+      type: "number",
       unitFamily: "material_cost",
       defaultUnit: "USD/kg",
       allowedUnits: [
@@ -95,6 +100,7 @@ const consumablesGroup: ProFieldGroup = {
       id: "gas_cost",
       label: "Shielding Gas Cost",
       symbol: "C_g",
+      type: "number",
       unitFamily: "cost_rate",
       defaultUnit: "USD/min",
       allowedUnits: [
@@ -124,6 +130,7 @@ const timeAndShopGroup: ProFieldGroup = {
       id: "arc_time",
       label: "Arc Time",
       symbol: "t_a",
+      type: "number",
       unitFamily: "time",
       defaultUnit: "min",
       allowedUnits: [
@@ -143,6 +150,7 @@ const timeAndShopGroup: ProFieldGroup = {
       id: "total_job_time",
       label: "Total Job Time",
       symbol: "t_t",
+      type: "number",
       unitFamily: "time",
       defaultUnit: "min",
       allowedUnits: [
@@ -162,6 +170,7 @@ const timeAndShopGroup: ProFieldGroup = {
       id: "labor_rate",
       label: "Labor Rate",
       symbol: "R_l",
+      type: "number",
       unitFamily: "labor_rate",
       defaultUnit: "USD/h",
       allowedUnits: [
@@ -182,6 +191,7 @@ const timeAndShopGroup: ProFieldGroup = {
       id: "shop_overhead_rate",
       label: "Shop Overhead Rate",
       symbol: "R_o",
+      type: "number",
       unitFamily: "shop_rate",
       defaultUnit: "USD/h",
       allowedUnits: [
@@ -209,6 +219,7 @@ const quoteAssumptionsGroup: ProFieldGroup = {
       id: "deposition_efficiency",
       label: "Deposition Efficiency",
       symbol: "η",
+      type: "number",
       unitFamily: "percentage",
       defaultUnit: "%",
       allowedUnits: [
@@ -229,6 +240,7 @@ const quoteAssumptionsGroup: ProFieldGroup = {
       id: "planned_quote",
       label: "Planned Customer Quote",
       symbol: "Q",
+      type: "number",
       unitFamily: "currency",
       defaultUnit: "USD",
       allowedUnits: [
@@ -251,6 +263,7 @@ const quoteAssumptionsGroup: ProFieldGroup = {
       id: "contingency",
       label: "Contingency Allowance",
       symbol: "δ",
+      type: "number",
       unitFamily: "percentage",
       defaultUnit: "%",
       allowedUnits: [
@@ -275,6 +288,7 @@ const hiddenFields: ProFieldContract[] = [
     id: "material_density",
     label: "Material Density",
     symbol: "ρ",
+    type: "number",
     unitFamily: "density",
     defaultUnit: "g/cm³",
     allowedUnits: [
@@ -290,6 +304,7 @@ const hiddenFields: ProFieldContract[] = [
     id: "source_confidence",
     label: "Source Confidence",
     symbol: "SC",
+    type: "number",
     unitFamily: "factor",
     defaultUnit: "factor 0-1",
     allowedUnits: [{ unit: "factor 0-1", label: "factor" }],
@@ -301,12 +316,86 @@ const hiddenFields: ProFieldContract[] = [
     id: "schema_hash",
     label: "Schema Hash",
     symbol: "H",
+    type: "text",
     unitFamily: "factor",
     defaultUnit: "factor 0-1",
     allowedUnits: [{ unit: "factor 0-1", label: "factor" }],
     required: false,
     hidden: true,
   },
+];
+
+// ── Preset examples ─────────────────────────────────────────────────────────────
+
+export interface FieldPreset {
+  label: string;
+  values: Record<string, string>;
+  units: Record<string, string>;
+}
+
+export const WELD_PRESETS: FieldPreset[] = [
+  {
+    label: "Standard carbon steel weld (12m)",
+    values: {
+      weld_length: "12", weld_throat: "6", material: "carbon_steel",
+      wire_cost: "4.2", gas_cost: "0.18", arc_time: "45",
+      total_job_time: "60", labor_rate: "55", shop_overhead_rate: "25",
+      deposition_efficiency: "85", planned_quote: "190", contingency: "10",
+    },
+    units: {
+      weld_length: "m", weld_throat: "mm", wire_cost: "USD/kg",
+      gas_cost: "USD/min", arc_time: "min", total_job_time: "min",
+      labor_rate: "USD/h", shop_overhead_rate: "USD/h",
+      deposition_efficiency: "%", planned_quote: "USD", contingency: "%",
+    },
+  },
+  {
+    label: "Large structural weld (50m)",
+    values: {
+      weld_length: "50", weld_throat: "8", material: "carbon_steel",
+      wire_cost: "4.8", gas_cost: "0.24", arc_time: "180",
+      total_job_time: "260", labor_rate: "65", shop_overhead_rate: "35",
+      deposition_efficiency: "82", planned_quote: "950", contingency: "12",
+    },
+    units: {
+      weld_length: "m", weld_throat: "mm", wire_cost: "USD/kg",
+      gas_cost: "USD/min", arc_time: "min", total_job_time: "min",
+      labor_rate: "USD/h", shop_overhead_rate: "USD/h",
+      deposition_efficiency: "%", planned_quote: "USD", contingency: "%",
+    },
+  },
+  {
+    label: "Small precision weld (2m)",
+    values: {
+      weld_length: "2", weld_throat: "3", material: "stainless_steel",
+      wire_cost: "9.5", gas_cost: "0.22", arc_time: "18",
+      total_job_time: "42", labor_rate: "75", shop_overhead_rate: "40",
+      deposition_efficiency: "78", planned_quote: "180", contingency: "15",
+    },
+    units: {
+      weld_length: "m", weld_throat: "mm", wire_cost: "USD/kg",
+      gas_cost: "USD/min", arc_time: "min", total_job_time: "min",
+      labor_rate: "USD/h", shop_overhead_rate: "USD/h",
+      deposition_efficiency: "%", planned_quote: "USD", contingency: "%",
+    },
+  },
+];
+
+/** The default preset (standard) to preload on first render */
+export function getDefaultPresetValues(): Record<string, string> {
+  return { ...WELD_PRESETS[0].values };
+}
+
+export function getDefaultPresetUnits(): Record<string, string> {
+  return { ...WELD_PRESETS[0].units };
+}
+
+/** Inline field IDs for consistency checking */
+export const WELD_FIELD_IDS = [
+  "weld_length", "weld_throat", "material",
+  "wire_cost", "gas_cost",
+  "arc_time", "total_job_time", "labor_rate", "shop_overhead_rate",
+  "deposition_efficiency", "planned_quote", "contingency",
 ];
 
 // ── Export ───────────────────────────────────────────────────────────────────────
@@ -323,7 +412,6 @@ export const WELD_FIELD_CONTRACT: ProToolFieldContract = {
   units: {
     weld_length: "m",
     weld_throat: "mm",
-    material: "factor 0-1",
     wire_cost: "USD/kg",
     gas_cost: "USD/min",
     arc_time: "min",

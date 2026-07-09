@@ -35,24 +35,10 @@ interface ProToolRouteParams {
 }
 
 // PRO V2 contract map — extend as more tools are migrated
-const PRO_V2_CONTRACTS: Record<string, { groups: typeof WELD_FIELD_CONTRACT.groups; hidden: typeof WELD_HIDDEN_FIELDS; defaults: Record<string, string> }> = {
+const PRO_V2_CONTRACTS: Record<string, { groups: typeof WELD_FIELD_CONTRACT.groups; hidden: typeof WELD_HIDDEN_FIELDS }> = {
   "weld-procedure-cost-consumable-estimation-suite": {
     groups: WELD_FIELD_CONTRACT.groups,
     hidden: WELD_HIDDEN_FIELDS,
-    defaults: {
-      weld_length: "",
-      weld_throat: "",
-      material: "Carbon steel",
-      wire_cost: "",
-      gas_cost: "",
-      arc_time: "",
-      total_job_time: "",
-      labor_rate: "",
-      shop_overhead_rate: "",
-      deposition_efficiency: "85",
-      planned_quote: "",
-      contingency: "10",
-    },
   },
 };
 
@@ -144,7 +130,6 @@ export default async function ProToolDetailPage({
             toolName={schema.tool_name}
             groups={contract.groups}
             hiddenFields={contract.hidden}
-            fieldDefaults={contract.defaults}
             executeEndpoint="/api/pro-calculator/execute"
             debugRuntime={debugRuntime}
           />

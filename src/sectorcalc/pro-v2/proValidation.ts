@@ -1,10 +1,10 @@
 // SectorCalc PRO V2 — Validation Layer
-// Validation order: raw display input → parse number → convert unit → validate → build engineInputs.
+// Validation order: raw display input → parse number (for numeric fields) → convert unit → validate → build engineInputs.
 // No red borders on initial load. Red borders only after Calculate or touched field.
 // Optional fields must not crash calculation.
 // Unknown unit returns controlled contract error.
 
-import type { ProFieldContract, UnitFamily } from "./proFieldContract";
+import type { ProFieldContract } from "./proFieldContract";
 import { convertToEngineUnit } from "./proUnitRegistry";
 
 export interface ValidationBlocker {
@@ -16,7 +16,7 @@ export interface ValidationBlocker {
 export interface ValidationResult {
   ok: boolean;
   blockers: ValidationBlocker[];
-  engineInputs: Record<string, number>;
+  engineInputs: Record<string, number | string>;
   displayInputs: Record<string, { value: string; unit: string }>;
 }
 
@@ -29,10 +29,10 @@ export interface ValidateOptions {
 }
 
 export function validateProV2Inputs(options: ValidateOptions): ValidationResult {
-  const { fields, values, selectedUnits, hiddenValues, isTouched } = options;
+  const { fields, values, selectedUnits, hiddenValues } = options;
 
   const blockers: ValidationBlocker[] = [];
-  const engineInputs: Record<string, number> = {};
+  const engineInputs: Record<string, number | string> = {};
   const displayInputs: Record<string, { value: string; unit: string }> = {};
 
   // Process each visible field
@@ -40,15 +40,31 @@ export function validateProV2Inputs(options: ValidateOptions): ValidationResult 
     if (field.hidden) continue;
 
     const rawValue = values[field.id] ?? "";
-    const unit = selectedUnits[field.id] ?? field.defaultUnit;
+    const unit = selectedUnits[field.id] ?? field.defaultUnit ?? "";
     const trimmed = rawValue.trim();
 
-    // ── Skip optional empty fields ───────────────────────────────
+    // ── Select fields: pass string value directly, no unit conversion ──
+    if (field.type === "select") {
+      if (field.required && trimmed === "") {
+        blockers.push({
+          fieldId: field.id,
+          message: `${field.label} is required`,
+          severity: "ERROR",
+        });
+        continue;
+      }
+
+      engineInputs[field.id] = trimmed;
+      displayInputs[field.id] = { value: trimmed, unit: "" };
+      continue;
+    }
+
+    // ── Skip optional empty numeric fields ─────────────────────────────
     if (!field.required && trimmed === "") {
       continue;
     }
 
-    // ── Required field check ─────────────────────────────────────
+    // ── Required field check ──────────────────────────────────────────
     if (field.required && trimmed === "") {
       blockers.push({
         fieldId: field.id,
@@ -58,7 +74,7 @@ export function validateProV2Inputs(options: ValidateOptions): ValidationResult 
       continue;
     }
 
-    // ── Parse number ─────────────────────────────────────────────
+    // ── Parse number ──────────────────────────────────────────────────
     const parsed = parseFloat(trimmed);
     if (!Number.isFinite(parsed)) {
       blockers.push({
@@ -69,7 +85,7 @@ export function validateProV2Inputs(options: ValidateOptions): ValidationResult 
       continue;
     }
 
-    // ── Range check ──────────────────────────────────────────────
+    // ── Range check ───────────────────────────────────────────────────
     if (field.min !== undefined && parsed < field.min) {
       blockers.push({
         fieldId: field.id,
@@ -88,10 +104,10 @@ export function validateProV2Inputs(options: ValidateOptions): ValidationResult 
       continue;
     }
 
-    // ── Convert to engine unit ───────────────────────────────────
+    // ── Convert to engine unit ────────────────────────────────────────
     let engineValue: number;
     try {
-      engineValue = convertToEngineUnit(parsed, unit, field.unitFamily);
+      engineValue = convertToEngineUnit(parsed, unit, field.unitFamily!);
     } catch (err) {
       blockers.push({
         fieldId: field.id,
@@ -105,7 +121,7 @@ export function validateProV2Inputs(options: ValidateOptions): ValidationResult 
     displayInputs[field.id] = { value: rawValue, unit };
   }
 
-  // ── Inject hidden engine values ────────────────────────────────
+  // ── Inject hidden engine values ────────────────────────────────────
   if (hiddenValues) {
     for (const [key, val] of Object.entries(hiddenValues)) {
       if (Number.isFinite(val)) {

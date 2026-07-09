@@ -38,13 +38,22 @@ export interface UnitOption {
   label: string;
 }
 
+export interface SelectOption {
+  value: string;
+  label: string;
+}
+
+export type FieldInputType = "number" | "select" | "text";
+
 export interface ProFieldContract {
   id: string;
   label: string;
   symbol: string;
-  unitFamily: UnitFamily;
-  defaultUnit: string;
-  allowedUnits: UnitOption[];
+  type: FieldInputType;
+  unitFamily?: UnitFamily;
+  defaultUnit?: string;
+  allowedUnits?: UnitOption[];
+  options?: SelectOption[];
   required: boolean;
   placeholder?: string;
   helpText?: string;
@@ -65,5 +74,5 @@ export interface ProToolFieldContract {
   toolKey: string;
   toolName: string;
   groups: ProFieldGroup[];
-  units: Record<string, string>; // fieldId -> default unit
+  units: Record<string, string>;
 }

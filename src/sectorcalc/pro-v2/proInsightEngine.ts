@@ -198,7 +198,7 @@ export function buildWeldInsightReport(params: BuildInsightReportParams): ProIns
         },
         {
           title: "Material Density Assumption",
-          description: `Using ${displayInputs.material ?? "Carbon steel"} density of 7.85 g/cm³. Verify exact material specification.`,
+          description: `Using ${(displayInputs.material?.value ?? "Carbon steel")} density of 7.85 g/cm³. Verify exact material specification.`,
           severity: "INFO",
           mitigation: "Confirm material grade and density with supplier data sheet.",
         },

@@ -14,13 +14,12 @@ interface ProV2WrapperProps {
   toolName: string;
   groups: ProFieldGroup[];
   hiddenFields: ProFieldContract[];
-  fieldDefaults: Record<string, string>;
   executeEndpoint: string;
   debugRuntime?: boolean;
 }
 
 export function ProV2Wrapper(props: ProV2WrapperProps) {
-  const { toolKey, toolName, groups, hiddenFields, fieldDefaults, executeEndpoint, debugRuntime } = props;
+  const { toolKey, toolName, groups, hiddenFields, executeEndpoint, debugRuntime } = props;
   const { user, loading } = useUserSubscription();
   const [idToken, setIdToken] = useState<string | null>(null);
 
@@ -54,7 +53,6 @@ export function ProV2Wrapper(props: ProV2WrapperProps) {
       toolName={toolName}
       groups={groups}
       hiddenFields={hiddenFields}
-      fieldDefaults={fieldDefaults}
       executeEndpoint={executeEndpoint}
       isSignedIn={!!user}
       idToken={idToken}

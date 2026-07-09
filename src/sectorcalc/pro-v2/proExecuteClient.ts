@@ -8,7 +8,7 @@ export interface ExecuteRequest {
   schema_version: string;
   raw_inputs: Record<string, unknown>;
   selected_units: Record<string, string>;
-  engine_inputs: Record<string, number>;
+  engine_inputs: Record<string, number | string>;
   evidence_state: Record<string, unknown>;
   client_schema_hash: string;
   usageSessionId: string;

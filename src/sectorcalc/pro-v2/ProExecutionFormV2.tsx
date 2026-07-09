@@ -1,6 +1,10 @@
 // SectorCalc PRO V2 — Pro Execution Form
 // Isolated PRO-only runtime. Does not import Free tool code.
 // One Calculate click = one session + one execute.
+//
+// State contract: fieldState[field.id] = { value: string, unit: string }
+//   - select fields: unit = ""
+//   - number fields: value + unit both set
 
 "use client";
 
@@ -13,8 +17,8 @@ import { validateProV2Inputs } from "./proValidation";
 import { createCreditSession } from "./proSessionClient";
 import { executeWithUsageSession } from "./proExecuteClient";
 import { buildWeldInsightReport } from "./proInsightEngine";
-import { emitTraceEvent, enableRuntimeTrace, isTraceEnabled } from "./proRuntimeTrace";
-import { getUnitOptions } from "./proUnitRegistry";
+import { emitTraceEvent, enableRuntimeTrace } from "./proRuntimeTrace";
+import { WELD_PRESETS } from "./proWeldFieldContract";
 import ProResultPanelV2 from "./ProResultPanelV2";
 
 export interface ProExecutionFormV2Props {
@@ -22,64 +26,38 @@ export interface ProExecutionFormV2Props {
   toolName: string;
   groups: ProFieldGroup[];
   hiddenFields: ProFieldContract[];
-  fieldDefaults: Record<string, string>;
   executeEndpoint: string;
   isSignedIn: boolean;
   idToken: string | null;
   debugRuntime?: boolean;
 }
 
+export interface FieldEntry {
+  value: string;
+  unit: string;
+}
+
 function generateTraceId(): string {
   return `pro-v2-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-function getFirebaseToken(): string | null {
-  // Try to get from parent-provided idToken, or from auth state
-  // The parent component passes it down
-  return null; // actual token comes from props
-}
-
-function WeldExampleLoader({ onLoad }: { onLoad: (values: Record<string, string>) => void }) {
-  const examples = [
-    {
-      label: "Standard carbon steel weld (12m)",
-      values: {
-        weld_length: "12", weld_throat: "6", material: "Carbon steel",
-        wire_cost: "4.2", gas_cost: "0.18", arc_time: "45",
-        total_job_time: "60", labor_rate: "55", shop_overhead_rate: "25",
-        deposition_efficiency: "85", planned_quote: "190", contingency: "10",
-      },
-    },
-    {
-      label: "Large structural weld (50m)",
-      values: {
-        weld_length: "50", weld_throat: "8", material: "Carbon steel",
-        wire_cost: "3.8", gas_cost: "0.15", arc_time: "90",
-        total_job_time: "120", labor_rate: "65", shop_overhead_rate: "35",
-        deposition_efficiency: "80", planned_quote: "850", contingency: "12",
-      },
-    },
-    {
-      label: "Small precision weld (2m)",
-      values: {
-        weld_length: "2", weld_throat: "3", material: "Stainless steel",
-        wire_cost: "8.5", gas_cost: "0.25", arc_time: "15",
-        total_job_time: "25", labor_rate: "75", shop_overhead_rate: "40",
-        deposition_efficiency: "90", planned_quote: "95", contingency: "8",
-      },
-    },
-  ];
-
+function WeldExampleLoader({
+  onLoad,
+  presets,
+}: {
+  onLoad: (values: Record<string, string>, units: Record<string, string>) => void;
+  presets: { label: string; values: Record<string, string>; units: Record<string, string> }[];
+}) {
   return (
     <div style={{ marginBottom: "16px" }}>
       <div style={{ fontSize: "11px", color: "#888", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px" }}>
         Load Example
       </div>
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-        {examples.map((ex, i) => (
+        {presets.map((ex, i) => (
           <button
             key={i}
-            onClick={() => onLoad(ex.values)}
+            onClick={() => onLoad(ex.values, ex.units)}
             style={{
               padding: "6px 12px",
               fontSize: "11px",
@@ -136,20 +114,55 @@ function StateMessage({ state, message }: { state: ProV2ExecutionState; message?
   );
 }
 
+/** Build initial state from the default preset */
+function buildInitialState(): Record<string, FieldEntry> {
+  const state: Record<string, FieldEntry> = {};
+  // Pre-populate with the first preset (standard carbon steel 12m)
+  if (WELD_PRESETS.length > 0) {
+    const preset = WELD_PRESETS[0];
+    const allKeys = new Set([
+      ...Object.keys(preset.values),
+      ...Object.keys(preset.units),
+    ]);
+    for (const key of allKeys) {
+      state[key] = {
+        value: preset.values[key] ?? "",
+        unit: preset.units[key] ?? "",
+      };
+    }
+  }
+  return state;
+}
+
+/** Merge preset values+units into existing state */
+function mergePresetIntoState(
+  prev: Record<string, FieldEntry>,
+  values: Record<string, string>,
+  units: Record<string, string>,
+): Record<string, FieldEntry> {
+  const next = { ...prev };
+  const allKeys = new Set([...Object.keys(values), ...Object.keys(units)]);
+  for (const key of allKeys) {
+    next[key] = {
+      value: key in values ? values[key] : (next[key]?.value ?? ""),
+      unit: key in units ? units[key] : (next[key]?.unit ?? ""),
+    };
+  }
+  return next;
+}
+
 export default function ProExecutionFormV2({
   toolKey,
   toolName,
   groups,
   hiddenFields,
-  fieldDefaults,
   executeEndpoint,
   isSignedIn,
   idToken,
   debugRuntime,
 }: ProExecutionFormV2Props) {
   const [runtime, dispatch] = useReducer(proV2RuntimeReducer, INITIAL_RUNTIME_STATE);
-  const [values, setValues] = useState<Record<string, string>>({ ...fieldDefaults });
-  const [selectedUnits, setSelectedUnits] = useState<Record<string, string>>({});
+  const [fieldState, setFieldState] = useState<Record<string, FieldEntry>>(() => buildInitialState());
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [insightReport, setInsightReport] = useState<ProInsightReport | null>(null);
   const runningRef = useRef(false);
@@ -167,23 +180,20 @@ export default function ProExecutionFormV2({
   // Flatten all visible fields
   const allFields = groups.flatMap((g) => g.fields.filter((f) => !f.hidden));
 
-  // Initialize default units
-  useEffect(() => {
-    const defaults: Record<string, string> = {};
-    for (const field of allFields) {
-      defaults[field.id] = field.defaultUnit;
-    }
-    setSelectedUnits((prev) => ({ ...defaults, ...prev }));
-  }, [toolKey]); // eslint-disable-line react-hooks/exhaustive-deps
-
   // ── Input change handler ──────────────────────────────────────────────
   const handleInputChange = useCallback((fieldId: string, rawValue: string) => {
-    setValues((prev) => ({ ...prev, [fieldId]: rawValue }));
+    setFieldState((prev) => ({
+      ...prev,
+      [fieldId]: { value: rawValue, unit: prev[fieldId]?.unit ?? "" },
+    }));
   }, []);
 
   // ── Unit change handler ───────────────────────────────────────────────
   const handleUnitChange = useCallback((fieldId: string, unit: string) => {
-    setSelectedUnits((prev) => ({ ...prev, [fieldId]: unit }));
+    setFieldState((prev) => ({
+      ...prev,
+      [fieldId]: { value: prev[fieldId]?.value ?? "", unit },
+    }));
   }, []);
 
   // ── Touch handler (for red borders after Calculate) ───────────────────
@@ -196,14 +206,15 @@ export default function ProExecutionFormV2({
   }, [allFields]);
 
   // ── Example loader ────────────────────────────────────────────────────
-  const handleLoadExample = useCallback((exampleValues: Record<string, string>) => {
-    setValues((prev) => ({ ...prev, ...exampleValues }));
+  const handleLoadExample = useCallback((exampleValues: Record<string, string>, exampleUnits: Record<string, string>) => {
+    setFieldState((prev) => mergePresetIntoState(prev, exampleValues, exampleUnits));
   }, []);
 
   // ── Reset ─────────────────────────────────────────────────────────────
   const handleReset = useCallback(() => {
     dispatch({ type: "RESET" });
-    setValues({ ...fieldDefaults });
+    // Full reset: clear everything
+    setFieldState({});
     setTouched({});
     setInsightReport(null);
     runningRef.current = false;
@@ -211,7 +222,7 @@ export default function ProExecutionFormV2({
       traceIdRef.current = generateTraceId();
       dispatch({ type: "SET_TRACE_ID", traceId: traceIdRef.current });
     }
-  }, [fieldDefaults, debugRuntime]);
+  }, [debugRuntime]);
 
   // ── PDF export ────────────────────────────────────────────────────────
   const handleExportPdf = useCallback(() => {
@@ -247,7 +258,6 @@ export default function ProExecutionFormV2({
 
   // ── Calculate pipeline ────────────────────────────────────────────────
   const handleCalculate = useCallback(async () => {
-    // Guard: prevent double click
     if (runningRef.current) {
       if (debugRuntime) {
         emitTraceEvent({
@@ -274,14 +284,21 @@ export default function ProExecutionFormV2({
     runningRef.current = true;
 
     try {
-      // Mark all fields as touched for validation
       markAllTouched();
 
       // ── Step 1: Local validation ────────────────────────────────────
+      // Derive fresh values+units from fieldState
+      const vals: Record<string, string> = {};
+      const units: Record<string, string> = {};
+      for (const [k, entry] of Object.entries(fieldState)) {
+        vals[k] = entry.value;
+        units[k] = entry.unit;
+      }
+
       const validation = validateProV2Inputs({
         fields: allFields,
-        values,
-        selectedUnits,
+        values: vals,
+        selectedUnits: units,
         hiddenValues: buildHiddenValues(),
         isTouched: touched,
       });
@@ -355,7 +372,7 @@ export default function ProExecutionFormV2({
         tool_id: "PRO_027",
         schema_version: "5.3.1",
         raw_inputs: validation.displayInputs as unknown as Record<string, unknown>,
-        selected_units: { ...selectedUnits },
+        selected_units: { ...units },
         engine_inputs: validation.engineInputs,
         evidence_state: {},
         client_schema_hash: "pro-v2-weld-001",
@@ -388,7 +405,6 @@ export default function ProExecutionFormV2({
 
       // ── Step 5: Handle server response ──────────────────────────────
       if (executeResult.status === "OK") {
-        // Build engine outputs map
         const outputMap: Record<string, number> = {};
         for (const out of executeResult.outputs) {
           outputMap[out.id] = out.value;
@@ -405,7 +421,6 @@ export default function ProExecutionFormV2({
           warnings,
         });
 
-        // Build premium insight report
         const report = buildWeldInsightReport({
           toolName,
           outputs: outputMap,
@@ -451,7 +466,7 @@ export default function ProExecutionFormV2({
     } finally {
       runningRef.current = false;
     }
-  }, [toolKey, toolName, groups, allFields, values, selectedUnits, touched, buildHiddenValues, isSignedIn, idToken, executeEndpoint, runtime.executionState, markAllTouched, debugRuntime, fieldDefaults, hiddenFields]);
+  }, [toolKey, toolName, allFields, fieldState, buildHiddenValues, isSignedIn, idToken, executeEndpoint, runtime.executionState, markAllTouched, debugRuntime, touched]);
 
   // ── Compute state display ─────────────────────────────────────────────
   const isRunning = runtime.executionState === "session_minting" || runtime.executionState === "executing";
@@ -481,8 +496,22 @@ export default function ProExecutionFormV2({
         )}
       </div>
 
+      {/* Preload notice */}
+      <div
+        style={{
+          padding: "8px 12px",
+          marginBottom: "16px",
+          fontSize: "11px",
+          color: "#888",
+          backgroundColor: "#E8E6DE",
+          borderLeft: "3px solid #BD5D3A",
+        }}
+      >
+        Example values are pre-loaded. Edit them before using the report for quotation.
+      </div>
+
       {/* Example Loader */}
-      <WeldExampleLoader onLoad={handleLoadExample} />
+      <WeldExampleLoader onLoad={handleLoadExample} presets={WELD_PRESETS} />
 
       {/* Input Groups */}
       {groups.map((group, gi) => (
@@ -505,6 +534,7 @@ export default function ProExecutionFormV2({
             </p>
           )}
           <div
+            className="pro-inp-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
@@ -514,15 +544,14 @@ export default function ProExecutionFormV2({
             {group.fields
               .filter((f) => !f.hidden)
               .map((field) => {
+                const entry = fieldState[field.id];
                 const isError = runtime.executionState === "client_blocked" && runtime.blockers.some((b) => b.fieldId === field.id);
-                const currentUnit = selectedUnits[field.id] ?? field.defaultUnit;
-                const units = field.allowedUnits.length > 0
-                  ? field.allowedUnits
-                  : getUnitOptions(field.unitFamily);
+                const isSelect = field.type === "select";
 
                 return (
                   <div
                     key={field.id}
+                    className="pro-inp-item"
                     style={{
                       padding: "12px",
                       backgroundColor: "#E8E6DE",
@@ -530,7 +559,7 @@ export default function ProExecutionFormV2({
                     }}
                   >
                     {/* Label row */}
-                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
                       <label
                         htmlFor={`pro-v2-${field.id}`}
                         style={{ fontSize: "13px", fontWeight: 500, color: "#1A1915" }}
@@ -538,55 +567,74 @@ export default function ProExecutionFormV2({
                         {field.label}
                         {field.required && <span style={{ color: "#BD5D3A", marginLeft: "2px" }}>*</span>}
                       </label>
-                      <span style={{ fontSize: "11px", color: "#888", fontStyle: "italic" }}>
-                        {field.symbol}
-                      </span>
+                      {field.symbol && (
+                        <span style={{ fontSize: "11px", color: "#888", fontStyle: "italic" }}>
+                          {field.symbol}
+                        </span>
+                      )}
                     </div>
 
-                    {/* Input row */}
-                    <div style={{ display: "flex", gap: "6px" }}>
-                      <input
-                        id={`pro-v2-${field.id}`}
-                        type="text"
-                        inputMode="decimal"
-                        value={values[field.id] ?? ""}
-                        onChange={(e) => handleInputChange(field.id, e.target.value)}
-                        placeholder={field.placeholder}
-                        style={{
-                          flex: 1,
-                          padding: "8px 10px",
-                          fontSize: "14px",
-                          border: "1px solid #CCC",
-                          backgroundColor: "#F0EEE6",
-                          color: "#1A1915",
-                          outline: "none",
-                          minHeight: "36px",
-                        }}
-                      />
-                      <select
-                        value={currentUnit}
-                        onChange={(e) => handleUnitChange(field.id, e.target.value)}
-                        style={{
-                          padding: "8px 6px",
-                          fontSize: "12px",
-                          border: "1px solid #CCC",
-                          backgroundColor: "#F0EEE6",
-                          color: "#1A1915",
-                          minWidth: "70px",
-                          minHeight: "36px",
-                        }}
-                      >
-                        {units.map((u) => (
-                          <option key={u.unit} value={u.unit}>
-                            {u.label}
-                          </option>
-                        ))}
-                      </select>
+                    {/* Input row — select vs number bifurcation */}
+                    <div className="pro-v2-input-row">
+                      {isSelect ? (
+                        // ── SELECT TYPE (no unit dropdown) ──────────────────
+                        <select
+                          id={`pro-v2-${field.id}`}
+                          value={entry?.value ?? field.defaultValue ?? ""}
+                          onChange={(e) => handleInputChange(field.id, e.target.value)}
+                          className="pro-v2-select"
+                          style={{
+                            gridColumn: "1 / -1",
+                            width: "100%",
+                            height: "48px",
+                            padding: "0 14px",
+                            fontSize: "15px",
+                            fontWeight: 600,
+                            border: "1px solid #CCC",
+                            backgroundColor: "#F0EEE6",
+                            color: "#1A1915",
+                          }}
+                        >
+                          {field.options?.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        // ── NUMBER TYPE (input + unit select) ───────────────
+                        <>
+                          <input
+                            id={`pro-v2-${field.id}`}
+                            type="text"
+                            inputMode="decimal"
+                            value={entry?.value ?? ""}
+                            onChange={(e) => handleInputChange(field.id, e.target.value)}
+                            placeholder={field.placeholder}
+                            className="pro-v2-input"
+                            data-pro-v2-input="true"
+                          />
+                          <select
+                            value={entry?.unit ?? field.defaultUnit ?? ""}
+                            onChange={(e) => handleUnitChange(field.id, e.target.value)}
+                            className="pro-v2-unit-select"
+                          >
+                            {(field.allowedUnits && field.allowedUnits.length > 0
+                              ? field.allowedUnits
+                              : []
+                            ).map((u) => (
+                              <option key={u.unit} value={u.unit}>
+                                {u.label}
+                              </option>
+                            ))}
+                          </select>
+                        </>
+                      )}
                     </div>
 
                     {/* Help text */}
                     {field.helpText && (
-                      <div style={{ fontSize: "10px", color: "#999", marginTop: "4px" }}>
+                      <div style={{ fontSize: "10px", color: "#999", marginTop: "6px" }}>
                         {field.helpText}
                       </div>
                     )}
@@ -620,6 +668,7 @@ export default function ProExecutionFormV2({
           <button
             onClick={handleCalculate}
             disabled={isRunning}
+            className="pro-calc-btn"
             style={{
               padding: "12px 32px",
               fontSize: "14px",
@@ -653,9 +702,8 @@ export default function ProExecutionFormV2({
             Reset
           </button>
         </div>
-        <div style={{ fontSize: "10px", color: "#999", textAlign: "right" }}>
-          Based on ISO 5817, AWS D1.1, and EN 1011-2 standards.
-          Technical simulation — verify before business decisions.
+        <div style={{ fontSize: "10px", color: "#999", textAlign: "right", maxWidth: "320px" }}>
+          Engineering screening output — verify project-specific standards, WPS/PQR requirements, and shop assumptions before business decisions.
         </div>
       </div>
 
@@ -683,7 +731,7 @@ export default function ProExecutionFormV2({
         </div>
       )}
 
-      {/* Insight Report */}
+      {/* Insight Report — renders all premium sections */}
       {insightReport && (
         <ProResultPanelV2
           report={insightReport}
@@ -693,7 +741,64 @@ export default function ProExecutionFormV2({
         />
       )}
 
-      {/* PDF Export Stylesheet (print CSS) */}
+      {/* Input + unit grid CSS */}
+      <style>{`
+        .pro-v2-input-row {
+          display: grid;
+          grid-template-columns: minmax(140px, 1fr) minmax(120px, 150px);
+          align-items: stretch;
+          gap: 6px;
+        }
+        .pro-v2-input,
+        input[data-pro-v2-input] {
+          min-width: 0;
+          width: 100%;
+          height: 48px;
+          padding: 0 14px;
+          font-size: 16px;
+          font-weight: 700;
+          border: 1px solid #CCC;
+          background-color: #F0EEE6;
+          color: #1A1915;
+          outline: none;
+          box-sizing: border-box;
+        }
+        .pro-v2-unit-select {
+          width: 100%;
+          min-width: 120px;
+          max-width: 150px;
+          height: 48px;
+          padding: 0 8px;
+          font-size: 13px;
+          border: 1px solid #CCC;
+          background-color: #F0EEE6;
+          color: #1A1915;
+          box-sizing: border-box;
+        }
+        .pro-v2-select {
+          min-width: 0;
+          width: 100%;
+          height: 48px;
+          padding: 0 14px;
+          font-size: 15px;
+          font-weight: 600;
+          border: 1px solid #CCC;
+          background-color: #F0EEE6;
+          color: #1A1915;
+          outline: none;
+          box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+          .pro-v2-input-row {
+            grid-template-columns: 1fr;
+          }
+          .pro-v2-unit-select {
+            max-width: 100%;
+          }
+        }
+      `}</style>
+
+      {/* PDF print stylesheet */}
       <style>{`
         @media print {
           body { background: white; }
