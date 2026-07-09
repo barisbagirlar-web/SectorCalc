@@ -42,7 +42,10 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   if (!isFiniteNumber(inputs["n_wire_cost_per_kg"])) warnings.push("Missing: n_wire_cost_per_kg");
 
   const throat_m = throat_mm / 1000;
-  const weld_volume_g = weld_length * (throat_m * throat_m) / 2 * weld_density * 1000;
+  // w/a: convert throat from mm → m, compute fillet area (throat²/2) in m²,
+  // multiply by length for volume in m³, then ×1e6 cm³/m³ × density g/cm³ = mass in g.
+  // Previous factor 1000 was off by 1000x vs the actual 1e6 cm³/m³ conversion.
+  const weld_volume_g = weld_length * (throat_m * throat_m) / 2 * weld_density * 1000000;
   const wire_needed = dep_eff > 0 ? weld_volume_g / dep_eff : 0;
   const consumable_cost = wire_needed / 1000 * wire_cost_per_kg;
   const gas_cost = gas_cost_per_min * arc_time;

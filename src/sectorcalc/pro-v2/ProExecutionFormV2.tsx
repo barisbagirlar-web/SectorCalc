@@ -492,6 +492,7 @@ export default function ProExecutionFormV2({
           outputs: outputMap,
           warnings,
           displayInputs: validation.displayInputs,
+          engineInputs: validation.engineInputs as Record<string, number>,
           traceId,
         });
 

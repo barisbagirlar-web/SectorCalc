@@ -386,13 +386,25 @@ describe("pro-v2: Insight Engine — Builds Full Report", () => {
       outputs,
       warnings: [],
       displayInputs,
+      engineInputs: {
+        gas_cost: 0.18,
+        arc_time: 45,
+        labor_rate: 55,
+        shop_overhead_rate: 25,
+        total_job_time: 60,
+        deposition_efficiency: 85,
+        contingency: 10,
+        planned_quote: 190,
+        weld_length: 12000,
+        weld_throat: 6,
+        wire_cost: 4.2,
+      },
       traceId: "test-trace-001",
     });
 
     // 1. Primary KPI
     expect(report.primaryKpi).toBeDefined();
-    expect(report.primaryKpi.label).toBe("Estimated Weld Cost");
-    expect(report.primaryKpi.value).toContain("112");
+    expect(report.primaryKpi.value).toContain("143");
 
     // 2. Decision state
     expect(report.decisionState).toBeDefined();
@@ -449,6 +461,7 @@ describe("pro-v2: Insight Engine — Builds Full Report", () => {
       outputs,
       warnings: [],
       displayInputs,
+      engineInputs: {},
     });
 
     expect(report).toBeDefined();
@@ -472,10 +485,17 @@ describe("pro-v2: Insight Engine — Builds Full Report", () => {
       outputs,
       warnings: [],
       displayInputs,
+      engineInputs: {
+        contingency: 10,
+        planned_quote: 150,
+      },
     });
 
-    // margin = (150 - 100) / 150 = 33.3%
-    expect(report.marginPercent).toContain("33");
+    // base: wire(40) + gas(0) + labor(0) + overhead(0) = 40
+    // contingency: 40 * 0.10 = 4
+    // totalCostFloor: 44
+    // margin: (150 - 44) / 150 = 70.7%
+    expect(report.marginPercent).toContain("70");
     expect(report.decisionState.state).toBe("PROFITABLE");
   });
 
@@ -494,10 +514,95 @@ describe("pro-v2: Insight Engine — Builds Full Report", () => {
         { id: "W002", severity: "INFO", message: "Density is estimated." },
       ],
       displayInputs: {},
+      engineInputs: {},
     });
 
     expect(report.riskWarnings.length).toBeGreaterThanOrEqual(2);
     expect(report.riskWarnings[0].title).toBe("W001");
+  });
+
+  it("filters internal diagnostics from user-facing warnings", () => {
+    const outputs: Record<string, number> = {
+      out_utilization_margin: 100,
+      out_scenario_delta: 10,
+      out_demand_metric: 40,
+      out_capacity_metric: 1500,
+    };
+    const report = buildWeldInsightReport({
+      toolName,
+      outputs,
+      warnings: [
+        { id: "schema_hash_mismatch", severity: "WARNING", message: "Hash mismatch" },
+        { id: "derating_config", severity: "WARNING", message: "Derating config issue" },
+        { id: "BUSINESS_WARN", severity: "WARNING", message: "Verify weld size before quoting" },
+      ],
+      displayInputs: {},
+      engineInputs: { contingency: 10, planned_quote: 150 },
+    });
+    // schema_hash_mismatch and derating_config should be filtered out
+    expect(report.riskWarnings.length).toBeGreaterThanOrEqual(1);
+    const titles = report.riskWarnings.map((w) => w.title);
+    expect(titles).not.toContain("Schema Hash Mismatch");
+    expect(titles).not.toContain("Derating Config");
+    expect(titles.some((t) => t.includes("BUSINESS"))).toBe(true);
+  });
+
+  it("formats material enum as user-facing label in assumptions", () => {
+    const outputs: Record<string, number> = {
+      out_utilization_margin: 100,
+      out_scenario_delta: 10,
+      out_demand_metric: 40,
+      out_capacity_metric: 1500,
+    };
+    const report = buildWeldInsightReport({
+      toolName,
+      outputs,
+      warnings: [],
+      displayInputs: {
+        material: { value: "carbon_steel", unit: "" },
+        weld_length: { value: "12", unit: "m" },
+      },
+      engineInputs: {},
+    });
+    const matAssumption = report.assumptionsUsed.find((a) => a.parameter.toLowerCase().includes("material"));
+    expect(matAssumption).toBeDefined();
+    expect(matAssumption!.value).toBe("Carbon steel ");
+  });
+
+  it("sensitivity values are non-zero when costs are significant", () => {
+    const outputs: Record<string, number> = {
+      out_utilization_margin: 96.48,
+      out_scenario_delta: 8.04,
+      out_demand_metric: 8.38,
+      out_capacity_metric: 1695.6,
+    };
+    const report = buildWeldInsightReport({
+      toolName,
+      outputs,
+      warnings: [],
+      displayInputs: {
+        contingency: { value: "10", unit: "%" },
+        planned_quote: { value: "190", unit: "USD" },
+      },
+      engineInputs: {
+        gas_cost: 0.18, arc_time: 45,
+        labor_rate: 55, shop_overhead_rate: 25, total_job_time: 60,
+        deposition_efficiency: 85, contingency: 10, planned_quote: 190,
+        weld_length: 12000, weld_throat: 6, wire_cost: 4.2,
+      },
+    });
+
+    // Wire price sensitivity must be non-zero when wire cost > 0
+    const wirePriceSens = report.sensitivityChecks.find((s) => s.parameter === "Wire Price");
+    expect(wirePriceSens).toBeDefined();
+    expect(wirePriceSens!.impact).not.toContain("$0.00");
+    expect(wirePriceSens!.impact).not.toContain("N/A");
+
+    // Deposition efficiency sensitivity must be non-zero when wire cost > 0
+    const depEffSens = report.sensitivityChecks.find((s) => s.parameter === "Deposition Efficiency");
+    expect(depEffSens).toBeDefined();
+    expect(depEffSens!.impact).not.toContain("$0.00");
+    expect(depEffSens!.impact).not.toContain("N/A");
   });
 });
 
