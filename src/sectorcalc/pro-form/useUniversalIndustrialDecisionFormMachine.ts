@@ -20,6 +20,7 @@ import {
   type UniversalFormMachineState,
   type ValidationIssue,
 } from "./form-state-machine";
+import { generateTraceId, proTrace, buildTraceEntry, setTraceSlug, isDebugRuntime } from "./pro-runtime-trace";
 
 export interface MachineOptions {
   schema: SuperV4Schema;
@@ -27,6 +28,7 @@ export interface MachineOptions {
   initialProfileMode?: ProfileMode;
   executeEndpoint?: string;
   usageSessionId?: string | null;
+  authToken?: string;
   fetcher?: (url: string, init: RequestInit) => Promise<Response>;
   validateSchema?: (schema: SuperV4Schema) => string[];
 }
@@ -101,13 +103,34 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
     return issues;
   }, [options.schema, state.evidenceState, state.rawInputState, state.selectedUnitState]);
 
+  const traceIdRef = useRef<string | null>(null);
   const submitServerExecution = useCallback(async (): Promise<void> => {
+    const traceId = generateTraceId();
+    traceIdRef.current = traceId;
+    setTraceSlug(options.schema.tool_key);
+    proTrace("PRO_CLICK", buildTraceEntry(traceId, "PRO_CLICK", {
+      slug: options.schema.tool_key,
+      userEmail: null,
+      isOwnerBypass: options.usageSessionId === "bypass-unlimited",
+      executionStateBefore: state.executionState,
+    }));
+
     const issues = runV531ClientPrecheck(options.schema, state.rawInputState, state.selectedUnitState, state.evidenceState);
     const blockers = issues.filter((issue) => issue.severity === "BLOCKER" || issue.severity === "CRITICAL");
     dispatch({ type: "RUN_CLIENT_PRECHECK", issues });
 
+    proTrace("PRO_CLIENT_PRECHECK", buildTraceEntry(traceId, "PRO_CLIENT_PRECHECK", {
+      issueCount: issues.length,
+      blockerCount: blockers.length,
+      blockers: blockers.map((b) => b.id),
+    }));
+
     if (blockers.length > 0) {
       dispatch({ type: "BLOCK_CLIENT_EXECUTION", blockers });
+      proTrace("PRO_BLOCKED", buildTraceEntry(traceId, "PRO_BLOCKED", {
+        blockers: blockers.map((b) => ({ id: b.id, message: b.message })),
+        executionStateAfter: "client_precheck_blocked",
+      }));
       return;
     }
 
@@ -130,10 +153,21 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
       usageSessionId: options.usageSessionId ?? null,
     };
 
+    proTrace("PRO_EXECUTE_START", buildTraceEntry(traceId, "PRO_EXECUTE_START", {
+      slug: options.schema.tool_key,
+      usageSessionIdPresent: !!options.usageSessionId,
+      inputKeys: Object.keys(state.rawInputState),
+      selectedUnits: state.selectedUnitState,
+    }));
+
     try {
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (options.authToken) {
+        headers["Authorization"] = `Bearer ${options.authToken}`;
+      }
       const response = await fetcher(executeEndpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify(request),
       });
 
@@ -155,6 +189,13 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
           type: "RECEIVE_SERVER_ERROR",
           message: contractResult.ok ? `Server execution failed with HTTP ${response.status}.` : contractResult.error,
         });
+        proTrace("PRO_EXECUTE_END", buildTraceEntry(traceId, "PRO_EXECUTE_END", {
+          httpStatus: response.status,
+          pipeline_state: "ERROR",
+          status: "error",
+          outputCount: 0,
+          errorCode: contractResult.ok ? `HTTP_${response.status}` : contractResult.error,
+        }));
         return;
       }
 
@@ -163,6 +204,13 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
           type: "RECEIVE_SERVER_ERROR",
           message: "Public response redaction failed and was blocked by the V5.3.1 contract.",
         });
+        proTrace("PRO_EXECUTE_END", buildTraceEntry(traceId, "PRO_EXECUTE_END", {
+          httpStatus: response.status,
+          pipeline_state: "REDACTION_FAILED",
+          status: "error",
+          outputCount: 0,
+          errorCode: "REDACTION_FAILED",
+        }));
         return;
       }
 
@@ -176,6 +224,14 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
       }
 
       dispatch({ type: "RECEIVE_SERVER_RESPONSE", response: contractResult.response });
+      const outputs = contractResult.response.outputs ?? [];
+      proTrace("PRO_EXECUTE_END", buildTraceEntry(traceId, "PRO_EXECUTE_END", {
+        httpStatus: response.status,
+        pipeline_state: contractResult.response.pipeline_state ?? contractResult.response.status,
+        status: contractResult.response.status,
+        outputCount: outputs.length,
+        errorCode: null,
+      }));
     } catch (error) {
       // Stale: ignore error from a request for a different tool
       if (pendingToolKeyRef.current !== requestToolKey) {
@@ -461,7 +517,19 @@ function runV531ClientPrecheck(
       }
     }
 
-    if (requiresEvidence(input) && (!evidence || !evidence.user_verified)) {
+    // Auto-verify evidence when the user has entered a valid value and
+    // the accepted evidence types include "user-provided value" or "engineering estimate".
+    // This prevents the precheck from blocking execution when the user has
+    // already provided the value (the value IS the user-provided evidence).
+    const hasValue = !isEmptyValue(value);
+    const evReq = input.evidence_requirement;
+    const acceptedEvidence = typeof evReq === "object" && evReq !== null ? evReq.accepted_evidence : [];
+    const hasUserProvidedEvidence = hasValue &&
+      (acceptedEvidence.includes("user-provided value") ||
+       acceptedEvidence.includes("engineering estimate"));
+    const evidenceOk = !requiresEvidence(input) || (evidence?.user_verified === true) || hasUserProvidedEvidence;
+
+    if (!evidenceOk) {
       issues.push({
         id: `EVIDENCE_GAP_${input.id}`,
         severity: input.criticality === "CRITICAL" ? "BLOCKER" : "REVIEW",

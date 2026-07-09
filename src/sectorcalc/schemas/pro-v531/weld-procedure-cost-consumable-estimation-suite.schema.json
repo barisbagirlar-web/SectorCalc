@@ -107,6 +107,10 @@
             "factor": 1
           },
           {
+            "unit": "currency_unit_per_min",
+            "factor": 60
+          },
+          {
             "unit": "currency_unit_per_unit",
             "factor": 1
           },
@@ -218,7 +222,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
+        "max": 1000,
         "unit": "m",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
@@ -288,7 +292,7 @@
       "unit_selectable": false,
       "base_unit": "m",
       "allowed_display_units": [
-        "m"
+        "mm"
       ],
       "normalized_id": "n_weld_throat_mm",
       "type": "number",
@@ -298,8 +302,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1000000000,
-        "unit": "m",
+        "max": 100,
+        "unit": "mm",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
         "semantic_error_message_min": "Weld Throat (mm) is below the physical or process hard bound.",
@@ -524,9 +528,9 @@
       "symbol": "GC",
       "quantity_kind": "currency_rate",
       "unit_selectable": false,
-      "base_unit": "currency_unit_per_h",
+      "base_unit": "currency_unit_per_min",
       "allowed_display_units": [
-        "currency_unit_per_h"
+        "currency_unit_per_min"
       ],
       "normalized_id": "n_gas_cost_per_min",
       "type": "number",
@@ -536,8 +540,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100,
-        "unit": "USD/h",
+        "max": 10,
+        "unit": "USD/min",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -593,7 +597,7 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Enter the gas cost per minute. Reference ranges are advisory.",
+      "user_help_text": "Enter the gas cost per minute (e.g., 0.18). Reference ranges are advisory.",
       "warning_if_missing_or_estimated": "Missing or estimated Gas Cost per Minute will downgrade evidence confidence."
     },
     {
@@ -604,7 +608,7 @@
       "unit_selectable": false,
       "base_unit": "s",
       "allowed_display_units": [
-        "s"
+        "min"
       ],
       "normalized_id": "n_arc_time_min",
       "type": "number",
@@ -614,8 +618,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 36000,
-        "unit": "s",
+        "max": 1440,
+        "unit": "min",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -682,7 +686,7 @@
       "unit_selectable": false,
       "base_unit": "s",
       "allowed_display_units": [
-        "s"
+        "min"
       ],
       "normalized_id": "n_weld_time_min",
       "type": "number",
@@ -692,8 +696,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 36000,
-        "unit": "s",
+        "max": 1440,
+        "unit": "min",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -916,7 +920,7 @@
       "unit_selectable": false,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio"
+        "percent"
       ],
       "normalized_id": "n_deposition_efficiency_pct",
       "type": "number",
@@ -926,8 +930,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1,
-        "unit": "ratio",
+        "max": 100,
+        "unit": "percent",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },

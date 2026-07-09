@@ -149,6 +149,8 @@ export interface UniversalIndustrialDecisionFormProps {
   creditSessionLoading?: boolean;
   /** Whether the user is signed in (for button label gating). */
   isSignedIn?: boolean;
+  /** Firebase Auth ID token for execute API authorization. */
+  executeAuthToken?: string | null;
   /** Pre-validated render contract from buildToolRenderContract. */
   renderContract?: ToolRenderContract;
 }
@@ -744,6 +746,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     executeEndpoint: props.executeEndpoint,
     initialProfileMode: effectiveInitialMode,
     usageSessionId: props.usageSessionId,
+    authToken: props.executeAuthToken ?? undefined,
   });
 
   const { state } = machine;
@@ -871,10 +874,20 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     return "Calculate";
   })();
 
+  // Auto-execute after session creation completes
+  const sessionRequestedRef = useRef(false);
+  useEffect(() => {
+    if (sessionRequestedRef.current && hasSession && !sessionExhausted && !creditSessionLoading) {
+      sessionRequestedRef.current = false;
+      machine.submitServerExecution();
+    }
+  }, [hasSession, sessionExhausted, creditSessionLoading, machine.submitServerExecution]);
+
   const primaryButtonAction = useCallback(() => {
     setSubmissionAttempted(true);
     if (isPro && (!hasSession || sessionExhausted)) {
       if (props.onRequestCreditSession && props.toolKey) {
+        sessionRequestedRef.current = true;
         props.onRequestCreditSession(props.toolKey);
         return;
       }

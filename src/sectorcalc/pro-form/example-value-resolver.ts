@@ -140,6 +140,20 @@ const TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> = {
     weld_length_m: 2,
   },
 
+  "weld-procedure-cost-consumable-estimation-suite": {
+    weld_length_m: 12,
+    weld_throat_mm: 6,
+    weld_density: 7.85,
+    wire_cost_per_kg: 4.2,
+    gas_cost_per_min: 0.18,
+    arc_time_min: 45,
+    weld_time_min: 60,
+    labor_rate: 55,
+    overhead_rate: 25,
+    deposition_efficiency: 85,
+    source_confidence: 0.8,
+  },
+
   "fillet-weld-size-strength": {
     applied_load_kn: 50,
     effective_weld_length_mm: 200,
