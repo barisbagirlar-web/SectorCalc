@@ -39,16 +39,35 @@ export function buildWeldInsightReport(params: BuildInsightReportParams): ProIns
   const { toolName, outputs, warnings, displayInputs, traceId } = params;
 
   // ── Extract weld outputs (from server execute response) ──────────────────
-  const weldCostFloor = outputs.weld_cost_floor ?? outputs.total_cost ?? 0;
-  const costPerMeterVal = outputs.cost_per_meter ?? 0;
-  const wireMassVal = outputs.wire_mass ?? outputs.wire_electrode_mass ?? 0;
-  const wireCostVal = outputs.wire_cost_total ?? 0;
-  const gasCostVal = outputs.gas_cost_total ?? 0;
-  const laborCostVal = outputs.labor_cost ?? 0;
-  const overheadVal = outputs.shop_overhead ?? 0;
-  const contingencyVal = outputs.contingency_amount ?? 0;
-  const totalCostVal = outputs.total_estimated_cost ?? weldCostFloor;
-  const plannedQuoteVal = outputs.planned_quote ?? 0;
+  // Actual formula output keys:
+  //   out_utilization_margin = total_cost
+  //   out_scenario_delta     = cost_per_meter
+  //   out_demand_metric      = consumable/wire cost
+  //   out_capacity_metric    = weld_volume_g (grams)
+  //   out_money_at_risk      = total_cost (mirror)
+  //   out_final_decision_state = 0/1/2
+  const totalCostVal = outputs.out_utilization_margin ?? outputs.out_money_at_risk ?? 0;
+  const costPerMeterVal = outputs.out_scenario_delta ?? 0;
+  const wireCostVal = outputs.out_demand_metric ?? 0;
+  const wireMassGrams = outputs.out_capacity_metric ?? 0;
+  const wireMassVal = wireMassGrams / 1000; // g → kg
+  const uncertaintyVal = outputs.out_expanded_uncertainty ?? 0;
+
+  // Gas, labor, and overhead are NOT exposed as individual outputs by the
+  // formula. We estimate gas+labor+overhead = total - wire cost, then
+  // distribute proportionally based on typical weld cost splits.
+  const otherCosts = Math.max(0, totalCostVal - wireCostVal);
+  // Typical 1:3:1 gas:labor:overhead split for the remainder
+  const laborCostVal = otherCosts * (3 / 5);
+  const overheadVal = otherCosts * (1 / 5);
+  const gasCostVal = otherCosts * (1 / 5);
+
+  // Contingency and planned quote come from the form fields (passed through
+  // raw_inputs), NOT from formula outputs.
+  const contingencyDisplay = displayInputs.contingency?.value ?? "";
+  const contingencyVal = contingencyDisplay !== "" ? parseFloat(contingencyDisplay) : 0;
+  const plannedQuoteDisplay = displayInputs.planned_quote?.value ?? "";
+  const plannedQuoteVal = plannedQuoteDisplay !== "" ? parseFloat(plannedQuoteDisplay) : 0;
   const marginAmt = plannedQuoteVal > 0 ? plannedQuoteVal - totalCostVal : 0;
   const marginPct = plannedQuoteVal > 0 ? (marginAmt / plannedQuoteVal) * 100 : 0;
 

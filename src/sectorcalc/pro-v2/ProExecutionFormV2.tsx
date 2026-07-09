@@ -367,13 +367,79 @@ export default function ProExecutionFormV2({
         executionState: "executing",
       });
 
+      // ── Build schema-compatible raw_inputs ──────────────────────────
+      // Map form field IDs → schema input IDs. All weld schema inputs
+      // have unit_selectable: false, so no selected_units entries are
+      // needed — the server normalizer uses base_unit as display_unit
+      // (fast path / identity conversion).
+      const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
+        weld_length: "weld_length_m",
+        weld_throat: "weld_throat_mm",
+        material_density: "weld_density",
+        wire_cost: "wire_cost_per_kg",
+        gas_cost: "gas_cost_per_min",
+        arc_time: "arc_time_min",
+        total_job_time: "weld_time_min",
+        labor_rate: "labor_rate",
+        shop_overhead_rate: "overhead_rate",
+        deposition_efficiency: "deposition_efficiency",
+        source_confidence: "source_confidence",
+      };
+      // HIDDEN_TO_SCHEMA: Hidden form fields → schema input ID + default
+      const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number }> = {
+        material_density: { schemaId: "weld_density", defaultValue: 7.85 },
+        source_confidence: { schemaId: "source_confidence", defaultValue: 0.9 },
+      };
+      const schemaRawInputs: Record<string, number> = {};
+      // Populate from visible field state
+      for (const [formId, schemaId] of Object.entries(FORM_TO_SCHEMA_INPUT)) {
+        // Skip hidden fields — they come from HIDDEN_TO_SCHEMA or hiddenFields defaults
+        if (HIDDEN_TO_SCHEMA[formId]) continue;
+        const entry = fieldState[formId];
+        if (entry && entry.value !== "" && entry.value !== undefined) {
+          const num = parseFloat(entry.value);
+          if (Number.isFinite(num)) {
+            schemaRawInputs[schemaId] = num;
+          }
+        }
+      }
+      // Populate hidden field defaults (required by schema, not shown in form)
+      for (const [formId, cfg] of Object.entries(HIDDEN_TO_SCHEMA)) {
+        const hEntry = fieldState[formId];
+        if (hEntry && hEntry.value !== "" && hEntry.value !== undefined) {
+          const num = parseFloat(hEntry.value);
+          if (Number.isFinite(num)) {
+            schemaRawInputs[cfg.schemaId] = num;
+          }
+        } else {
+          // Use the default from the field contract
+          schemaRawInputs[cfg.schemaId] = cfg.defaultValue;
+        }
+      }
+      // planned_quote + contingency are NOT in schema inputs (used only
+      // by the client-side insight engine). Include them as raw_inputs
+      // so the server response carries them back, even though the
+      // formula does not process them.
+      for (const extraId of ["planned_quote", "contingency"] as const) {
+        const entry = fieldState[extraId];
+        if (entry && entry.value !== "" && entry.value !== undefined) {
+          const num = parseFloat(entry.value);
+          if (Number.isFinite(num)) {
+            schemaRawInputs[extraId] = num;
+          }
+        }
+      }
+
       const executeBody = {
         tool_key: toolKey,
         tool_id: "PRO_027",
         schema_version: "5.3.1",
-        raw_inputs: validation.displayInputs as unknown as Record<string, unknown>,
-        selected_units: { ...units },
-        engine_inputs: validation.engineInputs,
+        raw_inputs: schemaRawInputs,
+        // All weld schema inputs have unit_selectable: false → no
+        // selected_units entries needed. Server normalizer uses
+        // base_unit as display_unit, fast-path identity conversion.
+        selected_units: {},
+        engine_inputs: validation.engineInputs as Record<string, number>,
         evidence_state: {},
         client_schema_hash: "pro-v2-weld-001",
         usageSessionId: sessionResult.usageSessionId,
