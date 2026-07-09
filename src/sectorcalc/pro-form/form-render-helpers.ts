@@ -111,6 +111,7 @@ const EXTENDED_UNIT_LABELS: Record<string, string> = {
   currency_unit_per_kWh: "$/kWh",
   currency_unit_per_tonne: "$/tonne",
   // FREE V5.3.1 formula unit suffixes
+  currency: "$",
   "currency/hour": "$/hour",
   "currency/year": "$/year",
   "currency/month": "$/month",

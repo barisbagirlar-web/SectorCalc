@@ -1305,7 +1305,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
                 const renderCardValue = (card: typeof primaryCard) => {
                   const val = typeof card.value === "number" ? formatBusinessResult("", card.value) : String(card.value);
-                  return card.unit ? `${val} ${card.unit}` : val;
+                  const unitLabel = formatCleanUnitLabel(card.unit ?? "");
+                  return unitLabel ? `${val} ${unitLabel}` : val;
                 };
 
                 return (
@@ -1316,7 +1317,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       category={vm.purpose}
                       primaryLabel={primaryCard.label}
                       primaryValue={primaryCard.value}
-                      primaryUnit={primaryCard.unit}
+                      primaryUnit={formatCleanUnitLabel(primaryCard.unit ?? "") || undefined}
                       decisionState={
                         ur.decisionState &&
                         ur.decisionState.label &&
