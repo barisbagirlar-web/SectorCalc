@@ -126,7 +126,7 @@ export async function pass2RuntimeExecution(
   const warnings: ServerWarning[] = [];
   const errors: string[] = [];
 
-  // S1: Extract raw numeric inputs
+  // S1: Extract raw numeric inputs — supports both flat numbers and structured input objects
   const rawNumericInputs: Record<string, number> = {};
   for (const [key, value] of Object.entries(body.raw_inputs)) {
     if (typeof value === "number") {
@@ -134,6 +134,24 @@ export async function pass2RuntimeExecution(
         errors.push(`Non-finite value for input ${key}`);
       } else {
         rawNumericInputs[key] = value;
+      }
+    } else if (typeof value === "object" && value !== null) {
+      // Structured input: { display_value, display_unit, base_unit, base_value }
+      const obj = value as Record<string, unknown>;
+      const numericVal = typeof obj.display_value === "number" ? obj.display_value
+        : typeof obj.base_value === "number" ? obj.base_value
+        : undefined;
+      if (numericVal !== undefined && Number.isFinite(numericVal)) {
+        rawNumericInputs[key] = numericVal;
+        // Populate selected_units from structured input's display_unit if available
+        if (typeof obj.display_unit === "string" && obj.display_unit) {
+          if (!body.selected_units) body.selected_units = {};
+          if (!body.selected_units[key]) {
+            body.selected_units[key] = obj.display_unit;
+          }
+        }
+      } else {
+        errors.push(`Non-finite or missing display_value/base_value for input ${key}`);
       }
     }
   }
@@ -147,6 +165,15 @@ export async function pass2RuntimeExecution(
       const value = body.raw_inputs[inp.id];
       if (value === undefined || value === null || value === "") {
         errors.push(`Missing required input: ${inp.id}`);
+      } else if (typeof value === "object" && value !== null) {
+        // Structured input: must have a finite display_value or base_value
+        const obj = value as Record<string, unknown>;
+        const numericVal = typeof obj.display_value === "number" ? obj.display_value
+          : typeof obj.base_value === "number" ? obj.base_value
+          : undefined;
+        if (numericVal === undefined || !Number.isFinite(numericVal)) {
+          errors.push(`Missing required input: ${inp.id}`);
+        }
       }
     }
   }
