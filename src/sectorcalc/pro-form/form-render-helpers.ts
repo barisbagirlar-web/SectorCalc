@@ -118,6 +118,7 @@ const EXTENDED_UNIT_LABELS: Record<string, string> = {
   month: "months",
   day: "days",
   ratio: "Ratio",
+  J: "J",
 };
 
 /**

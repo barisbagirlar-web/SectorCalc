@@ -143,6 +143,34 @@
           }
         ]
       },
+      "energy": {
+        "base_unit": "kWh",
+        "unit_family": "ENERGY",
+        "units": [
+          {
+            "unit": "kWh",
+            "factor": 1
+          },
+          {
+            "unit": "MWh",
+            "factor": 1000
+          }
+        ]
+      },
+      "time": {
+        "base_unit": "year",
+        "unit_family": "TIME",
+        "units": [
+          {
+            "unit": "year",
+            "factor": 1
+          },
+          {
+            "unit": "s",
+            "factor": 3.1709792e-8
+          }
+        ]
+      },
       "flow_rate": {
         "base_unit": "m3_s",
         "unit_family": "RATE",
@@ -254,10 +282,11 @@
       "name": "Current kWh/Year",
       "symbol": "CKWH",
       "quantity_kind": "energy",
-      "unit_selectable": false,
-      "base_unit": "J",
+      "unit_selectable": true,
+      "base_unit": "kWh",
       "allowed_display_units": [
-        "J"
+        "kWh",
+        "MWh"
       ],
       "normalized_id": "n_current_kwh_per_year",
       "type": "number",
@@ -334,10 +363,11 @@
       "name": "Target kWh/Year",
       "symbol": "TKWH",
       "quantity_kind": "energy",
-      "unit_selectable": false,
-      "base_unit": "J",
+      "unit_selectable": true,
+      "base_unit": "kWh",
       "allowed_display_units": [
-        "J"
+        "kWh",
+        "MWh"
       ],
       "normalized_id": "n_target_kwh_per_year",
       "type": "number",
@@ -414,10 +444,10 @@
       "name": "Avg kWh Rate",
       "symbol": "AKR",
       "quantity_kind": "currency_rate",
-      "unit_selectable": false,
-      "base_unit": "currency_unit_per_h",
+      "unit_selectable": true,
+      "base_unit": "currency_unit_per_kWh",
       "allowed_display_units": [
-        "currency_unit_per_h"
+        "currency_unit_per_kWh"
       ],
       "normalized_id": "n_avg_kwh_rate",
       "type": "number",
@@ -570,9 +600,10 @@
       "name": "Grant Coverage %",
       "symbol": "GC",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
+        "percent",
         "ratio"
       ],
       "normalized_id": "n_grant_coverage_pct",
@@ -804,9 +835,10 @@
       "name": "Equipment Life (Years)",
       "symbol": "ELY",
       "quantity_kind": "time",
-      "unit_selectable": false,
-      "base_unit": "s",
+      "unit_selectable": true,
+      "base_unit": "year",
       "allowed_display_units": [
+        "year",
         "s"
       ],
       "normalized_id": "n_equipment_life_years",
@@ -882,9 +914,10 @@
       "name": "Discount Rate %",
       "symbol": "DR",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
+        "percent",
         "ratio"
       ],
       "normalized_id": "n_discount_rate",

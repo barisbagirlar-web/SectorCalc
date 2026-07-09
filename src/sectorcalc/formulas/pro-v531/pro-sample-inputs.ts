@@ -210,11 +210,11 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_target_kwh_per_year: 350000,
     n_avg_kwh_rate: 0.12,
     n_implementation_cost: 80000,
-    n_grant_coverage_pct: 30,
+    n_grant_coverage_pct: 0.3,
     n_maintenance_cost_saving: 5000,
     n_emission_factor_kgco2_per_kwh: 0.45,
     n_equipment_life_years: 10,
-    n_discount_rate: 8,
+    n_discount_rate: 0.08,
     n_source_confidence_ratio: 0.9,
   },
   "motor-compressor-replacement-roi": {

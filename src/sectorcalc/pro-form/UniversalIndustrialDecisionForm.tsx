@@ -47,6 +47,7 @@ import {
 } from "./form-render-helpers";
 import { normalizeV531FieldMetadata } from "./normalize-v531-field-metadata";
 import { resolveIndustrialExampleValue } from "./example-value-resolver";
+import { FreeToolResultPanel } from "@/sectorcalc/free-form/FreeToolResultPanel";
 import { MobileStickyActionBar, resolveToolStickyBarState } from "@/components/layout/mobile/MobileStickyActionBar";
 import {
   convertDisplayToCanonical,
@@ -1309,19 +1310,29 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
                 return (
                   <div className="sc-v531-free-results sc-v531-universal-results">
-                    {/* Primary Result */}
-                    <div className="sc-v531-free-results-section">
-                      <h3 className="sc-v531-free-results-title">Business Summary</h3>
-                      <div className="sc-v531-universal-primary-card">
-                        <span className="sc-v531-upc-label">{primaryCard.label}</span>
-                        <span className={`sc-v531-upc-value ${severityClass(primaryCard.severity)}`}>
-                          {renderCardValue(primaryCard)}
-                        </span>
-                        {primaryCard.explanation && (
-                          <span className="sc-v531-upc-explanation">{primaryCard.explanation}</span>
-                        )}
-                      </div>
-                    </div>
+                    {/* Universal Result Panel (primary KPI + decision state) */}
+                    <FreeToolResultPanel
+                      toolTitle={vm.title}
+                      category={vm.purpose}
+                      primaryLabel={primaryCard.label}
+                      primaryValue={primaryCard.value}
+                      primaryUnit={primaryCard.unit}
+                      decisionState={
+                        ur.decisionState &&
+                        ur.decisionState.label &&
+                        ur.decisionState.label !== "—"
+                          ? ur.decisionState.label
+                          : ""
+                      }
+                      decisionSeverity={(() => { const s = ur.decisionState.severity; if (s === "danger") return "danger"; if (s === "warning") return "warning"; if (s === "pass") return "success"; return "info"; })()}
+                      summary={primaryCard.explanation || ""}
+                      isValid={response?.status !== "BLOCKED"}
+                      warnings={
+                        response?.warnings
+                          ? response.warnings.map((w) => w.message).filter(Boolean)
+                          : []
+                      }
+                    />
 
                     {/* Commercial View */}
                     {commercialCards.length > 0 && (
@@ -1458,17 +1469,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       </div>
                     )}
 
-                    {/* Decision State — always shown, never "—" */}
-                    <div className="sc-v531-free-results-section sc-v531-universal-decision">
-                      <h4 className="sc-v531-free-results-subtitle">Decision State</h4>
-                      <div className={`sc-v531-universal-decision-badge sc-v531-uds-${ur.decisionState.severity}`}>
-                        <span className="sc-v531-uds-label">{ur.decisionState.label || "Review complete."}</span>
-                        {ur.decisionState.reason && (
-                          <span className="sc-v531-uds-reason">{ur.decisionState.reason}</span>
-                        )}
-                      </div>
-                    </div>
-
                     {/* Assumptions */}
                     {ur.assumptions.length > 0 && (
                       <div className="sc-v531-free-results-section">
@@ -1495,100 +1495,36 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   </div>
                 );
               })()}
-              {/* FREE fallback (no universal_result enrichment) */}
-              {isFreeTier && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && response.outputs.length > 0 && (
-                <div className="sc-v531-free-results">
-                  <h3 className="sc-v531-free-results-title">Business Summary</h3>
-                  <div className="sc-v531-free-results-grid">
-                    {response.outputs.filter((o) => !isStatusOutput(o)).map((out, idx) => {
-                      const formattedValue = typeof out.value === "number"
-                        ? formatBusinessResult(out.name, out.value)
-                        : formatSafeValue(out.value);
-                      const freeUnitSuffix = getFreeOutputUnitSuffix(out, selectedCurrency);
-                      const displayStr = freeUnitSuffix
-                        ? (formattedValue.endsWith(freeUnitSuffix) ? formattedValue : `${formattedValue} ${freeUnitSuffix}`)
-                        : formattedValue;
-                      const isLarge = displayStr.length > 20;
-                      return (
-                        <div key={idx} className="sc-v531-free-result-item">
-                          <span className="sc-v531-free-result-name">{out.name}</span>
-                          <span className={`sc-v531-free-result-value${isLarge ? " sc-v531-free-result-value--large" : ""}`}>
-                            {displayStr}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-              {/* FREE fallback decision */}
-              {isFreeTier && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && response.outputs.length > 0 && (
-                <div className="sc-v531-free-decision">
-                  {(() => {
-                    const mosOutput = response.outputs.find((o) => {
-                      const key = (o.name ?? "").toLowerCase().replace(/[\s-]+/g, "_");
-                      return key.includes("margin_of_safety_percent")
-                        || (key.includes("margin") && key.includes("safety") && (key.includes("percent") || key.includes("%")));
-                    });
-                    const mosPercent = typeof mosOutput?.value === "number" ? mosOutput.value : null;
-                    let decisionStatus: string;
-                    let governingDriver: string;
-                    if (mosPercent !== null && mosPercent < 0) {
-                      decisionStatus = "ACTION REQUIRED";
-                      governingDriver = "Actual sales are below break-even";
-                    } else if (mosPercent !== null && mosPercent >= 50) {
-                      decisionStatus = "HEALTHY BUFFER";
-                      governingDriver = "Sales are far above break-even";
-                    } else if (mosPercent !== null && mosPercent >= 0) {
-                      decisionStatus = "MONITOR";
-                      governingDriver = "Sales are above break-even but buffer is limited";
-                    } else {
-                      decisionStatus = "";
-                      governingDriver = "";
-                    }
-                    const dsCssKey = decisionStatus.toLowerCase().replace(/\s+/g, "_");
-                    return (
-                      <>
-                        {decisionStatus && (
-                          <div className="sc-v531-free-decision-row">
-                            <span className="sc-v531-free-decision-label">Decision Status</span>
-                            <span className={`sc-v531-free-decision-status sc-v531-fds-${dsCssKey}`}>
-                              {decisionStatus}
-                            </span>
-                          </div>
-                        )}
-                        {governingDriver && (
-                          <div className="sc-v531-free-decision-row">
-                            <span className="sc-v531-free-decision-label">Governing Driver</span>
-                            <span className="sc-v531-free-decision-driver">{governingDriver}</span>
-                          </div>
-                        )}
-                      </>
-                    );
-                  })()}
-                </div>
-              )}
-              {/* FREE fallback interpretation */}
+              {/* FREE fallback — universal result panel (replaces legacy Business Summary / Decision / Interpretation) */}
               {isFreeTier && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && response.outputs.length > 0 && (() => {
                 const primaryOutput = response.outputs.find(o => 
                   !isStatusOutput(o) && typeof o.value === "number" && Number.isFinite(o.value)
                 );
-                if (primaryOutput) {
-                  const rawName = primaryOutput.name.replace(/_/g, " ").replace(/\s+(mm|in|ft|m|kg|lb|n|mpa|psi|%)\s*$/i, "").trim();
-                  const cleanName = rawName.split(" ").map(w => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w).join(" ");
-                  const val = formatBusinessResult(primaryOutput.name, primaryOutput.value as number);
-                  const unit = getFreeOutputUnitSuffix(primaryOutput, selectedCurrency);
-                  const displayVal = unit ? `${val} ${unit}` : val;
-                  return (
-                    <div className="sc-v531-free-interpretation">
-                      <p className="sc-v531-free-interp-text">
-                        Result: <strong>{cleanName}: {displayVal}</strong>. 
-                        Verify all input values before using this result for production or planning decisions.
-                      </p>
-                    </div>
-                  );
+                if (!primaryOutput) return null;
+                const unit = getFreeOutputUnitSuffix(primaryOutput, selectedCurrency) || undefined;
+                const numericValue = primaryOutput.value as number;
+                const comparatorInputIds = ["current_shop_rate", "current_price", "target_price", "current_rate", "existing_rate", "current_shop_rate_usd"];
+                let currentValue: number | undefined;
+                for (const inputId of comparatorInputIds) {
+                  const rawVal = state.rawInputState[inputId];
+                  if (typeof rawVal === "number" && Number.isFinite(rawVal)) { currentValue = rawVal; break; }
+                  if (typeof rawVal === "string") { const n = Number(rawVal); if (Number.isFinite(n)) { currentValue = n; break; } }
                 }
-                return null;
+                const warnings = (response?.warnings ?? []).map(w => w.message).filter(Boolean);
+                return (
+                  <FreeToolResultPanel
+                    toolTitle={vm.title}
+                    category={vm.purpose}
+                    primaryLabel={primaryOutput.name || "Result"}
+                    primaryValue={numericValue}
+                    primaryUnit={unit}
+                    isValid={response?.status !== "BLOCKED"}
+                    currentValue={currentValue}
+                    currentLabel="Current shop rate"
+                    warnings={warnings}
+                    positiveExpected={true}
+                  />
+                );
               })()}
 
               {/* PRO mode: Decision Summary + Primary Results + Professional Interpretation (fallback when no universal_result) */}

@@ -79,7 +79,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   // --- Core energy efficiency feasibility logic ---
   const kwh_saving = n_current_kwh_per_year - n_target_kwh_per_year;
   const money_saving = kwh_saving * n_avg_kwh_rate + n_maintenance_cost_saving;
-  const grant_amount = n_implementation_cost * n_grant_coverage_pct / 100;
+  const grant_amount = n_implementation_cost * n_grant_coverage_pct;
   const net_cost = n_implementation_cost - grant_amount;
   const payback = net_cost > 0 ? net_cost / money_saving : 0;
 
@@ -154,7 +154,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   let fmeaTrigger = 0;
   if (decision === 1) fmeaTrigger = 1;
   if (payback > 10) fmeaTrigger += 2;
-  if (n_grant_coverage_pct > 80) fmeaTrigger += 4;
+  if (n_grant_coverage_pct > 0.8) fmeaTrigger += 4;
   outputs["out_fmea_trigger"] = fmeaTrigger;
 
   // --- Output 12: out_money_at_risk ---

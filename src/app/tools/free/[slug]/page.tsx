@@ -14,6 +14,7 @@ import { getPublicToolTitle, getPublicToolMetaDescription } from "@/sectorcalc/p
 import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
+import "@/sectorcalc/free-form/free-tool-result-panel.css";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;

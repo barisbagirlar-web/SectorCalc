@@ -752,9 +752,10 @@
       "name": "Target Margin %",
       "symbol": "TM",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
+        "percent",
         "ratio"
       ],
       "normalized_id": "n_target_margin_pct",
@@ -830,9 +831,10 @@
       "name": "Utilization %",
       "symbol": "U",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
+        "percent",
         "ratio"
       ],
       "normalized_id": "n_utilization_pct",

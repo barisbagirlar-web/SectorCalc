@@ -50,6 +50,18 @@ let errors = 0;
 const PERIOD_NAMES = ["analysis period", "period", "year", "annual"];
 // Rate/percentage-like field names that MUST NOT display Ratio as default unit
 const RATE_NAMES = ["discount rate", "margin", "utilization", "percentage"];
+// Coverage fields are only flagged if name also contains % or Percent
+function isCoverageField(name, id) {
+  const lower = (name || "").toLowerCase();
+  const idLower = (id || "").toLowerCase();
+  return (lower.includes("coverage") || idLower.includes("coverage")) &&
+         (lower.includes("%") || lower.includes("percent") || lower.includes("pct"));
+}
+
+// kWh/J field IDs
+const KWH_FIELD_IDS = ["current_kwh_per_year", "target_kwh_per_year"];
+// Rate field IDs that must use per_kWh not per_h
+const KWH_RATE_IDS = ["avg_kwh_rate"];
 
 function nameMatches(name, patterns) {
   const lower = (name || "").toLowerCase();
@@ -73,48 +85,28 @@ for (const file of files) {
     // Period fields must not default to seconds (s)
     if (nameMatches(name, PERIOD_NAMES) || nameMatches(id, PERIOD_NAMES)) {
       if (defaultUnit === "s") {
-        const msg = `[WARN] ${file}: "${id}" (${name}) default display unit is "s" (Seconds). Use "year" or "month".`;
-        if (schema.tool_key === "machine-investment-feasibility-buy-lease-keep") {
-          console.error(`[FAIL] ${msg}`);
-          errors++;
-        } else {
-          console.warn(msg);
-        }
+        console.error(`[FAIL] ${file}: "${id}" (${name}) default display unit is "s" (Seconds). Use "year" or "month".`);
+        errors++;
       }
     }
 
     // Rate fields must not default to ratio
-    if (nameMatches(name, RATE_NAMES) || nameMatches(id, RATE_NAMES)) {
+    if ((nameMatches(name, RATE_NAMES) || nameMatches(id, RATE_NAMES)) || isCoverageField(name, id)) {
       if (defaultUnit === "ratio") {
-        const msg = `[WARN] ${file}: "${id}" (${name}) default display unit is "ratio". Use "percent".`;
-        if (schema.tool_key === "machine-investment-feasibility-buy-lease-keep") {
-          console.error(`[FAIL] ${msg}`);
-          errors++;
-        } else {
-          console.warn(msg);
-        }
+        console.error(`[FAIL] ${file}: "${id}" (${name}) default display unit is "ratio". Use "percent".`);
+        errors++;
       }
     }
 
     // Direct check: discount_rate field must have percent first
     if (id === "discount_rate" || id === "target_margin") {
       if (!displayUnits.includes("percent")) {
-        const msg = `[WARN] ${file}: "${id}" must allow "percent" as a display unit.`;
-        if (schema.tool_key === "machine-investment-feasibility-buy-lease-keep") {
-          console.error(`[FAIL] ${msg}`);
-          errors++;
-        } else {
-          console.warn(msg);
-        }
+        console.error(`[FAIL] ${file}: "${id}" must allow "percent" as a display unit.`);
+        errors++;
       }
       if (displayUnits[0] !== "percent") {
-        const msg = `[WARN] ${file}: "${id}" first allowed display unit must be "percent" (got "${displayUnits[0]}").`;
-        if (schema.tool_key === "machine-investment-feasibility-buy-lease-keep") {
-          console.error(`[FAIL] ${msg}`);
-          errors++;
-        } else {
-          console.warn(msg);
-        }
+        console.error(`[FAIL] ${file}: "${id}" first allowed display unit must be "percent" (got "${displayUnits[0]}").`);
+        errors++;
       }
     }
 
@@ -129,6 +121,22 @@ for (const file of files) {
         errors++;
       }
     }
+
+    // Direct check: kWh field must not display J
+    if (KWH_FIELD_IDS.includes(id)) {
+      if (defaultUnit === "J" || defaultUnit === "j") {
+        console.error(`[FAIL] ${file}: "${id}" (${name}) default display unit is "J". Must be "kWh".`);
+        errors++;
+      }
+    }
+
+    // Direct check: avg_kwh_rate must not use per_h
+    if (KWH_RATE_IDS.includes(id)) {
+      if (defaultUnit === "currency_unit_per_h") {
+        console.error(`[FAIL] ${file}: "${id}" (${name}) default display unit is "currency_unit_per_h". Must be "currency_unit_per_kWh".`);
+        errors++;
+      }
+    }
   }
 }
 
@@ -140,7 +148,7 @@ const liveLive = files.filter(f => {
 }).length;
 
 if (errors > 0) {
-  console.error(`\n[GUARD FAIL] ${errors} critical display unit violation(s) in machine-investment.`);
+  console.error(`\n[GUARD FAIL] ${errors} critical display unit violation(s) across LIVE PRO tools.`);
   process.exit(1);
 }
 

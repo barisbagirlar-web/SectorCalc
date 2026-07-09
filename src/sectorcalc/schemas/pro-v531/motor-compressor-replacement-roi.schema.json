@@ -334,9 +334,13 @@
       "name": "Annual Operating Hours",
       "symbol": "AOH",
       "quantity_kind": "time",
-      "unit_selectable": false,
-      "base_unit": "s",
+      "unit_selectable": true,
+      "base_unit": "h",
       "allowed_display_units": [
+        "h",
+        "day",
+        "month",
+        "year",
         "s"
       ],
       "normalized_id": "n_annual_operating_hours",
@@ -568,10 +572,10 @@
       "name": "Avg kWh Rate",
       "symbol": "AKR",
       "quantity_kind": "currency_rate",
-      "unit_selectable": false,
-      "base_unit": "currency_unit_per_h",
+      "unit_selectable": true,
+      "base_unit": "currency_unit_per_kWh",
       "allowed_display_units": [
-        "currency_unit_per_h"
+        "currency_unit_per_kWh"
       ],
       "normalized_id": "n_avg_kwh_rate",
       "type": "number",
@@ -880,9 +884,14 @@
       "name": "Equipment Life (Years)",
       "symbol": "ELY",
       "quantity_kind": "time",
-      "unit_selectable": false,
-      "base_unit": "s",
+      "unit_selectable": true,
+      "base_unit": "year",
       "allowed_display_units": [
+        "year",
+        "month",
+        "day",
+        "h",
+        "min",
         "s"
       ],
       "normalized_id": "n_equipment_life_years",
@@ -958,9 +967,10 @@
       "name": "Discount Rate %",
       "symbol": "DR",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
+        "percent",
         "ratio"
       ],
       "normalized_id": "n_discount_rate",
