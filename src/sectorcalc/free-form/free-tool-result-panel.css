@@ -1,0 +1,211 @@
+/* SectorCalc — Free Tool Result Panel Styles (V5.4)
+   Premium, high-contrast result cards for Free tool output.
+   Design tokens: bg #F0EEE6, ink #1A1915, accent #BD5D3A, radius 0px.
+*/
+
+/* ── Panel wrapper ── */
+
+.free-result-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+}
+
+/* ── Status badge ── */
+
+.frp-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 13px/1.4 system-ui, sans-serif;
+  color: #1F7A1F;
+  letter-spacing: 0.02em;
+  padding: 6px 12px;
+  background: #E8F0E4;
+  border: 1px solid #C5D9B7;
+  width: fit-content;
+}
+
+.frp-status-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* ── Grid: primary KPI + decision state ── */
+
+.frp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .frp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Primary KPI card ── */
+
+.frp-primary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 24px;
+  background: #FAF9F5;
+  border: 1px solid #E0DED6;
+}
+
+.frp-label {
+  font: 500 13px/1.3 system-ui, sans-serif;
+  color: #6B6A64;
+}
+
+.frp-primary-value {
+  font: 700 32px/1.1 "JetBrains Mono", ui-monospace, monospace;
+  color: #1A1915;
+  word-break: break-word;
+}
+
+@media (max-width: 760px) {
+  .frp-primary-value {
+    font-size: 26px;
+  }
+  .frp-primary-card {
+    padding: 14px 16px;
+  }
+}
+
+/* ── Decision state card ── */
+
+.frp-decision-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 24px;
+  border: 1px solid #E0DED6;
+}
+
+.frp-decision-value {
+  font: 600 18px/1.3 system-ui, sans-serif;
+  color: #1A1915;
+}
+
+.frp-decision-reason {
+  font: 400 13px/1.4 system-ui, sans-serif;
+  color: #6B6A64;
+  margin-top: 2px;
+}
+
+@media (max-width: 760px) {
+  .frp-decision-card {
+    padding: 14px 16px;
+  }
+  .frp-decision-value {
+    font-size: 16px;
+  }
+}
+
+/* Decision severity variants */
+.frp-severity-success {
+  background: #E8F0E4;
+  border-left: 4px solid #27AE60;
+}
+.frp-severity-warning {
+  background: #FCF3E8;
+  border-left: 4px solid #BD5D3A;
+}
+.frp-severity-danger {
+  background: #F9EBEA;
+  border-left: 4px solid #C0392B;
+}
+.frp-severity-info {
+  background: #F0EEE6;
+  border-left: 4px solid #8B8A84;
+}
+
+/* ── Business summary ── */
+
+.frp-summary {
+  margin: 0;
+  font: 400 14px/1.5 system-ui, sans-serif;
+  color: #1A1915;
+  padding: 12px 16px;
+  background: #FAF9F5;
+  border: 1px solid #E0DED6;
+}
+
+@media (max-width: 760px) {
+  .frp-summary {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+}
+
+/* ── Comparison strip ── */
+
+.frp-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border: 1px solid #E0DED6;
+  background: #E0DED6;
+}
+
+.frp-comparison-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: #FAF9F5;
+  gap: 16px;
+}
+
+.frp-comp-highlight {
+  background: #F0EEE6;
+}
+
+.frp-comp-label {
+  font: 500 13px/1.4 system-ui, sans-serif;
+  color: #6B6A64;
+  white-space: nowrap;
+}
+
+.frp-comp-value {
+  font: 600 14px/1.4 "JetBrains Mono", ui-monospace, monospace;
+  color: #1A1915;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .frp-comparison-row {
+    padding: 6px 12px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .frp-comp-label {
+    font-size: 12px;
+  }
+  .frp-comp-value {
+    font-size: 13px;
+  }
+}
+
+/* ── Warning strip ── */
+
+.frp-warnings {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+}
+
+.frp-warning-item {
+  margin: 0;
+  font: 400 12px/1.5 system-ui, sans-serif;
+  color: #8B8A84;
+  padding: 8px 12px;
+  background: #F0EEE6;
+  border: 1px solid #E0DED6;
+}
