@@ -1138,7 +1138,7 @@
       "id": "n_annual_operating_hours",
       "from_input": "annual_operating_hours",
       "quantity_kind": "time",
-      "base_unit": "s",
+      "base_unit": "h",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for annual_operating_hours after unit conversion.",
@@ -1229,7 +1229,7 @@
       "id": "n_equipment_life_years",
       "from_input": "equipment_life_years",
       "quantity_kind": "time",
-      "base_unit": "s",
+      "base_unit": "year",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for equipment_life_years after unit conversion.",

@@ -1072,7 +1072,7 @@
       "id": "n_current_kwh_per_year",
       "from_input": "current_kwh_per_year",
       "quantity_kind": "energy",
-      "base_unit": "J",
+      "base_unit": "kWh",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for current_kwh_per_year after unit conversion.",
@@ -1085,7 +1085,7 @@
       "id": "n_target_kwh_per_year",
       "from_input": "target_kwh_per_year",
       "quantity_kind": "energy",
-      "base_unit": "J",
+      "base_unit": "kWh",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for target_kwh_per_year after unit conversion.",
@@ -1098,7 +1098,7 @@
       "id": "n_avg_kwh_rate",
       "from_input": "avg_kwh_rate",
       "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
+      "base_unit": "currency_unit_per_kWh",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for avg_kwh_rate after unit conversion.",
@@ -1163,7 +1163,7 @@
       "id": "n_equipment_life_years",
       "from_input": "equipment_life_years",
       "quantity_kind": "time",
-      "base_unit": "s",
+      "base_unit": "year",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for equipment_life_years after unit conversion.",

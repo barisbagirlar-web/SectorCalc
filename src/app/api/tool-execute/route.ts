@@ -353,12 +353,13 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         const formulaId = Object.entries(outputMap).find(([, sId]) => sId === so.id)?.[0] ?? so.id;
         const fo = formulaResult!.outputs.find((o: any) => o.id === formulaId);
         const value = fo && typeof fo.value === "number" && Number.isFinite(fo.value) ? fo.value : null;
+        const formulaUnit = fo && typeof (fo as any).unit === "string" ? (fo as any).unit : null;
         const status: CalcStatus = value !== null ? "OK" : "REVIEW";
         return {
           id: so.id,
           name: so.name ?? so.id,
           value,
-          unit: so.unit ?? null,
+          unit: so.unit ?? formulaUnit,
           status,
           formula_source: null,
           public_explanation: so.public_explanation ?? "Result computed server-side.",
