@@ -113,6 +113,8 @@ export interface ProInsightReport {
 
   // Additional metrics
   costPerMeter?: string;
+  baseCostPerMeter?: string;
+  totalFloorPerMeter?: string;
   wireMass?: string;
   wireCostTotal?: string;
   gasCostTotal?: string;

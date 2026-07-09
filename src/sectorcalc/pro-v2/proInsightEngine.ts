@@ -139,6 +139,11 @@ export function buildWeldInsightReport(params: BuildInsightReportParams): ProIns
   const sorted = [...costComponents].sort((a, b) => b.val - a.val);
   const keyCostDriver = sorted.length > 0 && sorted[0].val > 0 ? sorted[0].label : "N/A";
 
+  // ── Cost per meter (base vs total floor) ───────────────────────────
+  const weldLenM = weldLengthVal / 1000; // engineInputs length is in mm
+  const baseCostPerMeter = weldLenM > 0 ? baseCostVal / weldLenM : 0;
+  const totalFloorPerMeter = weldLenM > 0 ? displayTotalCost / weldLenM : 0;
+
   // ── Margin ──────────────────────────────────────────────────────────
   // Margin is calculated from primary total (totalCostFloor = base + contingency)
   const marginAmt = plannedQuoteVal > 0 ? plannedQuoteVal - displayTotalCost : 0;
@@ -185,7 +190,8 @@ export function buildWeldInsightReport(params: BuildInsightReportParams): ProIns
   const execInterpretation =
     `This weld procedure has a total cost floor of ${currency(displayTotalCost)} ` +
     `(base production ${currency(baseCostVal)} + contingency ${currency(contingencyAmt)}). ` +
-    `The cost per meter is ${currency(costPerMeterVal)}. ` +
+    `The total cost floor per meter is ${currency(totalFloorPerMeter)} ` +
+    `(base cost per meter ${currency(baseCostPerMeter)}). ` +
     (plannedQuoteVal > 0
       ? `With a planned quote of ${currency(plannedQuoteVal)}, the projected margin is ${fmt(marginPct)}% (${currency(marginAmt)}).`
       : `No planned quote entered — cost estimate is informational only.`) +
@@ -205,7 +211,8 @@ export function buildWeldInsightReport(params: BuildInsightReportParams): ProIns
   const calculatedValues: CalculatedValue[] = [
     { label: "Base Production Cost", value: currency(baseCostVal), unit: "USD", formula_ref: "Sum of all cost components" },
     { label: "Contingency Amount", value: currency(contingencyAmt), unit: "USD", formula_ref: `${fmt(contingencyPct)}% of base cost` },
-    { label: "Cost per Meter", value: currency(costPerMeterVal), unit: "USD/m", formula_ref: "Total ÷ Weld Length" },
+    { label: "Base Cost per Meter", value: currency(baseCostPerMeter), unit: "USD/m", formula_ref: "Base Production Cost ÷ Weld Length" },
+    { label: "Total Cost Floor per Meter", value: currency(totalFloorPerMeter), unit: "USD/m", formula_ref: "Total Cost Floor ÷ Weld Length" },
     { label: "Wire Mass Required", value: `${fmt(wireMassKg)} kg`, unit: "kg", formula_ref: "Weld Volume × Density" },
     { label: "Labor Cost", value: currency(laborCostVal), unit: "USD", formula_ref: "Labor Rate × Job Time" },
   ];
@@ -361,12 +368,12 @@ export function buildWeldInsightReport(params: BuildInsightReportParams): ProIns
   // ── 10. Professional checklist (at least 5) ────────────────────────
   const checklist: ChecklistItem[] = [
     { item: "Weld procedure specification (WPS) verified", status: "REVIEW", details: "Verify WPS matches input parameters." },
-    { item: "Material specification confirmed", status: "PASS", details: "Carbon steel / specified alloy." },
+    { item: "Material specification to be confirmed", status: "REVIEW", details: "Material spec not independently verified." },
     { item: "Welder qualification matches procedure", status: "REVIEW", details: "Verify welder has current qualification." },
     { item: "Consumable storage conditions verified", status: "REVIEW", details: "Check electrode/wire storage and conditioning." },
-    { item: "Gas flow rate and purity confirmed", status: "PASS", details: "Shielding gas within specification." },
+    { item: "Gas flow rate and purity to be verified", status: "REVIEW", details: "Shielding gas assumed within specification." },
     { item: "Joint preparation and fit-up inspected", status: "REVIEW", details: "Verify root gap, bevel angle, and fit-up." },
-    { item: "Preheat / interpass temperature requirements defined", status: "PASS", details: "Per WPS requirements." },
+    { item: "Preheat / interpass requirements to be checked against WPS", status: "REVIEW", details: "Per WPS requirements." },
     { item: "NDE inspection method and acceptance criteria defined", status: "REVIEW", details: "Confirm inspection scope." },
   ];
 
@@ -374,9 +381,9 @@ export function buildWeldInsightReport(params: BuildInsightReportParams): ProIns
   let recommendedAction: RecommendedAction;
   if (marginPct >= 20) {
     recommendedAction = {
-      action: "Proceed with quote. Consider margin optimization to improve competitiveness.",
+      action: "Proceed to quotation review after verifying WPS, material, total job time, and shop assumptions.",
       priority: "HIGH",
-      expected_benefit: "Secure order with healthy margin.",
+      expected_benefit: "Informed bid with verified cost assumptions.",
     };
   } else if (marginPct >= 5) {
     recommendedAction = {
@@ -415,6 +422,8 @@ export function buildWeldInsightReport(params: BuildInsightReportParams): ProIns
     assumptionsUsed,
     traceId,
     costPerMeter: currency(costPerMeterVal),
+    baseCostPerMeter: currency(baseCostPerMeter),
+    totalFloorPerMeter: currency(totalFloorPerMeter),
     wireMass: `${fmt(wireMassKg)} kg`,
     wireCostTotal: currency(wireCostVal),
     gasCostTotal: currency(gasCostVal),

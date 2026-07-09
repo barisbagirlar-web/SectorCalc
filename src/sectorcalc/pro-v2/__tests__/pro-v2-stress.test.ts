@@ -447,7 +447,23 @@ describe("pro-v2: Insight Engine — Builds Full Report", () => {
     // 14. Extra metrics
     expect(report.totalCost).toBeTruthy();
     expect(report.costPerMeter).toBeTruthy();
+    expect(report.baseCostPerMeter).toBeTruthy();
+    expect(report.totalFloorPerMeter).toBeTruthy();
     expect(report.marginPercent).toBeTruthy();
+
+    // 15. Cost per meter shows two explicit values
+    const calcLabels = report.calculatedValues.map((c) => c.label);
+    expect(calcLabels).toContain("Base Cost per Meter");
+    expect(calcLabels).toContain("Total Cost Floor per Meter");
+
+    // 16. No PASS status in checklist (all REVIEW or safer)
+    for (const item of report.checklist) {
+      expect(item.status).not.toBe("PASS");
+    }
+
+    // 17. Recommended action uses safer quotation-review wording (not "Proceed with quote")
+    expect(report.recommendedAction.action).not.toContain("Proceed with quote");
+    expect(report.recommendedAction.action).toContain("quotation review");
   });
 
   it("handles zero outputs gracefully (no crash)", () => {
