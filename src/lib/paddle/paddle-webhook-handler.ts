@@ -296,18 +296,40 @@ async function fulfillAtomically(
         );
       }
 
-      // 10. Baris PRO key pack purchase — credit keys
+      // 10. Baris PRO key pack purchase — route to credits/balance (single source of truth)
+      // Previously wrote to top-level barisProKeys — that split caused the P0 entitlement bug
+      // where execute (reading barisProKeys) didn't see purchases that went to credits/balance.
       if (intent === "BARIS_PRO_PURCHASE" && (params.barisKeyQuantity || 0) > 0) {
+        const creditBalanceRef = userRef.collection(CREDIT_BALANCE_COLLECTION).doc(CREDIT_BALANCE_DOC);
         txn.set(
-          userRef,
+          creditBalanceRef,
           {
-            barisProKeys: adminIncrement(params.barisKeyQuantity!),
+            amount: adminIncrement(params.barisKeyQuantity!),
             lastPaddleTransactionId: transactionId,
             lastPaddleEventId: eventId,
             updatedAt: new Date().toISOString(),
           },
           { merge: true },
         );
+        txn.set(
+          userRef,
+          {
+            lastPaddleTransactionId: transactionId,
+            lastPaddleEventId: eventId,
+            updatedAt: new Date().toISOString(),
+          },
+          { merge: true },
+        );
+        // Also record in creditTransactions collection for audit trail
+        const creditTxnRef = db.collection(CREDIT_TRANSACTIONS_COLLECTION).doc();
+        txn.create(creditTxnRef, {
+          userId,
+          type: "purchase",
+          credits: params.barisKeyQuantity!,
+          paddleTransactionId: transactionId,
+          paddleEventId: eventId,
+          timestamp: new Date().toISOString(),
+        });
       }
 
       // 11. Create/update paddle_customers mapping

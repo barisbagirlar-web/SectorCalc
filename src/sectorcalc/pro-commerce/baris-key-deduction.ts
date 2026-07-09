@@ -56,23 +56,20 @@ export async function deductBarisProKeyAtomic(
         }
       }
 
-      const userRef = db.collection("users").doc(userId);
-      const userSnap = await txn.get(userRef);
-      if (!userSnap.exists) {
-        return { ok: false, reason: "USER_NOT_FOUND" };
-      }
-
-      const data = userSnap.data();
-      const currentKeys = typeof data?.barisProKeys === "number" ? data.barisProKeys : 0;
-      if (currentKeys < 1) {
+      // Read credits/balance (single source of truth — same path as entitlement guard + session-create)
+      const balanceRef = db.collection("users").doc(userId).collection("credits").doc("balance");
+      const balanceSnap = await txn.get(balanceRef);
+      const currentAmount = balanceSnap.exists && typeof balanceSnap.data()?.amount === "number"
+        ? balanceSnap.data()!.amount
+        : 0;
+      if (currentAmount < 1) {
         return { ok: false, reason: "INSUFFICIENT_KEYS" };
       }
 
-      txn.update(userRef, {
-        barisProKeys: FieldValue.increment(-1),
-        lastKeyDeduction: { toolKey, requestId, deductedAt: new Date().toISOString() },
+      txn.set(balanceRef, {
+        amount: currentAmount - 1,
         updatedAt: new Date().toISOString(),
-      });
+      }, { merge: true });
 
       txn.set(ledgerRef, {
         requestId,
@@ -140,12 +137,12 @@ export async function refundBarisProKey(
         return;
       }
 
-      const userRef = db.collection("users").doc(userId);
-      txn.update(userRef, {
-        barisProKeys: FieldValue.increment(1),
-        lastKeyRefund: { toolKey, requestId, refundedAt: new Date().toISOString() },
+      // Refund 1 credit to credits/balance (single source of truth — same path as deduction)
+      const balanceRef = db.collection("users").doc(userId).collection("credits").doc("balance");
+      txn.set(balanceRef, {
+        amount: FieldValue.increment(1),
         updatedAt: new Date().toISOString(),
-      });
+      }, { merge: true });
 
       txn.update(ledgerRef, {
         status: "REFUNDED",

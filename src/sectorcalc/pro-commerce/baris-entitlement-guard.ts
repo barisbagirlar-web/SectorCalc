@@ -44,7 +44,8 @@ export async function checkBarisExecutionEntitlement(ctx: EntitlementContext): P
     }
   }
 
-  // Production: check barisProKeys from Firestore
+  // Production: check credits/balance (single source of truth — identical path to session-create)
+  // NOTE: barisProKeys top-level field is LEGACY; only credits/balance is written by Paddle webhook.
   if (!ctx.userId) {
     return { ok: false, reason: "PRO_ENTITLEMENT_REQUIRED" };
   }
@@ -55,15 +56,13 @@ export async function checkBarisExecutionEntitlement(ctx: EntitlementContext): P
       return { ok: false, reason: "BLOCKED_PAYMENT_INFRASTRUCTURE_NOT_BOUND" };
     }
 
-    const userSnap = await db.collection("users").doc(ctx.userId).get();
-    if (!userSnap.exists) {
-      return { ok: false, reason: "PRO_ENTITLEMENT_REQUIRED" };
-    }
+    const balanceRef = db.collection("users").doc(ctx.userId).collection("credits").doc("balance");
+    const snap = await balanceRef.get();
+    const amount = snap.exists && typeof snap.data()?.amount === "number"
+      ? snap.data()!.amount
+      : 0;
 
-    const userData = userSnap.data();
-    const keys = typeof userData?.barisProKeys === "number" ? userData.barisProKeys : 0;
-
-    if (keys < 1) {
+    if (amount < 1) {
       return { ok: false, reason: "PRO_ENTITLEMENT_REQUIRED" };
     }
 
