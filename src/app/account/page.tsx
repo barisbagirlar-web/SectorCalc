@@ -26,9 +26,16 @@ async function getAccountType(userId: string): Promise<string> {
     const snap = await db.collection("users").doc(userId).get();
     if (!snap.exists) return "Standard User";
     const sub = normalizeUserSubscription((snap.data() ?? {}).subscription);
-    const plan = sub?.plan;
-    if (plan === "pro" || plan === "pro_annual") return "Pro User";
-    if (plan === "team") return "Team User";
+    // Active subscription is the primary entitlement signal,
+    // regardless of whether plan field got eroded by webhook renewal.
+    if (!sub) return "Free User";
+    if (hasActiveSubscription(sub)) {
+      // Plan differentiates Team vs Pro; fallback to Pro for active subs
+      return sub.plan === "team" ? "Team User" : "Pro User";
+    }
+    // Inactive/canceled subscription: use plan as secondary signal
+    if (sub.plan === "pro" || sub.plan === "pro_annual") return "Pro User (Inactive)";
+    if (sub.plan === "team") return "Team User (Inactive)";
     return "Free User";
   } catch {
     return "Standard User";

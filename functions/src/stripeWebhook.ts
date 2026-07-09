@@ -79,6 +79,28 @@ function resolveStripePriceId(subscription: Stripe.Subscription): string | undef
   return firstItem.price.id;
 }
 
+/** Read existing plan from Firestore to carry forward on webhook renewals. */
+async function getExistingPlan(uid: string): Promise<CheckoutPlan | undefined> {
+  try {
+    const db = admin.firestore();
+    const snap = await db.collection(USERS_COLLECTION).doc(uid).get();
+    if (!snap.exists) return undefined;
+    const sub = (snap.data() as Record<string, unknown>)?.subscription as Record<string, unknown> | undefined;
+    const rawPlan = typeof sub?.plan === "string" ? sub.plan : undefined;
+    // Validate against known CheckoutPlan values
+    if (
+      rawPlan === CHECKOUT_PLAN_PRO ||
+      rawPlan === CHECKOUT_PLAN_PRO_ANNUAL ||
+      rawPlan === CHECKOUT_PLAN_TEAM
+    ) {
+      return rawPlan;
+    }
+    return undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 function subscriptionPayloadFromStripe(
   subscription: Stripe.Subscription,
   customerId?: string,
@@ -292,7 +314,15 @@ export async function handleStripeWebhook(
         if (!uid) {
           break;
         }
-        await writeUserSubscription(uid, undefined, subscriptionPayloadFromStripe(subscription));
+        // Carry-forward: if Stripe metadata lacks plan, preserve existing Firestore plan
+        // to prevent plan erosion on renewal (checkout.session.completed sets plan,
+        // but customer.subscription.updated may not have metadata.plan).
+        const existingPlan = await getExistingPlan(uid);
+        await writeUserSubscription(
+          uid,
+          undefined,
+          subscriptionPayloadFromStripe(subscription, undefined, existingPlan)
+        );
         await updateSubscriptionEntitlementStatus(uid, subscription);
         break;
       }
@@ -302,7 +332,8 @@ export async function handleStripeWebhook(
         if (!uid) {
           break;
         }
-        const payload = subscriptionPayloadFromStripe(subscription);
+        const existingPlan = await getExistingPlan(uid);
+        const payload = subscriptionPayloadFromStripe(subscription, undefined, existingPlan);
         payload.status = "canceled";
         await writeUserSubscription(uid, undefined, payload);
         await updateSubscriptionEntitlementStatus(uid, subscription);
