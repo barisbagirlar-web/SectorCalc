@@ -4,7 +4,7 @@
 // Client component that wraps UniversalIndustrialDecisionForm with credit session management.
 // Handles session creation API calls and passes session state to the form.
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { UniversalIndustrialDecisionForm } from "./UniversalIndustrialDecisionForm";
 import type { UniversalIndustrialDecisionFormProps } from "./UniversalIndustrialDecisionForm";
 import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
@@ -12,7 +12,7 @@ import { isProBypassEmail } from "@/lib/features/billing/subscription";
 
 const BYPASS_SESSION_ID = "bypass-unlimited";
 
-type ProToolSessionWrapperProps = Omit<UniversalIndustrialDecisionFormProps, "onRequestCreditSession" | "usageSessionId" | "remainingRuns" | "creditSessionLoading"> & {
+type ProToolSessionWrapperProps = Omit<UniversalIndustrialDecisionFormProps, "onRequestCreditSession" | "usageSessionId" | "remainingRuns" | "creditSessionLoading" | "executeAuthToken"> & {
   toolKey: string;
   /** Access tier: "PRO" (default) requires credits; "FREE" skips credit gating. */
   accessTier?: "FREE" | "PRO";
@@ -22,7 +22,17 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
   const [usageSessionId, setUsageSessionId] = useState<string | null>(null);
   const [remainingRuns, setRemainingRuns] = useState<number | null>(null);
   const [creditSessionLoading, setCreditSessionLoading] = useState(false);
+  const [executeAuthToken, setExecuteAuthToken] = useState<string | null>(null);
   const { user } = useUserSubscription();
+  const tokenFetchedRef = useRef(false);
+
+  // Fetch Firebase ID token on mount for execute API authorization
+  useEffect(() => {
+    if (user && !tokenFetchedRef.current) {
+      tokenFetchedRef.current = true;
+      user.getIdToken(false).then(setExecuteAuthToken).catch(() => {});
+    }
+  }, [user]);
 
   // Owner bypass: auto-set unlimited session on mount so bypass users
   // never see "Use 1 credit" — they get instant access.
@@ -41,9 +51,6 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
 
     setCreditSessionLoading(true);
     try {
-      // Get Firebase Auth ID token directly from the user object
-      // fetch("/api/auth/session") with GET returned 405 (POST-only endpoint)
-      // so we use the client-side getIdToken() instead
       if (!user) {
         window.location.href = `/login?next=${encodeURIComponent(window.location.pathname)}`;
         return;
@@ -89,6 +96,7 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
       usageSessionId={usageSessionId}
       remainingRuns={remainingRuns}
       creditSessionLoading={creditSessionLoading}
+      executeAuthToken={executeAuthToken}
       onRequestCreditSession={handleRequestCreditSession}
     />
   );

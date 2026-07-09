@@ -771,61 +771,41 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       // This is a Baris tool. Check entitlement before execution.
       const product = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey!));
       if (product) {
-        // ── Session-based auth: derive userId from session doc ───────
-        // Priority 0: if usageSessionId is present and not bypass-unlimited,
-        // the session creation already verified Firebase Auth + credit balance.
-        // No need for Authorization header or entitlement re-check.
+        // ── Firebase Auth verification ────────────────────────────────
+        // Priority 1: Verify Firebase Auth ID token from Authorization header.
+        // Priority 2: Fall back to usageSessionId "bypass-unlimited" for admin bypass.
+        // Priority 3: x-user-email for admin testing only.
         let verifiedUserId: string | null = null;
         let verifiedEmail: string | null = null;
-        let authMethod: "token" | "bypass" | "session" | "none" = "none";
+        let authMethod: "token" | "bypass" | "none" = "none";
 
-        const rawUsageSessionId = (rawBody as Record<string, unknown>).usageSessionId;
-        if (rawUsageSessionId && rawUsageSessionId !== "bypass-unlimited") {
-          const resolved = await resolveUserIdFromSession(String(rawUsageSessionId));
-          if (resolved) {
-            verifiedUserId = resolved.userId;
-            authMethod = "session";
+        const authHeader = request.headers.get("authorization");
+        if (authHeader?.startsWith("Bearer ")) {
+          const idToken = authHeader.slice(7);
+          try {
+            const auth = getAdminAuth();
+            if (auth) {
+              const decoded = await auth.verifyIdToken(idToken);
+              verifiedUserId = decoded.uid;
+              verifiedEmail = decoded.email ?? null;
+              authMethod = "token";
+            }
+          } catch {
+            // Token verification failed — fall through to bypass check
           }
         }
 
-        // ── Firebase Auth ID Token verification (fallback) ───────────
-        // Only runs if no session-based auth was resolved above.
+        // Owner bypass: usageSessionId "bypass-unlimited" or x-user-email header
         if (authMethod === "none") {
-          // Priority 1: Verify Firebase Auth ID token from Authorization header.
-          // Priority 2: Fall back to x-user-email for admin owner bypass only.
-          // x-user-email is NEVER trusted for non-owner users.
-          const authHeader = request.headers.get("authorization");
-          if (authHeader?.startsWith("Bearer ")) {
-            const idToken = authHeader.slice(7);
-            try {
-              const auth = getAdminAuth();
-              if (auth) {
-                const decoded = await auth.verifyIdToken(idToken);
-                verifiedUserId = decoded.uid;
-                verifiedEmail = decoded.email ?? null;
-                authMethod = "token";
-              }
-            } catch {
-              // Token verification failed — fall through to bypass check
-            }
-          }
-
-          // Owner bypass: x-user-email header only for admin testing
-          if (authMethod === "none") {
+          const rawUsageSessionId = (rawBody as Record<string, unknown>).usageSessionId;
+          if (rawUsageSessionId === "bypass-unlimited") {
+            verifiedEmail = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
+            authMethod = "bypass";
+          } else {
             const headerEmail = request.headers.get("x-user-email") ?? null;
             const ownerBypass = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
             if (headerEmail === ownerBypass || process.env.NODE_ENV === "development") {
               verifiedEmail = headerEmail;
-              authMethod = "bypass";
-            }
-          }
-
-          // Owner bypass check 2: usageSessionId "bypass-unlimited" set by
-          // ProToolSessionWrapper for owner/admin users (isProBypassEmail on client).
-          if (authMethod === "none") {
-            const bypassSessionId = (rawBody as Record<string, unknown>).usageSessionId;
-            if (bypassSessionId === "bypass-unlimited") {
-              verifiedEmail = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
               authMethod = "bypass";
             }
           }
@@ -835,9 +815,25 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         userId = verifiedUserId;
         userEmail = verifiedEmail;
 
-        // Session-based entitlement: session creation already verified credit balance.
-        // Skip the re-check to avoid redundant Firestore reads.
-        if (authMethod !== "session") {
+        // Session-based path: skip entitlement check + key deduction.
+        // Session creation already verified Firebase Auth + credit balance.
+        // The client now sends Authorization header, but we don't deduct again.
+        const rawUsageSessionId2 = (rawBody as Record<string, unknown>).usageSessionId;
+        const hasRealSession = rawUsageSessionId2 && rawUsageSessionId2 !== "bypass-unlimited";
+        if (hasRealSession) {
+          // Still verify token so we have userId for session validation + run decrement
+          if (authMethod !== "token" || !verifiedUserId) {
+            const errorResponse = buildFullBlockedResponse(
+              "UNAUTHORIZED",
+              "Authentication required for session-based execution.",
+            );
+            const { response: safeResponse } = redactPublicResponse(errorResponse);
+            return NextResponse.json(safeResponse, { status: 401 });
+          }
+          // Skip entitlement check (already done in session creation)
+          // Skip key deduction (already deducted in session creation)
+        } else if (authMethod !== "bypass") {
+          // Direct execution (no session): full entitlement check
           const entitlement = await checkBarisExecutionEntitlement({
             toolKey,
             userId,
@@ -1084,23 +1080,4 @@ export function buildFullBlockedResponse(pipelineState: string, reason: string):
     }),
     redaction_status: "PUBLIC_SAFE_REDACTED",
   };
-}
-
-/** Resolve userId from a usage session document via collection group query. */
-async function resolveUserIdFromSession(sessionId: string): Promise<{ userId: string } | null> {
-  const db = getAdminFirestore();
-  if (!db) return null;
-  try {
-    const snap = await db.collectionGroup("tool_usage_sessions")
-      .where("sessionId", "==", sessionId)
-      .where("status", "==", "ACTIVE")
-      .limit(1)
-      .get();
-    if (snap.empty) return null;
-    const parts = snap.docs[0].ref.path.split("/");
-    // Path: users/{userId}/tool_usage_sessions/{sessionId}
-    return { userId: parts[1] };
-  } catch {
-    return null;
-  }
 }
