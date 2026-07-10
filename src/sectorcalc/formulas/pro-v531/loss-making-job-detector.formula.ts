@@ -112,15 +112,15 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   }
 
   // ── Decision engine ────────────────────────────────────────────
-  // BLOCKED: revenue <= 0, fully_loaded > revenue, contribution < 0, invalid inputs
-  // REVIEW: margin > 0 but below target, or structurally risky
-  // GOOD: margin >= target, no blockers
+  // 0 = GOOD: margin >= target, no blockers
+  // 1 = REVIEW: margin > 0 but below target
+  // 2 = BLOCKED: revenue <= 0, fully_loaded > revenue, contribution < 0, invalid inputs
 
   let decision: number;
   if (hasInvalidInput || revenue <= 0 || fullyLoadedCosts > revenue || contributionProfit < 0) {
-    decision = 0; // BLOCKED
+    decision = 2; // BLOCKED
   } else if (revenueMarginPct >= targetMarginPct) {
-    decision = 2; // GOOD
+    decision = 0; // GOOD
   } else {
     decision = 1; // REVIEW
   }

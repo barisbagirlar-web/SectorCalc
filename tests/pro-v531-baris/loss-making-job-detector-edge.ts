@@ -63,7 +63,7 @@ console.log("\nA. PROFITABLE JOB (target 30%, margin 42.75%)");
 const profInputs = buildInputs();
 const profResult = run();
 const prof = profResult.outputs;
-assert(prof.out_final_decision_state === 2, "state = GOOD (2)");
+assert(prof.out_final_decision_state === 0, "state = GOOD (0)");
 assert(prof.out_operating_profit > 0, "operating profit positive");
 assert(prof.out_revenue_margin_percent > 30, "margin exceeds target 30%");
 assert(prof.out_annualized_money_at_risk === 0, "no annual risk");
@@ -117,29 +117,29 @@ const lossInputs = {
 };
 const lossResult = run(lossInputs);
 const loss = lossResult.outputs;
-assert(loss.out_final_decision_state === 0, "state = BLOCKED (0)");
+assert(loss.out_final_decision_state === 2, "state = BLOCKED (2)");
 assert(loss.out_operating_profit < 0, "operating profit negative");
 assert(loss.out_annualized_money_at_risk > 0, "annual risk > 0");
 allFinite("C", lossInputs);
 
 // ── D. ZERO QUANTITY ───────────────────────────────────────────
 console.log("\nD. ZERO QUANTITY");
-assert(run({ n_batch_quantity: 0 }).outputs.out_final_decision_state === 0, "quantity=0 → BLOCKED");
+assert(run({ n_batch_quantity: 0 }).outputs.out_final_decision_state === 2, "quantity=0 → BLOCKED");
 allFinite("D quantity=0", { n_batch_quantity: 0 });
 
 // ── E. ZERO REVENUE ────────────────────────────────────────────
 console.log("\nE. ZERO REVENUE");
-assert(run({ n_selling_price_per_unit: 0 }).outputs.out_final_decision_state === 0, "revenue=0 → BLOCKED");
+assert(run({ n_selling_price_per_unit: 0 }).outputs.out_final_decision_state === 2, "revenue=0 → BLOCKED");
 allFinite("E revenue=0", { n_selling_price_per_unit: 0 });
 
 // ── F. MARGIN >= 100% ─────────────────────────────────────────
 console.log("\nF. MARGIN >= 100%");
-assert(run({ n_target_revenue_margin_percent: 100 }).outputs.out_final_decision_state === 0, "margin=100 → BLOCKED");
+assert(run({ n_target_revenue_margin_percent: 100 }).outputs.out_final_decision_state === 2, "margin=100 → BLOCKED");
 allFinite("F margin=100", { n_target_revenue_margin_percent: 100 });
 
 // ── G. MARGIN ABOVE TARGET ──────────────────────────────────────
 console.log("\nG. PRICE MEETING TARGET (margin > target)");
-assert(prof.out_final_decision_state === 2, "profitable job state = GOOD");
+assert(prof.out_final_decision_state === 0, "profitable job state = GOOD");
 
 // ── H. HIGH SCRAP ──────────────────────────────────────────────
 console.log("\nH. HIGH SCRAP (30%)");
@@ -198,8 +198,8 @@ assert(diff <= 0.05, `component sum matches fully loaded (diff=${diff.toFixed(4)
 
 // ── M. NEGATIVE INPUTS → BLOCKED ──────────────────────────────
 console.log("\nM. NEGATIVE INPUTS");
-assert(run({ n_batch_quantity: -5 }).outputs.out_final_decision_state === 0, "neg quantity → BLOCKED");
-assert(run({ n_selling_price_per_unit: -10 }).outputs.out_final_decision_state === 0, "neg price → BLOCKED");
+assert(run({ n_batch_quantity: -5 }).outputs.out_final_decision_state === 2, "neg quantity → BLOCKED");
+assert(run({ n_selling_price_per_unit: -10 }).outputs.out_final_decision_state === 2, "neg price → BLOCKED");
 allFinite("M neg inputs", { n_batch_quantity: -5, n_selling_price_per_unit: -10 });
 
 // ── N. PRICE BELOW VARIABLE COST ───────────────────────────────
@@ -207,7 +207,7 @@ console.log("\nN. PRICE BELOW VARIABLE COST");
 const belowVar = buildInputs({ n_selling_price_per_unit: 30 });
 // Contribution = revenue - variable costs would be negative
 const belowResult = run({ n_selling_price_per_unit: 30 });
-assert(belowResult.outputs.out_final_decision_state === 0, "price below variable cost → BLOCKED");
+assert(belowResult.outputs.out_final_decision_state === 2, "price below variable cost → BLOCKED");
 allFinite("N", { n_selling_price_per_unit: 30 });
 
 // ── O. PRIMARY LOSS DRIVER ──────────────────────────────────────

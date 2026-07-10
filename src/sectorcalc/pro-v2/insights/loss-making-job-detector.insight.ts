@@ -86,7 +86,7 @@ export function buildLossDetectorReport(params: {
 
   // ── Decision State ─────────────────────────────────────────────────
   let decisionState: DecisionState;
-  if (decisionScore === 2) {
+  if (decisionScore === 0) {
     decisionState = { state: "PROFITABLE", label: "Profitable", summary: `Revenue margin ${pct(marginPct)} meets or exceeds target ${pct(targetPct)}. Job is commercially viable.` };
   } else if (decisionScore === 1) {
     decisionState = { state: "AT_RISK", label: "At Risk — Below Target", summary: `Margin ${pct(marginPct)} is below target ${pct(targetPct)}. Review pricing structure or cost base.` };
