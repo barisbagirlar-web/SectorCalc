@@ -282,7 +282,7 @@ const optionalScenarioGroup: ProFieldGroup = {
       type: "number", unitFamily: "factor", defaultUnit: "units",
       allowedUnits: [
         { unit: "units", label: "units" },
-        { unit: "thousand", label: "thousand" },
+        { unit: "thousand", label: "1,000 units" },
       ],
       required: false, placeholder: "e.g. 100000",
       helpText: "Expected annual production volume for a representative part family on this machine",
@@ -317,7 +317,7 @@ const optionalScenarioGroup: ProFieldGroup = {
       type: "number", unitFamily: "factor", defaultUnit: "units",
       allowedUnits: [
         { unit: "units", label: "units" },
-        { unit: "thousand", label: "thousand" },
+        { unit: "thousand", label: "1,000 units" },
       ],
       required: false, placeholder: "e.g. 500",
       helpText: "Average number of units per production batch",

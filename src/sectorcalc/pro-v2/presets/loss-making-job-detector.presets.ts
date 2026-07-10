@@ -11,7 +11,7 @@ export const LOSS_DETECTOR_PRESETS: ProPreset[] = [
       target_margin: "25", batch_quantity: "100", annual_volume: "5000",
     },
     units: {
-      machine_rate: "USD", material_cost: "USD", labor_rate: "USD/h",
+      machine_rate: "USD/h", material_cost: "USD", labor_rate: "USD/h",
       overhead_rate: "USD", defect_or_loss_cost: "USD",
       target_margin: "%", batch_quantity: "units", annual_volume: "units",
     },
@@ -24,7 +24,7 @@ export const LOSS_DETECTOR_PRESETS: ProPreset[] = [
       target_margin: "20", batch_quantity: "50", annual_volume: "2000",
     },
     units: {
-      machine_rate: "USD", material_cost: "USD", labor_rate: "USD/h",
+      machine_rate: "USD/h", material_cost: "USD", labor_rate: "USD/h",
       overhead_rate: "USD", defect_or_loss_cost: "USD",
       target_margin: "%", batch_quantity: "units", annual_volume: "units",
     },

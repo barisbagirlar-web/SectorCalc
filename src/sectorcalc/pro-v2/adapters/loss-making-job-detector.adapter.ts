@@ -19,11 +19,31 @@ const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number 
 
 export const lossDetectorBuildExecutePayload: ProExecutePayloadAdapter = (fieldState, hiddenValues) => {
   const raw_inputs: Record<string, number> = {};
+
+  function convertDisplayToEngine(formId: string, value: number, unit: string): number {
+    switch (formId) {
+      case "machine_rate":
+        // Engine expects per-hour. USD/min → *60
+        if (unit === "USD/min" || unit === "EUR/min" || unit === "GBP/min") return value * 60;
+        return value; // USD/h, EUR/h, GBP/h — already per-hour
+      case "batch_quantity":
+        if (unit === "hundred") return value * 100;
+        if (unit === "thousand") return value * 1000;
+        return value;
+      case "annual_volume":
+        if (unit === "thousand") return value * 1000;
+        return value;
+      default:
+        return value;
+    }
+  }
   for (const [formId, schemaId] of Object.entries(FORM_TO_SCHEMA_INPUT)) {
     const entry = fieldState[formId];
     if (entry && entry.value !== "" && entry.value !== undefined) {
       const num = parseFloat(entry.value);
-      if (Number.isFinite(num)) raw_inputs[schemaId] = num;
+      if (Number.isFinite(num)) {
+        raw_inputs[schemaId] = convertDisplayToEngine(formId, num, entry.unit);
+      }
     }
   }
   for (const [formId, cfg] of Object.entries(HIDDEN_TO_SCHEMA)) {

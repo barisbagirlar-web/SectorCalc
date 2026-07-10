@@ -25,11 +25,38 @@ const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
 
 export const quoteBuilderBuildExecutePayload: ProExecutePayloadAdapter = (fieldState, hiddenValues) => {
   const raw_inputs: Record<string, number> = {};
+
+  function convertDisplayToEngine(formId: string, value: number, unit: string): number {
+    switch (formId) {
+      case "machine_rate_per_hour":
+        // Engine expects per-hour. USD/min → *60
+        if (unit === "USD/min" || unit === "EUR/min" || unit === "GBP/min" || unit === "TRY/min") return value * 60;
+        return value; // USD/h, EUR/h, GBP/h, TRY/h — already per-hour
+      case "batch_quantity":
+        if (unit === "hundred") return value * 100;
+        if (unit === "thousand") return value * 1000;
+        return value;
+      case "annual_volume_units":
+        if (unit === "hundred") return value * 100;
+        if (unit === "thousand") return value * 1000;
+        return value;
+      case "scrap_rework_percent":
+      case "contingency_percent":
+      case "target_revenue_margin_percent":
+        if (unit === "factor 0-1" || unit === "factor") return value * 100;
+        return value;
+      default:
+        return value;
+    }
+  }
+
   for (const [formId, schemaId] of Object.entries(FORM_TO_SCHEMA_INPUT)) {
     const entry = fieldState[formId];
     if (entry && entry.value !== "" && entry.value !== undefined) {
       const num = parseFloat(entry.value);
-      if (Number.isFinite(num)) raw_inputs[schemaId] = num;
+      if (Number.isFinite(num)) {
+        raw_inputs[schemaId] = convertDisplayToEngine(formId, num, entry.unit);
+      }
     }
   }
   return { raw_inputs, selected_units: {} };

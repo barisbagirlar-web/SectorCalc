@@ -8,8 +8,8 @@ const jobParamsGroup: ProFieldGroup = {
   fields: [
     {
       id: "machine_rate", label: "Machine Rate per Hour", symbol: "C_machine",
-      type: "number", unitFamily: "currency", defaultUnit: "USD",
-      allowedUnits: [{ unit: "USD", label: "USD" }, { unit: "EUR", label: "EUR" }, { unit: "GBP", label: "GBP" }],
+      type: "number", unitFamily: "shop_rate", defaultUnit: "USD/h",
+      allowedUnits: [{ unit: "USD/h", label: "USD/h" }, { unit: "USD/min", label: "USD/min" }, { unit: "EUR/h", label: "EUR/h" }, { unit: "GBP/h", label: "GBP/h" }],
       required: true, placeholder: "e.g. 85", helpText: "Machine rate per hour", min: 0, step: 1,
     },
     {
@@ -52,13 +52,13 @@ const pricingGroup: ProFieldGroup = {
     {
       id: "batch_quantity", label: "Batch Quantity", symbol: "Q_batch",
       type: "number", unitFamily: "factor", defaultUnit: "units",
-      allowedUnits: [{ unit: "units", label: "units" }, { unit: "hundred", label: "hundred" }],
+      allowedUnits: [{ unit: "units", label: "units" }, { unit: "hundred", label: "100 units" }],
       required: true, placeholder: "e.g. 100", helpText: "Quantity in batch", min: 0, step: 1,
     },
     {
       id: "annual_volume", label: "Annual Volume", symbol: "N",
       type: "number", unitFamily: "factor", defaultUnit: "units",
-      allowedUnits: [{ unit: "units", label: "units" }, { unit: "thousand", label: "thousand" }],
+      allowedUnits: [{ unit: "units", label: "units" }, { unit: "thousand", label: "1,000 units" }],
       required: true, placeholder: "e.g. 5000", helpText: "Annual production volume", min: 0, step: 1,
     },
   ],

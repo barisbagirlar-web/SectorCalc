@@ -52,7 +52,7 @@ const stressParamsGroup: ProFieldGroup = {
     {
       id: "annual_volume", label: "Annual Volume", symbol: "N",
       type: "number", unitFamily: "factor", defaultUnit: "units",
-      allowedUnits: [{ unit: "units", label: "units" }, { unit: "thousand", label: "thousand" }],
+      allowedUnits: [{ unit: "units", label: "units" }, { unit: "thousand", label: "1,000 units" }],
       required: true, placeholder: "e.g. 10000", helpText: "Expected annual volume", min: 0, step: 1,
     },
     {

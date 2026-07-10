@@ -11,7 +11,7 @@ const orderGroup: ProFieldGroup = {
     {
       id: "batch_quantity", label: "Batch Quantity", symbol: "Q_batch",
       type: "number", unitFamily: "factor", defaultUnit: "units",
-      allowedUnits: [{ unit: "units", label: "units" }, { unit: "hundred", label: "hundred" }],
+      allowedUnits: [{ unit: "units", label: "units" }, { unit: "hundred", label: "100 units" }],
       required: true, placeholder: "e.g. 500",
       helpText: "Number of units in this production batch",
       min: 1, max: 10000000, step: 1,
@@ -35,7 +35,7 @@ const orderGroup: ProFieldGroup = {
     {
       id: "annual_volume_units", label: "Annual Volume", symbol: "V_ann",
       type: "number", unitFamily: "factor", defaultUnit: "units",
-      allowedUnits: [{ unit: "units", label: "units" }, { unit: "thousand", label: "thousand" }],
+      allowedUnits: [{ unit: "units", label: "units" }, { unit: "thousand", label: "1,000 units" }],
       required: true, placeholder: "e.g. 100000",
       helpText: "Expected annual production volume for this product family",
       min: 1, max: 100000000, step: 1,
@@ -68,10 +68,11 @@ const machineLaborGroup: ProFieldGroup = {
   fields: [
     {
       id: "machine_rate_per_hour", label: "Machine Hourly Rate", symbol: "R_m",
-      type: "number", unitFamily: "currency", defaultUnit: "USD",
+      type: "number", unitFamily: "shop_rate", defaultUnit: "USD/h",
       allowedUnits: [
-        { unit: "USD", label: "USD" }, { unit: "EUR", label: "EUR" },
-        { unit: "GBP", label: "GBP" }, { unit: "TRY", label: "TRY" },
+        { unit: "USD/h", label: "USD/h" }, { unit: "USD/min", label: "USD/min" },
+        { unit: "EUR/h", label: "EUR/h" }, { unit: "GBP/h", label: "GBP/h" },
+        { unit: "TRY/h", label: "TRY/h" },
       ],
       required: true, placeholder: "e.g. 85",
       helpText: "Fully loaded machine hourly rate including depreciation, energy, and maintenance",
