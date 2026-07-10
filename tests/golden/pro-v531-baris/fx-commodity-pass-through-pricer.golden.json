@@ -1,19 +1,117 @@
 {
-  "tool_key": "fx-commodity-pass-through-pricer",
-  "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": { "base_price": 1000, "fx_rate_spot": 30, "fx_rate_budget": 28 },
-  "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 1000,
-    "out_money_at_risk": 0,
-    "out_final_decision_state": 0
+  "meta": {
+    "description": "FX Commodity Pass-Through Pricer — 3 Golden Fixtures: Within Deadband, Exceeds Deadband, Severe Exposure",
+    "schema_version": "5.3.1-pro-schema.1",
+    "formula_version": "5.3.1-pro-baris.1"
   },
-  "expected_hashes": {
-    "output_hash": "oh-b2-fx-",
-    "proof_pack_hash": "pph-b2-fx-",
-    "audit_seal_stable_hash": "ash-b2-fx-"
-  },
-  "expected_decision_status": "OK",
-  "expected_warnings": []
+  "fixtures": [
+    {
+      "fixture_name": "Within Deadband (GOOD)",
+      "raw_inputs": {
+        "n_base_price": 100,
+        "n_fx_rate_spot": 1.08,
+        "n_fx_rate_budget": 1.05,
+        "n_commodity_index_current": 170,
+        "n_commodity_index_budget": 165,
+        "n_material_cost_pct": 40,
+        "n_fx_hedge_pct": 80,
+        "n_commodity_hedge_pct": 70,
+        "n_annual_volume": 10000,
+        "n_target_margin_percent": 25
+      },
+      "expected_outputs": {
+        "out_evidence_completeness": 0.9,
+        "out_normalized_demand": 10000,
+        "out_reference_deviation": 0.0286,
+        "out_derating_factor": 0.9941,
+        "out_demand_metric": 0,
+        "out_capacity_metric": 59.2208,
+        "out_utilization_margin": 1.0059,
+        "out_expanded_uncertainty": 0.5922,
+        "out_threshold_crossing": 0,
+        "out_sensitivity_driver": 2,
+        "out_fmea_trigger": 0,
+        "out_money_at_risk": 5922.0779,
+        "out_scenario_delta": 5922.0779,
+        "out_audit_hash_payload": 1165,
+        "out_final_decision_state": 0
+      },
+      "expected_decision_status": "REVIEW",
+      "expected_warnings": [
+        "Missing or non-finite input: n_source_confidence_ratio"
+      ]
+    },
+    {
+      "fixture_name": "Exceeds Deadband (REVIEW)",
+      "raw_inputs": {
+        "n_base_price": 100,
+        "n_fx_rate_spot": 1.1,
+        "n_fx_rate_budget": 1.05,
+        "n_commodity_index_current": 180,
+        "n_commodity_index_budget": 165,
+        "n_material_cost_pct": 40,
+        "n_fx_hedge_pct": 60,
+        "n_commodity_hedge_pct": 50,
+        "n_annual_volume": 5000,
+        "n_target_margin_percent": 20
+      },
+      "expected_outputs": {
+        "out_evidence_completeness": 0.9,
+        "out_normalized_demand": 5000,
+        "out_reference_deviation": 0.0476,
+        "out_derating_factor": 0.9742,
+        "out_demand_metric": 0,
+        "out_capacity_metric": 129.0043,
+        "out_utilization_margin": 1.0258,
+        "out_expanded_uncertainty": 2.5801,
+        "out_threshold_crossing": 0,
+        "out_sensitivity_driver": 2,
+        "out_fmea_trigger": 0,
+        "out_money_at_risk": 12900.4329,
+        "out_scenario_delta": 12900.4329,
+        "out_audit_hash_payload": 1384,
+        "out_final_decision_state": 0
+      },
+      "expected_decision_status": "REVIEW",
+      "expected_warnings": [
+        "Missing or non-finite input: n_source_confidence_ratio"
+      ]
+    },
+    {
+      "fixture_name": "Severe Exposure (BLOCKED)",
+      "raw_inputs": {
+        "n_base_price": 100,
+        "n_fx_rate_spot": 1.25,
+        "n_fx_rate_budget": 1.05,
+        "n_commodity_index_current": 220,
+        "n_commodity_index_budget": 150,
+        "n_material_cost_pct": 50,
+        "n_fx_hedge_pct": 30,
+        "n_commodity_hedge_pct": 20,
+        "n_annual_volume": 2000,
+        "n_target_margin_percent": 15
+      },
+      "expected_outputs": {
+        "out_evidence_completeness": 0.9,
+        "out_normalized_demand": 2000,
+        "out_reference_deviation": 0.1905,
+        "out_derating_factor": 0.7467,
+        "out_demand_metric": 0,
+        "out_capacity_metric": 506.6667,
+        "out_utilization_margin": 1.2533,
+        "out_expanded_uncertainty": 25.3333,
+        "out_threshold_crossing": 1,
+        "out_sensitivity_driver": 2,
+        "out_fmea_trigger": 7,
+        "out_money_at_risk": 50666.6667,
+        "out_scenario_delta": 50666.6667,
+        "out_audit_hash_payload": 3887,
+        "out_final_decision_state": 1
+      },
+      "expected_decision_status": "REVIEW",
+      "expected_warnings": [
+        "Missing or non-finite input: n_source_confidence_ratio"
+      ]
+    }
+  ]
 }

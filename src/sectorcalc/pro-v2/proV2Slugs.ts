@@ -4,7 +4,10 @@
 //
 // Wave activation:
 //   Wave 0 (gold): weld-procedure-cost-consumable-estimation-suite
-//   Wave 1 (cost+quotation): NOT YET ACTIVATED — machine-hourly-rate-proof-report is in testing
+//   Wave 1 (cost+quotation): machine-hourly-rate-proof-report and others
+//   Wave 2 (margin/pricing): sku ranker, forensics, etc.
+//   Wave 3 (operations/quality): downtime, OEE, scrap, SMED, outsource
+//   Wave 4 (capital/energy): NPV/IRR, buy/lease, motor, energy grant
 
 export const PRO_V2_SLUGS = new Set<string>([
   // Wave 0 — Golden PRO tool (live-verified)
@@ -16,6 +19,12 @@ export const PRO_V2_SLUGS = new Set<string>([
   // Wave 1.5 — Financial planning (ready)
   "break-even-survival-cash-calculator",
   "true-employee-cost-statement",
+  // Wave 2 — Margin & pricing analytics
+  "product-sku-margin-ranker",
+  "customer-sku-profitability-forensics",
+  "receivables-cost-payment-term-addendum",
+  "fx-commodity-pass-through-pricer",
+  "plant-wide-shop-rate-cost-structure-audit",
 ]);
 
 export function isProV2Slug(slug: string): boolean {

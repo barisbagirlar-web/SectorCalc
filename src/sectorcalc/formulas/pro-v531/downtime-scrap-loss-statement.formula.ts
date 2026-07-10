@@ -15,9 +15,29 @@ export interface CalculationResult {
 export const toolKey = "downtime-scrap-loss-statement";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+function isFiniteNumber(v: unknown): v is number {
+  return typeof v === "number" && Number.isFinite(v);
+}
+
+function get(inputs: Record<string, number>, key: string): number {
+  const v = inputs[key];
+  return isFiniteNumber(v) ? v : 0;
+}
+
+function round(v: number, d: number): number {
+  if (!isFiniteNumber(v)) return 0;
+  const f = Math.pow(10, d);
+  return Math.round(v * f) / f;
+}
+
+function safeDiv(n: number, d: number): number {
+  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
+  return n / d;
+}
+
+function clamp(v: number): number {
+  return Math.max(0, v);
+}
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
@@ -25,56 +45,132 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const warnings: string[] = [];
   const outputs: Record<string, number> = {};
 
-  const ph = get(inputs, "n_productive_hours");
-  const ah = get(inputs, "n_actual_hours");
-  const hr = get(inputs, "n_hourly_rate");
-  const sq = get(inputs, "n_scrap_quantity");
-  const uc = get(inputs, "n_unit_cost");
-  const rh = get(inputs, "n_rework_hours");
-  const rr = get(inputs, "n_rework_rate");
-  const mc = get(inputs, "n_material_cost");
-  const drp = get(inputs, "n_defect_rate_pct");
-  const conf = get(inputs, "n_source_confidence_ratio");
+  // --- Validate required inputs ---
+  const requiredKeys = [
+    "n_downtime_hours",
+    "n_hourly_contribution_rate",
+    "n_scrap_quantity",
+    "n_material_cost_per_unit",
+    "n_rework_hours",
+    "n_rework_labor_rate",
+    "n_disposal_inspection_cost",
+    "n_annual_event_frequency",
+  ];
 
-  if (!isFiniteNumber(inputs["n_productive_hours"])) warnings.push("Missing: n_productive_hours");
-  if (!isFiniteNumber(inputs["n_actual_hours"])) warnings.push("Missing: n_actual_hours");
-  if (!isFiniteNumber(inputs["n_hourly_rate"])) warnings.push("Missing: n_hourly_rate");
-
-  const downtime_hours = ph - ah;
-  const downtime_cost = downtime_hours * hr;
-  const scrap_material_loss = sq * uc;
-  const rework_loss = rh * rr;
-  const total_loss = downtime_cost + scrap_material_loss + rework_loss;
-  const defect_per_unit = sq > 0 ? scrap_material_loss / sq : 0;
-  const uptime_ratio = ph > 0 ? ah / ph : 0;
-  let pareto_driver: number;
-  if (downtime_cost > scrap_material_loss) {
-    pareto_driver = downtime_cost > rework_loss ? 0 : 2;
-  } else {
-    pareto_driver = scrap_material_loss > rework_loss ? 1 : 2;
+  let evidenceCount = 0;
+  for (const key of requiredKeys) {
+    if (!isFiniteNumber(inputs[key])) {
+      warnings.push("Missing or non-finite input: " + key);
+    } else {
+      evidenceCount++;
+    }
   }
 
-  let decision: number;
-  if (total_loss < mc * 0.05) decision = 0;       // OK
-  else if (total_loss < mc * 0.15) decision = 1;  // REVIEW
-  else decision = 2;                               // ESCALATE
+  // --- Extract and clamp inputs ---
+  const n_downtime_hours = clamp(get(inputs, "n_downtime_hours"));
+  const n_hourly_contribution_rate = clamp(get(inputs, "n_hourly_contribution_rate"));
+  const n_scrap_quantity = clamp(get(inputs, "n_scrap_quantity"));
+  const n_material_cost_per_unit = clamp(get(inputs, "n_material_cost_per_unit"));
+  const n_rework_hours = clamp(get(inputs, "n_rework_hours"));
+  const n_rework_labor_rate = clamp(get(inputs, "n_rework_labor_rate"));
+  const n_disposal_inspection_cost = clamp(get(inputs, "n_disposal_inspection_cost"));
+  const n_annual_event_frequency = Math.max(1, Math.round(clamp(get(inputs, "n_annual_event_frequency"))));
 
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(ph, 0);
-  outputs["out_reference_deviation"] = round(drp / 100, 4);
-  outputs["out_derating_factor"] = round(ph > 0 ? downtime_hours / ph : 0, 4);
-  outputs["out_demand_metric"] = round(downtime_cost, 2);
-  outputs["out_capacity_metric"] = round(total_loss, 2);
-  outputs["out_utilization_margin"] = round(uptime_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(total_loss * 0.1, 2);
-  outputs["out_threshold_crossing"] = decision > 0 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = pareto_driver;
-  outputs["out_fmea_trigger"] = decision > 0 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(total_loss, 2);
-  outputs["out_scenario_delta"] = round(Math.max(downtime_cost, scrap_material_loss, rework_loss) - Math.min(downtime_cost, scrap_material_loss, rework_loss), 2);
-  outputs["out_audit_hash_payload"] = 0;
+  // --- Core calculations ---
+  const downtime_hours = n_downtime_hours;
+  const lost_productive_hours = n_downtime_hours;
+  const lost_units = n_scrap_quantity; // scrapped units represent lost units from the event
+  const lost_contribution = n_downtime_hours * n_hourly_contribution_rate;
+  const labor_idle_cost = n_downtime_hours * n_rework_labor_rate;
+  const scrap_material_cost = n_scrap_quantity * n_material_cost_per_unit;
+  const rework_cost = n_rework_hours * n_rework_labor_rate;
+  const disposal_inspection_cost = n_disposal_inspection_cost;
+
+  const total_event_loss = lost_contribution + labor_idle_cost + scrap_material_cost + rework_cost + disposal_inspection_cost;
+  const annualized_loss = total_event_loss * n_annual_event_frequency;
+
+  // --- Primary loss driver ---
+  // 0=Contribution (lost production value), 1=Scrap (material waste), 2=Rework (rework labor)
+  let primary_loss_driver: number;
+  if (lost_contribution >= scrap_material_cost && lost_contribution >= rework_cost) {
+    primary_loss_driver = 0; // Contribution
+  } else if (scrap_material_cost >= rework_cost) {
+    primary_loss_driver = 1; // Scrap
+  } else {
+    primary_loss_driver = 2; // Rework
+  }
+
+  // --- Recovery priority ---
+  // 0=LOW (<$1K per event), 1=MEDIUM ($1K-$10K), 2=HIGH (>$10K)
+  let recovery_priority: number;
+  if (total_event_loss >= 10000) {
+    recovery_priority = 2; // HIGH
+  } else if (total_event_loss >= 1000) {
+    recovery_priority = 1; // MEDIUM
+  } else {
+    recovery_priority = 0; // LOW
+  }
+
+  // --- Decision state ---
+  // 0=GOOD, 1=REVIEW, 2=BLOCKED
+  let decision: number;
+  if (annualized_loss < 10000) {
+    decision = 0; // GOOD — manageable loss level
+  } else if (annualized_loss < 100000) {
+    decision = 1; // REVIEW — significant loss requiring attention
+  } else {
+    decision = 2; // BLOCKED — critical loss level requiring immediate action
+  }
+
+  // --- Outputs ---
+  outputs["out_downtime_hours"] = round(downtime_hours, 2);
+  outputs["out_lost_productive_hours"] = round(lost_productive_hours, 2);
+  outputs["out_lost_units"] = round(lost_units, 0);
+  outputs["out_lost_contribution"] = round(lost_contribution, 2);
+  outputs["out_labor_idle_cost"] = round(labor_idle_cost, 2);
+  outputs["out_scrap_material_cost"] = round(scrap_material_cost, 2);
+  outputs["out_rework_cost"] = round(rework_cost, 2);
+  outputs["out_disposal_inspection_cost"] = round(disposal_inspection_cost, 2);
+  outputs["out_total_event_loss"] = round(total_event_loss, 2);
+  outputs["out_annualized_loss"] = round(annualized_loss, 2);
+  outputs["out_primary_loss_driver"] = primary_loss_driver;
+  outputs["out_recovery_priority"] = recovery_priority;
   outputs["out_final_decision_state"] = decision;
 
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  // --- Sanity check ---
+  const allOutputKeys = [
+    "out_downtime_hours",
+    "out_lost_productive_hours",
+    "out_lost_units",
+    "out_lost_contribution",
+    "out_labor_idle_cost",
+    "out_scrap_material_cost",
+    "out_rework_cost",
+    "out_disposal_inspection_cost",
+    "out_total_event_loss",
+    "out_annualized_loss",
+    "out_primary_loss_driver",
+    "out_recovery_priority",
+    "out_final_decision_state",
+  ];
+
+  for (const key of allOutputKeys) {
+    if (!isFiniteNumber(outputs[key])) {
+      outputs[key] = 0;
+      warnings.push("Non-finite output corrected to zero: " + key);
+    }
+  }
+
+  // Derive status
+  let status: CalculationStatus = "OK";
+  if (warnings.length > 0) status = "REVIEW";
+  if (decision === 2) status = "BLOCKED";
+
+  return {
+    status,
+    outputs,
+    warnings,
+    outputKeys: allOutputKeys,
+    redaction_status: "PUBLIC_SAFE_REDACTED",
+  };
 }

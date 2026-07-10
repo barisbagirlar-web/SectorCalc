@@ -1,20 +1,105 @@
 {
-  "tool_key": "customer-sku-profitability-forensics",
-  "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": { "unit_price": 100, "unit_variable_cost": 60 },
-  "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_utilization_margin": 0.4,
-    "out_money_at_risk": 0,
-    "out_final_decision_state": 0
+  "meta": {
+    "description": "Customer SKU Profitability Forensics — 3 Golden Fixtures: Profitable, Below Target, Toxic",
+    "schema_version": "5.3.1-pro-schema.1",
+    "formula_version": "5.3.1-pro-baris.1"
   },
-  "expected_hashes": {
-    "output_hash": "oh-b2-cust-",
-    "proof_pack_hash": "pph-b2-cust-",
-    "audit_seal_stable_hash": "ash-b2-cust-"
-  },
-  "expected_decision_status": "OK",
-  "expected_warnings": []
+  "fixtures": [
+    {
+      "fixture_name": "Profitable SKU (GOOD)",
+      "raw_inputs": {
+        "n_unit_price": 100,
+        "n_unit_variable_cost": 50,
+        "n_annual_volume": 10000,
+        "n_logistics_cost_pct": 5,
+        "n_service_cost_pct": 3,
+        "n_return_rate_pct": 2,
+        "n_target_margin": 25,
+        "n_financing_cost_pct": 2
+      },
+      "expected_outputs": {
+        "out_evidence_completeness": 0,
+        "out_normalized_demand": 10000,
+        "out_reference_deviation": 1,
+        "out_derating_factor": 0.8,
+        "out_demand_metric": 40,
+        "out_capacity_metric": 400000,
+        "out_utilization_margin": 0.5,
+        "out_expanded_uncertainty": 4,
+        "out_threshold_crossing": 0,
+        "out_sensitivity_driver": 0,
+        "out_fmea_trigger": 0,
+        "out_money_at_risk": 0,
+        "out_scenario_delta": 50000,
+        "out_audit_hash_payload": 0,
+        "out_final_decision_state": 0
+      },
+      "expected_decision_status": "OK",
+      "expected_warnings": []
+    },
+    {
+      "fixture_name": "Below Target SKU (REVIEW)",
+      "raw_inputs": {
+        "n_unit_price": 80,
+        "n_unit_variable_cost": 55,
+        "n_annual_volume": 5000,
+        "n_logistics_cost_pct": 8,
+        "n_service_cost_pct": 5,
+        "n_return_rate_pct": 3,
+        "n_target_margin": 15,
+        "n_financing_cost_pct": 4
+      },
+      "expected_outputs": {
+        "out_evidence_completeness": 0,
+        "out_normalized_demand": 5000,
+        "out_reference_deviation": 1.0833,
+        "out_derating_factor": 0.488,
+        "out_demand_metric": 12.2,
+        "out_capacity_metric": 61000,
+        "out_utilization_margin": 0.3125,
+        "out_expanded_uncertainty": 1.22,
+        "out_threshold_crossing": 0,
+        "out_sensitivity_driver": 0,
+        "out_fmea_trigger": 0,
+        "out_money_at_risk": 0,
+        "out_scenario_delta": 32000,
+        "out_audit_hash_payload": 0,
+        "out_final_decision_state": 0
+      },
+      "expected_decision_status": "OK",
+      "expected_warnings": []
+    },
+    {
+      "fixture_name": "Toxic SKU (BLOCKED)",
+      "raw_inputs": {
+        "n_unit_price": 60,
+        "n_unit_variable_cost": 50,
+        "n_annual_volume": 2000,
+        "n_logistics_cost_pct": 10,
+        "n_service_cost_pct": 8,
+        "n_return_rate_pct": 5,
+        "n_target_margin": 10,
+        "n_financing_cost_pct": 5
+      },
+      "expected_outputs": {
+        "out_evidence_completeness": 0,
+        "out_normalized_demand": 2000,
+        "out_reference_deviation": 0.6667,
+        "out_derating_factor": 0,
+        "out_demand_metric": -3.8,
+        "out_capacity_metric": -7600,
+        "out_utilization_margin": 0.1667,
+        "out_expanded_uncertainty": -0.38,
+        "out_threshold_crossing": 1,
+        "out_sensitivity_driver": 0,
+        "out_fmea_trigger": 1,
+        "out_money_at_risk": -7600,
+        "out_scenario_delta": 12000,
+        "out_audit_hash_payload": 0,
+        "out_final_decision_state": 0
+      },
+      "expected_decision_status": "OK",
+      "expected_warnings": []
+    }
+  ]
 }

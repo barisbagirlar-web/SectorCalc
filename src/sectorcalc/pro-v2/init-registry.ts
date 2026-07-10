@@ -42,6 +42,35 @@ import { EMPLOYEE_COST_PRESETS } from "./presets/true-employee-cost-statement.pr
 import { employeeCostBuildExecutePayload } from "./adapters/true-employee-cost-statement.adapter";
 import { buildEmployeeCostReport } from "./insights/true-employee-cost-statement.insight";
 
+// ── Wave 2 — Margin & Pricing Analytics ─────────────────────────────────────
+import { SKU_MARGIN_RANKER_GROUPS } from "./contracts/product-sku-margin-ranker.contract";
+import { SKU_MARGIN_RANKER_PRESETS } from "./presets/product-sku-margin-ranker.presets";
+import { skuMarginRankerBuildExecutePayload } from "./adapters/product-sku-margin-ranker.adapter";
+import { buildSkuMarginRankerReport } from "./insights/product-sku-margin-ranker.insight";
+
+import { CUSTOMER_SKU_FORENSICS_GROUPS } from "./contracts/customer-sku-profitability-forensics.contract";
+import { CUSTOMER_SKU_FORENSICS_PRESETS } from "./presets/customer-sku-profitability-forensics.presets";
+import { customerSkuForensicsBuildExecutePayload } from "./adapters/customer-sku-profitability-forensics.adapter";
+import { buildCustomerSkuForensicsReport } from "./insights/customer-sku-profitability-forensics.insight";
+
+import { RECEIVABLES_ADDENDUM_GROUPS } from "./contracts/receivables-cost-payment-term-addendum.contract";
+import { RECEIVABLES_ADDENDUM_PRESETS } from "./presets/receivables-cost-payment-term-addendum.presets";
+import { receivablesAddendumBuildExecutePayload } from "./adapters/receivables-cost-payment-term-addendum.adapter";
+import { buildReceivablesAddendumReport } from "./insights/receivables-cost-payment-term-addendum.insight";
+
+import { FX_COMMODITY_PRICER_GROUPS } from "./contracts/fx-commodity-pass-through-pricer.contract";
+import { FX_COMMODITY_PRICER_PRESETS } from "./presets/fx-commodity-pass-through-pricer.presets";
+import { fxCommodityPricerBuildExecutePayload } from "./adapters/fx-commodity-pass-through-pricer.adapter";
+import { buildFxCommodityPricerReport } from "./insights/fx-commodity-pass-through-pricer.insight";
+
+import { PLANT_WIDE_SHOP_RATE_GROUPS } from "./contracts/plant-wide-shop-rate-cost-structure-audit.contract";
+import { PLANT_WIDE_SHOP_RATE_PRESETS } from "./presets/plant-wide-shop-rate-cost-structure-audit.presets";
+import { plantWideShopRateBuildExecutePayload } from "./adapters/plant-wide-shop-rate-cost-structure-audit.adapter";
+import { buildPlantWideShopRateReport } from "./insights/plant-wide-shop-rate-cost-structure-audit.insight";
+
+// ── Wave 3 — Operations & Quality Loss ───────────────────────────────
+// PENDING: contracts/adapters/insights/presets need to be created
+
 // ── Static definitions ──────────────────────────────────────────────────
 
 const WELD_DEFINITION: ProV2ToolDefinition = {
@@ -303,6 +332,107 @@ const EMPLOYEE_COST_DEFINITION: ProV2ToolDefinition = {
   },
 };
 
+const SKU_MARGIN_RANKER_DEFINITION: ProV2ToolDefinition = {
+  slug: "product-sku-margin-ranker",
+  title: "Product SKU Margin Ranker",
+  category: "Profitability Analysis",
+  fieldContract: SKU_MARGIN_RANKER_GROUPS,
+  presets: SKU_MARGIN_RANKER_PRESETS,
+  serverContract: {
+    toolKey: "product-sku-margin-ranker",
+    toolId: "PRO_022",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: ["n_unit_price","n_material_cost_per_unit","n_labor_cost_per_unit","n_overhead_per_unit","n_logistics_cost_per_unit","n_annual_volume_units","n_target_margin_percent","n_total_portfolio_revenue","n_total_portfolio_profit"],
+    optionalInputKeys: [],
+    expectedOutputKeys: ["out_sku_revenue","out_variable_cost","out_contribution_amount","out_contribution_margin_percent","out_fully_loaded_profit","out_fully_loaded_margin","out_unit_cost","out_revenue_share_percent","out_profit_share_percent","out_margin_classification","out_repricing_priority","out_concentration_risk","out_final_decision_state"],
+  },
+  buildExecutePayload: skuMarginRankerBuildExecutePayload,
+  buildReport: buildSkuMarginRankerReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const CUSTOMER_SKU_FORENSICS_DEFINITION: ProV2ToolDefinition = {
+  slug: "customer-sku-profitability-forensics",
+  title: "Customer SKU Profitability Forensics",
+  category: "Profitability & Margin Analysis",
+  fieldContract: CUSTOMER_SKU_FORENSICS_GROUPS,
+  presets: CUSTOMER_SKU_FORENSICS_PRESETS,
+  serverContract: {
+    toolKey: "customer-sku-profitability-forensics",
+    toolId: "PRO_023",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: ["n_unit_price","n_unit_variable_cost","n_annual_volume","n_logistics_cost_pct","n_service_cost_pct","n_return_rate_pct","n_target_margin","n_financing_cost_pct"],
+    optionalInputKeys: [],
+    expectedOutputKeys: ["out_customer_sku_revenue","out_product_cost","out_logistics_cost","out_service_cost","out_returns_claims_cost","out_financing_term_cost","out_contribution_profit","out_fully_loaded_profit","out_margin_percentage","out_cross_subsidization_flag","out_annual_money_at_risk","out_final_decision_state"],
+  },
+  buildExecutePayload: customerSkuForensicsBuildExecutePayload,
+  buildReport: buildCustomerSkuForensicsReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const RECEIVABLES_ADDENDUM_DEFINITION: ProV2ToolDefinition = {
+  slug: "receivables-cost-payment-term-addendum",
+  title: "Receivables Cost Payment Term Addendum",
+  category: "Financial Risk & Pricing",
+  fieldContract: RECEIVABLES_ADDENDUM_GROUPS,
+  presets: RECEIVABLES_ADDENDUM_PRESETS,
+  serverContract: {
+    toolKey: "receivables-cost-payment-term-addendum",
+    toolId: "PRO_024",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: ["n_invoice_value","n_payment_days","n_early_payment_discount_pct","n_early_payment_days","n_cost_of_capital_pct","n_admin_collection_cost","n_default_risk_allowance"],
+    optionalInputKeys: [],
+    expectedOutputKeys: ["out_invoice_value","out_financing_cost","out_admin_collection_cost","out_default_risk_allowance","out_effective_term_cost","out_effective_term_cost_pct","out_margin_erosion_amount","out_required_addendum_amount","out_required_addendum_pct","out_revised_invoice_amount","out_breakeven_payment_term_days","out_final_decision_state"],
+  },
+  buildExecutePayload: receivablesAddendumBuildExecutePayload,
+  buildReport: buildReceivablesAddendumReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const FX_COMMODITY_PRICER_DEFINITION: ProV2ToolDefinition = {
+  slug: "fx-commodity-pass-through-pricer",
+  title: "FX & Commodity Pass-Through Pricer",
+  category: "Pricing & Cost Recovery",
+  fieldContract: FX_COMMODITY_PRICER_GROUPS,
+  presets: FX_COMMODITY_PRICER_PRESETS,
+  serverContract: {
+    toolKey: "fx-commodity-pass-through-pricer",
+    toolId: "PRO_025",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: ["n_base_price","n_fx_rate_spot","n_fx_rate_budget","n_commodity_index_current","n_commodity_index_budget","n_material_cost_pct","n_fx_hedge_pct","n_commodity_hedge_pct","n_annual_volume","n_target_margin_percent"],
+    optionalInputKeys: [],
+    expectedOutputKeys: ["out_baseline_cost","out_fx_change_percent","out_commodity_change_percent","out_weighted_cost_change_pct","out_deadband_threshold_pct","out_pass_through_amount","out_revised_price","out_protected_margin","out_unprotected_exposure","out_annual_escalation","out_price_review_trigger","out_final_decision_state"],
+  },
+  buildExecutePayload: fxCommodityPricerBuildExecutePayload,
+  buildReport: buildFxCommodityPricerReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const PLANT_WIDE_SHOP_RATE_DEFINITION: ProV2ToolDefinition = {
+  slug: "plant-wide-shop-rate-cost-structure-audit",
+  title: "Plant-Wide Shop Rate Cost Structure Audit",
+  category: "Cost Management",
+  fieldContract: PLANT_WIDE_SHOP_RATE_GROUPS,
+  presets: PLANT_WIDE_SHOP_RATE_PRESETS,
+  serverContract: {
+    toolKey: "plant-wide-shop-rate-cost-structure-audit",
+    toolId: "PRO_026",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: ["n_total_annual_cost","n_total_productive_hours","n_machine_group_cost","n_machine_group_hours","n_overhead_pool","n_overhead_allocation_base","n_current_shop_rate","n_target_margin_pct","n_utilization_pct","n_labor_burden","n_facility_burden","n_maintenance_burden","n_energy_burden"],
+    optionalInputKeys: [],
+    expectedOutputKeys: ["out_annual_direct_cost","out_annual_indirect_cost","out_productive_hours","out_fixed_cost_per_hour","out_labor_burden_per_hour","out_facility_burden_per_hour","out_maintenance_burden_per_hour","out_energy_burden_per_hour","out_plant_wide_shop_rate","out_current_rate_gap","out_annual_under_recovery","out_primary_cost_pool","out_final_decision_state"],
+  },
+  buildExecutePayload: plantWideShopRateBuildExecutePayload,
+  buildReport: buildPlantWideShopRateReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+// ── Wave 4 — Capital Investment & Energy ──────────────────────────────
+// PENDING: contracts/adapters/insights/presets need to be created (PRO_030–PRO_033)
+
+// ── Wave 3 — Operations & Quality Loss ──────────────────────────────
+// PENDING: contracts/adapters/insights/presets need to be created (PRO_026, PRO_019, PRO_039, PRO_038, PRO_033)
+
 // ── Deterministic exported map ──────────────────────────────────────────
 // Direct access — no side effects, immune to tree-shaking or init order.
 
@@ -313,6 +443,11 @@ export const PRO_V2_TOOL_DEFINITIONS: Record<string, ProV2ToolDefinition> = {
   "loss-making-job-detector": LOSS_DETECTOR_DEFINITION,
   "break-even-survival-cash-calculator": BREAK_EVEN_DEFINITION,
   "true-employee-cost-statement": EMPLOYEE_COST_DEFINITION,
+  "product-sku-margin-ranker": SKU_MARGIN_RANKER_DEFINITION,
+  "customer-sku-profitability-forensics": CUSTOMER_SKU_FORENSICS_DEFINITION,
+  "receivables-cost-payment-term-addendum": RECEIVABLES_ADDENDUM_DEFINITION,
+  "fx-commodity-pass-through-pricer": FX_COMMODITY_PRICER_DEFINITION,
+  "plant-wide-shop-rate-cost-structure-audit": PLANT_WIDE_SHOP_RATE_DEFINITION,
 };
 
 // Make definitions available to proToolRegistry for fallback lookup
@@ -333,6 +468,11 @@ export function initProV2Registry(): void {
   registerTool(LOSS_DETECTOR_DEFINITION);
   registerTool(BREAK_EVEN_DEFINITION);
   registerTool(EMPLOYEE_COST_DEFINITION);
+  registerTool(SKU_MARGIN_RANKER_DEFINITION);
+  registerTool(CUSTOMER_SKU_FORENSICS_DEFINITION);
+  registerTool(RECEIVABLES_ADDENDUM_DEFINITION);
+  registerTool(FX_COMMODITY_PRICER_DEFINITION);
+  registerTool(PLANT_WIDE_SHOP_RATE_DEFINITION);
 }
 
 // ── Re-export backward-compatible accessors ─────────────────────────────

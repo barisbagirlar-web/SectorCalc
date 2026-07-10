@@ -1,0 +1,73 @@
+import type { ProPreset } from "../proToolRegistry";
+
+export const CUSTOMER_SKU_FORENSICS_PRESETS: ProPreset[] = [
+  {
+    label: "Profitable SKU (GOOD)",
+    values: {
+      unit_price: "100",
+      unit_variable_cost: "50",
+      annual_volume: "10000",
+      logistics_cost_pct: "5",
+      service_cost_pct: "3",
+      return_rate_pct: "2",
+      target_margin: "25",
+      financing_cost_pct: "2",
+    },
+    units: {
+      unit_price: "USD",
+      unit_variable_cost: "USD",
+      annual_volume: "units",
+      logistics_cost_pct: "%",
+      service_cost_pct: "%",
+      return_rate_pct: "%",
+      target_margin: "%",
+      financing_cost_pct: "%",
+    },
+  },
+  {
+    label: "Below Target SKU (REVIEW)",
+    values: {
+      unit_price: "80",
+      unit_variable_cost: "55",
+      annual_volume: "5000",
+      logistics_cost_pct: "8",
+      service_cost_pct: "5",
+      return_rate_pct: "3",
+      target_margin: "15",
+      financing_cost_pct: "4",
+    },
+    units: {
+      unit_price: "USD",
+      unit_variable_cost: "USD",
+      annual_volume: "units",
+      logistics_cost_pct: "%",
+      service_cost_pct: "%",
+      return_rate_pct: "%",
+      target_margin: "%",
+      financing_cost_pct: "%",
+    },
+  },
+  {
+    label: "Toxic SKU (BLOCKED)",
+    values: {
+      unit_price: "60",
+      unit_variable_cost: "50",
+      annual_volume: "2000",
+      logistics_cost_pct: "10",
+      service_cost_pct: "8",
+      return_rate_pct: "5",
+      target_margin: "10",
+      financing_cost_pct: "5",
+    },
+    units: {
+      unit_price: "USD",
+      unit_variable_cost: "USD",
+      annual_volume: "units",
+      logistics_cost_pct: "%",
+      service_cost_pct: "%",
+      return_rate_pct: "%",
+      target_margin: "%",
+      financing_cost_pct: "%",
+    },
+  },
+];

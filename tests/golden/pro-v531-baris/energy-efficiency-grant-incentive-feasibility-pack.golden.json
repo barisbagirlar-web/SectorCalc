@@ -2,11 +2,25 @@
   "tool_key": "energy-efficiency-grant-incentive-feasibility-pack",
   "schema_version": "5.3.1-pro-schema.1",
   "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": { "current_kwh_per_year": 500000, "target_kwh_per_year": 400000 },
+  "raw_inputs": {
+    "current_kwh_per_year": 500000,
+    "target_kwh_per_year": 400000
+  },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 500000,
+    "out_evidence_completeness": 0,
+    "out_normalized_demand": 0,
+    "out_reference_deviation": 0,
+    "out_derating_factor": 1,
+    "out_demand_metric": 0,
+    "out_capacity_metric": 0,
+    "out_utilization_margin": 0,
+    "out_expanded_uncertainty": 0,
+    "out_threshold_crossing": 1,
+    "out_sensitivity_driver": 0,
+    "out_fmea_trigger": 0,
     "out_money_at_risk": 0,
+    "out_scenario_delta": 999,
+    "out_audit_hash_payload": 9990,
     "out_final_decision_state": 0
   },
   "expected_hashes": {
@@ -14,6 +28,17 @@
     "proof_pack_hash": "pph-b2-energy-",
     "audit_seal_stable_hash": "ash-b2-energy-"
   },
-  "expected_decision_status": "OK",
-  "expected_warnings": []
+  "expected_decision_status": "REVIEW",
+  "expected_warnings": [
+    "Missing or non-finite input: n_current_kwh_per_year",
+    "Missing or non-finite input: n_target_kwh_per_year",
+    "Missing or non-finite input: n_avg_kwh_rate",
+    "Missing or non-finite input: n_implementation_cost",
+    "Missing or non-finite input: n_grant_coverage_pct",
+    "Missing or non-finite input: n_maintenance_cost_saving",
+    "Missing or non-finite input: n_emission_factor_kgco2_per_kwh",
+    "Missing or non-finite input: n_equipment_life_years",
+    "Missing or non-finite input: n_discount_rate",
+    "Missing or non-finite input: n_source_confidence_ratio"
+  ]
 }

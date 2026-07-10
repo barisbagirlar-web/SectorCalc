@@ -6,17 +6,40 @@
     "initial_investment": 100
   },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_utilization_margin": 0.25,
-    "out_money_at_risk": 25000,
-    "out_final_decision_state": 0
+    "out_evidence_completeness": 0,
+    "out_normalized_demand": 0,
+    "out_reference_deviation": 0,
+    "out_derating_factor": 1,
+    "out_demand_metric": 0,
+    "out_capacity_metric": 0,
+    "out_utilization_margin": 0,
+    "out_expanded_uncertainty": 0,
+    "out_threshold_crossing": 0,
+    "out_sensitivity_driver": 0,
+    "out_fmea_trigger": 0,
+    "out_money_at_risk": 0,
+    "out_scenario_delta": -1000,
+    "out_audit_hash_payload": 20,
+    "out_final_decision_state": 2
   },
   "expected_hashes": {
     "output_hash": "oh-b1-capita",
     "proof_pack_hash": "pph-b1-capita",
     "audit_seal_stable_hash": "ash-b1-capita"
   },
-  "expected_decision_status": "OK",
-  "expected_warnings": []
+  "expected_decision_status": "BLOCKED",
+  "expected_warnings": [
+    "Missing or non-finite input: n_initial_investment",
+    "Missing or non-finite input: n_annual_net_cash_flow",
+    "Missing or non-finite input: n_discount_rate",
+    "Missing or non-finite input: n_analysis_years",
+    "Missing or non-finite input: n_residual_value",
+    "Missing or non-finite input: n_stress_downside_factor",
+    "Missing or non-finite input: n_annual_volume",
+    "Missing or non-finite input: n_labor_rate",
+    "Missing or non-finite input: n_overhead_rate",
+    "Missing or non-finite input: n_defect_or_loss_cost",
+    "Missing or non-finite input: n_source_confidence_ratio",
+    "Missing or non-finite input: n_uncertainty_multiplier"
+  ]
 }

@@ -30,9 +30,20 @@ const WAVE_1_5_SLUGS = [
   "true-employee-cost-statement",
 ];
 
-// ── Future waves (not yet activated)
-// Wave 2: product-sku-margin-ranker, customer-sku-profitability-forensics, etc.
-// Wave 2: product-sku-margin-ranker, customer-sku-profitability-forensics, etc.
+// ── Wave 2 (Margin & Pricing Analytics)
+const WAVE_2_SLUGS = [
+  "product-sku-margin-ranker",
+  "customer-sku-profitability-forensics",
+  "receivables-cost-payment-term-addendum",
+  "fx-commodity-pass-through-pricer",
+  "plant-wide-shop-rate-cost-structure-audit",
+];
+
+// ── Wave 3 (Operational Analytics) — PENDING
+const WAVE_3_SLUGS = [];
+
+// ── Wave 4 (Capital Investment & Energy) — PENDING
+const WAVE_4_SLUGS = [];
 
 // Read current allowlist
 const slugsPath = resolve(ROOT, "src/sectorcalc/pro-v2/proV2Slugs.ts");
@@ -43,7 +54,7 @@ const activeSlugs = Array.from(slugMatches)
   .filter((s) => s.includes("-") && !s.startsWith("use") && s.length > 10);
 
 // Verify each active slug is in an approved wave
-const ALL_APPROVED_SLUGS = new Set([...WAVE_0_SLUGS, ...WAVE_1_SLUGS, ...WAVE_1_5_SLUGS]);
+const ALL_APPROVED_SLUGS = new Set([...WAVE_0_SLUGS, ...WAVE_1_SLUGS, ...WAVE_1_5_SLUGS, ...WAVE_2_SLUGS, ...WAVE_3_SLUGS, ...WAVE_4_SLUGS]);
 
 for (const slug of activeSlugs) {
   if (!ALL_APPROVED_SLUGS.has(slug)) {

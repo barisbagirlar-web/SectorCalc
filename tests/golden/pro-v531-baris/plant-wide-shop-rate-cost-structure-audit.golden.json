@@ -1,19 +1,126 @@
 {
-  "tool_key": "plant-wide-shop-rate-cost-structure-audit",
-  "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": { "total_annual_cost": 500000, "total_productive_hours": 10000 },
-  "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_money_at_risk": 0,
-    "out_final_decision_state": 0
+  "meta": {
+    "description": "Plant-Wide Shop Rate Cost Structure Audit — 3 Golden Fixtures: Adequate Rate, Below Floor, Below Cost",
+    "schema_version": "5.3.1-pro-schema.1",
+    "formula_version": "5.3.1-pro-baris.1"
   },
-  "expected_hashes": {
-    "output_hash": "oh-b2-plant-",
-    "proof_pack_hash": "pph-b2-plant-",
-    "audit_seal_stable_hash": "ash-b2-plant-"
-  },
-  "expected_decision_status": "OK",
-  "expected_warnings": []
+  "fixtures": [
+    {
+      "fixture_name": "Adequate Rate (GOOD)",
+      "raw_inputs": {
+        "n_total_annual_cost": 2000000,
+        "n_total_productive_hours": 40000,
+        "n_machine_group_cost": 500000,
+        "n_machine_group_hours": 15000,
+        "n_overhead_pool": 600000,
+        "n_overhead_allocation_base": 40000,
+        "n_current_shop_rate": 85,
+        "n_target_margin_pct": 25,
+        "n_utilization_pct": 80,
+        "n_labor_burden": 300000,
+        "n_facility_burden": 200000,
+        "n_maintenance_burden": 150000,
+        "n_energy_burden": 100000
+      },
+      "expected_outputs": {
+        "out_evidence_completeness": 0,
+        "out_normalized_demand": 40000,
+        "out_reference_deviation": 0.8,
+        "out_derating_factor": 0.2,
+        "out_demand_metric": 50,
+        "out_capacity_metric": 33.3333,
+        "out_utilization_margin": 0.8,
+        "out_expanded_uncertainty": 15,
+        "out_threshold_crossing": 0,
+        "out_sensitivity_driver": 50,
+        "out_fmea_trigger": 0,
+        "out_money_at_risk": 400000,
+        "out_scenario_delta": -22.5,
+        "out_audit_hash_payload": 40000,
+        "out_final_decision_state": 0
+      },
+      "expected_decision_status": "REVIEW",
+      "expected_warnings": [
+        "Missing or non-finite input: n_source_confidence_ratio"
+      ]
+    },
+    {
+      "fixture_name": "Below Pricing Floor (REVIEW)",
+      "raw_inputs": {
+        "n_total_annual_cost": 1500000,
+        "n_total_productive_hours": 30000,
+        "n_machine_group_cost": 400000,
+        "n_machine_group_hours": 12000,
+        "n_overhead_pool": 500000,
+        "n_overhead_allocation_base": 30000,
+        "n_current_shop_rate": 55,
+        "n_target_margin_pct": 20,
+        "n_utilization_pct": 65,
+        "n_labor_burden": 250000,
+        "n_facility_burden": 180000,
+        "n_maintenance_burden": 120000,
+        "n_energy_burden": 80000
+      },
+      "expected_outputs": {
+        "out_evidence_completeness": 0,
+        "out_normalized_demand": 30000,
+        "out_reference_deviation": 0.65,
+        "out_derating_factor": 0.35,
+        "out_demand_metric": 50,
+        "out_capacity_metric": 33.3333,
+        "out_utilization_margin": 0.65,
+        "out_expanded_uncertainty": 16.6667,
+        "out_threshold_crossing": 1,
+        "out_sensitivity_driver": 50,
+        "out_fmea_trigger": 0,
+        "out_money_at_risk": 525000,
+        "out_scenario_delta": 5,
+        "out_audit_hash_payload": 30000,
+        "out_final_decision_state": 1
+      },
+      "expected_decision_status": "REVIEW",
+      "expected_warnings": [
+        "Missing or non-finite input: n_source_confidence_ratio"
+      ]
+    },
+    {
+      "fixture_name": "Below Cost (BLOCKED)",
+      "raw_inputs": {
+        "n_total_annual_cost": 1800000,
+        "n_total_productive_hours": 25000,
+        "n_machine_group_cost": 450000,
+        "n_machine_group_hours": 10000,
+        "n_overhead_pool": 700000,
+        "n_overhead_allocation_base": 25000,
+        "n_current_shop_rate": 50,
+        "n_target_margin_pct": 15,
+        "n_utilization_pct": 75,
+        "n_labor_burden": 280000,
+        "n_facility_burden": 220000,
+        "n_maintenance_burden": 160000,
+        "n_energy_burden": 90000
+      },
+      "expected_outputs": {
+        "out_evidence_completeness": 0,
+        "out_normalized_demand": 25000,
+        "out_reference_deviation": 0.75,
+        "out_derating_factor": 0.25,
+        "out_demand_metric": 72,
+        "out_capacity_metric": 45,
+        "out_utilization_margin": 0.75,
+        "out_expanded_uncertainty": 28,
+        "out_threshold_crossing": 1,
+        "out_sensitivity_driver": 72,
+        "out_fmea_trigger": 0,
+        "out_money_at_risk": 450000,
+        "out_scenario_delta": 32.8,
+        "out_audit_hash_payload": 25000,
+        "out_final_decision_state": 1
+      },
+      "expected_decision_status": "REVIEW",
+      "expected_warnings": [
+        "Missing or non-finite input: n_source_confidence_ratio"
+      ]
+    }
+  ]
 }
