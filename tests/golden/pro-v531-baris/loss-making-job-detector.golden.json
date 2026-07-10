@@ -1,22 +1,161 @@
-{
-  "tool_key": "loss-making-job-detector",
-  "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": {
-    "machine_rate": 100
+[
+  {
+    "label": "Profitable Repeat Job",
+    "tool_key": "loss-making-job-detector",
+    "schema_version": "5.3.1-pro-schema.1",
+    "formula_version": "5.3.1-pro-baris.2",
+    "raw_inputs": {
+      "batch_quantity": 500,
+      "selling_price_per_unit": 95,
+      "material_cost_per_unit": 25,
+      "cycle_time_seconds_per_unit": 720,
+      "setup_time_minutes_per_batch": 8,
+      "machine_rate_per_hour": 85,
+      "operator_count": 1,
+      "labor_rate_per_hour": 45,
+      "external_processing_per_batch": 0,
+      "packaging_freight_per_batch": 50,
+      "other_job_cost_per_batch": 0,
+      "allocated_overhead": 350,
+      "scrap_rework_percent": 5,
+      "target_revenue_margin_percent": 30,
+      "annual_volume_units": 100000
+    },
+    "expected_outputs": {
+      "out_job_revenue": 47500,
+      "out_direct_material_cost": 12500,
+      "out_machine_cost": 8511.33,
+      "out_labor_cost": 4506,
+      "out_external_processing_cost": 0,
+      "out_packaging_freight_cost": 50,
+      "out_other_job_cost": 0,
+      "out_allocated_overhead": 350,
+      "out_scrap_rework_cost": 1275.87,
+      "out_fully_loaded_job_cost": 27193.2,
+      "out_contribution_profit": 21932.67,
+      "out_operating_profit": 20306.8,
+      "out_revenue_margin_percent": 42.75,
+      "out_profit_loss_per_unit": 40.61,
+      "out_minimum_sustainable_price": 54.39,
+      "out_target_price": 77.69,
+      "out_repricing_gap": -17.31,
+      "out_break_even_quantity": 8.37,
+      "out_annualized_money_at_risk": 0,
+      "out_primary_loss_driver": 0,
+      "out_final_decision_state": 2
+    },
+    "expected_hashes": {
+      "output_hash": "oh-p3-loss-det-prof",
+      "proof_pack_hash": "pph-p3-loss-det-prof",
+      "audit_seal_stable_hash": "ash-p3-loss-det-prof"
+    },
+    "expected_decision_status": "OK",
+    "expected_warnings": []
   },
-  "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_utilization_margin": 0.25,
-    "out_money_at_risk": 25000,
-    "out_final_decision_state": 0
+  {
+    "label": "Low-Margin Job",
+    "tool_key": "loss-making-job-detector",
+    "schema_version": "5.3.1-pro-schema.1",
+    "formula_version": "5.3.1-pro-baris.2",
+    "raw_inputs": {
+      "batch_quantity": 300,
+      "selling_price_per_unit": 50,
+      "material_cost_per_unit": 22,
+      "cycle_time_seconds_per_unit": 600,
+      "setup_time_minutes_per_batch": 10,
+      "machine_rate_per_hour": 75,
+      "operator_count": 1,
+      "labor_rate_per_hour": 40,
+      "external_processing_per_batch": 0,
+      "packaging_freight_per_batch": 30,
+      "other_job_cost_per_batch": 0,
+      "allocated_overhead": 400,
+      "scrap_rework_percent": 5,
+      "target_revenue_margin_percent": 25,
+      "annual_volume_units": 50000
+    },
+    "expected_outputs": {
+      "out_job_revenue": 15000,
+      "out_direct_material_cost": 6600,
+      "out_machine_cost": 3762.5,
+      "out_labor_cost": 2006.67,
+      "out_external_processing_cost": 0,
+      "out_packaging_freight_cost": 30,
+      "out_other_job_cost": 0,
+      "out_allocated_overhead": 400,
+      "out_scrap_rework_cost": 618.46,
+      "out_fully_loaded_job_cost": 13417.63,
+      "out_contribution_profit": 2600.83,
+      "out_operating_profit": 1582.38,
+      "out_revenue_margin_percent": 10.55,
+      "out_profit_loss_per_unit": 5.27,
+      "out_minimum_sustainable_price": 44.73,
+      "out_target_price": 59.63,
+      "out_repricing_gap": 9.63,
+      "out_break_even_quantity": 48.35,
+      "out_annualized_money_at_risk": 0,
+      "out_primary_loss_driver": 0,
+      "out_final_decision_state": 1
+    },
+    "expected_hashes": {
+      "output_hash": "oh-p3-loss-det-low",
+      "proof_pack_hash": "pph-p3-loss-det-low",
+      "audit_seal_stable_hash": "ash-p3-loss-det-low"
+    },
+    "expected_decision_status": "OK",
+    "expected_warnings": []
   },
-  "expected_hashes": {
-    "output_hash": "oh-b1-loss-m",
-    "proof_pack_hash": "pph-b1-loss-m",
-    "audit_seal_stable_hash": "ash-b1-loss-m"
-  },
-  "expected_decision_status": "OK",
-  "expected_warnings": []
-}
+  {
+    "label": "Loss-Making Job",
+    "tool_key": "loss-making-job-detector",
+    "schema_version": "5.3.1-pro-schema.1",
+    "formula_version": "5.3.1-pro-baris.2",
+    "raw_inputs": {
+      "batch_quantity": 200,
+      "selling_price_per_unit": 25,
+      "material_cost_per_unit": 12,
+      "cycle_time_seconds_per_unit": 1200,
+      "setup_time_minutes_per_batch": 15,
+      "machine_rate_per_hour": 80,
+      "operator_count": 1,
+      "labor_rate_per_hour": 42,
+      "external_processing_per_batch": 100,
+      "packaging_freight_per_batch": 40,
+      "other_job_cost_per_batch": 50,
+      "allocated_overhead": 200,
+      "scrap_rework_percent": 8,
+      "target_revenue_margin_percent": 20,
+      "annual_volume_units": 12000
+    },
+    "expected_outputs": {
+      "out_job_revenue": 5000,
+      "out_direct_material_cost": 2400,
+      "out_machine_cost": 5353.33,
+      "out_labor_cost": 2810.5,
+      "out_external_processing_cost": 100,
+      "out_packaging_freight_cost": 40,
+      "out_other_job_cost": 50,
+      "out_allocated_overhead": 200,
+      "out_scrap_rework_cost": 845.11,
+      "out_fully_loaded_job_cost": 11798.94,
+      "out_contribution_profit": -5753.83,
+      "out_operating_profit": -6798.94,
+      "out_revenue_margin_percent": -135.98,
+      "out_profit_loss_per_unit": -33.99,
+      "out_minimum_sustainable_price": 58.99,
+      "out_target_price": 73.74,
+      "out_repricing_gap": 48.74,
+      "out_break_even_quantity": 0,
+      "out_annualized_money_at_risk": 407936.4,
+      "out_primary_loss_driver": 1,
+      "out_final_decision_state": 0
+    },
+    "expected_hashes": {
+      "output_hash": "oh-p3-loss-det-loss",
+      "proof_pack_hash": "pph-p3-loss-det-loss",
+      "audit_seal_stable_hash": "ash-p3-loss-det-loss"
+    },
+    "expected_decision_status": "OK",
+    "expected_warnings": []
+  }
+]

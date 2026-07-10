@@ -21,6 +21,7 @@ const WAVE_0_SLUGS = [
 const WAVE_1_SLUGS = [
   "machine-hourly-rate-proof-report",
   "job-quote-builder-pro-pack",
+  "loss-making-job-detector",
 ];
 
 // ── Future waves (not yet activated)

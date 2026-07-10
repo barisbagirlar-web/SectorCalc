@@ -12,6 +12,7 @@ export const PRO_V2_SLUGS = new Set<string>([
   // Wave 1 — Cost and quotation (live-verified)
   "machine-hourly-rate-proof-report",
   "job-quote-builder-pro-pack",
+  "loss-making-job-detector",
 ]);
 
 export function isProV2Slug(slug: string): boolean {
