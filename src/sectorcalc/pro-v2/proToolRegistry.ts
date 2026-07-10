@@ -76,10 +76,16 @@ export interface ProV2ToolDefinition {
   reportCapabilities: ReportCapabilities;
 }
 
-// ── Backward-compatible Map-based registration ─────────────────────────
-// The source of truth is PRO_V2_TOOL_DEFINITIONS in init-registry.ts.
-// This map is populated by initProV2Registry() for backward compatibility
-// with code that calls getToolDefinition() / getRegisteredSlugs().
+// ── Static definition source stored here for registry access ────────────
+
+let _staticDefs: Record<string, ProV2ToolDefinition> | null = null;
+
+export function setStaticDefinitions(defs: Record<string, ProV2ToolDefinition>): void {
+  _staticDefs = defs;
+}
+
+// ── Map-based registration for backward compatibility ───────────────────
+// initProV2Registry() populates this Map from the static definitions.
 
 const registry = new Map<string, ProV2ToolDefinition>();
 
@@ -93,17 +99,25 @@ export function registerTool(def: ProV2ToolDefinition): void {
 }
 
 export function getToolDefinition(slug: string): ProV2ToolDefinition | undefined {
-  return registry.get(slug);
+  if (registry.size > 0) return registry.get(slug);
+  if (_staticDefs) return _staticDefs[slug];
+  return undefined;
 }
 
 export function getRegisteredSlugs(): string[] {
-  return Array.from(registry.keys());
+  if (registry.size > 0) return Array.from(registry.keys());
+  if (_staticDefs) return Object.keys(_staticDefs);
+  return [];
 }
 
 export function getAllToolDefinitions(): ProV2ToolDefinition[] {
-  return Array.from(registry.values());
+  if (registry.size > 0) return Array.from(registry.values());
+  if (_staticDefs) return Object.values(_staticDefs);
+  return [];
 }
 
 export function getDefinitionCount(): number {
-  return registry.size;
+  if (registry.size > 0) return registry.size;
+  if (_staticDefs) return Object.keys(_staticDefs).length;
+  return 0;
 }

@@ -1,10 +1,10 @@
 // SectorCalc PRO V2 — Registry Initialization
 // Source of truth for all PRO V2 tool definitions.
 // Uses a deterministic exported Record (not a side-effect map).
-// Calls registerTool() during init to populate the backward-compatible Map.
+// Populates the backward-compatible Map via initProV2Registry().
 
 import type { ProV2ToolDefinition } from "./proToolRegistry";
-import { registerTool } from "./proToolRegistry";
+import { registerTool, setStaticDefinitions } from "./proToolRegistry";
 
 // ── Wave 0 — Golden reference ──────────────────────────────────────────
 import { WELD_GROUPS } from "./contracts/weld-procedure-cost-consumable-estimation-suite.contract";
@@ -119,11 +119,12 @@ export const PRO_V2_TOOL_DEFINITIONS: Record<string, ProV2ToolDefinition> = {
   "machine-hourly-rate-proof-report": MACHINE_RATE_DEFINITION,
 };
 
+// Make definitions available to proToolRegistry for fallback lookup
+setStaticDefinitions(PRO_V2_TOOL_DEFINITIONS);
+
 // ── Initialize the Map registry ─────────────────────────────────────────
 // Populates the backward-compatible Map used by getToolDefinition().
 // Safe to call multiple times — guarded by initialized flag.
-// All definitions are already resolved statically, no dependency on
-// external registration modules.
 
 let initialized = false;
 

@@ -17,13 +17,17 @@ import { ProToolPaywallGate } from "@/components/pro-commerce/ProToolPaywallGate
 import { getPublicToolTitle, getPublicProMetaDescription } from "@/sectorcalc/public/public-tool-copy-adapter";
 import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 import { isProV2Slug } from "@/sectorcalc/pro-v2/proV2Slugs";
-import { getToolDefinition, getRegisteredSlugs, getDefinitionCount } from "@/sectorcalc/pro-v2/init-registry";
+import { initProV2Registry, getToolDefinition, getRegisteredSlugs, getDefinitionCount } from "@/sectorcalc/pro-v2/init-registry";
 import type { ProFieldContract, ProFieldGroup } from "@/sectorcalc/pro-v2/proFieldContract";
 import { ProV2Wrapper } from "@/sectorcalc/pro-v2/ProV2Wrapper";
 import "server-only";
 
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
+
+// Initialize PRO V2 registry on module load
+// Populates the backward-compatible Map from static definitions
+initProV2Registry();
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = false;
