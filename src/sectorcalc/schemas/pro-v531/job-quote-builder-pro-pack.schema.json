@@ -281,10 +281,13 @@
         "F017",
         "F018",
         "F020",
+        "F021",
         "F022",
         "F023",
         "F026",
         "F028",
+        "F029",
+        "F030",
         "F034"
       ],
       "output_bindings": [
@@ -299,10 +302,13 @@
         "out_total_job_cost_per_batch",
         "out_cost_per_good_unit",
         "out_target_sell_price_per_unit",
+        "out_profit_per_batch",
         "out_profit_per_unit",
         "out_annual_batches",
         "out_primary_cost_driver",
         "out_current_quote_per_batch",
+        "out_current_profit_per_batch",
+        "out_achieved_margin_percent",
         "out_break_even_status"
       ],
       "warning_bindings": [
@@ -1354,10 +1360,12 @@
       "standard_clause_bindings": [],
       "formula_bindings": [
         "F019",
+        "F021",
         "F027"
       ],
       "output_bindings": [
         "out_target_sell_price_per_batch",
+        "out_profit_per_batch",
         "out_final_decision_state"
       ],
       "warning_bindings": [
@@ -2046,11 +2054,15 @@
       "standard_clause_bindings": [],
       "formula_bindings": [
         "F028",
+        "F029",
+        "F030",
         "F031",
         "F033"
       ],
       "output_bindings": [
         "out_current_quote_per_batch",
+        "out_current_profit_per_batch",
+        "out_achieved_margin_percent",
         "out_price_gap_per_unit",
         "out_break_even_batch_quantity"
       ],
@@ -4178,13 +4190,19 @@
         "internal_admin_trace": true
       },
       "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [],
+      "uses": [
+        "n_target_revenue_margin_percent",
+        "n_batch_quantity"
+      ],
       "output": "out_profit_per_batch",
       "unit": "mixed_public_safe_contract",
       "proof_role": "PRIMARY",
       "standard_clause_bindings": [],
       "input_bindings": [],
-      "normalized_input_bindings": [],
+      "normalized_input_bindings": [
+        "n_target_revenue_margin_percent",
+        "n_batch_quantity"
+      ],
       "output_bindings": [
         "out_profit_per_batch"
       ],
@@ -4574,13 +4592,19 @@
         "internal_admin_trace": true
       },
       "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [],
+      "uses": [
+        "n_current_quote_per_unit",
+        "n_batch_quantity"
+      ],
       "output": "out_current_profit_per_batch",
       "unit": "mixed_public_safe_contract",
       "proof_role": "INTERMEDIATE",
       "standard_clause_bindings": [],
       "input_bindings": [],
-      "normalized_input_bindings": [],
+      "normalized_input_bindings": [
+        "n_current_quote_per_unit",
+        "n_batch_quantity"
+      ],
       "output_bindings": [
         "out_current_profit_per_batch"
       ],
@@ -4616,13 +4640,19 @@
         "internal_admin_trace": true
       },
       "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [],
+      "uses": [
+        "n_current_quote_per_unit",
+        "n_batch_quantity"
+      ],
       "output": "out_achieved_margin_percent",
       "unit": "mixed_public_safe_contract",
       "proof_role": "DIAGNOSTIC",
       "standard_clause_bindings": [],
       "input_bindings": [],
-      "normalized_input_bindings": [],
+      "normalized_input_bindings": [
+        "n_current_quote_per_unit",
+        "n_batch_quantity"
+      ],
       "output_bindings": [
         "out_achieved_margin_percent"
       ],
