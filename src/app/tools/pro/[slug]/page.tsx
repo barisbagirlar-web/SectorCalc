@@ -17,9 +17,13 @@ import { ProToolPaywallGate } from "@/components/pro-commerce/ProToolPaywallGate
 import { getPublicToolTitle, getPublicProMetaDescription } from "@/sectorcalc/public/public-tool-copy-adapter";
 import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 import { isProV2Slug } from "@/sectorcalc/pro-v2/proV2Slugs";
-import { WELD_FIELD_CONTRACT, WELD_HIDDEN_FIELDS } from "@/sectorcalc/pro-v2/proWeldFieldContract";
+import { initProV2Registry, getToolDefinition } from "@/sectorcalc/pro-v2/init-registry";
+import type { ProFieldContract, ProFieldGroup } from "@/sectorcalc/pro-v2/proFieldContract";
 import { ProV2Wrapper } from "@/sectorcalc/pro-v2/ProV2Wrapper";
 import "server-only";
+
+// Initialize registry on module load
+initProV2Registry();
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 
@@ -34,13 +38,14 @@ interface ProToolRouteParams {
   slug: string;
 }
 
-// PRO V2 contract map — extend as more tools are migrated
-const PRO_V2_CONTRACTS: Record<string, { groups: typeof WELD_FIELD_CONTRACT.groups; hidden: typeof WELD_HIDDEN_FIELDS }> = {
-  "weld-procedure-cost-consumable-estimation-suite": {
-    groups: WELD_FIELD_CONTRACT.groups,
-    hidden: WELD_HIDDEN_FIELDS,
-  },
-};
+// PRO V2 — lookup contract + hidden fields from registry
+function getProV2Contract(slug: string): { groups: ProFieldGroup[]; hidden: ProFieldContract[] } | null {
+  const def = getToolDefinition(slug);
+  if (!def) return null;
+  const allFields = def.fieldContract.flatMap((g) => g.fields);
+  const hiddenFields = allFields.filter((f) => f.hidden);
+  return { groups: def.fieldContract, hidden: hiddenFields };
+}
 
 export async function generateMetadata({
   params,
@@ -118,7 +123,7 @@ export default async function ProToolDetailPage({
 
   // ── PRO V2 route ──────────────────────────────────────────────
   if (isProV2Slug(slug)) {
-    const contract = PRO_V2_CONTRACTS[slug];
+    const contract = getProV2Contract(slug);
     if (!contract) {
       notFound();
     }

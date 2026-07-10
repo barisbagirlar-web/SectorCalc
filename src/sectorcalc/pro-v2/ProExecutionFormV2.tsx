@@ -12,13 +12,12 @@ import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import type { ProFieldContract, ProFieldGroup } from "./proFieldContract";
 import type { ProInsightReport } from "./proInsightContract";
 import type { ExecuteResponse } from "./proExecuteClient";
+import type { ProPreset, ProReportAdapter, ProExecutePayloadAdapter } from "./proToolRegistry";
 import { proV2RuntimeReducer, INITIAL_RUNTIME_STATE, type ProV2ExecutionState } from "./proRuntimeReducer";
 import { validateProV2Inputs } from "./proValidation";
 import { createCreditSession } from "./proSessionClient";
 import { executeWithUsageSession } from "./proExecuteClient";
-import { buildWeldInsightReport } from "./proInsightEngine";
 import { emitTraceEvent, enableRuntimeTrace } from "./proRuntimeTrace";
-import { WELD_PRESETS } from "./proWeldFieldContract";
 import ProResultPanelV2 from "./ProResultPanelV2";
 
 export interface ProExecutionFormV2Props {
@@ -30,6 +29,9 @@ export interface ProExecutionFormV2Props {
   isSignedIn: boolean;
   idToken: string | null;
   debugRuntime?: boolean;
+  presets: ProPreset[];
+  buildReport: ProReportAdapter | undefined;
+  buildExecutePayload: ProExecutePayloadAdapter | undefined;
 }
 
 export interface FieldEntry {
@@ -41,13 +43,14 @@ function generateTraceId(): string {
   return `pro-v2-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-function WeldExampleLoader({
+function PresetLoader({
   onLoad,
   presets,
 }: {
   onLoad: (values: Record<string, string>, units: Record<string, string>) => void;
   presets: { label: string; values: Record<string, string>; units: Record<string, string> }[];
 }) {
+  if (presets.length === 0) return null;
   return (
     <div style={{ marginBottom: "16px" }}>
       <div style={{ fontSize: "11px", color: "#888", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px" }}>
@@ -115,11 +118,10 @@ function StateMessage({ state, message }: { state: ProV2ExecutionState; message?
 }
 
 /** Build initial state from the default preset */
-function buildInitialState(): Record<string, FieldEntry> {
+function buildInitialState(presets: ProPreset[]): Record<string, FieldEntry> {
   const state: Record<string, FieldEntry> = {};
-  // Pre-populate with the first preset (standard carbon steel 12m)
-  if (WELD_PRESETS.length > 0) {
-    const preset = WELD_PRESETS[0];
+  if (presets.length > 0) {
+    const preset = presets[0];
     const allKeys = new Set([
       ...Object.keys(preset.values),
       ...Object.keys(preset.units),
@@ -134,23 +136,6 @@ function buildInitialState(): Record<string, FieldEntry> {
   return state;
 }
 
-/** Merge preset values+units into existing state */
-function mergePresetIntoState(
-  prev: Record<string, FieldEntry>,
-  values: Record<string, string>,
-  units: Record<string, string>,
-): Record<string, FieldEntry> {
-  const next = { ...prev };
-  const allKeys = new Set([...Object.keys(values), ...Object.keys(units)]);
-  for (const key of allKeys) {
-    next[key] = {
-      value: key in values ? values[key] : (next[key]?.value ?? ""),
-      unit: key in units ? units[key] : (next[key]?.unit ?? ""),
-    };
-  }
-  return next;
-}
-
 export default function ProExecutionFormV2({
   toolKey,
   toolName,
@@ -160,558 +145,416 @@ export default function ProExecutionFormV2({
   isSignedIn,
   idToken,
   debugRuntime,
+  presets,
+  buildReport,
+  buildExecutePayload,
 }: ProExecutionFormV2Props) {
+  const [fieldState, setFieldState] = useState<Record<string, FieldEntry>>(() => buildInitialState(presets));
+  const [report, setReport] = useState<ProInsightReport | null>(null);
   const [runtime, dispatch] = useReducer(proV2RuntimeReducer, INITIAL_RUNTIME_STATE);
-  const [fieldState, setFieldState] = useState<Record<string, FieldEntry>>(() => buildInitialState());
-  const [touched, setTouched] = useState<Record<string, boolean>>({});
-  const [insightReport, setInsightReport] = useState<ProInsightReport | null>(null);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+  const [validationWarnings, setValidationWarnings] = useState<Record<string, string>>({});
+  const traceIdRef = useRef<string>(generateTraceId());
   const runningRef = useRef(false);
-  const traceIdRef = useRef<string>("");
+  const [sessionId, setSessionId] = useState<string | null>(null);
 
-  // Initialize trace
+  // Enable trace on first render if debug mode
   useEffect(() => {
     if (debugRuntime) {
       enableRuntimeTrace(toolKey);
-      traceIdRef.current = generateTraceId();
-      dispatch({ type: "SET_TRACE_ID", traceId: traceIdRef.current });
     }
   }, [debugRuntime, toolKey]);
 
-  // Flatten all visible fields
-  const allFields = groups.flatMap((g) => g.fields.filter((f) => !f.hidden));
-
-  // ── Input change handler ──────────────────────────────────────────────
-  const handleInputChange = useCallback((fieldId: string, rawValue: string) => {
-    setFieldState((prev) => ({
-      ...prev,
-      [fieldId]: { value: rawValue, unit: prev[fieldId]?.unit ?? "" },
-    }));
-  }, []);
-
-  // ── Unit change handler ───────────────────────────────────────────────
-  const handleUnitChange = useCallback((fieldId: string, unit: string) => {
-    setFieldState((prev) => ({
-      ...prev,
-      [fieldId]: { value: prev[fieldId]?.value ?? "", unit },
-    }));
-  }, []);
-
-  // ── Touch handler (for red borders after Calculate) ───────────────────
-  const markAllTouched = useCallback(() => {
-    const allTouched: Record<string, boolean> = {};
-    for (const field of allFields) {
-      allTouched[field.id] = true;
-    }
-    setTouched(allTouched);
-  }, [allFields]);
-
-  // ── Example loader ────────────────────────────────────────────────────
-  const handleLoadExample = useCallback((exampleValues: Record<string, string>, exampleUnits: Record<string, string>) => {
-    setFieldState((prev) => mergePresetIntoState(prev, exampleValues, exampleUnits));
-  }, []);
-
-  // ── Reset ─────────────────────────────────────────────────────────────
-  const handleReset = useCallback(() => {
-    dispatch({ type: "RESET" });
-    // Full reset: clear everything
-    setFieldState({});
-    setTouched({});
-    setInsightReport(null);
-    runningRef.current = false;
-    if (debugRuntime) {
-      traceIdRef.current = generateTraceId();
-      dispatch({ type: "SET_TRACE_ID", traceId: traceIdRef.current });
-    }
-  }, [debugRuntime]);
-
-  // ── PDF export ────────────────────────────────────────────────────────
-  const handleExportPdf = useCallback(() => {
-    if (typeof window === "undefined") return;
-    window.print();
-  }, []);
-
-  // ── Copy summary ──────────────────────────────────────────────────────
-  const handleCopySummary = useCallback(() => {
-    if (!insightReport || typeof navigator === "undefined") return;
-    const summary = [
-      `${insightReport.toolName}`,
-      `Primary Result: ${insightReport.primaryKpi.value}`,
-      `Decision: ${insightReport.decisionState.label}`,
-      `Cost per Meter: ${insightReport.costPerMeter ?? "N/A"}`,
-      `Total Cost: ${insightReport.totalCost ?? "N/A"}`,
-      `Recommended: ${insightReport.recommendedAction.action}`,
-      `Generated: ${insightReport.generatedAt}`,
-    ].join("\n");
-    navigator.clipboard.writeText(summary).catch(() => {});
-  }, [insightReport]);
-
-  // ── Build hidden engine values ────────────────────────────────────────
-  const buildHiddenValues = useCallback((): Record<string, number> => {
-    const hv: Record<string, number> = {};
-    for (const f of hiddenFields) {
-      if (typeof f.defaultValue === "number") {
-        hv[f.id] = f.defaultValue;
-      }
-    }
-    return hv;
-  }, [hiddenFields]);
-
-  // ── Calculate pipeline ────────────────────────────────────────────────
-  const handleCalculate = useCallback(async () => {
-    if (runningRef.current) {
+  // Emit trace events
+  const trace = useCallback(
+    (event: string, data?: Record<string, unknown>) => {
       if (debugRuntime) {
         emitTraceEvent({
-          event: "PRO_V2_CLICK",
+          event: event as any,
           traceId: traceIdRef.current,
           slug: toolKey,
-          executionState: runtime.executionState,
-          errorCode: "DUPLICATE_CLICK_IGNORED",
+          ...data as any,
         });
       }
-      return;
+    },
+    [debugRuntime, toolKey],
+  );
+
+  // Handle preset/example loading
+  const handleLoadExample = useCallback(
+    (values: Record<string, string>, units: Record<string, string>) => {
+      const newState: Record<string, FieldEntry> = {};
+      const allKeys = new Set([...Object.keys(values), ...Object.keys(units)]);
+      for (const key of allKeys) {
+        newState[key] = {
+          value: values[key] ?? "",
+          unit: units[key] ?? "",
+        };
+      }
+      setFieldState(newState);
+      setReport(null);
+      setValidationErrors({});
+      setValidationWarnings({});
+      dispatch({ type: "RESET" });
+      trace("preset_loaded", { values });
+    },
+    [trace],
+  );
+
+  // Handle field input change
+  const handleFieldChange = useCallback(
+    (fieldId: string, value: string, unit: string) => {
+      setFieldState((prev) => ({
+        ...prev,
+        [fieldId]: { ...prev[fieldId], value, unit },
+      }));
+      // Clear validation error for this field
+      setValidationErrors((prev) => {
+        const next = { ...prev };
+        delete next[fieldId];
+        return next;
+      });
+    },
+    [],
+  );
+
+  // Handle field unit change
+  const handleUnitChange = useCallback(
+    (fieldId: string, unit: string) => {
+      setFieldState((prev) => ({
+        ...prev,
+        [fieldId]: { ...prev[fieldId], unit },
+      }));
+    },
+    [],
+  );
+
+  // Validate inputs client-side
+  const validate = useCallback(() => {
+    // Build flat values and selectedUnits from fieldState
+    const values: Record<string, string> = {};
+    const selectedUnits: Record<string, string> = {};
+    const allFields = groups.flatMap((g) => g.fields).concat(hiddenFields);
+    for (const field of allFields) {
+      const entry = fieldState[field.id];
+      if (entry) {
+        values[field.id] = entry.value;
+        selectedUnits[field.id] = entry.unit;
+      }
     }
 
-    const traceId = traceIdRef.current || generateTraceId();
-    traceIdRef.current = traceId;
-
-    emitTraceEvent({
-      event: "PRO_V2_CLICK",
-      traceId,
-      slug: toolKey,
-      executionState: runtime.executionState,
+    const result = validateProV2Inputs({
+      fields: allFields,
+      values,
+      selectedUnits,
     });
 
-    runningRef.current = true;
-
-    try {
-      markAllTouched();
-
-      // ── Step 1: Local validation ────────────────────────────────────
-      // Derive fresh values+units from fieldState
-      const vals: Record<string, string> = {};
-      const units: Record<string, string> = {};
-      for (const [k, entry] of Object.entries(fieldState)) {
-        vals[k] = entry.value;
-        units[k] = entry.unit;
+    // Map blockers to error/warning maps
+    const errorMap: Record<string, string> = {};
+    const warnMap: Record<string, string> = {};
+    for (const b of result.blockers) {
+      if (b.severity === "ERROR") {
+        errorMap[b.fieldId] = b.message;
+      } else {
+        warnMap[b.fieldId] = b.message;
       }
+    }
+    setValidationErrors(errorMap);
+    setValidationWarnings(warnMap);
+    trace("validation", { valid: result.ok, errors: errorMap });
+    return result;
+  }, [fieldState, groups, hiddenFields, trace]);
 
-      const validation = validateProV2Inputs({
-        fields: allFields,
-        values: vals,
-        selectedUnits: units,
-        hiddenValues: buildHiddenValues(),
-        isTouched: touched,
-      });
-
-      emitTraceEvent({
-        event: "PRO_V2_VALIDATE_END",
-        traceId,
-        slug: toolKey,
-        executionState: validation.ok ? "idle" : "client_blocked",
-        outputCount: Object.keys(validation.engineInputs).length,
-      });
-
+  // Calculate button handler
+  const handleCalculate = useCallback(async () => {
+    if (runningRef.current) return;
+    runningRef.current = true;
+    try {
+      const validation = validate();
       if (!validation.ok) {
         dispatch({ type: "CLIENT_BLOCKED", blockers: validation.blockers });
-        runningRef.current = false;
+        trace("calculate_blocked", { reason: "validation_failed" });
         return;
       }
 
-      // ── Step 2: Auth check ──────────────────────────────────────────
+      trace("calculate_started", {});
+
+    // Check auth
       if (!isSignedIn || !idToken) {
         dispatch({ type: "AUTH_REQUIRED" });
-        runningRef.current = false;
+        trace("calculate_blocked", { reason: "auth_required" });
         return;
       }
 
-      // ── Step 3: Mint session ────────────────────────────────────────
+      // Build raw inputs from adapter or default mapping
+      let raw_inputs: Record<string, number> = {};
+      if (buildExecutePayload) {
+        const payload = buildExecutePayload(fieldState, {});
+        raw_inputs = payload.raw_inputs;
+      } else {
+        // Fallback: flat number conversion
+        for (const [key, entry] of Object.entries(fieldState)) {
+          if (entry.value !== "" && entry.value !== undefined) {
+            const num = parseFloat(entry.value);
+            if (Number.isFinite(num)) raw_inputs[key] = num;
+          }
+        }
+      }
+      trace("execute_payload", { raw_inputs });
+
+      // Session
       dispatch({ type: "SESSION_MINTING" });
+      const sessionResp = await createCreditSession(toolKey, idToken);
+      trace("session_result", { ok: sessionResp.ok });
 
-      emitTraceEvent({
-        event: "PRO_V2_SESSION_START",
-        traceId,
-        slug: toolKey,
-        executionState: "session_minting",
-      });
-
-      const sessionResult = await createCreditSession(toolKey, idToken);
-
-      emitTraceEvent({
-        event: "PRO_V2_SESSION_END",
-        traceId,
-        slug: toolKey,
-        httpStatus: sessionResult.ok ? 200 : sessionResult.status,
-        usageSessionIdPresent: sessionResult.ok,
-      });
-
-      if (!sessionResult.ok) {
-        if (sessionResult.status === 402) {
-          dispatch({ type: "ENTITLEMENT_REQUIRED", message: sessionResult.error });
+      if (!sessionResp.ok) {
+        if (sessionResp.status === 402) {
+          dispatch({ type: "ENTITLEMENT_REQUIRED", message: sessionResp.error });
         } else {
-          dispatch({ type: "SESSION_MINT_FAILED", error: sessionResult.error });
+          dispatch({ type: "SESSION_MINT_FAILED", error: sessionResp.error ?? "Session creation failed" });
         }
-        runningRef.current = false;
+        trace("session_failed", { error: sessionResp.error });
         return;
       }
 
-      dispatch({ type: "SESSION_MINTED", usageSessionId: sessionResult.usageSessionId, remainingRuns: sessionResult.remainingRuns });
+      const usageSessionId: string = sessionResp.usageSessionId;
+      const remainingRuns = sessionResp.remainingRuns;
+      setSessionId(usageSessionId);
+      dispatch({ type: "SESSION_MINTED", usageSessionId, remainingRuns });
 
-      // ── Step 4: Execute ─────────────────────────────────────────────
+      // Execute
       dispatch({ type: "EXECUTING" });
-
-      emitTraceEvent({
-        event: "PRO_V2_EXECUTE_START",
-        traceId,
-        slug: toolKey,
-        usageSessionIdPresent: true,
-        executionState: "executing",
-      });
-
-      // ── Build schema-compatible raw_inputs ──────────────────────────
-      // Map form field IDs → schema input IDs. All weld schema inputs
-      // have unit_selectable: false, so no selected_units entries are
-      // needed — the server normalizer uses base_unit as display_unit
-      // (fast path / identity conversion).
-      const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
-        weld_length: "weld_length_m",
-        weld_throat: "weld_throat_mm",
-        material_density: "weld_density",
-        wire_cost: "wire_cost_per_kg",
-        gas_cost: "gas_cost_per_min",
-        arc_time: "arc_time_min",
-        total_job_time: "weld_time_min",
-        labor_rate: "labor_rate",
-        shop_overhead_rate: "overhead_rate",
-        deposition_efficiency: "deposition_efficiency",
-        source_confidence: "source_confidence",
-      };
-      // HIDDEN_TO_SCHEMA: Hidden form fields → schema input ID + default
-      const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number }> = {
-        material_density: { schemaId: "weld_density", defaultValue: 7.85 },
-        source_confidence: { schemaId: "source_confidence", defaultValue: 0.9 },
-      };
-      const schemaRawInputs: Record<string, number> = {};
-      // Populate from visible field state
-      for (const [formId, schemaId] of Object.entries(FORM_TO_SCHEMA_INPUT)) {
-        // Skip hidden fields — they come from HIDDEN_TO_SCHEMA or hiddenFields defaults
-        if (HIDDEN_TO_SCHEMA[formId]) continue;
-        const entry = fieldState[formId];
-        if (entry && entry.value !== "" && entry.value !== undefined) {
-          const num = parseFloat(entry.value);
-          if (Number.isFinite(num)) {
-            schemaRawInputs[schemaId] = num;
-          }
-        }
-      }
-      // Populate hidden field defaults (required by schema, not shown in form)
-      for (const [formId, cfg] of Object.entries(HIDDEN_TO_SCHEMA)) {
-        const hEntry = fieldState[formId];
-        if (hEntry && hEntry.value !== "" && hEntry.value !== undefined) {
-          const num = parseFloat(hEntry.value);
-          if (Number.isFinite(num)) {
-            schemaRawInputs[cfg.schemaId] = num;
-          }
-        } else {
-          // Use the default from the field contract
-          schemaRawInputs[cfg.schemaId] = cfg.defaultValue;
-        }
-      }
-      // planned_quote + contingency are NOT in schema inputs (used only
-      // by the client-side insight engine). Include them as raw_inputs
-      // so the server response carries them back, even though the
-      // formula does not process them.
-      for (const extraId of ["planned_quote", "contingency"] as const) {
-        const entry = fieldState[extraId];
-        if (entry && entry.value !== "" && entry.value !== undefined) {
-          const num = parseFloat(entry.value);
-          if (Number.isFinite(num)) {
-            schemaRawInputs[extraId] = num;
-          }
-        }
-      }
-
-      const executeBody = {
-        tool_key: toolKey,
-        tool_id: "PRO_027",
-        schema_version: "5.3.1",
-        raw_inputs: schemaRawInputs,
-        // All weld schema inputs have unit_selectable: false → no
-        // selected_units entries needed. Server normalizer uses
-        // base_unit as display_unit, fast-path identity conversion.
-        selected_units: {},
-        engine_inputs: validation.engineInputs as Record<string, number>,
-        evidence_state: {},
-        client_schema_hash: "pro-v2-weld-001",
-        usageSessionId: sessionResult.usageSessionId,
-      };
-
-      const executeResult: ExecuteResponse = await executeWithUsageSession(
+      const executeRaw = await executeWithUsageSession(
         executeEndpoint,
-        executeBody,
+        {
+          tool_key: toolKey,
+          tool_id: toolKey,
+          schema_version: "5.3.1",
+          raw_inputs: raw_inputs as Record<string, unknown>,
+          selected_units: {},
+          engine_inputs: {},
+          evidence_state: {},
+          client_schema_hash: "",
+          usageSessionId: usageSessionId,
+        },
       );
 
-      emitTraceEvent({
-        event: "PRO_V2_EXECUTE_END",
-        traceId,
-        slug: toolKey,
-        httpStatus: executeResult.ok ? 200 : executeResult.status,
-        pipeline_state: executeResult.ok ? executeResult.pipeline_state : undefined,
-        outputCount: executeResult.ok ? executeResult.outputs.length : 0,
-      });
-
-      if (!executeResult.ok) {
-        if (executeResult.status === 0) {
-          dispatch({ type: "NETWORK_ERROR", error: executeResult.error });
-        } else {
-          dispatch({ type: "CONTRACT_ERROR", error: executeResult.error });
-        }
-        runningRef.current = false;
+      // Type narrow
+      if (!executeRaw.ok) {
+        dispatch({ type: "NETWORK_ERROR", error: executeRaw.error ?? "Network error" });
+        trace("execute_failed", { error: executeRaw.error });
         return;
       }
 
-      // ── Step 5: Handle server response ──────────────────────────────
-      if (executeResult.status === "OK") {
-        const outputMap: Record<string, number> = {};
-        for (const out of executeResult.outputs) {
-          outputMap[out.id] = out.value;
-        }
-        const warnings = executeResult.warnings.map((w) => ({
-          id: w.id,
-          severity: w.severity,
-          message: w.message,
-        }));
+      trace("execute_result", { status: executeRaw.status, outputCount: executeRaw.outputs?.length });
 
-        dispatch({
-          type: "SERVER_OK",
-          result: outputMap as unknown as Record<string, unknown>,
-          warnings,
-        });
-
-        const report = buildWeldInsightReport({
-          toolName,
-          outputs: outputMap,
-          warnings,
-          displayInputs: validation.displayInputs,
-          engineInputs: validation.engineInputs as Record<string, number>,
-          traceId,
-        });
-
-        setInsightReport(report);
-
-        emitTraceEvent({
-          event: "PRO_V2_RESULT_PANEL",
-          traceId,
-          slug: toolKey,
-          executionState: "server_ok",
-          outputCount: executeResult.outputs.length,
-        });
-      } else if (executeResult.status === "REVIEW") {
+      if (executeRaw.status === "REVIEW") {
         dispatch({
           type: "SERVER_REVIEW",
           result: {},
-          warnings: executeResult.warnings.map((w) => ({ id: w.id, severity: w.severity, message: w.message })),
+          warnings: [],
         });
-      } else if (executeResult.status === "BLOCKED") {
-        dispatch({ type: "SERVER_BLOCKED", result: {} });
-      } else if (executeResult.status === "REPRICE") {
-        dispatch({ type: "SERVER_REPRICE", result: {} });
-      } else {
-        dispatch({ type: "ENGINE_ERROR", error: `Unexpected status: ${executeResult.status}` });
+      } else if (executeRaw.status === "BLOCKED") {
+        dispatch({
+          type: "SERVER_BLOCKED",
+          result: {},
+        });
+        return;
+      } else if (executeRaw.status !== "OK" && executeRaw.status !== "REVIEW") {
+        dispatch({ type: "CONTRACT_ERROR", error: `Unexpected status: ${executeRaw.status}` });
+        return;
       }
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "Unknown error";
 
-      emitTraceEvent({
-        event: "PRO_V2_CONTROLLED_ERROR",
+      // Extract outputs
+    const outputMap: Record<string, number> = {};
+    if (Array.isArray(executeRaw.outputs)) {
+      for (const out of executeRaw.outputs) {
+        outputMap[out.id] = out.value;
+      }
+    }
+    trace("parsed_outputs", outputMap);
+
+    // Map warnings
+    const execWarnings = (executeRaw.warnings ?? []).map((w) => ({
+      id: w.id ?? "warning",
+      severity: w.severity ?? "WARNING",
+      message: w.message ?? "",
+    }));
+
+    // Dispatch state
+    dispatch({
+      type: "SERVER_OK",
+      result: outputMap as unknown as Record<string, unknown>,
+      warnings: execWarnings,
+    });
+
+    // Build report using registry
+    if (buildReport) {
+      const report = buildReport({
+        toolName,
+        outputs: outputMap,
+        warnings: execWarnings,
+        displayInputs: validation.displayInputs ?? {},
+        engineInputs: validation.engineInputs as Record<string, number> ?? {},
         traceId: traceIdRef.current,
-        slug: toolKey,
-        errorCode: msg,
-        executionState: "contract_error",
       });
+      setReport(report as ProInsightReport);
+      trace("report_built", { sections: Object.keys(report) });
+    } else {
+      setReport(null);
+    }
 
-      dispatch({ type: "CONTRACT_ERROR", error: msg });
+    // New trace for next run
+    traceIdRef.current = generateTraceId();
     } finally {
       runningRef.current = false;
     }
-  }, [toolKey, toolName, allFields, fieldState, buildHiddenValues, isSignedIn, idToken, executeEndpoint, runtime.executionState, markAllTouched, debugRuntime, touched]);
+  }, [validate, fieldState, isSignedIn, idToken, toolKey, toolName, buildReport, buildExecutePayload, trace, groups, hiddenFields, executeEndpoint]);
 
-  // ── Compute state display ─────────────────────────────────────────────
-  const isRunning = runtime.executionState === "session_minting" || runtime.executionState === "executing";
+  // Reset handler
+  const handleReset = useCallback(() => {
+    setFieldState(buildInitialState(presets));
+    setReport(null);
+    setValidationErrors({});
+    setValidationWarnings({});
+    setSessionId(null);
+    dispatch({ type: "RESET" });
+    traceIdRef.current = generateTraceId();
+    trace("reset", {});
+  }, [presets, trace]);
+
+  // PDF export handler
+  const handleExportPdf = useCallback(() => {
+    window.print();
+    trace("pdf_export", { traceId: traceIdRef.current });
+  }, [trace]);
+
+  // Copy summary handler
+  const handleCopySummary = useCallback(() => {
+    if (!report) return;
+    const summary = `Report: ${report.toolName}\n` +
+      `Primary KPI: ${report.primaryKpi.value} (${report.primaryKpi.severity})\n` +
+      `Decision: ${report.decisionState.state} — ${report.decisionState.summary}\n` +
+      `Total Cost: ${report.totalCost}\n` +
+      `Recommended Action: ${report.recommendedAction.action}`;
+    navigator.clipboard.writeText(summary).catch(() => {});
+    trace("copy_summary", {});
+  }, [report, trace]);
+
+  // ── Render ────────────────────────────────────────────────────────────
 
   return (
-    <div
-      className="pro-tool-card"
-      style={{
-        backgroundColor: "#F0EEE6",
-        padding: "24px",
-        maxWidth: "960px",
-        margin: "0 auto",
-      }}
-    >
+    <div className="pro-v2-form" style={{ maxWidth: "1000px", margin: "0 auto" }}>
       {/* Header */}
       <div style={{ marginBottom: "20px" }}>
-        <div style={{ fontSize: "11px", color: "#888", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "4px" }}>
-          PRO CALCULATOR
-        </div>
-        <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#1A1915", margin: 0 }}>
-          {toolName}
+        <h1 style={{ fontSize: "20px", fontWeight: 700, color: "#1A1915", margin: "0 0 4px 0" }}>
+          PRO V2 — {toolName}
         </h1>
-        {debugRuntime && (
-          <div style={{ fontSize: "10px", color: "#BD5D3A", marginTop: "4px", fontFamily: "monospace" }}>
-            DEBUG TRACE: {traceIdRef.current}
-          </div>
-        )}
+        <p style={{ fontSize: "12px", color: "#888", margin: 0 }}>
+          Tool: <code>{toolKey}</code>
+        </p>
       </div>
 
-      {/* Preload notice */}
+      {/* Notice */}
       <div
         style={{
-          padding: "8px 12px",
+          padding: "10px 14px",
+          fontSize: "12px",
+          color: "#666",
+          backgroundColor: "#F5F4EF",
+          border: "1px solid #DDD",
           marginBottom: "16px",
-          fontSize: "11px",
-          color: "#888",
-          backgroundColor: "#E8E6DE",
-          borderLeft: "3px solid #BD5D3A",
         }}
       >
         Example values are pre-loaded. Edit them before using the report for quotation.
       </div>
 
-      {/* Example Loader */}
-      <WeldExampleLoader onLoad={handleLoadExample} presets={WELD_PRESETS} />
+      {/* Preset Loader */}
+      <PresetLoader onLoad={handleLoadExample} presets={presets} />
 
       {/* Input Groups */}
       {groups.map((group, gi) => (
-        <div key={gi} style={{ marginBottom: "20px" }}>
-          <h2
-            style={{
-              fontSize: "14px",
-              fontWeight: 600,
-              color: "#1A1915",
-              textTransform: "uppercase",
-              letterSpacing: "0.5px",
-              marginBottom: "4px",
-            }}
-          >
+        <div key={gi} className="pro-v2-section">
+          <h2 className="pro-v2-group-title">
             {group.title}
           </h2>
           {group.description && (
-            <p style={{ fontSize: "12px", color: "#888", margin: "0 0 12px 0" }}>
+            <p className="pro-v2-group-desc">
               {group.description}
             </p>
           )}
-          <div
-            className="pro-inp-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: "12px",
-            }}
-          >
+          <div className="pro-v2-field-grid">
             {group.fields
               .filter((f) => !f.hidden)
               .map((field) => {
-                const entry = fieldState[field.id];
-                const isError = runtime.executionState === "client_blocked" && runtime.blockers.some((b) => b.fieldId === field.id);
-                const isSelect = field.type === "select";
+                const entry = fieldState[field.id] ?? { value: "", unit: "" };
+                const error = validationErrors[field.id];
+                const warning = validationWarnings[field.id];
+                const isInvalid = !!error;
 
-                return (
-                  <div
-                    key={field.id}
-                    className="pro-inp-item"
-                    style={{
-                      padding: "12px",
-                      backgroundColor: "#E8E6DE",
-                      border: isError ? "1px solid #BD5D3A" : "1px solid transparent",
-                    }}
-                  >
-                    {/* Label row */}
-                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                      <label
-                        htmlFor={`pro-v2-${field.id}`}
-                        style={{ fontSize: "13px", fontWeight: 500, color: "#1A1915" }}
-                      >
-                        {field.label}
-                        {field.required && <span style={{ color: "#BD5D3A", marginLeft: "2px" }}>*</span>}
-                      </label>
-                      {field.symbol && (
-                        <span style={{ fontSize: "11px", color: "#888", fontStyle: "italic" }}>
-                          {field.symbol}
+                if (field.type === "select" && field.options) {
+                  return (
+                    <div key={field.id} className="pro-v2-field" data-invalid={isInvalid || undefined}>
+                      <label className="pro-v2-field-label">
+                        <span>
+                          {field.symbol && <code className="pro-v2-field-symbol">{field.symbol}</code>}
+                          {field.label}
+                          {field.required && <span className="pro-v2-required">*</span>}
                         </span>
-                      )}
-                    </div>
-
-                    {/* Input row — select vs number bifurcation */}
-                    <div className="pro-v2-input-row">
-                      {isSelect ? (
-                        // ── SELECT TYPE (no unit dropdown) ──────────────────
+                      </label>
+                      <div className="pro-v2-input-row">
                         <select
-                          id={`pro-v2-${field.id}`}
-                          value={entry?.value ?? field.defaultValue ?? ""}
-                          onChange={(e) => handleInputChange(field.id, e.target.value)}
-                          className="pro-v2-select"
-                          style={{
-                            gridColumn: "1 / -1",
-                            width: "100%",
-                            height: "48px",
-                            padding: "0 14px",
-                            fontSize: "15px",
-                            fontWeight: 600,
-                            border: "1px solid #CCC",
-                            backgroundColor: "#F0EEE6",
-                            color: "#1A1915",
-                          }}
+                          className="pro-v2-option-select"
+                          value={entry.value}
+                          onChange={(e) => handleUnitChange(field.id, e.target.value)}
                         >
-                          {field.options?.map((opt) => (
-                            <option key={opt.value} value={opt.value}>
-                              {opt.label}
-                            </option>
+                          {field.options.map((opt) => (
+                            <option key={opt.value} value={opt.value}>{opt.label}</option>
                           ))}
                         </select>
-                      ) : (
-                        // ── NUMBER TYPE (input + unit select) ───────────────
-                        <>
-                          <input
-                            id={`pro-v2-${field.id}`}
-                            type="text"
-                            inputMode="decimal"
-                            value={entry?.value ?? ""}
-                            onChange={(e) => handleInputChange(field.id, e.target.value)}
-                            placeholder={field.placeholder}
-                            className="pro-v2-input"
-                            data-pro-v2-input="true"
-                          />
-                          <select
-                            value={entry?.unit ?? field.defaultUnit ?? ""}
-                            onChange={(e) => handleUnitChange(field.id, e.target.value)}
-                            className="pro-v2-unit-select"
-                          >
-                            {(field.allowedUnits && field.allowedUnits.length > 0
-                              ? field.allowedUnits
-                              : []
-                            ).map((u) => (
-                              <option key={u.unit} value={u.unit}>
-                                {u.label}
-                              </option>
-                            ))}
-                          </select>
-                        </>
+                      </div>
+                      {field.helpText && <p className="pro-v2-field-helper">{field.helpText}</p>}
+                      {error && <p className="pro-v2-field-error">{error}</p>}
+                      {warning && <p className="pro-v2-field-warning">{warning}</p>}
+                    </div>
+                  );
+                }
+
+                return (
+                  <div key={field.id} className="pro-v2-field" data-invalid={isInvalid || undefined}>
+                    <label className="pro-v2-field-label">
+                      <span>
+                        {field.symbol && <code className="pro-v2-field-symbol">{field.symbol}</code>}
+                        {field.label}
+                        {field.required && <span className="pro-v2-required">*</span>}
+                      </span>
+                    </label>
+                    <div className="pro-v2-input-row">
+                      <input
+                        type="number"
+                        className="pro-v2-value-input"
+                        value={entry.value}
+                        onChange={(e) => handleFieldChange(field.id, e.target.value, entry.unit)}
+                        placeholder={field.placeholder ?? ""}
+                        min={field.min}
+                        max={field.max}
+                        step={field.step}
+                      />
+                      {field.allowedUnits && field.allowedUnits.length > 0 && (
+                        <select
+                          className="pro-v2-unit-select"
+                          value={entry.unit || (field.defaultUnit ?? "")}
+                          onChange={(e) => handleUnitChange(field.id, e.target.value)}
+                        >
+                          {field.allowedUnits.map((u) => (
+                            <option key={u.unit} value={u.unit}>{u.label}</option>
+                          ))}
+                        </select>
                       )}
                     </div>
-
-                    {/* Help text */}
-                    {field.helpText && (
-                      <div style={{ fontSize: "10px", color: "#999", marginTop: "6px" }}>
-                        {field.helpText}
-                      </div>
-                    )}
-
-                    {/* Error message */}
-                    {isError && (
-                      <div style={{ fontSize: "11px", color: "#BD5D3A", marginTop: "4px", fontWeight: 500 }}>
-                        {runtime.blockers.find((b) => b.fieldId === field.id)?.message}
-                      </div>
-                    )}
+                    {field.helpText && <p className="pro-v2-field-helper">{field.helpText}</p>}
+                    {error && <p className="pro-v2-field-error">{error}</p>}
+                    {warning && <p className="pro-v2-field-warning">{warning}</p>}
                   </div>
                 );
               })}
@@ -719,159 +562,223 @@ export default function ProExecutionFormV2({
         </div>
       ))}
 
-      {/* Action Row */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          gap: "12px",
-          marginTop: "20px",
-          paddingTop: "16px",
-          borderTop: "1px solid #CCC",
-        }}
-      >
-        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-          <button
-            onClick={handleCalculate}
-            disabled={isRunning}
-            className="pro-calc-btn"
-            style={{
-              padding: "12px 32px",
-              fontSize: "14px",
-              fontWeight: 700,
-              backgroundColor: isRunning ? "#CCC" : "#BD5D3A",
-              color: "#F0EEE6",
-              border: "none",
-              cursor: isRunning ? "not-allowed" : "pointer",
-              textTransform: "uppercase",
-              letterSpacing: "0.5px",
-              minHeight: "48px",
-              minWidth: "140px",
-            }}
-          >
-            {isRunning ? "Calculating..." : "Calculate"}
-          </button>
-          <button
-            onClick={handleReset}
-            disabled={isRunning}
-            style={{
-              padding: "12px 24px",
-              fontSize: "13px",
-              fontWeight: 600,
-              backgroundColor: "transparent",
-              color: "#1A1915",
-              border: "1px solid #1A1915",
-              cursor: isRunning ? "not-allowed" : "pointer",
-              minHeight: "48px",
-            }}
-          >
-            Reset
-          </button>
-        </div>
-        <div style={{ fontSize: "10px", color: "#999", textAlign: "right", maxWidth: "320px" }}>
-          Engineering screening output — verify project-specific standards, WPS/PQR requirements, and shop assumptions before business decisions.
-        </div>
+      {/* Action Buttons */}
+      <div style={{ display: "flex", gap: "12px", marginBottom: "24px" }}>
+        <button
+          onClick={handleCalculate}
+          style={{
+            padding: "14px 28px",
+            fontSize: "14px",
+            fontWeight: 600,
+            backgroundColor: "#BD5D3A",
+            color: "#FFF",
+            border: "none",
+            cursor: "pointer",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+          }}
+          disabled={runtime.executionState === "executing" || runtime.executionState === "session_minting"}
+        >
+          {runtime.executionState === "executing" || runtime.executionState === "session_minting" ? "Calculating..." : "Calculate"}
+        </button>
+        <button
+          onClick={handleReset}
+          style={{
+            padding: "14px 20px",
+            fontSize: "13px",
+            fontWeight: 500,
+            backgroundColor: "#E8E6DE",
+            color: "#1A1915",
+            border: "1px solid #CCC",
+            cursor: "pointer",
+          }}
+        >
+          Reset
+        </button>
       </div>
 
-      {/* Runtime state messages */}
-      <StateMessage state={runtime.executionState} message={runtime.errorMessage} />
+      <StateMessage state={runtime.executionState} message={null} />
 
-      {/* Validation blockers list */}
-      {runtime.executionState === "client_blocked" && runtime.blockers.length > 0 && (
-        <div style={{ marginTop: "12px" }}>
-          {runtime.blockers.map((b, i) => (
-            <div
-              key={i}
-              style={{
-                padding: "8px 12px",
-                marginBottom: "4px",
-                fontSize: "12px",
-                color: "#BD5D3A",
-                backgroundColor: "#FFEBEE",
-                border: "1px solid #BD5D3A",
-              }}
-            >
-              {b.fieldId}: {b.message}
-            </div>
-          ))}
+      {/* Validation Errors Summary */}
+      {Object.keys(validationErrors).length > 0 && (
+        <div style={{ padding: "12px", backgroundColor: "#FFEBEE", border: "1px solid #BD5D3A", marginBottom: "16px" }}>
+          <p style={{ fontSize: "12px", fontWeight: 600, color: "#BD5D3A", margin: "0 0 4px 0" }}>
+            Please fix the following errors:
+          </p>
+          <ul style={{ margin: 0, paddingLeft: "16px" }}>
+            {Object.entries(validationErrors).map(([fieldId, msg]) => (
+              <li key={fieldId} style={{ fontSize: "11px", color: "#BD5D3A" }}>{fieldId}: {msg}</li>
+            ))}
+          </ul>
         </div>
       )}
 
-      {/* Insight Report — renders all premium sections */}
-      {insightReport && (
-        <ProResultPanelV2
-          report={insightReport}
-          traceId={traceIdRef.current}
-          onExportPdf={handleExportPdf}
-          onCopySummary={handleCopySummary}
-        />
-      )}
+      {/* Result Panel */}
+      {report && <ProResultPanelV2 report={report} traceId={traceIdRef.current} onExportPdf={handleExportPdf} onCopySummary={handleCopySummary} />}
 
-      {/* Input + unit grid CSS */}
-      <style>{`
-        .pro-v2-input-row {
+      <style jsx>{`
+        .pro-v2-field-grid {
           display: grid;
-          grid-template-columns: minmax(140px, 1fr) minmax(120px, 150px);
-          align-items: stretch;
-          gap: 6px;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          column-gap: 22px;
+          row-gap: 28px;
         }
-        .pro-v2-input,
-        input[data-pro-v2-input] {
+
+        .pro-v2-field {
+          background: transparent;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+          padding: 0;
           min-width: 0;
-          width: 100%;
-          height: 48px;
-          padding: 0 14px;
+          min-height: 0;
+        }
+
+        .pro-v2-field-label {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          margin: 0 0 10px;
           font-size: 16px;
           font-weight: 700;
-          border: 1px solid #CCC;
-          background-color: #F0EEE6;
-          color: #1A1915;
-          outline: none;
-          box-sizing: border-box;
+          color: #181713;
         }
-        .pro-v2-unit-select {
-          width: 100%;
-          min-width: 120px;
-          max-width: 150px;
-          height: 48px;
-          padding: 0 8px;
+
+        .pro-v2-field-symbol {
           font-size: 13px;
-          border: 1px solid #CCC;
-          background-color: #F0EEE6;
-          color: #1A1915;
-          box-sizing: border-box;
+          color: #888;
+          margin-right: 6px;
         }
-        .pro-v2-select {
+
+        .pro-v2-required {
+          color: #BD5D3A;
+          margin-left: 2px;
+        }
+
+        .pro-v2-input-row {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(120px, 150px);
+          width: 100%;
+          min-height: 52px;
+          overflow: hidden;
+          background: #ffffff;
+          border: 1px solid #d6d1c7;
+          border-radius: 4px;
+          box-shadow: none;
+        }
+
+        .pro-v2-input-row:focus-within {
+          border-color: #1e40af;
+          box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.10);
+        }
+
+        .pro-v2-value-input {
+          flex: 1;
           min-width: 0;
           width: 100%;
-          height: 48px;
-          padding: 0 14px;
+          height: 52px;
+          padding: 0 16px;
           font-size: 15px;
-          font-weight: 600;
-          border: 1px solid #CCC;
-          background-color: #F0EEE6;
-          color: #1A1915;
+          font-family: JetBrains Mono, monospace;
+          background: #ffffff;
+          border: 0;
           outline: none;
-          box-sizing: border-box;
+          color: #1A1915;
         }
-        @media (max-width: 768px) {
-          .pro-v2-input-row {
-            grid-template-columns: 1fr;
-          }
-          .pro-v2-unit-select {
-            max-width: 100%;
-          }
-        }
-      `}</style>
 
-      {/* PDF print stylesheet */}
-      <style>{`
-        @media print {
-          body { background: white; }
-          .pro-tool-card { max-width: 100% !important; padding: 0 !important; }
-          button, select { display: none !important; }
-          input { border: none !important; background: transparent !important; }
+        .pro-v2-unit-select {
+          width: 100%;
+          min-width: 0;
+          height: 52px;
+          padding: 0 12px;
+          font-size: 13px;
+          background: #ffffff;
+          border: 0;
+          border-left: 1px solid #e1ddd4;
+          outline: none;
+          color: #1A1915;
+          cursor: pointer;
+        }
+
+        .pro-v2-option-select {
+          width: 100%;
+          height: 52px;
+          padding: 0 16px;
+          font-size: 15px;
+          background: #ffffff;
+          border: 1px solid #d6d1c7;
+          border-radius: 4px;
+          outline: none;
+          color: #1A1915;
+          cursor: pointer;
+        }
+
+        .pro-v2-option-select:focus {
+          border-color: #1e40af;
+          box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.10);
+        }
+
+        .pro-v2-field[data-invalid="true"] .pro-v2-input-row {
+          border-color: #b42318;
+          box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.08);
+        }
+
+        .pro-v2-field[data-invalid="true"] {
+          background: transparent;
+        }
+
+        .pro-v2-field-helper {
+          margin: 9px 0 0;
+          color: #858585;
+          font-size: 13px;
+          line-height: 1.4;
+        }
+
+        .pro-v2-field-error {
+          margin: 9px 0 0;
+          font-size: 13px;
+          color: #BD5D3A;
+        }
+
+        .pro-v2-field-warning {
+          margin: 9px 0 0;
+          font-size: 13px;
+          color: #B8860B;
+        }
+
+        .pro-v2-section {
+          padding: 0 0 30px;
+          margin: 0 0 30px;
+          border-bottom: 1px solid #ded9cf;
+        }
+
+        .pro-v2-section:last-child {
+          border-bottom: 0;
+        }
+
+        .pro-v2-group-title {
+          font-size: 14px;
+          font-weight: 700;
+          color: #1A1915;
+          margin: 0 0 4px 0;
+          text-transform: uppercase;
+          letter-spacing: 0.3px;
+        }
+
+        .pro-v2-group-desc {
+          font-size: 13px;
+          color: #888;
+          margin: 0 0 18px 0;
+        }
+
+        @media (max-width: 760px) {
+          .pro-v2-field-grid {
+            grid-template-columns: 1fr;
+            row-gap: 22px;
+          }
+          .pro-v2-input-row {
+            grid-template-columns: minmax(0, 1fr) 120px;
+          }
         }
       `}</style>
     </div>

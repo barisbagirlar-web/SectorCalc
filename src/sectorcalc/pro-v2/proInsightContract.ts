@@ -58,7 +58,7 @@ export interface SensitivityCheck {
 
 export interface ChecklistItem {
   item: string;
-  status: "PASS" | "FAIL" | "REVIEW";
+  status: "PASS" | "FAIL" | "REVIEW" | "PROVIDED" | "ASSUMED" | "MISSING" | "NOT CHECKED";
   details?: string;
 }
 

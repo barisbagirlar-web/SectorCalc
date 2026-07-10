@@ -11,7 +11,7 @@ const formFile = resolve(root, "src/sectorcalc/pro-v2/ProExecutionFormV2.tsx");
 const content = readFileSync(formFile, "utf-8");
 
 const checks = [
-  { pattern: "insightReport &&", desc: "insight report guard present" },
+  { pattern: "report &&", desc: "insight report guard present" },
   { pattern: "SERVER_OK", desc: "SERVER_OK state dispatches result" },
   { pattern: "SERVER_REVIEW", desc: "SERVER_REVIEW state dispatch" },
   { pattern: "SERVER_BLOCKED", desc: "SERVER_BLOCKED state dispatch" },
