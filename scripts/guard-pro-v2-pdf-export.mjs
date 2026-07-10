@@ -1,4 +1,5 @@
 // Guard: Verify PDF export capability exists in ProV2 components.
+// Updated for @react-pdf/renderer based export.
 import { readFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -12,6 +13,11 @@ const content = readFileSync(resultPanelFile, "utf-8");
 const formFile = resolve(root, "src/sectorcalc/pro-v2/ProExecutionFormV2.tsx");
 const formContent = readFileSync(formFile, "utf-8");
 
+const pdfDir = resolve(root, "src/sectorcalc/pro-v2/pdf");
+const { readdirSync } = await import("fs");
+
+const pdfFiles = readdirSync(pdfDir);
+
 // Checks that apply to result panel
 const resultPanelChecks = [
   { pattern: "onExportPdf", desc: "onExportPdf callback prop" },
@@ -23,11 +29,22 @@ const resultPanelChecks = [
   { pattern: "recommendedAction", desc: "recommended action in print" },
 ];
 
-// Cross-file checks
+// Cross-file checks — updated for @react-pdf/renderer
 const crossChecks = [
-  { pattern: "window.print()", files: [content, formContent], desc: "window.print() handler" },
-  { pattern: "@media print", files: [content, formContent], desc: "print CSS media query" },
   { pattern: "handleExportPdf", files: [formContent], desc: "handleExportPdf handler" },
+  { pattern: "@media print", files: [content, formContent], desc: "print CSS media query" },
+  { pattern: "exportProReportPdf", files: [formContent], desc: "exportProReportPdf import" },
+  { pattern: "setPdfExporting", files: [formContent], desc: "pdfExporting loading state" },
+];
+
+// Check PDF directory has key files
+const pdfDirChecks = [
+  "ProReportPdfDocument.tsx",
+  "ProPdfHeader.tsx",
+  "ProPdfFooter.tsx",
+  "ProPdfSection.tsx",
+  "ProPdfTable.tsx",
+  "exportProReportPdf.tsx",
 ];
 
 let allPass = true;
@@ -45,6 +62,26 @@ for (const check of crossChecks) {
     console.error(`GUARD FAIL: Missing "${check.pattern}" (${check.desc})`);
     allPass = false;
   }
+}
+
+for (const f of pdfDirChecks) {
+  if (!pdfFiles.includes(f)) {
+    console.error(`GUARD FAIL: PDF directory missing "${f}"`);
+    allPass = false;
+  }
+}
+
+// Verify no window.print() remains (old pattern removed)
+if (formContent.includes("window.print()") || content.includes("window.print()")) {
+  console.error("GUARD FAIL: window.print() still present in PRO V2 components (must use @react-pdf/renderer)");
+  allPass = false;
+}
+
+// Verify @react-pdf/renderer import in PDF components
+const pdfDoc = readFileSync(resolve(pdfDir, "ProReportPdfDocument.tsx"), "utf-8");
+if (!pdfDoc.includes('from "@react-pdf/renderer"')) {
+  console.error("GUARD FAIL: ProReportPdfDocument.tsx missing @react-pdf/renderer import");
+  allPass = false;
 }
 
 if (allPass) {

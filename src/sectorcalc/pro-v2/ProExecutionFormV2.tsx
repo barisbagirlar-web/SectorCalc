@@ -157,6 +157,7 @@ export default function ProExecutionFormV2({
   const traceIdRef = useRef<string>(generateTraceId());
   const runningRef = useRef(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [pdfExporting, setPdfExporting] = useState(false);
 
   // Enable trace on first render if debug mode
   useEffect(() => {
@@ -423,11 +424,20 @@ export default function ProExecutionFormV2({
     trace("reset", {});
   }, [presets, trace]);
 
-  // PDF export handler
-  const handleExportPdf = useCallback(() => {
-    window.print();
-    trace("pdf_export", { traceId: traceIdRef.current });
-  }, [trace]);
+  // PDF export handler using @react-pdf/renderer
+  const handleExportPdf = useCallback(async () => {
+    if (!report) return;
+    setPdfExporting(true);
+    try {
+      const { exportProReportPdf } = await import('./pdf/exportProReportPdf');
+      await exportProReportPdf(report, toolKey);
+      trace("pdf_export", { traceId: traceIdRef.current });
+    } catch (err) {
+      console.error('PDF export failed:', err);
+    } finally {
+      setPdfExporting(false);
+    }
+  }, [report, toolKey, trace]);
 
   // Copy summary handler
   const handleCopySummary = useCallback(() => {
@@ -502,11 +512,10 @@ export default function ProExecutionFormV2({
                           {field.required && <span className="pro-v2-required">*</span>}
                         </span>
                       </label>
-                      <div className="pro-v2-input-row">
+                      <div className="pro-v2-select-control">
                         <select
-                          className="pro-v2-option-select"
                           value={entry.value}
-                          onChange={(e) => handleUnitChange(field.id, e.target.value)}
+                          onChange={(e) => handleFieldChange(field.id, e.target.value, "")}
                         >
                           {field.options.map((opt) => (
                             <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -520,6 +529,34 @@ export default function ProExecutionFormV2({
                   );
                 }
 
+                // Text input (no unit)
+                if (field.type === "text") {
+                  return (
+                    <div key={field.id} className="pro-v2-field" data-invalid={isInvalid || undefined}>
+                      <label className="pro-v2-field-label">
+                        <span>
+                          {debugRuntime && field.symbol && <code className="pro-v2-field-symbol">{field.symbol}</code>}
+                          {field.label}
+                          {field.required && <span className="pro-v2-required">*</span>}
+                        </span>
+                      </label>
+                      <div className="pro-v2-input-row">
+                        <input
+                          type="text"
+                          className="pro-v2-value-input"
+                          value={entry.value}
+                          onChange={(e) => handleFieldChange(field.id, e.target.value, "")}
+                          placeholder={field.placeholder ?? ""}
+                        />
+                      </div>
+                      {field.helpText && <p className="pro-v2-field-helper">{field.helpText}</p>}
+                      {error && <p className="pro-v2-field-error">{error}</p>}
+                      {warning && <p className="pro-v2-field-warning">{warning}</p>}
+                    </div>
+                  );
+                }
+
+                // Number field
                 return (
                   <div key={field.id} className="pro-v2-field" data-invalid={isInvalid || undefined}>
                     <label className="pro-v2-field-label">
@@ -614,7 +651,7 @@ export default function ProExecutionFormV2({
       )}
 
       {/* Result Panel */}
-      {report && <ProResultPanelV2 report={report} traceId={traceIdRef.current} onExportPdf={handleExportPdf} onCopySummary={handleCopySummary} />}
+      {report && <ProResultPanelV2 report={report} traceId={traceIdRef.current} onExportPdf={handleExportPdf} onCopySummary={handleCopySummary} pdfExporting={pdfExporting} />}
 
       <style jsx>{`
         .pro-v2-field-grid {
@@ -716,6 +753,42 @@ export default function ProExecutionFormV2({
         .pro-v2-option-select:focus {
           border-color: #1e40af;
           box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.10);
+        }
+
+        .pro-v2-select-control {
+          width: 100%;
+          display: block;
+        }
+
+        .pro-v2-select-control select {
+          display: block;
+          width: 100%;
+          height: 52px;
+          padding: 0 44px 0 16px;
+          background: #ffffff;
+          border: 1px solid #d6d1c7;
+          border-radius: 4px;
+          font: inherit;
+          font-size: 15px;
+          color: #181713;
+          cursor: pointer;
+          outline: none;
+          -webkit-appearance: none;
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23181713' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 16px center;
+          background-size: 10px 6px;
+        }
+
+        .pro-v2-select-control select:focus {
+          border-color: #1e40af;
+          box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.10);
+        }
+
+        .pro-v2-field[data-invalid="true"] .pro-v2-select-control select {
+          border-color: #b42318;
+          box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.08);
         }
 
         .pro-v2-field[data-invalid="true"] .pro-v2-input-row {

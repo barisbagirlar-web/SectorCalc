@@ -10,6 +10,7 @@ interface ProResultPanelV2Props {
   traceId?: string;
   onExportPdf?: () => void;
   onCopySummary?: () => void;
+  pdfExporting?: boolean;
 }
 
 function severityColor(severity?: string): string {
@@ -136,7 +137,7 @@ function CostBar({ label, amount, percentage, color }: { label: string; amount: 
   );
 }
 
-export default function ProResultPanelV2({ report, traceId, onExportPdf, onCopySummary }: ProResultPanelV2Props) {
+export default function ProResultPanelV2({ report, traceId, onExportPdf, onCopySummary, pdfExporting }: ProResultPanelV2Props) {
   return (
     <div
       id="pro-v2-result-panel"
@@ -179,19 +180,20 @@ export default function ProResultPanelV2({ report, traceId, onExportPdf, onCopyS
           {onExportPdf && (
             <button
               onClick={onExportPdf}
+              disabled={pdfExporting}
               style={{
                 padding: "8px 16px",
-                backgroundColor: "#BD5D3A",
+                backgroundColor: pdfExporting ? "#888" : "#BD5D3A",
                 color: "#F0EEE6",
                 border: "none",
-                cursor: "pointer",
+                cursor: pdfExporting ? "wait" : "pointer",
                 fontSize: "12px",
                 fontWeight: 600,
                 textTransform: "uppercase",
                 letterSpacing: "0.5px",
               }}
             >
-              Export PDF Report
+              {pdfExporting ? "Generating PDF..." : "Export PDF Report"}
             </button>
           )}
         </div>
