@@ -20,6 +20,7 @@ const WAVE_0_SLUGS = [
 // ── Wave 1 (Cost & Quotation) — Live-verified
 const WAVE_1_SLUGS = [
   "machine-hourly-rate-proof-report",
+  "job-quote-builder-pro-pack",
 ];
 
 // ── Future waves (not yet activated)
