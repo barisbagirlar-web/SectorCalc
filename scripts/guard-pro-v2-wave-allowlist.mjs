@@ -24,6 +24,11 @@ const WAVE_1_SLUGS = [
   "loss-making-job-detector",
 ];
 
+// ── Wave 1.5 (Financial Planning) — Ready
+const WAVE_1_5_SLUGS = [
+  "break-even-survival-cash-calculator",
+];
+
 // ── Future waves (not yet activated)
 // Wave 2: product-sku-margin-ranker, customer-sku-profitability-forensics, etc.
 // Wave 2: product-sku-margin-ranker, customer-sku-profitability-forensics, etc.
@@ -37,7 +42,7 @@ const activeSlugs = Array.from(slugMatches)
   .filter((s) => s.includes("-") && !s.startsWith("use") && s.length > 10);
 
 // Verify each active slug is in an approved wave
-const ALL_APPROVED_SLUGS = new Set([...WAVE_0_SLUGS, ...WAVE_1_SLUGS]);
+const ALL_APPROVED_SLUGS = new Set([...WAVE_0_SLUGS, ...WAVE_1_SLUGS, ...WAVE_1_5_SLUGS]);
 
 for (const slug of activeSlugs) {
   if (!ALL_APPROVED_SLUGS.has(slug)) {

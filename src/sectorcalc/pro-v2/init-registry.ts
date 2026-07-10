@@ -30,6 +30,12 @@ import { LOSS_DETECTOR_PRESETS } from "./presets/loss-making-job-detector.preset
 import { lossDetectorBuildExecutePayload } from "./adapters/loss-making-job-detector.adapter";
 import { buildLossDetectorReport } from "./insights/loss-making-job-detector.insight";
 
+// ── Wave 1.5 — Break-Even Survival Cash ────────────────────────────────────
+import { BREAK_EVEN_GROUPS } from "./contracts/break-even-survival-cash-calculator.contract";
+import { BREAK_EVEN_PRESETS } from "./presets/break-even-survival-cash-calculator.presets";
+import { breakEvenBuildExecutePayload } from "./adapters/break-even-survival-cash-calculator.adapter";
+import { buildBreakEvenReport } from "./insights/break-even-survival-cash-calculator.insight";
+
 // ── Static definitions ──────────────────────────────────────────────────
 
 const WELD_DEFINITION: ProV2ToolDefinition = {
@@ -213,6 +219,44 @@ const LOSS_DETECTOR_DEFINITION: ProV2ToolDefinition = {
   },
 };
 
+const BREAK_EVEN_DEFINITION: ProV2ToolDefinition = {
+  slug: "break-even-survival-cash-calculator",
+  title: "Break-Even Survival Cash Calculator",
+  category: "Financial Planning",
+  fieldContract: BREAK_EVEN_GROUPS,
+  presets: BREAK_EVEN_PRESETS,
+  serverContract: {
+    toolKey: "break-even-survival-cash-calculator",
+    toolId: "PRO_020",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_annual_revenue", "n_variable_cost_percent",
+      "n_annual_fixed_costs", "n_available_cash_liquidity",
+    ],
+    optionalInputKeys: [
+      "n_unit_selling_price", "n_unit_variable_cost",
+    ],
+    expectedOutputKeys: [
+      "out_revenue", "out_variable_cost", "out_contribution_margin_amount",
+      "out_contribution_margin_ratio", "out_fixed_operating_cost",
+      "out_operating_profit_or_loss", "out_break_even_revenue",
+      "out_break_even_units", "out_revenue_gap", "out_unit_gap",
+      "out_monthly_cash_burn", "out_available_liquidity",
+      "out_cash_runway_months", "out_margin_of_safety_amount",
+      "out_margin_of_safety_percent", "out_primary_survival_driver",
+      "out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: breakEvenBuildExecutePayload,
+  buildReport: buildBreakEvenReport,
+  reportCapabilities: {
+    primaryKpis:true, decisionState:true, executiveInterpretation:true,
+    breakdown:true, scenarioComparison:false, sensitivity:true,
+    hiddenLosses:true, missedAssumptions:true, riskWarnings:true,
+    checklist:true, recommendations:true, pdfExport:true,
+  },
+};
+
 // ── Deterministic exported map ──────────────────────────────────────────
 // Direct access — no side effects, immune to tree-shaking or init order.
 
@@ -221,6 +265,7 @@ export const PRO_V2_TOOL_DEFINITIONS: Record<string, ProV2ToolDefinition> = {
   "machine-hourly-rate-proof-report": MACHINE_RATE_DEFINITION,
   "job-quote-builder-pro-pack": JOB_QUOTE_DEFINITION,
   "loss-making-job-detector": LOSS_DETECTOR_DEFINITION,
+  "break-even-survival-cash-calculator": BREAK_EVEN_DEFINITION,
 };
 
 // Make definitions available to proToolRegistry for fallback lookup
@@ -239,6 +284,7 @@ export function initProV2Registry(): void {
   registerTool(MACHINE_RATE_DEFINITION);
   registerTool(JOB_QUOTE_DEFINITION);
   registerTool(LOSS_DETECTOR_DEFINITION);
+  registerTool(BREAK_EVEN_DEFINITION);
 }
 
 // ── Re-export backward-compatible accessors ─────────────────────────────

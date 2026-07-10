@@ -1,43 +1,30 @@
-// SectorCalc PRO V2 — Break-Even Survival Cash Execute Payload Adapter
+// SectorCalc PRO V2 — Break-Even Survival Cash Calculator Adapter
 
 import type { ProExecutePayloadAdapter } from "../proToolRegistry";
 
-const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
-  initial_investment: "n_initial_investment",
-  annual_net_cash_flow: "n_annual_net_cash_flow",
-  discount_rate: "n_discount_rate",
-  analysis_years: "n_analysis_years",
-  residual_value: "n_residual_value",
-  stress_downside_factor: "n_stress_downside_factor",
-  annual_volume: "n_annual_volume",
-  labor_rate: "n_labor_rate",
-  overhead_rate: "n_overhead_rate",
-  defect_or_loss_cost: "n_defect_or_loss_cost",
-};
-
-const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number }> = {
-  source_confidence: { schemaId: "n_source_confidence_ratio", defaultValue: 0.95 },
-};
-
-export const breakEvenBuildExecutePayload: ProExecutePayloadAdapter = (fieldState, hiddenValues) => {
-  const raw_inputs: Record<string, number> = {};
-  for (const [formId, schemaId] of Object.entries(FORM_TO_SCHEMA_INPUT)) {
-    const entry = fieldState[formId];
-    if (entry && entry.value !== "" && entry.value !== undefined) {
-      const num = parseFloat(entry.value);
-      if (Number.isFinite(num)) raw_inputs[schemaId] = num;
-    }
+export const breakEvenBuildExecutePayload: ProExecutePayloadAdapter = (
+  fieldState: Record<string, { value: string; unit: string }>,
+) => {
+  function n(key: string): number {
+    const v = fieldState[key];
+    if (!v) return 0;
+    const parsed = parseFloat(v.value);
+    return Number.isFinite(parsed) ? parsed : 0;
   }
-  for (const [formId, cfg] of Object.entries(HIDDEN_TO_SCHEMA)) {
-    const hEntry = fieldState[formId];
-    if (hEntry && hEntry.value !== "" && hEntry.value !== undefined) {
-      const num = parseFloat(hEntry.value);
-      if (Number.isFinite(num)) raw_inputs[cfg.schemaId] = num;
-    } else if (hiddenValues[formId] !== undefined) {
-      raw_inputs[cfg.schemaId] = hiddenValues[formId];
-    } else {
-      raw_inputs[cfg.schemaId] = cfg.defaultValue;
-    }
+
+  const raw_inputs: Record<string, number> = {
+    n_annual_revenue: n("annual_revenue"),
+    n_variable_cost_percent: n("variable_cost_percent"),
+    n_annual_fixed_costs: n("annual_fixed_costs"),
+    n_available_cash_liquidity: n("available_cash_liquidity"),
+    n_unit_selling_price: n("unit_selling_price"),
+    n_unit_variable_cost: n("unit_variable_cost"),
+  };
+
+  const selected_units: Record<string, string> = {};
+  for (const key of Object.keys(fieldState)) {
+    selected_units[key] = fieldState[key].unit;
   }
-  return { raw_inputs, selected_units: {} };
+
+  return { raw_inputs, selected_units };
 };

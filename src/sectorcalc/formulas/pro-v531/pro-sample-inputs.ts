@@ -10,17 +10,12 @@ import "server-only";
 
 export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
   "break-even-survival-cash-calculator": {
-    n_initial_investment: 500000,
-    n_annual_net_cash_flow: 150000,
-    n_discount_rate: 10,
-    n_analysis_years: 5,
-    n_residual_value: 50000,
-    n_stress_downside_factor: 0.8,
-    n_annual_volume: 10000,
-    n_labor_rate: 80000,
-    n_overhead_rate: 120000,
-    n_defect_or_loss_cost: 15000,
-    n_source_confidence_ratio: 0.95,
+    n_annual_revenue: 1500000,
+    n_variable_cost_percent: 45,
+    n_annual_fixed_costs: 600000,
+    n_available_cash_liquidity: 300000,
+    n_unit_selling_price: 75,
+    n_unit_variable_cost: 33.75,
   },
   "machine-hourly-rate-proof-report": {
     // Core required inputs
