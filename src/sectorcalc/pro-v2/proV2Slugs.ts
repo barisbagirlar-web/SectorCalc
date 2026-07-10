@@ -15,6 +15,7 @@ export const PRO_V2_SLUGS = new Set<string>([
   "loss-making-job-detector",
   // Wave 1.5 — Financial planning (ready)
   "break-even-survival-cash-calculator",
+  "true-employee-cost-statement",
 ]);
 
 export function isProV2Slug(slug: string): boolean {

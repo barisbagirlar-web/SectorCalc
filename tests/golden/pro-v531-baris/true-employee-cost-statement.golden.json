@@ -1,22 +1,126 @@
 {
-  "tool_key": "true-employee-cost-statement",
-  "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": {
-    "machine_rate": 100
+  "meta": {
+    "description": "True Employee Cost Statement — 3 Golden Fixtures: Standard (Good), Highly Compensated (Review), Executive (Blocked)",
+    "schema_version": "5.3.1-pro-schema.1",
+    "formula_version": "5.3.1-pro-baris.1"
   },
-  "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_utilization_margin": 0.25,
-    "out_money_at_risk": 25000,
-    "out_final_decision_state": 0
-  },
-  "expected_hashes": {
-    "output_hash": "oh-b1-true-e",
-    "proof_pack_hash": "pph-b1-true-e",
-    "audit_seal_stable_hash": "ash-b1-true-e"
-  },
-  "expected_decision_status": "OK",
-  "expected_warnings": []
+  "fixtures": [
+    {
+      "fixture_name": "Standard Employee (Controlled Cost)",
+      "raw_inputs": {
+        "n_annual_base_salary": 50000,
+        "n_payroll_tax_rate": 12,
+        "n_health_insurance_annual": 4000,
+        "n_pension_contribution_rate": 4,
+        "n_bonus_target_rate": 5,
+        "n_paid_leave_weeks": 4,
+        "n_training_budget_annual": 1000,
+        "n_equipment_it_annual": 1500,
+        "n_workspace_facility_annual": 2500,
+        "n_recruitment_allocation_rate": 2,
+        "n_other_benefits_annual": 0,
+        "n_productive_hours_per_year": 1664
+      },
+      "expected_outputs": {
+        "out_base_salary": 50000,
+        "out_payroll_taxes": 6000,
+        "out_health_insurance": 4000,
+        "out_pension_contribution": 2000,
+        "out_bonus_allocation": 2500,
+        "out_paid_leave_cost": 3846.15,
+        "out_training_cost": 1000,
+        "out_recruitment_allocation": 1000,
+        "out_equipment_it_cost": 1500,
+        "out_workspace_facility_cost": 2500,
+        "out_other_benefits": 0,
+        "out_fully_loaded_annual_cost": 74346.15,
+        "out_monthly_cost": 6195.51,
+        "out_productive_hours_per_year": 1664,
+        "out_productive_hourly_cost": 44.68,
+        "out_base_to_loaded_multiplier": 1.487,
+        "out_primary_cost_driver": 0,
+        "out_final_decision_state": 0
+      },
+      "expected_decision_status": "OK",
+      "expected_warnings": []
+    },
+    {
+      "fixture_name": "Highly Compensated (Elevated Burden)",
+      "raw_inputs": {
+        "n_annual_base_salary": 150000,
+        "n_payroll_tax_rate": 25,
+        "n_health_insurance_annual": 12000,
+        "n_pension_contribution_rate": 8,
+        "n_bonus_target_rate": 20,
+        "n_paid_leave_weeks": 5,
+        "n_training_budget_annual": 5000,
+        "n_equipment_it_annual": 8000,
+        "n_workspace_facility_annual": 15000,
+        "n_recruitment_allocation_rate": 5,
+        "n_other_benefits_annual": 3000,
+        "n_productive_hours_per_year": 1600
+      },
+      "expected_outputs": {
+        "out_base_salary": 150000,
+        "out_payroll_taxes": 37500,
+        "out_health_insurance": 12000,
+        "out_pension_contribution": 12000,
+        "out_bonus_allocation": 30000,
+        "out_paid_leave_cost": 14423.08,
+        "out_training_cost": 5000,
+        "out_recruitment_allocation": 7500,
+        "out_equipment_it_cost": 8000,
+        "out_workspace_facility_cost": 15000,
+        "out_other_benefits": 3000,
+        "out_fully_loaded_annual_cost": 294423.08,
+        "out_monthly_cost": 24535.26,
+        "out_productive_hours_per_year": 1600,
+        "out_productive_hourly_cost": 184.01,
+        "out_base_to_loaded_multiplier": 1.963,
+        "out_primary_cost_driver": 0,
+        "out_final_decision_state": 1
+      },
+      "expected_decision_status": "OK",
+      "expected_warnings": []
+    },
+    {
+      "fixture_name": "Executive Package (Critical Overhead)",
+      "raw_inputs": {
+        "n_annual_base_salary": 300000,
+        "n_payroll_tax_rate": 28,
+        "n_health_insurance_annual": 30000,
+        "n_pension_contribution_rate": 15,
+        "n_bonus_target_rate": 50,
+        "n_paid_leave_weeks": 6,
+        "n_training_budget_annual": 15000,
+        "n_equipment_it_annual": 15000,
+        "n_workspace_facility_annual": 40000,
+        "n_recruitment_allocation_rate": 8,
+        "n_other_benefits_annual": 20000,
+        "n_productive_hours_per_year": 1500
+      },
+      "expected_outputs": {
+        "out_base_salary": 300000,
+        "out_payroll_taxes": 84000,
+        "out_health_insurance": 30000,
+        "out_pension_contribution": 45000,
+        "out_bonus_allocation": 150000,
+        "out_paid_leave_cost": 34615.38,
+        "out_training_cost": 15000,
+        "out_recruitment_allocation": 24000,
+        "out_equipment_it_cost": 15000,
+        "out_workspace_facility_cost": 40000,
+        "out_other_benefits": 20000,
+        "out_fully_loaded_annual_cost": 757615.38,
+        "out_monthly_cost": 63134.62,
+        "out_productive_hours_per_year": 1500,
+        "out_productive_hourly_cost": 505.08,
+        "out_base_to_loaded_multiplier": 2.525,
+        "out_primary_cost_driver": 0,
+        "out_final_decision_state": 2
+      },
+      "expected_decision_status": "OK",
+      "expected_warnings": []
+    }
+  ]
 }

@@ -27,6 +27,7 @@ const WAVE_1_SLUGS = [
 // ── Wave 1.5 (Financial Planning) — Ready
 const WAVE_1_5_SLUGS = [
   "break-even-survival-cash-calculator",
+  "true-employee-cost-statement",
 ];
 
 // ── Future waves (not yet activated)
