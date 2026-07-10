@@ -275,7 +275,7 @@ const optionalFinancialGroup: ProFieldGroup = {
 
 const optionalScenarioGroup: ProFieldGroup = {
   title: "Optional Part Cost and Capacity Scenario",
-  description: "Enter all four fields to calculate per-part cost and capacity feasibility. Partially filled fields are ignored.",
+  description: "Enter all four fields to calculate part cost and capacity feasibility. Incomplete scenario inputs block calculation and do not consume a credit.",
   fields: [
     {
       id: "annual_production_volume", label: "Annual Production Volume", symbol: "V_ann",

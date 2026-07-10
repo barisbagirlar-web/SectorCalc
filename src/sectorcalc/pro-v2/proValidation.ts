@@ -130,6 +130,30 @@ export function validateProV2Inputs(options: ValidateOptions): ValidationResult 
     }
   }
 
+  // ── All-or-nothing optional scenario check ─────────────────────────
+  // For machine-hourly-rate-proof-report: if any one of the four scenario
+  // fields is supplied, all four must be present.
+  const SCENARIO_FIELD_IDS = [
+    "annual_production_volume",
+    "cycle_time_seconds",
+    "setup_time_minutes",
+    "average_batch_quantity",
+  ];
+  const scenarioPopulated = SCENARIO_FIELD_IDS.map((id) => values[id]?.trim() ?? "");
+  const someEntered = scenarioPopulated.some((v) => v !== "");
+  const allEntered = scenarioPopulated.every((v) => v !== "");
+  if (someEntered && !allEntered) {
+    for (const id of SCENARIO_FIELD_IDS) {
+      if (values[id]?.trim() === "") {
+        blockers.push({
+          fieldId: id,
+          message: `Part of the optional scenario group. Enter all four scenario fields or leave all empty.`,
+          severity: "ERROR",
+        });
+      }
+    }
+  }
+
   return {
     ok: blockers.length === 0,
     blockers,

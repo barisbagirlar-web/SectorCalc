@@ -497,7 +497,7 @@ export default function ProExecutionFormV2({
                     <div key={field.id} className="pro-v2-field" data-invalid={isInvalid || undefined}>
                       <label className="pro-v2-field-label">
                         <span>
-                          {field.symbol && <code className="pro-v2-field-symbol">{field.symbol}</code>}
+                          {debugRuntime && field.symbol && <code className="pro-v2-field-symbol">{field.symbol}</code>}
                           {field.label}
                           {field.required && <span className="pro-v2-required">*</span>}
                         </span>
@@ -524,7 +524,7 @@ export default function ProExecutionFormV2({
                   <div key={field.id} className="pro-v2-field" data-invalid={isInvalid || undefined}>
                     <label className="pro-v2-field-label">
                       <span>
-                        {field.symbol && <code className="pro-v2-field-symbol">{field.symbol}</code>}
+                        {debugRuntime && field.symbol && <code className="pro-v2-field-symbol">{field.symbol}</code>}
                         {field.label}
                         {field.required && <span className="pro-v2-required">*</span>}
                       </span>
