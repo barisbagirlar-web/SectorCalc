@@ -1,5 +1,6 @@
 // SectorCalc PRO V2 — Tool Registry
 // Every migrated PRO slug must have exactly one registered definition.
+// Uses a deterministic static exported map — no side-effect registration.
 // Unknown or incomplete definitions produce a controlled contract error.
 
 import type { ProFieldGroup } from "./proFieldContract";
@@ -75,7 +76,10 @@ export interface ProV2ToolDefinition {
   reportCapabilities: ReportCapabilities;
 }
 
-// ── Registry ────────────────────────────────────────────────────────────
+// ── Backward-compatible Map-based registration ─────────────────────────
+// The source of truth is PRO_V2_TOOL_DEFINITIONS in init-registry.ts.
+// This map is populated by initProV2Registry() for backward compatibility
+// with code that calls getToolDefinition() / getRegisteredSlugs().
 
 const registry = new Map<string, ProV2ToolDefinition>();
 
@@ -98,4 +102,8 @@ export function getRegisteredSlugs(): string[] {
 
 export function getAllToolDefinitions(): ProV2ToolDefinition[] {
   return Array.from(registry.values());
+}
+
+export function getDefinitionCount(): number {
+  return registry.size;
 }

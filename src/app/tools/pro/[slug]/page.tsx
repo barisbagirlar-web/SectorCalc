@@ -17,13 +17,11 @@ import { ProToolPaywallGate } from "@/components/pro-commerce/ProToolPaywallGate
 import { getPublicToolTitle, getPublicProMetaDescription } from "@/sectorcalc/public/public-tool-copy-adapter";
 import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 import { isProV2Slug } from "@/sectorcalc/pro-v2/proV2Slugs";
-import { initProV2Registry, getToolDefinition } from "@/sectorcalc/pro-v2/init-registry";
+import { getToolDefinition, getRegisteredSlugs, getDefinitionCount } from "@/sectorcalc/pro-v2/init-registry";
 import type { ProFieldContract, ProFieldGroup } from "@/sectorcalc/pro-v2/proFieldContract";
 import { ProV2Wrapper } from "@/sectorcalc/pro-v2/ProV2Wrapper";
 import "server-only";
 
-// Initialize registry on module load
-initProV2Registry();
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 
@@ -125,7 +123,29 @@ export default async function ProToolDetailPage({
   if (isProV2Slug(slug)) {
     const contract = getProV2Contract(slug);
     if (!contract) {
-      notFound();
+      // Allowlisted slug missing a registered definition — fail loudly
+      if (debugRuntime) {
+        const registeredSlugs = getRegisteredSlugs();
+        return (
+          <PageLayout>
+            <div style={{ padding: "2rem", fontFamily: "monospace" }}>
+              <h1 style={{ color: "#b42318" }}>PRO_V2_REGISTRY_CONTRACT_MISSING</h1>
+              <pre>{JSON.stringify({ slug, allowlisted: true, registeredSlugs, definitionCount: getDefinitionCount(), buildId: process.env.NEXT_BUILD_ID ?? "unknown" }, null, 2)}</pre>
+            </div>
+          </PageLayout>
+        );
+      }
+      // Normal user — controlled unavailable state
+      return (
+        <PageLayout>
+          <article aria-label={schema.tool_name}>
+            <div style={{ padding: "2rem", textAlign: "center" }}>
+              <h2>This tool is temporarily unavailable</h2>
+              <p>Please try again later or contact support.</p>
+            </div>
+          </article>
+        </PageLayout>
+      );
     }
     return (
       <PageLayout>
