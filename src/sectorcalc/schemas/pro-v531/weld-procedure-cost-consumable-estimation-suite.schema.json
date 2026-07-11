@@ -3067,588 +3067,139 @@
   ],
   "outputs": [
     {
+      "id": "out_total_cost_floor",
+      "name": "Total Cost Floor",
+      "type": "number",
+      "decision_use": "primary_kpi",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
+      "id": "out_base_production_cost",
+      "name": "Base Production Cost",
+      "type": "number",
+      "decision_use": "cost_component",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
+      "id": "out_cost_per_meter",
+      "name": "Cost per Meter",
+      "type": "number",
+      "decision_use": "primary_kpi",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
+      "id": "out_wire_mass_kg",
+      "name": "Wire / Electrode Mass",
+      "type": "number",
+      "decision_use": "cost_component",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
+      "id": "out_wire_cost",
+      "name": "Wire / Electrode Cost",
+      "type": "number",
+      "decision_use": "cost_component",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
+      "id": "out_shielding_gas_cost",
+      "name": "Shielding Gas Cost",
+      "type": "number",
+      "decision_use": "cost_component",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
+      "id": "out_labor_cost",
+      "name": "Labor Cost",
+      "type": "number",
+      "decision_use": "cost_component",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
+      "id": "out_shop_overhead",
+      "name": "Shop Overhead",
+      "type": "number",
+      "decision_use": "cost_component",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
+      "id": "out_consumable_efficiency",
+      "name": "Consumable Efficiency",
+      "type": "number",
+      "decision_use": "quality_metric",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
+      "id": "out_decision_state",
+      "name": "Decision State",
+      "type": "number",
+      "decision_use": "decision_guidance",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
+    },
+    {
       "id": "out_evidence_completeness",
-      "name": "Evidence Completeness Index",
-      "symbol": "Q_evidence",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
+      "name": "Input Confidence Score",
       "type": "number",
-      "formula_source": "F001",
-      "decision_use": "DIAGNOSTIC",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F001",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Evidence Completeness Index translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_normalized_demand",
-      "name": "Normalized Demand or Exposure",
-      "symbol": "D_norm",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F002",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "DEMAND",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F002",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Normalized Demand or Exposure translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_reference_deviation",
-      "name": "Reference Range Deviation Severity",
-      "symbol": "R_dev",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F003",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "WARNING_SUMMARY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F003",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Reference Range Deviation Severity translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_derating_factor",
-      "name": "Derating or Confidence Factor",
-      "symbol": "K_derate",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F004",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "SAFETY_FACTOR",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F004",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Derating or Confidence Factor translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_demand_metric",
-      "name": "Demand-Side Technical Metric",
-      "symbol": "D",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F005",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "DEMAND",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F005",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Demand-Side Technical Metric translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_capacity_metric",
-      "name": "Capacity or Allowable-Side Metric",
-      "symbol": "C",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F006",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "CAPACITY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F006",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Capacity or Allowable-Side Metric translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_utilization_margin",
-      "name": "Governing Utilization or Margin",
-      "symbol": "UC",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F007",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "UTILIZATION",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F007",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Governing Utilization or Margin translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
+      "decision_use": "quality_metric",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
     },
     {
       "id": "out_expanded_uncertainty",
-      "name": "Expanded Uncertainty",
-      "symbol": "U",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
+      "name": "Cost Estimate Uncertainty",
       "type": "number",
-      "formula_source": "F008",
-      "decision_use": "SENSITIVITY",
-      "proof_status_role": "SAFETY_FACTOR",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F008",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Expanded Uncertainty translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
+      "decision_use": "quality_metric",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
     },
     {
       "id": "out_threshold_crossing",
-      "name": "Decision Threshold Crossing Risk",
-      "symbol": "X_thr",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
+      "name": "Cost Threshold Alert",
       "type": "number",
-      "formula_source": "F009",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F009",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Decision Threshold Crossing Risk translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
+      "decision_use": "risk_indicator",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
     },
     {
       "id": "out_sensitivity_driver",
-      "name": "Dominant Sensitivity Driver",
-      "symbol": "S_driver",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F010",
-      "decision_use": "SENSITIVITY",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F010",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Dominant Sensitivity Driver translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
+      "name": "Primary Cost Driver",
+      "type": "number",
+      "decision_use": "decision_guidance",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
     },
     {
       "id": "out_fmea_trigger",
-      "name": "FMEA Trigger State",
-      "symbol": "FMEA",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F011",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "WARNING_SUMMARY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F011",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "FMEA Trigger State translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_money_at_risk",
-      "name": "Money at Risk",
-      "symbol": "MAR",
-      "quantity_kind": "currency",
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
+      "name": "Weld Quality Risk Trigger",
       "type": "number",
-      "formula_source": "F012",
-      "decision_use": "BUSINESS_IMPACT",
-      "proof_status_role": "BUSINESS_IMPACT",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F012",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Money at Risk translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_scenario_delta",
-      "name": "Scenario Delta",
-      "symbol": "Delta_scn",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F013",
-      "decision_use": "SCENARIO",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F013",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Scenario Delta translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_audit_hash_payload",
-      "name": "Audit Hash Payload Status",
-      "symbol": "H_audit",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F014",
-      "decision_use": "AUDIT",
-      "proof_status_role": "AUDIT",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F014",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Audit Hash Payload Status translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_final_decision_state",
-      "name": "Final Decision State",
-      "symbol": "Decision",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "enum",
-      "formula_source": "F015",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "PASS_FAIL",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F015",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Final Decision State translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
+      "decision_use": "risk_indicator",
+      "value": null,
+      "status": "OK",
+      "public_explanation": ""
     }
   ],
   "output_formatting": {

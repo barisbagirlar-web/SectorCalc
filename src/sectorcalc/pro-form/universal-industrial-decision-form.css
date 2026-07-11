@@ -1751,3 +1751,27 @@
     padding: 12px 14px;
   }
 }
+
+/* ── PRO V2 Report Contract Missing ── */
+
+.sc-v531-report-contract-missing {
+  text-align: center;
+  padding: 48px 24px;
+  background: #F0EEE6;
+  border: 1px solid #D4D2C8;
+}
+
+.sc-v531-report-error-title {
+  font-family: "Barlow", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1A1915;
+  margin: 0 0 8px 0;
+}
+
+.sc-v531-report-error-desc {
+  font-family: "Barlow", sans-serif;
+  font-size: 14px;
+  color: #6B6A63;
+  margin: 0;
+}

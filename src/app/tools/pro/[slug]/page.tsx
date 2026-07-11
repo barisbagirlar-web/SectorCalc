@@ -18,6 +18,7 @@ import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 import "server-only";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
+import "@/sectorcalc/pro-report/pro-report-panel.css";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = false;

@@ -52,22 +52,31 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const cost_per_meter = weld_length > 0 ? total_cost / weld_length : 0;
   const decision = cost_per_meter > 50 ? 1 : (cost_per_meter > 20 ? 2 : 0);
 
+  // Tool-specific output keys for weld-procedure-cost-consumable-estimation-suite
+  outputs["out_total_cost_floor"] = round(total_cost, 2);
+  outputs["out_base_production_cost"] = round(total_cost - overhead_cost, 2);
+  outputs["out_cost_per_meter"] = round(cost_per_meter, 2);
+  outputs["out_wire_mass_kg"] = round(wire_needed / 1000, 3);
+  outputs["out_wire_cost"] = round(consumable_cost, 2);
+  outputs["out_shielding_gas_cost"] = round(gas_cost, 2);
+  outputs["out_labor_cost"] = round(labor_cost, 2);
+  outputs["out_shop_overhead"] = round(overhead_cost, 2);
+  outputs["out_consumable_efficiency"] = round(dep_eff, 3);
+  outputs["out_decision_state"] = decision;
+
+  // Preserved generic outputs for backward compatibility
   outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(weld_length, 2);
-  outputs["out_reference_deviation"] = 0;
-  outputs["out_derating_factor"] = round(dep_eff, 3);
-  outputs["out_demand_metric"] = round(consumable_cost, 2);
-  outputs["out_capacity_metric"] = round(weld_volume_g, 1);
-  outputs["out_utilization_margin"] = round(total_cost, 2);
   outputs["out_expanded_uncertainty"] = round(overhead_cost * 0.1, 2);
   outputs["out_threshold_crossing"] = cost_per_meter > 50 ? 1 : 0;
   outputs["out_sensitivity_driver"] = labor_cost > consumable_cost ? 1 : 0;
   outputs["out_fmea_trigger"] = cost_per_meter > 30 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(total_cost, 2);
-  outputs["out_scenario_delta"] = round(cost_per_meter, 2);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_final_decision_state"] = decision;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  return {
+    status: ok ? "OK" : "REVIEW",
+    outputs,
+    warnings: warnings.length ? warnings : [],
+    outputKeys: Object.keys(outputs),
+    redaction_status: "PUBLIC_SAFE_REDACTED"
+  };
 }

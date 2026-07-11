@@ -1,0 +1,173 @@
+/* SectorCalc PRO V2 — Tool-Specific Report Panel Styles */
+/* Premium, clean, corporate. No generic decision-engine display. */
+
+.sc-report-panel {
+  background: #F0EEE6;
+  border: 1px solid #D4D2C8;
+  padding: 24px;
+}
+
+.sc-report-panel--empty {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.sc-report-empty-title {
+  font-family: "Barlow", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1A1915;
+  margin: 0 0 8px 0;
+}
+
+.sc-report-empty-description {
+  font-family: "Barlow", sans-serif;
+  font-size: 14px;
+  color: #6B6A63;
+  margin: 0;
+}
+
+/* ── Decision State Banner ── */
+
+.sc-report-decision-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-left: 4px solid;
+}
+
+.sc-report-severity-pass {
+  background: #E8F0E8;
+  border-color: #2D8A4E;
+}
+
+.sc-report-severity-warning {
+  background: #F5F0E0;
+  border-color: #C59B3C;
+}
+
+.sc-report-severity-danger {
+  background: #F5E8E8;
+  border-color: #C53C3C;
+}
+
+.sc-report-severity-info {
+  background: #E8EDF0;
+  border-color: #3C6B8A;
+}
+
+.sc-report-decision-label {
+  font-family: "Barlow", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6B6A63;
+}
+
+.sc-report-decision-value {
+  font-family: "Barlow", serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1A1915;
+}
+
+/* ── Warnings ── */
+
+.sc-report-warnings {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: #F5F0E0;
+  border: 1px solid #E0D8C0;
+}
+
+.sc-report-warnings-list {
+  margin: 8px 0 0 0;
+  padding: 0 0 0 16px;
+}
+
+.sc-report-warning-item {
+  font-family: "Barlow", sans-serif;
+  font-size: 13px;
+  color: #8A5C1A;
+  margin-bottom: 4px;
+}
+
+/* ── Sections ── */
+
+.sc-report-section {
+  margin-bottom: 24px;
+}
+
+.sc-report-section-title {
+  font-family: "Barlow", serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1915;
+  margin: 0 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #D4D2C8;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sc-report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 8px;
+}
+
+.sc-report-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1px solid #E0DFD7;
+}
+
+.sc-report-item-label {
+  font-family: "Barlow", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #6B6A63;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sc-report-item-value {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1A1915;
+}
+
+.sc-report-item-explanation {
+  font-family: "Barlow", sans-serif;
+  font-size: 11px;
+  color: #8A8980;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .sc-report-panel {
+    padding: 16px;
+  }
+
+  .sc-report-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-report-item {
+    padding: 8px 10px;
+  }
+
+  .sc-report-item-value {
+    font-size: 14px;
+  }
+}

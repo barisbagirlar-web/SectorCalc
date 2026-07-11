@@ -53,6 +53,9 @@ import {
   convertDisplayToCanonical,
   convertCanonicalToDisplay,
 } from "./unit-display-resolver";
+import { buildProReport } from "@/sectorcalc/pro-report/pro-report-adapter";
+import { ProReportPanelV2 } from "@/sectorcalc/pro-report/ProReportPanelV2";
+import { assertCrossToolIdentity } from "@/sectorcalc/runtime/cross-tool-contract-assertions";
 
 // ── ViewModel types ────────────────────────────────────────────────────────────
 
@@ -840,6 +843,47 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const isServerBlocked = state.executionState === "server_blocked";
   const hasResult = hasServerResponse(response);
 
+  // ── Cross-tool contract assertion ──
+  // Verify that the requested slug, tool key, and schema all match
+  const crossToolAssertion = useMemo(() => {
+    return assertCrossToolIdentity({
+      requestedSlug: props.toolKey ?? "",
+      definitionSlug: props.schema?.tool_key ?? "",
+      executeResponseToolKey: null,
+      reportToolSlug: null,
+    });
+  }, [props.toolKey, props.schema?.tool_key]);
+
+  // ── Pro Report Panel (tool-specific, replaces generic universal_result for PRO) ──
+  const proReportResult = useMemo(() => {
+    if (!isPro || !hasResult || !response?.outputs) return null;
+    const toolSlug = props.toolKey ?? props.schema?.tool_key ?? "";
+    return buildProReport({
+      toolSlug,
+      outputs: response.outputs.map((o) => ({
+        id: o.id,
+        name: o.name ?? o.id,
+        value: o.value,
+        unit: o.unit ?? undefined,
+      })),
+      rawInputs: state.rawInputState,
+      selectedUnits: state.selectedUnitState,
+    });
+  }, [isPro, hasResult, response?.outputs, props.toolKey, props.schema?.tool_key]);
+
+  // Determine decision state from the response for ProReportPanelV2
+  const reportDecisionState = useMemo<{ label: string; severity: "pass" | "warning" | "danger" | "info" } | null>(() => {
+    if (!response?.decision_interpretation) return null;
+    const ds = response.decision_interpretation;
+    const label = ds.primary_reason || "Calculation completed.";
+    let severity: "pass" | "warning" | "danger" | "info" = "info";
+    const pd = ds.primary_decision;
+    if (pd === "OK") severity = "pass";
+    else if (pd === "REVIEW") severity = "warning";
+    else if (pd === "BLOCKED") severity = "danger";
+    return { label, severity };
+  }, [response?.decision_interpretation]);
+
   const clientBlockerCount = state.blockerState.blockers.filter(
     (b) => b.severity === "BLOCKER" || b.severity === "CRITICAL",
   ).length;
@@ -1300,8 +1344,32 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               </div>
             ) : (
             <div className="sc-v531-result-content">
-              {/* FREE + PRO mode: multi-perspective result cards (V5.4 Universal Result Perspectives Layer) */}
-              {response?.universal_result && response.universal_result.cards.length > 0 && (() => {
+              {/* PRO V2 — Tool-Specific Report Panel (replaces generic universal_result) */}
+              {isPro && hasResult && response?.outputs && response.outputs.length > 0 && (() => {
+                if (!proReportResult || !proReportResult.resolvedSections) {
+                  return (
+                    <div className="sc-v531-report-contract-missing">
+                      <p className="sc-v531-report-error-title">Calculation completed.</p>
+                      <p className="sc-v531-report-error-desc">The tool-specific report could not be generated. No additional credit was used.</p>
+                    </div>
+                  );
+                }
+                const reportWarnings = response?.warnings
+                  ? response.warnings.map((w) => w.message).filter(Boolean)
+                  : [];
+                return (
+                  <ProReportPanelV2
+                    toolTitle={vm.title}
+                    sections={proReportResult.resolvedSections}
+                    warnings={reportWarnings}
+                    decisionStateLabel={reportDecisionState?.label}
+                    decisionSeverity={reportDecisionState?.severity}
+                  />
+                );
+              })()}
+
+              {/* FREE tier: multi-perspective result cards (V5.4 Universal Result Perspectives Layer) */}
+              {!isPro && response?.universal_result && response.universal_result.cards.length > 0 && (() => {
                 const ur = response!.universal_result!;
                 const primaryCard = ur.primary;
                 const commercialCards = ur.cards.filter((c) => c.perspective === "commercial_price");
@@ -1541,8 +1609,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 );
               })()}
 
-              {/* PRO mode: Decision Summary + Primary Results + Professional Interpretation (fallback when no universal_result) */}
-              {!isFreeTier && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && (
+              {/* PRO mode: Decision Summary + Primary Results + Professional Interpretation (fallback when no universal_result and no tool-specific report) */}
+              {!isFreeTier && !proReportResult?.resolvedSections && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && (
                 <div className="sc-v531-pro-results-container">
                   {/* Decision Summary — skipped when desktop cockpit already shows it */}
                   {!(isPro && isDesktop) && (() => {
