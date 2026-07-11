@@ -154,6 +154,25 @@ export function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema 
     }
   }
 
+  // ── Filter dangling formula bindings ──
+  // If empty formula stubs were removed, inputs may still reference non-existent
+  // formula IDs via formula_bindings. Filter those out to keep SuperV4Schema
+  // validation happy.
+  const formulaIds = Array.isArray(s.formulas)
+    ? new Set((s.formulas as Array<Record<string, unknown>>).map((f) => f.id as string).filter(Boolean))
+    : new Set<string>();
+  if (Array.isArray(s.inputs)) {
+    for (const inp of s.inputs as Record<string, unknown>[]) {
+      const fb = inp.formula_bindings as string[] | undefined;
+      if (Array.isArray(fb)) {
+        inp.formula_bindings = fb.filter((b: string) => {
+          if (typeof b === "string" && b.startsWith("server_formula.")) return true;
+          return formulaIds.has(b);
+        });
+      }
+    }
+  }
+
   // ── Fix validation_contract ──
   const vc = s.validation_contract as Record<string, unknown> | undefined;
   if (vc && Array.isArray(vc.rules)) {
