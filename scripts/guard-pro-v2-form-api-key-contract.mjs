@@ -41,10 +41,20 @@ const LIVE_TOOLS = [
 
 let exitCode = 0;
 const errors = [];
+const ADAPTER_PATH = join(ROOT, "src/sectorcalc/pro-form/pro-execute-payload-adapter.ts");
 
 console.log("=== PRO V2 Form→API Key Contract Regression Guard ===\n");
 
 for (const slug of LIVE_TOOLS) {
+  // Check 0: Verify adapter mapping exists for this slug
+  if (existsSync(ADAPTER_PATH)) {
+    const adapterSource = readFileSync(ADAPTER_PATH, "utf8");
+    // Check that the slug appears in formToSchemaMapRegistry
+    if (!adapterSource.includes(`"${slug}": `)) {
+      errors.push(`  FAIL  ${slug}: No formToSchemaMapRegistry entry in adapter file`);
+      exitCode = 1;
+    }
+  }
   const schemaPath = join(SCHEMA_DIR, `${slug}.schema.json`);
   if (!existsSync(schemaPath)) {
     errors.push(`  FAIL  ${slug}: No schema file found`);

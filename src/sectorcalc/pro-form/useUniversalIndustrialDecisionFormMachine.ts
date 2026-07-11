@@ -21,6 +21,7 @@ import {
   type ValidationIssue,
 } from "./form-state-machine";
 import { generateTraceId, proTrace, buildTraceEntry, setTraceSlug, isDebugRuntime } from "./pro-runtime-trace";
+import { getFormToSchemaMap, buildExecutePayload } from "./pro-execute-payload-adapter";
 
 export interface MachineOptions {
   schema: SuperV4Schema;
@@ -138,20 +139,28 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
     pendingToolKeyRef.current = requestToolKey;
     dispatch({ type: "SUBMIT_SERVER_EXECUTION" });
 
-    const request: ExecuteRequest & { usageSessionId?: string | null } = {
-      tool_id: options.schema.tool_id,
-      tool_key: options.schema.tool_key,
-      schema_version: options.schema.metadata.schema_version,
-      raw_inputs: state.rawInputState,
-      selected_units: state.selectedUnitState,
-      output_units: {},
-      display_currency: null,
-      scenario_request: state.scenarioState.request,
-      user_profile_mode: state.profileModeState.mode,
-      evidence_state: serializeEvidenceState(state.evidenceState),
-      client_schema_hash: state.schemaState.schema_hash ?? undefined,
+    // Build payload through the explicit form→schema adapter
+    const formToSchemaMap = getFormToSchemaMap(options.schema.tool_key);
+    const adapterPayload = buildExecutePayload({
+      formState: state.rawInputState as Record<string, string | number | boolean | null>,
+      selectedUnits: state.selectedUnitState,
+      toolKey: options.schema.tool_key,
+      toolId: options.schema.tool_id,
+      schemaVersion: options.schema.metadata.schema_version,
       usageSessionId: options.usageSessionId ?? null,
-    };
+      formToSchemaMap: formToSchemaMap ?? state.rawInputState as unknown as Record<string, string>,
+      outputUnits: {},
+      displayCurrency: null,
+      scenarioRequest: state.scenarioState.request,
+      userProfileMode: state.profileModeState.mode,
+      clientSchemaHash: state.schemaState.schema_hash ?? undefined,
+    });
+
+    // Build the complete request with evidence and session data
+    const request: ExecuteRequest & { usageSessionId?: string | null } = {
+      ...adapterPayload,
+      evidence_state: serializeEvidenceState(state.evidenceState),
+    } as ExecuteRequest & { usageSessionId?: string | null };
 
     proTrace("PRO_EXECUTE_START", buildTraceEntry(traceId, "PRO_EXECUTE_START", {
       slug: options.schema.tool_key,

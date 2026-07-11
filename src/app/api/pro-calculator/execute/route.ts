@@ -159,26 +159,41 @@ export async function pass2RuntimeExecution(
     return failResult("NON_FINITE_INPUT", errors);
   }
 
-  // S2: Validate required inputs
+  // S2: Validate required inputs — with structured error codes
+  const knownInputIds = new Set(validatedSchema.inputs.map(i => i.id));
+  const receivedInputIds = new Set(Object.keys(body.raw_inputs));
+
+  // Check for unknown input keys
+  const unknownKeys: string[] = [];
+  for (const key of receivedInputIds) {
+    if (!knownInputIds.has(key)) {
+      unknownKeys.push(key);
+    }
+  }
+  if (unknownKeys.length > 0) {
+    return failResult("INPUT_KEY_UNKNOWN", [`Unknown input keys: ${unknownKeys.join(", ")}`]);
+  }
+
+  // Check for missing required input keys
+  const missingRequiredKeys: string[] = [];
   for (const inp of validatedSchema.inputs) {
     if (inp.required) {
       const value = body.raw_inputs[inp.id];
       if (value === undefined || value === null || value === "") {
-        errors.push(`Missing required input: ${inp.id}`);
+        missingRequiredKeys.push(inp.id);
       } else if (typeof value === "object" && value !== null) {
-        // Structured input: must have a finite display_value or base_value
         const obj = value as Record<string, unknown>;
         const numericVal = typeof obj.display_value === "number" ? obj.display_value
           : typeof obj.base_value === "number" ? obj.base_value
           : undefined;
         if (numericVal === undefined || !Number.isFinite(numericVal)) {
-          errors.push(`Missing required input: ${inp.id}`);
+          missingRequiredKeys.push(inp.id);
         }
       }
     }
   }
-  if (errors.length > 0) {
-    return failResult("INPUT_VALIDATION_FAILED", errors);
+  if (missingRequiredKeys.length > 0) {
+    return failResult("INPUT_KEY_MISSING", [`Missing required inputs: ${missingRequiredKeys.join(", ")}`]);
   }
 
   // S3: Validate selected units
@@ -926,7 +941,19 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         await refundBarisProKey(userId!, toolKey!, barisRequestId!);
         keyWasDeducted = false;
       }
+
+      // Build diagnostic metadata for validation errors (safe — no values or secrets)
+      const validationStates = new Set(["INPUT_KEY_MISSING", "INPUT_KEY_UNKNOWN", "NON_FINITE_INPUT", "INVALID_UNIT", "UNIT_NORMALIZATION_FAILED"]);
+      const hasDiagnostics = validationStates.has(pass2.pipelineState) && validatedSchema;
+      const diagnosticInfo = hasDiagnostics ? {
+        schema_input_ids: validatedSchema.inputs.map((i: any) => i.id),
+        received_input_ids: Object.keys(body.raw_inputs || {}),
+        missing_input_ids: validatedSchema.inputs.filter((i: any) => i.required && !(i.id in (body.raw_inputs || {}))).map((i: any) => i.id),
+        unknown_input_ids: Object.keys(body.raw_inputs || {}).filter((k: string) => !validatedSchema.inputs.some((i: any) => i.id === k)),
+      } : undefined;
+
       const errorResponse = buildFullBlockedResponse(pass2.pipelineState, pass2.errors.join("; "));
+      (errorResponse as any).diagnostic = diagnosticInfo;
       const { response: safeResponse } = redactPublicResponse(errorResponse);
       return NextResponse.json(safeResponse, { status: 400 });
     }

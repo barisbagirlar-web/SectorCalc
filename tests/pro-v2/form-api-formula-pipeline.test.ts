@@ -11,6 +11,7 @@ import { normalizeInputs } from "@/sectorcalc/pro-form/unit-normalizer";
 import type { SuperV4Schema, ConversionRegistry } from "@/sectorcalc/pro-form/contract-types";
 import { resolveFormulaModule, getAllModules } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
 import type { ProFormulaModule } from "@/sectorcalc/formulas/pro-v531/pro-formula-contract";
+import { getFormToSchemaMap, buildExecutePayload } from "@/sectorcalc/pro-form/pro-execute-payload-adapter";
 
 const SCHEMA_DIR = join(process.cwd(), "src/sectorcalc/schemas/pro-v531");
 
@@ -203,6 +204,26 @@ describe("PRO V2 Full Pipeline: Form→API→Formula", () => {
       const schema = loadSchema(slug);
       expect(schema).not.toBeNull();
       if (!schema) return;
+
+      // STEP 0: Verify adapter mapping exists for this tool
+      const adapterMap = getFormToSchemaMap(slug);
+      expect(adapterMap).not.toBeNull();
+      expect(Object.keys(adapterMap!).length).toBeGreaterThan(0);
+
+      // Verify adapter produces correct payload shape
+      const adapterPayload = buildExecutePayload({
+        formState: {},
+        selectedUnits: {},
+        toolKey: slug,
+        toolId: schema.tool_id,
+        schemaVersion: schema.metadata.schema_version,
+        usageSessionId: "test-adapter",
+        formToSchemaMap: adapterMap!,
+      });
+      expect(adapterPayload.tool_key).toBe(slug);
+      expect(adapterPayload.schema_version).toBe(schema.metadata.schema_version);
+      expect(typeof adapterPayload.raw_inputs).toBe("object");
+      expect(typeof adapterPayload.selected_units).toBe("object");
 
       // STEP 1: Build execute payload (same as form state machine would)
       const { raw_inputs, selected_units, assignments } = buildFormLikePayload(schema);
