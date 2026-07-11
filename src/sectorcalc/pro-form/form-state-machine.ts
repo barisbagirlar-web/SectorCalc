@@ -193,7 +193,10 @@ export function universalFormMachineReducer(
           schemaDefaultValue: input.default_value ?? null,
         });
         rawInputState[input.id] = exampleVal !== "" ? exampleVal : (input.default_value ?? null);
-        if (input.unit_selectable && input.allowed_display_units.length > 0) {
+        // Always populate selected_units with the first allowed display unit.
+        // The normalizer needs this to correctly convert display values to base units,
+        // even for fields where the user cannot change the unit.
+        if (input.allowed_display_units.length > 0) {
           selectedUnitState[input.id] = input.allowed_display_units[0];
         }
         const requiredEvidence = typeof input.evidence_requirement === "string"
@@ -417,6 +420,10 @@ export function universalFormMachineReducer(
             schemaDefaultValue: input.default_value ?? null,
           });
           resetBase.rawInputState[input.id] = exVal !== "" ? exVal : null;
+          // Always restore selected_units from schema defaults on reset
+          if (input.allowed_display_units.length > 0) {
+            resetBase.selectedUnitState[input.id] = input.allowed_display_units[0];
+          }
         }
       }
       return {
