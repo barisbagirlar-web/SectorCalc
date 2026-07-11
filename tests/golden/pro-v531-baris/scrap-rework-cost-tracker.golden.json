@@ -2,36 +2,80 @@
   "tool_key": "scrap-rework-cost-tracker",
   "schema_version": "5.3.1-pro-schema.1",
   "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": {
-    "total_produced": 1000,
-    "scrap_quantity": 50
-  },
-  "expected_outputs": {
-    "out_evidence_completeness": 0,
-    "out_normalized_demand": 0,
-    "out_reference_deviation": 0,
-    "out_derating_factor": 0,
-    "out_demand_metric": 0,
-    "out_capacity_metric": 0,
-    "out_utilization_margin": 0,
-    "out_expanded_uncertainty": 0,
-    "out_threshold_crossing": 0,
-    "out_sensitivity_driver": 1,
-    "out_fmea_trigger": 0,
-    "out_money_at_risk": 0,
-    "out_scenario_delta": 0,
-    "out_audit_hash_payload": 0,
-    "out_final_decision_state": 0
-  },
-  "expected_hashes": {
-    "output_hash": "oh-b2-scrap-",
-    "proof_pack_hash": "pph-b2-scrap-",
-    "audit_seal_stable_hash": "ash-b2-scrap-"
-  },
-  "expected_decision_status": "OK",
-  "expected_warnings": [
-    "Missing: n_total_produced",
-    "Missing: n_scrap_quantity",
-    "Missing: n_rework_quantity"
+  "fixtures": [
+    {
+      "fixture_name": "standard-production-within-target",
+      "raw_inputs": {
+        "n_total_produced": 10000,
+        "n_scrap_quantity": 150,
+        "n_rework_quantity": 80,
+        "n_unit_material_cost": 25,
+        "n_unit_labor_cost": 15,
+        "n_rework_labor_rate": 45,
+        "n_rework_time_per_unit": 0.5,
+        "n_defect_rate_target_pct": 2.0,
+        "n_monthly_volume": 10000
+      },
+      "expected_outputs": {
+        "out_scrap_quantity": 150,
+        "out_scrap_rate_pct": 1.5,
+        "out_material_loss": 3750,
+        "out_machine_loss": 1125,
+        "out_labor_loss": 2250,
+        "out_rework_cost": 1800,
+        "out_inspection_cost": 300,
+        "out_disposal_cost": 300,
+        "out_replacement_production_cost": 6000,
+        "out_total_loss": 15525,
+        "out_annualized_loss": 186300,
+        "out_cost_per_rejected_unit": 67.5,
+        "out_primary_defect_cost_driver": 0,
+        "out_final_decision_state": 0
+      },
+      "expected_hashes": {
+        "output_hash": "oh-b2-scrap-v2-",
+        "proof_pack_hash": "pph-b2-scrap-v2-",
+        "audit_seal_stable_hash": "ash-b2-scrap-v2-"
+      },
+      "expected_decision_status": "OK",
+      "expected_warnings": []
+    },
+    {
+      "fixture_name": "critical-scrap-rate",
+      "raw_inputs": {
+        "n_total_produced": 5000,
+        "n_scrap_quantity": 2500,
+        "n_rework_quantity": 500,
+        "n_unit_material_cost": 25,
+        "n_unit_labor_cost": 15,
+        "n_rework_labor_rate": 45,
+        "n_rework_time_per_unit": 0.5,
+        "n_defect_rate_target_pct": 2.0,
+        "n_monthly_volume": 5000
+      },
+      "expected_outputs": {
+        "out_scrap_quantity": 2500,
+        "out_scrap_rate_pct": 50,
+        "out_material_loss": 62500,
+        "out_machine_loss": 18750,
+        "out_labor_loss": 37500,
+        "out_rework_cost": 11250,
+        "out_inspection_cost": 5000,
+        "out_disposal_cost": 5000,
+        "out_replacement_production_cost": 100000,
+        "out_total_loss": 240000,
+        "out_annualized_loss": 2880000,
+        "out_cost_per_rejected_unit": 80,
+        "out_primary_defect_cost_driver": 0,
+        "out_final_decision_state": 2
+      },
+      "expected_hashes": {
+        "output_hash": "oh-b2-scrap-crit-",
+        "proof_pack_hash": "pph-b2-scrap-crit-",
+        "audit_seal_stable_hash": "ash-b2-scrap-crit-"
+      },
+      "expected_decision_status": "BLOCKED",
+      "expected_warnings": []
+    }
   ]
 }

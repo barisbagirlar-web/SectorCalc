@@ -428,7 +428,144 @@ const PLANT_WIDE_SHOP_RATE_DEFINITION: ProV2ToolDefinition = {
 };
 
 // ── Wave 4 — Capital Investment & Energy ──────────────────────────────
-// PENDING: contracts/adapters/insights/presets need to be created (PRO_030–PRO_033)
+import { NPV_IRR_GROUPS } from "./contracts/capital-equipment-investment-appraisal-npv-irr.contract";
+import { NPV_IRR_PRESETS } from "./presets/capital-equipment-investment-appraisal-npv-irr.presets";
+import { npvIrrBuildExecutePayload } from "./adapters/capital-equipment-investment-appraisal-npv-irr.adapter";
+import { buildNpvIrrReport } from "./insights/capital-equipment-investment-appraisal-npv-irr.insight";
+
+import { BUY_LEASE_KEEP_GROUPS } from "./contracts/machine-investment-feasibility-buy-lease-keep.contract";
+import { BUY_LEASE_KEEP_PRESETS } from "./presets/machine-investment-feasibility-buy-lease-keep.presets";
+import { buyLeaseKeepBuildExecutePayload } from "./adapters/machine-investment-feasibility-buy-lease-keep.adapter";
+import { buildBuyLeaseKeepReport } from "./insights/machine-investment-feasibility-buy-lease-keep.insight";
+
+import { MOTOR_ROI_GROUPS } from "./contracts/motor-compressor-replacement-roi.contract";
+import { MOTOR_ROI_PRESETS } from "./presets/motor-compressor-replacement-roi.presets";
+import { motorRoiBuildExecutePayload } from "./adapters/motor-compressor-replacement-roi.adapter";
+import { buildMotorRoiReport } from "./insights/motor-compressor-replacement-roi.insight";
+
+import { GRANT_FEASIBILITY_GROUPS } from "./contracts/energy-efficiency-grant-incentive-feasibility-pack.contract";
+import { GRANT_FEASIBILITY_PRESETS } from "./presets/energy-efficiency-grant-incentive-feasibility-pack.presets";
+import { grantFeasibilityBuildExecutePayload } from "./adapters/energy-efficiency-grant-incentive-feasibility-pack.adapter";
+import { buildGrantFeasibilityReport } from "./insights/energy-efficiency-grant-incentive-feasibility-pack.insight";
+
+const NPV_IRR_DEFINITION: ProV2ToolDefinition = {
+  slug: "capital-equipment-investment-appraisal-npv-irr",
+  title: "Capital Equipment Investment Appraisal (NPV/IRR)",
+  category: "Financial Planning",
+  fieldContract: NPV_IRR_GROUPS,
+  presets: NPV_IRR_PRESETS,
+  serverContract: {
+    toolKey: "capital-equipment-investment-appraisal-npv-irr",
+    toolId: "PRO_030",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_initial_investment","n_working_capital",
+      "n_annual_cash_inflow_1","n_annual_cash_inflow_2","n_annual_cash_inflow_3",
+      "n_annual_cash_inflow_4","n_annual_cash_inflow_5",
+      "n_terminal_residual_value","n_discount_rate_percent",
+      "n_scenario_downside_pct","n_scenario_upside_pct",
+    ],
+    optionalInputKeys: [],
+    expectedOutputKeys: [
+      "out_initial_investment","out_working_capital","out_total_initial_cash",
+      "out_annual_cash_flows_sum","out_terminal_value","out_discount_rate",
+      "out_npv","out_irr_percent","out_simple_payback_years",
+      "out_discounted_payback_years","out_profitability_index",
+      "out_scenario_downside_npv","out_scenario_base_npv","out_scenario_upside_npv",
+      "out_primary_value_driver","out_investment_decision_state","out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: npvIrrBuildExecutePayload,
+  buildReport: buildNpvIrrReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:true,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const BUY_LEASE_KEEP_DEFINITION: ProV2ToolDefinition = {
+  slug: "machine-investment-feasibility-buy-lease-keep",
+  title: "Machine Investment Feasibility (Buy / Lease / Keep)",
+  category: "Financial Planning",
+  fieldContract: BUY_LEASE_KEEP_GROUPS,
+  presets: BUY_LEASE_KEEP_PRESETS,
+  serverContract: {
+    toolKey: "machine-investment-feasibility-buy-lease-keep",
+    toolId: "PRO_031",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_machine_purchase_price","n_down_payment_pct",
+      "n_lease_annual_payment","n_lease_term_years",
+      "n_loan_interest_rate_pct","n_loan_term_years",
+      "n_annual_maintenance_cost","n_annual_downtime_cost",
+      "n_residual_value","n_operating_savings_per_year","n_discount_rate",
+    ],
+    optionalInputKeys: [],
+    expectedOutputKeys: [
+      "out_buy_initial_cash","out_buy_annual_payments","out_buy_maintenance","out_buy_downtime",
+      "out_buy_total_lifecycle","out_buy_npv",
+      "out_lease_initial_cash","out_lease_annual_payments","out_lease_total_lifecycle","out_lease_npv",
+      "out_keep_total_lifecycle","out_keep_npv",
+      "out_selected_alternative","out_decision_gap","out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: buyLeaseKeepBuildExecutePayload,
+  buildReport: buildBuyLeaseKeepReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:true,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const MOTOR_ROI_DEFINITION: ProV2ToolDefinition = {
+  slug: "motor-compressor-replacement-roi",
+  title: "Motor / Compressor Replacement ROI",
+  category: "Energy Efficiency",
+  fieldContract: MOTOR_ROI_GROUPS,
+  presets: MOTOR_ROI_PRESETS,
+  serverContract: {
+    toolKey: "motor-compressor-replacement-roi",
+    toolId: "PRO_032",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_current_power_kw","n_proposed_power_kw","n_annual_operating_hours",
+      "n_energy_price_per_kwh","n_current_maintenance_cost","n_proposed_maintenance_cost",
+      "n_replacement_cost","n_useful_life_years","n_discount_rate",
+    ],
+    optionalInputKeys: [],
+    expectedOutputKeys: [
+      "out_baseline_energy_kwh","out_baseline_energy_cost","out_proposed_energy_kwh","out_proposed_energy_cost",
+      "out_annual_energy_saving","out_maintenance_saving","out_annual_financial_saving","out_replacement_cost",
+      "out_simple_payback_years","out_roi_percent","out_npv","out_energy_price_sensitivity",
+      "out_primary_saving_driver","out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: motorRoiBuildExecutePayload,
+  buildReport: buildMotorRoiReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const GRANT_FEASIBILITY_DEFINITION: ProV2ToolDefinition = {
+  slug: "energy-efficiency-grant-incentive-feasibility-pack",
+  title: "Energy Efficiency Grant / Incentive Feasibility Pack",
+  category: "Energy Efficiency",
+  fieldContract: GRANT_FEASIBILITY_GROUPS,
+  presets: GRANT_FEASIBILITY_PRESETS,
+  serverContract: {
+    toolKey: "energy-efficiency-grant-incentive-feasibility-pack",
+    toolId: "PRO_033",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_baseline_energy_consumption_kwh","n_baseline_energy_price_per_kwh","n_projected_saving_pct",
+      "n_gross_project_cost","n_eligible_project_cost","n_grant_incentive_amount",
+      "n_annual_maintenance_cost","n_useful_life_years","n_discount_rate","n_energy_price_escalation_pct",
+    ],
+    optionalInputKeys: [],
+    expectedOutputKeys: [
+      "out_baseline_energy_cost","out_projected_energy_saving","out_gross_project_cost","out_eligible_project_cost",
+      "out_grant_amount","out_net_investment","out_annual_saving","out_simple_payback_years",
+      "out_roi_percent","out_npv","out_grant_dependency_pct","out_energy_price_sensitivity",
+      "out_implementation_risk_score","out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: grantFeasibilityBuildExecutePayload,
+  buildReport: buildGrantFeasibilityReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
 
 // ── Wave 3 — Operations & Quality Loss ──────────────────────────────
 // PENDING: contracts/adapters/insights/presets need to be created (PRO_026, PRO_019, PRO_039, PRO_038, PRO_033)
@@ -448,6 +585,12 @@ export const PRO_V2_TOOL_DEFINITIONS: Record<string, ProV2ToolDefinition> = {
   "receivables-cost-payment-term-addendum": RECEIVABLES_ADDENDUM_DEFINITION,
   "fx-commodity-pass-through-pricer": FX_COMMODITY_PRICER_DEFINITION,
   "plant-wide-shop-rate-cost-structure-audit": PLANT_WIDE_SHOP_RATE_DEFINITION,
+
+  // ── Wave 4 — Capital Investment & Energy ──────────────────────────────
+  "capital-equipment-investment-appraisal-npv-irr": NPV_IRR_DEFINITION,
+  "machine-investment-feasibility-buy-lease-keep": BUY_LEASE_KEEP_DEFINITION,
+  "motor-compressor-replacement-roi": MOTOR_ROI_DEFINITION,
+  "energy-efficiency-grant-incentive-feasibility-pack": GRANT_FEASIBILITY_DEFINITION,
 };
 
 // Make definitions available to proToolRegistry for fallback lookup
@@ -473,6 +616,10 @@ export function initProV2Registry(): void {
   registerTool(RECEIVABLES_ADDENDUM_DEFINITION);
   registerTool(FX_COMMODITY_PRICER_DEFINITION);
   registerTool(PLANT_WIDE_SHOP_RATE_DEFINITION);
+  registerTool(NPV_IRR_DEFINITION);
+  registerTool(BUY_LEASE_KEEP_DEFINITION);
+  registerTool(MOTOR_ROI_DEFINITION);
+  registerTool(GRANT_FEASIBILITY_DEFINITION);
 }
 
 // ── Re-export backward-compatible accessors ─────────────────────────────

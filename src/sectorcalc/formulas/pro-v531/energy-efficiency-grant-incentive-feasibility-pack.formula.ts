@@ -15,25 +15,10 @@ export interface CalculationResult {
 export const toolKey = "energy-efficiency-grant-incentive-feasibility-pack";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
-function isFiniteNumber(v: unknown): v is number {
-  return typeof v === "number" && Number.isFinite(v);
-}
-
-function get(inputs: Record<string, number>, key: string): number {
-  const v = inputs[key];
-  return isFiniteNumber(v) ? v : 0;
-}
-
-function round(v: number, d: number): number {
-  if (!isFiniteNumber(v)) return 0;
-  const f = Math.pow(10, d);
-  return Math.round(v * f) / f;
-}
-
-function safeDiv(n: number, d: number): number {
-  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
-  return n / d;
-}
+function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
+function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
+function safeDiv(n: number, d: number): number { if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0; return n / d; }
+function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
@@ -41,174 +26,121 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const warnings: string[] = [];
   const outputs: Record<string, number> = {};
 
-  // --- Validate required inputs ---
   const requiredKeys = [
-    "n_current_kwh_per_year",
-    "n_target_kwh_per_year",
-    "n_avg_kwh_rate",
-    "n_implementation_cost",
-    "n_grant_coverage_pct",
-    "n_maintenance_cost_saving",
-    "n_emission_factor_kgco2_per_kwh",
-    "n_equipment_life_years",
+    "n_baseline_energy_consumption_kwh",
+    "n_baseline_energy_price_per_kwh",
+    "n_projected_saving_pct",
+    "n_gross_project_cost",
+    "n_eligible_project_cost",
+    "n_grant_incentive_amount",
+    "n_annual_maintenance_cost",
+    "n_useful_life_years",
     "n_discount_rate",
-    "n_source_confidence_ratio",
+    "n_energy_price_escalation_pct",
   ];
 
-  let evidenceCount = 0;
   for (const key of requiredKeys) {
     if (!isFiniteNumber(inputs[key])) {
       warnings.push("Missing or non-finite input: " + key);
-    } else {
-      evidenceCount++;
     }
   }
 
-  // --- Extract inputs ---
-  const n_current_kwh_per_year = get(inputs, "n_current_kwh_per_year");
-  const n_target_kwh_per_year = get(inputs, "n_target_kwh_per_year");
-  const n_avg_kwh_rate = get(inputs, "n_avg_kwh_rate");
-  const n_implementation_cost = get(inputs, "n_implementation_cost");
-  const n_grant_coverage_pct = get(inputs, "n_grant_coverage_pct");
-  const n_maintenance_cost_saving = get(inputs, "n_maintenance_cost_saving");
-  const n_emission_factor_kgco2_per_kwh = get(inputs, "n_emission_factor_kgco2_per_kwh");
-  const n_equipment_life_years = get(inputs, "n_equipment_life_years");
-  const n_discount_rate = get(inputs, "n_discount_rate");
-  const n_source_confidence_ratio = get(inputs, "n_source_confidence_ratio");
+  const baseline_kwh = Math.max(0, get(inputs, "n_baseline_energy_consumption_kwh"));
+  const energy_price = Math.max(0, get(inputs, "n_baseline_energy_price_per_kwh"));
+  const saving_pct = Math.max(0, Math.min(100, get(inputs, "n_projected_saving_pct")));
+  const gross_project_cost = Math.max(0, get(inputs, "n_gross_project_cost"));
+  const eligible_project_cost = Math.max(0, get(inputs, "n_eligible_project_cost"));
+  const grant_incentive = Math.max(0, get(inputs, "n_grant_incentive_amount"));
+  const annual_maint_cost = Math.max(0, get(inputs, "n_annual_maintenance_cost"));
+  const useful_life = Math.max(1, Math.round(get(inputs, "n_useful_life_years")));
+  const discount_rate = Math.max(0, get(inputs, "n_discount_rate")) / 100;
+  const price_escalation_pct = Math.max(0, get(inputs, "n_energy_price_escalation_pct"));
 
-  // --- Core energy efficiency feasibility logic ---
-  const kwh_saving = n_current_kwh_per_year - n_target_kwh_per_year;
-  const money_saving = kwh_saving * n_avg_kwh_rate + n_maintenance_cost_saving;
-  const grant_amount = n_implementation_cost * n_grant_coverage_pct;
-  const net_cost = n_implementation_cost - grant_amount;
-  const payback = net_cost > 0 ? net_cost / money_saving : 0;
+  // Baseline energy cost
+  const baseline_energy_cost = baseline_kwh * energy_price;
 
-  const total_saving_5yr = money_saving * 5;
-  const roi = net_cost > 0
-    ? (total_saving_5yr - net_cost) / net_cost * 100
-    : 999;
+  // Projected energy saving (kwh)
+  const kwh_saving = baseline_kwh * (saving_pct / 100);
 
-  const co2_saving = kwh_saving * n_emission_factor_kgco2_per_kwh / 1000;
-  const annual_co2_reduction = co2_saving;
+  // Energy cost saving with price escalation
+  let annual_saving = 0;
+  for (let y = 1; y <= useful_life; y++) {
+    const escalated_price = energy_price * Math.pow(1 + (price_escalation_pct / 100), y - 1);
+    annual_saving += kwh_saving * escalated_price;
+  }
+  const annual_saving_avg = safeDiv(annual_saving, useful_life);
 
-  // --- Decision ---
-  let decision: number;
-  if (payback <= 3) {
-    decision = 0; // PROCEED
-  } else if (payback <= 5) {
-    decision = 1; // REVIEW
-  } else {
-    decision = 2; // HOLD
+  // Grant analysis
+  const grant_amount = Math.min(grant_incentive, eligible_project_cost);
+  const net_investment = gross_project_cost - grant_amount;
+
+  // Simple payback
+  const simple_payback_years = annual_saving_avg > 0
+    ? net_investment / annual_saving_avg
+    : useful_life;
+
+  // ROI
+  const total_saving = annual_saving; // already summed over useful life
+  const net_cost_for_roi = net_investment + (annual_maint_cost * useful_life);
+  const roi_percent = net_cost_for_roi > 0
+    ? ((total_saving - net_cost_for_roi) / net_cost_for_roi) * 100
+    : 0;
+
+  // NPV
+  let npv = -net_investment;
+  for (let y = 1; y <= useful_life; y++) {
+    const escalated_price = energy_price * Math.pow(1 + (price_escalation_pct / 100), y - 1);
+    const year_saving = kwh_saving * escalated_price - annual_maint_cost;
+    npv += safeDiv(year_saving, Math.pow(1 + discount_rate, y));
   }
 
-  // --- Output 1: out_evidence_completeness ---
-  const totalInputs = requiredKeys.length;
-  const evidenceRatio = safeDiv(evidenceCount, totalInputs);
-  outputs["out_evidence_completeness"] = round(Math.min(1, Math.max(0, evidenceRatio)), 4);
+  // Grant dependency: what % of gross project cost is covered by grant
+  const grant_dependency_pct = gross_project_cost > 0
+    ? (grant_amount / gross_project_cost) * 100
+    : 0;
 
-  // --- Output 2: out_normalized_demand ---
-  const demandMetric = n_current_kwh_per_year * safeDiv(n_avg_kwh_rate, 10);
-  outputs["out_normalized_demand"] = round(demandMetric, 4);
+  // Energy price sensitivity: +10% energy price impact on annual saving
+  const sensitivity_price = energy_price * 1.1;
+  const sensitivity_saving = kwh_saving * sensitivity_price;
+  const energy_price_sensitivity = sensitivity_saving - annual_saving_avg;
 
-  // --- Output 3: out_reference_deviation ---
-  const refDev = safeDiv(n_current_kwh_per_year - n_target_kwh_per_year, Math.max(1, n_current_kwh_per_year));
-  outputs["out_reference_deviation"] = round(Math.min(1, Math.max(0, refDev)), 4);
+  // Implementation risk score (0-100): based on payback and grant dependency
+  // Lower payback = lower risk; higher grant dependency = lower risk
+  const payback_risk = Math.min(100, (simple_payback_years / useful_life) * 100);
+  const grant_benefit = grant_dependency_pct * 0.5; // grant reduces risk
+  const implementation_risk_score = Math.max(0, Math.min(100, payback_risk - grant_benefit));
 
-  // --- Output 4: out_derating_factor ---
-  const derating = 1 - safeDiv(payback, 10) * (1 - n_source_confidence_ratio);
-  outputs["out_derating_factor"] = round(Math.max(0, Math.min(1, derating)), 4);
+  // Decision state
+  let decision: number;
+  if (npv > 0 && simple_payback_years <= useful_life * 0.3) {
+    decision = 0; // GOOD — strong feasibility
+  } else if (npv > 0 || simple_payback_years <= useful_life * 0.6) {
+    decision = 1; // REVIEW — marginal feasibility
+  } else {
+    decision = 2; // BLOCKED — poor feasibility
+  }
 
-  // --- Output 5: out_demand_metric ---
-  outputs["out_demand_metric"] = round(demandMetric * n_source_confidence_ratio, 4);
-
-  // --- Output 6: out_capacity_metric ---
-  const capacityMetric = safeDiv(money_saving, Math.max(1, n_implementation_cost));
-  outputs["out_capacity_metric"] = round(capacityMetric, 4);
-
-  // --- Output 7: out_utilization_margin ---
-  const utilizationMargin = safeDiv(total_saving_5yr, Math.max(1, net_cost));
-  outputs["out_utilization_margin"] = round(utilizationMargin, 4);
-
-  // --- Output 8: out_expanded_uncertainty ---
-  const uncertainty = safeDiv(payback * (1 - n_source_confidence_ratio), 2);
-  outputs["out_expanded_uncertainty"] = round(uncertainty, 4);
-
-  // --- Output 9: out_threshold_crossing ---
-  let threshold = 0;
-  if (payback <= 3) threshold = 1;
-  if (payback > 5) threshold = -1;
-  outputs["out_threshold_crossing"] = threshold;
-
-  // --- Output 10: out_sensitivity_driver ---
-  const drivers = [
-    Math.abs(kwh_saving),
-    Math.abs(n_avg_kwh_rate),
-    Math.abs(n_implementation_cost),
-    Math.abs(n_grant_coverage_pct),
-  ];
-  const maxDriver = Math.max(...drivers);
-  const driverIdx = drivers.indexOf(maxDriver);
-  outputs["out_sensitivity_driver"] = driverIdx;
-
-  // --- Output 11: out_fmea_trigger ---
-  let fmeaTrigger = 0;
-  if (decision === 1) fmeaTrigger = 1;
-  if (payback > 10) fmeaTrigger += 2;
-  if (n_grant_coverage_pct > 0.8) fmeaTrigger += 4;
-  outputs["out_fmea_trigger"] = fmeaTrigger;
-
-  // --- Output 12: out_money_at_risk ---
-  const moneyAtRisk = Math.max(0, net_cost - money_saving * n_equipment_life_years);
-  outputs["out_money_at_risk"] = round(moneyAtRisk, 4);
-
-  // --- Output 13: out_scenario_delta ---
-  const scenarioDelta = roi - safeDiv(net_cost, Math.max(1, 12));
-  outputs["out_scenario_delta"] = round(scenarioDelta, 4);
-
-  // --- Output 14: out_audit_hash_payload ---
-  const hashSeed = payback * 1000 + roi * 10 + kwh_saving;
-  const auditHash = Math.abs(hashSeed) % 1000000;
-  outputs["out_audit_hash_payload"] = round(auditHash, 0);
-
-  // --- Output 15: out_final_decision_state ---
+  outputs["out_baseline_energy_cost"] = round(baseline_energy_cost, 2);
+  outputs["out_projected_energy_saving"] = round(kwh_saving, 0);
+  outputs["out_gross_project_cost"] = round(gross_project_cost, 2);
+  outputs["out_eligible_project_cost"] = round(eligible_project_cost, 2);
+  outputs["out_grant_amount"] = round(grant_amount, 2);
+  outputs["out_net_investment"] = round(net_investment, 2);
+  outputs["out_annual_saving"] = round(annual_saving_avg, 2);
+  outputs["out_simple_payback_years"] = round(simple_payback_years, 2);
+  outputs["out_roi_percent"] = round(roi_percent, 2);
+  outputs["out_npv"] = round(npv, 2);
+  outputs["out_grant_dependency_pct"] = round(grant_dependency_pct, 2);
+  outputs["out_energy_price_sensitivity"] = round(energy_price_sensitivity, 2);
+  outputs["out_implementation_risk_score"] = round(implementation_risk_score, 1);
   outputs["out_final_decision_state"] = decision;
 
-  // --- Sanity check: ensure all 15 outputs are finite ---
-  const allOutputKeys = [
-    "out_evidence_completeness",
-    "out_normalized_demand",
-    "out_reference_deviation",
-    "out_derating_factor",
-    "out_demand_metric",
-    "out_capacity_metric",
-    "out_utilization_margin",
-    "out_expanded_uncertainty",
-    "out_threshold_crossing",
-    "out_sensitivity_driver",
-    "out_fmea_trigger",
-    "out_money_at_risk",
-    "out_scenario_delta",
-    "out_audit_hash_payload",
-    "out_final_decision_state",
-  ];
-
-  for (const key of allOutputKeys) {
-    if (!isFiniteNumber(outputs[key])) {
-      outputs[key] = 0;
-      warnings.push("Non-finite output corrected to zero: " + key);
-    }
-  }
-
-  // Derive status
-  let status: CalculationStatus = "OK";
-  if (warnings.length > 0) status = "REVIEW";
-  if (decision === 2) status = "BLOCKED";
-
+  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
   return {
-    status,
+    status: ok ? "OK" : "REVIEW",
     outputs,
-    warnings,
-    outputKeys: allOutputKeys,
-    redaction_status: "PUBLIC_SAFE_REDACTED",
+    warnings: warnings.length ? warnings : [],
+    outputKeys: Object.keys(outputs),
+    redaction_status: "PUBLIC_SAFE_REDACTED"
   };
 }

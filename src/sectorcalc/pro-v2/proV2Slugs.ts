@@ -25,6 +25,17 @@ export const PRO_V2_SLUGS = new Set<string>([
   "receivables-cost-payment-term-addendum",
   "fx-commodity-pass-through-pricer",
   "plant-wide-shop-rate-cost-structure-audit",
+  // Wave 3 — Operations & Quality Loss
+  "downtime-scrap-loss-statement",
+  "oee-loss-monetization-improvement-business-case",
+  "scrap-rework-cost-tracker",
+  "setup-time-reduction-roi-smed",
+  "outsource-vs-in-house-analyzer",
+  // Wave 4 — Capital Investment & Energy Efficiency
+  "capital-equipment-investment-appraisal-npv-irr",
+  "machine-investment-feasibility-buy-lease-keep",
+  "motor-compressor-replacement-roi",
+  "energy-efficiency-grant-incentive-feasibility-pack",
 ]);
 
 export function isProV2Slug(slug: string): boolean {

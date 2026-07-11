@@ -17,6 +17,7 @@ export const formulaVersion = "5.3.1-pro-baris.1";
 
 function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
 function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
+function safeDiv(n: number, d: number): number { if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0; return n / d; }
 function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
@@ -25,55 +26,113 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const warnings: string[] = [];
   const outputs: Record<string, number> = {};
 
-  const motor_power = get(inputs, "n_motor_power_kw");
-  const annual_hours = get(inputs, "n_annual_operating_hours");
-  const current_eff = get(inputs, "n_current_efficiency_pct") / 100;
-  const new_eff = get(inputs, "n_new_efficiency_pct") / 100;
-  const kwh_rate = get(inputs, "n_avg_kwh_rate");
-  const replacement_cost = get(inputs, "n_replacement_cost");
-  const installation_cost = get(inputs, "n_installation_cost");
-  const maint_saving = get(inputs, "n_maintenance_saving_per_year");
-  const life = Math.max(1, Math.round(get(inputs, "n_equipment_life_years")));
-  const dr = get(inputs, "n_discount_rate");
-  const conf = get(inputs, "n_source_confidence_ratio");
+  const requiredKeys = [
+    "n_current_power_kw",
+    "n_proposed_power_kw",
+    "n_annual_operating_hours",
+    "n_energy_price_per_kwh",
+    "n_current_maintenance_cost",
+    "n_proposed_maintenance_cost",
+    "n_replacement_cost",
+    "n_useful_life_years",
+    "n_discount_rate",
+  ];
 
-  if (!isFiniteNumber(inputs["n_motor_power_kw"])) warnings.push("Missing: n_motor_power_kw");
-  if (!isFiniteNumber(inputs["n_current_efficiency_pct"])) warnings.push("Missing: n_current_efficiency_pct");
-  if (!isFiniteNumber(inputs["n_new_efficiency_pct"])) warnings.push("Missing: n_new_efficiency_pct");
-
-  const current_kwh = current_eff > 0 ? motor_power * annual_hours / current_eff : 0;
-  const new_kwh = new_eff > 0 ? motor_power * annual_hours / new_eff : 0;
-  const current_energy_cost = current_kwh * kwh_rate;
-  const new_energy_cost = new_kwh * kwh_rate;
-  const annual_saving = current_energy_cost - new_energy_cost + maint_saving;
-  const total_investment = replacement_cost + installation_cost;
-  const payback_months = annual_saving > 0 ? total_investment / annual_saving * 12 : 999;
-
-  let npv = 0;
-  for (let y = 1; y <= life; y++) {
-    npv += annual_saving / Math.pow(1 + dr, y);
+  for (const key of requiredKeys) {
+    if (!isFiniteNumber(inputs[key])) {
+      warnings.push("Missing or non-finite input: " + key);
+    }
   }
-  npv -= total_investment;
 
-  const roipct = total_investment > 0 ? (npv / total_investment) * 100 : 0;
-  const decision = payback_months <= 24 || npv > 0 ? 0 : (payback_months <= 48 ? 1 : 2);
+  const current_power = Math.max(0, get(inputs, "n_current_power_kw"));
+  const proposed_power = Math.max(0, get(inputs, "n_proposed_power_kw"));
+  const annual_hours = Math.max(0, get(inputs, "n_annual_operating_hours"));
+  const energy_price = Math.max(0, get(inputs, "n_energy_price_per_kwh"));
+  const current_maint = Math.max(0, get(inputs, "n_current_maintenance_cost"));
+  const proposed_maint = Math.max(0, get(inputs, "n_proposed_maintenance_cost"));
+  const replacement_cost = Math.max(0, get(inputs, "n_replacement_cost"));
+  const life_years = Math.max(1, Math.round(get(inputs, "n_useful_life_years")));
+  const discount_rate = Math.max(0, get(inputs, "n_discount_rate")) / 100;
 
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(annual_hours, 0);
-  outputs["out_reference_deviation"] = round(current_eff - new_eff, 4);
-  outputs["out_derating_factor"] = round(conf, 3);
-  outputs["out_demand_metric"] = round(current_energy_cost, 2);
-  outputs["out_capacity_metric"] = round(new_energy_cost, 2);
-  outputs["out_utilization_margin"] = round(annual_saving, 2);
-  outputs["out_expanded_uncertainty"] = round(maint_saving * 0.1, 2);
-  outputs["out_threshold_crossing"] = payback_months <= 48 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = current_energy_cost > replacement_cost ? 1 : 0;
-  outputs["out_fmea_trigger"] = payback_months > 24 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(total_investment, 2);
-  outputs["out_scenario_delta"] = round(payback_months, 1);
-  outputs["out_audit_hash_payload"] = 0;
+  // Baseline (current motor) energy consumption
+  const baseline_energy_kwh = current_power * annual_hours;
+  const baseline_energy_cost = baseline_energy_kwh * energy_price;
+
+  // Proposed (new motor) energy consumption
+  const proposed_energy_kwh = proposed_power * annual_hours;
+  const proposed_energy_cost = proposed_energy_kwh * energy_price;
+
+  // Energy saving
+  const annual_energy_saving = baseline_energy_cost - proposed_energy_cost;
+
+  // Maintenance saving
+  const maintenance_saving = current_maint - proposed_maint;
+
+  // Total annual financial saving
+  const annual_financial_saving = annual_energy_saving + maintenance_saving;
+
+  // Simple payback
+  const simple_payback_years = annual_financial_saving > 0
+    ? replacement_cost / annual_financial_saving
+    : life_years; // never pays back
+
+  // ROI
+  const total_saving_over_life = annual_financial_saving * life_years;
+  const roi_percent = replacement_cost > 0
+    ? ((total_saving_over_life - replacement_cost) / replacement_cost) * 100
+    : 0;
+
+  // NPV
+  let npv = -replacement_cost;
+  for (let y = 1; y <= life_years; y++) {
+    npv += safeDiv(annual_financial_saving, Math.pow(1 + discount_rate, y));
+  }
+
+  // Energy price sensitivity: if energy price rises 10%, how does NPV change?
+  const sensitivity_energy_price = energy_price * 1.1;
+  const sensitivity_baseline_cost = baseline_energy_kwh * sensitivity_energy_price;
+  const sensitivity_proposed_cost = proposed_energy_kwh * sensitivity_energy_price;
+  const sensitivity_saving = (sensitivity_baseline_cost - sensitivity_proposed_cost) + maintenance_saving;
+  let sensitivity_npv = -replacement_cost;
+  for (let y = 1; y <= life_years; y++) {
+    sensitivity_npv += safeDiv(sensitivity_saving, Math.pow(1 + discount_rate, y));
+  }
+  const energy_price_sensitivity = sensitivity_npv - npv;
+
+  // Primary saving driver: 0=energy, 1=maintenance
+  const primary_saving_driver = annual_energy_saving >= maintenance_saving ? 0 : 1;
+
+  // Decision state
+  let decision: number;
+  if (simple_payback_years <= 3 && npv > 0) {
+    decision = 0; // GOOD — strong replacement case
+  } else if (simple_payback_years <= life_years && npv > 0) {
+    decision = 1; // REVIEW — pays back but marginal
+  } else {
+    decision = 2; // BLOCKED — does not pay back or negative NPV
+  }
+
+  outputs["out_baseline_energy_kwh"] = round(baseline_energy_kwh, 0);
+  outputs["out_baseline_energy_cost"] = round(baseline_energy_cost, 2);
+  outputs["out_proposed_energy_kwh"] = round(proposed_energy_kwh, 0);
+  outputs["out_proposed_energy_cost"] = round(proposed_energy_cost, 2);
+  outputs["out_annual_energy_saving"] = round(annual_energy_saving, 2);
+  outputs["out_maintenance_saving"] = round(maintenance_saving, 2);
+  outputs["out_annual_financial_saving"] = round(annual_financial_saving, 2);
+  outputs["out_replacement_cost"] = round(replacement_cost, 2);
+  outputs["out_simple_payback_years"] = round(simple_payback_years, 2);
+  outputs["out_roi_percent"] = round(roi_percent, 2);
+  outputs["out_npv"] = round(npv, 2);
+  outputs["out_energy_price_sensitivity"] = round(energy_price_sensitivity, 2);
+  outputs["out_primary_saving_driver"] = primary_saving_driver;
   outputs["out_final_decision_state"] = decision;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  return {
+    status: ok ? "OK" : "REVIEW",
+    outputs,
+    warnings: warnings.length ? warnings : [],
+    outputKeys: Object.keys(outputs),
+    redaction_status: "PUBLIC_SAFE_REDACTED"
+  };
 }

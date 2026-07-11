@@ -39,11 +39,22 @@ const WAVE_2_SLUGS = [
   "plant-wide-shop-rate-cost-structure-audit",
 ];
 
-// ── Wave 3 (Operational Analytics) — PENDING
-const WAVE_3_SLUGS = [];
+// ── Wave 3 (Operational Analytics) — Ready
+const WAVE_3_SLUGS = [
+  "downtime-scrap-loss-statement",
+  "oee-loss-monetization-improvement-business-case",
+  "scrap-rework-cost-tracker",
+  "setup-time-reduction-roi-smed",
+  "outsource-vs-in-house-analyzer",
+];
 
-// ── Wave 4 (Capital Investment & Energy) — PENDING
-const WAVE_4_SLUGS = [];
+// ── Wave 4 (Capital Investment & Energy) — Ready
+const WAVE_4_SLUGS = [
+  "capital-equipment-investment-appraisal-npv-irr",
+  "machine-investment-feasibility-buy-lease-keep",
+  "motor-compressor-replacement-roi",
+  "energy-efficiency-grant-incentive-feasibility-pack",
+];
 
 // Read current allowlist
 const slugsPath = resolve(ROOT, "src/sectorcalc/pro-v2/proV2Slugs.ts");

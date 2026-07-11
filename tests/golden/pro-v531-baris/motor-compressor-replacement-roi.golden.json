@@ -3,35 +3,37 @@
   "schema_version": "5.3.1-pro-schema.1",
   "formula_version": "5.3.1-pro-baris.1",
   "raw_inputs": {
-    "motor_power_kw": 100,
-    "annual_operating_hours": 8000
+    "n_current_power_kw": 75,
+    "n_proposed_power_kw": 60,
+    "n_annual_operating_hours": 6000,
+    "n_energy_price_per_kwh": 0.12,
+    "n_current_maintenance_cost": 5000,
+    "n_proposed_maintenance_cost": 3000,
+    "n_replacement_cost": 16000,
+    "n_useful_life_years": 10,
+    "n_discount_rate": 8
   },
   "expected_outputs": {
-    "out_evidence_completeness": 0,
-    "out_normalized_demand": 0,
-    "out_reference_deviation": 0,
-    "out_derating_factor": 0,
-    "out_demand_metric": 0,
-    "out_capacity_metric": 0,
-    "out_utilization_margin": 0,
-    "out_expanded_uncertainty": 0,
-    "out_threshold_crossing": 0,
-    "out_sensitivity_driver": 0,
-    "out_fmea_trigger": 1,
-    "out_money_at_risk": 0,
-    "out_scenario_delta": 999,
-    "out_audit_hash_payload": 0,
-    "out_final_decision_state": 2
+    "out_baseline_energy_kwh": 450000,
+    "out_baseline_energy_cost": 54000,
+    "out_proposed_energy_kwh": 360000,
+    "out_proposed_energy_cost": 43200,
+    "out_annual_energy_saving": 10800,
+    "out_maintenance_saving": 2000,
+    "out_annual_financial_saving": 12800,
+    "out_replacement_cost": 16000,
+    "out_simple_payback_years": 1.25,
+    "out_roi_percent": 700,
+    "out_npv": 69889.04,
+    "out_energy_price_sensitivity": 7246.89,
+    "out_primary_saving_driver": 0,
+    "out_final_decision_state": 0
   },
   "expected_hashes": {
-    "output_hash": "oh-b2-motor-",
-    "proof_pack_hash": "pph-b2-motor-",
-    "audit_seal_stable_hash": "ash-b2-motor-"
+    "output_hash": "oh-b2-motor",
+    "proof_pack_hash": "pph-b2-motor",
+    "audit_seal_stable_hash": "ash-b2-motor"
   },
   "expected_decision_status": "OK",
-  "expected_warnings": [
-    "Missing: n_motor_power_kw",
-    "Missing: n_current_efficiency_pct",
-    "Missing: n_new_efficiency_pct"
-  ]
+  "expected_warnings": []
 }

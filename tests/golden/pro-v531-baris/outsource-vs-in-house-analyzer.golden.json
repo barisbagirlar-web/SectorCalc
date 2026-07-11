@@ -2,43 +2,82 @@
   "tool_key": "outsource-vs-in-house-analyzer",
   "schema_version": "5.3.1-pro-schema.1",
   "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": {
-    "in_house_material_cost": 40,
-    "in_house_labor_cost": 30
-  },
-  "expected_outputs": {
-    "out_evidence_completeness": 0,
-    "out_normalized_demand": 0,
-    "out_reference_deviation": 0,
-    "out_derating_factor": 0,
-    "out_demand_metric": 0,
-    "out_capacity_metric": 0,
-    "out_utilization_margin": 0,
-    "out_expanded_uncertainty": 1,
-    "out_threshold_crossing": 0,
-    "out_sensitivity_driver": 0,
-    "out_fmea_trigger": 0,
-    "out_money_at_risk": 0,
-    "out_scenario_delta": 0,
-    "out_audit_hash_payload": 0,
-    "out_final_decision_state": 0
-  },
-  "expected_hashes": {
-    "output_hash": "oh-b2-outsource-",
-    "proof_pack_hash": "pph-b2-outsource-",
-    "audit_seal_stable_hash": "ash-b2-outsource-"
-  },
-  "expected_decision_status": "REVIEW",
-  "expected_warnings": [
-    "Missing or non-finite input: n_in_house_material_cost",
-    "Missing or non-finite input: n_in_house_labor_cost",
-    "Missing or non-finite input: n_in_house_overhead",
-    "Missing or non-finite input: n_in_house_setup_cost",
-    "Missing or non-finite input: n_outsource_unit_price",
-    "Missing or non-finite input: n_outsource_logistics_cost",
-    "Missing or non-finite input: n_annual_volume",
-    "Missing or non-finite input: n_quality_risk_premium_pct",
-    "Missing or non-finite input: n_capacity_utilization_pct",
-    "Missing or non-finite input: n_source_confidence_ratio"
+  "fixtures": [
+    {
+      "fixture_name": "standard-make-decision",
+      "raw_inputs": {
+        "n_in_house_material_cost_per_unit": 30,
+        "n_in_house_labor_cost_per_unit": 25,
+        "n_in_house_overhead_per_unit": 20,
+        "n_in_house_setup_cost_per_batch": 500,
+        "n_outsource_unit_price": 95,
+        "n_outsource_logistics_per_unit": 8,
+        "n_quality_defect_allowance_pct": 3,
+        "n_inventory_lead_time_cost_pct": 2,
+        "n_capacity_opportunity_cost_pct": 5,
+        "n_annual_volume": 5000
+      },
+      "expected_outputs": {
+        "out_in_house_variable_cost": 75,
+        "out_in_house_allocated_fixed": 500,
+        "out_in_house_total_cost": 375500,
+        "out_supplier_unit_price": 95,
+        "out_logistics_import_cost": 40000,
+        "out_quality_defect_allowance": 14250,
+        "out_inventory_lead_time_cost": 10300,
+        "out_capacity_opportunity_cost": 18775,
+        "out_outsource_total_landed_cost": 539550,
+        "out_cost_difference": -164050,
+        "out_break_even_volume": 15,
+        "out_make_buy_decision": 0,
+        "out_primary_decision_driver": 3,
+        "out_final_decision_state": 0
+      },
+      "expected_hashes": {
+        "output_hash": "oh-b2-outsource-v2-",
+        "proof_pack_hash": "pph-b2-outsource-v2-",
+        "audit_seal_stable_hash": "ash-b2-outsource-v2-"
+      },
+      "expected_decision_status": "OK",
+      "expected_warnings": []
+    },
+    {
+      "fixture_name": "borderline-review-decision",
+      "raw_inputs": {
+        "n_in_house_material_cost_per_unit": 45,
+        "n_in_house_labor_cost_per_unit": 30,
+        "n_in_house_overhead_per_unit": 25,
+        "n_in_house_setup_cost_per_batch": 1000,
+        "n_outsource_unit_price": 88,
+        "n_outsource_logistics_per_unit": 5,
+        "n_quality_defect_allowance_pct": 2,
+        "n_inventory_lead_time_cost_pct": 1,
+        "n_capacity_opportunity_cost_pct": 3,
+        "n_annual_volume": 8000
+      },
+      "expected_outputs": {
+        "out_in_house_variable_cost": 100,
+        "out_in_house_allocated_fixed": 1000,
+        "out_in_house_total_cost": 801000,
+        "out_supplier_unit_price": 88,
+        "out_logistics_import_cost": 40000,
+        "out_quality_defect_allowance": 14080,
+        "out_inventory_lead_time_cost": 7440,
+        "out_capacity_opportunity_cost": 40050,
+        "out_outsource_total_landed_cost": 765520,
+        "out_cost_difference": 35480,
+        "out_break_even_volume": 15,
+        "out_make_buy_decision": 1,
+        "out_primary_decision_driver": 3,
+        "out_final_decision_state": 1
+      },
+      "expected_hashes": {
+        "output_hash": "oh-b2-outsource-bord-",
+        "proof_pack_hash": "pph-b2-outsource-bord-",
+        "audit_seal_stable_hash": "ash-b2-outsource-bord-"
+      },
+      "expected_decision_status": "REVIEW",
+      "expected_warnings": []
+    }
   ]
 }

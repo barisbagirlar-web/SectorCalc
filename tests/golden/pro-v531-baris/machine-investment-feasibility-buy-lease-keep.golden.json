@@ -3,43 +3,40 @@
   "schema_version": "5.3.1-pro-schema.1",
   "formula_version": "5.3.1-pro-baris.1",
   "raw_inputs": {
-    "initial_investment": 100
+    "n_machine_purchase_price": 500000,
+    "n_down_payment_pct": 20,
+    "n_lease_annual_payment": 85000,
+    "n_lease_term_years": 5,
+    "n_loan_interest_rate_pct": 8,
+    "n_loan_term_years": 5,
+    "n_annual_maintenance_cost": 15000,
+    "n_annual_downtime_cost": 8000,
+    "n_residual_value": 120000,
+    "n_operating_savings_per_year": 180000,
+    "n_discount_rate": 10
   },
   "expected_outputs": {
-    "out_evidence_completeness": 0,
-    "out_normalized_demand": 0,
-    "out_reference_deviation": 0,
-    "out_derating_factor": 1,
-    "out_demand_metric": 0,
-    "out_capacity_metric": 0,
-    "out_utilization_margin": 0,
-    "out_expanded_uncertainty": 0,
-    "out_threshold_crossing": 0,
-    "out_sensitivity_driver": 0,
-    "out_fmea_trigger": 0,
-    "out_money_at_risk": 0,
-    "out_scenario_delta": 0,
-    "out_audit_hash_payload": 0,
-    "out_final_decision_state": 3
+    "out_buy_initial_cash": 100000,
+    "out_buy_annual_payments": 100182.58,
+    "out_buy_maintenance": 15000,
+    "out_buy_downtime": 8000,
+    "out_buy_total_lifecycle": 595912.91,
+    "out_buy_npv": 189893.28,
+    "out_lease_initial_cash": 0,
+    "out_lease_annual_payments": 85000,
+    "out_lease_total_lifecycle": 425000,
+    "out_lease_npv": 360124.74,
+    "out_keep_total_lifecycle": 115000,
+    "out_keep_npv": 253982.71,
+    "out_selected_alternative": 1,
+    "out_decision_gap": 106142.03,
+    "out_final_decision_state": 0
   },
   "expected_hashes": {
-    "output_hash": "oh-b1-machin",
-    "proof_pack_hash": "pph-b1-machin",
-    "audit_seal_stable_hash": "ash-b1-machin"
+    "output_hash": "oh-b1-blk",
+    "proof_pack_hash": "pph-b1-blk",
+    "audit_seal_stable_hash": "ash-b1-blk"
   },
-  "expected_decision_status": "BLOCKED",
-  "expected_warnings": [
-    "Missing or non-finite input: n_initial_investment",
-    "Missing or non-finite input: n_annual_net_cash_flow",
-    "Missing or non-finite input: n_discount_rate",
-    "Missing or non-finite input: n_analysis_years",
-    "Missing or non-finite input: n_residual_value",
-    "Missing or non-finite input: n_stress_downside_factor",
-    "Missing or non-finite input: n_annual_volume",
-    "Missing or non-finite input: n_labor_rate",
-    "Missing or non-finite input: n_overhead_rate",
-    "Missing or non-finite input: n_defect_or_loss_cost",
-    "Missing or non-finite input: n_source_confidence_ratio",
-    "Missing or non-finite input: n_uncertainty_multiplier"
-  ]
+  "expected_decision_status": "OK",
+  "expected_warnings": []
 }
