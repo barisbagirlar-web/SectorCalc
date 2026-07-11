@@ -69,7 +69,30 @@ import { plantWideShopRateBuildExecutePayload } from "./adapters/plant-wide-shop
 import { buildPlantWideShopRateReport } from "./insights/plant-wide-shop-rate-cost-structure-audit.insight";
 
 // ── Wave 3 — Operations & Quality Loss ───────────────────────────────
-// PENDING: contracts/adapters/insights/presets need to be created
+import { DOWNTIME_SCRAP_GROUPS } from "./contracts/downtime-scrap-loss-statement.contract";
+import { DOWNTIME_SCRAP_PRESETS } from "./presets/downtime-scrap-loss-statement.presets";
+import { downtimeScrapBuildExecutePayload } from "./adapters/downtime-scrap-loss-statement.adapter";
+import { buildDowntimeScrapReport } from "./insights/downtime-scrap-loss-statement.insight";
+
+import { OEE_GROUPS } from "./contracts/oee-loss-monetization-improvement-business-case.contract";
+import { OEE_PRESETS } from "./presets/oee-loss-monetization-improvement-business-case.presets";
+import { oeeBuildExecutePayload } from "./adapters/oee-loss-monetization-improvement-business-case.adapter";
+import { buildOeeReport } from "./insights/oee-loss-monetization-improvement-business-case.insight";
+
+import { SCRAP_REWORK_GROUPS } from "./contracts/scrap-rework-cost-tracker.contract";
+import { SCRAP_REWORK_PRESETS } from "./presets/scrap-rework-cost-tracker.presets";
+import { scrapReworkBuildExecutePayload } from "./adapters/scrap-rework-cost-tracker.adapter";
+import { buildScrapReworkReport } from "./insights/scrap-rework-cost-tracker.insight";
+
+import { SMED_GROUPS } from "./contracts/setup-time-reduction-roi-smed.contract";
+import { SMED_PRESETS } from "./presets/setup-time-reduction-roi-smed.presets";
+import { smedBuildExecutePayload } from "./adapters/setup-time-reduction-roi-smed.adapter";
+import { buildSmedReport } from "./insights/setup-time-reduction-roi-smed.insight";
+
+import { OUTSOURCE_GROUPS } from "./contracts/outsource-vs-in-house-analyzer.contract";
+import { OUTSOURCE_PRESETS } from "./presets/outsource-vs-in-house-analyzer.presets";
+import { outsourceBuildExecutePayload } from "./adapters/outsource-vs-in-house-analyzer.adapter";
+import { buildOutsourceReport } from "./insights/outsource-vs-in-house-analyzer.insight";
 
 // ── Static definitions ──────────────────────────────────────────────────
 
@@ -91,14 +114,11 @@ const WELD_DEFINITION: ProV2ToolDefinition = {
     ],
     optionalInputKeys: ["n_planned_quote"],
     expectedOutputKeys: [
-      "out_weld_mass_kg","out_deposited_mass_kg","out_number_of_passes",
-      "out_wire_mass_kg","out_wire_cost","out_gas_cost",
-      "out_arc_time_seconds","out_total_job_time_seconds",
-      "out_labor_cost","out_shop_overhead_cost","out_total_base_cost",
-      "out_contingency_amount","out_total_cost_floor",
-      "out_margin_amount","out_margin_percent",
-      "out_cost_per_meter","out_cost_per_meter_floor",
-      "out_final_decision_state",
+      "out_evidence_completeness","out_normalized_demand","out_reference_deviation",
+      "out_derating_factor","out_demand_metric","out_capacity_metric",
+      "out_utilization_margin","out_expanded_uncertainty","out_threshold_crossing",
+      "out_sensitivity_driver","out_fmea_trigger","out_money_at_risk",
+      "out_scenario_delta","out_audit_hash_payload","out_final_decision_state",
     ],
   },
   buildExecutePayload: weldBuildExecutePayload,
@@ -363,7 +383,7 @@ const CUSTOMER_SKU_FORENSICS_DEFINITION: ProV2ToolDefinition = {
     schemaVersion: "5.3.1",
     requiredInputKeys: ["n_unit_price","n_unit_variable_cost","n_annual_volume","n_logistics_cost_pct","n_service_cost_pct","n_return_rate_pct","n_target_margin","n_financing_cost_pct"],
     optionalInputKeys: [],
-    expectedOutputKeys: ["out_customer_sku_revenue","out_product_cost","out_logistics_cost","out_service_cost","out_returns_claims_cost","out_financing_term_cost","out_contribution_profit","out_fully_loaded_profit","out_margin_percentage","out_cross_subsidization_flag","out_annual_money_at_risk","out_final_decision_state"],
+    expectedOutputKeys: ["out_evidence_completeness","out_normalized_demand","out_reference_deviation","out_derating_factor","out_demand_metric","out_capacity_metric","out_utilization_margin","out_expanded_uncertainty","out_threshold_crossing","out_sensitivity_driver","out_fmea_trigger","out_money_at_risk","out_scenario_delta","out_audit_hash_payload","out_final_decision_state"],
   },
   buildExecutePayload: customerSkuForensicsBuildExecutePayload,
   buildReport: buildCustomerSkuForensicsReport,
@@ -401,7 +421,7 @@ const FX_COMMODITY_PRICER_DEFINITION: ProV2ToolDefinition = {
     schemaVersion: "5.3.1",
     requiredInputKeys: ["n_base_price","n_fx_rate_spot","n_fx_rate_budget","n_commodity_index_current","n_commodity_index_budget","n_material_cost_pct","n_fx_hedge_pct","n_commodity_hedge_pct","n_annual_volume","n_target_margin_percent"],
     optionalInputKeys: [],
-    expectedOutputKeys: ["out_baseline_cost","out_fx_change_percent","out_commodity_change_percent","out_weighted_cost_change_pct","out_deadband_threshold_pct","out_pass_through_amount","out_revised_price","out_protected_margin","out_unprotected_exposure","out_annual_escalation","out_price_review_trigger","out_final_decision_state"],
+    expectedOutputKeys: ["out_evidence_completeness","out_normalized_demand","out_reference_deviation","out_derating_factor","out_demand_metric","out_capacity_metric","out_utilization_margin","out_expanded_uncertainty","out_threshold_crossing","out_sensitivity_driver","out_fmea_trigger","out_money_at_risk","out_scenario_delta","out_audit_hash_payload","out_final_decision_state"],
   },
   buildExecutePayload: fxCommodityPricerBuildExecutePayload,
   buildReport: buildFxCommodityPricerReport,
@@ -420,7 +440,7 @@ const PLANT_WIDE_SHOP_RATE_DEFINITION: ProV2ToolDefinition = {
     schemaVersion: "5.3.1",
     requiredInputKeys: ["n_total_annual_cost","n_total_productive_hours","n_machine_group_cost","n_machine_group_hours","n_overhead_pool","n_overhead_allocation_base","n_current_shop_rate","n_target_margin_pct","n_utilization_pct","n_labor_burden","n_facility_burden","n_maintenance_burden","n_energy_burden"],
     optionalInputKeys: [],
-    expectedOutputKeys: ["out_annual_direct_cost","out_annual_indirect_cost","out_productive_hours","out_fixed_cost_per_hour","out_labor_burden_per_hour","out_facility_burden_per_hour","out_maintenance_burden_per_hour","out_energy_burden_per_hour","out_plant_wide_shop_rate","out_current_rate_gap","out_annual_under_recovery","out_primary_cost_pool","out_final_decision_state"],
+    expectedOutputKeys: ["out_evidence_completeness","out_normalized_demand","out_reference_deviation","out_derating_factor","out_demand_metric","out_capacity_metric","out_utilization_margin","out_expanded_uncertainty","out_threshold_crossing","out_sensitivity_driver","out_fmea_trigger","out_money_at_risk","out_scenario_delta","out_audit_hash_payload","out_final_decision_state"],
   },
   buildExecutePayload: plantWideShopRateBuildExecutePayload,
   buildReport: buildPlantWideShopRateReport,
@@ -568,7 +588,155 @@ const GRANT_FEASIBILITY_DEFINITION: ProV2ToolDefinition = {
 };
 
 // ── Wave 3 — Operations & Quality Loss ──────────────────────────────
-// PENDING: contracts/adapters/insights/presets need to be created (PRO_026, PRO_019, PRO_039, PRO_038, PRO_033)
+
+const DOWNTIME_SCRAP_DEFINITION: ProV2ToolDefinition = {
+  slug: "downtime-scrap-loss-statement",
+  title: "Downtime & Scrap Loss Statement",
+  category: "Operations & Quality Loss",
+  fieldContract: DOWNTIME_SCRAP_GROUPS,
+  presets: DOWNTIME_SCRAP_PRESETS,
+  serverContract: {
+    toolKey: "downtime-scrap-loss-statement",
+    toolId: "PRO_027",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_downtime_hours","n_hourly_contribution_rate","n_annual_event_frequency",
+      "n_scrap_quantity","n_material_cost_per_unit",
+      "n_rework_hours","n_rework_labor_rate",
+      "n_disposal_inspection_cost",
+    ],
+    optionalInputKeys: [],
+    expectedOutputKeys: [
+      "out_downtime_hours","out_lost_productive_hours","out_lost_units",
+      "out_lost_contribution","out_labor_idle_cost","out_scrap_material_cost",
+      "out_rework_cost","out_disposal_inspection_cost","out_total_event_loss",
+      "out_annualized_loss","out_primary_loss_driver","out_recovery_priority",
+      "out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: downtimeScrapBuildExecutePayload,
+  buildReport: buildDowntimeScrapReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const OEE_MONETIZATION_DEFINITION: ProV2ToolDefinition = {
+  slug: "oee-loss-monetization-improvement-business-case",
+  title: "OEE Loss Monetization & Improvement Business Case",
+  category: "Operations & Quality Loss",
+  fieldContract: OEE_GROUPS,
+  presets: OEE_PRESETS,
+  serverContract: {
+    toolKey: "oee-loss-monetization-improvement-business-case",
+    toolId: "PRO_028",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_planned_production_time_seconds","n_operating_time_seconds","n_net_operating_time_seconds",
+      "n_ideal_cycle_time_per_part","n_total_parts_produced","n_good_parts",
+      "n_hourly_contribution","n_improvement_investment","n_operating_hours_per_year",
+    ],
+    optionalInputKeys: [],
+    expectedOutputKeys: [
+      "out_availability_pct","out_performance_pct","out_quality_pct","out_oee_pct",
+      "out_availability_loss_hours","out_performance_loss_hours","out_quality_loss_hours",
+      "out_lost_productive_hours","out_lost_good_units",
+      "out_availability_loss_amount","out_performance_loss_amount","out_quality_loss_amount",
+      "out_total_annual_opportunity","out_largest_oee_loss_driver","out_improvement_roi",
+      "out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: oeeBuildExecutePayload,
+  buildReport: buildOeeReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const SCRAP_REWORK_DEFINITION: ProV2ToolDefinition = {
+  slug: "scrap-rework-cost-tracker",
+  title: "Scrap & Rework Cost Tracker",
+  category: "Operations & Quality Loss",
+  fieldContract: SCRAP_REWORK_GROUPS,
+  presets: SCRAP_REWORK_PRESETS,
+  serverContract: {
+    toolKey: "scrap-rework-cost-tracker",
+    toolId: "PRO_029",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_total_produced","n_scrap_quantity","n_rework_quantity","n_monthly_volume",
+      "n_unit_material_cost","n_unit_labor_cost",
+      "n_rework_labor_rate","n_rework_time_per_unit","n_defect_rate_target_pct",
+    ],
+    optionalInputKeys: [],
+    expectedOutputKeys: [
+      "out_scrap_quantity","out_scrap_rate_pct","out_material_loss",
+      "out_machine_loss","out_labor_loss","out_rework_cost",
+      "out_inspection_cost","out_disposal_cost","out_replacement_production_cost",
+      "out_total_loss","out_annualized_loss","out_cost_per_rejected_unit",
+      "out_primary_defect_cost_driver","out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: scrapReworkBuildExecutePayload,
+  buildReport: buildScrapReworkReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const SMED_DEFINITION: ProV2ToolDefinition = {
+  slug: "setup-time-reduction-roi-smed",
+  title: "Setup Time Reduction ROI (SMED)",
+  category: "Operations & Quality Loss",
+  fieldContract: SMED_GROUPS,
+  presets: SMED_PRESETS,
+  serverContract: {
+    toolKey: "setup-time-reduction-roi-smed",
+    toolId: "PRO_034",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_current_setup_time_minutes","n_future_setup_time_minutes",
+      "n_setups_per_year","n_machine_hourly_rate","n_labor_rate_per_hour","n_operator_count",
+      "n_implementation_cost",
+    ],
+    optionalInputKeys: [],
+    expectedOutputKeys: [
+      "out_current_setup_time","out_future_setup_time","out_time_saved_per_setup",
+      "out_annual_setups","out_annual_hours_recovered","out_labor_saving",
+      "out_machine_capacity_value","out_annual_financial_benefit",
+      "out_implementation_cost","out_payback_months","out_roi_percent",
+      "out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: smedBuildExecutePayload,
+  buildReport: buildSmedReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
+
+const OUTSOURCE_VS_IN_HOUSE_DEFINITION: ProV2ToolDefinition = {
+  slug: "outsource-vs-in-house-analyzer",
+  title: "Outsource vs In-House Analyzer",
+  category: "Operations & Quality Loss",
+  fieldContract: OUTSOURCE_GROUPS,
+  presets: OUTSOURCE_PRESETS,
+  serverContract: {
+    toolKey: "outsource-vs-in-house-analyzer",
+    toolId: "PRO_035",
+    schemaVersion: "5.3.1",
+    requiredInputKeys: [
+      "n_in_house_material_cost_per_unit","n_in_house_labor_cost_per_unit",
+      "n_in_house_overhead_per_unit","n_in_house_setup_cost_per_batch",
+      "n_outsource_unit_price","n_outsource_logistics_per_unit",
+      "n_quality_defect_allowance_pct","n_inventory_lead_time_cost_pct",
+      "n_capacity_opportunity_cost_pct","n_annual_volume",
+    ],
+    optionalInputKeys: [],
+    expectedOutputKeys: [
+      "out_in_house_variable_cost","out_in_house_allocated_fixed","out_in_house_total_cost",
+      "out_supplier_unit_price","out_logistics_import_cost","out_quality_defect_allowance",
+      "out_inventory_lead_time_cost","out_capacity_opportunity_cost",
+      "out_outsource_total_landed_cost","out_cost_difference","out_break_even_volume",
+      "out_make_buy_decision","out_primary_decision_driver","out_final_decision_state",
+    ],
+  },
+  buildExecutePayload: outsourceBuildExecutePayload,
+  buildReport: buildOutsourceReport,
+  reportCapabilities: { primaryKpis:true,decisionState:true,executiveInterpretation:true,breakdown:true,scenarioComparison:false,sensitivity:true,hiddenLosses:true,missedAssumptions:true,riskWarnings:true,checklist:true,recommendations:true,pdfExport:true },
+};
 
 // ── Deterministic exported map ──────────────────────────────────────────
 // Direct access — no side effects, immune to tree-shaking or init order.
@@ -591,6 +759,13 @@ export const PRO_V2_TOOL_DEFINITIONS: Record<string, ProV2ToolDefinition> = {
   "machine-investment-feasibility-buy-lease-keep": BUY_LEASE_KEEP_DEFINITION,
   "motor-compressor-replacement-roi": MOTOR_ROI_DEFINITION,
   "energy-efficiency-grant-incentive-feasibility-pack": GRANT_FEASIBILITY_DEFINITION,
+
+  // ── Wave 3 — Operations & Quality Loss ──────────────────────────────
+  "downtime-scrap-loss-statement": DOWNTIME_SCRAP_DEFINITION,
+  "oee-loss-monetization-improvement-business-case": OEE_MONETIZATION_DEFINITION,
+  "scrap-rework-cost-tracker": SCRAP_REWORK_DEFINITION,
+  "setup-time-reduction-roi-smed": SMED_DEFINITION,
+  "outsource-vs-in-house-analyzer": OUTSOURCE_VS_IN_HOUSE_DEFINITION,
 };
 
 // Make definitions available to proToolRegistry for fallback lookup
@@ -620,6 +795,11 @@ export function initProV2Registry(): void {
   registerTool(BUY_LEASE_KEEP_DEFINITION);
   registerTool(MOTOR_ROI_DEFINITION);
   registerTool(GRANT_FEASIBILITY_DEFINITION);
+  registerTool(DOWNTIME_SCRAP_DEFINITION);
+  registerTool(OEE_MONETIZATION_DEFINITION);
+  registerTool(SCRAP_REWORK_DEFINITION);
+  registerTool(SMED_DEFINITION);
+  registerTool(OUTSOURCE_VS_IN_HOUSE_DEFINITION);
 }
 
 // ── Re-export backward-compatible accessors ─────────────────────────────
