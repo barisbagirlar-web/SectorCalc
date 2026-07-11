@@ -55,6 +55,6 @@ export function SchemaMesh({ sector, sectorKey, locale = "en", priceUsd = "19" }
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    ></script>
   );
 }

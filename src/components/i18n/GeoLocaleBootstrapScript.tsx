@@ -9,6 +9,6 @@ export function GeoLocaleBootstrapScript() {
     <script
       id="sc-geo-locale-bootstrap"
       dangerouslySetInnerHTML={{ __html: buildGeoLocaleBootstrapScript() }}
-    />
+    ></script>
   );
 }

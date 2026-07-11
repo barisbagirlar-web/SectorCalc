@@ -7,6 +7,6 @@ export function SemanticJsonLd({ data }: { data: JsonLd }) {
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(data).replace(/</g, "\\u003c"),
       }}
-    />
+    ></script>
   );
 }

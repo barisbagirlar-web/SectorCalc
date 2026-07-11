@@ -186,9 +186,31 @@ function ensurePatchedServerJs() {
   // Now create/fix server.js with distDir: ".."
   const SERVER_JS = join(STANDALONE, "server.js");
   if (!existsSync(SERVER_JS)) {
-    // Read the real Next.js server template to extract distDir
-    const buildId = readFileSync(buildIdSrc, "utf8").trim();
-    // Build a complete server.js with minimal essential config and distDir: ".."
+    // Load the full config from required-server-files.json so the standalone
+    // server has ALL config keys (especially experimental.*) which is required
+    // by Next.js 15.5+. Without the full config, the server crashes with
+    // "TypeError: Cannot read properties of undefined (reading 'caseSensitiveRoutes')".
+    const requiredFilesPath = join(NEXT, "required-server-files.json");
+    let fullConfig = {};
+    if (existsSync(requiredFilesPath)) {
+      try {
+        const requiredFiles = JSON.parse(readFileSync(requiredFilesPath, "utf8"));
+        fullConfig = requiredFiles.config || {};
+      } catch (e) {
+        console.warn("finalize-next-build: could not parse required-server-files.json:", e.message);
+      }
+    } else {
+      console.warn("finalize-next-build: required-server-files.json not found, using minimal config");
+    }
+
+    // Merge minimal overrides on top of the full config
+    const serverConfig = {
+      ...fullConfig,
+      distDir: "..",
+      output: "standalone",
+      outputFileTracingRoot: ROOT,
+    };
+
     writeFileSync(SERVER_JS, `const path = require('path')
 const dir = path.join(__dirname)
 process.env.NODE_ENV = 'production'
@@ -196,14 +218,14 @@ process.chdir(__dirname)
 const currentPort = parseInt(process.env.PORT, 10) || 3000
 const hostname = process.env.HOSTNAME || '0.0.0.0'
 let keepAliveTimeout = parseInt(process.env.KEEP_ALIVE_TIMEOUT, 10)
-const nextConfig = {"distDir":"..","output":"standalone","outputFileTracingRoot":${JSON.stringify(ROOT)}}
+const nextConfig = ${JSON.stringify(serverConfig)}
 process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig)
 require('next')
 const { startServer } = require('next/dist/server/lib/start-server')
 if (Number.isNaN(keepAliveTimeout) || !Number.isFinite(keepAliveTimeout) || keepAliveTimeout < 0) { keepAliveTimeout = undefined }
 startServer({ dir, isDev: false, config: nextConfig, hostname, port: currentPort, allowRetry: false, keepAliveTimeout }).catch((err) => { console.error(err); process.exit(1); });
 `);
-    console.log("finalize-next-build: created standalone/server.js with distDir=..");
+    console.log("finalize-next-build: created standalone/server.js with full config from required-server-files.json");
   } else {
     let content = readFileSync(SERVER_JS, "utf8");
     const patched = content.replace(/"distDir":"\.\/\.next"/g, '"distDir":".."');
