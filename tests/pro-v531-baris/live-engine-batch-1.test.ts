@@ -25,7 +25,7 @@ const STD_INPUTS: Record<string, number> = {
   n_overhead_rate: 350000, n_defect_or_loss_cost: 12000, n_source_confidence_ratio: 0.9, n_uncertainty_multiplier: 1.1
 };
 const INV_INPUTS: Record<string, number> = {
-  n_initial_investment: 500000, n_annual_net_cash_flow: 150000, n_discount_rate: 10,
+  n_initial_investment: 500000, n_annual_net_cash_flow: 150000, n_discount_rate: 0.10,
   n_analysis_years: 5, n_residual_value: 50000, n_stress_downside_factor: 0.8,
   n_annual_volume: 10000, n_labor_rate: 80000, n_overhead_rate: 120000,
   n_defect_or_loss_cost: 15000, n_source_confidence_ratio: 0.95, n_uncertainty_multiplier: 1.2

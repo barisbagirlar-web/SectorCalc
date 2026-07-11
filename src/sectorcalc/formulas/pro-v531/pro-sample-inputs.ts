@@ -12,7 +12,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
   "break-even-survival-cash-calculator": {
     n_initial_investment: 500000,
     n_annual_net_cash_flow: 150000,
-    n_discount_rate: 10,
+    n_discount_rate: 0.10,
     n_analysis_years: 5,
     n_residual_value: 50000,
     n_stress_downside_factor: 0.8,
@@ -96,7 +96,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
   "machine-investment-feasibility-buy-lease-keep": {
     n_initial_investment: 500000,
     n_annual_net_cash_flow: 150000,
-    n_discount_rate: 10,
+    n_discount_rate: 0.10,
     n_analysis_years: 5,
     n_residual_value: 50000,
     n_stress_downside_factor: 0.8,
@@ -110,7 +110,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
   "capital-equipment-investment-appraisal-npv-irr": {
     n_initial_investment: 500000,
     n_annual_net_cash_flow: 150000,
-    n_discount_rate: 10,
+    n_discount_rate: 0.10,
     n_analysis_years: 5,
     n_residual_value: 50000,
     n_stress_downside_factor: 0.8,
@@ -227,7 +227,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_installation_cost: 4000,
     n_maintenance_saving_per_year: 2000,
     n_equipment_life_years: 10,
-    n_discount_rate: 8,
+    n_discount_rate: 0.08,
     n_source_confidence_ratio: 0.9,
   },
   "weld-procedure-cost-consumable-estimation-suite": {

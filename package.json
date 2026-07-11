@@ -20,7 +20,7 @@
     "guard:free-catalog-integrity": "node scripts/guard-free-catalog-integrity.mjs",
     "guard:free-result-panel": "node scripts/guard-free-result-panel.mjs",
     "guard:universal-result-perspectives": "node scripts/guard-universal-result-perspectives.mjs",
-    "test:result-perspectives": "npx vitest run tests/result-perspectives/",
+    "guard:pro-v2-form-api-key-contract": "node scripts/guard-pro-v2-form-api-key-contract.mjs",
     "smoke:free-tools-execution": "node scripts/smoke-free-tools-execution.mjs",
     "smoke:free-tools-mobile-ux": "node scripts/smoke-free-tools-mobile-ux.mjs",
     "test:free-tools-golden": "npx vitest run tests/free-tools/",
