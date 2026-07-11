@@ -8,7 +8,7 @@
  * - App Router only — no `src/pages/*` (Pages Router races / _document ENOENT).
  */
 import { spawnSync } from "node:child_process";
-import { closeSync, existsSync, mkdirSync, openSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { closeSync, copyFileSync, existsSync, mkdirSync, openSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { cleanNextArtifacts } from "./clean-next-artifacts.mjs";
 import {
@@ -74,6 +74,14 @@ if (process.env.SECTORCALC_FIREBASE_REUSE_BUILD === "1" && existsSync(join(ROOT,
 function acquireBuildLock() {
   if (useGlobalLock && process.env.SECTORCALC_BUILD_LOCK_SKIP !== "1") {
     acquireGlobalBuildLock("npm run build");
+  }
+
+  // Ensure next.firebase-backup exists so the shim can find it during
+  // the child next build process (prevents infinite shim recursion).
+  const nextBinDir = join(ROOT, "node_modules/next/dist/bin");
+  const backupPath = join(nextBinDir, "next.firebase-backup");
+  if (existsSync(nextBinDir) && !existsSync(backupPath)) {
+    copyFileSync(join(nextBinDir, "next"), backupPath);
   }
 
   if (existsSync(BUILD_LOCK)) {

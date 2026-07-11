@@ -12,6 +12,7 @@ const args = process.argv.slice(2);
 if (process.env.SECTORCALC_SHIM_REAL_NEXT) {
   const realNextCandidates = [
     join(ROOT, "node_modules/next/dist/bin/next.firebase-backup"),
+    join(ROOT, "node_modules/next/dist/bin/next"),
   ];
   const realNext = realNextCandidates.find((candidate) => existsSync(candidate));
   if (realNext) {
@@ -42,6 +43,7 @@ if (args[0] === "build") {
 
 const realNextCandidates = [
   join(ROOT, "node_modules/next/dist/bin/next.firebase-backup"),
+  join(ROOT, "node_modules/next/dist/bin/next"),
 ];
 
 const realNext = realNextCandidates.find((candidate) => existsSync(candidate));
