@@ -338,6 +338,7 @@ export default function ProExecutionFormV2({
           client_schema_hash: "",
           usageSessionId: usageSessionId,
         },
+        idToken,
       );
 
       // Type narrow

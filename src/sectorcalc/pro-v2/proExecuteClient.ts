@@ -46,15 +46,21 @@ export type ExecuteResponse = ExecuteResult | ExecuteError;
 /**
  * Execute a PRO calculation with the given usageSessionId.
  * usageSessionId is passed as an explicit argument — never read from stale state.
+ * idToken is the Firebase ID token sent as Authorization: Bearer for session verification.
  */
 export async function executeWithUsageSession(
   endpoint: string,
   body: ExecuteRequest,
+  idToken: string | null,
 ): Promise<ExecuteResponse> {
   try {
+    const headers: Record<string, string> = { "Content-Type": "application/json" };
+    if (idToken) {
+      headers["Authorization"] = `Bearer ${idToken}`;
+    }
     const res = await fetch(endpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify(body),
     });
 
