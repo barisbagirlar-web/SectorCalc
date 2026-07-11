@@ -4,9 +4,9 @@
   "formula_version": "5.3.1-pro-baris.1",
   "raw_inputs": { "weld_length_m": 10, "weld_throat_mm": 5 },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10,
-    "out_money_at_risk": 0,
+    "out_weld_length_m": 10,
+    "out_total_base_cost": 50.63,
+    "out_cost_per_meter": 5.06,
     "out_final_decision_state": 0
   },
   "expected_hashes": {

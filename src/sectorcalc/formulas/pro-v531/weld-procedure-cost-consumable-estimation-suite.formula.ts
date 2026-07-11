@@ -35,7 +35,6 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const labor_rate = get(inputs, "n_labor_rate");
   const overhead_rate = get(inputs, "n_overhead_rate");
   const dep_eff = get(inputs, "n_deposition_efficiency_pct") / 100;
-  const conf = get(inputs, "n_source_confidence_ratio");
 
   if (!isFiniteNumber(inputs["n_weld_length_m"])) warnings.push("Missing: n_weld_length_m");
   if (!isFiniteNumber(inputs["n_weld_throat_mm"])) warnings.push("Missing: n_weld_throat_mm");
@@ -55,20 +54,21 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const cost_per_meter = weld_length > 0 ? total_cost / weld_length : 0;
   const decision = cost_per_meter > 50 ? 1 : (cost_per_meter > 20 ? 2 : 0);
 
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(weld_length, 2);
-  outputs["out_reference_deviation"] = 0;
-  outputs["out_derating_factor"] = round(dep_eff, 3);
-  outputs["out_demand_metric"] = round(consumable_cost, 2);
-  outputs["out_capacity_metric"] = round(weld_volume_g, 1);
-  outputs["out_utilization_margin"] = round(total_cost, 2);
-  outputs["out_expanded_uncertainty"] = round(overhead_cost * 0.1, 2);
-  outputs["out_threshold_crossing"] = cost_per_meter > 50 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = labor_cost > consumable_cost ? 1 : 0;
+  outputs["out_weld_length_m"] = round(weld_length, 2);
+  outputs["out_weld_volume_g"] = round(weld_volume_g, 1);
+  outputs["out_wire_mass_g"] = round(wire_needed, 1);
+  outputs["out_wire_cost"] = round(consumable_cost, 2);
+  outputs["out_gas_cost"] = round(gas_cost, 2);
+  outputs["out_arc_time_hours"] = round(arc_time / 60, 3);
+  outputs["out_total_job_time_hours"] = round(weld_time_min / 60, 3);
+  outputs["out_labor_cost"] = round(labor_cost, 2);
+  outputs["out_shop_overhead_cost"] = round(overhead_cost, 2);
+  outputs["out_deposition_efficiency"] = round(dep_eff, 3);
+  outputs["out_total_base_cost"] = round(total_cost, 2);
+  outputs["out_cost_per_meter"] = round(cost_per_meter, 2);
+  outputs["out_overhead_uncertainty"] = round(overhead_cost * 0.1, 2);
+  outputs["out_primary_cost_driver"] = labor_cost > consumable_cost ? 1 : 0;
   outputs["out_fmea_trigger"] = cost_per_meter > 30 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(total_cost, 2);
-  outputs["out_scenario_delta"] = round(cost_per_meter, 2);
-  outputs["out_audit_hash_payload"] = 0;
   outputs["out_final_decision_state"] = decision;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
