@@ -7,7 +7,6 @@ const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
   invoice_value: "invoice_value",
   payment_days: "payment_days",
   early_payment_discount_pct: "early_payment_discount_pct",
-  early_payment_days: "early_payment_days",
   cost_of_capital_pct: "cost_of_capital_pct",
   admin_collection_cost: "admin_collection_cost",
   default_risk_allowance: "default_risk_allowance",

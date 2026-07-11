@@ -13,7 +13,6 @@ const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
   fx_hedge_pct: "fx_hedge_pct",
   commodity_hedge_pct: "commodity_hedge_pct",
   annual_volume: "annual_volume",
-  target_margin_percent: "target_margin_percent",
 };
 
 export { FORM_TO_SCHEMA_INPUT };

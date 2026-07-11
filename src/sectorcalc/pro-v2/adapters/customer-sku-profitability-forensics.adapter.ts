@@ -20,12 +20,11 @@ export const customerSkuForensicsBuildExecutePayload: ProExecutePayloadAdapter =
     service_cost_pct: n("service_cost_pct"),
     return_rate_pct: n("return_rate_pct"),
     target_margin: n("target_margin"),
-    financing_cost_pct: n("financing_cost_pct"),
   };
 
   const selected_units: Record<string, string> = {};
-  for (const key of Object.keys(fieldState)) {
-    selected_units[key] = fieldState[key].unit;
+  for (const key of Object.keys(raw_inputs)) {
+    if (fieldState[key]) selected_units[key] = fieldState[key].unit;
   }
 
   return { raw_inputs, selected_units };

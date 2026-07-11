@@ -13,10 +13,6 @@ const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
   current_shop_rate: "current_shop_rate",
   target_margin_pct: "target_margin_pct",
   utilization_pct: "utilization_pct",
-  labor_burden: "labor_burden",
-  facility_burden: "facility_burden",
-  maintenance_burden: "maintenance_burden",
-  energy_burden: "energy_burden",
 };
 
 export const plantWideShopRateBuildExecutePayload: ProExecutePayloadAdapter = (

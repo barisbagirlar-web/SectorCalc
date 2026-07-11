@@ -15,9 +15,7 @@ const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
   operating_hours_per_year: "operating_hours_per_year",
 };
 
-const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number }> = {
-  source_confidence: { schemaId: "source_confidence", defaultValue: 0.9 },
-};
+const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number }> = {};
 
 export { FORM_TO_SCHEMA_INPUT, HIDDEN_TO_SCHEMA };
 

@@ -7,20 +7,18 @@ import type { ProExecutePayloadAdapter } from "../proToolRegistry";
 const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
   weld_length: "weld_length_m",
   weld_throat: "weld_throat_mm",
-  material_density: "weld_density",
+  material_density: "weld_density_g_per_cm3",
   wire_cost: "wire_cost_per_kg",
   gas_cost: "gas_cost_per_min",
   arc_time: "arc_time_min",
   total_job_time: "weld_time_min",
   labor_rate: "labor_rate",
   shop_overhead_rate: "overhead_rate",
-  deposition_efficiency: "deposition_efficiency",
-  source_confidence: "source_confidence",
+  deposition_efficiency: "deposition_efficiency_pct",
 };
 
 const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number }> = {
-  material_density: { schemaId: "weld_density", defaultValue: 7.85 },
-  source_confidence: { schemaId: "source_confidence", defaultValue: 0.9 },
+  material_density: { schemaId: "weld_density_g_per_cm3", defaultValue: 7.85 },
 };
 
 export { FORM_TO_SCHEMA_INPUT, HIDDEN_TO_SCHEMA };
@@ -55,17 +53,6 @@ export const weldBuildExecutePayload: ProExecutePayloadAdapter = (
       raw_inputs[cfg.schemaId] = hiddenValues[formId];
     } else {
       raw_inputs[cfg.schemaId] = cfg.defaultValue;
-    }
-  }
-
-  // planned_quote + contingency passed through (used by insight engine)
-  for (const extraId of ["planned_quote", "contingency"] as const) {
-    const entry = fieldState[extraId];
-    if (entry && entry.value !== "" && entry.value !== undefined) {
-      const num = parseFloat(entry.value);
-      if (Number.isFinite(num)) {
-        raw_inputs[extraId] = num;
-      }
     }
   }
 
