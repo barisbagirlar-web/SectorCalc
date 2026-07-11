@@ -160,7 +160,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
           }
         ]
       },
@@ -609,7 +609,7 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 100,
-        "unit": "%",
+        "unit": "percent",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -687,7 +687,7 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 100,
-        "unit": "%",
+        "unit": "percent",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -765,7 +765,7 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 100,
-        "unit": "%",
+        "unit": "percent",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },

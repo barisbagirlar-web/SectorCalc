@@ -132,6 +132,42 @@
           }
         ]
       },
+      "length": {
+        "base_unit": "m",
+        "unit_family": "LENGTH",
+        "units": [
+          {
+            "unit": "mm",
+            "factor": 0.001
+          },
+          {
+            "unit": "cm",
+            "factor": 0.01
+          },
+          {
+            "unit": "m",
+            "factor": 1
+          },
+          {
+            "unit": "in",
+            "factor": 0.0254
+          },
+          {
+            "unit": "ft",
+            "factor": 0.3048
+          }
+        ]
+      },
+      "density": {
+        "base_unit": "kg_per_m3",
+        "unit_family": "DENSITY",
+        "units": [
+          {
+            "unit": "kg_per_m3",
+            "factor": 1
+          }
+        ]
+      },
       "dimensionless": {
         "base_unit": "ratio",
         "unit_family": "DIMENSIONLESS",
@@ -164,7 +200,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
           }
         ]
       },
@@ -290,7 +326,7 @@
       "symbol": "WT",
       "quantity_kind": "length",
       "unit_selectable": false,
-      "base_unit": "m",
+      "base_unit": "mm",
       "allowed_display_units": [
         "mm"
       ],
@@ -306,8 +342,8 @@
         "unit": "mm",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Weld Throat (mm) is below the physical or process hard bound.",
-        "semantic_error_message_max": "Weld Throat (mm) is above the physical or process hard bound."
+        "semantic_error_message_min": "Weld Throat is below the physical or process hard bound.",
+        "semantic_error_message_max": "Weld Throat is above the physical or process hard bound."
       },
       "engineering_range": null,
       "resolution": null,
@@ -463,7 +499,7 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 1000,
-        "unit": "USD/kg",
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -541,7 +577,7 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 10,
-        "unit": "USD/min",
+        "unit": "currency_unit_per_min",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -606,7 +642,7 @@
       "symbol": "AT",
       "quantity_kind": "time",
       "unit_selectable": false,
-      "base_unit": "s",
+      "base_unit": "min",
       "allowed_display_units": [
         "min"
       ],
@@ -684,7 +720,7 @@
       "symbol": "WT",
       "quantity_kind": "time",
       "unit_selectable": false,
-      "base_unit": "s",
+      "base_unit": "min",
       "allowed_display_units": [
         "min"
       ],
@@ -774,8 +810,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 5000,
-        "unit": "USD/h",
+        "max": 500000,
+        "unit": "currency_unit_per_h",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -852,8 +888,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 10000,
-        "unit": "USD/h",
+        "max": 5000000,
+        "unit": "currency_unit_per_h",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -918,7 +954,7 @@
       "symbol": "DE",
       "quantity_kind": "dimensionless",
       "unit_selectable": false,
-      "base_unit": "ratio",
+      "base_unit": "percent",
       "allowed_display_units": [
         "percent"
       ],
@@ -1087,7 +1123,7 @@
       "id": "n_weld_throat_mm",
       "from_input": "weld_throat_mm",
       "quantity_kind": "length",
-      "base_unit": "m",
+      "base_unit": "mm",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for weld_throat_mm after unit conversion.",
@@ -1139,7 +1175,7 @@
       "id": "n_arc_time_min",
       "from_input": "arc_time_min",
       "quantity_kind": "time",
-      "base_unit": "s",
+      "base_unit": "min",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for arc_time_min after unit conversion.",
@@ -1152,7 +1188,7 @@
       "id": "n_weld_time_min",
       "from_input": "weld_time_min",
       "quantity_kind": "time",
-      "base_unit": "s",
+      "base_unit": "min",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for weld_time_min after unit conversion.",
@@ -1191,7 +1227,7 @@
       "id": "n_deposition_efficiency_pct",
       "from_input": "deposition_efficiency",
       "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "base_unit": "percent",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for deposition_efficiency after unit conversion.",

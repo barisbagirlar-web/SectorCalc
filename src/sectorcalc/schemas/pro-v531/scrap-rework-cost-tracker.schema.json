@@ -160,7 +160,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
           }
         ]
       },
@@ -608,8 +608,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 5000,
-        "unit": "USD/h",
+        "max": 500000,
+        "unit": "currency_unit_per_h",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },

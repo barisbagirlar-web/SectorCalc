@@ -187,7 +187,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
           }
         ]
       }
@@ -218,7 +218,7 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 10,
         "unit": "m",
         "basis": "PROCESS_LIMIT",
@@ -227,7 +227,7 @@
         "semantic_error_message_max": "Specification Tolerance Width is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.00001,
+        "min": 1e-05,
         "max": 0.05,
         "unit": "m",
         "source": "SectorCalc industrial screening reference range based on drawing or control plan; user must verify against project evidence.",
@@ -466,7 +466,7 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 1e-9,
+        "min": 1e-09,
         "max": 1,
         "unit": "m",
         "basis": "PROCESS_LIMIT",
@@ -475,7 +475,7 @@
         "semantic_error_message_max": "Within-Subgroup Standard Deviation is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 0.005,
         "unit": "m",
         "source": "SectorCalc industrial screening reference range based on SPC study; user must verify against project evidence.",
@@ -590,7 +590,7 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 1e-9,
+        "min": 1e-09,
         "max": 1,
         "unit": "m",
         "basis": "PROCESS_LIMIT",
@@ -599,7 +599,7 @@
         "semantic_error_message_max": "Overall Standard Deviation is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 0.008,
         "unit": "m",
         "source": "SectorCalc industrial screening reference range based on long-term capability study; user must verify against project evidence.",
@@ -723,7 +723,7 @@
         "semantic_error_message_max": "Gage Repeatability Standard Deviation is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 0.003,
         "unit": "m",
         "source": "SectorCalc industrial screening reference range based on MSA study; user must verify against project evidence.",
@@ -847,7 +847,7 @@
         "semantic_error_message_max": "Gage Reproducibility Standard Deviation is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 0.003,
         "unit": "m",
         "source": "SectorCalc industrial screening reference range based on MSA study; user must verify against project evidence.",
@@ -961,7 +961,7 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 1e-8,
+        "min": 1e-08,
         "max": 10,
         "unit": "unit_per_s",
         "basis": "PROCESS_LIMIT",
@@ -970,7 +970,7 @@
         "semantic_error_message_max": "Annual Decision Volume is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 0.5,
         "unit": "unit_per_s",
         "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
@@ -1087,7 +1087,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 10000,
+        "max": 500000,
         "unit": "currency_unit_per_h",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
@@ -1212,7 +1212,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100000,
+        "max": 5000000,
         "unit": "currency_unit_per_h",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",

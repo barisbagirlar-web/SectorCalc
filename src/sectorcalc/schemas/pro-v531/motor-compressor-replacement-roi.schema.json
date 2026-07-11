@@ -157,7 +157,7 @@
           },
           {
             "unit": "L_min",
-            "factor": 0.0000166667
+            "factor": 1.66667e-05
           },
           {
             "unit": "cfm",
@@ -209,7 +209,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
           }
         ]
       },
@@ -430,7 +430,7 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 100,
-        "unit": "%",
+        "unit": "percent",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -508,7 +508,7 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 100,
-        "unit": "%",
+        "unit": "percent",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -819,8 +819,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 5000000,
-        "unit": "USD",
+        "max": 1000000,
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },

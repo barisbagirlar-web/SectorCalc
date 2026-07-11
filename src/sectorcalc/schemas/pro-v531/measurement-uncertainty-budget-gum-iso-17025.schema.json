@@ -187,7 +187,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
           }
         ]
       }
@@ -351,7 +351,7 @@
         "semantic_error_message_max": "Repeatability Standard Deviation is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 0.01,
         "unit": "m",
         "source": "SectorCalc industrial screening reference range based on repeatability study; user must verify against project evidence.",
@@ -475,7 +475,7 @@
         "semantic_error_message_max": "Calibration Expanded Uncertainty is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 0.01,
         "unit": "m",
         "source": "SectorCalc industrial screening reference range based on calibration certificate; user must verify against project evidence.",
@@ -720,7 +720,7 @@
         "semantic_error_message_max": "Instrument Resolution is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 0.001,
         "unit": "m",
         "source": "SectorCalc industrial screening reference range based on instrument specification; user must verify against project evidence.",
@@ -958,7 +958,7 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 1e-8,
+        "min": 1e-08,
         "max": 10,
         "unit": "unit_per_s",
         "basis": "PROCESS_LIMIT",
@@ -967,7 +967,7 @@
         "semantic_error_message_max": "Annual Decision Volume is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.000001,
+        "min": 1e-06,
         "max": 0.5,
         "unit": "unit_per_s",
         "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
@@ -1084,7 +1084,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 10000,
+        "max": 500000,
         "unit": "currency_unit_per_h",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
@@ -1209,7 +1209,7 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100000,
+        "max": 5000000,
         "unit": "currency_unit_per_h",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
