@@ -21,7 +21,7 @@ import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 import "@/sectorcalc/pro-report/pro-report-panel.css";
 
 export const dynamic = "force-dynamic";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export function generateStaticParams(): Array<{ slug: string }> {
   return ACTIVE_PRO_TOOL_SLUGS.map((slug) => ({ slug }));
