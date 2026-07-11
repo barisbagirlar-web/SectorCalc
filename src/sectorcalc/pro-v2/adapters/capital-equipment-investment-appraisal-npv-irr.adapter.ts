@@ -14,17 +14,17 @@ export const npvIrrBuildExecutePayload: ProExecutePayloadAdapter = (
   }
 
   const raw_inputs: Record<string, number> = {
-    n_initial_investment: n("initial_investment"),
-    n_working_capital: n("working_capital"),
-    n_annual_cash_inflow_1: n("annual_cash_inflow_1"),
-    n_annual_cash_inflow_2: n("annual_cash_inflow_2"),
-    n_annual_cash_inflow_3: n("annual_cash_inflow_3"),
-    n_annual_cash_inflow_4: n("annual_cash_inflow_4"),
-    n_annual_cash_inflow_5: n("annual_cash_inflow_5"),
-    n_terminal_residual_value: n("terminal_residual_value"),
-    n_discount_rate_percent: n("discount_rate_percent"),
-    n_scenario_downside_pct: n("scenario_downside_pct"),
-    n_scenario_upside_pct: n("scenario_upside_pct"),
+    initial_investment: n("initial_investment"),
+    working_capital: n("working_capital"),
+    annual_cash_inflow_1: n("annual_cash_inflow_1"),
+    annual_cash_inflow_2: n("annual_cash_inflow_2"),
+    annual_cash_inflow_3: n("annual_cash_inflow_3"),
+    annual_cash_inflow_4: n("annual_cash_inflow_4"),
+    annual_cash_inflow_5: n("annual_cash_inflow_5"),
+    terminal_residual_value: n("terminal_residual_value"),
+    discount_rate_percent: n("discount_rate_percent"),
+    scenario_downside_pct: n("scenario_downside_pct"),
+    scenario_upside_pct: n("scenario_upside_pct"),
   };
 
   const selected_units: Record<string, string> = {};

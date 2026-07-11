@@ -18,6 +18,7 @@ export const formulaVersion = "5.3.1-pro-baris.1";
 function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
 function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
 function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+function safeDiv(n: number, d: number): number { if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0; return n / d; }
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
@@ -25,52 +26,62 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const warnings: string[] = [];
   const outputs: Record<string, number> = {};
 
-  const up = get(inputs, "n_unit_price");
-  const uvc = get(inputs, "n_unit_variable_cost");
-  const av = get(inputs, "n_annual_volume");
-  const lcp = get(inputs, "n_logistics_cost_pct");
-  const scp = get(inputs, "n_service_cost_pct");
-  const rrp = get(inputs, "n_return_rate_pct");
-  const tm = get(inputs, "n_target_margin");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
-  const conf = get(inputs, "n_source_confidence_ratio");
+  const unitPrice = get(inputs, "n_unit_price");
+  const unitVarCost = get(inputs, "n_unit_variable_cost");
+  const annualVol = get(inputs, "n_annual_volume");
+  const logisticsPct = get(inputs, "n_logistics_cost_pct");
+  const servicePct = get(inputs, "n_service_cost_pct");
+  const returnPct = get(inputs, "n_return_rate_pct");
+  const targetMargin = get(inputs, "n_target_margin");
 
-  if (!isFiniteNumber(inputs["n_unit_price"])) warnings.push("Missing: n_unit_price");
-  if (!isFiniteNumber(inputs["n_unit_variable_cost"])) warnings.push("Missing: n_unit_variable_cost");
-  if (!isFiniteNumber(inputs["n_annual_volume"])) warnings.push("Missing: n_annual_volume");
+  if (unitPrice <= 0) warnings.push("Unit price must be positive");
+  if (annualVol <= 0) warnings.push("Annual volume must be positive");
 
-  const unit_contribution = up - uvc;
-  const cm_ratio = up > 0 ? unit_contribution / up : 0;
-  const logistics_burden = up * (lcp / 100);
-  const service_burden = up * (scp / 100);
-  const return_burden = up * (rrp / 100);
-  const net_margin = unit_contribution - logistics_burden - service_burden - return_burden;
-  const toxic_flag = net_margin < 0 ? 1 : 0;
-  const total_margin = net_margin * av;
-  const biggest_burden = Math.max(logistics_burden, service_burden, return_burden);
-  const target_margin_ratio = tm / 100;
-  let decision: number;
-  if (cm_ratio > target_margin_ratio) decision = 0; // GROW
-  else if (cm_ratio > 0) decision = 1;             // HOLD
-  else decision = 2;                                // CUT
+  const unitContribution = unitPrice - unitVarCost;
+  const cmRatio = unitPrice > 0 ? unitContribution / unitPrice : 0;
+  const logisticsBurden = unitPrice * (logisticsPct / 100);
+  const serviceBurden = unitPrice * (servicePct / 100);
+  const returnBurden = unitPrice * (returnPct / 100);
+  const totalBurdenPerUnit = logisticsBurden + serviceBurden + returnBurden;
+  const netMarginPerUnit = unitContribution - totalBurdenPerUnit;
+  const netMarginPct = unitPrice > 0 ? netMarginPerUnit / unitPrice : 0;
+  const totalAnnualProfit = netMarginPerUnit * annualVol;
+  const totalRevenue = unitPrice * annualVol;
 
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(av, 0);
-  outputs["out_reference_deviation"] = round(tm > 0 ? Math.abs(cm_ratio - target_margin_ratio) / target_margin_ratio : 0, 4);
-  outputs["out_derating_factor"] = round(net_margin < 0 ? 0 : net_margin / unit_contribution, 4);
-  outputs["out_demand_metric"] = round(net_margin, 2);
-  outputs["out_capacity_metric"] = round(total_margin, 2);
-  outputs["out_utilization_margin"] = round(cm_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(net_margin * 0.1, 2);
-  outputs["out_threshold_crossing"] = toxic_flag;
-  outputs["out_sensitivity_driver"] = biggest_burden === logistics_burden ? 0 : (biggest_burden === service_burden ? 1 : 2);
-  outputs["out_fmea_trigger"] = toxic_flag;
-  outputs["out_money_at_risk"] = round(toxic_flag ? total_margin : 0, 2);
-  outputs["out_scenario_delta"] = round(biggest_burden * av, 2);
-  outputs["out_audit_hash_payload"] = 0;
+  const biggestBurden = Math.max(logisticsBurden, serviceBurden, returnBurden);
+  let primaryDriver = 0;
+  if (biggestBurden === serviceBurden) primaryDriver = 1;
+  else if (biggestBurden === returnBurden) primaryDriver = 2;
+
+  const contributionRatio = unitPrice > 0 ? (unitPrice - unitVarCost) / unitPrice : 0;
+  const targetMarginRatio = targetMargin / 100;
+
+  // Decision: 0=GOOD (grow), 1=REVIEW (hold), 2=BLOCKED (cut)
+  let decision = 2;
+  if (contributionRatio > targetMarginRatio) decision = 0;
+  else if (contributionRatio > 0) decision = 1;
+
+  outputs["out_unit_price"] = round(unitPrice, 2);
+  outputs["out_unit_variable_cost"] = round(unitVarCost, 2);
+  outputs["out_unit_contribution"] = round(unitContribution, 2);
+  outputs["out_contribution_margin_pct"] = round(cmRatio * 100, 1);
+  outputs["out_logistics_burden_per_unit"] = round(logisticsBurden, 2);
+  outputs["out_service_burden_per_unit"] = round(serviceBurden, 2);
+  outputs["out_return_burden_per_unit"] = round(returnBurden, 2);
+  outputs["out_total_burden_per_unit"] = round(totalBurdenPerUnit, 2);
+  outputs["out_net_margin_per_unit"] = round(netMarginPerUnit, 2);
+  outputs["out_net_margin_pct"] = round(netMarginPct * 100, 1);
+  outputs["out_total_annual_revenue"] = round(totalRevenue, 2);
+  outputs["out_total_annual_profit"] = round(totalAnnualProfit, 2);
+  outputs["out_primary_burden_driver"] = primaryDriver;
+  outputs["out_contribution_ratio"] = round(contributionRatio, 4);
   outputs["out_final_decision_state"] = decision;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  return {
+    status: ok ? (warnings.length === 0 ? "OK" : "REVIEW") : "REVIEW",
+    outputs, warnings: warnings.length ? warnings : [],
+    outputKeys: Object.keys(outputs),
+    redaction_status: "PUBLIC_SAFE_REDACTED",
+  };
 }

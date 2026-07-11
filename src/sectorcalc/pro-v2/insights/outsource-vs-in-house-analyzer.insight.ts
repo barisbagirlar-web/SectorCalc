@@ -43,7 +43,7 @@ export function buildOutsourceReport(params: {
   const decisionStateCode = outputs.out_final_decision_state ?? 0;
 
   // ── Engine inputs ────────────────────────────────────────────────────
-  const annualVolume = engineInputs.n_annual_volume ?? 0;
+  const annualVolume = engineInputs.annual_volume ?? 0;
 
   // ── Driver labels ────────────────────────────────────────────────────
   const driverLabels = ["Material Cost", "Labor Cost", "Overhead & Setup", "Supplier Price", "Logistics Cost"];

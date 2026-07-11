@@ -43,12 +43,12 @@ export function buildMotorRoiReport(params: {
   const decisionStateVal = outputs.out_final_decision_state ?? 2;
 
   // ── Derived from engine inputs ──────────────────────────────────────
-  const currentPower = engineInputs.n_current_power_kw ?? 0;
-  const proposedPower = engineInputs.n_proposed_power_kw ?? 0;
-  const hours = engineInputs.n_annual_operating_hours ?? 0;
-  const energyPrice = engineInputs.n_energy_price_per_kwh ?? 0;
-  const currentCost = engineInputs.n_current_maintenance_cost ?? 0;
-  const lifeYears = engineInputs.n_useful_life_years ?? 0;
+  const currentPower = engineInputs.current_power_kw ?? 0;
+  const proposedPower = engineInputs.proposed_power_kw ?? 0;
+  const hours = engineInputs.annual_operating_hours ?? 0;
+  const energyPrice = engineInputs.energy_price_per_kwh ?? 0;
+  const currentCost = engineInputs.current_maintenance_cost ?? 0;
+  const lifeYears = engineInputs.useful_life_years ?? 0;
 
   // ── 1. Primary KPI ─────────────────────────────────────────────────
   let primaryKpiSeverity: "OK" | "WARNING" | "CRITICAL" | "INFO" = "INFO";

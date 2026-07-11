@@ -40,7 +40,7 @@ const performanceGroup: ProFieldGroup = {
     },
     {
       id: "total_parts_produced", label: "Total Parts Produced", symbol: "P_total",
-      type: "number", unitFamily: "production_rate", defaultUnit: "units",
+      type: "number", unitFamily: "factor", defaultUnit: "units",
       allowedUnits: [{ unit: "units", label: "units" }, { unit: "thousand units", label: "K units" }],
       required: true, placeholder: "e.g. 900", helpText: "Total parts produced in the measurement period", min: 0, step: 1,
     },

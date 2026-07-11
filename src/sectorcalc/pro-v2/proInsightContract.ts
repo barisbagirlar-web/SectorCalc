@@ -125,4 +125,7 @@ export interface ProInsightReport {
   marginAmount?: string;
   marginPercent?: string;
   keyCostDriver?: string;
+
+  // 14. Copy-friendly executive summary for clipboard
+  copySummary?: string;
 }

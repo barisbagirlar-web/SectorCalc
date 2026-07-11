@@ -160,7 +160,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
           }
         ]
       },
@@ -202,783 +202,166 @@
   "inputs": [
     {
       "id": "base_price",
-      "name": "Base Price",
-      "symbol": "BP",
-      "quantity_kind": "currency",
-      "unit_selectable": false,
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
       "normalized_id": "n_base_price",
+      "name": "Base Price",
       "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 10000000,
-        "unit": "USD",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
+      "base_unit": "USD",
+      "allowed_display_units": [
+        "USD",
+        "EUR",
+        "GBP"
       ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the base price."
+      "physical_hard_bounds": {
+        "min": 0
       },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 1,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the base price. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Base Price will downgrade evidence confidence."
+      "helper_text": "Enter the base price",
+      "quantity_kind": "CURRENCY",
+      "optional": false,
+      "source_status": "USER_PROVIDED"
     },
     {
       "id": "fx_rate_spot",
-      "name": "FX Rate (Spot)",
-      "symbol": "FXS",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": false,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio"
-      ],
       "normalized_id": "n_fx_rate_spot",
+      "name": "Fx Rate Spot",
       "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 100,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
+      "base_unit": "USD",
+      "allowed_display_units": [
+        "USD",
+        "EUR",
+        "GBP"
       ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the fx rate (spot)."
+      "physical_hard_bounds": {
+        "min": 0
       },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 2,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the fx rate (spot). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated FX Rate (Spot) will downgrade evidence confidence."
+      "helper_text": "Enter the fx rate spot",
+      "quantity_kind": "CURRENCY",
+      "optional": false,
+      "source_status": "USER_PROVIDED"
     },
     {
       "id": "fx_rate_budget",
-      "name": "FX Rate (Budget)",
-      "symbol": "FXB",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": false,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio"
-      ],
       "normalized_id": "n_fx_rate_budget",
+      "name": "Fx Rate Budget",
       "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 100,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
+      "base_unit": "USD",
+      "allowed_display_units": [
+        "USD",
+        "EUR",
+        "GBP"
       ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the fx rate (budget)."
+      "physical_hard_bounds": {
+        "min": 0
       },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 3,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the fx rate (budget). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated FX Rate (Budget) will downgrade evidence confidence."
+      "helper_text": "Enter the fx rate budget",
+      "quantity_kind": "CURRENCY",
+      "optional": false,
+      "source_status": "USER_PROVIDED"
     },
     {
       "id": "commodity_index_current",
-      "name": "Commodity Index (Current)",
-      "symbol": "CIC",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": false,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio"
-      ],
       "normalized_id": "n_commodity_index_current",
+      "name": "Commodity Index Current",
       "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1000,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
+      "base_unit": "%",
+      "allowed_display_units": [
+        "%"
       ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the commodity index (current)."
+      "physical_hard_bounds": {
+        "min": 0
       },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 4,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the commodity index (current). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Commodity Index (Current) will downgrade evidence confidence."
+      "helper_text": "Enter the commodity index current",
+      "quantity_kind": "DIMENSIONLESS",
+      "optional": false,
+      "source_status": "USER_PROVIDED"
     },
     {
       "id": "commodity_index_budget",
-      "name": "Commodity Index (Budget)",
-      "symbol": "CIB",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": false,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio"
-      ],
       "normalized_id": "n_commodity_index_budget",
+      "name": "Commodity Index Budget",
       "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1000,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
+      "base_unit": "%",
+      "allowed_display_units": [
+        "%"
       ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the commodity index (budget)."
+      "physical_hard_bounds": {
+        "min": 0
       },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 5,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the commodity index (budget). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Commodity Index (Budget) will downgrade evidence confidence."
+      "helper_text": "Enter the commodity index budget",
+      "quantity_kind": "DIMENSIONLESS",
+      "optional": false,
+      "source_status": "USER_PROVIDED"
     },
     {
       "id": "material_cost_pct",
-      "name": "Material Cost %",
-      "symbol": "MCP",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": false,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio"
-      ],
       "normalized_id": "n_material_cost_pct",
+      "name": "Material Cost Pct",
       "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 100,
-        "unit": "%",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
+      "base_unit": "USD",
+      "allowed_display_units": [
+        "USD",
+        "EUR",
+        "GBP"
       ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the material cost %."
+      "physical_hard_bounds": {
+        "min": 0
       },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 6,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the material cost %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Material Cost % will downgrade evidence confidence."
+      "helper_text": "Enter the material cost pct",
+      "quantity_kind": "CURRENCY",
+      "optional": false,
+      "source_status": "USER_PROVIDED"
     },
     {
       "id": "fx_hedge_pct",
-      "name": "FX Hedge %",
-      "symbol": "FXH",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": false,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio"
-      ],
       "normalized_id": "n_fx_hedge_pct",
+      "name": "Fx Hedge Pct",
       "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "base_unit": "%",
+      "allowed_display_units": [
+        "%"
+      ],
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100,
-        "unit": "%",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
+        "max": 100
       },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
-      ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the fx hedge %."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 7,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the fx hedge %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated FX Hedge % will downgrade evidence confidence."
+      "helper_text": "Enter the fx hedge pct",
+      "quantity_kind": "DIMENSIONLESS",
+      "optional": false,
+      "source_status": "USER_PROVIDED"
     },
     {
       "id": "commodity_hedge_pct",
-      "name": "Commodity Hedge %",
-      "symbol": "CH",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": false,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio"
-      ],
       "normalized_id": "n_commodity_hedge_pct",
+      "name": "Commodity Hedge Pct",
       "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "base_unit": "%",
+      "allowed_display_units": [
+        "%"
+      ],
       "physical_hard_bounds": {
         "min": 0,
-        "max": 100,
-        "unit": "%",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
+        "max": 100
       },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
-      ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the commodity hedge %."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 8,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the commodity hedge %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Commodity Hedge % will downgrade evidence confidence."
+      "helper_text": "Enter the commodity hedge pct",
+      "quantity_kind": "DIMENSIONLESS",
+      "optional": false,
+      "source_status": "USER_PROVIDED"
     },
     {
       "id": "annual_volume",
-      "name": "Annual Volume",
-      "symbol": "AV",
-      "quantity_kind": "rate",
-      "unit_selectable": false,
-      "base_unit": "unit_per_s",
-      "allowed_display_units": [
-        "unit_per_s"
-      ],
       "normalized_id": "n_annual_volume",
+      "name": "Annual Volume",
       "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 10000000,
-        "unit": "units/year",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
-      ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the annual volume."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 9,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the annual volume. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Annual Volume will downgrade evidence confidence."
-    },
-    {
-      "id": "source_confidence",
-      "name": "Source Confidence Ratio",
-      "symbol": "SCR",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": false,
-      "base_unit": "ratio",
+      "base_unit": "pcs",
       "allowed_display_units": [
-        "ratio"
+        "pcs"
       ],
-      "normalized_id": "n_source_confidence_ratio",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 0,
-        "max": 1,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
+        "min": 0
       },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
-      ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the source confidence ratio."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 10,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
+      "helper_text": "Enter the annual volume",
+      "quantity_kind": "QUANTITY",
+      "optional": false,
+      "source_status": "USER_PROVIDED"
     }
   ],
   "normalized_inputs": [
@@ -2930,546 +2313,127 @@
   ],
   "outputs": [
     {
-      "id": "out_evidence_completeness",
-      "name": "Evidence Completeness Index",
-      "symbol": "Q_evidence",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F001",
-      "decision_use": "DIAGNOSTIC",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F001",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Evidence Completeness Index translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_normalized_demand",
-      "name": "Normalized Demand or Exposure",
-      "symbol": "D_norm",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F002",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "DEMAND",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F002",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Normalized Demand or Exposure translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_reference_deviation",
-      "name": "Reference Range Deviation Severity",
-      "symbol": "R_dev",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F003",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "WARNING_SUMMARY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F003",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Reference Range Deviation Severity translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_derating_factor",
-      "name": "Derating or Confidence Factor",
-      "symbol": "K_derate",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F004",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "SAFETY_FACTOR",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F004",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Derating or Confidence Factor translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_demand_metric",
-      "name": "Demand-Side Technical Metric",
-      "symbol": "D",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F005",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "DEMAND",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F005",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Demand-Side Technical Metric translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_capacity_metric",
-      "name": "Capacity or Allowable-Side Metric",
-      "symbol": "C",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F006",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "CAPACITY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F006",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Capacity or Allowable-Side Metric translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_utilization_margin",
-      "name": "Governing Utilization or Margin",
-      "symbol": "UC",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F007",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "UTILIZATION",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F007",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Governing Utilization or Margin translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_expanded_uncertainty",
-      "name": "Expanded Uncertainty",
-      "symbol": "U",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F008",
-      "decision_use": "SENSITIVITY",
-      "proof_status_role": "SAFETY_FACTOR",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F008",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Expanded Uncertainty translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_threshold_crossing",
-      "name": "Decision Threshold Crossing Risk",
-      "symbol": "X_thr",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F009",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F009",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Decision Threshold Crossing Risk translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_sensitivity_driver",
-      "name": "Dominant Sensitivity Driver",
-      "symbol": "S_driver",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F010",
-      "decision_use": "SENSITIVITY",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F010",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Dominant Sensitivity Driver translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_fmea_trigger",
-      "name": "FMEA Trigger State",
-      "symbol": "FMEA",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F011",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "WARNING_SUMMARY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F011",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "FMEA Trigger State translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_money_at_risk",
-      "name": "Money at Risk",
-      "symbol": "MAR",
+      "id": "out_adjusted_price",
+      "name": "Adjusted Price",
+      "symbol": "O0",
       "quantity_kind": "currency",
-      "base_unit": "currency_unit",
+      "base_unit": "index",
       "allowed_display_units": [
-        "currency_unit"
+        "index"
       ],
       "type": "number",
-      "formula_source": "F012",
-      "decision_use": "BUSINESS_IMPACT",
-      "proof_status_role": "BUSINESS_IMPACT",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F012",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Money at Risk translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
       "output_format": {
-        "decimals": 3,
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
     },
     {
-      "id": "out_scenario_delta",
-      "name": "Scenario Delta",
-      "symbol": "Delta_scn",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "id": "out_annual_escalation_cost",
+      "name": "Annual Escalation Cost",
+      "symbol": "O1",
+      "quantity_kind": "currency",
+      "base_unit": "index",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "index"
       ],
       "type": "number",
-      "formula_source": "F013",
-      "decision_use": "SCENARIO",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F013",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Scenario Delta translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
       "output_format": {
-        "decimals": 3,
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
     },
     {
-      "id": "out_audit_hash_payload",
-      "name": "Audit Hash Payload Status",
-      "symbol": "H_audit",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "id": "out_base_price",
+      "name": "Base Price",
+      "symbol": "O2",
+      "quantity_kind": "currency",
+      "base_unit": "index",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "index"
       ],
-      "type": "string",
-      "formula_source": "F014",
-      "decision_use": "AUDIT",
-      "proof_status_role": "AUDIT",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F014",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Audit Hash Payload Status translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
       "output_format": {
-        "decimals": 3,
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_commodity_change_pct",
+      "name": "Commodity Change%",
+      "symbol": "O3",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_commodity_impact_pct",
+      "name": "Commodity Impact%",
+      "symbol": "O4",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_escalation_amount",
+      "name": "Escalation Amount",
+      "symbol": "O5",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_escalation_cost_per_unit",
+      "name": "Escalation Cost Per Unit",
+      "symbol": "O6",
+      "quantity_kind": "currency",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
@@ -3477,38 +2441,143 @@
     {
       "id": "out_final_decision_state",
       "name": "Final Decision State",
-      "symbol": "Decision",
+      "symbol": "D_state",
       "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "base_unit": "index",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "index"
       ],
-      "type": "enum",
-      "formula_source": "F015",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "PASS_FAIL",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F015",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Final Decision State translates the protected fx-commodity-pass-through-pricer calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "type": "number",
+      "decision_use": "FINAL_VERDICT",
+      "proof_status_role": "FINAL_VERDICT",
       "output_format": {
-        "decimals": 3,
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    },
+    {
+      "id": "out_fx_change_pct",
+      "name": "Fx Change%",
+      "symbol": "O8",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_fx_impact_pct",
+      "name": "Fx Impact%",
+      "symbol": "O9",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_hedge_adequacy_score",
+      "name": "Hedge Adequacy Score",
+      "symbol": "O10",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_money_at_risk",
+      "name": "Money At Risk",
+      "symbol": "O11",
+      "quantity_kind": "currency",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_pass_through_severity",
+      "name": "Pass Through Severity",
+      "symbol": "O12",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_primary_price_driver",
+      "name": "Primary Price Driver",
+      "symbol": "D13",
+      "quantity_kind": "currency",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DIAGNOSTIC",
+      "output_format": {
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      }
+    },
+    {
+      "id": "out_total_pass_through_pct",
+      "name": "Total Pass Through%",
+      "symbol": "O14",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "index"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }

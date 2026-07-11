@@ -214,5 +214,16 @@ export function buildPlantWideShopRateReport(params: {
     costDistribution, calculatedValues, hiddenLosses, missedAssumptions,
     riskWarnings, sensitivityChecks, checklist, recommendedAction, assumptionsUsed,
     traceId: params.traceId,
+    totalCost: currency(totalCost),
+    copySummary:
+      `${params.toolName} — ${decisionState.label}\n` +
+      `─────────────────────────────────\n` +
+      `Plant-Wide Rate: ${currency(plantWideRate)}/hr | Billed Rate: ${currency(plantWideRate + rateGap)}/hr\n` +
+      `Total Annual Cost: ${currency(totalCost)} | Productive Hours: ${fmt(productiveHours, 0)} hrs/yr\n` +
+      `Rate Gap: ${currency(rateGap)}/hr | Annual Under-Recovery: ${currency(annualUnderRecov)}\n` +
+      `Primary Cost Pool: ${poolLabel}\n` +
+      `Next: ${recommendedAction.action}\n` +
+      `─────────────────────────────────\n` +
+      `Technical simulation; not financial or legal advice. Verify before decisions.`,
   };
 }

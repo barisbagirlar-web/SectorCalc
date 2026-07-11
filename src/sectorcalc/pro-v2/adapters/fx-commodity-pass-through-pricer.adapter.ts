@@ -4,16 +4,16 @@
 import type { ProExecutePayloadAdapter } from "../proToolRegistry";
 
 const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
-  base_price: "n_base_price",
-  fx_rate_spot: "n_fx_rate_spot",
-  fx_rate_budget: "n_fx_rate_budget",
-  commodity_index_current: "n_commodity_index_current",
-  commodity_index_budget: "n_commodity_index_budget",
-  material_cost_pct: "n_material_cost_pct",
-  fx_hedge_pct: "n_fx_hedge_pct",
-  commodity_hedge_pct: "n_commodity_hedge_pct",
-  annual_volume: "n_annual_volume",
-  target_margin_percent: "n_target_margin_percent",
+  base_price: "base_price",
+  fx_rate_spot: "fx_rate_spot",
+  fx_rate_budget: "fx_rate_budget",
+  commodity_index_current: "commodity_index_current",
+  commodity_index_budget: "commodity_index_budget",
+  material_cost_pct: "material_cost_pct",
+  fx_hedge_pct: "fx_hedge_pct",
+  commodity_hedge_pct: "commodity_hedge_pct",
+  annual_volume: "annual_volume",
+  target_margin_percent: "target_margin_percent",
 };
 
 export { FORM_TO_SCHEMA_INPUT };

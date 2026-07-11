@@ -4,21 +4,21 @@
 import type { ProExecutePayloadAdapter } from "../proToolRegistry";
 
 const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
-  batch_quantity: "n_batch_quantity",
-  selling_price_per_unit: "n_selling_price_per_unit",
-  material_cost_per_unit: "n_material_cost_per_unit",
-  cycle_time_seconds_per_unit: "n_cycle_time_seconds_per_unit",
-  setup_time_minutes_per_batch: "n_setup_time_minutes_per_batch",
-  machine_rate_per_hour: "n_machine_rate_per_hour",
-  operator_count: "n_operator_count",
-  labor_rate_per_hour: "n_labor_rate_per_hour",
-  external_processing_per_batch: "n_external_processing_per_batch",
-  packaging_freight_per_batch: "n_packaging_freight_per_batch",
-  other_job_cost_per_batch: "n_other_job_cost_per_batch",
-  allocated_overhead: "n_allocated_overhead",
-  scrap_rework_percent: "n_scrap_rework_percent",
-  target_revenue_margin_percent: "n_target_revenue_margin_percent",
-  annual_volume_units: "n_annual_volume_units",
+  batch_quantity: "batch_quantity",
+  selling_price_per_unit: "selling_price_per_unit",
+  material_cost_per_unit: "material_cost_per_unit",
+  cycle_time_seconds_per_unit: "cycle_time_seconds_per_unit",
+  setup_time_minutes_per_batch: "setup_time_minutes_per_batch",
+  machine_rate_per_hour: "machine_rate_per_hour",
+  operator_count: "operator_count",
+  labor_rate_per_hour: "labor_rate_per_hour",
+  external_processing_per_batch: "external_processing_per_batch",
+  packaging_freight_per_batch: "packaging_freight_per_batch",
+  other_job_cost_per_batch: "other_job_cost_per_batch",
+  allocated_overhead: "allocated_overhead",
+  scrap_rework_percent: "scrap_rework_percent",
+  target_revenue_margin_percent: "target_revenue_margin_percent",
+  annual_volume_units: "annual_volume_units",
 };
 
 export const lossDetectorBuildExecutePayload: ProExecutePayloadAdapter = (fieldState, hiddenValues) => {

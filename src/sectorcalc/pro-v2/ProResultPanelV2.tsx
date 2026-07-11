@@ -11,6 +11,7 @@ interface ProResultPanelV2Props {
   onExportPdf?: () => void;
   onCopySummary?: () => void;
   pdfExporting?: boolean;
+  copiedFlash?: boolean;
 }
 
 function severityColor(severity?: string): string {
@@ -137,7 +138,7 @@ function CostBar({ label, amount, percentage, color }: { label: string; amount: 
   );
 }
 
-export default function ProResultPanelV2({ report, traceId, onExportPdf, onCopySummary, pdfExporting }: ProResultPanelV2Props) {
+export default function ProResultPanelV2({ report, traceId, onExportPdf, onCopySummary, pdfExporting, copiedFlash }: ProResultPanelV2Props) {
   return (
     <div
       id="pro-v2-result-panel"
@@ -164,7 +165,7 @@ export default function ProResultPanelV2({ report, traceId, onExportPdf, onCopyS
               onClick={onCopySummary}
               style={{
                 padding: "8px 16px",
-                backgroundColor: "#1A1915",
+                backgroundColor: copiedFlash ? "#2E7D32" : "#1A1915",
                 color: "#F0EEE6",
                 border: "none",
                 cursor: "pointer",
@@ -172,9 +173,10 @@ export default function ProResultPanelV2({ report, traceId, onExportPdf, onCopyS
                 fontWeight: 600,
                 textTransform: "uppercase",
                 letterSpacing: "0.5px",
+                transition: "background-color 0.3s",
               }}
             >
-              Copy Summary
+              {copiedFlash ? "Copied!" : "Copy Summary"}
             </button>
           )}
           {onExportPdf && (

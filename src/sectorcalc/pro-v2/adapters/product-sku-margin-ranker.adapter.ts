@@ -13,15 +13,15 @@ export const skuMarginRankerBuildExecutePayload: ProExecutePayloadAdapter = (
   }
 
   const raw_inputs: Record<string, number> = {
-    n_unit_price: n("unit_price"),
-    n_material_cost_per_unit: n("material_cost_per_unit"),
-    n_labor_cost_per_unit: n("labor_cost_per_unit"),
-    n_overhead_per_unit: n("overhead_per_unit"),
-    n_logistics_cost_per_unit: n("logistics_cost_per_unit"),
-    n_annual_volume_units: n("annual_volume_units"),
-    n_target_margin_percent: n("target_margin_percent"),
-    n_total_portfolio_revenue: n("total_portfolio_revenue"),
-    n_total_portfolio_profit: n("total_portfolio_profit"),
+    unit_price: n("unit_price"),
+    material_cost_per_unit: n("material_cost_per_unit"),
+    labor_cost_per_unit: n("labor_cost_per_unit"),
+    overhead_per_unit: n("overhead_per_unit"),
+    logistics_cost_per_unit: n("logistics_cost_per_unit"),
+    annual_volume_units: n("annual_volume_units"),
+    target_margin_percent: n("target_margin_percent"),
+    total_portfolio_revenue: n("total_portfolio_revenue"),
+    total_portfolio_profit: n("total_portfolio_profit"),
   };
 
   const selected_units: Record<string, string> = {};

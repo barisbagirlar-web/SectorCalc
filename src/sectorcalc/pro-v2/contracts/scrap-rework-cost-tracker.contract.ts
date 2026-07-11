@@ -9,7 +9,7 @@ const productionGroup: ProFieldGroup = {
   fields: [
     {
       id: "total_produced", label: "Total Produced", symbol: "P_total",
-      type: "number", unitFamily: "production_rate", defaultUnit: "units",
+      type: "number", unitFamily: "factor", defaultUnit: "units",
       allowedUnits: [{ unit: "units", label: "units" }, { unit: "thousand units", label: "K units" }],
       required: true, placeholder: "e.g. 10000", helpText: "Total units produced in the measurement period", min: 0, step: 1,
     },

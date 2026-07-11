@@ -51,9 +51,9 @@ export function buildLossDetectorReport(params: {
   const primaryDriverIdx   = outputs.out_primary_loss_driver ?? 0;
   const decisionScore      = outputs.out_final_decision_state ?? 0;
 
-  const batchQty = engineInputs.n_batch_quantity ?? 1;
-  const targetPct = engineInputs.n_target_revenue_margin_percent ?? 30;
-  const annualVol = engineInputs.n_annual_volume_units ?? 0;
+  const batchQty = engineInputs.batch_quantity ?? 1;
+  const targetPct = engineInputs.target_revenue_margin_percent ?? 30;
+  const annualVol = engineInputs.annual_volume_units ?? 0;
 
   const isLossMaking = operatingProfit < 0;
   const isBelowVariable = contributionProfit < 0;

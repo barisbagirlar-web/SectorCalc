@@ -41,7 +41,7 @@ export function buildSmedReport(params: {
   const decisionStateCode = outputs.out_final_decision_state ?? 0;
 
   // ── Engine inputs ────────────────────────────────────────────────────
-  const operatorCount = Math.max(1, Math.round(engineInputs.n_operator_count ?? 1));
+  const operatorCount = Math.max(1, Math.round(engineInputs.operator_count ?? 1));
 
   // ── 1. Primary KPI ─────────────────────────────────────────────────
   const primaryKpi: InsightKpi = {

@@ -213,5 +213,16 @@ export function buildBreakEvenReport(params: {
     costDistribution, calculatedValues, hiddenLosses, missedAssumptions,
     riskWarnings, sensitivityChecks, checklist, recommendedAction, assumptionsUsed,
     traceId: params.traceId,
+    totalCost: currency(variableCost + fixedCost),
+    copySummary:
+      `${params.toolName} — ${decisionState.label}\n` +
+      `─────────────────────────────────\n` +
+      `Revenue: ${currency(revenue)} | Operating Profit: ${currency(operatingProfit)}\n` +
+      `Break-Even Revenue: ${currency(breRevenue)} | Margin of Safety: ${pct(mosPercent)}\n` +
+      `Cash Runway: ${fmt(cashRunwayMonths, 1)} months | Cash Available: ${currency(availableCash)}\n` +
+      `Primary Concern: ${driverLabel}\n` +
+      `Next: ${recommendedAction.action}\n` +
+      `─────────────────────────────────\n` +
+      `Technical simulation; not financial or legal advice. Verify before decisions.`,
   };
 }

@@ -39,9 +39,9 @@ export function buildCustomerSkuForensicsReport(params: {
   const isBelowTarget = decisionScore === 1;
   const isGood = decisionScore === 0;
 
-  const unitPrice  = engineInputs.n_unit_price ?? 0;
-  const annualVol  = engineInputs.n_annual_volume ?? 0;
-  const targetMarg = engineInputs.n_target_margin ?? 0;
+  const unitPrice  = engineInputs.unit_price ?? 0;
+  const annualVol  = engineInputs.annual_volume ?? 0;
+  const targetMarg = engineInputs.target_margin ?? 0;
 
   // ── Primary KPI ──────────────────────────────────────────────────
   let kpiLabel: string;
@@ -106,8 +106,8 @@ export function buildCustomerSkuForensicsReport(params: {
   if (isToxic) {
     execInterpretation =
       `This SKU is cash-negative. At ${currency(unitPrice)}/unit, variable costs plus ` +
-      `logistics (${pct(engineInputs.n_logistics_cost_pct ?? 0)}), service (${pct(engineInputs.n_service_cost_pct ?? 0)}), ` +
-      `returns (${pct(engineInputs.n_return_rate_pct ?? 0)}), and financing (${pct(engineInputs.n_financing_cost_pct ?? 0)}) ` +
+      `logistics (${pct(engineInputs.logistics_cost_pct ?? 0)}), service (${pct(engineInputs.service_cost_pct ?? 0)}), ` +
+      `returns (${pct(engineInputs.return_rate_pct ?? 0)}), and financing (${pct(engineInputs.financing_cost_pct ?? 0)}) ` +
       `result in a net loss of ${currency(Math.abs(fullyLoadedProfit / annualVol))} per unit. ` +
       `Annualized money at risk: ${currency(annualRisk)}. ` +
       `Cross-subsidization is active — profitable SKUs are covering the losses of this product.`;
@@ -300,5 +300,16 @@ export function buildCustomerSkuForensicsReport(params: {
     traceId: params.traceId,
     marginPercent: pct(marginPct),
     marginAmount: currency(fullyLoadedProfit),
+    totalCost: currency(productCost + logisticsCost + serviceCost + returnsClaims + financingTerm),
+    copySummary:
+      `${params.toolName} — ${decisionState.label}\n` +
+      `─────────────────────────────────\n` +
+      `Revenue: ${currency(revenue)} | Net Margin: ${pct(marginPct)} (Target: ${pct(targetMarg)})\n` +
+      `Fully Loaded Profit: ${currency(fullyLoadedProfit)} | Volume: ${fmt(annualVol, 0)} units\n` +
+      `Product Cost: ${currency(productCost)} | Ancillary Costs: ${currency(logisticsCost + serviceCost + returnsClaims + financingTerm)}\n` +
+      (isToxic ? `⚠ Cross-Subsidization Active — Annual Risk: ${currency(annualRisk)}\n` : ``) +
+      `Next: ${recommendedAction.action}\n` +
+      `─────────────────────────────────\n` +
+      `Technical simulation; not financial or legal advice. Verify before decisions.`,
   };
 }

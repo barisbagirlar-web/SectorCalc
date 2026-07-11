@@ -441,14 +441,28 @@ export default function ProExecutionFormV2({
   }, [report, toolKey, trace]);
 
   // Copy summary handler
+  const [copiedFlash, setCopiedFlash] = useState(false);
   const handleCopySummary = useCallback(() => {
     if (!report) return;
-    const summary = `Report: ${report.toolName}\n` +
-      `Primary KPI: ${report.primaryKpi.value} (${report.primaryKpi.severity})\n` +
-      `Decision: ${report.decisionState.state} — ${report.decisionState.summary}\n` +
-      `Total Cost: ${report.totalCost}\n` +
-      `Recommended Action: ${report.recommendedAction.action}`;
-    navigator.clipboard.writeText(summary).catch(() => {});
+
+    // Prefer tool-specific copySummary when available
+    let summary = report.copySummary;
+    if (!summary) {
+      // Fallback: build from generic report fields
+      summary = `${report.toolName}\n` +
+        `─────────────────────────────────\n` +
+        `Primary KPI: ${report.primaryKpi.value}\n` +
+        `Decision: ${report.decisionState.state} — ${report.decisionState.summary}\n` +
+        `${report.totalCost ? `Total Cost: ${report.totalCost}\n` : ""}` +
+        `Recommended Action: ${report.recommendedAction.action}\n` +
+        `─────────────────────────────────\n` +
+        `Technical simulation; not financial, legal, or engineering advice.\n` +
+        `Verify all results before business decisions.`;
+    }
+
+    navigator.clipboard.writeText(summary)
+      .then(() => { setCopiedFlash(true); setTimeout(() => setCopiedFlash(false), 2000); })
+      .catch(() => {});
     trace("copy_summary", {});
   }, [report, trace]);
 
@@ -652,7 +666,7 @@ export default function ProExecutionFormV2({
       )}
 
       {/* Result Panel */}
-      {report && <ProResultPanelV2 report={report} traceId={traceIdRef.current} onExportPdf={handleExportPdf} onCopySummary={handleCopySummary} pdfExporting={pdfExporting} />}
+      {report && <ProResultPanelV2 report={report} traceId={traceIdRef.current} onExportPdf={handleExportPdf} onCopySummary={handleCopySummary} pdfExporting={pdfExporting} copiedFlash={copiedFlash} />}
 
       <style jsx>{`
         .pro-v2-field-grid {

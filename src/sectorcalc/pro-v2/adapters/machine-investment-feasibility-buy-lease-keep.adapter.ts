@@ -14,17 +14,17 @@ export const buyLeaseKeepBuildExecutePayload: ProExecutePayloadAdapter = (
   }
 
   const raw_inputs: Record<string, number> = {
-    n_machine_purchase_price: n("machine_purchase_price"),
-    n_down_payment_pct: n("down_payment_pct"),
-    n_lease_annual_payment: n("lease_annual_payment"),
-    n_lease_term_years: n("lease_term_years"),
-    n_loan_interest_rate_pct: n("loan_interest_rate_pct"),
-    n_loan_term_years: n("loan_term_years"),
-    n_annual_maintenance_cost: n("annual_maintenance_cost"),
-    n_annual_downtime_cost: n("annual_downtime_cost"),
-    n_residual_value: n("residual_value"),
-    n_operating_savings_per_year: n("operating_savings_per_year"),
-    n_discount_rate: n("discount_rate"),
+    machine_purchase_price: n("machine_purchase_price"),
+    down_payment_pct: n("down_payment_pct"),
+    lease_annual_payment: n("lease_annual_payment"),
+    lease_term_years: n("lease_term_years"),
+    loan_interest_rate_pct: n("loan_interest_rate_pct"),
+    loan_term_years: n("loan_term_years"),
+    annual_maintenance_cost: n("annual_maintenance_cost"),
+    annual_downtime_cost: n("annual_downtime_cost"),
+    residual_value: n("residual_value"),
+    operating_savings_per_year: n("operating_savings_per_year"),
+    discount_rate: n("discount_rate"),
   };
 
   const selected_units: Record<string, string> = {};

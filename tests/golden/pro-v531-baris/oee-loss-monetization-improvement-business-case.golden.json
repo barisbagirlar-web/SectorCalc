@@ -42,5 +42,23 @@
       "expected_decision_status": "OK",
       "expected_warnings": []
     }
-  ]
+  ],
+  "expected_outputs": {
+    "out_availability_pct": 87.5,
+    "out_performance_pct": 117.39,
+    "out_quality_pct": 95,
+    "out_oee_pct": 97.58,
+    "out_availability_loss_hours": 1,
+    "out_performance_loss_hours": 0,
+    "out_quality_loss_hours": 0.38,
+    "out_lost_productive_hours": 1.38,
+    "out_lost_good_units": 45,
+    "out_availability_loss_amount": 100,
+    "out_performance_loss_amount": 0,
+    "out_quality_loss_amount": 37.5,
+    "out_total_annual_opportunity": 3781.25,
+    "out_largest_oee_loss_driver": 0,
+    "out_improvement_roi": 4.5,
+    "out_final_decision_state": 0
+  }
 }

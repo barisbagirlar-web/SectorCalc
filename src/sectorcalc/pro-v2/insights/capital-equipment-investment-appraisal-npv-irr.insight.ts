@@ -43,13 +43,13 @@ export function buildNpvIrrReport(params: {
   const decisionStateVal = outputs.out_final_decision_state ?? 2;
 
   // ── Derived values from engine inputs ───────────────────────────────
-  const initialInvestment = engineInputs.n_initial_investment ?? 0;
-  const workingCapital = engineInputs.n_working_capital ?? 0;
-  const cf1 = engineInputs.n_annual_cash_inflow_1 ?? 0;
-  const cf2 = engineInputs.n_annual_cash_inflow_2 ?? 0;
-  const cf3 = engineInputs.n_annual_cash_inflow_3 ?? 0;
-  const cf4 = engineInputs.n_annual_cash_inflow_4 ?? 0;
-  const cf5 = engineInputs.n_annual_cash_inflow_5 ?? 0;
+  const initialInvestment = engineInputs.initial_investment ?? 0;
+  const workingCapital = engineInputs.working_capital ?? 0;
+  const cf1 = engineInputs.annual_cash_inflow_1 ?? 0;
+  const cf2 = engineInputs.annual_cash_inflow_2 ?? 0;
+  const cf3 = engineInputs.annual_cash_inflow_3 ?? 0;
+  const cf4 = engineInputs.annual_cash_inflow_4 ?? 0;
+  const cf5 = engineInputs.annual_cash_inflow_5 ?? 0;
 
   // ── 1. Primary KPI ─────────────────────────────────────────────────
   let primaryKpiSeverity: "OK" | "WARNING" | "CRITICAL" | "INFO" = "INFO";

@@ -4,14 +4,14 @@
 import type { ProExecutePayloadAdapter } from "../proToolRegistry";
 
 const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
-  downtime_hours: "n_downtime_hours",
-  hourly_contribution_rate: "n_hourly_contribution_rate",
-  scrap_quantity: "n_scrap_quantity",
-  material_cost_per_unit: "n_material_cost_per_unit",
-  rework_hours: "n_rework_hours",
-  rework_labor_rate: "n_rework_labor_rate",
-  disposal_inspection_cost: "n_disposal_inspection_cost",
-  annual_event_frequency: "n_annual_event_frequency",
+  downtime_hours: "downtime_hours",
+  hourly_contribution_rate: "hourly_contribution_rate",
+  scrap_quantity: "scrap_quantity",
+  material_cost_per_unit: "material_cost_per_unit",
+  rework_hours: "rework_hours",
+  rework_labor_rate: "rework_labor_rate",
+  disposal_inspection_cost: "disposal_inspection_cost",
+  annual_event_frequency: "annual_event_frequency",
 };
 
 const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number }> = {

@@ -13,14 +13,14 @@ export const customerSkuForensicsBuildExecutePayload: ProExecutePayloadAdapter =
   }
 
   const raw_inputs: Record<string, number> = {
-    n_unit_price: n("unit_price"),
-    n_unit_variable_cost: n("unit_variable_cost"),
-    n_annual_volume: n("annual_volume"),
-    n_logistics_cost_pct: n("logistics_cost_pct"),
-    n_service_cost_pct: n("service_cost_pct"),
-    n_return_rate_pct: n("return_rate_pct"),
-    n_target_margin: n("target_margin"),
-    n_financing_cost_pct: n("financing_cost_pct"),
+    unit_price: n("unit_price"),
+    unit_variable_cost: n("unit_variable_cost"),
+    annual_volume: n("annual_volume"),
+    logistics_cost_pct: n("logistics_cost_pct"),
+    service_cost_pct: n("service_cost_pct"),
+    return_rate_pct: n("return_rate_pct"),
+    target_margin: n("target_margin"),
+    financing_cost_pct: n("financing_cost_pct"),
   };
 
   const selected_units: Record<string, string> = {};

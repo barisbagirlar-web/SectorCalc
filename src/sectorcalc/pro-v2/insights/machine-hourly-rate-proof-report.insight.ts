@@ -28,7 +28,7 @@ export function buildMachineRateReport(params: {
   const totalCostPerHr      = outputs.out_total_cost_per_hour ?? 0;
   const minSustainableRate  = outputs.out_minimum_sustainable_rate ?? 0;
   const targetSellRate      = outputs.out_target_sell_rate ?? 0;
-  const currentShopRate     = engineInputs.n_current_shop_rate ?? 0;
+  const currentShopRate     = engineInputs.current_shop_rate ?? 0;
   const rateGap             = outputs.out_current_rate_gap ?? 0;
   const annualRecovery      = outputs.out_annual_under_recovery_or_surplus ?? 0;
   const scheduledHrs        = outputs.out_scheduled_hours_per_year ?? 0;
@@ -65,7 +65,7 @@ export function buildMachineRateReport(params: {
   const scenarioComplete = scenarioState !== -1;
 
   // ── Engine inputs ──────────────────────────────────────────────────────
-  const targetMargPct = engineInputs.n_target_margin_percent ?? 0;
+  const targetMargPct = engineInputs.target_margin_percent ?? 0;
 
   // ── 1. Primary KPI ─────────────────────────────────────────────────────
   const primaryKpi: InsightKpi = {
@@ -113,8 +113,8 @@ export function buildMachineRateReport(params: {
   const execInterpretation =
     `This machine hourly rate proof report computes the fully loaded cost per productive hour ` +
     `for a machine with ${fmt(scheduledHrs)} scheduled hours, ${fmt(availableHrs)} available hours ` +
-    `(after ${engineInputs.n_planned_downtime_percent ?? 0}% planned downtime), and ` +
-    `${fmt(productiveHrs)} productive hours (at ${engineInputs.n_utilization_percent ?? 0}% utilization).\n\n` +
+    `(after ${engineInputs.planned_downtime_percent ?? 0}% planned downtime), and ` +
+    `${fmt(productiveHrs)} productive hours (at ${engineInputs.utilization_percent ?? 0}% utilization).\n\n` +
     `The total cost per productive hour is ${cur(totalCostPerHr)}/h, composed of ` +
     `${cur(fixedCostPerHr)}/h fixed costs (${cur(annualFixedCost)} annually) and ` +
     `${cur(variableCostPerHr)}/h variable costs.\n\n` +
@@ -176,7 +176,7 @@ export function buildMachineRateReport(params: {
 
   if (scenarioComplete) {
     calculatedValues.push(
-      { label: "Annual Production Volume", value: fmt(engineInputs.n_annual_production_volume ?? 0), unit: "units" },
+      { label: "Annual Production Volume", value: fmt(engineInputs.annual_production_volume ?? 0), unit: "units" },
       { label: "Setup Count per Year", value: `${setupCountPerYear}`, unit: "batches" },
       { label: "Required Machine Hours", value: fmt(reqMachineHours), unit: "h" },
       { label: "Capacity Requirement", value: `${fmt(capacityReqPct)}%`, unit: "% of productive hours" },
@@ -200,7 +200,7 @@ export function buildMachineRateReport(params: {
       ? `Fixed costs are driven by depreciation, maintenance, facility, and insurance. ` +
         `Review each fixed component for reduction opportunities.`
       : primaryDriverId === 1
-        ? `Energy cost depends on machine power demand (${engineInputs.n_machine_power_kw ?? 0} kW) ` +
+        ? `Energy cost depends on machine power demand (${engineInputs.machine_power_kw ?? 0} kW) ` +
           `and electricity price. Consider power-saving measures or off-peak scheduling.`
         : primaryDriverId === 2
           ? `Labor cost is driven by operator count and fully loaded rate. ` +
@@ -215,7 +215,7 @@ export function buildMachineRateReport(params: {
     {
       title: "Nonproductive Setup and Waiting Time",
       description: "Setup time, tool changes, material handling, and waiting are not included in the productive utilization. These activities consume available hours without producing output.",
-      potential_impact: cur(totalCostPerHr * (1 - (engineInputs.n_utilization_percent ?? 80) / 100) * productiveHrs),
+      potential_impact: cur(totalCostPerHr * (1 - (engineInputs.utilization_percent ?? 80) / 100) * productiveHrs),
       severity: "HIGH",
     },
     {
@@ -248,7 +248,7 @@ export function buildMachineRateReport(params: {
   const missedAssumptions: MissedAssumptionItem[] = [
     {
       title: "Utilization at Declared Level",
-      description: `The calculation assumes ${engineInputs.n_utilization_percent ?? 80}% utilization. Actual values may differ by job type, season, and machine reliability.`,
+      description: `The calculation assumes ${engineInputs.utilization_percent ?? 80}% utilization. Actual values may differ by job type, season, and machine reliability.`,
       impact_on_result: `A 10pp utilization drop increases total hourly cost by ~${cur(totalCostPerHr * 0.1)}.`,
     },
     {
@@ -281,8 +281,8 @@ export function buildMachineRateReport(params: {
     },
     {
       title: "Utilization Risk",
-      description: `Current utilization is ${engineInputs.n_utilization_percent ?? 80}%. If actual utilization is lower, fixed cost per hour increases.`,
-      severity: (engineInputs.n_utilization_percent ?? 80) < 50 ? "CRITICAL" : "WARNING",
+      description: `Current utilization is ${engineInputs.utilization_percent ?? 80}%. If actual utilization is lower, fixed cost per hour increases.`,
+      severity: (engineInputs.utilization_percent ?? 80) < 50 ? "CRITICAL" : "WARNING",
       mitigation: "Review actual production records. Consider removing or redeploying underutilized capacity.",
     },
     {
@@ -294,7 +294,7 @@ export function buildMachineRateReport(params: {
     },
     {
       title: "Depreciation Period vs Actual Life",
-      description: `Depreciation is spread over ${engineInputs.n_economic_life_years ?? 8} years. If the machine requires replacement sooner, true hourly cost increases.`,
+      description: `Depreciation is spread over ${engineInputs.economic_life_years ?? 8} years. If the machine requires replacement sooner, true hourly cost increases.`,
       severity: "WARNING",
       mitigation: "Cross-check economic life against historical machine replacement intervals.",
     },
@@ -312,8 +312,8 @@ export function buildMachineRateReport(params: {
     {
       parameter: "Utilization",
       change: "-10 pp",
-      impact: totalCostPerHr > 0 && engineInputs.n_utilization_percent > 10
-        ? `Fixed cost spread less: +${cur(fixedCostPerHr * (engineInputs.n_utilization_percent / (engineInputs.n_utilization_percent - 10) - 1))}/h`
+      impact: totalCostPerHr > 0 && engineInputs.utilization_percent > 10
+        ? `Fixed cost spread less: +${cur(fixedCostPerHr * (engineInputs.utilization_percent / (engineInputs.utilization_percent - 10) - 1))}/h`
         : "Utilization too low for meaningful calculation",
       severity: "HIGH",
     },
@@ -348,9 +348,9 @@ export function buildMachineRateReport(params: {
   // ── 11. Professional rate-setting checklist ───────────────────────────
   const checklist: ChecklistItem[] = [
     { item: "Machine purchase price and residual value verified against invoice or valuation", status: "REVIEW", details: "Verify with equipment purchase records." },
-    { item: "Economic life confirmed by historical replacement data or industry standard", status: "ASSUMED", details: `Assumed ${engineInputs.n_economic_life_years ?? 8} years. Confirm with depreciation schedule.` },
+    { item: "Economic life confirmed by historical replacement data or industry standard", status: "ASSUMED", details: `Assumed ${engineInputs.economic_life_years ?? 8} years. Confirm with depreciation schedule.` },
     { item: "Maintenance history reviewed for major repair cycles", status: "REVIEW", details: "Cross-check average maintenance cost against 3-year actuals." },
-    { item: "Electricity price from latest utility tariff or power purchase agreement", status: "ASSUMED", details: `Assumed at ${engineInputs.n_electricity_price ?? 0.12} USD/kWh. Verify with latest bill.` },
+    { item: "Electricity price from latest utility tariff or power purchase agreement", status: "ASSUMED", details: `Assumed at ${engineInputs.electricity_price ?? 0.12} USD/kWh. Verify with latest bill.` },
     { item: "Labor rate confirmed fully loaded (benefits, payroll taxes, supervision)", status: "REVIEW", details: "Cross-check with HR/payroll cost reports." },
     { item: "Facility allocation basis confirmed (floor area, machine footprint, utilities)", status: "REVIEW", details: "Review allocation method and denominator." },
     { item: "Productive utilization verified by actual production data (not target)", status: "REVIEW", details: "Review machine monitoring data for actual runtime percentage." },

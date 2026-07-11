@@ -1,117 +1,123 @@
 {
-  "meta": {
-    "description": "FX Commodity Pass-Through Pricer — 3 Golden Fixtures: Within Deadband, Exceeds Deadband, Severe Exposure",
-    "schema_version": "5.3.1-pro-schema.1",
-    "formula_version": "5.3.1-pro-baris.1"
-  },
+  "tool_key": "fx-commodity-pass-through-pricer",
+  "schema_version": "5.3.1-pro-schema.1",
+  "formula_version": "5.3.1-pro-baris.1",
   "fixtures": [
     {
-      "fixture_name": "Within Deadband (GOOD)",
+      "fixture_name": "Minor FX Change (OK)",
       "raw_inputs": {
-        "n_base_price": 100,
-        "n_fx_rate_spot": 1.08,
-        "n_fx_rate_budget": 1.05,
-        "n_commodity_index_current": 170,
-        "n_commodity_index_budget": 165,
-        "n_material_cost_pct": 40,
-        "n_fx_hedge_pct": 80,
-        "n_commodity_hedge_pct": 70,
-        "n_annual_volume": 10000,
-        "n_target_margin_percent": 25
-      },
-      "expected_outputs": {
-        "out_evidence_completeness": 0.9,
-        "out_normalized_demand": 10000,
-        "out_reference_deviation": 0.0286,
-        "out_derating_factor": 0.9941,
-        "out_demand_metric": 0,
-        "out_capacity_metric": 59.2208,
-        "out_utilization_margin": 1.0059,
-        "out_expanded_uncertainty": 0.5922,
-        "out_threshold_crossing": 0,
-        "out_sensitivity_driver": 2,
-        "out_fmea_trigger": 0,
-        "out_money_at_risk": 5922.0779,
-        "out_scenario_delta": 5922.0779,
-        "out_audit_hash_payload": 1165,
-        "out_final_decision_state": 0
-      },
-      "expected_decision_status": "REVIEW",
-      "expected_warnings": [
-        "Missing or non-finite input: n_source_confidence_ratio"
-      ]
-    },
-    {
-      "fixture_name": "Exceeds Deadband (REVIEW)",
-      "raw_inputs": {
-        "n_base_price": 100,
-        "n_fx_rate_spot": 1.1,
-        "n_fx_rate_budget": 1.05,
-        "n_commodity_index_current": 180,
-        "n_commodity_index_budget": 165,
+        "n_base_price": 1000,
+        "n_fx_rate_spot": 1.05,
+        "n_fx_rate_budget": 1,
+        "n_commodity_index_current": 110,
+        "n_commodity_index_budget": 100,
         "n_material_cost_pct": 40,
         "n_fx_hedge_pct": 60,
         "n_commodity_hedge_pct": 50,
-        "n_annual_volume": 5000,
-        "n_target_margin_percent": 20
+        "n_annual_volume": 10000
       },
       "expected_outputs": {
-        "out_evidence_completeness": 0.9,
-        "out_normalized_demand": 5000,
-        "out_reference_deviation": 0.0476,
-        "out_derating_factor": 0.9742,
-        "out_demand_metric": 0,
-        "out_capacity_metric": 129.0043,
-        "out_utilization_margin": 1.0258,
-        "out_expanded_uncertainty": 2.5801,
-        "out_threshold_crossing": 0,
-        "out_sensitivity_driver": 2,
-        "out_fmea_trigger": 0,
-        "out_money_at_risk": 12900.4329,
-        "out_scenario_delta": 12900.4329,
-        "out_audit_hash_payload": 1384,
+        "out_base_price": 1000,
+        "out_adjusted_price": 1028,
+        "out_escalation_amount": 28,
+        "out_fx_change_pct": 5,
+        "out_commodity_change_pct": 10,
+        "out_fx_impact_pct": 0.8,
+        "out_commodity_impact_pct": 2,
+        "out_total_pass_through_pct": 2.8,
+        "out_escalation_cost_per_unit": 28,
+        "out_annual_escalation_cost": 280000,
+        "out_money_at_risk": 140000,
+        "out_primary_price_driver": 1,
+        "out_pass_through_severity": 2.8,
+        "out_hedge_adequacy_score": 55,
         "out_final_decision_state": 0
       },
-      "expected_decision_status": "REVIEW",
-      "expected_warnings": [
-        "Missing or non-finite input: n_source_confidence_ratio"
-      ]
+      "expected_decision_status": "OK",
+      "expected_warnings": []
     },
     {
-      "fixture_name": "Severe Exposure (BLOCKED)",
+      "fixture_name": "Significant Pass-Through (BLOCKED)",
       "raw_inputs": {
-        "n_base_price": 100,
-        "n_fx_rate_spot": 1.25,
-        "n_fx_rate_budget": 1.05,
-        "n_commodity_index_current": 220,
-        "n_commodity_index_budget": 150,
-        "n_material_cost_pct": 50,
+        "n_base_price": 500,
+        "n_fx_rate_spot": 0.8,
+        "n_fx_rate_budget": 1,
+        "n_commodity_index_current": 150,
+        "n_commodity_index_budget": 100,
+        "n_material_cost_pct": 60,
         "n_fx_hedge_pct": 30,
         "n_commodity_hedge_pct": 20,
-        "n_annual_volume": 2000,
-        "n_target_margin_percent": 15
+        "n_annual_volume": 5000
       },
       "expected_outputs": {
-        "out_evidence_completeness": 0.9,
-        "out_normalized_demand": 2000,
-        "out_reference_deviation": 0.1905,
-        "out_derating_factor": 0.7467,
-        "out_demand_metric": 0,
-        "out_capacity_metric": 506.6667,
-        "out_utilization_margin": 1.2533,
-        "out_expanded_uncertainty": 25.3333,
-        "out_threshold_crossing": 1,
-        "out_sensitivity_driver": 2,
-        "out_fmea_trigger": 7,
-        "out_money_at_risk": 50666.6667,
-        "out_scenario_delta": 50666.6667,
-        "out_audit_hash_payload": 3887,
-        "out_final_decision_state": 1
+        "out_base_price": 500,
+        "out_adjusted_price": 578,
+        "out_escalation_amount": 78,
+        "out_fx_change_pct": -20,
+        "out_commodity_change_pct": 50,
+        "out_fx_impact_pct": -8.4,
+        "out_commodity_impact_pct": 24,
+        "out_total_pass_through_pct": 15.6,
+        "out_escalation_cost_per_unit": 78,
+        "out_annual_escalation_cost": 390000,
+        "out_money_at_risk": 195000,
+        "out_primary_price_driver": 1,
+        "out_pass_through_severity": 15.6,
+        "out_hedge_adequacy_score": 25,
+        "out_final_decision_state": 2
       },
-      "expected_decision_status": "REVIEW",
-      "expected_warnings": [
-        "Missing or non-finite input: n_source_confidence_ratio"
-      ]
+      "expected_decision_status": "BLOCKED",
+      "expected_warnings": []
+    },
+    {
+      "fixture_name": "Extreme Volatility (BLOCKED)",
+      "raw_inputs": {
+        "n_base_price": 200,
+        "n_fx_rate_spot": 0.7,
+        "n_fx_rate_budget": 1.1,
+        "n_commodity_index_current": 200,
+        "n_commodity_index_budget": 100,
+        "n_material_cost_pct": 80,
+        "n_fx_hedge_pct": 10,
+        "n_commodity_hedge_pct": 10,
+        "n_annual_volume": 20000
+      },
+      "expected_outputs": {
+        "out_base_price": 200,
+        "out_adjusted_price": 291.64,
+        "out_escalation_amount": 91.64,
+        "out_fx_change_pct": -36.36,
+        "out_commodity_change_pct": 100,
+        "out_fx_impact_pct": -26.18,
+        "out_commodity_impact_pct": 72,
+        "out_total_pass_through_pct": 45.82,
+        "out_escalation_cost_per_unit": 91.64,
+        "out_annual_escalation_cost": 1832727.27,
+        "out_money_at_risk": 916363.64,
+        "out_primary_price_driver": 1,
+        "out_pass_through_severity": 45.8,
+        "out_hedge_adequacy_score": 10,
+        "out_final_decision_state": 2
+      },
+      "expected_decision_status": "BLOCKED",
+      "expected_warnings": []
     }
-  ]
+  ],
+  "expected_outputs": {
+    "out_base_price": 1000,
+    "out_adjusted_price": 1028,
+    "out_escalation_amount": 28,
+    "out_fx_change_pct": 5,
+    "out_commodity_change_pct": 10,
+    "out_fx_impact_pct": 0.8,
+    "out_commodity_impact_pct": 2,
+    "out_total_pass_through_pct": 2.8,
+    "out_escalation_cost_per_unit": 28,
+    "out_annual_escalation_cost": 280000,
+    "out_money_at_risk": 140000,
+    "out_primary_price_driver": 1,
+    "out_pass_through_severity": 2.8,
+    "out_hedge_adequacy_score": 55,
+    "out_final_decision_state": 0
+  }
 }

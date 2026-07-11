@@ -73,5 +73,20 @@
       "expected_decision_status": "BLOCKED",
       "expected_warnings": []
     }
-  ]
+  ],
+  "expected_outputs": {
+    "out_downtime_hours": 4,
+    "out_lost_productive_hours": 4,
+    "out_lost_units": 150,
+    "out_lost_contribution": 800,
+    "out_labor_idle_cost": 220,
+    "out_scrap_material_cost": 3750,
+    "out_rework_cost": 440,
+    "out_disposal_inspection_cost": 500,
+    "out_total_event_loss": 5710,
+    "out_annualized_loss": 68520,
+    "out_primary_loss_driver": 1,
+    "out_recovery_priority": 1,
+    "out_final_decision_state": 1
+  }
 }

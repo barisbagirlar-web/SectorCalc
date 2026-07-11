@@ -37,8 +37,8 @@ export function buildFxCommodityPricerReport(params: {
   const priceReviewTrig   = O.out_price_review_trigger ?? 0;
   const decisionScore     = O.out_final_decision_state ?? 0;
 
-  const basePrice     = engineInputs.n_base_price ?? 0;
-  const annualVol     = engineInputs.n_annual_volume ?? 0;
+  const basePrice     = engineInputs.base_price ?? 0;
+  const annualVol     = engineInputs.annual_volume ?? 0;
 
   const isTriggered = priceReviewTrig === 1;
   const absImpact = Math.abs(weightedImpact);
@@ -101,10 +101,10 @@ export function buildFxCommodityPricerReport(params: {
   const execInterpretation =
     `This analysis examines a product with a base price of ${currency(basePrice)} ` +
     `and annual volume of ${fmt(annualVol, 0)} units. ` +
-    `FX rates moved by ${pct(fxChangePct, 2)} (spot ${fmt(engineInputs.n_fx_rate_spot ?? 0, 4)} vs. budget ${fmt(engineInputs.n_fx_rate_budget ?? 0, 4)}) ` +
+    `FX rates moved by ${pct(fxChangePct, 2)} (spot ${fmt(engineInputs.fx_rate_spot ?? 0, 4)} vs. budget ${fmt(engineInputs.fx_rate_budget ?? 0, 4)}) ` +
     `and commodity index changed by ${pct(commChangePct, 2)} ` +
-    `(current ${fmt(engineInputs.n_commodity_index_current ?? 0, 1)} vs. budget ${fmt(engineInputs.n_commodity_index_budget ?? 0, 1)}). ` +
-    `After applying hedging (FX ${fmt(engineInputs.n_fx_hedge_pct ?? 0, 0)}%, commodity ${fmt(engineInputs.n_commodity_hedge_pct ?? 0, 0)}%), ` +
+    `(current ${fmt(engineInputs.commodity_index_current ?? 0, 1)} vs. budget ${fmt(engineInputs.commodity_index_budget ?? 0, 1)}). ` +
+    `After applying hedging (FX ${fmt(engineInputs.fx_hedge_pct ?? 0, 0)}%, commodity ${fmt(engineInputs.commodity_hedge_pct ?? 0, 0)}%), ` +
     `the weighted unhedged cost impact is ${pct(weightedImpact, 2)}. ` +
     (isTriggered
       ? `This exceeds the ${fmt(deadband, 0)}% deadband, triggering a price review. ` +
@@ -221,19 +221,19 @@ export function buildFxCommodityPricerReport(params: {
     {
       parameter: "FX Rate +5%",
       change: "+5%",
-      impact: `Weighted impact changes by approximately ${pct(5 * (1 - (engineInputs.n_fx_hedge_pct ?? 0) / 100) * (1 - (engineInputs.n_material_cost_pct ?? 0) / 100), 2)}`,
-      severity: (engineInputs.n_fx_hedge_pct ?? 0) < 50 ? "HIGH" : "MEDIUM",
+      impact: `Weighted impact changes by approximately ${pct(5 * (1 - (engineInputs.fx_hedge_pct ?? 0) / 100) * (1 - (engineInputs.material_cost_pct ?? 0) / 100), 2)}`,
+      severity: (engineInputs.fx_hedge_pct ?? 0) < 50 ? "HIGH" : "MEDIUM",
     },
     {
       parameter: "Commodity Index +10%",
       change: "+10%",
-      impact: `Weighted impact changes by approximately ${pct(10 * (1 - (engineInputs.n_commodity_hedge_pct ?? 0) / 100) * (engineInputs.n_material_cost_pct ?? 0) / 100, 2)}`,
-      severity: (engineInputs.n_commodity_hedge_pct ?? 0) < 50 ? "HIGH" : "MEDIUM",
+      impact: `Weighted impact changes by approximately ${pct(10 * (1 - (engineInputs.commodity_hedge_pct ?? 0) / 100) * (engineInputs.material_cost_pct ?? 0) / 100, 2)}`,
+      severity: (engineInputs.commodity_hedge_pct ?? 0) < 50 ? "HIGH" : "MEDIUM",
     },
     {
       parameter: "Material Cost Share +5pp",
       change: "+5pp",
-      impact: `Increases commodity exposure weight, amplifying pass-through by ${pct(absImpact * 0.05 / ((engineInputs.n_material_cost_pct ?? 1) / 100), 2)}`,
+      impact: `Increases commodity exposure weight, amplifying pass-through by ${pct(absImpact * 0.05 / ((engineInputs.material_cost_pct ?? 1) / 100), 2)}`,
       severity: "MEDIUM",
     },
   ];
@@ -284,5 +284,16 @@ export function buildFxCommodityPricerReport(params: {
     costDistribution, calculatedValues, hiddenLosses, missedAssumptions,
     riskWarnings, sensitivityChecks, checklist, recommendedAction, assumptionsUsed,
     traceId: params.traceId,
+    totalCost: currency(annualEscalation),
+    copySummary:
+      `${params.toolName} — ${decisionState.label}\n` +
+      `─────────────────────────────────\n` +
+      `Weighted Cost Change: ${pct(weightedImpact, 2)} | Deadband: ${fmt(deadband, 0)}%\n` +
+      `Base Price: ${currency(baselineCost)} | Revised Price: ${currency(revisedPrice)}\n` +
+      `Pass-Through Amount: ${currency(passThroughAmt)} | Annual Escalation: ${currency(annualEscalation)}\n` +
+      `FX Change: ${pct(fxChangePct, 2)} | Commodity Change: ${pct(commChangePct, 2)}\n` +
+      `Next: ${recommendedAction.action}\n` +
+      `─────────────────────────────────\n` +
+      `Technical simulation; not financial or legal advice. Verify before decisions.`,
   };
 }

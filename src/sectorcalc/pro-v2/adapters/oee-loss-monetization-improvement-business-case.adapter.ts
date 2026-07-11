@@ -4,15 +4,15 @@
 import type { ProExecutePayloadAdapter } from "../proToolRegistry";
 
 const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
-  planned_production_time_seconds: "n_planned_production_time_seconds",
-  operating_time_seconds: "n_operating_time_seconds",
-  net_operating_time_seconds: "n_net_operating_time_seconds",
-  ideal_cycle_time_per_part: "n_ideal_cycle_time_per_part",
-  total_parts_produced: "n_total_parts_produced",
-  good_parts: "n_good_parts",
-  hourly_contribution: "n_hourly_contribution",
-  improvement_investment: "n_improvement_investment",
-  operating_hours_per_year: "n_operating_hours_per_year",
+  planned_production_time_seconds: "planned_production_time_seconds",
+  operating_time_seconds: "operating_time_seconds",
+  net_operating_time_seconds: "net_operating_time_seconds",
+  ideal_cycle_time_per_part: "ideal_cycle_time_per_part",
+  total_parts_produced: "total_parts_produced",
+  good_parts: "good_parts",
+  hourly_contribution: "hourly_contribution",
+  improvement_investment: "improvement_investment",
+  operating_hours_per_year: "operating_hours_per_year",
 };
 
 const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number }> = {

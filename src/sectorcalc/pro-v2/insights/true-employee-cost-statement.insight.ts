@@ -216,5 +216,16 @@ export function buildEmployeeCostReport(params: {
     costDistribution, calculatedValues, hiddenLosses, missedAssumptions,
     riskWarnings, sensitivityChecks, checklist, recommendedAction, assumptionsUsed,
     traceId: params.traceId,
+    totalCost: currency(totalAnnual),
+    copySummary:
+      `${params.toolName} — ${decisionState.label}\n` +
+      `─────────────────────────────────\n` +
+      `Fully Loaded Annual Cost: ${currency(totalAnnual)} | Hourly: ${currency(hourlyCost)}/h\n` +
+      `Base Salary: ${currency(baseSalary)} | Multiplier: ${fmt(loadedMultiplier, 2)}x\n` +
+      `Monthly Cost: ${currency(monthlyCost)} | Productive Hours: ${fmt(productiveHrs, 0)} hrs/yr\n` +
+      `Burden: ${pct(burdenPct)} of base salary\n` +
+      `Next: ${recommendedAction.action}\n` +
+      `─────────────────────────────────\n` +
+      `Technical simulation; not financial or legal advice. Verify before decisions.`,
   };
 }

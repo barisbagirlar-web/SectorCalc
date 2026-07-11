@@ -79,5 +79,21 @@
       "expected_decision_status": "REVIEW",
       "expected_warnings": []
     }
-  ]
+  ],
+  "expected_outputs": {
+    "out_in_house_variable_cost": 75,
+    "out_in_house_allocated_fixed": 500,
+    "out_in_house_total_cost": 375500,
+    "out_supplier_unit_price": 95,
+    "out_logistics_import_cost": 40000,
+    "out_quality_defect_allowance": 14250,
+    "out_inventory_lead_time_cost": 10300,
+    "out_capacity_opportunity_cost": 18775,
+    "out_outsource_total_landed_cost": 539550,
+    "out_cost_difference": -164050,
+    "out_break_even_volume": 15,
+    "out_make_buy_decision": 0,
+    "out_primary_decision_driver": 3,
+    "out_final_decision_state": 0
+  }
 }

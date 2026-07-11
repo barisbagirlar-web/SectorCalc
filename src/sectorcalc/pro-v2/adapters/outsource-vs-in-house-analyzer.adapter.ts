@@ -4,16 +4,16 @@
 import type { ProExecutePayloadAdapter } from "../proToolRegistry";
 
 const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
-  in_house_material_cost_per_unit: "n_in_house_material_cost_per_unit",
-  in_house_labor_cost_per_unit: "n_in_house_labor_cost_per_unit",
-  in_house_overhead_per_unit: "n_in_house_overhead_per_unit",
-  in_house_setup_cost_per_batch: "n_in_house_setup_cost_per_batch",
-  outsource_unit_price: "n_outsource_unit_price",
-  outsource_logistics_per_unit: "n_outsource_logistics_per_unit",
-  quality_defect_allowance_pct: "n_quality_defect_allowance_pct",
-  inventory_lead_time_cost_pct: "n_inventory_lead_time_cost_pct",
-  capacity_opportunity_cost_pct: "n_capacity_opportunity_cost_pct",
-  annual_volume: "n_annual_volume",
+  in_house_material_cost_per_unit: "in_house_material_cost_per_unit",
+  in_house_labor_cost_per_unit: "in_house_labor_cost_per_unit",
+  in_house_overhead_per_unit: "in_house_overhead_per_unit",
+  in_house_setup_cost_per_batch: "in_house_setup_cost_per_batch",
+  outsource_unit_price: "outsource_unit_price",
+  outsource_logistics_per_unit: "outsource_logistics_per_unit",
+  quality_defect_allowance_pct: "quality_defect_allowance_pct",
+  inventory_lead_time_cost_pct: "inventory_lead_time_cost_pct",
+  capacity_opportunity_cost_pct: "capacity_opportunity_cost_pct",
+  annual_volume: "annual_volume",
 };
 
 const HIDDEN_TO_SCHEMA: Record<string, { schemaId: string; defaultValue: number }> = {

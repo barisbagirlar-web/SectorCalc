@@ -14,15 +14,15 @@ export const motorRoiBuildExecutePayload: ProExecutePayloadAdapter = (
   }
 
   const raw_inputs: Record<string, number> = {
-    n_current_power_kw: n("current_power_kw"),
-    n_proposed_power_kw: n("proposed_power_kw"),
-    n_annual_operating_hours: n("annual_operating_hours"),
-    n_energy_price_per_kwh: n("energy_price_per_kwh"),
-    n_current_maintenance_cost: n("current_maintenance_cost"),
-    n_proposed_maintenance_cost: n("proposed_maintenance_cost"),
-    n_replacement_cost: n("replacement_cost"),
-    n_useful_life_years: n("useful_life_years"),
-    n_discount_rate: n("discount_rate"),
+    current_power_kw: n("current_power_kw"),
+    proposed_power_kw: n("proposed_power_kw"),
+    annual_operating_hours: n("annual_operating_hours"),
+    energy_price_per_kwh: n("energy_price_per_kwh"),
+    current_maintenance_cost: n("current_maintenance_cost"),
+    proposed_maintenance_cost: n("proposed_maintenance_cost"),
+    replacement_cost: n("replacement_cost"),
+    useful_life_years: n("useful_life_years"),
+    discount_rate: n("discount_rate"),
   };
 
   const selected_units: Record<string, string> = {};

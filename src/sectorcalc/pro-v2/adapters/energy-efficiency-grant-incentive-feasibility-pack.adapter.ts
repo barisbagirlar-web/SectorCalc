@@ -14,16 +14,16 @@ export const grantFeasibilityBuildExecutePayload: ProExecutePayloadAdapter = (
   }
 
   const raw_inputs: Record<string, number> = {
-    n_baseline_energy_consumption_kwh: n("baseline_energy_consumption_kwh"),
-    n_baseline_energy_price_per_kwh: n("baseline_energy_price_per_kwh"),
-    n_projected_saving_pct: n("projected_saving_pct"),
-    n_gross_project_cost: n("gross_project_cost"),
-    n_eligible_project_cost: n("eligible_project_cost"),
-    n_grant_incentive_amount: n("grant_incentive_amount"),
-    n_annual_maintenance_cost: n("annual_maintenance_cost"),
-    n_useful_life_years: n("useful_life_years"),
-    n_discount_rate: n("discount_rate"),
-    n_energy_price_escalation_pct: n("energy_price_escalation_pct"),
+    baseline_energy_consumption_kwh: n("baseline_energy_consumption_kwh"),
+    baseline_energy_price_per_kwh: n("baseline_energy_price_per_kwh"),
+    projected_saving_pct: n("projected_saving_pct"),
+    gross_project_cost: n("gross_project_cost"),
+    eligible_project_cost: n("eligible_project_cost"),
+    grant_incentive_amount: n("grant_incentive_amount"),
+    annual_maintenance_cost: n("annual_maintenance_cost"),
+    useful_life_years: n("useful_life_years"),
+    discount_rate: n("discount_rate"),
+    energy_price_escalation_pct: n("energy_price_escalation_pct"),
   };
 
   const selected_units: Record<string, string> = {};

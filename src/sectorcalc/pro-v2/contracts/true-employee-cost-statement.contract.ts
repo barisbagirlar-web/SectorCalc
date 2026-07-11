@@ -82,9 +82,9 @@ export const EMPLOYEE_COST_GROUPS: ProFieldGroup[] = [
         type: "number",
         helpText: "Number of paid vacation/sick leave weeks (default 4)",
         required: false,
-        unitFamily: "factor",
-        defaultUnit: "weeks",
-        allowedUnits: [{ unit: "weeks", label: "weeks" }],
+        unitFamily: "time",
+        defaultUnit: "week",
+        allowedUnits: [{ unit: "week", label: "week" }, { unit: "day", label: "day" }],
         min: 0, max: 12,
       },
       {

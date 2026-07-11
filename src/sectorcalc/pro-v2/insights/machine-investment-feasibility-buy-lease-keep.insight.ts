@@ -40,12 +40,12 @@ export function buildBuyLeaseKeepReport(params: {
   const decisionStateVal = outputs.out_final_decision_state ?? 2;
 
   // ── Derived from engine inputs ──────────────────────────────────────
-  const purchasePrice = engineInputs.n_machine_purchase_price ?? 0;
-  const maintenance = engineInputs.n_annual_maintenance_cost ?? 0;
-  const downtime = engineInputs.n_annual_downtime_cost ?? 0;
-  const residual = engineInputs.n_residual_value ?? 0;
-  const savings = engineInputs.n_operating_savings_per_year ?? 0;
-  const leaseAnnual = engineInputs.n_lease_annual_payment ?? 0;
+  const purchasePrice = engineInputs.machine_purchase_price ?? 0;
+  const maintenance = engineInputs.annual_maintenance_cost ?? 0;
+  const downtime = engineInputs.annual_downtime_cost ?? 0;
+  const residual = engineInputs.residual_value ?? 0;
+  const savings = engineInputs.operating_savings_per_year ?? 0;
+  const leaseAnnual = engineInputs.lease_annual_payment ?? 0;
 
   // ── Best alternative name ───────────────────────────────────────────
   const altLabel = ALT_LABELS[selectedAlt] ?? "Unknown";

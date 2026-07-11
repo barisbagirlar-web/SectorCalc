@@ -43,12 +43,12 @@ export function buildGrantFeasibilityReport(params: {
   const decisionStateVal = outputs.out_final_decision_state ?? 2;
 
   // ── Derived from engine inputs ──────────────────────────────────────
-  const baselineKwh = engineInputs.n_baseline_energy_consumption_kwh ?? 0;
-  const energyPrice = engineInputs.n_baseline_energy_price_per_kwh ?? 0;
-  const savingPct = engineInputs.n_projected_saving_pct ?? 0;
-  const maintCost = engineInputs.n_annual_maintenance_cost ?? 0;
-  const escalationPct = engineInputs.n_energy_price_escalation_pct ?? 0;
-  const lifeYears = engineInputs.n_useful_life_years ?? 0;
+  const baselineKwh = engineInputs.baseline_energy_consumption_kwh ?? 0;
+  const energyPrice = engineInputs.baseline_energy_price_per_kwh ?? 0;
+  const savingPct = engineInputs.projected_saving_pct ?? 0;
+  const maintCost = engineInputs.annual_maintenance_cost ?? 0;
+  const escalationPct = engineInputs.energy_price_escalation_pct ?? 0;
+  const lifeYears = engineInputs.useful_life_years ?? 0;
 
   // ── 1. Primary KPI ─────────────────────────────────────────────────
   let primaryKpiSeverity: "OK" | "WARNING" | "CRITICAL" | "INFO" = "INFO";

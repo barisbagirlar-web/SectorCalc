@@ -42,8 +42,8 @@ export function buildDowntimeScrapReport(params: {
   const decisionStateCode = outputs.out_final_decision_state ?? 0;
 
   // ── Engine inputs ────────────────────────────────────────────────────
-  const eventFreq = Math.max(1, Math.round(engineInputs.n_annual_event_frequency ?? 1));
-  const hourlyContrib = engineInputs.n_hourly_contribution_rate ?? 0;
+  const eventFreq = Math.max(1, Math.round(engineInputs.annual_event_frequency ?? 1));
+  const hourlyContrib = engineInputs.hourly_contribution_rate ?? 0;
 
   // ── Driver labels ────────────────────────────────────────────────────
   const driverLabels = ["Lost Contribution (Production Value)", "Scrap Material Waste", "Rework Labor"];
@@ -141,7 +141,7 @@ export function buildDowntimeScrapReport(params: {
   // ── 9. Sensitivity checks ──────────────────────────────────────────
   const sensitivityChecks: SensitivityCheck[] = [
     { parameter: "Event Frequency", change: "+25%", impact: `${currency(annualizedLoss * 0.25)} additional annual loss`, severity: "HIGH" },
-    { parameter: "Downtime Hours", change: "+1 hour", impact: hourlyContrib > 0 ? `${currency(hourlyContrib + (engineInputs.n_rework_labor_rate ?? 0))} additional cost per event` : "N/A", severity: "HIGH" },
+    { parameter: "Downtime Hours", change: "+1 hour", impact: hourlyContrib > 0 ? `${currency(hourlyContrib + (engineInputs.rework_labor_rate ?? 0))} additional cost per event` : "N/A", severity: "HIGH" },
     { parameter: "Scrap Quantity", change: "+10%", impact: scrapMatCost > 0 ? `${currency(scrapMatCost * 0.1)} additional scrap cost per event` : "N/A", severity: "MEDIUM" },
     { parameter: "Rework Hours", change: "+20%", impact: reworkCost > 0 ? `${currency(reworkCost * 0.2)} additional rework cost per event` : "N/A", severity: "MEDIUM" },
     { parameter: "Hourly Contribution Rate", change: "+10%", impact: `${currency(lostContribution * 0.1)} additional lost contribution per event`, severity: "HIGH" },

@@ -13,12 +13,12 @@ export const breakEvenBuildExecutePayload: ProExecutePayloadAdapter = (
   }
 
   const raw_inputs: Record<string, number> = {
-    n_annual_revenue: n("annual_revenue"),
-    n_variable_cost_percent: n("variable_cost_percent"),
-    n_annual_fixed_costs: n("annual_fixed_costs"),
-    n_available_cash_liquidity: n("available_cash_liquidity"),
-    n_unit_selling_price: n("unit_selling_price"),
-    n_unit_variable_cost: n("unit_variable_cost"),
+    annual_revenue: n("annual_revenue"),
+    variable_cost_percent: n("variable_cost_percent"),
+    annual_fixed_costs: n("annual_fixed_costs"),
+    available_cash_liquidity: n("available_cash_liquidity"),
+    unit_selling_price: n("unit_selling_price"),
+    unit_variable_cost: n("unit_variable_cost"),
   };
 
   const selected_units: Record<string, string> = {};

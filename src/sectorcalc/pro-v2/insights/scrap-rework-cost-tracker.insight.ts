@@ -43,7 +43,7 @@ export function buildScrapReworkReport(params: {
   const decisionStateCode = outputs.out_final_decision_state ?? 0;
 
   // ── Engine inputs ────────────────────────────────────────────────────
-  const defectRateTarget = engineInputs.n_defect_rate_target_pct ?? 0;
+  const defectRateTarget = engineInputs.defect_rate_target_pct ?? 0;
 
   // ── Driver labels ────────────────────────────────────────────────────
   const driverLabels = ["Material Loss", "Machine Loss", "Labor Loss", "Rework Cost"];

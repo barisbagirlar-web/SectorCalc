@@ -56,7 +56,7 @@ export function buildSkuMarginRankerReport(params: {
     value: pct(contributionMarginPct, 1),
     unit: "%",
     severity: kpiSeverity,
-    explanation: `Contribution margin of ${pct(contributionMarginPct, 1)} with fully loaded margin of ${pct(fullyLoadedMargin, 1)}. Unit cost ${currency(unitCost)} at selling price ${currency(engineInputs.n_unit_price ?? 0)}.`,
+    explanation: `Contribution margin of ${pct(contributionMarginPct, 1)} with fully loaded margin of ${pct(fullyLoadedMargin, 1)}. Unit cost ${currency(unitCost)} at selling price ${currency(engineInputs.unit_price ?? 0)}.`,
   };
 
   // ── Decision State ─────────────────────────────────────────────────
@@ -70,13 +70,13 @@ export function buildSkuMarginRankerReport(params: {
   }
 
   // ── Executive Interpretation ──────────────────────────────────────
-  const unitPrice = engineInputs.n_unit_price ?? 0;
-  const materialCost = engineInputs.n_material_cost_per_unit ?? 0;
-  const laborCost = engineInputs.n_labor_cost_per_unit ?? 0;
-  const overhead = engineInputs.n_overhead_per_unit ?? 0;
-  const logistics = engineInputs.n_logistics_cost_per_unit ?? 0;
-  const annualVolume = engineInputs.n_annual_volume_units ?? 0;
-  const targetMargin = engineInputs.n_target_margin_percent ?? 0;
+  const unitPrice = engineInputs.unit_price ?? 0;
+  const materialCost = engineInputs.material_cost_per_unit ?? 0;
+  const laborCost = engineInputs.labor_cost_per_unit ?? 0;
+  const overhead = engineInputs.overhead_per_unit ?? 0;
+  const logistics = engineInputs.logistics_cost_per_unit ?? 0;
+  const annualVolume = engineInputs.annual_volume_units ?? 0;
+  const targetMargin = engineInputs.target_margin_percent ?? 0;
 
   const execInterpretation =
     `This SKU margin analysis examines a product priced at ${currency(unitPrice)} per unit with ` +
@@ -215,5 +215,18 @@ export function buildSkuMarginRankerReport(params: {
     costDistribution, calculatedValues, hiddenLosses, missedAssumptions,
     riskWarnings, sensitivityChecks, checklist, recommendedAction, assumptionsUsed,
     traceId: params.traceId,
+    totalCost: currency(variableCost),
+    marginPercent: pct(contributionMarginPct, 1),
+    marginAmount: currency(fullyLoadedProfit),
+    copySummary:
+      `${params.toolName} — ${decisionState.label}\n` +
+      `─────────────────────────────────\n` +
+      `Revenue: ${currency(skuRevenue)} | Contribution Margin: ${pct(contributionMarginPct, 1)}\n` +
+      `Fully Loaded Profit: ${currency(fullyLoadedProfit)} (${pct(fullyLoadedMargin, 1)})\n` +
+      `Unit Price: ${currency(unitPrice)} | Unit Cost: ${currency(unitCost)} | Annual Volume: ${fmt(annualVolume, 0)}\n` +
+      `Revenue Share: ${pct(revenueSharePct, 1)} | Profit Share: ${pct(profitSharePct, 1)}\n` +
+      `Next: ${recommendedAction.action}\n` +
+      `─────────────────────────────────\n` +
+      `Technical simulation; not financial or legal advice. Verify before decisions.`,
   };
 }

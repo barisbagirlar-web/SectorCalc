@@ -164,7 +164,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
           }
         ]
       },
@@ -205,404 +205,8 @@
   },
   "inputs": [
     {
-      "id": "weld_length_m",
-      "name": "Weld Length (m)",
-      "symbol": "WL",
-      "quantity_kind": "length",
-      "unit_selectable": false,
-      "base_unit": "m",
-      "allowed_display_units": [
-        "m"
-      ],
-      "normalized_id": "n_weld_length_m",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1000,
-        "unit": "m",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Weld Length (m) is below the physical or process hard bound.",
-        "semantic_error_message_max": "Weld Length (m) is above the physical or process hard bound."
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
-      ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the weld length (m)."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 1,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the weld length (m). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Weld Length (m) will downgrade evidence confidence."
-    },
-    {
-      "id": "weld_throat_mm",
-      "name": "Weld Throat (mm)",
-      "symbol": "WT",
-      "quantity_kind": "length",
-      "unit_selectable": false,
-      "base_unit": "m",
-      "allowed_display_units": [
-        "mm"
-      ],
-      "normalized_id": "n_weld_throat_mm",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 100,
-        "unit": "mm",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Weld Throat (mm) is below the physical or process hard bound.",
-        "semantic_error_message_max": "Weld Throat (mm) is above the physical or process hard bound."
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
-      ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the weld throat (mm)."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 2,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the weld throat (mm). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Weld Throat (mm) will downgrade evidence confidence."
-    },
-    {
-      "id": "weld_density",
-      "name": "Weld Density (g/cm³)",
-      "symbol": "WD",
-      "quantity_kind": "density",
-      "unit_selectable": false,
-      "base_unit": "kg_per_m3",
-      "allowed_display_units": [
-        "kg_per_m3"
-      ],
-      "normalized_id": "n_weld_density_g_per_cm3",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1000000000,
-        "unit": "kg_per_m3",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Weld Density (g/cm³) is below the physical or process hard bound.",
-        "semantic_error_message_max": "Weld Density (g/cm³) is above the physical or process hard bound."
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
-      ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the weld density (g/cm³)."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 3,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the weld density (g/cm³). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Weld Density (g/cm³) will downgrade evidence confidence."
-    },
-    {
-      "id": "wire_cost_per_kg",
-      "name": "Wire Cost per kg",
-      "symbol": "WC",
-      "quantity_kind": "currency",
-      "unit_selectable": false,
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
-      "normalized_id": "n_wire_cost_per_kg",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1000,
-        "unit": "USD/kg",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
-      ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the wire cost per kg."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 4,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the wire cost per kg. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Wire Cost per kg will downgrade evidence confidence."
-    },
-    {
-      "id": "gas_cost_per_min",
-      "name": "Gas Cost per Minute",
-      "symbol": "GC",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": false,
-      "base_unit": "currency_unit_per_min",
-      "allowed_display_units": [
-        "currency_unit_per_min"
-      ],
-      "normalized_id": "n_gas_cost_per_min",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 10,
-        "unit": "USD/min",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": null,
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "user-provided value",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "User-provided input value."
-      },
-      "source_priority": [
-        "user-provided value",
-        "engineering estimate"
-      ],
-      "source": "user-provided value",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "user-provided value",
-          "engineering estimate"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the gas cost per minute."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [],
-      "output_bindings": [],
-      "warning_bindings": [],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 5,
-        "component": "number_with_unit",
-        "unit_dropdown_required": false,
-        "reference_values_visible": false,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the gas cost per minute (e.g., 0.18). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Gas Cost per Minute will downgrade evidence confidence."
-    },
-    {
       "id": "arc_time_min",
-      "name": "Arc Time (min)",
+      "name": "Arc Time Min",
       "symbol": "AT",
       "quantity_kind": "time",
       "unit_selectable": false,
@@ -679,16 +283,16 @@
       "warning_if_missing_or_estimated": "Missing or estimated Arc Time (min) will downgrade evidence confidence."
     },
     {
-      "id": "weld_time_min",
-      "name": "Weld Time (min)",
-      "symbol": "WT",
-      "quantity_kind": "time",
+      "id": "deposition_efficiency_pct",
+      "name": "Deposition Efficiency %",
+      "symbol": "DE",
+      "quantity_kind": "dimensionless",
       "unit_selectable": false,
-      "base_unit": "s",
+      "base_unit": "ratio",
       "allowed_display_units": [
-        "min"
+        "percent"
       ],
-      "normalized_id": "n_weld_time_min",
+      "normalized_id": "n_deposition_efficiency_pct",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -696,8 +300,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1440,
-        "unit": "min",
+        "max": 100,
+        "unit": "percent",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -731,7 +335,7 @@
           "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the weld time (min)."
+        "public_help_text": "Provide the deposition efficiency %."
       },
       "standard_clause_bindings": [],
       "formula_bindings": [],
@@ -739,7 +343,7 @@
       "warning_bindings": [],
       "ui_binding": {
         "group_id": "operation_context",
-        "field_order": 7,
+        "field_order": 10,
         "component": "number_with_unit",
         "unit_dropdown_required": false,
         "reference_values_visible": false,
@@ -753,8 +357,86 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Enter the weld time (min). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Weld Time (min) will downgrade evidence confidence."
+      "user_help_text": "Enter the deposition efficiency %. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Deposition Efficiency % will downgrade evidence confidence."
+    },
+    {
+      "id": "gas_cost_per_min",
+      "name": "Gas Cost Per Min",
+      "symbol": "GC",
+      "quantity_kind": "currency_rate",
+      "unit_selectable": false,
+      "base_unit": "currency_unit_per_min",
+      "allowed_display_units": [
+        "currency_unit_per_min"
+      ],
+      "normalized_id": "n_gas_cost_per_min",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 10,
+        "unit": "USD/min",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": null,
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "user-provided value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-provided input value."
+      },
+      "source_priority": [
+        "user-provided value",
+        "engineering estimate"
+      ],
+      "source": "user-provided value",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "user-provided value",
+          "engineering estimate"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the gas cost per minute."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "operation_context",
+        "field_order": 5,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the gas cost per minute (e.g., 0.18). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Gas Cost per Minute will downgrade evidence confidence."
     },
     {
       "id": "labor_rate",
@@ -913,16 +595,176 @@
       "warning_if_missing_or_estimated": "Missing or estimated Overhead Rate will downgrade evidence confidence."
     },
     {
-      "id": "deposition_efficiency",
-      "name": "Deposition Efficiency %",
-      "symbol": "DE",
-      "quantity_kind": "dimensionless",
+      "id": "weld_density_g_per_cm3",
+      "name": "Weld Density G Per Cm3",
+      "symbol": "WD",
+      "quantity_kind": "density",
       "unit_selectable": false,
-      "base_unit": "ratio",
+      "base_unit": "kg_per_m3",
       "allowed_display_units": [
-        "percent"
+        "kg_per_m3"
       ],
-      "normalized_id": "n_deposition_efficiency_pct",
+      "normalized_id": "n_weld_density_g_per_cm3",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000,
+        "unit": "kg_per_m3",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Weld Density (g/cm³) is below the physical or process hard bound.",
+        "semantic_error_message_max": "Weld Density (g/cm³) is above the physical or process hard bound."
+      },
+      "engineering_range": null,
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "user-provided value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-provided input value."
+      },
+      "source_priority": [
+        "user-provided value",
+        "engineering estimate"
+      ],
+      "source": "user-provided value",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "user-provided value",
+          "engineering estimate"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the weld density (g/cm³)."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "operation_context",
+        "field_order": 3,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the weld density (g/cm³). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Weld Density (g/cm³) will downgrade evidence confidence."
+    },
+    {
+      "id": "weld_length_m",
+      "name": "Weld Length M",
+      "symbol": "WL",
+      "quantity_kind": "length",
+      "unit_selectable": false,
+      "base_unit": "m",
+      "allowed_display_units": [
+        "m"
+      ],
+      "normalized_id": "n_weld_length_m",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000,
+        "unit": "m",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Weld Length (m) is below the physical or process hard bound.",
+        "semantic_error_message_max": "Weld Length (m) is above the physical or process hard bound."
+      },
+      "engineering_range": null,
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "user-provided value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-provided input value."
+      },
+      "source_priority": [
+        "user-provided value",
+        "engineering estimate"
+      ],
+      "source": "user-provided value",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "user-provided value",
+          "engineering estimate"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the weld length (m)."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "operation_context",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the weld length (m). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Weld Length (m) will downgrade evidence confidence."
+    },
+    {
+      "id": "weld_throat_mm",
+      "name": "Weld Throat Mm",
+      "symbol": "WT",
+      "quantity_kind": "length",
+      "unit_selectable": false,
+      "base_unit": "m",
+      "allowed_display_units": [
+        "mm"
+      ],
+      "normalized_id": "n_weld_throat_mm",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -931,9 +773,11 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 100,
-        "unit": "percent",
+        "unit": "mm",
         "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Weld Throat (mm) is below the physical or process hard bound.",
+        "semantic_error_message_max": "Weld Throat (mm) is above the physical or process hard bound."
       },
       "engineering_range": null,
       "resolution": null,
@@ -965,7 +809,7 @@
           "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the deposition efficiency %."
+        "public_help_text": "Provide the weld throat (mm)."
       },
       "standard_clause_bindings": [],
       "formula_bindings": [],
@@ -973,7 +817,7 @@
       "warning_bindings": [],
       "ui_binding": {
         "group_id": "operation_context",
-        "field_order": 10,
+        "field_order": 2,
         "component": "number_with_unit",
         "unit_dropdown_required": false,
         "reference_values_visible": false,
@@ -987,20 +831,20 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Enter the deposition efficiency %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Deposition Efficiency % will downgrade evidence confidence."
+      "user_help_text": "Enter the weld throat (mm). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Weld Throat (mm) will downgrade evidence confidence."
     },
     {
-      "id": "source_confidence",
-      "name": "Source Confidence Ratio",
-      "symbol": "SCR",
-      "quantity_kind": "dimensionless",
+      "id": "weld_time_min",
+      "name": "Weld Time Min",
+      "symbol": "WT",
+      "quantity_kind": "time",
       "unit_selectable": false,
-      "base_unit": "ratio",
+      "base_unit": "s",
       "allowed_display_units": [
-        "ratio"
+        "min"
       ],
-      "normalized_id": "n_source_confidence_ratio",
+      "normalized_id": "n_weld_time_min",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -1008,8 +852,8 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1,
-        "unit": "ratio",
+        "max": 1440,
+        "unit": "min",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
@@ -1043,7 +887,7 @@
           "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the source confidence ratio."
+        "public_help_text": "Provide the weld time (min)."
       },
       "standard_clause_bindings": [],
       "formula_bindings": [],
@@ -1051,7 +895,7 @@
       "warning_bindings": [],
       "ui_binding": {
         "group_id": "operation_context",
-        "field_order": 11,
+        "field_order": 7,
         "component": "number_with_unit",
         "unit_dropdown_required": false,
         "reference_values_visible": false,
@@ -1065,8 +909,86 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
+      "user_help_text": "Enter the weld time (min). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Weld Time (min) will downgrade evidence confidence."
+    },
+    {
+      "id": "wire_cost_per_kg",
+      "name": "Wire Cost Per Kg",
+      "symbol": "WC",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_wire_cost_per_kg",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000,
+        "unit": "USD/kg",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": null,
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "user-provided value",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "User-provided input value."
+      },
+      "source_priority": [
+        "user-provided value",
+        "engineering estimate"
+      ],
+      "source": "user-provided value",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "user-provided value",
+          "engineering estimate"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Provide the wire cost per kg."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "operation_context",
+        "field_order": 4,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the wire cost per kg. Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Wire Cost per kg will downgrade evidence confidence."
     }
   ],
   "normalized_inputs": [
@@ -3031,546 +2953,57 @@
   ],
   "outputs": [
     {
-      "id": "out_evidence_completeness",
-      "name": "Evidence Completeness Index",
-      "symbol": "Q_evidence",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "id": "out_arc_time_hours",
+      "name": "Arc Time Hours",
+      "symbol": "AR_tim",
+      "quantity_kind": "time",
+      "base_unit": "h",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "h",
+        "min"
       ],
       "type": "number",
-      "formula_source": "F001",
-      "decision_use": "DIAGNOSTIC",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F001",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Evidence Completeness Index translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
       "output_format": {
-        "decimals": 3,
+        "decimals": 0,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
     },
     {
-      "id": "out_normalized_demand",
-      "name": "Normalized Demand or Exposure",
-      "symbol": "D_norm",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F002",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "DEMAND",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F002",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Normalized Demand or Exposure translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_reference_deviation",
-      "name": "Reference Range Deviation Severity",
-      "symbol": "R_dev",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F003",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "WARNING_SUMMARY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F003",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Reference Range Deviation Severity translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_derating_factor",
-      "name": "Derating or Confidence Factor",
-      "symbol": "K_derate",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F004",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "SAFETY_FACTOR",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F004",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Derating or Confidence Factor translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_demand_metric",
-      "name": "Demand-Side Technical Metric",
-      "symbol": "D",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F005",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "DEMAND",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F005",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Demand-Side Technical Metric translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_capacity_metric",
-      "name": "Capacity or Allowable-Side Metric",
-      "symbol": "C",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F006",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "CAPACITY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F006",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Capacity or Allowable-Side Metric translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_utilization_margin",
-      "name": "Governing Utilization or Margin",
-      "symbol": "UC",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F007",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "UTILIZATION",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F007",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Governing Utilization or Margin translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_expanded_uncertainty",
-      "name": "Expanded Uncertainty",
-      "symbol": "U",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F008",
-      "decision_use": "SENSITIVITY",
-      "proof_status_role": "SAFETY_FACTOR",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F008",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Expanded Uncertainty translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_threshold_crossing",
-      "name": "Decision Threshold Crossing Risk",
-      "symbol": "X_thr",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F009",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F009",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Decision Threshold Crossing Risk translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_sensitivity_driver",
-      "name": "Dominant Sensitivity Driver",
-      "symbol": "S_driver",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F010",
-      "decision_use": "SENSITIVITY",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F010",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Dominant Sensitivity Driver translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_fmea_trigger",
-      "name": "FMEA Trigger State",
-      "symbol": "FMEA",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F011",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "WARNING_SUMMARY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F011",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "FMEA Trigger State translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_money_at_risk",
-      "name": "Money at Risk",
-      "symbol": "MAR",
+      "id": "out_cost_per_meter",
+      "name": "Cost Per Meter",
+      "symbol": "CO_per",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "allowed_display_units": [
         "currency_unit"
       ],
       "type": "number",
-      "formula_source": "F012",
-      "decision_use": "BUSINESS_IMPACT",
-      "proof_status_role": "BUSINESS_IMPACT",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F012",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Money at Risk translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
       "output_format": {
-        "decimals": 3,
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
     },
     {
-      "id": "out_scenario_delta",
-      "name": "Scenario Delta",
-      "symbol": "Delta_scn",
+      "id": "out_deposition_efficiency",
+      "name": "Deposition Efficiency",
+      "symbol": "DE_eff",
       "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "base_unit": "index",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "percent",
+        "ratio"
       ],
       "type": "number",
-      "formula_source": "F013",
-      "decision_use": "SCENARIO",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F013",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Scenario Delta translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
+      "decision_use": "PERFORMANCE_METRIC",
+      "proof_status_role": "PERFORMANCE_METRIC",
       "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_audit_hash_payload",
-      "name": "Audit Hash Payload Status",
-      "symbol": "H_audit",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F014",
-      "decision_use": "AUDIT",
-      "proof_status_role": "AUDIT",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F014",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Audit Hash Payload Status translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
@@ -3578,38 +3011,242 @@
     {
       "id": "out_final_decision_state",
       "name": "Final Decision State",
-      "symbol": "Decision",
+      "symbol": "D_state",
       "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "base_unit": "index",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "percent",
+        "ratio"
       ],
-      "type": "enum",
-      "formula_source": "F015",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "PASS_FAIL",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F015",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Final Decision State translates the protected weld-procedure-cost-consumable-estimation-suite calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "type": "number",
+      "decision_use": "FINAL_VERDICT",
+      "proof_status_role": "FINAL_VERDICT",
       "output_format": {
-        "decimals": 3,
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      },
+      "public_explanation": "Final Decision State calculated from input parameters."
+    },
+    {
+      "id": "out_fmea_trigger",
+      "name": "FMEA Trigger",
+      "symbol": "FM_drv",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "percent",
+        "ratio"
+      ],
+      "type": "number",
+      "decision_use": "WARNING_DRIVER",
+      "proof_status_role": "WARNING_SUMMARY",
+      "output_format": {
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      },
+      "public_explanation": "FMEA Trigger calculated from input parameters."
+    },
+    {
+      "id": "out_gas_cost",
+      "name": "Gas Cost",
+      "symbol": "GA_cos",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_labor_cost",
+      "name": "Labor Cost",
+      "symbol": "LA_cos",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_overhead_uncertainty",
+      "name": "Overhead Uncertainty",
+      "symbol": "OV_unc",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_primary_cost_driver",
+      "name": "Primary Cost Driver",
+      "symbol": "CO_drv",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DIAGNOSTIC",
+      "output_format": {
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      },
+      "public_explanation": "Primary Cost Driver calculated from input parameters."
+    },
+    {
+      "id": "out_shop_overhead_cost",
+      "name": "Shop Overhead Cost",
+      "symbol": "SH_ove",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_total_base_cost",
+      "name": "Total Base Cost",
+      "symbol": "TO_bas",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_total_job_time_hours",
+      "name": "Total Job Time Hours",
+      "symbol": "TO_job",
+      "quantity_kind": "time",
+      "base_unit": "h",
+      "allowed_display_units": [
+        "h",
+        "min"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_weld_length_m",
+      "name": "Weld Length M",
+      "symbol": "WE_len",
+      "quantity_kind": "length",
+      "base_unit": "m",
+      "allowed_display_units": [
+        "m",
+        "mm"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_weld_volume_g",
+      "name": "Weld Volume G",
+      "symbol": "WE_vol",
+      "quantity_kind": "mass",
+      "base_unit": "kg",
+      "allowed_display_units": [
+        "kg",
+        "g"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_wire_cost",
+      "name": "Wire Cost",
+      "symbol": "WI_cos",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_wire_mass_g",
+      "name": "Wire Mass G",
+      "symbol": "WI_mas",
+      "quantity_kind": "mass",
+      "base_unit": "kg",
+      "allowed_display_units": [
+        "kg",
+        "g"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }

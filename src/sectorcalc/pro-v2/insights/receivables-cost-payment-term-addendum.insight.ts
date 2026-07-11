@@ -31,9 +31,9 @@ export function buildReceivablesAddendumReport(params: {
   const breakevenTerm         = outputs.out_breakeven_payment_term_days ?? 0;
   const decisionScore         = outputs.out_final_decision_state ?? 0;
 
-  const invoiceEngine = engineInputs.n_invoice_value ?? 0;
-  const paymentDays = engineInputs.n_payment_days ?? 0;
-  const costOfCapitalPct = engineInputs.n_cost_of_capital_pct ?? 0;
+  const invoiceEngine = engineInputs.invoice_value ?? 0;
+  const paymentDays = engineInputs.payment_days ?? 0;
+  const costOfCapitalPct = engineInputs.cost_of_capital_pct ?? 0;
 
   // ── Primary KPI ───────────────────────────────────────────────────
   let kpiLabel: string;

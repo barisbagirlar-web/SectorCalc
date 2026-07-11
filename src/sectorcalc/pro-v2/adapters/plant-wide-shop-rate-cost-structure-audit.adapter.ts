@@ -4,19 +4,19 @@
 import type { ProExecutePayloadAdapter } from "../proToolRegistry";
 
 const FORM_TO_SCHEMA_INPUT: Record<string, string> = {
-  total_annual_cost: "n_total_annual_cost",
-  total_productive_hours: "n_total_productive_hours",
-  machine_group_cost: "n_machine_group_cost",
-  machine_group_hours: "n_machine_group_hours",
-  overhead_pool: "n_overhead_pool",
-  overhead_allocation_base: "n_overhead_allocation_base",
-  current_shop_rate: "n_current_shop_rate",
-  target_margin_pct: "n_target_margin_pct",
-  utilization_pct: "n_utilization_pct",
-  labor_burden: "n_labor_burden",
-  facility_burden: "n_facility_burden",
-  maintenance_burden: "n_maintenance_burden",
-  energy_burden: "n_energy_burden",
+  total_annual_cost: "total_annual_cost",
+  total_productive_hours: "total_productive_hours",
+  machine_group_cost: "machine_group_cost",
+  machine_group_hours: "machine_group_hours",
+  overhead_pool: "overhead_pool",
+  overhead_allocation_base: "overhead_allocation_base",
+  current_shop_rate: "current_shop_rate",
+  target_margin_pct: "target_margin_pct",
+  utilization_pct: "utilization_pct",
+  labor_burden: "labor_burden",
+  facility_burden: "facility_burden",
+  maintenance_burden: "maintenance_burden",
+  energy_burden: "energy_burden",
 };
 
 export const plantWideShopRateBuildExecutePayload: ProExecutePayloadAdapter = (

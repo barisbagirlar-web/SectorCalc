@@ -160,7 +160,7 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
           }
         ]
       },
@@ -201,373 +201,86 @@
   },
   "inputs": [
     {
-      "id": "machine_rate",
-      "name": "Machine Hourly Rate",
-      "symbol": "C_machine",
-      "quantity_kind": "currency_rate",
+      "id": "allocated_overhead",
+      "name": "Allocated Overhead",
+      "symbol": "A",
+      "quantity_kind": "currency",
       "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
+        "currency_unit"
       ],
-      "normalized_id": "n_machine_rate",
+      "normalized_id": "n_allocated_overhead",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 10000,
-        "unit": "USD/h",
+        "max": 1000000000.0,
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": {
-        "min": 20,
-        "max": 2000,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on shop rate proof; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
       "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "shop rate proof",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Fully loaded machine hourly rate."
-      },
-      "source_priority": [
-        "shop rate proof",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "shop rate proof",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "shop rate proof",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Machine Hourly Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
       "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
+        "F001"
       ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "output_bindings": [],
       "ui_binding": {
-        "group_id": "operation_context",
+        "group_id": "general",
         "field_order": 1,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
           "engineering",
-          "cost",
-          "audit"
+          "cost"
         ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "required_for_calculation": true
       },
-      "user_help_text": "Use the project-specific value for Machine Hourly Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Machine Hourly Rate can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the allocated overhead."
     },
     {
-      "id": "cycle_time",
-      "name": "Cycle Time per Unit",
-      "symbol": "t_cycle",
-      "quantity_kind": "time",
+      "id": "annual_volume_units",
+      "name": "Annual Volume Units",
+      "symbol": "A",
+      "quantity_kind": "dimensionless",
       "unit_selectable": true,
-      "base_unit": "s",
+      "base_unit": "units",
       "allowed_display_units": [
-        "s",
-        "min",
-        "h",
-        "day",
-        "month",
-        "year"
+        "units"
       ],
-      "normalized_id": "n_cycle_time",
+      "normalized_id": "n_annual_volume_units",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 36000,
-        "unit": "s",
+        "max": 1000000000.0,
+        "unit": "units",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": {
-        "min": 30,
-        "max": 36000,
-        "unit": "s",
-        "source": "SectorCalc industrial screening reference range based on time study or CAM estimate; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
       "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "time study or CAM estimate",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Run time per unit excluding batch setup unless stated."
-      },
-      "source_priority": [
-        "time study or CAM estimate",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "time study or CAM estimate",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "time study or CAM estimate",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Cycle Time per Unit; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
       "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
+        "F001"
       ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "output_bindings": [],
       "ui_binding": {
-        "group_id": "geometry_or_process_definition",
-        "field_order": 2,
+        "group_id": "general",
+        "field_order": 1,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
           "engineering",
-          "cost",
-          "audit"
+          "cost"
         ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "required_for_calculation": true
       },
-      "user_help_text": "Use the project-specific value for Cycle Time per Unit. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Cycle Time per Unit can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "setup_time",
-      "name": "Batch Setup Time",
-      "symbol": "t_setup",
-      "quantity_kind": "time",
-      "unit_selectable": true,
-      "base_unit": "s",
-      "allowed_display_units": [
-        "s",
-        "min",
-        "h",
-        "day",
-        "month",
-        "year"
-      ],
-      "normalized_id": "n_setup_time",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 36000,
-        "unit": "s",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 300,
-        "max": 72000,
-        "unit": "s",
-        "source": "SectorCalc industrial screening reference range based on setup log; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "setup log",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Setup time that must be absorbed across the batch."
-      },
-      "source_priority": [
-        "setup log",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "setup log",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "setup log",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Batch Setup Time; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "material_or_asset_data",
-        "field_order": 3,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Batch Setup Time. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Batch Setup Time can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the annual volume units."
     },
     {
       "id": "batch_quantity",
@@ -689,962 +402,498 @@
       "warning_if_missing_or_estimated": "Estimated or missing Batch Quantity can flip the decision state and will downgrade evidence confidence."
     },
     {
-      "id": "material_cost",
-      "name": "Material Cost per Unit",
-      "symbol": "C_mat",
+      "id": "cycle_time_seconds_per_unit",
+      "name": "Cycle Time Seconds Per Unit",
+      "symbol": "C",
+      "quantity_kind": "time",
+      "unit_selectable": true,
+      "base_unit": "h",
+      "allowed_display_units": [
+        "h",
+        "min"
+      ],
+      "normalized_id": "n_cycle_time_seconds_per_unit",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 100000,
+        "unit": "h",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "default_policy": "NO_DEFAULT",
+      "formula_bindings": [
+        "F001"
+      ],
+      "output_bindings": [],
+      "ui_binding": {
+        "group_id": "general",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost"
+        ],
+        "required_for_calculation": true
+      },
+      "user_help_text": "Enter the cycle time seconds per unit."
+    },
+    {
+      "id": "external_processing_per_batch",
+      "name": "External Processing Per Batch",
+      "symbol": "E",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": true,
+      "base_unit": "generic_unit",
+      "allowed_display_units": [
+        "generic_unit"
+      ],
+      "normalized_id": "n_external_processing_per_batch",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000.0,
+        "unit": "generic_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "default_policy": "NO_DEFAULT",
+      "formula_bindings": [
+        "F001"
+      ],
+      "output_bindings": [],
+      "ui_binding": {
+        "group_id": "general",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost"
+        ],
+        "required_for_calculation": true
+      },
+      "user_help_text": "Enter the external processing per batch."
+    },
+    {
+      "id": "labor_rate_per_hour",
+      "name": "Labor Rate Per Hour",
+      "symbol": "L",
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": "currency_unit",
       "allowed_display_units": [
         "currency_unit"
       ],
-      "normalized_id": "n_material_cost",
+      "normalized_id": "n_labor_rate_per_hour",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 50000000,
-        "unit": "USD",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 0.1,
-        "max": 100000,
+        "max": 1000000000.0,
         "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on purchase invoice or BOM; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "purchase invoice or BOM",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Material cost per unit including yield basis when applicable."
-      },
-      "source_priority": [
-        "purchase invoice or BOM",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "purchase invoice or BOM",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "purchase invoice or BOM",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "capacity_or_process_capability",
-        "field_order": 5,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Material Cost per Unit. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Material Cost per Unit can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "target_margin",
-      "name": "Target Gross Margin",
-      "symbol": "GM",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "percent",
-        "ratio"
-      ],
-      "normalized_id": "n_target_margin",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": -1,
-        "max": 0.95,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Target Gross Margin is below the physical or process hard bound for this calculation boundary.",
-        "semantic_error_message_max": "Target Gross Margin is above the physical or process hard bound for this calculation boundary."
-      },
-      "engineering_range": {
-        "min": 0.05,
-        "max": 0.7,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on pricing policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "pricing policy",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Target margin used to convert cost into quote price."
-      },
-      "source_priority": [
-        "pricing policy",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "pricing policy",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "pricing policy",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Target Gross Margin; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "quality_tolerance_calibration",
-        "field_order": 6,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Target Gross Margin. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Target Gross Margin can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "annual_volume",
-      "name": "Annual Decision Volume",
-      "symbol": "N",
-      "quantity_kind": "rate",
-      "unit_selectable": true,
-      "base_unit": "unit_per_s",
-      "allowed_display_units": [
-        "unit_per_s",
-        "unit_per_min",
-        "unit_per_h",
-        "unit_per_day"
-      ],
-      "normalized_id": "n_annual_volume",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 10000000,
-        "unit": "units/year",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": {
-        "min": 0.000001,
-        "max": 0.5,
-        "unit": "unit_per_s",
-        "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
       "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "planning or ERP schedule",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Annualized operating or sales volume used for impact normalization."
-      },
-      "source_priority": [
-        "planning or ERP schedule",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "planning or ERP schedule",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "planning or ERP schedule",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Annual Decision Volume; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
       "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
+        "F001"
       ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "output_bindings": [],
       "ui_binding": {
-        "group_id": "commercial_impact_inputs",
-        "field_order": 7,
+        "group_id": "general",
+        "field_order": 1,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
+        "unit_dropdown_required": false,
         "advanced": false,
         "visible_in_modes": [
           "quick",
           "engineering",
-          "cost",
-          "audit"
+          "cost"
         ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "required_for_calculation": true
       },
-      "user_help_text": "Use the project-specific value for Annual Decision Volume. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Decision Volume can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the labor rate per hour."
     },
     {
-      "id": "labor_rate",
-      "name": "Fully Loaded Labor Rate",
-      "symbol": "C_labor",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_labor_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 5000,
-        "unit": "USD/h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 20,
-        "max": 250,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on payroll and overhead allocation; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "payroll and overhead allocation",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Loaded labor rate including wages, burden, and reasonable supervision allocation."
-      },
-      "source_priority": [
-        "payroll and overhead allocation",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "payroll and overhead allocation",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "payroll and overhead allocation",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Fully Loaded Labor Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "evidence_and_source_status",
-        "field_order": 8,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Fully Loaded Labor Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Fully Loaded Labor Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "overhead_rate",
-      "name": "Allocated Overhead Rate",
-      "symbol": "C_oh",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_overhead_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 10000,
-        "unit": "USD/h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 10,
-        "max": 1000,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on cost accounting ledger; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "cost accounting ledger",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Allocated support cost used only for commercial impact and quote governance."
-      },
-      "source_priority": [
-        "cost accounting ledger",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "cost accounting ledger",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "cost accounting ledger",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Allocated Overhead Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "advanced_derating_inputs",
-        "field_order": 9,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Allocated Overhead Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Allocated Overhead Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "defect_or_loss_cost",
-      "name": "Unit Loss Cost",
-      "symbol": "C_loss",
+      "id": "machine_rate_per_hour",
+      "name": "Machine Rate Per Hour",
+      "symbol": "M",
       "quantity_kind": "currency",
       "unit_selectable": true,
       "base_unit": "currency_unit",
       "allowed_display_units": [
         "currency_unit"
       ],
-      "normalized_id": "n_defect_or_loss_cost",
+      "normalized_id": "n_machine_rate_per_hour",
       "type": "number",
       "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "criticality": "CRITICAL",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 50000000,
-        "unit": "USD",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 1,
-        "max": 100000,
+        "max": 1000000000.0,
         "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on invoice, replacement cost, or management estimate; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "invoice, replacement cost, or management estimate",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Monetary exposure if the decision is wrong or a unit fails the intended requirement."
-      },
-      "source_priority": [
-        "invoice, replacement cost, or management estimate",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "invoice, replacement cost, or management estimate",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "invoice, replacement cost, or management estimate",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Unit Loss Cost; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 10,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Unit Loss Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Unit Loss Cost can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "source_confidence_ratio",
-      "name": "Source Confidence Ratio",
-      "symbol": "Q_src",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "normalized_id": "n_source_confidence_ratio",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1,
-        "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": {
-        "min": 0.6,
-        "max": 1,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on evidence review; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
       "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "evidence review",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Reviewer-assigned confidence in source traceability."
-      },
-      "source_priority": [
-        "evidence review",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "evidence review",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "evidence review",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Source Confidence Ratio; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
       "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
+        "F001"
       ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "output_bindings": [],
       "ui_binding": {
-        "group_id": "geometry_or_process_definition",
-        "field_order": 11,
+        "group_id": "general",
+        "field_order": 1,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
+        "unit_dropdown_required": false,
+        "advanced": false,
         "visible_in_modes": [
+          "quick",
           "engineering",
-          "cost",
-          "audit"
+          "cost"
         ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "required_for_calculation": true
       },
-      "user_help_text": "Use the project-specific value for Source Confidence Ratio. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the machine rate per hour."
     },
     {
-      "id": "uncertainty_multiplier",
-      "name": "Uncertainty Coverage Multiplier",
-      "symbol": "k_u",
-      "quantity_kind": "dimensionless",
+      "id": "material_cost_per_unit",
+      "name": "Material Cost Per Unit",
+      "symbol": "M",
+      "quantity_kind": "currency",
       "unit_selectable": true,
-      "base_unit": "ratio",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
-      "normalized_id": "n_uncertainty_multiplier",
+      "normalized_id": "n_material_cost_per_unit",
       "type": "number",
       "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "criticality": "CRITICAL",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 5,
-        "unit": "ratio",
+        "max": 1000000000.0,
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": {
-        "min": 1.5,
-        "max": 2.5,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on uncertainty policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+      "default_policy": "NO_DEFAULT",
+      "formula_bindings": [
+        "F001"
+      ],
+      "output_bindings": [],
+      "ui_binding": {
+        "group_id": "general",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost"
+        ],
+        "required_for_calculation": true
       },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
+      "user_help_text": "Enter the material cost per unit."
+    },
+    {
+      "id": "operator_count",
+      "name": "Operator Count",
+      "symbol": "O",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": true,
+      "base_unit": "units",
+      "allowed_display_units": [
+        "units"
+      ],
+      "normalized_id": "n_operator_count",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000.0,
+        "unit": "units",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
       },
       "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "uncertainty policy",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Coverage multiplier used by the server uncertainty model."
-      },
-      "source_priority": [
-        "uncertainty policy",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "uncertainty policy",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "uncertainty policy",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Uncertainty Coverage Multiplier; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
       "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
+        "F001"
       ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "output_bindings": [],
       "ui_binding": {
-        "group_id": "material_or_asset_data",
-        "field_order": 12,
+        "group_id": "general",
+        "field_order": 1,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
+        "unit_dropdown_required": false,
+        "advanced": false,
         "visible_in_modes": [
+          "quick",
           "engineering",
-          "cost",
-          "audit"
+          "cost"
         ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "required_for_calculation": true
       },
-      "user_help_text": "Use the project-specific value for Uncertainty Coverage Multiplier. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Enter the operator count."
+    },
+    {
+      "id": "other_job_cost_per_batch",
+      "name": "Other Job Cost Per Batch",
+      "symbol": "O",
+      "quantity_kind": "currency",
+      "unit_selectable": true,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_other_job_cost_per_batch",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000.0,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "default_policy": "NO_DEFAULT",
+      "formula_bindings": [
+        "F001"
+      ],
+      "output_bindings": [],
+      "ui_binding": {
+        "group_id": "general",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost"
+        ],
+        "required_for_calculation": true
+      },
+      "user_help_text": "Enter the other job cost per batch."
+    },
+    {
+      "id": "packaging_freight_per_batch",
+      "name": "Packaging Freight Per Batch",
+      "symbol": "P",
+      "quantity_kind": "currency",
+      "unit_selectable": true,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_packaging_freight_per_batch",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000.0,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "default_policy": "NO_DEFAULT",
+      "formula_bindings": [
+        "F001"
+      ],
+      "output_bindings": [],
+      "ui_binding": {
+        "group_id": "general",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost"
+        ],
+        "required_for_calculation": true
+      },
+      "user_help_text": "Enter the packaging freight per batch."
+    },
+    {
+      "id": "scrap_rework_percent",
+      "name": "Scrap Rework %",
+      "symbol": "S",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": true,
+      "base_unit": "percent",
+      "allowed_display_units": [
+        "percent"
+      ],
+      "normalized_id": "n_scrap_rework_percent",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "default_policy": "NO_DEFAULT",
+      "formula_bindings": [
+        "F001"
+      ],
+      "output_bindings": [],
+      "ui_binding": {
+        "group_id": "general",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost"
+        ],
+        "required_for_calculation": true
+      },
+      "user_help_text": "Enter the scrap rework %."
+    },
+    {
+      "id": "selling_price_per_unit",
+      "name": "Selling Price Per Unit",
+      "symbol": "S",
+      "quantity_kind": "currency",
+      "unit_selectable": true,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_selling_price_per_unit",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000.0,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "default_policy": "NO_DEFAULT",
+      "formula_bindings": [
+        "F001"
+      ],
+      "output_bindings": [],
+      "ui_binding": {
+        "group_id": "general",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost"
+        ],
+        "required_for_calculation": true
+      },
+      "user_help_text": "Enter the selling price per unit."
+    },
+    {
+      "id": "setup_time_minutes_per_batch",
+      "name": "Setup Time Minutes Per Batch",
+      "symbol": "S",
+      "quantity_kind": "time",
+      "unit_selectable": true,
+      "base_unit": "min",
+      "allowed_display_units": [
+        "h",
+        "min"
+      ],
+      "normalized_id": "n_setup_time_minutes_per_batch",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 525600,
+        "unit": "min",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "default_policy": "NO_DEFAULT",
+      "formula_bindings": [
+        "F001"
+      ],
+      "output_bindings": [],
+      "ui_binding": {
+        "group_id": "general",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost"
+        ],
+        "required_for_calculation": true
+      },
+      "user_help_text": "Enter the setup time minutes per batch."
+    },
+    {
+      "id": "target_revenue_margin_percent",
+      "name": "Target Revenue Margin %",
+      "symbol": "T",
+      "quantity_kind": "currency",
+      "unit_selectable": true,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_target_revenue_margin_percent",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000.0,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "default_policy": "NO_DEFAULT",
+      "formula_bindings": [
+        "F001"
+      ],
+      "output_bindings": [],
+      "ui_binding": {
+        "group_id": "general",
+        "field_order": 1,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost"
+        ],
+        "required_for_calculation": true
+      },
+      "user_help_text": "Enter the target revenue margin %."
     }
   ],
   "normalized_inputs": [
@@ -3622,546 +2871,111 @@
   ],
   "outputs": [
     {
-      "id": "out_evidence_completeness",
-      "name": "Evidence Completeness Index",
-      "symbol": "Q_evidence",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F001",
-      "decision_use": "DIAGNOSTIC",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F001",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Evidence Completeness Index translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_normalized_demand",
-      "name": "Normalized Demand or Exposure",
-      "symbol": "D_norm",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F002",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "DEMAND",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F002",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Normalized Demand or Exposure translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_reference_deviation",
-      "name": "Reference Range Deviation Severity",
-      "symbol": "R_dev",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F003",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "WARNING_SUMMARY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F003",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Reference Range Deviation Severity translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_derating_factor",
-      "name": "Derating or Confidence Factor",
-      "symbol": "K_derate",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F004",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "SAFETY_FACTOR",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F004",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Derating or Confidence Factor translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_demand_metric",
-      "name": "Demand-Side Technical Metric",
-      "symbol": "D",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F005",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "DEMAND",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F005",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Demand-Side Technical Metric translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_capacity_metric",
-      "name": "Capacity or Allowable-Side Metric",
-      "symbol": "C",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F006",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "CAPACITY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F006",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Capacity or Allowable-Side Metric translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_utilization_margin",
-      "name": "Governing Utilization or Margin",
-      "symbol": "UC",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F007",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "UTILIZATION",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F007",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Governing Utilization or Margin translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_expanded_uncertainty",
-      "name": "Expanded Uncertainty",
-      "symbol": "U",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F008",
-      "decision_use": "SENSITIVITY",
-      "proof_status_role": "SAFETY_FACTOR",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F008",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Expanded Uncertainty translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_threshold_crossing",
-      "name": "Decision Threshold Crossing Risk",
-      "symbol": "X_thr",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F009",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F009",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Decision Threshold Crossing Risk translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_sensitivity_driver",
-      "name": "Dominant Sensitivity Driver",
-      "symbol": "S_driver",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F010",
-      "decision_use": "SENSITIVITY",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F010",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Dominant Sensitivity Driver translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_fmea_trigger",
-      "name": "FMEA Trigger State",
-      "symbol": "FMEA",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "string",
-      "formula_source": "F011",
-      "decision_use": "WARNING_DRIVER",
-      "proof_status_role": "WARNING_SUMMARY",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F011",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "FMEA Trigger State translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "out_money_at_risk",
-      "name": "Money at Risk",
-      "symbol": "MAR",
+      "id": "out_allocated_overhead",
+      "name": "Allocated Overhead",
+      "symbol": "AL_ove",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "allowed_display_units": [
         "currency_unit"
       ],
       "type": "number",
-      "formula_source": "F012",
-      "decision_use": "BUSINESS_IMPACT",
-      "proof_status_role": "BUSINESS_IMPACT",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F012",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Money at Risk translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
       "output_format": {
-        "decimals": 3,
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
     },
     {
-      "id": "out_scenario_delta",
-      "name": "Scenario Delta",
-      "symbol": "Delta_scn",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "id": "out_annualized_money_at_risk",
+      "name": "Annualized Money At Risk",
+      "symbol": "AN_mon",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
       "type": "number",
-      "formula_source": "F013",
-      "decision_use": "SCENARIO",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F013",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Scenario Delta translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
+      "decision_use": "WARNING_DRIVER",
+      "proof_status_role": "WARNING_SUMMARY",
       "output_format": {
-        "decimals": 3,
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      },
+      "public_explanation": "Annualized Money At Risk calculated from input parameters."
+    },
+    {
+      "id": "out_break_even_quantity",
+      "name": "Break Even Quantity",
+      "symbol": "BR_eve",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "percent",
+        "ratio"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 0,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
     },
     {
-      "id": "out_audit_hash_payload",
-      "name": "Audit Hash Payload Status",
-      "symbol": "H_audit",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "id": "out_contribution_profit",
+      "name": "Contribution Profit",
+      "symbol": "CO_pro",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
-      "type": "string",
-      "formula_source": "F014",
-      "decision_use": "AUDIT",
-      "proof_status_role": "AUDIT",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F014",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Audit Hash Payload Status translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "PARTIAL",
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "COST_COMPONENT",
       "output_format": {
-        "decimals": 3,
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_direct_material_cost",
+      "name": "Direct Material Cost",
+      "symbol": "DI_mat",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_external_processing_cost",
+      "name": "External Processing Cost",
+      "symbol": "EX_pro",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
@@ -4169,38 +2983,273 @@
     {
       "id": "out_final_decision_state",
       "name": "Final Decision State",
-      "symbol": "Decision",
+      "symbol": "D_state",
       "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "base_unit": "index",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "percent",
+        "ratio"
       ],
-      "type": "enum",
-      "formula_source": "F015",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "PASS_FAIL",
-      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
-      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
-      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
-      "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F015",
-      "governing_input_sensitivity": [
-        "critical measured input",
-        "evidence confidence",
-        "uncertainty contribution",
-        "commercial exposure"
-      ],
-      "public_explanation": "Final Decision State translates the protected loss-making-job-detector calculation into a public-safe decision-support metric.",
-      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
-      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
-      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
-      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
-      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
-      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
-      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "type": "number",
+      "decision_use": "FINAL_VERDICT",
+      "proof_status_role": "FINAL_VERDICT",
       "output_format": {
-        "decimals": 3,
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      },
+      "public_explanation": "Final Decision State calculated from input parameters."
+    },
+    {
+      "id": "out_fully_loaded_job_cost",
+      "name": "Fully Loaded Job Cost",
+      "symbol": "FU_loa",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_job_revenue",
+      "name": "Job Revenue",
+      "symbol": "JO_rev",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_labor_cost",
+      "name": "Labor Cost",
+      "symbol": "LA_cos",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_machine_cost",
+      "name": "Machine Cost",
+      "symbol": "MA_cos",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_minimum_sustainable_price",
+      "name": "Minimum Sustainable Price",
+      "symbol": "MI_sus",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_operating_profit",
+      "name": "Operating Profit",
+      "symbol": "OP_pro",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_other_job_cost",
+      "name": "Other Job Cost",
+      "symbol": "OT_job",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_packaging_freight_cost",
+      "name": "Packaging Freight Cost",
+      "symbol": "PA_fre",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_primary_loss_driver",
+      "name": "Primary Loss Driver",
+      "symbol": "LO_drv",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DIAGNOSTIC",
+      "output_format": {
+        "decimals": 0,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": false
+      },
+      "public_explanation": "Primary Loss Driver calculated from input parameters."
+    },
+    {
+      "id": "out_profit_loss_per_unit",
+      "name": "Profit Loss Per Unit",
+      "symbol": "PR_los",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "INTERMEDIATE",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_repricing_gap",
+      "name": "Repricing Gap",
+      "symbol": "RE_gap",
+      "quantity_kind": "dimensionless",
+      "base_unit": "index",
+      "allowed_display_units": [
+        "percent",
+        "ratio"
+      ],
+      "type": "number",
+      "decision_use": "DEVIATION",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_revenue_margin_percent",
+      "name": "Revenue Margin Percent",
+      "symbol": "RE_mar",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "PERFORMANCE_METRIC",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_scrap_rework_cost",
+      "name": "Scrap Rework Cost",
+      "symbol": "SC_rew",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "COST_COMPONENT",
+      "output_format": {
+        "decimals": 2,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_target_price",
+      "name": "Target Price",
+      "symbol": "TA_pri",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "decision_use": "COST_COMPONENT",
+      "proof_status_role": "INTERMEDIATE",
+      "output_format": {
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
