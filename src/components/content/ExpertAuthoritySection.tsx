@@ -146,11 +146,10 @@ export function ExpertAuthoritySection({
         </div>
       </div>
 
-      {/* Schema.org structured data for Person */}
-      <script
-        type="application/ld+json"
+      {/* Schema.org structured data for Person — wrapped in <div> for Next.js 15.5.x compat */}
+      <div
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: `<script type="application/ld+json">${JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Prof. Dr. Neela Nataraj",
@@ -174,7 +173,7 @@ export function ExpertAuthoritySection({
             ],
             description:
               "Academic expert overseeing mathematical modeling and formula validation for sector-specific calculation tools.",
-          }),
+          })}</script>`,
         }}
       />
     </section>

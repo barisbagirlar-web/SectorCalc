@@ -52,9 +52,10 @@ export function SchemaMesh({ sector, sectorKey, locale = "en", priceUsd = "19" }
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    ></script>
+    <div
+      dangerouslySetInnerHTML={{
+        __html: `<script type="application/ld+json">${JSON.stringify(schema)}</script>`,
+      }}
+    />
   );
 }

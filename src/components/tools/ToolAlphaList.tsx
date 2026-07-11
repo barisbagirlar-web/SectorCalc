@@ -80,11 +80,10 @@ export function ToolAlphaList({
 
   return (
     <>
-      {/* JSON‑LD structured data */}
-      <script
-        type="application/ld+json"
+      {/* JSON‑LD structured data — wrapped in <div> to avoid Next.js 15.5.x bug */}
+      <div
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          __html: `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>`,
         }}
       />
 

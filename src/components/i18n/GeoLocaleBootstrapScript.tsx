@@ -6,9 +6,10 @@ import { buildGeoLocaleBootstrapScript } from "@/lib/infrastructure/i18n/geo-loc
  */
 export function GeoLocaleBootstrapScript() {
   return (
-    <script
-      id="sc-geo-locale-bootstrap"
-      dangerouslySetInnerHTML={{ __html: buildGeoLocaleBootstrapScript() }}
-    ></script>
+    <div
+      dangerouslySetInnerHTML={{
+        __html: `<script id="sc-geo-locale-bootstrap">${buildGeoLocaleBootstrapScript()}</script>`,
+      }}
+    />
   );
 }
