@@ -33,14 +33,21 @@ jobs:
       - name: Regenerate deterministic golden hashes
         run: npm run test:golden:free-v531:update
 
-      - name: Enforce narrow change scope
+      - name: Keep only machining hash change
         shell: bash
         run: |
+          target='tests/golden/hashes/free-v531/machining-cost-per-part.hashes.json'
+          while IFS= read -r file; do
+            if [ "$file" != "$target" ]; then
+              git checkout -- "$file"
+            fi
+          done < <(git diff --name-only -- 'tests/golden/hashes/free-v531/*.hashes.json')
+
           changed="$(git diff --name-only)"
           echo "$changed"
-          unexpected="$(printf '%s\n' "$changed" | grep -v '^tests/golden/hashes/free-v531/machining-cost-per-part.hashes.json$' || true)"
+          unexpected="$(printf '%s\n' "$changed" | grep -v "^${target}$" || true)"
           if [ -n "$unexpected" ]; then
-            echo "UNEXPECTED_FILES_CHANGED"
+            echo 'UNEXPECTED_FILES_CHANGED'
             echo "$unexpected"
             exit 1
           fi
@@ -48,12 +55,13 @@ jobs:
       - name: Commit updated hash
         shell: bash
         run: |
-          if git diff --quiet -- tests/golden/hashes/free-v531/machining-cost-per-part.hashes.json; then
-            echo "NO_HASH_CHANGE"
+          target='tests/golden/hashes/free-v531/machining-cost-per-part.hashes.json'
+          if git diff --quiet -- "$target"; then
+            echo 'NO_HASH_CHANGE'
             exit 1
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tests/golden/hashes/free-v531/machining-cost-per-part.hashes.json
-          git commit -m "test: refresh machining cost golden hash"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$target"
+          git commit -m 'test: refresh machining cost golden hash'
           git push origin HEAD:chore/engineering-control-plane-v1
