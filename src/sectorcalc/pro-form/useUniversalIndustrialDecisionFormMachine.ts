@@ -251,7 +251,7 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
         message: error instanceof Error ? error.message : "Server execution failed with an unknown error.",
       });
     }
-  }, [executeEndpoint, fetcher, options.schema, state.evidenceState, state.profileModeState.mode, state.rawInputState, state.scenarioState.request, state.schemaState.schema_hash, state.selectedUnitState, options.usageSessionId]);
+  }, [executeEndpoint, fetcher, options.authToken, options.schema, state.evidenceState, state.profileModeState.mode, state.rawInputState, state.scenarioState.request, state.schemaState.schema_hash, state.selectedUnitState, options.usageSessionId]);
 
   const setProfileMode = useCallback((mode: ProfileMode) => {
     dispatch({ type: "SET_PROFILE_MODE", mode });
