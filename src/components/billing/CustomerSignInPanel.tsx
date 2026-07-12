@@ -21,6 +21,8 @@ import {
 const buttonClass =
   "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-accent-teal px-4 text-sm font-semibold transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50";
 
+type AuthMode = "signin" | "signup" | "reset";
+
 interface CustomerSignInPanelProps {
   nextPath: string;
   defaultMode?: "signin" | "signup";
@@ -29,8 +31,9 @@ interface CustomerSignInPanelProps {
 export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: CustomerSignInPanelProps) {
   const router = useRouter();
   const t = useTranslations("premiumAccess");
-  const [mode, setMode] = useState<"signin" | "signup">(defaultMode);
+  const [mode, setMode] = useState<AuthMode>(defaultMode);
   const [email, setEmail] = useState("");
+  const [resetEmail, setResetEmail] = useState("");
   const [password, setPassword] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -76,9 +79,13 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
     };
   }, [nextPath, router]);
 
-  const handleGoogleSignIn = async () => {
+  const clearMessages = () => {
     setError(null);
     setNotice(null);
+  };
+
+  const handleGoogleSignIn = async () => {
+    clearMessages();
     setPending(true);
 
     try {
@@ -98,10 +105,9 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
     }
   };
 
-  const handleEmailAuth = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    setNotice(null);
+  const handleEmailAuth = async (event: React.FormEvent) => {
+    event.preventDefault();
+    clearMessages();
     setPending(true);
 
     const normalizedEmail = email.trim().toLowerCase();
@@ -123,20 +129,27 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
     }
   };
 
-  const handlePasswordReset = async () => {
-    const normalizedEmail = email.trim().toLowerCase();
-    setError(null);
-    setNotice(null);
+  const openPasswordReset = () => {
+    setResetEmail(email.trim().toLowerCase());
+    setMode("reset");
+    clearMessages();
+    setPassword("");
+  };
+
+  const handlePasswordReset = async (event: React.FormEvent) => {
+    event.preventDefault();
+    const normalizedEmail = resetEmail.trim().toLowerCase();
+    clearMessages();
 
     if (!normalizedEmail) {
-      setError("Enter your email address first.");
+      setError("Enter the email address whose password you want to reset.");
       return;
     }
 
     setPending(true);
     try {
       await sendCustomerPasswordReset(normalizedEmail);
-      setNotice("Password reset email sent. Check your inbox and spam folder.");
+      setNotice("If an email/password account exists for this address, a reset link has been sent. Check the inbox and spam folder.");
     } catch (caught) {
       if (process.env.NODE_ENV !== "production") console.error("[CustomerAuth][PasswordReset]", caught);
       setError(getCustomerSignInErrorMessage(caught));
@@ -145,11 +158,61 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
     }
   };
 
+  const switchMode = (nextMode: AuthMode) => {
+    setMode(nextMode);
+    setPassword("");
+    clearMessages();
+  };
+
+  if (mode === "reset") {
+    return (
+      <div className="mt-8 rounded-sm border border-border-subtle bg-bg-subtle p-6" data-auth-state={pending ? "pending" : "ready"}>
+        <h2 className="text-lg font-bold text-text-primary">Reset your password</h2>
+        <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+          Enter the exact email address for the SectorCalc account whose password you want to reset.
+        </p>
+
+        <form onSubmit={handlePasswordReset} className="mt-4 flex flex-col gap-3">
+          <label htmlFor="password-reset-email" className="text-sm font-semibold text-text-primary">
+            Account email
+          </label>
+          <input
+            id="password-reset-email"
+            type="email"
+            value={resetEmail}
+            onChange={(event) => setResetEmail(event.target.value)}
+            placeholder="name@company.com"
+            autoComplete="email"
+            required
+            autoFocus
+            className="rounded-lg border border-border-subtle p-3 text-sm text-text-primary"
+          />
+          <button type="submit" disabled={pending} className={`${buttonClass} text-white`}>
+            {pending ? "Sending reset link..." : "Send password reset email"}
+          </button>
+        </form>
+
+        <button
+          type="button"
+          onClick={() => switchMode("signin")}
+          disabled={pending}
+          className="mt-3 text-sm font-semibold text-accent-teal hover:underline disabled:opacity-50"
+        >
+          Back to sign in
+        </button>
+
+        <p data-auth-error="true" role="alert" aria-live="polite" className={error ? "mt-3 text-sm text-amber" : "sr-only"}>
+          {error ?? ""}
+        </p>
+        <p role="status" aria-live="polite" className={notice ? "mt-3 text-sm text-accent-teal" : "sr-only"}>
+          {notice ?? ""}
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <div
-      className="mt-8 rounded-sm border border-border-subtle bg-bg-subtle p-6"
-      data-auth-state={pending ? "pending" : "ready"}
-    >
+    <div className="mt-8 rounded-sm border border-border-subtle bg-bg-subtle p-6" data-auth-state={pending ? "pending" : "ready"}>
       <h2 className="text-lg font-bold text-text-primary">{mode === "signup" ? "Create an account" : t("panelTitle")}</h2>
       <p className="mt-2 text-sm leading-relaxed text-text-secondary">
         {mode === "signup" ? "Sign up to access Pro tools and save your progress." : t("panelDescription")}
@@ -159,7 +222,7 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(event) => setEmail(event.target.value)}
           placeholder="Email address"
           autoComplete="email"
           required
@@ -168,7 +231,7 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
         <input
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(event) => setPassword(event.target.value)}
           placeholder="Password"
           autoComplete={mode === "signup" ? "new-password" : "current-password"}
           required
@@ -182,7 +245,7 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
       {mode === "signin" && (
         <button
           type="button"
-          onClick={() => void handlePasswordReset()}
+          onClick={openPasswordReset}
           disabled={pending}
           className="mt-3 text-sm font-semibold text-accent-teal hover:underline disabled:opacity-50"
         >
@@ -227,14 +290,14 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
         {mode === "signin" ? (
           <p className="text-text-secondary">
             Don't have an account?{" "}
-            <button type="button" onClick={() => { setMode("signup"); setError(null); setNotice(null); }} className="font-semibold text-accent-teal hover:underline">
+            <button type="button" onClick={() => switchMode("signup")} className="font-semibold text-accent-teal hover:underline">
               Sign up
             </button>
           </p>
         ) : (
           <p className="text-text-secondary">
             Already have an account?{" "}
-            <button type="button" onClick={() => { setMode("signin"); setError(null); setNotice(null); }} className="font-semibold text-accent-teal hover:underline">
+            <button type="button" onClick={() => switchMode("signin")} className="font-semibold text-accent-teal hover:underline">
               Sign in
             </button>
           </p>
