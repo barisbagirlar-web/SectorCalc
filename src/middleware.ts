@@ -143,7 +143,16 @@ function shouldSkipRateLimit(request: NextRequest): boolean {
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // ── www → non-www canonical redirect (Firebase SSR host match fix) ──
+// ── Trailing slash canonicalization ──
+// Enforce no trailing slash on all pages (canonical form).
+// Both /tools/pro/x/ and /tools/pro/x must not be duplicate content.
+if (pathname !== "/" && pathname.endsWith("/")) {
+  const url = new URL(request.url);
+  url.pathname = pathname.replace(/\/+$/, "");
+  return NextResponse.redirect(url, 301);
+}
+
+// ── www → non-www canonical redirect (Firebase SSR host match fix) ──
   const host = request.headers.get("host") ?? "";
   if (host === "www.sectorcalc.com" || host.startsWith("www.")) {
     const url = new URL(request.url);

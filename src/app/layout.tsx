@@ -38,6 +38,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   robots: metadataRobots(),
+  alternates: {
+    canonical: "https://sectorcalc.com/",
+  },
 };
 
 export const viewport: Viewport = {

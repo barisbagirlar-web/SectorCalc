@@ -26,15 +26,40 @@ const PREMIUM_ANALYZER_TO_SCHEMA_ID: Record<string, string> = {
 };
 
 const TOOL_PATH = /^\/tools\/(?:generated|premium-schema|premium|pro)\/([^/]+)$/;
+const FREE_TOOL_PATH = /^\/tools\/free\/([^/]+)$/;
 const CASE_STUDY_PATH = /^\/case-studies\/([^/]+)$/;
 const AUTHORITY_GUIDE_PATH = /^\/guides\/([^/]+)$/;
 const SEO_LANDING_PATH = /^\/seo\/([^/]+)$/;
+
+const CORE_PAGES = new Set([
+  "/",
+  "/pricing",
+  "/privacy",
+  "/terms",
+  "/disclaimer",
+  "/calculators/fmea-rpn",
+  "/resources/fmea-rpn-technical-note",
+]);
+
+const HUB_PAGES = new Set([
+  "/categories",
+  "/pro-tools",
+  "/calculator-library",
+  "/industries",
+  "/how-it-works",
+  "/operating-system",
+  "/for-consultants",
+  "/free-tools",
+  "/case-studies",
+]);
 
 const CONTENT_SOURCE_FILES = {
   guides: path.join(process.cwd(), "src/lib/content/authority-guides.ts"),
   seoLandings: path.join(process.cwd(), "src/lib/infrastructure/seo/programmatic-seo-pages.ts"),
   premiumRegistry: path.join(process.cwd(), "src/lib/features/premium-schema/schema-registry.ts"),
   manifest: path.join(process.cwd(), "src/lib/infrastructure/seo/sitemap-manifest.ts"),
+  coreRoutes: path.join(process.cwd(), "src/app/layout.tsx"),
+  hubRoutes: path.join(process.cwd(), "src/lib/catalog/global-tool-category-taxonomy.ts"),
 } as const;
 
 const staticPagePathSet = new Set(getStaticPages().map((page) => page.path));
@@ -145,6 +170,11 @@ export function resolveSitemapLastModified(
     return resolveGeneratedOrPremiumToolLastMod(toolMatch[1], fallback);
   }
 
+  const freeToolMatch = routePath.match(FREE_TOOL_PATH);
+  if (freeToolMatch) {
+    return resolveGeneratedOrPremiumToolLastMod(freeToolMatch[1], fallback);
+  }
+
   const caseStudyMatch = routePath.match(CASE_STUDY_PATH);
   if (caseStudyMatch) {
     return caseStudyLastMod.get(caseStudyMatch[1]) ?? readCachedFileGitDate("manifest", fallback);
@@ -156,6 +186,15 @@ export function resolveSitemapLastModified(
 
   if (routePath.match(SEO_LANDING_PATH)) {
     return readCachedFileGitDate("seoLandings", fallback);
+  }
+
+  // Use distinct date sources for core vs hub pages to avoid lastmod stamp collision
+  if (CORE_PAGES.has(routePath)) {
+    return readCachedFileGitDate("coreRoutes", fallback);
+  }
+
+  if (HUB_PAGES.has(routePath)) {
+    return readCachedFileGitDate("hubRoutes", fallback);
   }
 
   if (staticPagePathSet.has(routePath)) {

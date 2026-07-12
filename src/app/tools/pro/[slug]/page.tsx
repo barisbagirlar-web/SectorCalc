@@ -15,6 +15,8 @@ import { ProToolAssistedDossier } from "@/components/pro-commerce/ProToolAssiste
 import { ProToolPaywallGate } from "@/components/pro-commerce/ProToolPaywallGate";
 import { getPublicToolTitle, getPublicProMetaDescription } from "@/sectorcalc/public/public-tool-copy-adapter";
 import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
+import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
+import { buildFAQJsonLd, buildBreadcrumbJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import "server-only";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
@@ -53,9 +55,13 @@ export async function generateMetadata({
     title: seoTitle,
     description: publicDesc,
     robots: { index: true, follow: true },
+    alternates: {
+      canonical: `https://sectorcalc.com/tools/pro/${slug}`,
+    },
     openGraph: {
       title: seoTitle,
       description: publicDesc,
+      url: `https://sectorcalc.com/tools/pro/${slug}`,
     },
   };
 }
@@ -101,8 +107,33 @@ export default async function ProToolDetailPage({
     );
   }
 
+  // Structured data: FAQPage + BreadcrumbList for rich results
+  const faqJsonLd = buildFAQJsonLd([
+    {
+      question: `How is ${schema.tool_name} calculated?`,
+      answer: `${schema.tool_name} uses deterministic, server-side calculation with published engineering formulas and industry standards. All inputs are validated and unit-converted before execution.`,
+    },
+    {
+      question: `What inputs does ${schema.tool_name} require?`,
+      answer: `The tool accepts key operational and financial inputs specific to ${schema.tool_name}. Each input includes reference ranges and physical validation bounds.`,
+    },
+    {
+      question: `Can I export the ${schema.tool_name} results?`,
+      answer: `Yes. Subscribers can export a full PDF report including input assumptions, calculation results, verdict, risk drivers, and suggested actions.`,
+    },
+  ]);
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "SectorCalc", path: "/" },
+    { name: "Pro Tools", path: "/pro-tools" },
+    { name: schema.tool_name, path: `/tools/pro/${slug}` },
+  ]);
+  const toolJsonLd: Record<string, unknown>[] = [faqJsonLd, breadcrumbJsonLd].filter(
+    (item): item is Record<string, unknown> => item !== null,
+  );
+
   return (
     <PageLayout>
+      <SemanticJsonLd data={toolJsonLd} />
       <article aria-label={schema.tool_name} className="sc-v531-shell">
         <ProToolPaywallGate toolName={slug}>
           <ProToolSessionWrapper

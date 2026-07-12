@@ -12,6 +12,8 @@ import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schem
 import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 import { getPublicToolTitle, getPublicToolMetaDescription } from "@/sectorcalc/public/public-tool-copy-adapter";
 import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
+import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
+import { buildFAQJsonLd, buildBreadcrumbJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 import "@/sectorcalc/free-form/free-tool-result-panel.css";
@@ -98,6 +100,9 @@ export async function generateMetadata({
       title: `${name} | SectorCalc FREE`,
       description: `Free ${name} industrial calculator. Calculate costs, measure efficiency, and make data-driven decisions.`,
       robots: { index: true, follow: true },
+      alternates: {
+        canonical: `https://sectorcalc.com/tools/free/${slug}`,
+      },
     };
   }
 
@@ -111,9 +116,13 @@ export async function generateMetadata({
     title: seoTitle,
     description: publicDesc,
     robots: { index: true, follow: true },
+    alternates: {
+      canonical: `https://sectorcalc.com/tools/free/${slug}`,
+    },
     openGraph: {
       title: seoTitle,
       description: publicDesc,
+      url: `https://sectorcalc.com/tools/free/${slug}`,
     },
   };
 }
@@ -145,8 +154,33 @@ export default async function FreeToolDetailPage({
     notFound();
   }
 
+  // Structured data: FAQPage + BreadcrumbList for rich results
+  const faqJsonLd = buildFAQJsonLd([
+    {
+      question: `How is ${schema.tool_name} calculated?`,
+      answer: `${schema.tool_name} uses standard engineering formulas. All calculations are performed in-browser with no data storage.`,
+    },
+    {
+      question: `What inputs does ${schema.tool_name} require?`,
+      answer: `The tool accepts the key parameters shown in the input form. Each input includes reference ranges for guidance.`,
+    },
+    {
+      question: `Is ${schema.tool_name} free to use?`,
+      answer: `Yes. All free calculators on SectorCalc are completely free to use with browser-side processing. No account required.`,
+    },
+  ]);
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "SectorCalc", path: "/" },
+    { name: "Free Tools", path: "/free-tools" },
+    { name: schema.tool_name, path: `/tools/free/${slug}` },
+  ]);
+  const toolJsonLd: Record<string, unknown>[] = [faqJsonLd, breadcrumbJsonLd].filter(
+    (item): item is Record<string, unknown> => item !== null,
+  );
+
   return (
     <PageLayout>
+      <SemanticJsonLd data={toolJsonLd} />
       <article aria-label={schema.tool_name} className="sc-v531-shell">
         <ProToolSessionWrapper
           schema={schema}

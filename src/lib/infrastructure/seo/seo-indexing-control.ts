@@ -71,6 +71,9 @@ export function generateRobotsTxt(): string {
     `Sitemap: ${SITE_URL}/sitemap.xml`,
     `Host: ${SITE_URL}`,
     "",
+    "# LLM references",
+    `# ${SITE_URL}/llms.txt`,
+    `# ${SITE_URL}/llms-full.txt`,
   ].join("\n");
 }
 

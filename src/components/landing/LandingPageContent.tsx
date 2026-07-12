@@ -10,7 +10,7 @@ export function LandingPageContent() {
         <section className="hero">
           <div className="wrap">
             <p className="eyebrow">INDUSTRIAL CALCULATORS FOR REAL OPERATING DECISIONS</p>
-            <h1>Calculate cost, risk, downtime, and production decisions before they become expensive mistakes.</h1>
+            <h1>Calculate cost and risk before they become expensive mistakes.</h1>
             <p className="subhead">
               Use SectorCalc to estimate shop-floor costs, compare scenarios, check margins, diagnose losses, and prepare decision-ready reports for manufacturing, finance, operations, and engineering work.
             </p>

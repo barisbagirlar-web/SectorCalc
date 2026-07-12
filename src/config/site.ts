@@ -4,8 +4,9 @@ function normalizeSiteUrl(value: string): string {
  const trimmed = value.trim().replace(/\/$/, "");
  try {
   const url = new URL(trimmed);
-  if (url.hostname === "sectorcalc.com") {
-   url.hostname = "sectorcalc.com";
+  // Force canonical host: strip www. prefix
+  if (url.hostname.startsWith("www.")) {
+   url.hostname = url.hostname.slice(4);
   }
   return url.origin;
  } catch {
@@ -30,9 +31,9 @@ export const SITE = {
  name: "SectorCalc",
  domain: "sectorcalc.com",
  url: siteUrl,
- defaultTitle: "SectorCalc - Sector-specific measurement, loss detection and decision reports",
- defaultDescription:
- "Calculate costs, measure efficiency, detect losses, and optimize operations across 27 sectors - free calculators and premium verdict reports without ERP complexity.",
+  defaultTitle: "SectorCalc — cost, risk, and loss calculators",
+  defaultDescription:
+    "Calculate costs, measure efficiency, detect losses across 27 sectors. Free calculators and premium verdict reports without ERP complexity. Start free.",
  tagline: "Sector-specific calculation, measurement, and decision reports.",
  secondaryTagline: "Calculate the number. Get the decision.",
  contactEmail: "hello@sectorcalc.com",

@@ -134,6 +134,7 @@ export function getPremiumRevenueToolSitemapRoutes(): readonly SitemapManifestIt
 export function getAiIndexSitemapRoutes(): readonly SitemapManifestItem[] {
   const files = [
     "/llms.txt",
+    "/llms-full.txt",
     "/ai.txt",
   ];
   return files.map((path) => createItem(path, "ai_index", 0.55, "weekly"));
