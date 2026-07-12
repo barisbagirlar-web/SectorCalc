@@ -12,11 +12,12 @@
  * build detection, causing "server.js does not exist" errors.
  */
 import { spawnSync } from "node:child_process";
-import { cpSync, existsSync, readdirSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
+const TSX_BIN = join(ROOT, "node_modules/.bin/tsx");
 
 function copySchemasToNextServer() {
   const ROOT = process.cwd();
@@ -108,9 +109,9 @@ const prebuildSteps = [
   ["node", ["scripts/english-only-lexicon-guard.mjs"]],
   ["node", ["scripts/schema-language-guard.mjs"]],
   ["npm", ["run", "validate:translations"]],
-  ["npx", ["tsx", "scripts/prebuild-reference-registry.ts"]],
-  ["npx", ["tsx", "scripts/prebuild-reference-engine-guard.ts"]],
-  ["npx", ["tsx", "scripts/dump-routes-to-json.ts"]],
+  [TSX_BIN, ["scripts/prebuild-reference-registry.ts"]],
+  [TSX_BIN, ["scripts/prebuild-reference-engine-guard.ts"]],
+  [TSX_BIN, ["scripts/dump-routes-to-json.ts"]],
 ];
 
 for (const [cmd, args] of prebuildSteps) {

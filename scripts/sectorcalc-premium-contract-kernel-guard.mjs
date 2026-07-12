@@ -62,7 +62,7 @@ run().catch(e => {
 fs.writeFileSync(TMP_FILE, tsCode);
 
 try {
-  const output = execSync(`npx tsx ${TMP_FILE}`, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
+  const output = execSync(`node_modules/.bin/tsx ${TMP_FILE}`, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
   if (output) console.log(output.trim());
 } catch (e) {
   if (e.stdout) console.log(e.stdout.trim());

@@ -1,0 +1,43 @@
+[sentinel-ultimate] cycle failed: browser.newContext: Protocol error (Target.createBrowserContext): Failed to create browser context.
+    at async checkSignedOut (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/checks/browser.mjs:45:43)
+    at async runSentinel (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/runtime/runner.mjs:18:22)
+    at async runDaemon (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/runtime/daemon.mjs:12:20)
+    at async file:///Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/cli.mjs:13:22
+[sentinel-ultimate] cycle failed: Error: Error reading storage state from /Users/macair1/projects/SectorCalc-p5a/.sentinel/auth/owner.json:
+ENOENT: no such file or directory, open '/Users/macair1/projects/SectorCalc-p5a/.sentinel/auth/owner.json'
+    at async open (node:internal/fs/promises:639:25)
+    at async Object.readFile (node:internal/fs/promises:1249:14)
+    at async prepareStorageState (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/node_modules/playwright-core/lib/coreBundle.js:60484:23)
+    at async prepareBrowserContextParams (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/node_modules/playwright-core/lib/coreBundle.js:60499:42)
+    at async Browser2._innerNewContext (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/node_modules/playwright-core/lib/coreBundle.js:61020:32)
+    at async Browser2.newContext (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/node_modules/playwright-core/lib/coreBundle.js:61002:16)
+    at async checkCrossToolIsolation (file:///Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/checks/browser.mjs:49:172)
+    at async runSentinel (file:///Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/runtime/runner.mjs:19:22)
+    at async runDaemon (file:///Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/runtime/daemon.mjs:12:20)
+    at async file:///Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/cli.mjs:13:22
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+page.waitForResponse: Target page, context or browser has been closed
+    at checkCrossToolIsolation (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/checks/browser.mjs:50:376)
+    at async runSentinel (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/runtime/runner.mjs:19:22)
+    at async runDaemon (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/runtime/daemon.mjs:12:20)
+    at async file:///Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/cli.mjs:13:22 {
+  log: []
+}
+
+Node.js v22.22.2
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+page.waitForResponse: Target page, context or browser has been closed
+    at checkCrossToolIsolation (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/checks/browser.mjs:50:376)
+    at async runSentinel (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/runtime/runner.mjs:19:22)
+    at async runDaemon (/Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/runtime/daemon.mjs:12:20)
+    at async file:///Users/macair1/projects/SectorCalc-p5a/tools/sectorcalc-sentinel-ultimate/src/cli.mjs:13:22 {
+  log: []
+}
+
+Node.js v22.22.2

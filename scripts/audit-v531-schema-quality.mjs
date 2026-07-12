@@ -69,7 +69,7 @@ writeFileSync(scriptPath, scriptCode, "utf-8");
 
 console.log("Running schema quality audit...");
 try {
-  execSync(`npx tsx "${scriptPath}"`, { cwd: ROOT, timeout: 120000, stdio: "pipe", maxBuffer: 100 * 1024 * 1024 });
+  execSync(`node_modules/.bin/tsx "${scriptPath}"`, { cwd: ROOT, timeout: 120000, stdio: "pipe", maxBuffer: 100 * 1024 * 1024 });
 } catch (error) {
   console.error("Execution failed:", error.message);
 }

@@ -90,7 +90,7 @@ export function auditAiToolIndexDocument(data) {
 export function auditEmergencyGateMigratedSlugs(root) {
   const failures = [];
   try {
-    const output = execSync("npx tsx scripts/audit-llm-emergency-gate-runner.ts", {
+    const output = execSync("node_modules/.bin/tsx scripts/audit-llm-emergency-gate-runner.ts", {
       cwd: root,
       encoding: "utf8",
       stdio: ["ignore", "pipe", "pipe"],

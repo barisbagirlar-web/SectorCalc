@@ -155,7 +155,7 @@ function runAudit() {
 
   writeFileSync(scriptPath, code, "utf-8");
   try {
-    execSync(`npx tsx "${scriptPath}"`, { cwd: ROOT, timeout: 120000, stdio: "pipe", maxBuffer: 100 * 1024 * 1024 });
+    execSync(`node_modules/.bin/tsx "${scriptPath}"`, { cwd: ROOT, timeout: 120000, stdio: "pipe", maxBuffer: 100 * 1024 * 1024 });
   } catch (_) {}
 
   const raw = readFileSync(OUTPUT_FILE, "utf-8");

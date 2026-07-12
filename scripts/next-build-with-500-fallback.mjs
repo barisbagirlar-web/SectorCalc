@@ -16,11 +16,13 @@ import {
   releaseGlobalBuildLock,
 } from "./lib/global-build-lock.mjs";
 
+const ROOT = process.cwd();
+const TSX_BIN = join(ROOT, "node_modules/.bin/tsx");
 
 function prebuildValidateGeneratedSyntax() {
   const result = spawnSync(
-    "npx",
-    ["tsx", "scripts/prebuild-validate-generated-syntax.ts"],
+    TSX_BIN,
+    ["scripts/prebuild-validate-generated-syntax.ts"],
     { cwd: ROOT, stdio: "inherit" },
   );
   if (result.status !== 0) {
@@ -33,8 +35,8 @@ function prebuildValidateGeneratedSyntax() {
 
 function prebuildGenerateToolGitDates() {
   const result = spawnSync(
-    "npx",
-    ["tsx", "scripts/prebuild-generate-tool-git-dates.ts"],
+    TSX_BIN,
+    ["scripts/prebuild-generate-tool-git-dates.ts"],
     { cwd: ROOT, stdio: "inherit" },
   );
   if (result.status !== 0) {
@@ -44,8 +46,6 @@ function prebuildGenerateToolGitDates() {
     process.exit(1);
   }
 }
-
-const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
 const WEBPACK_CACHE_DIR = join(ROOT, "node_modules/.cache/webpack");
 const BUILD_LOCK = join(NEXT_DIR, ".build.lock");

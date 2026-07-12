@@ -261,7 +261,7 @@ async function main(): Promise<CiGateResult> {
   // Step 4a: Silently update the known-patterns cache
   console.log("  Step 4a: Updating known-patterns cache...");
   try {
-    execSync(`npx tsx "${guardScript}" --update-cache`, {
+    execSync(`node_modules/.bin/tsx "${guardScript}" --update-cache`, {
       cwd: process.cwd(),
       stdio: "pipe",
       timeout: 60_000,
@@ -280,7 +280,7 @@ async function main(): Promise<CiGateResult> {
   let guardTotalCrossDomain = 0;
 
   try {
-    const output = execSync(`npx tsx "${guardScript}"`, {
+    const output = execSync(`node_modules/.bin/tsx "${guardScript}"`, {
       cwd: process.cwd(),
       stdio: "pipe",
       timeout: 60_000,

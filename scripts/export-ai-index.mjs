@@ -16,7 +16,7 @@ const required = [
   "llms.txt",
 ];
 
-execSync("npx tsx scripts/run-export-ai-index.ts", { cwd: ROOT, stdio: "inherit" });
+execSync("node_modules/.bin/tsx scripts/run-export-ai-index.ts", { cwd: ROOT, stdio: "inherit" });
 
 for (const file of required) {
   if (!existsSync(join(PUBLIC, file))) {
