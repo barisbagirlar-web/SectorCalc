@@ -1,0 +1,49 @@
+name: Engineering Control Plane
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: engineering-control-plane-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  quality-gate:
+    name: Canonical quality gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CI: true
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Secret leakage guard
+        run: npm run check:secrets
+
+      - name: TypeScript gate
+        run: npm run typecheck
+
+      - name: ESLint error gate
+        run: npm run lint:errors
+
+      - name: Free V5.3.1 golden tests
+        run: npm run test:golden:free-v531
+
+      - name: Production build and repository guards
+        run: npm run build
