@@ -1,0 +1,28 @@
+version: 3
+slug: machine-investment-feasibility-buy-lease-keep
+status: INCOMPLETE_FAIL_CLOSED
+reviewedBy: ""
+reviewedAt: ""
+independentSource: ""
+outputTypes: {}
+equations: {}
+compareOutputs: []
+invariants: []
+monotonicRules: []
+unitEquivalences: []
+fuzz:
+  seed: machine-investment-feasibility-buy-lease-keep
+  domains: {}
+cases:
+  - name: GOOD
+    presetId: GOOD
+    inputs: {}
+    expected: {}
+  - name: REVIEW
+    presetId: LOW_CONFIDENCE
+    inputs: {}
+    expected: {}
+  - name: BLOCKED
+    presetId: STRESS
+    inputs: {}
+    expected: {}

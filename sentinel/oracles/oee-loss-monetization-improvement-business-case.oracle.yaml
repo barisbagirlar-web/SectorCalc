@@ -1,0 +1,28 @@
+version: 3
+slug: oee-loss-monetization-improvement-business-case
+status: INCOMPLETE_FAIL_CLOSED
+reviewedBy: ""
+reviewedAt: ""
+independentSource: ""
+outputTypes: {}
+equations: {}
+compareOutputs: []
+invariants: []
+monotonicRules: []
+unitEquivalences: []
+fuzz:
+  seed: oee-loss-monetization-improvement-business-case
+  domains: {}
+cases:
+  - name: GOOD
+    presetId: GOOD
+    inputs: {}
+    expected: {}
+  - name: REVIEW
+    presetId: LOW_CONFIDENCE
+    inputs: {}
+    expected: {}
+  - name: BLOCKED
+    presetId: STRESS
+    inputs: {}
+    expected: {}

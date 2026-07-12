@@ -1,0 +1,28 @@
+version: 3
+slug: outsource-vs-in-house-analyzer
+status: INCOMPLETE_FAIL_CLOSED
+reviewedBy: ""
+reviewedAt: ""
+independentSource: ""
+outputTypes: {}
+equations: {}
+compareOutputs: []
+invariants: []
+monotonicRules: []
+unitEquivalences: []
+fuzz:
+  seed: outsource-vs-in-house-analyzer
+  domains: {}
+cases:
+  - name: GOOD
+    presetId: GOOD
+    inputs: {}
+    expected: {}
+  - name: REVIEW
+    presetId: LOW_CONFIDENCE
+    inputs: {}
+    expected: {}
+  - name: BLOCKED
+    presetId: STRESS
+    inputs: {}
+    expected: {}

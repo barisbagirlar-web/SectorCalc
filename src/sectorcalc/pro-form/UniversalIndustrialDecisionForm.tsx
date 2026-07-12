@@ -894,11 +894,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const isBypassUser = isPro && props.usageSessionId === "bypass-unlimited";
   const isSignedIn = props.isSignedIn ?? false;
 
-  // Form runtime readiness: do not enable Calculate until auth, definition,
-  // form state, and units are all initialized.
+  // Form runtime readiness: do not enable Calculate until schema is loaded
+  // and validated. executionState tracks execution progress, not form readiness.
+  // "idle" is the normal initial state — not a blocker.
   const formRuntimeReady =
     state.schemaState.schema !== null &&
-    state.executionState !== "idle" &&
     state.executionState !== "schema_loading" &&
     state.executionState !== "schema_rejected";
 

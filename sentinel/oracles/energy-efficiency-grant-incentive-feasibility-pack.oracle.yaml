@@ -1,0 +1,28 @@
+version: 3
+slug: energy-efficiency-grant-incentive-feasibility-pack
+status: INCOMPLETE_FAIL_CLOSED
+reviewedBy: ""
+reviewedAt: ""
+independentSource: ""
+outputTypes: {}
+equations: {}
+compareOutputs: []
+invariants: []
+monotonicRules: []
+unitEquivalences: []
+fuzz:
+  seed: energy-efficiency-grant-incentive-feasibility-pack
+  domains: {}
+cases:
+  - name: GOOD
+    presetId: GOOD
+    inputs: {}
+    expected: {}
+  - name: REVIEW
+    presetId: LOW_CONFIDENCE
+    inputs: {}
+    expected: {}
+  - name: BLOCKED
+    presetId: STRESS
+    inputs: {}
+    expected: {}

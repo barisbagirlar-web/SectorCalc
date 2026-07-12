@@ -1,0 +1,28 @@
+version: 3
+slug: capital-equipment-investment-appraisal-npv-irr
+status: INCOMPLETE_FAIL_CLOSED
+reviewedBy: ""
+reviewedAt: ""
+independentSource: ""
+outputTypes: {}
+equations: {}
+compareOutputs: []
+invariants: []
+monotonicRules: []
+unitEquivalences: []
+fuzz:
+  seed: capital-equipment-investment-appraisal-npv-irr
+  domains: {}
+cases:
+  - name: GOOD
+    presetId: GOOD
+    inputs: {}
+    expected: {}
+  - name: REVIEW
+    presetId: LOW_CONFIDENCE
+    inputs: {}
+    expected: {}
+  - name: BLOCKED
+    presetId: STRESS
+    inputs: {}
+    expected: {}
