@@ -114,16 +114,8 @@ export const productSkuFormToSchemaMap: FormToSchemaMap = {
 
 // ── 7. true-employee-cost-statement ──
 export const trueEmployeeCostFormToSchemaMap: FormToSchemaMap = {
-  machine_rate: "machine_rate",
-  cycle_time: "cycle_time",
-  setup_time: "setup_time",
-  batch_quantity: "batch_quantity",
-  material_cost: "material_cost",
-  target_margin: "target_margin",
-  annual_volume: "annual_volume",
   labor_rate: "labor_rate",
   overhead_rate: "overhead_rate",
-  defect_or_loss_cost: "defect_or_loss_cost",
   source_confidence_ratio: "source_confidence_ratio",
   uncertainty_multiplier: "uncertainty_multiplier",
 };

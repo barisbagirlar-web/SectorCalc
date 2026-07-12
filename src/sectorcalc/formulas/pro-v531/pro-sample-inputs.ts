@@ -78,6 +78,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_labor_rate: 45,
     n_overhead_rate: 350000,
     n_source_confidence_ratio: 0.9,
+    n_uncertainty_multiplier: 1.1,
   },
   "job-quote-builder-pro-pack": {
     n_machine_rate: 85,

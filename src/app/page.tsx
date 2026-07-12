@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale = "en";
   if (locale !== "en") notFound();
   return createPageMetadata({
-    title: "Industrial calculators for cost, risk, downtime, and production decisions.",
+    title: "Cost, risk, and downtime calculators",
     description: "SectorCalc helps industrial teams calculate cost, risk, downtime, pricing, capacity, and engineering decisions before mistakes become expensive.",
     path: "/",
     locale: "en",
