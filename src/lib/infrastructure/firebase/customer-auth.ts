@@ -44,6 +44,11 @@ export type CustomerSignInErrorCode =
   | "wrong-password"
   | "email-already-in-use"
   | "weak-password"
+  | "user-disabled"
+  | "operation-not-allowed"
+  | "too-many-requests"
+  | "api-key-not-valid"
+  | "app-not-authorized"
   | "generic";
 
 export function getCustomerSignInErrorCode(error: unknown): CustomerSignInErrorCode {
@@ -53,6 +58,12 @@ export function getCustomerSignInErrorCode(error: unknown): CustomerSignInErrorC
 
   if (!isAuthError(error)) {
     return "generic";
+  }
+
+  // Dev: log real Firebase code so 400 is not blindly assumed to be "wrong password"
+  if (process.env.NODE_ENV === "development") {
+    // eslint-disable-next-line no-console
+    console.log(`[getCustomerSignInErrorCode] Raw Firebase code: ${error.code}`, error);
   }
 
   if (POPUP_CANCELLED_CODES.has(error.code)) {
@@ -81,6 +92,21 @@ export function getCustomerSignInErrorCode(error: unknown): CustomerSignInErrorC
   }
   if (error.code === "auth/weak-password") {
     return "weak-password";
+  }
+  if (error.code === "auth/user-disabled") {
+    return "user-disabled";
+  }
+  if (error.code === "auth/operation-not-allowed") {
+    return "operation-not-allowed";
+  }
+  if (error.code === "auth/too-many-requests") {
+    return "too-many-requests";
+  }
+  if (error.code === "auth/api-key-not-valid") {
+    return "api-key-not-valid";
+  }
+  if (error.code === "auth/app-not-authorized") {
+    return "app-not-authorized";
   }
 
   return "generic";

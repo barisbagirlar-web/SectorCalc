@@ -76,7 +76,14 @@ export async function POST(request: Request) {
             ? ((errBody.error as Record<string, unknown>).message as string) ?? ""
             : "";
 
-        // Map Firebase error codes to user-safe messages (no enumeration)
+        // Dev: log raw Firebase REST error message so 400 is not blindly
+        // assumed to be "wrong password" — see UYARI in auth audit
+        if (process.env.NODE_ENV === "development") {
+          // eslint-disable-next-line no-console
+          console.log(`[auth/login] Raw Firebase REST error message: ${errMsg}`, errBody);
+        }
+
+        // Map Firebase REST API error codes to user-safe messages
         if (errMsg === "EMAIL_NOT_FOUND" || errMsg === "INVALID_PASSWORD" || errMsg === "INVALID_LOGIN_CREDENTIALS") {
           return NextResponse.json(
             { error: "INVALID_CREDENTIALS", details: "Invalid email or password." },
@@ -88,6 +95,27 @@ export async function POST(request: Request) {
           return NextResponse.json(
             { error: "ACCOUNT_DISABLED", details: "This account has been disabled." },
             { status: 403 },
+          );
+        }
+
+        if (errMsg === "OPERATION_NOT_ALLOWED") {
+          return NextResponse.json(
+            { error: "OPERATION_NOT_ALLOWED", details: "Email/password sign-in is not enabled." },
+            { status: 403 },
+          );
+        }
+
+        if (errMsg === "TOO_MANY_ATTEMPTS_TRY_LATER") {
+          return NextResponse.json(
+            { error: "RATE_LIMITED", details: "Too many attempts. Please wait and try again." },
+            { status: 429 },
+          );
+        }
+
+        if (errMsg === "API_KEY_NOT_VALID" || errMsg === "INVALID_API_KEY") {
+          return NextResponse.json(
+            { error: "CONFIGURATION_ERROR", details: "Authentication service configuration error." },
+            { status: 503 },
           );
         }
 

@@ -134,17 +134,35 @@ const INVALID_CREDENTIAL_CODES = new Set([
  "auth/invalid-email",
 ]);
 
+const MAPPED_SIGNIN_CODES: Record<string, string> = {
+ "auth/invalid-credential": "Invalid email or password.",
+ "auth/wrong-password": "Invalid email or password.",
+ "auth/user-not-found": "Invalid email or password.",
+ "auth/invalid-email": "Invalid email format.",
+ "auth/user-disabled": "This account has been disabled.",
+ "auth/operation-not-allowed": "Email/password sign-in is not enabled. Contact support.",
+ "auth/too-many-requests": "Too many sign-in attempts. Please wait and try again.",
+ "auth/api-key-not-valid": "Authentication service configuration error.",
+ "auth/app-not-authorized": "Authentication service configuration error.",
+};
+
 export function mapFirebaseSignInError(error: unknown): string {
- if (
- typeof error === "object" &&
- error !== null &&
- "code" in error &&
- typeof error.code === "string" &&
- INVALID_CREDENTIAL_CODES.has(error.code)
- ) {
- return "Invalid email or password.";
+ const code =
+   typeof error === "object" && error !== null && "code" in error && typeof error.code === "string"
+     ? error.code
+     : null;
+
+ // Dev: log real error code so 400 is not blindly assumed to be "wrong password"
+ if (code && process.env.NODE_ENV === "development") {
+   // eslint-disable-next-line no-console
+   console.log(`[mapFirebaseSignInError] Raw Firebase code: ${code}`, error);
  }
 
+ if (code && MAPPED_SIGNIN_CODES[code]) {
+   return MAPPED_SIGNIN_CODES[code];
+ }
+
+ // Production-safe fallback — no raw code or stack
  return "An error occurred during sign in.";
 }
 
