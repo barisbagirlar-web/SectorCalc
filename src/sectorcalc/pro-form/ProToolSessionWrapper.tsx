@@ -4,7 +4,7 @@
 // Client component that wraps UniversalIndustrialDecisionForm with credit session management.
 // Handles session creation API calls and passes session state to the form.
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { UniversalIndustrialDecisionForm } from "./UniversalIndustrialDecisionForm";
 import type { UniversalIndustrialDecisionFormProps } from "./UniversalIndustrialDecisionForm";
 import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
@@ -24,41 +24,86 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
   const [creditSessionLoading, setCreditSessionLoading] = useState(false);
   const [executeAuthToken, setExecuteAuthToken] = useState<string | null>(null);
   const { user } = useUserSubscription();
-  const tokenFetchedRef = useRef(false);
+  const tokenRequestSeqRef = useRef(0);
 
-  // Fetch Firebase ID token on mount for execute API authorization
+  const isBypassUser = useMemo(
+    () => Boolean(user?.email && isProBypassEmail(user.email)),
+    [user?.email],
+  );
+
+  // Tool changes must never inherit another calculator's credit/session/auth state.
+  // This also protects client-side navigation where React may reuse the wrapper instance.
   useEffect(() => {
-    if (user && !tokenFetchedRef.current) {
-      tokenFetchedRef.current = true;
-      user.getIdToken(false).then(setExecuteAuthToken).catch(() => {});
+    tokenRequestSeqRef.current += 1;
+    setUsageSessionId(null);
+    setRemainingRuns(null);
+    setCreditSessionLoading(false);
+    setExecuteAuthToken(null);
+  }, [props.toolKey]);
+
+  // Fetch a Firebase ID token for the current user/tool pair. Ignore stale async
+  // completions after route or user changes.
+  useEffect(() => {
+    const requestSeq = ++tokenRequestSeqRef.current;
+
+    if (!user) {
+      setExecuteAuthToken(null);
+      return;
     }
-  }, [user]);
 
-  // Owner bypass: auto-set unlimited session on mount so bypass users
-  // never see "Use 1 credit" — they get instant access.
+    setExecuteAuthToken(null);
+    user
+      .getIdToken(false)
+      .then((token) => {
+        if (tokenRequestSeqRef.current === requestSeq) {
+          setExecuteAuthToken(token);
+        }
+      })
+      .catch(() => {
+        if (tokenRequestSeqRef.current === requestSeq) {
+          setExecuteAuthToken(null);
+        }
+      });
+  }, [user, props.toolKey]);
+
+  // Owner bypass: set an unlimited session only for the current tool/user.
   useEffect(() => {
-    if (user?.email && isProBypassEmail(user.email)) {
+    if (isBypassUser) {
       setUsageSessionId(BYPASS_SESSION_ID);
       setRemainingRuns(999);
+      return;
     }
-  }, [user?.email]);
+
+    setUsageSessionId(null);
+    setRemainingRuns(null);
+  }, [isBypassUser, props.toolKey]);
 
   const handleRequestCreditSession = useCallback(async (toolKey: string) => {
-    // Owner bypass: already have unlimited session, no API call needed
-    if (user?.email && isProBypassEmail(user.email)) {
+    if (!user) {
+      window.location.href = `/login?next=${encodeURIComponent(window.location.pathname)}`;
+      return;
+    }
+
+    // Owner bypass already has unlimited session. Refresh the token if needed so
+    // the execution request cannot race Firebase Auth hydration.
+    if (isBypassUser) {
+      if (!executeAuthToken) {
+        setCreditSessionLoading(true);
+        try {
+          const token = await user.getIdToken(true);
+          setExecuteAuthToken(token);
+        } finally {
+          setCreditSessionLoading(false);
+        }
+      }
       return;
     }
 
     setCreditSessionLoading(true);
     try {
-      if (!user) {
-        window.location.href = `/login?next=${encodeURIComponent(window.location.pathname)}`;
-        return;
-      }
+      const idToken = executeAuthToken ?? await user.getIdToken(false);
+      if (!executeAuthToken) setExecuteAuthToken(idToken);
 
-      const idToken = await user.getIdToken(false);
-
-      // Create session
       const response = await fetch("/api/pro-tool-session/create", {
         method: "POST",
         headers: {
@@ -86,16 +131,20 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
     } finally {
       setCreditSessionLoading(false);
     }
-  }, [user]);
+  }, [user, isBypassUser, executeAuthToken]);
+
+  const authHydrating = Boolean(user && !executeAuthToken);
+  const formInstanceKey = `${props.toolKey}:${props.schema.tool_id}`;
 
   return (
     <UniversalIndustrialDecisionForm
+      key={formInstanceKey}
       {...props}
       accessTier={props.accessTier ?? "PRO"}
       isSignedIn={!!user}
       usageSessionId={usageSessionId}
       remainingRuns={remainingRuns}
-      creditSessionLoading={creditSessionLoading}
+      creditSessionLoading={creditSessionLoading || authHydrating}
       executeAuthToken={executeAuthToken}
       onRequestCreditSession={handleRequestCreditSession}
     />
