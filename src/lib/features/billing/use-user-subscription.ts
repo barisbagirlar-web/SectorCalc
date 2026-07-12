@@ -215,18 +215,34 @@ function bootstrapAuthStore() {
   }
 }
 
+/**
+ * Hydration-safe subscription store.
+ *
+ * Must NEVER return a different value from getServerSnapshot during the
+ * initial SSR → hydration window. If the store was already mutated by a
+ * warmUserSubscriptionStore() call before this component mounts, the
+ * client snapshot would differ from the server snapshot, causing the
+ * React streaming SSR error:
+ *   "The deferred DOM Node could not be resolved to a valid node."
+ *
+ * Mitigation: use a hydration flag so store reads return INITIAL_STATE
+ * until the hydration commit completes. Then bootstrapAuthStore fires
+ * in a separate microtask to start the real Firebase listener.
+ */
+let hydrationComplete = false;
+
+function getHydrationSafeSnapshot(): UseUserSubscriptionState {
+  if (typeof window === "undefined") return INITIAL_STATE;       // SSR always sees INITIAL
+  if (!hydrationComplete) return INITIAL_STATE;                  // during hydration
+  return storeState;                                             // after hydration
+}
+
 /** Shared subscription store - one Firebase listener for the whole app. */
 export function useUserSubscription(): UseUserSubscriptionState {
-  const state = useSyncExternalStore(subscribeStore, getStoreSnapshot, () => INITIAL_STATE);
+  const state = useSyncExternalStore(subscribeStore, getHydrationSafeSnapshot, () => INITIAL_STATE);
 
-  // Auth bootstrap moved to useEffect (not subscribeStore) to prevent
-  // a synchronous store mutation during React hydration. When
-  // subscribeStore called bootstrapAuthStore() directly, the store
-  // transition from loading:false → loading:true during hydration
-  // caused the DOM to mutate while Next.js streaming SSR was still
-  // resolving deferred template nodes, producing the error:
-  // "The deferred DOM Node could not be resolved to a valid node."
   useEffect(() => {
+    hydrationComplete = true;
     bootstrapAuthStore();
   }, []);
 
