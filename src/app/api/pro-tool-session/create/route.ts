@@ -7,7 +7,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { parseBearerToken, verifySignedInUser } from "@/lib/infrastructure/firebase/verify-signed-in-user";
 import { createProSession } from "@/lib/credits/tool-usage-session.server";
 import { getPublicToolBySlug } from "@/sectorcalc/runtime/public-tool-manifest";
-import { isProBypassEmail } from "@/lib/features/billing/subscription";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,8 +14,6 @@ export const dynamic = "force-dynamic";
 interface CreateSessionRequest {
   toolKey: string;
 }
-
-const BYPASS_SESSION_ID = "bypass-unlimited";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
@@ -46,17 +43,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     if (manifestEntry.accessTier !== "PRO") {
       return NextResponse.json({ error: "TOOL_NOT_PRO" }, { status: 400 });
-    }
-
-    // ── Owner bypass: unlimited access, no credit deduction ──────
-    if (user.email && isProBypassEmail(user.email)) {
-      return NextResponse.json({
-        usageSessionId: BYPASS_SESSION_ID,
-        toolKey: body.toolKey,
-        remainingRuns: 999,
-        creditCost: 0,
-        status: "ACTIVE",
-      });
     }
 
     // ── Create session ───────────────────────────────────────────

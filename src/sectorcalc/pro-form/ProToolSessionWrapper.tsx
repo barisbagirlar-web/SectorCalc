@@ -8,9 +8,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { UniversalIndustrialDecisionForm } from "./UniversalIndustrialDecisionForm";
 import type { UniversalIndustrialDecisionFormProps } from "./UniversalIndustrialDecisionForm";
 import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
-import { isProBypassEmail } from "@/lib/features/billing/subscription";
-
-const BYPASS_SESSION_ID = "bypass-unlimited";
 
 type ProToolSessionWrapperProps = Omit<UniversalIndustrialDecisionFormProps, "onRequestCreditSession" | "usageSessionId" | "remainingRuns" | "creditSessionLoading" | "executeAuthToken"> & {
   toolKey: string;
@@ -34,21 +31,7 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
     }
   }, [user]);
 
-  // Owner bypass: auto-set unlimited session on mount so bypass users
-  // never see "Use 1 credit" — they get instant access.
-  useEffect(() => {
-    if (user?.email && isProBypassEmail(user.email)) {
-      setUsageSessionId(BYPASS_SESSION_ID);
-      setRemainingRuns(999);
-    }
-  }, [user?.email]);
-
   const handleRequestCreditSession = useCallback(async (toolKey: string) => {
-    // Owner bypass: already have unlimited session, no API call needed
-    if (user?.email && isProBypassEmail(user.email)) {
-      return;
-    }
-
     setCreditSessionLoading(true);
     try {
       if (!user) {
