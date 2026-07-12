@@ -205,7 +205,7 @@ export function universalFormMachineReducer(
         evidenceState[input.id] = {
           enabled: requiredEvidence,
           source_verified: false,
-          user_verified: false,
+          user_verified: rawInputState[input.id] !== null && rawInputState[input.id] !== undefined,
           uploaded_references: [],
         };
       }
@@ -419,11 +419,21 @@ export function universalFormMachineReducer(
             schemaExampleValue: null,
             schemaDefaultValue: input.default_value ?? null,
           });
-          resetBase.rawInputState[input.id] = exVal !== "" ? exVal : null;
+          const hasVal = exVal !== "";
+          resetBase.rawInputState[input.id] = hasVal ? exVal : null;
           // Always restore selected_units from schema defaults on reset
           if (input.allowed_display_units.length > 0) {
             resetBase.selectedUnitState[input.id] = input.allowed_display_units[0];
           }
+          const resetEvidenceRequired = typeof input.evidence_requirement === "string"
+            ? input.evidence_requirement.toLowerCase().includes("required")
+            : input.evidence_requirement.required;
+          resetBase.evidenceState[input.id] = {
+            enabled: resetEvidenceRequired,
+            source_verified: false,
+            user_verified: hasVal,
+            uploaded_references: [],
+          };
         }
       }
       return {
