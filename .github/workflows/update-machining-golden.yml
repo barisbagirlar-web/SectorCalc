@@ -1,0 +1,59 @@
+name: Update Machining Golden Hash
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-golden:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'chore/engineering-control-plane-v1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: chore/engineering-control-plane-v1
+          fetch-depth: 0
+          show-progress: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --silent
+
+      - name: Regenerate deterministic golden hashes
+        run: npm run test:golden:free-v531:update
+
+      - name: Enforce narrow change scope
+        shell: bash
+        run: |
+          changed="$(git diff --name-only)"
+          echo "$changed"
+          unexpected="$(printf '%s\n' "$changed" | grep -v '^tests/golden/hashes/free-v531/machining-cost-per-part.hashes.json$' || true)"
+          if [ -n "$unexpected" ]; then
+            echo "UNEXPECTED_FILES_CHANGED"
+            echo "$unexpected"
+            exit 1
+          fi
+
+      - name: Commit updated hash
+        shell: bash
+        run: |
+          if git diff --quiet -- tests/golden/hashes/free-v531/machining-cost-per-part.hashes.json; then
+            echo "NO_HASH_CHANGE"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/golden/hashes/free-v531/machining-cost-per-part.hashes.json
+          git commit -m "test: refresh machining cost golden hash"
+          git push origin HEAD:chore/engineering-control-plane-v1
