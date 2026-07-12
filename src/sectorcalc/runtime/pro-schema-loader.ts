@@ -216,10 +216,16 @@ export function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema 
   const uiContract2 = s.ui_contract as Record<string, unknown> | undefined;
   if (uiContract2 && Array.isArray(uiContract2.input_groups)) {
     const groups = uiContract2.input_groups as Array<Record<string, unknown>>;
-    for (let i = 0; i < groups.length; i++) {
-      const group = groups[i];
-      if (!group.fields || !Array.isArray(group.fields)) {
-        group.fields = i === 0 ? [...inputIds] : [];
+    if (groups.length > 0 && inputIds.length > 0) {
+      // Distribute inputs across all groups evenly
+      const perGroup = Math.max(1, Math.ceil(inputIds.length / groups.length));
+      let idx = 0;
+      for (let i = 0; i < groups.length; i++) {
+        const group = groups[i];
+        const count = Math.min(perGroup, inputIds.length - idx);
+        group.fields = inputIds.slice(idx, idx + count);
+        idx += count;
+        if (idx >= inputIds.length) break;
       }
     }
   }

@@ -57,7 +57,12 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_threshold_crossing"] = mp >= tm ? 0 : 1;
   outputs["out_fmea_trigger"] = mp < tm * 0.5 ? 1 : 0;
   outputs["out_final_decision_state"] = mp >= tm ? 0 : (mp >= tm * 0.5 ? 1 : 2);
-
+  outputs["out_reference_deviation"] = round(Math.abs(rp - tjc) / (tjc || 1), 4);
+  outputs["out_derating_factor"] = round(conf, 4);
+  outputs["out_expanded_uncertainty"] = round(ra - rp, 4);
+  outputs["out_sensitivity_driver"] = lc > mac ? 1 : 0;
+  outputs["out_scenario_delta"] = round(tjc * 0.15, 2);
+  outputs["out_audit_hash_payload"] = 0;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
   return {
