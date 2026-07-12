@@ -1,0 +1,52 @@
+name: Debug Golden Tests
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  golden-debug:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'chore/engineering-control-plane-v1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --silent
+
+      - name: Run golden tests and capture output
+        id: golden
+        shell: bash
+        run: |
+          set +e
+          npm run test:golden:free-v531 > golden.log 2>&1
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          tail -n 200 golden.log
+          exit 0
+
+      - name: Upload golden diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-diagnostics
+          path: golden.log
+          if-no-files-found: error
+          retention-days: 3
+
+      - name: Fail if golden tests failed
+        if: steps.golden.outputs.exit_code != '0'
+        run: exit 1
