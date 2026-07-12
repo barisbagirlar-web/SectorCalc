@@ -1,0 +1,16 @@
+# Default owner
+* @barisbagirlar-web
+
+# Release, CI, and repository governance
+/.github/ @barisbagirlar-web
+/AGENTS.md @barisbagirlar-web
+/package.json @barisbagirlar-web
+/package-lock.json @barisbagirlar-web
+
+# Production and commercial control surfaces
+/functions/ @barisbagirlar-web
+/src/app/api/ @barisbagirlar-web
+/src/sectorcalc/ @barisbagirlar-web
+/scripts/deploy-production.mjs @barisbagirlar-web
+/firebase.json @barisbagirlar-web
+/.firebaserc @barisbagirlar-web
