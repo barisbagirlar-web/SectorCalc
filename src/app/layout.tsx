@@ -38,6 +38,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   robots: metadataRobots(),
+  icons: {
+    icon: "/img/brand/sectorcalc-mark.png",
+    shortcut: "/favicon.svg",
+    apple: "/img/brand/sectorcalc-mark.png",
+  },
 };
 
 export const viewport: Viewport = {
