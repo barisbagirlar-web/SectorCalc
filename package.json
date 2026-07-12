@@ -136,7 +136,17 @@
     "guard:no-duplicate-empty-inputs": "node scripts/guard-no-duplicate-empty-inputs.mjs",
     "guard:mobile-form-state-machine": "node scripts/guard-mobile-form-state-machine.mjs",
     "stop:builds": "pkill -f 'next build' 2>/dev/null; pkill -f 'next-build-with-500' 2>/dev/null; pkill -f 'next-firebase-deploy' 2>/dev/null; pkill -f 'firebase-hosting-build' 2>/dev/null; rm -f .sectorcalc-build.lock .next-deploy.lock; echo 'Build processes cleaned.'",
-    "deploy": "node scripts/deploy-production.mjs"
+    "deploy": "node scripts/deploy-production.mjs",
+    "sentinel:static": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/src/cli.mjs static",
+    "sentinel:pipeline": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/src/cli.mjs pipeline",
+    "sentinel:browser": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/src/cli.mjs browser",
+    "sentinel:canary": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/src/cli.mjs canary",
+    "sentinel:deep": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/src/cli.mjs deep",
+    "sentinel:release": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/src/cli.mjs release",
+    "sentinel:daemon": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/src/cli.mjs daemon",
+    "sentinel:bootstrap-oracles": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/src/cli.mjs bootstrap-oracles",
+    "sentinel:capture-owner": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/scripts/capture-auth-state.mjs owner",
+    "sentinel:capture-normal": "SECTORCALC_SENTINEL_CONFIG=sentinel.config.yaml node --import tsx tools/sectorcalc-sentinel-ultimate/scripts/capture-auth-state.mjs normal-user"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

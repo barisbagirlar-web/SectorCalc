@@ -1,0 +1,25 @@
+name: Sentinel Ultimate PR Gate
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  static-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20, cache: npm, cache-dependency-path: tools/sectorcalc-sentinel-ultimate/package-lock.json}
+      - run: npm ci
+        working-directory: tools/sectorcalc-sentinel-ultimate
+      - name: Static contract gate
+        env: {SECTORCALC_SENTINEL_CONFIG: sentinel.config.yaml}
+        run: node tools/sectorcalc-sentinel-ultimate/src/cli.mjs static
+      - name: Real form-adapter-formula pipeline gate
+        env: {SECTORCALC_SENTINEL_CONFIG: sentinel.config.yaml}
+        run: node tools/sectorcalc-sentinel-ultimate/src/cli.mjs pipeline
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sentinel-pr-evidence
+          path: reports/sectorcalc-sentinel-ultimate/

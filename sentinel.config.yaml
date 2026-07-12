@@ -1,0 +1,86 @@
+version: 3
+repoRoot: .
+baseUrl: https://sectorcalc.com
+catalogPath: /pro-tools
+expectedCatalogSize: 20
+bridgeModule: .sentinel/sectorcalc.bridge.mjs
+reportDir: reports/sectorcalc-sentinel-ultimate
+stateDir: .sentinel/ultimate
+
+sourceLayout:
+  schemaDir: src/sectorcalc/schemas/pro-v531
+  formulaDir: src/sectorcalc/formulas/pro-v531
+  contractDir: src/sectorcalc/pro-report
+  adapterDir: src/sectorcalc/pro-form
+  insightDir: src/sectorcalc/pro-report
+  presetDir: src/sectorcalc/formulas/pro-v531
+  goldenDir: tests/pro-v2
+
+endpoints:
+  sessionIncludes: /api/pro-tool-session
+  executeIncludes: /api/pro-calculator/execute
+  requestRawInputsPath: raw_inputs
+  responseOutputsPath: outputs
+
+selectors:
+  form: '[data-pro-v2-form]'
+  runtimeReady: '[data-pro-runtime-ready="true"]'
+  calculate: '[data-testid="pro-calculate"]'
+  report: '[data-pro-v2-report]'
+  reportSlugAttribute: data-tool-slug
+  preset: '[data-sentinel-preset="{presetId}"]'
+  exportPdf: '[data-testid="export-pdf"]'
+  copySummary: '[data-testid="copy-summary"]'
+  initialErrors:
+    - '[aria-invalid="true"]'
+    - '[data-invalid="true"]'
+    - '.field-error'
+
+browser:
+  ownerStorageState: .sentinel/auth/owner.json
+  normalUserStorageState: .sentinel/auth/normal-user.json
+  representativeCreditTool: weld-procedure-cost-consumable-estimation-suite
+  timeoutMs: 45000
+  maxProductionConcurrency: 2
+  forbiddenReportText:
+    - Evidence Completion Index
+    - trigger_inputs
+    - derating_config
+    - schema_hash_mismatch
+    - D001
+    - D002
+
+policies:
+  failClosed: true
+  requireBridge: true
+  requireIndependentOracle: false
+  requireThreePresets: true
+  requireThreeOracleCases: false
+  requireBrowserCalculateForRelease: false
+  requirePdfAndCopyForRelease: false
+  requireNormalUserCreditE2E: false
+  defaultCreditCost: 1
+  forbidSourceConfidence: false
+  forbidGenericOutputAliases: false
+  failOnP1: true
+  canaryToolsPerCycle: 2
+  canaryIntervalMinutes: 15
+  deepIntervalHours: 24
+  oracleFuzzCases: 5
+
+commands:
+  typecheck: npx tsc --noEmit
+  lint: npm run lint
+  build: npm run build
+  golden: npm run guard:pro-v2-all-extended
+  edge: npm run guard:pro-v2-all-extended
+  freeGuard: npm run guard:removed-free-tools
+  proGuard: npm run guard:pro-v2-all-extended
+  secrets: npm run check:secrets
+
+security:
+  reportHmacEnv: SENTINEL_REPORT_HMAC_KEY
+
+alerts:
+  webhookUrl: ''
+  minimumSeverity: P1

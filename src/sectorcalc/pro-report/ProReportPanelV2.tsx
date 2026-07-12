@@ -23,6 +23,7 @@ function formatReportValue(
 
 interface ProReportPanelV2Props {
   toolTitle: string;
+  toolSlug: string;
   sections: ResolvedReportSection[];
   warnings?: string[];
   decisionStateLabel?: string;
@@ -38,6 +39,7 @@ const severityClassMap: Record<string, string> = {
 
 export function ProReportPanelV2({
   toolTitle,
+  toolSlug,
   sections,
   warnings,
   decisionStateLabel,
@@ -47,7 +49,10 @@ export function ProReportPanelV2({
 
   if (isEmpty) {
     return (
-      <div className="sc-report-panel sc-report-panel--empty">
+      <div className="sc-report-panel sc-report-panel--empty"
+        data-pro-v2-report="true"
+        data-tool-slug={toolSlug}
+      >
         <div className="sc-report-empty-state">
           <p className="sc-report-empty-title">Calculation completed.</p>
           <p className="sc-report-empty-description">
@@ -60,7 +65,10 @@ export function ProReportPanelV2({
   }
 
   return (
-    <div className="sc-report-panel">
+    <div className="sc-report-panel"
+      data-pro-v2-report="true"
+      data-tool-slug={toolSlug}
+    >
       {/* Decision State Banner */}
       {decisionStateLabel && (
         <div className={`sc-report-decision-banner ${decisionSeverity ? severityClassMap[decisionSeverity] ?? severityClassMap.info : severityClassMap.info}`}>

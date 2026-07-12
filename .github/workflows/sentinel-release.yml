@@ -1,0 +1,39 @@
+name: Sentinel Ultimate Release Wall
+on:
+  workflow_dispatch:
+  workflow_call:
+concurrency:
+  group: sectorcalc-sentinel-release
+  cancel-in-progress: false
+jobs:
+  release-wall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20, cache: npm, cache-dependency-path: tools/sectorcalc-sentinel-ultimate/package-lock.json}
+      - run: npm ci
+        working-directory: tools/sectorcalc-sentinel-ultimate
+      - run: npx playwright install --with-deps chromium
+        working-directory: tools/sectorcalc-sentinel-ultimate
+      - name: Restore authenticated states
+        env:
+          OWNER: "${{ secrets.SENTINEL_OWNER_STORAGE_STATE }}"
+          NORMAL: "${{ secrets.SENTINEL_NORMAL_STORAGE_STATE }}"
+        run: |
+          test -n "$OWNER" || { echo 'Missing owner state'; exit 1; }
+          test -n "$NORMAL" || { echo 'Missing normal-user state'; exit 1; }
+          mkdir -p .sentinel/auth
+          printf '%s' "$OWNER" > .sentinel/auth/owner.json
+          printf '%s' "$NORMAL" > .sentinel/auth/normal-user.json
+      - name: Fail-closed release wall
+        env:
+          SECTORCALC_SENTINEL_CONFIG: sentinel.config.yaml
+          SENTINEL_REPORT_HMAC_KEY: "${{ secrets.SENTINEL_REPORT_HMAC_KEY }}"
+        run: node tools/sectorcalc-sentinel-ultimate/src/cli.mjs release
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sentinel-release-evidence
+          path: reports/sectorcalc-sentinel-ultimate/

@@ -225,6 +225,22 @@ if (!acquireDeployLock()) {
 let shimInstalled = false;
 
 try {
+  // ── Sentinel Release Wall ──────────────────────────────────────────────
+  // Must pass before any production mutation.
+  // Nonzero exit aborts deployment immediately.
+  const sentinelStatus = run("npm", ["run", "sentinel:release"], {
+    env: {
+      ...process.env,
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=2048",
+    },
+  });
+  if (sentinelStatus !== 0) {
+    console.error("deploy-production: Sentinel release wall failed — aborting deploy.");
+    process.exit(1);
+  }
+  console.log("deploy-production: Sentinel release wall PASSED.");
+  // ────────────────────────────────────────────────────────────────────────
+
   restoreNextBin();
 
   // Phase 1: Pre-build locally (enough RAM for full build). This creates .next cache

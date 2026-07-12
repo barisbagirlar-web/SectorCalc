@@ -1,0 +1,36 @@
+name: Sentinel Ultimate Nightly Deep Audit
+on:
+  schedule:
+    - cron: '17 2 * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: sectorcalc-sentinel-deep
+  cancel-in-progress: true
+jobs:
+  deep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20, cache: npm, cache-dependency-path: tools/sectorcalc-sentinel-ultimate/package-lock.json}
+      - run: npm ci
+        working-directory: tools/sectorcalc-sentinel-ultimate
+      - run: npx playwright install --with-deps chromium
+        working-directory: tools/sectorcalc-sentinel-ultimate
+      - name: Restore owner state
+        env: {OWNER: "${{ secrets.SENTINEL_OWNER_STORAGE_STATE }}"}
+        run: |
+          test -n "$OWNER" || { echo 'Missing owner state'; exit 1; }
+          mkdir -p .sentinel/auth
+          printf '%s' "$OWNER" > .sentinel/auth/owner.json
+      - name: Deep audit
+        env: {SECTORCALC_SENTINEL_CONFIG: sentinel.config.yaml}
+        run: node tools/sectorcalc-sentinel-ultimate/src/cli.mjs deep
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sentinel-deep-evidence
+          path: reports/sectorcalc-sentinel-ultimate/

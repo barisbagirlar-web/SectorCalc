@@ -1077,6 +1077,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       className={`sc-v531-shell ${props.className ?? ""}`}
       data-renderer="UniversalIndustrialDecisionForm"
       data-v531="true"
+      data-pro-v2-form={props.toolKey ?? props.schema?.tool_key ?? ""}
+      data-pro-runtime-ready={state.executionState !== "idle" && state.executionState !== "schema_loading" && state.executionState !== "schema_rejected"}
       data-access-tier={accessTier}
       data-presentation-mode={presentationMode}
     >
@@ -1199,6 +1201,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                           className="sc-v531-primary-action"
                           disabled={vm.action.disabled}
                           onClick={vm.action.onAction}
+                          data-testid="pro-calculate"
                         >
                           {vm.action.label}
                         </button>
@@ -1230,6 +1233,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         className="sc-v531-primary-action"
                         disabled={vm.action.disabled}
                         onClick={vm.action.onAction}
+                        data-testid="pro-calculate"
                       >
                         {vm.action.label}
                       </button>
@@ -1304,6 +1308,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       disabled={vm.action.disabled}
                       aria-disabled={vm.action.disabled}
                       onClick={vm.action.onAction}
+                      data-testid="pro-calculate"
                     >
                       {vm.action.label}
                     </button>
@@ -1369,6 +1374,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 return (
                   <ProReportPanelV2
                     toolTitle={vm.title}
+                    toolSlug={props.toolKey ?? ""}
                     sections={proReportResult.resolvedSections}
                     warnings={reportWarnings}
                     decisionStateLabel={reportDecisionState?.label}

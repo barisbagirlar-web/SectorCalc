@@ -9,37 +9,28 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-
 # testing
 /coverage
-
 # next.js
 /.next/
 /out/
-
 # production
 /build
-
 # misc
 .DS_Store
 *.pem
-
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
-
 # env files (can opt-in for committing if needed)
 .env*
-
 # vercel
 .vercel
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
 # local cache and untracked
 .sectorcalc-build.lock
 .next-deploy.lock
@@ -52,18 +43,20 @@ cleanup-root.sh
 scratch.js
 scratch-map.js
 .cursorignore
-
 # Generated Sitemaps
 public/sitemap*.xml
-
 .npm-cache/
 fable_dedektif/
 public/routes.json
-
 # Generated audit output
 audit-output/
 tmp/
 *.env.generated
-
 # DeepSeek API configuration notes (contains API keys)
 deepseek_talimati_.txt
+# SectorCalc Sentinel Ultimate runtime evidence and private auth states
+.sentinel/auth/
+.sentinel/ultimate/
+.sentinel/logs/
+reports/sectorcalc-sentinel-ultimate/artifacts/
+tools/sectorcalc-sentinel-ultimate/node_modules/
