@@ -6,6 +6,8 @@ import { chromium } from "playwright";
 const baseUrl = (process.env.E2E_BASE_URL ?? "http://127.0.0.1:3000").replace(/\/$/, "");
 const toolPath = "/tools/pro/break-even-survival-cash-calculator";
 const artifactsDir = "artifacts/break-even-browser-e2e";
+const ownerEmail = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
+const ownerPassword = process.env.E2E_OWNER_PASSWORD ?? "SectorCalc-E2E-Only-2026!";
 mkdirSync(artifactsDir, { recursive: true });
 
 function assert(condition, message) {
@@ -24,17 +26,47 @@ function assertClose(actual, expected, tolerance, label) {
   }
 }
 
+async function assertTextAbsent(page, labels) {
+  for (const label of labels) {
+    assert(await page.getByText(label, { exact: false }).count() === 0, `Forbidden text leaked into page: ${label}`);
+  }
+}
+
 const browser = await chromium.launch({ headless: true });
-const page = await browser.newPage({ viewport: { width: 1440, height: 1100 } });
+const context = await browser.newContext({ viewport: { width: 1440, height: 1100 } });
+const page = await context.newPage();
 
 try {
-  const pageResponse = await page.goto(`${baseUrl}${toolPath}`, {
+  const unauthenticatedResponse = await page.goto(`${baseUrl}${toolPath}`, {
     waitUntil: "networkidle",
     timeout: 60_000,
   });
-  assert(pageResponse?.status() === 200, `Tool route returned HTTP ${pageResponse?.status()}`);
+  assert(unauthenticatedResponse?.status() === 200, `Unauthenticated tool route returned HTTP ${unauthenticatedResponse?.status()}`);
+  await page.getByText("Sign in to access this PRO calculator", { exact: true }).waitFor({ timeout: 30_000 });
 
-  await page.getByText("Break-Even & Survival Cash Calculator", { exact: true }).first().waitFor();
+  await assertTextAbsent(page, [
+    "Initial Investment",
+    "Annual Net Cash Flow",
+    "Discount Rate",
+    "Residual Value",
+    "Maximum Absorbed Overhead",
+    "FMEA Trigger Flag",
+    "Derating rule D001",
+    "Derating rule D002",
+  ]);
+
+  const loginUrl = `${baseUrl}/login?next=${encodeURIComponent(toolPath)}`;
+  await page.goto(loginUrl, { waitUntil: "networkidle", timeout: 60_000 });
+  await page.getByPlaceholder("Email address").fill(ownerEmail);
+  await page.getByPlaceholder("Password").fill(ownerPassword);
+
+  await Promise.all([
+    page.waitForURL((url) => url.pathname === toolPath, { timeout: 60_000 }),
+    page.getByRole("button", { name: "Sign in with Email", exact: true }).click(),
+  ]);
+
+  await page.getByText("Break-Even & Survival Cash Calculator", { exact: true }).first().waitFor({ timeout: 60_000 });
+  await page.locator("[data-renderer='UniversalIndustrialDecisionForm']").waitFor({ timeout: 60_000 });
 
   const requiredLabels = [
     "Monthly Fixed Cash Cost",
@@ -52,7 +84,50 @@ try {
     assert(await page.getByText(label, { exact: true }).count() > 0, `Missing form label: ${label}`);
   }
 
-  const forbiddenLabels = [
+  const expectedInitialValues = {
+    monthly_fixed_cash_cost: "120000",
+    monthly_debt_service: "25000",
+    contribution_margin_ratio: "42",
+    current_monthly_revenue: "420000",
+    unrestricted_cash_balance: "750000",
+    minimum_cash_buffer: "100000",
+    target_survival_months: "6",
+    downside_revenue_factor: "70",
+    source_confidence_ratio: "90",
+    uncertainty_multiplier: "1.15",
+  };
+
+  for (const [inputId, expectedValue] of Object.entries(expectedInitialValues)) {
+    const input = page.locator(`#sc-v531-input-${inputId}`);
+    await input.waitFor({ timeout: 30_000 });
+    const actualValue = await input.inputValue();
+    assert(actualValue === expectedValue, `Incorrect initialized value for ${inputId}: expected ${expectedValue}, received ${actualValue}`);
+  }
+
+  assert(
+    await page.getByLabel("Contribution Margin Ratio unit").inputValue() === "percent",
+    "Contribution Margin Ratio did not initialize in percent display units",
+  );
+  assert(
+    await page.getByLabel("Downside Revenue Retention unit").inputValue() === "percent",
+    "Downside Revenue Retention did not initialize in percent display units",
+  );
+  assert(
+    await page.getByLabel("Source Confidence Ratio unit").inputValue() === "percent",
+    "Source Confidence Ratio did not initialize in percent display units",
+  );
+
+  await page.getByLabel("Display currency").selectOption("EUR");
+  assert(await page.getByLabel("Display currency").inputValue() === "EUR", "Display currency did not remain EUR");
+
+  const evidenceCheckboxes = page.locator(".sc-v531-field-evidence input[type='checkbox']");
+  const evidenceCheckboxCount = await evidenceCheckboxes.count();
+  assert(evidenceCheckboxCount === 20, `Expected 20 evidence checkboxes, found ${evidenceCheckboxCount}`);
+  for (let index = 0; index < evidenceCheckboxCount; index += 1) {
+    await evidenceCheckboxes.nth(index).check();
+  }
+
+  await assertTextAbsent(page, [
     "Initial Investment",
     "Annual Net Cash Flow",
     "Discount Rate",
@@ -61,54 +136,22 @@ try {
     "FMEA Trigger Flag",
     "Derating rule D001",
     "Derating rule D002",
-  ];
-  for (const label of forbiddenLabels) {
-    assert(await page.getByText(label, { exact: false }).count() === 0, `Cross-tool label leaked into page: ${label}`);
-  }
+  ]);
 
-  const apiResult = await page.evaluate(async ({ ownerEmail }) => {
-    const response = await fetch("/api/pro-calculator/execute", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-user-email": ownerEmail,
-      },
-      body: JSON.stringify({
-        tool_key: "break-even-survival-cash-calculator",
-        tool_id: "PRO_031",
-        raw_inputs: {
-          monthly_fixed_cash_cost: 120000,
-          monthly_debt_service: 25000,
-          contribution_margin_ratio: 42,
-          current_monthly_revenue: 420000,
-          unrestricted_cash_balance: 750000,
-          minimum_cash_buffer: 100000,
-          target_survival_months: 6,
-          downside_revenue_factor: 70,
-          source_confidence_ratio: 90,
-          uncertainty_multiplier: 1.15,
-        },
-        selected_units: {
-          monthly_fixed_cash_cost: "currency_unit",
-          monthly_debt_service: "currency_unit",
-          contribution_margin_ratio: "percent",
-          current_monthly_revenue: "currency_unit",
-          unrestricted_cash_balance: "currency_unit",
-          minimum_cash_buffer: "currency_unit",
-          target_survival_months: "month",
-          downside_revenue_factor: "percent",
-          source_confidence_ratio: "percent",
-          uncertainty_multiplier: "ratio",
-        },
-        display_currency: "EUR",
-        user_profile_mode: "engineering",
-      }),
-    });
-    return {
-      httpStatus: response.status,
-      payload: await response.json(),
-    };
-  }, { ownerEmail: process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com" });
+  const calculateButton = page.locator(".sc-v531-primary-action").filter({ hasText: /^Calculate$/ }).first();
+  await calculateButton.waitFor({ timeout: 30_000 });
+  assert(await calculateButton.isEnabled(), "Calculate button is disabled after authenticated owner bypass initialization");
+
+  const executeResponsePromise = page.waitForResponse(
+    (response) => response.url().endsWith("/api/pro-calculator/execute") && response.request().method() === "POST",
+    { timeout: 60_000 },
+  );
+  await calculateButton.click();
+  const executeResponse = await executeResponsePromise;
+  const apiResult = {
+    httpStatus: executeResponse.status(),
+    payload: await executeResponse.json(),
+  };
 
   assert(apiResult.httpStatus === 200, `Execute API returned HTTP ${apiResult.httpStatus}: ${JSON.stringify(apiResult.payload)}`);
   assert(apiResult.payload.status === "OK", `Expected API status OK, received ${apiResult.payload.status}`);
@@ -144,6 +187,21 @@ try {
   const warningText = JSON.stringify(apiResult.payload.warnings ?? []);
   assert(!warningText.includes("trigger_inputs"), "Derating configuration warning leaked into API response");
   assert(!warningText.includes("D001") && !warningText.includes("D002"), "Legacy derating rule leaked into API response");
+
+  await page.getByText("Break-Even Position", { exact: true }).waitFor({ timeout: 60_000 });
+  await page.getByText("Survival Cash Stress", { exact: true }).waitFor({ timeout: 30_000 });
+  await page.getByText("Control & Evidence", { exact: true }).waitFor({ timeout: 30_000 });
+  await page.getByText("Break-Even Monthly Revenue", { exact: true }).waitFor({ timeout: 30_000 });
+  await page.getByText("Funding Gap to Target", { exact: true }).waitFor({ timeout: 30_000 });
+
+  const pageText = await page.locator("body").innerText();
+  assert(pageText.includes("345,238.10") || pageText.includes("345,238.1"), "Rendered report does not show the break-even known-answer value");
+  assert(pageText.includes("30.20") || pageText.includes("30.2"), "Rendered report does not show the runway known-answer value");
+  assert(pageText.includes("248,488.00") || pageText.includes("248,488"), "Rendered report does not show the survival cash target known-answer value");
+  assert(pageText.includes("EUR"), "Rendered report does not preserve the selected EUR display currency");
+  assert(!pageText.includes("USD"), "Hardcoded USD leaked into the EUR report");
+  assert(!pageText.includes("Maximum Absorbed Overhead"), "Generic capital-appraisal output leaked into rendered report");
+  assert(!pageText.includes("FMEA Trigger Flag"), "Generic FMEA output leaked into rendered report");
 
   await page.screenshot({
     path: `${artifactsDir}/tool-page.png`,
