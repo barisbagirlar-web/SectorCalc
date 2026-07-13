@@ -1942,13 +1942,6 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.vsm_leadtime_cost", family: "cost", label: "VSM leadtime cost", fn: (i) => num(i,"totalLeadTime") * num(i,"costPerMinute") },
   { id: "measurement.vsm_value_added_ratio", family: "measurement", label: "Value-added ratio", fn: (i) => safeDivide(num(i,"valueAddedTime"), num(i,"totalLeadTime")) },
   { id: "cost.vsm_non_value_added_cost", family: "cost", label: "Non-value-added cost", fn: (i) => (num(i,"totalLeadTime") - num(i,"valueAddedTime")) * num(i,"costPerMinute") },
-  // AUDIT-SUSPECT [DUP ADD]: vsmNonValueAddedCost is added to ITSELF. Declared
-  // inputmap expects [vsmNonValueAddedCost, vsmLeadtimeCost, reworkPercent,
-  // dailyProduction, operatingDays] — the duplicate term is almost certainly a
-  // placeholder for a missing rework-cost component. Formula is currently
-  // UNBOUND (no active schema references it). Do NOT ship a guessed fix:
-  // establish a human-verified oracle case first, then correct and golden-lock.
-  { id: "cost.vsm_total_financial_impact", family: "cost", label: "VSM total impact", fn: (i) => num(i,"vsmNonValueAddedCost") + num(i,"vsmNonValueAddedCost") + num(i,"vsmLeadtimeCost") },
 
   // WPS Preheat
   { id: "measurement.carbon_equivalent", family: "measurement", label: "Carbon equivalent", fn: (i) => num(i,"carbonContent") + num(i,"manganeseContent") / 6 + (num(i,"chromiumContent") + num(i,"molybdenumContent") + num(i,"vPct")) / 5 + (num(i,"nickelContent") + num(i,"cuPct")) / 15 },
@@ -2667,90 +2660,10 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   {
-    id: "lean.muda_overproduction_cost",
-    family: "cost",
-    label: "Overproduction waste cost with holding uplift",
-  },
-  {
-    id: "lean.muda_waiting_cost",
-    family: "cost",
-    label: "Waiting waste cost",
-  },
-  {
-    id: "lean.muda_transport_cost",
-    family: "cost",
-    label: "Transport waste cost",
-  },
-  {
-    id: "lean.muda_inventory_cost",
-    family: "cost",
-    label: "Excess inventory holding waste cost",
-  },
-  {
-    id: "lean.muda_motion_cost",
-    family: "cost",
-    label: "Unnecessary motion waste cost",
-  },
-  {
-    id: "lean.muda_overprocessing_cost",
-    family: "cost",
-    label: "Overprocessing waste cost",
-  },
-  {
-    id: "lean.muda_defect_cost",
-    family: "cost",
-    label: "Defect waste cost from scrap and rework",
-  },
-  {
-    id: "lean.muda_total_waste_cost",
-    family: "cost",
-    label: "Seven muda total waste cost",
-  },
-  {
     id: "lean.muda_highest_waste_index",
     family: "cost",
     label: "Highest muda waste category rank",
     fn: () => 0,
-  },
-  {
-    id: "lean.muda_annualized_waste_cost",
-    family: "cost",
-    label: "Annualized waste cost",
-  },
-  {
-    id: "lean.muda_waste_cost_per_unit",
-    family: "cost",
-    label: "Waste cost per unit",
-  },
-  {
-    id: "lean.muda_period_revenue",
-    family: "cost",
-    label: "Period revenue",
-  },
-  {
-    id: "lean.muda_period_gross_margin_value",
-    family: "cost",
-    label: "Period gross margin value",
-  },
-  {
-    id: "lean.muda_waste_to_revenue_ratio_pct",
-    family: "cost",
-    label: "Waste to revenue ratio",
-  },
-  {
-    id: "lean.muda_waste_to_gross_margin_ratio_pct",
-    family: "cost",
-    label: "Waste to gross margin ratio",
-  },
-  {
-    id: "lean.muda_highest_waste_cost",
-    family: "cost",
-    label: "Highest waste category cost",
-  },
-  {
-    id: "lean.muda_risk_adjusted_priority_score",
-    family: "cost",
-    label: "Risk-adjusted priority score",
   },
   {
     id: "energy.monthly_kwh_savings",
@@ -4396,90 +4309,10 @@ const FORMULA_META_DETAILS: Record<
     requiredInputs: ["totalLeadMinutes", "valueAddedMinutes"],
     outputHint: "percentage",
   },
-  "lean.muda_overproduction_cost": {
-    description: "REV5 overproduction waste cost from the primed engineering model.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_waiting_cost": {
-    description: "REV5 waiting waste cost from the primed engineering model.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_transport_cost": {
-    description: "REV5 transport waste cost from the primed engineering model.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_inventory_cost": {
-    description: "REV5 inventory waste cost from the primed engineering model.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_motion_cost": {
-    description: "REV5 motion waste cost from the primed engineering model.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_overprocessing_cost": {
-    description: "REV5 overprocessing waste cost from the primed engineering model.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_defect_cost": {
-    description: "REV5 defect waste cost from the primed engineering model.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_total_waste_cost": {
-    description: "REV5 total waste cost from the primed engineering model.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
   "lean.muda_highest_waste_index": {
     description: "Rank of the highest REV5 muda waste category (1–7).",
     requiredInputs: [],
     outputHint: "number",
-  },
-  "lean.muda_annualized_waste_cost": {
-    description: "Annualized REV5 total waste exposure.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_waste_cost_per_unit": {
-    description: "REV5 waste cost per production unit in the analysis period.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_period_revenue": {
-    description: "REV5 period revenue from production volume and unit selling price.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_period_gross_margin_value": {
-    description: "REV5 period gross margin value.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_waste_to_revenue_ratio_pct": {
-    description: "REV5 total waste cost as a percent of period revenue.",
-    requiredInputs: [],
-    outputHint: "percentage",
-  },
-  "lean.muda_waste_to_gross_margin_ratio_pct": {
-    description: "REV5 total waste cost as a percent of period gross margin.",
-    requiredInputs: [],
-    outputHint: "percentage",
-  },
-  "lean.muda_highest_waste_cost": {
-    description: "REV5 monetary cost of the dominant waste category.",
-    requiredInputs: [],
-    outputHint: "currency",
-  },
-  "lean.muda_risk_adjusted_priority_score": {
-    description: "REV5 risk-adjusted kaizen priority score.",
-    requiredInputs: [],
-    outputHint: "score",
   },
   "energy.monthly_kwh_savings": {
     description: "Monthly kWh reduction from baseline to proposed consumption.",
@@ -4833,7 +4666,6 @@ const FORMULA_META_DETAILS: Record<
   "cost.vsm_leadtime_cost": { description: "VSM lead time cost from total lead time and cost per day.", requiredInputs: ["totalLeadTime", "costPerMinute"], outputHint: "currency" },
   "measurement.vsm_value_added_ratio": { description: "Value-added ratio from value-added time over total lead time.", requiredInputs: ["valueAddedTime", "totalLeadTime"], outputHint: "percentage" },
   "cost.vsm_non_value_added_cost": { description: "Cost of non-value-added time in VSM.", requiredInputs: ["totalLeadTime", "valueAddedTime", "costPerMinute"], outputHint: "currency" },
-  "cost.vsm_total_financial_impact": { description: "Total VSM financial impact from lead time, NVA, and inventory.", requiredInputs: ["vsmNonValueAddedCost", "vsmLeadtimeCost"], outputHint: "currency" },
   "measurement.carbon_equivalent": { description: "Carbon equivalent from alloy composition (CE formula).", requiredInputs: ["carbonContent", "manganeseContent", "chromiumContent", "molybdenumContent", "vPct", "nickelContent", "cuPct"], outputHint: "number" },
   "measurement.preheat_required": { description: "Preheat required indicator based on carbon equivalent threshold.", requiredInputs: ["carbonEquivalent", "materialThickness"], outputHint: "score" },
   "cost.preheat_energy_cost": { description: "Energy cost of preheat operation.", requiredInputs: ["preheatRequired", "energyCostPerKwh", "materialThickness"], outputHint: "currency" },
