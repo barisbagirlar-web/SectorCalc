@@ -1,0 +1,5 @@
+
+> fresh_app@0.1.0 typecheck
+> NODE_OPTIONS=--max-old-space-size=6144 tsc --noEmit
+
+src/sectorcalc/pro-form/index.ts(8,3): error TS2305: Module '"./form-state-machine"' has no exported member 'createNormalizedAuditFromPreview'.
