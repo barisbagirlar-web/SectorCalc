@@ -16,7 +16,7 @@ export interface CalculationResult {
 const ANNUAL_HOURS = 2080;
 
 export const toolKey = "break-even-survival-cash-calculator";
-export const formulaVersion = "5.3.1-pro-baris.1";
+export const formulaVersion = "5.3.1-pro-baris.2";
 
 function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
 function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
@@ -55,7 +55,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const breakeven_monthly_revenue = breakeven_annual_revenue / 12;
   const total_required_revenue = cm_ratio > 0 ? (annual_overhead + dc) / cm_ratio : 0;
   const survival_gap = total_required_revenue - cf;
-  const money_at_risk = survival_gap * stress;
+  const money_at_risk = Math.max(0, survival_gap * stress);
   const npv = -ci + sum_dcf(cf, dr, yrs) + rv / ((1 + dr) ** yrs);
 
   outputs["out_evidence_completeness"] = round(conf, 3);

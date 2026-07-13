@@ -13,7 +13,7 @@ export interface CalculationResult {
 }
 
 export const toolKey = "job-quote-builder-pro-pack";
-export const formulaVersion = "5.3.1-pro-baris.1";
+export const formulaVersion = "5.3.1-pro-baris.2";
 
 function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
 function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
@@ -53,7 +53,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_demand_metric"] = round(tjc, 2);
   outputs["out_capacity_metric"] = round(rp, 2);
   outputs["out_utilization_margin"] = round(mp, 4);
-  outputs["out_money_at_risk"] = round(tjc * (tm - Math.max(mp, 0)), 2);
+  outputs["out_money_at_risk"] = round(Math.max(0, tjc * (tm - mp)), 2);
   outputs["out_threshold_crossing"] = mp >= tm ? 0 : 1;
   outputs["out_fmea_trigger"] = mp < tm * 0.5 ? 1 : 0;
   outputs["out_final_decision_state"] = mp >= tm ? 0 : (mp >= tm * 0.5 ? 1 : 2);

@@ -13,7 +13,7 @@ export interface CalculationResult {
 }
 
 export const toolKey = "loss-making-job-detector";
-export const formulaVersion = "5.3.1-pro-baris.1";
+export const formulaVersion = "5.3.1-pro-baris.2";
 
 function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
 function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
@@ -41,7 +41,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const annual_machine = mr * ANNUAL_HOURS;
   const annual_labor = lr * ANNUAL_HOURS;
   const annual_overhead = oh * ANNUAL_HOURS;
-  const annual_vol = vol * 31536000;
+  const annual_vol = vol;
 
   const total_cost = annual_machine + mc + annual_labor + annual_overhead + dc;
   const price = mr * bq;
