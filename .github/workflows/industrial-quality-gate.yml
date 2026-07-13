@@ -5,6 +5,8 @@ on:
     branches: [main]
   push:
     branches: [main]
+  schedule:
+    - cron: "37 1 * * *"
   workflow_dispatch:
 
 permissions:
@@ -67,7 +69,7 @@ jobs:
     needs: calculation-kernel
     env:
       BARIS_E2E_BASE_URL: ${{ vars.BARIS_E2E_BASE_URL || 'https://sectorcalc.com' }}
-      BARIS_E2E_TEST_USER_EMAIL: ${{ secrets.BARIS_E2E_TEST_USER_EMAIL }}
+      BARIS_E2E_TEST_USER_EMAIL: ${{ vars.BARIS_E2E_TEST_USER_EMAIL || 'teb232@gmail.com' }}
       BARIS_E2E_TEST_USER_PASSWORD: ${{ secrets.BARIS_E2E_TEST_USER_PASSWORD }}
       BARIS_E2E_TOOL_KEY: break-even-survival-cash-calculator
       BARIS_E2E_STRICT: "true"
@@ -78,10 +80,10 @@ jobs:
           persist-credentials: false
       - name: Install locked dependencies
         run: npm ci --ignore-scripts=false
-      - name: Require dedicated E2E account
+      - name: Require approved E2E account
         shell: bash
         run: |
-          test -n "$BARIS_E2E_TEST_USER_EMAIL" || { echo 'Missing BARIS_E2E_TEST_USER_EMAIL'; exit 1; }
+          test "$BARIS_E2E_TEST_USER_EMAIL" = "teb232@gmail.com" || { echo 'Unexpected E2E account'; exit 1; }
           test -n "$BARIS_E2E_TEST_USER_PASSWORD" || { echo 'Missing BARIS_E2E_TEST_USER_PASSWORD'; exit 1; }
       - name: Auth to session to Pro execution
         run: node scripts/integration-auth-session-e2e.mjs --strict
@@ -94,7 +96,7 @@ jobs:
     env:
       BARIS_PDF_BASE_URL: ${{ vars.BARIS_E2E_BASE_URL || 'https://sectorcalc.com' }}
       BARIS_PDF_TEST_TARGETS: ${{ secrets.BARIS_PDF_TEST_TARGETS }}
-      BARIS_E2E_TEST_USER_EMAIL: ${{ secrets.BARIS_E2E_TEST_USER_EMAIL }}
+      BARIS_E2E_TEST_USER_EMAIL: ${{ vars.BARIS_E2E_TEST_USER_EMAIL || 'teb232@gmail.com' }}
       BARIS_E2E_TEST_USER_PASSWORD: ${{ secrets.BARIS_E2E_TEST_USER_PASSWORD }}
     steps:
       - name: Checkout repository
