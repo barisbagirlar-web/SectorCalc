@@ -95,3 +95,19 @@ jobs:
           src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts
         env:
           NODE_OPTIONS: --max-old-space-size=6144
+
+  canonical-quality-gate:
+    name: Canonical quality gate
+    needs: industrial-pipeline
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Enforce canonical pipeline result
+        shell: bash
+        run: |
+          if [ "${{ needs.industrial-pipeline.result }}" != "success" ]; then
+            echo "CANONICAL_QUALITY_GATE=FAIL"
+            exit 1
+          fi
+          echo "CANONICAL_QUALITY_GATE=PASS"
