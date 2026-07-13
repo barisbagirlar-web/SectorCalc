@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { PDFDocument } from "pdf-lib";
 import { chromium } from "playwright";
 
 const baseUrl = (process.env.E2E_BASE_URL ?? "http://127.0.0.1:3000").replace(/\/$/, "");
 const toolPath = "/tools/pro/break-even-survival-cash-calculator";
 const artifactsDir = "artifacts/break-even-browser-e2e";
-const ownerEmail = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
-const ownerPassword = process.env.E2E_OWNER_PASSWORD ?? "SectorCalc-E2E-Only-2026!";
+const ownerEmail = (process.env.OWNER_BYPASS_EMAIL ?? "").trim();
+const ownerPassword = (process.env.E2E_OWNER_PASSWORD ?? "").trim();
 mkdirSync(artifactsDir, { recursive: true });
 
 function assert(condition, message) {
@@ -31,6 +33,27 @@ async function assertTextAbsent(page, labels) {
     assert(await page.getByText(label, { exact: false }).count() === 0, `Forbidden text leaked into page: ${label}`);
   }
 }
+
+async function validatePdf(pdfPath, label) {
+  const bytes = readFileSync(pdfPath);
+  assert(bytes.length >= 10_000, `${label}: suspiciously small PDF (${bytes.length} bytes)`);
+  assert(bytes.length <= 25_000_000, `${label}: PDF exceeds 25 MB (${bytes.length} bytes)`);
+
+  const pdf = await PDFDocument.load(bytes, { updateMetadata: false });
+  const pageCount = pdf.getPageCount();
+  assert(pageCount >= 1, `${label}: zero-page PDF`);
+  assert(pageCount <= 20, `${label}: unexpected page count ${pageCount}`);
+
+  const metadata = `${pdf.getTitle() ?? ""} ${pdf.getSubject() ?? ""} ${pdf.getKeywords() ?? ""}`;
+  assert(metadata.includes("SectorCalc"), `${label}: metadata does not identify SectorCalc`);
+
+  const sha256 = createHash("sha256").update(bytes).digest("hex");
+  writeFileSync(`${pdfPath}.sha256`, `${sha256}  ${pdfPath.split("/").pop()}\n`, "utf8");
+  return { bytes: bytes.length, pageCount, sha256 };
+}
+
+assert(ownerEmail.length > 0, "OWNER_BYPASS_EMAIL is required; no credential fallback is permitted");
+assert(ownerPassword.length >= 12, "E2E_OWNER_PASSWORD is required and must be at least 12 characters");
 
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1100 } });
@@ -205,6 +228,17 @@ try {
   assert(!reportText.includes("Maximum Absorbed Overhead"), "Generic capital-appraisal output leaked into rendered report");
   assert(!reportText.includes("FMEA Trigger Flag"), "Generic FMEA output leaked into rendered report");
 
+  const overflow = await page.evaluate(() => {
+    const root = document.documentElement;
+    const reportNode = document.querySelector('[aria-label="Break-Even & Survival Cash Calculator report"]');
+    return {
+      documentHorizontal: root.scrollWidth > root.clientWidth + 2,
+      reportHorizontal: reportNode instanceof HTMLElement && reportNode.scrollWidth > reportNode.clientWidth + 2,
+    };
+  });
+  assert(!overflow.documentHorizontal, "Document has horizontal print overflow");
+  assert(!overflow.reportHorizontal, "Report has horizontal print overflow");
+
   await page.screenshot({
     path: `${artifactsDir}/tool-page.png`,
     fullPage: true,
@@ -214,7 +248,46 @@ try {
     JSON.stringify(apiResult, null, 2),
   );
 
+  await page.evaluate(() => {
+    document.title = "SectorCalc — Break-Even & Survival Cash Calculator";
+  });
+  await page.emulateMedia({ media: "print" });
+
+  const firstPdfPath = `${artifactsDir}/break-even-survival-cash-report-a4.pdf`;
+  const repeatPdfPath = `${artifactsDir}/break-even-survival-cash-report-a4-repeat.pdf`;
+  const pdfOptions = {
+    format: "A4",
+    printBackground: true,
+    preferCSSPageSize: true,
+    displayHeaderFooter: false,
+    tagged: true,
+    outline: true,
+    margin: { top: "12mm", right: "10mm", bottom: "14mm", left: "10mm" },
+  };
+  await page.pdf({ path: firstPdfPath, ...pdfOptions });
+  await page.pdf({ path: repeatPdfPath, ...pdfOptions });
+
+  const firstPdf = await validatePdf(firstPdfPath, "primary PDF");
+  const repeatPdf = await validatePdf(repeatPdfPath, "repeat PDF");
+  assert(firstPdf.pageCount === repeatPdf.pageCount, "Repeat PDF page count changed");
+  const sizeDelta = Math.abs(firstPdf.bytes - repeatPdf.bytes);
+  const allowedDelta = Math.max(4096, Math.round(firstPdf.bytes * 0.02));
+  assert(sizeDelta <= allowedDelta, `Repeat PDF size drift too high: delta=${sizeDelta};allowed=${allowedDelta}`);
+
+  writeFileSync(
+    `${artifactsDir}/pdf-evidence.json`,
+    JSON.stringify({
+      title: "SectorCalc — Break-Even & Survival Cash Calculator",
+      format: "A4",
+      primary: firstPdf,
+      repeat: repeatPdf,
+      sizeDelta,
+      allowedDelta,
+    }, null, 2),
+  );
+
   console.log("BREAK_EVEN_BROWSER_E2E=PASS");
+  console.log("PRO_PDF_EVIDENCE=PASS");
 } catch (error) {
   await page.screenshot({
     path: `${artifactsDir}/failure.png`,

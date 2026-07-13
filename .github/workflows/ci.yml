@@ -18,9 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
           cache: npm
@@ -34,6 +36,7 @@ jobs:
           node --check scripts/wait-release-workflows.mjs
           node --check scripts/deploy-production.mjs
           node --check scripts/e2e-break-even-browser.mjs
+          node --check scripts/pdf-industrial-contract.mjs
           node --check scripts/redact-deploy-log.mjs
 
           source_log="$(mktemp)"
@@ -52,6 +55,12 @@ jobs:
           grep -Fq "[REDACTED]" "$redacted_log"
           rm -f "$source_log" "$redacted_log"
           echo "DEPLOY_LOG_REDACTION_SMOKE=PASS"
+
+      - name: Secret leakage guard
+        run: npm run check:secrets
+
+      - name: Runtime stability guard
+        run: node scripts/guard-runtime-stability.mjs
 
       - name: V5.3.1 form architecture
         run: npm run guard:v531-form-architecture
@@ -94,6 +103,14 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=6144
 
+      - name: Free tool numeric regression suite
+        run: npm run test:golden:free-v531
+
+      - name: Result perspectives golden suite
+        run: npx vitest run tests/result-perspectives/result-perspectives-golden.test.ts
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+
       - name: Root-only routing guard
         run: npm run guard:root-only
 
@@ -130,8 +147,10 @@ jobs:
     steps:
       - name: Enforce canonical pipeline result
         shell: bash
+        env:
+          PIPELINE_RESULT: ${{ needs.industrial-pipeline.result }}
         run: |
-          if [ "${{ needs.industrial-pipeline.result }}" != "success" ]; then
+          if [ "$PIPELINE_RESULT" != "success" ]; then
             echo "CANONICAL_QUALITY_GATE=FAIL"
             exit 1
           fi

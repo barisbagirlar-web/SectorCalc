@@ -1,0 +1,73 @@
+name: Workflow Security
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/**"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/**"
+  schedule:
+    - cron: "17 3 * * 1"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: workflow-security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  zizmor:
+    name: zizmor workflow audit
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Run pinned zizmor container
+        id: audit
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          set -o pipefail
+          mkdir -p artifacts/zizmor
+          docker run --rm \
+            --volume "$GITHUB_WORKSPACE:/workspace:ro" \
+            --workdir /workspace \
+            --env GH_TOKEN \
+            ghcr.io/zizmorcore/zizmor:1.26.1@sha256:d1117e5dbd9ee4970644067b534ab6ab50371f3c6f7f4d05446eb603a6e78f48 \
+            --persona=pedantic \
+            --min-severity=medium \
+            --min-confidence=medium \
+            --color=never \
+            --show-audit-urls=always \
+            -- .github/workflows \
+            2>&1 | tee artifacts/zizmor/zizmor.log
+          status=${PIPESTATUS[0]}
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          echo "ZIZMOR_EXIT_CODE=$status" | tee artifacts/zizmor/result.txt
+          exit 0
+
+      - name: Upload zizmor evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: zizmor-audit-output
+          path: artifacts/zizmor
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Enforce zizmor result
+        if: always()
+        env:
+          ZIZMOR_STATUS: ${{ steps.audit.outputs.status }}
+        run: test "$ZIZMOR_STATUS" = "0"

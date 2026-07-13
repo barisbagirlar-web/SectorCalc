@@ -1,7 +1,7 @@
 name: Deploy
 
 on:
-  workflow_run:
+  workflow_run: # zizmor: ignore[dangerous-triggers] -- immutable main CI release handoff
     workflows: ["CI"]
     types: [completed]
     branches: [main]
@@ -34,11 +34,15 @@ jobs:
       - name: Resolve immutable release SHA
         id: release
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          WORKFLOW_RUN_SHA: ${{ github.event.workflow_run.head_sha }}
+          DISPATCH_SHA: ${{ github.sha }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_run" ]; then
-            release_sha="${{ github.event.workflow_run.head_sha }}"
+          if [ "$EVENT_NAME" = "workflow_run" ]; then
+            release_sha="$WORKFLOW_RUN_SHA"
           else
-            release_sha="${{ github.sha }}"
+            release_sha="$DISPATCH_SHA"
           fi
           if ! [[ "$release_sha" =~ ^[0-9a-f]{40}$ ]]; then
             echo "Invalid release SHA: $release_sha"
@@ -48,12 +52,13 @@ jobs:
           echo "RELEASE_SHA=$release_sha" >> "$GITHUB_ENV"
           echo "RELEASE_SHA=$release_sha"
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           ref: ${{ steps.release.outputs.sha }}
           fetch-depth: 1
+          persist-credentials: false
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
           cache: npm
@@ -160,7 +165,7 @@ jobs:
 
       - name: Upload production deploy evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: production-deploy-evidence
           path: artifacts/production-deploy

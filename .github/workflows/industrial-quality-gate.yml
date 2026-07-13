@@ -1,20 +1,99 @@
-name: Break-Even Browser E2E
+name: Industrial Quality Gate
 
 on:
   pull_request:
     branches: [main]
   push:
     branches: [main, "fix/*", "release/*"]
+  schedule:
+    - cron: "37 1 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: break-even-browser-${{ github.ref }}
+  group: industrial-quality-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  CI: "true"
+  NODE_OPTIONS: "--max-old-space-size=8192"
+
 jobs:
-  browser-e2e:
+  calculation-kernel:
+    name: Calculation kernel
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Secret leakage guard
+        run: npm run check:secrets
+
+      - name: Runtime stability guard
+        run: node scripts/guard-runtime-stability.mjs
+
+      - name: V5.3.1 form architecture
+        run: npm run guard:v531-form-architecture
+
+      - name: Forbidden form surfaces
+        run: npm run guard:forbidden-form-surfaces
+
+      - name: Schema and formula binding
+        run: npm run guard:v531-schema-formula-binding
+
+      - name: PRO runtime registration
+        run: npm run guard:baris-v531-runtime-registration
+
+      - name: PRO catalog contract
+        run: npm run guard:pro-tools-catalog
+
+      - name: PRO V2 output and isolation contracts
+        run: npm run guard:pro-v2-all-extended
+
+      - name: TypeScript gate
+        run: npm run typecheck
+
+      - name: ESLint error gate
+        run: npm run lint:errors
+
+      - name: Universal Pro form tests
+        run: npm run test:v5-form
+
+      - name: Pro runtime tests
+        run: npm run test:v5-runtime
+
+      - name: Premium formula audit
+        run: npm run audit:premium
+
+      - name: Free tool numeric regression suite
+        run: npm run test:golden:free-v531
+
+      - name: Result perspectives golden suite
+        run: npx vitest run tests/result-perspectives/result-perspectives-golden.test.ts
+
+      - name: Root-only routing contract
+        run: npm run guard:root-only
+
+      - name: Production build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
+
+  authenticated-pro-runtime:
+    name: Authenticated Pro runtime
+    needs: calculation-kernel
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
@@ -28,7 +107,6 @@ jobs:
       GCLOUD_PROJECT: sectorcalc-bf412
       GOOGLE_CLOUD_PROJECT: sectorcalc-bf412
       FIREBASE_CONFIG: '{"projectId":"sectorcalc-bf412"}'
-
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
@@ -58,7 +136,7 @@ jobs:
           echo "::add-mask::$password"
           echo "E2E_OWNER_PASSWORD=$password" >> "$GITHUB_ENV"
 
-      - name: Start Firebase Auth and Firestore emulators
+      - name: Start Firebase emulators
         run: |
           mkdir -p artifacts/break-even-browser-e2e
           npx firebase emulators:start \
@@ -101,8 +179,6 @@ jobs:
 
       - name: Production build
         run: npm run build
-        env:
-          NODE_OPTIONS: --max-old-space-size=8192
 
       - name: Start production server
         run: |
@@ -120,27 +196,23 @@ jobs:
           cat /tmp/sectorcalc-e2e-server.log
           exit 1
 
-      - name: Run authenticated browser, execute API, and generate PDF evidence
+      - name: Authenticated form, API, known-answer, and PDF execution
         shell: bash
         run: |
           set -o pipefail
           node scripts/e2e-break-even-browser.mjs 2>&1 | tee artifacts/break-even-browser-e2e/runner.log
 
-      - name: Validate generated PDF evidence
-        run: node scripts/pdf-industrial-contract.mjs --strict --artifact-dir artifacts/break-even-browser-e2e
-
       - name: Capture runtime logs
         if: always()
         run: |
-          mkdir -p artifacts/break-even-browser-e2e
           cp /tmp/sectorcalc-e2e-server.log artifacts/break-even-browser-e2e/server.log || true
           cp /tmp/sectorcalc-firebase-emulators.log artifacts/break-even-browser-e2e/firebase-emulators.log || true
 
-      - name: Upload E2E evidence
+      - name: Upload sealed runtime and PDF evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: break-even-browser-e2e-evidence
+          name: industrial-auth-pdf-evidence
           path: artifacts/break-even-browser-e2e
           if-no-files-found: error
           retention-days: 7
@@ -154,3 +226,30 @@ jobs:
           if [ -f /tmp/sectorcalc-firebase-emulators.pid ]; then
             kill "$(cat /tmp/sectorcalc-firebase-emulators.pid)" || true
           fi
+
+  pdf-evidence:
+    name: Pro PDF evidence
+    needs: authenticated-pro-runtime
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Download authenticated PDF evidence
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: industrial-auth-pdf-evidence
+          path: artifacts/break-even-browser-e2e
+
+      - name: Validate PDF metadata, hashes, layout bounds, and repeatability
+        run: node scripts/pdf-industrial-contract.mjs --strict --artifact-dir artifacts/break-even-browser-e2e

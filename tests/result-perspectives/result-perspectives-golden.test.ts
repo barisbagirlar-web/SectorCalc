@@ -12,7 +12,7 @@ import { readFileSync, existsSync } from "fs";
 import { resolve } from "path";
 import { buildUniversalResult, hasCommercialPrice, hasValidDecisionState } from "@/sectorcalc/result-perspectives/universal-result-adapter";
 
-const GOLDEN_DIR = resolve(process.cwd(), "tests/golden/free-v531");
+const FIXTURE_DIR = resolve(process.cwd(), "tests/result-perspectives/fixtures");
 
 interface GoldenFixture {
   tool_key: string;
@@ -33,8 +33,10 @@ interface GoldenFixture {
 
 describe("Result Perspectives — Golden Tests", () => {
   test("Machining Cost per Part produces 13.27 cost, 16.58 margin price, 15.92 markup", async () => {
-    // Load golden fixture
-    const goldenPath = resolve(GOLDEN_DIR, "machining-cost-per-part-mandated.golden.json");
+    // Load the dedicated result-perspectives fixture. It intentionally lives
+    // outside the Free V5.3.1 hash suite because it exercises a second input
+    // scenario for the same tool.
+    const goldenPath = resolve(FIXTURE_DIR, "machining-cost-per-part-mandated.json");
     expect(existsSync(goldenPath)).toBe(true);
     const golden: GoldenFixture = JSON.parse(readFileSync(goldenPath, "utf8"));
 
