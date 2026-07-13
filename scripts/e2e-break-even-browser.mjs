@@ -194,14 +194,16 @@ try {
   await page.getByText("Break-Even Monthly Revenue", { exact: true }).waitFor({ timeout: 30_000 });
   await page.getByText("Funding Gap to Target", { exact: true }).waitFor({ timeout: 30_000 });
 
-  const pageText = await page.locator("body").innerText();
-  assert(pageText.includes("345,238.10") || pageText.includes("345,238.1"), "Rendered report does not show the break-even known-answer value");
-  assert(pageText.includes("30.20") || pageText.includes("30.2"), "Rendered report does not show the runway known-answer value");
-  assert(pageText.includes("248,488.00") || pageText.includes("248,488"), "Rendered report does not show the survival cash target known-answer value");
-  assert(pageText.includes("EUR"), "Rendered report does not preserve the selected EUR display currency");
-  assert(!pageText.includes("USD"), "Hardcoded USD leaked into the EUR report");
-  assert(!pageText.includes("Maximum Absorbed Overhead"), "Generic capital-appraisal output leaked into rendered report");
-  assert(!pageText.includes("FMEA Trigger Flag"), "Generic FMEA output leaked into rendered report");
+  const report = page.locator('[aria-label="Break-Even & Survival Cash Calculator report"]');
+  await report.waitFor({ timeout: 30_000 });
+  const reportText = await report.innerText();
+  assert(reportText.includes("345,238.10"), "Rendered report does not show the exact break-even known-answer value");
+  assert(reportText.includes("30.20"), "Rendered report does not show the exact runway known-answer value");
+  assert(reportText.includes("248,488.00"), "Rendered report does not show the exact survival cash target known-answer value");
+  assert(reportText.includes("EUR"), "Rendered report does not preserve the selected EUR display currency");
+  assert(!reportText.includes("USD"), "Hardcoded USD leaked into the EUR report");
+  assert(!reportText.includes("Maximum Absorbed Overhead"), "Generic capital-appraisal output leaked into rendered report");
+  assert(!reportText.includes("FMEA Trigger Flag"), "Generic FMEA output leaked into rendered report");
 
   await page.screenshot({
     path: `${artifactsDir}/tool-page.png`,
