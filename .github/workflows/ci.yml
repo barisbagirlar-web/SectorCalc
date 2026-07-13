@@ -6,189 +6,99 @@ on:
   pull_request:
     branches: [main]
 
-permissions:
-  contents: write
-
 jobs:
   industrial-pipeline:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     timeout-minutes: 60
-    env:
-      NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
-      NODE_OPTIONS: --max-old-space-size=8192
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: fix/break-even-survival-cash-contract-v531
-          fetch-depth: 1
-          show-progress: false
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      # TEMP_CROSS_WIRE_MIGRATION_START
-      - name: Apply exact break-even cross-wire migration
-        shell: bash
-        run: |
-          set +e
-          {
-            node scripts/one-time-fix-break-even-cross-wire.mjs
-            node scripts/one-time-fix-break-even-test-contracts.mjs
-            node scripts/one-time-restore-form-state-audit-export.mjs
-            node scripts/one-time-harden-v531-form-ux.mjs
-            node scripts/one-time-enable-diagnostic-profile.mjs
-          } 2> .cross-wire-migration-error.txt
-          status=$?
-          set -e
-          if [ "$status" -ne 0 ]; then
-            git config user.name "sectorcalc-ci"
-            git config user.email "actions@users.noreply.github.com"
-            git add .cross-wire-migration-error.txt
-            if ! git diff --cached --quiet; then
-              git commit -m "chore: capture break-even migration failure"
-              git push origin HEAD:fix/break-even-survival-cash-contract-v531
-            fi
-            cat .cross-wire-migration-error.txt
-            exit "$status"
-          fi
-          rm -f .cross-wire-migration-error.txt
-      # TEMP_CROSS_WIRE_MIGRATION_END
+      - run: npm ci
 
-      - name: Install locked dependencies
-        run: npm ci --no-audit --no-fund
+      # ── Industrial Pipeline: Stages 0-7 (CI variant — no deploy) ──
 
-      - name: V5.3.1 form architecture lock
-        run: npm run guard:v531-form-architecture
+      # Stage 0: Schema Lock
+      - name: "Stage 0 — Schema Lock (Industrial — blocks QUARANTINE+WARN)"
+        run: npm run steelcore:validate:industrial
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: Schema and formula binding lock
-        run: npm run guard:v531-schema-formula-binding
+      # Stage 1: Generation (Isolated) + Quarantine Snapshot
+      - name: "Stage 1 — The Factory (Generation)"
+        run: npm run generate:all
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: PRO V2 cross-tool and report isolation
-        shell: bash
-        run: |
-          set +e
-          npm run guard:pro-v2-all-extended > .pro-v2-contract-error.txt 2>&1
-          status=$?
-          set -e
-          if [ "$status" -ne 0 ]; then
-            git config user.name "sectorcalc-ci"
-            git config user.email "actions@users.noreply.github.com"
-            git add .pro-v2-contract-error.txt
-            if ! git diff --cached --quiet; then
-              git commit -m "chore: capture PRO V2 contract failure"
-              git push origin HEAD:fix/break-even-survival-cash-contract-v531
-            fi
-            cat .pro-v2-contract-error.txt
-            exit "$status"
-          fi
-          rm -f .pro-v2-contract-error.txt
+      - name: "Stage 1 — Quarantine Snapshot"
+        run: node scripts/steelcore/quarantine-snapshot.mjs
 
-      - name: PRO catalog contract
-        run: npm run guard:pro-tools-catalog
+      # Stage 2: Static Quality Gate
+      - name: "Stage 2.1 — TypeScript Grammar"
+        run: npx tsc --noEmit
 
-      - name: PRO result rendering contract
-        run: npm run guard:pro-result-render-contract
+      - name: "Stage 2.2 — Code Style & Safety (zero warnings)"
+        run: npm run lint:strict
 
-      - name: PRO runtime registry import lock
-        run: npm run guard:baris-v531-runtime-registration
+      - name: "Stage 2.3 — Linguistic Completeness (+missing key detection)"
+        run: npm run i18n:check
 
-      - name: Universal form state-machine tests
-        shell: bash
-        run: |
-          set +e
-          npm run test:v5-form > .v5-form-test-error.txt 2>&1
-          status=$?
-          set -e
-          if [ "$status" -ne 0 ]; then
-            git config user.name "sectorcalc-ci"
-            git config user.email "actions@users.noreply.github.com"
-            git add .v5-form-test-error.txt
-            if ! git diff --cached --quiet; then
-              git commit -m "chore: capture universal form test failure"
-              git push origin HEAD:fix/break-even-survival-cash-contract-v531
-            fi
-            cat .v5-form-test-error.txt
-            exit "$status"
-          fi
-          rm -f .v5-form-test-error.txt
+      # Stage 3: Semantic & Mathematical Validation
+      - name: "Stage 3.1 — Compiler Integrity (+runtime execution)"
+        run: npm run audit:formula-compile
 
-      - name: Runtime decision and normalization tests
-        run: npm run test:v5-runtime
+      - name: "Stage 3.2 — Boundary Enforcement (Known-Answer Vectors)"
+        run: npm run steelcore:enforce-boundaries
 
-      - name: Break-even domain contract tests
-        run: >-
-          npx vitest run
-          src/sectorcalc/formulas/pro-v531/__tests__/break-even-survival-cash-calculator.test.ts
-          src/sectorcalc/formulas/pro-v531/__tests__/baris-formula-registry-break-even.test.ts
-          src/sectorcalc/formulas/pro-v531/__tests__/break-even-contract-isolation.test.ts
-          src/sectorcalc/pro-form/__tests__/form-state-machine-unit-init.test.ts
-          src/sectorcalc/pro-report/__tests__/pro-report-break-even.test.ts
-          src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts
+      - name: "Stage 3.3 — Cross-Domain Contamination (enforce blocking)"
+        run: npm run steelcore:ci-gate:enforce
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: TypeScript contract check
-        shell: bash
-        run: |
-          set +e
-          npm run typecheck > .typecheck-error.txt 2>&1
-          status=$?
-          set -e
-          if [ "$status" -ne 0 ]; then
-            git config user.name "sectorcalc-ci"
-            git config user.email "actions@users.noreply.github.com"
-            git add .typecheck-error.txt
-            if ! git diff --cached --quiet; then
-              git commit -m "chore: capture TypeScript contract failure"
-              git push origin HEAD:fix/break-even-survival-cash-contract-v531
-            fi
-            cat .typecheck-error.txt
-            exit "$status"
-          fi
-          rm -f .typecheck-error.txt
+      # Stage 4: Runtime Trust Engine (Fuzz)
+      - name: "Stage 4 — Compliance Audit"
+        run: npm run audit:runtime-trust-engine -- --fuzz=10000
+        continue-on-error: true
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: Lint errors only
-        run: npm run lint:errors
+      - name: "Stage 4 — Real Fuzz Test (10k garbage injections)"
+        run: npm run steelcore:fuzz -- --fuzz=10000
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: V5.3.1 form UX static smoke
-        shell: bash
-        run: |
-          set +e
-          npm run smoke:v531-form-ux > .v531-form-ux-error.txt 2>&1
-          status=$?
-          set -e
-          if [ "$status" -ne 0 ]; then
-            git config user.name "sectorcalc-ci"
-            git config user.email "actions@users.noreply.github.com"
-            git add .v531-form-ux-error.txt
-            if ! git diff --cached --quiet; then
-              git commit -m "chore: capture V5.3.1 form UX failure"
-              git push origin HEAD:fix/break-even-survival-cash-contract-v531
-            fi
-            cat .v531-form-ux-error.txt
-            exit "$status"
-          fi
-          rm -f .v531-form-ux-error.txt
-
-      - name: Stale result DOM guard
-        run: npm run guard:pro-no-stale-dom
-
-      - name: Production build
+      # Stage 5: System Integration & Build
+      - name: "Stage 5 — Production Build"
         run: npm run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+          NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
 
-      - name: Root-only routing guard
-        run: npm run guard:root-only
+      - name: "Stage 5.1 — Sitemap"
+        run: npm run generate:sitemap-static
 
-      - name: Commit verified migration
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "sectorcalc-ci"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A
-          git diff --cached --quiet && exit 0
-          git commit -m "fix(pro): persist verified break-even migration"
-          git push origin HEAD:fix/break-even-survival-cash-contract-v531
+      # Additional CI-only tests
+      - name: Generated tests
+        run: npm run test:generated
+
+      - name: Generated unit tests
+        run: npm run test:generated:unit
+
+      # Stage 6: Smoke & Health
+      - name: "Stage 6.1 — Browser Routes"
+        run: npm run smoke:browser-routes
+
+      - name: "Stage 6.2 — All Calculation Forms"
+        run: npm run smoke:all-calculation-forms
+
+      # Stage 7: Final Sign-Off (no release gate in CI — only PR verification)
+      - name: "Stage 7.1 — Formula Health Report"
+        run: npm run formula:health
+
+      - name: "Stage 7.2 — Production Readiness"
+        run: npm run audit:production-readiness
