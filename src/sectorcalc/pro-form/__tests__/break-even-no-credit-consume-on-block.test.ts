@@ -11,10 +11,13 @@ describe("blocked execution credit safety", () => {
     const route = readFileSync(routePath, "utf8");
     const pass2Failure = route.indexOf("if (!pass2.ok)");
     const pass3Failure = route.indexOf("if (!pass3.ok)");
-    const decrement = route.indexOf("decrementProductUse");
+    const decrementCall = route.indexOf(
+      "await decrementProductUse",
+      pass3Failure,
+    );
 
     expect(pass2Failure).toBeGreaterThan(-1);
     expect(pass3Failure).toBeGreaterThan(pass2Failure);
-    expect(decrement).toBeGreaterThan(pass3Failure);
+    expect(decrementCall).toBeGreaterThan(pass3Failure);
   });
 });
