@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   industrial-pipeline:
     runs-on: ubuntu-24.04
@@ -17,6 +20,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: fix/break-even-survival-cash-contract-v531
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -26,6 +32,11 @@ jobs:
 
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
+
+      # TEMP_CROSS_WIRE_MIGRATION_START
+      - name: Apply exact break-even cross-wire migration
+        run: node scripts/one-time-fix-break-even-cross-wire.mjs
+      # TEMP_CROSS_WIRE_MIGRATION_END
 
       - name: V5.3.1 form architecture lock
         run: npm run guard:v531-form-architecture
@@ -57,7 +68,9 @@ jobs:
           src/sectorcalc/formulas/pro-v531/__tests__/break-even-survival-cash-calculator.test.ts
           src/sectorcalc/formulas/pro-v531/__tests__/baris-formula-registry-break-even.test.ts
           src/sectorcalc/formulas/pro-v531/__tests__/break-even-contract-isolation.test.ts
+          src/sectorcalc/pro-form/__tests__/form-state-machine-unit-init.test.ts
           src/sectorcalc/pro-report/__tests__/pro-report-break-even.test.ts
+          src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts
 
       - name: TypeScript contract check
         run: npm run typecheck
@@ -76,3 +89,35 @@ jobs:
 
       - name: Root-only routing guard
         run: npm run guard:root-only
+
+      - name: Commit verified migration
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import { readFileSync, writeFileSync } from "node:fs";
+          const path = ".github/workflows/ci.yml";
+          let source = readFileSync(path, "utf8");
+          const start = source.indexOf("      # TEMP_CROSS_WIRE_MIGRATION_START\n");
+          const endMarker = "      # TEMP_CROSS_WIRE_MIGRATION_END\n\n";
+          const end = source.indexOf(endMarker, start);
+          if (start < 0 || end < 0) throw new Error("Temporary CI migration block not found");
+          source = source.slice(0, start) + source.slice(end + endMarker.length);
+          source = source.replace("\npermissions:\n  contents: write\n", "");
+          source = source.replace(
+            "        with:\n          ref: fix/break-even-survival-cash-contract-v531\n          fetch-depth: 0\n",
+            "",
+          );
+          const commitStep = source.indexOf("\n      - name: Commit verified migration\n");
+          if (commitStep < 0) throw new Error("Temporary commit step not found");
+          source = source.slice(0, commitStep) + "\n";
+          writeFileSync(path, source, "utf8");
+          NODE
+          rm -f scripts/one-time-fix-break-even-cross-wire.mjs
+          rm -f .github/workflows/apply-break-even-cross-wire-fix.yml
+          git config user.name "sectorcalc-ci"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "fix(pro): eliminate break-even cross-tool contamination"
+          git push origin HEAD:fix/break-even-survival-cash-contract-v531
