@@ -1,0 +1,58 @@
+
+> fresh_app@0.1.0 smoke:v531-form-ux
+> node scripts/smoke-v531-form-ux.mjs
+
+WARN: No build or live URL. Scanning source files.
+
+===== V5.3.1 FORM UX SMOKE =====
+Scanner: source
+Scanned: 2 files
+Date: 2026-07-13T13:30:32.133Z
+
+  PASS  forbidden token skipped: display_currency (server data, not UI)
+  PASS  forbidden token skipped: DECISION_SUPPORT_ONLY_NOT_CERTIFICATION (server data, not UI)
+  PASS  forbidden token skipped: manufacturing_quote_and_process_margin_screening (server data, not UI)
+  PASS  forbidden token skipped: normalized_inputs (server data, not UI)
+  PASS  forbidden token skipped: internal_checker_trace (server data, not UI)
+  PASS  forbidden token skipped: exact_formula (server data, not UI)
+  PASS  forbidden token absent: FreeToolPage
+  PASS  forbidden token absent: FreeToolPremiumCalculator
+  PASS  forbidden token absent: sc-universal-dtf-shell
+  PASS  forbidden token absent: sc-premium-dtf-container
+  PASS  forbidden token absent: Machine recipe or process sheet
+  PASS  forbidden token absent: machine recipe
+  PASS  forbidden token absent: process sheet
+  PASS  forbidden token absent: generic source
+  PASS  forbidden token absent: title="">!
+  PASS  forbidden token absent: aria-label="">!
+  PASS  UX pattern present: sc-v531-shell
+  PASS  UX pattern present: sc-v531-primary-action
+  PASS  UX pattern present: sc-v531-field-card
+  PASS  UX pattern present: sc-v531-side-panel
+  PASS  UX pattern present: sc-v531-field-title
+  PASS  UX pattern present: sc-v531-field-help
+  PASS  UX pattern present: sc-v531-input-row
+  PASS  UX pattern present: sc-v531-mode-tab
+  PASS  UX pattern present: sc-v531-field-header
+  PASS  UX pattern present: sc-v531-results
+  PASS  UX pattern present: sc-v531-placeholder
+  PASS  UX pattern present: sc-v531-advanced-summary
+  PASS  UX pattern present: No result yet
+  PASS  UX pattern present: Allowed range
+  PASS  UX pattern present: Default reference
+  PASS  UX pattern present: Accepted values
+  FAIL  UX pattern missing: sc-v531-field-evidence
+  FAIL  UX pattern missing: sc-v531-evidence-title
+  FAIL  UX pattern missing: sc-v531-evidence-options
+  FAIL  UX pattern missing: sc-v531-field-tolerance
+  FAIL  UX pattern missing: sc-v531-field-reference
+  FAIL  UX pattern missing: Protected methodology
+  FAIL  UX pattern missing: sc-v531-view-description
+  FAIL  UX pattern missing: sc-v531-field-reference-strip
+  FAIL  UX pattern missing: sc-v531-ref-line
+  FAIL  UX pattern missing: Fast decision view
+  FAIL  UX pattern missing: Engineering view
+  FAIL  UX pattern missing: Cost view
+  FAIL  UX pattern missing: Audit view
+
+V531_FORM_UX_SMOKE=FAIL
