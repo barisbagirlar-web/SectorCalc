@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: ["fix/break-even-survival-cash-contract-clean-v2"]
+    branches: [main, "fix/*", "release/*"]
 
 permissions:
   contents: read
