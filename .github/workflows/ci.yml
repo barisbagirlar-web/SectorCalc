@@ -152,7 +152,24 @@ jobs:
         run: npm run lint:errors
 
       - name: V5.3.1 form UX static smoke
-        run: npm run smoke:v531-form-ux
+        shell: bash
+        run: |
+          set +e
+          npm run smoke:v531-form-ux > .v531-form-ux-error.txt 2>&1
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ]; then
+            git config user.name "sectorcalc-ci"
+            git config user.email "actions@users.noreply.github.com"
+            git add .v531-form-ux-error.txt
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: capture V5.3.1 form UX failure"
+              git push origin HEAD:fix/break-even-survival-cash-contract-v531
+            fi
+            cat .v531-form-ux-error.txt
+            exit "$status"
+          fi
+          rm -f .v531-form-ux-error.txt
 
       - name: Stale result DOM guard
         run: npm run guard:pro-no-stale-dom
@@ -194,6 +211,7 @@ jobs:
           rm -f .pro-v2-contract-error.txt
           rm -f .v5-form-test-error.txt
           rm -f .typecheck-error.txt
+          rm -f .v531-form-ux-error.txt
           git config user.name "sectorcalc-ci"
           git config user.email "actions@users.noreply.github.com"
           git add -A
