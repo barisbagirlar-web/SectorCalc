@@ -86,13 +86,22 @@ const BREAK_EVEN_SURVIVAL_CASH_CONTRACT: ProReportContract = {
         },
         {
           sourceOutputId: "out_threshold_crossing",
-          businessLabel: "Target Runway Breached",
-          format: "boolean",
+          businessLabel: "Target Runway Status",
+          format: "string",
+          valueLabels: {
+            "0": "WITHIN TARGET",
+            "1": "BREACHED",
+          },
         },
         {
           sourceOutputId: "out_final_decision_state",
-          businessLabel: "Decision Code (0 Go / 1 Review / 2 Block)",
-          format: "number",
+          businessLabel: "Decision",
+          format: "string",
+          valueLabels: {
+            "0": "GO",
+            "1": "REVIEW",
+            "2": "BLOCK",
+          },
         },
       ],
     },
