@@ -94,6 +94,7 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
                 input.displayCurrency,
               ),
         explanation: entry.explanation ?? null,
+        displayDecimals: entry.displayDecimals,
       };
     });
 
