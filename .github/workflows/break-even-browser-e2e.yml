@@ -1,0 +1,83 @@
+name: Break-Even Browser E2E
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: ["fix/break-even-survival-cash-contract-clean-v2"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: break-even-browser-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      NEXT_PUBLIC_SITE_URL: http://127.0.0.1:3000
+      OWNER_BYPASS_EMAIL: barisbagirlar@gmail.com
+      E2E_BASE_URL: http://127.0.0.1:3000
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Production build
+        run: npm run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+
+      - name: Start production server
+        run: |
+          npm start -- -p 3000 > /tmp/sectorcalc-e2e-server.log 2>&1 &
+          echo $! > /tmp/sectorcalc-e2e-server.pid
+
+      - name: Wait for server readiness
+        run: |
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent --show-error http://127.0.0.1:3000/tools/pro/break-even-survival-cash-calculator > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/sectorcalc-e2e-server.log
+          exit 1
+
+      - name: Run browser and execute API E2E
+        run: node scripts/e2e-break-even-browser.mjs
+
+      - name: Capture server log
+        if: always()
+        run: |
+          mkdir -p artifacts/break-even-browser-e2e
+          cp /tmp/sectorcalc-e2e-server.log artifacts/break-even-browser-e2e/server.log || true
+
+      - name: Upload E2E evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: break-even-browser-e2e-evidence
+          path: artifacts/break-even-browser-e2e
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Stop production server
+        if: always()
+        run: |
+          if [ -f /tmp/sectorcalc-e2e-server.pid ]; then
+            kill "$(cat /tmp/sectorcalc-e2e-server.pid)" || true
+          fi
