@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { computeDecision } from "../decision-engine";
 
 const baseInput = {
+  outputs: [],
   warnings: [],
   violations: [],
   riskLevel: "LOW" as const,
@@ -10,40 +11,56 @@ const baseInput = {
   mainCostDriver: null,
 };
 
-describe("formula decision output precedence", () => {
-  it("maps decision code 0 to OK", () => {
+describe("authoritative formula decision status", () => {
+  it("preserves formula OK", () => {
     const result = computeDecision({
       ...baseInput,
-      outputs: [{ id: "out_final_decision_state", name: "Decision", value: 0 }],
+      formulaStatus: "OK",
     });
 
     expect(result.status).toBe("OK");
   });
 
-  it("maps decision code 1 to REVIEW", () => {
+  it("maps formula REVIEW to the public decision", () => {
     const result = computeDecision({
       ...baseInput,
-      outputs: [{ id: "out_final_decision_state", name: "Decision", value: 1 }],
+      formulaStatus: "REVIEW",
     });
 
     expect(result.status).toBe("REVIEW");
     expect(result.primary_reason).toContain("requires review");
   });
 
-  it("maps decision code 2 to BLOCKED", () => {
+  it("maps formula BLOCKED to the public decision", () => {
     const result = computeDecision({
       ...baseInput,
-      outputs: [{ id: "out_final_decision_state", name: "Decision", value: 2 }],
+      formulaStatus: "BLOCKED",
     });
 
     expect(result.status).toBe("BLOCKED");
     expect(result.primary_reason).toContain("blocked this case");
   });
 
+  it("does not infer status from another tool's encoded output id", () => {
+    const result = computeDecision({
+      ...baseInput,
+      outputs: [
+        {
+          id: "out_final_decision_state",
+          name: "Legacy Decision",
+          value: 2,
+        },
+      ],
+      formulaStatus: "OK",
+    });
+
+    expect(result.status).toBe("OK");
+  });
+
   it("does not allow formula GO to override a hard blocker", () => {
     const result = computeDecision({
       ...baseInput,
-      outputs: [{ id: "out_final_decision_state", name: "Decision", value: 0 }],
+      formulaStatus: "OK",
       warnings: [{ severity: "BLOCKED" as const, message: "Hard blocker" }],
     });
 
