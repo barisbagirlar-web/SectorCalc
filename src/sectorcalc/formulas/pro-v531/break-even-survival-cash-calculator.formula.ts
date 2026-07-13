@@ -39,10 +39,12 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const oh = get(inputs, "n_overhead_rate");
   const dc = get(inputs, "n_defect_or_loss_cost");
   const conf = get(inputs, "n_source_confidence_ratio");
+  const unc = get(inputs, "n_uncertainty_multiplier");
 
   if (!isFiniteNumber(inputs["n_initial_investment"])) warnings.push("Missing: n_initial_investment");
   if (!isFiniteNumber(inputs["n_annual_net_cash_flow"])) warnings.push("Missing: n_annual_net_cash_flow");
   if (!isFiniteNumber(inputs["n_discount_rate"])) warnings.push("Missing: n_discount_rate");
+  if (dr < 0.02) warnings.push("Discount rate " + dr.toFixed(4) + " ratio is below typical range [0.02, 0.35]. If you intended 18.5%, enter 18.5 with unit % not 0.185.");
 
   // Dimensional correction: lr, oh are currency_rate ($/h). Convert to annual $.
   const annual_labor = lr * ANNUAL_HOURS;
@@ -63,7 +65,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_demand_metric"] = round(breakeven_monthly_revenue, 2);
   outputs["out_capacity_metric"] = round(cf, 2);
   outputs["out_utilization_margin"] = round(cm_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(dc * 0.1, 2);
+  outputs["out_expanded_uncertainty"] = round(unc * dc * (1 - conf), 2);
   outputs["out_threshold_crossing"] = survival_gap > 0 ? 1 : 0;
   outputs["out_sensitivity_driver"] = annual_overhead > ci ? 1 : 0;
   outputs["out_fmea_trigger"] = survival_gap > 0 ? 1 : 0;
