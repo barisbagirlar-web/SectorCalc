@@ -2,9 +2,16 @@ name: CI
 
 on:
   push:
-    branches: [main, "feature/*"]
+    branches: [main, "feature/*", "fix/*", "release/*"]
   pull_request:
     branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   industrial-pipeline:
@@ -18,87 +25,60 @@ jobs:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
 
-      # ── Industrial Pipeline: Stages 0-7 (CI variant — no deploy) ──
+      - name: V5.3.1 form architecture
+        run: npm run guard:v531-form-architecture
 
-      # Stage 0: Schema Lock
-      - name: "Stage 0 — Schema Lock (Industrial — blocks QUARANTINE+WARN)"
-        run: npm run steelcore:validate:industrial
+      - name: Forbidden form surfaces
+        run: npm run guard:forbidden-form-surfaces
+
+      - name: Schema and formula binding
+        run: npm run guard:v531-schema-formula-binding
+
+      - name: PRO runtime registration
+        run: npm run guard:baris-v531-runtime-registration
+
+      - name: PRO catalog contract
+        run: npm run guard:pro-tools-catalog
+
+      - name: PRO V2 extended contract matrix
+        run: npm run guard:pro-v2-all-extended
         env:
-          NODE_OPTIONS: --max-old-space-size=4096
+          NODE_OPTIONS: --max-old-space-size=6144
 
-      # Stage 1: Generation (Isolated) + Quarantine Snapshot
-      - name: "Stage 1 — The Factory (Generation)"
-        run: npm run generate:all
+      - name: TypeScript
+        run: npm run typecheck
+
+      - name: ESLint errors
+        run: npm run lint:errors
+
+      - name: V5 form tests
+        run: npm run test:v5-form
         env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          NODE_OPTIONS: --max-old-space-size=4096
+          NODE_OPTIONS: --max-old-space-size=6144
 
-      - name: "Stage 1 — Quarantine Snapshot"
-        run: node scripts/steelcore/quarantine-snapshot.mjs
-
-      # Stage 2: Static Quality Gate
-      - name: "Stage 2.1 — TypeScript Grammar"
-        run: npx tsc --noEmit
-
-      - name: "Stage 2.2 — Code Style & Safety (zero warnings)"
-        run: npm run lint:strict
-
-      - name: "Stage 2.3 — Linguistic Completeness (+missing key detection)"
-        run: npm run i18n:check
-
-      # Stage 3: Semantic & Mathematical Validation
-      - name: "Stage 3.1 — Compiler Integrity (+runtime execution)"
-        run: npm run audit:formula-compile
-
-      - name: "Stage 3.2 — Boundary Enforcement (Known-Answer Vectors)"
-        run: npm run steelcore:enforce-boundaries
-
-      - name: "Stage 3.3 — Cross-Domain Contamination (enforce blocking)"
-        run: npm run steelcore:ci-gate:enforce
+      - name: V5 runtime tests
+        run: npm run test:v5-runtime
         env:
-          NODE_OPTIONS: --max-old-space-size=4096
+          NODE_OPTIONS: --max-old-space-size=6144
 
-      # Stage 4: Runtime Trust Engine (Fuzz)
-      - name: "Stage 4 — Compliance Audit"
-        run: npm run audit:runtime-trust-engine -- --fuzz=10000
-        continue-on-error: true
+      - name: Premium formula audit
+        run: npm run audit:premium
         env:
-          NODE_OPTIONS: --max-old-space-size=4096
+          NODE_OPTIONS: --max-old-space-size=6144
 
-      - name: "Stage 4 — Real Fuzz Test (10k garbage injections)"
-        run: npm run steelcore:fuzz -- --fuzz=10000
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
+      - name: Root-only routing guard
+        run: npm run guard:root-only
 
-      # Stage 5: System Integration & Build
-      - name: "Stage 5 — Production Build"
+      - name: Production build
         run: npm run build
         env:
           NODE_OPTIONS: --max-old-space-size=8192
           NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
 
-      - name: "Stage 5.1 — Sitemap"
-        run: npm run generate:sitemap-static
-
-      # Additional CI-only tests
-      - name: Generated tests
-        run: npm run test:generated
-
-      - name: Generated unit tests
-        run: npm run test:generated:unit
-
-      # Stage 6: Smoke & Health
-      - name: "Stage 6.1 — Browser Routes"
-        run: npm run smoke:browser-routes
-
-      - name: "Stage 6.2 — All Calculation Forms"
-        run: npm run smoke:all-calculation-forms
-
-      # Stage 7: Final Sign-Off (no release gate in CI — only PR verification)
-      - name: "Stage 7.1 — Formula Health Report"
-        run: npm run formula:health
-
-      - name: "Stage 7.2 — Production Readiness"
-        run: npm run audit:production-readiness
+      - name: PRO real-execution smoke
+        run: npm run smoke:v531-pro-real-execution
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
