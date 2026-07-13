@@ -113,8 +113,13 @@ jobs:
           node - "$auth_result" <<'NODE'
           const fs = require("fs");
           const payload = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
-          const sites = Array.isArray(payload?.result) ? payload.result : [];
-          if (!sites.some((site) => site?.name === "sectorcalc-bf412" || site?.site === "sectorcalc-bf412")) {
+          const sites = Array.isArray(payload?.result?.sites) ? payload.result.sites : [];
+          const authorized = sites.some((site) => {
+            const resourceName = typeof site?.name === "string" ? site.name : "";
+            const siteId = resourceName.split("/").pop();
+            return siteId === "sectorcalc-bf412";
+          });
+          if (!authorized) {
             console.error("Authenticated service account cannot resolve the SectorCalc Hosting site.");
             process.exit(1);
           }
