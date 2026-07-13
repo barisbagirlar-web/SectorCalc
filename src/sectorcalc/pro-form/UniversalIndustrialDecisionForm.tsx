@@ -5,7 +5,7 @@
 "use client";
 
 import type { ChangeEvent, ReactNode } from "react";
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { startTransition, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type {
   CalcStatus,
   ExecuteResponse,
@@ -731,16 +731,12 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     : props.schema;
 
   // ── FREE-route detection ──
-  // Synchronous check — no state needed. Safe because this is a client component.
-  const isFreeRoute: boolean =
-    typeof window !== "undefined" &&
-    (window.location.pathname.includes("/tools/free/") ||
-      window.location.pathname.startsWith("/free-tools/"));
-
-  const effectiveAccessTier: "FREE" | "PRO" =
-    isFreeRoute ? "FREE" : (props.accessTier ?? "FREE");
+  // Derive from props to avoid SSR/CSR mismatch (no window.location during render).
+  const effectiveAccessTier: "FREE" | "PRO" = props.accessTier ?? "FREE";
   const effectiveInitialMode: ProfileMode =
-    isFreeRoute ? "quick" : (props.initialProfileMode ?? "engineering");
+    effectiveAccessTier === "FREE"
+      ? "quick"
+      : (props.initialProfileMode ?? "engineering");
 
   // ── Hooks (unconditional) ──
   const machine = useUniversalIndustrialDecisionFormMachine({
@@ -787,12 +783,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // ── Industrial example values (initial mount — useLayoutEffect for no flicker) ──
-  // useLayoutEffect runs synchronously before browser paint, so the form
-  // never shows empty/null inputs before example values are set.
+  // ── Industrial example values (initial mount — useEffect to avoid hydration pressure) ──
+  // useEffect runs after paint, which reduces reconciler load during hydration
+  // compared to useLayoutEffect. Combined with startTransition, React can defer
+  // the state updates until after hydration completes.
   const examplesInitializedRef = useRef<string | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (contractErrors.length > 0) return;
     if (!props.schema || !Array.isArray(props.schema.inputs) || props.schema.inputs.length === 0) return;
 
@@ -802,39 +799,39 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     if (examplesInitializedRef.current === toolSlug) return;
     examplesInitializedRef.current = toolSlug;
 
-    let anySet = false;
+    // Use startTransition to let React prioritize hydration completion
+    // before processing example-value dispatches.
+    startTransition(() => {
+      for (const input of props.schema!.inputs) {
+        const currentValue = state.rawInputState[input.id];
+        const resolved = resolveIndustrialExampleValue({
+          toolSlug,
+          toolKey: props.schema!.tool_key,
+          inputId: input.id,
+          inputName: input.name,
+          unit: input.base_unit,
+          rangeMin: input.physical_hard_bounds?.min ?? null,
+          rangeMax: input.physical_hard_bounds?.max ?? null,
+          schemaExampleValue: null,
+          schemaDefaultValue: input.default_value ?? null,
+        });
 
-    for (const input of props.schema.inputs) {
-      const currentValue = state.rawInputState[input.id];
-      const resolved = resolveIndustrialExampleValue({
-        toolSlug,
-        toolKey: props.schema.tool_key,
-        inputId: input.id,
-        inputName: input.name,
-        unit: input.base_unit,
-        rangeMin: input.physical_hard_bounds?.min ?? null,
-        rangeMax: input.physical_hard_bounds?.max ?? null,
-        schemaExampleValue: null,
-        schemaDefaultValue: input.default_value ?? null,
-      });
+        if (resolved === "") continue;
 
-      if (resolved === "") continue;
+        const needsUpdate =
+          currentValue === null ||
+          currentValue === undefined ||
+          currentValue !== resolved;
 
-      const needsUpdate =
-        currentValue === null ||
-        currentValue === undefined ||
-        currentValue !== resolved;
-
-      if (needsUpdate) {
-        machine.setInputValue(input.id, resolved);
-        anySet = true;
+        if (needsUpdate) {
+          machine.setInputValue(input.id, resolved);
+        }
       }
-    }
+    });
 
     // NOTE: runClientPrecheck is NOT called on mount.
     // Validation is deferred until the user explicitly clicks Calculate.
     // This prevents showing red error borders on initial page load.
-    void anySet;
   }, [props.schema, props.toolKey, contractErrors.length]);
   const runsRemaining = props.remainingRuns ?? 0;
   const sessionExhausted = isPro && hasSession && runsRemaining <= 0;
@@ -1953,7 +1950,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
           </section>
 
           {/* Premium hook (hidden in FREE mode) */}
-          {!isFreeRoute && premiumHook && (
+          {!isFreeTier && premiumHook && (
             <PremiumPanel hook={premiumHook} onCheckout={() => machine.requestCheckout()} />
           )}
 
