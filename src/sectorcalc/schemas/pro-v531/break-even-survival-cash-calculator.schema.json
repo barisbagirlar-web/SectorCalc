@@ -3,23 +3,64 @@
   "tool_key": "break-even-survival-cash-calculator",
   "tool_name": "Break-Even & Survival Cash Calculator",
   "category": "SME Finance",
-  "scope": "Calculate break-even revenue, downside cash burn, cash runway, survival cash target, and funding gap.",
+  "scope": "Calculate monthly break-even revenue, downside cash burn, cash runway, survival cash target, and the funding gap before a cash commitment.",
   "primary_operation": "break_even_survival_cash_screen",
-  "decision_context": {},
-  "irreversible_commitment_metric": "cash runway and funding gap",
-  "standards": [],
+  "decision_context": {
+    "system_boundary": "Monthly operating cash obligations, contribution margin, unrestricted cash, and a defined downside revenue case.",
+    "decision_owner": "owner, CFO, finance controller, lender preparation team, or turnaround adviser",
+    "decision_after_output": "proceed, review funding, reduce obligations, improve contribution margin, or block an unsupported commitment",
+    "cost_of_wrong_decision": "understated break-even revenue, overstated runway, delayed financing action, or avoidable liquidity failure",
+    "required_source_documents": [
+      "recent management accounts",
+      "debt repayment schedule",
+      "bank cash balance evidence",
+      "contribution margin bridge",
+      "downside revenue assumption register"
+    ],
+    "excluded_use_cases": [
+      "legal solvency opinion",
+      "audit certification",
+      "lender approval guarantee",
+      "replacement of qualified restructuring review"
+    ],
+    "tool_use_classification": "DECISION_SUPPORT_ONLY_NOT_CERTIFICATION"
+  },
+  "irreversible_commitment_metric": "cash runway and survival funding gap",
+  "standards": [
+    "management accounting context",
+    "cash-flow stress testing context"
+  ],
   "standards_clause_map": [],
   "reference_status": "CONTEXT_ONLY",
   "risk_level": "HIGH",
-  "brand_safety_policy": {},
-  "calculation_basis": {},
-  "unit_system": {},
+  "brand_safety_policy": {
+    "third_party_brand_use": "FORBIDDEN",
+    "legal_proof_claim": "FORBIDDEN",
+    "certified_compliance_claim": "FORBIDDEN",
+    "violation_behavior": "REJECT_SCHEMA"
+  },
+  "calculation_basis": {
+    "basis_type": "PROTECTED_SERVER_FORMULA_GRAPH_WITH_PUBLIC_SAFE_SCHEMA_CONTRACT",
+    "formula_storage": "PRIVATE_SERVER_SIDE_FORMULA_MODULE",
+    "public_schema_formula_exposure": "FORBIDDEN",
+    "decision_depth": "monthly break-even, downside burn, runway, target cash, funding gap, and evidence-confidence decision graph"
+  },
+  "unit_system": {
+    "default_display_system": "USER_SELECTED_CURRENCY_WITH_MONTHLY_TIME_BASIS",
+    "internal_base_system": "DECLARED_BASE_UNITS",
+    "currency_display": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION"
+  },
   "unit_conversion_contract": {
+    "internal_base_system": "DECLARED_BASE_UNITS",
+    "currency_policy": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION",
+    "temperature_policy": "NOT_APPLICABLE",
     "conversion_registry": {
       "currency": {
-        "base_unit": "display_currency",
+        "base_unit": "currency_unit",
         "unit_family": "CURRENCY",
-        "units": [{ "unit": "display_currency", "factor": 1 }]
+        "units": [
+          { "unit": "currency_unit", "factor": 1 }
+        ]
       },
       "dimensionless": {
         "base_unit": "ratio",
@@ -32,128 +73,176 @@
       "time": {
         "base_unit": "month",
         "unit_family": "TIME",
-        "units": [{ "unit": "month", "factor": 1 }]
+        "units": [
+          { "unit": "month", "factor": 1 }
+        ]
       }
-    }
+    },
+    "unsupported_conversion_behavior": "BLOCK_CALCULATION",
+    "unit_change_behavior": "PRESERVE_PHYSICAL_QUANTITY",
+    "formula_input_rule": "FORMULAS_USE_NORMALIZED_BASE_UNITS_ONLY"
   },
   "inputs": [
     {
       "id": "monthly_fixed_cash_cost",
       "name": "Monthly Fixed Cash Cost",
+      "symbol": "C_fixed",
       "quantity_kind": "currency",
       "unit_selectable": false,
-      "base_unit": "display_currency",
-      "allowed_display_units": ["display_currency"],
+      "base_unit": "currency_unit",
+      "allowed_display_units": ["currency_unit"],
       "normalized_id": "n_monthly_fixed_cash_cost",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "physical_hard_bounds": { "min": 0, "max": 1000000000, "unit": "display_currency", "violation_behavior": "BLOCK" },
-      "engineering_reference_range": { "min": 0, "max": 10000000, "unit": "display_currency", "source": "Advisory screening range; verify company records." },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 0, "max": 1000000000, "unit": "currency_unit", "basis": "NON_NEGATIVE_MONTHLY_CASH_OBLIGATION", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 0, "max": 10000000, "unit": "currency_unit", "source": "Advisory screening range; verify company records.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.01,
+      "precision_policy": { "input_decimals": 2, "display_decimals": 2, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 120000,
       "example_value": 120000,
-      "evidence_requirement": { "required": true, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Recurring monthly cash costs excluding debt service."
+      "reference_values": { "reference_value_type": "USER_VERIFIED", "source": "recent management accounts", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "Replace the example with recurring monthly cash obligations excluding debt service." },
+      "evidence_requirement": { "required": true, "accepted_evidence": ["management accounts", "general ledger", "cash-cost bridge"], "missing_evidence_behavior": "REVIEW", "public_help_text": "Use traceable recurring cash obligations." },
+      "formula_bindings": [],
+      "output_bindings": ["out_break_even_monthly_revenue", "out_monthly_cash_burn", "out_survival_cash_target"],
+      "user_help_text": "Recurring monthly cash costs excluding debt service. Replace the example before a real decision."
     },
     {
       "id": "monthly_debt_service",
       "name": "Monthly Debt Service",
+      "symbol": "C_debt",
       "quantity_kind": "currency",
       "unit_selectable": false,
-      "base_unit": "display_currency",
-      "allowed_display_units": ["display_currency"],
+      "base_unit": "currency_unit",
+      "allowed_display_units": ["currency_unit"],
       "normalized_id": "n_monthly_debt_service",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "physical_hard_bounds": { "min": 0, "max": 1000000000, "unit": "display_currency", "violation_behavior": "BLOCK" },
-      "engineering_reference_range": { "min": 0, "max": 10000000, "unit": "display_currency", "source": "Advisory screening range; verify company records." },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 0, "max": 1000000000, "unit": "currency_unit", "basis": "NON_NEGATIVE_MANDATORY_FINANCING_PAYMENT", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 0, "max": 10000000, "unit": "currency_unit", "source": "Advisory screening range; verify debt schedules.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.01,
+      "precision_policy": { "input_decimals": 2, "display_decimals": 2, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 25000,
       "example_value": 25000,
-      "evidence_requirement": { "required": true, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Mandatory monthly financing payments."
+      "reference_values": { "reference_value_type": "CERTIFIED_DOCUMENT", "source": "debt repayment schedule", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "Include mandatory principal, interest, and finance-lease cash payments." },
+      "evidence_requirement": { "required": true, "accepted_evidence": ["loan schedule", "lease schedule", "bank statement"], "missing_evidence_behavior": "REVIEW", "public_help_text": "Use the current mandatory monthly financing payment." },
+      "formula_bindings": [],
+      "output_bindings": ["out_break_even_monthly_revenue", "out_monthly_cash_burn", "out_survival_cash_target"],
+      "user_help_text": "Mandatory monthly financing payments. Replace the example before a real decision."
     },
     {
       "id": "contribution_margin_ratio",
       "name": "Contribution Margin Ratio",
+      "symbol": "CM",
       "quantity_kind": "dimensionless",
       "unit_selectable": true,
       "base_unit": "ratio",
-      "allowed_display_units": ["percent", "ratio"],
+      "allowed_display_units": ["ratio", "percent"],
       "normalized_id": "n_contribution_margin_ratio",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "physical_hard_bounds": { "min": 0.0001, "max": 1, "unit": "ratio", "violation_behavior": "BLOCK" },
-      "engineering_reference_range": { "min": 0.05, "max": 0.9, "unit": "ratio", "source": "Advisory screening range; verify company records." },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 0.0001, "max": 1, "unit": "ratio", "basis": "POSITIVE_CONTRIBUTION_MARGIN_REQUIRED", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 0.05, "max": 0.9, "unit": "ratio", "source": "Advisory screening range; verify the contribution margin bridge.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.0001,
+      "precision_policy": { "input_decimals": 4, "display_decimals": 4, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 0.42,
       "example_value": 0.42,
-      "evidence_requirement": { "required": true, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Revenue remaining after variable cash costs."
+      "reference_values": { "reference_value_type": "ERP", "source": "revenue and variable cash-cost bridge", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "Enter contribution margin as a ratio or switch the unit to percent." },
+      "evidence_requirement": { "required": true, "accepted_evidence": ["management accounts", "product margin bridge", "ERP extract"], "missing_evidence_behavior": "REVIEW", "public_help_text": "Use revenue less variable cash costs divided by revenue." },
+      "formula_bindings": [],
+      "output_bindings": ["out_break_even_monthly_revenue", "out_current_revenue_gap", "out_monthly_cash_burn", "out_margin_of_safety_ratio"],
+      "user_help_text": "Revenue remaining after variable cash costs. The example 0.42 equals 42%."
     },
     {
       "id": "current_monthly_revenue",
       "name": "Current Monthly Revenue",
+      "symbol": "R_current",
       "quantity_kind": "currency",
       "unit_selectable": false,
-      "base_unit": "display_currency",
-      "allowed_display_units": ["display_currency"],
+      "base_unit": "currency_unit",
+      "allowed_display_units": ["currency_unit"],
       "normalized_id": "n_current_monthly_revenue",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "physical_hard_bounds": { "min": 0, "max": 10000000000, "unit": "display_currency", "violation_behavior": "BLOCK" },
-      "engineering_reference_range": { "min": 0, "max": 100000000, "unit": "display_currency", "source": "Advisory screening range; verify company records." },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 0, "max": 10000000000, "unit": "currency_unit", "basis": "NON_NEGATIVE_SUSTAINABLE_MONTHLY_REVENUE", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 0, "max": 100000000, "unit": "currency_unit", "source": "Advisory screening range; verify recent revenue records.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.01,
+      "precision_policy": { "input_decimals": 2, "display_decimals": 2, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 420000,
       "example_value": 420000,
-      "evidence_requirement": { "required": true, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Current sustainable monthly revenue."
+      "reference_values": { "reference_value_type": "ERP", "source": "recent sustainable revenue run-rate", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "Exclude one-off revenue unless it is expected to recur." },
+      "evidence_requirement": { "required": true, "accepted_evidence": ["sales ledger", "management accounts", "order book bridge"], "missing_evidence_behavior": "REVIEW", "public_help_text": "Use a defendable monthly revenue run-rate." },
+      "formula_bindings": [],
+      "output_bindings": ["out_current_revenue_gap", "out_stressed_monthly_revenue", "out_margin_of_safety_ratio"],
+      "user_help_text": "Current sustainable monthly revenue. Replace the example before a real decision."
     },
     {
       "id": "unrestricted_cash_balance",
       "name": "Unrestricted Cash Balance",
+      "symbol": "Cash_free",
       "quantity_kind": "currency",
       "unit_selectable": false,
-      "base_unit": "display_currency",
-      "allowed_display_units": ["display_currency"],
+      "base_unit": "currency_unit",
+      "allowed_display_units": ["currency_unit"],
       "normalized_id": "n_unrestricted_cash_balance",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "physical_hard_bounds": { "min": 0, "max": 10000000000, "unit": "display_currency", "violation_behavior": "BLOCK" },
-      "engineering_reference_range": { "min": 0, "max": 100000000, "unit": "display_currency", "source": "Advisory screening range; verify company records." },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 0, "max": 10000000000, "unit": "currency_unit", "basis": "NON_NEGATIVE_AVAILABLE_CASH", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 0, "max": 100000000, "unit": "currency_unit", "source": "Advisory screening range; verify bank evidence.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.01,
+      "precision_policy": { "input_decimals": 2, "display_decimals": 2, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 750000,
       "example_value": 750000,
-      "evidence_requirement": { "required": true, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Cash available after excluding restricted funds."
+      "reference_values": { "reference_value_type": "CERTIFIED_DOCUMENT", "source": "bank cash balance evidence", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "Exclude restricted, pledged, or unavailable cash." },
+      "evidence_requirement": { "required": true, "accepted_evidence": ["bank statement", "treasury report", "restricted-cash reconciliation"], "missing_evidence_behavior": "REVIEW", "public_help_text": "Use cash that is legally and operationally available." },
+      "formula_bindings": [],
+      "output_bindings": ["out_cash_runway_months", "out_funding_gap"],
+      "user_help_text": "Cash available after excluding restricted funds. Replace the example before a real decision."
     },
     {
       "id": "minimum_cash_buffer",
       "name": "Minimum Cash Buffer",
+      "symbol": "Cash_min",
       "quantity_kind": "currency",
       "unit_selectable": false,
-      "base_unit": "display_currency",
-      "allowed_display_units": ["display_currency"],
+      "base_unit": "currency_unit",
+      "allowed_display_units": ["currency_unit"],
       "normalized_id": "n_minimum_cash_buffer",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "physical_hard_bounds": { "min": 0, "max": 10000000000, "unit": "display_currency", "violation_behavior": "BLOCK" },
-      "engineering_reference_range": { "min": 0, "max": 100000000, "unit": "display_currency", "source": "Advisory screening range; verify company records." },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 0, "max": 10000000000, "unit": "currency_unit", "basis": "NON_NEGATIVE_MANAGEMENT_RESERVE", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 0, "max": 100000000, "unit": "currency_unit", "source": "Advisory screening range; management must verify the reserve policy.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.01,
+      "precision_policy": { "input_decimals": 2, "display_decimals": 2, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 100000,
       "example_value": 100000,
-      "evidence_requirement": { "required": true, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Reserve management will not consume."
+      "reference_values": { "reference_value_type": "USER_VERIFIED", "source": "board or treasury reserve policy", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "This reserve is excluded from cash available to fund downside burn." },
+      "evidence_requirement": { "required": true, "accepted_evidence": ["board policy", "treasury policy", "management assumption register"], "missing_evidence_behavior": "REVIEW", "public_help_text": "Use the minimum reserve management will not consume." },
+      "formula_bindings": [],
+      "output_bindings": ["out_cash_runway_months", "out_survival_cash_target", "out_funding_gap"],
+      "user_help_text": "Reserve management will not consume. Replace the example before a real decision."
     },
     {
       "id": "target_survival_months",
       "name": "Target Survival Months",
+      "symbol": "M_target",
       "quantity_kind": "time",
       "unit_selectable": false,
       "base_unit": "month",
@@ -162,54 +251,76 @@
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "physical_hard_bounds": { "min": 0.1, "max": 120, "unit": "month", "violation_behavior": "BLOCK" },
-      "engineering_reference_range": { "min": 1, "max": 24, "unit": "month", "source": "Advisory screening range; verify company records." },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 0.1, "max": 120, "unit": "month", "basis": "POSITIVE_RUNWAY_HORIZON", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 1, "max": 24, "unit": "month", "source": "Advisory planning range; management and lenders must verify the required horizon.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.1,
+      "precision_policy": { "input_decimals": 1, "display_decimals": 1, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 6,
       "example_value": 6,
-      "evidence_requirement": { "required": true, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Required runway under the downside scenario."
+      "reference_values": { "reference_value_type": "USER_VERIFIED", "source": "liquidity plan or lender horizon", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "Select the minimum downside runway required before commitment." },
+      "evidence_requirement": { "required": true, "accepted_evidence": ["liquidity plan", "board decision", "lender covenant plan"], "missing_evidence_behavior": "REVIEW", "public_help_text": "Use an approved target runway horizon." },
+      "formula_bindings": [],
+      "output_bindings": ["out_survival_cash_target", "out_threshold_crossing"],
+      "user_help_text": "Required runway under the downside scenario. Replace the example before a real decision."
     },
     {
       "id": "downside_revenue_factor",
       "name": "Downside Revenue Retention",
+      "symbol": "R_down",
       "quantity_kind": "dimensionless",
       "unit_selectable": true,
       "base_unit": "ratio",
-      "allowed_display_units": ["percent", "ratio"],
+      "allowed_display_units": ["ratio", "percent"],
       "normalized_id": "n_downside_revenue_factor",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
-      "physical_hard_bounds": { "min": 0, "max": 1, "unit": "ratio", "violation_behavior": "BLOCK" },
-      "engineering_reference_range": { "min": 0.1, "max": 1, "unit": "ratio", "source": "Advisory screening range; verify company records." },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 0, "max": 1, "unit": "ratio", "basis": "REVENUE_RETENTION_BETWEEN_ZERO_AND_ONE", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 0.1, "max": 1, "unit": "ratio", "source": "Advisory stress range; verify the downside scenario.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.0001,
+      "precision_policy": { "input_decimals": 4, "display_decimals": 4, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 0.7,
       "example_value": 0.7,
-      "evidence_requirement": { "required": true, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Revenue retained in the downside scenario."
+      "reference_values": { "reference_value_type": "USER_VERIFIED", "source": "downside scenario register", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "The example 0.70 means 70% of current revenue is retained." },
+      "evidence_requirement": { "required": true, "accepted_evidence": ["scenario plan", "order-book stress test", "management assumption register"], "missing_evidence_behavior": "REVIEW", "public_help_text": "Use the revenue retained after the selected downside shock." },
+      "formula_bindings": [],
+      "output_bindings": ["out_stressed_monthly_revenue", "out_monthly_cash_burn", "out_cash_runway_months"],
+      "user_help_text": "Revenue retained in the downside scenario. The example 0.70 equals 70%."
     },
     {
       "id": "source_confidence_ratio",
       "name": "Source Confidence Ratio",
+      "symbol": "Q_source",
       "quantity_kind": "dimensionless",
       "unit_selectable": true,
       "base_unit": "ratio",
-      "allowed_display_units": ["percent", "ratio"],
+      "allowed_display_units": ["ratio", "percent"],
       "normalized_id": "n_source_confidence_ratio",
       "type": "number",
       "required": true,
-      "criticality": "SUPPORTING",
-      "physical_hard_bounds": { "min": 0.5, "max": 1, "unit": "ratio", "violation_behavior": "BLOCK" },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "criticality": "MEDIUM",
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 0.5, "max": 1, "unit": "ratio", "basis": "MINIMUM_EVIDENCE_CONFIDENCE_FOR_DECISION_SUPPORT", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 0.7, "max": 1, "unit": "ratio", "source": "SectorCalc evidence-confidence screening range.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.001,
+      "precision_policy": { "input_decimals": 3, "display_decimals": 3, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 0.9,
       "example_value": 0.9,
-      "evidence_requirement": { "required": false, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Confidence that inputs are current and traceable."
+      "reference_values": { "reference_value_type": "USER_VERIFIED", "source": "source-evidence completeness assessment", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "The example 0.90 means 90% confidence in source completeness and currency." },
+      "evidence_requirement": { "required": false, "accepted_evidence": ["source checklist", "management confirmation"], "missing_evidence_behavior": "WARN", "public_help_text": "Rate the traceability and currency of the source inputs." },
+      "formula_bindings": [],
+      "output_bindings": ["out_evidence_completeness", "out_final_decision_state"],
+      "user_help_text": "Confidence that inputs are current and traceable. The example 0.90 equals 90%."
     },
     {
       "id": "uncertainty_multiplier",
       "name": "Uncertainty Coverage Multiplier",
+      "symbol": "K_u",
       "quantity_kind": "dimensionless",
       "unit_selectable": false,
       "base_unit": "ratio",
@@ -217,77 +328,207 @@
       "normalized_id": "n_uncertainty_multiplier",
       "type": "number",
       "required": true,
-      "criticality": "SUPPORTING",
-      "physical_hard_bounds": { "min": 1, "max": 3, "unit": "ratio", "violation_behavior": "BLOCK" },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "criticality": "MEDIUM",
+      "source_status": "CONTEXT_ONLY",
+      "physical_hard_bounds": { "min": 1, "max": 3, "unit": "ratio", "basis": "NON_NEGATIVE_UNCERTAINTY_COVERAGE", "violation_behavior": "BLOCK" },
+      "engineering_reference_range": { "min": 1, "max": 2, "unit": "ratio", "source": "Advisory screening range; verify the uncertainty allowance policy.", "status": "CONTEXT_ONLY", "warning_behavior": "OUTSIDE" },
+      "resolution": 0.01,
+      "precision_policy": { "input_decimals": 2, "display_decimals": 2, "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING", "rounding_rule": "DISPLAY_ONLY" },
+      "default_policy": "USER_SELECTABLE_CONTEXT_DEFAULT",
+      "default_value": 1.15,
       "example_value": 1.15,
-      "evidence_requirement": { "required": false, "accepted_evidence": ["user-provided value"] },
-      "user_help_text": "Coverage applied to one month of downside burn."
+      "reference_values": { "reference_value_type": "USER_VERIFIED", "source": "uncertainty allowance policy", "reference_status": "CONTEXT_ONLY", "user_must_verify": true, "public_note": "1.15 adds 15% of one month of downside burn to the target cash requirement." },
+      "evidence_requirement": { "required": false, "accepted_evidence": ["assumption register", "treasury policy"], "missing_evidence_behavior": "WARN", "public_help_text": "Use a documented uncertainty coverage multiplier." },
+      "formula_bindings": [],
+      "output_bindings": ["out_uncertainty_cash_buffer", "out_survival_cash_target"],
+      "user_help_text": "Coverage applied to one month of downside burn. Replace the example before a real decision."
     }
   ],
   "normalized_inputs": [
-    { "id": "n_monthly_fixed_cash_cost", "from_input": "monthly_fixed_cash_cost", "quantity_kind": "currency", "base_unit": "display_currency" },
-    { "id": "n_monthly_debt_service", "from_input": "monthly_debt_service", "quantity_kind": "currency", "base_unit": "display_currency" },
-    { "id": "n_contribution_margin_ratio", "from_input": "contribution_margin_ratio", "quantity_kind": "dimensionless", "base_unit": "ratio" },
-    { "id": "n_current_monthly_revenue", "from_input": "current_monthly_revenue", "quantity_kind": "currency", "base_unit": "display_currency" },
-    { "id": "n_unrestricted_cash_balance", "from_input": "unrestricted_cash_balance", "quantity_kind": "currency", "base_unit": "display_currency" },
-    { "id": "n_minimum_cash_buffer", "from_input": "minimum_cash_buffer", "quantity_kind": "currency", "base_unit": "display_currency" },
-    { "id": "n_target_survival_months", "from_input": "target_survival_months", "quantity_kind": "time", "base_unit": "month" },
-    { "id": "n_downside_revenue_factor", "from_input": "downside_revenue_factor", "quantity_kind": "dimensionless", "base_unit": "ratio" },
-    { "id": "n_source_confidence_ratio", "from_input": "source_confidence_ratio", "quantity_kind": "dimensionless", "base_unit": "ratio" },
-    { "id": "n_uncertainty_multiplier", "from_input": "uncertainty_multiplier", "quantity_kind": "dimensionless", "base_unit": "ratio" }
+    { "id": "n_monthly_fixed_cash_cost", "from_input": "monthly_fixed_cash_cost", "quantity_kind": "currency", "base_unit": "currency_unit", "conversion_source": "identity", "audit_required": true },
+    { "id": "n_monthly_debt_service", "from_input": "monthly_debt_service", "quantity_kind": "currency", "base_unit": "currency_unit", "conversion_source": "identity", "audit_required": true },
+    { "id": "n_contribution_margin_ratio", "from_input": "contribution_margin_ratio", "quantity_kind": "dimensionless", "base_unit": "ratio", "conversion_source": "dimensionless", "audit_required": true },
+    { "id": "n_current_monthly_revenue", "from_input": "current_monthly_revenue", "quantity_kind": "currency", "base_unit": "currency_unit", "conversion_source": "identity", "audit_required": true },
+    { "id": "n_unrestricted_cash_balance", "from_input": "unrestricted_cash_balance", "quantity_kind": "currency", "base_unit": "currency_unit", "conversion_source": "identity", "audit_required": true },
+    { "id": "n_minimum_cash_buffer", "from_input": "minimum_cash_buffer", "quantity_kind": "currency", "base_unit": "currency_unit", "conversion_source": "identity", "audit_required": true },
+    { "id": "n_target_survival_months", "from_input": "target_survival_months", "quantity_kind": "time", "base_unit": "month", "conversion_source": "identity", "audit_required": true },
+    { "id": "n_downside_revenue_factor", "from_input": "downside_revenue_factor", "quantity_kind": "dimensionless", "base_unit": "ratio", "conversion_source": "dimensionless", "audit_required": true },
+    { "id": "n_source_confidence_ratio", "from_input": "source_confidence_ratio", "quantity_kind": "dimensionless", "base_unit": "ratio", "conversion_source": "dimensionless", "audit_required": true },
+    { "id": "n_uncertainty_multiplier", "from_input": "uncertainty_multiplier", "quantity_kind": "dimensionless", "base_unit": "ratio", "conversion_source": "identity", "audit_required": true }
   ],
-  "reference_value_policy": {},
+  "reference_value_policy": {
+    "context_examples_must_be_replaced": true,
+    "hidden_standard_defaults": "FORBIDDEN",
+    "user_verification_required_for_commitment": true
+  },
   "form_runtime_binding": {
     "renderer": "UniversalIndustrialDecisionForm",
+    "schema_generation_runtime": "STATIC_VERSIONED_SCHEMA",
     "llm_runtime_usage": "FORBIDDEN",
     "client_formula_execution": "FORBIDDEN",
     "server_execution_required": true,
     "state_management_required": true,
-    "execute_response_contract": { "redaction_status": "PUBLIC_SAFE_REDACTED" }
+    "dynamic_ui_contract_required": true,
+    "json_schema_form_substrate_allowed": true,
+    "generic_json_schema_form_alone_sufficient": false,
+    "state_domains": [
+      "schemaState", "profileModeState", "rawInputState", "selectedUnitState", "normalizedPreviewState", "evidenceState", "touchedState", "validationState", "referenceRangeState", "blockerState", "advancedDisclosureState", "scenarioState", "executionState", "serverResponseState", "auditSealState", "exportState"
+    ],
+    "state_transitions": [
+      "INIT_SCHEMA", "VALIDATE_SCHEMA_CONTRACT", "SET_PROFILE_MODE", "SET_INPUT_VALUE", "SET_SELECTED_UNIT", "PRESERVE_PHYSICAL_QUANTITY_ON_UNIT_CHANGE", "UPDATE_NORMALIZED_PREVIEW", "UPDATE_EVIDENCE_STATUS", "RUN_CLIENT_PRECHECK", "BLOCK_CLIENT_EXECUTION", "SUBMIT_SERVER_EXECUTION", "RECEIVE_SERVER_RESPONSE", "RECEIVE_SERVER_BLOCKERS", "RECEIVE_SERVER_ERROR", "RESET_INPUTS", "RESET_RESULT_ONLY"
+    ],
+    "execute_request_contract": {
+      "raw_inputs": "required",
+      "selected_units": "required",
+      "display_currency": "optional",
+      "user_profile_mode": "required"
+    },
+    "execute_response_contract": {
+      "status": "required",
+      "outputs": "required",
+      "warnings": "required",
+      "audit_seal": "required",
+      "redaction_status": "PUBLIC_SAFE_REDACTED"
+    }
   },
-  "physical_bounds_policy": {},
-  "validation_contract": {},
+  "physical_bounds_policy": {
+    "evaluation_order": "AFTER_UNIT_NORMALIZATION_BEFORE_FORMULA_EXECUTION",
+    "blocking_behavior": "FAIL_CLOSED"
+  },
+  "validation_contract": {
+    "non_finite_inputs": "BLOCK",
+    "unknown_inputs": "BLOCK",
+    "missing_required_inputs": "BLOCK",
+    "invalid_units": "BLOCK",
+    "reference_range_deviation": "REVIEW"
+  },
   "derating_contract": { "rules": [] },
-  "precision_policy": {},
+  "precision_policy": {
+    "calculation": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+    "rounding": "DISPLAY_ONLY"
+  },
   "formulas": [],
   "outputs": [
-    { "id": "out_break_even_monthly_revenue", "name": "Break-Even Monthly Revenue", "quantity_kind": "currency", "base_unit": "display_currency", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Monthly revenue required to cover fixed cash costs and debt service." },
-    { "id": "out_current_revenue_gap", "name": "Current Revenue Gap vs Break-Even", "quantity_kind": "currency", "base_unit": "display_currency", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Positive is headroom; negative is shortfall." },
-    { "id": "out_stressed_monthly_revenue", "name": "Stressed Monthly Revenue", "quantity_kind": "currency", "base_unit": "display_currency", "type": "number", "decision_use": "SCENARIO", "public_explanation": "Revenue retained under downside stress." },
-    { "id": "out_monthly_cash_burn", "name": "Monthly Cash Burn Under Stress", "quantity_kind": "currency", "base_unit": "display_currency", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Monthly funding consumption under stress." },
-    { "id": "out_cash_runway_months", "name": "Cash Runway Under Stress", "quantity_kind": "time", "base_unit": "month", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Months available cash supports downside burn." },
-    { "id": "out_survival_cash_target", "name": "Survival Cash Target", "quantity_kind": "currency", "base_unit": "display_currency", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Cash required for runway, reserve, and uncertainty." },
-    { "id": "out_funding_gap", "name": "Funding Gap to Target", "quantity_kind": "currency", "base_unit": "display_currency", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Additional cash required to meet target." },
-    { "id": "out_margin_of_safety_ratio", "name": "Revenue Margin of Safety", "quantity_kind": "dimensionless", "base_unit": "ratio", "type": "number", "decision_use": "SECONDARY_METRIC", "public_explanation": "Revenue headroom relative to current revenue." },
-    { "id": "out_evidence_completeness", "name": "Input Confidence Score", "quantity_kind": "dimensionless", "base_unit": "ratio", "type": "number", "decision_use": "QUALITY", "public_explanation": "Confidence in source completeness." },
-    { "id": "out_uncertainty_cash_buffer", "name": "Uncertainty Cash Buffer", "quantity_kind": "currency", "base_unit": "display_currency", "type": "number", "decision_use": "RISK", "public_explanation": "Additional allowance from uncertainty coverage." },
-    { "id": "out_threshold_crossing", "name": "Target Runway Breached", "quantity_kind": "dimensionless", "base_unit": "ratio", "type": "number", "decision_use": "STATUS", "public_explanation": "1 means runway is below target." },
-    { "id": "out_final_decision_state", "name": "Decision Code", "quantity_kind": "dimensionless", "base_unit": "ratio", "type": "number", "decision_use": "STATUS", "public_explanation": "0 Go, 1 Review, 2 Block." }
+    { "id": "out_break_even_monthly_revenue", "name": "Break-Even Monthly Revenue", "value": null, "quantity_kind": "currency", "base_unit": "currency_unit", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Monthly revenue required to cover fixed cash costs and debt service at the entered contribution margin." },
+    { "id": "out_current_revenue_gap", "name": "Current Revenue Gap vs Break-Even", "value": null, "quantity_kind": "currency", "base_unit": "currency_unit", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Positive values are revenue headroom; negative values are the monthly shortfall." },
+    { "id": "out_stressed_monthly_revenue", "name": "Stressed Monthly Revenue", "value": null, "quantity_kind": "currency", "base_unit": "currency_unit", "type": "number", "decision_use": "SCENARIO", "public_explanation": "Monthly revenue retained under the selected downside case." },
+    { "id": "out_monthly_cash_burn", "name": "Monthly Cash Burn Under Stress", "value": null, "quantity_kind": "currency", "base_unit": "currency_unit", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Monthly cash consumption after stressed contribution is applied to mandatory obligations." },
+    { "id": "out_cash_runway_months", "name": "Cash Runway Under Stress", "value": null, "quantity_kind": "time", "base_unit": "month", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Months that unrestricted cash above the minimum reserve supports downside cash burn." },
+    { "id": "out_survival_cash_target", "name": "Survival Cash Target", "value": null, "quantity_kind": "currency", "base_unit": "currency_unit", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Cash required for the selected runway, minimum reserve, and uncertainty allowance." },
+    { "id": "out_funding_gap", "name": "Funding Gap to Target", "value": null, "quantity_kind": "currency", "base_unit": "currency_unit", "type": "number", "decision_use": "PRIMARY_DECISION", "public_explanation": "Additional cash required to reach the survival cash target." },
+    { "id": "out_margin_of_safety_ratio", "name": "Revenue Margin of Safety", "value": null, "quantity_kind": "dimensionless", "base_unit": "ratio", "type": "number", "decision_use": "SECONDARY_METRIC", "public_explanation": "Revenue headroom relative to current monthly revenue." },
+    { "id": "out_evidence_completeness", "name": "Input Confidence", "value": null, "quantity_kind": "dimensionless", "base_unit": "ratio", "type": "number", "decision_use": "QUALITY", "public_explanation": "User-assessed confidence that the source inputs are current and traceable." },
+    { "id": "out_uncertainty_cash_buffer", "name": "Uncertainty Cash Buffer", "value": null, "quantity_kind": "currency", "base_unit": "currency_unit", "type": "number", "decision_use": "RISK", "public_explanation": "Additional cash allowance produced by the uncertainty coverage multiplier." },
+    { "id": "out_threshold_crossing", "name": "Target Runway Breached", "value": null, "quantity_kind": "dimensionless", "base_unit": "ratio", "type": "number", "decision_use": "STATUS", "public_explanation": "1 means the calculated cash runway is below the selected target; 0 means it is within target." },
+    { "id": "out_final_decision_state", "name": "Decision Code", "value": null, "quantity_kind": "dimensionless", "base_unit": "ratio", "type": "number", "decision_use": "STATUS", "public_explanation": "0 means GO, 1 means REVIEW, and 2 means BLOCK." }
   ],
-  "output_formatting": {},
-  "decision_interpretation_contract": {},
-  "business_impact_contract": {},
-  "engine_rules": { "server_side_formula_execution_only": true, "llm_enabled": false },
-  "uncertainty_model": { "method": "ANALYTICAL" },
+  "output_formatting": {
+    "currency_decimals": 2,
+    "ratio_decimals": 4,
+    "month_decimals": 2,
+    "decision_codes_must_render_as_labels": true
+  },
+  "decision_interpretation_contract": {
+    "go": "No funding gap, current revenue is above break-even, target runway is covered, and source confidence is at least 70%.",
+    "review": "Funding, break-even, runway, or evidence confidence requires management review.",
+    "block": "Invalid or materially unreliable inputs prevent a defensible decision."
+  },
+  "business_impact_contract": {
+    "primary_money_metrics": ["out_survival_cash_target", "out_funding_gap", "out_current_revenue_gap"],
+    "currency_source": "display_currency"
+  },
+  "engine_rules": {
+    "server_side_formula_execution_only": true,
+    "client_formula_execution": false,
+    "llm_enabled": false,
+    "fail_closed_on_non_finite_output": true
+  },
+  "uncertainty_model": {
+    "method": "ANALYTICAL",
+    "coverage_basis": "one month of downside cash burn multiplied by the excess above 1.00"
+  },
   "safety_factor_gauges": [],
-  "proof_pack": {},
-  "audit_trail_contract": { "hash_algorithm": "SHA-256", "seal_fields": ["redaction_status"] },
-  "export_contract": {},
+  "proof_pack": {
+    "enabled": true,
+    "public_scope": "screening calculation evidence",
+    "redaction_status": "PUBLIC_SAFE_REDACTED"
+  },
+  "audit_trail_contract": {
+    "hash_algorithm": "SHA-256",
+    "seal_fields": ["tool_key", "schema_version", "formula_version", "input_hash", "output_hash", "redaction_status"],
+    "redaction_status": "PUBLIC_SAFE_REDACTED"
+  },
+  "export_contract": {
+    "enabled": true,
+    "formats": ["PDF", "JSON_AUDIT"],
+    "redaction_required": true
+  },
   "ui_contract": {
     "target_renderer": "UniversalIndustrialDecisionForm",
     "profile_modes": ["quick", "engineering", "cost", "audit"],
     "input_groups": [
-      { "id": "operating_baseline", "title": "Operating Baseline", "advanced": false, "fields": ["monthly_fixed_cash_cost", "monthly_debt_service", "contribution_margin_ratio"] },
-      { "id": "cash_position", "title": "Cash Position", "advanced": false, "fields": ["current_monthly_revenue", "unrestricted_cash_balance", "minimum_cash_buffer"] },
-      { "id": "stress_case", "title": "Downside & Evidence Case", "advanced": false, "fields": ["target_survival_months", "downside_revenue_factor", "source_confidence_ratio"] },
-      { "id": "control_quality", "title": "Control Quality", "advanced": true, "fields": ["uncertainty_multiplier"] }
+      { "id": "operating_baseline", "title": "Operating Baseline", "description": "Mandatory monthly obligations and the contribution margin that funds them.", "advanced": false, "fields": ["monthly_fixed_cash_cost", "monthly_debt_service", "contribution_margin_ratio"] },
+      { "id": "cash_position", "title": "Cash Position", "description": "Current revenue, unrestricted cash, and the reserve that must remain untouched.", "advanced": false, "fields": ["current_monthly_revenue", "unrestricted_cash_balance", "minimum_cash_buffer"] },
+      { "id": "stress_case", "title": "Downside Case", "description": "Required runway and the revenue retained under stress.", "advanced": false, "fields": ["target_survival_months", "downside_revenue_factor"] },
+      { "id": "control_quality", "title": "Evidence & Uncertainty", "description": "Confidence in source inputs and the additional uncertainty coverage.", "advanced": false, "fields": ["source_confidence_ratio", "uncertainty_multiplier"] }
     ],
-    "accessibility": {}
+    "sticky_decision_cockpit": true,
+    "mobile_bottom_action_bar": true,
+    "normalized_preview_required": true,
+    "reference_values_visible": true,
+    "evidence_controls_required": true,
+    "semantic_error_summary_required": true,
+    "safety_factor_gauges_required": false,
+    "hidden_risk_panel_required": true,
+    "business_impact_panel_required": true,
+    "standards_clause_panel_required": false,
+    "protected_methodology_panel_required": true,
+    "audit_seal_panel_required": true,
+    "accessibility": { "keyboard_navigation": true, "label_association": true, "live_status_region": true }
   },
-  "reference_code": {},
-  "test_plan": {},
-  "red_team_review": {},
-  "metadata": { "schema_version": "5.3.1", "formula_version": "5.3.1-pro-baris.2" }
+  "reference_code": {
+    "code_language": null,
+    "code_block": null
+  },
+  "test_plan": {
+    "known_answer_vectors": [
+      {
+        "id": "healthy_runway",
+        "expected": {
+          "out_break_even_monthly_revenue": 345238.1,
+          "out_monthly_cash_burn": 21520,
+          "out_cash_runway_months": 30.2,
+          "out_survival_cash_target": 232348,
+          "out_funding_gap": 0,
+          "out_final_decision_state": 0
+        }
+      },
+      {
+        "id": "funding_gap_review",
+        "expected_status": "REVIEW"
+      },
+      {
+        "id": "zero_contribution_margin_block",
+        "expected_status": "BLOCKED"
+      }
+    ],
+    "coverage_requirement": "FORMULA_UNIT_BOUNDARY_REPORT_AND_BROWSER_E2E"
+  },
+  "red_team_review": {
+    "review_status": "PENDING_CI_AND_BROWSER_E2E",
+    "issues": [
+      "zero contribution margin",
+      "zero current revenue",
+      "cash below reserve",
+      "no downside burn",
+      "runway cap behavior",
+      "ratio-to-percent unit switching",
+      "decision label rendering"
+    ]
+  },
+  "metadata": {
+    "schema_version": "5.3.1",
+    "formula_version": "5.3.1-pro-baris.2",
+    "prompt_version": "5.3.1"
+  }
 }
