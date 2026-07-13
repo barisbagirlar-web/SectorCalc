@@ -5,14 +5,15 @@ import type {
   AuditSeal,
   ExecuteResponse,
   ExecutionState,
-  NormalizedInputAudit,
   ProfileMode,
   ReferenceRangeAudit,
   ServerWarning,
   StateTransitionId,
+  SuperV4Input,
   SuperV4Schema,
 } from "./contract-types";
 import { resolveIndustrialExampleValue } from "./example-value-resolver";
+import { preservePhysicalQuantity } from "./unit-normalizer";
 
 export interface ValidationIssue {
   id: string;
@@ -50,15 +51,10 @@ export interface UniversalFormMachineState {
     validation_status: "idle" | "valid" | "invalid";
     validation_errors: string[];
   };
-  profileModeState: {
-    mode: ProfileMode;
-  };
+  profileModeState: { mode: ProfileMode };
   rawInputState: Record<string, string | number | boolean | null>;
   selectedUnitState: Record<string, string>;
-  normalizedPreviewState: {
-    items: NormalizedPreviewItem[];
-    errors: ValidationIssue[];
-  };
+  normalizedPreviewState: { items: NormalizedPreviewItem[]; errors: ValidationIssue[] };
   evidenceState: Record<string, EvidenceFieldState>;
   touchedState: {
     touched_fields: Record<string, boolean>;
@@ -69,28 +65,16 @@ export interface UniversalFormMachineState {
     server_blockers: ServerWarning[];
     semantic_warnings: ValidationIssue[];
   };
-  referenceRangeState: {
-    markers: ReferenceRangeAudit[];
-  };
-  blockerState: {
-    blockers: ValidationIssue[];
-    can_execute: boolean;
-  };
+  referenceRangeState: { markers: ReferenceRangeAudit[] };
+  blockerState: { blockers: ValidationIssue[]; can_execute: boolean };
   advancedDisclosureState: {
     expanded_groups: Record<string, boolean>;
     advanced_visible: boolean;
   };
-  scenarioState: {
-    request: unknown | null;
-    result: unknown | null;
-  };
+  scenarioState: { request: unknown | null; result: unknown | null };
   executionState: ExecutionState;
-  serverResponseState: {
-    response: ExecuteResponse | null;
-  };
-  auditSealState: {
-    seal: AuditSeal | null;
-  };
+  serverResponseState: { response: ExecuteResponse | null };
+  auditSealState: { seal: AuditSeal | null };
   exportState: {
     pdf_available: boolean;
     json_audit_available: boolean;
@@ -139,6 +123,105 @@ export const REQUIRED_TRANSITIONS: StateTransitionId[] = [
   "RESET_RESULT_ONLY",
 ];
 
+interface SchemaDraftState {
+  rawInputState: UniversalFormMachineState["rawInputState"];
+  selectedUnitState: UniversalFormMachineState["selectedUnitState"];
+  evidenceState: UniversalFormMachineState["evidenceState"];
+  expandedGroups: Record<string, boolean>;
+}
+
+type InputWithExample = SuperV4Input & {
+  example_value?: unknown;
+  default?: unknown;
+};
+
+function requiresEvidence(input: SuperV4Input): boolean {
+  const requirement = input.evidence_requirement;
+  return typeof requirement === "string"
+    ? requirement.toLowerCase().includes("required")
+    : requirement?.required === true;
+}
+
+function convertCanonicalExampleToDisplay(
+  schema: SuperV4Schema,
+  input: SuperV4Input,
+  value: string | number | boolean | null,
+  displayUnit: string,
+): string | number | boolean | null {
+  if (
+    typeof value !== "number" ||
+    !Number.isFinite(value) ||
+    !input.base_unit ||
+    !displayUnit ||
+    displayUnit === input.base_unit
+  ) {
+    return value;
+  }
+
+  const converted = preservePhysicalQuantity(
+    value,
+    input.base_unit,
+    displayUnit,
+    input.quantity_kind,
+    schema.unit_conversion_contract.conversion_registry,
+  );
+
+  return "newValue" in converted && Number.isFinite(converted.newValue)
+    ? converted.newValue
+    : value;
+}
+
+function buildSchemaDraftState(schema: SuperV4Schema): SchemaDraftState {
+  const rawInputState: SchemaDraftState["rawInputState"] = {};
+  const selectedUnitState: SchemaDraftState["selectedUnitState"] = {};
+  const evidenceState: SchemaDraftState["evidenceState"] = {};
+  const expandedGroups: Record<string, boolean> = {};
+
+  for (const input of schema.inputs) {
+    const typedInput = input as InputWithExample;
+    const selectedUnit = input.allowed_display_units?.[0] ?? input.base_unit ?? "";
+    if (selectedUnit) selectedUnitState[input.id] = selectedUnit;
+
+    const resolved = resolveIndustrialExampleValue({
+      toolSlug: schema.tool_key,
+      toolKey: schema.tool_key,
+      inputId: input.id,
+      inputName: input.name,
+      unit: input.base_unit,
+      rangeMin: input.physical_hard_bounds?.min ?? null,
+      rangeMax: input.physical_hard_bounds?.max ?? null,
+      schemaExampleValue: typedInput.example_value ?? null,
+      schemaDefaultValue: input.default_value ?? typedInput.default ?? null,
+    });
+
+    const canonicalValue =
+      resolved !== ""
+        ? resolved
+        : (input.default_value ?? typedInput.default ?? null);
+
+    rawInputState[input.id] = convertCanonicalExampleToDisplay(
+      schema,
+      input,
+      canonicalValue as string | number | boolean | null,
+      selectedUnit,
+    );
+
+    const evidenceRequired = requiresEvidence(input);
+    evidenceState[input.id] = {
+      enabled: evidenceRequired,
+      source_verified: false,
+      user_verified: false,
+      uploaded_references: [],
+    };
+  }
+
+  for (const group of schema.ui_contract.input_groups) {
+    expandedGroups[group.id] = !group.advanced;
+  }
+
+  return { rawInputState, selectedUnitState, evidenceState, expandedGroups };
+}
+
 export function createInitialUniversalFormState(profileMode: ProfileMode = "engineering"): UniversalFormMachineState {
   return {
     schemaState: {
@@ -173,48 +256,7 @@ export function universalFormMachineReducer(
 ): UniversalFormMachineState {
   switch (event.type) {
     case "INIT_SCHEMA": {
-      const rawInputState: Record<string, string | number | boolean | null> = {};
-      const selectedUnitState: Record<string, string> = {};
-      const evidenceState: Record<string, EvidenceFieldState> = {};
-      const expandedGroups: Record<string, boolean> = {};
-      const initToolSlug = event.schema.tool_key;
-
-      for (const input of event.schema.inputs) {
-        // Resolve via tool-specific example map first, fall back to schema default
-        const exampleVal = resolveIndustrialExampleValue({
-          toolSlug: initToolSlug,
-          toolKey: initToolSlug,
-          inputId: input.id,
-          inputName: input.name,
-          unit: input.base_unit,
-          rangeMin: input.physical_hard_bounds?.min ?? null,
-          rangeMax: input.physical_hard_bounds?.max ?? null,
-          schemaExampleValue: null,
-          schemaDefaultValue: input.default_value ?? null,
-        });
-        rawInputState[input.id] = exampleVal !== "" ? exampleVal : (input.default_value ?? null);
-        // Always populate selected_units with the first allowed display unit.
-        // The normalizer needs this to correctly convert display values to base units,
-        // even for fields where the user cannot change the unit.
-        if (input.allowed_display_units.length > 0) {
-          selectedUnitState[input.id] = input.allowed_display_units[0];
-        }
-        const requiredEvidence = typeof input.evidence_requirement === "string"
-          ? input.evidence_requirement.toLowerCase().includes("required")
-          : input.evidence_requirement.required;
-        evidenceState[input.id] = {
-          enabled: requiredEvidence,
-          source_verified: false,
-          user_verified: false,
-          uploaded_references: [],
-        };
-      }
-
-      for (const group of event.schema.ui_contract.input_groups) {
-        expandedGroups[group.id] = !group.advanced;
-      }
-
-      // V5.3.1: Full state reset on schema change — no stale data from previous tool
+      const draft = buildSchemaDraftState(event.schema);
       return {
         schemaState: {
           schema: event.schema,
@@ -224,16 +266,16 @@ export function universalFormMachineReducer(
           validation_errors: [],
         },
         profileModeState: state.profileModeState,
-        rawInputState,
-        selectedUnitState,
+        rawInputState: draft.rawInputState,
+        selectedUnitState: draft.selectedUnitState,
         normalizedPreviewState: { items: [], errors: [] },
-        evidenceState,
+        evidenceState: draft.evidenceState,
         touchedState: { touched_fields: {}, dirty_fields: {} },
         validationState: { client_precheck_errors: [], server_blockers: [], semantic_warnings: [] },
         referenceRangeState: { markers: [] },
         blockerState: { blockers: [], can_execute: false },
         advancedDisclosureState: {
-          expanded_groups: expandedGroups,
+          expanded_groups: draft.expandedGroups,
           advanced_visible: false,
         },
         scenarioState: { request: null, result: null },
@@ -301,6 +343,9 @@ export function universalFormMachineReducer(
         rawInputState: { ...state.rawInputState, [event.input_id]: event.value },
         selectedUnitState: { ...state.selectedUnitState, [event.input_id]: event.unit },
         executionState: "unit_dirty",
+        serverResponseState: { response: null },
+        auditSealState: { seal: null },
+        exportState: { pdf_available: false, json_audit_available: false, copy_summary_available: false },
         premiumHookState: resetPremiumHook(),
       };
 
@@ -330,10 +375,7 @@ export function universalFormMachineReducer(
           client_precheck_errors: event.issues,
           semantic_warnings: warnings,
         },
-        blockerState: {
-          blockers,
-          can_execute: blockers.length === 0,
-        },
+        blockerState: { blockers, can_execute: blockers.length === 0 },
         executionState: blockers.length === 0 ? "ready_to_execute" : "client_precheck_blocked",
         premiumHookState: resetPremiumHook(),
       };
@@ -403,32 +445,19 @@ export function universalFormMachineReducer(
       };
 
     case "RESET_INPUTS": {
-      const resetBase = createInitialUniversalFormState(state.profileModeState.mode);
-      const resetSchema = state.schemaState.schema;
-      if (resetSchema) {
-        const resetSlug = resetSchema.tool_key;
-        for (const input of resetSchema.inputs) {
-          const exVal = resolveIndustrialExampleValue({
-            toolSlug: resetSlug,
-            toolKey: resetSlug,
-            inputId: input.id,
-            inputName: input.name,
-            unit: input.base_unit,
-            rangeMin: input.physical_hard_bounds?.min ?? null,
-            rangeMax: input.physical_hard_bounds?.max ?? null,
-            schemaExampleValue: null,
-            schemaDefaultValue: input.default_value ?? null,
-          });
-          resetBase.rawInputState[input.id] = exVal !== "" ? exVal : null;
-          // Always restore selected_units from schema defaults on reset
-          if (input.allowed_display_units.length > 0) {
-            resetBase.selectedUnitState[input.id] = input.allowed_display_units[0];
-          }
-        }
-      }
+      const schema = state.schemaState.schema;
+      if (!schema) return createInitialUniversalFormState(state.profileModeState.mode);
+      const draft = buildSchemaDraftState(schema);
       return {
-        ...resetBase,
+        ...createInitialUniversalFormState(state.profileModeState.mode),
         schemaState: state.schemaState,
+        rawInputState: draft.rawInputState,
+        selectedUnitState: draft.selectedUnitState,
+        evidenceState: draft.evidenceState,
+        advancedDisclosureState: {
+          expanded_groups: draft.expandedGroups,
+          advanced_visible: false,
+        },
         executionState: state.schemaState.validation_status === "valid" ? "schema_ready" : "idle",
       };
     }
@@ -465,10 +494,7 @@ export function universalFormMachineReducer(
       };
 
     case "SET_SCENARIO_REQUEST":
-      return {
-        ...state,
-        scenarioState: { ...state.scenarioState, request: event.request },
-      };
+      return { ...state, scenarioState: { ...state.scenarioState, request: event.request } };
 
     default:
       return state;
@@ -481,59 +507,40 @@ function resetPremiumHook(): PremiumHookState {
 
 export function mapStatusToExecutionState(status: string): ExecutionState {
   switch (status) {
-    case "OK":
-      return "server_ok";
-    case "REVIEW":
-      return "server_review";
-    case "BLOCKED":
-      return "server_blocked";
-    case "REPRICE":
-      return "server_reprice";
-    case "REJECT":
-      return "server_reject";
-    case "HOLD":
-      return "server_hold";
-    default:
-      return "error";
+    case "OK": return "server_ok";
+    case "REVIEW": return "server_review";
+    case "BLOCKED": return "server_blocked";
+    case "REPRICE": return "server_reprice";
+    case "REJECT": return "server_reject";
+    case "HOLD": return "server_hold";
+    default: return "error";
   }
 }
 
 export function getExecutionStateLabel(state: ExecutionState): string {
   const labels: Record<ExecutionState, string> = {
-    idle: "Idle",
-    schema_loading: "Schema loading",
-    schema_ready: "Schema ready",
-    schema_rejected: "Schema rejected",
-    input_draft: "Input draft",
-    unit_dirty: "Unit changed",
-    normalized_preview_ready: "Normalized preview ready",
-    reference_range_warning: "Reference range warning",
-    evidence_gap: "Evidence gap",
-    client_precheck_blocked: "Client precheck blocked",
-    ready_to_execute: "Ready to execute",
-    executing: "Executing server calculation",
-    server_ok: "Server result OK",
-    server_review: "Server review required",
-    server_blocked: "Server blocked",
-    server_reprice: "Server reprice",
-    server_reject: "Server reject",
-    server_hold: "Server hold",
-    public_response_redacted: "Public response redacted",
+    idle: "Ready",
+    schema_loading: "Loading calculator",
+    schema_ready: "Ready",
+    schema_rejected: "Calculator configuration blocked",
+    input_draft: "Inputs changed",
+    unit_dirty: "Units changed",
+    normalized_preview_ready: "Inputs normalized",
+    reference_range_warning: "Reference review required",
+    evidence_gap: "Source evidence required",
+    client_precheck_blocked: "Check inputs",
+    ready_to_execute: "Ready to calculate",
+    executing: "Calculating",
+    server_ok: "Calculation complete",
+    server_review: "Review required",
+    server_blocked: "Calculation blocked",
+    server_reprice: "Repricing required",
+    server_reject: "Decision rejected",
+    server_hold: "Decision on hold",
+    public_response_redacted: "Public report prepared",
     export_ready: "Export ready",
     audit_sealed: "Audit sealed",
-    error: "Error",
+    error: "Execution error",
   };
-  return labels[state];
-}
-
-export function createNormalizedAuditFromPreview(items: NormalizedPreviewItem[]): NormalizedInputAudit[] {
-  return items.map((item) => ({
-    input_id: item.input_id,
-    normalized_id: item.normalized_id,
-    display_value: item.display_value,
-    display_unit: item.display_unit,
-    base_value: item.base_value,
-    base_unit: item.base_unit,
-    source_status: "CONTEXT_ONLY",
-  }));
+  return labels[state] ?? "Unknown state";
 }
