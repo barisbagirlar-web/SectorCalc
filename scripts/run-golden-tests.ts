@@ -218,7 +218,13 @@ for (const fixtureFile of fixtureFiles) {
   }
 
   // ── Hash file handling ──
-  const hashFilePath = path.join(hashesDir, `${toolKey}.hashes.json`);
+  // Hash file is keyed by FIXTURE STEM, not tool_key. Multiple fixtures may
+  // target the same tool (e.g. machining-cost-per-part + -mandated variant);
+  // keying by tool_key made them collide on a single hash file and produce
+  // false HASH_MISMATCH blockers. For single-fixture tools the stem equals
+  // the tool_key, so existing hash files remain valid.
+  const fixtureStem = fixtureFile.replace(/\.golden\.json$/, "");
+  const hashFilePath = path.join(hashesDir, `${fixtureStem}.hashes.json`);
   const hashRecord = {
     tool_key: toolKey,
     tool_id: response.toolId,

@@ -1942,6 +1942,12 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.vsm_leadtime_cost", family: "cost", label: "VSM leadtime cost", fn: (i) => num(i,"totalLeadTime") * num(i,"costPerMinute") },
   { id: "measurement.vsm_value_added_ratio", family: "measurement", label: "Value-added ratio", fn: (i) => safeDivide(num(i,"valueAddedTime"), num(i,"totalLeadTime")) },
   { id: "cost.vsm_non_value_added_cost", family: "cost", label: "Non-value-added cost", fn: (i) => (num(i,"totalLeadTime") - num(i,"valueAddedTime")) * num(i,"costPerMinute") },
+  // AUDIT-SUSPECT [DUP ADD]: vsmNonValueAddedCost is added to ITSELF. Declared
+  // inputmap expects [vsmNonValueAddedCost, vsmLeadtimeCost, reworkPercent,
+  // dailyProduction, operatingDays] — the duplicate term is almost certainly a
+  // placeholder for a missing rework-cost component. Formula is currently
+  // UNBOUND (no active schema references it). Do NOT ship a guessed fix:
+  // establish a human-verified oracle case first, then correct and golden-lock.
   { id: "cost.vsm_total_financial_impact", family: "cost", label: "VSM total impact", fn: (i) => num(i,"vsmNonValueAddedCost") + num(i,"vsmNonValueAddedCost") + num(i,"vsmLeadtimeCost") },
 
   // WPS Preheat

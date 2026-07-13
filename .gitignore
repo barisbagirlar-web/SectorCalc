@@ -67,3 +67,9 @@ tmp/
 
 # DeepSeek API configuration notes (contains API keys)
 deepseek_talimati_.txt
+
+# Local build/debug artifacts — never commit (stale logs mislead audits)
+*.log
+diff_stat.txt
+_audit_*.txt
+lint_output.txt

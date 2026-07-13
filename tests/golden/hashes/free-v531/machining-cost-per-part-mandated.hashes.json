@@ -1,0 +1,20 @@
+{
+  "tool_key": "machining-cost-per-part",
+  "tool_id": "FREE_V531_001",
+  "source_sha256": "b9edeb61e8eeee9082e59f3a5cea4e9794f282827fa47f83d978198357cd5e20",
+  "formula_line_count": 1030,
+  "volatile_fields_excluded": [
+    "duration",
+    "environment",
+    "executed_at",
+    "execution_duration",
+    "request_id",
+    "signature",
+    "timestamp"
+  ],
+  "normalized_input_hash": "fnv1a32:4c917875",
+  "output_hash": "fnv1a32:79a0547c",
+  "public_response_hash": "fnv1a32:0dc51de8",
+  "proof_pack_hash": null,
+  "audit_seal_stable_hash": "fnv1a32:7d7075a4"
+}

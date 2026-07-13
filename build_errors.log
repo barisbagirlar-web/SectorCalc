@@ -1,5 +1,0 @@
-
-> fresh_app@0.1.0 guard:premium-contract
-> node scripts/sectorcalc-premium-contract-kernel-guard.mjs
-
-CONTRACT_DRIFT_ERROR: Tool=ici-stack | Formula=N/A | Input=disconnectedAuditProbe | Reason=UNUSED_DECLARED_INPUT: Declared input 'disconnectedAuditProbe' is never consumed by formulaPipeline, outputs, or thresholds. | File=/Users/macair1/projects/SectorCalc-p5a/src/lib/features/premium-schema/schemas/ici-stack.ts
