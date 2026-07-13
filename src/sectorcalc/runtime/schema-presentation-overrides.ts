@@ -6,6 +6,7 @@ import type {
 
 const BREAK_EVEN_TOOL_KEY = "break-even-survival-cash-calculator";
 const DISPLAY_CURRENCY_UNIT = "display_currency";
+const NEUTRAL_CURRENCY_LABEL = "Currency";
 
 type SchemaOutputWithMetadata = ServerOutput & {
   quantity_kind?: string;
@@ -30,7 +31,7 @@ export function applySchemaPresentationOverrides(schema: SuperV4Schema): SuperV4
   const hasDisplayCurrency = existingUnits.some((entry) => entry.unit === DISPLAY_CURRENCY_UNIT);
   const currencyUnits = hasDisplayCurrency
     ? existingUnits
-    : [...existingUnits, { unit: DISPLAY_CURRENCY_UNIT, factor: 1, label: "Currency" }];
+    : [...existingUnits, { unit: DISPLAY_CURRENCY_UNIT, factor: 1, label: NEUTRAL_CURRENCY_LABEL }];
 
   return {
     ...schema,
@@ -51,6 +52,15 @@ export function applySchemaPresentationOverrides(schema: SuperV4Schema): SuperV4
             ...input,
             unit_selectable: false,
             allowed_display_units: [DISPLAY_CURRENCY_UNIT],
+            physical_hard_bounds: input.physical_hard_bounds
+              ? { ...input.physical_hard_bounds, unit: NEUTRAL_CURRENCY_LABEL }
+              : input.physical_hard_bounds,
+            engineering_range: input.engineering_range
+              ? { ...input.engineering_range, unit: NEUTRAL_CURRENCY_LABEL }
+              : input.engineering_range,
+            engineering_reference_range: input.engineering_reference_range
+              ? { ...input.engineering_reference_range, unit: NEUTRAL_CURRENCY_LABEL }
+              : input.engineering_reference_range,
           }
         : input,
     ),
