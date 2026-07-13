@@ -15,6 +15,8 @@ export interface ReportOutputEntry {
   explanation?: string;
   /** Optional semantic mapping for encoded outputs such as 0/1/2 decision states. */
   valueLabels?: Record<string, string>;
+  /** Optional explicit display scaling. Example: ratio × 100 for percent display. */
+  valueMultiplier?: number;
 }
 
 export interface ReportSection {
