@@ -11,7 +11,10 @@ export interface ProFormulaResult {
   outputs: Record<string, number>;
   warnings: string[];
   outputKeys: string[];
-  redaction_status: "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+  redaction_status:
+    | "PUBLIC_SAFE_REDACTED"
+    | "REDACTION_NOT_REQUIRED"
+    | "REDACTION_FAILED_BLOCKED";
 }
 
 export interface ProFormulaModule {
@@ -19,4 +22,6 @@ export interface ProFormulaModule {
   formulaVersion?: string;
   calculate: (inputs: Record<string, number>) => ProFormulaResult;
   sampleInputs: Record<string, number>;
+  requiredInputKeys?: readonly string[];
+  declaredOutputKeys?: readonly string[];
 }
