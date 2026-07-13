@@ -4,6 +4,27 @@ import { describe, expect, it, vi } from "vitest";
 
 vi.mock("server-only", () => ({}));
 
+interface SchemaInputRecord {
+  id: string;
+}
+
+interface SchemaNormalizedInputRecord {
+  id: string;
+}
+
+interface SchemaOutputRecord {
+  id: string;
+}
+
+interface BreakEvenSchemaRecord {
+  tool_id: string;
+  tool_key: string;
+  metadata: { formula_version: string };
+  inputs: SchemaInputRecord[];
+  normalized_inputs: SchemaNormalizedInputRecord[];
+  outputs: SchemaOutputRecord[];
+}
+
 const EXPECTED_RAW_INPUT_IDS = [
   "monthly_fixed_cash_cost",
   "monthly_debt_service",
@@ -70,22 +91,20 @@ const FORBIDDEN_CROSS_TOOL_IDS = [
   "out_audit_hash_payload",
 ];
 
-function loadSchema(): Record<string, any> {
+function loadSchema(): BreakEvenSchemaRecord {
   const schemaPath = path.join(
     process.cwd(),
     "src/sectorcalc/schemas/pro-v531/break-even-survival-cash-calculator.schema.json",
   );
-  return JSON.parse(readFileSync(schemaPath, "utf8")) as Record<string, any>;
+  return JSON.parse(readFileSync(schemaPath, "utf8")) as BreakEvenSchemaRecord;
 }
 
 describe("Break-Even & Survival Cash cross-tool isolation", () => {
   it("contains only the declared domain inputs and outputs", () => {
     const schema = loadSchema();
-    const rawInputIds = schema.inputs.map((item: { id: string }) => item.id).sort();
-    const normalizedInputIds = schema.normalized_inputs
-      .map((item: { id: string }) => item.id)
-      .sort();
-    const outputIds = schema.outputs.map((item: { id: string }) => item.id).sort();
+    const rawInputIds = schema.inputs.map((item) => item.id).sort();
+    const normalizedInputIds = schema.normalized_inputs.map((item) => item.id).sort();
+    const outputIds = schema.outputs.map((item) => item.id).sort();
     const serialized = JSON.stringify(schema);
 
     expect(schema.tool_id).toBe("PRO_031");
@@ -108,13 +127,15 @@ describe("Break-Even & Survival Cash cross-tool isolation", () => {
 
     const result = formula.calculate(formula.sampleInputs);
     const registry = formulaRegistry.fetch("PRO_031", formula.formulaVersion);
+    const decisionCode = result.outputs.out_final_decision_state;
 
     expect(formula.toolKey).toBe(schema.tool_key);
     expect(formula.formulaVersion).toBe(schema.metadata.formula_version);
     expect(Object.keys(formula.sampleInputs).sort()).toEqual(EXPECTED_NORMALIZED_INPUT_IDS);
-    expect(result.outputKeys.sort()).toEqual(EXPECTED_OUTPUT_IDS);
+    expect([...result.outputKeys].sort()).toEqual(EXPECTED_OUTPUT_IDS);
     expect(Object.keys(result.outputs).sort()).toEqual(EXPECTED_OUTPUT_IDS);
     expect(Object.values(result.outputs).every(Number.isFinite)).toBe(true);
+    expect(result.status).toBe(decisionCode === 0 ? "OK" : decisionCode === 1 ? "REVIEW" : "BLOCKED");
     expect(registry).not.toBeNull();
     expect(registry?.tool_key).toBe(schema.tool_key);
     expect(registry?.formula_version).toBe(schema.metadata.formula_version);
@@ -123,9 +144,7 @@ describe("Break-Even & Survival Cash cross-tool isolation", () => {
 
   it("keeps every report entry bound to a declared schema output", async () => {
     const schema = loadSchema();
-    const schemaOutputIds = new Set<string>(
-      schema.outputs.map((item: { id: string }) => item.id),
-    );
+    const schemaOutputIds = new Set(schema.outputs.map((item) => item.id));
     const { getProReportContractOverride } = await import(
       "@/sectorcalc/pro-report/pro-report-contract-overrides"
     );
