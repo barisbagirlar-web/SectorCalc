@@ -40,6 +40,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   if (!isFiniteNumber(inputs["n_motor_power_kw"])) warnings.push("Missing: n_motor_power_kw");
   if (!isFiniteNumber(inputs["n_current_efficiency_pct"])) warnings.push("Missing: n_current_efficiency_pct");
   if (!isFiniteNumber(inputs["n_new_efficiency_pct"])) warnings.push("Missing: n_new_efficiency_pct");
+  if (dr > 0 && dr < 0.02) warnings.push("Discount rate " + dr.toFixed(4) + " ratio is below typical range [0.02, 0.35].");
 
   const current_kwh = current_eff > 0 ? motor_power * annual_hours / current_eff : 0;
   const new_kwh = new_eff > 0 ? motor_power * annual_hours / new_eff : 0;
@@ -65,7 +66,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_demand_metric"] = round(current_energy_cost, 2);
   outputs["out_capacity_metric"] = round(new_energy_cost, 2);
   outputs["out_utilization_margin"] = round(annual_saving, 2);
-  outputs["out_expanded_uncertainty"] = round(maint_saving * 0.1, 2);
+  outputs["out_expanded_uncertainty"] = round(Math.abs(annual_saving * (1 - conf)), 2);
   outputs["out_threshold_crossing"] = payback_months <= 48 ? 1 : 0;
   outputs["out_sensitivity_driver"] = current_energy_cost > replacement_cost ? 1 : 0;
   outputs["out_fmea_trigger"] = payback_months > 24 ? 1 : 0;

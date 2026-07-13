@@ -60,9 +60,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_final_decision_state"] = cm >= tm ? 0 : (cm > 0 ? 1 : 2);
   outputs["out_reference_deviation"] = round(Math.abs(price - (total_cost * (1 + tm))) / (price || 1), 4);
   outputs["out_derating_factor"] = 1.0;
-  outputs["out_expanded_uncertainty"] = round(total_cost * 0.1, 4);
+  outputs["out_expanded_uncertainty"] = round(Math.abs(total_cost * (1 - conf)), 4);
   outputs["out_sensitivity_driver"] = mc > annual_labor ? 1 : 0;
-  outputs["out_scenario_delta"] = round(loss * annual_vol * 0.15, 2);
+  outputs["out_scenario_delta"] = round(Math.abs(gm * (1 - conf)), 2);
   outputs["out_audit_hash_payload"] = 0;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));

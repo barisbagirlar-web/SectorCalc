@@ -92,6 +92,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const rate = n_discount_rate;
   const stress = Math.max(0, Math.min(1, n_stress_downside_factor));
 
+  // --- Discount rate guard ---
+  if (rate > 0 && rate < 0.02) warnings.push("Discount rate " + rate.toFixed(4) + " ratio is below typical range [0.02, 0.35].");
+
   // --- Buy scenario NPV ---
   const net_capex = n_initial_investment;
   const annual_maintenance = annual_overhead * 0.2;

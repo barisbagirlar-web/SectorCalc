@@ -92,6 +92,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const rate = n_discount_rate;
   const stress = Math.max(0, Math.min(1, n_stress_downside_factor));
 
+  // --- Discount rate guard ---
+  if (rate > 0 && rate < 0.02) warnings.push("Discount rate " + rate.toFixed(4) + " ratio is below typical range [0.02, 0.35]. If you intended e.g. 18.5%, enter 18.5 with unit % not 0.185.");
+
   // --- NPV calculation ---
   const annual_cf = n_annual_net_cash_flow + safeDiv(n_residual_value, n_analysis_years);
   let npv = -n_initial_investment;

@@ -41,12 +41,12 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const tc = ct + st;
   const lc = lr * tc / 3600;
   const mac = mr * tc / 3600;
-  const sc = dc * 0.1;
+  const sc = dc * (1 - conf);
   const oa = vol > 0 ? oh / vol * bq : 0;
   const tjc = lc + mac + mc * bq + sc + oa;
   const mu = 1 + tm;
   const rp = tjc * mu;
-  const ra = rp * (1 + unc * 0.1);
+  const ra = rp * (1 + unc * (1 - conf));
   const mp = ra > 0 ? (ra - tjc) / ra : 0;
   outputs["out_evidence_completeness"] = round(conf, 3);
   outputs["out_normalized_demand"] = round(tjc, 2);
@@ -61,7 +61,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_derating_factor"] = round(conf, 4);
   outputs["out_expanded_uncertainty"] = round(ra - rp, 4);
   outputs["out_sensitivity_driver"] = lc > mac ? 1 : 0;
-  outputs["out_scenario_delta"] = round(tjc * 0.15, 2);
+  outputs["out_scenario_delta"] = round(Math.abs(tjc * unc * (1 - conf)), 2);
   outputs["out_audit_hash_payload"] = 0;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));

@@ -64,7 +64,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_demand_metric"] = round(net_margin, 2);
   outputs["out_capacity_metric"] = round(total_margin, 2);
   outputs["out_utilization_margin"] = round(cm_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(net_margin * 0.1, 2);
+  outputs["out_expanded_uncertainty"] = round(Math.abs(net_margin * (1 - conf)), 2);
   outputs["out_threshold_crossing"] = toxic_flag;
   outputs["out_sensitivity_driver"] = biggest_burden === logistics_burden ? 0 : (biggest_burden === service_burden ? 1 : 2);
   outputs["out_fmea_trigger"] = toxic_flag;

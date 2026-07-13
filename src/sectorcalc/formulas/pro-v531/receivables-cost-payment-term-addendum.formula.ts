@@ -37,7 +37,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const fr = Math.min(Math.max(0.02, oh / mr / 100), 0.25);
   const fc = ra * fr * 60 / 365;
   const ap = ra > 0 ? fc / ra : 0;
-  const rp = dc * 0.15;
+  const rp = dc * (1 - conf);
   const tfc = fc + rp;
   outputs["out_evidence_completeness"] = round(conf, 3);
   outputs["out_normalized_demand"] = round(ra, 2);
@@ -50,9 +50,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_final_decision_state"] = ap <= 0.05 ? 0 : (ap <= 0.10 ? 1 : 2);
   outputs["out_reference_deviation"] = round(Math.abs(ra - fc) / (ra || 1), 4);
   outputs["out_derating_factor"] = round(conf, 4);
-  outputs["out_expanded_uncertainty"] = round(tfc * 0.1, 4);
+  outputs["out_expanded_uncertainty"] = round(Math.abs(tfc * (1 - conf)), 4);
   outputs["out_sensitivity_driver"] = fc > rp ? 1 : 0;
-  outputs["out_scenario_delta"] = round(tfc * 0.15, 2);
+  outputs["out_scenario_delta"] = round(Math.abs(tfc * (1 - conf)), 2);
   outputs["out_audit_hash_payload"] = 0;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));

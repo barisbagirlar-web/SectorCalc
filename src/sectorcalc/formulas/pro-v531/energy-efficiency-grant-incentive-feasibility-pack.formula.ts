@@ -76,6 +76,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const n_discount_rate = get(inputs, "n_discount_rate");
   const n_source_confidence_ratio = get(inputs, "n_source_confidence_ratio");
 
+  // --- Discount rate guard ---
+  if (n_discount_rate > 0 && n_discount_rate < 0.02) warnings.push("Discount rate " + n_discount_rate.toFixed(4) + " ratio is below typical range [0.02, 0.35].");
+
   // --- Core energy efficiency feasibility logic ---
   const kwh_saving = n_current_kwh_per_year - n_target_kwh_per_year;
   const money_saving = kwh_saving * n_avg_kwh_rate + n_maintenance_cost_saving;

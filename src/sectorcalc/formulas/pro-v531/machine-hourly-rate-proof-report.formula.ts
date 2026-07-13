@@ -54,12 +54,12 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_demand_metric"] = round(mcpu, 4);
   outputs["out_capacity_metric"] = round(uph, 2);
   outputs["out_utilization_margin"] = round(profit, 4);
-  outputs["out_expanded_uncertainty"] = round(opu * 0.1, 4);
+  outputs["out_expanded_uncertainty"] = round(Math.abs(opu * (1 - conf)), 4);
   outputs["out_threshold_crossing"] = profit > 0 ? 0 : 1;
   outputs["out_sensitivity_driver"] = mcpu > lcpu ? 1 : 0;
   outputs["out_fmea_trigger"] = profit < 0 ? 1 : 0;
   outputs["out_money_at_risk"] = round(tp * (1 - conf), 2);
-  outputs["out_scenario_delta"] = round(tp * 0.1, 2);
+  outputs["out_scenario_delta"] = round(Math.abs(tp * (1 - conf)), 2);
   outputs["out_final_decision_state"] = profit > 0 ? 0 : (profit > -flr * 0.1 ? 1 : 2);
   outputs["out_reference_deviation"] = round(Math.abs(mcpu - (mcpu * 1.0)) / (mcpu || 1), 4);
   outputs["out_derating_factor"] = round(Math.min(1, (60 - st) / 60), 4);

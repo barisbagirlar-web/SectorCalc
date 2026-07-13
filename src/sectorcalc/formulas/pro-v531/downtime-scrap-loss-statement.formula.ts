@@ -66,7 +66,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_demand_metric"] = round(downtime_cost, 2);
   outputs["out_capacity_metric"] = round(total_loss, 2);
   outputs["out_utilization_margin"] = round(uptime_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(total_loss * 0.1, 2);
+  outputs["out_expanded_uncertainty"] = round(Math.abs(total_loss * (1 - conf)), 2);
   outputs["out_threshold_crossing"] = decision > 0 ? 1 : 0;
   outputs["out_sensitivity_driver"] = pareto_driver;
   outputs["out_fmea_trigger"] = decision > 0 ? 1 : 0;

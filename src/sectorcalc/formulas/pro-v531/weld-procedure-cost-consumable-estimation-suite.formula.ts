@@ -66,7 +66,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // Preserved generic outputs for backward compatibility
   outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_expanded_uncertainty"] = round(overhead_cost * 0.1, 2);
+  outputs["out_expanded_uncertainty"] = round(Math.abs(total_cost * (1 - conf)), 2);
   outputs["out_threshold_crossing"] = cost_per_meter > 50 ? 1 : 0;
   outputs["out_sensitivity_driver"] = labor_cost > consumable_cost ? 1 : 0;
   outputs["out_fmea_trigger"] = cost_per_meter > 30 ? 1 : 0;
