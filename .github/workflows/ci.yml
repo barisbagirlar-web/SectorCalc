@@ -78,7 +78,12 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=8192
           NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
 
-      - name: PRO real-execution smoke
-        run: npm run smoke:v531-pro-real-execution
+      - name: PRO formula execution gate
+        run: npm run guard:baris-v531-formula-execution
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+
+      - name: PRO health audit
+        run: npm run audit:pro-v531-health
         env:
           NODE_OPTIONS: --max-old-space-size=6144
