@@ -36,7 +36,10 @@ jobs:
         shell: bash
         run: |
           set +e
-          node scripts/one-time-fix-break-even-cross-wire.mjs 2> .cross-wire-migration-error.txt
+          {
+            node scripts/one-time-fix-break-even-cross-wire.mjs
+            node scripts/one-time-fix-break-even-test-contracts.mjs
+          } 2> .cross-wire-migration-error.txt
           status=$?
           set -e
           if [ "$status" -ne 0 ]; then
@@ -149,6 +152,7 @@ jobs:
           writeFileSync(path, source, "utf8");
           NODE
           rm -f scripts/one-time-fix-break-even-cross-wire.mjs
+          rm -f scripts/one-time-fix-break-even-test-contracts.mjs
           rm -f .github/workflows/apply-break-even-cross-wire-fix.yml
           rm -f .cross-wire-migration-error.txt
           rm -f .pro-v2-contract-error.txt
