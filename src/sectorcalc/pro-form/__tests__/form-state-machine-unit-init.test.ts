@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import type { SuperV4Schema } from "../contract-types";
 import {
@@ -46,17 +48,35 @@ function buildRatioSchema(): SuperV4Schema {
         type: "number",
         required: true,
         criticality: "CRITICAL",
-        physical_hard_bounds: { min: 0, max: 1, unit: "ratio", violation_behavior: "BLOCK" },
-        engineering_reference_range: { min: 0.02, max: 0.35, unit: "ratio", source: "test" },
+        physical_hard_bounds: {
+          min: 0,
+          max: 1,
+          unit: "ratio",
+          violation_behavior: "BLOCK",
+        },
+        engineering_reference_range: {
+          min: 0.02,
+          max: 0.35,
+          unit: "ratio",
+          source: "test",
+        },
         default_policy: "NO_DEFAULT",
         default_value: null,
         example_value: 0.185,
-        evidence_requirement: { required: false, accepted_evidence: ["user-provided value"] },
+        evidence_requirement: {
+          required: false,
+          accepted_evidence: ["user-provided value"],
+        },
         user_help_text: "Test ratio initialization.",
       },
     ],
     normalized_inputs: [
-      { id: "n_discount_rate", from_input: "discount_rate", quantity_kind: "dimensionless", base_unit: "ratio" },
+      {
+        id: "n_discount_rate",
+        from_input: "discount_rate",
+        quantity_kind: "dimensionless",
+        base_unit: "ratio",
+      },
     ],
     reference_value_policy: {},
     form_runtime_binding: {
@@ -85,7 +105,14 @@ function buildRatioSchema(): SuperV4Schema {
     ui_contract: {
       target_renderer: "UniversalIndustrialDecisionForm",
       profile_modes: ["quick", "engineering", "cost", "audit"],
-      input_groups: [{ id: "inputs", title: "Inputs", advanced: false, fields: ["discount_rate"] }],
+      input_groups: [
+        {
+          id: "inputs",
+          title: "Inputs",
+          advanced: false,
+          fields: ["discount_rate"],
+        },
+      ],
       accessibility: {},
     },
     reference_code: {},
@@ -93,6 +120,14 @@ function buildRatioSchema(): SuperV4Schema {
     red_team_review: {},
     metadata: { schema_version: "5.3.1", formula_version: "test" },
   } as unknown as SuperV4Schema;
+}
+
+function loadBreakEvenSchema(): SuperV4Schema {
+  const schemaPath = path.join(
+    process.cwd(),
+    "src/sectorcalc/schemas/pro-v531/break-even-survival-cash-calculator.schema.json",
+  );
+  return JSON.parse(readFileSync(schemaPath, "utf8")) as SuperV4Schema;
 }
 
 describe("form input initialization unit safety", () => {
@@ -115,10 +150,35 @@ describe("form input initialization unit safety", () => {
       type: "VALIDATE_SCHEMA_CONTRACT",
       errors: [],
     });
-    const reset = universalFormMachineReducer(validated, { type: "RESET_INPUTS" });
+    const reset = universalFormMachineReducer(validated, {
+      type: "RESET_INPUTS",
+    });
 
     expect(reset.selectedUnitState.discount_rate).toBe("percent");
     expect(reset.rawInputState.discount_rate).toBeCloseTo(18.5, 10);
     expect(reset.evidenceState.discount_rate).toBeDefined();
+  });
+
+  it("initializes actual break-even ratios as 42%, 70%, and 90%", () => {
+    const initialized = universalFormMachineReducer(
+      createInitialUniversalFormState("engineering"),
+      { type: "INIT_SCHEMA", schema: loadBreakEvenSchema() },
+    );
+
+    expect(initialized.selectedUnitState.contribution_margin_ratio).toBe(
+      "percent",
+    );
+    expect(initialized.rawInputState.contribution_margin_ratio).toBeCloseTo(
+      42,
+      10,
+    );
+    expect(initialized.rawInputState.downside_revenue_factor).toBeCloseTo(
+      70,
+      10,
+    );
+    expect(initialized.rawInputState.source_confidence_ratio).toBeCloseTo(
+      90,
+      10,
+    );
   });
 });
