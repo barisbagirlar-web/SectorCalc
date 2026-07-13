@@ -109,7 +109,39 @@ jobs:
           cat public/release.json
 
       - name: Deploy Firebase Hosting, Firestore rules, and SSR function
-        run: npm run deploy
+        shell: bash
+        run: |
+          set +e
+          set -o pipefail
+          mkdir -p artifacts/production-deploy
+          npm run deploy 2>&1 | tee artifacts/production-deploy/firebase-deploy.log
+          status=${PIPESTATUS[0]}
+
+          find . -maxdepth 4 -type f \( \
+            -name 'firebase-debug*.log' -o \
+            -name '*firebase*.log' -o \
+            -name '*deploy*.log' \
+          \) -not -path './node_modules/*' -print0 | while IFS= read -r -d '' file; do
+            destination="artifacts/production-deploy/${file#./}"
+            mkdir -p "$(dirname "$destination")"
+            cp "$file" "$destination" || true
+          done
+
+          echo "FIREBASE_DEPLOY_EXIT_CODE=${status}" | tee artifacts/production-deploy/result.txt
+          if [ "$status" -ne 0 ]; then
+            echo "----- FIREBASE DEPLOY FAILURE TAIL -----"
+            tail -n 300 artifacts/production-deploy/firebase-deploy.log || true
+          fi
+          exit "$status"
+
+      - name: Upload production deploy evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-deploy-evidence
+          path: artifacts/production-deploy
+          if-no-files-found: warn
+          retention-days: 7
 
       - name: Verify deployed release SHA
         shell: bash
