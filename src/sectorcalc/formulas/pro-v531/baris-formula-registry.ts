@@ -7,7 +7,7 @@ import { formulaRegistry, FormulaRegistryNode } from "@/sectorcalc/pro-runtime/f
 
 const FORMULA_VERSION = "5.3.1-pro-baris.1";
 
-const OUTPUT_IDS = [
+const LEGACY_OUTPUT_IDS = [
   "out_evidence_completeness", "out_normalized_demand", "out_reference_deviation",
   "out_derating_factor", "out_demand_metric", "out_capacity_metric",
   "out_utilization_margin", "out_expanded_uncertainty", "out_threshold_crossing",
@@ -15,10 +15,25 @@ const OUTPUT_IDS = [
   "out_scenario_delta", "out_audit_hash_payload", "out_final_decision_state"
 ];
 
-function buildNodes(toolKey: string): FormulaRegistryNode[] {
-  return OUTPUT_IDS.map((oid) => ({
+const BREAK_EVEN_OUTPUT_IDS = [
+  "out_break_even_monthly_revenue",
+  "out_current_revenue_gap",
+  "out_stressed_monthly_revenue",
+  "out_monthly_cash_burn",
+  "out_cash_runway_months",
+  "out_survival_cash_target",
+  "out_funding_gap",
+  "out_margin_of_safety_ratio",
+  "out_source_confidence_ratio",
+  "out_uncertainty_cash_buffer",
+  "out_target_runway_breached",
+  "out_decision_code",
+];
+
+function buildNodes(toolKey: string, formulaVersion: string, outputIds: string[]): FormulaRegistryNode[] {
+  return outputIds.map((oid) => ({
     formula_id: `${toolKey}_node_${oid}`,
-    formula_version: FORMULA_VERSION,
+    formula_version: formulaVersion,
     schema_hash_binding: `schema-binding-${toolKey}`,
     formula_registry_hash: `fr-pro-baris-${toolKey}`,
     operation: "PASS_THROUGH" as const,
@@ -39,11 +54,18 @@ function buildNodes(toolKey: string): FormulaRegistryNode[] {
 interface LiveToolEntry {
   toolKey: string;
   toolId: string;
+  formulaVersion?: string;
+  outputIds?: string[];
 }
 
 // -- BATCH 1 (10 tools) ---
 const BATCH_1_TOOLS: LiveToolEntry[] = [
-  { toolKey: "break-even-survival-cash-calculator", toolId: "PRO_031" },
+  {
+    toolKey: "break-even-survival-cash-calculator",
+    toolId: "PRO_031",
+    formulaVersion: "5.3.1-pro-baris.3",
+    outputIds: BREAK_EVEN_OUTPUT_IDS,
+  },
   { toolKey: "machine-hourly-rate-proof-report", toolId: "PRO_017" },
   { toolKey: "loss-making-job-detector", toolId: "PRO_032" },
   { toolKey: "receivables-cost-payment-term-addendum", toolId: "PRO_035" },
@@ -71,15 +93,16 @@ const BATCH_2_TOOLS: LiveToolEntry[] = [
 
 const LIVE_TOOLS: LiveToolEntry[] = [...BATCH_1_TOOLS, ...BATCH_2_TOOLS];
 
-// Register 20 LIVE tools (Batch 1 + Batch 2)
 for (const t of LIVE_TOOLS) {
+  const formulaVersion = t.formulaVersion ?? FORMULA_VERSION;
+  const outputIds = t.outputIds ?? LEGACY_OUTPUT_IDS;
   formulaRegistry.register({
     tool_id: t.toolId,
     tool_key: t.toolKey,
-    formula_version: FORMULA_VERSION,
+    formula_version: formulaVersion,
     formula_registry_hash: `fr-pro-baris-${t.toolKey}`,
     schema_hash_binding: `schema-binding-${t.toolKey}`,
-    nodes: buildNodes(t.toolKey),
+    nodes: buildNodes(t.toolKey, formulaVersion, outputIds),
     internal_trace_policy: "RESTRICTED_CHECKER",
     created_at: new Date().toISOString(),
     approved_at: new Date().toISOString(),
@@ -93,7 +116,6 @@ export const BATCH_2_KEYS: Set<string> = new Set(BATCH_2_TOOLS.map(t => t.toolKe
 
 export const LIVE_BATCH_1_KEYS: Set<string> = LIVE_BATCH_KEYS;
 
-// Full Baris tool IDs list
 export const BARIS_TOOL_IDS: string[] = [
   "bolt-torque-preload-spec-card-vdi-2230",
   "bolted-connection-verifier", "break-even-survival-cash-calculator",
@@ -136,26 +158,14 @@ export function isBarisBatch2Tool(toolKey: string): boolean {
   return BATCH_2_KEYS.has(toolKey);
 }
 
-/**
- * Explicit initialization function.
- * Calling this ensures the module is NOT tree-shaken by Webpack
- * and all formulaRegistry.register() calls execute at runtime.
- * Must be called once before any PRO tool execution.
- *
- * Webpack anti-tree-shake strategy:
- * - Iterates the LIVE_TOOLS array so the registration loop cannot be DCE'd.
- * - Uses formulaRegistry instance methods to create a visible data dependency.
- */
 export function initBarisFormulaRegistry(): number {
   let count = 0;
   for (const t of LIVE_TOOLS) {
-    // Touch each tool_key to prevent DCE of the registration loop
     if (formulaRegistry.fetchByToolKey(t.toolKey)) count++;
   }
   for (const t of LIVE_TOOLS) {
     if (formulaRegistry.fetchByToolKey(t.toolKey)) count++;
   }
-  // Touch exported symbols so the module-level registration loop is retained
   return count + LIVE_BATCH_KEYS.size + BATCH_1_KEYS.size + BARIS_TOOL_IDS.length;
 }
 

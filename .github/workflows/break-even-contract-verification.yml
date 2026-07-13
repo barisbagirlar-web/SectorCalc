@@ -1,0 +1,95 @@
+name: Break-Even Contract Verification
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: ["fix/break-even-survival-cash-contract-clean-v2"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: break-even-contract-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-break-even-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Run isolated verification matrix
+        id: verification
+        shell: bash
+        run: |
+          set +e
+          mkdir -p verification-logs
+          overall=0
+
+          run_check() {
+            name="$1"
+            shift
+            echo "===== ${name} =====" | tee "verification-logs/${name}.log"
+            "$@" 2>&1 | tee -a "verification-logs/${name}.log"
+            status=${PIPESTATUS[0]}
+            echo "EXIT_CODE=${status}" | tee -a "verification-logs/${name}.log"
+            if [ "${status}" -ne 0 ]; then
+              overall=1
+            fi
+          }
+
+          run_check form-architecture npm run guard:v531-form-architecture
+          run_check schema-formula-binding npm run guard:v531-schema-formula-binding
+          run_check runtime-registration npm run guard:baris-v531-runtime-registration
+          run_check typecheck npm run typecheck
+          run_check lint-errors npm run lint:errors
+          run_check targeted-tests npx vitest run \
+            src/sectorcalc/formulas/pro-v531/__tests__/break-even-survival-cash-calculator.test.ts \
+            src/sectorcalc/formulas/pro-v531/__tests__/baris-formula-registry-break-even.test.ts \
+            src/sectorcalc/formulas/pro-v531/__tests__/break-even-contract-isolation.test.ts \
+            src/sectorcalc/formulas/pro-v531/__tests__/formula-schema-contract.test.ts \
+            src/sectorcalc/pro-form/__tests__/form-state-machine-unit-init.test.ts \
+            src/sectorcalc/pro-form/__tests__/break-even-payload-contract.test.ts \
+            src/sectorcalc/pro-report/__tests__/pro-report-break-even.test.ts \
+            src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts \
+            src/sectorcalc/pro-runtime/__tests__/decision-engine-warning-precedence.test.ts
+          run_check full-v5-form npm run test:v5-form
+          run_check full-v5-runtime npm run test:v5-runtime
+          run_check formula-execution npx vitest run \
+            src/sectorcalc/formulas/pro-v531/__tests__/break-even-survival-cash-calculator.test.ts \
+            src/sectorcalc/formulas/pro-v531/__tests__/baris-formula-registry-break-even.test.ts \
+            src/sectorcalc/formulas/pro-v531/__tests__/break-even-contract-isolation.test.ts
+          run_check formula-health npx vitest run \
+            src/sectorcalc/formulas/pro-v531/__tests__/formula-schema-contract.test.ts \
+            src/sectorcalc/pro-report/__tests__/pro-report-break-even.test.ts \
+            src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts
+          run_check build npm run build
+
+          echo "overall=${overall}" >> "$GITHUB_OUTPUT"
+          exit 0
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+          NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
+
+      - name: Upload verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: break-even-contract-verification-logs
+          path: verification-logs
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Enforce verification result
+        if: always()
+        run: test "${{ steps.verification.outputs.overall }}" = "0"

@@ -1,0 +1,142 @@
+name: Break-Even Browser E2E
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: ["fix/break-even-survival-cash-contract-clean-v2"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: break-even-browser-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NEXT_PUBLIC_SITE_URL: http://127.0.0.1:3000
+      OWNER_BYPASS_EMAIL: barisbagirlar@gmail.com
+      E2E_OWNER_PASSWORD: SectorCalc-E2E-Only-2026!
+      E2E_BASE_URL: http://127.0.0.1:3000
+      NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST: 127.0.0.1:9099
+      NEXT_PUBLIC_FIREBASE_FIRESTORE_EMULATOR_HOST: 127.0.0.1:8080
+      FIREBASE_AUTH_EMULATOR_HOST: 127.0.0.1:9099
+      FIRESTORE_EMULATOR_HOST: 127.0.0.1:8080
+      GCLOUD_PROJECT: sectorcalc-bf412
+      GOOGLE_CLOUD_PROJECT: sectorcalc-bf412
+      FIREBASE_CONFIG: '{"projectId":"sectorcalc-bf412"}'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Start Firebase Auth and Firestore emulators
+        run: |
+          mkdir -p artifacts/break-even-browser-e2e
+          npx firebase emulators:start \
+            --config firebase.e2e.json \
+            --only auth,firestore \
+            --project sectorcalc-bf412 \
+            > /tmp/sectorcalc-firebase-emulators.log 2>&1 &
+          echo $! > /tmp/sectorcalc-firebase-emulators.pid
+
+      - name: Wait for Firebase emulators
+        shell: bash
+        run: |
+          for attempt in $(seq 1 90); do
+            if (echo > /dev/tcp/127.0.0.1/9099) 2>/dev/null && \
+               (echo > /dev/tcp/127.0.0.1/8080) 2>/dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/sectorcalc-firebase-emulators.log
+          exit 1
+
+      - name: Seed isolated owner account
+        run: |
+          response=$(curl --silent --show-error --fail-with-body \
+            -X POST \
+            "http://127.0.0.1:9099/identitytoolkit.googleapis.com/v1/accounts:signUp?key=sectorcalc-e2e" \
+            -H "Content-Type: application/json" \
+            --data "{\"email\":\"${OWNER_BYPASS_EMAIL}\",\"password\":\"${E2E_OWNER_PASSWORD}\",\"returnSecureToken\":true}")
+          node -e '
+            const payload = JSON.parse(process.argv[1]);
+            if (!payload.localId || payload.email !== process.env.OWNER_BYPASS_EMAIL) {
+              console.error(payload);
+              process.exit(1);
+            }
+            console.log("FIREBASE_E2E_OWNER_SEEDED=PASS");
+          ' "$response"
+
+      - name: Production build
+        run: npm run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+
+      - name: Start production server
+        run: |
+          npm start -- -p 3000 > /tmp/sectorcalc-e2e-server.log 2>&1 &
+          echo $! > /tmp/sectorcalc-e2e-server.pid
+
+      - name: Wait for server readiness
+        run: |
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent --show-error http://127.0.0.1:3000/tools/pro/break-even-survival-cash-calculator > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/sectorcalc-e2e-server.log
+          exit 1
+
+      - name: Run authenticated browser and execute API E2E
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/e2e-break-even-browser.mjs 2>&1 | tee artifacts/break-even-browser-e2e/runner.log
+
+      - name: Capture runtime logs
+        if: always()
+        run: |
+          mkdir -p artifacts/break-even-browser-e2e
+          cp /tmp/sectorcalc-e2e-server.log artifacts/break-even-browser-e2e/server.log || true
+          cp /tmp/sectorcalc-firebase-emulators.log artifacts/break-even-browser-e2e/firebase-emulators.log || true
+
+      - name: Upload E2E evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: break-even-browser-e2e-evidence
+          path: artifacts/break-even-browser-e2e
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Stop production server and emulators
+        if: always()
+        run: |
+          if [ -f /tmp/sectorcalc-e2e-server.pid ]; then
+            kill "$(cat /tmp/sectorcalc-e2e-server.pid)" || true
+          fi
+          if [ -f /tmp/sectorcalc-firebase-emulators.pid ]; then
+            kill "$(cat /tmp/sectorcalc-firebase-emulators.pid)" || true
+          fi

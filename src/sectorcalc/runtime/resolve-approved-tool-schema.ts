@@ -11,6 +11,7 @@ import { assertToolSchemaIdentity, freezeSchemaGuard } from "@/sectorcalc/runtim
 import { enrichV531SchemaReferences } from "@/sectorcalc/runtime/v531-reference-enrichment";
 import { isActiveTool } from "@/sectorcalc/runtime/active-tool-allowlist";
 import { getBarisProSchema, clearBarisSchemaCache } from "@/sectorcalc/runtime/baris-schema-loader";
+import { applySchemaPresentationOverrides } from "@/sectorcalc/runtime/schema-presentation-overrides";
 import fs from "fs";
 import path from "path";
 
@@ -58,7 +59,11 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
 
   function buildAndCache(buildFn: () => SuperV4Schema, source: ResolvedSource): ApprovedSchemaResult {
     let superV4: SuperV4Schema;
-    try { superV4 = buildFn(); } catch (err: unknown) { return { ok: false, reason: "CAUGHT_EXCEPTION", errors: ["Build threw: " + (err instanceof Error ? err.message : String(err))] }; }
+    try {
+      superV4 = applySchemaPresentationOverrides(buildFn());
+    } catch (err: unknown) {
+      return { ok: false, reason: "CAUGHT_EXCEPTION", errors: ["Build threw: " + (err instanceof Error ? err.message : String(err))] };
+    }
     const validation = validateSuperV4Schema(superV4);
     if (validation.ok) {
       const enriched = enrichV531SchemaReferences(validation.schema);

@@ -46,7 +46,6 @@ import {
   deriveFieldDescription,
 } from "./form-render-helpers";
 import { normalizeV531FieldMetadata } from "./normalize-v531-field-metadata";
-import { resolveIndustrialExampleValue } from "./example-value-resolver";
 import { FreeToolResultPanel } from "@/sectorcalc/free-form/FreeToolResultPanel";
 import { MobileStickyActionBar, resolveToolStickyBarState } from "@/components/layout/mobile/MobileStickyActionBar";
 import {
@@ -610,6 +609,22 @@ function isCountField(input: SuperV4Input): boolean {
   return false;
 }
 
+const PROFILE_MODE_COPY: Record<ProfileMode, string> = {
+  quick: "Fast decision view — essential inputs and the primary decision only.",
+  engineering: "Engineering view — normalized units, references, evidence, and technical controls.",
+  cost: "Cost view — monetary drivers, exposure, and commercial decision outputs.",
+  audit: "Audit view — source verification, traceability, and report controls.",
+  diagnostic: "Diagnostic view — blockers, normalization, and execution-state diagnostics.",
+};
+
+const PROFILE_MODE_LABELS: Record<ProfileMode, string> = {
+  quick: "Quick",
+  engineering: "Engineering",
+  cost: "Cost",
+  audit: "Audit",
+  diagnostic: "Diagnostic",
+};
+
 // ── Component ──────────────────────────────────────────────────────────────────
 
 export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisionFormProps) {
@@ -742,6 +757,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const effectiveInitialMode: ProfileMode =
     isFreeRoute ? "quick" : (props.initialProfileMode ?? "engineering");
 
+  // ── Currency display selector ──
+  const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("USD");
+
   // ── Hooks (unconditional) ──
   const machine = useUniversalIndustrialDecisionFormMachine({
     schema: machineSchema,
@@ -750,6 +768,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     initialProfileMode: effectiveInitialMode,
     usageSessionId: props.usageSessionId,
     authToken: props.executeAuthToken ?? undefined,
+    displayCurrency: selectedCurrency,
   });
 
   const { state } = machine;
@@ -765,9 +784,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
   // Presentation mode: prefer explicit prop, fall back to accessTier-based default
   const presentationMode = props.presentationMode ?? (isFreeTier ? "FREE_COMPACT" : "PRO_AUDIT");
-
-  // ── Currency display selector ──
-  const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("USD");
 
   // ── Submission tracking: prevent early red validation state ──
   // Only show field-level validation errors after user attempts Calculate.
@@ -787,55 +803,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // ── Industrial example values (initial mount — useLayoutEffect for no flicker) ──
-  // useLayoutEffect runs synchronously before browser paint, so the form
-  // never shows empty/null inputs before example values are set.
-  const examplesInitializedRef = useRef<string | null>(null);
-
-  useLayoutEffect(() => {
-    if (contractErrors.length > 0) return;
-    if (!props.schema || !Array.isArray(props.schema.inputs) || props.schema.inputs.length === 0) return;
-
-    const toolSlug = props.toolKey ?? props.schema.tool_key;
-
-    // If already initialized for this tool, skip (avoid re-applying on deps change)
-    if (examplesInitializedRef.current === toolSlug) return;
-    examplesInitializedRef.current = toolSlug;
-
-    let anySet = false;
-
-    for (const input of props.schema.inputs) {
-      const currentValue = state.rawInputState[input.id];
-      const resolved = resolveIndustrialExampleValue({
-        toolSlug,
-        toolKey: props.schema.tool_key,
-        inputId: input.id,
-        inputName: input.name,
-        unit: input.base_unit,
-        rangeMin: input.physical_hard_bounds?.min ?? null,
-        rangeMax: input.physical_hard_bounds?.max ?? null,
-        schemaExampleValue: null,
-        schemaDefaultValue: input.default_value ?? null,
-      });
-
-      if (resolved === "") continue;
-
-      const needsUpdate =
-        currentValue === null ||
-        currentValue === undefined ||
-        currentValue !== resolved;
-
-      if (needsUpdate) {
-        machine.setInputValue(input.id, resolved);
-        anySet = true;
-      }
-    }
-
-    // NOTE: runClientPrecheck is NOT called on mount.
-    // Validation is deferred until the user explicitly clicks Calculate.
-    // This prevents showing red error borders on initial page load.
-    void anySet;
-  }, [props.schema, props.toolKey, contractErrors.length]);
   const runsRemaining = props.remainingRuns ?? 0;
   const sessionExhausted = isPro && hasSession && runsRemaining <= 0;
   const creditSessionLoading = props.creditSessionLoading ?? false;
@@ -868,8 +835,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       })),
       rawInputs: state.rawInputState,
       selectedUnits: state.selectedUnitState,
+      displayCurrency: selectedCurrency,
     });
-  }, [isPro, hasResult, response?.outputs, props.toolKey, props.schema?.tool_key]);
+  }, [isPro, hasResult, response?.outputs, props.toolKey, props.schema?.tool_key, state.rawInputState, state.selectedUnitState, selectedCurrency]);
 
   // Determine decision state from the response for ProReportPanelV2
   const reportDecisionState = useMemo<{ label: string; severity: "pass" | "warning" | "danger" | "info" } | null>(() => {
@@ -1069,6 +1037,31 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         </div>
         ) : null;
       })()}
+      {isPro && (
+        <div className="sc-v531-mode-panel">
+          <div className="sc-v531-mode-tabs" role="tablist" aria-label="Calculation view">
+            {(["quick", "engineering", "cost", "audit", "diagnostic"] as ProfileMode[]).map((mode) => {
+              const active = state.profileModeState.mode === mode;
+              return (
+                <button
+                  key={mode}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  className="sc-v531-mode-tab"
+                  data-active={active ? "true" : "false"}
+                  onClick={() => machine.setProfileMode(mode)}
+                >
+                  {PROFILE_MODE_LABELS[mode]}
+                </button>
+              );
+            })}
+          </div>
+          <p className="sc-v531-view-description">
+            {PROFILE_MODE_COPY[state.profileModeState.mode]}
+          </p>
+        </div>
+      )}
     </>
   );
 
@@ -2091,6 +2084,56 @@ function CalculatorInputField({
       {field.cleanReferenceHelper && (
         <p className="sc-v531-ref-helper">{replaceCurrencyLabel(field.cleanReferenceHelper, currencyCode)}</p>
       )}
+
+      {!isFreeTier && (
+        <div className="sc-v531-field-reference" aria-label={field.label + " reference controls"}>
+          <div className="sc-v531-field-reference-strip">
+            {field.referenceStrip.map((line) => (
+              <span key={line} className="sc-v531-ref-line">
+                {replaceCurrencyLabel(line, currencyCode)}
+              </span>
+            ))}
+          </div>
+          {field.referenceSource && (
+            <p className="sc-v531-ref-line">
+              <strong>Source:</strong> {field.referenceSource}
+            </p>
+          )}
+          {field.tolerancePct && (
+            <p className="sc-v531-field-tolerance">
+              <strong>Declared span:</strong> {field.tolerancePct}
+            </p>
+          )}
+        </div>
+      )}
+
+      {!isFreeTier && (
+        <fieldset className="sc-v531-field-evidence">
+          <legend className="sc-v531-evidence-title">{field.evidence.evidenceLabel}</legend>
+          <div className="sc-v531-evidence-options">
+            <label>
+              <input
+                type="checkbox"
+                checked={field.evidence.valueVerified}
+                onChange={(event) =>
+                  onEvidenceChange(event.target.checked, field.evidence.sourceVerified)
+                }
+              />
+              Value verified
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={field.evidence.sourceVerified}
+                onChange={(event) =>
+                  onEvidenceChange(field.evidence.valueVerified, event.target.checked)
+                }
+              />
+              Source record checked
+            </label>
+          </div>
+        </fieldset>
+      )}
     </div>
   );
 }
@@ -2232,9 +2275,9 @@ function FormulaLogicSection({
     .filter((n): n is string => Boolean(n));
 
   return (
-    <section className="sc-v531-advanced-section" aria-label="Formula logic">
-      <h3 className="sc-v531-advanced-title">Formula logic</h3>
-      <p className="sc-v531-methodology-text">{formulaText}</p>
+    <section className="sc-v531-advanced-section" aria-label="Protected methodology">
+      <h3 className="sc-v531-advanced-title">Protected methodology</h3>
+      <p className="sc-v531-methodology-text"><strong>Formula logic:</strong> {formulaText}</p>
       {standardNames.length > 0 && (
         <div className="sc-v531-methodology-stack">
           <p className="sc-v531-methodology-text">

@@ -2,7 +2,10 @@ import "server-only";
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
 export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+export type RedactionStatus =
+  | "PUBLIC_SAFE_REDACTED"
+  | "REDACTION_NOT_REQUIRED"
+  | "REDACTION_FAILED_BLOCKED";
 
 export interface CalculationResult {
   status: CalculationStatus;
@@ -13,59 +16,219 @@ export interface CalculationResult {
 }
 
 export const toolKey = "break-even-survival-cash-calculator";
-export const formulaVersion = "5.3.1-pro-baris.1";
+export const formulaVersion = "5.3.1-pro-baris.3";
 
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+export const requiredInputKeys = [
+  "n_monthly_fixed_cash_cost",
+  "n_monthly_debt_service",
+  "n_contribution_margin_ratio",
+  "n_current_monthly_revenue",
+  "n_unrestricted_cash_balance",
+  "n_minimum_cash_buffer",
+  "n_target_survival_months",
+  "n_downside_revenue_factor",
+  "n_source_confidence_ratio",
+  "n_uncertainty_multiplier",
+] as const;
+
+export const declaredOutputKeys = [
+  "out_break_even_monthly_revenue",
+  "out_current_revenue_gap",
+  "out_stressed_monthly_revenue",
+  "out_monthly_cash_burn",
+  "out_cash_runway_months",
+  "out_survival_cash_target",
+  "out_funding_gap",
+  "out_margin_of_safety_ratio",
+  "out_source_confidence_ratio",
+  "out_uncertainty_cash_buffer",
+  "out_target_runway_breached",
+  "out_decision_code",
+] as const;
+
+const RUNWAY_CAP_MONTHS = 120;
+const EPSILON = 1e-9;
+const REQUIRED_INPUT_SET = new Set<string>(requiredInputKeys);
+
+function isFiniteNumber(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+function round(value: number, decimals: number): number {
+  if (!isFiniteNumber(value)) return 0;
+  const factor = 10 ** decimals;
+  return Math.round((value + Number.EPSILON) * factor) / factor;
+}
+
+function blockedResult(warnings: string[]): CalculationResult {
+  const outputs: Record<(typeof declaredOutputKeys)[number], number> = {
+    out_break_even_monthly_revenue: 0,
+    out_current_revenue_gap: 0,
+    out_stressed_monthly_revenue: 0,
+    out_monthly_cash_burn: 0,
+    out_cash_runway_months: 0,
+    out_survival_cash_target: 0,
+    out_funding_gap: 0,
+    out_margin_of_safety_ratio: 0,
+    out_source_confidence_ratio: 0,
+    out_uncertainty_cash_buffer: 0,
+    out_target_runway_breached: 1,
+    out_decision_code: 2,
+  };
+
+  return {
+    status: "BLOCKED",
+    outputs,
+    warnings,
+    outputKeys: [...declaredOutputKeys],
+    redaction_status: "PUBLIC_SAFE_REDACTED",
+  };
+}
+
+function readRequiredInputs(
+  inputs: Record<string, number>,
+): { ok: true; values: Record<(typeof requiredInputKeys)[number], number> } | { ok: false; warnings: string[] } {
+  const missing = requiredInputKeys.filter((key) => !isFiniteNumber(inputs[key]));
+  const unknown = Object.keys(inputs).filter((key) => !REQUIRED_INPUT_SET.has(key));
+
+  if (missing.length > 0 || unknown.length > 0) {
+    const warnings: string[] = [];
+    if (missing.length > 0) warnings.push(`Missing or non-finite required inputs: ${missing.join(", ")}.`);
+    if (unknown.length > 0) warnings.push(`Unexpected normalized inputs: ${unknown.join(", ")}.`);
+    return { ok: false, warnings };
+  }
+
+  return {
+    ok: true,
+    values: Object.fromEntries(requiredInputKeys.map((key) => [key, inputs[key]])) as Record<
+      (typeof requiredInputKeys)[number],
+      number
+    >,
+  };
+}
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
 export function calculate(inputs: Record<string, number>): CalculationResult {
+  const parsed = readRequiredInputs(inputs);
+  if (!parsed.ok) return blockedResult(parsed.warnings);
+
+  const fixedCashCost = parsed.values.n_monthly_fixed_cash_cost;
+  const debtService = parsed.values.n_monthly_debt_service;
+  const contributionMarginRatio = parsed.values.n_contribution_margin_ratio;
+  const currentMonthlyRevenue = parsed.values.n_current_monthly_revenue;
+  const unrestrictedCash = parsed.values.n_unrestricted_cash_balance;
+  const minimumCashBuffer = parsed.values.n_minimum_cash_buffer;
+  const targetSurvivalMonths = parsed.values.n_target_survival_months;
+  const downsideRevenueFactor = parsed.values.n_downside_revenue_factor;
+  const sourceConfidenceRatio = parsed.values.n_source_confidence_ratio;
+  const uncertaintyMultiplier = parsed.values.n_uncertainty_multiplier;
+
+  if (
+    fixedCashCost < 0 ||
+    debtService < 0 ||
+    currentMonthlyRevenue < 0 ||
+    unrestrictedCash < 0 ||
+    minimumCashBuffer < 0
+  ) {
+    return blockedResult(["Cash, revenue, and mandatory cost inputs must not be negative."]);
+  }
+
+  if (contributionMarginRatio <= 0 || contributionMarginRatio > 1) {
+    return blockedResult(["Contribution Margin Ratio must be greater than 0 and no greater than 100%."]);
+  }
+
+  if (targetSurvivalMonths <= 0 || targetSurvivalMonths > RUNWAY_CAP_MONTHS) {
+    return blockedResult([
+      `Target Survival Months must be greater than 0 and no greater than ${RUNWAY_CAP_MONTHS}.`,
+    ]);
+  }
+
+  if (downsideRevenueFactor < 0 || downsideRevenueFactor > 1) {
+    return blockedResult(["Downside Revenue Retention must be between 0% and 100%."]);
+  }
+
+  if (sourceConfidenceRatio < 0 || sourceConfidenceRatio > 1) {
+    return blockedResult(["Source Confidence Ratio must be between 0% and 100%."]);
+  }
+
+  if (uncertaintyMultiplier < 1 || uncertaintyMultiplier > 3) {
+    return blockedResult(["Uncertainty Coverage Multiplier must be between 1.00 and 3.00."]);
+  }
+
+  const monthlyObligations = fixedCashCost + debtService;
+  const breakEvenMonthlyRevenue = monthlyObligations / contributionMarginRatio;
+  const currentRevenueGap = currentMonthlyRevenue - breakEvenMonthlyRevenue;
+  const stressedMonthlyRevenue = currentMonthlyRevenue * downsideRevenueFactor;
+  const stressedContribution = stressedMonthlyRevenue * contributionMarginRatio;
+  const monthlyCashBurn = Math.max(0, monthlyObligations - stressedContribution);
+  const availableSurvivalCash = Math.max(0, unrestrictedCash - minimumCashBuffer);
+  const cashRunwayMonths =
+    monthlyCashBurn > EPSILON
+      ? Math.min(RUNWAY_CAP_MONTHS, availableSurvivalCash / monthlyCashBurn)
+      : RUNWAY_CAP_MONTHS;
+
+  const targetBurnCoverage = monthlyCashBurn * targetSurvivalMonths;
+  const uncertaintyCashBuffer = targetBurnCoverage * Math.max(0, uncertaintyMultiplier - 1);
+  const survivalCashTarget = minimumCashBuffer + targetBurnCoverage + uncertaintyCashBuffer;
+  const fundingGap = Math.max(0, survivalCashTarget - unrestrictedCash);
+  const marginOfSafetyRatio =
+    currentMonthlyRevenue > EPSILON
+      ? currentRevenueGap / currentMonthlyRevenue
+      : breakEvenMonthlyRevenue <= EPSILON
+        ? 0
+        : -1;
+  const targetRunwayBreached =
+    monthlyCashBurn > EPSILON && cashRunwayMonths + EPSILON < targetSurvivalMonths;
+
   const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
-  const ci = get(inputs, "n_initial_investment");
-  const cf = get(inputs, "n_annual_net_cash_flow");
-  const dr = get(inputs, "n_discount_rate");
-  const yrs = Math.max(1, Math.round(get(inputs, "n_analysis_years")));
-  const rv = get(inputs, "n_residual_value");
-  const stress = get(inputs, "n_stress_downside_factor");
-  const vol = get(inputs, "n_annual_volume");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
-  const dc = get(inputs, "n_defect_or_loss_cost");
-  const conf = get(inputs, "n_source_confidence_ratio");
-  if (!isFiniteNumber(inputs["n_initial_investment"])) warnings.push("Missing: n_initial_investment");
-  if (!isFiniteNumber(inputs["n_annual_net_cash_flow"])) warnings.push("Missing: n_annual_net_cash_flow");
-  if (!isFiniteNumber(inputs["n_discount_rate"])) warnings.push("Missing: n_discount_rate");
+  if (currentRevenueGap < 0) {
+    warnings.push("Current monthly revenue is below the calculated break-even revenue.");
+  }
+  if (targetRunwayBreached) {
+    warnings.push("Available survival cash does not cover the selected target runway.");
+  }
+  if (fundingGap > EPSILON) {
+    warnings.push("A funding gap remains after the reserve and uncertainty allowance.");
+  }
+  if (sourceConfidenceRatio < 0.7) {
+    warnings.push("Source confidence is below 70%; verify accounting records before commitment.");
+  }
 
-  const cm_ratio = cf > 0 ? (cf - lr) / cf : 0;
-  const monthly_bre = oh > 0 && cm_ratio > 0 ? oh / cm_ratio : 0;
-  const req_rev = cm_ratio > 0 ? (oh + dc) / cm_ratio : 0;
-  const cash_runway = oh > 0 ? ci / oh : 0;
-  const surv_gap = req_rev - vol;
-  const money_at_risk = surv_gap * stress;
-  const npv = -ci + sum_dcf(cf, dr, yrs) + rv / ((1 + dr) ** yrs);
+  const decisionCode =
+    sourceConfidenceRatio < 0.5
+      ? 2
+      : fundingGap > EPSILON ||
+          currentRevenueGap < 0 ||
+          targetRunwayBreached ||
+          sourceConfidenceRatio < 0.7
+        ? 1
+        : 0;
 
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(vol, 0);
-  outputs["out_reference_deviation"] = 0;
-  outputs["out_derating_factor"] = round(stress, 3);
-  outputs["out_demand_metric"] = round(monthly_bre, 2);
-  outputs["out_capacity_metric"] = round(cf, 2);
-  outputs["out_utilization_margin"] = round(cm_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(dc * 0.1, 2);
-  outputs["out_threshold_crossing"] = surv_gap > 0 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = oh > ci ? 1 : 0;
-  outputs["out_fmea_trigger"] = surv_gap > 0 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(money_at_risk, 2);
-  outputs["out_scenario_delta"] = round(surv_gap, 2);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_final_decision_state"] = surv_gap > 0 ? 2 : (npv > 0 ? 0 : 1);
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
-}
+  const outputs: Record<(typeof declaredOutputKeys)[number], number> = {
+    out_break_even_monthly_revenue: round(breakEvenMonthlyRevenue, 2),
+    out_current_revenue_gap: round(currentRevenueGap, 2),
+    out_stressed_monthly_revenue: round(stressedMonthlyRevenue, 2),
+    out_monthly_cash_burn: round(monthlyCashBurn, 2),
+    out_cash_runway_months: round(cashRunwayMonths, 2),
+    out_survival_cash_target: round(survivalCashTarget, 2),
+    out_funding_gap: round(fundingGap, 2),
+    out_margin_of_safety_ratio: round(marginOfSafetyRatio, 4),
+    out_source_confidence_ratio: round(sourceConfidenceRatio, 3),
+    out_uncertainty_cash_buffer: round(uncertaintyCashBuffer, 2),
+    out_target_runway_breached: targetRunwayBreached ? 1 : 0,
+    out_decision_code: decisionCode,
+  };
 
-function sum_dcf(cf: number, r: number, n: number): number {
-  let s = 0; for (let y = 1; y <= n; y++) s += cf / Math.pow(1 + r, y); return s;
+  if (!Object.values(outputs).every(isFiniteNumber)) {
+    return blockedResult(["A non-finite result was produced; execution was blocked."]);
+  }
+
+  return {
+    status: decisionCode === 0 ? "OK" : decisionCode === 1 ? "REVIEW" : "BLOCKED",
+    outputs,
+    warnings,
+    outputKeys: [...declaredOutputKeys],
+    redaction_status: "PUBLIC_SAFE_REDACTED",
+  };
 }

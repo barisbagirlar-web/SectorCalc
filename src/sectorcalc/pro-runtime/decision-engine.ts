@@ -1,16 +1,26 @@
 // SectorCalc SuperV4 V5.3 — Decision Engine
 // Server-side decision state computation. No client-side decision logic.
 
-import type { CalcStatus, DecisionInterpretation, Severity } from "../pro-form/contract-types";
+import type {
+  CalcStatus,
+  DecisionInterpretation,
+  Severity,
+} from "../pro-form/contract-types";
 
 export interface DecisionInput {
-  outputs: Array<{ id: string; value: number | string | boolean | null; name: string }>;
+  outputs: Array<{
+    id: string;
+    value: number | string | boolean | null;
+    name: string;
+  }>;
   warnings: Array<{ severity: Severity; message: string }>;
   violations: Array<{ inputId: string; severity: Severity; message: string }>;
   riskLevel: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
   moneyAtRisk: number | null;
   currency: string | null;
   mainCostDriver: string | null;
+  /** Authoritative status returned by the server-side formula module. */
+  formulaStatus?: CalcStatus | null;
 }
 
 export interface DecisionResult {
@@ -23,87 +33,102 @@ export interface DecisionResult {
 }
 
 export function computeDecision(input: DecisionInput): DecisionResult {
-  const hasBlockedWarning = input.warnings.some((w) => w.severity === "BLOCKED");
-  const hasCriticalWarning = input.warnings.some((w) => w.severity === "CRITICAL");
-  const hasBlockedViolation = input.violations.some((v) => v.severity === "BLOCKED");
+  const hasBlockedWarning = input.warnings.some(
+    (warning) => warning.severity === "BLOCKED",
+  );
+  const hasCriticalWarning = input.warnings.some(
+    (warning) => warning.severity === "CRITICAL",
+  );
+  const hasBlockedViolation = input.violations.some(
+    (violation) => violation.severity === "BLOCKED",
+  );
 
-  // Determine status
   let status: CalcStatus = "OK";
   let primaryReason = "Calculation completed within acceptable parameters.";
 
-  if (hasBlockedViolation || hasBlockedWarning) {
+  if (
+    hasBlockedViolation ||
+    hasBlockedWarning ||
+    input.formulaStatus === "BLOCKED"
+  ) {
     status = "BLOCKED";
-    primaryReason = "Calculation blocked due to physical bound violations or critical blockers.";
+    primaryReason =
+      input.formulaStatus === "BLOCKED"
+        ? "The calculator decision model blocked this case. Correct the blocked inputs before commitment."
+        : "Calculation blocked due to physical bound violations or critical blockers.";
+  } else if (input.formulaStatus === "REVIEW") {
+    status = "REVIEW";
+    primaryReason =
+      "The calculator decision model requires review before commitment.";
   } else if (hasCriticalWarning) {
     status = "REVIEW";
-    primaryReason = "Calculation completed with critical warnings that require engineering review.";
+    primaryReason =
+      "Calculation completed with critical warnings that require review.";
   } else if (input.riskLevel === "CRITICAL" || input.riskLevel === "HIGH") {
     status = "REVIEW";
-    primaryReason = `Risk level is ${input.riskLevel}. Engineering review recommended.`;
+    primaryReason = `Risk level is ${input.riskLevel}. Review recommended.`;
   }
 
-  // Hidden risks
-  const hidden_risks: DecisionResult["hidden_risks"] = [];
-  for (const v of input.violations) {
-    if (v.severity === "WARNING" || v.severity === "REVIEW") {
-      hidden_risks.push({
-        id: `hr_${v.inputId}`,
-        severity: v.severity,
-        affected_input_id: v.inputId,
+  const hiddenRisks: DecisionResult["hidden_risks"] = [];
+  for (const violation of input.violations) {
+    if (
+      violation.severity === "WARNING" ||
+      violation.severity === "REVIEW"
+    ) {
+      hiddenRisks.push({
+        id: `hr_${violation.inputId}`,
+        severity: violation.severity,
+        affected_input_id: violation.inputId,
         affected_output_id: null,
         affected_clause_id: null,
-        message: v.message,
+        message: violation.message,
         why_it_matters: "This input value may affect calculation reliability.",
         suggested_action: "Verify input value against source documentation.",
       });
     }
   }
 
-  // Money impact
-  const money_impact: DecisionInterpretation["money_impact_summary"] = {
+  const moneyImpact: DecisionInterpretation["money_impact_summary"] = {
     enabled: input.moneyAtRisk !== null,
     currency: input.currency,
     money_at_risk_formatted:
       input.moneyAtRisk !== null && input.currency
-        ? `${input.currency}${input.moneyAtRisk.toLocaleString("en-US", { maximumFractionDigits: 2 })}`
+        ? `${input.currency}${input.moneyAtRisk.toLocaleString("en-US", {
+            maximumFractionDigits: 2,
+          })}`
         : null,
     main_cost_driver: input.mainCostDriver,
     quote_or_decision_impact:
       status === "BLOCKED"
         ? "Calculation blocked — no impact assessment available."
         : status === "REVIEW"
-          ? "Proceed with caution. Review recommended before commitment."
-          : "Within acceptable range.",
+          ? "Proceed only after the identified review conditions are resolved."
+          : "Within the declared decision limits.",
   };
 
-  // What can flip
-  const what_can_flip: string[] = [];
-  for (const hr of hidden_risks) {
-    what_can_flip.push(hr.message.slice(0, 100));
-  }
-  if (what_can_flip.length === 0) {
-    what_can_flip.push("No significant flip factors identified.");
+  const whatCanFlip = hiddenRisks.map((risk) => risk.message.slice(0, 100));
+  if (whatCanFlip.length === 0) {
+    whatCanFlip.push("No significant flip factors identified.");
   }
 
-  // Next actions
-  const next_actions: string[] = [];
+  const nextActions: string[] = [];
   if (status === "BLOCKED") {
-    next_actions.push("Correct the blocked inputs and re-run.");
-    next_actions.push("Verify all input values against source documentation.");
+    nextActions.push("Correct the blocked inputs and re-run.");
+    nextActions.push("Verify all input values against source documentation.");
   } else if (status === "REVIEW") {
-    next_actions.push("Review warnings and hidden risks before proceeding.");
-    next_actions.push("Cross-check critical inputs with engineering team.");
+    nextActions.push("Resolve the review conditions before proceeding.");
+    nextActions.push("Cross-check critical inputs against source documentation.");
   } else {
-    next_actions.push("Proceed with the calculated result.");
-    next_actions.push("Document inputs and outputs for audit trail.");
+    nextActions.push("Proceed with the calculated result.");
+    nextActions.push("Document inputs and outputs for the audit trail.");
   }
 
   return {
     status,
     primary_reason: primaryReason,
-    hidden_risks,
-    money_impact,
-    what_can_flip,
-    next_actions,
+    hidden_risks: hiddenRisks,
+    money_impact: moneyImpact,
+    what_can_flip: whatCanFlip,
+    next_actions: nextActions,
   };
 }

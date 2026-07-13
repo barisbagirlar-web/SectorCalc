@@ -18,16 +18,14 @@ export interface AdapterContract {
 
 // ── 1. break-even-survival-cash-calculator ──
 export const breakEvenFormToSchemaMap: FormToSchemaMap = {
-  initial_investment: "initial_investment",
-  annual_net_cash_flow: "annual_net_cash_flow",
-  discount_rate: "discount_rate",
-  analysis_years: "analysis_years",
-  residual_value: "residual_value",
-  stress_downside_factor: "stress_downside_factor",
-  annual_volume: "annual_volume",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  defect_or_loss_cost: "defect_or_loss_cost",
+  monthly_fixed_cash_cost: "monthly_fixed_cash_cost",
+  monthly_debt_service: "monthly_debt_service",
+  contribution_margin_ratio: "contribution_margin_ratio",
+  current_monthly_revenue: "current_monthly_revenue",
+  unrestricted_cash_balance: "unrestricted_cash_balance",
+  minimum_cash_buffer: "minimum_cash_buffer",
+  target_survival_months: "target_survival_months",
+  downside_revenue_factor: "downside_revenue_factor",
   source_confidence_ratio: "source_confidence_ratio",
   uncertainty_multiplier: "uncertainty_multiplier",
 };

@@ -6,13 +6,29 @@
 
 import type { ResolvedReportSection } from "./pro-report-types";
 
+function resolveDisplayDecimals(value: number | undefined): number | null {
+  if (!Number.isInteger(value) || value === undefined || value < 0 || value > 12) {
+    return null;
+  }
+  return value;
+}
+
 function formatReportValue(
   value: string | number | boolean | null,
-  unit: string | null
+  unit: string | null,
+  displayDecimals?: number,
 ): string {
   if (value === null || value === undefined) return "—";
   if (typeof value === "boolean") return value ? "Yes" : "No";
   if (typeof value === "number") {
+    const exactDecimals = resolveDisplayDecimals(displayDecimals);
+    if (exactDecimals !== null) {
+      return value.toLocaleString("en-US", {
+        minimumFractionDigits: exactDecimals,
+        maximumFractionDigits: exactDecimals,
+      }) + (unit ? ` ${unit}` : "");
+    }
+
     if (Math.abs(value) >= 1000000) return value.toLocaleString("en-US", { maximumFractionDigits: 0 }) + (unit ? ` ${unit}` : "");
     if (Math.abs(value) >= 1000) return value.toLocaleString("en-US", { maximumFractionDigits: 0 }) + (unit ? ` ${unit}` : "");
     if (value === Math.floor(value)) return value.toLocaleString("en-US") + (unit ? ` ${unit}` : "");
@@ -60,7 +76,7 @@ export function ProReportPanelV2({
   }
 
   return (
-    <div className="sc-report-panel">
+    <div className="sc-report-panel" aria-label={`${toolTitle} report`}>
       {/* Decision State Banner */}
       {decisionStateLabel && (
         <div className={`sc-report-decision-banner ${decisionSeverity ? severityClassMap[decisionSeverity] ?? severityClassMap.info : severityClassMap.info}`}>
@@ -91,7 +107,9 @@ export function ProReportPanelV2({
               {section.entries.map((entry, ei) => (
                 <div key={ei} className="sc-report-item">
                   <span className="sc-report-item-label">{entry.label}</span>
-                  <span className="sc-report-item-value">{formatReportValue(entry.value, entry.unit)}</span>
+                  <span className="sc-report-item-value">
+                    {formatReportValue(entry.value, entry.unit, entry.displayDecimals)}
+                  </span>
                   {entry.explanation && (
                     <span className="sc-report-item-explanation">{entry.explanation}</span>
                   )}

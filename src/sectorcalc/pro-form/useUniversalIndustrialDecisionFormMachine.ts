@@ -30,6 +30,7 @@ export interface MachineOptions {
   executeEndpoint?: string;
   usageSessionId?: string | null;
   authToken?: string;
+  displayCurrency?: string | null;
   fetcher?: (url: string, init: RequestInit) => Promise<Response>;
   validateSchema?: (schema: SuperV4Schema) => string[];
 }
@@ -150,7 +151,7 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
       usageSessionId: options.usageSessionId ?? null,
       formToSchemaMap: formToSchemaMap ?? state.rawInputState as unknown as Record<string, string>,
       outputUnits: {},
-      displayCurrency: null,
+      displayCurrency: options.displayCurrency ?? null,
       scenarioRequest: state.scenarioState.request,
       userProfileMode: state.profileModeState.mode,
       clientSchemaHash: state.schemaState.schema_hash ?? undefined,
@@ -251,7 +252,7 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
         message: error instanceof Error ? error.message : "Server execution failed with an unknown error.",
       });
     }
-  }, [executeEndpoint, fetcher, options.schema, state.evidenceState, state.profileModeState.mode, state.rawInputState, state.scenarioState.request, state.schemaState.schema_hash, state.selectedUnitState]);
+  }, [executeEndpoint, fetcher, options.schema, options.displayCurrency, options.usageSessionId, state.evidenceState, state.executionState, state.profileModeState.mode, state.rawInputState, state.scenarioState.request, state.schemaState.schema_hash, state.selectedUnitState, currentToolKey]);
 
   const setProfileMode = useCallback((mode: ProfileMode) => {
     dispatch({ type: "SET_PROFILE_MODE", mode });
