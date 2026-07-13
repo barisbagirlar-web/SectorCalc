@@ -1,5 +1,5 @@
 /**
- * Sitemap source of truth - all public indexable routes derived from catalogs.
+ * Sitemap source of truth - all public indexable HTML routes derived from catalogs.
  * Free V5.3.1 tool routes are quarantined (placeholder-polluted) — not included.
  * Only the /free-tools hub page appears (nofollow). Pro routes remain active.
  */
@@ -12,9 +12,7 @@ import { listPremiumToolSeoLandingSlugs } from "@/lib/infrastructure/seo/premium
 import { listCaseStudySlugs } from "@/lib/features/case-studies/case-study-registry";
 import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
 
-import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonomy";
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
-import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/features/freemium/resolve-free-to-premium-migration";
 
 export type SitemapRouteType =
@@ -23,8 +21,7 @@ export type SitemapRouteType =
   | "free_tool"
   | "premium_analyzer"
   | "seo_landing"
-  | "authority_guide"
-  | "ai_index";
+  | "authority_guide";
 
 export type SitemapChangeFrequency = "daily" | "weekly" | "monthly" | "yearly";
 
@@ -44,6 +41,7 @@ const EXCLUDED_PATH_PATTERNS: readonly RegExp[] = [
   /^\/checkout(?:\/|$)/,
   /\/debug(?:\/|$)/,
   /\/preview(?:\/|$)/,
+  /\.(?:txt|json|jsonl|csv|xml)$/i,
 ];
 
 function normalizePath(path: string): string {
@@ -125,30 +123,10 @@ export function getActiveCategorizedToolSitemapRoutes(): readonly SitemapManifes
     );
 }
 
-export function getPremiumRevenueToolSitemapRoutes(): readonly SitemapManifestItem[] {
-  return getPremiumRevenueRouteSlugs().map((slug) =>
-    createItem(`/tools/pro/${slug}`, "premium_analyzer", 0.8, "monthly"),
-  );
-}
-
-export function getAiIndexSitemapRoutes(): readonly SitemapManifestItem[] {
-  const files = [
-    "/llms.txt",
-    "/ai.txt",
-  ];
-  return files.map((path) => createItem(path, "ai_index", 0.55, "weekly"));
-}
-
-export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[] {
-  return listPremiumSchemaSlugs().map((slug) =>
-    createItem(getPremiumSchemaRoutePath(slug), "premium_analyzer", 0.8, "monthly"),
-  );
-}
-
 export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
   // V5.4 Core — Only the allowlisted Free pilot is indexed.
   // All other Free tools remain quarantined until V5.4 Core rebuild.
-  // PRO inactive tools removed from sitemap.
+  // PRO inactive tools are excluded by the active categorized index.
   return [
     createItem("/free-tools", "hub", 0.3, "monthly"),
     createItem("/tools/free/break-even-and-margin-of-safety-analysis", "free_tool", 0.8, "monthly"),
@@ -201,13 +179,11 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
     ...getSeoLandingSitemapRoutes(),
     ...getCaseStudySitemapRoutes(),
     ...getAuthorityGuideSitemapRoutes(),
-    ...getPremiumAnalyzerSitemapRoutes(),
     ...getFreeToolSitemapRoutes(),
-    ...getAiIndexSitemapRoutes(),
   ]);
 }
 
-// V5.3.1 root-only stub: returns path as-is, no locale prefix.
+// V5.3.1 root-only: no locale alternates, single-en locale only.
 export function buildLocalizedUrl(
   path: string,
   _locale: string,
@@ -218,7 +194,7 @@ export function buildLocalizedUrl(
   return `${base}${cleanPath}`;
 }
 
-// V5.3.1 root-only stub: returns path as-is, no locale prefix.
+// V5.3.1 root-only: returns path as-is, no locale prefix.
 export function buildLocalizedPath(path: string, _locale?: string): string {
   return path.startsWith("/") ? path : `/${path}`;
 }
