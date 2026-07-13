@@ -18,6 +18,7 @@ describe("break-even survival cash report contract", () => {
       ],
       rawInputs: {},
       selectedUnits: {},
+      displayCurrency: "EUR",
     });
 
     expect(report).not.toBeNull();
@@ -33,5 +34,7 @@ describe("break-even survival cash report contract", () => {
     expect(entries.find((entry) => entry.label === "Revenue Margin of Safety")?.value).toBeCloseTo(17.8, 8);
     expect(entries.find((entry) => entry.label === "Input Confidence")?.value).toBe(90);
     expect(entries.find((entry) => entry.label === "Target Runway Status")?.value).toBe("WITHIN TARGET");
+    expect(entries.find((entry) => entry.label === "Break-Even Monthly Revenue")?.unit).toBe("EUR/month");
+    expect(entries.find((entry) => entry.label === "Survival Cash Target")?.unit).toBe("EUR");
   });
 });
