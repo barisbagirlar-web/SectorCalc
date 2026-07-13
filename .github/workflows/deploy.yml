@@ -113,26 +113,50 @@ jobs:
         run: |
           set +e
           set -o pipefail
-          mkdir -p artifacts/production-deploy
-          npm run deploy 2>&1 | tee artifacts/production-deploy/firebase-deploy.log
-          status=${PIPESTATUS[0]}
+          mkdir -p artifacts/production-deploy/collected-logs
+          raw_log="$(mktemp /tmp/sectorcalc-firebase-deploy.XXXXXX.log)"
 
-          find . -maxdepth 4 -type f \( \
-            -name 'firebase-debug*.log' -o \
-            -name '*firebase*.log' -o \
-            -name '*deploy*.log' \
-          \) -not -path './node_modules/*' -print0 | while IFS= read -r -d '' file; do
-            destination="artifacts/production-deploy/${file#./}"
-            mkdir -p "$(dirname "$destination")"
-            cp "$file" "$destination" || true
-          done
+          npm run deploy 2>&1 | tee "$raw_log"
+          deploy_status=${PIPESTATUS[0]}
+          diagnostics_status=0
 
-          echo "FIREBASE_DEPLOY_EXIT_CODE=${status}" | tee artifacts/production-deploy/result.txt
-          if [ "$status" -ne 0 ]; then
+          node scripts/redact-deploy-log.mjs \
+            "$raw_log" \
+            artifacts/production-deploy/firebase-deploy.log || diagnostics_status=$?
+
+          log_index=0
+          while IFS= read -r -d '' file; do
+            safe_name="$(basename "$file" | tr -c 'A-Za-z0-9._-' '_')"
+            destination="artifacts/production-deploy/collected-logs/${log_index}-${safe_name}"
+            node scripts/redact-deploy-log.mjs "$file" "$destination" || diagnostics_status=$?
+            log_index=$((log_index + 1))
+          done < <(
+            find . -maxdepth 4 -type f \( \
+              -name 'firebase-debug*.log' -o \
+              -name '*firebase*.log' -o \
+              -name '*deploy*.log' \
+            \) \
+              -not -path './node_modules/*' \
+              -not -path './artifacts/*' \
+              -print0
+          )
+
+          rm -f "$raw_log"
+          {
+            echo "FIREBASE_DEPLOY_EXIT_CODE=${deploy_status}"
+            echo "DEPLOY_DIAGNOSTICS_EXIT_CODE=${diagnostics_status}"
+          } | tee artifacts/production-deploy/result.txt
+
+          if [ "$deploy_status" -ne 0 ]; then
             echo "----- FIREBASE DEPLOY FAILURE TAIL -----"
             tail -n 300 artifacts/production-deploy/firebase-deploy.log || true
+            exit "$deploy_status"
           fi
-          exit "$status"
+
+          if [ "$diagnostics_status" -ne 0 ]; then
+            echo "Deployment completed, but safe evidence generation failed."
+            exit "$diagnostics_status"
+          fi
 
       - name: Upload production deploy evidence
         if: always()
@@ -140,7 +164,7 @@ jobs:
         with:
           name: production-deploy-evidence
           path: artifacts/production-deploy
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 7
 
       - name: Verify deployed release SHA

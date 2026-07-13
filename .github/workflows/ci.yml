@@ -28,11 +28,30 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
 
-      - name: Release automation syntax
+      - name: Release automation syntax and redaction
+        shell: bash
         run: |
           node --check scripts/wait-release-workflows.mjs
           node --check scripts/deploy-production.mjs
           node --check scripts/e2e-break-even-browser.mjs
+          node --check scripts/redact-deploy-log.mjs
+
+          source_log="$(mktemp)"
+          redacted_log="$(mktemp)"
+          test_secret="SectorCalc-Test-Secret-2026"
+          {
+            echo "Authorization: Bearer ${test_secret}"
+            echo "FIREBASE_TOKEN=${test_secret}"
+            echo "{\"access_token\":\"${test_secret}\"}"
+          } > "$source_log"
+          FIREBASE_TOKEN="$test_secret" node scripts/redact-deploy-log.mjs "$source_log" "$redacted_log"
+          if grep -Fq "$test_secret" "$redacted_log"; then
+            echo "DEPLOY_LOG_REDACTION=FAIL"
+            exit 1
+          fi
+          grep -Fq "[REDACTED]" "$redacted_log"
+          rm -f "$source_log" "$redacted_log"
+          echo "DEPLOY_LOG_REDACTION_SMOKE=PASS"
 
       - name: V5.3.1 form architecture
         run: npm run guard:v531-form-architecture
