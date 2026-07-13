@@ -24,10 +24,10 @@ const BREAK_EVEN_OUTPUT_IDS = [
   "out_survival_cash_target",
   "out_funding_gap",
   "out_margin_of_safety_ratio",
-  "out_evidence_completeness",
+  "out_source_confidence_ratio",
   "out_uncertainty_cash_buffer",
-  "out_threshold_crossing",
-  "out_final_decision_state",
+  "out_target_runway_breached",
+  "out_decision_code",
 ];
 
 function buildNodes(toolKey: string, formulaVersion: string, outputIds: string[]): FormulaRegistryNode[] {
@@ -63,7 +63,7 @@ const BATCH_1_TOOLS: LiveToolEntry[] = [
   {
     toolKey: "break-even-survival-cash-calculator",
     toolId: "PRO_031",
-    formulaVersion: "5.3.1-pro-baris.2",
+    formulaVersion: "5.3.1-pro-baris.3",
     outputIds: BREAK_EVEN_OUTPUT_IDS,
   },
   { toolKey: "machine-hourly-rate-proof-report", toolId: "PRO_017" },
@@ -93,7 +93,6 @@ const BATCH_2_TOOLS: LiveToolEntry[] = [
 
 const LIVE_TOOLS: LiveToolEntry[] = [...BATCH_1_TOOLS, ...BATCH_2_TOOLS];
 
-// Register 20 LIVE tools (Batch 1 + Batch 2)
 for (const t of LIVE_TOOLS) {
   const formulaVersion = t.formulaVersion ?? FORMULA_VERSION;
   const outputIds = t.outputIds ?? LEGACY_OUTPUT_IDS;
@@ -117,7 +116,6 @@ export const BATCH_2_KEYS: Set<string> = new Set(BATCH_2_TOOLS.map(t => t.toolKe
 
 export const LIVE_BATCH_1_KEYS: Set<string> = LIVE_BATCH_KEYS;
 
-// Full Baris tool IDs list
 export const BARIS_TOOL_IDS: string[] = [
   "bolt-torque-preload-spec-card-vdi-2230",
   "bolted-connection-verifier", "break-even-survival-cash-calculator",
@@ -160,16 +158,6 @@ export function isBarisBatch2Tool(toolKey: string): boolean {
   return BATCH_2_KEYS.has(toolKey);
 }
 
-/**
- * Explicit initialization function.
- * Calling this ensures the module is NOT tree-shaken by Webpack
- * and all formulaRegistry.register() calls execute at runtime.
- * Must be called once before any PRO tool execution.
- *
- * Webpack anti-tree-shake strategy:
- * - Iterates the LIVE_TOOLS array so the registration loop cannot be DCE'd.
- * - Uses formulaRegistry instance methods to create a visible data dependency.
- */
 export function initBarisFormulaRegistry(): number {
   let count = 0;
   for (const t of LIVE_TOOLS) {
