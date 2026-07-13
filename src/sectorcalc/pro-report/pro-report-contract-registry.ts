@@ -354,9 +354,8 @@ register({
   toolSlug: "downtime-scrap-loss-statement",
   sections: [
     section("Primary Results", 10, [
-      entry("out_utilization_margin", "Total Loss Statement", "currency", "USD"),
+      entry("out_capacity_metric", "Total Loss Statement", "currency", "USD"),
       entry("out_demand_metric", "Downtime Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Scrap & Rework Cost", "currency", "USD"),
     ]),
     section("Risk Assessment", 20, [
       entry("out_sensitivity_driver", "Loss Sensitivity Driver", "string"),
