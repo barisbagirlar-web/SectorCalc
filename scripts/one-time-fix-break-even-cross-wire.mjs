@@ -154,8 +154,12 @@ replaceOnce(
 // 4. Seal the real formula version instead of the legacy stub marker.
 replaceOnce(
   "src/app/api/pro-calculator/execute/route.ts",
-  `    formulaVersion: "stub",`,
-  `    formulaVersion: validatedSchema.metadata.formula_version,`,
+  `    schemaHash,
+    formulaVersion: "stub",
+    schemaVersion: validatedSchema.metadata.schema_version,`,
+  `    schemaHash,
+    formulaVersion: validatedSchema.metadata.formula_version,
+    schemaVersion: validatedSchema.metadata.schema_version,`,
   "audit seal formula version",
 );
 
