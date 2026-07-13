@@ -29,6 +29,7 @@ const BREAK_EVEN_SURVIVAL_CASH_CONTRACT: ProReportContract = {
           businessLabel: "Revenue Margin of Safety",
           format: "percentage",
           unit: "%",
+          valueMultiplier: 100,
           explanation: "Current revenue headroom relative to current monthly revenue.",
         },
       ],
@@ -75,8 +76,10 @@ const BREAK_EVEN_SURVIVAL_CASH_CONTRACT: ProReportContract = {
       entries: [
         {
           sourceOutputId: "out_evidence_completeness",
-          businessLabel: "Input Confidence Score",
-          format: "ratio",
+          businessLabel: "Input Confidence",
+          format: "percentage",
+          unit: "%",
+          valueMultiplier: 100,
         },
         {
           sourceOutputId: "out_uncertainty_cash_buffer",
