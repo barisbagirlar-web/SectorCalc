@@ -39,10 +39,8 @@ jobs:
       - name: Validate branch route manifest
         run: node scripts/guard-route-manifest.mjs public/routes.json
 
-      - name: Validate live sitemap structure
-        run: node scripts/sitemap-lock.mjs --sample 20
-        env:
-          NODE_OPTIONS: --max-old-space-size=2048
+      - name: Root-only routing contract
+        run: npm run guard:root-only
 
       - name: SEO copy lint
         run: npx tsx scripts/lint-seo.ts --all
