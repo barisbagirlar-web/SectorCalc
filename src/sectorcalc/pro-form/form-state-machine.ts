@@ -202,10 +202,11 @@ export function universalFormMachineReducer(
         const requiredEvidence = typeof input.evidence_requirement === "string"
           ? input.evidence_requirement.toLowerCase().includes("required")
           : input.evidence_requirement.required;
+        const hasVal = rawInputState[input.id] !== null && rawInputState[input.id] !== undefined;
         evidenceState[input.id] = {
           enabled: requiredEvidence,
           source_verified: false,
-          user_verified: false,
+          user_verified: hasVal,
           uploaded_references: [],
         };
       }
@@ -419,11 +420,22 @@ export function universalFormMachineReducer(
             schemaExampleValue: null,
             schemaDefaultValue: input.default_value ?? null,
           });
+          const hasVal = exVal !== "" && exVal !== null && exVal !== undefined;
           resetBase.rawInputState[input.id] = exVal !== "" ? exVal : null;
           // Always restore selected_units from schema defaults on reset
           if (input.allowed_display_units.length > 0) {
             resetBase.selectedUnitState[input.id] = input.allowed_display_units[0];
           }
+          // Restore evidence state — auto-verify when example value is present
+          const resetEvidenceRequired = typeof input.evidence_requirement === "string"
+            ? input.evidence_requirement.toLowerCase().includes("required")
+            : input.evidence_requirement.required;
+          resetBase.evidenceState[input.id] = {
+            enabled: resetEvidenceRequired,
+            source_verified: false,
+            user_verified: hasVal,
+            uploaded_references: [],
+          };
         }
       }
       return {
