@@ -72,7 +72,7 @@ function isClose(actual: unknown, expected: number, tolerance: number): boolean 
 
 export async function GET(): Promise<NextResponse> {
   const modules = getAllModules();
-  const moduleKeys = new Set(modules.map((module) => module.toolKey));
+  const moduleKeys = new Set(modules.map((formulaModule) => formulaModule.toolKey));
   const liveKeys = new Set(ACTIVE_PRO_TOOL_SLUGS);
 
   const smokeResults: Array<{
@@ -82,23 +82,23 @@ export async function GET(): Promise<NextResponse> {
     primaryFinite: boolean;
   }> = [];
 
-  for (const module of modules) {
+  for (const formulaModule of modules) {
     try {
-      const result = module.calculate(module.sampleInputs);
+      const result = formulaModule.calculate(formulaModule.sampleInputs);
       const outputs = result.outputs ?? {};
       const outputKeys = result.outputKeys ?? Object.keys(outputs);
       const allFinite = outputKeys.every(
         (key) => typeof outputs[key] === "number" && Number.isFinite(outputs[key]),
       );
       smokeResults.push({
-        toolKey: module.toolKey,
+        toolKey: formulaModule.toolKey,
         status: result.status,
         outputCount: outputKeys.length,
         primaryFinite: allFinite,
       });
     } catch {
       smokeResults.push({
-        toolKey: module.toolKey,
+        toolKey: formulaModule.toolKey,
         status: "ERROR",
         outputCount: 0,
         primaryFinite: false,
@@ -107,8 +107,10 @@ export async function GET(): Promise<NextResponse> {
   }
 
   const breakEvenCriticalCheck = (() => {
-    const module = modules.find((candidate) => candidate.toolKey === BREAK_EVEN_TOOL_KEY);
-    if (!module) {
+    const formulaModule = modules.find(
+      (candidate) => candidate.toolKey === BREAK_EVEN_TOOL_KEY,
+    );
+    if (!formulaModule) {
       return {
         status: "FAIL" as const,
         modulePresent: false,
@@ -119,7 +121,7 @@ export async function GET(): Promise<NextResponse> {
     }
 
     try {
-      const result = module.calculate(module.sampleInputs);
+      const result = formulaModule.calculate(formulaModule.sampleInputs);
       const outputs = (result.outputs ?? {}) as Record<string, unknown>;
       const outputKeys = result.outputKeys ?? Object.keys(outputs);
       const outputNamespace = exactStringSet(outputKeys, BREAK_EVEN_OUTPUT_IDS);
