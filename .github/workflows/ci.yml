@@ -41,6 +41,7 @@ jobs:
             node scripts/one-time-fix-break-even-test-contracts.mjs
             node scripts/one-time-restore-form-state-audit-export.mjs
             node scripts/one-time-harden-v531-form-ux.mjs
+            node scripts/one-time-enable-diagnostic-profile.mjs
           } 2> .cross-wire-migration-error.txt
           status=$?
           set -e
@@ -208,6 +209,7 @@ jobs:
           rm -f scripts/one-time-fix-break-even-test-contracts.mjs
           rm -f scripts/one-time-restore-form-state-audit-export.mjs
           rm -f scripts/one-time-harden-v531-form-ux.mjs
+          rm -f scripts/one-time-enable-diagnostic-profile.mjs
           rm -f .github/workflows/apply-break-even-cross-wire-fix.yml
           rm -f .cross-wire-migration-error.txt
           rm -f .pro-v2-contract-error.txt
