@@ -79,13 +79,13 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   // Core calculations
   const setupCostPerUnit = safeDiv(setupCost, Math.max(annual_vol, 1));
   const inHouseUnitCost = materialCost + laborCost + overhead + setupCostPerUnit;
-  const inHouseTotalCost = inHouseUnitCost * annualVolume;
+  const inHouseTotalCost = inHouseUnitCost * annual_vol;
   const outsourceUnitCost = outsourceUnitPrice + logisticsCost;
-  const outsourceTotalCost = outsourceUnitCost * annualVolume;
+  const outsourceTotalCost = outsourceUnitCost * annual_vol;
   const capacityOppCost = (1 - capacityUtilizationPct / 100) * inHouseTotalCost * 0.3;
   const riskPremium = outsourceTotalCost * qualityRiskPremiumPct / 100;
   const riskAdjDelta = (inHouseTotalCost + capacityOppCost) - (outsourceTotalCost + riskPremium);
-  const savingsPerUnit = safeDiv(riskAdjDelta, Math.max(annualVolume, 1));
+  const savingsPerUnit = safeDiv(riskAdjDelta, Math.max(annual_vol, 1));
 
   // Decision logic: 0=MAKE, 1=BUY, 2=REVIEW
   const threshold = inHouseTotalCost * 0.1;

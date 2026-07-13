@@ -95,7 +95,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const total_pass_through = (fx_impact + comm_impact) * 100;
   const adjusted_price = n_base_price * (1 + fx_impact + comm_impact);
   const escalation_amount = adjusted_price - n_base_price;
-  const annual_escalation = escalation_amount * n_annual_volume;
+  const annual_escalation = escalation_amount * annual_vol;
 
   // --- Decision ---
   let decision: number;

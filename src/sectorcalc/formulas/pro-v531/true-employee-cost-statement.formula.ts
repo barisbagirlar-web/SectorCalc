@@ -95,7 +95,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // Preserved generic outputs for backward compatibility
   outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_expanded_uncertainty"] = round(tec * 0.05, 2);
+  outputs["out_expanded_uncertainty"] = round(tec * (1 - conf), 2);
   outputs["out_threshold_crossing"] = br > 1.5 ? 1 : 0;
   outputs["out_fmea_trigger"] = br > 2.0 ? 1 : 0;
 
