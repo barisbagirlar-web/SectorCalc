@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 concurrency:
   group: industrial-quality-${{ github.ref }}
@@ -47,14 +48,28 @@ jobs:
         run: npm run lint:errors
       - name: Universal Pro form tests
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           set +e
           npm run test:v5-form -- --reporter=verbose > /tmp/pro-form-tests.log 2>&1
           status=$?
           if [ "$status" -ne 0 ]; then
+            tail -n 160 /tmp/pro-form-tests.log > /tmp/pro-form-tests-tail.log
             echo "::group::Universal Pro form failure diagnostics"
-            tail -n 160 /tmp/pro-form-tests.log
+            cat /tmp/pro-form-tests-tail.log
             echo "::endgroup::"
+            {
+              echo "## Universal Pro form test failure"
+              echo
+              echo '```text'
+              cat /tmp/pro-form-tests-tail.log
+              echo '```'
+            } > /tmp/pro-form-comment.md
+            if [ -n "${PR_NUMBER:-}" ]; then
+              gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file /tmp/pro-form-comment.md
+            fi
             exit "$status"
           fi
           cat /tmp/pro-form-tests.log
