@@ -13,6 +13,8 @@ export interface ReportOutputEntry {
   unit?: string;
   /** Optional explanation/context shown below the value */
   explanation?: string;
+  /** Optional semantic mapping for encoded outputs such as 0/1/2 decision states. */
+  valueLabels?: Record<string, string>;
 }
 
 export interface ReportSection {
