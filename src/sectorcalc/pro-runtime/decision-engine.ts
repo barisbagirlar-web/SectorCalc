@@ -22,24 +22,41 @@ export interface DecisionResult {
   next_actions: string[];
 }
 
+function readFormulaDecisionCode(outputs: DecisionInput["outputs"]): 0 | 1 | 2 | null {
+  const output = outputs.find((item) => item.id === "out_final_decision_state");
+  if (!output || typeof output.value !== "number" || !Number.isFinite(output.value)) {
+    return null;
+  }
+  if (output.value === 0 || output.value === 1 || output.value === 2) {
+    return output.value;
+  }
+  return null;
+}
+
 export function computeDecision(input: DecisionInput): DecisionResult {
   const hasBlockedWarning = input.warnings.some((w) => w.severity === "BLOCKED");
   const hasCriticalWarning = input.warnings.some((w) => w.severity === "CRITICAL");
   const hasBlockedViolation = input.violations.some((v) => v.severity === "BLOCKED");
+  const formulaDecisionCode = readFormulaDecisionCode(input.outputs);
 
-  // Determine status
+  // Determine status. Hard runtime blockers always override a formula GO/REVIEW.
   let status: CalcStatus = "OK";
   let primaryReason = "Calculation completed within acceptable parameters.";
 
-  if (hasBlockedViolation || hasBlockedWarning) {
+  if (hasBlockedViolation || hasBlockedWarning || formulaDecisionCode === 2) {
     status = "BLOCKED";
-    primaryReason = "Calculation blocked due to physical bound violations or critical blockers.";
+    primaryReason = formulaDecisionCode === 2
+      ? "The calculator decision model blocked this case. Correct the blocked inputs before commitment."
+      : "Calculation blocked due to physical bound violations or critical blockers.";
+  } else if (formulaDecisionCode === 1) {
+    status = "REVIEW";
+    primaryReason = "The calculator decision model requires review before commitment.";
   } else if (hasCriticalWarning) {
     status = "REVIEW";
-    primaryReason = "Calculation completed with critical warnings that require engineering review.";
+    primaryReason = "Calculation completed with critical warnings that require review.";
   } else if (input.riskLevel === "CRITICAL" || input.riskLevel === "HIGH") {
     status = "REVIEW";
-    primaryReason = `Risk level is ${input.riskLevel}. Engineering review recommended.`;
+    primaryReason = `Risk level is ${input.riskLevel}. Review recommended.`;
   }
 
   // Hidden risks
@@ -72,8 +89,8 @@ export function computeDecision(input: DecisionInput): DecisionResult {
       status === "BLOCKED"
         ? "Calculation blocked — no impact assessment available."
         : status === "REVIEW"
-          ? "Proceed with caution. Review recommended before commitment."
-          : "Within acceptable range.",
+          ? "Proceed only after the identified review conditions are resolved."
+          : "Within the declared decision limits.",
   };
 
   // What can flip
@@ -91,11 +108,11 @@ export function computeDecision(input: DecisionInput): DecisionResult {
     next_actions.push("Correct the blocked inputs and re-run.");
     next_actions.push("Verify all input values against source documentation.");
   } else if (status === "REVIEW") {
-    next_actions.push("Review warnings and hidden risks before proceeding.");
-    next_actions.push("Cross-check critical inputs with engineering team.");
+    next_actions.push("Resolve the review conditions before proceeding.");
+    next_actions.push("Cross-check critical inputs against source documentation.");
   } else {
     next_actions.push("Proceed with the calculated result.");
-    next_actions.push("Document inputs and outputs for audit trail.");
+    next_actions.push("Document inputs and outputs for the audit trail.");
   }
 
   return {
