@@ -375,6 +375,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       // Build normalized input audit
       const normalizedInputAudit = (validatedSchema.inputs ?? []).map((input) => {
         const rawVal = body.rawInputs?.[input.id] as string | number | boolean | null | undefined;
+        const userProvided = rawVal !== undefined && rawVal !== null && rawVal !== "";
         return {
           input_id: input.id,
           normalized_id: input.normalized_id ?? `n_${input.id}`,
@@ -382,7 +383,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           display_unit: body.selectedUnits?.[input.id] ?? input.base_unit ?? null,
           base_value: rawVal ?? null,
           base_unit: input.base_unit ?? null,
-          source_status: (input.source_status ?? "NEEDS_SOURCE_VERIFICATION") as SourceStatus,
+          source_status: userProvided
+            ? ("USER_PROVIDED" as SourceStatus)
+            : (input.source_status ?? "NEEDS_SOURCE_VERIFICATION" as SourceStatus),
         };
       });
 

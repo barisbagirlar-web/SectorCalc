@@ -126,7 +126,8 @@ export async function pass2RuntimeExecution(
   const warnings: ServerWarning[] = [];
   const errors: string[] = [];
 
-  // S1: Extract raw numeric inputs — supports both flat numbers and structured input objects
+  // S1: Extract raw numeric inputs — supports flat numbers, string numbers
+  // (including comma-formatted like "5,000,500"), and structured input objects.
   const rawNumericInputs: Record<string, number> = {};
   for (const [key, value] of Object.entries(body.raw_inputs)) {
     if (typeof value === "number") {
@@ -135,11 +136,22 @@ export async function pass2RuntimeExecution(
       } else {
         rawNumericInputs[key] = value;
       }
+    } else if (typeof value === "string" && value.trim()) {
+      // String number — strip commas and parse
+      const cleaned = value.replace(/,/g, "").trim();
+      const parsed = Number(cleaned);
+      if (Number.isFinite(parsed)) {
+        rawNumericInputs[key] = parsed;
+      } else {
+        errors.push(`Non-numeric string value for input ${key}: "${value}"`);
+      }
     } else if (typeof value === "object" && value !== null) {
       // Structured input: { display_value, display_unit, base_unit, base_value }
       const obj = value as Record<string, unknown>;
       const numericVal = typeof obj.display_value === "number" ? obj.display_value
         : typeof obj.base_value === "number" ? obj.base_value
+        : typeof obj.display_value === "string" ? Number(obj.display_value.toString().replace(/,/g, ""))
+        : typeof obj.base_value === "string" ? Number(obj.base_value.toString().replace(/,/g, ""))
         : undefined;
       if (numericVal !== undefined && Number.isFinite(numericVal)) {
         rawNumericInputs[key] = numericVal;
@@ -264,9 +276,14 @@ export async function pass2RuntimeExecution(
   }
 
   // S6: Build normalized input audit
+  // CRITICAL FIX: source_status must reflect USER_PROVIDED when the user
+  // actually submitted a numeric value, not just the schema default.
+  // Previously fallback to "CONTEXT_ONLY" caused every input to appear fake
+  // even though real values were used in the calculation engine.
   const normalizedAudit: NormalizedInputAudit[] = validatedSchema.inputs.map((inp) => {
     const rawVal = rawNumericInputs[inp.id] ?? null;
     const norm = normalized[inp.id];
+    const userProvided = rawNumericInputs[inp.id] !== undefined && rawNumericInputs[inp.id] !== null;
     return {
       input_id: inp.id,
       normalized_id: inp.normalized_id || inp.id,
@@ -274,7 +291,7 @@ export async function pass2RuntimeExecution(
       display_unit: body.selected_units[inp.id] || undefined,
       base_value: norm ? norm.baseValue : null,
       base_unit: norm ? norm.baseUnit : undefined,
-      source_status: inp.source_status ?? "CONTEXT_ONLY",
+      source_status: userProvided ? "USER_PROVIDED" : (inp.source_status ?? "CONTEXT_ONLY"),
     };
   });
 
