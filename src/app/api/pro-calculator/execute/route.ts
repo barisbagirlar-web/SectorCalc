@@ -333,14 +333,27 @@ export async function pass2RuntimeExecution(
   const deratingContract = validatedSchema.derating_contract;
   const rulesField = (deratingContract as any)?.rules;
   const deRatingRules = Array.isArray(rulesField)
-    ? rulesField.map((r: any) => ({
-        id: r.id || "",
-        description: r.description || "",
-        trigger_inputs: r.trigger_inputs || [],
-        condition: r.condition || "",
-        derating_factor: typeof r.derating_factor === "number" ? r.derating_factor : 1,
-        affected_output: r.affected_output || "",
-      }))
+    ? rulesField.map((r: any) => {
+        // Schema uses `driver_input` (single string) + `affected_inputs` (array)
+        // The DeratingRule interface expects `trigger_inputs` (array of strings).
+        const schemaTriggerInputs: string[] = r.trigger_inputs || [];
+        const schemaDriverInput: string = r.driver_input || "";
+        const schemaAffectedInputs: string[] = r.affected_inputs || [];
+        const trigger_inputs = schemaTriggerInputs.length > 0
+          ? schemaTriggerInputs
+          : [
+              ...(schemaDriverInput ? [schemaDriverInput] : []),
+              ...schemaAffectedInputs,
+            ];
+        return {
+          id: r.id || "",
+          description: r.description || "",
+          trigger_inputs,
+          condition: r.condition || "",
+          derating_factor: typeof r.derating_factor === "number" ? r.derating_factor : 1,
+          affected_output: r.affected_output || "",
+        };
+      })
     : undefined;
 
   const erContract = deRatingRules ? { rules: deRatingRules } : undefined;
