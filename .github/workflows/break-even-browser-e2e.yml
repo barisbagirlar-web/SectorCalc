@@ -106,7 +106,10 @@ jobs:
           exit 1
 
       - name: Run authenticated browser and execute API E2E
-        run: node scripts/e2e-break-even-browser.mjs
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/e2e-break-even-browser.mjs 2>&1 | tee artifacts/break-even-browser-e2e/runner.log
 
       - name: Capture runtime logs
         if: always()
