@@ -1,0 +1,55 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "03:20"
+      timezone: Europe/Istanbul
+    open-pull-requests-limit: 5
+    rebase-strategy: auto
+    versioning-strategy: increase-if-necessary
+    groups:
+      production-patches:
+        dependency-type: production
+        update-types: [patch]
+      development-patches:
+        dependency-type: development
+        update-types: [patch]
+      minor-updates:
+        update-types: [minor]
+    ignore:
+      - dependency-name: next
+        update-types: [version-update:semver-major]
+      - dependency-name: react
+        update-types: [version-update:semver-major]
+      - dependency-name: react-dom
+        update-types: [version-update:semver-major]
+      - dependency-name: firebase
+        update-types: [version-update:semver-major]
+      - dependency-name: firebase-admin
+        update-types: [version-update:semver-major]
+    labels:
+      - dependencies
+      - automated
+    commit-message:
+      prefix: chore(deps)
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "03:40"
+      timezone: Europe/Istanbul
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns: ["*"]
+    labels:
+      - dependencies
+      - github-actions
+      - automated
+    commit-message:
+      prefix: chore(actions)
