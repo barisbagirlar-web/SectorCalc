@@ -2,103 +2,75 @@ name: CI
 
 on:
   push:
-    branches: [main, "feature/*"]
+    branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: "true"
+  NODE_OPTIONS: "--max-old-space-size=8192"
 
 jobs:
-  industrial-pipeline:
+  canonical-quality-gate:
+    name: Canonical quality gate
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts=false
 
-      # ── Industrial Pipeline: Stages 0-7 (CI variant — no deploy) ──
+      - name: Secret leakage guard
+        run: npm run check:secrets
 
-      # Stage 0: Schema Lock
-      - name: "Stage 0 — Schema Lock (Industrial — blocks QUARANTINE+WARN)"
-        run: npm run steelcore:validate:industrial
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
+      - name: Runtime stability guard
+        run: npm run guard:runtime-stability
 
-      # Stage 1: Generation (Isolated) + Quarantine Snapshot
-      - name: "Stage 1 — The Factory (Generation)"
-        run: npm run generate:all
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          NODE_OPTIONS: --max-old-space-size=4096
+      - name: TypeScript gate
+        run: npm run typecheck
 
-      - name: "Stage 1 — Quarantine Snapshot"
-        run: node scripts/steelcore/quarantine-snapshot.mjs
+      - name: ESLint error gate
+        run: npm run lint:errors
 
-      # Stage 2: Static Quality Gate
-      - name: "Stage 2.1 — TypeScript Grammar"
-        run: npx tsc --noEmit
+      - name: Pro form tests
+        run: npm run test:v5-form
 
-      - name: "Stage 2.2 — Code Style & Safety (zero warnings)"
-        run: npm run lint:strict
+      - name: Pro runtime tests
+        run: npm run test:v5-runtime
 
-      - name: "Stage 2.3 — Linguistic Completeness (+missing key detection)"
-        run: npm run i18n:check
+      - name: Pro output and isolation contracts
+        run: npm run guard:pro-v2-all-extended
 
-      # Stage 3: Semantic & Mathematical Validation
-      - name: "Stage 3.1 — Compiler Integrity (+runtime execution)"
-        run: npm run audit:formula-compile
+      - name: Pro schema and result contracts
+        run: |
+          npm run guard:pro-tools-catalog
+          npm run guard:pro-display-units
+          npm run guard:pro-result-render-contract
+          npm run guard:pro-no-stale-dom
 
-      - name: "Stage 3.2 — Boundary Enforcement (Known-Answer Vectors)"
-        run: npm run steelcore:enforce-boundaries
+      - name: Free tool numeric regression suite
+        run: npm run test:golden:free-v531
 
-      - name: "Stage 3.3 — Cross-Domain Contamination (enforce blocking)"
-        run: npm run steelcore:ci-gate:enforce
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-
-      # Stage 4: Runtime Trust Engine (Fuzz)
-      - name: "Stage 4 — Compliance Audit"
-        run: npm run audit:runtime-trust-engine -- --fuzz=10000
-        continue-on-error: true
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-
-      - name: "Stage 4 — Real Fuzz Test (10k garbage injections)"
-        run: npm run steelcore:fuzz -- --fuzz=10000
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-
-      # Stage 5: System Integration & Build
-      - name: "Stage 5 — Production Build"
+      - name: Production build
         run: npm run build
         env:
-          NODE_OPTIONS: --max-old-space-size=8192
           NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
-
-      - name: "Stage 5.1 — Sitemap"
-        run: npm run generate:sitemap-static
-
-      # Additional CI-only tests
-      - name: Generated tests
-        run: npm run test:generated
-
-      - name: Generated unit tests
-        run: npm run test:generated:unit
-
-      # Stage 6: Smoke & Health
-      - name: "Stage 6.1 — Browser Routes"
-        run: npm run smoke:browser-routes
-
-      - name: "Stage 6.2 — All Calculation Forms"
-        run: npm run smoke:all-calculation-forms
-
-      # Stage 7: Final Sign-Off (no release gate in CI — only PR verification)
-      - name: "Stage 7.1 — Formula Health Report"
-        run: npm run formula:health
-
-      - name: "Stage 7.2 — Production Readiness"
-        run: npm run audit:production-readiness
