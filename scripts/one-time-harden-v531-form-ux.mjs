@@ -89,7 +89,7 @@ replaceOnce(
       )}
 
       {!isFreeTier && (
-        <div className="sc-v531-field-reference" aria-label={`${field.label} reference controls`}>
+        <div className="sc-v531-field-reference" aria-label={field.label + " reference controls"}>
           <div className="sc-v531-field-reference-strip">
             {field.referenceStrip.map((line) => (
               <span key={line} className="sc-v531-ref-line">
