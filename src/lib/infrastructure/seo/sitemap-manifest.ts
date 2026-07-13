@@ -12,7 +12,9 @@ import { listPremiumToolSeoLandingSlugs } from "@/lib/infrastructure/seo/premium
 import { listCaseStudySlugs } from "@/lib/features/case-studies/case-study-registry";
 import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
 
+import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonomy";
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
+import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/features/freemium/resolve-free-to-premium-migration";
 
 export type SitemapRouteType =
@@ -21,7 +23,8 @@ export type SitemapRouteType =
   | "free_tool"
   | "premium_analyzer"
   | "seo_landing"
-  | "authority_guide";
+  | "authority_guide"
+  | "ai_index";
 
 export type SitemapChangeFrequency = "daily" | "weekly" | "monthly" | "yearly";
 
@@ -123,10 +126,35 @@ export function getActiveCategorizedToolSitemapRoutes(): readonly SitemapManifes
     );
 }
 
+export function getPremiumRevenueToolSitemapRoutes(): readonly SitemapManifestItem[] {
+  return getPremiumRevenueRouteSlugs().map((slug) =>
+    createItem(`/tools/pro/${slug}`, "premium_analyzer", 0.8, "monthly"),
+  );
+}
+
+/**
+ * AI discovery files remain public but are intentionally excluded from XML
+ * sitemap generation. Search-engine XML sitemaps must contain final indexable
+ * page URLs, not .txt resources.
+ */
+export function getAiIndexSitemapRoutes(): readonly SitemapManifestItem[] {
+  const files = [
+    "/llms.txt",
+    "/ai.txt",
+  ];
+  return files.map((path) => createItem(path, "ai_index", 0.55, "weekly"));
+}
+
+export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[] {
+  return listPremiumSchemaSlugs().map((slug) =>
+    createItem(getPremiumSchemaRoutePath(slug), "premium_analyzer", 0.8, "monthly"),
+  );
+}
+
 export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
   // V5.4 Core — Only the allowlisted Free pilot is indexed.
   // All other Free tools remain quarantined until V5.4 Core rebuild.
-  // PRO inactive tools are excluded by the active categorized index.
+  // PRO inactive tools removed from sitemap.
   return [
     createItem("/free-tools", "hub", 0.3, "monthly"),
     createItem("/tools/free/break-even-and-margin-of-safety-analysis", "free_tool", 0.8, "monthly"),
@@ -179,11 +207,12 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
     ...getSeoLandingSitemapRoutes(),
     ...getCaseStudySitemapRoutes(),
     ...getAuthorityGuideSitemapRoutes(),
+    ...getPremiumAnalyzerSitemapRoutes(),
     ...getFreeToolSitemapRoutes(),
   ]);
 }
 
-// V5.3.1 root-only: no locale alternates, single-en locale only.
+// V5.3.1 root-only stub: returns path as-is, no locale prefix.
 export function buildLocalizedUrl(
   path: string,
   _locale: string,
@@ -194,7 +223,7 @@ export function buildLocalizedUrl(
   return `${base}${cleanPath}`;
 }
 
-// V5.3.1 root-only: returns path as-is, no locale prefix.
+// V5.3.1 root-only stub: returns path as-is, no locale prefix.
 export function buildLocalizedPath(path: string, _locale?: string): string {
   return path.startsWith("/") ? path : `/${path}`;
 }
