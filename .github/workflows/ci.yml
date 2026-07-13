@@ -30,13 +30,13 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install locked dependencies
-        run: npm ci --no-audit --no-fund
-
       # TEMP_CROSS_WIRE_MIGRATION_START
       - name: Apply exact break-even cross-wire migration
         run: node scripts/one-time-fix-break-even-cross-wire.mjs
       # TEMP_CROSS_WIRE_MIGRATION_END
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
 
       - name: V5.3.1 form architecture lock
         run: npm run guard:v531-form-architecture
