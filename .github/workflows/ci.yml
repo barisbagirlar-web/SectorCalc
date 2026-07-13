@@ -43,7 +43,7 @@ jobs:
         run: npm run check:secrets
 
       - name: Runtime stability guard
-        run: npm run guard:runtime-stability
+        run: node scripts/guard-runtime-stability.mjs
 
       - name: TypeScript gate
         run: npm run typecheck
