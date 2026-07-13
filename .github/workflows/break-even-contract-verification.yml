@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: break-even-contract-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify-break-even-contract:
     runs-on: ubuntu-latest
@@ -44,8 +48,11 @@ jobs:
             fi
           }
 
-          run_check schema-lock npm run steelcore:validate:industrial
-          run_check typecheck npx tsc --noEmit
+          run_check form-architecture npm run guard:v531-form-architecture
+          run_check schema-formula-binding npm run guard:v531-schema-formula-binding
+          run_check runtime-registration npm run guard:baris-v531-runtime-registration
+          run_check typecheck npm run typecheck
+          run_check lint-errors npm run lint:errors
           run_check targeted-tests npx vitest run \
             src/sectorcalc/formulas/pro-v531/__tests__/break-even-survival-cash-calculator.test.ts \
             src/sectorcalc/formulas/pro-v531/__tests__/baris-formula-registry-break-even.test.ts \
@@ -54,7 +61,8 @@ jobs:
             src/sectorcalc/pro-form/__tests__/form-state-machine-unit-init.test.ts \
             src/sectorcalc/pro-form/__tests__/break-even-payload-contract.test.ts \
             src/sectorcalc/pro-report/__tests__/pro-report-break-even.test.ts \
-            src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts
+            src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts \
+            src/sectorcalc/pro-runtime/__tests__/decision-engine-warning-precedence.test.ts
           run_check build npm run build
 
           echo "overall=${overall}" >> "$GITHUB_OUTPUT"
