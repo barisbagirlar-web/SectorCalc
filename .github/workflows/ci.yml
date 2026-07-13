@@ -33,7 +33,24 @@ jobs:
 
       # TEMP_CROSS_WIRE_MIGRATION_START
       - name: Apply exact break-even cross-wire migration
-        run: node scripts/one-time-fix-break-even-cross-wire.mjs
+        shell: bash
+        run: |
+          set +e
+          node scripts/one-time-fix-break-even-cross-wire.mjs 2> .cross-wire-migration-error.txt
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ]; then
+            git config user.name "sectorcalc-ci"
+            git config user.email "actions@users.noreply.github.com"
+            git add .cross-wire-migration-error.txt
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: capture break-even migration failure"
+              git push origin HEAD:fix/break-even-survival-cash-contract-v531
+            fi
+            cat .cross-wire-migration-error.txt
+            exit "$status"
+          fi
+          rm -f .cross-wire-migration-error.txt
       # TEMP_CROSS_WIRE_MIGRATION_END
 
       - name: Install locked dependencies
@@ -116,6 +133,7 @@ jobs:
           NODE
           rm -f scripts/one-time-fix-break-even-cross-wire.mjs
           rm -f .github/workflows/apply-break-even-cross-wire-fix.yml
+          rm -f .cross-wire-migration-error.txt
           git config user.name "sectorcalc-ci"
           git config user.email "actions@users.noreply.github.com"
           git add -A
