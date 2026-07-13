@@ -1,7 +1,16 @@
-import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
+import type {
+  ConversionRegistryItem,
+  ServerOutput,
+  SuperV4Schema,
+} from "@/sectorcalc/pro-form/contract-types";
 
 const BREAK_EVEN_TOOL_KEY = "break-even-survival-cash-calculator";
 const DISPLAY_CURRENCY_UNIT = "display_currency";
+
+type SchemaOutputWithMetadata = ServerOutput & {
+  quantity_kind?: string;
+  base_unit?: string | null;
+};
 
 /**
  * Applies narrowly scoped presentation metadata without changing the formula
@@ -16,13 +25,8 @@ export function applySchemaPresentationOverrides(schema: SuperV4Schema): SuperV4
   if (schema.tool_key !== BREAK_EVEN_TOOL_KEY) return schema;
 
   const registry = schema.unit_conversion_contract.conversion_registry;
-  const currencyEntry = registry.currency as unknown as {
-    base_unit?: string;
-    unit_family?: string;
-    units?: Array<{ unit: string; factor: number; offset?: number; label?: string }>;
-  } | undefined;
-
-  const existingUnits = Array.isArray(currencyEntry?.units) ? currencyEntry.units : [];
+  const currencyEntry = registry.currency as ConversionRegistryItem | undefined;
+  const existingUnits = currencyEntry?.units ?? [];
   const hasDisplayCurrency = existingUnits.some((entry) => entry.unit === DISPLAY_CURRENCY_UNIT);
   const currencyUnits = hasDisplayCurrency
     ? existingUnits
@@ -35,7 +39,6 @@ export function applySchemaPresentationOverrides(schema: SuperV4Schema): SuperV4
       conversion_registry: {
         ...registry,
         currency: {
-          ...(currencyEntry ?? {}),
           base_unit: currencyEntry?.base_unit ?? "currency_unit",
           unit_family: currencyEntry?.unit_family ?? "CURRENCY",
           units: currencyUnits,
@@ -51,10 +54,11 @@ export function applySchemaPresentationOverrides(schema: SuperV4Schema): SuperV4
           }
         : input,
     ),
-    outputs: schema.outputs.map((output) =>
-      output.quantity_kind === "currency"
-        ? ({ ...output, unit: DISPLAY_CURRENCY_UNIT } as typeof output)
-        : output,
-    ),
+    outputs: schema.outputs.map((output) => {
+      const typedOutput = output as SchemaOutputWithMetadata;
+      return typedOutput.quantity_kind === "currency"
+        ? { ...output, unit: DISPLAY_CURRENCY_UNIT }
+        : output;
+    }),
   };
 }
