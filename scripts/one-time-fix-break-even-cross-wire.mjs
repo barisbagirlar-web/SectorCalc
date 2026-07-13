@@ -94,8 +94,8 @@ replaceOnce(
   `  // ── Currency display selector ──
   const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("USD");
 
-`,
-  "",
+  // ── Submission tracking: prevent early red validation state ──`,
+  `  // ── Submission tracking: prevent early red validation state ──`,
   "remove former currency state location",
 );
 
