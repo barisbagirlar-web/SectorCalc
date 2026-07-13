@@ -65,6 +65,8 @@ jobs:
             src/sectorcalc/pro-runtime/__tests__/decision-engine-warning-precedence.test.ts
           run_check full-v5-form npm run test:v5-form
           run_check full-v5-runtime npm run test:v5-runtime
+          run_check formula-execution npm run guard:baris-v531-formula-execution
+          run_check pro-health npm run audit:pro-v531-health
           run_check build npm run build
 
           echo "overall=${overall}" >> "$GITHUB_OUTPUT"
