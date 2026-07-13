@@ -1399,7 +1399,7 @@
 
 .claude-landing .product-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
@@ -1507,17 +1507,6 @@
   border: 1px solid var(--border);
 }
 
-.claude-landing .meth-card {
-  background: var(--surface);
-  padding: 24px 20px;
-  font-family: var(--serif);
-  font-size: 17px;
-  text-align: center;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  color: var(--ink);
-}
-
 .claude-landing .meth-card-wide {
   grid-column: 1 / -1;
 }
@@ -1599,6 +1588,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .claude-landing .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .claude-landing .cs-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1647,6 +1640,184 @@
   .claude-landing .btn-tertiary {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   SECTOR STRIP — inline keyword reference
+   ═══════════════════════════════════════════ */
+.claude-landing .sector-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.claude-landing .sector-strip .sector-strip-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-right: 4px;
+}
+
+.claude-landing .sector-strip span:not(.sector-strip-label) {
+  white-space: nowrap;
+}
+
+.claude-landing .sector-strip span:not(.sector-strip-label)::before {
+  content: "—";
+  margin-right: 8px;
+  color: var(--border-strong);
+}
+
+/* ═══════════════════════════════════════════
+   METH ICONS — visual hierarchy for methodology cards
+   ═══════════════════════════════════════════ */
+.claude-landing .meth-card .meth-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--mono);
+  flex-shrink: 0;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.claude-landing .meth-card {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 20px 22px;
+  background: var(--surface);
+  font-family: var(--serif);
+  font-size: 16px;
+  text-align: left;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.claude-landing .meth-card-wide {
+  grid-column: 1 / -1;
+}
+
+/* ═══════════════════════════════════════════
+   DIAGNOSTICS PREVIEW — report thumbnail mockup
+   ═══════════════════════════════════════════ */
+.claude-landing .diagnostics-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 32px;
+  align-items: start;
+}
+
+.claude-landing .diagnostics-preview-card {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  position: relative;
+  overflow: hidden;
+}
+
+.claude-landing .diagnostics-preview-ribbon {
+  position: absolute;
+  top: 12px;
+  right: -28px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  padding: 3px 32px;
+  transform: rotate(45deg);
+  font-weight: 600;
+}
+
+.claude-landing .diagnostics-preview-header {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  padding: 20px 20px 0;
+}
+
+.claude-landing .diagnostics-preview-ref {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+  padding: 6px 20px 14px;
+  letter-spacing: 0.04em;
+}
+
+.claude-landing .diagnostics-preview-body {
+  border-top: 1px solid var(--border);
+}
+
+.claude-landing .diagnostics-preview-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 20px;
+  font-size: 13px;
+  line-height: 1.4;
+  border-bottom: 1px solid var(--border);
+}
+
+.claude-landing .diagnostics-preview-row:last-child {
+  border-bottom: none;
+}
+
+.claude-landing .dpr-key {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--faint);
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+.claude-landing .dpr-val {
+  color: var(--ink);
+  text-align: right;
+  font-weight: 500;
+}
+
+.claude-landing .diagnostics-preview-text {
+  padding-top: 4px;
+}
+
+/* ── Responsive: diagnostics preview ── */
+@media (max-width: 768px) {
+  .claude-landing .diagnostics-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .claude-landing .sector-strip {
+    font-size: 12px;
+    gap: 3px 8px;
+  }
+
+  .claude-landing .diagnostics-preview-ribbon {
+    right: -32px;
+    font-size: 9px;
+    padding: 2px 34px;
   }
 }
 
