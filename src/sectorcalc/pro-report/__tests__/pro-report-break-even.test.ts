@@ -11,20 +11,23 @@ describe("break-even survival cash report contract", () => {
         { id: "out_cash_runway_months", name: "Cash Runway", value: 30.2 },
         { id: "out_survival_cash_target", name: "Survival Cash Target", value: 232348 },
         { id: "out_funding_gap", name: "Funding Gap", value: 0 },
+        { id: "out_threshold_crossing", name: "Target Runway Breached", value: 0 },
+        { id: "out_final_decision_state", name: "Decision", value: 0 },
       ],
       rawInputs: {},
       selectedUnits: {},
     });
 
     expect(report).not.toBeNull();
-    const labels = report?.resolvedSections.flatMap((section) =>
-      section.entries.map((entry) => entry.label),
-    );
+    const entries = report?.resolvedSections.flatMap((section) => section.entries) ?? [];
+    const labels = entries.map((entry) => entry.label);
 
     expect(labels).toContain("Break-Even Monthly Revenue");
     expect(labels).toContain("Cash Runway Under Stress");
     expect(labels).toContain("Survival Cash Target");
     expect(labels).toContain("Funding Gap to Target");
     expect(labels).not.toContain("Maximum Absorbed Overhead");
+    expect(entries.find((entry) => entry.label === "Target Runway Status")?.value).toBe("WITHIN TARGET");
+    expect(entries.find((entry) => entry.label === "Decision")?.value).toBe("GO");
   });
 });
