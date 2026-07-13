@@ -67,3 +67,8 @@ tmp/
 
 # DeepSeek API configuration notes (contains API keys)
 deepseek_talimati_.txt
+
+# Python test artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
