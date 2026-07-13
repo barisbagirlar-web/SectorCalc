@@ -1,0 +1,299 @@
+
+> fresh_app@0.1.0 guard:pro-v2-all-extended
+> node scripts/guard-pro-v2-form-api-key-contract.mjs && node scripts/guard-pro-v2-tool-specific-report.mjs && node scripts/guard-pro-v2-no-generic-result-fallback.mjs && node scripts/guard-pro-v2-no-public-internal-diagnostics.mjs && node scripts/guard-pro-v2-cross-tool-result-isolation.mjs && npx vitest run tests/pro-v2/
+
+=== PRO V2 Form→API Key Contract Regression Guard ===
+
+  PASS  break-even-survival-cash-calculator: 10 inputs → 10 normalized IDs
+  PASS  machine-hourly-rate-proof-report: 12 inputs → 12 normalized IDs
+  PASS  loss-making-job-detector: 12 inputs → 12 normalized IDs
+  PASS  receivables-cost-payment-term-addendum: 12 inputs → 12 normalized IDs
+  PASS  setup-time-reduction-roi-smed: 12 inputs → 12 normalized IDs
+  PASS  product-sku-margin-ranker: 12 inputs → 12 normalized IDs
+  PASS  true-employee-cost-statement: 12 inputs → 12 normalized IDs
+  PASS  job-quote-builder-pro-pack: 12 inputs → 12 normalized IDs
+  PASS  machine-investment-feasibility-buy-lease-keep: 12 inputs → 12 normalized IDs
+  PASS  capital-equipment-investment-appraisal-npv-irr: 12 inputs → 12 normalized IDs
+  PASS  customer-sku-profitability-forensics: 10 inputs → 10 normalized IDs
+  PASS  downtime-scrap-loss-statement: 10 inputs → 10 normalized IDs
+  PASS  oee-loss-monetization-improvement-business-case: 10 inputs → 10 normalized IDs
+  PASS  scrap-rework-cost-tracker: 10 inputs → 10 normalized IDs
+  PASS  outsource-vs-in-house-analyzer: 10 inputs → 10 normalized IDs
+  PASS  plant-wide-shop-rate-cost-structure-audit: 10 inputs → 10 normalized IDs
+  PASS  fx-commodity-pass-through-pricer: 10 inputs → 10 normalized IDs
+  PASS  energy-efficiency-grant-incentive-feasibility-pack: 10 inputs → 10 normalized IDs
+  PASS  motor-compressor-replacement-roi: 11 inputs → 11 normalized IDs
+  PASS  weld-procedure-cost-consumable-estimation-suite: 11 inputs → 11 normalized IDs
+
+✓ ALL CHECKS PASSED
+  OK: break-even-survival-cash-calculator has report contract
+  OK: machine-hourly-rate-proof-report has report contract
+  OK: loss-making-job-detector has report contract
+  OK: receivables-cost-payment-term-addendum has report contract
+  OK: setup-time-reduction-roi-smed has report contract
+  OK: product-sku-margin-ranker has report contract
+  OK: true-employee-cost-statement has report contract
+  OK: job-quote-builder-pro-pack has report contract
+  OK: machine-investment-feasibility-buy-lease-keep has report contract
+  OK: capital-equipment-investment-appraisal-npv-irr has report contract
+  OK: customer-sku-profitability-forensics has report contract
+  OK: downtime-scrap-loss-statement has report contract
+  OK: oee-loss-monetization-improvement-business-case has report contract
+  OK: scrap-rework-cost-tracker has report contract
+  OK: outsource-vs-in-house-analyzer has report contract
+  OK: plant-wide-shop-rate-cost-structure-audit has report contract
+  OK: fx-commodity-pass-through-pricer has report contract
+  OK: energy-efficiency-grant-incentive-feasibility-pack has report contract
+  OK: motor-compressor-replacement-roi has report contract
+  OK: weld-procedure-cost-consumable-estimation-suite has report contract
+
+GUARD PASSED: All 20 PRO V2 tools have report contracts
+GUARD PASSED: No generic result fallback patterns found
+GUARD PASSED: No internal diagnostics in public report paths
+GUARD PASSED: Report state isolation patterns verified
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/home/runner/work/SectorCalc/SectorCalc[39m
+
+ [31m❯[39m tests/pro-v2/form-api-formula-pipeline.test.ts [2m([22m[2m41 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 84[2mms[22m[39m
+     [32m✓[39m should have all 20 modules registered[32m 2[2mms[22m[39m
+[31m     [31m×[31m break-even-survival-cash-calculator: adapter schema → raw_inputs → normalization → formula → outputs[39m[32m 10[2mms[22m[39m
+     [32m✓[39m break-even-survival-cash-calculator: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m machine-hourly-rate-proof-report: adapter schema → raw_inputs → normalization → formula → outputs[32m 5[2mms[22m[39m
+     [32m✓[39m machine-hourly-rate-proof-report: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m loss-making-job-detector: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m loss-making-job-detector: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m receivables-cost-payment-term-addendum: adapter schema → raw_inputs → normalization → formula → outputs[32m 3[2mms[22m[39m
+     [32m✓[39m receivables-cost-payment-term-addendum: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m setup-time-reduction-roi-smed: adapter schema → raw_inputs → normalization → formula → outputs[32m 4[2mms[22m[39m
+     [32m✓[39m setup-time-reduction-roi-smed: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 2[2mms[22m[39m
+     [32m✓[39m product-sku-margin-ranker: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m product-sku-margin-ranker: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m true-employee-cost-statement: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m true-employee-cost-statement: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m job-quote-builder-pro-pack: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m job-quote-builder-pro-pack: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m machine-investment-feasibility-buy-lease-keep: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m machine-investment-feasibility-buy-lease-keep: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m capital-equipment-investment-appraisal-npv-irr: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m capital-equipment-investment-appraisal-npv-irr: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m customer-sku-profitability-forensics: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m customer-sku-profitability-forensics: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m downtime-scrap-loss-statement: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m downtime-scrap-loss-statement: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m oee-loss-monetization-improvement-business-case: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m oee-loss-monetization-improvement-business-case: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m scrap-rework-cost-tracker: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m scrap-rework-cost-tracker: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m outsource-vs-in-house-analyzer: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m outsource-vs-in-house-analyzer: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m plant-wide-shop-rate-cost-structure-audit: adapter schema → raw_inputs → normalization → formula → outputs[32m 3[2mms[22m[39m
+     [32m✓[39m plant-wide-shop-rate-cost-structure-audit: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 2[2mms[22m[39m
+     [32m✓[39m fx-commodity-pass-through-pricer: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m fx-commodity-pass-through-pricer: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m energy-efficiency-grant-incentive-feasibility-pack: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m energy-efficiency-grant-incentive-feasibility-pack: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m motor-compressor-replacement-roi: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m motor-compressor-replacement-roi: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+     [32m✓[39m weld-procedure-cost-consumable-estimation-suite: adapter schema → raw_inputs → normalization → formula → outputs[32m 2[2mms[22m[39m
+     [32m✓[39m weld-procedure-cost-consumable-estimation-suite: raw_inputs use schema input IDs, not form field IDs or normalized IDs[32m 1[2mms[22m[39m
+ [31m❯[39m tests/pro-v2/tool-specific-report-isolation.test.ts [2m([22m[2m163 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 74[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: break-even-survival-cash-calculator[32m 2[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: machine-hourly-rate-proof-report[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: loss-making-job-detector[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: receivables-cost-payment-term-addendum[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: setup-time-reduction-roi-smed[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: product-sku-margin-ranker[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: true-employee-cost-statement[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: job-quote-builder-pro-pack[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: machine-investment-feasibility-buy-lease-keep[32m 1[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: capital-equipment-investment-appraisal-npv-irr[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: customer-sku-profitability-forensics[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: downtime-scrap-loss-statement[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: oee-loss-monetization-improvement-business-case[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: scrap-rework-cost-tracker[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: outsource-vs-in-house-analyzer[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: plant-wide-shop-rate-cost-structure-audit[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: fx-commodity-pass-through-pricer[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: energy-efficiency-grant-incentive-feasibility-pack[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: motor-compressor-replacement-roi[32m 0[2mms[22m[39m
+     [32m✓[39m REQUESTED_SLUG_MATCH: weld-procedure-cost-consumable-estimation-suite[32m 0[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: break-even-survival-cash-calculator has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: machine-hourly-rate-proof-report has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: loss-making-job-detector has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: receivables-cost-payment-term-addendum has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: setup-time-reduction-roi-smed has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: product-sku-margin-ranker has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: true-employee-cost-statement has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: job-quote-builder-pro-pack has a schema definition[32m 3[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: machine-investment-feasibility-buy-lease-keep has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: capital-equipment-investment-appraisal-npv-irr has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: customer-sku-profitability-forensics has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: downtime-scrap-loss-statement has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: oee-loss-monetization-improvement-business-case has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: scrap-rework-cost-tracker has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: outsource-vs-in-house-analyzer has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: plant-wide-shop-rate-cost-structure-audit has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: fx-commodity-pass-through-pricer has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: energy-efficiency-grant-incentive-feasibility-pack has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: motor-compressor-replacement-roi has a schema definition[32m 1[2mms[22m[39m
+     [32m✓[39m DEFINITION_MATCH: weld-procedure-cost-consumable-estimation-suite has a schema definition[32m 1[2mms[22m[39m
+[31m     [31m×[31m FORMULA_EXISTS: break-even-survival-cash-calculator has a formula module[39m[32m 4[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: machine-hourly-rate-proof-report has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: loss-making-job-detector has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: receivables-cost-payment-term-addendum has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: setup-time-reduction-roi-smed has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: product-sku-margin-ranker has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: true-employee-cost-statement has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: job-quote-builder-pro-pack has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: machine-investment-feasibility-buy-lease-keep has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: capital-equipment-investment-appraisal-npv-irr has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: customer-sku-profitability-forensics has a formula module[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: downtime-scrap-loss-statement has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: oee-loss-monetization-improvement-business-case has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: scrap-rework-cost-tracker has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: outsource-vs-in-house-analyzer has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: plant-wide-shop-rate-cost-structure-audit has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: fx-commodity-pass-through-pricer has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: energy-efficiency-grant-incentive-feasibility-pack has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: motor-compressor-replacement-roi has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_EXISTS: weld-procedure-cost-consumable-estimation-suite has a formula module[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: break-even-survival-cash-calculator has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: machine-hourly-rate-proof-report has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: loss-making-job-detector has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: receivables-cost-payment-term-addendum has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: setup-time-reduction-roi-smed has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: product-sku-margin-ranker has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: true-employee-cost-statement has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: job-quote-builder-pro-pack has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: machine-investment-feasibility-buy-lease-keep has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: capital-equipment-investment-appraisal-npv-irr has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: customer-sku-profitability-forensics has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: downtime-scrap-loss-statement has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: oee-loss-monetization-improvement-business-case has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: scrap-rework-cost-tracker has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: outsource-vs-in-house-analyzer has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: plant-wide-shop-rate-cost-structure-audit has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: fx-commodity-pass-through-pricer has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: energy-efficiency-grant-incentive-feasibility-pack has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: motor-compressor-replacement-roi has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_CONTRACT_EXISTS: weld-procedure-cost-consumable-estimation-suite has a report contract[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: break-even-survival-cash-calculator report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: machine-hourly-rate-proof-report report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: loss-making-job-detector report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: receivables-cost-payment-term-addendum report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: setup-time-reduction-roi-smed report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: product-sku-margin-ranker report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: true-employee-cost-statement report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: job-quote-builder-pro-pack report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: machine-investment-feasibility-buy-lease-keep report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: capital-equipment-investment-appraisal-npv-irr report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: customer-sku-profitability-forensics report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: downtime-scrap-loss-statement report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: oee-loss-monetization-improvement-business-case report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: scrap-rework-cost-tracker report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: outsource-vs-in-house-analyzer report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: plant-wide-shop-rate-cost-structure-audit report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: fx-commodity-pass-through-pricer report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: energy-efficiency-grant-incentive-feasibility-pack report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: motor-compressor-replacement-roi report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m REPORT_DOMAIN_MATCH: weld-procedure-cost-consumable-estimation-suite report headings belong to tool domain[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: break-even-survival-cash-calculator[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: machine-hourly-rate-proof-report[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: loss-making-job-detector[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: receivables-cost-payment-term-addendum[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: setup-time-reduction-roi-smed[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: product-sku-margin-ranker[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: true-employee-cost-statement[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: job-quote-builder-pro-pack[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: machine-investment-feasibility-buy-lease-keep[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: capital-equipment-investment-appraisal-npv-irr[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: customer-sku-profitability-forensics[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: downtime-scrap-loss-statement[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: oee-loss-monetization-improvement-business-case[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: scrap-rework-cost-tracker[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: outsource-vs-in-house-analyzer[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: plant-wide-shop-rate-cost-structure-audit[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: fx-commodity-pass-through-pricer[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: energy-efficiency-grant-incentive-feasibility-pack[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: motor-compressor-replacement-roi[32m 0[2mms[22m[39m
+     [32m✓[39m NO_GENERIC_FALLBACK_PANEL: weld-procedure-cost-consumable-estimation-suite[32m 0[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: break-even-survival-cash-calculator outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: machine-hourly-rate-proof-report outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: loss-making-job-detector outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: receivables-cost-payment-term-addendum outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: setup-time-reduction-roi-smed outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: product-sku-margin-ranker outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: true-employee-cost-statement outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: job-quote-builder-pro-pack outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: machine-investment-feasibility-buy-lease-keep outputs are declared in schema[32m 2[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: capital-equipment-investment-appraisal-npv-irr outputs are declared in schema[32m 2[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: customer-sku-profitability-forensics outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: downtime-scrap-loss-statement outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: oee-loss-monetization-improvement-business-case outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: scrap-rework-cost-tracker outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: outsource-vs-in-house-analyzer outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: plant-wide-shop-rate-cost-structure-audit outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: fx-commodity-pass-through-pricer outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: energy-efficiency-grant-incentive-feasibility-pack outputs are declared in schema[32m 2[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: motor-compressor-replacement-roi outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m FORMULA_OUTPUT_CONTRACT: weld-procedure-cost-consumable-estimation-suite outputs are declared in schema[32m 1[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: break-even-survival-cash-calculator[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: machine-hourly-rate-proof-report[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: loss-making-job-detector[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: receivables-cost-payment-term-addendum[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: setup-time-reduction-roi-smed[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: product-sku-margin-ranker[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: true-employee-cost-statement[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: job-quote-builder-pro-pack[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: machine-investment-feasibility-buy-lease-keep[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: capital-equipment-investment-appraisal-npv-irr[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: customer-sku-profitability-forensics[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: downtime-scrap-loss-statement[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: oee-loss-monetization-improvement-business-case[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: scrap-rework-cost-tracker[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: outsource-vs-in-house-analyzer[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: plant-wide-shop-rate-cost-structure-audit[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: fx-commodity-pass-through-pricer[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: energy-efficiency-grant-incentive-feasibility-pack[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: motor-compressor-replacement-roi[32m 0[2mms[22m[39m
+     [32m✓[39m NO_INTERNAL_DIAGNOSTICS: weld-procedure-cost-consumable-estimation-suite[32m 0[2mms[22m[39m
+     [32m✓[39m PDF_TOOL_MATCH: PDF must identify active tool[32m 1[2mms[22m[39m
+     [32m✓[39m COPY_TOOL_MATCH: Copy Summary must use active tool identity[32m 0[2mms[22m[39m
+     [32m✓[39m STATE_ISOLATION: Report state must be keyed by toolSlug + reportId[32m 0[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 2 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/pro-v2/form-api-formula-pipeline.test.ts[2m > [22mPRO V2 Full Pipeline: Form→API→Formula[2m > [22mbreak-even-survival-cash-calculator: adapter schema → raw_inputs → normalization → formula → outputs
+[31m[1mAssertionError[22m: expected 'BLOCKED' not to be 'BLOCKED' // Object.is equality[39m
+[36m [2m❯[22m tests/pro-v2/form-api-formula-pipeline.test.ts:[2m290:33[22m[39m
+    [90m288|[39m
+    [90m289|[39m       [90m// Status must not be BLOCKED for valid inputs[39m
+    [90m290|[39m       [34mexpect[39m(result[33m.[39mstatus)[33m.[39mnot[33m.[39m[34mtoBe[39m([32m"BLOCKED"[39m)[33m;[39m
+    [90m   |[39m                                 [31m^[39m
+    [90m291|[39m       [35mif[39m (result[33m.[39mstatus [33m===[39m [32m"BLOCKED"[39m) {
+    [90m292|[39m         console[33m.[39m[34merror[39m([32m`[39m[36m${[39mslug[36m}[39m[32m blocked:`[39m[33m,[39m result[33m.[39mwarnings)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/pro-v2/tool-specific-report-isolation.test.ts[2m > [22mPRO V2 Tool-Specific Report Isolation[2m > [22mFORMULA_EXISTS: break-even-survival-cash-calculator has a formula module
+[31m[1mAssertionError[22m: expected 0 to be greater than 0[39m
+[36m [2m❯[22m tests/pro-v2/tool-specific-report-isolation.test.ts:[2m98:25[22m[39m
+    [90m 96|[39m     const outputCount = (formula!.match(/id:\s*["']out_[a-z_]+["']/g) …
+    [90m 97|[39m       (formula[33m![39m[33m.[39m[34mmatch[39m([36m/\[["']out_[a-z_]+["']\]/g[39m) [33m||[39m [])[33m.[39mlength[33m;[39m
+    [90m 98|[39m     [34mexpect[39m(outputCount)[33m.[39m[34mtoBeGreaterThan[39m([34m0[39m)[33m;[39m
+    [90m   |[39m                         [31m^[39m
+    [90m 99|[39m   })[33m;[39m
+    [90m100|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m2 failed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m202 passed[39m[22m[90m (204)[39m
+[2m   Start at [22m 12:59:13
+[2m   Duration [22m 894ms[2m (transform 256ms, setup 0ms, import 324ms, tests 158ms, environment 0ms)[22m
+
+
+::error file=/home/runner/work/SectorCalc/SectorCalc/tests/pro-v2/form-api-formula-pipeline.test.ts,title=tests/pro-v2/form-api-formula-pipeline.test.ts > PRO V2 Full Pipeline%3A Form→API→Formula > break-even-survival-cash-calculator%3A adapter schema → raw_inputs → normalization → formula → outputs,line=290,column=33::AssertionError: expected 'BLOCKED' not to be 'BLOCKED' // Object.is equality%0A ❯ tests/pro-v2/form-api-formula-pipeline.test.ts:290:33%0A%0A
+
+::error file=/home/runner/work/SectorCalc/SectorCalc/tests/pro-v2/tool-specific-report-isolation.test.ts,title=tests/pro-v2/tool-specific-report-isolation.test.ts > PRO V2 Tool-Specific Report Isolation > FORMULA_EXISTS%3A break-even-survival-cash-calculator has a formula module,line=98,column=25::AssertionError: expected 0 to be greater than 0%0A ❯ tests/pro-v2/tool-specific-report-isolation.test.ts:98:25%0A%0A
