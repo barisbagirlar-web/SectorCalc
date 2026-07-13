@@ -71,7 +71,7 @@ const BREAK_EVEN_SURVIVAL_CASH_CONTRACT: ProReportContract = {
       ],
     },
     {
-      sectionTitle: "Control & Decision",
+      sectionTitle: "Control & Evidence",
       priority: 30,
       entries: [
         {
@@ -93,22 +93,12 @@ const BREAK_EVEN_SURVIVAL_CASH_CONTRACT: ProReportContract = {
           format: "string",
           valueLabels: {
             "0": "WITHIN TARGET",
-            "1": "BREACHED",
-          },
-        },
-        {
-          sourceOutputId: "out_final_decision_state",
-          businessLabel: "Decision",
-          format: "string",
-          valueLabels: {
-            "0": "GO",
-            "1": "REVIEW",
-            "2": "BLOCK",
-          },
-        },
-      ],
-    },
-  ],
+            "1": "BREACHED"
+          }
+        }
+      ]
+    }
+  ]
 };
 
 const OVERRIDES: Record<string, ProReportContract> = {
