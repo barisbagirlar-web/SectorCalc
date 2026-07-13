@@ -45,22 +45,51 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
   const contract = getProReportContract(input.toolSlug);
   if (!contract) return null;
 
-  const outputMap = new Map<string, { value: string | number | boolean | null; unit: string | null }>();
-  for (const out of input.outputs) {
-    outputMap.set(out.id, { value: out.value, unit: out.unit ?? null });
+  const outputMap = new Map<
+    string,
+    { value: string | number | boolean | null; unit: string | null }
+  >();
+  const outputCounts = new Map<string, number>();
+
+  for (const output of input.outputs) {
+    outputCounts.set(output.id, (outputCounts.get(output.id) ?? 0) + 1);
+    outputMap.set(output.id, { value: output.value, unit: output.unit ?? null });
+  }
+
+  if (contract.strict) {
+    const requiredOutputIds = new Set(
+      contract.sections.flatMap((section) =>
+        section.entries.map((entry) => entry.sourceOutputId),
+      ),
+    );
+
+    for (const outputId of requiredOutputIds) {
+      const match = outputMap.get(outputId);
+      if (!match || match.value === null || outputCounts.get(outputId) !== 1) {
+        return null;
+      }
+    }
   }
 
   const resolvedSections = contract.sections.map((section: ReportSection) => {
     const entries = section.entries.map((entry) => {
       const match = outputMap.get(entry.sourceOutputId);
-      const value = resolveReportValue(match?.value, entry.valueLabels, entry.valueMultiplier);
+      const value = resolveReportValue(
+        match?.value,
+        entry.valueLabels,
+        entry.valueMultiplier,
+      );
       return {
         label: entry.businessLabel,
         value,
         unit:
           typeof value === "string" && entry.valueLabels
             ? null
-            : resolveReportUnit(match?.unit ?? null, entry.unit, input.displayCurrency),
+            : resolveReportUnit(
+                match?.unit ?? null,
+                entry.unit,
+                input.displayCurrency,
+              ),
         explanation: entry.explanation ?? null,
       };
     });
