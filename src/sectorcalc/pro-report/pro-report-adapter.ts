@@ -26,6 +26,22 @@ function resolveReportValue(
   return value;
 }
 
+function resolveReportUnit(
+  sourceUnit: string | null,
+  contractUnit: string | undefined,
+  displayCurrency: string | null | undefined,
+): string | null {
+  const unit = sourceUnit ?? contractUnit ?? null;
+  if (!unit || !displayCurrency) return unit;
+
+  if (unit === "currency") return displayCurrency;
+  if (unit === "currency/month") return `${displayCurrency}/month`;
+  if (unit === "currency/hour") return `${displayCurrency}/hour`;
+  if (unit === "currency/unit") return `${displayCurrency}/unit`;
+
+  return unit;
+}
+
 export function buildProReport(input: ProReportAdapterInput): ProReportAdapterResult | null {
   const contract =
     getProReportContractOverride(input.toolSlug) ??
@@ -44,7 +60,10 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
       return {
         label: entry.businessLabel,
         value,
-        unit: typeof value === "string" && entry.valueLabels ? null : (match?.unit ?? entry.unit ?? null),
+        unit:
+          typeof value === "string" && entry.valueLabels
+            ? null
+            : resolveReportUnit(match?.unit ?? null, entry.unit, input.displayCurrency),
         explanation: entry.explanation ?? null,
       };
     });
