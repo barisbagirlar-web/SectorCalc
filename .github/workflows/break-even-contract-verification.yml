@@ -16,7 +16,7 @@ concurrency:
 jobs:
   verify-break-even-contract:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
 
@@ -63,6 +63,8 @@ jobs:
             src/sectorcalc/pro-report/__tests__/pro-report-break-even.test.ts \
             src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts \
             src/sectorcalc/pro-runtime/__tests__/decision-engine-warning-precedence.test.ts
+          run_check full-v5-form npm run test:v5-form
+          run_check full-v5-runtime npm run test:v5-runtime
           run_check build npm run build
 
           echo "overall=${overall}" >> "$GITHUB_OUTPUT"
