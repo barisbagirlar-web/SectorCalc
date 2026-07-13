@@ -19,6 +19,21 @@ import { join, resolve } from "node:path";
 
 const ROOT = process.cwd();
 
+function enableRequiredFirebaseExperiments() {
+  const configured = (process.env.FIREBASE_CLI_EXPERIMENTS ?? "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const experiments = new Set(configured);
+  experiments.add("webframeworks");
+  process.env.FIREBASE_CLI_EXPERIMENTS = [...experiments].join(",");
+  console.log(
+    `deploy-production: Firebase CLI experiments enabled: ${process.env.FIREBASE_CLI_EXPERIMENTS}`,
+  );
+}
+
+enableRequiredFirebaseExperiments();
+
 // ── Stale process cleanup ──────────────────────────────────────────────
 // Kill any remaining next/firebase build processes from previous failed deploys
 try { spawnSync("pkill", ["-f", "next.firebase-backup build"], { stdio: "ignore", timeout: 3000 }); } catch {}
