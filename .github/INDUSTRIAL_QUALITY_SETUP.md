@@ -32,3 +32,7 @@ The quality gate is self-contained and uses isolated Firebase Auth and Firestore
 - `Workflow Security / zizmor workflow audit`
 
 Dependency Review remains conditional on GitHub Advanced Security for this private repository.
+
+## Runner diagnostics
+
+A workflow job that finishes with zero recorded steps and no downloadable log never reached a GitHub-hosted runner. Treat this as an account, billing, budget, or Actions-policy execution block rather than a repository test failure. Re-run after restoring GitHub Actions access; do not weaken or bypass the quality gate.
