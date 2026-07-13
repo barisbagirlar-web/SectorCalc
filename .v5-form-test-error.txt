@@ -1,0 +1,66 @@
+
+> fresh_app@0.1.0 test:v5-form
+> vitest run src/sectorcalc/pro-form/__tests__/
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.9 [39m[90m/home/runner/work/SectorCalc/SectorCalc[39m
+
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/superv4-schema-contract.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/form-state-machine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/superv4-formula-leak.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/form-state-machine-unit-init.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/schema-strictness.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/unit-normalization.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/public-response-redactor.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/formula-leak.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [31m❯[39m src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts [2m([22m[2m4 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 107[2mms[22m[39m
+[31m     [31m×[31m 1. no source file imports PremiumSchemaToolForm[39m[32m 58[2mms[22m[39m
+     [32m✓[39m 2. PremiumSchemaToolForm.tsx file does not exist[32m 0[2mms[22m[39m
+     [32m✓[39m 3. UniversalIndustrialDecisionForm exists as replacement[32m 0[2mms[22m[39m
+[31m     [31m×[31m 4. UniversalIndustrialDecisionForm is used in premium tool pages[39m[32m 47[2mms[22m[39m
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/reference-ranges.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/sectorcalc/pro-form/__tests__/evidence-state.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 2 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts[2m > [22mPremiumSchemaToolForm completely removed[2m > [22m1. no source file imports PremiumSchemaToolForm
+[31m[1mAssertionError[22m: expected 1 to be +0 // Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 0[39m
+[31m+ 1[39m
+
+[36m [2m❯[22m src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts:[2m41:28[22m[39m
+    [90m 39|[39m     }
+    [90m 40|[39m     [90m// No source files should reference the old form[39m
+    [90m 41|[39m     [34mexpect[39m(matches[33m.[39mlength)[33m.[39m[34mtoBe[39m([34m0[39m)[33m;[39m
+    [90m   |[39m                            [31m^[39m
+    [90m 42|[39m   })[33m;[39m
+    [90m 43|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts[2m > [22mPremiumSchemaToolForm completely removed[2m > [22m4. UniversalIndustrialDecisionForm is used in premium tool pages
+[31m[1mAssertionError[22m: expected 1 to be greater than or equal to 5[39m
+[36m [2m❯[22m src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts:[2m75:26[22m[39m
+    [90m 73|[39m       }
+    [90m 74|[39m     }
+    [90m 75|[39m     [34mexpect[39m(pages[33m.[39mlength)[33m.[39m[34mtoBeGreaterThanOrEqual[39m([34m5[39m)[33m;[39m
+    [90m   |[39m                          [31m^[39m
+    [90m 76|[39m   })[33m;[39m
+    [90m 77|[39m })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m10 passed[39m[22m[90m (11)[39m
+[2m      Tests [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m77 passed[39m[22m[90m (79)[39m
+[2m   Start at [22m 13:08:05
+[2m   Duration [22m 1.87s[2m (transform 177ms, setup 0ms, import 333ms, tests 202ms, environment 1ms)[22m
+
+
+::error file=/home/runner/work/SectorCalc/SectorCalc/src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts,title=src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts > PremiumSchemaToolForm completely removed > 1. no source file imports PremiumSchemaToolForm,line=41,column=28::AssertionError: expected 1 to be +0 // Object.is equality%0A%0A- Expected%0A+ Received%0A%0A- 0%0A+ 1%0A%0A ❯ src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts:41:28%0A%0A
+
+::error file=/home/runner/work/SectorCalc/SectorCalc/src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts,title=src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts > PremiumSchemaToolForm completely removed > 4. UniversalIndustrialDecisionForm is used in premium tool pages,line=75,column=26::AssertionError: expected 1 to be greater than or equal to 5%0A ❯ src/sectorcalc/pro-form/__tests__/superv4-premium-removed.test.ts:75:26%0A%0A
