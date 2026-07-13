@@ -17,6 +17,8 @@ export interface ReportOutputEntry {
   explanation?: string;
   valueLabels?: Record<string, string>;
   valueMultiplier?: number;
+  /** Exact customer-facing decimal precision. Omit to preserve the legacy adaptive formatter. */
+  displayDecimals?: number;
 }
 
 export interface ReportSection {
@@ -56,6 +58,7 @@ export interface ProReportAdapterResult {
       value: string | number | boolean | null;
       unit: string | null;
       explanation: string | null;
+      displayDecimals?: number;
     }>;
   }>;
 }
