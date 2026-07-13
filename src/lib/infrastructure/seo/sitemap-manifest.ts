@@ -1,5 +1,5 @@
 /**
- * Sitemap source of truth - all public indexable HTML routes derived from catalogs.
+ * Sitemap source of truth - all public indexable routes derived from catalogs.
  * Free V5.3.1 tool routes are quarantined (placeholder-polluted) — not included.
  * Only the /free-tools hub page appears (nofollow). Pro routes remain active.
  */
@@ -44,7 +44,6 @@ const EXCLUDED_PATH_PATTERNS: readonly RegExp[] = [
   /^\/checkout(?:\/|$)/,
   /\/debug(?:\/|$)/,
   /\/preview(?:\/|$)/,
-  /\.(?:txt|json|jsonl|csv|xml)$/i,
 ];
 
 function normalizePath(path: string): string {
@@ -132,11 +131,6 @@ export function getPremiumRevenueToolSitemapRoutes(): readonly SitemapManifestIt
   );
 }
 
-/**
- * AI discovery files remain public but are intentionally excluded from XML
- * sitemap generation. Search-engine XML sitemaps must contain final indexable
- * page URLs, not .txt resources.
- */
 export function getAiIndexSitemapRoutes(): readonly SitemapManifestItem[] {
   const files = [
     "/llms.txt",
@@ -209,6 +203,7 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
     ...getAuthorityGuideSitemapRoutes(),
     ...getPremiumAnalyzerSitemapRoutes(),
     ...getFreeToolSitemapRoutes(),
+    ...getAiIndexSitemapRoutes(),
   ]);
 }
 
