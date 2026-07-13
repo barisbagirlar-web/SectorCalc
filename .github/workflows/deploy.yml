@@ -27,7 +27,8 @@ jobs:
       NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
       NODE_OPTIONS: --max-old-space-size=8192
       DEPLOY_FORCE_REBUILD: "1"
-      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+      GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/sectorcalc-firebase-service-account.json
       GH_TOKEN: ${{ github.token }}
 
     steps:
@@ -58,25 +59,68 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Verify checkout and Firebase credential
+      - name: Configure immutable Firebase service-account credential
         shell: bash
         run: |
           actual_sha="$(git rev-parse HEAD)"
           test "$actual_sha" = "$RELEASE_SHA"
           git diff --exit-code
           git diff --cached --exit-code
-          if [ -z "${FIREBASE_TOKEN:-}" ]; then
-            echo "FIREBASE_TOKEN is not configured. Deployment is blocked."
+
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            echo "FIREBASE_SERVICE_ACCOUNT_JSON is not configured. Deployment is blocked."
             exit 1
           fi
+
+          umask 077
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$GOOGLE_APPLICATION_CREDENTIALS"
+          chmod 600 "$GOOGLE_APPLICATION_CREDENTIALS"
+
+          node - "$GOOGLE_APPLICATION_CREDENTIALS" <<'NODE'
+          const fs = require("fs");
+          const credentialPath = process.argv[2];
+          const payload = JSON.parse(fs.readFileSync(credentialPath, "utf8"));
+          const pass =
+            payload?.type === "service_account" &&
+            payload?.project_id === "sectorcalc-bf412" &&
+            typeof payload?.client_email === "string" &&
+            payload.client_email.endsWith(".gserviceaccount.com") &&
+            typeof payload?.private_key === "string" &&
+            payload.private_key.includes("BEGIN PRIVATE KEY");
+          if (!pass) {
+            console.error("Firebase service-account credential is malformed or belongs to a different project.");
+            process.exit(1);
+          }
+          console.log("FIREBASE_SERVICE_ACCOUNT_STRUCTURE=PASS");
+          NODE
+
           echo "IMMUTABLE_RELEASE_SOURCE=PASS"
-          echo "FIREBASE_CREDENTIAL_PRESENT=PASS"
+          echo "FIREBASE_ADC_CONFIGURED=PASS"
 
       - name: Wait for all release workflows
         run: node scripts/wait-release-workflows.mjs
 
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
+
+      - name: Verify Firebase authentication and Hosting access
+        shell: bash
+        run: |
+          auth_result="$(mktemp)"
+          npx firebase hosting:sites:list \
+            --project sectorcalc-bf412 \
+            --json > "$auth_result"
+          node - "$auth_result" <<'NODE'
+          const fs = require("fs");
+          const payload = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+          const sites = Array.isArray(payload?.result) ? payload.result : [];
+          if (!sites.some((site) => site?.name === "sectorcalc-bf412" || site?.site === "sectorcalc-bf412")) {
+            console.error("Authenticated service account cannot resolve the SectorCalc Hosting site.");
+            process.exit(1);
+          }
+          console.log("FIREBASE_HOSTING_AUTHORIZATION=PASS");
+          NODE
+          rm -f "$auth_result"
 
       - name: Revalidate critical release contracts
         run: |
@@ -239,3 +283,8 @@ jobs:
             exit 1
           fi
           echo "LIVE_CALCULATOR_ROUTE=PASS"
+
+      - name: Remove Firebase credential file
+        if: always()
+        shell: bash
+        run: rm -f "$GOOGLE_APPLICATION_CREDENTIALS"
