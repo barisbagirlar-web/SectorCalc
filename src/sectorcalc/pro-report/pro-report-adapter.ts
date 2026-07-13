@@ -9,6 +9,15 @@ import type {
 import { getProReportContract } from "./pro-report-contract-registry";
 import { getProReportContractOverride } from "./pro-report-contract-overrides";
 
+function resolveReportValue(
+  value: string | number | boolean | null | undefined,
+  valueLabels?: Record<string, string>,
+): string | number | boolean | null {
+  if (value === null || value === undefined) return null;
+  if (!valueLabels) return value;
+  return valueLabels[String(value)] ?? value;
+}
+
 export function buildProReport(input: ProReportAdapterInput): ProReportAdapterResult | null {
   const contract =
     getProReportContractOverride(input.toolSlug) ??
@@ -23,10 +32,11 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
   const resolvedSections = contract.sections.map((section: ReportSection) => {
     const entries = section.entries.map((entry) => {
       const match = outputMap.get(entry.sourceOutputId);
+      const value = resolveReportValue(match?.value, entry.valueLabels);
       return {
         label: entry.businessLabel,
-        value: match?.value ?? null,
-        unit: match?.unit ?? entry.unit ?? null,
+        value,
+        unit: typeof value === "string" && entry.valueLabels ? null : (match?.unit ?? entry.unit ?? null),
         explanation: entry.explanation ?? null,
       };
     });
