@@ -95,7 +95,24 @@ jobs:
         run: npm run guard:baris-v531-runtime-registration
 
       - name: Universal form state-machine tests
-        run: npm run test:v5-form
+        shell: bash
+        run: |
+          set +e
+          npm run test:v5-form > .v5-form-test-error.txt 2>&1
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ]; then
+            git config user.name "sectorcalc-ci"
+            git config user.email "actions@users.noreply.github.com"
+            git add .v5-form-test-error.txt
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: capture universal form test failure"
+              git push origin HEAD:fix/break-even-survival-cash-contract-v531
+            fi
+            cat .v5-form-test-error.txt
+            exit "$status"
+          fi
+          rm -f .v5-form-test-error.txt
 
       - name: Runtime decision and normalization tests
         run: npm run test:v5-runtime
@@ -156,6 +173,7 @@ jobs:
           rm -f .github/workflows/apply-break-even-cross-wire-fix.yml
           rm -f .cross-wire-migration-error.txt
           rm -f .pro-v2-contract-error.txt
+          rm -f .v5-form-test-error.txt
           git config user.name "sectorcalc-ci"
           git config user.email "actions@users.noreply.github.com"
           git add -A
