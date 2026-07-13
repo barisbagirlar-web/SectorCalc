@@ -14,7 +14,7 @@ describe("break-even survival cash report contract", () => {
         { id: "out_funding_gap", name: "Funding Gap", value: 0 },
         { id: "out_evidence_completeness", name: "Input Confidence", value: 0.9 },
         { id: "out_threshold_crossing", name: "Target Runway Breached", value: 0 },
-        { id: "out_final_decision_state", name: "Decision", value: 0 },
+        { id: "out_final_decision_state", name: "Decision Code", value: 0 },
       ],
       rawInputs: {},
       selectedUnits: {},
@@ -29,9 +29,9 @@ describe("break-even survival cash report contract", () => {
     expect(labels).toContain("Survival Cash Target");
     expect(labels).toContain("Funding Gap to Target");
     expect(labels).not.toContain("Maximum Absorbed Overhead");
+    expect(labels).not.toContain("Decision");
     expect(entries.find((entry) => entry.label === "Revenue Margin of Safety")?.value).toBeCloseTo(17.8, 8);
     expect(entries.find((entry) => entry.label === "Input Confidence")?.value).toBe(90);
     expect(entries.find((entry) => entry.label === "Target Runway Status")?.value).toBe("WITHIN TARGET");
-    expect(entries.find((entry) => entry.label === "Decision")?.value).toBe("GO");
   });
 });
