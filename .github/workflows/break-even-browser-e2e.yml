@@ -49,6 +49,7 @@ jobs:
         run: |
           mkdir -p artifacts/break-even-browser-e2e
           npx firebase emulators:start \
+            --config firebase.e2e.json \
             --only auth,firestore \
             --project sectorcalc-bf412 \
             > /tmp/sectorcalc-firebase-emulators.log 2>&1 &
