@@ -28,6 +28,12 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
 
+      - name: Release automation syntax
+        run: |
+          node --check scripts/wait-release-workflows.mjs
+          node --check scripts/deploy-production.mjs
+          node --check scripts/e2e-break-even-browser.mjs
+
       - name: V5.3.1 form architecture
         run: npm run guard:v531-form-architecture
 
