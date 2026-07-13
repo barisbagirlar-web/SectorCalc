@@ -128,7 +128,24 @@ jobs:
           src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts
 
       - name: TypeScript contract check
-        run: npm run typecheck
+        shell: bash
+        run: |
+          set +e
+          npm run typecheck > .typecheck-error.txt 2>&1
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ]; then
+            git config user.name "sectorcalc-ci"
+            git config user.email "actions@users.noreply.github.com"
+            git add .typecheck-error.txt
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: capture TypeScript contract failure"
+              git push origin HEAD:fix/break-even-survival-cash-contract-v531
+            fi
+            cat .typecheck-error.txt
+            exit "$status"
+          fi
+          rm -f .typecheck-error.txt
 
       - name: Lint errors only
         run: npm run lint:errors
@@ -174,6 +191,7 @@ jobs:
           rm -f .cross-wire-migration-error.txt
           rm -f .pro-v2-contract-error.txt
           rm -f .v5-form-test-error.txt
+          rm -f .typecheck-error.txt
           git config user.name "sectorcalc-ci"
           git config user.email "actions@users.noreply.github.com"
           git add -A
