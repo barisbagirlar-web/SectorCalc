@@ -1,0 +1,113 @@
+name: Industrial Quality Gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: industrial-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: "true"
+  NODE_OPTIONS: "--max-old-space-size=8192"
+
+jobs:
+  calculation-kernel:
+    name: Calculation kernel
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Verify runtime
+        run: |
+          node --version
+          npm --version
+          test -f package-lock.json
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts=false
+      - name: Secret leakage guard
+        run: npm run check:secrets
+      - name: Runtime stability guard
+        run: npm run guard:runtime-stability
+      - name: TypeScript gate
+        run: npm run typecheck
+      - name: ESLint error gate
+        run: npm run lint:errors
+      - name: Universal Pro form tests
+        run: npm run test:v5-form
+      - name: Pro runtime tests
+        run: npm run test:v5-runtime
+      - name: Pro V2 output and isolation contracts
+        run: npm run guard:pro-v2-all-extended
+      - name: Pro schema and result contracts
+        run: |
+          npm run guard:pro-tools-catalog
+          npm run guard:pro-display-units
+          npm run guard:pro-result-render-contract
+          npm run guard:pro-no-stale-dom
+      - name: Free tool numeric regression suite
+        run: npm run test:golden:free-v531
+      - name: Production build
+        run: npm run build
+
+  authenticated-pro-runtime:
+    name: Authenticated Pro runtime
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: calculation-kernel
+    env:
+      BARIS_E2E_BASE_URL: ${{ vars.BARIS_E2E_BASE_URL || 'https://sectorcalc.com' }}
+      BARIS_E2E_TEST_USER_EMAIL: ${{ secrets.BARIS_E2E_TEST_USER_EMAIL }}
+      BARIS_E2E_TEST_USER_PASSWORD: ${{ secrets.BARIS_E2E_TEST_USER_PASSWORD }}
+      BARIS_E2E_TOOL_KEY: break-even-survival-cash-calculator
+      BARIS_E2E_STRICT: "true"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts=false
+      - name: Require dedicated E2E account
+        shell: bash
+        run: |
+          test -n "$BARIS_E2E_TEST_USER_EMAIL" || { echo 'Missing BARIS_E2E_TEST_USER_EMAIL'; exit 1; }
+          test -n "$BARIS_E2E_TEST_USER_PASSWORD" || { echo 'Missing BARIS_E2E_TEST_USER_PASSWORD'; exit 1; }
+      - name: Auth to session to Pro execution
+        run: node scripts/integration-auth-session-e2e.mjs --strict
+
+  pdf-evidence:
+    name: Pro PDF evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: authenticated-pro-runtime
+    env:
+      BARIS_PDF_BASE_URL: ${{ vars.BARIS_E2E_BASE_URL || 'https://sectorcalc.com' }}
+      BARIS_PDF_TEST_TARGETS: ${{ secrets.BARIS_PDF_TEST_TARGETS }}
+      BARIS_E2E_TEST_USER_EMAIL: ${{ secrets.BARIS_E2E_TEST_USER_EMAIL }}
+      BARIS_E2E_TEST_USER_PASSWORD: ${{ secrets.BARIS_E2E_TEST_USER_PASSWORD }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts=false
+      - name: Install Chromium
+        run: ./node_modules/.bin/playwright install --with-deps chromium
+      - name: Require PDF test matrix
+        shell: bash
+        run: |
+          test -n "$BARIS_PDF_TEST_TARGETS" || { echo 'Missing BARIS_PDF_TEST_TARGETS'; exit 1; }
+      - name: Generate and validate Pro PDFs
+        run: node scripts/pdf-industrial-contract.mjs --strict
