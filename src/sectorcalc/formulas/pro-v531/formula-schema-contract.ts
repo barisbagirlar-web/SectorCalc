@@ -132,7 +132,7 @@ export function validateFormulaResultContract(
     }
   }
 
-  if (!['OK', 'REVIEW', 'BLOCKED'].includes(result.status)) {
+  if (!["OK", "REVIEW", "BLOCKED"].includes(result.status)) {
     errors.push(`Unsupported formula status: ${String(result.status)}.`);
   }
 
