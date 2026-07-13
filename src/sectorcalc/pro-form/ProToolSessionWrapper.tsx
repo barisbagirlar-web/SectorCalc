@@ -3,11 +3,16 @@
 // SectorCalc Pro Tool Session Wrapper
 // Client component that wraps UniversalIndustrialDecisionForm with credit session management.
 // Handles session creation API calls and passes session state to the form.
+// Owner bypass: barisbagirlar@gmail.com gets unlimited access without credit deduction.
+// Non-owner users: session creation deducts 1 credit from their balance.
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { UniversalIndustrialDecisionForm } from "./UniversalIndustrialDecisionForm";
 import type { UniversalIndustrialDecisionFormProps } from "./UniversalIndustrialDecisionForm";
 import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
+import { isProBypassEmail } from "@/lib/features/billing/subscription";
+
+const BYPASS_SESSION_ID = "bypass-unlimited";
 
 type ProToolSessionWrapperProps = Omit<UniversalIndustrialDecisionFormProps, "onRequestCreditSession" | "usageSessionId" | "remainingRuns" | "creditSessionLoading" | "executeAuthToken"> & {
   toolKey: string;
@@ -31,7 +36,23 @@ export function ProToolSessionWrapper(props: ProToolSessionWrapperProps) {
     }
   }, [user]);
 
+  // Owner bypass: auto-set unlimited session on mount so bypass users
+  // never see "Use 1 credit" — they get instant access without credit deduction.
+  // The execute API checks usageSessionId === "bypass-unlimited" and treats it
+  // as owner bypass (no credit deduction, no session validation).
+  useEffect(() => {
+    if (user?.email && isProBypassEmail(user.email)) {
+      setUsageSessionId(BYPASS_SESSION_ID);
+      setRemainingRuns(999);
+    }
+  }, [user?.email]);
+
   const handleRequestCreditSession = useCallback(async (toolKey: string) => {
+    // Owner bypass: already have unlimited session, no API call needed
+    if (user?.email && isProBypassEmail(user.email)) {
+      return;
+    }
+
     setCreditSessionLoading(true);
     try {
       if (!user) {
