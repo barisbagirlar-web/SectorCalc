@@ -186,39 +186,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node --input-type=module <<'NODE'
-          import { readFileSync, writeFileSync } from "node:fs";
-          const path = ".github/workflows/ci.yml";
-          let source = readFileSync(path, "utf8");
-          const start = source.indexOf("      # TEMP_CROSS_WIRE_MIGRATION_START\n");
-          const endMarker = "      # TEMP_CROSS_WIRE_MIGRATION_END\n\n";
-          const end = source.indexOf(endMarker, start);
-          if (start < 0 || end < 0) throw new Error("Temporary CI migration block not found");
-          source = source.slice(0, start) + source.slice(end + endMarker.length);
-          source = source.replace("\npermissions:\n  contents: write\n", "");
-          source = source.replace(
-            "        with:\n          ref: fix/break-even-survival-cash-contract-v531\n          fetch-depth: 1\n          show-progress: false\n",
-            "",
-          );
-          const commitStep = source.indexOf("\n      - name: Commit verified migration\n");
-          if (commitStep < 0) throw new Error("Temporary commit step not found");
-          source = source.slice(0, commitStep) + "\n";
-          writeFileSync(path, source, "utf8");
-          NODE
-          rm -f scripts/one-time-fix-break-even-cross-wire.mjs
-          rm -f scripts/one-time-fix-break-even-test-contracts.mjs
-          rm -f scripts/one-time-restore-form-state-audit-export.mjs
-          rm -f scripts/one-time-harden-v531-form-ux.mjs
-          rm -f scripts/one-time-enable-diagnostic-profile.mjs
-          rm -f .github/workflows/apply-break-even-cross-wire-fix.yml
-          rm -f .cross-wire-migration-error.txt
-          rm -f .pro-v2-contract-error.txt
-          rm -f .v5-form-test-error.txt
-          rm -f .typecheck-error.txt
-          rm -f .v531-form-ux-error.txt
           git config user.name "sectorcalc-ci"
           git config user.email "actions@users.noreply.github.com"
           git add -A
           git diff --cached --quiet && exit 0
-          git commit -m "fix(pro): eliminate break-even cross-tool contamination"
+          git commit -m "fix(pro): persist verified break-even migration"
           git push origin HEAD:fix/break-even-survival-cash-contract-v531
