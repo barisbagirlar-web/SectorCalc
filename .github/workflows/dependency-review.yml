@@ -1,0 +1,31 @@
+name: Dependency Review
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    name: Dependency vulnerability and license review
+    if: ${{ vars.ENABLE_GHAS_DEPENDENCY_REVIEW == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Review dependency changes
+        uses: actions/dependency-review-action@da6b129d277471d01428781accece1bd831a8b0d # pinned main, 2026-07-13
+        with:
+          fail-on-severity: high
+          fail-on-scopes: runtime, development, unknown
+          vulnerability-check: true
+          license-check: true
+          show-openssf-scorecard: true
+          warn-on-openssf-scorecard-level: 4
+          comment-summary-in-pr: never
