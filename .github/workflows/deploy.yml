@@ -1,140 +1,243 @@
 name: Deploy
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  actions: read
+
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: sectorcalc-production-deploy
+  cancel-in-progress: false
 
 jobs:
-  industrial-pipeline:
+  deploy-production:
+    name: Firebase production deploy
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
+    env:
+      NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
+      NODE_OPTIONS: --max-old-space-size=8192
+      DEPLOY_FORCE_REBUILD: "1"
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+
     steps:
+      - name: Resolve immutable release SHA
+        id: release
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            release_sha="${{ github.event.workflow_run.head_sha }}"
+          else
+            release_sha="${{ github.sha }}"
+          fi
+          if ! [[ "$release_sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Invalid release SHA: $release_sha"
+            exit 1
+          fi
+          echo "sha=$release_sha" >> "$GITHUB_OUTPUT"
+          echo "RELEASE_SHA=$release_sha" >> "$GITHUB_ENV"
+          echo "RELEASE_SHA=$release_sha"
+
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.release.outputs.sha }}
+          fetch-depth: 1
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      - run: npm ci
-
-      # ── Industrial Pipeline: Stages 0-7 ──
-      # Stage 0: Schema Lock
-      - name: "Stage 0 — Schema Lock (Industrial — blocks QUARANTINE+WARN)"
-        run: npm run steelcore:validate:industrial
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-
-      # Stage 1: Generation (Isolated) + Quarantine Snapshot
-      - name: "Stage 1 — The Factory (Generation)"
-        run: npm run generate:all
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          NODE_OPTIONS: --max-old-space-size=4096
-
-      - name: "Stage 1 — Quarantine Snapshot"
-        run: node scripts/steelcore/quarantine-snapshot.mjs
-
-      # Stage 2: Static Quality Gate
-      - name: "Stage 2.1 — TypeScript Grammar"
-        run: npx tsc --noEmit
-
-      - name: "Stage 2.2 — Code Style & Safety (zero warnings)"
-        run: npm run lint:strict
-
-      - name: "Stage 2.3 — Linguistic Completeness (+missing key detection)"
-        run: npm run i18n:check
-
-      # Stage 3: Semantic & Mathematical Validation
-      - name: "Stage 3.1 — Compiler Integrity (+runtime execution)"
-        run: npm run audit:formula-compile
-
-      - name: "Stage 3.2 — Boundary Enforcement (Known-Answer Vectors)"
-        run: npm run steelcore:enforce-boundaries
-
-      - name: "Stage 3.3 — Cross-Domain Contamination (enforce blocking)"
-        run: npm run steelcore:ci-gate:enforce
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-
-      # Stage 4: Runtime Trust Engine (Fuzz)
-      - name: "Stage 4 — Compliance Audit"
-        run: npm run audit:runtime-trust-engine -- --fuzz=10000
-        continue-on-error: true
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-
-      - name: "Stage 4 — Real Fuzz Test (10k garbage injections)"
-        run: npm run steelcore:fuzz -- --fuzz=10000
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-
-      # Stage 5: System Integration & Build
-      - name: "Stage 5 — Production Build"
-        run: npm run build
-        env:
-          NODE_OPTIONS: --max-old-space-size=8192
-          NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
-
-      - name: "Stage 5.1 — Sitemap"
-        run: npm run generate:sitemap-static
-
-      - name: Validate build
-        run: node scripts/validate-next-build.mjs
-
-      - name: Finalize build (Firebase export stubs)
-        run: node scripts/finalize-next-build.mjs
-
-      # Stage 6: Smoke & Health
-      - name: "Stage 6.1 — Browser Routes"
-        run: npm run smoke:browser-routes
-
-      - name: "Stage 6.2 — All Calculation Forms"
-        run: npm run smoke:all-calculation-forms
-
-      # Stage 7: Final Sign-Off
-      - name: "Stage 7.1 — Formula Health Report"
-        run: npm run formula:health
-
-      - name: "Stage 7.2 — Production Readiness"
-        run: npm run audit:production-readiness
-
-      - name: "Stage 7.3 — Release Gate"
-        run: npm run release:gate
-
-      # ── i18n sync (Lokalise) ──
-      - name: Install lokalise2 CLI
-        run: npm run i18n:setup
-        continue-on-error: true
-        env:
-          NODE_OPTIONS: --max-old-space-size=512
-
-      - name: Sync translations (Lokalise)
-        run: npm run i18n:sync
-        continue-on-error: true
-        env:
-          LOKALISE_TOKEN: ${{ secrets.LOKALISE_TOKEN }}
-          LOKALISE_PROJECT_ID: ${{ secrets.LOKALISE_PROJECT_ID }}
-          NODE_OPTIONS: --max-old-space-size=2048
-
-      - name: i18n hardcoded-text audit
-        run: node scripts/audit-i18n-hardcoded.mjs
-
-      - name: Install firebase-tools
-        run: npm install -g firebase-tools
-
-      - name: Deploy to Firebase Hosting + Firestore rules
+      - name: Verify checkout and Firebase credential
+        shell: bash
         run: |
-          firebase deploy \
-            --only hosting,firestore:rules \
-            --project sectorcalc-bf412 \
-            --token "${{ secrets.FIREBASE_TOKEN }}"
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-          FIREBASE_FRAMEWORKS_BUILD_TARGET: production
-          SECTORCALC_FIREBASE_REUSE_BUILD: "1"
+          actual_sha="$(git rev-parse HEAD)"
+          test "$actual_sha" = "$RELEASE_SHA"
+          git diff --exit-code
+          git diff --cached --exit-code
+          if [ -z "${FIREBASE_TOKEN:-}" ]; then
+            echo "FIREBASE_TOKEN is not configured. Deployment is blocked."
+            exit 1
+          fi
+          echo "IMMUTABLE_RELEASE_SOURCE=PASS"
+          echo "FIREBASE_CREDENTIAL_PRESENT=PASS"
+
+      - name: Wait for all release workflows
+        shell: bash
+        run: |
+          required=(
+            "CI"
+            "SEO Quality Gates"
+            "Break-Even Contract Verification"
+            "Break-Even Browser E2E"
+          )
+
+          for attempt in $(seq 1 80); do
+            response="$(gh api \
+              -H "Accept: application/vnd.github+json" \
+              "/repos/${GITHUB_REPOSITORY}/actions/runs?head_sha=${RELEASE_SHA}&per_page=100")"
+
+            check_result="$(printf '%s' "$response" | node -e '
+              const fs = require("fs");
+              const payload = JSON.parse(fs.readFileSync(0, "utf8"));
+              const required = JSON.parse(process.argv[1]);
+              const latest = new Map();
+              for (const run of payload.workflow_runs ?? []) {
+                if (!required.includes(run.name)) continue;
+                const previous = latest.get(run.name);
+                if (!previous || Number(run.run_number) > Number(previous.run_number)) {
+                  latest.set(run.name, run);
+                }
+              }
+              const state = required.map((name) => {
+                const run = latest.get(name);
+                return {
+                  name,
+                  status: run?.status ?? "missing",
+                  conclusion: run?.conclusion ?? null,
+                  runNumber: run?.run_number ?? null,
+                };
+              });
+              const terminalFailure = state.some((item) =>
+                item.status === "completed" && item.conclusion !== "success"
+              );
+              const complete = state.every((item) =>
+                item.status === "completed" && item.conclusion === "success"
+              );
+              console.error(JSON.stringify(state));
+              process.stdout.write(terminalFailure ? "FAIL" : complete ? "PASS" : "WAIT");
+            ' "$(printf '%s\n' "${required[@]}" | node -e 'const fs=require("fs"); console.log(JSON.stringify(fs.readFileSync(0,"utf8").trim().split(/\n/)))')")"
+
+            if [ "$check_result" = "PASS" ]; then
+              echo "ALL_RELEASE_WORKFLOWS=PASS"
+              exit 0
+            fi
+            if [ "$check_result" = "FAIL" ]; then
+              echo "A required release workflow failed. Deployment is blocked."
+              exit 1
+            fi
+            sleep 15
+          done
+
+          echo "Timed out waiting for required release workflows."
+          exit 1
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Revalidate critical release contracts
+        run: |
+          npm run guard:v531-form-architecture
+          npm run guard:forbidden-form-surfaces
+          npm run guard:v531-schema-formula-binding
+          npm run guard:baris-v531-runtime-registration
+          npm run guard:pro-tools-catalog
+          npx vitest run \
+            src/sectorcalc/formulas/pro-v531/__tests__/break-even-survival-cash-calculator.test.ts \
+            src/sectorcalc/formulas/pro-v531/__tests__/baris-formula-registry-break-even.test.ts \
+            src/sectorcalc/formulas/pro-v531/__tests__/break-even-contract-isolation.test.ts \
+            src/sectorcalc/pro-report/__tests__/pro-report-break-even.test.ts \
+            src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts
+
+      - name: Stamp immutable release metadata
+        shell: bash
+        run: |
+          mkdir -p public
+          node -e '
+            const fs = require("fs");
+            const payload = {
+              sha: process.env.RELEASE_SHA,
+              deployedAt: new Date().toISOString(),
+              repository: process.env.GITHUB_REPOSITORY,
+              workflowRunId: process.env.GITHUB_RUN_ID,
+            };
+            fs.writeFileSync("public/release.json", JSON.stringify(payload, null, 2) + "\n");
+          '
+          cat public/release.json
+
+      - name: Deploy Firebase Hosting, Firestore rules, and SSR function
+        run: npm run deploy
+
+      - name: Verify deployed release SHA
+        shell: bash
+        run: |
+          for attempt in $(seq 1 60); do
+            release_json="$(curl --fail --silent --show-error \
+              -H 'Cache-Control: no-cache' \
+              "https://sectorcalc.com/release.json?release=${RELEASE_SHA}&attempt=${attempt}" || true)"
+            deployed_sha="$(printf '%s' "$release_json" | node -e '
+              const fs = require("fs");
+              try {
+                const payload = JSON.parse(fs.readFileSync(0, "utf8"));
+                process.stdout.write(typeof payload.sha === "string" ? payload.sha : "");
+              } catch {}
+            ')"
+            if [ "$deployed_sha" = "$RELEASE_SHA" ]; then
+              echo "DEPLOYMENT_SHA_MATCH=PASS"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Deployment SHA did not converge to $RELEASE_SHA"
+          exit 1
+
+      - name: Verify live engine health and known-answer gate
+        shell: bash
+        run: |
+          health_file="$(mktemp)"
+          curl --fail --silent --show-error \
+            -H 'Cache-Control: no-cache' \
+            "https://sectorcalc.com/api/release-health?release=${RELEASE_SHA}" \
+            -o "$health_file"
+          cat "$health_file"
+          node - "$health_file" <<'NODE'
+          const fs = require("fs");
+          const payload = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+          const critical = payload?.criticalChecks?.breakEvenSurvivalCash;
+          const formula = payload?.proFormulaExecution;
+          const pass =
+            payload?.status === "ok" &&
+            critical?.status === "PASS" &&
+            critical?.modulePresent === true &&
+            critical?.outputNamespace === true &&
+            critical?.knownAnswer === true &&
+            critical?.decision === true &&
+            formula?.lastSmoke === "PASS" &&
+            formula?.missingModules === "NONE" &&
+            formula?.blockedTools === "NONE" &&
+            formula?.passThroughCount === 0;
+          if (!pass) {
+            console.error("LIVE_RELEASE_HEALTH=FAIL", payload);
+            process.exit(1);
+          }
+          console.log("LIVE_RELEASE_HEALTH=PASS");
+          NODE
+
+      - name: Verify live calculator route
+        shell: bash
+        run: |
+          page_file="$(mktemp)"
+          status="$(curl --silent --show-error \
+            -H 'Cache-Control: no-cache' \
+            -o "$page_file" \
+            -w '%{http_code}' \
+            "https://sectorcalc.com/tools/pro/break-even-survival-cash-calculator?release=${RELEASE_SHA}")"
+          test "$status" = "200"
+          grep -Fq "Break-Even &amp; Survival Cash Calculator" "$page_file" || \
+            grep -Fq "Break-Even & Survival Cash Calculator" "$page_file"
+          if grep -Eq "Initial Investment|Annual Net Cash Flow|Discount Rate|Residual Value" "$page_file"; then
+            echo "CROSS_TOOL_INPUT_CONTAMINATION=FAIL"
+            exit 1
+          fi
+          echo "LIVE_CALCULATOR_ROUTE=PASS"
