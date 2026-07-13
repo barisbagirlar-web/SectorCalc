@@ -151,9 +151,6 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   if (currentRevenueGap < 0) {
     warnings.push("Current monthly revenue is below the calculated break-even revenue.");
   }
-  if (monthlyCashBurn > EPSILON) {
-    warnings.push("The downside scenario produces a monthly cash burn.");
-  }
   if (targetRunwayBreached) {
     warnings.push("Available survival cash does not cover the selected target runway.");
   }
