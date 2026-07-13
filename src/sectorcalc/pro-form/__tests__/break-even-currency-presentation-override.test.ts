@@ -1,7 +1,12 @@
 import { describe, expect, it } from "vitest";
+import type { ServerOutput } from "@/sectorcalc/pro-form/contract-types";
 import { resolveApprovedToolSchema, clearSchemaCache } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
 
 const TOOL_KEY = "break-even-survival-cash-calculator";
+
+type SchemaOutputWithMetadata = ServerOutput & {
+  quantity_kind?: string;
+};
 
 describe("break-even currency presentation override", () => {
   it("uses a neutral display currency token without changing canonical currency units", () => {
@@ -13,11 +18,10 @@ describe("break-even currency presentation override", () => {
 
     const schema = resolved.schema;
     const currencyInputs = schema.inputs.filter((input) => input.quantity_kind === "currency");
-    const currencyOutputs = schema.outputs.filter((output) => output.quantity_kind === "currency");
-    const currencyRegistry = schema.unit_conversion_contract.conversion_registry.currency as unknown as {
-      base_unit?: string;
-      units?: Array<{ unit: string; factor: number }>;
-    };
+    const currencyOutputs = schema.outputs.filter(
+      (output) => (output as SchemaOutputWithMetadata).quantity_kind === "currency",
+    );
+    const currencyRegistry = schema.unit_conversion_contract.conversion_registry.currency;
 
     expect(currencyInputs.length).toBeGreaterThan(0);
     expect(currencyInputs.every((input) => input.base_unit === "currency_unit")).toBe(true);
@@ -25,7 +29,7 @@ describe("break-even currency presentation override", () => {
     expect(currencyInputs.every((input) => input.allowed_display_units?.[0] === "display_currency")).toBe(true);
 
     expect(currencyOutputs.length).toBeGreaterThan(0);
-    expect(currencyOutputs.every((output) => (output as typeof output & { unit?: string }).unit === "display_currency")).toBe(true);
+    expect(currencyOutputs.every((output) => output.unit === "display_currency")).toBe(true);
 
     expect(currencyRegistry.base_unit).toBe("currency_unit");
     expect(currencyRegistry.units).toEqual(expect.arrayContaining([
