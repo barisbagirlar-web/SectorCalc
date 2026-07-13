@@ -45,7 +45,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const weld_volume_g = weld_length * (throat_m * throat_m) / 2 * weld_density * 1000;
   const wire_needed = dep_eff > 0 ? weld_volume_g / dep_eff : 0;
   const consumable_cost = wire_needed / 1000 * wire_cost_per_kg;
-  const gas_cost = gas_cost_per_min * arc_time;
+  const gas_cost = gas_cost_per_min * arc_time / 60;
   const labor_cost = labor_rate * weld_time_min / 60;
   const overhead_cost = overhead_rate * weld_time_min / 60;
   const total_cost = consumable_cost + gas_cost + labor_cost + overhead_cost;

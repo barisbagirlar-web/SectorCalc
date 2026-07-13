@@ -106,8 +106,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const evidenceRatio = safeDiv(evidenceCount, totalInputs);
   outputs["out_evidence_completeness"] = round(Math.min(1, Math.max(0, evidenceRatio)), 4);
 
-  // --- Output 2: out_normalized_demand ---
-  const demandMetric = n_current_kwh_per_year * safeDiv(n_avg_kwh_rate, 10);
+  // --- Output 2: out_normalized_demand (dimensionless ratio) ---
+  const demandMetric = safeDiv(kwh_saving, Math.max(1, n_current_kwh_per_year));
   outputs["out_normalized_demand"] = round(demandMetric, 4);
 
   // --- Output 3: out_reference_deviation ---
@@ -161,8 +161,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const moneyAtRisk = Math.max(0, net_cost - money_saving * n_equipment_life_years);
   outputs["out_money_at_risk"] = round(moneyAtRisk, 4);
 
-  // --- Output 13: out_scenario_delta ---
-  const scenarioDelta = roi - safeDiv(net_cost, Math.max(1, 12));
+  // --- Output 13: out_scenario_delta (dimensionless benefit/cost ratio) ---
+  const scenarioDelta = safeDiv(money_saving, Math.max(1, net_cost));
   outputs["out_scenario_delta"] = round(scenarioDelta, 4);
 
   // --- Output 14: out_audit_hash_payload ---

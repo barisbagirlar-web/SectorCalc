@@ -76,6 +76,10 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const n_annual_volume = get(inputs, "n_annual_volume");
   const n_source_confidence_ratio = get(inputs, "n_source_confidence_ratio");
 
+  // Annualize volume (input is per-second)
+  const SECONDS_PER_YEAR = 31536000;
+  const annual_vol = n_annual_volume * SECONDS_PER_YEAR;
+
   // --- Core FX & commodity pass-through logic ---
   const fx_change = n_fx_rate_budget > 0
     ? (n_fx_rate_spot - n_fx_rate_budget) / n_fx_rate_budget
@@ -109,7 +113,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_evidence_completeness"] = round(Math.min(1, Math.max(0, evidenceRatio)), 4);
 
   // --- Output 2: out_normalized_demand ---
-  const demandMetric = n_annual_volume * safeDiv(n_base_price, 100);
+  const demandMetric = annual_vol * safeDiv(n_base_price, 100);
   outputs["out_normalized_demand"] = round(demandMetric, 4);
 
   // --- Output 3: out_reference_deviation ---
@@ -165,7 +169,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_money_at_risk"] = round(moneyAtRisk, 4);
 
   // --- Output 13: out_scenario_delta ---
-  const scenarioDelta = total_pass_through * n_annual_volume;
+  const scenarioDelta = total_pass_through * annual_vol;
   outputs["out_scenario_delta"] = round(scenarioDelta, 4);
 
   // --- Output 14: out_audit_hash_payload ---

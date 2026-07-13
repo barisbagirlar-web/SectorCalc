@@ -39,8 +39,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const conf = get(inputs, "n_source_confidence_ratio");
   const unc = get(inputs, "n_uncertainty_multiplier");
   const tc = ct + st;
-  const lc = lr * tc / 60;
-  const mac = mr * tc / 60;
+  const lc = lr * tc / 3600;
+  const mac = mr * tc / 3600;
   const sc = dc * 0.1;
   const oa = vol > 0 ? oh / vol * bq : 0;
   const tjc = lc + mac + mc * bq + sc + oa;

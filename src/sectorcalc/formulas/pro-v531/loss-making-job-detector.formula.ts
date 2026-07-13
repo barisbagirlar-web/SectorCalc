@@ -21,6 +21,8 @@ function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0;
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
+const ANNUAL_HOURS = 2080;
+
 export function calculate(inputs: Record<string, number>): CalculationResult {
   const warnings: string[] = [];
   const outputs: Record<string, number> = {};
@@ -35,7 +37,13 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const bq = get(inputs, "n_batch_quantity");
   const vol = get(inputs, "n_annual_volume");
   const conf = get(inputs, "n_source_confidence_ratio");
-  const total_cost = mr + mc + lr + oh + dc;
+
+  const annual_machine = mr * ANNUAL_HOURS;
+  const annual_labor = lr * ANNUAL_HOURS;
+  const annual_overhead = oh * ANNUAL_HOURS;
+  const annual_vol = vol * 31536000;
+
+  const total_cost = annual_machine + mc + annual_labor + annual_overhead + dc;
   const price = mr * bq;
   const gm = price - total_cost;
   const cm = price > 0 ? gm / price : 0;
@@ -46,15 +54,15 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_demand_metric"] = round(gm, 2);
   outputs["out_capacity_metric"] = round(map, 2);
   outputs["out_utilization_margin"] = round(cm, 4);
-  outputs["out_money_at_risk"] = round(loss * vol, 2);
+  outputs["out_money_at_risk"] = round(loss * annual_vol, 2);
   outputs["out_threshold_crossing"] = cm >= tm ? 0 : 1;
   outputs["out_fmea_trigger"] = loss > 0 ? 1 : 0;
   outputs["out_final_decision_state"] = cm >= tm ? 0 : (cm > 0 ? 1 : 2);
   outputs["out_reference_deviation"] = round(Math.abs(price - (total_cost * (1 + tm))) / (price || 1), 4);
   outputs["out_derating_factor"] = 1.0;
   outputs["out_expanded_uncertainty"] = round(total_cost * 0.1, 4);
-  outputs["out_sensitivity_driver"] = mc > lr ? 1 : 0;
-  outputs["out_scenario_delta"] = round(loss * vol * 0.15, 2);
+  outputs["out_sensitivity_driver"] = mc > annual_labor ? 1 : 0;
+  outputs["out_scenario_delta"] = round(loss * annual_vol * 0.15, 2);
   outputs["out_audit_hash_payload"] = 0;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));

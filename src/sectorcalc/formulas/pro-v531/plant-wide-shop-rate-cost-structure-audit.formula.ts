@@ -62,9 +62,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // Extract inputs
   const totalAnnualCost = get(inputs, "n_total_annual_cost");
-  const totalProductiveHours = get(inputs, "n_total_productive_hours");
+  const totalProductiveHours = get(inputs, "n_total_productive_hours") / 3600;
   const machineGroupCost = get(inputs, "n_machine_group_cost");
-  const machineGroupHours = get(inputs, "n_machine_group_hours");
+  const machineGroupHours = get(inputs, "n_machine_group_hours") / 3600;
   const overheadPool = get(inputs, "n_overhead_pool");
   const overheadAllocationBase = get(inputs, "n_overhead_allocation_base");
   const currentShopRate = get(inputs, "n_current_shop_rate");

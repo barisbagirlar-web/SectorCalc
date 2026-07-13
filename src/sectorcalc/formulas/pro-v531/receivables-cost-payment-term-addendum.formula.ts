@@ -33,7 +33,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const oh = get(inputs, "n_overhead_rate");
   const dc = get(inputs, "n_defect_or_loss_cost");
   const conf = get(inputs, "n_source_confidence_ratio");
-  const ra = (mr * ct / 60) * bq + mc * bq;
+  const ra = (mr * ct / 3600) * bq + mc * bq;
   const fr = Math.min(Math.max(0.02, oh / mr / 100), 0.25);
   const fc = ra * fr * 60 / 365;
   const ap = ra > 0 ? fc / ra : 0;

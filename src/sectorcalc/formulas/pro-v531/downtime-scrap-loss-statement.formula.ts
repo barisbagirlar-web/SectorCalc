@@ -40,10 +40,10 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   if (!isFiniteNumber(inputs["n_actual_hours"])) warnings.push("Missing: n_actual_hours");
   if (!isFiniteNumber(inputs["n_hourly_rate"])) warnings.push("Missing: n_hourly_rate");
 
-  const downtime_hours = ph - ah;
+  const downtime_hours = (ph - ah) / 3600;
   const downtime_cost = downtime_hours * hr;
   const scrap_material_loss = sq * uc;
-  const rework_loss = rh * rr;
+  const rework_loss = rh * rr / 3600;
   const total_loss = downtime_cost + scrap_material_loss + rework_loss;
   const defect_per_unit = sq > 0 ? scrap_material_loss / sq : 0;
   const uptime_ratio = ph > 0 ? ah / ph : 0;
@@ -62,7 +62,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_evidence_completeness"] = round(conf, 3);
   outputs["out_normalized_demand"] = round(ph, 0);
   outputs["out_reference_deviation"] = round(drp / 100, 4);
-  outputs["out_derating_factor"] = round(ph > 0 ? downtime_hours / ph : 0, 4);
+  outputs["out_derating_factor"] = round(ph > 0 ? (ph - ah) / ph : 0, 4);
   outputs["out_demand_metric"] = round(downtime_cost, 2);
   outputs["out_capacity_metric"] = round(total_loss, 2);
   outputs["out_utilization_margin"] = round(uptime_ratio, 4);

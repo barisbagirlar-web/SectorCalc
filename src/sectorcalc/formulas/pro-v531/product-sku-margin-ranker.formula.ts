@@ -35,7 +35,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const oh = get(inputs, "n_overhead_rate");
   const dc = get(inputs, "n_defect_or_loss_cost");
   const conf = get(inputs, "n_source_confidence_ratio");
-  const ch = ct / 60;
+  const ch = ct / 3600;
   const tuc = mc + (lr * ch) + (mr * ch) + (vol > 0 ? oh / vol : 0);
   const up = mc * 1.4;
   const cm = up - tuc;

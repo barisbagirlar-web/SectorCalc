@@ -46,8 +46,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const quality = total_parts > 0 ? good_parts / total_parts : 0;
   const oee = availability * performance * quality;
 
-  const avail_loss_value = (planned_production_time - operating_time) * hourly_contribution;
-  const perf_loss_value = (net_operating_time - valuable_operating_time) * hourly_contribution;
+  const avail_loss_value = (planned_production_time - operating_time) * hourly_contribution / 3600;
+  const perf_loss_value = (net_operating_time - valuable_operating_time) * hourly_contribution / 3600;
   const qual_loss_value = total_parts > 0 ? (total_parts - good_parts) * ideal_cycle_time * hourly_contribution / 3600 : 0;
   const total_oee_loss = avail_loss_value + perf_loss_value + qual_loss_value;
 

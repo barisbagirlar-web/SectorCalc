@@ -28,6 +28,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const up = get(inputs, "n_unit_price");
   const uvc = get(inputs, "n_unit_variable_cost");
   const av = get(inputs, "n_annual_volume");
+  const SECONDS_PER_YEAR = 31536000;
+  const annual_vol = av * SECONDS_PER_YEAR;
   const lcp = get(inputs, "n_logistics_cost_pct");
   const scp = get(inputs, "n_service_cost_pct");
   const rrp = get(inputs, "n_return_rate_pct");
@@ -47,7 +49,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const return_burden = up * (rrp / 100);
   const net_margin = unit_contribution - logistics_burden - service_burden - return_burden;
   const toxic_flag = net_margin < 0 ? 1 : 0;
-  const total_margin = net_margin * av;
+  const total_margin = net_margin * annual_vol;
   const biggest_burden = Math.max(logistics_burden, service_burden, return_burden);
   const target_margin_ratio = tm / 100;
   let decision: number;
@@ -67,7 +69,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_sensitivity_driver"] = biggest_burden === logistics_burden ? 0 : (biggest_burden === service_burden ? 1 : 2);
   outputs["out_fmea_trigger"] = toxic_flag;
   outputs["out_money_at_risk"] = round(toxic_flag ? total_margin : 0, 2);
-  outputs["out_scenario_delta"] = round(biggest_burden * av, 2);
+  outputs["out_scenario_delta"] = round(biggest_burden * annual_vol, 2);
   outputs["out_audit_hash_payload"] = 0;
   outputs["out_final_decision_state"] = decision;
 

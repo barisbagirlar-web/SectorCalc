@@ -35,6 +35,8 @@ function safeDiv(n: number, d: number): number {
   return n / d;
 }
 
+const ANNUAL_HOURS = 2080;
+
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
 export function calculate(inputs: Record<string, number>): CalculationResult {
@@ -80,6 +82,11 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const n_source_confidence_ratio = get(inputs, "n_source_confidence_ratio");
   const n_uncertainty_multiplier = get(inputs, "n_uncertainty_multiplier");
 
+  // --- Annualized conversions ---
+  const annual_labor = n_labor_rate * ANNUAL_HOURS;
+  const annual_overhead = n_overhead_rate * ANNUAL_HOURS;
+  const annual_vol = n_annual_volume * 31536000;
+
   // --- Derived parameters ---
   const years = Math.max(1, Math.round(n_analysis_years));
   const rate = n_discount_rate;
@@ -87,7 +94,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // --- Buy scenario NPV ---
   const net_capex = n_initial_investment;
-  const annual_maintenance = n_overhead_rate * 0.2;
+  const annual_maintenance = annual_overhead * 0.2;
   const annual_savings_buy = n_annual_net_cash_flow - annual_maintenance;
   let npv_buy = -net_capex;
   for (let y = 1; y <= years; y++) {
@@ -127,7 +134,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_evidence_completeness"] = round(Math.min(1, Math.max(0, evidenceRatio)), 4);
 
   // --- Output 2: out_normalized_demand ---
-  const demandMetric = n_annual_volume * safeDiv(n_labor_rate, 1000);
+  const demandMetric = annual_vol * safeDiv(n_labor_rate, 1000);
   outputs["out_normalized_demand"] = round(demandMetric, 4);
 
   // --- Output 3: out_reference_deviation ---
@@ -165,8 +172,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const drivers = [
     Math.abs(n_initial_investment),
     Math.abs(n_annual_net_cash_flow),
-    Math.abs(n_overhead_rate),
-    Math.abs(n_labor_rate),
+    Math.abs(annual_overhead),
+    Math.abs(annual_labor),
   ];
   const maxDriver = Math.max(...drivers);
   const driverIdx = drivers.indexOf(maxDriver);
@@ -180,7 +187,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_fmea_trigger"] = fmeaTrigger;
 
   // --- Output 12: out_money_at_risk ---
-  const riskCost = n_defect_or_loss_cost * n_annual_volume * stress;
+  const riskCost = n_defect_or_loss_cost * annual_vol * stress;
   const moneyAtRisk = Math.max(0, riskCost - bestNpv * (1 - stress));
   outputs["out_money_at_risk"] = round(moneyAtRisk, 4);
 

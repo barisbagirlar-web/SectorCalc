@@ -28,8 +28,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const lr = get(inputs, "n_labor_rate");
   const oh = get(inputs, "n_overhead_rate");
   const conf = get(inputs, "n_source_confidence_ratio");
-  const agw = lr > 100 ? lr : lr * 2080;
-  if (lr < 100) warnings.push("n_labor_rate expected as annual salary, treated as hourly");
+  const agw = lr * 2080;
+  if (lr > 500) warnings.push("n_labor_rate exceeds 500 $/h, verify hourly rate");
   const etr = 0.225;
   const et = agw * etr;
   const hi = 5000;

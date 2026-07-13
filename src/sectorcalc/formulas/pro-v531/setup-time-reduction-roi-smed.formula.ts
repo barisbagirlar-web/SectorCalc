@@ -34,10 +34,10 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const oh = get(inputs, "n_overhead_rate");
   const conf = get(inputs, "n_source_confidence_ratio");
   const saved = st * 0.5;
-  const ac = bq > 0 ? vol / bq : 0;
-  const ahr = saved * ac / 60;
+  const ac = bq > 0 ? vol * 31536000 / bq : 0;
+  const ahr = saved * ac / 3600;
   const acv = ahr * (mr - lr);
-  const ass = saved * ac / 60 * mr;
+  const ass = saved * ac / 3600 * mr;
   const ic = oh > 0 ? oh * 0.3 : 50000;
   const pbm = ass > 0 ? (ic / ass) * 12 : 999;
   const roi = ic > 0 ? (ass / ic) * 100 : 0;

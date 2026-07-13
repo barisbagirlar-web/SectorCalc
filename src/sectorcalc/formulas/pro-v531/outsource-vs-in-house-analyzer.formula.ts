@@ -72,8 +72,12 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const capacityUtilizationPct = get(inputs, "n_capacity_utilization_pct");
   const sourceConfidenceRatio = get(inputs, "n_source_confidence_ratio");
 
+  // Annualize volume (input is per-second)
+  const SECONDS_PER_YEAR = 31536000;
+  const annual_vol = annualVolume * SECONDS_PER_YEAR;
+
   // Core calculations
-  const setupCostPerUnit = safeDiv(setupCost, Math.max(annualVolume, 1));
+  const setupCostPerUnit = safeDiv(setupCost, Math.max(annual_vol, 1));
   const inHouseUnitCost = materialCost + laborCost + overhead + setupCostPerUnit;
   const inHouseTotalCost = inHouseUnitCost * annualVolume;
   const outsourceUnitCost = outsourceUnitPrice + logisticsCost;

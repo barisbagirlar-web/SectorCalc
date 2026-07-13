@@ -41,7 +41,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   if (!isFiniteNumber(inputs["n_rework_quantity"])) warnings.push("Missing: n_rework_quantity");
 
   const scrap_cost = scrap_quantity * (unit_material_cost + unit_labor_cost);
-  const rework_cost = rework_quantity * rework_labor_rate * rework_time_per_unit;
+  const rework_cost = rework_quantity * rework_labor_rate * rework_time_per_unit / 3600;
   const total_defect_units = scrap_quantity + rework_quantity;
   const defect_cost_per_unit = total_defect_units > 0 ? (scrap_cost + rework_cost) / total_defect_units : 0;
   const monthly_quality_loss = total_produced > 0 ? (scrap_cost + rework_cost) * (monthly_volume / total_produced) : 0;
