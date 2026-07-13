@@ -40,9 +40,12 @@ import type { UniversalCalculationResult } from "@/sectorcalc/pro-form/contract-
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 import { initBarisFormulaRegistry, LIVE_BATCH_KEYS } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
-import { resolveFormulaModule, hasFormulaModule } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
-import type { ProFormulaModule } from "@/sectorcalc/formulas/pro-v531/pro-formula-contract";
-// Initialize formula registry — explicit call with result used to prevent Webpack tree-shaking
+import { resolveFormulaModule } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
+import {
+  validateFormulaModuleBinding,
+  validateFormulaResultContract,
+} from "@/sectorcalc/formulas/pro-v531/formula-schema-contract";
+
 if (initBarisFormulaRegistry() < (LIVE_BATCH_KEYS?.size ?? 0)) {
   throw new Error("Baris PRO formula registry initialization failed — schema resolution will be unavailable");
 }
@@ -56,15 +59,9 @@ import {
   PRODUCT_KEYS,
 } from "@/lib/credits/product-usage-policy";
 
-// All 135 Pro formula modules are auto-generated generic templates with
-// identical placeholder outputs. V5.4 Core — the compressed air leak cost
-// Pro pilot is the first genuine domain-specific Pro formula module.
-
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
-
-// ── Tool key resolver (API compatibility: accept multiple field names) ──
 
 function resolveToolKey(body: Record<string, unknown>): string | null {
   return (
@@ -78,8 +75,6 @@ function resolveToolKey(body: Record<string, unknown>): string | null {
     null
   );
 }
-
-// ── PASS 1: Static Schema / Binding Control (Section 12) ──
 
 interface Pass1Result {
   ok: boolean;
@@ -103,7 +98,6 @@ function pass1StaticControl(toolKey: string, schema: unknown): Pass1Result {
   return { ok: true, schema: validation.schema, errors: [] };
 }
 
-// ── PASS 2: Runtime Determinism / Calculation (Section 12) ──
 export interface Pass2Result {
   ok: boolean;
   pipelineState: string;
@@ -126,7 +120,6 @@ export async function pass2RuntimeExecution(
   const warnings: ServerWarning[] = [];
   const errors: string[] = [];
 
-  // S1: Extract raw numeric inputs — supports both flat numbers and structured input objects
   const rawNumericInputs: Record<string, number> = {};
   for (const [key, value] of Object.entries(body.raw_inputs)) {
     if (typeof value === "number") {
@@ -136,14 +129,12 @@ export async function pass2RuntimeExecution(
         rawNumericInputs[key] = value;
       }
     } else if (typeof value === "object" && value !== null) {
-      // Structured input: { display_value, display_unit, base_unit, base_value }
       const obj = value as Record<string, unknown>;
       const numericVal = typeof obj.display_value === "number" ? obj.display_value
         : typeof obj.base_value === "number" ? obj.base_value
         : undefined;
       if (numericVal !== undefined && Number.isFinite(numericVal)) {
         rawNumericInputs[key] = numericVal;
-        // Populate selected_units from structured input's display_unit if available
         if (typeof obj.display_unit === "string" && obj.display_unit) {
           if (!body.selected_units) body.selected_units = {};
           if (!body.selected_units[key]) {
@@ -159,22 +150,17 @@ export async function pass2RuntimeExecution(
     return failResult("NON_FINITE_INPUT", errors);
   }
 
-  // S2: Validate required inputs — with structured error codes
   const knownInputIds = new Set(validatedSchema.inputs.map(i => i.id));
   const receivedInputIds = new Set(Object.keys(body.raw_inputs));
 
-  // Check for unknown input keys
   const unknownKeys: string[] = [];
   for (const key of receivedInputIds) {
-    if (!knownInputIds.has(key)) {
-      unknownKeys.push(key);
-    }
+    if (!knownInputIds.has(key)) unknownKeys.push(key);
   }
   if (unknownKeys.length > 0) {
     return failResult("INPUT_KEY_UNKNOWN", [`Unknown input keys: ${unknownKeys.join(", ")}`]);
   }
 
-  // Check for missing required input keys
   const missingRequiredKeys: string[] = [];
   for (const inp of validatedSchema.inputs) {
     if (inp.required) {
@@ -196,12 +182,9 @@ export async function pass2RuntimeExecution(
     return failResult("INPUT_KEY_MISSING", [`Missing required inputs: ${missingRequiredKeys.join(", ")}`]);
   }
 
-  // S3: Validate selected units
   for (const [inputId, unit] of Object.entries(body.selected_units)) {
     const inp = validatedSchema.inputs.find((i) => i.id === inputId);
     if (inp && inp.unit_selectable) {
-      // Allow the base unit even if not in allowed_display_units — the normalizer
-      // handles displayUnit === baseUnit as an identity conversion.
       if (unit === inp.base_unit) continue;
       if (!inp.allowed_display_units.includes(unit)) {
         errors.push(`Unit "${unit}" is not allowed for input ${inputId}`);
@@ -212,11 +195,6 @@ export async function pass2RuntimeExecution(
     return failResult("INVALID_UNIT", errors);
   }
 
-  // S5: Unit normalization (moved before physical bounds check so that
-  // raw display-unit values are converted to base-unit values first.
-  // Physical bounds are defined in base-unit, so the check must happen
-  // after normalization to avoid false BLOCKED (e.g. percent entered as
-  // 18 but ratio bound max=0.95).
   const conversionRegistry = validatedSchema.unit_conversion_contract.conversion_registry;
   const { normalized, errors: normErrors } = normalizeInputs(
     rawNumericInputs,
@@ -228,15 +206,11 @@ export async function pass2RuntimeExecution(
     return failResult("UNIT_NORMALIZATION_FAILED", normErrors.map((e) => e.reason));
   }
 
-  // Helper: get numeric value from normalized
   const getNum = (id: string): number | null => {
     const n = normalized[id];
     return n && typeof n.baseValue === "number" ? n.baseValue : null;
   };
 
-  // S4 (moved after normalization): Physical bounds check on normalized base values
-  // Physical_hard_bounds are defined in base_unit, and normalized values are in base_unit,
-  // so the comparison is now dimensionally correct.
   const normalizedForBoundCheck = validatedSchema.inputs.reduce((acc, inp) => {
     const nv = getNum(inp.id);
     if (nv !== null) acc[inp.id] = nv;
@@ -263,7 +237,6 @@ export async function pass2RuntimeExecution(
     });
   }
 
-  // S6: Build normalized input audit
   const normalizedAudit: NormalizedInputAudit[] = validatedSchema.inputs.map((inp) => {
     const rawVal = rawNumericInputs[inp.id] ?? null;
     const norm = normalized[inp.id];
@@ -278,7 +251,6 @@ export async function pass2RuntimeExecution(
     };
   });
 
-  // S7: Schema hash verification (advisory)
   if (body.client_schema_hash) {
     const expectedHash = SchemaRegistry.computeSchemaHash(validatedSchema);
     if (body.client_schema_hash !== expectedHash) {
@@ -291,9 +263,6 @@ export async function pass2RuntimeExecution(
     }
   }
 
-  // S8: Reference range evaluation — use normalized base values so that
-  // display units (e.g. percent=18) are compared against ranges defined in
-  // base units (e.g. ratio=0.05-0.7), not against raw display values.
   const normalizedForRange: Record<string, number> = {};
   for (const inp of validatedSchema.inputs) {
     const nv = getNum(inp.id);
@@ -312,7 +281,6 @@ export async function pass2RuntimeExecution(
     });
   }
 
-  // S9: Formula registry binding (advisory)
   const schemaHash = SchemaRegistry.computeSchemaHash(validatedSchema);
   const formulaRecord = formulaRegistry.fetchBySchemaHash(schemaHash);
   if (formulaRecord) {
@@ -329,7 +297,6 @@ export async function pass2RuntimeExecution(
     });
   }
 
-  // S10: Derating engine (stub)
   const deratingContract = validatedSchema.derating_contract;
   const rulesField = (deratingContract as any)?.rules;
   const deRatingRules = Array.isArray(rulesField)
@@ -365,14 +332,10 @@ export async function pass2RuntimeExecution(
     });
   }
 
-  // S11: Formula execution — Permanent Governance Engine
-  // Path A (PRIMARY): .formula.ts module for all LIVE tools (20 tools)
-  // Path B (FALLBACK): typed-op registry engine for compressed-air pilot
-  // Path C (RESTRICTED): schema fallback — BLOCKED for paid PRO, allowed only for dev/diagnostic
   let outputs: ServerOutput[];
   let formulaEngineErrors: string[] = [];
+  let formulaStatus: CalcStatus | null = null;
 
-  // Build normalized input map for engine from raw numeric inputs
   const engineNormInputs: Record<string, { baseValue: number; baseUnit: string; quantityKind: string }> = {};
   for (const inp of validatedSchema.inputs) {
     const rawVal = getNum(inp.id);
@@ -385,63 +348,91 @@ export async function pass2RuntimeExecution(
     }
   }
 
-  // Build flat normalized numeric dict (normalized_id → baseValue) for .formula.ts modules
   const flatNormInputs: Record<string, number> = {};
   for (const [k, v] of Object.entries(engineNormInputs)) {
     flatNormInputs[k] = v.baseValue;
   }
 
-  // Look up formula registry for this tool
   const schemaMetadata = validatedSchema.metadata;
-  const registryRecord = formulaRegistry.fetch(validatedSchema.tool_id, schemaMetadata?.formula_version ?? "1.0.0");
-  const isSchemaFallbackForbidden = !(process.env.NODE_ENV === "development" || body.user_profile_mode === "diagnostic");
+  const registryRecord = formulaRegistry.fetch(
+    validatedSchema.tool_id,
+    schemaMetadata?.formula_version ?? "1.0.0",
+  );
+  const isSchemaFallbackAllowed =
+    process.env.NODE_ENV === "development" &&
+    process.env.ALLOW_PRO_SCHEMA_FALLBACK === "true";
 
-  // Check if registry nodes are all PASS_THROUGH stubs (empty input_refs = no real calculation)
   const isPassThroughStub = registryRecord
     && registryRecord.nodes.length > 0
     && registryRecord.nodes.every((n) => n.operation === "PASS_THROUGH" && n.input_refs.length === 0);
 
-  // Path A (PRIMARY): formula module execution for all LIVE tools
   const toolKey = validatedSchema.tool_key;
   const formulaModule = toolKey ? resolveFormulaModule(toolKey) : null;
 
   if (formulaModule?.calculate) {
-    // PERMANENT ENGINE GOVERNANCE: Formula module is the only real execution source for LIVE tools
+    const bindingErrors = validateFormulaModuleBinding(
+      validatedSchema,
+      formulaModule,
+      flatNormInputs,
+    );
+    if (bindingErrors.length > 0) {
+      return failResult("FORMULA_SCHEMA_CONTRACT_MISMATCH", bindingErrors);
+    }
+
     const moduleResult = formulaModule.calculate(flatNormInputs);
+    const resultErrors = validateFormulaResultContract(
+      validatedSchema,
+      formulaModule,
+      moduleResult,
+    );
+    if (resultErrors.length > 0) {
+      return failResult("FORMULA_RESULT_CONTRACT_MISMATCH", resultErrors);
+    }
+
     const moduleOutputs = moduleResult.outputs ?? {};
     const moduleWarnings = moduleResult.warnings ?? [];
     const moduleStatus = moduleResult.status ?? "OK";
+    formulaStatus = moduleStatus;
 
     outputs = (validatedSchema.outputs || []).map((o) => {
       const val = moduleOutputs[o.id];
       return {
         id: o.id,
         name: o.name,
-        value: typeof val === "number" ? val : (val ?? null),
-        status: (moduleStatus === "OK" && typeof val === "number" && Number.isFinite(val)) ? "OK" as CalcStatus : "REVIEW" as CalcStatus,
+        value: typeof val === "number" ? val : null,
+        status:
+          typeof val === "number" && Number.isFinite(val)
+            ? moduleStatus as CalcStatus
+            : "BLOCKED" as CalcStatus,
         public_explanation: o.public_explanation ?? "",
         decision_use: o.decision_use ?? "",
       };
     });
 
+    const warningSeverity: Severity =
+      moduleStatus === "BLOCKED"
+        ? "CRITICAL"
+        : moduleStatus === "REVIEW"
+          ? "REVIEW"
+          : "WARNING";
     for (const w of moduleWarnings) {
       warnings.push({
-        id: "formula_module", severity: "WARNING",
+        id: "formula_module", severity: warningSeverity,
         message: w,
-        why_it_matters: "Formula module reported a warning.",
-        suggested_action: "Review input values.",
+        why_it_matters: "Formula module reported a decision condition.",
+        suggested_action: "Review input values and source evidence.",
       });
     }
 
     formulaEngineErrors = moduleWarnings;
   } else if (registryRecord && registryRecord.nodes.length > 0 && !isPassThroughStub) {
-    // Path B (FALLBACK): typed-op registry engine (compressed-air-leak-cost-calculator pilot)
     const engineResult = executeFormulaGraph(registryRecord.nodes, {
       normalizedInputs: engineNormInputs,
       formulaVersion: registryRecord.formula_version,
     });
 
     formulaEngineErrors = engineResult.errors;
+    formulaStatus = engineResult.errors.length > 0 ? "REVIEW" : "OK";
 
     const engineOutputMap = new Map(engineResult.outputs.map((o) => [o.id, o]));
     outputs = (validatedSchema.outputs || []).map((o) => {
@@ -466,13 +457,12 @@ export async function pass2RuntimeExecution(
       });
     }
 
-    // V5.4 Core — Post-process string enum outputs for the Pro pilot
     const proOutputKeys = ["decision_status", "governing_driver"];
     const schemaOutputDefs = (validatedSchema.outputs || []).filter((o) => proOutputKeys.includes(o.id));
     outputs = postProcessProOutputs(outputs, schemaOutputDefs);
-  } else if (!isSchemaFallbackForbidden) {
-    // Path C (RESTRICTED): schema fallback — only in dev/diagnostic mode
-    formulaEngineErrors.push(`Schema fallback used for tool ${validatedSchema.tool_id} (dev/diagnostic mode only).`);
+  } else if (isSchemaFallbackAllowed) {
+    formulaStatus = "REVIEW";
+    formulaEngineErrors.push(`Schema fallback used for tool ${validatedSchema.tool_id} in explicitly enabled development mode.`);
     outputs = (validatedSchema.outputs || []).map((o) => ({
       id: o.id,
       name: o.name,
@@ -484,18 +474,16 @@ export async function pass2RuntimeExecution(
 
     warnings.push({
       id: "schema_fallback_dev_mode", severity: "WARNING",
-      message: `Schema fallback used (dev/diagnostic): ${validatedSchema.tool_id} has no formula module or real registry.`,
-      why_it_matters: "Schema fallback is not a valid execution path — results are not calculated.",
+      message: `Schema fallback used in explicitly enabled development mode for ${validatedSchema.tool_id}.`,
+      why_it_matters: "Schema fallback is not a valid production execution path.",
       suggested_action: "Add a formula module or register real formula nodes.",
     });
   } else {
-    // BLOCKED: Paid PRO execution with no formula module — forbidden by governance
-    const msg = `PAID_PRO_SCHEMA_FALLBACK=FORBIDDEN: Tool ${validatedSchema.tool_id} has no formula module or real registry. Schema fallback is not permitted for paid PRO execution.`;
+    const msg = `PAID_PRO_SCHEMA_FALLBACK=FORBIDDEN: Tool ${validatedSchema.tool_id} has no formula module or real registry.`;
     formulaEngineErrors.push(msg);
     return failResult("SCHEMA_FALLBACK_FORBIDDEN", [msg]);
   }
 
-  // V5.4 Core — Contribution margin blocker for Free pilot
   const cmOutput = outputs.find((o) => o.id === "contribution_margin_per_unit");
   if (cmOutput && typeof cmOutput.value === "number" && cmOutput.value <= 0) {
     warnings.push({
@@ -507,11 +495,13 @@ export async function pass2RuntimeExecution(
     return failResult("CONTRIBUTION_MARGIN_BLOCKED", ["Contribution margin must be greater than zero."]);
   }
 
-  // S12: Sensitivity analysis
   const sensInputs = validatedSchema.inputs
     .filter((i) => typeof getNum(i.id) === "number")
     .map((i) => ({ id: i.id, name: i.name, value: getNum(i.id) as number }));
-  const { items: sensitivityItems, warnings: sensWarnings } = analyzeSensitivity(sensInputs, outputs.map((o) => ({ id: o.id, name: o.name, value: Number(o.value) || 0 })));
+  const { items: sensitivityItems, warnings: sensWarnings } = analyzeSensitivity(
+    sensInputs,
+    outputs.map((o) => ({ id: o.id, name: o.name, value: Number(o.value) || 0 })),
+  );
   for (const w of sensWarnings) {
     warnings.push({
       id: "sens_warn", severity: "INFO",
@@ -521,7 +511,6 @@ export async function pass2RuntimeExecution(
     });
   }
 
-  // S13: Compute decision interpretation
   const decisionResult = computeDecision({
     outputs,
     warnings,
@@ -530,8 +519,9 @@ export async function pass2RuntimeExecution(
     })),
     riskLevel: boundsCheck.violations.length > 0 ? "MEDIUM" : "LOW",
     moneyAtRisk: null,
-    currency: null,
+    currency: body.display_currency ?? null,
     mainCostDriver: null,
+    formulaStatus,
   });
 
   const decisionInterpretation: DecisionInterpretation = {
@@ -550,7 +540,6 @@ export async function pass2RuntimeExecution(
     premium_unlock_reason: "",
   };
 
-  // S14: Compute output hash
   const outputHash = computeHash(
     JSON.stringify(outputs.map((o) => `${o.id}:${String(o.value)}`).sort()),
   );
@@ -581,7 +570,6 @@ function failResult(state: string, errs: string[]): Pass2Result {
   };
 }
 
-// ── PASS 3: Public Output + Audit / Export Control (Section 12) ──
 export interface Pass3Result {
   ok: boolean;
   response: ExecuteResponse;
@@ -593,7 +581,6 @@ export function pass3PublicControl(
   validatedSchema: SuperV4Schema,
   pass2Result: Pass2Result,
 ): Pass3Result {
-  // Build proof pack
   const sections: PublicProofPack["sections"] = [];
 
   sections.push({
@@ -632,7 +619,6 @@ export function pass3PublicControl(
 
   const proofPack: PublicProofPack = { enabled: true, redaction_status: "PUBLIC_SAFE_REDACTED", sections };
 
-  // Compute audit seal
   const inputHash = computeHash(JSON.stringify(body.raw_inputs));
   const schemaHash = SchemaRegistry.computeSchemaHash(validatedSchema);
 
@@ -645,7 +631,6 @@ export function pass3PublicControl(
     runtimeVersion: "superv4-v5.3-runtime-1.0.0",
   });
 
-  // Build full ExecuteResponse
   const response: ExecuteResponse = {
     status: pass2Result.pipelineState as CalcStatus,
     pipeline_state: pass2Result.pipelineState,
@@ -662,7 +647,6 @@ export function pass3PublicControl(
     redaction_status: "PUBLIC_SAFE_REDACTED",
   };
 
-  // Apply redaction
   const { response: safeResponse, status: redactionStatus } = redactPublicResponse(response);
 
   return {
@@ -672,9 +656,7 @@ export function pass3PublicControl(
   };
 }
 
-// ── Endpoint ──
 export async function POST(request: NextRequest): Promise<NextResponse> {
-  // Baris PRO tracking vars — hoisted to function scope for catch access
   let userId: string | null = null;
   let userEmail: string | null = null;
   let keyWasDeducted = false;
@@ -685,7 +667,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const rawBody: Record<string, unknown> = await request.json();
     toolKey = resolveToolKey(rawBody);
 
-    // Normalize input fields: accept inputs/values as aliases for raw_inputs
     if (rawBody.raw_inputs === undefined || rawBody.raw_inputs === null) {
       rawBody.raw_inputs = (rawBody.inputs as Record<string, unknown>) ?? (rawBody.values as Record<string, unknown>) ?? {};
     }
@@ -698,51 +679,16 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     const body = rawBody as unknown as ExecuteRequest;
 
-    // PASS 1 — Static Schema / Binding Control
-    // Schema is resolved from the Pro/Free V5.3.1 schema registry via resolveApprovedToolSchema.
     let schemaResult: import("@/sectorcalc/runtime/resolve-approved-tool-schema").ApprovedSchemaResult = toolKey
       ? resolveApprovedToolSchema(toolKey)
       : { ok: false, reason: "SCHEMA_NOT_FOUND", errors: ["Missing tool_key or tool_id"] };
 
-    // Fallback: try direct Free schema loading if resolver fails
-    // (handles dev HMR edge cases where the schema loader cache is stale).
     if (!schemaResult.ok && toolKey) {
       const directFree = getFreeToolSchema(toolKey);
       if (directFree) {
         const val = validateSuperV4Schema(directFree);
         if (val.ok) {
           schemaResult = { ok: true, schema: val.schema, source: "free_v531" };
-        }
-      }
-    }
-
-    // Fallback: if schema not found but tool is in formula registry, create minimal schema
-    // This handles deployed SSR environments where schema files may not be at the expected path.
-    if (!schemaResult.ok && toolKey) {
-      const registryRecord = formulaRegistry.fetchByToolKey(toolKey);
-      if (registryRecord) {
-        // Create a minimal schema from registry record data
-        const minimalSchema: Record<string, unknown> = {
-          tool_id: registryRecord.tool_id,
-          tool_key: registryRecord.tool_key,
-          tool_name: toolKey.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-          category: "PRO",
-          decision_context: {
-            system_boundary: "Baris PRO tool — schema derived from formula registry",
-            decision_owner: "operator",
-          },
-          inputs: [],
-          outputs: registryRecord.nodes.map((n) => ({
-            id: n.output_ref,
-            name: n.output_ref,
-            type: "string",
-          })),
-          formulas: [],
-          unit_conversion_contract: { conversion_registry: {} },
-        };
-        const val = validateSuperV4Schema(minimalSchema);
-        if (val.ok) {
-          schemaResult = { ok: true, schema: val.schema, source: "pro_v531" };
         }
       }
     }
@@ -769,9 +715,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     const validatedSchema = pass1.schema!;
 
-    // V5.3.1 — Baris PRO Entitlement & Execution Guard
-    // Block assisted dossier tools immediately.
-    // Block instant calculators unless entitled.
     const barisBlockReason = getBarisExecutionBlockReason(toolKey ?? "");
     if (barisBlockReason === "ASSISTED_DOSSIER_ONLY") {
       const errorResponse = buildFullBlockedResponse(
@@ -783,13 +726,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     if (barisBlockReason === null && toolKey) {
-      // This is a Baris tool. Check entitlement before execution.
       const product = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey!));
       if (product) {
-        // ── Firebase Auth verification ────────────────────────────────
-        // Priority 1: Verify Firebase Auth ID token from Authorization header.
-        // Priority 2: Fall back to usageSessionId "bypass-unlimited" for admin bypass.
-        // Priority 3: x-user-email for admin testing only.
         let verifiedUserId: string | null = null;
         let verifiedEmail: string | null = null;
         let authMethod: "token" | "bypass" | "none" = "none";
@@ -806,11 +744,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
               authMethod = "token";
             }
           } catch {
-            // Token verification failed — fall through to bypass check
+            // Token verification failed — fall through to bypass check.
           }
         }
 
-        // Owner bypass: usageSessionId "bypass-unlimited" or x-user-email header
         if (authMethod === "none") {
           const rawUsageSessionId = (rawBody as Record<string, unknown>).usageSessionId;
           if (rawUsageSessionId === "bypass-unlimited") {
@@ -826,17 +763,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           }
         }
 
-        // Set outer-scope vars for downstream use (key deduction, etc.)
         userId = verifiedUserId;
         userEmail = verifiedEmail;
 
-        // Session-based path: skip entitlement check + key deduction.
-        // Session creation already verified Firebase Auth + credit balance.
-        // The client now sends Authorization header, but we don't deduct again.
         const rawUsageSessionId2 = (rawBody as Record<string, unknown>).usageSessionId;
         const hasRealSession = rawUsageSessionId2 && rawUsageSessionId2 !== "bypass-unlimited";
         if (hasRealSession) {
-          // Still verify token so we have userId for session validation + run decrement
           if (authMethod !== "token" || !verifiedUserId) {
             const errorResponse = buildFullBlockedResponse(
               "UNAUTHORIZED",
@@ -845,10 +777,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
             const { response: safeResponse } = redactPublicResponse(errorResponse);
             return NextResponse.json(safeResponse, { status: 401 });
           }
-          // Skip entitlement check (already done in session creation)
-          // Skip key deduction (already deducted in session creation)
         } else if (authMethod !== "bypass") {
-          // Direct execution (no session): full entitlement check
           const entitlement = await checkBarisExecutionEntitlement({
             toolKey,
             userId,
@@ -871,10 +800,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
     }
 
-    // ── Product-usage-policy gate (non-Baris, non-free Pro tools) ──
-    // Pro tools that are not Baris INSTANT_PRO_CALCULATOR and not Free
-    // use the centralized product-usage-policy: 1 credit → 3 uses.
-    // Skip when a usageSessionId is present (session already deducted 1 credit).
     let isPaidProTool = false;
     if (!keyWasDeducted && userId && toolKey && !rawBody.usageSessionId) {
       const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey!));
@@ -896,14 +821,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
     }
 
-    // V5.4 Core — Register Free Pilot and Pro Pilot formulas in the formula registry
     registerFreePilotFormulas(validatedSchema);
     registerProPilotFormulas(validatedSchema);
-
-    // ── Key-pool deduction setup (before calculation) ──────────────────
-    // Determine if this is a Baris PRO instant calculator.
-    // If yes, we generate a requestId and deduct atomically with ledger.
-    // Skipped when usageSessionId is present — session already deducted 1 credit.
 
     if (toolKey && userId && !rawBody.usageSessionId) {
       const tk: string = toolKey;
@@ -932,18 +851,23 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
     }
 
-    // ── PASS 2 — Runtime Calculation ──────────────────────────────────
     const pass2 = await pass2RuntimeExecution(body, validatedSchema);
     if (!pass2.ok) {
-      // Refund key if deducted
       if (keyWasDeducted && userId && barisRequestId && toolKey) {
         const { refundBarisProKey } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
         await refundBarisProKey(userId!, toolKey!, barisRequestId!);
         keyWasDeducted = false;
       }
 
-      // Build diagnostic metadata for validation errors (safe — no values or secrets)
-      const validationStates = new Set(["INPUT_KEY_MISSING", "INPUT_KEY_UNKNOWN", "NON_FINITE_INPUT", "INVALID_UNIT", "UNIT_NORMALIZATION_FAILED"]);
+      const validationStates = new Set([
+        "INPUT_KEY_MISSING",
+        "INPUT_KEY_UNKNOWN",
+        "NON_FINITE_INPUT",
+        "INVALID_UNIT",
+        "UNIT_NORMALIZATION_FAILED",
+        "FORMULA_SCHEMA_CONTRACT_MISMATCH",
+        "FORMULA_RESULT_CONTRACT_MISMATCH",
+      ]);
       const hasDiagnostics = validationStates.has(pass2.pipelineState) && validatedSchema;
       const diagnosticInfo = hasDiagnostics ? {
         schema_input_ids: validatedSchema.inputs.map((i: any) => i.id),
@@ -958,10 +882,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       return NextResponse.json(safeResponse, { status: 400 });
     }
 
-    // ── PASS 3 — Public Output + Audit / Export Control ───────────────
     const pass3 = pass3PublicControl(body, validatedSchema, pass2);
     if (!pass3.ok) {
-      // Refund key if deducted
       if (keyWasDeducted && userId && barisRequestId && toolKey) {
         const { refundBarisProKey } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
         await refundBarisProKey(userId!, toolKey!, barisRequestId!);
@@ -973,7 +895,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // ── Premium hook ──────────────────────────────────────────────────
     const freeOutputs: Record<string, number> = {};
     for (const output of pass2.outputs) {
       if (typeof output.value === "number") {
@@ -988,15 +909,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       displayCurrency: body.display_currency ?? null,
     });
 
-    // ── Mark key as EXECUTED (success) ────────────────────────────────
     if (keyWasDeducted && userId && barisRequestId) {
       const { markKeyExecuted } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
       await markKeyExecuted(userId!, barisRequestId!);
     }
 
-    // ── Decrement session remainingRuns ──────────────────────────────
-    // When usageSessionId is present (session-based auth), decrement the
-    // session's remainingRuns atomically with idempotency protection.
     if (rawBody.usageSessionId && rawBody.usageSessionId !== "bypass-unlimited" && userId && toolKey) {
       const { decrementProSessionRuns } = await import("@/lib/credits/tool-usage-session.server");
       try {
@@ -1008,23 +925,20 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           selectedUnits: rawBody.selected_units,
         });
       } catch {
-        // Non-blocking — session decrement failure should not block the
-        // calculation response. Will be retried on next execution.
+        // Non-blocking; retried on the next execution.
       }
     }
 
-    // ── Decrement product use (non-Baris Pro tools) ─────────────────
     if (isPaidProTool && userId) {
       await decrementProductUse(userId, PRODUCT_KEYS.PRO_TOOLS);
     }
 
-    // Enrich with Universal Result Perspectives for Pro tools (V5.4)
     let universalResult: UniversalCalculationResult | undefined;
     try {
       const ur = buildUniversalResult(validatedSchema, body.raw_inputs ?? {}, pass3.response.outputs ?? []);
       if (ur) universalResult = ur;
     } catch {
-      // non-blocking — Pro tools still get normal response
+      // Non-blocking — Pro tools still get normal response.
     }
 
     return NextResponse.json(
@@ -1032,13 +946,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       { status: 200 },
     );
   } catch (error) {
-    // ── Catch-all: refund key on unhandled exception ──────────────────
     if (keyWasDeducted && userId && barisRequestId && toolKey) {
       try {
         const { refundBarisProKey } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
         await refundBarisProKey(userId!, toolKey!, barisRequestId!);
       } catch {
-        // Best-effort — log already emitted by refundBarisProKey
+        // Best-effort refund.
       }
     }
     const message = error instanceof Error ? error.message : "Unknown server error";
@@ -1048,8 +961,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   }
 }
-
-// ── Helpers ──
 
 function emptyDecision(state: string): DecisionInterpretation {
   return {
@@ -1101,7 +1012,7 @@ export function buildFullBlockedResponse(pipelineState: string, reason: string):
       inputHash: computeHash("empty"),
       outputHash: computeHash("blocked"),
       schemaHash: computeHash("unknown"),
-      formulaVersion: "stub",
+      formulaVersion: "blocked",
       schemaVersion: "0.0.0",
       runtimeVersion: "superv4-v5.3-runtime-1.0.0",
     }),
