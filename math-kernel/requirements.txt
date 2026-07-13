@@ -1,0 +1,23 @@
+# SectorCalc Math Kernel - Python Dependencies
+# C-XSC-compatible interval arithmetic engine for production financial calculations
+
+# Core mathematical kernel
+sympy>=1.13,<2.0       # Symbolic mathematics (formal proof basis)
+mpmath>=1.3,<2.0        # High-precision arithmetic with interval support (mpmath.iv)
+numpy>=1.26,<2.0        # Array operations for batch scenarios
+
+# Web framework
+fastapi>=0.110,<1.0     # REST API for Next.js integration
+uvicorn[standard]>=0.29,<1.0  # ASGI server
+
+# Data validation
+pydantic>=2.7,<3.0      # Request/response schema validation (lower_bound, upper_bound required)
+
+# Testing
+pytest>=8.0,<9.0        # Test framework
+pytest-cov>=5.0,<6.0    # Coverage reporting
+hypothesis>=6.100,<7.0  # Property-based testing (CI/CD gate)
+
+# Infrastructure
+pyyaml>=6.0,<7.0        # CI/CD YAML generation
+cachetools>=5.3,<6.0    # TTLCache for interval arithmetic (%15-20 CPU reduction)

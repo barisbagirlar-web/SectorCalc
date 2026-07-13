@@ -136,6 +136,17 @@
     "guard:no-duplicate-empty-inputs": "node scripts/guard-no-duplicate-empty-inputs.mjs",
     "guard:mobile-form-state-machine": "node scripts/guard-mobile-form-state-machine.mjs",
     "stop:builds": "pkill -f 'next build' 2>/dev/null; pkill -f 'next-build-with-500' 2>/dev/null; pkill -f 'next-firebase-deploy' 2>/dev/null; pkill -f 'firebase-hosting-build' 2>/dev/null; rm -f .sectorcalc-build.lock .next-deploy.lock; echo 'Build processes cleaned.'",
+    "math:install": "cd math-kernel && pip install -r requirements.txt",
+    "math:test": "cd math-kernel && python -m pytest tests/ --verbose --tb=short -x",
+    "math:test:strict": "cd math-kernel && python -m pytest tests/ --verbose --tb=short --strict-bounds -x",
+    "math:test:hypothesis": "cd math-kernel && python -m pytest tests/test_interval_engine.py::TestHypothesisProperties --verbose --tb=long -x",
+    "math:test:api": "cd math-kernel && python -m pytest tests/test_api.py --verbose --tb=short -x",
+    "math:mms": "cd math-kernel && python -m mms_generator",
+    "math:mms:run": "cd math-kernel && python -c 'from api import app; import json, requests; print(\"MMS suite ready at /mms/run\")'",
+    "math:serve": "cd math-kernel && python api.py",
+    "math:kernel:health": "curl -s http://127.0.0.1:8081/health | python -m json.tool",
+    "math:verify": "cd math-kernel && python -m pytest tests/ --verbose --tb=short --strict-bounds --cov=. --cov-report=term -x",
+    "guard:math-kernel-schema": "node scripts/guard-math-kernel-schema.mjs",
     "deploy": "node scripts/deploy-production.mjs"
   },
   "dependencies": {

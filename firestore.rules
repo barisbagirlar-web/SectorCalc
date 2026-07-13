@@ -15,6 +15,28 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // ── Math Kernel Calculation Results ─────────────────────────────────
+    // Elite security: frontend clients CANNOT manipulate ulp_error_margin.
+    // Only backend (Admin SDK) or kernel-authenticated writes pass through.
+    // Mathematical integrity: value MUST be within [lower_bound, upper_bound].
+    match /calculations/{calcId} {
+      allow read: if true;
+      allow create: if
+        request.auth != null
+        && request.resource.data.keys().hasAll([
+          'value',
+          'lower_bound',
+          'upper_bound',
+          'ulp_error_margin',
+        ])
+        && request.resource.data.ulp_error_margin is number
+        && request.resource.data.ulp_error_margin >= 0
+        && request.resource.data.value is number
+        && request.resource.data.value >= request.resource.data.lower_bound
+        && request.resource.data.value <= request.resource.data.upper_bound;
+      allow update, delete: if false;
+    }
+
     match /leadIntents/{leadId} {
       allow read: if isAuthenticatedAdmin();
       allow update, delete: if false;

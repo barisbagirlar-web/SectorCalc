@@ -1,0 +1,71 @@
+# SectorCalc Math Kernel — VPC Serverless Connector
+#
+# Isolates the Python math kernel from the public internet.
+# Only the Next.js application (running in the same VPC) can reach it.
+# Replace YOUR_PROJECT and REGION with actual values before deploying.
+#
+# Deployment:
+#   1. Create VPC connector:
+#      gcloud compute networks vpc-access connectors create math-vpc \
+#        --region=REGION \
+#        --network=default \
+#        --range=10.8.0.0/28
+#
+#   2. Deploy Cloud Run service:
+#      gcloud run deploy math-kernel \
+#        --image=gcr.io/YOUR_PROJECT/math-kernel \
+#        --platform=managed \
+#        --region=REGION \
+#        --no-allow-unauthenticated \
+#        --vpc-connector=math-vpc \
+#        --vpc-egress=private-ranges-only
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: math-kernel
+  labels:
+    app: sectorcalc-math-kernel
+    tier: backend
+spec:
+  template:
+    metadata:
+      annotations:
+        # VPC Access: only internal traffic from Next.js
+        run.googleapis.com/vpc-access-connector: projects/YOUR_PROJECT/locations/REGION/connectors/math-vpc
+        run.googleapis.com/vpc-access-egress: private-ranges-only
+        # CPU always-on for low latency (no cold start)
+        run.googleapis.com/cpu-throttling: "false"
+        # Min instances for baseline throughput
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "10"
+    spec:
+      containers:
+        - image: gcr.io/YOUR_PROJECT/math-kernel:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: MATH_KERNEL_PORT
+              value: "8081"
+            - name: PYTHONUNBUFFERED
+              value: "1"
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8081
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8081
+            periodSeconds: 60
+      # Service account with minimal permissions
+      serviceAccountName: math-kernel-sa@YOUR_PROJECT.iam.gserviceaccount.com
+      # Timeout should match the Next.js proxy timeout (30s)
+      timeoutSeconds: 30

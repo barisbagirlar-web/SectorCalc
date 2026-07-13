@@ -25,7 +25,7 @@ function get(inputs: Record<string, number>, key: string): number {
 }
 
 function safeDiv(n: number, d: number): number {
-  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
+  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return NaN;
   return n / d;
 }
 

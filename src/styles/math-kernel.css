@@ -1,0 +1,404 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+ * SectorCalc Math Kernel — Bounded Result Display Styles
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * Design: Premium, restrained, audit-grade.
+ * Colors: bg #F0EEE6, ink #1A1915, accent #BD5D3A.
+ * Follows PRO tool design lock (pro-* prefix for consistency).
+ * Radius: 0px (design token locked).
+ */
+
+/* ── Math Kernel Panel ────────────────────────────────────────────────── */
+
+.math-kernel-panel {
+  background: #F0EEE6;
+  border: 1px solid #1A1915;
+  padding: 24px;
+  margin-top: 16px;
+}
+
+.math-kernel-panel .kernel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.math-kernel-panel .kernel-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1A1915;
+  margin: 0;
+}
+
+.math-kernel-panel .kernel-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #1A1915;
+  color: #F0EEE6;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ── Loading State ────────────────────────────────────────────────────── */
+
+.math-kernel-panel.loading {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.math-kernel-panel.loading .kernel-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #1A1915;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: kernel-spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes kernel-spin {
+  to { transform: rotate(360deg); }
+}
+
+.math-kernel-panel.loading p {
+  color: #1A1915;
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* ── Fallback State ───────────────────────────────────────────────────── */
+
+.math-kernel-panel.fallback {
+  background: #F0EEE6;
+  border-color: #1A1915;
+}
+
+.math-kernel-panel.fallback .fallback-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #1A1915;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.math-kernel-panel.fallback .fallback-icon {
+  font-size: 18px;
+}
+
+/* ── Circuit Fallback State (503/504 — circuit breaker open / timeout) ── */
+
+.math-kernel-panel.circuit-fallback {
+  background: #F0EEE6;
+  border-color: #BD5D3A;
+  border-width: 1px;
+}
+
+.math-kernel-panel.circuit-fallback .fallback-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #1A1915;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.math-kernel-panel.circuit-fallback .fallback-icon {
+  font-size: 18px;
+  color: #BD5D3A;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.math-kernel-panel.circuit-fallback .fallback-text {
+  line-height: 1.5;
+}
+
+.math-kernel-panel.circuit-fallback .fallback-hint {
+  font-size: 12px;
+  color: #BD5D3A;
+  margin-bottom: 12px;
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+}
+
+.math-kernel-panel.circuit-fallback .fallback-disclaimer {
+  font-size: 12px;
+  color: #1A1915;
+  opacity: 0.6;
+  margin: 0 0 16px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ── Retry Button (shared across states) ──────────────────────────────── */
+
+.math-kernel-panel .retry-button {
+  padding: 10px 32px;
+  background: #1A1915;
+  color: #F0EEE6;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.math-kernel-panel .retry-button:hover {
+  opacity: 0.85;
+}
+
+/* ── Error State ──────────────────────────────────────────────────────── */
+
+.math-kernel-panel.error .error-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #BD5D3A;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.math-kernel-panel.error .error-icon {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+/* ── Decision Banner ──────────────────────────────────────────────────── */
+
+.decision-banner {
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border: 1px solid #1A1915;
+  font-size: 16px;
+  font-weight: 600;
+  color: #F0EEE6;
+}
+
+.decision-banner.decision-pass {
+  background: #1A1915;
+  border-color: #1A1915;
+}
+
+.decision-banner.decision-review {
+  background: #BD5D3A;
+  border-color: #BD5D3A;
+}
+
+.decision-banner.decision-hold {
+  background: #1A1915;
+  border-color: #1A1915;
+  opacity: 0.7;
+}
+
+.decision-banner.decision-unknown {
+  background: #1A1915;
+}
+
+/* ── Metrics Grid ─────────────────────────────────────────────────────── */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* ── Bounded Result Badge ─────────────────────────────────────────────── */
+
+.bounded-result-badge {
+  background: #F0EEE6;
+  border: 1px solid #1A1915;
+  padding: 16px;
+  position: relative;
+}
+
+.bounded-result-badge .badge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.bounded-result-badge .badge-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #1A1915;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.bounded-result-badge .badge-status {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+}
+
+.bounded-result-badge .badge-status.status-verified {
+  background: #1A1915;
+  color: #F0EEE6;
+}
+
+.bounded-result-badge .badge-status.status-warning {
+  background: #BD5D3A;
+  color: #F0EEE6;
+}
+
+.bounded-result-badge .badge-status.status-error {
+  background: #1A1915;
+  color: #F0EEE6;
+  opacity: 0.5;
+}
+
+.bounded-result-badge .badge-status.status-fallback {
+  background: transparent;
+  border: 1px dashed #1A1915;
+  color: #1A1915;
+  opacity: 0.5;
+}
+
+.bounded-result-badge .badge-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1A1915;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.bounded-result-badge .badge-interval {
+  margin-bottom: 6px;
+}
+
+.bounded-result-badge .badge-interval .interval-label {
+  font-size: 11px;
+  color: #1A1915;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.bounded-result-badge .badge-interval .interval-range {
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+  font-size: 13px;
+  color: #1A1915;
+  font-weight: 500;
+}
+
+.bounded-result-badge .badge-error-margin {
+  margin-bottom: 0;
+}
+
+.bounded-result-badge .badge-error-margin .margin-label {
+  font-size: 11px;
+  color: #1A1915;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.bounded-result-badge .badge-error-margin .margin-value {
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+  font-size: 13px;
+  color: #BD5D3A;
+  font-weight: 500;
+}
+
+/* ── Warnings Section ─────────────────────────────────────────────────── */
+
+.math-kernel-panel .warnings-section {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: #F0EEE6;
+  border: 1px solid #1A1915;
+}
+
+.math-kernel-panel .warnings-section h4 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #BD5D3A;
+  margin: 0 0 8px;
+}
+
+.math-kernel-panel .warnings-section ul {
+  margin: 0;
+  padding: 0 0 0 16px;
+}
+
+.math-kernel-panel .warnings-section li {
+  font-size: 13px;
+  color: #1A1915;
+  margin-bottom: 4px;
+}
+
+/* ── Explanation ──────────────────────────────────────────────────────── */
+
+.math-kernel-panel .kernel-explanation {
+  padding: 12px 0;
+  border-top: 1px solid #1A1915;
+  border-bottom: 1px solid #1A1915;
+  margin-bottom: 16px;
+}
+
+.math-kernel-panel .kernel-explanation p {
+  font-size: 12px;
+  color: #1A1915;
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.math-kernel-panel .kernel-explanation code {
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+  font-size: 11px;
+  background: #1A1915;
+  color: #F0EEE6;
+  padding: 1px 6px;
+}
+
+/* ── Recalculate Button ───────────────────────────────────────────────── */
+
+.math-kernel-panel .recalculate-button {
+  padding: 10px 32px;
+  background: #1A1915;
+  color: #F0EEE6;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.math-kernel-panel .recalculate-button:hover {
+  opacity: 0.85;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .math-kernel-panel {
+    padding: 16px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .math-kernel-panel .kernel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .bounded-result-badge .badge-value {
+    font-size: 22px;
+  }
+}

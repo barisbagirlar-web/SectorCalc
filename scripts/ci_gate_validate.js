@@ -58,7 +58,22 @@ try {
   fail("npm run lint", "lint errors");
 }
 
-// 5. Schema contract — 25-key top-level check for generated tool schemas
+// 5. Math kernel — verify interval arithmetic engine files exist
+const mathKernelFiles = [
+  "math-kernel/interval_engine.py",
+  "math-kernel/mms_generator.py",
+  "math-kernel/api.py",
+  "math-kernel/requirements.txt",
+];
+for (const f of mathKernelFiles) {
+  if (!fs.existsSync(f)) {
+    fail("math-kernel", `Missing: ${f}`);
+  } else {
+    pass(`math-kernel: ${f}`);
+  }
+}
+
+// 6. Schema contract — 25-key top-level check for generated tool schemas
 const generatedDir = "src/sectorcalc/schemas/free-v531";
 if (fs.existsSync(generatedDir)) {
   const entries = fs.readdirSync(generatedDir, { withFileTypes: true });
