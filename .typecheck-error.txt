@@ -1,6 +1,0 @@
-
-> fresh_app@0.1.0 typecheck
-> NODE_OPTIONS=--max-old-space-size=6144 tsc --noEmit
-
-src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx(612,7): error TS2741: Property 'diagnostic' is missing in type '{ quick: string; engineering: string; cost: string; audit: string; }' but required in type 'Record<ProfileMode, string>'.
-src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx(619,7): error TS2741: Property 'diagnostic' is missing in type '{ quick: string; engineering: string; cost: string; audit: string; }' but required in type 'Record<ProfileMode, string>'.

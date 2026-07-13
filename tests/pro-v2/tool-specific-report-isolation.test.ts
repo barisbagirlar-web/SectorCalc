@@ -30,6 +30,7 @@ const PRO_V2_SLUGS = [
 
 // Tools with truly specific (non-generic) output keys
 const TOOL_SPECIFIC_SLUGS = [
+  "break-even-survival-cash-calculator",
   "true-employee-cost-statement",
   "weld-procedure-cost-consumable-estimation-suite",
 ];
@@ -73,6 +74,14 @@ function readContractRegistry(): string {
   return readFileSync(path, "utf8");
 }
 
+function extractFormulaOutputIds(formula: string): string[] {
+  return Array.from(new Set([
+    ...Array.from(formula.matchAll(/id:\s*["'](out_[a-z_]+)["']/g), (match) => match[1]),
+    ...Array.from(formula.matchAll(/\[["'](out_[a-z_]+)["']\]/g), (match) => match[1]),
+    ...Array.from(formula.matchAll(/\b(out_[a-z_]+)\s*:/g), (match) => match[1]),
+  ]));
+}
+
 describe("PRO V2 Tool-Specific Report Isolation", () => {
   const registryContent = readContractRegistry();
 
@@ -91,11 +100,8 @@ describe("PRO V2 Tool-Specific Report Isolation", () => {
   it.each(PRO_V2_SLUGS)("FORMULA_EXISTS: %s has a formula module", (slug: string) => {
     const formula = readToolFormula(slug);
     expect(formula).not.toBeNull();
-    // Formula must have output declarations
-    // Check that formula has at least some output IDs defined
-    const outputCount = (formula!.match(/id:\s*["']out_[a-z_]+["']/g) || []).length +
-      (formula!.match(/\[["']out_[a-z_]+["']\]/g) || []).length;
-    expect(outputCount).toBeGreaterThan(0);
+    const formulaOutputIds = extractFormulaOutputIds(formula!);
+    expect(formulaOutputIds.length).toBeGreaterThan(0);
   });
 
   it.each(PRO_V2_SLUGS)("REPORT_CONTRACT_EXISTS: %s has a report contract", (slug: string) => {
@@ -130,11 +136,7 @@ describe("PRO V2 Tool-Specific Report Isolation", () => {
     const formula = readToolFormula(slug);
     expect(formula).not.toBeNull();
 
-    // Extract formula output IDs (both `id: "out_xxx"` and `outputs["out_xxx"]` syntax)
-    const formulaOutputIds = [
-      ...Array.from(formula!.matchAll(/id:\s*["'](out_[a-z_]+)["']/g), (m) => m[1]),
-      ...Array.from(formula!.matchAll(/\[["'](out_[a-z_]+)["']\]/g), (m) => m[1]),
-    ];
+    const formulaOutputIds = extractFormulaOutputIds(formula!);
 
     // Every formula output must be declared in schema
     for (const fid of formulaOutputIds) {

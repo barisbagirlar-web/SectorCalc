@@ -145,10 +145,10 @@ describe("Break-Even & Survival Cash cross-tool isolation", () => {
   it("keeps every report entry bound to a declared schema output", async () => {
     const schema = loadSchema();
     const schemaOutputIds = new Set(schema.outputs.map((item) => item.id));
-    const { getProReportContractOverride } = await import(
-      "@/sectorcalc/pro-report/pro-report-contract-overrides"
+    const { getProReportContract } = await import(
+      "@/sectorcalc/pro-report/pro-report-contract-registry"
     );
-    const reportContract = getProReportContractOverride(schema.tool_key);
+    const reportContract = getProReportContract(schema.tool_key);
 
     expect(reportContract).not.toBeNull();
     for (const section of reportContract?.sections ?? []) {

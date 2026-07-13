@@ -5,6 +5,7 @@ import type {
   AuditSeal,
   ExecuteResponse,
   ExecutionState,
+  NormalizedInputAudit,
   ProfileMode,
   ReferenceRangeAudit,
   ServerWarning,
@@ -543,4 +544,18 @@ export function getExecutionStateLabel(state: ExecutionState): string {
     error: "Execution error",
   };
   return labels[state] ?? "Unknown state";
+}
+
+export function createNormalizedAuditFromPreview(
+  items: NormalizedPreviewItem[],
+): NormalizedInputAudit[] {
+  return items.map((item) => ({
+    input_id: item.input_id,
+    normalized_id: item.normalized_id,
+    display_value: item.display_value,
+    display_unit: item.display_unit,
+    base_value: item.base_value,
+    base_unit: item.base_unit,
+    source_status: "CONTEXT_ONLY",
+  }));
 }

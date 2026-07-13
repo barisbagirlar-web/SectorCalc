@@ -7,7 +7,6 @@ import type {
   ReportSection,
 } from "./pro-report-types";
 import { getProReportContract } from "./pro-report-contract-registry";
-import { getProReportContractOverride } from "./pro-report-contract-overrides";
 
 function resolveReportValue(
   value: string | number | boolean | null | undefined,
@@ -43,9 +42,7 @@ function resolveReportUnit(
 }
 
 export function buildProReport(input: ProReportAdapterInput): ProReportAdapterResult | null {
-  const contract =
-    getProReportContractOverride(input.toolSlug) ??
-    getProReportContract(input.toolSlug);
+  const contract = getProReportContract(input.toolSlug);
   if (!contract) return null;
 
   const outputMap = new Map<string, { value: string | number | boolean | null; unit: string | null }>();

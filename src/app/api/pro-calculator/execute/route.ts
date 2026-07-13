@@ -640,7 +640,7 @@ export function pass3PublicControl(
     inputHash,
     outputHash: pass2Result.outputHash,
     schemaHash,
-    formulaVersion: "stub",
+    formulaVersion: validatedSchema.metadata.formula_version,
     schemaVersion: validatedSchema.metadata.schema_version,
     runtimeVersion: "superv4-v5.3-runtime-1.0.0",
   });

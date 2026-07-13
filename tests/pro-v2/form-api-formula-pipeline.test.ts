@@ -7,7 +7,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
-import { normalizeInputs } from "@/sectorcalc/pro-form/unit-normalizer";
+import { normalizeInputs, preservePhysicalQuantity } from "@/sectorcalc/pro-form/unit-normalizer";
 import type { SuperV4Schema, ConversionRegistry } from "@/sectorcalc/pro-form/contract-types";
 import { resolveFormulaModule, getAllModules } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
 import type { ProFormulaModule } from "@/sectorcalc/formulas/pro-v531/pro-formula-contract";
@@ -74,8 +74,24 @@ function buildFormLikePayload(schema: SuperV4Schema): {
     const allowedUnits = inp.allowed_display_units || [bu];
     const unit = inp.unit_selectable && allowedUnits.length > 0 ? allowedUnits[0] : bu;
 
-    // Assign display values for each input
-    if (iid.includes("discount")) val = 10; // 10% display → 0.10 ratio after normalization
+    // Prefer the schema-owned canonical example/default and convert it to the
+    // selected display unit exactly as the production state machine does.
+    const typedInput = inp as typeof inp & { example_value?: unknown };
+    const explicitValue = typedInput.example_value ?? inp.default_value;
+    if (typeof explicitValue === "number" && Number.isFinite(explicitValue)) {
+      if (bu && unit && unit !== bu) {
+        const converted = preservePhysicalQuantity(
+          explicitValue,
+          bu,
+          unit,
+          inp.quantity_kind,
+          (schema.unit_conversion_contract?.conversion_registry || {}) as ConversionRegistry,
+        );
+        val = "newValue" in converted ? converted.newValue : explicitValue;
+      } else {
+        val = explicitValue;
+      }
+    } else if (iid.includes("discount")) val = 10; // 10% display → 0.10 ratio after normalization
     else if (iid.includes("confidence")) val = 0.9;
     else if (iid.includes("stress")) val = 0.3;
     else if (iid.includes("uncertainty")) val = 1.2;
