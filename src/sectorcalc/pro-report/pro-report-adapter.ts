@@ -12,10 +12,18 @@ import { getProReportContractOverride } from "./pro-report-contract-overrides";
 function resolveReportValue(
   value: string | number | boolean | null | undefined,
   valueLabels?: Record<string, string>,
+  valueMultiplier?: number,
 ): string | number | boolean | null {
   if (value === null || value === undefined) return null;
-  if (!valueLabels) return value;
-  return valueLabels[String(value)] ?? value;
+  if (valueLabels) return valueLabels[String(value)] ?? value;
+  if (
+    typeof value === "number" &&
+    typeof valueMultiplier === "number" &&
+    Number.isFinite(valueMultiplier)
+  ) {
+    return value * valueMultiplier;
+  }
+  return value;
 }
 
 export function buildProReport(input: ProReportAdapterInput): ProReportAdapterResult | null {
@@ -32,7 +40,7 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
   const resolvedSections = contract.sections.map((section: ReportSection) => {
     const entries = section.entries.map((entry) => {
       const match = outputMap.get(entry.sourceOutputId);
-      const value = resolveReportValue(match?.value, entry.valueLabels);
+      const value = resolveReportValue(match?.value, entry.valueLabels, entry.valueMultiplier);
       return {
         label: entry.businessLabel,
         value,
