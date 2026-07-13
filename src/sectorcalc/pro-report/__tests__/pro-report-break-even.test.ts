@@ -57,7 +57,7 @@ const completeOutputs = [
 ];
 
 describe("break-even survival cash report contract", () => {
-  it("renders the complete domain report and selected currency", () => {
+  it("renders the complete domain report, selected currency, and governed precision", () => {
     const report = buildProReport({
       toolSlug: "break-even-survival-cash-calculator",
       outputs: completeOutputs,
@@ -90,13 +90,23 @@ describe("break-even survival cash report contract", () => {
     expect(entries.find((entry) => entry.label === "Decision")?.value).toBe(
       "GO",
     );
-    expect(
-      entries.find((entry) => entry.label === "Break-Even Monthly Revenue")
-        ?.unit,
-    ).toBe("EUR/month");
-    expect(
-      entries.find((entry) => entry.label === "Survival Cash Target")?.unit,
-    ).toBe("EUR");
+
+    const breakEvenEntry = entries.find(
+      (entry) => entry.label === "Break-Even Monthly Revenue",
+    );
+    expect(breakEvenEntry?.unit).toBe("EUR/month");
+    expect(breakEvenEntry?.displayDecimals).toBe(2);
+
+    const runwayEntry = entries.find(
+      (entry) => entry.label === "Cash Runway Under Stress",
+    );
+    expect(runwayEntry?.displayDecimals).toBe(2);
+
+    const targetEntry = entries.find(
+      (entry) => entry.label === "Survival Cash Target",
+    );
+    expect(targetEntry?.unit).toBe("EUR");
+    expect(targetEntry?.displayDecimals).toBe(2);
   });
 
   it("fails closed when a strict report output is missing", () => {
