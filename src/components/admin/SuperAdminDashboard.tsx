@@ -94,11 +94,61 @@ export function SuperAdminDashboard() {
     }
   }, [loading, isAdmin, fetchStats]);
 
-  if (loading || !user || !isAdmin) {
-    return null;
+  // ── Always render visible UI — never return null ──
+  const sectionClass = "rounded-sm border border-slate/20 bg-white p-5 shadow-card";
+
+  if (loading) {
+    return (
+      <div className="space-y-8">
+        <div className="rounded-sm border border-slate/20 bg-white p-6 shadow-card">
+          <div className="animate-pulse space-y-4">
+            <div className="h-3 w-24 rounded bg-slate/10" />
+            <div className="h-5 w-64 rounded bg-slate/10" />
+            <div className="h-3 w-96 rounded bg-slate/10" />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="animate-pulse rounded-sm border border-slate/20 bg-white p-5 shadow-card">
+              <div className="h-3 w-20 rounded bg-slate/10" />
+              <div className="mt-3 h-7 w-16 rounded bg-slate/10" />
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-sm text-text-secondary">Verifying admin session...</p>
+      </div>
+    );
   }
 
-  const sectionClass = "rounded-sm border border-slate/20 bg-white p-5 shadow-card";
+  if (!user) {
+    return (
+      <div className="space-y-8">
+        <div className="rounded-sm border border-amber/25 bg-amber/5 p-6 text-center">
+          <p className="text-sm font-semibold text-deep-navy">Admin sign-in required</p>
+          <p className="mt-1 text-xs text-text-secondary">Please sign in to access the admin dashboard.</p>
+          <Link
+            href="/admin/login"
+            className="mt-3 inline-flex min-h-[44px] items-center justify-center rounded-sm bg-accent px-5 text-sm font-bold text-white transition-colors hover:bg-accent/90"
+          >
+            Sign in
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAdmin) {
+    return (
+      <div className="space-y-8">
+        <div className="rounded-sm border border-red/20 bg-red/5 p-6 text-center">
+          <p className="text-sm font-semibold text-red">Access denied</p>
+          <p className="mt-1 text-xs text-text-secondary">
+            Account <span className="font-medium">{user.email}</span> does not have admin privileges.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
