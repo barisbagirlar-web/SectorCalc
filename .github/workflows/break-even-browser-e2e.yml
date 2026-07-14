@@ -115,6 +115,12 @@ jobs:
           set -o pipefail
           node scripts/e2e-break-even-browser.mjs 2>&1 | tee artifacts/break-even-browser-e2e/runner.log
 
+      - name: Run homepage responsive browser QA
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/e2e-homepage-browser.mjs 2>&1 | tee artifacts/break-even-browser-e2e/homepage-runner.log
+
       - name: Capture runtime logs
         if: always()
         run: |
