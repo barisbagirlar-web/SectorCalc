@@ -9,10 +9,8 @@ import {
   normalizeUnitRegistryEntry,
   preservePhysicalQuantity,
 } from "@/sectorcalc/pro-form/unit-normalizer";
-import {
-  GLOBAL_CURRENCY_CODES,
-  isMonetaryInputContract,
-} from "@/sectorcalc/pro-form/universal-unit-catalog";
+import { GLOBAL_CURRENCY_CODES } from "@/sectorcalc/pro-form/universal-unit-catalog";
+import { isMonetaryInputContract } from "@/sectorcalc/pro-form/universal-unit-resolver";
 import type { SuperV4Input } from "@/sectorcalc/pro-form/contract-types";
 
 const ACTIVE_TOOL_KEYS = [...ACTIVE_FREE_TOOL_SLUGS, ...ACTIVE_PRO_TOOL_SLUGS];
@@ -155,5 +153,17 @@ describe("universal unit and reference contract", () => {
     }
 
     expect(failures).toEqual([]);
+  });
+
+  test("physical three-letter units are never classified as currencies", () => {
+    const physicalUnits = ["cfm", "psi", "rpm", "min", "day", "deg", "kWh", "MWh", "MPa", "kPa", "bar"];
+    for (const unit of physicalUnits) {
+      expect(isMonetaryInputContract({
+        id: `physical_${unit}`,
+        name: `Physical ${unit}`,
+        quantity_kind: "engineering",
+        base_unit: unit,
+      })).toBe(false);
+    }
   });
 });
