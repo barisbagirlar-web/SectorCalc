@@ -1,156 +1,413 @@
 "use client";
 
+import {
+  AdjustmentsHorizontalIcon,
+  ArrowRightIcon,
+  ArrowsRightLeftIcon,
+  BoltIcon,
+  CalculatorIcon,
+  CameraIcon,
+  ChartBarSquareIcon,
+  CheckBadgeIcon,
+  CheckCircleIcon,
+  ClipboardDocumentCheckIcon,
+  Cog6ToothIcon,
+  DocumentArrowDownIcon,
+  DocumentChartBarIcon,
+  ExclamationTriangleIcon,
+  FingerPrintIcon,
+  FireIcon,
+  MagnifyingGlassIcon,
+  PresentationChartLineIcon,
+  ShieldCheckIcon,
+  TruckIcon,
+  WrenchScrewdriverIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { ScIcon, type HeroIcon } from "@/components/icons/ScIcon";
 import "@/styles/landing-page.css";
+
+type IconItem = {
+  icon: HeroIcon;
+  title: string;
+  description: string;
+  href?: string;
+  linkLabel?: string;
+  meta?: string;
+};
+
+const outcomes: IconItem[] = [
+  {
+    icon: CalculatorIcon,
+    title: "Find the number behind the problem",
+    description:
+      "Calculate machine cost, OEE, scrap, quote margin, energy loss, payback, downtime, FMEA RPN, and engineering risk from structured inputs.",
+    href: "/free-tools",
+    linkLabel: "Search calculators",
+  },
+  {
+    icon: ClipboardDocumentCheckIcon,
+    title: "Turn a result into a decision",
+    description:
+      "Move from a calculated value to a defensible action: proceed, hold, reprice, inspect, repair, reduce risk, or escalate for review.",
+    href: "/pro-tools",
+    linkLabel: "Explore Pro Tools",
+  },
+  {
+    icon: CameraIcon,
+    title: "Diagnose issues from evidence",
+    description:
+      "Combine field photos, measurements, and operating context into a structured diagnostic report with root-cause hypotheses and verification records.",
+    href: "/engineering-diagnostics",
+    linkLabel: "Start Diagnostics",
+  },
+];
+
+const decisionPaths: IconItem[] = [
+  {
+    icon: BoltIcon,
+    title: "Free Tools",
+    meta: "FAST OPERATIONAL CHECKS",
+    description:
+      "Everyday calculators for cost, margin, energy, production, logistics, finance, and core engineering questions.",
+    href: "/free-tools",
+    linkLabel: "Browse Free Tools",
+  },
+  {
+    icon: DocumentChartBarIcon,
+    title: "Pro Tools",
+    meta: "DECISION-GRADE ANALYSIS",
+    description:
+      "Sensitivity, tolerance guidance, business impact, uncertainty notes, and review-ready report outputs for higher-stakes decisions.",
+    href: "/pro-tools",
+    linkLabel: "Explore Pro Tools",
+  },
+  {
+    icon: WrenchScrewdriverIcon,
+    title: "Engineering Diagnostics",
+    meta: "FIELD EVIDENCE TO REPORT",
+    description:
+      "Photo- and measurement-led investigation for defects, failures, quality issues, maintenance problems, and corrective-action reviews.",
+    href: "/engineering-diagnostics",
+    linkLabel: "Start Diagnostics",
+  },
+];
+
+const caseStudies: IconItem[] = [
+  {
+    icon: Cog6ToothIcon,
+    title: "CNC workshop",
+    meta: "TURKEY · €85K/YR",
+    description: "OEE gap and quote leakage identified through machining-cost and scrap-rate analysis.",
+  },
+  {
+    icon: BoltIcon,
+    title: "Energy and carbon",
+    meta: "TURKEY · €32K/YR",
+    description: "Reporting automation reduced manual compliance overhead and exposed efficiency losses.",
+  },
+  {
+    icon: FireIcon,
+    title: "Welding and metal",
+    meta: "TURKEY · €45K/YR",
+    description: "Consumable and process analysis supported weld-cost reduction and rework prevention.",
+  },
+  {
+    icon: TruckIcon,
+    title: "Automotive supply chain",
+    meta: "GERMANY · €1.23M/YR",
+    description: "OEE, SMED, and scrap optimization strengthened 5S performance and operating control.",
+  },
+];
+
+const methodology: Array<{ icon: HeroIcon; label: string; code: string }> = [
+  { icon: CalculatorIcon, label: "What was calculated", code: "01" },
+  { icon: AdjustmentsHorizontalIcon, label: "Which inputs changed the result", code: "02" },
+  { icon: ExclamationTriangleIcon, label: "Where the tolerance or risk zone starts", code: "03" },
+  { icon: ArrowsRightLeftIcon, label: "What can flip the decision", code: "04" },
+  { icon: MagnifyingGlassIcon, label: "What evidence is missing", code: "05" },
+  { icon: CheckCircleIcon, label: "What action should be taken next", code: "06" },
+  { icon: ShieldCheckIcon, label: "When qualified professional review is required", code: "07" },
+];
+
+const diagnosticFeatures: Array<{ icon: HeroIcon; label: string }> = [
+  { icon: CameraIcon, label: "Photo-based issue capture with measurement context" },
+  { icon: WrenchScrewdriverIcon, label: "CNC, welding, steel, concrete, electrical, and mechanical domains" },
+  { icon: ClipboardDocumentCheckIcon, label: "NCR and CAPA draft support" },
+  { icon: DocumentArrowDownIcon, label: "Decision-ready PDF report output" },
+  { icon: FingerPrintIcon, label: "Cryptographic verification record" },
+];
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  inverse = false,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+  inverse?: boolean;
+}) {
+  return (
+    <header className={`landing-section-heading${inverse ? " landing-section-heading--inverse" : ""}`}>
+      <p className="landing-kicker">{eyebrow}</p>
+      <h2>{title}</h2>
+      {description ? <p className="landing-section-lead">{description}</p> : null}
+    </header>
+  );
+}
+
+function CardIcon({ icon, inverse = false }: { icon: HeroIcon; inverse?: boolean }) {
+  return (
+    <span className={`landing-icon-frame${inverse ? " landing-icon-frame--inverse" : ""}`} aria-hidden="true">
+      <ScIcon icon={icon} size="default" />
+    </span>
+  );
+}
+
+function ArrowLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link href={href} prefetch={true} className="landing-arrow-link">
+      <span>{children}</span>
+      <ScIcon icon={ArrowRightIcon} size="compact" />
+    </Link>
+  );
+}
 
 export function LandingPageContent() {
   return (
     <div className="claude-landing">
       <main>
-        {/* ── HERO ── */}
-        <section className="hero">
-          <div className="wrap">
-            <p className="eyebrow">INDUSTRIAL CALCULATORS FOR REAL OPERATING DECISIONS</p>
-            <h1>Calculate cost, risk, downtime, and production decisions before they become expensive mistakes.</h1>
-            <p className="subhead">
-              Use SectorCalc to estimate shop-floor costs, compare scenarios, check margins, diagnose losses, and prepare decision-ready reports for manufacturing, finance, operations, and engineering work.
-            </p>
-            <div className="cta-row">
-              <Link href="/free-tools" prefetch={true} className="btn-primary">Explore Free Calculators</Link>
-              <Link href="/pro-tools" prefetch={true} className="btn-secondary">View Pro Tools</Link>
-            </div>
-            {/* FIX 1: Metrics band replaces empty proof-line — real inventory data */}
-            <div className="trust-row">
-              <span>50 free calculators</span>
-              <span>20 Pro analyzers</span>
-              <span>27 industry sectors</span>
-              <span>ISO/ASME-referenced methods</span>
-            </div>
-          </div>
-        </section>
-
-        {/* ── OUTCOME CARDS (keep — direct, scannable) ── */}
-        <section className="sec-section outcome-section">
-          <div className="wrap">
-            <div className="grid outcome-grid">
-              <div className="outcome-card">
-                <h3>Find the number behind the problem</h3>
-                <p>Calculate machine cost, OEE, scrap, quote margin, energy loss, payback, downtime, FMEA RPN and engineering risk using structured inputs instead of rough guesses.</p>
-                <Link href="/free-tools" prefetch={true} className="btn-link">Search calculators &rarr;</Link>
+        <section className="landing-hero" aria-labelledby="landing-hero-title">
+          <div className="landing-wrap landing-hero-grid">
+            <div className="landing-hero-copy">
+              <div className="landing-badge">
+                <span className="landing-badge-dot" aria-hidden="true" />
+                Industrial decision platform
               </div>
-              <div className="outcome-card">
-                <h3>Decide what to do next</h3>
-                <p>Each result must explain the decision: proceed, hold, reprice, inspect, repair, reduce risk, escalate or prepare a review-ready report.</p>
-                <Link href="/pro-tools" prefetch={true} className="btn-link">Explore Pro Tools &rarr;</Link>
+              <h1 id="landing-hero-title">
+                Calculate the exposure.
+                <span>Make the operating decision.</span>
+              </h1>
+              <p className="landing-hero-lead">
+                Estimate cost, risk, downtime, margin, and production impact before uncertainty becomes an expensive operational mistake.
+              </p>
+              <div className="landing-hero-actions">
+                <Link href="/free-tools" prefetch={true} className="landing-button landing-button--accent">
+                  Explore Free Calculators
+                  <ScIcon icon={ArrowRightIcon} size="compact" />
+                </Link>
+                <Link href="/pro-tools" prefetch={true} className="landing-button landing-button--ink">
+                  View Pro Tools
+                </Link>
               </div>
-              <div className="outcome-card">
-                <h3>Diagnose field issues from evidence</h3>
-                <p>Upload photos, add measurements, confirm context and generate an Engineering Diagnostics report with root-cause hypotheses, cost exposure, NCR/CAPA drafts and verification records.</p>
-                <Link href="/engineering-diagnostics" prefetch={true} className="btn-link">Start Diagnostics &rarr;</Link>
+              <div className="landing-hero-proof" aria-label="Platform inventory">
+                <span><strong>50</strong> free calculators</span>
+                <span><strong>20</strong> Pro analyzers</span>
+                <span><strong>27</strong> industry sectors</span>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* FIX 2: Merged product paths + problem areas (one section instead of two separate ones) */}
-        <section className="sec-section product-system-section">
-          <div className="wrap">
-            <h2>One platform. Three decision paths.</h2>
-            <div className="grid product-grid">
-              <div className="product-card"><h3>Free Tools</h3><p>Start with fast industrial calculators for everyday checks: cost, margin, energy, production, logistics, finance and basic engineering questions.</p><Link href="/free-tools" prefetch={true} className="btn-link">Browse Free Tools &rarr;</Link></div>
-              <div className="product-card"><h3>Pro Tools</h3><p>Use deeper calculators when the decision needs sensitivity, tolerance guidance, business impact, scenario comparison, uncertainty notes, PDF output or review-ready documentation.</p><Link href="/pro-tools" prefetch={true} className="btn-link">Explore Pro Tools &rarr;</Link></div>
-              <div className="product-card"><h3>Engineering Diagnostics</h3><p>Use photos, measurements and field context to create structured diagnostic reports for visible defects, failures, quality issues, maintenance problems and corrective-action discussions.</p><Link href="/engineering-diagnostics" prefetch={true} className="btn-link">Start Engineering Diagnostics &rarr;</Link></div>
-            </div>
-            {/* Compressed sector reference strip — preserves SEO keywords without a separate section */}
-            <div className="sector-strip">
-              <span className="sector-strip-label">Sectors:</span>
-              <span>CNC / machining</span><span>Welding / fabrication</span><span>Quality / maintenance</span>
-              <span>Construction / engineering</span><span>Energy / facilities</span>
-              <span>Logistics / inventory</span><span>Finance / controlling</span>
-            </div>
-          </div>
-        </section>
-
-        {/* FIX 3: Case study cards with real anonymized figures */}
-        <section className="sec-section casestudies-section">
-          <div className="wrap">
-            <h2>Real calculation workflows, real operational impact</h2>
-            <p className="section-intro">SectorCalc case studies show how calculation-backed decisions exposed wasted cost, weak process controls, quote leakage and avoidable operational losses.</p>
-            <div className="grid cs-grid">
-              <div className="cs-card"><h4>CNC workshop (Turkey)</h4><p>OEE gap and quote leakage identified via machining cost and scrap-rate analysis — <strong>€85K/yr</strong> savings.</p></div>
-              <div className="cs-card"><h4>Energy / carbon (Turkey)</h4><p>Carbon reporting automation reduced manual compliance overhead — <strong>€32K/yr</strong> efficiency gain.</p></div>
-              <div className="cs-card"><h4>Welding / metal (Turkey)</h4><p>Weld cost reduction and rework prevention through consumable and process optimization — <strong>€45K/yr</strong> savings.</p></div>
-              <div className="cs-card"><h4>Automotive supply chain (Germany)</h4><p>5S audit score improved through OEE, SMED and scrap optimization — <strong>€1.23M/yr</strong> operational savings.</p></div>
-            </div>
-            <div className="cta-center"><Link href="/case-studies" prefetch={true} className="btn-primary">View Case Studies</Link></div>
-          </div>
-        </section>
-
-        {/* FIX 4: Methodology with visual icons — no longer pure text wall */}
-        <section className="sec-section methodology-section">
-          <div className="wrap">
-            <h2>What every serious calculation should show</h2>
-            <div className="grid meth-grid">
-              <div className="meth-card"><span className="meth-icon meth-icon-calc">#</span>What was calculated</div>
-              <div className="meth-card"><span className="meth-icon meth-icon-io">&#8597;</span>Which inputs changed the result</div>
-              <div className="meth-card"><span className="meth-icon meth-icon-risk">&#9888;</span>Where the tolerance or risk zone starts</div>
-              <div className="meth-card"><span className="meth-icon meth-icon-flip">&#9889;</span>What can flip the decision</div>
-              <div className="meth-card"><span className="meth-icon meth-icon-evidence">&#10067;</span>What evidence is missing</div>
-              <div className="meth-card"><span className="meth-icon meth-icon-action">&#9654;</span>What action should be taken next</div>
-              <div className="meth-card meth-card-wide"><span className="meth-icon meth-icon-review">&#9878;</span>When qualified professional review is required</div>
-            </div>
-          </div>
-        </section>
-
-        {/* FIX 5: Diagnostics section with a report preview mockup (no more bullet-only) + FMEA integrated into outcome cards */}
-        <section className="sec-section diagnostics-section">
-          <div className="wrap">
-            <h2>From field evidence to structured reports</h2>
-            <p className="section-intro">Upload photos, add measurements, describe the issue. SectorCalc generates structured diagnostic reports with root-cause hypotheses, cost exposure, NCR/CAPA drafts and verification records.</p>
-            <div className="diagnostics-preview">
-              <div className="diagnostics-preview-card">
-                <div className="diagnostics-preview-ribbon">SAMPLE REPORT</div>
-                <div className="diagnostics-preview-header">Engineering Diagnostics Report</div>
-                <div className="diagnostics-preview-ref">REF: ED-2026-0042 &middot; v1.0 &middot; ISO 9001</div>
-                <div className="diagnostics-preview-body">
-                  <div className="diagnostics-preview-row"><span className="dpr-key">Issue</span><span className="dpr-val">Weld porosity on ISO 5817 B</span></div>
-                  <div className="diagnostics-preview-row"><span className="dpr-key">Root cause</span><span className="dpr-val">Shielding gas flow below 12 L/min range</span></div>
-                  <div className="diagnostics-preview-row"><span className="dpr-key">Cost exposure</span><span className="dpr-val">EUR 4,200</span></div>
-                  <div className="diagnostics-preview-row"><span className="dpr-key">NCR draft</span><span className="dpr-val">Available</span></div>
-                  <div className="diagnostics-preview-row"><span className="dpr-key">CAPA proposal</span><span className="dpr-val">Flow meter calibration + operator retraining</span></div>
-                  <div className="diagnostics-preview-row"><span className="dpr-key">Verification</span><span className="dpr-val">SHA-256: a3f2...c8e1</span></div>
+            <aside className="landing-decision-panel" aria-label="SectorCalc decision workflow">
+              <div className="landing-panel-header">
+                <span>DECISION TRACE</span>
+                <span className="landing-panel-status"><i aria-hidden="true" /> READY</span>
+              </div>
+              <div className="landing-panel-body">
+                <div className="landing-panel-symbol" aria-hidden="true">
+                  <ChartBarSquareIcon />
+                </div>
+                <p className="landing-panel-label">OPERATING EXPOSURE</p>
+                <p className="landing-panel-value">Cost × Risk × Time</p>
+                <div className="landing-trace-list">
+                  <div><span>01</span><p>Define inputs and operating boundary</p><CheckCircleIcon aria-hidden="true" /></div>
+                  <div><span>02</span><p>Calculate scenario and uncertainty</p><CheckCircleIcon aria-hidden="true" /></div>
+                  <div><span>03</span><p>Issue action and review record</p><CheckBadgeIcon aria-hidden="true" /></div>
                 </div>
               </div>
-              <div className="diagnostics-preview-text">
-                <ul className="feature-bullets" style={{ margin: 0 }}>
-                  <li>CNC, welding, steel, concrete, electrical and mechanical domains</li>
-                  <li>Photo-based issue capture with measurement and calibration context</li>
-                  <li>NCR / CAPA draft support</li>
-                  <li>PDF report with verification hash</li>
-                  <li>Decision-support only; qualified review required</li>
-                </ul>
+              <div className="landing-panel-footer">
+                <span>METHOD CONTEXT</span>
+                <strong>ISO / ASME referenced</strong>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section className="landing-outcomes" aria-labelledby="outcomes-title">
+          <div className="landing-wrap">
+            <SectionHeading
+              eyebrow="FROM QUESTION TO ACTION"
+              title="Built around the decision, not just the answer."
+              description="Each workflow connects an operating question to structured inputs, an explainable result, and a clear next action."
+            />
+            <div className="landing-outcome-grid">
+              {outcomes.map((item, index) => (
+                <article className="landing-outcome-card" key={item.title}>
+                  <div className="landing-card-topline">
+                    <CardIcon icon={item.icon} />
+                    <span>0{index + 1}</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  {item.href && item.linkLabel ? <ArrowLink href={item.href}>{item.linkLabel}</ArrowLink> : null}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="landing-paths" aria-labelledby="paths-title">
+          <div className="landing-wrap">
+            <SectionHeading
+              eyebrow="ONE INDUSTRIAL SYSTEM"
+              title="Three paths for three levels of decision pressure."
+              description="Start with the depth the decision demands, then move into diagnostics or review-ready analysis without changing platforms."
+              inverse
+            />
+            <div className="landing-path-grid">
+              {decisionPaths.map((item) => (
+                <article className="landing-path-card" key={item.title}>
+                  <div className="landing-path-card-head">
+                    <CardIcon icon={item.icon} inverse />
+                    <span>{item.meta}</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  {item.href && item.linkLabel ? <ArrowLink href={item.href}>{item.linkLabel}</ArrowLink> : null}
+                </article>
+              ))}
+            </div>
+            <div className="landing-sector-rail" aria-label="Supported industry sectors">
+              <span>SECTOR COVERAGE</span>
+              <p>CNC / MACHINING</p>
+              <p>WELDING / FABRICATION</p>
+              <p>QUALITY / MAINTENANCE</p>
+              <p>ENERGY / FACILITIES</p>
+              <p>LOGISTICS / INVENTORY</p>
+              <p>FINANCE / CONTROLLING</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="landing-cases" aria-labelledby="cases-title">
+          <div className="landing-wrap landing-cases-layout">
+            <div className="landing-cases-intro">
+              <SectionHeading
+                eyebrow="OPERATIONAL EVIDENCE"
+                title="Real workflows. Measurable impact."
+                description="Anonymized case studies show how calculation-backed decisions expose wasted cost, weak process controls, quote leakage, and avoidable losses."
+              />
+              <Link href="/case-studies" prefetch={true} className="landing-button landing-button--outline">
+                View Case Studies
+                <ScIcon icon={ArrowRightIcon} size="compact" />
+              </Link>
+            </div>
+            <div className="landing-case-list">
+              {caseStudies.map((item) => (
+                <article className="landing-case-row" key={item.title}>
+                  <CardIcon icon={item.icon} />
+                  <div>
+                    <span>{item.meta}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="landing-method" aria-labelledby="method-title">
+          <div className="landing-wrap">
+            <SectionHeading
+              eyebrow="CALCULATION DISCIPLINE"
+              title="What every serious calculation should show."
+              description="A result is useful only when its assumptions, sensitivities, risk boundary, and required action remain visible."
+            />
+            <div className="landing-method-grid">
+              {methodology.map((item) => (
+                <article className="landing-method-item" key={item.code}>
+                  <span className="landing-method-code">{item.code}</span>
+                  <ScIcon icon={item.icon} size="default" />
+                  <h3>{item.label}</h3>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="landing-diagnostics" aria-labelledby="diagnostics-title">
+          <div className="landing-wrap landing-diagnostics-grid">
+            <div className="landing-diagnostics-copy">
+              <SectionHeading
+                eyebrow="ENGINEERING DIAGNOSTICS"
+                title="From field evidence to a structured report."
+                description="Upload photos, add measurements, and describe the issue. SectorCalc organizes the evidence into root-cause hypotheses, cost exposure, corrective actions, and a verification trail."
+              />
+              <ul className="landing-feature-list">
+                {diagnosticFeatures.map((feature) => (
+                  <li key={feature.label}>
+                    <span aria-hidden="true"><ScIcon icon={feature.icon} size="compact" /></span>
+                    {feature.label}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/engineering-diagnostics" prefetch={true} className="landing-button landing-button--accent">
+                Start Engineering Diagnostics
+                <ScIcon icon={ArrowRightIcon} size="compact" />
+              </Link>
+            </div>
+
+            <div className="landing-report-shell" aria-label="Example Engineering Diagnostics report">
+              <div className="landing-report-toolbar">
+                <span><i aria-hidden="true" /> SAMPLE REPORT</span>
+                <span>ED-2026-0042</span>
+              </div>
+              <div className="landing-report-title">
+                <PresentationChartLineIcon aria-hidden="true" />
+                <div>
+                  <p>ENGINEERING DIAGNOSTICS</p>
+                  <h3>Field Investigation Report</h3>
+                </div>
+              </div>
+              <dl className="landing-report-data">
+                <div><dt>Issue</dt><dd>Weld porosity · ISO 5817 B</dd></div>
+                <div><dt>Probable cause</dt><dd>Shielding gas flow below process range</dd></div>
+                <div><dt>Cost exposure</dt><dd>EUR 4,200</dd></div>
+                <div><dt>Corrective action</dt><dd>Calibrate flow meter and verify operator setup</dd></div>
+              </dl>
+              <div className="landing-report-verification">
+                <FingerPrintIcon aria-hidden="true" />
+                <div><span>VERIFICATION RECORD</span><strong>SHA-256 · a3f2...c8e1</strong></div>
+                <CheckBadgeIcon aria-hidden="true" />
               </div>
             </div>
-            <div className="cta-center"><Link href="/engineering-diagnostics" prefetch={true} className="btn-primary">Start Engineering Diagnostics</Link></div>
           </div>
         </section>
 
-        {/* ── FINAL CTA (single, non-duplicated) ── */}
-        <section className="sec-section cta-band">
-          <div className="wrap text-center">
-            <h2>Start with the decision you need to make today.</h2>
-            <p className="cta-band-text">Use a free calculator for a quick check. Use Pro when the result affects price, production, quality, energy cost, rework, downtime, safety margin or customer commitment.</p>
-            <div className="cta-row main-actions center">
-              <Link href="/free-tools" prefetch={true} className="btn-primary">Browse Free Tools</Link>
-              <Link href="/pro-tools" prefetch={true} className="btn-secondary">Explore Pro Tools</Link>
+        <section className="landing-final-cta" aria-labelledby="final-cta-title">
+          <div className="landing-wrap landing-final-cta-inner">
+            <div>
+              <p className="landing-kicker">CHOOSE THE RIGHT LEVEL OF DEPTH</p>
+              <h2 id="final-cta-title">Start with the decision you need to make today.</h2>
+              <p>Use a free calculator for a quick check. Use Pro when the result affects price, production, quality, energy cost, rework, downtime, or customer commitment.</p>
+            </div>
+            <div className="landing-final-actions">
+              <Link href="/free-tools" prefetch={true} className="landing-button landing-button--accent">
+                Browse Free Tools
+                <ScIcon icon={ArrowRightIcon} size="compact" />
+              </Link>
+              <Link href="/pro-tools" prefetch={true} className="landing-button landing-button--ghost">
+                Explore Pro Tools
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* FIX 6: SEO block condensed from 5 lines to 2 — no visible keyword stuffing */}
-        <section className="seo-block">
-          <div className="wrap">
-            <p>Industrial calculators for manufacturing, energy, quality, logistics, and engineering decisions. Decision-support reports — not financial, legal, or engineering advice.</p>
+        <section className="landing-seo-note" aria-label="SectorCalc scope notice">
+          <div className="landing-wrap">
+            <p>Industrial calculators for manufacturing, energy, quality, logistics, and engineering decisions. Decision-support reports—not financial, legal, or engineering advice.</p>
           </div>
         </section>
       </main>
