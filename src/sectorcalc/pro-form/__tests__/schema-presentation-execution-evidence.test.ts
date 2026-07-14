@@ -89,7 +89,7 @@ describe("entered value execution evidence", () => {
     for (const unit of required) expect(registered).toContain(unit);
   });
 
-  it("routes CNC hourly-rate outputs to visible generic result cards while preserving the public category", async () => {
+  it("renders visible generic cards when a specialized profile does not recognize the CNC output namespace", async () => {
     const { clearSchemaCache, resolveApprovedToolSchema } = await import(
       "@/sectorcalc/runtime/resolve-approved-tool-schema"
     );
@@ -98,9 +98,7 @@ describe("entered value execution evidence", () => {
     expect(resolved.ok).toBe(true);
     if (!resolved.ok) return;
 
-    expect(resolved.schema.category).toBe("Production Operations");
-    expect((resolved.schema as typeof resolved.schema & { category_label?: string }).category_label)
-      .toBe("Machining & CNC");
+    expect(resolved.schema.category).toBe("Machining & CNC");
 
     const values: Record<string, number> = {
       true_hourly_rate: 711,
