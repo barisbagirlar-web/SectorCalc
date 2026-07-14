@@ -50,6 +50,24 @@ function enforceNoDefaultPresentation(input: SuperV4Input): SuperV4Input {
   return next;
 }
 
+function allowEnteredValueAsNonBlockingEvidence(input: SuperV4Input): SuperV4Input {
+  const requirement = input.evidence_requirement;
+  if (!requirement || typeof requirement === "string") return input;
+  if (requirement.missing_evidence_behavior === "BLOCK") return input;
+  if (requirement.accepted_evidence.includes("user-provided value")) return input;
+
+  return {
+    ...input,
+    evidence_requirement: {
+      ...requirement,
+      accepted_evidence: [
+        ...requirement.accepted_evidence,
+        "user-provided value",
+      ],
+    },
+  };
+}
+
 function applyBreakEvenCurrencyPresentation(schema: SuperV4Schema): SuperV4Schema {
   if (schema.tool_key !== BREAK_EVEN_TOOL_KEY) return schema;
 
@@ -128,6 +146,14 @@ export function applySchemaPresentationOverrides(
 
   return {
     ...currencySafe,
-    inputs: currencySafe.inputs.map(enforceNoDefaultPresentation),
+    engine_rules: {
+      ...currencySafe.engine_rules,
+      strict_formula_schema_contract: true,
+    },
+    inputs: currencySafe.inputs.map((input) =>
+      allowEnteredValueAsNonBlockingEvidence(
+        enforceNoDefaultPresentation(input),
+      ),
+    ),
   };
 }
