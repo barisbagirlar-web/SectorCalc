@@ -129,8 +129,21 @@ try {
       const foreground = parseRgb(primaryStyles.color);
       const background = parseRgb(primaryStyles.backgroundColor);
       assert(background.alpha === 1, `${profile.name}: primary CTA background is not opaque`);
-      const ratio = contrastRatio(foreground, background);
-      assert(ratio >= 4.5, `${profile.name}: primary CTA contrast ${ratio.toFixed(2)} is below 4.5:1`);
+      const primaryCtaRatio = contrastRatio(foreground, background);
+      assert(primaryCtaRatio >= 4.5, `${profile.name}: primary CTA contrast ${primaryCtaRatio.toFixed(2)} is below 4.5:1`);
+
+      const proHeading = page.locator("#pro-title");
+      await proHeading.waitFor({ state: "visible", timeout: 20_000 });
+      const proStyles = await proHeading.evaluate((element) => {
+        const section = element.closest(".sc-pro-section");
+        if (!section) throw new Error("Pro section container missing");
+        return {
+          color: window.getComputedStyle(element).color,
+          backgroundColor: window.getComputedStyle(section).backgroundColor,
+        };
+      });
+      const proHeadingRatio = contrastRatio(parseRgb(proStyles.color), parseRgb(proStyles.backgroundColor));
+      assert(proHeadingRatio >= 4.5, `${profile.name}: Pro heading contrast ${proHeadingRatio.toFixed(2)} is below 4.5:1`);
 
       const layout = await page.evaluate(() => ({
         viewportWidth: window.innerWidth,
@@ -143,7 +156,17 @@ try {
       );
 
       assert(await page.locator(".sc-report-preview").isVisible(), `${profile.name}: decision report preview is hidden`);
-      assert(await page.locator(".sc-product-card").count() === 3, `${profile.name}: expected three product-path cards`);
+      const productCards = page.locator(".sc-product-card");
+      assert(await productCards.count() === 3, `${profile.name}: expected three product-path cards`);
+      if (profile.name === "tablet-768") {
+        const productGridBox = await page.locator(".sc-product-grid").boundingBox();
+        const lastProductCardBox = await productCards.last().boundingBox();
+        assert(productGridBox && lastProductCardBox, "tablet-768: product grid geometry unavailable");
+        assert(
+          lastProductCardBox.width >= productGridBox.width - 2,
+          `tablet-768: orphan product card leaves an empty column (${lastProductCardBox.width}/${productGridBox.width})`,
+        );
+      }
       assert(await page.getByText("Trace AI audit-grounded copilot", { exact: false }).count() === 0, `${profile.name}: demo Trace AI leaked onto homepage`);
       assert(await page.getByText("Ready to streamline your calculations?", { exact: true }).count() === 0, `${profile.name}: duplicate generic footer CTA leaked onto homepage`);
       assert(await page.locator('a[href="#"]').count() === 0, `${profile.name}: placeholder link detected`);
@@ -165,7 +188,8 @@ try {
         profile,
         status: "PASS",
         heading: headingText,
-        primaryCtaContrast: Number(ratio.toFixed(2)),
+        primaryCtaContrast: Number(primaryCtaRatio.toFixed(2)),
+        proHeadingContrast: Number(proHeadingRatio.toFixed(2)),
         layout,
         consoleErrors,
         pageErrors,
