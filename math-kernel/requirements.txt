@@ -9,6 +9,7 @@ numpy>=1.26,<2.0        # Array operations for batch scenarios
 # Web framework
 fastapi>=0.110,<1.0     # REST API for Next.js integration
 uvicorn[standard]>=0.29,<1.0  # ASGI server
+httpx2>=2.5,<3.0        # Starlette TestClient transport
 
 # Data validation
 pydantic>=2.7,<3.0      # Request/response schema validation (lower_bound, upper_bound required)
