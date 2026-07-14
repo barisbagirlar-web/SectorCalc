@@ -71,13 +71,19 @@ try {
     });
     page.on("pageerror", (error) => pageErrors.push(error.message));
     page.on("requestfailed", (request) => {
-      if (request.url().startsWith(baseUrl)) {
-        failedSameOriginRequests.push({
-          url: request.url(),
-          method: request.method(),
-          failure: request.failure()?.errorText ?? "unknown",
-        });
-      }
+      if (!request.url().startsWith(baseUrl)) return;
+      const failure = request.failure()?.errorText ?? "unknown";
+      const requestUrl = new URL(request.url());
+      const expectedPrefetchAbort =
+        request.method() === "GET" &&
+        requestUrl.searchParams.has("_rsc") &&
+        failure === "net::ERR_ABORTED";
+      if (expectedPrefetchAbort) return;
+      failedSameOriginRequests.push({
+        url: request.url(),
+        method: request.method(),
+        failure,
+      });
     });
 
     try {
@@ -89,7 +95,7 @@ try {
 
       const heading = page.locator("#home-title");
       await heading.waitFor({ state: "visible", timeout: 30_000 });
-      const headingText = normalizeText(await heading.textContent());
+      const headingText = normalizeText(await heading.innerText());
       assert(headingText === expectedHeading, `${profile.name}: unexpected H1: ${headingText}`);
       assert((await page.title()).includes(expectedTitle), `${profile.name}: homepage title contract failed`);
 
@@ -139,6 +145,7 @@ try {
       assert(await page.locator(".sc-report-preview").isVisible(), `${profile.name}: decision report preview is hidden`);
       assert(await page.locator(".sc-product-card").count() === 3, `${profile.name}: expected three product-path cards`);
       assert(await page.getByText("Trace AI audit-grounded copilot", { exact: false }).count() === 0, `${profile.name}: demo Trace AI leaked onto homepage`);
+      assert(await page.getByText("Ready to streamline your calculations?", { exact: true }).count() === 0, `${profile.name}: duplicate generic footer CTA leaked onto homepage`);
       assert(await page.locator('a[href="#"]').count() === 0, `${profile.name}: placeholder link detected`);
 
       await page.waitForTimeout(400);
