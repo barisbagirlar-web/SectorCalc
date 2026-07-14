@@ -29,43 +29,58 @@ jobs:
           node-version: "20"
           cache: npm
       - run: npm ci
-      - name: Run complete formula integrity suite
-        shell: bash
-        run: |
-          set +e
-          failed=0
-          run_check() {
-            name="$1"
-            shift
-            echo "::group::$name"
-            "$@"
-            code=$?
-            echo "::endgroup::"
-            if [ "$code" -ne 0 ]; then
-              echo "::error title=$name failed::exit code $code"
-              failed=1
-            fi
-          }
 
-          run_check "Static schema/formula/input audit" node scripts/audit-tool-formula-integrity.mjs
-          run_check "Schema/formula binding" npm run guard:v531-schema-formula-binding
-          run_check "Free schema contract" node scripts/guard-free-schema-contract.mjs
-          run_check "Free formula contract" node scripts/guard-free-formula-contract.mjs
-          run_check "Free units and currency" node scripts/guard-free-units-and-currency.mjs
-          run_check "Free public copy quality" node scripts/guard-free-public-copy-quality.mjs
-          run_check "Free form render contract" node scripts/guard-free-form-render-contract.mjs
-          run_check "Free catalog integrity" node scripts/guard-free-catalog-integrity.mjs
-          run_check "Free result panel" node scripts/guard-free-result-panel.mjs
-          run_check "Free execution smoke" node scripts/smoke-free-tools-execution.mjs
-          run_check "Free mobile UX smoke" node scripts/smoke-free-tools-mobile-ux.mjs
-          run_check "Free tool tests" npx vitest run tests/free-tools/
-          run_check "Universal result perspectives" node scripts/guard-universal-result-perspectives.mjs
-          run_check "Premium formula audit" npm run audit:premium
-          run_check "Free golden mathematical tests" npm run test:golden:free-v531
-          run_check "Pro runtime tests" npm run test:v5-runtime
-          run_check "Typecheck" npm run typecheck
+      - name: Static schema, formula and input audit
+        run: node scripts/audit-tool-formula-integrity.mjs
 
-          exit "$failed"
+      - name: Schema and formula binding
+        run: npm run guard:v531-schema-formula-binding
+
+      - name: Free schema contract
+        run: npm run guard:free-schema-contract
+
+      - name: Free formula contract
+        run: npm run guard:free-formula-contract
+
+      - name: Free unit and currency contract
+        run: npm run guard:free-units-and-currency
+
+      - name: Free public copy quality
+        run: npm run guard:free-public-copy-quality
+
+      - name: Free form render contract
+        run: npm run guard:free-form-render-contract
+
+      - name: Free catalog integrity
+        run: npm run guard:free-catalog-integrity
+
+      - name: Free result panel contract
+        run: npm run guard:free-result-panel
+
+      - name: Free execution smoke
+        run: npm run smoke:free-tools-execution
+
+      - name: Free mobile UX smoke
+        run: npm run smoke:free-tools-mobile-ux
+
+      - name: Free tool tests
+        run: npm run test:free-tools-golden
+
+      - name: Universal result perspectives
+        run: npm run guard:universal-result-perspectives
+
+      - name: Premium formula audit
+        run: npm run audit:premium
+
+      - name: Free golden mathematical tests
+        run: npm run test:golden:free-v531
+
+      - name: Pro runtime tests
+        run: npm run test:v5-runtime
+
+      - name: Typecheck
+        run: npm run typecheck
+
       - name: Upload audit report
         if: always()
         uses: actions/upload-artifact@v4
