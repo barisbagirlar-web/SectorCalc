@@ -189,8 +189,8 @@ try {
   await page.getByText("Stressed Cash Lower Bound", { exact: true }).waitFor({ timeout: 30_000 });
   await page.getByText("Cash at Risk Below Reserve", { exact: true }).waitFor({ timeout: 30_000 });
 
-  const report = page.locator('[aria-label="Break-Even & Survival Cash Calculator report"]');
-  await report.waitFor({ timeout: 30_000 });
+  const report = page.locator('section[aria-label="Results"] .sc-v531-result-content');
+  await report.waitFor({ state: "visible", timeout: 30_000 });
   const reportText = await report.innerText();
   assert(reportText.includes("208,333.33"), "Rendered report does not show the Exact Decimal break-even value");
   assert(reportText.includes("194,000.00"), "Rendered report does not show the stressed lower bound");
