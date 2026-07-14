@@ -45,11 +45,10 @@ function resolvePrimaryOutput(
     if (match) return match;
   }
 
-  const roleMatch = numeric.find((output) =>
-    output.decision_use === "PRIMARY_DECISION" ||
-    output.role === "PRIMARY_DECISION",
+  const decisionUseMatch = numeric.find((output) =>
+    output.decision_use.trim().toUpperCase() === "PRIMARY_DECISION",
   );
-  return roleMatch ?? numeric[0];
+  return decisionUseMatch ?? numeric[0];
 }
 
 function buildVisibleFallback(
