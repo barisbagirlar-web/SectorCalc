@@ -26,6 +26,15 @@
   color: #f7f2e8;
 }
 
+/* Keep high-impact statements within the desktop four-line reading contract. */
+.sc-landing .sc-pro-grid .sc-pro-copy h2 {
+  max-width: 15ch;
+}
+
+.sc-landing section.sc-sectors .sc-section-heading h2 {
+  max-width: 19ch;
+}
+
 @media (min-width: 721px) and (max-width: 960px) {
   .sc-landing .sc-product-card:last-child {
     grid-column: 1 / -1;
