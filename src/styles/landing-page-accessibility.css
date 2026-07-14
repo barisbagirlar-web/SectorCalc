@@ -9,6 +9,17 @@
   color: #ffffff;
 }
 
+/* Anchor specificity must beat `.sc-landing a { color: inherit; }`. */
+.sc-landing a.sc-button-light {
+  background: #f7f2e8;
+  color: #171713;
+}
+
+.sc-landing a.sc-button-light:hover {
+  background: #ffffff;
+  color: #171713;
+}
+
 .sc-landing .sc-pro-section,
 .sc-landing .sc-pro-section h2,
 .sc-landing .sc-pro-section h3 {
