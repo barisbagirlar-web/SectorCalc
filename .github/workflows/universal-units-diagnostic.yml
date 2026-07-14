@@ -1,0 +1,58 @@
+name: Universal Units Diagnostic
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: universal-units-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  universal-units:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Run universal unit and reference contract
+        id: contract
+        shell: bash
+        run: |
+          set +e
+          set -o pipefail
+          mkdir -p artifacts/universal-units
+          npx vitest run src/sectorcalc/pro-form/__tests__/universal-unit-and-reference-contract.test.ts --reporter=verbose 2>&1 | tee artifacts/universal-units/output.log
+          status=${PIPESTATUS[0]}
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          echo "UNIVERSAL_UNITS_EXIT_CODE=$status" | tee artifacts/universal-units/result.txt
+          exit 0
+
+      - name: Upload diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: universal-units-diagnostic
+          path: artifacts/universal-units
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Enforce result
+        if: always()
+        env:
+          CONTRACT_STATUS: ${{ steps.contract.outputs.status }}
+        run: test "$CONTRACT_STATUS" = "0"
