@@ -43,7 +43,7 @@ describe("universal unit and reference contract", () => {
     for (const toolKey of ACTIVE_TOOL_KEYS) {
       const resolved = resolveApprovedToolSchema(toolKey);
       if (!resolved.ok) {
-        failures.push(`${toolKey}: schema did not resolve (${resolved.reason})`);
+        failures.push(`${toolKey}: schema did not resolve (${resolved.reason}: ${resolved.errors.join(" | ")})`);
         continue;
       }
 
@@ -115,7 +115,7 @@ describe("universal unit and reference contract", () => {
         const registeredNames = new Set(registered.map((entry) => entry.unit));
 
         if (!registeredNames.has(input.base_unit)) {
-          failures.push(`${toolKey}/${input.id}: base unit ${input.base_unit} not registered`);
+          failures.push(`${toolKey}/${input.id}: base unit ${input.base_unit} not registered; registered=${[...registeredNames].join(",")}`);
           continue;
         }
 
