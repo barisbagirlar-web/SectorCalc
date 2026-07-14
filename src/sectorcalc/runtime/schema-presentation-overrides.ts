@@ -50,20 +50,29 @@ function enforceNoDefaultPresentation(input: SuperV4Input): SuperV4Input {
   return next;
 }
 
-function allowEnteredValueAsNonBlockingEvidence(input: SuperV4Input): SuperV4Input {
+/**
+ * The current calculator UI accepts project values directly and no longer
+ * renders separate evidence checkboxes. The entered value must therefore be an
+ * accepted execution evidence type. This does not mark it as independently
+ * source-verified: the evidence state remains unverified unless a dedicated
+ * evidence flow supplies that status, and BLOCK remains the policy when the
+ * required value itself is missing.
+ */
+export function allowEnteredValueAsExecutionEvidence(input: SuperV4Input): SuperV4Input {
   const requirement = input.evidence_requirement;
   if (!requirement || typeof requirement === "string") return input;
-  if (requirement.missing_evidence_behavior === "BLOCK") return input;
-  if (requirement.accepted_evidence.includes("user-provided value")) return input;
+  const accepted = Array.isArray(requirement.accepted_evidence)
+    ? requirement.accepted_evidence
+    : [];
+  if (accepted.some((value) => value.trim().toLowerCase() === "user-provided value")) {
+    return input;
+  }
 
   return {
     ...input,
     evidence_requirement: {
       ...requirement,
-      accepted_evidence: [
-        ...requirement.accepted_evidence,
-        "user-provided value",
-      ],
+      accepted_evidence: [...accepted, "user-provided value"],
     },
   };
 }
@@ -135,13 +144,18 @@ function applyBreakEvenCurrencyPresentation(schema: SuperV4Schema): SuperV4Schem
 }
 
 /**
- * Applies presentation-only rules after server calculation contracts are built.
- * It never changes formula IDs, normalized input IDs, or arithmetic semantics.
+ * Applies presentation and execution-entry rules after server calculation
+ * contracts are built. It never changes formula IDs, normalized input IDs, or
+ * arithmetic semantics.
  */
 export function applySchemaPresentationOverrides(
   schema: SuperV4Schema,
 ): SuperV4Schema {
-  const currencySafe = applyBreakEvenCurrencyPresentation(schema);
+  const evidenceSafe: SuperV4Schema = {
+    ...schema,
+    inputs: schema.inputs.map(allowEnteredValueAsExecutionEvidence),
+  };
+  const currencySafe = applyBreakEvenCurrencyPresentation(evidenceSafe);
   if (!certifiedProTools.has(currencySafe.tool_key)) return currencySafe;
 
   return {
@@ -150,10 +164,6 @@ export function applySchemaPresentationOverrides(
       ...currencySafe.engine_rules,
       strict_formula_schema_contract: true,
     },
-    inputs: currencySafe.inputs.map((input) =>
-      allowEnteredValueAsNonBlockingEvidence(
-        enforceNoDefaultPresentation(input),
-      ),
-    ),
+    inputs: currencySafe.inputs.map(enforceNoDefaultPresentation),
   };
 }
