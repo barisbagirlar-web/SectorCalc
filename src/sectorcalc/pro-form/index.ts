@@ -1,5 +1,9 @@
 // SectorCalc SuperV4 Universal Industrial Decision Form — V5.3.1 barrel exports
 
+// Must execute before UniversalIndustrialDecisionForm is evaluated so the
+// backward-compatible selector export contains the governed global catalog.
+import "./install-global-currency-catalog";
+
 export { UniversalIndustrialDecisionForm, default } from "./UniversalIndustrialDecisionForm";
 export type { UniversalIndustrialDecisionFormProps } from "./UniversalIndustrialDecisionForm";
 export { ProToolSessionWrapper } from "./ProToolSessionWrapper";
