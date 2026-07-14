@@ -40,7 +40,7 @@ describe("strict Exact Decimal formula schema contract", () => {
     const { formula, schema } = await loadContract();
     const errors = validateFormulaModuleBinding(schema, formula, {
       ...formula.sampleInputs,
-      n_initial_investment: "500000",
+      n_machine_hourly_rate: "500000",
     });
     expect(errors.join(" ")).toContain("Runtime normalized input set");
   });
