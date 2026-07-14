@@ -160,9 +160,11 @@ jobs:
           python -m json.tool mms_suite.json | head -10
 
       - name: Run interval arithmetic pytest with strict bounds
+        shell: bash
         run: |
+          set -o pipefail
           cd math-kernel
-          python -m pytest tests/ --verbose --tb=short --strict-bounds
+          python -m pytest tests/ --verbose --tb=short --strict-bounds 2>&1 | tee pytest-strict-bounds.log
 
       - name: Verify MMS suite structure and exact core references
         run: |
@@ -199,7 +201,9 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: mathematical-verification-evidence
-          path: math-kernel/mms_suite.json
+          path: |
+            math-kernel/mms_suite.json
+            math-kernel/pytest-strict-bounds.log
           if-no-files-found: error
           retention-days: 7
 
