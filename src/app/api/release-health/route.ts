@@ -12,6 +12,36 @@ import path from "path";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const BREAK_EVEN_TOOL_KEY = "break-even-survival-cash-calculator";
+const BREAK_EVEN_OUTPUT_IDS = [
+  "out_break_even_monthly_revenue",
+  "out_cash_runway_months",
+  "out_current_revenue_gap",
+  "out_decision_code",
+  "out_funding_gap",
+  "out_margin_of_safety_ratio",
+  "out_monthly_cash_burn",
+  "out_source_confidence_ratio",
+  "out_stressed_monthly_revenue",
+  "out_survival_cash_target",
+  "out_target_runway_breached",
+  "out_uncertainty_cash_buffer",
+] as const;
+
+const BREAK_EVEN_KNOWN_ANSWERS: ReadonlyArray<
+  readonly [outputId: string, expected: number, tolerance: number]
+> = [
+  ["out_break_even_monthly_revenue", 345238.1, 0.01],
+  ["out_current_revenue_gap", 74761.9, 0.01],
+  ["out_stressed_monthly_revenue", 294000, 0.01],
+  ["out_monthly_cash_burn", 21520, 0.01],
+  ["out_cash_runway_months", 30.2, 0.01],
+  ["out_uncertainty_cash_buffer", 19368, 0.01],
+  ["out_survival_cash_target", 248488, 0.01],
+  ["out_funding_gap", 0, 0.001],
+  ["out_decision_code", 0, 0.001],
+];
+
 function getGitCommit(): string {
   try {
     const head = fs.readFileSync(path.join(process.cwd(), ".git/HEAD"), "utf-8").trim();
@@ -25,12 +55,26 @@ function getGitCommit(): string {
   }
 }
 
+function exactStringSet(left: readonly string[], right: readonly string[]): boolean {
+  if (left.length !== right.length) return false;
+  const sortedLeft = [...left].sort();
+  const sortedRight = [...right].sort();
+  return sortedLeft.every((value, index) => value === sortedRight[index]);
+}
+
+function isClose(actual: unknown, expected: number, tolerance: number): boolean {
+  return (
+    typeof actual === "number" &&
+    Number.isFinite(actual) &&
+    Math.abs(actual - expected) <= tolerance
+  );
+}
+
 export async function GET(): Promise<NextResponse> {
   const modules = getAllModules();
-  const moduleKeys = new Set(modules.map((m) => m.toolKey));
+  const moduleKeys = new Set(modules.map((formulaModule) => formulaModule.toolKey));
   const liveKeys = new Set(ACTIVE_PRO_TOOL_SLUGS);
 
-  // Run quick smoke test on all modules
   const smokeResults: Array<{
     toolKey: string;
     status: string;
@@ -38,24 +82,23 @@ export async function GET(): Promise<NextResponse> {
     primaryFinite: boolean;
   }> = [];
 
-  for (const mod of modules) {
+  for (const formulaModule of modules) {
     try {
-      const inputs = mod.sampleInputs;
-      const result = mod.calculate(inputs);
+      const result = formulaModule.calculate(formulaModule.sampleInputs);
       const outputs = result.outputs ?? {};
       const outputKeys = result.outputKeys ?? Object.keys(outputs);
       const allFinite = outputKeys.every(
-        (k) => typeof outputs[k] === "number" && Number.isFinite(outputs[k]),
+        (key) => typeof outputs[key] === "number" && Number.isFinite(outputs[key]),
       );
       smokeResults.push({
-        toolKey: mod.toolKey,
+        toolKey: formulaModule.toolKey,
         status: result.status,
         outputCount: outputKeys.length,
         primaryFinite: allFinite,
       });
     } catch {
       smokeResults.push({
-        toolKey: mod.toolKey,
+        toolKey: formulaModule.toolKey,
         status: "ERROR",
         outputCount: 0,
         primaryFinite: false,
@@ -63,24 +106,84 @@ export async function GET(): Promise<NextResponse> {
     }
   }
 
-  const blockedTools = smokeResults.filter((r) => r.status === "BLOCKED" || r.status === "ERROR" || !r.primaryFinite);
-  const passThroughCount = modules.length - moduleKeys.size;
-  const smokePass = blockedTools.length === 0;
-  const missingModules = [...liveKeys].filter((k) => !moduleKeys.has(k));
+  const breakEvenCriticalCheck = (() => {
+    const formulaModule = modules.find(
+      (candidate) => candidate.toolKey === BREAK_EVEN_TOOL_KEY,
+    );
+    if (!formulaModule) {
+      return {
+        status: "FAIL" as const,
+        modulePresent: false,
+        outputNamespace: false,
+        knownAnswer: false,
+        decision: false,
+      };
+    }
 
-  // Count golden fixtures
+    try {
+      const result = formulaModule.calculate(formulaModule.sampleInputs);
+      const outputs = (result.outputs ?? {}) as Record<string, unknown>;
+      const outputKeys = result.outputKeys ?? Object.keys(outputs);
+      const outputNamespace = exactStringSet(outputKeys, BREAK_EVEN_OUTPUT_IDS);
+      const knownAnswer = BREAK_EVEN_KNOWN_ANSWERS.every(
+        ([outputId, expected, tolerance]) =>
+          isClose(outputs[outputId], expected, tolerance),
+      );
+      const decision =
+        result.status === "OK" &&
+        isClose(outputs.out_decision_code, 0, 0.001) &&
+        isClose(outputs.out_target_runway_breached, 0, 0.001);
+      const pass = outputNamespace && knownAnswer && decision;
+
+      return {
+        status: pass ? ("PASS" as const) : ("FAIL" as const),
+        modulePresent: true,
+        outputNamespace,
+        knownAnswer,
+        decision,
+      };
+    } catch {
+      return {
+        status: "FAIL" as const,
+        modulePresent: true,
+        outputNamespace: false,
+        knownAnswer: false,
+        decision: false,
+      };
+    }
+  })();
+
+  const blockedTools = smokeResults.filter(
+    (result) =>
+      result.status === "BLOCKED" ||
+      result.status === "ERROR" ||
+      !result.primaryFinite,
+  );
+  const passThroughCount = modules.length - moduleKeys.size;
+  const missingModules = [...liveKeys].filter((toolKey) => !moduleKeys.has(toolKey));
+  const smokePass = blockedTools.length === 0;
+  const releasePass =
+    smokePass &&
+    missingModules.length === 0 &&
+    breakEvenCriticalCheck.status === "PASS";
+
   let goldenCount = 0;
   try {
     const goldenDir = path.join(process.cwd(), "tests/golden/pro-v531-baris");
-    goldenCount = fs.readdirSync(goldenDir).filter((f) => f.endsWith(".golden.json")).length;
+    goldenCount = fs
+      .readdirSync(goldenDir)
+      .filter((filename) => filename.endsWith(".golden.json")).length;
   } catch {
     goldenCount = 0;
   }
 
   return NextResponse.json({
-    status: smokePass && missingModules.length === 0 ? "ok" : "degraded",
+    status: releasePass ? "ok" : "degraded",
     commit: getGitCommit(),
     timestamp: new Date().toISOString(),
+    criticalChecks: {
+      breakEvenSurvivalCash: breakEvenCriticalCheck,
+    },
     proFormulaExecution: {
       liveTools: ACTIVE_PRO_TOOL_SLUGS.length,
       formulaModules: modules.length,
@@ -90,9 +193,10 @@ export async function GET(): Promise<NextResponse> {
       passThroughCount,
       lastSmoke: smokePass ? "PASS" : "FAIL",
       missingModules: missingModules.length > 0 ? missingModules : "NONE",
-      blockedTools: blockedTools.length > 0
-        ? blockedTools.map((r) => r.toolKey)
-        : "NONE",
+      blockedTools:
+        blockedTools.length > 0
+          ? blockedTools.map((result) => result.toolKey)
+          : "NONE",
     },
     payment: {
       keyDeduction: "ATOMIC",

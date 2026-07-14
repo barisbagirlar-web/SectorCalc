@@ -21,7 +21,7 @@ interface RootShellProps {
  * Only the MainLandmark content area swaps — no blank screen, no remount flash.
  */
 export function RootShell({ children, freeToolsCount, proToolsCount }: RootShellProps) {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
   const isHomepage = pathname === "/";
 
   return (
@@ -30,7 +30,7 @@ export function RootShell({ children, freeToolsCount, proToolsCount }: RootShell
       <SiteHeader freeToolsCount={freeToolsCount} proToolsCount={proToolsCount} />
       <MainLandmark>{children}</MainLandmark>
       <EnterpriseFooter hideCta={isHomepage} />
-      <TraceAI demoMode defaultOpen={false} title="Trace AI" />
+      {!isHomepage ? <TraceAI demoMode defaultOpen={false} title="Trace AI" /> : null}
     </AppProviders>
   );
 }

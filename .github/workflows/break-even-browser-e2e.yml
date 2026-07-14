@@ -20,6 +20,7 @@ jobs:
     env:
       NEXT_PUBLIC_SITE_URL: http://127.0.0.1:3000
       OWNER_BYPASS_EMAIL: barisbagirlar@gmail.com
+      E2E_OWNER_PASSWORD: SectorCalc-E2E-Only-2026!
       E2E_BASE_URL: http://127.0.0.1:3000
       NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST: 127.0.0.1:9099
       NEXT_PUBLIC_FIREBASE_FIRESTORE_EMULATOR_HOST: 127.0.0.1:8080
@@ -30,16 +31,14 @@ jobs:
       FIREBASE_CONFIG: '{"projectId":"sectorcalc-bf412"}'
 
     steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          persist-credentials: false
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      - uses: actions/setup-java@0f481fcb613427c0f801b606911222b5b6f3083a # v5.5.0
+      - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "21"
@@ -49,14 +48,6 @@ jobs:
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
-
-      - name: Generate isolated E2E credential
-        shell: bash
-        run: |
-          password="$(openssl rand -base64 30 | tr -d '\n')"
-          test "${#password}" -ge 20
-          echo "::add-mask::$password"
-          echo "E2E_OWNER_PASSWORD=$password" >> "$GITHUB_ENV"
 
       - name: Start Firebase Auth and Firestore emulators
         run: |
@@ -82,9 +73,7 @@ jobs:
           exit 1
 
       - name: Seed isolated owner account
-        shell: bash
         run: |
-          test -n "${E2E_OWNER_PASSWORD:-}"
           response=$(curl --silent --show-error --fail-with-body \
             -X POST \
             "http://127.0.0.1:9099/identitytoolkit.googleapis.com/v1/accounts:signUp?key=sectorcalc-e2e" \
@@ -120,11 +109,17 @@ jobs:
           cat /tmp/sectorcalc-e2e-server.log
           exit 1
 
-      - name: Run authenticated browser and execute Exact Decimal API E2E
+      - name: Run authenticated browser and execute API E2E
         shell: bash
         run: |
           set -o pipefail
           node scripts/e2e-break-even-browser.mjs 2>&1 | tee artifacts/break-even-browser-e2e/runner.log
+
+      - name: Run homepage responsive browser QA
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/e2e-homepage-browser.mjs 2>&1 | tee artifacts/break-even-browser-e2e/homepage-runner.log
 
       - name: Capture runtime logs
         if: always()
@@ -135,7 +130,7 @@ jobs:
 
       - name: Upload E2E evidence
         if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@v4
         with:
           name: break-even-browser-e2e-evidence
           path: artifacts/break-even-browser-e2e
