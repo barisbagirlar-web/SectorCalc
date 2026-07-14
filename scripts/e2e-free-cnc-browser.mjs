@@ -67,14 +67,14 @@ try {
   assert(payload.redaction_status === "PUBLIC_SAFE_REDACTED", `Unexpected Free redaction status: ${payload.redaction_status}`);
   assert(Array.isArray(payload.outputs) && payload.outputs.length > 0, "Free execute API returned no outputs");
 
-  const hourlyRate = payload.outputs.find((output) => output.id === "hourly_rate");
-  assert(hourlyRate, "Free execute API omitted the hourly_rate output");
-  assert(Number.isFinite(Number(hourlyRate.value)), `Free hourly_rate is non-finite: ${hourlyRate.value}`);
+  const hourlyRate = payload.outputs.find((output) => output.id === "true_hourly_rate");
+  assert(hourlyRate, "Free execute API omitted the true_hourly_rate output");
+  assert(Number.isFinite(Number(hourlyRate.value)), `Free true_hourly_rate is non-finite: ${hourlyRate.value}`);
 
   const report = page.locator('section[aria-label="Results"] .sc-v531-result-content');
   await report.waitFor({ state: "visible", timeout: 60_000 });
   const reportText = await report.innerText();
-  assert(reportText.includes("Hourly Rate"), "Free rendered report omitted the hourly-rate result");
+  assert(reportText.includes("True Hourly Rate"), "Free rendered report omitted the true-hourly-rate result");
   assert(!reportText.includes("No result yet"), "Free rendered report remained in the empty state");
 
   await page.screenshot({
@@ -86,7 +86,7 @@ try {
     JSON.stringify({ httpStatus: executeResponse.status(), payload }, null, 2),
   );
 
-  console.log(`FREE_CNC_BROWSER_E2E=PASS;hourly_rate=${hourlyRate.value};status=${payload.status}`);
+  console.log(`FREE_CNC_BROWSER_E2E=PASS;true_hourly_rate=${hourlyRate.value};status=${payload.status}`);
 } catch (error) {
   await page.screenshot({
     path: `${artifactsDir}/free-cnc-failure.png`,
