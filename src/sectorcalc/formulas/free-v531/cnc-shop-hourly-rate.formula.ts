@@ -19,7 +19,7 @@ const TOOL_KEY = "cnc-shop-hourly-rate";
 const TOOL_NAME = "CNC Shop Hourly Rate Calculator";
 const CATEGORY = "machining_cnc";
 const FUNNEL_TARGET = "Shop Rate PRO";
-const PRIMARY_METRIC_ID = "hourly_rate";
+const PRIMARY_METRIC_ID = "true_hourly_rate";
 const DEFAULT_DECISION_STATE = "REPRICE" as const;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;

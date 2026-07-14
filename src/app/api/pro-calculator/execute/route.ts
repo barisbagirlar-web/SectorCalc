@@ -67,6 +67,7 @@ function resolveToolKey(body: Record<string, unknown>): string | null {
   return (
     (body.tool_key as string | undefined) ??
     (body.toolKey as string | undefined) ??
+    (body.toolSlug as string | undefined) ??
     (body.tool_id as string | undefined) ??
     (body.toolId as string | undefined) ??
     (body.slug as string | undefined) ??
@@ -903,7 +904,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     const premiumHook = buildPremiumHook({
-      toolKey: body.tool_key,
+      toolKey: validatedSchema.tool_key,
       normalizedInputs: pass2.normalizedInputs,
       freeOutputs,
       displayCurrency: body.display_currency ?? null,

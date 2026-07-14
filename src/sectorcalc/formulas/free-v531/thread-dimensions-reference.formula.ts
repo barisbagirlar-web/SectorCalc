@@ -19,7 +19,7 @@ const TOOL_KEY = "thread-dimensions-reference";
 const TOOL_NAME = "Thread Dimensions Reference Calculator";
 const CATEGORY = "machining_cnc";
 const FUNNEL_TARGET = "Inspection Copilot";
-const PRIMARY_METRIC_ID = "thread_reference_dimensions";
+const PRIMARY_METRIC_ID = "pitch_diameter_approx_mm";
 const DEFAULT_DECISION_STATE = "INSPECT" as const;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;

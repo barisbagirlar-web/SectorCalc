@@ -163,10 +163,7 @@ export function initBarisFormulaRegistry(): number {
   for (const t of LIVE_TOOLS) {
     if (formulaRegistry.fetchByToolKey(t.toolKey)) count++;
   }
-  for (const t of LIVE_TOOLS) {
-    if (formulaRegistry.fetchByToolKey(t.toolKey)) count++;
-  }
-  return count + LIVE_BATCH_KEYS.size + BATCH_1_KEYS.size + BARIS_TOOL_IDS.length;
+  return count;
 }
 
 export { FORMULA_VERSION };

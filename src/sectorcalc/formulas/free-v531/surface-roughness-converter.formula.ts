@@ -19,7 +19,7 @@ const TOOL_KEY = "surface-roughness-converter";
 const TOOL_NAME = "Surface Roughness Converter";
 const CATEGORY = "machining_cnc";
 const FUNNEL_TARGET = "Inspection Copilot";
-const PRIMARY_METRIC_ID = "roughness_equivalent";
+const PRIMARY_METRIC_ID = "roughness_ra_um";
 const DEFAULT_DECISION_STATE = "INSPECT" as const;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;

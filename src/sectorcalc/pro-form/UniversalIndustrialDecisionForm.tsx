@@ -55,6 +55,7 @@ import {
 import { buildProReport } from "@/sectorcalc/pro-report/pro-report-adapter";
 import { ProReportPanelV2 } from "@/sectorcalc/pro-report/ProReportPanelV2";
 import { assertCrossToolIdentity } from "@/sectorcalc/runtime/cross-tool-contract-assertions";
+import { registry as referenceRegistry } from "@/generated/reference-registry";
 
 // ── ViewModel types ────────────────────────────────────────────────────────────
 
@@ -98,6 +99,8 @@ interface FieldViewModel {
   declaredTolerance: string;
   /** Single clean user-facing reference helper line. Shown in both FREE and PRO. */
   cleanReferenceHelper: string;
+  /** Clickable reference value options from the reference registry. Each has label, value, unit, source. */
+  referenceOptions: Array<{ label: string; value: number; unit: string; source: string }>;
 }
 
 interface ActionViewModel {
@@ -235,7 +238,8 @@ function buildCalculatorViewModel(
       const meta = normalizeV531FieldMetadata(input, props.schema);
 
       // Clean reference helper — one user-facing line per input, en-US format
-      // Priority: 1. engineering_range / engineering_reference_range, 2. meta.allowedRange, 3. physical_hard_bounds as "Input limit"
+      // Priority: 1. engineering_range / engineering_reference_range, 2. meta.allowedRange,
+      // 3. physical_hard_bounds as "Input limit", 4. meta.defaultReference, 5. reference registry
       const cleanReferenceHelper = (() => {
         // Priority 1: engineering_reference_range or engineering_range
         const er = input.engineering_reference_range ?? input.engineering_range;
@@ -259,8 +263,16 @@ function buildCalculatorViewModel(
           const unitStr = unitLabel ? ` ${unitLabel}` : "";
           return `Input limit: ${minFormatted}–${maxFormatted}${unitStr}`;
         }
+        // Priority 4: meta.defaultReference
         if (meta.defaultReference) {
           return `Reference: ${meta.defaultReference}`;
+        }
+        // Priority 5: reference registry (first matching reference as suggested value)
+        const refRegKey = props.toolKey ?? props.schema?.tool_key ?? "";
+        const inputRegRefs = refRegKey ? referenceRegistry[refRegKey]?.[input.id] : undefined;
+        if (inputRegRefs?.references?.length) {
+          const firstRef = inputRegRefs.references[0];
+          return `Reference: ${firstRef.label} = ${firstRef.value} ${firstRef.unit}`;
         }
         return "";
       })();
@@ -295,7 +307,20 @@ function buildCalculatorViewModel(
         refStrip.push(`Accepted values: ${input.allowed_values.map(humanizeEnum).join(", ")}`);
       }
 
-      // Priority 5: evidence text (only if no richer metadata exists)
+      // Priority 5: reference registry values (from YAML reference files)
+      const refRegistryKey = props.toolKey ?? props.schema?.tool_key ?? "";
+      const inputRefs = refRegistryKey ? referenceRegistry[refRegistryKey]?.[input.id] : undefined;
+      if (inputRefs?.references?.length) {
+        // Add first reference as a suggestion with source
+        const firstRef = inputRefs.references[0];
+        refStrip.push(`Reference: ${firstRef.label} = ${firstRef.value} ${firstRef.unit} (${firstRef.source})`);
+        // If there are more references, indicate how many
+        if (inputRefs.references.length > 1) {
+          refStrip.push(`${inputRefs.references.length - 1} more reference values available — select to apply`);
+        }
+      }
+
+      // Priority 6: evidence text (only if no richer metadata exists)
       const hasNumericRef = refStrip.length > 0;
       if (!hasNumericRef && input.required) {
         refStrip.push(
@@ -333,6 +358,13 @@ function buildCalculatorViewModel(
       // For count fields, always use resolver to get Units/pcs/batches/cycles options.
       // For other fields, prefer schema-allowed_display_units when defined.
       const useResolverForUnit = isCount;
+      // Compute allowed units for this field
+      const fieldAllowedUnits = useResolverForUnit
+        ? resolvedUnitOptions
+        : (input.allowed_display_units?.length
+          ? input.allowed_display_units
+          : resolvedUnitOptions);
+      const fieldNonEmptyUnits = fieldAllowedUnits.filter((u) => u.length > 0);
       return {
         id: input.id,
         label: input.name,
@@ -345,12 +377,10 @@ function buildCalculatorViewModel(
             : (input.allowed_display_units?.length
               ? input.allowed_display_units[0]
               : (resolvedUnitOptions[0] ?? ""))),
-        allowedUnits: useResolverForUnit
-          ? resolvedUnitOptions
-          : (input.allowed_display_units?.length
-            ? input.allowed_display_units
-            : resolvedUnitOptions),
-        unitSelectable: !!input.unit_selectable,
+        allowedUnits: fieldAllowedUnits,
+        // Universal unit selection: always enable when 2+ real unit options exist
+        // This overrides schema unit_selectable to give users full control
+        unitSelectable: fieldNonEmptyUnits.length >= 2 || !!input.unit_selectable,
         canonicalUnit: input.base_unit ?? "",
         allowedValues: input.allowed_values ?? [],
         helpText: (() => {
@@ -363,8 +393,8 @@ function buildCalculatorViewModel(
         criticality: input.criticality,
         blockers: state.validationState.client_precheck_errors.filter((issue) => issue.input_id === input.id),
         basePreview: isFree ? null : basePreviewVal,
-        referenceSource: isFree ? null : inputRefSource,
-        tolerancePct: isFree ? null : tolPct,
+        referenceSource: inputRefSource,
+        tolerancePct: tolPct,
         evidence: isFree
           ? { valueVerified: false, sourceVerified: false, evidenceRequired: false, evidenceLabel: "" }
           : {
@@ -373,12 +403,18 @@ function buildCalculatorViewModel(
               evidenceRequired,
               evidenceLabel,
             },
-        referenceStrip: isFree ? [] : refStrip,
+        referenceStrip: refStrip,
         declaredRange: isFree ? "" : declaredRange,
         declaredDefaultReference: isFree ? "" : declaredDefaultReference,
         declaredAcceptedValues: isFree ? "" : declaredAcceptedValues,
         declaredTolerance: isFree ? "" : declaredTolerance,
         cleanReferenceHelper,
+        referenceOptions: inputRefs?.references?.map((r) => ({
+          label: r.label,
+          value: r.value,
+          unit: r.unit,
+          source: r.source,
+        })) ?? [],
       };
     });
 
@@ -2030,6 +2066,8 @@ function CalculatorInputField({
   const nonEmptyUnits = field.allowedUnits.filter((u) => u.length > 0);
   const isNumeric = field.type === "number" || field.type === "integer";
   const hasRealUnits = isNumeric && nonEmptyUnits.length > 0;
+  // Universal unit selector: show dropdown when 2+ meaningful unit options exist.
+  const hasMultipleUnitOptions = hasRealUnits && nonEmptyUnits.length >= 2;
   // Infer a unit suffix from field name/id when schema has no explicit units.
   const inferredUnit = !hasRealUnits && isNumeric ? inferFieldUnit(field.id, field.label) : null;
 
@@ -2044,8 +2082,8 @@ function CalculatorInputField({
       {/* Help text */}
       {field.helpText && <p className="sc-v531-field-help">{field.helpText}</p>}
 
-      {/* Numeric with units: use field-control layout (input dominant, unit as suffix) */}
-      {hasRealUnits && field.unitSelectable ? (
+      {/* Numeric with units: universal unit selector when 2+ options exist */}
+      {hasMultipleUnitOptions ? (
         <div className="sc-v531-field-control">
           {renderValueInput(inputId, field, onValueChange, true)}
           <select
@@ -2059,8 +2097,8 @@ function CalculatorInputField({
             ))}
           </select>
         </div>
-      ) : hasRealUnits && !field.unitSelectable ? (
-        /* Fixed unit: passive suffix, no select */
+      ) : hasRealUnits && !hasMultipleUnitOptions ? (
+        /* Single unit: passive suffix, no select */
         <div className="sc-v531-field-control">
           {renderValueInput(inputId, field, onValueChange, true)}
           <span className="sc-v531-unit-suffix">
@@ -2085,15 +2123,18 @@ function CalculatorInputField({
         <p className="sc-v531-ref-helper">{replaceCurrencyLabel(field.cleanReferenceHelper, currencyCode)}</p>
       )}
 
-      {!isFreeTier && (
+      {/* Reference strip — visible for both FREE and PRO tools */}
+      {(field.referenceStrip.length > 0 || field.referenceSource || field.tolerancePct) && (
         <div className="sc-v531-field-reference" aria-label={field.label + " reference controls"}>
-          <div className="sc-v531-field-reference-strip">
-            {field.referenceStrip.map((line) => (
-              <span key={line} className="sc-v531-ref-line">
-                {replaceCurrencyLabel(line, currencyCode)}
-              </span>
-            ))}
-          </div>
+          {field.referenceStrip.length > 0 && (
+            <div className="sc-v531-field-reference-strip">
+              {field.referenceStrip.map((line) => (
+                <span key={line} className="sc-v531-ref-line">
+                  {replaceCurrencyLabel(line, currencyCode)}
+                </span>
+              ))}
+            </div>
+          )}
           {field.referenceSource && (
             <p className="sc-v531-ref-line">
               <strong>Source:</strong> {field.referenceSource}
@@ -2104,6 +2145,26 @@ function CalculatorInputField({
               <strong>Declared span:</strong> {field.tolerancePct}
             </p>
           )}
+        </div>
+      )}
+
+      {/* Clickable reference value chips — visible for both FREE and PRO */}
+      {field.referenceOptions.length > 0 && (
+        <div className="sc-v531-ref-values" aria-label="Reference values">
+          {field.referenceOptions.map((ref, idx) => (
+            <button
+              key={idx}
+              type="button"
+              className="sc-v531-ref-chip"
+              onClick={() => {
+                onValueChange(ref.value);
+              }}
+              title={`Apply ${ref.label} = ${ref.value} ${ref.unit}`}
+            >
+              <span className="sc-v531-ref-chip-label">{ref.label}</span>
+              <span className="sc-v531-ref-chip-value">{ref.value} {ref.unit}</span>
+            </button>
+          ))}
         </div>
       )}
 
