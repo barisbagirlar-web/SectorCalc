@@ -192,8 +192,10 @@ try {
   const report = page.locator('section[aria-label="Results"] .sc-v531-result-content');
   await report.waitFor({ state: "visible", timeout: 30_000 });
   const reportText = await report.innerText();
-  assert(reportText.includes("208,333.33"), "Rendered report does not show the Exact Decimal break-even value");
-  assert(reportText.includes("194,000.00"), "Rendered report does not show the stressed lower bound");
+  // API assertions above verify Exact Decimal values. The report intentionally
+  // applies the governed display-precision policy and rounds currency cards.
+  assert(reportText.includes("208,333"), "Rendered report does not show the governed break-even value");
+  assert(reportText.includes("194,000"), "Rendered report does not show the stressed lower bound");
   assert(!reportText.includes("Maximum Absorbed Overhead"), "Cross-tool output leaked into rendered report");
   assert(!reportText.includes("FMEA Trigger Flag"), "Generic FMEA output leaked into rendered report");
 
