@@ -71,8 +71,8 @@ try {
   assert(hourlyRate, "Free execute API omitted the hourly_rate output");
   assert(Number.isFinite(Number(hourlyRate.value)), `Free hourly_rate is non-finite: ${hourlyRate.value}`);
 
-  const report = page.locator('[aria-label="CNC Shop Hourly Rate Calculator report"]');
-  await report.waitFor({ timeout: 60_000 });
+  const report = page.locator('section[aria-label="Results"] .sc-v531-result-content');
+  await report.waitFor({ state: "visible", timeout: 60_000 });
   const reportText = await report.innerText();
   assert(reportText.includes("Hourly Rate"), "Free rendered report omitted the hourly-rate result");
   assert(!reportText.includes("No result yet"), "Free rendered report remained in the empty state");
