@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
-import type { ConversionRegistryItem, SuperV4Input } from "../contract-types";
+import type { ConversionRegistryItem, ServerOutput, SuperV4Input } from "../contract-types";
 import { allowEnteredValueAsExecutionEvidence } from "@/sectorcalc/runtime/schema-presentation-overrides";
+import { buildUniversalResult } from "@/sectorcalc/result-perspectives/universal-result-adapter";
 
 vi.mock("server-only", () => ({}));
 
@@ -86,5 +87,38 @@ describe("entered value execution evidence", () => {
     expect(registered).toContain("currency_unit");
     expect(registered).toContain("currency_unit/month");
     for (const unit of required) expect(registered).toContain(unit);
+  });
+
+  it("routes CNC hourly-rate outputs to visible generic result cards while preserving the public category", async () => {
+    const { clearSchemaCache, resolveApprovedToolSchema } = await import(
+      "@/sectorcalc/runtime/resolve-approved-tool-schema"
+    );
+    clearSchemaCache();
+    const resolved = resolveApprovedToolSchema("cnc-shop-hourly-rate");
+    expect(resolved.ok).toBe(true);
+    if (!resolved.ok) return;
+
+    expect(resolved.schema.category).toBe("Production Operations");
+    expect((resolved.schema as typeof resolved.schema & { category_label?: string }).category_label)
+      .toBe("Machining & CNC");
+
+    const values: Record<string, number> = {
+      true_hourly_rate: 711,
+      fixed_hourly_burden: 600,
+      variable_hourly_burden: 110,
+      annual_underpricing_exposure: 701,
+    };
+    const outputs: ServerOutput[] = resolved.schema.outputs.map((output) => ({
+      ...output,
+      value: values[output.id] ?? 0,
+      status: "OK",
+    }));
+    const result = buildUniversalResult(resolved.schema, {}, outputs);
+
+    expect(result).not.toBeNull();
+    expect(result?.cards.length).toBeGreaterThan(0);
+    expect(result?.cards.some((card) => card.id === "true_hourly_rate")).toBe(true);
+    expect(result?.primary.label).toBe("True Hourly Rate");
+    expect(result?.decisionState.label).not.toBe("");
   });
 });
