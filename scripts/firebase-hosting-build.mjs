@@ -12,23 +12,21 @@
  * build detection, causing "server.js does not exist" errors.
  */
 import { spawnSync } from "node:child_process";
-import { cpSync, existsSync, readdirSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
 
 function copySchemasToNextServer() {
-  const ROOT = process.cwd();
-
   // Generated schemas
   const srcSchemas = join(ROOT, "generated", "schemas");
   const dstSchemas = join(ROOT, ".next", "server", "generated", "schemas");
   if (existsSync(srcSchemas)) {
     cpSync(srcSchemas, dstSchemas, { recursive: true, force: true });
-    console.log(`firebase-hosting-build: copied schemas \u2192 ${dstSchemas}`);
+    console.log(`firebase-hosting-build: copied schemas → ${dstSchemas}`);
   } else {
-    console.warn(`firebase-hosting-build: ${srcSchemas} not found \u2014 skipping schema copy`);
+    console.warn(`firebase-hosting-build: ${srcSchemas} not found — skipping schema copy`);
   }
 
   // PRO V5.3.1 schemas (Baris tools) for pro-schema-loader
@@ -37,7 +35,7 @@ function copySchemasToNextServer() {
   if (existsSync(srcProV531)) {
     mkdirSync(join(ROOT, ".next/server/src/sectorcalc/schemas"), { recursive: true });
     cpSync(srcProV531, dstProV531, { recursive: true, force: true });
-    console.log(`firebase-hosting-build: copied pro-v531 schemas \u2192 ${dstProV531}`);
+    console.log(`firebase-hosting-build: copied pro-v531 schemas → ${dstProV531}`);
   }
 
   // V5.3.1 engineering schemas
@@ -46,7 +44,7 @@ function copySchemasToNextServer() {
   if (existsSync(srcV531)) {
     mkdirSync(join(ROOT, ".next/server/src/sectorcalc/schemas"), { recursive: true });
     cpSync(srcV531, dstV531, { recursive: true, force: true });
-    console.log(`firebase-hosting-build: copied v531 schemas \u2192 ${dstV531}`);
+    console.log(`firebase-hosting-build: copied v531 schemas → ${dstV531}`);
   }
 }
 

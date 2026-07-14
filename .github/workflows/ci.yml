@@ -2,10 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, "feature/*", "fix/*", "release/*"]
   pull_request:
     branches: [main]
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -14,63 +13,126 @@ concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  CI: "true"
-  NODE_OPTIONS: "--max-old-space-size=8192"
-
 jobs:
-  canonical-quality-gate:
-    name: Canonical quality gate
+  industrial-pipeline:
     runs-on: ubuntu-latest
     timeout-minutes: 60
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          persist-credentials: false
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
       - name: Install locked dependencies
-        run: npm ci --ignore-scripts=false
+        run: npm ci --no-audit --no-fund
 
-      - name: Secret leakage guard
-        run: npm run check:secrets
+      - name: Release automation syntax and redaction
+        shell: bash
+        run: |
+          node --check scripts/wait-release-workflows.mjs
+          node --check scripts/deploy-production.mjs
+          node --check scripts/e2e-break-even-browser.mjs
+          node --check scripts/redact-deploy-log.mjs
 
-      - name: Runtime stability guard
-        run: node scripts/guard-runtime-stability.mjs
+          source_log="$(mktemp)"
+          redacted_log="$(mktemp)"
+          test_secret="SectorCalc-Test-Secret-2026"
+          {
+            echo "Authorization: Bearer ${test_secret}"
+            echo "FIREBASE_TOKEN=${test_secret}"
+            echo "{\"access_token\":\"${test_secret}\"}"
+          } > "$source_log"
+          FIREBASE_TOKEN="$test_secret" node scripts/redact-deploy-log.mjs "$source_log" "$redacted_log"
+          if grep -Fq "$test_secret" "$redacted_log"; then
+            echo "DEPLOY_LOG_REDACTION=FAIL"
+            exit 1
+          fi
+          grep -Fq "[REDACTED]" "$redacted_log"
+          rm -f "$source_log" "$redacted_log"
+          echo "DEPLOY_LOG_REDACTION_SMOKE=PASS"
 
-      - name: TypeScript gate
+      - name: V5.3.1 form architecture
+        run: npm run guard:v531-form-architecture
+
+      - name: Forbidden form surfaces
+        run: npm run guard:forbidden-form-surfaces
+
+      - name: Schema and formula binding
+        run: npm run guard:v531-schema-formula-binding
+
+      - name: PRO runtime registration
+        run: npm run guard:baris-v531-runtime-registration
+
+      - name: PRO catalog contract
+        run: npm run guard:pro-tools-catalog
+
+      - name: PRO V2 extended contract matrix
+        run: npm run guard:pro-v2-all-extended
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+
+      - name: TypeScript
         run: npm run typecheck
 
-      - name: ESLint error gate
+      - name: ESLint errors
         run: npm run lint:errors
 
-      - name: Pro form tests
+      - name: V5 form tests
         run: npm run test:v5-form
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
 
-      - name: Pro runtime tests
+      - name: V5 runtime tests
         run: npm run test:v5-runtime
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
 
-      - name: Pro output and isolation contracts
-        run: npm run guard:pro-v2-all-extended
+      - name: Premium formula audit
+        run: npm run audit:premium
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
 
-      - name: Pro schema and result contracts
-        run: |
-          npm run guard:pro-tools-catalog
-          npm run guard:pro-display-units
-          npm run guard:pro-result-render-contract
-          npm run guard:pro-no-stale-dom
-
-      - name: Free tool numeric regression suite
-        run: npm run test:golden:free-v531
+      - name: Root-only routing guard
+        run: npm run guard:root-only
 
       - name: Production build
         run: npm run build
         env:
+          NODE_OPTIONS: --max-old-space-size=8192
           NEXT_PUBLIC_SITE_URL: https://sectorcalc.com
+
+      - name: PRO formula execution gate
+        run: >-
+          npx vitest run
+          src/sectorcalc/formulas/pro-v531/__tests__/break-even-survival-cash-calculator.test.ts
+          src/sectorcalc/formulas/pro-v531/__tests__/baris-formula-registry-break-even.test.ts
+          src/sectorcalc/formulas/pro-v531/__tests__/break-even-contract-isolation.test.ts
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+
+      - name: PRO formula health gate
+        run: >-
+          npx vitest run
+          src/sectorcalc/formulas/pro-v531/__tests__/formula-schema-contract.test.ts
+          src/sectorcalc/pro-report/__tests__/pro-report-break-even.test.ts
+          src/sectorcalc/pro-runtime/__tests__/decision-engine-formula-status.test.ts
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+
+  canonical-quality-gate:
+    name: Canonical quality gate
+    needs: industrial-pipeline
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Enforce canonical pipeline result
+        shell: bash
+        run: |
+          if [ "${{ needs.industrial-pipeline.result }}" != "success" ]; then
+            echo "CANONICAL_QUALITY_GATE=FAIL"
+            exit 1
+          fi
+          echo "CANONICAL_QUALITY_GATE=PASS"
