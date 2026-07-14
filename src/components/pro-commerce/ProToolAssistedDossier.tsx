@@ -17,7 +17,7 @@ export function ProToolAssistedDossier({ toolKey, toolName }: ProToolAssistedDos
   }
 
   return (
-    <article className="sc-v531-shell" style={{
+    <article className="pro-shell" style={{
       maxWidth: "800px",
       margin: "2rem auto",
       padding: "2rem",

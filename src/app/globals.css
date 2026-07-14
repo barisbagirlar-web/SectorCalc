@@ -559,13 +559,13 @@ canvas {
 
   /* Safe-area for tool pages with mobile sticky action bar */
   .has-mobile-cta,
-  .sc-v531-shell,
+  .pro-shell,
   .sc-premium-tool-shell {
     padding-bottom: calc(var(--sc-mobile-safe-bottom) + 140px) !important;
   }
 
   /* Primary CTA bottom-fixed */
-  .sc-v531-primary-action,
+  .pro-primary-action,
   .mobile-primary-cta,
   .bottom-primary-cta,
   [data-primary-action] {

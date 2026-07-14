@@ -1041,11 +1041,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   // ── Shared hero content (title/desc/badges/currency) ──
   const heroContent = (
     <>
-      <h1 className="sc-v531-title">{vm.title}</h1>
-      <p className="sc-v531-hero__scope">{vm.purpose}</p>
-      <div className="sc-v531-meta-row" aria-label="Tool metadata">
+      <h1 className="pro-title">{vm.title}</h1>
+      <p className="pro-hero__scope">{vm.purpose}</p>
+      <div className="pro-meta-row" aria-label="Tool metadata">
         {vm.badges.map((badge, i) => (
-          <span key={i} className="sc-v531-chip">{badge.label}</span>
+          <span key={i} className="pro-chip">{badge.label}</span>
         ))}
       </div>
       {/* Currency display selector — only show when the tool has monetary fields */}
@@ -1058,11 +1058,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         const outputMonetary = (props.schema as any)?.outputs?.some((o: any) => isCurrencyUnit(o.unit ?? "")) ?? false;
         const hasMonetaryField = inputMonetary || outputMonetary;
         return hasMonetaryField ? (
-        <div className="sc-v531-currency-row" aria-label="Currency selector">
-          <label className="sc-v531-currency-label" htmlFor="sc-currency-select">Display currency</label>
+        <div className="pro-currency-row" aria-label="Currency selector">
+          <label className="pro-currency-label" htmlFor="sc-currency-select">Display currency</label>
           <select
             id="sc-currency-select"
-            className="sc-v531-currency-select"
+            className="pro-currency-select"
             value={selectedCurrency}
             onChange={(e: ChangeEvent<HTMLSelectElement>) => setSelectedCurrency(e.target.value as CurrencyCode)}
           >
@@ -1074,8 +1074,8 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
         ) : null;
       })()}
       {isPro && (
-        <div className="sc-v531-mode-panel">
-          <div className="sc-v531-mode-tabs" role="tablist" aria-label="Calculation view">
+        <div className="pro-mode-panel">
+          <div className="pro-mode-tabs" role="tablist" aria-label="Calculation view">
             {(["quick", "engineering", "cost", "audit", "diagnostic"] as ProfileMode[]).map((mode) => {
               const active = state.profileModeState.mode === mode;
               return (
@@ -1084,7 +1084,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   type="button"
                   role="tab"
                   aria-selected={active}
-                  className="sc-v531-mode-tab"
+                  className="pro-mode-tab"
                   data-active={active ? "true" : "false"}
                   onClick={() => machine.setProfileMode(mode)}
                 >
@@ -1093,7 +1093,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               );
             })}
           </div>
-          <p className="sc-v531-view-description">
+          <p className="pro-view-description">
             {PROFILE_MODE_COPY[state.profileModeState.mode]}
           </p>
         </div>
@@ -1103,7 +1103,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
   return (
     <section
-      className={`sc-v531-shell ${props.className ?? ""}`}
+      className={`pro-shell ${props.className ?? ""}`}
       data-renderer="UniversalIndustrialDecisionForm"
       data-v531="true"
       data-access-tier={accessTier}
@@ -1111,17 +1111,17 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     >
       {isPro && isDesktop ? (
         /* ── PRO Desktop: hero inside cockpit left panel ── */
-        <div className="sc-v531-layout">
-          <main className="sc-v531-main-panel">
-            <div className="sc-v531-pro-cockpit">
-              <div className="sc-v531-pro-cockpit-left">
-                <header className="sc-v531-hero sc-v531-hero--cockpit">
+        <div className="pro-layout">
+          <main className="pro-main-panel">
+            <div className="pro-pro-cockpit">
+              <div className="pro-pro-cockpit-left">
+                <header className="pro-hero pro-hero--cockpit">
                   {heroContent}
                 </header>
                 {vm.fields.length === 0 && (
-                  <p className="sc-v531-empty">No inputs defined for this tool.</p>
+                  <p className="pro-empty">No inputs defined for this tool.</p>
                 )}
-                <div className="sc-v531-field-grid">
+                <div className="pro-field-grid">
                   {vm.fields.map((field) => (
                     <CalculatorInputField
                       key={field.id}
@@ -1153,11 +1153,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 </div>
                 {/* PRO Desktop CTA is in right Decision Panel only — no duplicate here */}
               </div>
-              <aside className="sc-v531-pro-cockpit-right">
-                <div className="sc-v531-cockpit-panel">
-                  <h4 className="sc-v531-cockpit-panel-title">Decision Panel</h4>
+              <aside className="pro-pro-cockpit-right">
+                <div className="pro-cockpit-panel">
+                  <h4 className="pro-cockpit-panel-title">Decision Panel</h4>
                   {hasResult && response?.outputs ? (
-                    <div className="sc-v531-cockpit-panel-content">
+                    <div className="pro-cockpit-panel-content">
                       {(() => {
                         const dsOutput = response.outputs.find((o) =>
                           (o.name ?? "").toLowerCase().replace(/[\s-]+/g, "_").includes("decision_status")
@@ -1180,27 +1180,27 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         return (
                           <>
                             {dsValue && (
-                              <div className="sc-v531-cockpit-row">
-                                <span className="sc-v531-cockpit-row-label">Decision Status</span>
-                                <span className={`sc-v531-cockpit-row-value sc-v531-ds-${dsKey}`}>{dsValue}</span>
+                              <div className="pro-cockpit-row">
+                                <span className="pro-cockpit-row-label">Decision Status</span>
+                                <span className={`pro-cockpit-row-value pro-ds-${dsKey}`}>{dsValue}</span>
                               </div>
                             )}
                             {gdValue && (
-                              <div className="sc-v531-cockpit-row">
-                                <span className="sc-v531-cockpit-row-label">Governing Driver</span>
-                                <span className="sc-v531-cockpit-row-text">{gdValue}</span>
+                              <div className="pro-cockpit-row">
+                                <span className="pro-cockpit-row-label">Governing Driver</span>
+                                <span className="pro-cockpit-row-text">{gdValue}</span>
                               </div>
                             )}
                             {costValue !== null && (
-                              <div className="sc-v531-cockpit-row">
-                                <span className="sc-v531-cockpit-row-label">Annual Leak Cost</span>
-                                <span className="sc-v531-cockpit-row-value">{formatDisplayNumber(costValue)} {costUnit}</span>
+                              <div className="pro-cockpit-row">
+                                <span className="pro-cockpit-row-label">Annual Leak Cost</span>
+                                <span className="pro-cockpit-row-value">{formatDisplayNumber(costValue)} {costUnit}</span>
                               </div>
                             )}
                             {paybackValue !== null && (
-                              <div className="sc-v531-cockpit-row">
-                                <span className="sc-v531-cockpit-row-label">Repair Payback</span>
-                                <span className="sc-v531-cockpit-row-value">{formatDisplayNumber(paybackValue)} days</span>
+                              <div className="pro-cockpit-row">
+                                <span className="pro-cockpit-row-label">Repair Payback</span>
+                                <span className="pro-cockpit-row-value">{formatDisplayNumber(paybackValue)} days</span>
                               </div>
                             )}
                             {(() => {
@@ -1213,19 +1213,19 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                                 actionText = "No urgent action needed. Monitor pressure.";
                               }
                               return actionText ? (
-                                <div className="sc-v531-cockpit-block">
-                                  <span className="sc-v531-cockpit-row-label">Recommended Action</span>
-                                  <p className="sc-v531-cockpit-row-text">{actionText}</p>
+                                <div className="pro-cockpit-block">
+                                  <span className="pro-cockpit-row-label">Recommended Action</span>
+                                  <p className="pro-cockpit-row-text">{actionText}</p>
                                 </div>
                               ) : null;
                             })()}
                           </>
                         );
                       })()}
-                      <div className="sc-v531-cockpit-actions">
+                      <div className="pro-cockpit-actions">
                         <button
                           type="button"
-                          className="sc-v531-primary-action"
+                          className="pro-primary-action"
                           disabled={vm.action.disabled}
                           onClick={vm.action.onAction}
                         >
@@ -1233,30 +1233,30 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         </button>
                         <button
                           type="button"
-                          className="sc-v531-action-secondary"
+                          className="pro-action-secondary"
                           onClick={machine.runClientPrecheck}
                         >
                           Check inputs
                         </button>
                         <button
                           type="button"
-                          className="sc-v531-action-secondary"
+                          className="pro-action-secondary"
                           onClick={handleReset}
                         >
                           Reset inputs
                         </button>
                       </div>
                       {vm.action.disabled && vm.action.disabledReason && (
-                        <p className="sc-v531-disabled-reason" role="status">
+                        <p className="pro-disabled-reason" role="status">
                           {vm.action.disabledReason}
                         </p>
                       )}
                     </div>
                   ) : (
-                    <div className="sc-v531-cockpit-panel-placeholder">
+                    <div className="pro-cockpit-panel-placeholder">
                       <button
                         type="button"
-                        className="sc-v531-primary-action"
+                        className="pro-primary-action"
                         disabled={vm.action.disabled}
                         onClick={vm.action.onAction}
                       >
@@ -1264,14 +1264,14 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       </button>
                       <button
                         type="button"
-                        className="sc-v531-action-secondary"
+                        className="pro-action-secondary"
                         onClick={machine.runClientPrecheck}
                       >
                         Check inputs
                       </button>
                       <button
                         type="button"
-                        className="sc-v531-action-secondary"
+                        className="pro-action-secondary"
                         onClick={handleReset}
                       >
                         Reset inputs
@@ -1286,13 +1286,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       ) : (
         /* ── FREE / mobile PRO: standalone hero + inputs + action bar ── */
         <>
-          <header className="sc-v531-hero">{heroContent}</header>
-          <div className="sc-v531-layout">
-            <main className="sc-v531-main-panel">
+          <header className="pro-hero">{heroContent}</header>
+          <div className="pro-layout">
+            <main className="pro-main-panel">
               {vm.fields.length === 0 && (
-                <p className="sc-v531-empty">No inputs defined for this tool.</p>
+                <p className="pro-empty">No inputs defined for this tool.</p>
               )}
-              <div className="sc-v531-field-grid">
+              <div className="pro-field-grid">
                 {vm.fields.map((field) => (
                   <CalculatorInputField
                     key={field.id}
@@ -1325,11 +1325,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
               {/* Full-width action bar (desktop only — mobile uses sticky bar below) */}
               {isDesktop && (
-              <div className="sc-v531-action-bar">
-                  <div className="sc-v531-action-bar-buttons">
+              <div className="pro-action-bar">
+                  <div className="pro-action-bar-buttons">
                     <button
                       type="button"
-                      className="sc-v531-primary-action"
+                      className="pro-primary-action"
                       disabled={vm.action.disabled}
                       aria-disabled={vm.action.disabled}
                       onClick={vm.action.onAction}
@@ -1339,7 +1339,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     {isPro && (
                       <button
                         type="button"
-                        className="sc-v531-action-secondary"
+                        className="pro-action-secondary"
                         onClick={machine.runClientPrecheck}
                       >
                         Check inputs
@@ -1347,14 +1347,14 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     )}
                     <button
                       type="button"
-                      className="sc-v531-action-secondary"
+                      className="pro-action-secondary"
                       onClick={handleReset}
                     >
                       Reset inputs
                     </button>
                   </div>
                   {vm.action.disabled && vm.action.disabledReason && (
-                    <p className="sc-v531-disabled-reason" role="status">
+                    <p className="pro-disabled-reason" role="status">
                       {vm.action.disabledReason}
                     </p>
                   )}
@@ -1366,10 +1366,10 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       )}
 
         {/* Results */}
-        <section className="sc-v531-section sc-v531-results" aria-label="Results">
+        <section className="pro-section pro-results" aria-label="Results">
           {vm.resultState.hasResult ? (
             (isFreeTier && isServerBlocked) ? (
-              <div className="sc-v531-free-validation-error">
+              <div className="pro-free-validation-error">
                 <p>Calculation not run</p>
                 <ul>
                   {(response?.warnings ?? []).length > 0
@@ -1381,14 +1381,14 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 </ul>
               </div>
             ) : (
-            <div className="sc-v531-result-content">
+            <div className="pro-result-content">
               {/* PRO V2 — Tool-Specific Report Panel (replaces generic universal_result) */}
               {isPro && hasResult && response?.outputs && response.outputs.length > 0 && (() => {
                 if (!proReportResult || !proReportResult.resolvedSections) {
                   return (
-                    <div className="sc-v531-report-contract-missing">
-                      <p className="sc-v531-report-error-title">Calculation completed.</p>
-                      <p className="sc-v531-report-error-desc">The tool-specific report could not be generated. No additional credit was used.</p>
+                    <div className="pro-report-contract-missing">
+                      <p className="pro-report-error-title">Calculation completed.</p>
+                      <p className="pro-report-error-desc">The tool-specific report could not be generated. No additional credit was used.</p>
                     </div>
                   );
                 }
@@ -1417,9 +1417,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 const auditCards = ur.cards.filter((c) => c.perspective === "audit_note");
 
                 const severityClass = (s?: string) => {
-                  if (s === "danger") return "sc-v531-card-danger";
-                  if (s === "warning") return "sc-v531-card-warning";
-                  return "sc-v531-card-info";
+                  if (s === "danger") return "pro-card-danger";
+                  if (s === "warning") return "pro-card-warning";
+                  return "pro-card-info";
                 };
 
                 const renderCardValue = (card: typeof primaryCard) => {
@@ -1429,7 +1429,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 };
 
                 return (
-                  <div className="sc-v531-free-results sc-v531-universal-results">
+                  <div className="pro-free-results pro-universal-results">
                     {/* Universal Result Panel (primary KPI + decision state) */}
                     <FreeToolResultPanel
                       toolTitle={vm.title}
@@ -1456,13 +1456,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
                     {/* Commercial View */}
                     {commercialCards.length > 0 && (
-                      <div className="sc-v531-free-results-section">
-                        <h4 className="sc-v531-free-results-subtitle">Commercial View</h4>
-                        <div className="sc-v531-free-results-grid">
+                      <div className="pro-free-results-section">
+                        <h4 className="pro-free-results-subtitle">Commercial View</h4>
+                        <div className="pro-free-results-grid">
                           {commercialCards.map((card, ci) => (
-                            <div key={ci} className={`sc-v531-free-result-item ${severityClass(card.severity)}`}>
-                              <span className="sc-v531-free-result-name">{card.label}</span>
-                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            <div key={ci} className={`pro-free-result-item ${severityClass(card.severity)}`}>
+                              <span className="pro-free-result-name">{card.label}</span>
+                              <span className="pro-free-result-value">{renderCardValue(card)}</span>
                             </div>
                           ))}
                         </div>
@@ -1471,13 +1471,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
                     {/* Cost Breakdown */}
                     {costCards.length > 0 && (
-                      <div className="sc-v531-free-results-section">
-                        <h4 className="sc-v531-free-results-subtitle">Cost Breakdown</h4>
-                        <div className="sc-v531-free-results-grid">
+                      <div className="pro-free-results-section">
+                        <h4 className="pro-free-results-subtitle">Cost Breakdown</h4>
+                        <div className="pro-free-results-grid">
                           {costCards.map((card, ci) => (
-                            <div key={ci} className="sc-v531-free-result-item">
-                              <span className="sc-v531-free-result-name">{card.label}</span>
-                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            <div key={ci} className="pro-free-result-item">
+                              <span className="pro-free-result-name">{card.label}</span>
+                              <span className="pro-free-result-value">{renderCardValue(card)}</span>
                             </div>
                           ))}
                         </div>
@@ -1486,13 +1486,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
                     {/* Risk Sensitivity */}
                     {riskCards.length > 0 && (
-                      <div className="sc-v531-free-results-section">
-                        <h4 className="sc-v531-free-results-subtitle">Risk & Sensitivity</h4>
-                        <div className="sc-v531-free-results-grid">
+                      <div className="pro-free-results-section">
+                        <h4 className="pro-free-results-subtitle">Risk & Sensitivity</h4>
+                        <div className="pro-free-results-grid">
                           {riskCards.map((card, ci) => (
-                            <div key={ci} className={`sc-v531-free-result-item ${severityClass(card.severity)}`}>
-                              <span className="sc-v531-free-result-name">{card.label}</span>
-                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            <div key={ci} className={`pro-free-result-item ${severityClass(card.severity)}`}>
+                              <span className="pro-free-result-name">{card.label}</span>
+                              <span className="pro-free-result-value">{renderCardValue(card)}</span>
                             </div>
                           ))}
                         </div>
@@ -1501,13 +1501,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
                     {/* Technical Limit */}
                     {technicalCards.length > 0 && (
-                      <div className="sc-v531-free-results-section">
-                        <h4 className="sc-v531-free-results-subtitle">Technical Assessment</h4>
-                        <div className="sc-v531-free-results-grid">
+                      <div className="pro-free-results-section">
+                        <h4 className="pro-free-results-subtitle">Technical Assessment</h4>
+                        <div className="pro-free-results-grid">
                           {technicalCards.map((card, ci) => (
-                            <div key={ci} className={`sc-v531-free-result-item ${severityClass(card.severity)}`}>
-                              <span className="sc-v531-free-result-name">{card.label}</span>
-                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            <div key={ci} className={`pro-free-result-item ${severityClass(card.severity)}`}>
+                              <span className="pro-free-result-name">{card.label}</span>
+                              <span className="pro-free-result-value">{renderCardValue(card)}</span>
                             </div>
                           ))}
                         </div>
@@ -1516,13 +1516,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
                     {/* Audit Notes */}
                     {auditCards.length > 0 && (
-                      <div className="sc-v531-free-results-section">
-                        <h4 className="sc-v531-free-results-subtitle">Audit Notes</h4>
-                        <div className="sc-v531-free-results-grid">
+                      <div className="pro-free-results-section">
+                        <h4 className="pro-free-results-subtitle">Audit Notes</h4>
+                        <div className="pro-free-results-grid">
                           {auditCards.map((card, ci) => (
-                            <div key={ci} className="sc-v531-free-result-item">
-                              <span className="sc-v531-free-result-name">{card.label}</span>
-                              <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                            <div key={ci} className="pro-free-result-item">
+                              <span className="pro-free-result-name">{card.label}</span>
+                              <span className="pro-free-result-value">{renderCardValue(card)}</span>
                             </div>
                           ))}
                         </div>
@@ -1542,13 +1542,13 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       const remaining = ur.cards.filter((c) => !groupedIds.has(c.id));
                       if (remaining.length === 0) return null;
                       return (
-                        <div className="sc-v531-free-results-section">
-                          <h4 className="sc-v531-free-results-subtitle">Additional Results</h4>
-                          <div className="sc-v531-free-results-grid">
+                        <div className="pro-free-results-section">
+                          <h4 className="pro-free-results-subtitle">Additional Results</h4>
+                          <div className="pro-free-results-grid">
                             {remaining.map((card, ci) => (
-                              <div key={ci} className="sc-v531-free-result-item">
-                                <span className="sc-v531-free-result-name">{card.label}</span>
-                                <span className="sc-v531-free-result-value">{renderCardValue(card)}</span>
+                              <div key={ci} className="pro-free-result-item">
+                                <span className="pro-free-result-name">{card.label}</span>
+                                <span className="pro-free-result-value">{renderCardValue(card)}</span>
                               </div>
                             ))}
                           </div>
@@ -1561,9 +1561,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       const inCard = ur.cards.some((c) => c.id === o.id);
                       return !isStatusOutput(o) && !inCard;
                     }).length > 0 && (
-                      <div className="sc-v531-free-results-section">
-                        <h4 className="sc-v531-free-results-subtitle">Computed Values</h4>
-                        <div className="sc-v531-free-results-grid">
+                      <div className="pro-free-results-section">
+                        <h4 className="pro-free-results-subtitle">Computed Values</h4>
+                        <div className="pro-free-results-grid">
                           {response.outputs.filter((o) => {
                             const inCard = ur.cards.some((c) => c.id === o.id);
                             return !isStatusOutput(o) && !inCard;
@@ -1577,9 +1577,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                               : formattedValue;
                             const isLarge = displayStr.length > 20;
                             return (
-                              <div key={idx} className="sc-v531-free-result-item">
-                                <span className="sc-v531-free-result-name">{out.name}</span>
-                                <span className={`sc-v531-free-result-value${isLarge ? " sc-v531-free-result-value--large" : ""}`}>
+                              <div key={idx} className="pro-free-result-item">
+                                <span className="pro-free-result-name">{out.name}</span>
+                                <span className={`pro-free-result-value${isLarge ? " pro-free-result-value--large" : ""}`}>
                                   {displayStr}
                                 </span>
                               </div>
@@ -1591,9 +1591,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
                     {/* Assumptions */}
                     {ur.assumptions.length > 0 && (
-                      <div className="sc-v531-free-results-section">
-                        <h4 className="sc-v531-free-results-subtitle">Assumptions & Notes</h4>
-                        <ul className="sc-v531-free-assumptions">
+                      <div className="pro-free-results-section">
+                        <h4 className="pro-free-results-subtitle">Assumptions & Notes</h4>
+                        <ul className="pro-free-assumptions">
                           {ur.assumptions.map((a, ai) => (
                             <li key={ai}>{a}</li>
                           ))}
@@ -1603,9 +1603,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
                     {/* Warnings */}
                     {ur.warnings.length > 0 && (
-                      <div className="sc-v531-free-results-section">
-                        <h4 className="sc-v531-free-results-subtitle">Warnings</h4>
-                        <ul className="sc-v531-free-warnings">
+                      <div className="pro-free-results-section">
+                        <h4 className="pro-free-results-subtitle">Warnings</h4>
+                        <ul className="pro-free-warnings">
                           {ur.warnings.map((w, wi) => (
                             <li key={wi}>{w}</li>
                           ))}
@@ -1649,7 +1649,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
 
               {/* PRO mode: Decision Summary + Primary Results + Professional Interpretation (fallback when no universal_result and no tool-specific report) */}
               {!isFreeTier && !proReportResult?.resolvedSections && (!response?.universal_result || response.universal_result.cards.length === 0) && response?.outputs && (
-                <div className="sc-v531-pro-results-container">
+                <div className="pro-pro-results-container">
                   {/* Decision Summary — skipped when desktop cockpit already shows it */}
                   {!(isPro && isDesktop) && (() => {
                     const dsOutput = response.outputs.find((o) =>
@@ -1693,38 +1693,38 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     }
 
                     return (
-                      <section className="sc-v531-pro-decision-summary" aria-label="Decision Summary">
-                        <h3 className="sc-v531-pro-section-title">Decision Summary</h3>
+                      <section className="pro-pro-decision-summary" aria-label="Decision Summary">
+                        <h3 className="pro-pro-section-title">Decision Summary</h3>
                         {displayStatus && (
-                          <div className="sc-v531-pro-ds-row">
-                            <span className="sc-v531-pro-ds-label">Decision Status</span>
-                            <span className={`sc-v531-pro-ds-value sc-v531-ds-${displayStatus.toLowerCase().replace(/\s+/g, "_")}`}>
+                          <div className="pro-pro-ds-row">
+                            <span className="pro-pro-ds-label">Decision Status</span>
+                            <span className={`pro-pro-ds-value pro-ds-${displayStatus.toLowerCase().replace(/\s+/g, "_")}`}>
                               {displayStatus}
                             </span>
                           </div>
                         )}
                         {displayDriver && (
-                          <div className="sc-v531-pro-ds-row">
-                            <span className="sc-v531-pro-ds-label">Governing Driver</span>
-                            <span className="sc-v531-pro-ds-text">{displayDriver}</span>
+                          <div className="pro-pro-ds-row">
+                            <span className="pro-pro-ds-label">Governing Driver</span>
+                            <span className="pro-pro-ds-text">{displayDriver}</span>
                           </div>
                         )}
                         {nextAction && (
-                          <div className="sc-v531-pro-ds-block">
-                            <span className="sc-v531-pro-ds-label">Recommended Next Action</span>
-                            <p className="sc-v531-pro-ds-text">{nextAction}</p>
+                          <div className="pro-pro-ds-block">
+                            <span className="pro-pro-ds-label">Recommended Next Action</span>
+                            <p className="pro-pro-ds-text">{nextAction}</p>
                           </div>
                         )}
                         {whyItMatters && (
-                          <div className="sc-v531-pro-ds-block">
-                            <span className="sc-v531-pro-ds-label">Why It Matters</span>
-                            <p className="sc-v531-pro-ds-text">{whyItMatters}</p>
+                          <div className="pro-pro-ds-block">
+                            <span className="pro-pro-ds-label">Why It Matters</span>
+                            <p className="pro-pro-ds-text">{whyItMatters}</p>
                           </div>
                         )}
                         {keyAssumptionCheck && (
-                          <div className="sc-v531-pro-ds-block">
-                            <span className="sc-v531-pro-ds-label">Key Assumption Check</span>
-                            <p className="sc-v531-pro-ds-text">{keyAssumptionCheck}</p>
+                          <div className="pro-pro-ds-block">
+                            <span className="pro-pro-ds-label">Key Assumption Check</span>
+                            <p className="pro-pro-ds-text">{keyAssumptionCheck}</p>
                           </div>
                         )}
                       </section>
@@ -1732,9 +1732,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   })()}
 
                   {/* Primary Results */}
-                  <section className="sc-v531-pro-results" aria-label="Primary Results">
-                    <h3 className="sc-v531-pro-section-title">Primary Results</h3>
-                    <div className="sc-v531-pro-results-grid">
+                  <section className="pro-pro-results" aria-label="Primary Results">
+                    <h3 className="pro-pro-section-title">Primary Results</h3>
+                    <div className="pro-pro-results-grid">
                       {response.outputs
                         .filter((o) => !isStatusOutput(o))
                         .map((out, idx) => {
@@ -1749,11 +1749,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                           const cleanSymbol = out.id ? getProOutputSymbol(out.id) : "";
                           const meaning = out.public_explanation || "";
                           return (
-                            <div key={idx} className="sc-v531-pro-result-card">
-                              <span className="sc-v531-pro-result-name">{out.name}</span>
-                              <span className="sc-v531-pro-result-value">{displayStr}</span>
-                              {cleanSymbol && <span className="sc-v531-pro-result-varid">{cleanSymbol}</span>}
-                              {meaning && <p className="sc-v531-pro-result-meaning">{meaning}</p>}
+                            <div key={idx} className="pro-pro-result-card">
+                              <span className="pro-pro-result-name">{out.name}</span>
+                              <span className="pro-pro-result-value">{displayStr}</span>
+                              {cleanSymbol && <span className="pro-pro-result-varid">{cleanSymbol}</span>}
+                              {meaning && <p className="pro-pro-result-meaning">{meaning}</p>}
                             </div>
                           );
                         })}
@@ -1801,53 +1801,53 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     }
 
                     return (
-                      <section className="sc-v531-pro-intelligence" aria-label="Result Intelligence">
-                        <h3 className="sc-v531-pro-section-title">Result Intelligence</h3>
-                        <p className="sc-v531-pro-ri-intro">
+                      <section className="pro-pro-intelligence" aria-label="Result Intelligence">
+                        <h3 className="pro-pro-section-title">Result Intelligence</h3>
+                        <p className="pro-pro-ri-intro">
                           Use this decision layer to prioritize action, verify assumptions and translate the calculation into maintenance, cost and operational decisions.
                         </p>
-                        <div className="sc-v531-pro-ri-grid">
+                        <div className="pro-pro-ri-grid">
                           {/* 1. Financial Impact */}
-                          <div className="sc-v531-pro-ri-card">
-                            <h4 className="sc-v531-pro-ri-card-title">Financial Impact</h4>
+                          <div className="pro-pro-ri-card">
+                            <h4 className="pro-pro-ri-card-title">Financial Impact</h4>
                             {annualLeakCost !== null ? (
-                              <p className="sc-v531-pro-ri-card-text">
+                              <p className="pro-pro-ri-card-text">
                                 The estimated annual leak cost is {formattedCost}. This is recurring avoidable energy cost under the entered operating schedule and electricity price.
                               </p>
                             ) : (
-                              <p className="sc-v531-pro-ri-card-text">
+                              <p className="pro-pro-ri-card-text">
                                 The annual cost impact could not be estimated from the available outputs.
                               </p>
                             )}
                           </div>
 
                           {/* 2. Operational Impact */}
-                          <div className="sc-v531-pro-ri-card">
-                            <h4 className="sc-v531-pro-ri-card-title">Operational Impact</h4>
-                            <p className="sc-v531-pro-ri-card-text">
+                          <div className="pro-pro-ri-card">
+                            <h4 className="pro-pro-ri-card-title">Operational Impact</h4>
+                            <p className="pro-pro-ri-card-text">
                               The leak increases compressor load during operating hours. Larger leak diameter, higher pressure and longer annual runtime increase the energy penalty.
                             </p>
                           </div>
 
                           {/* 3. Action Priority */}
-                          <div className="sc-v531-pro-ri-card">
-                            <h4 className="sc-v531-pro-ri-card-title">Action Priority</h4>
-                            <p className="sc-v531-pro-ri-card-priority">
+                          <div className="pro-pro-ri-card">
+                            <h4 className="pro-pro-ri-card-title">Action Priority</h4>
+                            <p className="pro-pro-ri-card-priority">
                               Priority: <strong>{actionPriorityLabel}</strong>
                             </p>
-                            <p className="sc-v531-pro-ri-card-text">{actionPriorityText}</p>
+                            <p className="pro-pro-ri-card-text">{actionPriorityText}</p>
                           </div>
 
                           {/* 4. Assumption Quality */}
-                          <div className="sc-v531-pro-ri-card">
-                            <h4 className="sc-v531-pro-ri-card-title">Assumption Quality</h4>
-                            <p className="sc-v531-pro-ri-card-priority">
+                          <div className="pro-pro-ri-card">
+                            <h4 className="pro-pro-ri-card-title">Assumption Quality</h4>
+                            <p className="pro-pro-ri-card-priority">
                               Status: <strong>Review Required</strong>
                             </p>
-                            <p className="sc-v531-pro-ri-card-text">
+                            <p className="pro-pro-ri-card-text">
                               Result quality depends on the accuracy of leak diameter, system pressure, operating hours, compressor specific power, electricity price and repair cost.
                             </p>
-                            <ul className="sc-v531-pro-ri-verify-list">
+                            <ul className="pro-pro-ri-verify-list">
                               <li>Leak diameter</li>
                               <li>System pressure</li>
                               <li>Operating hours</li>
@@ -1858,9 +1858,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                           </div>
 
                           {/* 5. Key Sensitivity Drivers */}
-                          <div className="sc-v531-pro-ri-card">
-                            <h4 className="sc-v531-pro-ri-card-title">Key Sensitivity Drivers</h4>
-                            <ul className="sc-v531-pro-ri-verify-list">
+                          <div className="pro-pro-ri-card">
+                            <h4 className="pro-pro-ri-card-title">Key Sensitivity Drivers</h4>
+                            <ul className="pro-pro-ri-verify-list">
                               <li>Leak diameter</li>
                               <li>System pressure</li>
                               <li>Operating hours</li>
@@ -1871,9 +1871,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                           </div>
 
                           {/* 6. Verification Checklist */}
-                          <div className="sc-v531-pro-ri-card">
-                            <h4 className="sc-v531-pro-ri-card-title">Verification Checklist</h4>
-                            <ul className="sc-v531-pro-ri-verify-list sc-v531-pro-ri-check-list">
+                          <div className="pro-pro-ri-card">
+                            <h4 className="pro-pro-ri-card-title">Verification Checklist</h4>
+                            <ul className="pro-pro-ri-verify-list pro-pro-ri-check-list">
                               <li>Confirm leak diameter by site measurement.</li>
                               <li>Confirm pressure at or near the leak location.</li>
                               <li>Confirm annual operating hours.</li>
@@ -1914,50 +1914,50 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     }
 
                     return (
-                      <section className="sc-v531-pro-professional-interpretation" aria-label="Professional Interpretation">
-                        <h3 className="sc-v531-pro-section-title">Professional Interpretation</h3>
-                        <p className="sc-v531-pro-pi-intro">
+                      <section className="pro-pro-professional-interpretation" aria-label="Professional Interpretation">
+                        <h3 className="pro-pro-section-title">Professional Interpretation</h3>
+                        <p className="pro-pro-pi-intro">
                           Use this interpretation to prioritize leak repair, energy-cost reduction and maintenance scheduling.
                         </p>
 
-                        <div className="sc-v531-pro-pi-block">
-                          <h4 className="sc-v531-pro-pi-subtitle">1. Operating Impact</h4>
-                          <p className="sc-v531-pro-pi-text">
+                        <div className="pro-pro-pi-block">
+                          <h4 className="pro-pro-pi-subtitle">1. Operating Impact</h4>
+                          <p className="pro-pro-pi-text">
                             The estimated air loss increases compressor load during operating hours. Higher pressure, larger leak diameter and longer annual runtime increase the loss.
                           </p>
                         </div>
 
-                        <div className="sc-v531-pro-pi-block">
-                          <h4 className="sc-v531-pro-pi-subtitle">2. Cost Impact</h4>
-                          <p className="sc-v531-pro-pi-text">
+                        <div className="pro-pro-pi-block">
+                          <h4 className="pro-pro-pi-subtitle">2. Cost Impact</h4>
+                          <p className="pro-pro-pi-text">
                             Annual leak cost is driven by air loss, compressor specific power, operating hours and electricity price. Use site-specific energy tariffs for final maintenance decisions.
                           </p>
                         </div>
 
-                        <div className="sc-v531-pro-pi-block">
-                          <h4 className="sc-v531-pro-pi-subtitle">3. Payback Interpretation</h4>
-                          <p className="sc-v531-pro-pi-text">
+                        <div className="pro-pro-pi-block">
+                          <h4 className="pro-pro-pi-subtitle">3. Payback Interpretation</h4>
+                          <p className="pro-pro-pi-text">
                             The repair payback period compares estimated repair cost against annualized leakage cost. Short payback indicates high maintenance priority.
                           </p>
                         </div>
 
-                        <div className="sc-v531-pro-pi-block">
-                          <h4 className="sc-v531-pro-pi-subtitle">4. Action Priority</h4>
+                        <div className="pro-pro-pi-block">
+                          <h4 className="pro-pro-pi-subtitle">4. Action Priority</h4>
                           {paybackDays !== null ? (
                             <>
-                              <p className="sc-v531-pro-pi-priority">
+                              <p className="pro-pro-pi-priority">
                                 Priority: <strong>{priorityLabel}</strong>
                               </p>
-                              <p className="sc-v531-pro-pi-text">{priorityText}</p>
+                              <p className="pro-pro-pi-text">{priorityText}</p>
                             </>
                           ) : (
-                            <p className="sc-v531-pro-pi-text">Payback period could not be determined.</p>
+                            <p className="pro-pro-pi-text">Payback period could not be determined.</p>
                           )}
                         </div>
 
-                        <div className="sc-v531-pro-pi-block">
-                          <h4 className="sc-v531-pro-pi-subtitle">5. Assumption Quality</h4>
-                          <p className="sc-v531-pro-pi-text">
+                        <div className="pro-pro-pi-block">
+                          <h4 className="pro-pro-pi-subtitle">5. Assumption Quality</h4>
+                          <p className="pro-pro-pi-text">
                             Result quality depends on the accuracy of leak diameter, pressure, operating hours, compressor specific power and electricity price. For final procurement decisions, validate these values from site measurements or maintenance records.
                           </p>
                         </div>
@@ -1969,9 +1969,9 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
               </div>
             )
             ) : (
-              <div className="sc-v531-placeholder">
-                <p className="sc-v531-placeholder-title">No result yet</p>
-                <p className="sc-v531-placeholder-text">
+              <div className="pro-placeholder">
+                <p className="pro-placeholder-title">No result yet</p>
+                <p className="pro-placeholder-text">
                   {isFreeTier
                     ? "Enter your values and click \"Calculate\" to see your results."
                     : "Enter values and run the calculation. Results and decision guidance will appear here."
@@ -2045,7 +2045,7 @@ function CalculatorInputField({
   showErrors?: boolean;
   isFreeTier?: boolean;
 }) {
-  const inputId = `sc-v531-input-${field.id}`;
+  const inputId = `pro-input-${field.id}`;
   const hasBlocker = field.blockers.length > 0;
 
   // Only show red validation border when the user has attempted Calculate
@@ -2072,22 +2072,22 @@ function CalculatorInputField({
   const inferredUnit = !hasRealUnits && isNumeric ? inferFieldUnit(field.id, field.label) : null;
 
   return (
-    <div className="sc-v531-field-card" data-criticality={field.criticality.toLowerCase()} data-error={showErrorState}>
+    <div className="pro-field-card" data-criticality={field.criticality.toLowerCase()} data-error={showErrorState}>
       {/* Header: label + symbol */}
-      <div className="sc-v531-field-header">
-        <label htmlFor={inputId} className="sc-v531-field-title">{field.label}</label>
-        {field.symbol && <span className="sc-v531-field-symbol">({field.symbol})</span>}
+      <div className="pro-field-header">
+        <label htmlFor={inputId} className="pro-field-title">{field.label}</label>
+        {field.symbol && <span className="pro-field-symbol">({field.symbol})</span>}
       </div>
 
       {/* Help text */}
-      {field.helpText && <p className="sc-v531-field-help">{field.helpText}</p>}
+      {field.helpText && <p className="pro-field-help">{field.helpText}</p>}
 
       {/* Numeric with units: universal unit selector when 2+ options exist */}
       {hasMultipleUnitOptions ? (
-        <div className="sc-v531-field-control">
+        <div className="pro-field-control">
           {renderValueInput(inputId, field, onValueChange, true)}
           <select
-            className="sc-v531-unit-select"
+            className="pro-unit-select"
             value={field.selectedUnit || nonEmptyUnits[0]}
             aria-label={`${field.label} unit`}
             onChange={(e: ChangeEvent<HTMLSelectElement>) => onUnitChange(e.target.value)}
@@ -2099,49 +2099,49 @@ function CalculatorInputField({
         </div>
       ) : hasRealUnits && !hasMultipleUnitOptions ? (
         /* Single unit: passive suffix, no select */
-        <div className="sc-v531-field-control">
+        <div className="pro-field-control">
           {renderValueInput(inputId, field, onValueChange, true)}
-          <span className="sc-v531-unit-suffix">
+          <span className="pro-unit-suffix">
             {resolveUnitLabel(field.selectedUnit || nonEmptyUnits[0])}
           </span>
         </div>
       ) : !hasRealUnits && isNumeric && inferredUnit ? (
         /* Inferred unit: passive suffix from field name (no explicit schema unit) */
-        <div className="sc-v531-field-control">
+        <div className="pro-field-control">
           {renderValueInput(inputId, field, onValueChange, true)}
-          <span className="sc-v531-unit-suffix">{inferredUnit}</span>
+          <span className="pro-unit-suffix">{inferredUnit}</span>
         </div>
       ) : (
         /* No units: single input only */
-        <div className="sc-v531-input-row">
+        <div className="pro-input-row">
           {renderValueInput(inputId, field, onValueChange, false)}
         </div>
       )}
 
       {/* Clean reference helper — one line per input, "Currency" placeholder replaced */}
       {field.cleanReferenceHelper && (
-        <p className="sc-v531-ref-helper">{replaceCurrencyLabel(field.cleanReferenceHelper, currencyCode)}</p>
+        <p className="pro-ref-helper">{replaceCurrencyLabel(field.cleanReferenceHelper, currencyCode)}</p>
       )}
 
       {/* Reference strip — visible for both FREE and PRO tools */}
       {(field.referenceStrip.length > 0 || field.referenceSource || field.tolerancePct) && (
-        <div className="sc-v531-field-reference" aria-label={field.label + " reference controls"}>
+        <div className="pro-field-reference" aria-label={field.label + " reference controls"}>
           {field.referenceStrip.length > 0 && (
-            <div className="sc-v531-field-reference-strip">
+            <div className="pro-field-reference-strip">
               {field.referenceStrip.map((line) => (
-                <span key={line} className="sc-v531-ref-line">
+                <span key={line} className="pro-ref-line">
                   {replaceCurrencyLabel(line, currencyCode)}
                 </span>
               ))}
             </div>
           )}
           {field.referenceSource && (
-            <p className="sc-v531-ref-line">
+            <p className="pro-ref-line">
               <strong>Source:</strong> {field.referenceSource}
             </p>
           )}
           {field.tolerancePct && (
-            <p className="sc-v531-field-tolerance">
+            <p className="pro-field-tolerance">
               <strong>Declared span:</strong> {field.tolerancePct}
             </p>
           )}
@@ -2150,28 +2150,28 @@ function CalculatorInputField({
 
       {/* Clickable reference value chips — visible for both FREE and PRO */}
       {field.referenceOptions.length > 0 && (
-        <div className="sc-v531-ref-values" aria-label="Reference values">
+        <div className="pro-ref-values" aria-label="Reference values">
           {field.referenceOptions.map((ref, idx) => (
             <button
               key={idx}
               type="button"
-              className="sc-v531-ref-chip"
+              className="pro-ref-chip"
               onClick={() => {
                 onValueChange(ref.value);
               }}
               title={`Apply ${ref.label} = ${ref.value} ${ref.unit}`}
             >
-              <span className="sc-v531-ref-chip-label">{ref.label}</span>
-              <span className="sc-v531-ref-chip-value">{ref.value} {ref.unit}</span>
+              <span className="pro-ref-chip-label">{ref.label}</span>
+              <span className="pro-ref-chip-value">{ref.value} {ref.unit}</span>
             </button>
           ))}
         </div>
       )}
 
       {!isFreeTier && (
-        <fieldset className="sc-v531-field-evidence">
-          <legend className="sc-v531-evidence-title">{field.evidence.evidenceLabel}</legend>
-          <div className="sc-v531-evidence-options">
+        <fieldset className="pro-field-evidence">
+          <legend className="pro-evidence-title">{field.evidence.evidenceLabel}</legend>
+          <div className="pro-evidence-options">
             <label>
               <input
                 type="checkbox"
@@ -2207,7 +2207,7 @@ function renderValueInput(
 ) {
   if (field.type === "boolean") {
     return (
-      <label className="sc-v531-toggle">
+      <label className="pro-toggle">
         <input
           type="checkbox"
           checked={field.value === true}
@@ -2222,7 +2222,7 @@ function renderValueInput(
     return (
       <select
         id={inputId}
-        className="sc-v531-input"
+        className="pro-input"
         value={typeof field.value === "string" ? field.value : ""}
         onChange={(e: ChangeEvent<HTMLSelectElement>) => onValueChange(e.target.value)}
       >
@@ -2238,7 +2238,7 @@ function renderValueInput(
     ? "Use decimal point for cents, e.g. 500000.005"
     : "";
 
-  const inputClass = useValueInputClass ? "sc-v531-value-input" : "sc-v531-input";
+  const inputClass = useValueInputClass ? "pro-value-input" : "pro-input";
 
   return (
     <input
@@ -2279,7 +2279,7 @@ function renderValueInput(
 
 function ContractBlocker({ errors }: { errors: string[] }) {
   return (
-    <section className="sc-v531-contract-blocker" role="alert">
+    <section className="pro-contract-blocker" role="alert">
       <h2>Schema contract rejected</h2>
       <p>The form cannot render this schema until V5.3.1 contract blockers are corrected.</p>
       <ul>
@@ -2293,7 +2293,7 @@ function ContractBlocker({ errors }: { errors: string[] }) {
 
 function IdentityBlocker({ reason }: { reason: string }) {
   return (
-    <section className="sc-v531-contract-blocker" role="alert">
+    <section className="pro-contract-blocker" role="alert">
       <h2>Schema identity mismatch</h2>
       <p>{reason}</p>
       <p>The requested tool does not match the resolved schema. No inputs or execution are available.</p>
@@ -2336,12 +2336,12 @@ function FormulaLogicSection({
     .filter((n): n is string => Boolean(n));
 
   return (
-    <section className="sc-v531-advanced-section" aria-label="Protected methodology">
-      <h3 className="sc-v531-advanced-title">Protected methodology</h3>
-      <p className="sc-v531-methodology-text"><strong>Formula logic:</strong> {formulaText}</p>
+    <section className="pro-advanced-section" aria-label="Protected methodology">
+      <h3 className="pro-advanced-title">Protected methodology</h3>
+      <p className="pro-methodology-text"><strong>Formula logic:</strong> {formulaText}</p>
       {standardNames.length > 0 && (
-        <div className="sc-v531-methodology-stack">
-          <p className="sc-v531-methodology-text">
+        <div className="pro-methodology-stack">
+          <p className="pro-methodology-text">
             <strong>Standards referenced:</strong> {standardNames.join(", ")}
           </p>
         </div>
@@ -2353,12 +2353,12 @@ function FormulaLogicSection({
 /** Controlled validation notes — static text, no server warnings. */
 function ValidationNotesSection({ isFreeTier }: { isFreeTier: boolean }) {
   return (
-    <section className="sc-v531-advanced-section" aria-label="Validation notes">
-      <h3 className="sc-v531-advanced-title">Validation notes</h3>
-      <ul className="sc-v531-assumption-list">
-        <li className="sc-v531-assumption-item">Inputs are checked against visible reference ranges.</li>
-        <li className="sc-v531-assumption-item">Values outside the reference range may reduce decision quality.</li>
-        <li className="sc-v531-assumption-item">
+    <section className="pro-advanced-section" aria-label="Validation notes">
+      <h3 className="pro-advanced-title">Validation notes</h3>
+      <ul className="pro-assumption-list">
+        <li className="pro-assumption-item">Inputs are checked against visible reference ranges.</li>
+        <li className="pro-assumption-item">Values outside the reference range may reduce decision quality.</li>
+        <li className="pro-assumption-item">
           {isFreeTier
             ? "Verify commercial values before using the result for pricing or planning."
             : "Evidence is recommended before final maintenance or procurement decision."
@@ -2372,12 +2372,12 @@ function ValidationNotesSection({ isFreeTier }: { isFreeTier: boolean }) {
 /** Controlled calculation assumptions — static text for FREE. */
 function CalculationAssumptionsSection({ currencyCode }: { currencyCode: CurrencyCode }) {
   return (
-    <section className="sc-v531-advanced-section" aria-label="Calculation assumptions">
-      <h3 className="sc-v531-advanced-title">Calculation assumptions</h3>
-      <ul className="sc-v531-assumption-list">
-        <li className="sc-v531-assumption-item">Monetary values shown in {currencyCode}. Currency selector changes display only.</li>
-        <li className="sc-v531-assumption-item">Results depend on user-entered values.</li>
-        <li className="sc-v531-assumption-item">This output is decision support, not audited financial advice.</li>
+    <section className="pro-advanced-section" aria-label="Calculation assumptions">
+      <h3 className="pro-advanced-title">Calculation assumptions</h3>
+      <ul className="pro-assumption-list">
+        <li className="pro-assumption-item">Monetary values shown in {currencyCode}. Currency selector changes display only.</li>
+        <li className="pro-assumption-item">Results depend on user-entered values.</li>
+        <li className="pro-assumption-item">This output is decision support, not audited financial advice.</li>
       </ul>
     </section>
   );
@@ -2387,11 +2387,11 @@ function CalculationAssumptionsSection({ currencyCode }: { currencyCode: Currenc
 function SensitivitySection({ toolKey }: { toolKey?: string }) {
   const bullets = getSensitivityBullets(toolKey);
   return (
-    <section className="sc-v531-advanced-section" aria-label="Sensitivity">
-      <h3 className="sc-v531-advanced-title">Sensitivity</h3>
-      <ul className="sc-v531-assumption-list">
+    <section className="pro-advanced-section" aria-label="Sensitivity">
+      <h3 className="pro-advanced-title">Sensitivity</h3>
+      <ul className="pro-assumption-list">
         {bullets.map((b, i) => (
-          <li key={i} className="sc-v531-assumption-item">{b}</li>
+          <li key={i} className="pro-assumption-item">{b}</li>
         ))}
       </ul>
     </section>
@@ -2416,9 +2416,9 @@ function getSensitivityBullets(toolKey: string | undefined): string[] {
 /** Controlled audit trail — PRO only. Clean text only. */
 function ProAuditTrailSection() {
   return (
-    <section className="sc-v531-advanced-section" aria-label="Audit trail">
-      <h3 className="sc-v531-advanced-title">Audit trail</h3>
-      <p className="sc-v531-methodology-text">
+    <section className="pro-advanced-section" aria-label="Audit trail">
+      <h3 className="pro-advanced-title">Audit trail</h3>
+      <p className="pro-methodology-text">
         Calculation inputs, normalized values, outputs and proof-pack metadata are
         audit-traceable. Raw developer payload is not displayed in the customer interface.
       </p>
@@ -2429,9 +2429,9 @@ function ProAuditTrailSection() {
 /** Controlled export — PRO only. Clean text only. */
 function ProExportSection() {
   return (
-    <section className="sc-v531-advanced-section" aria-label="Export">
-      <h3 className="sc-v531-advanced-title">Export</h3>
-      <p className="sc-v531-methodology-text">
+    <section className="pro-advanced-section" aria-label="Export">
+      <h3 className="pro-advanced-title">Export</h3>
+      <p className="pro-methodology-text">
         Export-ready report structure is prepared for production workflows.
       </p>
     </section>
@@ -2460,13 +2460,13 @@ function AdvancedDetailsWrapper({
   return (
     <details
       ref={detailsRef}
-      className="sc-v531-advanced"
+      className="pro-advanced"
       data-testid="advanced-details"
       onToggle={() => setOpen(detailsRef.current?.open ?? false)}
     >
-      <summary className="sc-v531-advanced-summary">
+      <summary className="pro-advanced-summary">
         <span>Advanced details</span>
-        <span className="sc-v531-advanced-links">
+        <span className="pro-advanced-links">
           {isFreeTier ? (
             <>
               <span>Formula logic</span>
@@ -2485,7 +2485,7 @@ function AdvancedDetailsWrapper({
         </span>
       </summary>
       {open && (
-        <div className="sc-v531-advanced-body">
+        <div className="pro-advanced-body">
           <FormulaLogicSection toolKey={toolKey} schema={schema} />
           <ValidationNotesSection isFreeTier={isFreeTier} />
           {isFreeTier && <CalculationAssumptionsSection currencyCode={selectedCurrency} />}
@@ -2518,21 +2518,21 @@ function PremiumPanel({
     } finally { setLoading(false); }
   };
   return (
-    <section className="sc-v531-advanced-section" aria-label="Premium hook">
-      <h3 className="sc-v531-advanced-title">Monetary loss exposure</h3>
-      <div className="sc-v531-premium-card">
+    <section className="pro-advanced-section" aria-label="Premium hook">
+      <h3 className="pro-advanced-title">Monetary loss exposure</h3>
+      <div className="pro-premium-card">
         <strong>{hook.pain_metric.label}</strong>
-        <p className="sc-v531-premium-value">
+        <p className="pro-premium-value">
           {hook.pain_metric.value !== null
             ? `${formatSafeValue(hook.pain_metric.value)} ${hook.pain_metric.unit}`
             : "Insufficient input context."}
         </p>
         <p>{hook.pain_metric.explanation}</p>
-        <p className="sc-v531-legal-disclaimer">{hook.pain_metric.safety_note}</p>
-        <button type="button" className="sc-v531-primary-button" disabled={loading} onClick={handleCheckout}>
+        <p className="pro-legal-disclaimer">{hook.pain_metric.safety_note}</p>
+        <button type="button" className="pro-primary-button" disabled={loading} onClick={handleCheckout}>
           {loading ? "Opening..." : hook.cta.label}
         </button>
-        <p className="sc-v531-empty">{hook.cta.subtext}</p>
+        <p className="pro-empty">{hook.cta.subtext}</p>
       </div>
     </section>
   );
@@ -2543,10 +2543,10 @@ function PremiumPanel({
 function WarningCard({ severity, title, detail }: { severity: string; title: string; detail: string }) {
   if (!hasMessage(title)) return null;
   return (
-    <div className="sc-v531-warning-card" data-severity={severity.toLowerCase()}>
-      <span className="sc-v531-warning-severity">{severity}</span>
-      <strong className="sc-v531-warning-title">{title}</strong>
-      {hasMessage(detail) && <p className="sc-v531-warning-detail">{detail}</p>}
+    <div className="pro-warning-card" data-severity={severity.toLowerCase()}>
+      <span className="pro-warning-severity">{severity}</span>
+      <strong className="pro-warning-title">{title}</strong>
+      {hasMessage(detail) && <p className="pro-warning-detail">{detail}</p>}
     </div>
   );
 }
