@@ -83,19 +83,32 @@ function applyBreakEvenCurrencyPresentation(schema: SuperV4Schema): SuperV4Schem
   const registry = schema.unit_conversion_contract.conversion_registry;
   const currencyEntry = registry.currency as ConversionRegistryItem | undefined;
   const existingUnits = currencyEntry?.units ?? [];
-  const hasDisplayCurrency = existingUnits.some(
-    (entry) => entry.unit === DISPLAY_CURRENCY_UNIT,
-  );
-  const currencyUnits = hasDisplayCurrency
-    ? existingUnits
-    : [
-        ...existingUnits,
-        {
-          unit: DISPLAY_CURRENCY_UNIT,
-          factor: 1,
-          label: NEUTRAL_CURRENCY_LABEL,
-        },
-      ];
+  const unitNames = new Set(existingUnits.map((entry) => entry.unit));
+  const currencyUnits = [...existingUnits];
+
+  if (!unitNames.has(DISPLAY_CURRENCY_UNIT)) {
+    currencyUnits.push({
+      unit: DISPLAY_CURRENCY_UNIT,
+      factor: 1,
+      label: NEUTRAL_CURRENCY_LABEL,
+    });
+    unitNames.add(DISPLAY_CURRENCY_UNIT);
+  }
+
+  // Currency and currency-rate inputs share the selected ISO/display currency,
+  // but keep different dimensional base-unit identifiers for audit clarity.
+  // Register each governed base unit explicitly at factor 1 so normalization
+  // remains strict instead of relying on an implicit alias or a fallback.
+  for (const input of schema.inputs) {
+    if (input.quantity_kind !== "currency" || !input.base_unit) continue;
+    if (unitNames.has(input.base_unit)) continue;
+    currencyUnits.push({
+      unit: input.base_unit,
+      factor: 1,
+      label: NEUTRAL_CURRENCY_LABEL,
+    });
+    unitNames.add(input.base_unit);
+  }
 
   return {
     ...schema,
