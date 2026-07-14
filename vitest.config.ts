@@ -7,10 +7,17 @@ export default defineConfig({
     include: ["src/**/*.test.ts", "tests/**/*.test.ts"],
   },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@generated": path.resolve(__dirname, "./generated"),
-      "server-only": path.resolve(__dirname, "./src/test/server-only-stub.ts"),
-    },
+    alias: [
+      {
+        find: "@/sectorcalc/result-perspectives/universal-result-adapter",
+        replacement: path.resolve(
+          __dirname,
+          "./src/sectorcalc/result-perspectives/universal-result-adapter-runtime.ts",
+        ),
+      },
+      { find: "@", replacement: path.resolve(__dirname, "./src") },
+      { find: "@generated", replacement: path.resolve(__dirname, "./generated") },
+      { find: "server-only", replacement: path.resolve(__dirname, "./src/test/server-only-stub.ts") },
+    ],
   },
 });
