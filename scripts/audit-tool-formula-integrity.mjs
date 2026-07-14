@@ -20,7 +20,14 @@ const CONFIG = [
   },
 ];
 
-const HARD = new Set([
+const DEVELOPMENT_SCHEMAS_PATH = join(ROOT, "data/governance/v531-development-schemas.json");
+const developmentToolKeys = new Set(
+  existsSync(DEVELOPMENT_SCHEMAS_PATH)
+    ? JSON.parse(readFileSync(DEVELOPMENT_SCHEMAS_PATH, "utf8"))
+    : [],
+);
+
+const HARD_CODES = new Set([
   "SCHEMA_PARSE_ERROR",
   "MISSING_TOOL_KEY",
   "DUPLICATE_TOOL_KEY",
@@ -32,17 +39,28 @@ const HARD = new Set([
   "UI_FIELD_INPUT_MISSING",
   "INVALID_NUMERIC_RANGE",
   "DEFAULT_OUTSIDE_RANGE",
-  "FORMULA_INPUT_MISSING",
+  "FORMULA_DECLARED_INPUT_NOT_IN_SCHEMA",
+  "SCHEMA_REQUIRED_INPUT_NOT_IN_FORMULA",
   "OUTPUT_ID_DUPLICATE",
-  "FORMULA_OUTPUT_MISSING",
-  "FORMULA_REQUIRED_INPUT_NOT_IN_SCHEMA",
+]);
+
+const NON_UNIT_QUANTITY_KINDS = new Set([
+  "count",
+  "ratio",
+  "ratio_or_percent",
+  "percent",
+  "dimensionless",
+  "boolean",
+  "categorical",
+  "text",
+  "currency",
 ]);
 
 const findings = [];
 const inventory = [];
-const toolKeys = new Map();
+const globalToolKeys = new Map();
 
-function finding(severity, code, tier, toolKey, file, message, evidence = {}) {
+function addFinding(severity, code, tier, toolKey, file, message, evidence = {}) {
   findings.push({ severity, code, tier, toolKey, file, message, evidence });
 }
 
@@ -54,15 +72,6 @@ function walk(dir) {
   });
 }
 
-function parseJson(path, tier) {
-  try {
-    return JSON.parse(readFileSync(path, "utf8"));
-  } catch (error) {
-    finding("critical", "SCHEMA_PARSE_ERROR", tier, null, relative(ROOT, path), String(error));
-    return null;
-  }
-}
-
 function asArray(value) {
   return Array.isArray(value) ? value : [];
 }
@@ -71,113 +80,179 @@ function finiteNumber(value) {
   return typeof value === "number" && Number.isFinite(value);
 }
 
+function parseJson(path, tier) {
+  try {
+    return JSON.parse(readFileSync(path, "utf8"));
+  } catch (error) {
+    addFinding("critical", "SCHEMA_PARSE_ERROR", tier, null, relative(ROOT, path), String(error));
+    return null;
+  }
+}
+
+function isActiveFreeSchema(path) {
+  const numericPrefix = Number.parseInt(basename(path).split("-")[0] ?? "", 10);
+  return Number.isInteger(numericPrefix) && numericPrefix >= 295 && numericPrefix <= 344;
+}
+
 function collectFormulaFiles(dir) {
-  const map = new Map();
-  for (const file of walk(dir).filter((p) => p.endsWith(".formula.ts") || p.endsWith(".formula.js"))) {
+  const formulas = new Map();
+  for (const file of walk(dir).filter((path) => /\.formula\.(ts|js)$/.test(path))) {
     const source = readFileSync(file, "utf8");
-    const exportMatch = source.match(/export\s+const\s+toolKey\s*=\s*["'`]([^"'`]+)["'`]/);
-    const inferred = basename(file).replace(/\.formula\.(ts|js)$/, "");
-    map.set(inferred, { file, source, exportedToolKey: exportMatch?.[1] ?? null });
+    const inferredToolKey = basename(file).replace(/\.formula\.(ts|js)$/, "");
+    const exportedToolKey =
+      source.match(/export\s+const\s+toolKey\s*=\s*["'`]([^"'`]+)["'`]/)?.[1] ??
+      source.match(/const\s+TOOL_KEY\s*=\s*["'`]([^"'`]+)["'`]/)?.[1] ??
+      null;
+    formulas.set(inferredToolKey, {
+      file,
+      source,
+      exportedToolKey,
+      declaredInputIds: extractDeclaredFormulaInputIds(source),
+    });
   }
-  return map;
+  return formulas;
 }
 
-function extractFormulaInputRefs(source) {
-  const refs = new Set();
-  const patterns = [
-    /\binputs?\.([A-Za-z_$][\w$]*)/g,
-    /\bnormalizedInputs?\.([A-Za-z_$][\w$]*)/g,
-    /\binput\[["'`]([^"'`]+)["'`]\]/g,
-    /\binputs?\[["'`]([^"'`]+)["'`]\]/g,
-    /\bnormalizedInputs?\[["'`]([^"'`]+)["'`]\]/g,
-    /const\s*\{([^}]+)\}\s*=\s*(?:inputs?|normalizedInputs?)/g,
-  ];
-  for (const pattern of patterns) {
-    let match;
-    while ((match = pattern.exec(source))) {
-      if (pattern === patterns[5]) {
-        for (const token of match[1].split(",")) {
-          const name = token.trim().split(":")[0]?.trim();
-          if (/^[A-Za-z_$][\w$]*$/.test(name)) refs.add(name);
-        }
-      } else if (match[1]) refs.add(match[1]);
-    }
+function extractDeclaredFormulaInputIds(source) {
+  const startMatch = /export\s+const\s+inputs\s*:[^=]*=\s*\[/.exec(source);
+  if (!startMatch) return new Set();
+
+  const start = startMatch.index + startMatch[0].length;
+  let depth = 1;
+  let cursor = start;
+  let quote = null;
+  let escaped = false;
+
+  while (cursor < source.length && depth > 0) {
+    const char = source[cursor];
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (char === "\\") escaped = true;
+      else if (char === quote) quote = null;
+    } else if (char === '"' || char === "'" || char === "`") quote = char;
+    else if (char === "[") depth += 1;
+    else if (char === "]") depth -= 1;
+    cursor += 1;
   }
-  return refs;
+
+  const block = source.slice(start, Math.max(start, cursor - 1));
+  const ids = new Set();
+  for (const match of block.matchAll(/\bid\s*:\s*["'`]([^"'`]+)["'`]/g)) ids.add(match[1]);
+  return ids;
 }
 
-function extractFormulaOutputRefs(source) {
-  const refs = new Set();
-  for (const pattern of [
-    /\boutputs?\.([A-Za-z_$][\w$]*)/g,
-    /\bresult\.([A-Za-z_$][\w$]*)/g,
-    /["'`]([A-Za-z_$][\w$]*)["'`]\s*:/g,
-  ]) {
-    let match;
-    while ((match = pattern.exec(source))) if (match[1]) refs.add(match[1]);
-  }
-  return refs;
-}
-
-function collectSchemaInputRefs(schema) {
-  const direct = new Set(asArray(schema.inputs).map((i) => i?.id).filter(Boolean));
-  const normalized = new Set(asArray(schema.normalized_inputs).map((i) => i?.id).filter(Boolean));
+function schemaInputSets(schema) {
+  const direct = new Set(asArray(schema.inputs).map((input) => input?.id).filter(Boolean));
+  const normalized = new Set(asArray(schema.normalized_inputs).map((input) => input?.id).filter(Boolean));
   return { direct, normalized, all: new Set([...direct, ...normalized]) };
+}
+
+function schemaRange(input) {
+  const physical = input?.physical_bounds ?? input?.bounds ?? {};
+  return {
+    min:
+      input?.min ??
+      input?.minimum ??
+      input?.validation?.min ??
+      input?.physical_min ??
+      physical?.min ??
+      physical?.minimum,
+    max:
+      input?.max ??
+      input?.maximum ??
+      input?.validation?.max ??
+      input?.physical_max ??
+      physical?.max ??
+      physical?.maximum,
+  };
+}
+
+function explicitDefault(input) {
+  if (input?.default_policy === "NO_DEFAULT" || input?.defaultPolicy === "NO_DEFAULT_ALLOWED") return undefined;
+  return input?.default ?? input?.default_value ?? input?.defaultValue;
+}
+
+function hasReferenceGuidance(input) {
+  return Boolean(
+    input?.reference_values ??
+      input?.reference_value ??
+      input?.reference_range ??
+      input?.advisory_range ??
+      input?.evidence_requirement?.public_help_text ??
+      input?.user_help_text ??
+      input?.help_text ??
+      input?.publicHelpText,
+  );
+}
+
+function hasUnitContract(input) {
+  const quantityKind = String(input?.quantity_kind ?? input?.quantityKind ?? "").toLowerCase();
+  if (NON_UNIT_QUANTITY_KINDS.has(quantityKind)) return true;
+  return Boolean(
+    input?.base_unit ??
+      input?.baseUnit ??
+      input?.unit ??
+      input?.display_unit ??
+      asArray(input?.allowed_display_units).length ??
+      asArray(input?.allowedDisplayUnits).length,
+  );
 }
 
 function validateInput(input, context) {
   const { tier, toolKey, file } = context;
   const id = input?.id ?? "<missing-id>";
-  const min = input?.min ?? input?.minimum ?? input?.validation?.min ?? input?.physical_min;
-  const max = input?.max ?? input?.maximum ?? input?.validation?.max ?? input?.physical_max;
-  const defaultValue = input?.default ?? input?.default_value ?? input?.reference_value;
+  const { min, max } = schemaRange(input);
+  const defaultValue = explicitDefault(input);
 
   if (finiteNumber(min) && finiteNumber(max) && min > max) {
-    finding("critical", "INVALID_NUMERIC_RANGE", tier, toolKey, file, `Input ${id} has min > max`, { min, max });
+    addFinding("critical", "INVALID_NUMERIC_RANGE", tier, toolKey, file, `Input ${id} has min > max`, { min, max });
   }
   if (finiteNumber(defaultValue) && finiteNumber(min) && defaultValue < min) {
-    finding("critical", "DEFAULT_OUTSIDE_RANGE", tier, toolKey, file, `Input ${id} default is below min`, { defaultValue, min });
+    addFinding("critical", "DEFAULT_OUTSIDE_RANGE", tier, toolKey, file, `Input ${id} default is below min`, { defaultValue, min });
   }
   if (finiteNumber(defaultValue) && finiteNumber(max) && defaultValue > max) {
-    finding("critical", "DEFAULT_OUTSIDE_RANGE", tier, toolKey, file, `Input ${id} default is above max`, { defaultValue, max });
+    addFinding("critical", "DEFAULT_OUTSIDE_RANGE", tier, toolKey, file, `Input ${id} default is above max`, { defaultValue, max });
   }
 
-  const unit = input?.unit ?? input?.display_unit ?? input?.units?.default;
-  if (!unit && ["number", "numeric", "integer", "decimal"].includes(String(input?.type ?? "").toLowerCase())) {
-    finding("warning", "NUMERIC_INPUT_WITHOUT_UNIT", tier, toolKey, file, `Numeric input ${id} has no explicit unit`);
+  if (!hasUnitContract(input)) {
+    addFinding("warning", "PHYSICAL_INPUT_WITHOUT_UNIT_CONTRACT", tier, toolKey, file, `Input ${id} has no explicit unit contract`);
   }
-
-  const reference = input?.reference_value ?? input?.reference_range ?? input?.advisory_range ?? input?.help_text;
-  if (reference == null) {
-    finding("info", "INPUT_WITHOUT_REFERENCE_GUIDANCE", tier, toolKey, file, `Input ${id} has no explicit reference/advisory guidance`);
+  if (!hasReferenceGuidance(input)) {
+    addFinding("warning", "INPUT_WITHOUT_REFERENCE_GUIDANCE", tier, toolKey, file, `Input ${id} has no reference/advisory guidance`);
   }
 }
 
-for (const cfg of CONFIG) {
-  const schemaRoot = join(ROOT, cfg.schemaDir);
-  const formulaRoot = join(ROOT, cfg.formulaDir);
+for (const config of CONFIG) {
+  const schemaRoot = join(ROOT, config.schemaDir);
+  const formulaRoot = join(ROOT, config.formulaDir);
   const formulaFiles = collectFormulaFiles(formulaRoot);
-  const schemaFiles = walk(schemaRoot).filter((p) => p.endsWith(".json"));
+  const schemaFiles = walk(schemaRoot)
+    .filter((path) => path.endsWith(".json"))
+    .filter((path) => config.tier !== "free" || isActiveFreeSchema(path));
 
   for (const schemaPath of schemaFiles) {
-    const schema = parseJson(schemaPath, cfg.tier);
+    const schema = parseJson(schemaPath, config.tier);
     if (!schema) continue;
+
     const file = relative(ROOT, schemaPath);
     const toolKey = schema.tool_key;
     if (!toolKey) {
-      finding("critical", "MISSING_TOOL_KEY", cfg.tier, null, file, "Schema has no tool_key");
+      addFinding("critical", "MISSING_TOOL_KEY", config.tier, null, file, "Schema has no tool_key");
       continue;
     }
-    if (toolKeys.has(toolKey)) {
-      finding("critical", "DUPLICATE_TOOL_KEY", cfg.tier, toolKey, file, "tool_key is duplicated", { other: toolKeys.get(toolKey) });
-    } else toolKeys.set(toolKey, file);
+
+    if (globalToolKeys.has(toolKey)) {
+      addFinding("critical", "DUPLICATE_TOOL_KEY", config.tier, toolKey, file, "tool_key is duplicated", {
+        other: globalToolKeys.get(toolKey),
+      });
+    } else globalToolKeys.set(toolKey, file);
 
     const inputs = asArray(schema.inputs);
     const normalizedInputs = asArray(schema.normalized_inputs);
     const outputs = asArray(schema.outputs);
-    const inputIds = inputs.map((i) => i?.id).filter(Boolean);
-    const normalizedIds = normalizedInputs.map((i) => i?.id).filter(Boolean);
-    const outputIds = outputs.map((o) => o?.id).filter(Boolean);
+    const inputIds = inputs.map((input) => input?.id).filter(Boolean);
+    const normalizedIds = normalizedInputs.map((input) => input?.id).filter(Boolean);
+    const outputIds = outputs.map((output) => output?.id).filter(Boolean);
 
     for (const [ids, code, label] of [
       [inputIds, "DUPLICATE_INPUT_ID", "input"],
@@ -186,16 +261,23 @@ for (const cfg of CONFIG) {
     ]) {
       const seen = new Set();
       for (const id of ids) {
-        if (seen.has(id)) finding("critical", code, cfg.tier, toolKey, file, `Duplicate ${label} id: ${id}`);
+        if (seen.has(id)) addFinding("critical", code, config.tier, toolKey, file, `Duplicate ${label} id: ${id}`);
         seen.add(id);
       }
     }
 
     const normalizedSet = new Set(normalizedIds);
     for (const input of inputs) {
-      validateInput(input, { tier: cfg.tier, toolKey, file });
+      validateInput(input, { tier: config.tier, toolKey, file });
       if (input?.normalized_id && !normalizedSet.has(input.normalized_id)) {
-        finding("critical", "INPUT_NORMALIZED_ID_MISSING", cfg.tier, toolKey, file, `Input ${input.id} points to missing normalized_id ${input.normalized_id}`);
+        addFinding(
+          "critical",
+          "INPUT_NORMALIZED_ID_MISSING",
+          config.tier,
+          toolKey,
+          file,
+          `Input ${input.id} points to missing normalized_id ${input.normalized_id}`,
+        );
       }
     }
 
@@ -203,72 +285,90 @@ for (const cfg of CONFIG) {
     for (const group of asArray(schema?.ui_contract?.input_groups)) {
       for (const field of asArray(group?.fields)) {
         if (!inputSet.has(field)) {
-          finding("critical", "UI_FIELD_INPUT_MISSING", cfg.tier, toolKey, file, `UI group ${group?.id ?? "<unknown>"} references missing input ${field}`);
+          addFinding(
+            "critical",
+            "UI_FIELD_INPUT_MISSING",
+            config.tier,
+            toolKey,
+            file,
+            `UI group ${group?.id ?? "<unknown>"} references missing input ${field}`,
+          );
         }
       }
     }
 
-    let formula = formulaFiles.get(toolKey) ?? null;
-    if (cfg.tier === "pro" && !formula) {
-      finding("critical", "MISSING_FORMULA_MODULE", cfg.tier, toolKey, file, `No formula module found for ${toolKey}`);
+    const formula = formulaFiles.get(toolKey) ?? null;
+    const developmentExempt = config.tier === "pro" && developmentToolKeys.has(toolKey);
+    if (!formula && !developmentExempt) {
+      addFinding("critical", "MISSING_FORMULA_MODULE", config.tier, toolKey, file, `No formula module found for ${toolKey}`);
     }
     if (formula?.exportedToolKey && formula.exportedToolKey !== toolKey) {
-      finding("critical", "FORMULA_TOOL_KEY_MISMATCH", cfg.tier, toolKey, relative(ROOT, formula.file), `Formula exports ${formula.exportedToolKey}`);
+      addFinding(
+        "critical",
+        "FORMULA_TOOL_KEY_MISMATCH",
+        config.tier,
+        toolKey,
+        relative(ROOT, formula.file),
+        `Formula exports ${formula.exportedToolKey}`,
+      );
     }
 
-    const refs = formula ? extractFormulaInputRefs(formula.source) : new Set();
-    const schemaRefs = collectSchemaInputRefs(schema);
-    for (const ref of refs) {
-      if (!schemaRefs.all.has(ref)) {
-        finding("critical", "FORMULA_REQUIRED_INPUT_NOT_IN_SCHEMA", cfg.tier, toolKey, relative(ROOT, formula.file), `Formula references input ${ref} absent from inputs/normalized_inputs`);
+    const formulaDeclaredInputs = formula?.declaredInputIds ?? new Set();
+    const schemaRefs = schemaInputSets(schema);
+    for (const id of formulaDeclaredInputs) {
+      if (!schemaRefs.direct.has(id)) {
+        addFinding(
+          "critical",
+          "FORMULA_DECLARED_INPUT_NOT_IN_SCHEMA",
+          config.tier,
+          toolKey,
+          relative(ROOT, formula.file),
+          `Formula input contract declares ${id}, absent from schema.inputs`,
+        );
       }
     }
 
-    const formulaOutputRefs = formula ? extractFormulaOutputRefs(formula.source) : new Set();
-    const outputSet = new Set(outputIds);
-    for (const ref of formulaOutputRefs) {
-      if (ref.startsWith("to") || ref === "map" || ref === "length") continue;
-      if (!outputSet.has(ref) && outputIds.length > 0) {
-        finding("warning", "FORMULA_OUTPUT_UNDECLARED", cfg.tier, toolKey, relative(ROOT, formula.file), `Formula may emit undeclared output ${ref}`);
-      }
-    }
-
-    const schemaFormulaInputs = new Set();
-    for (const f of asArray(schema.formulas)) {
-      for (const id of asArray(f?.input_ids ?? f?.inputs ?? f?.required_inputs)) schemaFormulaInputs.add(id);
-    }
-    for (const id of schemaFormulaInputs) {
-      if (!schemaRefs.all.has(id)) {
-        finding("critical", "FORMULA_INPUT_MISSING", cfg.tier, toolKey, file, `Schema formula requires missing input ${id}`);
+    if (formula && formulaDeclaredInputs.size > 0) {
+      for (const input of inputs.filter((item) => item?.required === true)) {
+        if (!formulaDeclaredInputs.has(input.id)) {
+          addFinding(
+            "critical",
+            "SCHEMA_REQUIRED_INPUT_NOT_IN_FORMULA",
+            config.tier,
+            toolKey,
+            relative(ROOT, formula.file),
+            `Required schema input ${input.id} is absent from formula input contract`,
+          );
+        }
       }
     }
 
     inventory.push({
-      tier: cfg.tier,
+      tier: config.tier,
       toolKey,
       toolName: schema.tool_name ?? null,
       category: schema.category ?? null,
       schemaFile: file,
       formulaFile: formula ? relative(ROOT, formula.file) : null,
+      developmentExempt,
       inputCount: inputIds.length,
       normalizedInputCount: normalizedIds.length,
       outputCount: outputIds.length,
-      formulaInputRefs: [...refs].sort(),
-      schemaFormulaInputRefs: [...schemaFormulaInputs].sort(),
+      formulaDeclaredInputCount: formulaDeclaredInputs.size,
     });
   }
 }
 
-const hardFindings = findings.filter((f) => HARD.has(f.code));
+const hardFindings = findings.filter((entry) => HARD_CODES.has(entry.code));
 const summary = {
   generatedAt: new Date().toISOString(),
   tools: inventory.length,
-  freeTools: inventory.filter((i) => i.tier === "free").length,
-  proTools: inventory.filter((i) => i.tier === "pro").length,
+  freeTools: inventory.filter((entry) => entry.tier === "free").length,
+  proTools: inventory.filter((entry) => entry.tier === "pro").length,
+  proDevelopmentExempt: inventory.filter((entry) => entry.developmentExempt).length,
   findings: findings.length,
-  critical: findings.filter((f) => f.severity === "critical").length,
-  warnings: findings.filter((f) => f.severity === "warning").length,
-  info: findings.filter((f) => f.severity === "info").length,
+  critical: findings.filter((entry) => entry.severity === "critical").length,
+  warnings: findings.filter((entry) => entry.severity === "warning").length,
   hardFailures: hardFindings.length,
 };
 
@@ -282,21 +382,27 @@ const markdown = [
   "",
   "## Summary",
   "",
-  `- Tools: ${summary.tools} (Free ${summary.freeTools}, Pro ${summary.proTools})`,
+  `- Audited tools: ${summary.tools} (Free ${summary.freeTools}, Pro ${summary.proTools})`,
+  `- Pro development exemptions: ${summary.proDevelopmentExempt}`,
   `- Critical: ${summary.critical}`,
   `- Warnings: ${summary.warnings}`,
-  `- Informational: ${summary.info}`,
   `- Hard failures: ${summary.hardFailures}`,
   "",
   "## Findings",
   "",
-  ...findings.map((f) => `- **${f.severity.toUpperCase()} ${f.code}** \`${f.toolKey ?? "n/a"}\` — ${f.message} (\`${f.file}\`)`),
+  ...findings.map(
+    (entry) =>
+      `- **${entry.severity.toUpperCase()} ${entry.code}** \`${entry.toolKey ?? "n/a"}\` — ${entry.message} (\`${entry.file}\`)`,
+  ),
   "",
   "## Inventory",
   "",
-  "| Tier | Tool | Inputs | Normalized | Outputs | Formula |",
-  "|---|---|---:|---:|---:|---|",
-  ...inventory.map((i) => `| ${i.tier} | ${i.toolKey} | ${i.inputCount} | ${i.normalizedInputCount} | ${i.outputCount} | ${i.formulaFile ?? "embedded/missing"} |`),
+  "| Tier | Tool | Inputs | Formula inputs | Normalized | Outputs | Formula | Development exempt |",
+  "|---|---|---:|---:|---:|---:|---|---|",
+  ...inventory.map(
+    (entry) =>
+      `| ${entry.tier} | ${entry.toolKey} | ${entry.inputCount} | ${entry.formulaDeclaredInputCount} | ${entry.normalizedInputCount} | ${entry.outputCount} | ${entry.formulaFile ?? "missing/embedded"} | ${entry.developmentExempt ? "yes" : "no"} |`,
+  ),
   "",
 ].join("\n");
 writeFileSync(join(REPORT_DIR, "formula-integrity-report.md"), markdown);
