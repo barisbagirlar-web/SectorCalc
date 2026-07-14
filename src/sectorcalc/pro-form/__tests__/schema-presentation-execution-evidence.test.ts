@@ -1,6 +1,8 @@
-import { describe, expect, it } from "vitest";
-import type { SuperV4Input } from "../contract-types";
+import { describe, expect, it, vi } from "vitest";
+import type { ConversionRegistryItem, SuperV4Input } from "../contract-types";
 import { allowEnteredValueAsExecutionEvidence } from "@/sectorcalc/runtime/schema-presentation-overrides";
+
+vi.mock("server-only", () => ({}));
 
 function inputWithEvidence(acceptedEvidence: string[]): SuperV4Input {
   return {
@@ -62,5 +64,27 @@ describe("entered value execution evidence", () => {
     expect(requirement.accepted_evidence.filter(
       (value) => value.toLowerCase() === "user-provided value",
     )).toHaveLength(1);
+  });
+
+  it("registers every Break-Even currency dimensional base unit", async () => {
+    const { clearSchemaCache, resolveApprovedToolSchema } = await import(
+      "@/sectorcalc/runtime/resolve-approved-tool-schema"
+    );
+    clearSchemaCache();
+    const resolved = resolveApprovedToolSchema("break-even-survival-cash-calculator");
+    expect(resolved.ok).toBe(true);
+    if (!resolved.ok) return;
+
+    const currencyEntry = resolved.schema.unit_conversion_contract
+      .conversion_registry.currency as ConversionRegistryItem;
+    const registered = new Set(currencyEntry.units.map((entry) => entry.unit));
+    const required = resolved.schema.inputs
+      .filter((input) => input.quantity_kind === "currency" && input.base_unit)
+      .map((input) => input.base_unit as string);
+
+    expect(registered).toContain("display_currency");
+    expect(registered).toContain("currency_unit");
+    expect(registered).toContain("currency_unit/month");
+    for (const unit of required) expect(registered).toContain(unit);
   });
 });
