@@ -16,6 +16,7 @@
 import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
 import type {
   BomRow,
   ProcessingSummary,
@@ -724,134 +725,54 @@ export default function JobReviewPage() {
         >
           <h3 className="font-semibold mb-4">Download Outputs</h3>
           <div className="grid sm:grid-cols-2 gap-3">
-            <a
-              href={`/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(jobId)}/download/SectorCalc_Maintenance_BOM_${jobId}.xlsx`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 text-sm font-medium"
-              style={{
-                background: CARD_BG_ALT,
-                border: `1px solid ${BORDER}`,
-                color: TEXT,
-                minHeight: 44,
-              }}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke={ACCENT}
-                strokeWidth="1.5"
-                aria-hidden="true"
+            {[
+              { filename: `SectorCalc_Maintenance_BOM_${jobId}.xlsx`, desc: "8-sheet workbook: Clean BOM, Review Required, Duplicates, Missing Fields, Revision Conflicts, Source Map, Summary, ERP Template", icon: "M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6 M12 18v-6 M9 15l3 3 3-3" },
+              { filename: `SectorCalc_Procurement_Exception_Report_${jobId}.xlsx`, desc: "7-sheet exception report with executive summary, critical exceptions, recommended review sequence", icon: "M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6 M12 18v-6 M9 15l3 3 3-3" },
+              { filename: `SectorCalc_Source_Map_${jobId}.csv`, desc: "Row-level source traceability with page, table, and row references", icon: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z M12 3v6h6 M12 18v-6 M9 15l3 3 3-3" },
+              { filename: `SectorCalc_Processing_Summary_${jobId}.html`, desc: "Printable HTML processing summary", icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" },
+            ].map((f) => (
+              <button
+                key={f.filename}
+                type="button"
+                onClick={async () => {
+                  const auth = getFirebaseAuth();
+                  const user = auth?.currentUser;
+                  if (!user) return;
+                  try {
+                    const token = await user.getIdToken();
+                    const res = await fetch(
+                      `/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(jobId)}/downloads`,
+                      { headers: { Authorization: `Bearer ${token}` } }
+                    );
+                    if (!res.ok) return;
+                    const body = await res.json();
+                    if (!body.ok || !body.data?.artifacts) return;
+                    const match = body.data.artifacts.find(
+                      (a: { filename: string }) => a.filename === f.filename
+                    );
+                    if (match?.url) window.open(match.url, "_blank");
+                  } catch {
+                    // Silent
+                  }
+                }}
+                className="flex items-center gap-3 p-4 text-sm font-medium text-left"
+                style={{
+                  background: CARD_BG_ALT,
+                  border: `1px solid ${BORDER}`,
+                  color: TEXT,
+                  minHeight: 48,
+                  cursor: "pointer",
+                }}
               >
-                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6 M12 18v-6 M9 15l3 3 3-3" />
-              </svg>
-              <div className="min-w-0">
-                <span className="block truncate">
-                  SectorCalc_Maintenance_BOM_{jobId}.xlsx
-                </span>
-                <span className="block text-xs" style={{ color: MUTED }}>
-                  8-sheet workbook: Clean BOM, Review Required, Duplicates, Missing Fields, Revision Conflicts, Source Map, Summary, ERP Template
-                </span>
-              </div>
-            </a>
-            <a
-              href={`/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(jobId)}/download/SectorCalc_Procurement_Exception_Report_${jobId}.xlsx`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 text-sm font-medium"
-              style={{
-                background: CARD_BG_ALT,
-                border: `1px solid ${BORDER}`,
-                color: TEXT,
-                minHeight: 44,
-              }}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke={ACCENT}
-                strokeWidth="1.5"
-                aria-hidden="true"
-              >
-                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6 M12 18v-6 M9 15l3 3 3-3" />
-              </svg>
-              <div className="min-w-0">
-                <span className="block truncate">
-                  SectorCalc_Procurement_Exception_Report_{jobId}.xlsx
-                </span>
-                <span className="block text-xs" style={{ color: MUTED }}>
-                  7-sheet exception report with executive summary, critical exceptions, recommended review sequence
-                </span>
-              </div>
-            </a>
-            <a
-              href={`/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(jobId)}/download/SectorCalc_Source_Map_${jobId}.csv`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 text-sm font-medium"
-              style={{
-                background: CARD_BG_ALT,
-                border: `1px solid ${BORDER}`,
-                color: TEXT,
-                minHeight: 44,
-              }}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke={ACCENT}
-                strokeWidth="1.5"
-                aria-hidden="true"
-              >
-                <path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z M12 3v6h6 M12 18v-6 M9 15l3 3 3-3" />
-              </svg>
-              <div className="min-w-0">
-                <span className="block truncate">
-                  SectorCalc_Source_Map_{jobId}.csv
-                </span>
-                <span className="block text-xs" style={{ color: MUTED }}>
-                  Row-level source traceability with page, table, and row references
-                </span>
-              </div>
-            </a>
-            <a
-              href={`/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(jobId)}/download/SectorCalc_Processing_Summary_${jobId}.html`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 text-sm font-medium"
-              style={{
-                background: CARD_BG_ALT,
-                border: `1px solid ${BORDER}`,
-                color: TEXT,
-                minHeight: 44,
-              }}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke={ACCENT}
-                strokeWidth="1.5"
-                aria-hidden="true"
-              >
-                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-              </svg>
-              <div className="min-w-0">
-                <span className="block truncate">
-                  SectorCalc_Processing_Summary_{jobId}.html
-                </span>
-                <span className="block text-xs" style={{ color: MUTED }}>
-                  Printable HTML processing summary
-                </span>
-              </div>
-            </a>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="1.5" aria-hidden="true">
+                  <path d={f.icon} />
+                </svg>
+                <div className="min-w-0">
+                  <span className="block truncate">{f.filename}</span>
+                  <span className="block text-xs" style={{ color: MUTED }}>{f.desc}</span>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
 

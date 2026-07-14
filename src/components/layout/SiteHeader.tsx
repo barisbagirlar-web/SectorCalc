@@ -28,10 +28,11 @@ import { MobileNavigationShell } from "@/components/layout/mobile/MobileNavigati
 const t = {
   products: 'Products', industries: 'Industries', pricing: 'Pricing', resources: 'Resources',
   signin: 'Sign in', getStarted: 'Get started',
-  col_free: 'Free tools', col_pro: 'Pro tools', col_engdiag: 'Engineering Diagnostics',
+  col_free: 'Free tools', col_pro: 'Pro tools', col_engdiag: 'Engineering Diagnostics', col_di: 'Document Intelligence',
   products_free_desc: 'Engineering calculators, no login',
   products_pro_desc: 'Real parameters, PDF export',
   products_engdiag_desc: 'Capture problems, find root causes and generate action reports',
+  products_di_desc: 'Convert manuals to structured, traceable operational data',
   view_all_industries: 'All industries',
   res_blog: 'Case Studies', res_blog_d: 'Methods & case studies',
   res_docs: 'FMEA RPN Calculator', res_docs_d: 'Failure Mode & Effects Analysis',
@@ -227,6 +228,10 @@ export function SiteHeader({
                     <Link href="/engineering-diagnostics" prefetch={true} className="sc-mega-panel">
                       <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg><span className="ph">{t.col_engdiag}</span></div>
                       <div className="pd">{t.products_engdiag_desc}</div>
+                    </Link>
+                    <Link href="/document-intelligence" prefetch={true} className="sc-mega-panel">
+                      <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg><span className="ph">{t.col_di}</span></div>
+                      <div className="pd">{t.products_di_desc}</div>
                     </Link>
                   </div>
                 )}

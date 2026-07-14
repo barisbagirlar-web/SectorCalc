@@ -17,7 +17,7 @@ import {
   generateMaintenanceBomWorkbook,
 } from "@/lib/document-intelligence/workbook/workbook-generator";
 import { generateSourceMapCsv } from "@/lib/document-intelligence/workbook/csv-generator";
-import type { BomRow, DuplicateGroup, MissingFieldException, RevisionConflict, ProcessingSummary } from "@/types/document-intelligence";
+import type { BomRow, ProcessingSummary } from "@/types/document-intelligence";
 import type { DispositionResult } from "@/lib/document-intelligence/validators/export-disposition";
 
 /* ── Helpers ─────────────────────────────────────────────────────── */

@@ -24,11 +24,11 @@ User Uploads PDF
   → NEVER charges credit
 ```
 
-### 2. Payment Flow (USD 149 — Credit System)
+### 2. Payment Flow (149 Credits — Credit System)
 
 ```
 User sees "eligible" diagnostic result
-  → User clicks "Process Full Manual — USD 149"
+  → User clicks "Process Full Manual — 149 Credits"
   → POST /checkout → server checks credit balance
   → Server validates diagnostic_eligible status
   → Server returns checkout data (product code, price, credit cost)

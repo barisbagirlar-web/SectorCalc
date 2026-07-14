@@ -4,7 +4,7 @@
  * POST /api/document-intelligence/maintenance-bom/jobs/{jobId}/checkout
  *
  * Allowed only for diagnostic_eligible jobs.
- * Server computes USD 149 credit requirement and returns checkout data.
+ * Server computes 149-credit requirement and returns checkout data.
  * Never trusts price/entitlement from the browser.
  */
 
@@ -14,6 +14,7 @@ import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
 import {
   getCheckoutData,
   checkEntitlement,
+  reserveCredits,
 } from "@/lib/document-intelligence/entitlements/maintenance-bom-entitlement";
 
 export const runtime = "nodejs";
@@ -79,6 +80,24 @@ export async function POST(
       return NextResponse.json({ ok: false, error: { code: "ENTITLEMENT_ERROR", message: "Unable to verify payment entitlement." } }, { status: 500 });
     }
 
+    // ── Reserve credits atomically ────────────────────────────────
+    const reservation = await reserveCredits(user.uid, jobId);
+    if (!reservation.ok) {
+      if (reservation.reason === "INSUFFICIENT_CREDITS") {
+        return NextResponse.json({ ok: false, error: { code: "INSUFFICIENT_CREDITS", message: "Insufficient credits. Please purchase more credits." } }, { status: 402 });
+      }
+      return NextResponse.json({ ok: false, error: { code: "RESERVATION_FAILED", message: "Failed to reserve credits. Please try again." } }, { status: 500 });
+    }
+
+    // ── Transition job status to awaiting_payment ─────────────────
+    await jobRef.update({
+      status: "awaiting_payment",
+      paymentStatus: "checkout_pending",
+      entitlementStatus: "reserved",
+      checkoutRequestId: reservation.checkoutRequestId,
+      updatedAt: new Date().toISOString(),
+    });
+
     // ── Return checkout data ─────────────────────────────────────
     const checkoutData = getCheckoutData();
 
@@ -87,12 +106,12 @@ export async function POST(
       data: {
         jobId,
         ...checkoutData,
+        checkoutRequestId: reservation.checkoutRequestId,
         availableCredits: entitlement.availableCredits,
         sufficientCredits: true,
       },
     });
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
+  } catch {
     return NextResponse.json({ ok: false, error: { code: "SERVER_ERROR", message: "An unexpected error occurred." } }, { status: 500 });
   }
 }

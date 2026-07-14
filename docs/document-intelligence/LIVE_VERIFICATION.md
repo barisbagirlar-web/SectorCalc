@@ -91,14 +91,14 @@ Using synthetic fixture `eligible_simple_bom.pdf`:
    - Preview rows (max 10)
    - Detected columns
    - Detected risks
-   - USD 149 offer
-   - "Process Full Manual — USD 149" CTA
+   - 149-credit offer
+   - "Process Full Manual — 149 Credits" CTA
 6. Verify rejected files cannot proceed to checkout
 
 ### 8. Payment E2E (Sandbox)
 
 1. Upload eligible fixture
-2. Click "Process Full Manual — USD 149"
+2. Click "Process Full Manual — 149 Credits"
 3. Complete sandbox Paddle checkout
 4. Verify payment status transitions: checkout_pending → paid
 5. Verify entitlement recorded exactly once

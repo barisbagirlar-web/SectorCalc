@@ -31,7 +31,7 @@ interface DiagnosticResult {
 const ACCENT = "#BD5D3A";
 const TEXT = "#1A1915";
 const MUTED = "#696764";
-const BG = "#FAF8F2";
+const BG = "#F0EEE6";
 const CARD_BG = "#FFFFFF";
 const BORDER = "rgba(26,25,21,0.10)";
 
@@ -252,7 +252,7 @@ export default function NewJobPage() {
               {/* Price & CTA */}
               <div className="p-6 border" style={{ borderColor: BORDER, background: BG }}>
                 <div className="text-2xl font-bold mb-2" style={{ color: ACCENT }}>
-                  USD 149
+                  149 Credits
                 </div>
                 <p className="text-sm mb-4" style={{ color: MUTED }}>
                   Fixed price for full processing of this document.
@@ -263,7 +263,7 @@ export default function NewJobPage() {
                   type="button"
                   onClick={() => router.push("/pricing")}
                 >
-                  Process Full Manual — USD 149
+                  Process Full Manual — 149 Credits
                 </button>
               </div>
             </div>
@@ -285,7 +285,7 @@ export default function NewJobPage() {
               This document cannot be processed automatically.
             </p>
             <p className="text-sm" style={{ color: MUTED }}>
-              Automatic USD 149 processing is unavailable for this file.
+              Automatic 149-credit processing is unavailable for this file.
             </p>
           </div>
         )}
@@ -302,7 +302,7 @@ export default function NewJobPage() {
               <h2 className="text-xl font-bold">Manual Review Required</h2>
             </div>
             <p className="text-sm" style={{ color: MUTED }}>
-              This document requires exception review. Automatic USD 149
+              This document requires exception review. Automatic 149-credit
               processing is unavailable for this file.
             </p>
           </div>

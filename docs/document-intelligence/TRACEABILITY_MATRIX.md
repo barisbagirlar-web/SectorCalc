@@ -170,13 +170,13 @@
 
 ---
 
-### R-USD149-PRICE-INTEGRITY: USD 149 Price Integrity
+### R-149CREDITS-PRICE-INTEGRITY: 149 Credits Price Integrity
 
 | Column | Value |
 |--------|-------|
 | **Requirement ID** | R-USD149-PRICE-INTEGRITY |
-| **User-Visible Promise** | Product price is consistently USD 149 across all touchpoints |
-| **Owning Module** | `types/document-intelligence.ts` (MAINTENANCE_BOM_PRICE_USD), `entitlements/maintenance-bom-entitlement.ts` |
+| **User-Visible Promise** | Product price is consistently 149 credits across all touchpoints |
+| **Owning Module** | `types/document-intelligence.ts` (MAINTENANCE_BOM_PRICE_CREDITS), `entitlements/maintenance-bom-entitlement.ts` |
 | **API Endpoint** | `POST /jobs/{jobId}/checkout` |
 | **Firestore Fields** | N/A (computed from constants) |
 | **Storage Artifact** | N/A |

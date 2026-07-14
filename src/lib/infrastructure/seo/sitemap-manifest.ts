@@ -91,6 +91,8 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/disclaimer", "core", 0.5, "yearly"),
     createItem("/calculators/fmea-rpn", "core", 0.9, "weekly"),
     createItem("/resources/fmea-rpn-technical-note", "core", 0.8, "weekly"),
+    createItem("/document-intelligence", "core", 0.85, "monthly"),
+    createItem("/document-intelligence/maintenance-bom-recovery", "core", 0.85, "monthly"),
   ];
 }
 

@@ -24,7 +24,6 @@ import { determineExportDisposition } from "@/lib/document-intelligence/validato
 import type {
   BomRow,
   JobStatus,
-  ValidationStatus,
 } from "@/types/document-intelligence";
 
 /* ── Helpers ─────────────────────────────────────────────────────────────── */

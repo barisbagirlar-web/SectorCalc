@@ -10,7 +10,7 @@ Verified BOM Job
 
 ## Public Price
 
-USD 149 per accepted job
+149 credits per accepted job (1 credit ≈ USD 1)
 
 ## Included Allowances
 

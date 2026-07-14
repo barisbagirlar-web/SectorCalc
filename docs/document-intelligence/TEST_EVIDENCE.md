@@ -144,7 +144,7 @@ Covers billing and entitlement logic:
 | Entitlement: chargeback → released | Derivation path |
 | Entitlement: unpaid → none | Derivation path |
 | Entitlement: payment_failed → none | Derivation path |
-| Price invariant: USD 149 = credit cost = product code | All three match |
+| Price invariant: 149 credits = credit cost = product code | All three match |
 
 ### 8. `tests/document-intelligence/workbook-integrity.test.ts` — 9 tests
 

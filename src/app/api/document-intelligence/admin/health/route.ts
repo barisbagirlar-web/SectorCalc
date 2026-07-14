@@ -73,8 +73,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         timestamp: new Date().toISOString(),
       },
     });
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
+  } catch {
     return NextResponse.json({ ok: false, error: { code: "SERVER_ERROR", message: "Failed to query health" } }, { status: 500 });
   }
 }

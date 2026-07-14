@@ -106,7 +106,8 @@ function mockTxDocs(docs: Record<string, unknown>[]) {
     docs: docs.map((d) => ({
       id: (d.id as string) ?? "tx",
       data: () => {
-        const { id: _, ...rest } = d;
+        const rest = { ...d };
+        delete rest.id;
         return rest;
       },
     })),

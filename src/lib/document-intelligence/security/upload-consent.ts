@@ -114,7 +114,6 @@ export function validateConsent(
 
 export function generateConsentFormHtml(productVersion: string): string {
   const generatedAt = new Date().toISOString();
-  const safeVersion = escapeHtml(productVersion);
 
   return `<!DOCTYPE html>
 <html lang="en">

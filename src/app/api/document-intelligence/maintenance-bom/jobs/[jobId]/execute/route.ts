@@ -111,8 +111,7 @@ export async function POST(
         message: "Job has been queued for processing.",
       },
     });
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
+  } catch {
     return NextResponse.json({ ok: false, error: { code: "SERVER_ERROR", message: "An unexpected error occurred." } }, { status: 500 });
   }
 }

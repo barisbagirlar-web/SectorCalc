@@ -117,8 +117,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         stages,
       },
     });
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
+  } catch {
     return NextResponse.json({ ok: false, error: { code: "SERVER_ERROR", message: "Processing failed." } }, { status: 500 });
   }
 }

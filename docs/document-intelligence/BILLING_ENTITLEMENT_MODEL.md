@@ -24,7 +24,7 @@ creditTransactions/{transactionId}  →  { userId, jobId, productCode, credits, 
 |-----------|-------|
 | Product | Maintenance BOM Recovery — Verified BOM Job |
 | Product code | `maintenance_bom_recovery_v1` |
-| Public price | USD 149 |
+| Public price | 149 credits |
 | Credit cost | 149 credits |
 | Currency | USD |
 

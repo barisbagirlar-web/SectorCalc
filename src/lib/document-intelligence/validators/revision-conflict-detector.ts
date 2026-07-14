@@ -10,7 +10,7 @@
  * Never infers which revision is current without explicit source evidence.
  */
 
-import type { BomRow, RevisionConflict, RevisionConflictType } from "@/types/document-intelligence";
+import type { BomRow, RevisionConflict } from "@/types/document-intelligence";
 
 export function detectRevisionConflicts(rows: BomRow[]): RevisionConflict[] {
   const conflicts: RevisionConflict[] = [];

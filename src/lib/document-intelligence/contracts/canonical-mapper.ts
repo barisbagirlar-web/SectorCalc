@@ -79,14 +79,14 @@ function rowConfidence(row: ExtractedRow): number {
  * Determine whether a row requires manual review based on
  * cell-level confidence thresholds.
  */
-function requiresReview(row: ExtractedRow, quantity: number | null, parsedOk: boolean): boolean {
+function requiresReview(row: ExtractedRow, quantity: number | null, parseFailed: boolean): boolean {
   // Low-confidence cells
   for (const cell of Object.values(row.cells)) {
     if (cell.confidence < 0.5) return true;
   }
 
-  // Unparseable quantity
-  if (quantity == null && getCellValue(row, COL_QUANTITY) != null && !parsedOk) return true;
+  // Unparseable quantity — raw value exists but parse produced null
+  if (quantity == null && getCellValue(row, COL_QUANTITY) != null && parseFailed) return true;
 
   return false;
 }

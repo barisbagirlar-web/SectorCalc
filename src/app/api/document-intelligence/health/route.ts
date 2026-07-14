@@ -5,7 +5,7 @@
  */
 
 import { NextResponse } from "next/server";
-import { isDocumentIntelligenceEnabled } from "@/types/document-intelligence";
+import { isDocumentIntelligenceEnabled, MAINTENANCE_BOM_PRODUCT_CODE } from "@/types/document-intelligence";
 
 export async function GET() {
   if (!isDocumentIntelligenceEnabled()) {
@@ -19,7 +19,7 @@ export async function GET() {
     ok: true,
     data: {
       enabled: true,
-      product: "maintenance_bom_recovery_v1",
+      product: MAINTENANCE_BOM_PRODUCT_CODE,
       version: process.env.MAINTENANCE_BOM_ENGINE_VERSION ?? "1.0.0",
     },
   });

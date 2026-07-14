@@ -4,7 +4,7 @@ import {
   evaluateProviderHealth,
   selectActiveProvider,
 } from "@/lib/document-intelligence/security/provider-failover";
-import type { ProviderConfig, ProviderHealth, FailoverAction } from "@/lib/document-intelligence/security/provider-failover";
+import type { ProviderConfig, ProviderHealth } from "@/lib/document-intelligence/security/provider-failover";
 
 function makeConfig(overrides: Partial<ProviderConfig> = {}): ProviderConfig {
   return {

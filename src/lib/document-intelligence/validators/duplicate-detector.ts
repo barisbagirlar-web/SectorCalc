@@ -11,8 +11,8 @@
  * 7. duplicate source row extraction
  */
 
-import type { BomRow, DuplicateGroup, DuplicateType } from "@/types/document-intelligence";
-import { comparePartNumbers, normalizePartNumber } from "./part-normalizer";
+import type { BomRow, DuplicateGroup } from "@/types/document-intelligence";
+import { normalizePartNumber } from "./part-normalizer";
 
 export interface DuplicateDetectionResult {
   groups: DuplicateGroup[];

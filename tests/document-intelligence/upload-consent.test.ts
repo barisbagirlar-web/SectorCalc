@@ -102,6 +102,7 @@ describe("validateConsent", () => {
   });
 
   it("rejects data with missing consentVersion", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { consentVersion, ...partial } = VALID_CONSENT;
     const result = validateConsent(partial);
     expect(result.ok).toBe(false);
@@ -109,6 +110,7 @@ describe("validateConsent", () => {
   });
 
   it("rejects data with missing userId", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { userId, ...partial } = VALID_CONSENT;
     const result = validateConsent(partial);
     expect(result.ok).toBe(false);
@@ -116,6 +118,7 @@ describe("validateConsent", () => {
   });
 
   it("rejects data with missing jobId", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { jobId, ...partial } = VALID_CONSENT;
     const result = validateConsent(partial);
     expect(result.ok).toBe(false);

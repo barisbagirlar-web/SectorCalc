@@ -7,7 +7,7 @@
  * - quantity
  */
 
-import type { BomRow, MissingFieldException, MissingFieldType } from "@/types/document-intelligence";
+import type { BomRow, MissingFieldException } from "@/types/document-intelligence";
 
 export interface MissingFieldOptions {
   requireRevision?: boolean;
@@ -27,8 +27,6 @@ export function detectMissingFields(
   const hasAnyRevision = rows.some((r) => r.revision != null && r.revision.length > 0);
   const hasAnyManufacturer = rows.some((r) => r.manufacturer != null && r.manufacturer.length > 0);
   const hasAnyUnit = rows.some((r) => r.unit != null && r.unit !== "each");
-  const hasAnyEquipment = rows.some((r) => r.equipment != null);
-  const hasAnySubassembly = rows.some((r) => r.subassembly != null);
 
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i];

@@ -62,7 +62,7 @@ For hosting (environment variables in `.env.production` or Firebase Hosting rewr
 ```bash
 # Required for Next.js server-side rendering
 DOCUMENT_INTELLIGENCE_ENABLED=true
-MAINTENANCE_BOM_PRICE_USD=149
+MAINTENANCE_BOM_PRICE_CREDITS=149
 MAINTENANCE_BOM_MAX_FILE_BYTES=52428800
 MAINTENANCE_BOM_MAX_PAGES=50
 MAINTENANCE_BOM_MAX_ROWS=500

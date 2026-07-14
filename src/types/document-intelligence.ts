@@ -7,8 +7,8 @@
 
 /* ── Product & Pricing ──────────────────────────────────────────── */
 
-export const MAINTENANCE_BOM_PRODUCT_CODE = "maintenance_bom_recovery_v1" as const;
-export const MAINTENANCE_BOM_PRICE_USD = 149 as const;
+export const MAINTENANCE_BOM_PRODUCT_CODE = "maintenance_bom_recovery_verified_job_v1" as const;
+export const MAINTENANCE_BOM_PRICE_CREDITS = 149 as const;
 
 export const MAINTENANCE_BOM_MAX_PAGES = 50;
 export const MAINTENANCE_BOM_MAX_ROWS = 500;
@@ -45,7 +45,7 @@ export const VALID_TRANSITIONS: Record<JobStatus, JobStatus[]> = {
   diagnostic_uploaded: ["diagnostic_scanning", "failed_terminal"],
   diagnostic_scanning: ["diagnostic_eligible", "diagnostic_manual_review", "diagnostic_rejected", "failed_terminal"],
   diagnostic_eligible: ["awaiting_payment", "failed_terminal"],
-  diagnostic_manual_review: ["failed_terminal"],
+  diagnostic_manual_review: ["diagnostic_eligible", "diagnostic_rejected", "failed_terminal"],
   diagnostic_rejected: ["failed_terminal"],
   awaiting_payment: ["paid", "failed_terminal"],
   paid: ["queued", "failed_terminal"],

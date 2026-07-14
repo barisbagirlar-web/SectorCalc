@@ -4,15 +4,15 @@
  * Integrates with the existing SectorCalc credit system:
  * - Credits stored at users/{uid}/credits/balance (amount field)
  * - Credit transactions in creditTransactions collection
- * - Product price: USD 149
+ * - Product price: 149 credits
  *
  * Server-side only. All price/entitlement logic is authoritative on the server.
  */
 import "server-only";
 
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
-import type { PaymentStatus, EntitlementStatus, JobStatus } from "@/types/document-intelligence";
-import { MAINTENANCE_BOM_PRODUCT_CODE, MAINTENANCE_BOM_PRICE_USD } from "@/types/document-intelligence";
+import type { PaymentStatus, EntitlementStatus } from "@/types/document-intelligence";
+import { MAINTENANCE_BOM_PRODUCT_CODE, MAINTENANCE_BOM_PRICE_CREDITS } from "@/types/document-intelligence";
 
 /* ── Types ────────────────────────────────────────────────────────── */
 
@@ -42,7 +42,7 @@ export interface ReleaseResult {
 
 /* ── Constants ────────────────────────────────────────────────────── */
 
-// USD 149 = 149 credits (1 credit = USD 1 in existing system)
+// 149 credits
 export const MAINTENANCE_BOM_CREDIT_COST = 149;
 
 /* ── Module ───────────────────────────────────────────────────────── */
@@ -245,9 +245,8 @@ export function getCheckoutData() {
   return {
     productCode: MAINTENANCE_BOM_PRODUCT_CODE,
     productName: "Maintenance BOM Recovery — Verified BOM Job",
-    priceUsd: MAINTENANCE_BOM_PRICE_USD,
     creditCost: MAINTENANCE_BOM_CREDIT_COST,
-    currency: "USD",
+    priceCredits: MAINTENANCE_BOM_PRICE_CREDITS,
     allowedPages: 50,
     allowedRows: 500,
     allowedFileSize: 50 * 1024 * 1024,

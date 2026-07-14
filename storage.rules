@@ -1,0 +1,57 @@
+rules_version = '2';
+
+/**
+ * SectorCalc Firebase Storage Security Rules
+ *
+ * Tenant isolation for Document Intelligence uploads:
+ * - Users can only read/write/delete their own files.
+ * - Server-side operations bypass user checks via admin SDK.
+ * - Hard size limits enforced at the rule level.
+ * - Content type restriction for upload safety.
+ */
+
+function isAuthenticated() {
+  return request.auth != null && request.auth.uid != null;
+}
+
+function isOwner(userId) {
+  return request.auth.uid == userId;
+}
+
+/* ── Document Intelligence paths ───────────────────────────────── */
+
+// Upload path: document-intelligence/uploads/{userId}/{jobId}/{filename}
+match /document-intelligence/uploads/{userId}/{jobId}/{filename} {
+  allow create: if isAuthenticated()
+    && isOwner(userId)
+    && request.resource.size < 50 * 1024 * 1024  // 50 MB max
+    && request.resource.contentType.matches('application/pdf');
+  allow read: if isAuthenticated() && isOwner(userId);
+  allow delete: if isAuthenticated() && isOwner(userId);
+  allow update: if false;  // Immutable after upload
+  allow list: if false;
+}
+
+// Output path: document-intelligence/{userId}/{jobId}/output/{filename}
+match /document-intelligence/{userId}/{jobId}/output/{filename} {
+  allow read: if isAuthenticated() && isOwner(userId);
+  allow create: if false;   // Only server writes
+  allow delete: if false;   // Only server deletes (retention policy)
+  allow update: if false;
+  allow list: if false;
+}
+
+// Diagnostic path: document-intelligence/{userId}/{jobId}/diagnostic/{filename}
+match /document-intelligence/{userId}/{jobId}/diagnostic/{filename} {
+  allow read: if isAuthenticated() && isOwner(userId);
+  allow create: if false;   // Only server writes
+  allow delete: if false;
+  allow update: if false;
+  allow list: if false;
+}
+
+/* ── Deny everything else ──────────────────────────────────────── */
+
+match /{allPaths=**} {
+  allow read, write: if false;
+}

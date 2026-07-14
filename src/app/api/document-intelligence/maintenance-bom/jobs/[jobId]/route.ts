@@ -87,8 +87,7 @@ export async function GET(
         metricsSummary: job.metricsSummary || null,
       },
     });
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
+  } catch {
     return NextResponse.json({ ok: false, error: { code: "SERVER_ERROR", message: "An unexpected error occurred." } }, { status: 500 });
   }
 }
