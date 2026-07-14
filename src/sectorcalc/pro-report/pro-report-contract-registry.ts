@@ -55,23 +55,59 @@ function register(contract: ProReportContract): void {
 register({
   toolSlug: "break-even-survival-cash-calculator",
   sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Break-Even Multiplier", "ratio"),
-      entry("out_demand_metric", "Required Annual Revenue", "currency", "USD"),
-      entry("out_capacity_metric", "Maximum Absorbed Overhead", "currency", "USD"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Primary Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Stress Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Forecast Uncertainty Band", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Safety Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
+    {
+      sectionTitle: "Break-Even Position",
+      priority: 10,
+      entries: [
+        {
+          sourceOutputId: "out_break_even_monthly_revenue",
+          businessLabel: "Break-Even Monthly Revenue",
+          format: "currency",
+          unit: "currency/month",
+          explanation: "Monthly revenue required to cover fixed cash costs and debt service at the entered contribution margin.",
+        },
+        {
+          sourceOutputId: "out_current_revenue_gap",
+          businessLabel: "Current Revenue Gap vs Break-Even",
+          format: "currency",
+          unit: "currency/month",
+          explanation: "Positive values are headroom; negative values are the monthly revenue shortfall.",
+        },
+        {
+          sourceOutputId: "out_margin_of_safety_ratio",
+          businessLabel: "Revenue Margin of Safety",
+          format: "percentage",
+          unit: "%",
+          valueMultiplier: 100,
+          explanation: "Current revenue headroom relative to current monthly revenue.",
+        },
+      ],
+    },
+    {
+      sectionTitle: "Survival Cash Stress",
+      priority: 20,
+      entries: [
+        { sourceOutputId: "out_stressed_monthly_revenue", businessLabel: "Stressed Monthly Revenue", format: "currency", unit: "currency/month" },
+        { sourceOutputId: "out_monthly_cash_burn", businessLabel: "Monthly Cash Burn Under Stress", format: "currency", unit: "currency/month" },
+        { sourceOutputId: "out_cash_runway_months", businessLabel: "Cash Runway Under Stress", format: "number", unit: "months" },
+        { sourceOutputId: "out_survival_cash_target", businessLabel: "Survival Cash Target", format: "currency", unit: "currency" },
+        { sourceOutputId: "out_funding_gap", businessLabel: "Funding Gap to Target", format: "currency", unit: "currency" },
+      ],
+    },
+    {
+      sectionTitle: "Control & Evidence",
+      priority: 30,
+      entries: [
+        { sourceOutputId: "out_evidence_completeness", businessLabel: "Input Confidence", format: "percentage", unit: "%", valueMultiplier: 100 },
+        { sourceOutputId: "out_uncertainty_cash_buffer", businessLabel: "Uncertainty Cash Buffer", format: "currency", unit: "currency" },
+        {
+          sourceOutputId: "out_threshold_crossing",
+          businessLabel: "Target Runway Status",
+          format: "string",
+          valueLabels: { "0": "WITHIN TARGET", "1": "BREACHED" },
+        },
+      ],
+    },
   ],
 });
 
@@ -302,22 +338,21 @@ register({
   toolSlug: "capital-equipment-investment-appraisal-npv-irr",
   sections: [
     section("Primary Results", 10, [
-      entry("out_net_present_value", "Net Present Value", "currency", "USD"),
-      entry("out_internal_rate_of_return_percent", "Internal Rate of Return", "percent"),
-      entry("out_profitability_index", "Profitability Index", "ratio"),
-      entry("out_simple_payback_years", "Simple Payback Period", "year"),
+      entry("out_utilization_margin", "NPV / IRR Score", "ratio"),
+      entry("out_demand_metric", "Net Present Value", "currency", "USD"),
+      entry("out_capacity_metric", "Capital Efficiency Ratio", "ratio"),
     ]),
     section("Risk Assessment", 20, [
-      entry("out_stressed_net_present_value", "Stressed Net Present Value", "currency", "USD"),
-      entry("out_npv_lower_bound", "NPV Lower Bound", "currency", "USD"),
-      entry("out_npv_upper_bound", "NPV Upper Bound", "currency", "USD"),
-      entry("out_break_even_annual_cash_flow", "Break-Even Annual Cash Flow", "currency", "USD"),
+      entry("out_sensitivity_driver", "NPV Sensitivity Driver", "string"),
+      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
+      entry("out_threshold_crossing", "NPV Threshold Crossed", "boolean"),
+      entry("out_expanded_uncertainty", "NPV Uncertainty Band", "currency", "USD"),
     ]),
     section("Quality & Decision", 30, [
-      entry("out_source_confidence_ratio", "Source Confidence", "ratio"),
-      entry("out_npv_uncertainty_amount", "NPV Uncertainty Amount", "currency", "USD"),
-      entry("out_hurdle_rate_margin_percent", "IRR Margin Over Hurdle Rate", "percent"),
-      entry("out_decision_state", "Go / Review / Hold Decision", "number"),
+      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
+      entry("out_reference_deviation", "Reference Deviation", "number"),
+      entry("out_derating_factor", "Appraisal Derating Factor", "ratio"),
+      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
 });
@@ -355,8 +390,9 @@ register({
   toolSlug: "downtime-scrap-loss-statement",
   sections: [
     section("Primary Results", 10, [
-      entry("out_capacity_metric", "Total Loss Statement", "currency", "USD"),
+      entry("out_utilization_margin", "Total Loss Statement", "currency", "USD"),
       entry("out_demand_metric", "Downtime Cost", "currency", "USD"),
+      entry("out_capacity_metric", "Scrap & Rework Cost", "currency", "USD"),
     ]),
     section("Risk Assessment", 20, [
       entry("out_sensitivity_driver", "Loss Sensitivity Driver", "string"),

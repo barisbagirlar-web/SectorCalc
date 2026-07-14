@@ -24,7 +24,7 @@ const completeOutputs = [
   { id: "out_stressed_cash_lower_bound", name: "Stressed Cash Lower Bound", value: 194000 },
   { id: "out_stressed_cash_upper_bound", name: "Stressed Cash Upper Bound", value: 686000 },
   { id: "out_money_at_risk", name: "Cash at Risk Below Reserve", value: 0 },
-  { id: "out_primary_cash_cost_driver", name: "Primary Monthly Cash Cost Driver", value: 3 },
+  { id: "out_primary_cash_cost_driver", name: "Primary Monthly Cash Cost Driver", value: 0 },
   { id: "out_decision_state", name: "Cash Survival Decision", value: 0 },
 ];
 
@@ -54,7 +54,7 @@ describe("break-even survival cash Exact Decimal report contract", () => {
 
     expect(entries.find((entry) => entry.label === "Cash Contribution Margin")?.value).toBe(60);
     expect(entries.find((entry) => entry.label === "Source Confidence")?.value).toBe(95);
-    expect(entries.find((entry) => entry.label === "Primary Monthly Cash Cost Driver")?.value).toBe("Stressed variable cash cost");
+    expect(entries.find((entry) => entry.label === "Primary Monthly Cash Cost Driver")?.value).toBe("Payroll");
     expect(entries.find((entry) => entry.label === "Cash Survival Decision")?.value).toBe("PASS");
 
     const breakEven = entries.find((entry) => entry.label === "Break-Even Monthly Revenue");

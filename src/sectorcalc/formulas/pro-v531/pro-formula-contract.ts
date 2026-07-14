@@ -14,7 +14,10 @@ export interface ProFormulaResult {
   decimalOutputs?: Record<string, string>;
   warnings: string[];
   outputKeys: string[];
-  redaction_status: "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+  redaction_status:
+    | "PUBLIC_SAFE_REDACTED"
+    | "REDACTION_NOT_REQUIRED"
+    | "REDACTION_FAILED_BLOCKED";
 }
 
 export interface ProFormulaModule {
@@ -24,5 +27,7 @@ export interface ProFormulaModule {
   modelId?: string;
   verificationEvidenceId?: string;
   calculate: (inputs: Record<string, DecimalSource>) => ProFormulaResult;
-  sampleInputs: Record<string, number>;
+  sampleInputs: Record<string, DecimalSource>;
+  requiredInputKeys?: readonly string[];
+  declaredOutputKeys?: readonly string[];
 }

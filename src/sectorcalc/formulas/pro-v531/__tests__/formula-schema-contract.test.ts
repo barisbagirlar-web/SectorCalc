@@ -1,7 +1,4 @@
-import { readFileSync } from "node:fs";
-import path from "node:path";
 import { describe, expect, it, vi } from "vitest";
-import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import type { ProFormulaModule } from "../pro-formula-contract";
 import {
   validateFormulaModuleBinding,
@@ -10,22 +7,27 @@ import {
 
 vi.mock("server-only", () => ({}));
 
-function loadSchema(): SuperV4Schema {
-  const schemaPath = path.join(
-    process.cwd(),
-    "src/sectorcalc/schemas/pro-v531/break-even-survival-cash-calculator.schema.json",
-  );
-  return JSON.parse(readFileSync(schemaPath, "utf8")) as SuperV4Schema;
-}
+describe("strict Exact Decimal formula schema contract", () => {
+  async function loadContract() {
+    const formula = await import(
+      "../break-even-survival-cash-calculator.formula"
+    );
+    const { clearSchemaCache, resolveApprovedToolSchema } = await import(
+      "@/sectorcalc/runtime/resolve-approved-tool-schema"
+    );
+    clearSchemaCache();
+    const resolved = resolveApprovedToolSchema(formula.toolKey);
+    expect(resolved.ok).toBe(true);
+    if (!resolved.ok) throw new Error(resolved.errors.join(" | "));
+    expect(
+      (resolved.schema.engine_rules as Record<string, unknown>)
+        .strict_formula_schema_contract,
+    ).toBe(true);
+    return { formula, schema: resolved.schema };
+  }
 
-async function loadFormula(): Promise<ProFormulaModule> {
-  return import("../break-even-survival-cash-calculator.formula");
-}
-
-describe("strict formula schema contract", () => {
   it("accepts the exact governed input, version, and output contract", async () => {
-    const schema = loadSchema();
-    const formula = await loadFormula();
+    const { formula, schema } = await loadContract();
     const result = formula.calculate(formula.sampleInputs);
 
     expect(
@@ -35,37 +37,30 @@ describe("strict formula schema contract", () => {
   });
 
   it("rejects a cross-tool normalized input", async () => {
-    const schema = loadSchema();
-    const formula = await loadFormula();
-
+    const { formula, schema } = await loadContract();
     const errors = validateFormulaModuleBinding(schema, formula, {
       ...formula.sampleInputs,
-      n_initial_investment: 500000,
+      n_monthly_fixed_cash_cost: "120000",
     });
-
     expect(errors.join(" ")).toContain("Runtime normalized input set");
   });
 
   it("rejects formula version drift", async () => {
-    const schema = loadSchema();
-    const formula = await loadFormula();
+    const { formula, schema } = await loadContract();
     const driftedModule: ProFormulaModule = {
       ...formula,
-      formulaVersion: "5.3.1-pro-baris.invalid",
+      formulaVersion: "2.0.0.invalid",
     };
-
     const errors = validateFormulaModuleBinding(
       schema,
       driftedModule,
       formula.sampleInputs,
     );
-
     expect(errors.join(" ")).toContain("does not match schema version");
   });
 
-  it("rejects a missing schema output and a non-finite result", async () => {
-    const schema = loadSchema();
-    const formula = await loadFormula();
+  it("rejects output-key drift and a non-finite result", async () => {
+    const { formula, schema } = await loadContract();
     const result = formula.calculate(formula.sampleInputs);
     const corrupted = {
       ...result,
@@ -74,12 +69,10 @@ describe("strict formula schema contract", () => {
         out_break_even_monthly_revenue: Number.NaN,
       },
       outputKeys: result.outputKeys.filter(
-        (outputId) => outputId !== "out_decision_code",
+        (outputId) => outputId !== "out_decision_state",
       ),
     };
-
     const errors = validateFormulaResultContract(schema, formula, corrupted);
-
     expect(errors.join(" ")).toContain("outputKeys");
     expect(errors.join(" ")).toContain("non-finite");
   });

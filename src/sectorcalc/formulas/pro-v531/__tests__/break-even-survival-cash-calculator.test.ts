@@ -57,7 +57,7 @@ describe("Break-Even & Survival Cash Calculator Exact Decimal formula", () => {
     expectClose(result.outputs.out_stressed_cash_lower_bound, 194000);
     expectClose(result.outputs.out_stressed_cash_upper_bound, 686000);
     expectClose(result.outputs.out_money_at_risk, 0);
-    expect(result.outputs.out_primary_cash_cost_driver).toBe(3);
+    expect(result.outputs.out_primary_cash_cost_driver).toBe(0);
     expect(result.outputs.out_decision_state).toBe(0);
 
     for (const [id, exactValue] of Object.entries(result.decimalOutputs ?? {})) {
@@ -142,6 +142,7 @@ describe("Break-Even & Survival Cash Calculator Exact Decimal formula", () => {
     expect(scaled.status).toBe("OK");
     expectClose(scaled.outputs.out_break_even_monthly_revenue, 208333.33333333334 * factor, 7);
     expectClose(scaled.outputs.out_stressed_cash_lower_bound, 194000 * factor, 7);
+    expect(scaled.outputs.out_primary_cash_cost_driver).toBe(0);
     expect(scaled.outputs.out_decision_state).toBe(0);
     expect(Object.values(scaled.outputs).every(Number.isFinite)).toBe(true);
   });
