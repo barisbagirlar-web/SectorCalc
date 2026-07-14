@@ -63,6 +63,8 @@
     "guard:engine-torque-real-execution": "node scripts/guard-engine-torque-real-execution.mjs",
     "guard:single-tool-form": "node scripts/guard-single-tool-form-runtime.mjs",
     "guard:public-tool-contracts": "node scripts/guard-public-tool-render-contracts.mjs",
+    "admin:health-check": "tsx scripts/admin-health-check.ts",
+    "admin:health-check:json": "tsx scripts/admin-health-check.ts --json",
     "guard:public-copy-no-schema-jargon": "node scripts/guard-public-copy-no-schema-jargon.mjs",
     "sanitize:public-copy": "node scripts/sanitize-public-schema-copy.mjs --write",
     "smoke:public-copy-render": "node scripts/smoke-public-copy-render.mjs",

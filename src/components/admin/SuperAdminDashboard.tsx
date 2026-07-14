@@ -27,6 +27,7 @@ interface AdminLink {
 }
 
 const ADMIN_LINKS: AdminLink[] = [
+  { href: "/admin/health-check", label: "Health Check", description: "Military-grade system integrity verification — run full health checks", icon: "🛡️" },
   { href: "/admin/case-studies", label: "Case Studies", description: "Manage case study content, create and edit studies", icon: "📄" },
   { href: "/admin/tickets", label: "Support Tickets", description: "View and respond to user support requests", icon: "🎫" },
   { href: "/admin/leads", label: "Lead Intents", description: "Full lead pipeline with quality scoring and SLA tracking", icon: "📊" },

@@ -6,6 +6,7 @@ import { AdminLocaleSwitcher } from "@/lib/features/admin/admin-locale-context";
 
 const NAV_ITEMS = [
   { href: "/admin", label: "Dashboard" },
+  { href: "/admin/health-check", label: "Health Check" },
   { href: "/admin/case-studies", label: "Case Studies" },
   { href: "/admin/tickets", label: "Support Tickets" },
   { href: "/admin/leads", label: "Lead Intents" },
