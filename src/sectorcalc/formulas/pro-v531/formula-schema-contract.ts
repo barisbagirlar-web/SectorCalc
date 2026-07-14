@@ -1,6 +1,7 @@
 import "server-only";
 
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
+import type { DecimalSource } from "./pro-decimal-domain";
 import type {
   ProFormulaModule,
   ProFormulaResult,
@@ -38,7 +39,7 @@ export function isStrictFormulaSchemaContractEnabled(
 export function validateFormulaModuleBinding(
   schema: SuperV4Schema,
   module: ProFormulaModule,
-  normalizedInputs: Record<string, number>,
+  normalizedInputs: Record<string, DecimalSource>,
 ): string[] {
   if (!isStrictFormulaSchemaContractEnabled(schema)) return [];
 
