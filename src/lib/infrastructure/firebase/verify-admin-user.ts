@@ -8,7 +8,9 @@ import {
 
 export { parseBearerToken };
 
-/** Verify Firebase ID token and require `admin: true` custom claim. */
+const SUPER_ADMIN_EMAIL = "barisbagirlar@gmail.com";
+
+/** Verify Firebase ID token and require `admin: true` custom claim or super admin email. */
 export async function verifyAdminUser(
   idToken: string,
 ): Promise<VerifiedSignedInUser | null> {
@@ -24,11 +26,11 @@ export async function verifyAdminUser(
     }
 
     const decoded = await getAuth(app).verifyIdToken(idToken);
-    if (decoded.admin !== true) {
-      return null;
+    if (decoded.email === SUPER_ADMIN_EMAIL || decoded.admin === true) {
+      return signedIn;
     }
 
-    return signedIn;
+    return null;
   } catch {
     return null;
   }
