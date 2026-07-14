@@ -47,7 +47,7 @@ function executeFree(toolKey: string, inputs: Record<string, number>) {
   return formula.execute(inputs);
 }
 
-function getMetric(outputs: Array<{ id: string; value: unknown }>, id: string): number | null {
+function getMetric(outputs: readonly { id: string; value: unknown }[], id: string): number | null {
   const m = outputs.find((o) => o.id === id);
   return m && isFiniteNumber(m.value) ? m.value : null;
 }
@@ -285,8 +285,8 @@ describe("PHASE 1 — Mathematical Correctness (Manually Verified)", () => {
       max_chip_load_mm: 0.15,
     });
 
-    const rpm = getMetric(result.outputs, "spindle_rpm");
-    const feed = getMetric(result.outputs, "table_feed_mm_min");
+    const rpm = getMetric(result.outputs, "spindle_speed_rpm");
+    const feed = getMetric(result.outputs, "feed_rate_mm_min");
 
     const expectedRPM = (120 * 1000) / (Math.PI * 12);
     const expectedFeed = expectedRPM * 0.1 * 4;
