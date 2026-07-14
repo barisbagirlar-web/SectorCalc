@@ -22,15 +22,15 @@ interface RootShellProps {
  */
 export function RootShell({ children, freeToolsCount, proToolsCount }: RootShellProps) {
   const pathname = usePathname() || "/";
-  const showTraceAI = pathname !== "/";
+  const isHomepage = pathname === "/";
 
   return (
     <AppProviders>
       <NavigationLoadingBar />
       <SiteHeader freeToolsCount={freeToolsCount} proToolsCount={proToolsCount} />
       <MainLandmark>{children}</MainLandmark>
-      <EnterpriseFooter />
-      {showTraceAI ? <TraceAI demoMode defaultOpen={false} title="Trace AI" /> : null}
+      <EnterpriseFooter hideCta={isHomepage} />
+      {!isHomepage ? <TraceAI demoMode defaultOpen={false} title="Trace AI" /> : null}
     </AppProviders>
   );
 }
