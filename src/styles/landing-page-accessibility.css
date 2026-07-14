@@ -1,4 +1,4 @@
-/* Accessibility-critical homepage contrast lock. */
+/* Accessibility-critical homepage contrast and responsive quality lock. */
 .sc-landing .sc-button-primary {
   background: #954426;
   color: #ffffff;
@@ -7,4 +7,17 @@
 .sc-landing .sc-button-primary:hover {
   background: #71321d;
   color: #ffffff;
+}
+
+.sc-landing .sc-pro-section,
+.sc-landing .sc-pro-section h2,
+.sc-landing .sc-pro-section h3 {
+  color: #f7f2e8;
+}
+
+@media (min-width: 721px) and (max-width: 960px) {
+  .sc-landing .sc-product-card:last-child {
+    grid-column: 1 / -1;
+    min-height: 360px;
+  }
 }
