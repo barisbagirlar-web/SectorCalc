@@ -1,0 +1,83 @@
+name: Formula Engine Integrity Audit
+
+on:
+  pull_request:
+    paths:
+      - "src/sectorcalc/schemas/**"
+      - "src/sectorcalc/formulas/**"
+      - "src/sectorcalc/runtime/**"
+      - "src/sectorcalc/pro-form/**"
+      - "src/sectorcalc/pro-runtime/**"
+      - "tests/free-tools/**"
+      - "tests/pro-v2/**"
+      - "tests/golden/**"
+      - "scripts/audit-tool-formula-integrity.mjs"
+      - ".github/workflows/formula-engine-integrity-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  formula-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+      - run: npm ci
+      - name: Static schema/formula/input audit
+        id: static-audit
+        continue-on-error: true
+        run: node scripts/audit-tool-formula-integrity.mjs
+      - name: Existing schema/formula binding guard
+        id: binding
+        continue-on-error: true
+        run: npm run guard:v531-schema-formula-binding
+      - name: Free tool release contract
+        id: free-release
+        continue-on-error: true
+        run: npm run guard:free-release
+      - name: Premium formula audit
+        id: premium-audit
+        continue-on-error: true
+        run: npm run audit:premium
+      - name: Free golden mathematical tests
+        id: free-golden
+        continue-on-error: true
+        run: npm run test:golden:free-v531
+      - name: Pro runtime tests
+        id: pro-runtime
+        continue-on-error: true
+        run: npm run test:v5-runtime
+      - name: Typecheck
+        id: typecheck
+        continue-on-error: true
+        run: npm run typecheck
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: formula-engine-integrity-audit
+          path: artifacts/formula-integrity-audit/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Enforce results
+        if: always()
+        shell: bash
+        run: |
+          failed=0
+          for result in \
+            "${{ steps.static-audit.outcome }}" \
+            "${{ steps.binding.outcome }}" \
+            "${{ steps.free-release.outcome }}" \
+            "${{ steps.premium-audit.outcome }}" \
+            "${{ steps.free-golden.outcome }}" \
+            "${{ steps.pro-runtime.outcome }}" \
+            "${{ steps.typecheck.outcome }}"; do
+            if [ "$result" != "success" ]; then failed=1; fi
+          done
+          exit "$failed"
