@@ -1,0 +1,10 @@
+/* Accessibility-critical homepage contrast lock. */
+.sc-landing .sc-button-primary {
+  background: #954426;
+  color: #ffffff;
+}
+
+.sc-landing .sc-button-primary:hover {
+  background: #71321d;
+  color: #ffffff;
+}
