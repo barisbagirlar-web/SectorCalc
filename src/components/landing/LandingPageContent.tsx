@@ -1,127 +1,635 @@
-"use client";
-
 import Link from "next/link";
 import "@/styles/landing-page.css";
 
+type IconName =
+  | "calculator"
+  | "report"
+  | "diagnostics"
+  | "input"
+  | "formula"
+  | "boundary"
+  | "decision"
+  | "machining"
+  | "welding"
+  | "quality"
+  | "energy"
+  | "logistics"
+  | "finance"
+  | "trace"
+  | "limits"
+  | "review";
+
+function Icon({ name }: { name: IconName }) {
+  const common = {
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.7,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+  };
+
+  switch (name) {
+    case "calculator":
+      return (
+        <svg {...common}>
+          <rect x="5" y="2.5" width="14" height="19" rx="1.5" />
+          <path d="M8 6.5h8M8 11h1m3 0h1m3 0h1M8 15h1m3 0h1m3 0h1M8 19h5m3-4v4" />
+        </svg>
+      );
+    case "report":
+      return (
+        <svg {...common}>
+          <path d="M6 2.5h8l4 4V21.5H6z" />
+          <path d="M14 2.5v4h4M9 11h6M9 15h6M9 19h4" />
+        </svg>
+      );
+    case "diagnostics":
+      return (
+        <svg {...common}>
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <path d="m15.3 15.3 5.2 5.2M8 10.5h5M10.5 8v5" />
+        </svg>
+      );
+    case "input":
+      return (
+        <svg {...common}>
+          <path d="M4 5.5h16M4 12h16M4 18.5h16" />
+          <circle cx="8" cy="5.5" r="1.8" fill="currentColor" stroke="none" />
+          <circle cx="15" cy="12" r="1.8" fill="currentColor" stroke="none" />
+          <circle cx="10" cy="18.5" r="1.8" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "formula":
+      return (
+        <svg {...common}>
+          <path d="M6 5h5l-4 14h5M14.5 9.5l5 5M19.5 9.5l-5 5" />
+        </svg>
+      );
+    case "boundary":
+      return (
+        <svg {...common}>
+          <path d="M3 18 8 8l4 6 3-4 6 8" />
+          <path d="M3 21h18M5 5h14" />
+        </svg>
+      );
+    case "decision":
+      return (
+        <svg {...common}>
+          <path d="M4 12h12M12 5l7 7-7 7" />
+          <path d="M4 5v14" />
+        </svg>
+      );
+    case "machining":
+      return (
+        <svg {...common}>
+          <circle cx="8" cy="12" r="4.5" />
+          <path d="M12.5 12H21M16 8.5V15.5M4 5h8M4 19h8" />
+        </svg>
+      );
+    case "welding":
+      return (
+        <svg {...common}>
+          <path d="M3 8h7l2 4 2-4h7M3 16h7l2-4 2 4h7" />
+          <path d="m10 4 2 3 2-3M10 20l2-3 2 3" />
+        </svg>
+      );
+    case "quality":
+      return (
+        <svg {...common}>
+          <path d="M12 2.5 19 6v5.5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6z" />
+          <path d="m8.5 12 2.2 2.2 4.8-5" />
+        </svg>
+      );
+    case "energy":
+      return (
+        <svg {...common}>
+          <path d="M13.5 2.5 5.5 13h6l-1 8.5 8-11h-6z" />
+        </svg>
+      );
+    case "logistics":
+      return (
+        <svg {...common}>
+          <path d="M3 6h11v11H3zM14 10h4l3 3v4h-7z" />
+          <circle cx="7" cy="18.5" r="1.8" />
+          <circle cx="18" cy="18.5" r="1.8" />
+        </svg>
+      );
+    case "finance":
+      return (
+        <svg {...common}>
+          <path d="M4 19V9M10 19V5M16 19v-7M22 19H2" />
+          <path d="m3 6 6-3 6 4 6-4" />
+        </svg>
+      );
+    case "trace":
+      return (
+        <svg {...common}>
+          <path d="M3 12h4l2-5 3 10 3-7 2 2h4" />
+        </svg>
+      );
+    case "limits":
+      return (
+        <svg {...common}>
+          <path d="M5 3v18M19 3v18M9 8h6M9 16h6" />
+          <path d="m11 6-2 2 2 2M13 14l2 2-2 2" />
+        </svg>
+      );
+    case "review":
+      return (
+        <svg {...common}>
+          <path d="M5 3h10l4 4v14H5zM15 3v4h4" />
+          <path d="m8.5 14 2.2 2.2 4.8-5" />
+        </svg>
+      );
+  }
+}
+
+const productPaths: Array<{
+  icon: IconName;
+  index: string;
+  title: string;
+  label: string;
+  description: string;
+  bullets: string[];
+  href: string;
+  cta: string;
+}> = [
+  {
+    icon: "calculator",
+    index: "01",
+    title: "Free Calculators",
+    label: "Fast operational checks",
+    description:
+      "Calculate cost, capacity, energy, production, logistics, quality and finance questions without a login.",
+    bullets: ["Structured inputs", "Immediate result", "Clear next action"],
+    href: "/free-tools",
+    cta: "Browse free calculators",
+  },
+  {
+    icon: "report",
+    index: "02",
+    title: "Pro Decision Tools",
+    label: "Report-grade analysis",
+    description:
+      "Use deeper models when a quote, investment, production plan or commercial commitment must survive review.",
+    bullets: ["Sensitivity analysis", "Risk boundaries", "Decision-ready reports"],
+    href: "/pro-tools",
+    cta: "Explore Pro decision tools",
+  },
+  {
+    icon: "diagnostics",
+    index: "03",
+    title: "Engineering Diagnostics",
+    label: "Evidence-led investigation",
+    description:
+      "Turn field photos, measurements and operating context into a structured diagnostic and corrective-action record.",
+    bullets: ["Root-cause hypotheses", "Cost-at-risk", "NCR / CAPA support"],
+    href: "/engineering-diagnostics",
+    cta: "Start engineering diagnostics",
+  },
+];
+
+const workflowSteps: Array<{
+  icon: IconName;
+  index: string;
+  title: string;
+  text: string;
+}> = [
+  {
+    icon: "input",
+    index: "01",
+    title: "Capture the operating reality",
+    text: "Use explicit units, assumptions and validation instead of hidden spreadsheet logic.",
+  },
+  {
+    icon: "formula",
+    index: "02",
+    title: "Run the calculation path",
+    text: "Apply a defined formula model with traceable inputs and calculation context.",
+  },
+  {
+    icon: "boundary",
+    index: "03",
+    title: "Stress the decision",
+    text: "Expose sensitivity, tolerance, uncertainty and the point where the answer changes.",
+  },
+  {
+    icon: "decision",
+    index: "04",
+    title: "Issue the next action",
+    text: "Proceed, hold, reprice, inspect, repair, escalate or prepare qualified review.",
+  },
+];
+
+const sectors: Array<{
+  icon: IconName;
+  title: string;
+  text: string;
+}> = [
+  {
+    icon: "machining",
+    title: "Machining & CNC",
+    text: "Hourly rate, cycle time, tooling, scrap, quote margin, OEE and machine investment.",
+  },
+  {
+    icon: "welding",
+    title: "Welding & Fabrication",
+    text: "Weld cost, consumables, rework exposure, preheat checks and fabrication decisions.",
+  },
+  {
+    icon: "quality",
+    title: "Quality & Maintenance",
+    text: "FMEA RPN, recurring defects, calibration risk, downtime, NCR and CAPA priorities.",
+  },
+  {
+    icon: "energy",
+    title: "Energy & Facilities",
+    text: "Energy loss, compressed air, HVAC load, equipment replacement and payback.",
+  },
+  {
+    icon: "logistics",
+    title: "Logistics & Inventory",
+    text: "Freight cost, stock exposure, EOQ, throughput, route loss and working capital.",
+  },
+  {
+    icon: "finance",
+    title: "Finance & Investment",
+    text: "Break-even, pricing, cash survival, NPV, IRR, payback and capital allocation.",
+  },
+];
+
+const professionalPrinciples: Array<{
+  icon: IconName;
+  title: string;
+  text: string;
+}> = [
+  {
+    icon: "trace",
+    title: "Traceable",
+    text: "Inputs, formulas, assumptions and outputs remain connected so the result can be reviewed.",
+  },
+  {
+    icon: "limits",
+    title: "Bounded",
+    text: "Tolerance, uncertainty, missing evidence and decision-flip conditions are made explicit.",
+  },
+  {
+    icon: "review",
+    title: "Review-aware",
+    text: "The platform separates decision support from certification, code approval and qualified sign-off.",
+  },
+];
+
 export function LandingPageContent() {
   return (
-    <div className="claude-landing">
-      <main>
-        <section className="hero">
-          <div className="wrap">
-            <p className="eyebrow">INDUSTRIAL CALCULATORS FOR REAL OPERATING DECISIONS</p>
-            <h1>Calculate cost, risk, downtime, and production decisions before they become expensive mistakes.</h1>
-            <p className="subhead">
-              Use SectorCalc to estimate shop-floor costs, compare scenarios, check margins, diagnose losses, and prepare decision-ready reports for manufacturing, finance, operations, and engineering work.
+    <div className="sc-landing">
+      <section className="sc-hero" aria-labelledby="home-title">
+        <div className="sc-shell sc-hero-grid">
+          <div className="sc-hero-copy">
+            <p className="sc-kicker">
+              <span aria-hidden="true" />
+              Industrial decision intelligence
             </p>
-            <div className="cta-row">
-              <Link href="/free-tools" prefetch={true} className="btn-primary">Explore Free Calculators</Link>
-              <Link href="/pro-tools" prefetch={true} className="btn-secondary">View Pro Tools</Link>
+            <h1 id="home-title">
+              Know the cost.
+              <span>See the risk.</span>
+              Make the call.
+            </h1>
+            <p className="sc-hero-lead">
+              SectorCalc turns operating inputs into decision-ready calculations for manufacturing,
+              engineering, operations and finance — before a weak estimate becomes an expensive
+              commitment.
+            </p>
+            <div className="sc-action-row">
+              <Link href="/free-tools" prefetch className="sc-button sc-button-primary">
+                Open free calculators
+                <span aria-hidden="true">→</span>
+              </Link>
+              <Link href="/pro-tools" prefetch className="sc-button sc-button-secondary">
+                Explore Pro decision tools
+              </Link>
             </div>
-            <p className="proof-line">
-              Free calculators for quick checks. Pro tools for audit-safe, server-side decision reports.
+            <ul className="sc-hero-proof" aria-label="Platform capabilities">
+              <li>No login for free tools</li>
+              <li>Server-side Pro calculations</li>
+              <li>Report and verification workflows</li>
+            </ul>
+          </div>
+
+          <div className="sc-report-preview" aria-label="Illustrative SectorCalc decision report">
+            <div className="sc-report-topline">
+              <div>
+                <span className="sc-report-mark" aria-hidden="true" />
+                <span>DECISION TRACE / QUOTE REVIEW</span>
+              </div>
+              <span className="sc-report-status">MODEL COMPLETE</span>
+            </div>
+
+            <div className="sc-verdict-block">
+              <p>DECISION</p>
+              <strong>REPRICE BEFORE COMMITMENT</strong>
+              <span>
+                Current quote margin remains below target after cycle-time and scrap sensitivity.
+              </span>
+            </div>
+
+            <div className="sc-report-metrics">
+              <div>
+                <span>TRUE HOURLY COST</span>
+                <strong>$117.40</strong>
+              </div>
+              <div>
+                <span>QUOTE MARGIN</span>
+                <strong>8.6%</strong>
+              </div>
+              <div>
+                <span>TARGET MARGIN</span>
+                <strong>20.0%</strong>
+              </div>
+            </div>
+
+            <div className="sc-sensitivity">
+              <div className="sc-sensitivity-head">
+                <span>SENSITIVITY / DECISION DRIVERS</span>
+                <span>LOW → HIGH</span>
+              </div>
+              <div className="sc-sensitivity-row">
+                <span>Cycle time</span>
+                <div className="sc-track"><span style={{ width: "86%" }} /></div>
+                <strong>High</strong>
+              </div>
+              <div className="sc-sensitivity-row">
+                <span>Scrap rate</span>
+                <div className="sc-track"><span style={{ width: "64%" }} /></div>
+                <strong>Med.</strong>
+              </div>
+              <div className="sc-sensitivity-row">
+                <span>Material cost</span>
+                <div className="sc-track"><span style={{ width: "48%" }} /></div>
+                <strong>Med.</strong>
+              </div>
+            </div>
+
+            <div className="sc-report-footer">
+              <span>Illustrative report preview — not a customer result</span>
+              <span>TRACE ID / SC-7F21</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sc-proof-strip" aria-label="SectorCalc calculation principles">
+        <div className="sc-shell sc-proof-strip-inner">
+          <p>FROM INPUT TO DECISION</p>
+          <ul>
+            <li>Explicit assumptions</li>
+            <li>Formula context</li>
+            <li>Sensitivity and tolerances</li>
+            <li>Action-oriented output</li>
+            <li>Qualified-review boundaries</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="sc-section sc-products" aria-labelledby="product-paths-title">
+        <div className="sc-shell">
+          <div className="sc-section-heading sc-section-heading-split">
+            <div>
+              <p className="sc-section-kicker">THE PLATFORM</p>
+              <h2 id="product-paths-title">Three paths. One decision system.</h2>
+            </div>
+            <p>
+              Start with a fast check. Move to deeper analysis when the result affects price,
+              production, quality, investment or customer commitment.
             </p>
           </div>
-        </section>
-        <section className="sec-section outcome-section">
-          <div className="wrap">
-            <div className="grid outcome-grid">
-              <div className="outcome-card">
-                <h3>Find the number behind the problem</h3>
-                <p>Calculate machine cost, OEE, scrap, quote margin, energy loss, payback, downtime, FMEA RPN and engineering risk using structured inputs instead of rough guesses.</p>
-                <Link href="/free-tools" prefetch={true} className="btn-link">Search calculators &rarr;</Link>
+
+          <div className="sc-product-grid">
+            {productPaths.map((product) => (
+              <article className="sc-product-card" key={product.title}>
+                <div className="sc-card-topline">
+                  <span className="sc-icon-box"><Icon name={product.icon} /></span>
+                  <span>{product.index}</span>
+                </div>
+                <p className="sc-product-label">{product.label}</p>
+                <h3>{product.title}</h3>
+                <p className="sc-product-description">{product.description}</p>
+                <ul>
+                  {product.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                </ul>
+                <Link href={product.href} prefetch className="sc-text-link">
+                  {product.cta}<span aria-hidden="true">→</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sc-section sc-workflow" aria-labelledby="workflow-title">
+        <div className="sc-shell">
+          <div className="sc-section-heading sc-section-heading-centered">
+            <p className="sc-section-kicker">THE DIFFERENCE</p>
+            <h2 id="workflow-title">A calculator gives a number. SectorCalc shows what can change the decision.</h2>
+            <p>
+              The calculation path is designed to expose the variables, limits and evidence behind
+              the answer — not bury them inside a spreadsheet.
+            </p>
+          </div>
+
+          <div className="sc-workflow-grid">
+            {workflowSteps.map((step) => (
+              <article className="sc-workflow-step" key={step.index}>
+                <div className="sc-workflow-number">{step.index}</div>
+                <span className="sc-workflow-icon"><Icon name={step.icon} /></span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sc-pro-section" aria-labelledby="pro-title">
+        <div className="sc-shell sc-pro-grid">
+          <div className="sc-pro-copy">
+            <p className="sc-section-kicker">PRO DECISION TOOLS</p>
+            <h2 id="pro-title">When the number becomes a commitment, move to Pro.</h2>
+            <p>
+              Use Pro when a quote, CAPEX request, production plan, quality decision or commercial
+              commitment must be explained, challenged and documented.
+            </p>
+            <div className="sc-action-row">
+              <Link href="/pro-tools" prefetch className="sc-button sc-button-light">
+                View Pro decision tools<span aria-hidden="true">→</span>
+              </Link>
+              <Link href="/pricing" prefetch className="sc-button sc-button-dark-outline">
+                See pricing
+              </Link>
+            </div>
+            <p className="sc-pro-note">
+              Decision support only. Qualified professional review remains required where safety,
+              code, regulation or certification applies.
+            </p>
+          </div>
+
+          <div className="sc-pro-capabilities">
+            <article>
+              <span>01</span>
+              <div>
+                <h3>Sensitivity</h3>
+                <p>Identify which variables control the outcome and how far they can move.</p>
               </div>
-              <div className="outcome-card">
-                <h3>Decide what to do next</h3>
-                <p>Each result must explain the decision: proceed, hold, reprice, inspect, repair, reduce risk, escalate or prepare a review-ready report.</p>
-                <Link href="/pro-tools" prefetch={true} className="btn-link">Explore Pro Tools &rarr;</Link>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <h3>Risk boundary</h3>
+                <p>Show the threshold where the recommendation changes or escalation is required.</p>
               </div>
-              <div className="outcome-card">
-                <h3>Diagnose field issues from evidence</h3>
-                <p>Upload photos, add measurements, confirm context and generate an Engineering Diagnostics report with root-cause hypotheses, cost exposure, NCR/CAPA drafts and verification records.</p>
-                <Link href="/engineering-diagnostics" prefetch={true} className="btn-link">Start Diagnostics &rarr;</Link>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <h3>Assumptions and limits</h3>
+                <p>Keep missing evidence, tolerances and model limitations visible to reviewers.</p>
               </div>
+            </article>
+            <article>
+              <span>04</span>
+              <div>
+                <h3>Report workflow</h3>
+                <p>Prepare a structured output for internal review, client discussion or verification.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="sc-section sc-sectors" aria-labelledby="sectors-title">
+        <div className="sc-shell">
+          <div className="sc-section-heading sc-section-heading-split">
+            <div>
+              <p className="sc-section-kicker">DECISIONS BY DOMAIN</p>
+              <h2 id="sectors-title">Built for the point where operating detail meets financial consequence.</h2>
             </div>
+            <p>
+              SectorCalc connects shop-floor variables with cost, risk, downtime, margin and capital
+              decisions across industrial work.
+            </p>
           </div>
-        </section>
-        <section className="sec-section problem-section">
-          <div className="wrap">
-            <h2>Built for the moments where a wrong estimate costs money</h2>
-            <p className="section-intro">SectorCalc is not a general calculator library. It is built for the daily decisions where missing one variable can create scrap, rework, idle machines, bad quotes, energy loss, quality disputes or delayed projects.</p>
-            <div className="problem-list">
-              <div className="problem-item"><span className="problem-label">CNC / machining:</span><span className="problem-text">wrong cycle time, weak hourly rate, tool wear, low OEE, underpriced jobs.</span></div>
-              <div className="problem-item"><span className="problem-label">Welding / fabrication:</span><span className="problem-text">weld cost, rework risk, WPS preheat checks, distortion, material and labor exposure.</span></div>
-              <div className="problem-item"><span className="problem-label">Quality / maintenance:</span><span className="problem-text">FMEA RPN, gage error, calibration drift, recurring defects, downtime and CAPA evidence.</span></div>
-              <div className="problem-item"><span className="problem-label">Construction / engineering:</span><span className="problem-text">quantity checks, roof/load estimates, concrete and steel cost exposure, project delay risk.</span></div>
-              <div className="problem-item"><span className="problem-label">Energy / facilities:</span><span className="problem-text">compressed air leaks, kWh cost, peak demand, HVAC load, compressor loss and carbon exposure.</span></div>
-              <div className="problem-item"><span className="problem-label">Logistics / inventory:</span><span className="problem-text">freight cost, EOQ, stock risk, route loss, warehouse layout and working capital impact.</span></div>
-              <div className="problem-item"><span className="problem-label">Finance / controlling:</span><span className="problem-text">break-even, margin leakage, payback, NPV, IRR, cash-flow gap and pricing decisions.</span></div>
+
+          <div className="sc-sector-grid">
+            {sectors.map((sector) => (
+              <article className="sc-sector-card" key={sector.title}>
+                <span className="sc-sector-icon"><Icon name={sector.icon} /></span>
+                <h3>{sector.title}</h3>
+                <p>{sector.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sc-section sc-cases" aria-labelledby="cases-title">
+        <div className="sc-shell">
+          <div className="sc-section-heading sc-section-heading-split">
+            <div>
+              <p className="sc-section-kicker">CALCULATION WORKFLOWS</p>
+              <h2 id="cases-title">The value is not the result alone. It is the decision the result unlocks.</h2>
             </div>
+            <Link href="/case-studies" prefetch className="sc-text-link sc-heading-link">
+              View case studies<span aria-hidden="true">→</span>
+            </Link>
           </div>
-        </section>
-        <section className="sec-section product-system-section">
-          <div className="wrap"><h2>One platform. Four decision paths.</h2>
-            <div className="grid product-grid">
-              <div className="product-card"><h3>Free Tools</h3><p>Start with fast industrial calculators for everyday checks: cost, margin, energy, production, logistics, finance and basic engineering questions.</p><Link href="/free-tools" prefetch={true} className="btn-link">Browse Free Tools &rarr;</Link></div>
-              <div className="product-card"><h3>Pro Tools</h3><p>Use deeper calculators when the decision needs sensitivity, tolerance guidance, business impact, scenario comparison, uncertainty notes, PDF output or review-ready documentation.</p><Link href="/pro-tools" prefetch={true} className="btn-link">Explore Pro Tools &rarr;</Link></div>
-              <div className="product-card"><h3>Engineering Diagnostics</h3><p>Use photos, measurements and field context to create structured diagnostic reports for visible defects, failures, quality issues, maintenance problems and corrective-action discussions.</p><Link href="/engineering-diagnostics" prefetch={true} className="btn-link">Start Engineering Diagnostics &rarr;</Link></div>
-              <div className="product-card"><h3>FMEA RPN Calculator</h3><p>Score severity, occurrence and detection, rank failure modes, identify the highest-risk causes and turn quality discussions into a clear action list.</p><Link href="/calculators/fmea-rpn" prefetch={true} className="btn-link">Open FMEA RPN Calculator &rarr;</Link></div>
-            </div>
+
+          <div className="sc-case-grid">
+            <article className="sc-case-card">
+              <p className="sc-case-index">01 / PRECISION MACHINING</p>
+              <h3>Is the job profitable after real machine time, tooling, setup and scrap?</h3>
+              <dl>
+                <div><dt>Decision trace</dt><dd>True hourly rate → cost per part → quote margin → reprice threshold</dd></div>
+                <div><dt>Commercial action</dt><dd>Accept, reprice, redesign process or decline the job</dd></div>
+              </dl>
+            </article>
+            <article className="sc-case-card">
+              <p className="sc-case-index">02 / ENERGY OPERATIONS</p>
+              <h3>Does the efficiency project still pay back under realistic load and tariff changes?</h3>
+              <dl>
+                <div><dt>Decision trace</dt><dd>Baseline loss → recoverable savings → sensitivity → payback range</dd></div>
+                <div><dt>Capital action</dt><dd>Approve, resize, defer or request additional evidence</dd></div>
+              </dl>
+            </article>
+            <article className="sc-case-card">
+              <p className="sc-case-index">03 / QUALITY & MAINTENANCE</p>
+              <h3>Which failure mode should be funded first when risk, downtime and rework compete?</h3>
+              <dl>
+                <div><dt>Decision trace</dt><dd>Failure priority → cost exposure → mitigation effect → residual risk</dd></div>
+                <div><dt>Operational action</dt><dd>Contain, correct, monitor or escalate for qualified review</dd></div>
+              </dl>
+            </article>
           </div>
-        </section>
-        <section className="sec-section casestudies-section">
-          <div className="wrap"><h2>Real calculation workflows, real operational impact</h2>
-            <p className="section-intro">SectorCalc case studies show how calculation-backed decisions can expose wasted cost, weak process controls, quote leakage and avoidable operational losses. Company names are anonymized where required.</p>
-            <div className="grid cs-grid">
-              <div className="cs-card"><h4>CNC workshop</h4><p>Quote leakage, machining cost, OEE and annual savings.</p></div>
-              <div className="cs-card"><h4>Energy / carbon</h4><p>Consumption, efficiency gap and annual savings.</p></div>
-              <div className="cs-card"><h4>Welding / metal</h4><p>Rework, weld cost and corrective-action impact.</p></div>
-              <div className="cs-card"><h4>Automotive supply chain</h4><p>5S audit score improvement and operational savings.</p></div>
-            </div>
-            <div className="cta-center"><Link href="/case-studies" prefetch={true} className="btn-primary">View Case Studies</Link></div>
+        </div>
+      </section>
+
+      <section className="sc-section sc-professional" aria-labelledby="professional-title">
+        <div className="sc-shell sc-professional-grid">
+          <div className="sc-professional-copy">
+            <p className="sc-section-kicker">PROFESSIONAL TRUST</p>
+            <h2 id="professional-title">Serious analysis without false authority.</h2>
+            <p>
+              SectorCalc references recognized methods and standards where relevant, states
+              assumptions and limitations, and keeps calculation support separate from certification,
+              code approval and qualified sign-off.
+            </p>
+            <Link href="/verify" prefetch className="sc-text-link">
+              Verify a report<span aria-hidden="true">→</span>
+            </Link>
           </div>
-        </section>
-        <section className="sec-section methodology-section">
-          <div className="wrap"><h2>What every serious calculation should show</h2>
-            <div className="grid meth-grid">
-              <div className="meth-card">What was calculated</div>
-              <div className="meth-card">Which inputs changed the result</div>
-              <div className="meth-card">Where the tolerance or risk zone starts</div>
-              <div className="meth-card">What can flip the decision</div>
-              <div className="meth-card">What evidence is missing</div>
-              <div className="meth-card">What action should be taken next</div>
-              <div className="meth-card meth-card-wide">When qualified professional review is required</div>
-            </div>
+          <div className="sc-principle-grid">
+            {professionalPrinciples.map((principle) => (
+              <article key={principle.title}>
+                <span><Icon name={principle.icon} /></span>
+                <h3>{principle.title}</h3>
+                <p>{principle.text}</p>
+              </article>
+            ))}
           </div>
-        </section>
-        <section className="sec-section fmea-section">
-          <div className="wrap"><h2>FMEA RPN for quality, maintenance and production risk</h2>
-            <p className="section-intro">Use FMEA RPN when a defect, failure mode or process weakness must be ranked before action. Enter severity, occurrence and detection values, identify the highest-risk failure modes, and produce a clear mitigation list for review.</p>
-            <ul className="feature-bullets"><li>Rank failure modes by RPN</li><li>Separate high-risk issues from noise</li><li>Support NCR, CAPA, maintenance and quality meetings</li><li>Connect risk priority to cost, downtime and rework exposure</li><li>Use Pro reports when documentation is needed</li></ul>
-            <div className="cta-center"><Link href="/calculators/fmea-rpn" prefetch={true} className="btn-primary">Open FMEA RPN Calculator</Link></div>
+        </div>
+      </section>
+
+      <section className="sc-final-cta" aria-labelledby="final-cta-title">
+        <div className="sc-shell sc-final-cta-inner">
+          <div>
+            <p className="sc-section-kicker">START WITH THE DECISION</p>
+            <h2 id="final-cta-title">Every costly commitment starts as an untested assumption.</h2>
+            <p>Replace it with a traceable calculation before money, time or credibility is locked in.</p>
           </div>
-        </section>
-        <section className="sec-section diagnostics-section">
-          <div className="wrap"><h2>Engineering Diagnostics for field photos, failures and defects</h2>
-            <p className="section-intro">Upload field photos, add measurements and describe the issue. SectorCalc helps structure the investigation with visible observations, measurement confidence, root-cause hypotheses, cost-at-risk, corrective-action drafts and a verification record.</p>
-            <ul className="feature-bullets"><li>CNC, welding, steel, concrete, electrical and mechanical domains</li><li>Photo-based issue capture</li><li>Measurement and calibration context</li><li>NCR / CAPA draft support</li><li>PDF report and verification hash</li><li>Decision-support only; qualified review required</li></ul>
-            <div className="cta-center"><Link href="/engineering-diagnostics" prefetch={true} className="btn-primary">Start Engineering Diagnostics</Link></div>
+          <div className="sc-action-row">
+            <Link href="/free-tools" prefetch className="sc-button sc-button-primary">
+              Find a free calculator<span aria-hidden="true">→</span>
+            </Link>
+            <Link href="/pro-tools" prefetch className="sc-button sc-button-secondary">
+              Explore Pro tools
+            </Link>
           </div>
-        </section>
-        <section className="sec-section cta-band">
-          <div className="wrap text-center"><h2>Start with the decision you need to make today.</h2>
-            <p className="cta-band-text">Use a free calculator for a quick check. Use Pro when the result affects price, production, quality, energy cost, rework, downtime, safety margin or customer commitment.</p>
-            <div className="cta-row main-actions center">
-              <Link href="/free-tools" prefetch={true} className="btn-primary">Browse Free Tools</Link>
-              <Link href="/pro-tools" prefetch={true} className="btn-secondary">Explore Pro Tools</Link>
-              <Link href="/case-studies" prefetch={true} className="btn-secondary">View Case Studies</Link>
-            </div>
-          </div>
-        </section>
-        <section className="seo-block">
-          <div className="wrap"><p>SectorCalc provides industrial calculators for manufacturing, engineering, workshops, quality, maintenance, energy, construction, logistics, and finance. Use the platform to calculate cost, risk, downtime, FMEA RPN, OEE, quotes, energy loss and engineering diagnostics with review-ready decision reports. Review-ready industrial calculators for cost, risk, quality, production, energy and engineering decisions. Built for decision support, documentation and qualified review.</p></div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      <section className="sc-seo-summary" aria-label="SectorCalc platform summary">
+        <div className="sc-shell">
+          <p>
+            SectorCalc provides industrial calculators and decision tools for manufacturing,
+            machining, welding, quality, maintenance, construction, energy, logistics and finance.
+            Use free calculators for fast operational checks, Pro tools for sensitivity and
+            report-grade analysis, and Engineering Diagnostics for evidence-led issue investigation.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

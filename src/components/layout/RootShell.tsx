@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { AppProviders } from "@/components/providers/AppProviders";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { EnterpriseFooter } from "@/components/layout/EnterpriseFooter";
@@ -20,13 +21,16 @@ interface RootShellProps {
  * Only the MainLandmark content area swaps — no blank screen, no remount flash.
  */
 export function RootShell({ children, freeToolsCount, proToolsCount }: RootShellProps) {
+  const pathname = usePathname() || "/";
+  const showTraceAI = pathname !== "/";
+
   return (
     <AppProviders>
       <NavigationLoadingBar />
       <SiteHeader freeToolsCount={freeToolsCount} proToolsCount={proToolsCount} />
       <MainLandmark>{children}</MainLandmark>
       <EnterpriseFooter />
-      <TraceAI demoMode defaultOpen={false} title="Trace AI" />
+      {showTraceAI ? <TraceAI demoMode defaultOpen={false} title="Trace AI" /> : null}
     </AppProviders>
   );
 }
