@@ -16,14 +16,16 @@ import {
   decrementProSessionRuns,
 } from "@/lib/credits/tool-usage-session.server";
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
-import { getFreeToolSchema } from "@/sectorcalc/runtime/free-schema-loader";
 import { isActiveTool } from "@/sectorcalc/runtime/active-tool-allowlist";
 import type { SuperV4Schema, ExecuteResponse, CalcStatus, Severity, SourceStatus, ServerOutput } from "@/sectorcalc/pro-form/contract-types";
 import { isProBypassEmail } from "@/lib/features/billing/subscription";
-import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
 import { createAuditSeal, computeHash } from "@/sectorcalc/pro-runtime/audit-seal-service";
-import { freeV531FormulaRegistry } from "@/sectorcalc/formulas/free-v531/index";
-import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
+import {
+  executeCertifiedFreeCalculation,
+  formatCertifiedFreeError,
+} from "@/sectorcalc/formulas/free-v531/certified-free-calculation-kernel";
+import { executeCertifiedFreeIntervalCalculation } from "@/sectorcalc/formulas/free-v531/certified-free-interval-client";
+import { isCertifiedIntervalFreeTool } from "@/sectorcalc/formulas/free-v531/free-formula-verification-manifest";
 import { buildUniversalResult } from "@/sectorcalc/result-perspectives/universal-result-adapter";
 
 export const runtime = "nodejs";
@@ -61,7 +63,6 @@ function extractField<T>(body: Record<string, unknown>, camel: string, snake: st
  *   raw_inputs / rawInputs
  *   inputs / input_values / inputValues
  *   values
- *   Flat body fallback: any key not in the reserved set is treated as an input.
  */
 function resolveRawInputs(body: Record<string, unknown>): Record<string, unknown> {
   const candidate =
@@ -76,35 +77,7 @@ function resolveRawInputs(body: Record<string, unknown>): Record<string, unknown
     return candidate as Record<string, unknown>;
   }
 
-  // Flat body fallback: treat every non-reserved key as an input value.
-  const reserved = new Set([
-    "tool_key",
-    "toolKey",
-    "tool_id",
-    "toolId",
-    "slug",
-    "locale",
-    "session_id",
-    "sessionId",
-    "source",
-    "metadata",
-    "selected_units",
-    "selectedUnits",
-    "user_profile_mode",
-    "profileMode",
-    "client_schema_hash",
-    "clientSchemaHash",
-    "display_currency",
-    "displayCurrency",
-    "usage_session_id",
-    "usageSessionId",
-    "client_request_id",
-    "clientRequestId",
-  ]);
-
-  return Object.fromEntries(
-    Object.entries(body).filter(([key]) => !reserved.has(key))
-  );
+  return {};
 }
 
 /**
@@ -121,7 +94,7 @@ function buildBlockedToolResponse(pipelineState: string, message: string): Execu
     inputHash: computeHash("empty"),
     outputHash: computeHash("blocked"),
     schemaHash: computeHash("unknown"),
-    formulaVersion: "stub",
+    formulaVersion: "not-executed",
     schemaVersion: "0.0.0",
     runtimeVersion: "superv4-v5.3-runtime-1.0.0",
   });
@@ -194,7 +167,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     body.toolKey = toolKey;
     if (!body.rawInputs) body.rawInputs = resolveRawInputs(raw);
     if (!body.selectedUnits) body.selectedUnits = (extractField<Record<string, string>>(raw, "selectedUnits", "selected_units") ?? {});
-    if (!body.profileMode) body.profileMode = extractField<any>(raw, "profileMode", "user_profile_mode");
+    if (!body.profileMode) {
+      body.profileMode = extractField<ToolExecuteRequest["profileMode"]>(raw, "profileMode", "user_profile_mode");
+    }
     if (!body.clientSchemaHash) body.clientSchemaHash = extractField<string>(raw, "clientSchemaHash", "client_schema_hash");
     if (!body.displayCurrency) body.displayCurrency = extractField<string>(raw, "displayCurrency", "display_currency");
 
@@ -265,21 +240,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     // ── Resolve and validate schema ─────────────────────────────
-    // Try the canonical resolver first (handles Pro + cached Free).
-    let schemaResult = resolveApprovedToolSchema(body.toolKey);
-
-    // If canonical resolver fails for a Free tool, try direct Free schema
-    // loading as a robustness measure (handles dev HMR edge cases where
-    // the schema loader's module-level cache is in a bad state).
-    if ((!schemaResult.ok || !schemaResult.schema) && accessTier === "FREE") {
-      const directFree = getFreeToolSchema(body.toolKey);
-      if (directFree) {
-        const val = validateSuperV4Schema(directFree);
-        if (val.ok) {
-          schemaResult = { ok: true, schema: val.schema, source: "free_v531" };
-        }
-      }
-    }
+    const schemaResult = resolveApprovedToolSchema(body.toolKey);
 
     if (!schemaResult.ok || !schemaResult.schema) {
       return NextResponse.json(buildBlockedToolResponse("SCHEMA_NOT_FOUND", `Schema not found for tool: ${body.toolKey}`), { status: 404 });
@@ -289,77 +250,32 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     // ── Execute server-side in-process (Free) or internal fetch (Pro) ──
     if (accessTier === "FREE") {
-      // Free tools: execute entirely in-process — direct formula module call.
-      // This bypasses the PRO pass2RuntimeExecution pipeline which blocks
-      // free tools with PAID_PRO_SCHEMA_FALLBACK=FORBIDDEN.
-
-      // Build raw inputs from request body (numeric only, finite)
-      const entries = Object.entries(body.rawInputs ?? {}).filter(
-        ([, v]) => typeof v === "number" && Number.isFinite(v),
-      ) as Array<[string, number]>;
-      const rawInputs: Record<string, number> = Object.fromEntries(entries);
-      // Also accept string values that parse to finite numbers
-      for (const [k, v] of Object.entries(body.rawInputs ?? {})) {
-        if (typeof v === "string" && v.trim()) {
-          const n = Number(v.trim());
-          if (Number.isFinite(n) && !(k in rawInputs)) {
-            rawInputs[k] = n;
-          }
-        }
-      }
-
-      // Find the free formula module for this tool
-      const formulaModule = freeV531FormulaRegistry[body.toolKey];
-      if (!formulaModule || typeof formulaModule.execute !== "function") {
+      const formulaResult = isCertifiedIntervalFreeTool(body.toolKey)
+        ? await executeCertifiedFreeIntervalCalculation(body.toolKey, body.rawInputs ?? {})
+        : executeCertifiedFreeCalculation(body.toolKey, body.rawInputs ?? {});
+      if (!formulaResult.ok) {
+        const kernelFailure = formulaResult.error.code.startsWith("KERNEL_");
+        const responseStatus = formulaResult.error.code === "KERNEL_TIMEOUT" ? 504 : kernelFailure ? 503 : 422;
         return NextResponse.json(
-          buildBlockedToolResponse("NO_FORMULA_MODULE", `Formula module not found for free tool: ${body.toolKey}`),
-          { status: 200 },
+          buildBlockedToolResponse(kernelFailure ? formulaResult.error.code : "FORMULA_DOMAIN_REJECTED", formatCertifiedFreeError(formulaResult.error)),
+          { status: responseStatus },
         );
       }
-
-      // Execute the formula directly
-      let formulaResult;
-      try {
-        formulaResult = formulaModule.execute(rawInputs);
-      } catch (execError) {
-        const msg = execError instanceof Error ? execError.message : "Formula execution error";
-        return NextResponse.json(buildBlockedToolResponse("FORMULA_EXECUTION_ERROR", msg), { status: 200 });
-      }
-
-      if (!formulaResult || !formulaResult.outputs || !Array.isArray(formulaResult.outputs)) {
-        return NextResponse.json(
-          buildBlockedToolResponse("INVALID_FORMULA_RESULT", "Formula returned no outputs."),
-          { status: 200 },
-        );
-      }
-
-      // Mapping from formula output ID → schema output ID for tools where IDs differ
-      const FORMULA_TO_SCHEMA_OUTPUT_MAP: Record<string, Record<string, string>> = {
-        "cnc-shop-hourly-rate": { "true_hourly_rate": "hourly_rate" },
-        "iso-286-tolerance-fit": { "minimum_clearance_mm": "fit_clearance_range_mm" },
-        "surface-roughness-converter": { "roughness_ra_um": "roughness_equivalent" },
-        "thread-dimensions-reference": { "pitch_diameter_approx_mm": "thread_reference_dimensions" },
-        "knurling-drill-point-depth": { "drill_point_depth_mm": "depth_or_pitch_mm" },
-        "weld-metal-weight-consumable": { "deposited_weld_metal_kg": "weld_consumable_mass" },
-        "bolt-preload-clamp-force": { "initial_preload_kn": "clamp_force_kn" },
-        "steel-weight": { "net_steel_weight_kg": "steel_weight_kg" },
-        "takt-time-cycle-time": { "takt_time_seconds": "capacity_gap" },
-      };
-      const outputMap = FORMULA_TO_SCHEMA_OUTPUT_MAP[body.toolKey] ?? {};
+      const calculation = formulaResult.value;
 
       // Map formula outputs to schema outputs
       const schemaOutputs = validatedSchema.outputs ?? [];
       const mappedOutputs = schemaOutputs.map((so) => {
-        const formulaId = Object.entries(outputMap).find(([, sId]) => sId === so.id)?.[0] ?? so.id;
-        const fo = formulaResult!.outputs.find((o: any) => o.id === formulaId);
-        const value = fo && typeof fo.value === "number" && Number.isFinite(fo.value) ? fo.value : null;
-        const formulaUnit = fo && typeof (fo as any).unit === "string" ? (fo as any).unit : null;
-        const status: CalcStatus = value !== null ? "OK" : "REVIEW";
+        const formulaOutput = calculation.outputs.find((output) => output.id === so.id);
+        if (!formulaOutput) {
+          throw new Error(`FORMULA_OUTPUT_NOT_IN_SCHEMA:${so.id}`);
+        }
+        const status: CalcStatus = calculation.status === "OK" ? "OK" : "REVIEW";
         return {
           id: so.id,
           name: so.name ?? so.id,
-          value,
-          unit: so.unit ?? formulaUnit,
+          value: formulaOutput.value,
+          unit: so.unit ?? formulaOutput.unit,
           status,
           formula_source: null,
           public_explanation: so.public_explanation ?? "Result computed server-side.",
@@ -391,46 +307,37 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
       // Build audit seal
       const auditSeal = createAuditSeal({
-        inputHash: computeHash(JSON.stringify(rawInputs)),
-        outputHash: computeHash(JSON.stringify(mappedOutputs)),
-        schemaHash: computeHash(validatedSchema.tool_id ?? body.toolKey),
-        formulaVersion: validatedSchema.metadata?.formula_version ?? "5.3.1",
+        inputHash: computeHash(JSON.stringify(calculation.normalizedInputs)),
+        outputHash: computeHash(JSON.stringify(calculation.outputs.map((output) => [
+          output.id,
+          output.exactValue,
+          output.exactLowerBound ?? output.exactValue,
+          output.exactUpperBound ?? output.exactValue,
+        ]))),
+        schemaHash: computeHash(JSON.stringify(validatedSchema)),
+        formulaVersion: calculation.formulaVersion,
         schemaVersion: validatedSchema.metadata?.schema_version ?? "5.3.1",
-        runtimeVersion: "superv4-v5.3-runtime-1.0.0",
+        runtimeVersion: calculation.arithmeticMode,
       });
 
       // Determine primary decision based on results
-      const allOk = mappedOutputs.every((o) => o.status === "OK");
+      const allOk = calculation.status === "OK";
       const primaryDecision = allOk ? ("OK" as const) : ("REVIEW" as const);
 
       // Build warnings — include a note about screening-level confidence
       const warnings: Array<{ id: string; severity: Severity; message: string; why_it_matters: string; suggested_action: string }> = [];
-      if (Object.keys(rawInputs).length === 0) {
+      for (const [index, message] of calculation.warnings.entries()) {
         warnings.push({
-          id: "warn_no_inputs",
+          id: `warn_domain_${index + 1}`,
           severity: "WARNING",
-          message: "No numeric inputs provided. Calculation ran with empty defaults.",
-          why_it_matters: "Results are based on zero or default inputs and do not reflect actual conditions.",
-          suggested_action: "Enter valid numeric values and re-calculate.",
+          message,
+          why_it_matters: "A verified domain invariant changed the decision state.",
+          suggested_action: "Review the entered source evidence and the flagged operating condition.",
         });
       }
 
-      // Premium hook
-      const freeOutputs: Record<string, number> = {};
-      for (const output of mappedOutputs) {
-        if (typeof output.value === "number") {
-          freeOutputs[output.id] = output.value;
-        }
-      }
-      const premiumHook = buildPremiumHook({
-        toolKey: body.toolKey,
-        normalizedInputs: rawInputs,
-        freeOutputs,
-        displayCurrency: body.displayCurrency ?? null,
-      });
-
       // Build final response matching ExecuteResponse contract
-      const universalResult = buildUniversalResult(validatedSchema, rawInputs, mappedOutputs);
+      const universalResult = buildUniversalResult(validatedSchema, body.rawInputs ?? {}, mappedOutputs);
       const freeResponse: ExecuteResponse = {
         status: primaryDecision,
         pipeline_state: "COMPLETE",
@@ -479,7 +386,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       };
 
       return NextResponse.json(
-        { ...freeResponse, premium_hook: premiumHook ?? null, accessTier },
+        { ...freeResponse, premium_hook: null, accessTier },
         { status: 200 },
       );
     }
@@ -504,29 +411,38 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     const internalResponse = await fetch(executeUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...(request.headers.get("authorization")
+          ? { Authorization: request.headers.get("authorization")! }
+          : {}),
+      },
       body: JSON.stringify(executeBody),
     });
 
     if (!internalResponse.ok) {
-      const errorData = await internalResponse.json().catch(() => ({}));
-      const upstreamBlocked = errorData && typeof errorData === "object" && typeof errorData.redaction_status === "string"
+      let errorData: unknown;
+      try {
+        errorData = await internalResponse.json();
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        return NextResponse.json(
+          buildBlockedToolResponse("UPSTREAM_PROTOCOL_ERROR", `Pro execution returned invalid JSON: ${message}`),
+          { status: 502 },
+        );
+      }
+      const upstreamBlocked = errorData && typeof errorData === "object" &&
+        typeof (errorData as Record<string, unknown>).redaction_status === "string"
         ? (errorData as ExecuteResponse)
         : buildBlockedToolResponse("EXECUTION_FAILED", `Upstream execution failed: ${JSON.stringify(errorData).slice(0, 200)}`);
-      return NextResponse.json(upstreamBlocked, { status: 200 });
+      return NextResponse.json(upstreamBlocked, { status: internalResponse.status });
     }
 
     const executeResult = await internalResponse.json() as Record<string, unknown>;
     const proOutputs = (executeResult?.outputs ?? []) as ServerOutput[];
 
     // Enrich with Universal Result Perspectives for Pro tools too
-    let universalResult: import("@/sectorcalc/pro-form/contract-types").UniversalCalculationResult | undefined;
-    try {
-      const enriched = buildUniversalResult(validatedSchema, body.rawInputs ?? {}, proOutputs);
-      if (enriched) universalResult = enriched;
-    } catch {
-      // adapter error — non-blocking; Pro tools still get normal response
-    }
+    const universalResult = buildUniversalResult(validatedSchema, body.rawInputs ?? {}, proOutputs) ?? undefined;
 
     const response: Record<string, unknown> = {
       ...executeResult,

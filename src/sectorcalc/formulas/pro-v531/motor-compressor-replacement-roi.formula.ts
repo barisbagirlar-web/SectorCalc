@@ -1,80 +1,87 @@
 import "server-only";
+
+import {
+  MOTOR_REPLACEMENT_ARITHMETIC_MODE,
+  MOTOR_REPLACEMENT_FORMULA_VERSION,
+  MOTOR_REPLACEMENT_MODEL_ID,
+  evaluateMotorReplacement,
+} from "./motor-replacement-roi-core";
+import { decimalToPresentationNumber, domainErrorMessage, isCanonicalDecimalSource, type Decimal, type DecimalSource } from "./pro-decimal-domain";
+import type { ProFormulaResult } from "./pro-formula-contract";
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
-
 export const toolKey = "motor-compressor-replacement-roi";
-export const formulaVersion = "5.3.1-pro-baris.1";
-
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
-
+export const formulaVersion = MOTOR_REPLACEMENT_FORMULA_VERSION;
+export const arithmeticMode = MOTOR_REPLACEMENT_ARITHMETIC_MODE;
+export const modelId = MOTOR_REPLACEMENT_MODEL_ID;
+export const verificationEvidenceId = "tests/pro-calculation-correctness/motor-replacement-roi.property.test.ts";
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
+const REQUIRED = [
+  "n_motor_power_kw", "n_annual_operating_hours", "n_current_efficiency_pct",
+  "n_new_efficiency_pct", "n_avg_kwh_rate", "n_replacement_cost", "n_installation_cost",
+  "n_maintenance_saving_per_year", "n_equipment_life_years", "n_discount_rate",
+  "n_source_confidence_ratio",
+] as const;
+
+function blocked(warnings: string[]): ProFormulaResult {
+  return { status: "BLOCKED", outputs: {}, decimalOutputs: {}, warnings, outputKeys: [], redaction_status: "PUBLIC_SAFE_REDACTED" };
+}
+
+export function calculate(inputs: Record<string, DecimalSource>): ProFormulaResult {
+  const invalid = REQUIRED.filter((key) => !isCanonicalDecimalSource(inputs[key]));
+  if (invalid.length > 0) return blocked([`Missing or non-finite normalized inputs: ${invalid.join(", ")}.`]);
+  const evaluated = evaluateMotorReplacement({
+    shaftPowerKw: inputs.n_motor_power_kw,
+    annualOperatingHours: inputs.n_annual_operating_hours,
+    currentEfficiencyRatio: inputs.n_current_efficiency_pct,
+    newEfficiencyRatio: inputs.n_new_efficiency_pct,
+    energyRatePerKwh: inputs.n_avg_kwh_rate,
+    replacementCost: inputs.n_replacement_cost,
+    installationCost: inputs.n_installation_cost,
+    annualMaintenanceSaving: inputs.n_maintenance_saving_per_year,
+    equipmentLifeYears: inputs.n_equipment_life_years,
+    discountRateRatio: inputs.n_discount_rate,
+    sourceConfidenceRatio: inputs.n_source_confidence_ratio,
+  });
+  if (!evaluated.ok) return blocked([domainErrorMessage(evaluated.error)]);
+  const value = evaluated.value;
+  const exact: Array<readonly [string, Decimal]> = [
+    ["out_current_energy_kwh_per_year", value.currentEnergyKwh],
+    ["out_new_energy_kwh_per_year", value.newEnergyKwh],
+    ["out_annual_energy_saving_kwh", value.annualEnergySavingKwh],
+    ["out_current_energy_cost_per_year", value.currentEnergyCost],
+    ["out_new_energy_cost_per_year", value.newEnergyCost],
+    ["out_annual_energy_cost_saving", value.annualEnergyCostSaving],
+    ["out_annual_maintenance_saving", value.annualMaintenanceSaving],
+    ["out_annual_net_saving", value.annualNetSaving],
+    ["out_total_investment", value.totalInvestment],
+    ["out_present_value_factor", value.presentValueFactor],
+    ["out_discounted_savings", value.discountedSavings],
+    ["out_net_present_value", value.netPresentValue],
+    ["out_annual_roi_ratio", value.annualRoiRatio],
+    ["out_break_even_annual_saving", value.breakEvenAnnualSaving],
+    ["out_source_confidence_ratio", value.sourceConfidenceRatio],
+    ["out_annual_saving_uncertainty", value.annualSavingUncertainty],
+    ["out_npv_uncertainty_amount", value.npvUncertaintyAmount],
+    ["out_npv_lower_bound", value.npvLowerBound],
+    ["out_npv_upper_bound", value.npvUpperBound],
+  ];
   const outputs: Record<string, number> = {};
-
-  const motor_power = get(inputs, "n_motor_power_kw");
-  const annual_hours = get(inputs, "n_annual_operating_hours");
-  const current_eff = get(inputs, "n_current_efficiency_pct") / 100;
-  const new_eff = get(inputs, "n_new_efficiency_pct") / 100;
-  const kwh_rate = get(inputs, "n_avg_kwh_rate");
-  const replacement_cost = get(inputs, "n_replacement_cost");
-  const installation_cost = get(inputs, "n_installation_cost");
-  const maint_saving = get(inputs, "n_maintenance_saving_per_year");
-  const life = Math.max(1, Math.round(get(inputs, "n_equipment_life_years")));
-  const dr = get(inputs, "n_discount_rate");
-  const conf = get(inputs, "n_source_confidence_ratio");
-
-  if (!isFiniteNumber(inputs["n_motor_power_kw"])) warnings.push("Missing: n_motor_power_kw");
-  if (!isFiniteNumber(inputs["n_current_efficiency_pct"])) warnings.push("Missing: n_current_efficiency_pct");
-  if (!isFiniteNumber(inputs["n_new_efficiency_pct"])) warnings.push("Missing: n_new_efficiency_pct");
-  if (dr > 0 && dr < 0.02) warnings.push("Discount rate " + dr.toFixed(4) + " ratio is below typical range [0.02, 0.35].");
-
-  const current_kwh = current_eff > 0 ? motor_power * annual_hours / current_eff : 0;
-  const new_kwh = new_eff > 0 ? motor_power * annual_hours / new_eff : 0;
-  const current_energy_cost = current_kwh * kwh_rate;
-  const new_energy_cost = new_kwh * kwh_rate;
-  const annual_saving = current_energy_cost - new_energy_cost + maint_saving;
-  const total_investment = replacement_cost + installation_cost;
-  const payback_months = annual_saving > 0 ? total_investment / annual_saving * 12 : 999;
-
-  let npv = 0;
-  for (let y = 1; y <= life; y++) {
-    npv += annual_saving / Math.pow(1 + dr, y);
+  const decimalOutputs: Record<string, string> = {};
+  for (const [id, exactValue] of exact) {
+    const presented = decimalToPresentationNumber(exactValue, id);
+    if (!presented.ok) return blocked([domainErrorMessage(presented.error)]);
+    outputs[id] = presented.value;
+    decimalOutputs[id] = exactValue.toString();
   }
-  npv -= total_investment;
-
-  const roipct = total_investment > 0 ? (npv / total_investment) * 100 : 0;
-  const decision = payback_months <= 24 || npv > 0 ? 0 : (payback_months <= 48 ? 1 : 2);
-
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(annual_hours, 0);
-  outputs["out_reference_deviation"] = round(current_eff - new_eff, 4);
-  outputs["out_derating_factor"] = round(conf, 3);
-  outputs["out_demand_metric"] = round(current_energy_cost, 2);
-  outputs["out_capacity_metric"] = round(new_energy_cost, 2);
-  outputs["out_utilization_margin"] = round(annual_saving, 2);
-  outputs["out_expanded_uncertainty"] = round(Math.abs(annual_saving * (1 - conf)), 2);
-  outputs["out_threshold_crossing"] = payback_months <= 48 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = current_energy_cost > replacement_cost ? 1 : 0;
-  outputs["out_fmea_trigger"] = payback_months > 24 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(total_investment, 2);
-  outputs["out_scenario_delta"] = round(payback_months, 1);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_final_decision_state"] = decision;
-
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  outputs.out_primary_saving_driver = value.primarySavingDriver;
+  outputs.out_decision_state = value.decisionState;
+  decimalOutputs.out_primary_saving_driver = String(value.primarySavingDriver);
+  decimalOutputs.out_decision_state = String(value.decisionState);
+  const warnings = value.decisionState === 2
+    ? ["Verified NPV upper bound is negative; hold the replacement business case."]
+    : value.decisionState === 1 ? ["Replacement NPV uncertainty bounds cross zero; review source evidence."] : [];
+  return { status: warnings.length > 0 ? "REVIEW" : "OK", outputs, decimalOutputs, warnings,
+    outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
 }

@@ -139,7 +139,32 @@ describe("Form State Machine V5.3.1", () => {
         calculation_basis: {},
         unit_system: {},
         unit_conversion_contract: { conversion_registry: {} },
-        inputs: [],
+        inputs: [{
+          id: "required_value",
+          name: "Required Value",
+          symbol: "RV",
+          quantity_kind: "number",
+          unit_selectable: false,
+          base_unit: "unit",
+          allowed_display_units: ["unit"],
+          normalized_id: "n_required_value",
+          type: "number",
+          required: true,
+          criticality: "CRITICAL",
+          physical_hard_bounds: {
+            min: 1,
+            max: 100,
+            unit: "unit",
+            basis: "PROCESS_LIMIT",
+            violation_behavior: "BLOCK",
+          },
+          default_policy: "NO_DEFAULT",
+          default_value: null,
+          reference_values: [],
+          evidence_requirement: "required",
+          formula_bindings: [],
+          output_bindings: [],
+        }],
         normalized_inputs: [],
         reference_value_policy: {},
         form_runtime_binding: {
@@ -201,9 +226,19 @@ describe("Form State Machine V5.3.1", () => {
       type: "VALIDATE_SCHEMA_CONTRACT",
       errors: [],
     });
-    const reset = universalFormMachineReducer(validated, {
+    expect(withSchema.rawInputState.required_value).toBeNull();
+    expect(withSchema.evidenceState.required_value.user_verified).toBe(false);
+    const edited = universalFormMachineReducer(validated, {
+      type: "SET_INPUT_VALUE",
+      input_id: "required_value",
+      value: 42,
+    });
+    const reset = universalFormMachineReducer(edited, {
       type: "RESET_INPUTS",
     });
+    expect(edited.rawInputState.required_value).toBe(42);
+    expect(reset.rawInputState.required_value).toBeNull();
+    expect(reset.evidenceState.required_value.user_verified).toBe(false);
     expect(reset.schemaState.schema).not.toBeNull();
     expect(reset.schemaState.schema_hash).toBe("abc123");
   });

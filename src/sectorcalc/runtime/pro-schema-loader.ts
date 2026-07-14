@@ -5,6 +5,7 @@
 
 import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
 import { validateProV531Schema } from "@/sectorcalc/runtime/validate-pro-v531-schema";
+import { applyProCalculationContractOverrides } from "@/sectorcalc/runtime/pro-calculation-contract-overrides";
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
 
@@ -230,7 +231,7 @@ export function normalizeProSchema(raw: Record<string, unknown>): SuperV4Schema 
     }
   }
 
-  return s as unknown as SuperV4Schema;
+  return applyProCalculationContractOverrides(s as unknown as SuperV4Schema);
 }
 
 function loadAllSchemas(): void {

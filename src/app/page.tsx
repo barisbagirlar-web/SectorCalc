@@ -9,26 +9,22 @@ import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 export const revalidate = 3600;
 
-type PageProps = {
-  params: Promise<{  }>;
-};
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const locale = "en";
   if (locale !== "en") notFound();
   return createPageMetadata({
-    title: "Industrial calculators for cost, risk, downtime, and production decisions.",
-    description: "SectorCalc helps industrial teams calculate cost, risk, downtime, pricing, capacity, and engineering decisions before mistakes become expensive.",
+    title: "Industrial calculators and decision-ready engineering reports.",
+    description: "Turn operating data into auditable calculations, sensitivity analysis, and decision-ready reports for manufacturing, maintenance, pricing, quality, energy, and investment.",
     path: "/",
     locale: "en",
   });
 }
 
-export default async function HomePage({ params }: PageProps) {
+export default async function HomePage() {
   const locale = "en";
   if (locale !== "en") notFound();
   return (
-    <PageLayout hideFooterCta={true}>
+    <PageLayout>
       <SemanticJsonLd data={buildHomeJsonLd(locale)} />
       <LandingPageContent />
     </PageLayout>

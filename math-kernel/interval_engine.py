@@ -34,6 +34,7 @@ from mpmath import iv
 # This ensures that rounding errors are negligible compared to input uncertainty.
 mp.mp.dps = 50
 mp.mp.pretty = False
+iv.dps = 50
 
 # ---------------------------------------------------------------------------
 # SymPy symbolic models (used for formal reference, NOT for direct computation)
@@ -107,6 +108,8 @@ class BoundedResult:
     upper_bound: float
     ulp_error_margin: float
     status: str  # "VERIFIED" | "WIDE_INTERVAL" | "ERROR: ..."
+    exact_lower_bound: str = ""
+    exact_upper_bound: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -114,18 +117,7 @@ class BoundedResult:
     @staticmethod
     def from_interval(iv_obj: mp.ivmpf, max_width: float = 1e-6, label: str = "") -> "BoundedResult":
         """Construct from an mpmath interval object."""
-        width = abs(iv_obj.delta)
-        if width > max_width:
-            status = "WIDE_INTERVAL"
-        else:
-            status = "VERIFIED"
-        return BoundedResult(
-            value=float(iv_obj.mid),
-            lower_bound=float(iv_obj.a),
-            upper_bound=float(iv_obj.b),
-            ulp_error_margin=float(width / 2),  # half-width = maximum ULP error
-            status=status,
-        )
+        return BoundedResult(**interval_bounds_payload(iv_obj, max_width))
 
     @staticmethod
     def error(message: str, value: float = 0.0) -> "BoundedResult":
@@ -135,7 +127,38 @@ class BoundedResult:
             upper_bound=value,
             ulp_error_margin=0.0,
             status=f"ERROR: {message}",
+            exact_lower_bound=repr(value),
+            exact_upper_bound=repr(value),
         )
+
+
+def interval_bounds_payload(iv_obj: mp.ivmpf, max_width: float = 1e-6) -> Dict[str, Any]:
+    """Serialize an interval without losing outward-containment at the float boundary."""
+    lower_exact = mp.mpf(iv_obj.a)
+    upper_exact = mp.mpf(iv_obj.b)
+    midpoint_exact = (lower_exact + upper_exact) / 2
+    width_exact = upper_exact - lower_exact
+
+    lower = float(lower_exact)
+    if mp.mpf(lower) > lower_exact:
+        lower = math.nextafter(lower, -math.inf)
+    upper = float(upper_exact)
+    if mp.mpf(upper) < upper_exact:
+        upper = math.nextafter(upper, math.inf)
+    value = float(midpoint_exact)
+    value = min(max(value, lower), upper)
+    presentation_margin = max(value - lower, upper - value)
+    digits = max(mp.mp.dps, iv.dps) + 10
+
+    return {
+        "value": value,
+        "lower_bound": lower,
+        "upper_bound": upper,
+        "ulp_error_margin": max(float(width_exact / 2), presentation_margin),
+        "status": "WIDE_INTERVAL" if width_exact > max_width else "VERIFIED",
+        "exact_lower_bound": mp.nstr(lower_exact, digits),
+        "exact_upper_bound": mp.nstr(upper_exact, digits),
+    }
 
 
 @dataclass

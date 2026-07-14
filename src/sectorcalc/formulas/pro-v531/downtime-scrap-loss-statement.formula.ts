@@ -1,98 +1,112 @@
 import "server-only";
+
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
-
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
+import {
+  DOWNTIME_LOSS_ARITHMETIC_MODE,
+  DOWNTIME_LOSS_FORMULA_VERSION,
+  DOWNTIME_LOSS_MODEL_ID,
+  evaluateDowntimeLoss,
+} from "./downtime-loss-core";
+import {
+  decimalToPresentationNumber,
+  domainErrorMessage,
+  isCanonicalDecimalSource,
+  type Decimal,
+  type DecimalSource,
+} from "./pro-decimal-domain";
+import type { ProFormulaResult } from "./pro-formula-contract";
 
 export const toolKey = "downtime-scrap-loss-statement";
-export const formulaVersion = "5.3.1-pro-baris.2";
-
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
-
+export const formulaVersion = DOWNTIME_LOSS_FORMULA_VERSION;
+export const arithmeticMode = DOWNTIME_LOSS_ARITHMETIC_MODE;
+export const modelId = DOWNTIME_LOSS_MODEL_ID;
+export const verificationEvidenceId =
+  "tests/pro-calculation-correctness/downtime-loss.property.test.ts";
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
+const REQUIRED_INPUTS = [
+  "n_productive_hours",
+  "n_actual_hours",
+  "n_hourly_rate",
+  "n_scrap_quantity",
+  "n_unit_cost",
+  "n_rework_hours",
+  "n_rework_rate",
+  "n_material_cost",
+  "n_defect_rate_pct",
+  "n_source_confidence_ratio",
+] as const;
 
-  const ph = get(inputs, "n_productive_hours");
-  const ah = get(inputs, "n_actual_hours");
-  const hr = get(inputs, "n_hourly_rate");
-  const sq = get(inputs, "n_scrap_quantity");
-  const uc = get(inputs, "n_unit_cost");
-  const rh = get(inputs, "n_rework_hours");
-  const rr = get(inputs, "n_rework_rate");
-  const mc = get(inputs, "n_material_cost");
-  const drp = get(inputs, "n_defect_rate_pct");
-  const conf = get(inputs, "n_source_confidence_ratio");
+function blocked(warnings: string[]): ProFormulaResult {
+  return {
+    status: "BLOCKED",
+    outputs: {},
+    decimalOutputs: {},
+    warnings,
+    outputKeys: [],
+    redaction_status: "PUBLIC_SAFE_REDACTED",
+  };
+}
 
-  if (!isFiniteNumber(inputs["n_productive_hours"])) warnings.push("Missing: n_productive_hours");
-  if (!isFiniteNumber(inputs["n_actual_hours"])) warnings.push("Missing: n_actual_hours");
-  if (!isFiniteNumber(inputs["n_hourly_rate"])) warnings.push("Missing: n_hourly_rate");
-
-  // ── Spec: Deterministic Loss Map ───────────────────────────────────
-  // DH = max(0, PH - AH)  — prevent negative downtime
-  const downtime_hours = Math.max(0, ph - ah);
-  // DC = DH × HR
-  const downtime_cost = downtime_hours * hr;
-  // SC = SQ × UC  (scrap material loss)
-  const scrap_cost = sq * uc;
-  // RC = RH × RR  (rework labour cost)
-  const rework_cost = rh * rr;
-  // TL = DC + SC + RC  (total gross loss)
-  const total_loss = downtime_cost + scrap_cost + rework_cost;
-  // UB = TL × (1 - SCR)  (uncertainty band)
-  const uncertainty_band = total_loss * (1 - conf);
-  // LR = TL / MC (loss ratio, MC > 0 guard)
-  const loss_ratio = mc > 0 ? total_loss / mc : 0;
-
-  const uptime_ratio = ph > 0 ? ah / ph : 0;
-
-  // ── Spec: Decision Tree (Go / Review / Block) ──────────────────────
-  // Block: LR > 0.10 OR SCR < 0.50
-  const is_blocked = loss_ratio > 0.10 || conf < 0.50;
-  // Review: LR > 0.05 OR SCR < 0.80  (and not blocked)
-  const is_review = !is_blocked && (loss_ratio > 0.05 || conf < 0.80);
-  let decision: number;
-  if (is_blocked) decision = 2;
-  else if (is_review) decision = 1;
-  else decision = 0;
-
-  // ── Pareto driver (0 = downtime, 1 = scrap, 2 = rework) ────────────
-  let pareto_driver: number;
-  if (downtime_cost > scrap_cost) {
-    pareto_driver = downtime_cost > rework_cost ? 0 : 2;
-  } else {
-    pareto_driver = scrap_cost > rework_cost ? 1 : 2;
+export function calculate(inputs: Record<string, DecimalSource>): ProFormulaResult {
+  const invalidInputs = REQUIRED_INPUTS.filter(
+    (key) => !isCanonicalDecimalSource(inputs[key]),
+  );
+  if (invalidInputs.length > 0) {
+    return blocked([`Missing or non-finite normalized inputs: ${invalidInputs.join(", ")}.`]);
   }
 
-  // ── Existing schema outputs (NO new keys) ──────────────────────────
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(ph, 0);
-  outputs["out_reference_deviation"] = round(drp / 100, 4);
-  outputs["out_derating_factor"] = round(ph > 0 ? (ph - ah) / ph : 0, 4);
-  outputs["out_demand_metric"] = round(downtime_cost, 2);
-  outputs["out_capacity_metric"] = round(total_loss, 2);
-  outputs["out_utilization_margin"] = round(uptime_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(Math.abs(uncertainty_band), 2);
-  outputs["out_threshold_crossing"] = decision > 0 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = pareto_driver;
-  outputs["out_fmea_trigger"] = decision > 0 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(total_loss, 2);
-  outputs["out_scenario_delta"] = round(Math.max(downtime_cost, scrap_cost, rework_cost) - Math.min(downtime_cost, scrap_cost, rework_cost), 2);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_final_decision_state"] = decision;
+  const evaluated = evaluateDowntimeLoss({
+    productiveSeconds: inputs.n_productive_hours,
+    actualSeconds: inputs.n_actual_hours,
+    hourlyRate: inputs.n_hourly_rate,
+    scrapQuantity: inputs.n_scrap_quantity,
+    unitCost: inputs.n_unit_cost,
+    reworkSeconds: inputs.n_rework_hours,
+    reworkRate: inputs.n_rework_rate,
+    materialCost: inputs.n_material_cost,
+    defectRateRatio: inputs.n_defect_rate_pct,
+    sourceConfidenceRatio: inputs.n_source_confidence_ratio,
+  });
+  if (!evaluated.ok) return blocked([domainErrorMessage(evaluated.error)]);
+  const result = evaluated.value;
 
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  const exactOutputs: Array<readonly [string, Decimal]> = [
+    ["out_downtime_hours", result.downtimeHours],
+    ["out_downtime_cost", result.downtimeCost],
+    ["out_scrap_cost", result.scrapCost],
+    ["out_rework_cost", result.reworkCost],
+    ["out_total_loss", result.totalLoss],
+    ["out_loss_to_material_cost_ratio", result.lossToMaterialCostRatio],
+    ["out_uptime_ratio", result.uptimeRatio],
+    ["out_defect_rate_ratio", result.defectRateRatio],
+    ["out_source_confidence_ratio", result.sourceConfidenceRatio],
+    ["out_uncertainty_amount", result.uncertaintyAmount],
+    ["out_loss_lower_bound", result.lossLowerBound],
+    ["out_loss_upper_bound", result.lossUpperBound],
+  ];
+  const outputs: Record<string, number> = {};
+  const decimalOutputs: Record<string, string> = {};
+  for (const [id, exactValue] of exactOutputs) {
+    const presented = decimalToPresentationNumber(exactValue, id);
+    if (!presented.ok) return blocked([domainErrorMessage(presented.error)]);
+    outputs[id] = presented.value;
+    decimalOutputs[id] = exactValue.toString();
+  }
+  outputs.out_primary_loss_driver = result.primaryLossDriver;
+  outputs.out_decision_state = result.decisionState;
+  decimalOutputs.out_primary_loss_driver = String(result.primaryLossDriver);
+  decimalOutputs.out_decision_state = String(result.decisionState);
+
+  const warnings: string[] = [];
+  if (result.decisionState === 2) warnings.push("Loss, defect, or evidence thresholds require a hold and source review.");
+  if (result.decisionState === 1) warnings.push("Loss, defect, or evidence thresholds require review before action.");
+  return {
+    status: warnings.length > 0 ? "REVIEW" : "OK",
+    outputs,
+    decimalOutputs,
+    warnings,
+    outputKeys: Object.keys(outputs),
+    redaction_status: "PUBLIC_SAFE_REDACTED",
+  };
 }

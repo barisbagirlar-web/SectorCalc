@@ -1,7 +1,26 @@
-// SectorCalc SuperV4 V5.3 — Schema Registry
-// Versioned approved schema store with hash binding for runtime verification.
+import "server-only";
+
+import { createHash } from "node:crypto";
 
 import type { SuperV4Schema } from "./contract-types";
+
+function canonicalizeJson(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map(canonicalizeJson);
+  }
+  if (value !== null && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value)
+        .filter(([, nestedValue]) => nestedValue !== undefined)
+        .sort(([left], [right]) => left.localeCompare(right))
+        .map(([key, nestedValue]) => [key, canonicalizeJson(nestedValue)]),
+    );
+  }
+  if (typeof value === "number" && !Number.isFinite(value)) {
+    throw new TypeError("Schema hashing rejects NaN and infinite numeric values.");
+  }
+  return value;
+}
 
 export interface SchemaRecord {
   tool_id: string;
@@ -83,14 +102,8 @@ export class SchemaRegistry {
 
   /** Compute a deterministic schema hash from JSON string. */
   static computeSchemaHash(schema: SuperV4Schema): string {
-    const json = JSON.stringify(schema, Object.keys(schema).sort());
-    let hash = 0;
-    for (let i = 0; i < json.length; i++) {
-      const char = json.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
-    }
-    return `schema-${Math.abs(hash).toString(16).padStart(8, "0")}`;
+    const canonicalJson = JSON.stringify(canonicalizeJson(schema));
+    return `sha256:${createHash("sha256").update(canonicalJson, "utf8").digest("hex")}`;
   }
 
   /** Clear entire cache. */

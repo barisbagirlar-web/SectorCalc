@@ -12,7 +12,6 @@ import type {
   StateTransitionId,
   SuperV4Schema,
 } from "./contract-types";
-import { resolveIndustrialExampleValue } from "./example-value-resolver";
 
 export interface ValidationIssue {
   id: string;
@@ -177,22 +176,10 @@ export function universalFormMachineReducer(
       const selectedUnitState: Record<string, string> = {};
       const evidenceState: Record<string, EvidenceFieldState> = {};
       const expandedGroups: Record<string, boolean> = {};
-      const initToolSlug = event.schema.tool_key;
-
       for (const input of event.schema.inputs) {
-        // Resolve via tool-specific example map first, fall back to schema default
-        const exampleVal = resolveIndustrialExampleValue({
-          toolSlug: initToolSlug,
-          toolKey: initToolSlug,
-          inputId: input.id,
-          inputName: input.name,
-          unit: input.base_unit,
-          rangeMin: input.physical_hard_bounds?.min ?? null,
-          rangeMax: input.physical_hard_bounds?.max ?? null,
-          schemaExampleValue: null,
-          schemaDefaultValue: input.default_value ?? null,
-        });
-        rawInputState[input.id] = exampleVal !== "" ? exampleVal : (input.default_value ?? null);
+        rawInputState[input.id] = input.default_policy === "NO_DEFAULT"
+          ? null
+          : (input.default_value ?? null);
         // Always populate selected_units with the first allowed display unit.
         // The normalizer needs this to correctly convert display values to base units,
         // even for fields where the user cannot change the unit.
@@ -202,11 +189,10 @@ export function universalFormMachineReducer(
         const requiredEvidence = typeof input.evidence_requirement === "string"
           ? input.evidence_requirement.toLowerCase().includes("required")
           : input.evidence_requirement.required;
-        const hasVal = rawInputState[input.id] !== null && rawInputState[input.id] !== undefined;
         evidenceState[input.id] = {
           enabled: requiredEvidence,
           source_verified: false,
-          user_verified: hasVal,
+          user_verified: false,
           uploaded_references: [],
         };
       }
@@ -407,33 +393,21 @@ export function universalFormMachineReducer(
       const resetBase = createInitialUniversalFormState(state.profileModeState.mode);
       const resetSchema = state.schemaState.schema;
       if (resetSchema) {
-        const resetSlug = resetSchema.tool_key;
         for (const input of resetSchema.inputs) {
-          const exVal = resolveIndustrialExampleValue({
-            toolSlug: resetSlug,
-            toolKey: resetSlug,
-            inputId: input.id,
-            inputName: input.name,
-            unit: input.base_unit,
-            rangeMin: input.physical_hard_bounds?.min ?? null,
-            rangeMax: input.physical_hard_bounds?.max ?? null,
-            schemaExampleValue: null,
-            schemaDefaultValue: input.default_value ?? null,
-          });
-          const hasVal = exVal !== "" && exVal !== null && exVal !== undefined;
-          resetBase.rawInputState[input.id] = exVal !== "" ? exVal : null;
+          resetBase.rawInputState[input.id] = input.default_policy === "NO_DEFAULT"
+            ? null
+            : (input.default_value ?? null);
           // Always restore selected_units from schema defaults on reset
           if (input.allowed_display_units.length > 0) {
             resetBase.selectedUnitState[input.id] = input.allowed_display_units[0];
           }
-          // Restore evidence state — auto-verify when example value is present
           const resetEvidenceRequired = typeof input.evidence_requirement === "string"
             ? input.evidence_requirement.toLowerCase().includes("required")
             : input.evidence_requirement.required;
           resetBase.evidenceState[input.id] = {
             enabled: resetEvidenceRequired,
             source_verified: false,
-            user_verified: hasVal,
+            user_verified: false,
             uploaded_references: [],
           };
         }

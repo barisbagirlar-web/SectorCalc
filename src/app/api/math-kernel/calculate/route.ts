@@ -1,6 +1,6 @@
 // SectorCalc — Math Kernel Proxy Route (Elite Resilience Layer)
 // Circuit Breaker + 3s timeout + Internal Auth Secret + Keep-Alive
-// Fallback: 503 (circuit open) / 504 (timeout) with frontend-friendly flag
+// Fail closed: no client-side estimate is returned when the kernel is unavailable.
 // https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker
 
 import { NextRequest, NextResponse } from "next/server";
@@ -16,6 +16,23 @@ const TIMEOUT_MS = 3_000; // Mathematical kernel must respond within 3 seconds
 const CIRCUIT_BREAKER_THRESHOLD = 5; // 5 consecutive failures → open circuit
 const RESET_TIMEOUT_MS = 30_000; // 30 seconds before half-open retry
 const KERNEL_AUTH_SECRET = process.env.KERNEL_AUTH_SECRET ?? "";
+const MATH_KERNEL_PROXY_ENABLED = process.env.MATH_KERNEL_PROXY_ENABLED === "true";
+
+function configurationError(): NextResponse | null {
+  if (!MATH_KERNEL_PROXY_ENABLED) {
+    return NextResponse.json(
+      { error: "Math Kernel proxy is disabled.", kernel_available: false, fallback: false },
+      { status: 503 },
+    );
+  }
+  if (!KERNEL_AUTH_SECRET) {
+    return NextResponse.json(
+      { error: "Math Kernel authentication is not configured.", kernel_available: false, fallback: false },
+      { status: 503 },
+    );
+  }
+  return null;
+}
 
 // ── Circuit Breaker State (in-memory, per-instance) ────────────────────────
 
@@ -52,6 +69,9 @@ function recordSuccess(): void {
 // ── POST /api/math-kernel/calculate ────────────────────────────────────────
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
+  const configError = configurationError();
+  if (configError) return configError;
+
   // 1. Circuit Breaker Check
   resetCircuitIfTimedOut();
   if (isCircuitOpen) {
@@ -59,9 +79,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json(
       {
         error:
-          "Math Kernel is currently unavailable (Circuit Open). " +
-          "Falling back to client-side estimation.",
+          "Math Kernel is currently unavailable (Circuit Open). Calculation blocked.",
         kernel_available: false,
+        fallback: false,
         circuit_open: true,
         retry_after_ms: lastFailureTime + RESET_TIMEOUT_MS - Date.now(),
       },
@@ -82,9 +102,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   const requiredFields = ["I", "CF", "r", "n", "RV"] as const;
   for (const field of requiredFields) {
-    if (payload[field] === undefined || payload[field] === null) {
+    if (typeof payload[field] !== "number" || !Number.isFinite(payload[field])) {
       return NextResponse.json(
-        { error: `Missing required field: ${field}`, kernel_available: false },
+        { error: `Field ${field} must be a finite number.`, kernel_available: false },
         { status: 400 },
       );
     }
@@ -99,9 +119,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        ...(KERNEL_AUTH_SECRET
-          ? { "X-Internal-Secret": KERNEL_AUTH_SECRET }
-          : {}),
+        "X-Internal-Secret": KERNEL_AUTH_SECRET,
       },
       body: JSON.stringify(payload),
       signal: controller.signal,
@@ -117,7 +135,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         {
           error: `Kernel responded with HTTP ${response.status}: ${errorBody.slice(0, 300)}`,
           kernel_available: true,
-          fallback: true,
+          fallback: false,
         },
         { status: 502 },
       );
@@ -134,8 +152,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       err instanceof Error && err.name === "AbortError";
     const statusCode = isTimeout ? 504 : 503;
     const message = isTimeout
-      ? "Kernel request timed out (>3s). Falling back to client-side estimation."
-      : "Kernel unreachable. Falling back to client-side estimation.";
+      ? "Kernel request timed out (>3s). Calculation blocked."
+      : "Kernel unreachable. Calculation blocked.";
 
     console.error(
       `[MATH KERNEL] ${isTimeout ? "Timeout" : "Unreachable"} — ` +
@@ -143,7 +161,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
 
     return NextResponse.json(
-      { error: message, kernel_available: false, fallback: true, circuit_open: isCircuitOpen },
+      { error: message, kernel_available: false, fallback: false, circuit_open: isCircuitOpen },
       { status: statusCode },
     );
   }
@@ -152,6 +170,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 // ── GET /api/math-kernel/health ────────────────────────────────────────────
 
 export async function GET(): Promise<NextResponse> {
+  const configError = configurationError();
+  if (configError) return configError;
+
   resetCircuitIfTimedOut();
 
   try {
@@ -159,9 +180,7 @@ export async function GET(): Promise<NextResponse> {
     const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_MS);
 
     const response = await fetch(`${KERNEL_URL}/health`, {
-      headers: KERNEL_AUTH_SECRET
-        ? { "X-Internal-Secret": KERNEL_AUTH_SECRET }
-        : {},
+      headers: { "X-Internal-Secret": KERNEL_AUTH_SECRET },
       signal: controller.signal,
       keepalive: true,
     });

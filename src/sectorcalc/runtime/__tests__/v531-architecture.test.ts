@@ -8,57 +8,26 @@ import { describe, it, expect } from "vitest";
 /* ─────────────────────────────────────────────── */
 
 describe("V5.3.1 Schema Resolver", () => {
-  it("generated free tool resolves and validates", async () => {
+  it("certified free tool resolves and validates", async () => {
     const { resolveApprovedToolSchema } = await import(
       "@/sectorcalc/runtime/resolve-approved-tool-schema"
     );
-    const result = resolveApprovedToolSchema("beam-deflection-calculator");
+    const result = resolveApprovedToolSchema("downtime-cost");
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.source).toBe("generated_free");
-      expect(result.schema.tool_id).toBe("beam-deflection-calculator");
+      expect(result.source).toBe("free_v531");
       expect(result.schema.form_runtime_binding.renderer).toBe("UniversalIndustrialDecisionForm");
-      expect(result.schema.ui_contract.target_renderer).toBe("UniversalIndustrialDecisionForm");
       expect(result.schema.inputs.length).toBeGreaterThan(0);
       expect(result.schema.outputs.length).toBeGreaterThan(0);
     }
   });
 
-  it("generated free tool has all required V5.3.1 top-level keys", async () => {
+  it("quarantines generated and industrial fallback schemas", async () => {
     const { resolveApprovedToolSchema } = await import(
       "@/sectorcalc/runtime/resolve-approved-tool-schema"
     );
-    const result = resolveApprovedToolSchema("beam-deflection-calculator");
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      const s = result.schema;
-      expect(s.tool_id).toBeDefined();
-      expect(s.tool_key).toBeDefined();
-      expect(s.tool_name).toBeDefined();
-      expect(s.category).toBeDefined();
-      expect(s.inputs).toBeDefined();
-      expect(s.outputs).toBeDefined();
-      expect(s.formulas).toBeDefined();
-      expect(s.ui_contract).toBeDefined();
-      expect(s.form_runtime_binding).toBeDefined();
-      expect(s.metadata).toBeDefined();
-      expect(s.audit_trail_contract).toBeDefined();
-      expect(s.brand_safety_policy).toBeDefined();
-      expect(s.engine_rules).toBeDefined();
-      expect(s.unit_conversion_contract).toBeDefined();
-      expect(s.metadata.prompt_version).toBe("5.3.1");
-    }
-  });
-
-  it("industrial free tool resolves valid fallback schema", async () => {
-    const { resolveApprovedToolSchema } = await import(
-      "@/sectorcalc/runtime/resolve-approved-tool-schema"
-    );
-    const result = resolveApprovedToolSchema("oee-quick-check");
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.source).toBe("industrial_free");
-    }
+    expect(resolveApprovedToolSchema("beam-deflection-calculator").ok).toBe(false);
+    expect(resolveApprovedToolSchema("oee-quick-check").ok).toBe(false);
   });
 
   it("unknown tool returns safe error", async () => {
@@ -77,83 +46,46 @@ describe("V5.3.1 Schema Resolver", () => {
 /*  Schema Validation Quality Tests               */
 /* ─────────────────────────────────────────────── */
 
-describe("V5.3.1 Schema Validation — All Generated Schemas", () => {
-  it("all 268 generated free tool schemas pass validateSuperV4Schema", async () => {
-    const { getGeneratedToolSchema, listGeneratedToolSchemaSlugs } = await import(
-      "@/lib/features/generated-tools/schema-loader"
-    );
-    const { generatedToolSchemaToSuperV4Schema } = await import(
-      "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter"
-    );
+describe("V5.4 Certified Schema Boundary", () => {
+  it("all active certified Free schemas pass the full schema contract", async () => {
+    const { ACTIVE_FREE_TOOL_SLUGS } = await import("@/sectorcalc/runtime/active-tool-allowlist");
+    const { resolveApprovedToolSchema } = await import("@/sectorcalc/runtime/resolve-approved-tool-schema");
     const { validateSuperV4Schema } = await import(
       "@/sectorcalc/pro-form/schema-adapter"
     );
-
-    const slugs = listGeneratedToolSchemaSlugs();
     const failures: string[] = [];
-
-    for (const slug of slugs) {
-      const gen = getGeneratedToolSchema(slug);
-      if (!gen) { failures.push(`${slug}: schema file not found`); continue; }
-      const sv4 = generatedToolSchemaToSuperV4Schema(gen, slug);
-      const v = validateSuperV4Schema(sv4);
+    for (const slug of ACTIVE_FREE_TOOL_SLUGS) {
+      const resolved = resolveApprovedToolSchema(slug);
+      if (!resolved.ok) { failures.push(`${slug}: not resolved`); continue; }
+      const v = validateSuperV4Schema(resolved.schema);
       if (!v.ok) {
         failures.push(`${slug}: ${v.errors.slice(0, 2).join("; ")}`);
       }
     }
-
-    if (failures.length > 0) {
-      console.error("Schema validation failures:", failures.slice(0, 5));
-    }
     expect(failures).toEqual([]);
   });
 
-  it("all 16 industrial fallback schemas pass validateSuperV4Schema", async () => {
-    const { buildIndustrialFreeToolSchema, isIndustrialFreeToolSlug } = await import(
-      "@/lib/features/tools/industrial-free-schema-factory"
-    );
+  it("preserves legacy inventories while keeping every entry quarantined", async () => {
+    const { listGeneratedToolSchemaSlugs } = await import("@/lib/features/generated-tools/schema-loader");
     const { industrialFormulaTools } = await import(
       "@/lib/features/tools/revenue-tools-industrial-formulas"
     );
-    const { generatedToolSchemaToSuperV4Schema } = await import(
-      "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter"
-    );
-    const { validateSuperV4Schema } = await import(
-      "@/sectorcalc/pro-form/schema-adapter"
-    );
-
-    const slugs = industrialFormulaTools.map((t) => t.freeSlug).filter(Boolean) as string[];
-    const failures: string[] = [];
-
-    for (const slug of slugs) {
-      const gen = buildIndustrialFreeToolSchema(slug);
-      if (!gen) { failures.push(`${slug}: schema build failed`); continue; }
-      const sv4 = generatedToolSchemaToSuperV4Schema(gen, slug);
-      const v = validateSuperV4Schema(sv4);
-      if (!v.ok) {
-        failures.push(`${slug}: ${v.errors.slice(0, 2).join("; ")}`);
-      }
-    }
-
-    expect(failures).toEqual([]);
+    const { isActiveFreeTool } = await import("@/sectorcalc/runtime/active-tool-allowlist");
+    const generated = listGeneratedToolSchemaSlugs();
+    const industrial = industrialFormulaTools.map((tool) => tool.freeSlug).filter(Boolean) as string[];
+    expect(generated.length).toBeGreaterThan(100);
+    expect(industrial.length).toBeGreaterThan(0);
+    expect([...generated, ...industrial].filter(isActiveFreeTool)).toEqual([]);
   });
 
-  it("no generated schema has unverified smart defaults", async () => {
-    const { getGeneratedToolSchema, listGeneratedToolSchemaSlugs } = await import(
-      "@/lib/features/generated-tools/schema-loader"
-    );
-    const { generatedToolSchemaToSuperV4Schema } = await import(
-      "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter"
-    );
-
-    const slugs = listGeneratedToolSchemaSlugs();
+  it("active Free schemas expose no automatic defaults", async () => {
+    const { ACTIVE_FREE_TOOL_SLUGS } = await import("@/sectorcalc/runtime/active-tool-allowlist");
+    const { resolveApprovedToolSchema } = await import("@/sectorcalc/runtime/resolve-approved-tool-schema");
     const issues: string[] = [];
-
-    for (const slug of slugs) {
-      const gen = getGeneratedToolSchema(slug);
-      if (!gen) continue;
-      const sv4 = generatedToolSchemaToSuperV4Schema(gen, slug);
-      for (const inp of sv4.inputs) {
+    for (const slug of ACTIVE_FREE_TOOL_SLUGS) {
+      const resolved = resolveApprovedToolSchema(slug);
+      if (!resolved.ok) { issues.push(`${slug}: not resolved`); continue; }
+      for (const inp of resolved.schema.inputs) {
         if (inp.default_policy !== "NO_DEFAULT" && inp.default !== null && inp.default !== undefined) {
           issues.push(`${slug}/${inp.id}: default_policy=${inp.default_policy}`);
         }
@@ -162,23 +94,15 @@ describe("V5.3.1 Schema Validation — All Generated Schemas", () => {
     expect(issues).toEqual([]);
   });
 
-  it("no conversion_registry failures for unit-selectable inputs", async () => {
-    const { getGeneratedToolSchema, listGeneratedToolSchemaSlugs } = await import(
-      "@/lib/features/generated-tools/schema-loader"
-    );
-    const { generatedToolSchemaToSuperV4Schema } = await import(
-      "@/sectorcalc/pro-form/generated-tool-to-superv4-adapter"
-    );
-
-    const slugs = listGeneratedToolSchemaSlugs();
+  it("active Free unit-selectable inputs have conversion registry bindings", async () => {
+    const { ACTIVE_FREE_TOOL_SLUGS } = await import("@/sectorcalc/runtime/active-tool-allowlist");
+    const { resolveApprovedToolSchema } = await import("@/sectorcalc/runtime/resolve-approved-tool-schema");
     const issues: string[] = [];
-
-    for (const slug of slugs) {
-      const gen = getGeneratedToolSchema(slug);
-      if (!gen) continue;
-      const sv4 = generatedToolSchemaToSuperV4Schema(gen, slug);
-      const reg = sv4.unit_conversion_contract?.conversion_registry || {};
-      for (const inp of sv4.inputs) {
+    for (const slug of ACTIVE_FREE_TOOL_SLUGS) {
+      const resolved = resolveApprovedToolSchema(slug);
+      if (!resolved.ok) { issues.push(`${slug}: not resolved`); continue; }
+      const reg = resolved.schema.unit_conversion_contract?.conversion_registry || {};
+      for (const inp of resolved.schema.inputs) {
         if (inp.unit_selectable && inp.allowed_display_units?.length > 0) {
           if (!reg[inp.quantity_kind]) {
             issues.push(`${slug}/${inp.id}: quantity_kind=${inp.quantity_kind} has no registry entry`);
@@ -285,9 +209,10 @@ describe("V5.3.1 Regression — Formula leak prevention", () => {
 /* ─────────────────────────────────────────────── */
 
 describe("V5.3.1 Tool Count Integrity", () => {
-  it("getFreeToolCount is >= 284 (268 gen + 16 industrial)", async () => {
+  it("public Free count equals the certified allowlist", async () => {
     const { getFreeToolCount } = await import("@/lib/features/tools/tool-counts");
-    expect(getFreeToolCount()).toBeGreaterThanOrEqual(284);
+    const { ACTIVE_FREE_TOOL_SLUGS } = await import("@/sectorcalc/runtime/active-tool-allowlist");
+    expect(getFreeToolCount()).toBe(ACTIVE_FREE_TOOL_SLUGS.length);
   });
 
   it("getTotalToolCount >= getFreeToolCount", async () => {

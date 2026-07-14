@@ -7,6 +7,7 @@ from typing import Generator
 
 import pytest
 import mpmath as mp
+from mpmath import iv
 from hypothesis import settings, Phase
 
 # Ensure the math-kernel directory is on the path
@@ -14,26 +15,41 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from interval_engine import IntervalArithmeticEngine, NpvInputs
 
+
+def pytest_addoption(parser: pytest.Parser) -> None:
+    """Register the strict gate option used by local scripts and CI."""
+    parser.addoption(
+        "--strict-bounds",
+        action="store_true",
+        default=False,
+        help="Run the interval suite in strict mathematical-bounds mode.",
+    )
+
+
+def pytest_configure(config: pytest.Config) -> None:
+    if config.getoption("--strict-bounds"):
+        os.environ["MATH_STRICT_MODE"] = "1"
+
 # ---------------------------------------------------------------------------
 # Hypothesis Profile Switching (CI/CD Deterministic Guarantee)
 # ---------------------------------------------------------------------------
-# In CI: only explicit examples + database reuse — never stochastic.
-# This ensures the pipeline never breaks due to "edge architecture" randomness.
+# In CI: generated examples are deterministic and run without a shared database.
+# Disabling Phase.generate would silently skip every property-based test.
 # In dev: full symbolic search with 1000 examples for thorough local testing.
 # ---------------------------------------------------------------------------
 
 if os.getenv("CI") == "true":
-    # CI/CD modu: deterministic, sadece explicit/database verisi
     settings.register_profile(
         "ci",
-        phases=[Phase.explicit, Phase.reuse],
-        max_examples=100,
+        phases=[Phase.explicit, Phase.generate, Phase.target, Phase.shrink],
+        max_examples=300,
         deadline=None,
+        derandomize=True,
+        database=None,
         suppress_health_check=list(settings.default.suppress_health_check),
     )
     settings.load_profile("ci")
 else:
-    # Lokal geliştirme: tam sembolik tarama
     settings.register_profile(
         "dev",
         max_examples=1000,
@@ -46,6 +62,7 @@ else:
 # ---------------------------------------------------------------------------
 
 mp.mp.dps = 80
+iv.dps = 80
 
 # ---------------------------------------------------------------------------
 # Shared fixtures

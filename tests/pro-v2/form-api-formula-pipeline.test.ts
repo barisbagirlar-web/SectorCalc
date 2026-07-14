@@ -5,13 +5,14 @@
 // It exercises the exact same code paths as the API route would.
 
 import { describe, it, expect } from "vitest";
-import { readFileSync, existsSync, readdirSync } from "fs";
+import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import { normalizeInputs } from "@/sectorcalc/pro-form/unit-normalizer";
 import type { SuperV4Schema, ConversionRegistry } from "@/sectorcalc/pro-form/contract-types";
-import { resolveFormulaModule, getAllModules } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
+import { getAllModules } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
 import type { ProFormulaModule } from "@/sectorcalc/formulas/pro-v531/pro-formula-contract";
 import { getFormToSchemaMap, buildExecutePayload } from "@/sectorcalc/pro-form/pro-execute-payload-adapter";
+import { normalizeProSchema } from "@/sectorcalc/runtime/pro-schema-loader";
 
 const SCHEMA_DIR = join(process.cwd(), "src/sectorcalc/schemas/pro-v531");
 
@@ -44,7 +45,7 @@ function loadSchema(slug: string): SuperV4Schema | null {
   if (!existsSync(path)) return null;
   try {
     const raw = JSON.parse(readFileSync(path, "utf8"));
-    return raw; // Bypass strict validation; schemas have pre-existing completeness gaps (engineering_reference_range) unrelated to this bridge test
+    return normalizeProSchema(raw);
   } catch {
     return null;
   }
@@ -75,15 +76,28 @@ function buildFormLikePayload(schema: SuperV4Schema): {
     const unit = inp.unit_selectable && allowedUnits.length > 0 ? allowedUnits[0] : bu;
 
     // Assign display values for each input
-    if (iid.includes("discount")) val = 10; // 10% display → 0.10 ratio after normalization
+    if (schema.tool_key === "true-employee-cost-statement" && iid === "annual_volume") val = 2080;
+    else if (schema.tool_key === "receivables-cost-payment-term-addendum" && iid === "material_cost") val = 10000;
+    else if (schema.tool_key === "receivables-cost-payment-term-addendum" && iid === "cycle_time") val = 30;
+    else if (schema.tool_key === "receivables-cost-payment-term-addendum" && iid === "setup_time") val = 90;
+    else if (schema.tool_key === "receivables-cost-payment-term-addendum" && iid === "target_margin") val = unit.includes("percent") ? 12 : 0.12;
+    else if (schema.tool_key === "receivables-cost-payment-term-addendum" && iid === "defect_or_loss_cost") val = unit.includes("percent") ? 0.5 : 0.005;
+    else if (schema.tool_key === "receivables-cost-payment-term-addendum" && iid === "machine_rate") val = 25;
+    else if (schema.tool_key === "receivables-cost-payment-term-addendum" && iid === "labor_rate") val = 300;
+    else if (schema.tool_key === "receivables-cost-payment-term-addendum" && iid === "annual_volume") val = 120;
+    else if (schema.tool_key === "receivables-cost-payment-term-addendum" && iid === "uncertainty_multiplier") val = 2;
+    else if (schema.tool_key === "energy-efficiency-grant-incentive-feasibility-pack" && iid === "grant_coverage_pct") val = unit.includes("percent") ? 30 : 0.3;
+    else if (iid.includes("discount")) val = 10; // 10% display → 0.10 ratio after normalization
     else if (iid.includes("confidence")) val = 0.9;
     else if (iid.includes("stress")) val = 0.3;
-    else if (iid.includes("uncertainty")) val = 1.2;
+    else if (schema.tool_key === "loss-making-job-detector" && iid === "uncertainty_multiplier") val = 50000;
+    else if (iid.includes("uncertainty")) val = 0.5;
     else if (iid.includes("efficiency") && unit.includes("pct")) val = 85;
     else if (iid.includes("efficiency")) val = 0.85;
     else if (iid.includes("deposition") && unit.includes("pct")) val = 85;
     else if (iid.includes("deposition")) val = 0.85;
     else if (iid.includes("defect_rate") && unit.includes("pct")) val = 3.5;
+    else if (iid.includes("defect_rate")) val = 0.035;
     else if (iid.includes("return_rate") && unit.includes("pct")) val = 2;
     else if (iid.includes("target_margin") && unit.includes("pct")) val = 30;
     else if (iid.includes("margin") && !unit.includes("pct")) val = 0.3;
@@ -98,6 +112,7 @@ function buildFormLikePayload(schema: SuperV4Schema): {
     else if (iid.includes("labor_rate") || iid.includes("labor_rate_per_h")) val = 55;
     else if (iid.includes("overhead_rate") || iid.includes("shop_overhead")) val = 350000;
     else if (iid.includes("machine_rate")) val = 85;
+    else if (iid.includes("ideal_cycle")) val = 0.5;
     else if (iid.includes("cycle_time")) val = 12;
     else if (iid.includes("setup_time")) val = 30;
     else if (iid.includes("batch_quantity")) val = 500;
@@ -121,6 +136,7 @@ function buildFormLikePayload(schema: SuperV4Schema): {
     else if (iid.includes("unit_cost")) val = 25;
     else if (iid.includes("motor_power") || iid.includes("old_motor")) val = 75;
     else if (iid.includes("new_motor") && iid.includes("power")) val = 60;
+    else if (iid.includes("total_productive_hours")) val = 40000;
     else if (iid.includes("operating_hours") || iid.includes("productive_hours")) val = 6000;
     else if (iid.includes("avg_kwh") || iid.includes("cost_per_kwh") || iid.includes("kwh_rate")) val = 0.12;
     else if (iid.includes("replacement_cost") || iid.includes("motor_price")) val = 12000;
@@ -131,13 +147,12 @@ function buildFormLikePayload(schema: SuperV4Schema): {
     else if (iid.includes("implementation_cost") || iid.includes("investment_cost") || iid.includes("improvement_cost")) val = 80000;
     else if (iid.includes("grant_coverage") || iid.includes("grant_amount")) val = 10000;
     else if (iid.includes("emission_factor")) val = 0.45;
-    else if (iid.includes("planned_production")) val = 480;
-    else if (iid.includes("operating_time")) val = 420;
+    else if (iid.includes("planned_production")) val = 600;
+    else if (iid.includes("operating_time")) val = 550;
     else if (iid.includes("net_operating")) val = 380;
     else if (iid.includes("valuable_operating")) val = 350;
     else if (iid.includes("total_parts")) val = 1000;
     else if (iid.includes("good_parts")) val = 950;
-    else if (iid.includes("ideal_cycle")) val = 0.5;
     else if (iid.includes("hourly_contribution")) val = 100;
     else if (iid.includes("total_produced")) val = 10000;
     else if (iid.includes("unit_material_cost")) val = 25;
@@ -152,7 +167,7 @@ function buildFormLikePayload(schema: SuperV4Schema): {
     else if (iid.includes("outsource") && iid.includes("logistics")) val = 8;
     else if (iid.includes("outsource") && iid.includes("annual_fixed")) val = 30000;
     else if (iid.includes("capacity_utilization")) val = 75;
-    else if (iid.includes("quality_risk")) val = 5;
+    else if (iid.includes("quality_risk")) val = 0.05;
     else if (iid.includes("direct_labor")) val = 450000;
     else if (iid.includes("indirect_labor")) val = 180000;
     else if (iid.includes("depreciation")) val = 95000;
@@ -163,7 +178,6 @@ function buildFormLikePayload(schema: SuperV4Schema): {
     else if (iid.includes("hedge_ratio") || iid.includes("hedge_pct")) val = 0.7;
     else if (iid.includes("current_shop_rate")) val = 85;
     else if (iid.includes("utilization_pct")) val = 80;
-    else if (iid.includes("total_productive_hours")) val = 40000;
     else if (iid.includes("machine_group_cost")) val = 500000;
     else if (iid.includes("machine_group_hours")) val = 15000;
     else if (iid.includes("overhead_pool")) val = 600000;
@@ -208,12 +222,15 @@ describe("PRO V2 Full Pipeline: Form→API→Formula", () => {
       // STEP 0: Verify adapter mapping exists for this tool
       const adapterMap = getFormToSchemaMap(slug);
       expect(adapterMap).not.toBeNull();
-      expect(Object.keys(adapterMap!).length).toBeGreaterThan(0);
+      const schemaIds = schema.inputs.map((input) => input.id).sort();
+      expect(Object.keys(adapterMap!).sort()).toEqual(schemaIds);
+      expect(Object.values(adapterMap!).sort()).toEqual(schemaIds);
 
-      // Verify adapter produces correct payload shape
+      // Build the same form state and unit state submitted by the live form.
+      const formPayload = buildFormLikePayload(schema);
       const adapterPayload = buildExecutePayload({
-        formState: {},
-        selectedUnits: {},
+        formState: formPayload.raw_inputs,
+        selectedUnits: formPayload.selected_units,
         toolKey: slug,
         toolId: schema.tool_id,
         schemaVersion: schema.metadata.schema_version,
@@ -222,11 +239,11 @@ describe("PRO V2 Full Pipeline: Form→API→Formula", () => {
       });
       expect(adapterPayload.tool_key).toBe(slug);
       expect(adapterPayload.schema_version).toBe(schema.metadata.schema_version);
-      expect(typeof adapterPayload.raw_inputs).toBe("object");
-      expect(typeof adapterPayload.selected_units).toBe("object");
+      expect(adapterPayload.raw_inputs).toEqual(formPayload.raw_inputs);
+      expect(adapterPayload.selected_units).toEqual(formPayload.selected_units);
 
       // STEP 1: Build execute payload (same as form state machine would)
-      const { raw_inputs, selected_units, assignments } = buildFormLikePayload(schema);
+      const { raw_inputs, selected_units } = adapterPayload;
 
       // STEP 2: Verify raw_inputs keys match schema input IDs
       const schemaInputIds = new Set(schema.inputs.map(i => i.id));
@@ -287,10 +304,10 @@ describe("PRO V2 Full Pipeline: Form→API→Formula", () => {
       }
 
       // Status must not be BLOCKED for valid inputs
-      expect(result.status).not.toBe("BLOCKED");
       if (result.status === "BLOCKED") {
-        console.error(`${slug} blocked:`, result.warnings);
+        throw new Error(`${slug} blocked: ${(result.warnings ?? []).join(" | ")}`);
       }
+      expect(result.status).not.toBe("BLOCKED");
 
       // Decision state must be 0, 1, or 2 if present
       const decision = outputs["out_final_decision_state"];
@@ -317,4 +334,15 @@ describe("PRO V2 Full Pipeline: Form→API→Formula", () => {
       expect(unknownRawKeys).toEqual([]);
     });
   }
+
+  it("blocks unknown form and unit keys instead of passing them through", () => {
+    expect(() => buildExecutePayload({
+      formState: { known: 1, stale_field: 2 },
+      selectedUnits: { known: "1", stale_unit_field: "1" },
+      toolKey: "contract-test-tool",
+      toolId: "contract-test-tool",
+      schemaVersion: "test",
+      formToSchemaMap: { known: "known" },
+    })).toThrow(/FORM_SCHEMA_CONTRACT_VIOLATION/);
+  });
 });

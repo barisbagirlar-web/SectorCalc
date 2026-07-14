@@ -1,83 +1,92 @@
 import "server-only";
+
+import {
+  CASH_SURVIVAL_ARITHMETIC_MODE,
+  CASH_SURVIVAL_FORMULA_VERSION,
+  CASH_SURVIVAL_MODEL_ID,
+  evaluateCashSurvival,
+} from "./cash-survival-core";
+import { decimalToPresentationNumber, domainErrorMessage, isCanonicalDecimalSource, type Decimal, type DecimalSource } from "./pro-decimal-domain";
+import type { ProFormulaResult } from "./pro-formula-contract";
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
-
-/** Annual working hours for converting hourly rates to annual (40h x 52w) */
-const ANNUAL_HOURS = 2080;
-
 export const toolKey = "break-even-survival-cash-calculator";
-export const formulaVersion = "5.3.1-pro-baris.2";
-
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
-
+export const formulaVersion = CASH_SURVIVAL_FORMULA_VERSION;
+export const arithmeticMode = CASH_SURVIVAL_ARITHMETIC_MODE;
+export const modelId = CASH_SURVIVAL_MODEL_ID;
+export const verificationEvidenceId = "tests/pro-calculation-correctness/cash-survival.property.test.ts";
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
+const REQUIRED = [
+  "n_initial_investment", "n_annual_net_cash_flow", "n_discount_rate",
+  "n_analysis_years", "n_residual_value", "n_stress_downside_factor",
+  "n_labor_rate", "n_overhead_rate", "n_defect_or_loss_cost",
+  "n_source_confidence_ratio", "n_uncertainty_multiplier",
+] as const;
 
-  const ci = get(inputs, "n_initial_investment");
-  const cf = get(inputs, "n_annual_net_cash_flow");
-  const dr = get(inputs, "n_discount_rate");
-  const yrs = Math.max(1, Math.round(get(inputs, "n_analysis_years")));
-  const rv = get(inputs, "n_residual_value");
-  const stress = get(inputs, "n_stress_downside_factor");
-  const vol = get(inputs, "n_annual_volume");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
-  const dc = get(inputs, "n_defect_or_loss_cost");
-  const conf = get(inputs, "n_source_confidence_ratio");
-  const unc = get(inputs, "n_uncertainty_multiplier");
-
-  if (!isFiniteNumber(inputs["n_initial_investment"])) warnings.push("Missing: n_initial_investment");
-  if (!isFiniteNumber(inputs["n_annual_net_cash_flow"])) warnings.push("Missing: n_annual_net_cash_flow");
-  if (!isFiniteNumber(inputs["n_discount_rate"])) warnings.push("Missing: n_discount_rate");
-  if (dr < 0.02) warnings.push("Discount rate " + dr.toFixed(4) + " ratio is below typical range [0.02, 0.35]. If you intended 18.5%, enter 18.5 with unit % not 0.185.");
-
-  // Dimensional correction: lr, oh are currency_rate ($/h). Convert to annual $.
-  const annual_labor = lr * ANNUAL_HOURS;
-  const annual_overhead = oh * ANNUAL_HOURS;
-
-  const cm_ratio = cf > 0 ? (cf - annual_labor) / cf : 0;
-  const breakeven_annual_revenue = cm_ratio > 0 ? annual_overhead / cm_ratio : 0;
-  const breakeven_monthly_revenue = breakeven_annual_revenue / 12;
-  const total_required_revenue = cm_ratio > 0 ? (annual_overhead + dc) / cm_ratio : 0;
-  const survival_gap = total_required_revenue - cf;
-  const money_at_risk = Math.max(0, survival_gap * stress);
-  const npv = -ci + sum_dcf(cf, dr, yrs) + rv / ((1 + dr) ** yrs);
-
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(vol, 0);
-  outputs["out_reference_deviation"] = 0;
-  outputs["out_derating_factor"] = round(stress, 3);
-  outputs["out_demand_metric"] = round(breakeven_monthly_revenue, 2);
-  outputs["out_capacity_metric"] = round(cf, 2);
-  outputs["out_utilization_margin"] = round(cm_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(unc * dc * (1 - conf), 2);
-  outputs["out_threshold_crossing"] = survival_gap > 0 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = annual_overhead > ci ? 1 : 0;
-  outputs["out_fmea_trigger"] = survival_gap > 0 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(money_at_risk, 2);
-  outputs["out_scenario_delta"] = round(survival_gap, 2);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_final_decision_state"] = survival_gap > 0 ? 2 : (npv > 0 ? 0 : 1);
-
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+function blocked(warnings: string[]): ProFormulaResult {
+  return { status: "BLOCKED", outputs: {}, decimalOutputs: {}, warnings, outputKeys: [], redaction_status: "PUBLIC_SAFE_REDACTED" };
 }
 
-function sum_dcf(cf: number, r: number, n: number): number {
-  let s = 0; for (let y = 1; y <= n; y++) s += cf / Math.pow(1 + r, y); return s;
+export function calculate(inputs: Record<string, DecimalSource>): ProFormulaResult {
+  const invalid = REQUIRED.filter((key) => !isCanonicalDecimalSource(inputs[key]));
+  if (invalid.length > 0) return blocked([`Missing or non-finite normalized inputs: ${invalid.join(", ")}.`]);
+  const evaluated = evaluateCashSurvival({
+    openingCashBalance: inputs.n_initial_investment,
+    monthlyRevenue: inputs.n_annual_net_cash_flow,
+    variableCashCostRatio: inputs.n_discount_rate,
+    forecastMonths: inputs.n_analysis_years,
+    minimumCashReserve: inputs.n_residual_value,
+    stressedRevenueRetentionRatio: inputs.n_stress_downside_factor,
+    monthlyPayrollCashCost: inputs.n_labor_rate,
+    monthlyOtherFixedOperatingCost: inputs.n_overhead_rate,
+    monthlyDebtAndFixedObligations: inputs.n_defect_or_loss_cost,
+    sourceConfidenceRatio: inputs.n_source_confidence_ratio,
+    uncertaintyCoverageMultiplier: inputs.n_uncertainty_multiplier,
+  });
+  if (!evaluated.ok) return blocked([domainErrorMessage(evaluated.error)]);
+  const value = evaluated.value;
+  const exact: Array<readonly [string, Decimal]> = [
+    ["out_contribution_margin_ratio", value.contributionMarginRatio],
+    ["out_monthly_variable_cash_cost", value.monthlyVariableCashCost],
+    ["out_monthly_contribution", value.monthlyContribution],
+    ["out_monthly_fixed_cash_cost", value.monthlyFixedCashCost],
+    ["out_monthly_net_cash_flow", value.monthlyNetCashFlow],
+    ["out_break_even_monthly_revenue", value.breakEvenMonthlyRevenue],
+    ["out_monthly_revenue_gap_to_break_even", value.monthlyRevenueGapToBreakEven],
+    ["out_stressed_monthly_revenue", value.stressedMonthlyRevenue],
+    ["out_stressed_monthly_net_cash_flow", value.stressedMonthlyNetCashFlow],
+    ["out_base_ending_cash", value.baseEndingCash],
+    ["out_stressed_ending_cash", value.stressedEndingCash],
+    ["out_minimum_cash_reserve", value.minimumCashReserve],
+    ["out_cash_available_above_reserve", value.cashAvailableAboveReserve],
+    ["out_stressed_monthly_burn", value.stressedMonthlyBurn],
+    ["out_stressed_runway_within_horizon_months", value.stressedRunwayWithinHorizonMonths],
+    ["out_required_opening_cash_for_stress_horizon", value.requiredOpeningCashForStressHorizon],
+    ["out_additional_funding_required", value.additionalFundingRequired],
+    ["out_source_confidence_ratio", value.sourceConfidenceRatio],
+    ["out_cash_uncertainty", value.cashUncertainty],
+    ["out_stressed_cash_lower_bound", value.stressedCashLowerBound],
+    ["out_stressed_cash_upper_bound", value.stressedCashUpperBound],
+    ["out_money_at_risk", value.moneyAtRisk],
+  ];
+  const outputs: Record<string, number> = {};
+  const decimalOutputs: Record<string, string> = {};
+  for (const [id, exactValue] of exact) {
+    const presented = decimalToPresentationNumber(exactValue, id);
+    if (!presented.ok) return blocked([domainErrorMessage(presented.error)]);
+    outputs[id] = presented.value;
+    decimalOutputs[id] = exactValue.toString();
+  }
+  outputs.out_primary_cash_cost_driver = value.primaryCashCostDriver;
+  outputs.out_decision_state = value.decisionState;
+  decimalOutputs.out_primary_cash_cost_driver = String(value.primaryCashCostDriver);
+  decimalOutputs.out_decision_state = String(value.decisionState);
+  const warnings = value.decisionState === 2
+    ? ["Even the evidence-adjusted stressed cash upper bound falls below the minimum reserve; hold commitments and secure funding or cost action."]
+    : value.decisionState === 1
+      ? ["Break-even revenue or the stressed cash lower bound is not secured; management review is required."]
+      : [];
+  return { status: warnings.length > 0 ? "REVIEW" : "OK", outputs, decimalOutputs, warnings,
+    outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
 }

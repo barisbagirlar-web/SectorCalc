@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "fs";
 import { resolve } from "path";
+import { normalizeProSchema } from "@/sectorcalc/runtime/pro-schema-loader";
 
 const PROJECT_ROOT = resolve(__dirname, "../..");
 
@@ -59,7 +60,7 @@ const INTERNAL_DIAG_PATTERNS = ["D001", "D002", "schema_hash_mismatch"];
 function readToolSchema(slug: string) {
   const path = resolve(PROJECT_ROOT, "src", "sectorcalc", "schemas", "pro-v531", `${slug}.schema.json`);
   if (!existsSync(path)) return null;
-  return JSON.parse(readFileSync(path, "utf8"));
+  return normalizeProSchema(JSON.parse(readFileSync(path, "utf8")));
 }
 
 function readToolFormula(slug: string): string | null {
@@ -84,6 +85,7 @@ describe("PRO V2 Tool-Specific Report Isolation", () => {
   it.each(PRO_V2_SLUGS)("DEFINITION_MATCH: %s has a schema definition", (slug: string) => {
     const schema = readToolSchema(slug);
     expect(schema).not.toBeNull();
+    if (!schema) throw new Error(`Missing normalized schema: ${slug}`);
     expect(schema.tool_id).toBeDefined();
     expect(typeof schema.tool_id).toBe("string");
   });
@@ -94,7 +96,8 @@ describe("PRO V2 Tool-Specific Report Isolation", () => {
     // Formula must have output declarations
     // Check that formula has at least some output IDs defined
     const outputCount = (formula!.match(/id:\s*["']out_[a-z_]+["']/g) || []).length +
-      (formula!.match(/\[["']out_[a-z_]+["']\]/g) || []).length;
+      (formula!.match(/\[["']out_[a-z_]+["']\]/g) || []).length +
+      (formula!.match(/\[\s*["']out_[a-z_]+["']\s*,/g) || []).length;
     expect(outputCount).toBeGreaterThan(0);
   });
 
@@ -125,7 +128,8 @@ describe("PRO V2 Tool-Specific Report Isolation", () => {
   it.each(PRO_V2_SLUGS)("FORMULA_OUTPUT_CONTRACT: %s outputs are declared in schema", (slug: string) => {
     const schema = readToolSchema(slug);
     expect(schema).not.toBeNull();
-    const schemaOutputIds = new Set((schema.outputs || []).map((o: any) => o.id));
+    if (!schema) throw new Error(`Missing normalized schema: ${slug}`);
+    const schemaOutputIds = new Set((schema.outputs || []).map((output) => output.id));
 
     const formula = readToolFormula(slug);
     expect(formula).not.toBeNull();
@@ -134,6 +138,7 @@ describe("PRO V2 Tool-Specific Report Isolation", () => {
     const formulaOutputIds = [
       ...Array.from(formula!.matchAll(/id:\s*["'](out_[a-z_]+)["']/g), (m) => m[1]),
       ...Array.from(formula!.matchAll(/\[["'](out_[a-z_]+)["']\]/g), (m) => m[1]),
+      ...Array.from(formula!.matchAll(/\[\s*["'](out_[a-z_]+)["']\s*,/g), (m) => m[1]),
     ];
 
     // Every formula output must be declared in schema
@@ -154,7 +159,7 @@ describe("PRO V2 Tool-Specific Report Isolation", () => {
     }
   });
 
-  it.each(PRO_V2_SLUGS)("NO_INTERNAL_DIAGNOSTICS: %s", (slug: string) => {
+  it.each(PRO_V2_SLUGS)("NO_INTERNAL_DIAGNOSTICS: %s", () => {
     // Check the report panel and adapter don't expose diagnostics
     for (const file of [
       "src/sectorcalc/pro-report/ProReportPanelV2.tsx",

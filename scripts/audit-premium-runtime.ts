@@ -1,142 +1,143 @@
-import { getAllPremiumSchemas } from "../src/lib/features/premium-schema/schema-registry";
-import { runPremiumSchemaEngine, buildDefaultSchemaInputs, schemaHasFiniteResults } from "../src/lib/features/premium-schema/premium-schema-engine";
-import { listGeneratedToolSchemaSlugs, getGeneratedToolSchema } from "../src/lib/features/generated-tools/schema-loader-core";
-import { adaptLegacyJsonToPremiumSchema } from "../src/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
+import fs from "node:fs";
+import path from "node:path";
 
-let passCount = 0;
-let failCount = 0;
-const failures: Array<{ id: string; reason: string }> = [];
+import {
+  CERTIFIED_DECIMAL_FREE_TOOL_SLUGS,
+  CERTIFIED_FREE_TOOL_SLUGS,
+  CERTIFIED_INTERVAL_FREE_TOOL_SLUGS,
+  FREE_FORMULA_CERTIFICATIONS,
+} from "../src/sectorcalc/formulas/free-v531/free-formula-verification-manifest";
+import { CERTIFIED_PRO_TOOL_SLUGS } from "../src/sectorcalc/formulas/pro-v531/pro-certified-tool-keys";
+import {
+  getFormulaVerificationRecord,
+  listCertifiedFormulaKeys,
+  verifyFormulaModuleCertification,
+} from "../src/sectorcalc/formulas/pro-v531/pro-formula-verification-manifest";
+import {
+  getRegisteredToolKeys,
+  resolveFormulaModule,
+} from "../src/sectorcalc/formulas/pro-v531/resolve-formula-module";
+import { getFreeToolManifest, verifyManifestConsistency } from "../src/sectorcalc/free-tools/free-tools-manifest";
+import { getCalculationProductionReadiness } from "../src/sectorcalc/runtime/calculation-production-readiness";
+import { resolveApprovedToolSchema } from "../src/sectorcalc/runtime/resolve-approved-tool-schema";
 
-// Monkey-patch console.warn to detect missing formulas
-const originalWarn = console.warn;
-let caughtWarnings: string[] = [];
-console.warn = (...args) => {
-  if (typeof args[0] === 'string' && args[0].includes("[SchemaEngine] Formula")) {
-    caughtWarnings.push(args[0]);
-  }
-  originalWarn(...args);
-};
+const failures: string[] = [];
+const canonicalDecimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i;
+const sorted = (values: readonly string[]) => [...values].sort();
+const sameStrings = (left: readonly string[], right: readonly string[]) =>
+  JSON.stringify(sorted(left)) === JSON.stringify(sorted(right));
 
-const schemas = getAllPremiumSchemas();
-
-// Load Free tools
-const legacySlugs = listGeneratedToolSchemaSlugs();
-for (const slug of legacySlugs) {
-    const rawSchema = getGeneratedToolSchema(slug);
-    if (!rawSchema) continue;
-    try {
-        const schema = adaptLegacyJsonToPremiumSchema(rawSchema as any, slug);
-        schemas.push(schema);
-    } catch (e) {
-        // Skip broken legacy adaptations
-    }
+function fail(message: string): void {
+  failures.push(message);
 }
 
-for (const schema of schemas) {
-  try {
-    const defaultInputs = buildDefaultSchemaInputs(schema);
-    
-    schema.inputs.forEach((inp: any) => {
-        if (inp.array && (!defaultInputs[inp.id] || defaultInputs[inp.id].length === 0)) {
-            defaultInputs[inp.id] = [1.5, 2.0];
-        }
-    });
+const readiness = getCalculationProductionReadiness();
+if (readiness.free.certifiedLive !== 50 || readiness.free.quarantined !== 0) {
+  fail("Free readiness is not 50 certified and 0 quarantined.");
+}
+if (readiness.proInstant.certifiedLive !== 20 || readiness.proInstant.quarantined !== 0) {
+  fail("Pro readiness is not 20 certified and 0 quarantined.");
+}
 
-    caughtWarnings = [];
-    const resultDefault = runPremiumSchemaEngine(schema, defaultInputs, "en", "USD");
-    
-    // Differential test — pass 1: scale ALL numeric inputs
-    const doubleInputs = { ...defaultInputs };
-    schema.inputs.forEach((inp: any) => {
-        if (typeof defaultInputs[inp.id] === "number") {
-             doubleInputs[inp.id] = (defaultInputs[inp.id] as number) * 2.1 + 1.3; 
-        }
-    });
-    
-    const resultDouble = runPremiumSchemaEngine(schema, doubleInputs, "en", "USD");
-    
-    let outputsChanged = resultDefault.bigNumber.raw !== resultDouble.bigNumber.raw;
-    if (!outputsChanged) {
-        for (let i = 0; i < resultDefault.outputs.length; i++) {
-            if (resultDefault.outputs[i].raw !== resultDouble.outputs[i].raw) {
-                 outputsChanged = true;
-                 break;
-            }
-        }
-    }
-    
-    // Differential test — pass 2: if all-inputs-doubled didn't change output (false positive
-    // for ratio / threshold tools), try doubling only the FIRST numeric input.
-    if (!outputsChanged && schema.inputs.length > 0) {
-        const singleDoubleInputs = { ...defaultInputs };
-        const firstNumInput = schema.inputs.find((inp: any) => typeof defaultInputs[inp.id] === "number");
-        if (firstNumInput && typeof defaultInputs[firstNumInput.id] === "number") {
-            singleDoubleInputs[firstNumInput.id] = (defaultInputs[firstNumInput.id] as number) * 2.1 + 1.3;
-            const resultSingle = runPremiumSchemaEngine(schema, singleDoubleInputs, "en", "USD");
-            for (let i = 0; i < resultDefault.outputs.length; i++) {
-                if (resultDefault.outputs[i].raw !== resultSingle.outputs[i].raw) {
-                    outputsChanged = true;
-                    break;
-                }
-            }
-        }
-    }
-    
-    // Differential test — pass 3: if test still fails for threshold/edge tools, try
-    // DECREASING the first input (e.g., h-index still returns 5 even with doubled citations).
-    // This catches threshold formulas where both default and scaled values exceed all thresholds.
-    if (!outputsChanged && schema.inputs.length > 0) {
-        const singleHalveInputs = { ...defaultInputs };
-        const firstNumInput = schema.inputs.find((inp: any) => typeof defaultInputs[inp.id] === "number");
-        if (firstNumInput && typeof defaultInputs[firstNumInput.id] === "number") {
-            singleHalveInputs[firstNumInput.id] = Math.max(0.001, (defaultInputs[firstNumInput.id] as number) * 0.1 - 2);
-            const resultSingle = runPremiumSchemaEngine(schema, singleHalveInputs, "en", "USD");
-            for (let i = 0; i < resultDefault.outputs.length; i++) {
-                if (resultDefault.outputs[i].raw !== resultSingle.outputs[i].raw) {
-                    outputsChanged = true;
-                    break;
-                }
-            }
-        }
-    }
-
-    if (caughtWarnings.length > 0) {
-        failCount++;
-        failures.push({
-            id: schema.id,
-            reason: `Missing/Failed Formulas: ${caughtWarnings.length} found. (${caughtWarnings[0]})`,
-        });
-    } else if (!schemaHasFiniteResults(resultDefault) || !schemaHasFiniteResults(resultDouble)) {
-        failCount++;
-        failures.push({
-            id: schema.id,
-            reason: "Non-finite result (NaN or Infinity)",
-        });
-    } else if (!outputsChanged && schema.outputs.length > 0) {
-        failCount++;
-        failures.push({
-            id: schema.id,
-            reason: "Inputs do not affect the formula! (Differential Test Failed)",
-        });
-    } else {
-        passCount++;
-    }
-  } catch (err: any) {
-    failCount++;
-    failures.push({
-        id: schema.id,
-        reason: err.message,
-    });
+const freeManifestCheck = verifyManifestConsistency();
+if (!freeManifestCheck.pass) {
+  fail("Free public manifest mismatch: " + freeManifestCheck.errors.join(" | "));
+}
+if (CERTIFIED_FREE_TOOL_SLUGS.length !== 50) fail("Free certification catalog count is not 50.");
+if (CERTIFIED_DECIMAL_FREE_TOOL_SLUGS.length !== 45) fail("Free Decimal catalog count is not 45.");
+if (CERTIFIED_INTERVAL_FREE_TOOL_SLUGS.length !== 5) fail("Free interval catalog count is not 5.");
+if (new Set([...CERTIFIED_DECIMAL_FREE_TOOL_SLUGS, ...CERTIFIED_INTERVAL_FREE_TOOL_SLUGS]).size !== 50) {
+  fail("Free Decimal and interval certification partitions overlap or are incomplete.");
+}
+if (getFreeToolManifest().some((entry) => entry.status !== "CERTIFIED_LIVE")) {
+  fail("Free public manifest contains a non-certified entry.");
+}
+for (const toolKey of CERTIFIED_FREE_TOOL_SLUGS) {
+  const record = FREE_FORMULA_CERTIFICATIONS[toolKey];
+  if (!record || record.toolKey !== toolKey || !record.modelId || !record.formulaVersion) {
+    fail("Incomplete Free certification record: " + toolKey);
+    continue;
+  }
+  if (!fs.existsSync(path.join(process.cwd(), record.evidencePath))) {
+    fail("Missing Free property evidence: " + toolKey + " -> " + record.evidencePath);
   }
 }
 
-console.log(`\n=== RUNTIME TRUST AUDIT (Includes Free & Pro Tools) ===`);
-console.log(`PASS: ${passCount}`);
-console.log(`FAIL: ${failCount}`);
-if (failCount > 0) {
-    console.log(`\nFailed Schemas:`);
-    failures.forEach(f => {
-        console.log(`- ${f.id}: ${f.reason}`);
-    });
-    process.exit(1);
+const certifiedProKeys = listCertifiedFormulaKeys();
+const registeredProKeys = getRegisteredToolKeys();
+if (!sameStrings(certifiedProKeys, CERTIFIED_PRO_TOOL_SLUGS)) {
+  fail("Server Pro certification manifest differs from the client-safe execution catalog.");
 }
+if (!sameStrings(registeredProKeys, CERTIFIED_PRO_TOOL_SLUGS)) {
+  fail("Registered Pro formula modules differ from the certified execution catalog.");
+}
+
+let proExecuted = 0;
+for (const toolKey of CERTIFIED_PRO_TOOL_SLUGS) {
+  const record = getFormulaVerificationRecord(toolKey);
+  const formulaModule = resolveFormulaModule(toolKey);
+  const schemaResult = resolveApprovedToolSchema(toolKey);
+  if (!record) {
+    fail("Missing Pro verification record: " + toolKey);
+    continue;
+  }
+  if (!formulaModule) {
+    fail("Missing Pro formula module: " + toolKey);
+    continue;
+  }
+  if (!schemaResult.ok) {
+    fail("Approved schema resolution failed: " + toolKey + " -> " + schemaResult.reason + ":" + schemaResult.errors.join("|"));
+    continue;
+  }
+  const certification = verifyFormulaModuleCertification(
+    formulaModule,
+    schemaResult.schema.metadata.formula_version,
+    schemaResult.schema.metadata.schema_version,
+  );
+  if (!certification.ok) {
+    fail("Pro certification binding failed: " + toolKey + " -> " + certification.errors.join("|"));
+    continue;
+  }
+  if (!fs.existsSync(path.join(process.cwd(), record.propertyEvidenceId))) {
+    fail("Missing Pro property evidence: " + toolKey + " -> " + record.propertyEvidenceId);
+    continue;
+  }
+
+  const result = formulaModule.calculate(formulaModule.sampleInputs);
+  if (result.status === "BLOCKED") {
+    fail("Certified Pro sample execution blocked: " + toolKey + " -> " + result.warnings.join("|"));
+    continue;
+  }
+  const outputIds = Object.keys(result.outputs);
+  const schemaOutputIds = schemaResult.schema.outputs.map((output) => output.id);
+  if (!sameStrings(outputIds, schemaOutputIds) || !sameStrings(result.outputKeys, outputIds)) {
+    fail("Pro runtime output keys differ from schema: " + toolKey);
+    continue;
+  }
+  const exactOutputs = result.decimalOutputs ?? {};
+  for (const outputId of outputIds) {
+    const numeric = result.outputs[outputId];
+    const exact = exactOutputs[outputId];
+    if (!Number.isFinite(numeric)) {
+      fail("Non-finite Pro presentation output: " + toolKey + ":" + outputId);
+    } else if (typeof exact !== "string" || !canonicalDecimal.test(exact)) {
+      fail("Missing canonical Pro Decimal audit output: " + toolKey + ":" + outputId);
+    } else if (Number(exact) !== numeric) {
+      fail("Pro Decimal/presentation mismatch: " + toolKey + ":" + outputId);
+    }
+  }
+  proExecuted += 1;
+}
+
+console.log("RUNTIME_TRUST_AUDIT_POLICY=CERTIFICATION_REQUIRED_FAIL_CLOSED");
+console.log("FREE_CERTIFIED=" + CERTIFIED_FREE_TOOL_SLUGS.length);
+console.log("FREE_DECIMAL=" + CERTIFIED_DECIMAL_FREE_TOOL_SLUGS.length);
+console.log("FREE_VERIFIED_INTERVAL=" + CERTIFIED_INTERVAL_FREE_TOOL_SLUGS.length);
+console.log("PRO_CERTIFIED=" + CERTIFIED_PRO_TOOL_SLUGS.length);
+console.log("PRO_SAMPLE_EXECUTED=" + proExecuted);
+console.log("FAILURES=" + failures.length);
+if (failures.length > 0) {
+  for (const failure of failures) console.error("FAIL " + failure);
+  process.exit(1);
+}
+console.log("RUNTIME_TRUST_AUDIT=PASS");

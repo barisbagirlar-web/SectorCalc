@@ -16,8 +16,6 @@ import type {
   ReferenceRangeAudit,
   FmeaSummary,
   SuperV4Schema,
-  SuperV4Input,
-  Severity,
   CalcStatus,
 } from "@/sectorcalc/pro-form/contract-types";
 import { validateSuperV4Schema } from "@/sectorcalc/pro-form/schema-adapter";
@@ -25,40 +23,33 @@ import { normalizeInputs } from "@/sectorcalc/pro-form/unit-normalizer";
 import { createAuditSeal, computeHash } from "@/sectorcalc/pro-runtime/audit-seal-service";
 import { redactPublicResponse } from "@/sectorcalc/pro-form/public-response-redactor";
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
-import { getFreeToolSchema } from "@/sectorcalc/runtime/free-schema-loader";
 import { checkPhysicalBounds, hasBlockingViolation } from "@/sectorcalc/pro-runtime/physical-bounds-guard";
-import { applyDerating, validateDeratingContract } from "@/sectorcalc/pro-runtime/derating-engine";
 import { analyzeSensitivity } from "@/sectorcalc/pro-runtime/sensitivity-engine";
 import { computeDecision } from "@/sectorcalc/pro-runtime/decision-engine";
 import { evaluateAllReferenceRanges } from "@/sectorcalc/pro-form/reference-range-evaluator";
 import { SchemaRegistry, schemaRegistry } from "@/sectorcalc/pro-form/schema-registry";
 import { formulaRegistry } from "@/sectorcalc/pro-runtime/formula-registry";
-import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-formula-engine";
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import { buildUniversalResult } from "@/sectorcalc/result-perspectives/universal-result-adapter";
 import type { UniversalCalculationResult } from "@/sectorcalc/pro-form/contract-types";
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
-import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
+import { registerProPilotFormulas } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 import { initBarisFormulaRegistry, LIVE_BATCH_KEYS } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
-import { resolveFormulaModule, hasFormulaModule } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
-import type { ProFormulaModule } from "@/sectorcalc/formulas/pro-v531/pro-formula-contract";
+import { resolveFormulaModule } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
+import { verifyFormulaModuleCertification } from "@/sectorcalc/formulas/pro-v531/pro-formula-verification-manifest";
+import type { DecimalSource } from "@/sectorcalc/formulas/pro-v531/pro-decimal-domain";
 // Initialize formula registry — explicit call with result used to prevent Webpack tree-shaking
 if (initBarisFormulaRegistry() < (LIVE_BATCH_KEYS?.size ?? 0)) {
   throw new Error("Baris PRO formula registry initialization failed — schema resolution will be unavailable");
 }
 import { getBarisExecutionBlockReason, checkBarisExecutionEntitlement } from "@/sectorcalc/pro-commerce/baris-entitlement-guard";
-import { getAdminFirestore, getAdminAuth } from "@/lib/infrastructure/firebase/admin";
-import { FieldValue } from "firebase-admin/firestore";
+import { getAdminAuth } from "@/lib/infrastructure/firebase/admin";
 import {
   checkProductUsage,
   grantProductUsesFromCredits,
   decrementProductUse,
   PRODUCT_KEYS,
 } from "@/lib/credits/product-usage-policy";
-
-// All 135 Pro formula modules are auto-generated generic templates with
-// identical placeholder outputs. V5.4 Core — the compressed air leak cost
-// Pro pilot is the first genuine domain-specific Pro formula module.
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -107,6 +98,7 @@ function pass1StaticControl(toolKey: string, schema: unknown): Pass1Result {
 export interface Pass2Result {
   ok: boolean;
   pipelineState: string;
+  formulaVersion: string;
   normalizedInputs: Record<string, number>;
   normalizedAudit: NormalizedInputAudit[];
   referenceRangeAudit: ReferenceRangeAudit[];
@@ -129,12 +121,14 @@ export async function pass2RuntimeExecution(
   // S1: Extract raw numeric inputs — supports flat numbers, string numbers
   // (including comma-formatted like "5,000,500"), and structured input objects.
   const rawNumericInputs: Record<string, number> = {};
+  const rawDecimalInputs: Record<string, string> = {};
   for (const [key, value] of Object.entries(body.raw_inputs)) {
     if (typeof value === "number") {
       if (!Number.isFinite(value)) {
         errors.push(`Non-finite value for input ${key}`);
       } else {
         rawNumericInputs[key] = value;
+        rawDecimalInputs[key] = String(value);
       }
     } else if (typeof value === "string" && value.trim()) {
       // String number — strip commas and parse
@@ -142,19 +136,22 @@ export async function pass2RuntimeExecution(
       const parsed = Number(cleaned);
       if (Number.isFinite(parsed)) {
         rawNumericInputs[key] = parsed;
+        rawDecimalInputs[key] = cleaned;
       } else {
         errors.push(`Non-numeric string value for input ${key}: "${value}"`);
       }
     } else if (typeof value === "object" && value !== null) {
       // Structured input: { display_value, display_unit, base_unit, base_value }
       const obj = value as Record<string, unknown>;
-      const numericVal = typeof obj.display_value === "number" ? obj.display_value
-        : typeof obj.base_value === "number" ? obj.base_value
-        : typeof obj.display_value === "string" ? Number(obj.display_value.toString().replace(/,/g, ""))
-        : typeof obj.base_value === "string" ? Number(obj.base_value.toString().replace(/,/g, ""))
+      const decimalVal = typeof obj.display_value === "number" ? String(obj.display_value)
+        : typeof obj.base_value === "number" ? String(obj.base_value)
+        : typeof obj.display_value === "string" ? obj.display_value.replace(/,/g, "").trim()
+        : typeof obj.base_value === "string" ? obj.base_value.replace(/,/g, "").trim()
         : undefined;
+      const numericVal = decimalVal === undefined ? undefined : Number(decimalVal);
       if (numericVal !== undefined && Number.isFinite(numericVal)) {
         rawNumericInputs[key] = numericVal;
+        rawDecimalInputs[key] = decimalVal!;
         // Populate selected_units from structured input's display_unit if available
         if (typeof obj.display_unit === "string" && obj.display_unit) {
           if (!body.selected_units) body.selected_units = {};
@@ -231,7 +228,7 @@ export async function pass2RuntimeExecution(
   // 18 but ratio bound max=0.95).
   const conversionRegistry = validatedSchema.unit_conversion_contract.conversion_registry;
   const { normalized, errors: normErrors } = normalizeInputs(
-    rawNumericInputs,
+    rawDecimalInputs,
     body.selected_units,
     validatedSchema,
     conversionRegistry,
@@ -346,69 +343,29 @@ export async function pass2RuntimeExecution(
     });
   }
 
-  // S10: Derating engine (stub)
-  const deratingContract = validatedSchema.derating_contract;
-  const rulesField = (deratingContract as any)?.rules;
-  const deRatingRules = Array.isArray(rulesField)
-    ? rulesField.map((r: any) => {
-        // Schema uses `driver_input` (single string) + `affected_inputs` (array)
-        // The DeratingRule interface expects `trigger_inputs` (array of strings).
-        const schemaTriggerInputs: string[] = r.trigger_inputs || [];
-        const schemaDriverInput: string = r.driver_input || "";
-        const schemaAffectedInputs: string[] = r.affected_inputs || [];
-        const trigger_inputs = schemaTriggerInputs.length > 0
-          ? schemaTriggerInputs
-          : [
-              ...(schemaDriverInput ? [schemaDriverInput] : []),
-              ...schemaAffectedInputs,
-            ];
-        return {
-          id: r.id || "",
-          description: r.description || "",
-          trigger_inputs,
-          condition: r.condition || "",
-          derating_factor: typeof r.derating_factor === "number" ? r.derating_factor : 1,
-          affected_output: r.affected_output || "",
-        };
-      })
-    : undefined;
-
-  const erContract = deRatingRules ? { rules: deRatingRules } : undefined;
-  if (erContract) {
-    const deratingValidationErrors = validateDeratingContract(erContract);
-    for (const e of deratingValidationErrors) {
-      warnings.push({
-        id: "derating_config", severity: "WARNING",
-        message: e,
-        why_it_matters: "Derating configuration issue.",
-        suggested_action: "Review derating contract.",
-      });
-    }
-  }
-  const appDerating = applyDerating(deRatingRules, rawNumericInputs);
-  for (const w of appDerating.warnings) {
-    warnings.push({
-      id: `derate_${w.severity}`, severity: w.severity,
-      message: w.message,
-      why_it_matters: "Derating rules may affect result validity.",
-      suggested_action: "Review derating conditions.",
-    });
+  // S10: A declared derating rule may materially change the decision. Until a
+  // certified rule evaluator is bound to the model, execution must stop.
+  const rulesField = validatedSchema.derating_contract.rules;
+  if (Array.isArray(rulesField) && rulesField.length > 0) {
+    return failResult(
+      "DERATING_ENGINE_UNVERIFIED",
+      ["Declared derating rules require a certified evaluator and cannot be ignored."],
+    );
   }
 
   // S11: Formula execution — Permanent Governance Engine
-  // Path A (PRIMARY): .formula.ts module for all LIVE tools (20 tools)
-  // Path B (FALLBACK): typed-op registry engine for compressed-air pilot
-  // Path C (RESTRICTED): schema fallback — BLOCKED for paid PRO, allowed only for dev/diagnostic
+  // Certified formula modules are the only production execution path.
   let outputs: ServerOutput[];
-  let formulaEngineErrors: string[] = [];
+  let executedFormulaVersion = "not-executed";
+  let exactOutputMap: Record<string, string> | null = null;
 
   // Build normalized input map for engine from raw numeric inputs
-  const engineNormInputs: Record<string, { baseValue: number; baseUnit: string; quantityKind: string }> = {};
+  const engineNormInputs: Record<string, { exactBaseValue: string; baseUnit: string; quantityKind: string }> = {};
   for (const inp of validatedSchema.inputs) {
-    const rawVal = getNum(inp.id);
-    if (typeof rawVal === "number" && Number.isFinite(rawVal) && inp.normalized_id) {
+    const normalizedValue = normalized[inp.id];
+    if (normalizedValue && inp.normalized_id) {
       engineNormInputs[inp.normalized_id] = {
-        baseValue: rawVal,
+        exactBaseValue: normalizedValue.exactBaseValue,
         baseUnit: inp.base_unit ?? "",
         quantityKind: inp.quantity_kind ?? "DIMENSIONLESS",
       };
@@ -416,42 +373,136 @@ export async function pass2RuntimeExecution(
   }
 
   // Build flat normalized numeric dict (normalized_id → baseValue) for .formula.ts modules
-  const flatNormInputs: Record<string, number> = {};
+  const flatNormInputs: Record<string, DecimalSource> = {};
   for (const [k, v] of Object.entries(engineNormInputs)) {
-    flatNormInputs[k] = v.baseValue;
+    flatNormInputs[k] = v.exactBaseValue;
   }
 
-  // Look up formula registry for this tool
-  const schemaMetadata = validatedSchema.metadata;
-  const registryRecord = formulaRegistry.fetch(validatedSchema.tool_id, schemaMetadata?.formula_version ?? "1.0.0");
-  const isSchemaFallbackForbidden = !(process.env.NODE_ENV === "development" || body.user_profile_mode === "diagnostic");
-
-  // Check if registry nodes are all PASS_THROUGH stubs (empty input_refs = no real calculation)
-  const isPassThroughStub = registryRecord
-    && registryRecord.nodes.length > 0
-    && registryRecord.nodes.every((n) => n.operation === "PASS_THROUGH" && n.input_refs.length === 0);
-
-  // Path A (PRIMARY): formula module execution for all LIVE tools
   const toolKey = validatedSchema.tool_key;
   const formulaModule = toolKey ? resolveFormulaModule(toolKey) : null;
 
   if (formulaModule?.calculate) {
     // PERMANENT ENGINE GOVERNANCE: Formula module is the only real execution source for LIVE tools
+    if (!formulaModule.formulaVersion?.trim()) {
+      return failResult("FORMULA_VERSION_MISSING", [
+        `Formula module ${toolKey} does not declare a formula version.`,
+      ]);
+    }
+    const certification = verifyFormulaModuleCertification(
+      formulaModule,
+      validatedSchema.metadata?.formula_version,
+      validatedSchema.metadata?.schema_version,
+    );
+    if (!certification.ok) {
+      return failResult(
+        "FORMULA_VERIFICATION_REQUIRED",
+        certification.errors,
+        formulaModule.formulaVersion,
+      );
+    }
+    executedFormulaVersion = formulaModule.formulaVersion;
     const moduleResult = formulaModule.calculate(flatNormInputs);
+    exactOutputMap = moduleResult.decimalOutputs ?? null;
     const moduleOutputs = moduleResult.outputs ?? {};
     const moduleWarnings = moduleResult.warnings ?? [];
     const moduleStatus = moduleResult.status ?? "OK";
+    const moduleOutputKeys = Object.keys(moduleOutputs);
+    const declaredOutputKeys = moduleResult.outputKeys ?? moduleOutputKeys;
+    const schemaOutputIds = new Set((validatedSchema.outputs || []).map((output) => output.id));
+    const undeclaredOutputs = moduleOutputKeys.filter((key) => !schemaOutputIds.has(key));
+    const nonFiniteOutputs = moduleOutputKeys.filter(
+      (key) => typeof moduleOutputs[key] !== "number" || !Number.isFinite(moduleOutputs[key]),
+    );
+    const correctedNonFiniteWarnings = moduleWarnings.filter((warning) =>
+      /non-finite.*corrected|corrected to zero/i.test(warning),
+    );
+    const outputKeyMismatch =
+      declaredOutputKeys.length !== moduleOutputKeys.length ||
+      declaredOutputKeys.some((key) => !moduleOutputKeys.includes(key));
+    const decimalOutputKeys = Object.keys(exactOutputMap ?? {});
+    const invalidDecimalOutputs = decimalOutputKeys.filter((key) => {
+      const value = exactOutputMap?.[key];
+      return (
+        typeof value !== "string" ||
+        !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(value) ||
+        !Number.isFinite(Number(value))
+      );
+    });
+    const decimalOutputMismatch =
+      decimalOutputKeys.length !== moduleOutputKeys.length ||
+      decimalOutputKeys.some((key) => !moduleOutputKeys.includes(key)) ||
+      decimalOutputKeys.some(
+        (key) => Number(exactOutputMap?.[key]) !== moduleOutputs[key],
+      );
 
-    outputs = (validatedSchema.outputs || []).map((o) => {
+    if (moduleStatus === "BLOCKED") {
+      return failResult(
+        "FORMULA_INPUT_BLOCKED",
+        moduleWarnings.length > 0 ? moduleWarnings : ["Formula rejected the normalized inputs."],
+        executedFormulaVersion,
+      );
+    }
+    if (moduleResult.redaction_status === "REDACTION_FAILED_BLOCKED") {
+      return failResult(
+        "FORMULA_REDACTION_BLOCKED",
+        ["Formula result failed its redaction contract."],
+        executedFormulaVersion,
+      );
+    }
+    if (nonFiniteOutputs.length > 0) {
+      return failResult(
+        "FORMULA_NON_FINITE_OUTPUT",
+        [`Non-finite formula outputs: ${nonFiniteOutputs.join(", ")}`],
+        executedFormulaVersion,
+      );
+    }
+    if (correctedNonFiniteWarnings.length > 0) {
+      return failResult(
+        "FORMULA_NON_FINITE_OUTPUT",
+        correctedNonFiniteWarnings,
+        executedFormulaVersion,
+      );
+    }
+    if (undeclaredOutputs.length > 0) {
+      return failResult(
+        "FORMULA_OUTPUT_NOT_IN_SCHEMA",
+        [`Formula outputs are not declared in the active schema: ${undeclaredOutputs.join(", ")}`],
+        executedFormulaVersion,
+      );
+    }
+    if (outputKeyMismatch) {
+      return failResult(
+        "FORMULA_OUTPUT_KEY_MISMATCH",
+        ["Formula outputKeys do not exactly match the returned output object."],
+        executedFormulaVersion,
+      );
+    }
+    if (invalidDecimalOutputs.length > 0 || decimalOutputMismatch) {
+      return failResult(
+        "FORMULA_DECIMAL_AUDIT_MISMATCH",
+        invalidDecimalOutputs.length > 0
+          ? [
+              "Invalid exact decimal outputs: " +
+                invalidDecimalOutputs.join(", "),
+            ]
+          : ["Exact decimal outputs do not match presentation outputs."],
+        executedFormulaVersion,
+      );
+    }
+
+    outputs = (validatedSchema.outputs || []).flatMap((o) => {
+      if (!(o.id in moduleOutputs)) return [];
       const val = moduleOutputs[o.id];
-      return {
+      return [{
         id: o.id,
         name: o.name,
-        value: typeof val === "number" ? val : (val ?? null),
-        status: (moduleStatus === "OK" && typeof val === "number" && Number.isFinite(val)) ? "OK" as CalcStatus : "REVIEW" as CalcStatus,
-        public_explanation: o.public_explanation ?? "",
-        decision_use: o.decision_use ?? "",
-      };
+        value: val,
+        status: moduleStatus === "OK"
+          ? "OK" as CalcStatus
+          : "REVIEW" as CalcStatus,
+        public_explanation: o.public_explanation,
+        decision_use: o.decision_use,
+      }];
     });
 
     for (const w of moduleWarnings) {
@@ -463,66 +514,10 @@ export async function pass2RuntimeExecution(
       });
     }
 
-    formulaEngineErrors = moduleWarnings;
-  } else if (registryRecord && registryRecord.nodes.length > 0 && !isPassThroughStub) {
-    // Path B (FALLBACK): typed-op registry engine (compressed-air-leak-cost-calculator pilot)
-    const engineResult = executeFormulaGraph(registryRecord.nodes, {
-      normalizedInputs: engineNormInputs,
-      formulaVersion: registryRecord.formula_version,
-    });
-
-    formulaEngineErrors = engineResult.errors;
-
-    const engineOutputMap = new Map(engineResult.outputs.map((o) => [o.id, o]));
-    outputs = (validatedSchema.outputs || []).map((o) => {
-      const engineOut = engineOutputMap.get(o.id);
-      const val = engineOut?.value;
-      return {
-        id: o.id,
-        name: o.name,
-        value: typeof val === "number" ? val : (val ?? "Calculation pending"),
-        status: engineOut?.status === "OK" ? "OK" as CalcStatus : "REVIEW" as CalcStatus,
-        public_explanation: o.public_explanation ?? "",
-        decision_use: o.decision_use ?? "",
-      };
-    });
-
-    for (const err of engineResult.errors) {
-      warnings.push({
-        id: "formula_engine", severity: "WARNING",
-        message: err,
-        why_it_matters: "Formula engine error may affect result validity.",
-        suggested_action: "Review input values and contact support if issue persists.",
-      });
-    }
-
-    // V5.4 Core — Post-process string enum outputs for the Pro pilot
-    const proOutputKeys = ["decision_status", "governing_driver"];
-    const schemaOutputDefs = (validatedSchema.outputs || []).filter((o) => proOutputKeys.includes(o.id));
-    outputs = postProcessProOutputs(outputs, schemaOutputDefs);
-  } else if (!isSchemaFallbackForbidden) {
-    // Path C (RESTRICTED): schema fallback — only in dev/diagnostic mode
-    formulaEngineErrors.push(`Schema fallback used for tool ${validatedSchema.tool_id} (dev/diagnostic mode only).`);
-    outputs = (validatedSchema.outputs || []).map((o) => ({
-      id: o.id,
-      name: o.name,
-      value: o.value ?? 0,
-      status: "REVIEW" as CalcStatus,
-      public_explanation: o.public_explanation ?? "",
-      decision_use: o.decision_use ?? "",
-    }));
-
-    warnings.push({
-      id: "schema_fallback_dev_mode", severity: "WARNING",
-      message: `Schema fallback used (dev/diagnostic): ${validatedSchema.tool_id} has no formula module or real registry.`,
-      why_it_matters: "Schema fallback is not a valid execution path — results are not calculated.",
-      suggested_action: "Add a formula module or register real formula nodes.",
-    });
   } else {
-    // BLOCKED: Paid PRO execution with no formula module — forbidden by governance
-    const msg = `PAID_PRO_SCHEMA_FALLBACK=FORBIDDEN: Tool ${validatedSchema.tool_id} has no formula module or real registry. Schema fallback is not permitted for paid PRO execution.`;
-    formulaEngineErrors.push(msg);
-    return failResult("SCHEMA_FALLBACK_FORBIDDEN", [msg]);
+    return failResult("FORMULA_VERIFICATION_REQUIRED", [
+      "No certified formula module is registered for " + validatedSchema.tool_id + ".",
+    ]);
   }
 
   // V5.4 Core — Contribution margin blocker for Free pilot
@@ -541,7 +536,13 @@ export async function pass2RuntimeExecution(
   const sensInputs = validatedSchema.inputs
     .filter((i) => typeof getNum(i.id) === "number")
     .map((i) => ({ id: i.id, name: i.name, value: getNum(i.id) as number }));
-  const { items: sensitivityItems, warnings: sensWarnings } = analyzeSensitivity(sensInputs, outputs.map((o) => ({ id: o.id, name: o.name, value: Number(o.value) || 0 })));
+  const sensitivityOutputs = outputs.flatMap((output) =>
+    typeof output.value === "number" && Number.isFinite(output.value)
+      ? [{ id: output.id, name: output.name, value: output.value }]
+      : [],
+  );
+  const { items: sensitivityItems, warnings: sensWarnings } =
+    analyzeSensitivity(sensInputs, sensitivityOutputs);
   for (const w of sensWarnings) {
     warnings.push({
       id: "sens_warn", severity: "INFO",
@@ -581,13 +582,21 @@ export async function pass2RuntimeExecution(
   };
 
   // S14: Compute output hash
+  const auditOutputMaterial = outputs
+    .map((output) =>
+      output.id +
+      ":" +
+      (exactOutputMap?.[output.id] ?? String(output.value)),
+    )
+    .sort();
   const outputHash = computeHash(
-    JSON.stringify(outputs.map((o) => `${o.id}:${String(o.value)}`).sort()),
+    JSON.stringify(auditOutputMaterial),
   );
 
   return {
     ok: true,
     pipelineState: decisionResult.status,
+    formulaVersion: executedFormulaVersion,
     normalizedInputs: Object.fromEntries(Object.entries(normalized).map(([k, v]) => [k, v.baseValue])),
     normalizedAudit,
     referenceRangeAudit,
@@ -601,9 +610,13 @@ export async function pass2RuntimeExecution(
   };
 }
 
-function failResult(state: string, errs: string[]): Pass2Result {
+function failResult(
+  state: string,
+  errs: string[],
+  formulaVersion = "not-executed",
+): Pass2Result {
   return {
-    ok: false, pipelineState: state, normalizedInputs: {},
+    ok: false, pipelineState: state, formulaVersion, normalizedInputs: {},
     normalizedAudit: [], referenceRangeAudit: [], outputs: [], warnings: [],
     sensitivity: [], fmeaSummary: null,
     decisionInterpretation: emptyDecision(state),
@@ -670,7 +683,7 @@ export function pass3PublicControl(
     inputHash,
     outputHash: pass2Result.outputHash,
     schemaHash,
-    formulaVersion: "stub",
+    formulaVersion: pass2Result.formulaVersion,
     schemaVersion: validatedSchema.metadata.schema_version,
     runtimeVersion: "superv4-v5.3-runtime-1.0.0",
   });
@@ -730,52 +743,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     // PASS 1 — Static Schema / Binding Control
     // Schema is resolved from the Pro/Free V5.3.1 schema registry via resolveApprovedToolSchema.
-    let schemaResult: import("@/sectorcalc/runtime/resolve-approved-tool-schema").ApprovedSchemaResult = toolKey
+    const schemaResult: import("@/sectorcalc/runtime/resolve-approved-tool-schema").ApprovedSchemaResult = toolKey
       ? resolveApprovedToolSchema(toolKey)
       : { ok: false, reason: "SCHEMA_NOT_FOUND", errors: ["Missing tool_key or tool_id"] };
-
-    // Fallback: try direct Free schema loading if resolver fails
-    // (handles dev HMR edge cases where the schema loader cache is stale).
-    if (!schemaResult.ok && toolKey) {
-      const directFree = getFreeToolSchema(toolKey);
-      if (directFree) {
-        const val = validateSuperV4Schema(directFree);
-        if (val.ok) {
-          schemaResult = { ok: true, schema: val.schema, source: "free_v531" };
-        }
-      }
-    }
-
-    // Fallback: if schema not found but tool is in formula registry, create minimal schema
-    // This handles deployed SSR environments where schema files may not be at the expected path.
-    if (!schemaResult.ok && toolKey) {
-      const registryRecord = formulaRegistry.fetchByToolKey(toolKey);
-      if (registryRecord) {
-        // Create a minimal schema from registry record data
-        const minimalSchema: Record<string, unknown> = {
-          tool_id: registryRecord.tool_id,
-          tool_key: registryRecord.tool_key,
-          tool_name: toolKey.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-          category: "PRO",
-          decision_context: {
-            system_boundary: "Baris PRO tool — schema derived from formula registry",
-            decision_owner: "operator",
-          },
-          inputs: [],
-          outputs: registryRecord.nodes.map((n) => ({
-            id: n.output_ref,
-            name: n.output_ref,
-            type: "string",
-          })),
-          formulas: [],
-          unit_conversion_contract: { conversion_registry: {} },
-        };
-        const val = validateSuperV4Schema(minimalSchema);
-        if (val.ok) {
-          schemaResult = { ok: true, schema: val.schema, source: "pro_v531" };
-        }
-      }
-    }
 
     if (!schemaResult.ok) {
       const errorResponse = buildFullBlockedResponse(
@@ -811,6 +781,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       const { response: safeResponse } = redactPublicResponse(errorResponse);
       return NextResponse.json(safeResponse, { status: 403 });
     }
+    if (barisBlockReason === "FORMULA_VERIFICATION_REQUIRED") {
+      const errorResponse = buildFullBlockedResponse(
+        "FORMULA_VERIFICATION_REQUIRED",
+        "Execution is disabled until the Decimal model, schema bindings, invariants, and property evidence are certified.",
+      );
+      const { response: safeResponse } = redactPublicResponse(errorResponse);
+      return NextResponse.json(safeResponse, { status: 503 });
+    }
 
     if (barisBlockReason === null && toolKey) {
       // This is a Baris tool. Check entitlement before execution.
@@ -836,20 +814,30 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
               authMethod = "token";
             }
           } catch {
-            // Token verification failed — fall through to bypass check
+            const errorResponse = buildFullBlockedResponse(
+              "UNAUTHORIZED",
+              "The supplied authentication token is invalid.",
+            );
+            const { response: safeResponse } =
+              redactPublicResponse(errorResponse);
+            return NextResponse.json(safeResponse, { status: 401 });
           }
         }
 
         // Owner bypass: usageSessionId "bypass-unlimited" or x-user-email header
         if (authMethod === "none") {
           const rawUsageSessionId = (rawBody as Record<string, unknown>).usageSessionId;
-          if (rawUsageSessionId === "bypass-unlimited") {
-            verifiedEmail = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
+          const ownerBypass = process.env.OWNER_BYPASS_EMAIL;
+          if (rawUsageSessionId === "bypass-unlimited" && ownerBypass) {
+            verifiedEmail = ownerBypass;
             authMethod = "bypass";
           } else {
             const headerEmail = request.headers.get("x-user-email") ?? null;
-            const ownerBypass = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
-            if (headerEmail === ownerBypass || process.env.NODE_ENV === "development") {
+            if (
+              ownerBypass &&
+              headerEmail === ownerBypass &&
+              process.env.NODE_ENV !== "production"
+            ) {
               verifiedEmail = headerEmail;
               authMethod = "bypass";
             }
@@ -975,16 +963,22 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       // Build diagnostic metadata for validation errors (safe — no values or secrets)
       const validationStates = new Set(["INPUT_KEY_MISSING", "INPUT_KEY_UNKNOWN", "NON_FINITE_INPUT", "INVALID_UNIT", "UNIT_NORMALIZATION_FAILED"]);
       const hasDiagnostics = validationStates.has(pass2.pipelineState) && validatedSchema;
+      const receivedInputs = body.raw_inputs ?? {};
       const diagnosticInfo = hasDiagnostics ? {
-        schema_input_ids: validatedSchema.inputs.map((i: any) => i.id),
+        schema_input_ids: validatedSchema.inputs.map((input) => input.id),
         received_input_ids: Object.keys(body.raw_inputs || {}),
-        missing_input_ids: validatedSchema.inputs.filter((i: any) => i.required && !(i.id in (body.raw_inputs || {}))).map((i: any) => i.id),
-        unknown_input_ids: Object.keys(body.raw_inputs || {}).filter((k: string) => !validatedSchema.inputs.some((i: any) => i.id === k)),
+        missing_input_ids: validatedSchema.inputs
+          .filter((input) => input.required && !(input.id in receivedInputs))
+          .map((input) => input.id),
+        unknown_input_ids: Object.keys(receivedInputs)
+          .filter((key) => !validatedSchema.inputs.some((input) => input.id === key)),
       } : undefined;
 
       const errorResponse = buildFullBlockedResponse(pass2.pipelineState, pass2.errors.join("; "));
-      (errorResponse as any).diagnostic = diagnosticInfo;
-      const { response: safeResponse } = redactPublicResponse(errorResponse);
+      const responseWithDiagnostic = diagnosticInfo
+        ? { ...errorResponse, diagnostic: diagnosticInfo }
+        : errorResponse;
+      const { response: safeResponse } = redactPublicResponse(responseWithDiagnostic);
       return NextResponse.json(safeResponse, { status: 400 });
     }
 
@@ -1037,9 +1031,17 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           rawInputs: rawBody.raw_inputs,
           selectedUnits: rawBody.selected_units,
         });
-      } catch {
-        // Non-blocking — session decrement failure should not block the
-        // calculation response. Will be retried on next execution.
+      } catch (error) {
+        const message = error instanceof Error
+          ? error.message
+          : "Session usage ledger update failed.";
+        const errorResponse = buildFullBlockedResponse(
+          "SESSION_LEDGER_UPDATE_FAILED",
+          message,
+        );
+        const { response: safeResponse } =
+          redactPublicResponse(errorResponse);
+        return NextResponse.json(safeResponse, { status: 503 });
       }
     }
 
@@ -1049,13 +1051,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     // Enrich with Universal Result Perspectives for Pro tools (V5.4)
-    let universalResult: UniversalCalculationResult | undefined;
-    try {
-      const ur = buildUniversalResult(validatedSchema, body.raw_inputs ?? {}, pass3.response.outputs ?? []);
-      if (ur) universalResult = ur;
-    } catch {
-      // non-blocking — Pro tools still get normal response
-    }
+    const universalResult: UniversalCalculationResult | undefined =
+      buildUniversalResult(
+        validatedSchema,
+        body.raw_inputs,
+        pass3.response.outputs,
+      ) ?? undefined;
 
     return NextResponse.json(
       { ...pass3.response, premium_hook: premiumHook ?? null, ...(universalResult ? { universal_result: universalResult } : {}) },
@@ -1063,15 +1064,21 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   } catch (error) {
     // ── Catch-all: refund key on unhandled exception ──────────────────
+    let refundFailure: string | null = null;
     if (keyWasDeducted && userId && barisRequestId && toolKey) {
       try {
         const { refundBarisProKey } = await import("@/sectorcalc/pro-commerce/baris-key-deduction");
         await refundBarisProKey(userId!, toolKey!, barisRequestId!);
-      } catch {
-        // Best-effort — log already emitted by refundBarisProKey
+      } catch (refundError) {
+        refundFailure = refundError instanceof Error
+          ? refundError.message
+          : "Unknown key refund failure";
       }
     }
-    const message = error instanceof Error ? error.message : "Unknown server error";
+    const baseMessage = error instanceof Error ? error.message : "Unknown server error";
+    const message = refundFailure
+      ? baseMessage + "; KEY_REFUND_FAILED:" + refundFailure
+      : baseMessage;
     return NextResponse.json(
       { status: "BLOCKED", pipeline_state: "SERVER_ERROR", error: message } as unknown as ExecuteResponse,
       { status: 500 },
@@ -1131,7 +1138,7 @@ export function buildFullBlockedResponse(pipelineState: string, reason: string):
       inputHash: computeHash("empty"),
       outputHash: computeHash("blocked"),
       schemaHash: computeHash("unknown"),
-      formulaVersion: "stub",
+      formulaVersion: "not-executed",
       schemaVersion: "0.0.0",
       runtimeVersion: "superv4-v5.3-runtime-1.0.0",
     }),

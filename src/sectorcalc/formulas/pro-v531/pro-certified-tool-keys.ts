@@ -1,0 +1,23 @@
+/** Client-safe execution catalog; server verification records must match exactly. */
+export const CERTIFIED_PRO_TOOL_SLUGS: readonly string[] = Object.freeze([
+  "break-even-survival-cash-calculator",
+  "capital-equipment-investment-appraisal-npv-irr",
+  "customer-sku-profitability-forensics",
+  "downtime-scrap-loss-statement",
+  "energy-efficiency-grant-incentive-feasibility-pack",
+  "fx-commodity-pass-through-pricer",
+  "job-quote-builder-pro-pack",
+  "loss-making-job-detector",
+  "machine-hourly-rate-proof-report",
+  "machine-investment-feasibility-buy-lease-keep",
+  "motor-compressor-replacement-roi",
+  "oee-loss-monetization-improvement-business-case",
+  "outsource-vs-in-house-analyzer",
+  "plant-wide-shop-rate-cost-structure-audit",
+  "product-sku-margin-ranker",
+  "receivables-cost-payment-term-addendum",
+  "scrap-rework-cost-tracker",
+  "setup-time-reduction-roi-smed",
+  "true-employee-cost-statement",
+  "weld-procedure-cost-consumable-estimation-suite",
+]);

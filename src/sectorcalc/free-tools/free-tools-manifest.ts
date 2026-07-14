@@ -3,6 +3,8 @@
 // This is the single authoritative list. Catalog, sitemap, guards, and
 // route resolution all derive from this manifest.
 
+import { CERTIFIED_FREE_TOOL_SLUGS } from "@/sectorcalc/formulas/free-v531/free-formula-verification-manifest";
+
 export interface FreeToolManifestEntry {
   slug: string;
   title: string;
@@ -10,7 +12,7 @@ export interface FreeToolManifestEntry {
   schemaPath: string;
   formulaPath: string;
   route: `/tools/free/${string}`;
-  status: "LIVE_FREE";
+  status: "CERTIFIED_LIVE" | "QUARANTINED" | "LIVE_FREE";
   hasGolden: boolean;
   hasSampleInput: boolean;
   publicCopyClean: boolean;
@@ -70,15 +72,22 @@ const MANIFEST: FreeToolManifestEntry[] = [
 ];
 
 export function getFreeToolManifest(): FreeToolManifestEntry[] {
-  return MANIFEST;
+  return MANIFEST.map((entry) => ({
+    ...entry,
+    status: CERTIFIED_FREE_TOOL_SLUGS.includes(entry.slug)
+      ? "CERTIFIED_LIVE"
+      : "QUARANTINED",
+  }));
 }
 
 export function getFreeToolManifestEntry(slug: string): FreeToolManifestEntry | undefined {
-  return MANIFEST.find((e) => e.slug === slug);
+  return getFreeToolManifest().find((entry) => entry.slug === slug);
 }
 
 export function getActiveFreeToolSlugs(): string[] {
-  return MANIFEST.map((e) => e.slug);
+  return getFreeToolManifest()
+    .filter((entry) => entry.status === "CERTIFIED_LIVE")
+    .map((entry) => entry.slug);
 }
 
 export const FREE_TOOL_MANIFEST_COUNT = MANIFEST.length;
@@ -86,10 +95,13 @@ export const FREE_TOOL_MANIFEST_COUNT = MANIFEST.length;
 export function verifyManifestConsistency(): { pass: boolean; errors: string[] } {
   const errors: string[] = [];
   const slugs = new Set<string>();
-  for (const entry of MANIFEST) {
+  for (const entry of getFreeToolManifest()) {
     if (slugs.has(entry.slug)) errors.push(`Duplicate slug: ${entry.slug}`);
     slugs.add(entry.slug);
-    if (entry.status !== "LIVE_FREE") errors.push(`Non-LIVE status: ${entry.slug}`);
+  }
+  const active = getActiveFreeToolSlugs().sort();
+  if (JSON.stringify(active) !== JSON.stringify([...CERTIFIED_FREE_TOOL_SLUGS].sort())) {
+    errors.push("Certified manifest and active Free manifest have drifted.");
   }
   return { pass: errors.length === 0, errors };
 }

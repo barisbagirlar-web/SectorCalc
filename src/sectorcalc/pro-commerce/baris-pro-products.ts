@@ -3,6 +3,7 @@
 // Server-side only. Never imported by client modules.
 // Key-pool model: users purchase key packs via Paddle (single env var). Payment provider: KEY_POOL.
 import "server-only";
+import { isFormulaCertifiedForExecution } from "@/sectorcalc/formulas/pro-v531/pro-formula-verification-manifest";
 
 export type ProductMode = "INSTANT_PRO_CALCULATOR" | "ASSISTED_PRO_DOSSIER";
 export type ExecutionMode = "LIVE_ENGINE_READY" | "DISABLED_UNTIL_FORMULA_READY";
@@ -12,22 +13,22 @@ export interface BarisProProduct {
   toolKey: string;
   toolName: string;
   priceUsd: number;
-  visible: true;
-  sellable: true;
+  visible: boolean;
+  sellable: boolean;
   productMode: ProductMode;
   executionMode: ExecutionMode;
   paymentProductType: PaymentProductType;
   paymentProvider: "KEY_POOL";
   keyCost: number;
-  entitlementRequired: true;
-  routeEnabled: true;
+  entitlementRequired: boolean;
+  routeEnabled: boolean;
   instantResultAvailable: boolean;
   ctaLabel: string;
   publicBadge: string;
   publicNotice: string;
 }
 
-export const BARIS_PRO_PRODUCTS: BarisProProduct[] = [
+const BARIS_PRO_PRODUCT_DEFINITIONS: BarisProProduct[] = [
   // ── BATCH 1: 10 INSTANT PRO CALCULATORS ──────────────────────────────────
   {
     toolKey: "break-even-survival-cash-calculator",
@@ -756,6 +757,26 @@ export const BARIS_PRO_PRODUCTS: BarisProProduct[] = [
     publicNotice: "Source verification is required before calculation output.",
   },
 ];
+
+export const BARIS_PRO_PRODUCTS: BarisProProduct[] =
+  BARIS_PRO_PRODUCT_DEFINITIONS.map((product) => {
+    if (
+      product.productMode !== "INSTANT_PRO_CALCULATOR" ||
+      isFormulaCertifiedForExecution(product.toolKey)
+    ) {
+      return product;
+    }
+    return {
+      ...product,
+      sellable: false,
+      executionMode: "DISABLED_UNTIL_FORMULA_READY",
+      routeEnabled: false,
+      instantResultAvailable: false,
+      ctaLabel: "Verification in progress",
+      publicNotice:
+        "Execution is disabled until Decimal arithmetic, schema bindings, and property evidence are certified.",
+    };
+  });
 
 // ── Lookup helpers ───────────────────────────────────────────────────────────
 

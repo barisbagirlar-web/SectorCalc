@@ -7,7 +7,6 @@ Uses both exact analytical comparisons and property-based (Hypothesis) testing.
 
 from __future__ import annotations
 
-import math
 from typing import Any, Dict, List
 
 import mpmath as mp
@@ -26,6 +25,8 @@ class TestEngineInitialization:
 
     def test_precision_is_set(self, engine: IntervalArithmeticEngine) -> None:
         assert mp.mp.dps >= 50, f"Expected dps >= 50, got {mp.mp.dps}"
+        assert iv.dps >= 50, f"Expected interval dps >= 50, got {iv.dps}"
+        assert float(iv.pi.delta) < 1e-40, "Interval pi precision is below the certified threshold"
 
     def test_engine_creates_without_error(self, engine: IntervalArithmeticEngine) -> None:
         assert engine is not None
@@ -34,15 +35,17 @@ class TestEngineInitialization:
 class TestNpvBounded:
     """NPV calculation with guaranteed bounds — analytical verification."""
 
-    # ── T1: Zero rate analytical limit ──────────────────────────────────
-    #   As r → 0: NPV → CF * n + RV - I
-    #   Note: r=1e-15 causes wide interval due to division by near-zero.
-    #   MMS property: analytical result MUST be WITHIN the interval.
+    # ── T1: Finite near-zero rate analytical value ──────────────────────
     def test_zero_rate_limit(self, engine: IntervalArithmeticEngine) -> None:
         inputs = NpvInputs(I=1000.0, CF=200.0, r=1e-15, n=5.0, RV=100.0)
         result = engine.calculate_npv_bounded(inputs)
 
-        expected = 200.0 * 5.0 + 100.0 - 1000.0  # = 100.0
+        r = mp.mpf(inputs.r)
+        expected = float(
+            (mp.mpf(inputs.CF) / r) * (1 - mp.exp(-r * inputs.n))
+            + mp.mpf(inputs.RV) * mp.exp(-r * inputs.n)
+            - mp.mpf(inputs.I)
+        )
         npv = result.npv
 
         # MMS: analytical result must be within the computed interval
@@ -50,7 +53,6 @@ class TestNpvBounded:
             f"MMS FAIL: Analytical result {expected} not in interval "
             f"[{npv.lower_bound}, {npv.upper_bound}]"
         )
-        # Near-zero rate produces wide interval — this is correct behavior
         assert npv.status in ("VERIFIED", "WIDE_INTERVAL"), (
             f"Unexpected status: {npv.status}"
         )
@@ -60,7 +62,8 @@ class TestNpvBounded:
         inputs = NpvInputs(I=5000.0, CF=0.0, r=0.10, n=3.0, RV=2000.0)
         result = engine.calculate_npv_bounded(inputs)
 
-        expected = 2000.0 * math.exp(-0.10 * 3.0) - 5000.0
+        r = mp.mpf(inputs.r)
+        expected = float(mp.mpf(inputs.RV) * mp.exp(-r * inputs.n) - mp.mpf(inputs.I))
         npv = result.npv
 
         assert npv.lower_bound <= expected <= npv.upper_bound, (
@@ -73,7 +76,10 @@ class TestNpvBounded:
         inputs = NpvInputs(I=10000.0, CF=3000.0, r=0.12, n=5.0, RV=0.0)
         result = engine.calculate_npv_bounded(inputs)
 
-        expected = (3000.0 / 0.12) * (1 - math.exp(-0.12 * 5.0)) - 10000.0
+        r = mp.mpf(inputs.r)
+        expected = float(
+            (mp.mpf(inputs.CF) / r) * (1 - mp.exp(-r * inputs.n)) - mp.mpf(inputs.I)
+        )
         npv = result.npv
 
         assert npv.lower_bound <= expected <= npv.upper_bound, (
@@ -89,7 +95,13 @@ class TestNpvBounded:
         result = engine.calculate_npv_bounded(inputs)
 
         # Continuous discounting formula for n=1
-        expected = (50000.0 / 0.15) * (1 - math.exp(-0.15)) + 20000.0 * math.exp(-0.15) - 100000.0
+        r = mp.mpf(inputs.r)
+        exp_term = mp.exp(-r * inputs.n)
+        expected = float(
+            (mp.mpf(inputs.CF) / r) * (1 - exp_term)
+            + mp.mpf(inputs.RV) * exp_term
+            - mp.mpf(inputs.I)
+        )
         npv = result.npv
 
         assert npv.lower_bound <= expected <= npv.upper_bound, (
@@ -322,12 +334,13 @@ class TestBoundedResultConstruction:
         assert result.ulp_error_margin == 0.0
 
     def test_to_dict_includes_all_fields(self) -> None:
-        """to_dict() must include all 5 required fields."""
+        """to_dict() must include numeric and exact interval bounds."""
         result = BoundedResult(value=1.0, lower_bound=0.5, upper_bound=1.5,
                                 ulp_error_margin=0.5, status="VERIFIED")
         d = result.to_dict()
         assert set(d.keys()) == {"value", "lower_bound", "upper_bound",
-                                  "ulp_error_margin", "status"}
+                                  "ulp_error_margin", "status",
+                                  "exact_lower_bound", "exact_upper_bound"}
 
 
 # Import for test above

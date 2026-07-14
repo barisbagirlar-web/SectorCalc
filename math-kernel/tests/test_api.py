@@ -22,14 +22,33 @@ from fastapi.testclient import TestClient
 
 # Ensure the math-kernel directory is on the path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+os.environ.setdefault("KERNEL_AUTH_SECRET", "test-kernel-secret")
 
 from api import app
+
+AUTH_HEADERS = {"X-Internal-Secret": "test-kernel-secret"}
 
 
 @pytest.fixture(scope="module")
 def client() -> Generator[TestClient, None, None]:
-    with TestClient(app) as c:
+    with TestClient(app, headers=AUTH_HEADERS) as c:
         yield c
+
+
+class TestInternalAuthentication:
+    """Every kernel endpoint is server-to-server only."""
+
+    def test_missing_secret_is_rejected(self) -> None:
+        with TestClient(app) as unauthenticated:
+            assert unauthenticated.get("/health").status_code == 401
+
+    def test_invalid_secret_is_rejected(self) -> None:
+        with TestClient(app) as unauthenticated:
+            response = unauthenticated.get(
+                "/health",
+                headers={"X-Internal-Secret": "wrong-secret"},
+            )
+            assert response.status_code == 401
 
 
 class TestHealthEndpoint:
@@ -42,6 +61,7 @@ class TestHealthEndpoint:
         assert data["status"] == "ok"
         assert data["version"] == "1.0.0"
         assert data["precision_digits"] >= 50
+        assert data["interval_precision_digits"] >= 50
 
 
 class TestNpvEndpoint:
@@ -74,6 +94,8 @@ class TestNpvEndpoint:
             assert "value" in metric, f"{metric_name} missing value"
             assert "ulp_error_margin" in metric, f"{metric_name} missing ulp_error_margin"
             assert "status" in metric, f"{metric_name} missing status"
+            assert "exact_lower_bound" in metric, f"{metric_name} missing exact_lower_bound"
+            assert "exact_upper_bound" in metric, f"{metric_name} missing exact_upper_bound"
 
             # Contract: value must be within [lower_bound, upper_bound]
             assert metric["lower_bound"] <= metric["value"] <= metric["upper_bound"], (
@@ -91,10 +113,10 @@ class TestNpvEndpoint:
             )
 
     def test_npv_invalid_input_returns_error_status(self, client: TestClient) -> None:
-        """Invalid inputs should not crash — they return ERROR status."""
+        """Invalid inputs fail visibly and never return a synthetic zero result."""
         bad_payload = {"I": -1, "CF": 0, "r": 0, "n": 0, "RV": 0}
         resp = client.post("/calculate/npv", json=bad_payload)
-        assert resp.status_code == 200  # Graceful error, not 500
+        assert resp.status_code == 422
 
     def test_npv_missing_field_returns_422(self, client: TestClient) -> None:
         """Missing required field should return 422 validation error."""

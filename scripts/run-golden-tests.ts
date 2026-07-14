@@ -134,6 +134,7 @@ let hashesWritten = 0;
 let publicSafetyFailures = 0;
 let missingHashFiles = 0;
 let formulaExecutionFailures = 0;
+let goldenExpectationFailures = 0;
 const blockers: string[] = [];
 
 for (const fixtureFile of fixtureFiles) {
@@ -186,6 +187,38 @@ for (const fixtureFile of fixtureFiles) {
 
   fixturesExecuted++;
 
+  const expectedOutputs = fixture.expected_outputs as Record<string, unknown> | undefined;
+  if (expectedOutputs) {
+    const actualOutputs = Object.fromEntries(response.outputs.map((output) => [output.id, output.value]));
+    for (const [outputId, rawExpectation] of Object.entries(expectedOutputs)) {
+      const actualValue = actualOutputs[outputId];
+      const structured = typeof rawExpectation === "object" && rawExpectation !== null
+        ? rawExpectation as { value?: unknown; decimal_places?: unknown }
+        : null;
+      const expectedValue = structured?.value ?? rawExpectation;
+      const decimalPlaces = structured?.decimal_places;
+      if (typeof expectedValue !== "number" || !Number.isFinite(expectedValue)) {
+        goldenExpectationFailures++;
+        blockers.push(`INVALID_EXPECTED_OUTPUT:${fixtureFile}:${outputId}`);
+      } else if (typeof actualValue !== "number" || !Number.isFinite(actualValue)) {
+        goldenExpectationFailures++;
+        blockers.push(`MISSING_EXPECTED_OUTPUT:${fixtureFile}:${outputId}`);
+      } else if (decimalPlaces !== undefined && (
+        !Number.isInteger(decimalPlaces) || decimalPlaces < 0 || decimalPlaces > 12
+      )) {
+        goldenExpectationFailures++;
+        blockers.push(`INVALID_EXPECTED_OUTPUT_PRECISION:${fixtureFile}:${outputId}`);
+      } else {
+        const comparedActual = decimalPlaces === undefined
+          ? actualValue
+          : Number(actualValue.toFixed(decimalPlaces as number));
+        if (comparedActual === expectedValue) continue;
+        goldenExpectationFailures++;
+        blockers.push(`EXPECTED_OUTPUT_MISMATCH:${fixtureFile}:${outputId}:expected=${expectedValue}:actual=${String(actualValue)}`);
+      }
+    }
+  }
+
   // Compute stable hashes
   const normalizedInputHash = fnv1a32(rawInputs);
   const outputHash = fnv1a32(response.outputs.map(o => ({
@@ -218,8 +251,10 @@ for (const fixtureFile of fixtureFiles) {
   }
 
   // ── Hash file handling ──
-  const hashFilePath = path.join(hashesDir, `${toolKey}.hashes.json`);
+  const fixtureId = fixtureFile.replace(/\.golden\.json$/, "");
+  const hashFilePath = path.join(hashesDir, `${fixtureId}.hashes.json`);
   const hashRecord = {
+    ...(fixtureId === toolKey ? {} : { fixture_id: fixtureId }),
     tool_key: toolKey,
     tool_id: response.toolId,
     source_sha256: sha256Of(path.join(ROOT, "src", "sectorcalc", "formulas", "free-v531", `${toolKey}.formula.ts`)),
@@ -282,7 +317,8 @@ for (const fixtureFile of fixtureFiles) {
 const pass =
   blockers.filter(b => !b.startsWith("MISSING_HASH_FILE")).length === 0 &&
   publicSafetyFailures === 0 &&
-  formulaExecutionFailures === 0;
+  formulaExecutionFailures === 0 &&
+  goldenExpectationFailures === 0;
 
 console.log(`FREE_V531_GOLDEN_TEST_RESULT=${pass ? "PASS" : "FAIL"}`);
 console.log(`MODE=${mode === "strict" ? "STRICT" : "UPDATE_GOLDEN_HASHES"}`);
@@ -293,6 +329,7 @@ console.log(`HASHES_WRITTEN=${hashesWritten}`);
 console.log(`PUBLIC_SAFETY_FAILURES=${publicSafetyFailures}`);
 console.log(`MISSING_HASH_FILES=${missingHashFiles}`);
 console.log(`FORMULA_EXECUTION_FAILURES=${formulaExecutionFailures}`);
+console.log(`GOLDEN_EXPECTATION_FAILURES=${goldenExpectationFailures}`);
 console.log(`BLOCKERS=${blockers.length > 0 ? blockers.join(";") : "NONE"}`);
 
 if (!pass) process.exit(1);

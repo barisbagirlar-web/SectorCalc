@@ -1,22 +1,40 @@
 {
   "tool_key": "capital-equipment-investment-appraisal-npv-irr",
   "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
+  "formula_version": "7.0.0-pro-finance.1",
+  "model_id": "SC_INVESTMENT_APPRAISAL_DISCRETE_END_PERIOD_V2_DECIMAL",
   "raw_inputs": {
-    "initial_investment": 100
+    "initial_investment": 500000,
+    "annual_net_cash_flow": 150000,
+    "discount_rate": 10,
+    "analysis_years": 5,
+    "residual_value": 50000,
+    "stress_downside_factor": 20,
+    "source_confidence_ratio": 95,
+    "uncertainty_multiplier": 1.2
+  },
+  "selected_units": {
+    "initial_investment": "currency_unit",
+    "annual_net_cash_flow": "currency_unit",
+    "discount_rate": "percent",
+    "analysis_years": "year",
+    "residual_value": "currency_unit",
+    "stress_downside_factor": "percent",
+    "source_confidence_ratio": "percent",
+    "uncertainty_multiplier": "ratio"
   },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_utilization_margin": 0.25,
-    "out_money_at_risk": 25000,
-    "out_final_decision_state": 0
+    "out_net_present_value": 99664.08156422499,
+    "out_internal_rate_of_return_percent": 17.226514193375942,
+    "out_simple_payback_years": 3.3333333333333335,
+    "out_profitability_index": 1.19932816312845,
+    "out_stressed_net_present_value": -14059.52151802845,
+    "out_break_even_annual_cash_flow": 123708.86635763542,
+    "out_decision_state": 1
   },
-  "expected_hashes": {
-    "output_hash": "oh-b1-capita",
-    "proof_pack_hash": "pph-b1-capita",
-    "audit_seal_stable_hash": "ash-b1-capita"
-  },
-  "expected_decision_status": "OK",
-  "expected_warnings": []
+  "reference_fixture": "tests/fixtures/pro-calculation-reference/investment-appraisal-discrete-v1.json",
+  "expected_decision_status": "REVIEW",
+  "expected_warnings": [
+    "Base-case NPV is positive, but the stressed case requires review."
+  ]
 }

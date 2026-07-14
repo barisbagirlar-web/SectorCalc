@@ -258,7 +258,11 @@ async function ProCatalogContent() {
   );
 
   return (
-    <section className="sc-pro-section sc-pro-section--border">
+    <section
+      className="sc-pro-section sc-pro-section--border"
+      data-pro-tools-count={count}
+      data-pro-category-count={taxonomySectorCards.length}
+    >
       <CatalogPageShell
         tools={tools}
         sectors={taxonomySectorCards}

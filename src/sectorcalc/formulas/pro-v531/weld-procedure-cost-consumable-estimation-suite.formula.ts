@@ -1,82 +1,120 @@
 import "server-only";
+
+import {
+  WELD_COST_ARITHMETIC_MODE,
+  WELD_COST_FORMULA_VERSION,
+  WELD_COST_MODEL_ID,
+  evaluateWeldCost,
+} from "./weld-cost-core";
+import {
+  decimalToPresentationNumber,
+  domainErrorMessage,
+  isCanonicalDecimalSource,
+  type Decimal,
+  type DecimalSource,
+} from "./pro-decimal-domain";
+import type { ProFormulaResult } from "./pro-formula-contract";
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
-
 export const toolKey = "weld-procedure-cost-consumable-estimation-suite";
-export const formulaVersion = "5.3.1-pro-baris.1";
-
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
-
+export const formulaVersion = WELD_COST_FORMULA_VERSION;
+export const arithmeticMode = WELD_COST_ARITHMETIC_MODE;
+export const modelId = WELD_COST_MODEL_ID;
+export const verificationEvidenceId =
+  "tests/pro-calculation-correctness/weld-cost.property.test.ts";
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
+const REQUIRED = [
+  "n_weld_length_m",
+  "n_weld_throat_mm",
+  "n_weld_density_g_per_cm3",
+  "n_wire_cost_per_kg",
+  "n_gas_cost_per_min",
+  "n_arc_time_min",
+  "n_weld_time_min",
+  "n_labor_rate",
+  "n_overhead_rate",
+  "n_deposition_efficiency_pct",
+  "n_source_confidence_ratio",
+] as const;
 
-  const weld_length = get(inputs, "n_weld_length_m");
-  const throat_mm = get(inputs, "n_weld_throat_mm");
-  const weld_density = get(inputs, "n_weld_density_g_per_cm3");
-  const wire_cost_per_kg = get(inputs, "n_wire_cost_per_kg");
-  const gas_cost_per_min = get(inputs, "n_gas_cost_per_min");
-  const arc_time = get(inputs, "n_arc_time_min");
-  const weld_time_min = get(inputs, "n_weld_time_min");
-  const labor_rate = get(inputs, "n_labor_rate");
-  const overhead_rate = get(inputs, "n_overhead_rate");
-  const dep_eff = get(inputs, "n_deposition_efficiency_pct") / 100;
-  const conf = get(inputs, "n_source_confidence_ratio");
-
-  if (!isFiniteNumber(inputs["n_weld_length_m"])) warnings.push("Missing: n_weld_length_m");
-  if (!isFiniteNumber(inputs["n_weld_throat_mm"])) warnings.push("Missing: n_weld_throat_mm");
-  if (!isFiniteNumber(inputs["n_wire_cost_per_kg"])) warnings.push("Missing: n_wire_cost_per_kg");
-
-  const throat_m = throat_mm / 1000;
-  const weld_volume_g = weld_length * (throat_m * throat_m) / 2 * weld_density * 1000;
-  const wire_needed = dep_eff > 0 ? weld_volume_g / dep_eff : 0;
-  const consumable_cost = wire_needed / 1000 * wire_cost_per_kg;
-  const gas_cost = gas_cost_per_min * arc_time / 60;
-  const labor_cost = labor_rate * weld_time_min / 60;
-  const overhead_cost = overhead_rate * weld_time_min / 60;
-  const total_cost = consumable_cost + gas_cost + labor_cost + overhead_cost;
-  const cost_per_meter = weld_length > 0 ? total_cost / weld_length : 0;
-  const decision = cost_per_meter > 50 ? 1 : (cost_per_meter > 20 ? 2 : 0);
-
-  // Tool-specific output keys for weld-procedure-cost-consumable-estimation-suite
-  outputs["out_total_cost_floor"] = round(total_cost, 2);
-  outputs["out_base_production_cost"] = round(total_cost - overhead_cost, 2);
-  outputs["out_cost_per_meter"] = round(cost_per_meter, 2);
-  outputs["out_wire_mass_kg"] = round(wire_needed / 1000, 3);
-  outputs["out_wire_cost"] = round(consumable_cost, 2);
-  outputs["out_shielding_gas_cost"] = round(gas_cost, 2);
-  outputs["out_labor_cost"] = round(labor_cost, 2);
-  outputs["out_shop_overhead"] = round(overhead_cost, 2);
-  outputs["out_consumable_efficiency"] = round(dep_eff, 3);
-  outputs["out_decision_state"] = decision;
-
-  // Preserved generic outputs for backward compatibility
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_expanded_uncertainty"] = round(Math.abs(total_cost * (1 - conf)), 2);
-  outputs["out_threshold_crossing"] = cost_per_meter > 50 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = labor_cost > consumable_cost ? 1 : 0;
-  outputs["out_fmea_trigger"] = cost_per_meter > 30 ? 1 : 0;
-
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
+function blocked(warnings: string[]): ProFormulaResult {
   return {
-    status: ok ? "OK" : "REVIEW",
+    status: "BLOCKED",
+    outputs: {},
+    decimalOutputs: {},
+    warnings,
+    outputKeys: [],
+    redaction_status: "PUBLIC_SAFE_REDACTED",
+  };
+}
+
+export function calculate(inputs: Record<string, DecimalSource>): ProFormulaResult {
+  const invalid = REQUIRED.filter(
+    (key) => !isCanonicalDecimalSource(inputs[key]),
+  );
+  if (invalid.length > 0) {
+    return blocked(["Missing or non-finite normalized inputs: " + invalid.join(", ") + "."]);
+  }
+
+  const evaluated = evaluateWeldCost({
+    weldLengthM: inputs.n_weld_length_m,
+    effectiveThroatMm: inputs.n_weld_throat_mm,
+    densityGPerCm3: inputs.n_weld_density_g_per_cm3,
+    wireCostPerKg: inputs.n_wire_cost_per_kg,
+    gasCostPerMinute: inputs.n_gas_cost_per_min,
+    arcTimeMinutes: inputs.n_arc_time_min,
+    elapsedWeldTimeMinutes: inputs.n_weld_time_min,
+    laborRatePerHour: inputs.n_labor_rate,
+    overheadRatePerHour: inputs.n_overhead_rate,
+    depositionEfficiencyRatio: inputs.n_deposition_efficiency_pct,
+    sourceConfidenceRatio: inputs.n_source_confidence_ratio,
+  });
+  if (!evaluated.ok) return blocked([domainErrorMessage(evaluated.error)]);
+
+  const value = evaluated.value;
+  const exact: Array<readonly [string, Decimal]> = [
+    ["out_cross_section_area_mm2", value.crossSectionAreaMm2],
+    ["out_deposited_weld_metal_mass_kg", value.depositedWeldMetalMassKg],
+    ["out_wire_mass_kg", value.wireMassKg],
+    ["out_wire_cost", value.wireCost],
+    ["out_shielding_gas_cost", value.shieldingGasCost],
+    ["out_labor_cost", value.laborCost],
+    ["out_shop_overhead", value.shopOverhead],
+    ["out_base_production_cost", value.baseProductionCost],
+    ["out_total_estimated_cost", value.totalEstimatedCost],
+    ["out_cost_per_meter", value.costPerMeter],
+    ["out_arc_time_ratio", value.arcTimeRatio],
+    ["out_consumable_efficiency", value.depositionEfficiencyRatio],
+    ["out_evidence_completeness", value.sourceConfidenceRatio],
+    ["out_expanded_uncertainty", value.costUncertainty],
+    ["out_total_cost_floor", value.totalCostLowerBound],
+    ["out_total_cost_ceiling", value.totalCostUpperBound],
+    ["out_cost_per_meter_lower_bound", value.costPerMeterLowerBound],
+    ["out_cost_per_meter_upper_bound", value.costPerMeterUpperBound],
+  ];
+  const outputs: Record<string, number> = {};
+  const decimalOutputs: Record<string, string> = {};
+  for (const [id, exactValue] of exact) {
+    const presented = decimalToPresentationNumber(exactValue, id);
+    if (!presented.ok) return blocked([domainErrorMessage(presented.error)]);
+    outputs[id] = presented.value;
+    decimalOutputs[id] = exactValue.toString();
+  }
+  outputs.out_sensitivity_driver = value.primaryCostDriver;
+  outputs.out_decision_state = value.decisionState;
+  decimalOutputs.out_sensitivity_driver = String(value.primaryCostDriver);
+  decimalOutputs.out_decision_state = String(value.decisionState);
+
+  const warnings = value.decisionState === 1
+    ? ["The evidence-adjusted total-cost interval reaches zero; verify all price, time, geometry, efficiency, and confidence evidence before quoting."]
+    : [];
+  return {
+    status: warnings.length > 0 ? "REVIEW" : "OK",
     outputs,
-    warnings: warnings.length ? warnings : [],
+    decimalOutputs,
+    warnings,
     outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
+    redaction_status: "PUBLIC_SAFE_REDACTED",
   };
 }

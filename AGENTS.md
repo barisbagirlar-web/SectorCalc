@@ -1,256 +1,274 @@
-# SectorCalc — AGENTS.md
+# AGENTS.md — SectorCalc
 
-Project general working discipline. Primary source: this file + `.cursor/rules/**/RULE.md`.
+## 1. Mission
 
-Do not use `.cursorrules`. It is only a fallback for older Cursor versions; the primary source is here.
+Maintain SectorCalc as a production-grade, global, English-only industrial calculation platform for engineers, technicians, machinists, CNC operators, maintenance teams, fabricators, contractors, quality teams, logistics teams, energy professionals, and finance users.
 
-## DeepSeek Priority Lock
+Primary priorities, in order:
 
-DeepSeek API will be active and fully utilized in SectorCalc tasks.
+1. Mathematical correctness.
+2. Production reliability.
+3. Clear decision value.
+4. Security and data integrity.
+5. Fast, professional user experience.
+6. SEO and commercial conversion.
+7. Maintainability and regression protection.
 
-### Priority
-
-1. Stand up all tools
-2. Bulk repair P2.4 / ERT / Runtime Trust findings
-3. Quickly patch input schema, validation, FormulaContract, result renderer, i18n, unit canonical, and guide policy issues
-4. Increase PASS count
-5. Decrease FAIL / WARN / QUARANTINE counts
-6. Address P9/payment tasks after the tool core is strengthened
-
-### Forbidden
-
-- Using DeepSeek merely as a passive reporting engine
-- Wasting time with unnecessary small theoretical plans
-- "Let's wait first" approach
-- Fake PASS
-- WARN bypass
-- Fake Formula Gate
-- Opening free tool payment
-- Putting secrets in the frontend
-- Committing untested patches
-
-### Default Workflow
-
-- DeepSeek-assisted bulk audit
-- DeepSeek-assisted bulk repair
-- Patch
-- lint / tsc / build
-- P2.4 audit
-- Runtime Trust audit
-- Revenue gate assert
-- Commit
-
-### P9/payment
-
-Secondary priority until tool recovery is complete.
-
-### Output Format
-
-```txt
-RESULT
-ANALYSIS
-WARNING
-STEPS
-FINAL OUTPUT
-```
-
-Commands, env, patches, and prompts must be provided as copyable blocks.
+Do not optimize appearance at the expense of calculation accuracy, runtime stability, or evidence.
 
 ---
 
-## 1. Basic Order
+## 2. Non-Negotiable Product Rules
 
-In every task:
+- Website-visible content must use standard English only.
+- Do not add Turkish, German, Arabic, Spanish, French, pseudo-localized, or mixed-language UI copy.
+- Root-domain routing only. Do not introduce `/en` or other locale-prefixed public routes.
+- `/en` must remain unavailable unless the owner explicitly changes this rule.
+- Preserve the canonical footer line exactly unless explicitly instructed otherwise:
 
-1. Briefly summarize the instruction.
-2. Specify the files to be touched.
-3. State the risk.
-4. Apply small, safe patches.
-5. Provide proof of changes.
-6. Provide test / audit / grep output.
-7. Explicitly write down anything left incomplete.
+  `© 2026 SectorCalc — Stuttgart, Germany · Global Engineering Standards · hello@sectorcalc.com`
 
-## 2. Proof Requirement
+- Preserve the canonical brand name `SectorCalc`.
+- Free tools must remain free.
+- Pro calculation engines must remain server-side.
+- Do not expose proprietary formulas, registries, secret values, or paid calculation logic in client bundles.
+- Do not claim TÜV certification, ISO certification, regulatory approval, accreditation, or official endorsement unless documentary proof exists and the owner explicitly authorizes the exact wording.
+- Do not add AI-looking filler visuals, invented testimonials, fake company logos, fake usage counts, or fabricated social proof.
+- Do not silently change calculator counts, product states, pricing, entitlements, routes, or catalog membership.
+- Derive tool counts from the source of truth; never hardcode stale counts.
 
-The following statements are **forbidden without proof**:
+---
 
-- "I did it"
-- "Finished"
-- "Completed"
-- "Problem solved"
-- "Everything is working"
-- "Applied"
+## 3. Hosting and Runtime Architecture
 
-Accepted proofs:
+- Production hosting is Firebase Hosting.
+- Do not introduce or restore Vercel deployment logic unless explicitly requested.
+- Preserve server/client boundaries.
+- Firebase Admin code must remain server-only.
+- Never import server-only modules into client components.
+- Never expose secrets through `NEXT_PUBLIC_*`, browser bundles, generated static files, logs, or error messages.
+- Use static, supported package imports. Avoid computed or alias-based runtime imports.
+- Treat build-time environment variables and runtime environment variables as separate concerns.
+- A successful local build is not proof of production readiness.
 
-- `git status --short`
-- `git diff --stat`
-- list of changed files + related lines
-- `npm run lint`
-- `npx tsc --noEmit`
-- `npm run build`
-- related `npm run audit:...`
-- `grep` / `curl` output
+---
 
-If no proof:
+## 4. Scope Discipline
 
-```txt
-NO PROOF: I cannot say this step is complete.
+For every task:
+
+1. Identify the exact affected route, component, API, formula, registry, schema, or deployment path.
+2. Trace all direct callers, importers, server/client boundaries, state transitions, side effects, caches, auth checks, and persistence paths.
+3. Make the smallest complete change that permanently fixes the root cause.
+4. Do not modify unrelated modules.
+5. Preserve unrelated user changes and uncommitted work.
+6. Do not delete files, tools, formulas, fixtures, registries, media, secrets, or user data unless explicitly instructed.
+7. Do not perform production deployment, merge, force-push, destructive migration, or irreversible cleanup without explicit authorization.
+
+When the task is ambiguous, choose the least invasive interpretation and record it as `[ASSUMPTION]`. Ask a question only when proceeding would create material or irreversible risk.
+
+---
+
+## 5. Calculator Integrity Standard
+
+Every calculator change must review:
+
+- Input schema and UI field mapping.
+- Units and dimensional consistency.
+- Raw unit to canonical unit conversion.
+- Percent versus decimal semantics.
+- Null versus zero semantics.
+- Negative values.
+- Zero denominators.
+- Very small and very large values.
+- Time-period alignment.
+- Currency and locale normalization.
+- Allocation and reconciliation.
+- Duplicate counting and double counting.
+- Rounding stage and rounding mode.
+- Deterministic reproducibility.
+- Result labels, decision states, tolerances, and advisory ranges.
+- API response and client rendering parity.
+- Export and print representation.
+- Error and warning behavior.
+
+Rules:
+
+- Never generate expected test values using the function under test.
+- Golden fixtures must contain independently calculated expected values.
+- Preserve full precision through intermediate steps.
+- Round only at the defined final presentation stage.
+- Fail closed on missing material inputs.
+- Do not convert invalid or missing values to zero unless the formula contract explicitly defines that behavior.
+- Do not report a decision state when required inputs or validation are incomplete.
+- Result totals must reconcile exactly within a documented tolerance.
+- Client previews must never be treated as the authoritative paid result.
+
+---
+
+## 6. Free and Pro Tool Rules
+
+### Free Tools
+
+- Must calculate correctly without payment.
+- Must provide immediate value.
+- Must contain concise formula logic, units, assumptions, limitations, tolerances, and interpretation.
+- Must not contain broken CTA paths, fake locks, or hidden paid dependencies.
+- Must feed an appropriate commercial path without degrading the free result.
+
+### Pro Tools
+
+- Formula execution must remain server-side.
+- Registry registration must be deterministic and testable.
+- Client code may submit inputs and render results, but must not contain the protected engine.
+- Every Pro tool must have a clearly defined commercial state.
+- Do not present quarantined, source-required, incomplete, or contract-mismatched tools as live.
+- Payment, entitlement, credit, and report-consumption flows must be idempotent.
+- Failed executions must not consume entitlements unless the commercial contract explicitly says otherwise.
+
+---
+
+## 7. UI, Content, and SEO Rules
+
+- A user must understand the page purpose within five seconds.
+- Use professional, concise, domain-specific English.
+- Avoid generic marketing filler.
+- H1, subheading, CTA, tool purpose, required inputs, and output value must align.
+- Preserve route intent:
+  - Free tools: `/free-tools`
+  - Pro tools: `/pro-tools`
+  - Calculator library: `/calculator-library`
+- Do not create duplicate canonical pages.
+- Structured data must match visible content.
+- Never emit schema claims that are not supported by the page.
+- Avoid keyword stuffing.
+- Do not hide essential limitations below irrelevant marketing sections.
+- All technical claims must be defensible.
+- Accessibility, keyboard navigation, labels, focus states, contrast, and error messaging are required.
+- PDF, print, and export layouts must not clip, overflow, or lose units.
+
+---
+
+## 8. Security Rules
+
+- Enforce authentication and authorization server-side.
+- Validate tenant/resource ownership for every object lookup.
+- Never trust client-provided role, entitlement, price, result, ownership, or credit state.
+- Use schema validation at all API boundaries.
+- Apply rate limiting where appropriate.
+- Protect against CSRF, injection, path traversal, insecure direct object references, replay, and duplicate requests.
+- Use short-lived signed URLs for private downloads.
+- Keep audit-relevant actions traceable.
+- Never log secrets, full tokens, private keys, payment credentials, or sensitive customer documents.
+
+---
+
+## 9. Required Development Workflow
+
+During development:
+
+1. Reproduce the issue.
+2. Document the root cause.
+3. Identify the affected call chain.
+4. Apply the permanent fix.
+5. Add or update focused regression tests.
+6. Run targeted tests first.
+7. Run the full release gates only after targeted tests pass.
+
+Minimum final gates for a code change:
+
+```text
+TYPECHECK=PASS
+LINT=PASS
+TARGETED_TESTS=PASS
+RELEVANT_GUARDS=PASS
+PRODUCTION_BUILD=PASS
 ```
 
-If scope is not applied:
+For calculation changes also require:
 
-```txt
-NOT APPLIED: <missing item>
+```text
+INDEPENDENT_GOLDEN_FIXTURES=PASS
+UNIT_DIMENSION_TESTS=PASS
+NULL_ZERO_NEGATIVE_EXTREME_TESTS=PASS
+ROUNDING_TESTS=PASS
+DETERMINISTIC_REPLAY=PASS
+ALLOCATION_RECONCILIATION=PASS
+DOUBLE_COUNTING_GUARD=PASS
 ```
 
-Do not count as completed if "NOT APPLIED" or "NO PROOF" is present.
+For production readiness also require:
 
-## 3. File and Scope
-
-If file path is not given, search the repo first:
-
-```bash
-grep -RIn "search-term" src app lib public scripts
-find . -maxdepth 4 -type f | sort
+```text
+DEPLOYED_SHA=PROVEN
+LIVE_SHA=PROVEN
+LIVE_ENDPOINT=PASS
+REAL_BROWSER_E2E=PASS
+RUNTIME_LOGS=REVIEWED
+AUTH_PERSISTENCE=PASS
+RELEVANT_INTEGRATIONS=PASS
 ```
 
-If not found, ask the user; do not guess.
+Do not report production readiness from source code, local tests, or build output alone.
 
-## 4. Protected Areas
+---
 
-Do not touch without explicit permission:
+## 10. Evidence and Status Language
 
-```txt
-.env / *.secret
-firebase / firestore rules
-vercel / cloudflare deploy config
-auth / payment / checkout
-admin / private routes
-152 premium seed content
-existing route slugs (no random renaming)
-data/pro-tools/ (Pro/Free tool data files and _merged.json must never be deleted/overwritten)
+Use only these evidence-based statuses:
+
+- `PASS`
+- `FAIL`
+- `NOT_PROVEN`
+- `NOT_IMPLEMENTED`
+- `EXTERNAL_BLOCKER`
+
+Never fabricate a PASS.
+
+A command is PASS only when its actual exit code and relevant output are available.
+
+A feature is production-ready only when its live runtime path is proven.
+
+---
+
+## 11. Final Delivery Format
+
+Every completed task must report:
+
+```text
+ROOT_CAUSE=
+AFFECTED_CALL_CHAIN=
+CHANGED_FILES=
+PERMANENT_FIX=
+REGRESSION_PROTECTION=
+TYPECHECK=
+LINT=
+TARGETED_TESTS=
+FULL_TESTS=
+BUILD=
+COMMIT_SHA=
+DEPLOYED_SHA=
+LIVE_SHA=
+LIVE_ENDPOINT=
+BROWSER_E2E=
+RUNTIME_LOGS=
+UNRESOLVED_BLOCKERS=
+FINAL_ACCEPTANCE=
 ```
 
-Details: `.cursor/rules/01-sectorcalc-safety/RULE.md`
+Do not hide skipped tests or external blockers.
 
-## 5. Mandatory Test Gate (code changes)
+---
 
-```bash
-npm run lint
-npx tsc --noEmit
-npm run build
-```
+## 12. Prohibited Actions
 
-If there is a related audit, also:
+Do not:
 
-```bash
-npm run audit:...
-```
-
-For markdown / rule file changes only, the narrowest test is sufficient; `git diff` is still mandatory.
-
-## 6. Public Output Check
-
-For public/web changes:
-
-```bash
-grep -RIn "TODO\|FIXME\|temp\|to_be_fixed\|href=\"#\"\|Planned\|Live\|Phase 1\|Phase 2\|Score" src app public scripts
-```
-
-If there is an unexpected match on the public surface, the job is not considered done.
-
-## 7. Git Proof (every delivery)
-
-```bash
-git status --short
-git diff --stat
-```
-
-## 8. Report Format
-
-```txt
-Action:
-Understanding summary:
-Touched files:
-Changes made:
-Test commands:
-Test output:
-Git diff summary:
-Remaining gaps:
-Status: COMPLETED / ERROR / WAITING / NOT APPLIED
-```
-
-## 9. Completion Conditions
-
-- Instruction scope applied
-- **All fields in original spec (including top-level, input, validation, reference_code, metadata, error_propagation, fmea, audit_log) applied — no field can be skipped citing "does not fit system format"**
-- Changed files reported
-- Related tests run (lint/tsc/build on code changes)
-- No failing tests
-- Public bad grep is clean (if public changes exist)
-- `git diff --stat` shown
-- Gaps explicitly written
-
-## 10. Sub-rule Files
-
-| File | Topic |
-|---|---|
-| `.cursor/rules/00-proof-gate/RULE.md` | Proof generation, test, grep |
-| `.cursor/rules/01-sectorcalc-safety/RULE.md` | Protected areas, audit requirement |
-| `.cursor/rules/02-ui-quality/RULE.md` | UI quality, responsive, visual ratio |
-| `.cursor/rules/04-completeness-gate/RULE.md` | Spec completion requirement — 100% of given fields applied |
-
-## 11. SectorCalc Quality Summary
-
-Industrial calculation and decision platform perception is preserved:
-
-- No unnecessary animation / meaningless gradients / excessive badges
-- No hardcoded secrets or frontend API keys
-- No uncategorized or fake premium tools
-- No `href="#"`; no mobile breakage
-- Desktop + mobile + console + network check on UI changes
-
-Details: `.cursor/rules/02-ui-quality/RULE.md`
-
-## 12. Claude Design
-
-When "Claude Design" is mentioned, the following specifications and design rules must always be remembered and applied:
-- **General Structure**: A spacious, balanced, and corporate interface template developed on the latest `main` branch (commit `9fafb0918` and subsequent color palette updates), using Barlow serif/sans heading fonts, JetBrains Mono font-mono, and terracotta/copper accent colors.
-- **File Locations**:
-  - Component: `src/components/landing/LandingPageContent.tsx`
-  - Style: `src/styles/landing-page.css`
-  - Page: `src/app/[locale]/page.tsx`
-- **Link Standards**: Links on the site must absolutely point accurately to real and relevant active pages (e.g., `/pricing` instead of pro-tools). Broken or placeholder (`#`) links must never be used.
-- **Improvements**: When visual incongruity or error is spotted in design layouts or icons, take initiative to adjust alignments and visual details to the most premium standards to increase system quality.
-
-## 13. DeepSeek API / Formula and Input Creation Authority Revocation
-User instruction: "I revoke deep seek api authority to create formulas/inputs like this, save this and lock it."
-The DeepSeek Priority Lock (Item 1) rule is INVALID for **formula analysis, formula creation, input validation, and import from txt file into the system**. DeepSeek API will ABSOLUTELY NOT be used for these operations; the coding, reading, and reasoning ability of the main AI agent (myself) will be used directly.
-
-## 14. Deployment and Hosting
-We DO NOT WORK with Vercel. We only work with Firebase Host (Firebase Hosting / App Hosting). Deployment processes and configurations must be prepared for Firebase, not Vercel.
-
-## 15. Adding a New Tool and Deployment Workflow (Commit-First)
-When a new tool is added or the sitemap is updated, the following steps must be followed in order:
-1. First, all code and schema changes must be `git commit`ted.
-2. Then, `npm run build` and `deploy` steps must be run (preferably with `DEPLOY_FORCE_REBUILD=1 node scripts/deploy-production.mjs`).
-Reason: Firebase frameworks Next.js integration executes a process that cleans the repo to HEAD state (git reset) during deploy. Uncommitted schemas won't find a match in date resolver (`tool-git-dates.json`) lookups and fall back to the build fallback date. For this reason, the workflow must always be "Commit First, Build Second".
-
-## 16. SEO Policy for Removed Tools
-When a Pro Tool or any other public route is permanently removed from the system, it is intentionally allowed to return a standard `404 Not Found` response. 
-- A `410 Gone` HTTP status is technically preferred for permanently deleted indexed URLs.
-- However, to reduce middleware complexity and maintenance overhead, we explicitly accept the standard `404 Not Found` behavior for removed tools. 
-- They must be completely purged from the codebase, the sitemap, and all registries.
-
-## Removed Free Tool Guard
-
-Deleted Free Tools must not re-enter active catalogs, generated indexes, sitemap outputs, canonical mappings, route registries, or public tool pages.
-
-Policy:
-- Runtime middleware checks are intentionally avoided.
-- Removed Free Tool enforcement is build-time only.
-- The canonical removed list lives at data/governance/removed-free-tools.json.
-- The guard command is npm run guard:removed-free-tools.
-- npm run build must fail if a removed Free Tool slug or name appears in active project surfaces.
-- If a removed Free Tool must be restored, restoration requires an explicit product decision and a dedicated commit removing it from the governance list.
+- Rewrite the entire repository for a narrow bug.
+- Replace proven architecture with a fashionable alternative without a measured need.
+- Disable tests, guards, branch protection, lint rules, or type safety to obtain green CI.
+- Mark a failing check as optional to bypass a release gate.
+- Use mock success as production evidence.
+- Add `any`, unsafe casts, blanket ignores, or error swallowing as a permanent fix.
+- Change legal, pricing, entitlement, product-count, hosting, or language policy without explicit instruction.
+- Deploy to production without explicit authorization.

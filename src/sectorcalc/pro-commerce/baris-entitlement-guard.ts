@@ -5,11 +5,13 @@ import "server-only";
 
 import { getBarisProduct } from "./baris-pro-products";
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+import { isFormulaCertifiedForExecution } from "@/sectorcalc/formulas/pro-v531/pro-formula-verification-manifest";
 
 export type EntitlementResult =
   | { ok: true; reason: null }
   | { ok: false; reason: "PRO_ENTITLEMENT_REQUIRED" }
   | { ok: false; reason: "ASSISTED_DOSSIER_ONLY" }
+  | { ok: false; reason: "FORMULA_VERIFICATION_REQUIRED" }
   | { ok: false; reason: "BLOCKED_PAYMENT_INFRASTRUCTURE_NOT_BOUND" }
   | { ok: false; reason: "PRODUCT_NOT_FOUND" };
 
@@ -34,6 +36,9 @@ export async function checkBarisExecutionEntitlement(ctx: EntitlementContext): P
   // Assisted dossier products are never instant-executable
   if (product.productMode === "ASSISTED_PRO_DOSSIER") {
     return { ok: false, reason: "ASSISTED_DOSSIER_ONLY" };
+  }
+  if (!isFormulaCertifiedForExecution(ctx.toolKey)) {
+    return { ok: false, reason: "FORMULA_VERIFICATION_REQUIRED" };
   }
 
   // Dev bypass: owner email or dev mode
@@ -80,5 +85,8 @@ export function getBarisExecutionBlockReason(toolKey: string): string | null {
   const product = getBarisProduct(toolKey);
   if (!product) return null; // not a Baris tool, let existing pipeline handle it
   if (product.productMode === "ASSISTED_PRO_DOSSIER") return "ASSISTED_DOSSIER_ONLY";
+  if (!isFormulaCertifiedForExecution(toolKey)) {
+    return "FORMULA_VERIFICATION_REQUIRED";
+  }
   return null; // instant calculators can proceed to entitlement check
 }

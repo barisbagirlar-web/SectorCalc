@@ -302,21 +302,22 @@ register({
   toolSlug: "capital-equipment-investment-appraisal-npv-irr",
   sections: [
     section("Primary Results", 10, [
-      entry("out_utilization_margin", "NPV / IRR Score", "ratio"),
-      entry("out_demand_metric", "Net Present Value", "currency", "USD"),
-      entry("out_capacity_metric", "Capital Efficiency Ratio", "ratio"),
+      entry("out_net_present_value", "Net Present Value", "currency", "USD"),
+      entry("out_internal_rate_of_return_percent", "Internal Rate of Return", "percent"),
+      entry("out_profitability_index", "Profitability Index", "ratio"),
+      entry("out_simple_payback_years", "Simple Payback Period", "year"),
     ]),
     section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "NPV Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "NPV Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "NPV Uncertainty Band", "currency", "USD"),
+      entry("out_stressed_net_present_value", "Stressed Net Present Value", "currency", "USD"),
+      entry("out_npv_lower_bound", "NPV Lower Bound", "currency", "USD"),
+      entry("out_npv_upper_bound", "NPV Upper Bound", "currency", "USD"),
+      entry("out_break_even_annual_cash_flow", "Break-Even Annual Cash Flow", "currency", "USD"),
     ]),
     section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Appraisal Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
+      entry("out_source_confidence_ratio", "Source Confidence", "ratio"),
+      entry("out_npv_uncertainty_amount", "NPV Uncertainty Amount", "currency", "USD"),
+      entry("out_hurdle_rate_margin_percent", "IRR Margin Over Hurdle Rate", "percent"),
+      entry("out_decision_state", "Go / Review / Hold Decision", "number"),
     ]),
   ],
 });

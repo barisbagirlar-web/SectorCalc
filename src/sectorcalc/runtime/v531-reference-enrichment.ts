@@ -181,29 +181,23 @@ function deriveFromPhysicalHardBoundsBound(
   return null;
 }
 
-// ── Guard: validate default_value against physical hard bounds ──────────────
+// ── Guard: declared defaults must satisfy physical hard bounds ─────────────
 
-function guardDefaultAgainstPhysicalBounds(
+function assertDefaultWithinPhysicalBounds(
   field: SuperV4Input,
   numericDefault: number,
-): number | null {
+): number {
   const phb = field.physical_hard_bounds;
   if (!phb) return numericDefault;
   if (phb.min !== null && numericDefault < phb.min) {
-    if (typeof process !== "undefined" && process.env?.NODE_ENV !== "production") {
-      console.warn(
-        `[v531-enrich] default_value ${numericDefault} for ${field.id} is below physical_hard_bounds.min ${phb.min}. Using lower bound.`,
-      );
-    }
-    return phb.min;
+    throw new RangeError(
+      `default_value ${numericDefault} for ${field.id} is below physical_hard_bounds.min ${phb.min}.`,
+    );
   }
   if (phb.max !== null && numericDefault > phb.max) {
-    if (typeof process !== "undefined" && process.env?.NODE_ENV !== "production") {
-      console.warn(
-        `[v531-enrich] default_value ${numericDefault} for ${field.id} is above physical_hard_bounds.max ${phb.max}. Using upper bound.`,
-      );
-    }
-    return phb.max;
+    throw new RangeError(
+      `default_value ${numericDefault} for ${field.id} is above physical_hard_bounds.max ${phb.max}.`,
+    );
   }
   return numericDefault;
 }
@@ -279,14 +273,18 @@ export function enrichV531SchemaReferences(
     const meta = enrichField(field);
     if (!meta) continue;
 
-    // Set default_value only for declared or midpoint origins
-    if (
-      meta.referenceOrigin === "declared" ||
-      meta.referenceOrigin.includes("midpoint")
-    ) {
+    // Ranges and hard bounds are advisory metadata, never executable defaults.
+    if (meta.referenceOrigin === "declared") {
       if (meta.defaultReferenceValue !== null) {
-        const guarded = guardDefaultAgainstPhysicalBounds(field, meta.defaultReferenceValue);
-        field.default_value = guarded;
+        if (field.default_policy === "NO_DEFAULT") {
+          throw new Error(
+            `Input ${field.id} declares default_policy NO_DEFAULT but also supplies default_value.`,
+          );
+        }
+        field.default_value = assertDefaultWithinPhysicalBounds(
+          field,
+          meta.defaultReferenceValue,
+        );
       }
     }
 

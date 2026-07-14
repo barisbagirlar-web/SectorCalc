@@ -15,8 +15,14 @@
     "tooling_cost_per_edge": 12
   },
   "expected_outputs": {
-    "cost_per_part": 13.27,
-    "cycle_cost_per_part": 6.88
+    "cost_per_part": {
+      "value": 13.27,
+      "decimal_places": 2
+    },
+    "quote_price_per_part": {
+      "value": 16.58,
+      "decimal_places": 2
+    }
   },
   "expected_result_perspectives": {
     "primary_label": "Unit Cost per Part",

@@ -17,7 +17,6 @@ equivalent to the C-XSC test methodology.
 from __future__ import annotations
 
 import json
-import math
 import os
 from dataclasses import dataclass, asdict, field
 from typing import Any, Dict, List, Optional, Tuple
@@ -30,6 +29,13 @@ import sympy as sp
 # ---------------------------------------------------------------------------
 
 mp.mp.dps = 50
+
+
+def _continuous_npv_reference(I: float, CF: float, r: float, n: float, RV: float) -> float:
+    """High-precision reference using the exact binary values accepted by the API."""
+    I_mp, CF_mp, r_mp, n_mp, RV_mp = map(mp.mpf, (I, CF, r, n, RV))
+    exp_term = mp.exp(-r_mp * n_mp)
+    return float((CF_mp / r_mp) * (1 - exp_term) + RV_mp * exp_term - I_mp)
 
 
 @dataclass
@@ -66,17 +72,20 @@ class MmsSuiteGenerator:
 
         # ---- Core analytical tests ----
 
-        # T1: Zero discount rate → NPV = CF * n + RV - I
-        #   As r → 0, continuous discount formula: NPV → CF*n + RV - I
-        #   Note: r=1e-15 causes wide interval due to division by near-zero.
-        #   MMS property: exact result WITHIN interval. Width tolerance is large.
+        # T1: Near-zero finite discount rate, evaluated at high precision.
+        near_zero_r = mp.mpf(1e-15)
+        near_zero_exact = (
+            (mp.mpf("200") / near_zero_r) * (1 - mp.exp(-near_zero_r * 5))
+            + mp.mpf("100") * mp.exp(-near_zero_r * 5)
+            - mp.mpf("1000")
+        )
         cases.append(MmsTestCase(
-            name="zero_rate_analytical_limit",
-            description="As discount rate approaches zero, NPV must approach CF*n + RV - I",
+            name="near_zero_rate_finite_analytical",
+            description="A finite near-zero rate must match the continuous-discount formula, not its r=0 limit",
             inputs={"I": 1000.0, "CF": 200.0, "r": 1e-15, "n": 5.0, "RV": 100.0},
-            exact_analytical_result=200.0 * 5.0 + 100.0 - 1000.0,  # = 100.0
-            tolerance=100.0,  # Wide tolerance: division by near-zero inflates interval
-            analytical_formula="NPV = CF * n + RV - I  (limit as r -> 0)",
+            exact_analytical_result=float(near_zero_exact),
+            tolerance=1e-12,
+            analytical_formula="NPV = (CF/r)*(1-exp(-r*n)) + RV*exp(-r*n) - I",
             category="core",
         ))
 
@@ -85,7 +94,7 @@ class MmsSuiteGenerator:
             name="zero_cash_flow_analytical",
             description="With zero annual cash flow, NPV = RV * e^(-r*n) - I",
             inputs={"I": 5000.0, "CF": 0.0, "r": 0.10, "n": 3.0, "RV": 2000.0},
-            exact_analytical_result=2000.0 * math.exp(-0.10 * 3.0) - 5000.0,
+            exact_analytical_result=_continuous_npv_reference(5000.0, 0.0, 0.10, 3.0, 2000.0),
             tolerance=1e-8,
             analytical_formula="NPV = RV * exp(-r*n) - I",
             category="core",
@@ -96,7 +105,7 @@ class MmsSuiteGenerator:
             name="zero_residual_value",
             description="With zero residual value, standard continuous discount formula",
             inputs={"I": 10000.0, "CF": 3000.0, "r": 0.12, "n": 5.0, "RV": 0.0},
-            exact_analytical_result=(3000.0 / 0.12) * (1 - math.exp(-0.12 * 5.0)) - 10000.0,
+            exact_analytical_result=_continuous_npv_reference(10000.0, 3000.0, 0.12, 5.0, 0.0),
             tolerance=1e-8,
             analytical_formula="NPV = (CF/r) * (1 - exp(-r*n)) - I",
             category="core",
@@ -108,7 +117,7 @@ class MmsSuiteGenerator:
             name="single_period_analytical",
             description="With n=1, continuous discount model",
             inputs={"I": 100000.0, "CF": 50000.0, "r": 0.15, "n": 1.0, "RV": 20000.0},
-            exact_analytical_result=(50000.0 / 0.15) * (1 - math.exp(-0.15)) + 20000.0 * math.exp(-0.15) - 100000.0,
+            exact_analytical_result=_continuous_npv_reference(100000.0, 50000.0, 0.15, 1.0, 20000.0),
             tolerance=1e-8,
             analytical_formula="NPV = (CF/r)*(1-exp(-r)) + RV*exp(-r) - I (n=1, continuous discount)",
             category="core",
@@ -180,7 +189,7 @@ class MmsSuiteGenerator:
             name="zero_initial_investment",
             description="Zero initial investment (grant or subsidy scenario)",
             inputs={"I": 0.0, "CF": 50000.0, "r": 0.10, "n": 5.0, "RV": 0.0},
-            exact_analytical_result=(50000.0 / 0.10) * (1 - math.exp(-0.10 * 5.0)),
+            exact_analytical_result=_continuous_npv_reference(0.0, 50000.0, 0.10, 5.0, 0.0),
             tolerance=1e-8,
             analytical_formula="Zero I: NPV = (CF/r) * (1 - exp(-r*n))",
             category="edge",

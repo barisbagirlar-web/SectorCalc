@@ -1,0 +1,86 @@
+{
+  "model_id": "SC_INVESTMENT_APPRAISAL_DISCRETE_END_PERIOD_V2_DECIMAL",
+  "formula_version": "7.0.0-pro-finance.1",
+  "reference_method": "Independent 50-digit decimal evaluation of discrete end-of-period cash flows",
+  "cash_flow_timing": "Annual cash flow at each period end; residual value once at final period end",
+  "cases": [
+    {
+      "name": "standard_five_year_appraisal",
+      "input": {
+        "initialInvestment": 500000,
+        "annualCashFlow": 150000,
+        "discountRate": 0.1,
+        "periods": 5,
+        "residualValue": 50000,
+        "downsideFactor": 0.2,
+        "sourceConfidenceRatio": 0.95,
+        "uncertaintyMultiplier": 1.2
+      },
+      "expected": {
+        "netPresentValue": 99664.08156422499,
+        "internalRateOfReturn": 0.17226514193375942,
+        "simplePaybackYears": 3.3333333333333335,
+        "profitabilityIndex": 1.19932816312845,
+        "stressedNetPresentValue": -14059.52151802845,
+        "uncertaintyAmount": 5979.8448938535,
+        "lowerBound": 93684.2366703715,
+        "upperBound": 105643.9264580785,
+        "breakEvenAnnualCashFlow": 123708.86635763542,
+        "hurdleRateMargin": 0.07226514193375942,
+        "decisionState": 1
+      }
+    },
+    {
+      "name": "zero_discount_rate_limit",
+      "input": {
+        "initialInvestment": 1000,
+        "annualCashFlow": 200,
+        "discountRate": 0,
+        "periods": 5,
+        "residualValue": 100,
+        "downsideFactor": 0,
+        "sourceConfidenceRatio": 1,
+        "uncertaintyMultiplier": 0
+      },
+      "expected": {
+        "netPresentValue": 100,
+        "internalRateOfReturn": 0.03072711596026429,
+        "simplePaybackYears": 5,
+        "profitabilityIndex": 1.1,
+        "stressedNetPresentValue": 100,
+        "uncertaintyAmount": 0,
+        "lowerBound": 100,
+        "upperBound": 100,
+        "breakEvenAnnualCashFlow": 180,
+        "hurdleRateMargin": 0.03072711596026429,
+        "decisionState": 0
+      }
+    },
+    {
+      "name": "terminal_value_only",
+      "input": {
+        "initialInvestment": 1000,
+        "annualCashFlow": 0,
+        "discountRate": 0.1,
+        "periods": 5,
+        "residualValue": 1610.51,
+        "downsideFactor": 0,
+        "sourceConfidenceRatio": 1,
+        "uncertaintyMultiplier": 0
+      },
+      "expected": {
+        "netPresentValue": 0,
+        "internalRateOfReturn": 0.1,
+        "simplePaybackYears": 5,
+        "profitabilityIndex": 1,
+        "stressedNetPresentValue": 0,
+        "uncertaintyAmount": 0,
+        "lowerBound": 0,
+        "upperBound": 0,
+        "breakEvenAnnualCashFlow": 0,
+        "hurdleRateMargin": 0,
+        "decisionState": 2
+      }
+    }
+  ]
+}

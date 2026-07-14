@@ -1,7 +1,11 @@
 // SectorCalc PRO V5.3.1 — Entitlement Guard Test (Key-Pool Model)
 // Verifies entitlement guard blocks correctly for all product types.
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { checkBarisExecutionEntitlement, getBarisExecutionBlockReason } from "../../src/sectorcalc/pro-commerce/baris-entitlement-guard";
+
+vi.mock("@/lib/infrastructure/firebase/admin", () => ({
+  getAdminFirestore: () => null,
+}));
 
 describe("Baris Entitlement Guard", () => {
   // ── ASSISTED DOSSIER PRODUCTS ──
@@ -60,14 +64,20 @@ describe("Baris Entitlement Guard", () => {
 
   // ── INSTANT CALCULATOR PRODUCTS ──
 
-  it("should allow instant calculators through block reason check", () => {
-    const result = getBarisExecutionBlockReason("break-even-survival-cash-calculator");
-    expect(result).toBeNull();
+  it("should allow only certified instant calculators through block reason check", () => {
+    expect(
+      getBarisExecutionBlockReason(
+        "capital-equipment-investment-appraisal-npv-irr",
+      ),
+    ).toBeNull();
+    expect(
+      getBarisExecutionBlockReason("break-even-survival-cash-calculator"),
+    ).toBeNull();
   });
 
   it("should require entitlement for instant calculators when user has no userId", async () => {
     const entitlement = await checkBarisExecutionEntitlement({
-      toolKey: "break-even-survival-cash-calculator",
+      toolKey: "capital-equipment-investment-appraisal-npv-irr",
       userId: null,
       userEmail: null,
     });
@@ -79,7 +89,7 @@ describe("Baris Entitlement Guard", () => {
     // User has userId but no Firestore doc (or doc without barisProKeys)
     // In test env, Firestore is unavailable, so it returns BLOCKED_PAYMENT_INFRASTRUCTURE_NOT_BOUND
     const entitlement = await checkBarisExecutionEntitlement({
-      toolKey: "break-even-survival-cash-calculator",
+      toolKey: "capital-equipment-investment-appraisal-npv-irr",
       userId: "nonexistent-user-id",
       userEmail: "regular@user.com",
     });

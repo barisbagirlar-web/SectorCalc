@@ -1,78 +1,89 @@
 import "server-only";
+
+import {
+  CUSTOMER_SKU_ARITHMETIC_MODE,
+  CUSTOMER_SKU_FORMULA_VERSION,
+  CUSTOMER_SKU_MODEL_ID,
+  evaluateCustomerSku,
+} from "./customer-sku-profitability-core";
+import { decimalToPresentationNumber, domainErrorMessage, isCanonicalDecimalSource, type Decimal, type DecimalSource } from "./pro-decimal-domain";
+import type { ProFormulaResult } from "./pro-formula-contract";
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
-
 export const toolKey = "customer-sku-profitability-forensics";
-export const formulaVersion = "5.3.1-pro-baris.1";
-
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
-
+export const formulaVersion = CUSTOMER_SKU_FORMULA_VERSION;
+export const arithmeticMode = CUSTOMER_SKU_ARITHMETIC_MODE;
+export const modelId = CUSTOMER_SKU_MODEL_ID;
+export const verificationEvidenceId = "tests/pro-calculation-correctness/customer-sku.property.test.ts";
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
+const REQUIRED = [
+  "n_unit_price", "n_unit_variable_cost", "n_annual_volume", "n_logistics_cost_pct",
+  "n_service_cost_pct", "n_return_rate_pct", "n_target_margin", "n_labor_rate",
+  "n_overhead_rate", "n_source_confidence_ratio",
+] as const;
+
+function blocked(warnings: string[]): ProFormulaResult {
+  return { status: "BLOCKED", outputs: {}, decimalOutputs: {}, warnings, outputKeys: [], redaction_status: "PUBLIC_SAFE_REDACTED" };
+}
+
+export function calculate(inputs: Record<string, DecimalSource>): ProFormulaResult {
+  const invalid = REQUIRED.filter((key) => !isCanonicalDecimalSource(inputs[key]));
+  if (invalid.length > 0) return blocked([`Missing or non-finite normalized inputs: ${invalid.join(", ")}.`]);
+  const evaluated = evaluateCustomerSku({
+    sellingPricePerUnit: inputs.n_unit_price,
+    variableCostPerUnit: inputs.n_unit_variable_cost,
+    annualVolume: inputs.n_annual_volume,
+    logisticsCostRatioOfRevenue: inputs.n_logistics_cost_pct,
+    serviceCostRatioOfRevenue: inputs.n_service_cost_pct,
+    returnCreditCostRatioOfRevenue: inputs.n_return_rate_pct,
+    targetGrossMarginRatio: inputs.n_target_margin,
+    annualCustomerSupportCost: inputs.n_labor_rate,
+    annualCollectionCommercialOverhead: inputs.n_overhead_rate,
+    sourceConfidenceRatio: inputs.n_source_confidence_ratio,
+  });
+  if (!evaluated.ok) return blocked([domainErrorMessage(evaluated.error)]);
+  const value = evaluated.value;
+  const exact: Array<readonly [string, Decimal]> = [
+    ["out_variable_cost_per_unit", value.variableCostPerUnit],
+    ["out_logistics_cost_per_unit", value.logisticsCostPerUnit],
+    ["out_service_cost_per_unit", value.serviceCostPerUnit],
+    ["out_return_credit_cost_per_unit", value.returnCreditCostPerUnit],
+    ["out_customer_support_cost_per_unit", value.customerSupportCostPerUnit],
+    ["out_collection_overhead_per_unit", value.collectionOverheadPerUnit],
+    ["out_fully_loaded_customer_sku_cost_per_unit", value.fullyLoadedCustomerSkuCostPerUnit],
+    ["out_selling_price_per_unit", value.sellingPricePerUnit],
+    ["out_net_contribution_per_unit", value.netContributionPerUnit],
+    ["out_net_contribution_margin_ratio", value.netContributionMarginRatio],
+    ["out_target_gross_margin_ratio", value.targetGrossMarginRatio],
+    ["out_target_price_per_unit", value.targetPricePerUnit],
+    ["out_price_gap_to_target", value.priceGapToTarget],
+    ["out_annual_revenue", value.annualRevenue],
+    ["out_annual_fully_loaded_cost", value.annualFullyLoadedCost],
+    ["out_annual_net_contribution", value.annualNetContribution],
+    ["out_source_confidence_ratio", value.sourceConfidenceRatio],
+    ["out_annual_profit_uncertainty", value.annualProfitUncertainty],
+    ["out_annual_profit_lower_bound", value.annualProfitLowerBound],
+    ["out_annual_profit_upper_bound", value.annualProfitUpperBound],
+    ["out_money_at_risk", value.moneyAtRisk],
+  ];
   const outputs: Record<string, number> = {};
-
-  const up = get(inputs, "n_unit_price");
-  const uvc = get(inputs, "n_unit_variable_cost");
-  const av = get(inputs, "n_annual_volume");
-  const SECONDS_PER_YEAR = 31536000;
-  const annual_vol = av * SECONDS_PER_YEAR;
-  const lcp = get(inputs, "n_logistics_cost_pct");
-  const scp = get(inputs, "n_service_cost_pct");
-  const rrp = get(inputs, "n_return_rate_pct");
-  const tm = get(inputs, "n_target_margin");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
-  const conf = get(inputs, "n_source_confidence_ratio");
-
-  if (!isFiniteNumber(inputs["n_unit_price"])) warnings.push("Missing: n_unit_price");
-  if (!isFiniteNumber(inputs["n_unit_variable_cost"])) warnings.push("Missing: n_unit_variable_cost");
-  if (!isFiniteNumber(inputs["n_annual_volume"])) warnings.push("Missing: n_annual_volume");
-
-  const unit_contribution = up - uvc;
-  const cm_ratio = up > 0 ? unit_contribution / up : 0;
-  const logistics_burden = up * (lcp / 100);
-  const service_burden = up * (scp / 100);
-  const return_burden = up * (rrp / 100);
-  const net_margin = unit_contribution - logistics_burden - service_burden - return_burden;
-  const toxic_flag = net_margin < 0 ? 1 : 0;
-  const total_margin = net_margin * annual_vol;
-  const biggest_burden = Math.max(logistics_burden, service_burden, return_burden);
-  const target_margin_ratio = tm / 100;
-  let decision: number;
-  if (cm_ratio > target_margin_ratio) decision = 0; // GROW
-  else if (cm_ratio > 0) decision = 1;             // HOLD
-  else decision = 2;                                // CUT
-
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(av, 0);
-  outputs["out_reference_deviation"] = round(tm > 0 ? Math.abs(cm_ratio - target_margin_ratio) / target_margin_ratio : 0, 4);
-  outputs["out_derating_factor"] = round(net_margin < 0 ? 0 : net_margin / unit_contribution, 4);
-  outputs["out_demand_metric"] = round(net_margin, 2);
-  outputs["out_capacity_metric"] = round(total_margin, 2);
-  outputs["out_utilization_margin"] = round(cm_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(Math.abs(net_margin * (1 - conf)), 2);
-  outputs["out_threshold_crossing"] = toxic_flag;
-  outputs["out_sensitivity_driver"] = biggest_burden === logistics_burden ? 0 : (biggest_burden === service_burden ? 1 : 2);
-  outputs["out_fmea_trigger"] = toxic_flag;
-  outputs["out_money_at_risk"] = round(toxic_flag ? total_margin : 0, 2);
-  outputs["out_scenario_delta"] = round(biggest_burden * annual_vol, 2);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_final_decision_state"] = decision;
-
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  const decimalOutputs: Record<string, string> = {};
+  for (const [id, exactValue] of exact) {
+    const presented = decimalToPresentationNumber(exactValue, id);
+    if (!presented.ok) return blocked([domainErrorMessage(presented.error)]);
+    outputs[id] = presented.value;
+    decimalOutputs[id] = exactValue.toString();
+  }
+  outputs.out_primary_cost_driver = value.primaryCostDriver;
+  outputs.out_decision_state = value.decisionState;
+  decimalOutputs.out_primary_cost_driver = String(value.primaryCostDriver);
+  decimalOutputs.out_decision_state = String(value.decisionState);
+  const warnings = value.decisionState === 2
+    ? ["The annual net-contribution upper bound is negative; hold or reprice this customer-SKU relationship."]
+    : value.decisionState === 1
+      ? ["Target margin or evidence-adjusted profit is not secured; review pricing and customer-specific burdens."]
+      : [];
+  return { status: warnings.length > 0 ? "REVIEW" : "OK", outputs, decimalOutputs, warnings,
+    outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
 }

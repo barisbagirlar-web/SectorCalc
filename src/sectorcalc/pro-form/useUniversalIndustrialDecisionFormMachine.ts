@@ -141,20 +141,41 @@ export function useUniversalIndustrialDecisionFormMachine(options: MachineOption
 
     // Build payload through the explicit form→schema adapter
     const formToSchemaMap = getFormToSchemaMap(options.schema.tool_key);
-    const adapterPayload = buildExecutePayload({
-      formState: state.rawInputState as Record<string, string | number | boolean | null>,
-      selectedUnits: state.selectedUnitState,
-      toolKey: options.schema.tool_key,
-      toolId: options.schema.tool_id,
-      schemaVersion: options.schema.metadata.schema_version,
-      usageSessionId: options.usageSessionId ?? null,
-      formToSchemaMap: formToSchemaMap ?? state.rawInputState as unknown as Record<string, string>,
-      outputUnits: {},
-      displayCurrency: null,
-      scenarioRequest: state.scenarioState.request,
-      userProfileMode: state.profileModeState.mode,
-      clientSchemaHash: state.schemaState.schema_hash ?? undefined,
-    });
+    if (!formToSchemaMap) {
+      const message = `No certified form/schema adapter is registered for ${options.schema.tool_key}.`;
+      dispatch({ type: "RECEIVE_SERVER_ERROR", message });
+      proTrace("PRO_BLOCKED", buildTraceEntry(traceId, "PRO_BLOCKED", {
+        blockers: [{ id: "FORM_SCHEMA_MAP_MISSING", message }],
+        executionStateAfter: "adapter_contract_blocked",
+      }));
+      return;
+    }
+
+    let adapterPayload;
+    try {
+      adapterPayload = buildExecutePayload({
+        formState: state.rawInputState as Record<string, string | number | boolean | null>,
+        selectedUnits: state.selectedUnitState,
+        toolKey: options.schema.tool_key,
+        toolId: options.schema.tool_id,
+        schemaVersion: options.schema.metadata.schema_version,
+        usageSessionId: options.usageSessionId ?? null,
+        formToSchemaMap,
+        outputUnits: {},
+        displayCurrency: null,
+        scenarioRequest: state.scenarioState.request,
+        userProfileMode: state.profileModeState.mode,
+        clientSchemaHash: state.schemaState.schema_hash ?? undefined,
+      });
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
+      dispatch({ type: "RECEIVE_SERVER_ERROR", message });
+      proTrace("PRO_BLOCKED", buildTraceEntry(traceId, "PRO_BLOCKED", {
+        blockers: [{ id: "FORM_SCHEMA_CONTRACT_VIOLATION", message }],
+        executionStateAfter: "adapter_contract_blocked",
+      }));
+      return;
+    }
 
     // Build the complete request with evidence and session data
     const request: ExecuteRequest & { usageSessionId?: string | null } = {

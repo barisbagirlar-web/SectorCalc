@@ -8,6 +8,7 @@ import {
   getAssistedDossierProducts,
   getBarisProductSummary,
 } from "../../src/sectorcalc/pro-commerce/baris-pro-products";
+import { listCertifiedFormulaKeys } from "../../src/sectorcalc/formulas/pro-v531/pro-formula-verification-manifest";
 
 describe("Baris PRO Productization", () => {
   it("should have 45 products total", () => {
@@ -18,8 +19,10 @@ describe("Baris PRO Productization", () => {
     expect(BARIS_PRO_PRODUCTS.every(p => p.visible === true)).toBe(true);
   });
 
-  it("should have 45 sellable products", () => {
-    expect(BARIS_PRO_PRODUCTS.every(p => p.sellable === true)).toBe(true);
+  it("should sell dossiers and certified instant calculators only", () => {
+    expect(BARIS_PRO_PRODUCTS.filter((p) => p.sellable).length).toBe(
+      25 + listCertifiedFormulaKeys().length,
+    );
   });
 
   it("should have 20 instant calculator products", () => {
@@ -34,7 +37,7 @@ describe("Baris PRO Productization", () => {
     const s = getBarisProductSummary();
     expect(s.total).toBe(45);
     expect(s.visible).toBe(45);
-    expect(s.sellable).toBe(45);
+    expect(s.sellable).toBe(25 + listCertifiedFormulaKeys().length);
     expect(s.instantCalculators).toBe(20);
     expect(s.assistedDossiers).toBe(25);
   });
@@ -51,13 +54,22 @@ describe("Baris PRO Productization", () => {
   });
 
   it("instant calculators should have correct product mode", () => {
+    const certified = new Set(listCertifiedFormulaKeys());
     for (const p of getInstantCalculatorProducts()) {
       expect(p.productMode).toBe("INSTANT_PRO_CALCULATOR");
-      expect(p.executionMode).toBe("LIVE_ENGINE_READY");
       expect(p.paymentProductType).toBe("PRO_INSTANT_CALCULATOR");
-      expect(p.instantResultAvailable).toBe(true);
-      expect(p.ctaLabel).toBe("Start PRO Calculation");
       expect(p.publicBadge).toBe("PRO Calculator");
+      if (certified.has(p.toolKey)) {
+        expect(p.executionMode).toBe("LIVE_ENGINE_READY");
+        expect(p.instantResultAvailable).toBe(true);
+        expect(p.sellable).toBe(true);
+        expect(p.routeEnabled).toBe(true);
+      } else {
+        expect(p.executionMode).toBe("DISABLED_UNTIL_FORMULA_READY");
+        expect(p.instantResultAvailable).toBe(false);
+        expect(p.sellable).toBe(false);
+        expect(p.routeEnabled).toBe(false);
+      }
     }
   });
 
@@ -95,6 +107,9 @@ describe("Baris PRO Productization", () => {
     expect(p).toBeDefined();
     expect(p!.productMode).toBe("INSTANT_PRO_CALCULATOR");
     expect(p!.priceUsd).toBeGreaterThan(0);
+    expect(p!.sellable).toBe(true);
+    expect(p!.executionMode).toBe("LIVE_ENGINE_READY");
+    expect(p!.instantResultAvailable).toBe(true);
 
     const q = getBarisProduct("nonexistent-tool");
     expect(q).toBeUndefined();

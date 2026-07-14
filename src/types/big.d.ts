@@ -6,6 +6,8 @@ declare module "big.js" {
   type BigSource = number | string | Big;
 
   interface BigConstructor {
+    /** Create an isolated constructor with independent precision settings. */
+    (): BigConstructor;
     new (n: BigSource): Big;
     (n: BigSource): Big;
 

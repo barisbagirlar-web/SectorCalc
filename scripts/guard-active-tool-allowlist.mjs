@@ -1,111 +1,89 @@
 #!/usr/bin/env node
 /**
- * scripts/guard-active-tool-allowlist.mjs
- *
- * V5.4 Core guard: validate active tool allowlist.
- *
- * Required behavior:
- *   - ACTIVE_FREE_TOOL_SLUGS must have at least 1 entry
- *   - ACTIVE_PRO_TOOL_SLUGS must have at most 1 entry
- *   - All slugs must be non-empty strings
- *   - No duplicate slugs across free and pro lists
- *
- * Exit: 0 = PASS, 1 = FAIL
+ * Fail-closed release guard for certification-derived public execution lists.
+ * Literal runtime allowlists are forbidden: certification catalogs are the
+ * only source of truth for both Free and Pro execution eligibility.
  */
 
 import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
+const files = {
+  allowlist: "src/sectorcalc/runtime/active-tool-allowlist.ts",
+  free: "src/sectorcalc/formulas/free-v531/free-formula-verification-manifest.ts",
+  pro: "src/sectorcalc/formulas/pro-v531/pro-certified-tool-keys.ts",
+};
 let exitCode = 0;
 
-function fail(msg) {
-  console.error(`  ❌ ${msg}`);
+function fail(message) {
+  console.error("  FAIL " + message);
   exitCode = 1;
 }
 
-function pass(msg) {
-  console.log(`  ✅ ${msg}`);
+function pass(message) {
+  console.log("  PASS " + message);
 }
 
-console.log("\n🔍 V5.4 Core — Active Tool Allowlist Guard\n");
-
-// ── Parse the allowlist file ──────────────────────────────────────────────
-const ALLOWLIST_PATH = path.join(ROOT, "src/sectorcalc/runtime/active-tool-allowlist.ts");
-
-if (!fs.existsSync(ALLOWLIST_PATH)) {
-  fail(`Allowlist file not found: ${ALLOWLIST_PATH}`);
-  process.exit(1);
+function read(relativePath) {
+  const absolutePath = path.join(ROOT, relativePath);
+  if (!fs.existsSync(absolutePath)) {
+    fail("Required certification file not found: " + relativePath);
+    return "";
+  }
+  return fs.readFileSync(absolutePath, "utf8");
 }
 
-const content = fs.readFileSync(ALLOWLIST_PATH, "utf-8");
-
-// Extract ACTIVE_FREE_TOOL_SLUGS array
-const freeMatch = content.match(/ACTIVE_FREE_TOOL_SLUGS:\s*readonly\s*string\[\]\s*=\s*\[([\s\S]*?)\];/);
-const proMatch = content.match(/ACTIVE_PRO_TOOL_SLUGS:\s*readonly\s*string\[\]\s*=\s*\[([\s\S]*?)\];/);
-
-if (!freeMatch) {
-  fail("ACTIVE_FREE_TOOL_SLUGS declaration not found in allowlist");
-} else {
-  const freeSlugs = freeMatch[1]
-    .split(",")
-    .map((s) => s.trim().replace(/^"|"$/g, "").replace(/^'|'$/g, ""))
-    .filter(Boolean);
-
-  pass(`Free tool allowlist parsed (${freeSlugs.length} entries)`);
-
-  if (freeSlugs.length < 1) {
-    fail(`Expected at least 1 active Free tool, found ${freeSlugs.length}`);
-  } else {
-    pass(`Active Free tools (${freeSlugs.length}): "${freeSlugs[0]}" …`);
+function duplicates(values) {
+  const seen = new Set();
+  const repeated = new Set();
+  for (const value of values) {
+    if (seen.has(value)) repeated.add(value);
+    seen.add(value);
   }
-
-  for (const slug of freeSlugs) {
-    if (!slug) {
-      fail("Empty slug found in ACTIVE_FREE_TOOL_SLUGS");
-    }
-  }
+  return [...repeated];
 }
 
-if (!proMatch) {
-  fail("ACTIVE_PRO_TOOL_SLUGS declaration not found in allowlist");
-} else {
-  const proSlugs = proMatch[1]
-    .split(",")
-    .map((s) => s.trim().replace(/^"|"$/g, "").replace(/^'|'$/g, ""))
-    .filter(Boolean);
+console.log("\nV5.4 Core - Certification-derived active tool guard\n");
+const allowlist = read(files.allowlist);
+const freeManifest = read(files.free);
+const proCatalog = read(files.pro);
 
-  pass(`Pro tool allowlist parsed (${proSlugs.length} entries)`);
+const freeBinding = /ACTIVE_FREE_TOOL_SLUGS:\s*readonly\s*string\[\]\s*=\s*CERTIFIED_FREE_TOOL_SLUGS\s*;/.test(allowlist);
+const proBinding = /ACTIVE_PRO_TOOL_SLUGS:\s*readonly\s*string\[\]\s*=\s*CERTIFIED_PRO_TOOL_SLUGS\s*;/.test(allowlist);
+if (!freeBinding) fail("ACTIVE_FREE_TOOL_SLUGS must be assigned directly from CERTIFIED_FREE_TOOL_SLUGS.");
+else pass("Free execution allowlist is certification-derived.");
+if (!proBinding) fail("ACTIVE_PRO_TOOL_SLUGS must be assigned directly from CERTIFIED_PRO_TOOL_SLUGS.");
+else pass("Pro execution allowlist is certification-derived.");
 
-  if (proSlugs.length >= 46) {
-    pass(`Active Pro tools (${proSlugs.length}) — revenue-ready production`);
-  } else if (proSlugs.length === 0) {
-    fail(`Expected at least 1 active Pro tool for revenue, found 0`);
-  } else {
-    pass(`Active Pro tools (${proSlugs.length})`);
-  }
+const freeRecordsBlock = freeManifest.match(/const records:[\s\S]*?=\s*\[([\s\S]*?)\n\];/);
+const freeSlugs = freeRecordsBlock
+  ? [...freeRecordsBlock[1].matchAll(/^\s*\[\s*"([^"]+)"/gm)].map((match) => match[1])
+  : [];
+const proArrayBlock = proCatalog.match(/CERTIFIED_PRO_TOOL_SLUGS:[\s\S]*?Object\.freeze\(\[([\s\S]*?)\]\);/);
+const proSlugs = proArrayBlock
+  ? [...proArrayBlock[1].matchAll(/^\s*"([^"]+)"/gm)].map((match) => match[1])
+  : [];
 
-  for (const slug of proSlugs) {
-    if (!slug) {
-      fail("Empty slug found in ACTIVE_PRO_TOOL_SLUGS");
-    }
-  }
-}
+if (freeSlugs.length !== 50) fail("Expected 50 certified Free tools, found " + freeSlugs.length + ".");
+else pass("Certified Free inventory is complete (50/50).");
+if (proSlugs.length !== 20) fail("Expected 20 certified instant Pro tools, found " + proSlugs.length + ".");
+else pass("Certified Pro inventory is complete (20/20).");
 
-// ── Check for duplicates ──────────────────────────────────────────────────
-if (freeMatch && proMatch) {
-  const freeSlugs = freeMatch[1]
-    .split(",").map((s) => s.trim().replace(/^"|"$/g, "").replace(/^'|'$/g, "")).filter(Boolean);
-  const proSlugs = proMatch[1]
-    .split(",").map((s) => s.trim().replace(/^"|"$/g, "").replace(/^'|'$/g, "")).filter(Boolean);
-  const allSlugs = [...freeSlugs, ...proSlugs];
-  const uniqueSlugs = new Set(allSlugs);
-  if (uniqueSlugs.size !== allSlugs.length) {
-    fail("Duplicate slug detected across Free and Pro allowlists");
-  } else {
-    pass("No duplicate slugs across allowlists");
-  }
-}
+const invalid = [...freeSlugs, ...proSlugs].filter(
+  (slug) => slug.length === 0 || slug.trim() !== slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug),
+);
+if (invalid.length > 0) fail("Invalid canonical slug(s): " + invalid.join(", "));
+else pass("Every certified slug is non-empty and canonical.");
 
-console.log(`\n${exitCode === 0 ? "✅ PASS" : "❌ FAIL"} — Active tool allowlist guard\n`);
+const withinTierDuplicates = [...duplicates(freeSlugs), ...duplicates(proSlugs)];
+if (withinTierDuplicates.length > 0) fail("Duplicate certified slug(s): " + withinTierDuplicates.join(", "));
+else pass("No duplicate slugs within certification catalogs.");
+
+const freeSet = new Set(freeSlugs);
+const crossTierDuplicates = proSlugs.filter((slug) => freeSet.has(slug));
+if (crossTierDuplicates.length > 0) fail("Cross-tier slug collision(s): " + crossTierDuplicates.join(", "));
+else pass("No cross-tier execution slug collisions.");
+
+console.log("\n" + (exitCode === 0 ? "PASS" : "FAIL") + " - Active tool certification guard\n");
 process.exit(exitCode);

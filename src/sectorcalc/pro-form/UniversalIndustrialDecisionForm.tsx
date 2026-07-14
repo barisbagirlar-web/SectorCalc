@@ -5,7 +5,7 @@
 "use client";
 
 import type { ChangeEvent, ReactNode } from "react";
-import { startTransition, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type {
   CalcStatus,
   ExecuteResponse,
@@ -46,7 +46,6 @@ import {
   deriveFieldDescription,
 } from "./form-render-helpers";
 import { normalizeV531FieldMetadata } from "./normalize-v531-field-metadata";
-import { resolveIndustrialExampleValue } from "./example-value-resolver";
 import { FreeToolResultPanel } from "@/sectorcalc/free-form/FreeToolResultPanel";
 import { MobileStickyActionBar, resolveToolStickyBarState } from "@/components/layout/mobile/MobileStickyActionBar";
 import {
@@ -783,56 +782,6 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // ── Industrial example values (initial mount — useEffect to avoid hydration pressure) ──
-  // useEffect runs after paint, which reduces reconciler load during hydration
-  // compared to useLayoutEffect. Combined with startTransition, React can defer
-  // the state updates until after hydration completes.
-  const examplesInitializedRef = useRef<string | null>(null);
-
-  useEffect(() => {
-    if (contractErrors.length > 0) return;
-    if (!props.schema || !Array.isArray(props.schema.inputs) || props.schema.inputs.length === 0) return;
-
-    const toolSlug = props.toolKey ?? props.schema.tool_key;
-
-    // If already initialized for this tool, skip (avoid re-applying on deps change)
-    if (examplesInitializedRef.current === toolSlug) return;
-    examplesInitializedRef.current = toolSlug;
-
-    // Use startTransition to let React prioritize hydration completion
-    // before processing example-value dispatches.
-    startTransition(() => {
-      for (const input of props.schema!.inputs) {
-        const currentValue = state.rawInputState[input.id];
-        const resolved = resolveIndustrialExampleValue({
-          toolSlug,
-          toolKey: props.schema!.tool_key,
-          inputId: input.id,
-          inputName: input.name,
-          unit: input.base_unit,
-          rangeMin: input.physical_hard_bounds?.min ?? null,
-          rangeMax: input.physical_hard_bounds?.max ?? null,
-          schemaExampleValue: null,
-          schemaDefaultValue: input.default_value ?? null,
-        });
-
-        if (resolved === "") continue;
-
-        const needsUpdate =
-          currentValue === null ||
-          currentValue === undefined ||
-          currentValue !== resolved;
-
-        if (needsUpdate) {
-          machine.setInputValue(input.id, resolved);
-        }
-      }
-    });
-
-    // NOTE: runClientPrecheck is NOT called on mount.
-    // Validation is deferred until the user explicitly clicks Calculate.
-    // This prevents showing red error borders on initial page load.
-  }, [props.schema, props.toolKey, contractErrors.length]);
   const runsRemaining = props.remainingRuns ?? 0;
   const sessionExhausted = isPro && hasSession && runsRemaining <= 0;
   const creditSessionLoading = props.creditSessionLoading ?? false;

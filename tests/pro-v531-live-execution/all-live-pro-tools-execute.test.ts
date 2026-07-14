@@ -17,6 +17,8 @@
 import { describe, it, expect } from "vitest";
 import { getAllModules, type ProFormulaModule } from "@/sectorcalc/formulas/pro-v531/resolve-formula-module";
 import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
+import { CERTIFIED_PRO_TOOL_SLUGS } from "@/sectorcalc/formulas/pro-v531/pro-certified-tool-keys";
+import { listCertifiedFormulaKeys } from "@/sectorcalc/formulas/pro-v531/pro-formula-verification-manifest";
 
 const modules = getAllModules();
 const moduleByKey = new Map<string, ProFormulaModule>();
@@ -25,8 +27,10 @@ for (const m of modules) {
 }
 
 describe("PRO Formula Execution Governance — All LIVE Tools", () => {
-  it(`should have exactly ${ACTIVE_PRO_TOOL_SLUGS.length} LIVE modules registered`, () => {
-    expect(modules.length).toBe(ACTIVE_PRO_TOOL_SLUGS.length);
+  it("keeps all candidate modules registered while exposing only certified modules", () => {
+    expect(modules.length).toBe(20);
+    expect(ACTIVE_PRO_TOOL_SLUGS).toEqual(listCertifiedFormulaKeys());
+    expect(CERTIFIED_PRO_TOOL_SLUGS).toEqual(listCertifiedFormulaKeys());
   });
 
   it("every LIVE tool has a matching formula module", () => {

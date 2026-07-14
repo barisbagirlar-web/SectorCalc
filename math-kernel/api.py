@@ -16,11 +16,12 @@ from __future__ import annotations
 
 import os
 import sys
+import hmac
 from typing import Any, Dict, List, Optional
 
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from fastapi import Depends, FastAPI, Header, HTTPException, status
+from mpmath import iv
+from pydantic import BaseModel, ConfigDict, Field
 
 # Ensure the math-kernel directory is on the path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -39,6 +40,28 @@ from mms_generator import (
     MmsSuiteGenerator,
     export_suite_to_json,
 )
+from free_transcendental_engine import FreeIntervalDomainError, execute_free_interval_model
+
+# ---------------------------------------------------------------------------
+# Internal authentication
+# ---------------------------------------------------------------------------
+
+async def require_internal_secret(
+    x_internal_secret: Optional[str] = Header(default=None),
+) -> None:
+    """Fail closed unless the server-to-server shared secret is valid."""
+    expected = os.getenv("KERNEL_AUTH_SECRET", "")
+    if not expected:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Math kernel authentication is not configured.",
+        )
+    if x_internal_secret is None or not hmac.compare_digest(x_internal_secret, expected):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Unauthorized math kernel request.",
+        )
+
 
 # ---------------------------------------------------------------------------
 # FastAPI app setup
@@ -50,18 +73,7 @@ app = FastAPI(
     description="C-XSC compatible interval arithmetic engine with TTLCache and MathDomainError.",
     docs_url="/docs",
     redoc_url="/redoc",
-)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "https://sectorcalc.com",
-        "https://www.sectorcalc.com",
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    dependencies=[Depends(require_internal_secret)],
 )
 
 # Elite engine with default 10k-entry / 1h cache
@@ -72,11 +84,13 @@ engine = EliteIntervalEngine(cache_maxsize=10000, cache_ttl=3600)
 # ---------------------------------------------------------------------------
 
 class NpvRequest(BaseModel):
-    I: float = Field(..., description="Initial investment", examples=[5000500.0])
+    model_config = ConfigDict(allow_inf_nan=False)
+
+    I: float = Field(..., description="Initial investment", examples=[5000500.0], gt=0)
     CF: float = Field(..., description="Annual net cash flow", examples=[2450000.0])
-    r: float = Field(..., description="Discount rate (decimal)", examples=[0.185])
-    n: float = Field(..., description="Analysis period in years", examples=[6.5])
-    RV: float = Field(..., description="Residual value at end of period", examples=[2500000.0])
+    r: float = Field(..., description="Discount rate (decimal)", examples=[0.185], gt=0, le=1)
+    n: float = Field(..., description="Analysis period in years", examples=[6.5], gt=0, le=50)
+    RV: float = Field(..., description="Residual value at end of period", examples=[2500000.0], ge=0)
     max_interval_width: float = Field(default=1e-6, description="Max allowed interval width", ge=1e-12, le=1.0)
 
 
@@ -87,6 +101,8 @@ class BoundedResultSchema(BaseModel):
     upper_bound: float = Field(..., description="Guaranteed upper bound of true result")
     ulp_error_margin: float = Field(..., description="Half-width of interval = +/- uncertainty")
     status: str = Field(..., description="VERIFIED | WIDE_INTERVAL | ERROR: <message> | MathDomainError: <message>")
+    exact_lower_bound: str = Field(..., description="High-precision outward lower bound")
+    exact_upper_bound: str = Field(..., description="High-precision outward upper bound")
 
 
 class NpvResponse(BaseModel):
@@ -103,6 +119,11 @@ class BatchRequest(BaseModel):
     base: NpvRequest
     scenarios: List[Dict[str, float]] = Field(..., description="Array of scenario overrides")
     max_interval_width: float = Field(default=1e-6, ge=1e-12, le=1.0)
+
+
+class FreeIntervalRequest(BaseModel):
+    tool_key: str
+    raw_inputs: Dict[str, Any]
 
 
 class MmsRunResult(BaseModel):
@@ -130,6 +151,7 @@ class HealthResponse(BaseModel):
     status: str
     version: str
     precision_digits: int
+    interval_precision_digits: int
     cache: Dict[str, Any] = Field(default_factory=dict)
     model_version: str = ""
 
@@ -139,11 +161,13 @@ class HealthResponse(BaseModel):
 
 def _dict_to_schema(d: Dict[str, Any]) -> BoundedResultSchema:
     return BoundedResultSchema(
-        value=d.get("value", 0.0),
-        lower_bound=d.get("lower_bound", 0.0),
-        upper_bound=d.get("upper_bound", 0.0),
-        ulp_error_margin=d.get("ulp_error_margin", 0.0),
-        status=d.get("status", "UNKNOWN"),
+        value=d["value"],
+        lower_bound=d["lower_bound"],
+        upper_bound=d["upper_bound"],
+        ulp_error_margin=d["ulp_error_margin"],
+        status=d["status"],
+        exact_lower_bound=d["exact_lower_bound"],
+        exact_upper_bound=d["exact_upper_bound"],
     )
 
 
@@ -160,6 +184,7 @@ async def health_check() -> HealthResponse:
         status="ok",
         version="1.0.0",
         precision_digits=_mpmath.mp.dps,
+        interval_precision_digits=iv.dps,
         cache=engine.cache_stats,
         model_version=_MODEL_VERSION,
     )
@@ -210,25 +235,20 @@ async def calculate_npv(req: NpvRequest) -> NpvResponse:
             warnings=full.warnings,
         )
     except MathDomainError as e:
-        error = BoundedResultSchema(
-            value=0.0, lower_bound=0.0, upper_bound=0.0,
-            ulp_error_margin=0.0, status=f"MathDomainError: {e!s}",
-        )
-        return NpvResponse(
-            npv=error, irr=error, payback_years=error,
-            profitability_index=error, expanded_uncertainty=error,
-            decision=error, warnings=[f"Domain error: {e!s}"],
-        )
+        raise HTTPException(status_code=422, detail=f"Math domain error: {e!s}") from e
     except Exception as e:
-        error = BoundedResultSchema(
-            value=0.0, lower_bound=0.0, upper_bound=0.0,
-            ulp_error_margin=0.0, status=f"ERROR: {e!s}",
-        )
-        return NpvResponse(
-            npv=error, irr=error, payback_years=error,
-            profitability_index=error, expanded_uncertainty=error,
-            decision=error, warnings=[f"Calculation failed: {e!s}"],
-        )
+        raise HTTPException(status_code=500, detail="Math kernel calculation failed.") from e
+
+
+@app.post("/calculate/free-interval")
+async def calculate_free_interval(req: FreeIntervalRequest) -> Dict[str, Any]:
+    """Execute a certified Free transcendental model with exact outward bounds."""
+    try:
+        return execute_free_interval_model(req.tool_key, req.raw_inputs)
+    except FreeIntervalDomainError as exc:
+        raise HTTPException(status_code=422, detail=f"Interval domain error: {exc!s}") from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail="Free interval calculation failed.") from exc
 
 
 @app.post("/calculate/batch")
@@ -347,6 +367,8 @@ def _bounded_to_schema(b: BoundedResult) -> BoundedResultSchema:
         value=b.value, lower_bound=b.lower_bound,
         upper_bound=b.upper_bound, ulp_error_margin=b.ulp_error_margin,
         status=b.status,
+        exact_lower_bound=b.exact_lower_bound or repr(b.lower_bound),
+        exact_upper_bound=b.exact_upper_bound or repr(b.upper_bound),
     )
 
 if __name__ == "__main__":

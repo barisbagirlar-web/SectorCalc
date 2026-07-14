@@ -16,310 +16,109 @@ export interface AdapterContract {
   expectedOutputKeys: string[];
 }
 
-// ── 1. break-even-survival-cash-calculator ──
-export const breakEvenFormToSchemaMap: FormToSchemaMap = {
-  initial_investment: "initial_investment",
-  annual_net_cash_flow: "annual_net_cash_flow",
-  discount_rate: "discount_rate",
-  analysis_years: "analysis_years",
-  residual_value: "residual_value",
-  stress_downside_factor: "stress_downside_factor",
-  annual_volume: "annual_volume",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  defect_or_loss_cost: "defect_or_loss_cost",
-  source_confidence_ratio: "source_confidence_ratio",
-  uncertainty_multiplier: "uncertainty_multiplier",
-};
+function identityMap<const T extends readonly string[]>(ids: T): FormToSchemaMap {
+  return Object.freeze(Object.fromEntries(ids.map((id) => [id, id])));
+}
 
-// ── 2. machine-hourly-rate-proof-report ──
-export const machineHourlyFormToSchemaMap: FormToSchemaMap = {
-  machine_name: "machine_name",
-  purchase_price: "purchase_price",
-  useful_life_years: "useful_life_years",
-  annual_operating_hours: "annual_operating_hours",
-  maintenance_cost_pct: "maintenance_cost_pct",
-  floor_space_cost: "floor_space_cost",
-  power_consumption_kw: "power_consumption_kw",
-  electricity_rate: "electricity_rate",
-  tooling_cost: "tooling_cost",
-  labor_cost_per_hour: "labor_cost_per_hour",
-  overhead_rate: "overhead_rate",
-  operator_count: "operator_count",
-};
+const GENERIC_JOB_COST_INPUT_IDS = [
+  "machine_rate", "cycle_time", "setup_time", "batch_quantity", "material_cost", "target_margin",
+  "annual_volume", "labor_rate", "overhead_rate", "defect_or_loss_cost", "source_confidence_ratio",
+  "uncertainty_multiplier",
+] as const;
 
-// ── 3. loss-making-job-detector ──
-export const lossMakingJobFormToSchemaMap: FormToSchemaMap = {
-  material_cost: "material_cost",
-  labor_hours: "labor_hours",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  machine_cost: "machine_cost",
-  setup_cost: "setup_cost",
-  tooling_cost: "tooling_cost",
-  selling_price: "selling_price",
-  target_margin: "target_margin",
-  annual_volume: "annual_volume",
-  defect_rate: "defect_rate",
-  source_confidence: "source_confidence",
-};
+const INVESTMENT_INPUT_IDS = [
+  "initial_investment", "annual_net_cash_flow", "discount_rate", "analysis_years", "residual_value",
+  "stress_downside_factor", "annual_volume", "labor_rate", "overhead_rate", "defect_or_loss_cost",
+  "source_confidence_ratio", "uncertainty_multiplier",
+] as const;
 
-// ── 4. receivables-cost-payment-term-addendum ──
-export const receivablesCostFormToSchemaMap: FormToSchemaMap = {
-  average_receivable_balance: "average_receivable_balance",
-  annual_interest_rate: "annual_interest_rate",
-  average_collection_days: "average_collection_days",
-  invoice_volume: "invoice_volume",
-  cost_per_invoice: "cost_per_invoice",
-  discount_rate_early: "discount_rate_early",
-  early_payment_rate: "early_payment_rate",
-  bad_debt_rate: "bad_debt_rate",
-  days_early: "days_early",
-  overdue_penalty_rate: "overdue_penalty_rate",
-  overdue_rate: "overdue_rate",
-  source_confidence: "source_confidence",
-};
+export const breakEvenFormToSchemaMap = identityMap([
+  "initial_investment", "annual_net_cash_flow", "discount_rate", "analysis_years", "residual_value",
+  "stress_downside_factor", "labor_rate", "overhead_rate", "defect_or_loss_cost",
+  "source_confidence_ratio", "uncertainty_multiplier",
+] as const);
+export const machineHourlyFormToSchemaMap = identityMap([
+  "machine_rate", "cycle_time", "setup_time", "batch_quantity", "material_cost", "target_margin",
+  "annual_volume", "labor_rate", "overhead_rate", "source_confidence_ratio",
+] as const);
+export const lossMakingJobFormToSchemaMap = identityMap(GENERIC_JOB_COST_INPUT_IDS);
+export const receivablesCostFormToSchemaMap = identityMap([
+  "machine_rate", "cycle_time", "setup_time", "material_cost", "target_margin", "annual_volume",
+  "labor_rate", "defect_or_loss_cost", "source_confidence_ratio", "uncertainty_multiplier",
+] as const);
+export const setupTimeRoiFormToSchemaMap = identityMap([
+  "machine_rate", "cycle_time", "setup_time", "batch_quantity", "material_cost", "annual_volume",
+  "labor_rate", "overhead_rate", "source_confidence_ratio", "uncertainty_multiplier",
+] as const);
+export const productSkuFormToSchemaMap = identityMap([
+  "machine_rate", "cycle_time", "material_cost", "target_margin", "annual_volume", "labor_rate",
+  "overhead_rate", "defect_or_loss_cost", "source_confidence_ratio", "uncertainty_multiplier",
+] as const);
+export const trueEmployeeCostFormToSchemaMap = identityMap([
+  "machine_rate", "material_cost", "target_margin", "annual_volume", "labor_rate", "overhead_rate",
+  "defect_or_loss_cost", "source_confidence_ratio", "uncertainty_multiplier",
+] as const);
+export const jobQuoteFormToSchemaMap = identityMap(GENERIC_JOB_COST_INPUT_IDS);
+export const machineFeasibilityFormToSchemaMap = identityMap(INVESTMENT_INPUT_IDS);
+export const capitalEquipmentFormToSchemaMap = identityMap([
+  "initial_investment", "annual_net_cash_flow", "discount_rate", "analysis_years", "residual_value",
+  "stress_downside_factor", "source_confidence_ratio", "uncertainty_multiplier",
+] as const);
 
-// ── 5. setup-time-reduction-roi-smed ──
-export const setupTimeRoiFormToSchemaMap: FormToSchemaMap = {
-  current_setup_time_min: "current_setup_time_min",
-  target_setup_time_min: "target_setup_time_min",
-  setups_per_year: "setups_per_year",
-  labor_rate_per_hour: "labor_rate_per_hour",
-  overhead_rate_per_hour: "overhead_rate_per_hour",
-  lost_production_margin_per_hour: "lost_production_margin_per_hour",
-  implementation_cost: "implementation_cost",
-  annual_maintenance_cost: "annual_maintenance_cost",
-  project_life_years: "project_life_years",
-  discount_rate: "discount_rate",
-  defect_reduction_pct: "defect_reduction_pct",
-  source_confidence: "source_confidence",
-};
+export const customerSkuFormToSchemaMap = identityMap([
+  "unit_price", "unit_variable_cost", "annual_volume", "logistics_cost_pct", "service_cost_pct",
+  "return_rate_pct", "target_margin", "labor_rate", "overhead_rate", "source_confidence",
+] as const);
 
-// ── 6. product-sku-margin-ranker ──
-export const productSkuFormToSchemaMap: FormToSchemaMap = {
-  product_name: "product_name",
-  unit_price: "unit_price",
-  unit_cost: "unit_cost",
-  labor_per_unit: "labor_per_unit",
-  overhead_per_unit: "overhead_per_unit",
-  material_cost_per_unit: "material_cost_per_unit",
-  shipping_cost_per_unit: "shipping_cost_per_unit",
-  duty_cost_per_unit: "duty_cost_per_unit",
-  annual_volume: "annual_volume",
-  target_margin: "target_margin",
-  competitor_price: "competitor_price",
-  source_confidence: "source_confidence",
-};
+export const downtimeScrapFormToSchemaMap = identityMap([
+  "productive_hours", "actual_hours", "hourly_rate", "scrap_quantity", "unit_cost", "rework_hours",
+  "rework_rate", "material_cost", "defect_rate_pct", "source_confidence",
+] as const);
 
-// ── 7. true-employee-cost-statement ──
-export const trueEmployeeCostFormToSchemaMap: FormToSchemaMap = {
-  employee_name: "employee_name",
-  base_salary: "base_salary",
-  bonus_target_pct: "bonus_target_pct",
-  employer_tax_pct: "employer_tax_pct",
-  benefits_cost: "benefits_cost",
-  training_cost: "training_cost",
-  equipment_cost: "equipment_cost",
-  overhead_allocation: "overhead_allocation",
-  productive_hours_per_year: "productive_hours_per_year",
-  billable_target_pct: "billable_target_pct",
-  turnover_risk_pct: "turnover_risk_pct",
-  source_confidence: "source_confidence",
-};
+export const oeeLossFormToSchemaMap = identityMap([
+  "planned_production_time", "operating_time", "ideal_cycle_time", "total_parts", "good_parts",
+  "hourly_contribution", "improvement_cost", "source_confidence",
+] as const);
 
-// ── 8. job-quote-builder-pro-pack ──
-export const jobQuoteFormToSchemaMap: FormToSchemaMap = {
-  material_cost: "material_cost",
-  labor_hours: "labor_hours",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  machine_hours: "machine_hours",
-  machine_rate: "machine_rate",
-  setup_cost: "setup_cost",
-  tooling_cost: "tooling_cost",
-  markup_pct: "markup_pct",
-  contingency_pct: "contingency_pct",
-  annual_volume: "annual_volume",
-  source_confidence: "source_confidence",
-};
+export const scrapReworkFormToSchemaMap = identityMap([
+  "total_produced", "scrap_quantity", "rework_quantity", "unit_material_cost", "unit_labor_cost",
+  "rework_labor_rate", "rework_time_per_unit", "defect_rate_target", "monthly_volume", "source_confidence",
+] as const);
 
-// ── 9. machine-investment-feasibility-buy-lease-keep ──
-export const machineFeasibilityFormToSchemaMap: FormToSchemaMap = {
-  initial_investment: "initial_investment",
-  annual_net_cash_flow: "annual_net_cash_flow",
-  discount_rate: "discount_rate",
-  analysis_years: "analysis_years",
-  residual_value: "residual_value",
-  stress_downside_factor: "stress_downside_factor",
-  annual_volume: "annual_volume",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  defect_or_loss_cost: "defect_or_loss_cost",
-  source_confidence_ratio: "source_confidence_ratio",
-  uncertainty_multiplier: "uncertainty_multiplier",
-};
+export const outsourceFormToSchemaMap = identityMap([
+  "in_house_material_cost", "in_house_labor_cost", "in_house_overhead", "in_house_setup_cost",
+  "outsource_unit_price", "outsource_logistics", "annual_volume", "quality_risk_premium",
+  "source_confidence",
+] as const);
 
-// ── 10. capital-equipment-investment-appraisal-npv-irr ──
-export const capitalEquipmentFormToSchemaMap: FormToSchemaMap = {
-  initial_investment: "initial_investment",
-  annual_net_cash_flow: "annual_net_cash_flow",
-  discount_rate: "discount_rate",
-  analysis_years: "analysis_years",
-  residual_value: "residual_value",
-  stress_downside_factor: "stress_downside_factor",
-  annual_volume: "annual_volume",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  defect_or_loss_cost: "defect_or_loss_cost",
-  source_confidence_ratio: "source_confidence_ratio",
-  uncertainty_multiplier: "uncertainty_multiplier",
-};
+export const plantWideFormToSchemaMap = identityMap([
+  "total_annual_cost", "total_productive_hours", "machine_group_cost", "machine_group_hours",
+  "overhead_pool", "overhead_allocation_base", "current_shop_rate", "target_margin_pct",
+  "utilization_pct", "source_confidence",
+] as const);
 
-// ── 11. customer-sku-profitability-forensics ──
-export const customerSkuFormToSchemaMap: FormToSchemaMap = {
-  contribution_margin: "contribution_margin",
-  unit_price: "unit_price",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  target_margin: "target_margin",
-  annual_volume: "annual_volume",
-  logistics_burden: "logistics_burden",
-  service_burden: "service_burden",
-  return_burden: "return_burden",
-  source_confidence_ratio: "source_confidence_ratio",
-};
+export const fxCommodityFormToSchemaMap = identityMap([
+  "base_price", "fx_rate_spot", "fx_rate_budget", "commodity_index_current", "commodity_index_budget",
+  "material_cost_pct", "fx_hedge_pct", "commodity_hedge_pct", "annual_volume", "source_confidence",
+] as const);
 
-// ── 12. downtime-scrap-loss-statement ──
-export const downtimeScrapFormToSchemaMap: FormToSchemaMap = {
-  machine_hourly_rate: "machine_hourly_rate",
-  downtime_hours: "downtime_hours",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  scrap_quantity: "scrap_quantity",
-  scrap_cost_per_unit: "scrap_cost_per_unit",
-  rework_hours: "rework_hours",
-  rework_labor_rate: "rework_labor_rate",
-  annual_volume: "annual_volume",
-  source_confidence_ratio: "source_confidence_ratio",
-};
+export const energyEfficiencyFormToSchemaMap = identityMap([
+  "current_kwh_per_year", "target_kwh_per_year", "avg_kwh_rate", "implementation_cost",
+  "grant_coverage_pct", "maintenance_saving", "emission_factor", "equipment_life_years",
+  "discount_rate", "source_confidence",
+] as const);
 
-// ── 13. oee-loss-monetization-improvement-business-case ──
-export const oeeLossFormToSchemaMap: FormToSchemaMap = {
-  machine_hourly_rate: "machine_hourly_rate",
-  downtime_hours: "downtime_hours",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  scrap_quantity: "scrap_quantity",
-  scrap_cost_per_unit: "scrap_cost_per_unit",
-  rework_hours: "rework_hours",
-  rework_labor_rate: "rework_labor_rate",
-  annual_volume: "annual_volume",
-  source_confidence_ratio: "source_confidence_ratio",
-};
+export const motorCompressorFormToSchemaMap = identityMap([
+  "motor_power_kw", "annual_operating_hours", "current_efficiency_pct", "new_efficiency_pct",
+  "avg_kwh_rate", "replacement_cost", "installation_cost", "maintenance_saving_yr",
+  "equipment_life_years", "discount_rate", "source_confidence",
+] as const);
 
-// ── 14. scrap-rework-cost-tracker ──
-export const scrapReworkFormToSchemaMap: FormToSchemaMap = {
-  machine_hourly_rate: "machine_hourly_rate",
-  downtime_hours: "downtime_hours",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  scrap_quantity: "scrap_quantity",
-  scrap_cost_per_unit: "scrap_cost_per_unit",
-  rework_hours: "rework_hours",
-  rework_labor_rate: "rework_labor_rate",
-  annual_volume: "annual_volume",
-  source_confidence_ratio: "source_confidence_ratio",
-};
-
-// ── 15. outsource-vs-in-house-analyzer ──
-export const outsourceFormToSchemaMap: FormToSchemaMap = {
-  in_house_cost_per_unit: "in_house_cost_per_unit",
-  outsource_cost_per_unit: "outsource_cost_per_unit",
-  annual_volume: "annual_volume",
-  switching_cost: "switching_cost",
-  quality_defect_rate_in_house: "quality_defect_rate_in_house",
-  quality_defect_rate_outsource: "quality_defect_rate_outsource",
-  lead_time_days_in_house: "lead_time_days_in_house",
-  lead_time_days_outsource: "lead_time_days_outsource",
-  strategic_importance: "strategic_importance",
-  source_confidence: "source_confidence",
-};
-
-// ── 16. plant-wide-shop-rate-cost-structure-audit ──
-export const plantWideFormToSchemaMap: FormToSchemaMap = {
-  machine_hourly_rate: "machine_hourly_rate",
-  downtime_hours: "downtime_hours",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  scrap_quantity: "scrap_quantity",
-  scrap_cost_per_unit: "scrap_cost_per_unit",
-  rework_hours: "rework_hours",
-  rework_labor_rate: "rework_labor_rate",
-  annual_volume: "annual_volume",
-  source_confidence_ratio: "source_confidence_ratio",
-};
-
-// ── 17. fx-commodity-pass-through-pricer ──
-export const fxCommodityFormToSchemaMap: FormToSchemaMap = {
-  contribution_margin: "contribution_margin",
-  unit_price: "unit_price",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  target_margin: "target_margin",
-  annual_volume: "annual_volume",
-  logistics_burden: "logistics_burden",
-  service_burden: "service_burden",
-  return_burden: "return_burden",
-  source_confidence_ratio: "source_confidence_ratio",
-};
-
-// ── 18. energy-efficiency-grant-incentive-feasibility-pack ──
-export const energyEfficiencyFormToSchemaMap: FormToSchemaMap = {
-  machine_hourly_rate: "machine_hourly_rate",
-  downtime_hours: "downtime_hours",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  scrap_quantity: "scrap_quantity",
-  scrap_cost_per_unit: "scrap_cost_per_unit",
-  rework_hours: "rework_hours",
-  rework_labor_rate: "rework_labor_rate",
-  annual_volume: "annual_volume",
-  source_confidence_ratio: "source_confidence_ratio",
-};
-
-// ── 19. motor-compressor-replacement-roi ──
-export const motorCompressorFormToSchemaMap: FormToSchemaMap = {
-  machine_name: "machine_name",
-  current_energy_kwh: "current_energy_kwh",
-  new_energy_kwh: "new_energy_kwh",
-  operating_hours: "operating_hours",
-  electricity_rate: "electricity_rate",
-  equipment_cost: "equipment_cost",
-  installation_cost: "installation_cost",
-  annual_maintenance_saving: "annual_maintenance_saving",
-  useful_life_years: "useful_life_years",
-  discount_rate: "discount_rate",
-  source_confidence_ratio: "source_confidence_ratio",
-};
-
-// ── 20. weld-procedure-cost-consumable-estimation-suite ──
-export const weldFormToSchemaMap: FormToSchemaMap = {
-  weld_length_m: "weld_length_m",
-  weld_throat_mm: "weld_throat_mm",
-  weld_density: "weld_density",
-  wire_cost_per_kg: "wire_cost_per_kg",
-  shielding_gas_cost_per_min: "shielding_gas_cost_per_min",
-  arc_time_min: "arc_time_min",
-  weld_time_min: "weld_time_min",
-  labor_rate_per_hour: "labor_rate_per_hour",
-  shop_overhead_rate_per_hour: "shop_overhead_rate_per_hour",
-  deposition_efficiency_pct: "deposition_efficiency_pct",
-  material: "material",
-  source_confidence: "source_confidence",
-  planned_quote: "planned_quote",
-  contingency_pct: "contingency_pct",
-};
+export const weldFormToSchemaMap = identityMap([
+  "weld_length_m", "weld_throat_mm", "weld_density", "wire_cost_per_kg", "gas_cost_per_min",
+  "arc_time_min", "weld_time_min", "labor_rate", "overhead_rate", "deposition_efficiency",
+  "source_confidence",
+] as const);
 
 // ── Registry: slug → FormToSchemaMap ──
 export const formToSchemaMapRegistry: Record<string, FormToSchemaMap> = {
@@ -353,8 +152,10 @@ export function getFormToSchemaMap(slug: string): FormToSchemaMap | null {
 // Transforms form state + selected units into the API execute request payload.
 // Uses the explicit formToSchemaInputMap to ensure every form field maps to the correct schema input ID.
 
-export interface AdapterInput {
-  formState: Record<string, string | number | boolean | null>;
+type AdapterValue = string | number | boolean | null;
+
+export interface AdapterInput<TValue extends AdapterValue = AdapterValue> {
+  formState: Record<string, TValue>;
   selectedUnits: Record<string, string>;
   toolKey: string;
   toolId: string;
@@ -368,12 +169,12 @@ export interface AdapterInput {
   clientSchemaHash?: string;
 }
 
-export interface AdapterPayload {
+export interface AdapterPayload<TValue extends AdapterValue = AdapterValue> {
   tool_key: string;
   tool_id: string;
   schema_version: string;
   usageSessionId?: string | null;
-  raw_inputs: Record<string, string | number | boolean | null>;
+  raw_inputs: Record<string, TValue>;
   selected_units: Record<string, string>;
   output_units?: Record<string, string>;
   display_currency?: string | null;
@@ -382,33 +183,40 @@ export interface AdapterPayload {
   client_schema_hash?: string;
 }
 
-export function buildExecutePayload(input: AdapterInput): AdapterPayload {
+export function buildExecutePayload<TValue extends AdapterValue>(
+  input: AdapterInput<TValue>,
+): AdapterPayload<TValue> {
   const { formState, selectedUnits, toolKey, toolId, schemaVersion, usageSessionId, formToSchemaMap } = input;
 
-  // Map form state keys → schema input IDs using the explicit mapping
-  const raw_inputs: Record<string, string | number | boolean | null> = {};
+  const mappingEntries = Object.entries(formToSchemaMap);
+  if (mappingEntries.length === 0) {
+    throw new Error(`FORM_SCHEMA_MAP_EMPTY:${toolKey}`);
+  }
+
+  const mappedFormIds = new Set(mappingEntries.map(([formFieldId]) => formFieldId));
+  const mappedSchemaIds = mappingEntries.map(([, schemaInputId]) => schemaInputId);
+  if (new Set(mappedSchemaIds).size !== mappedSchemaIds.length) {
+    throw new Error(`FORM_SCHEMA_MAP_NON_BIJECTIVE:${toolKey}`);
+  }
+
+  const unknownFormIds = Object.keys(formState).filter((id) => !mappedFormIds.has(id));
+  const unknownUnitIds = Object.keys(selectedUnits).filter((id) => !mappedFormIds.has(id));
+  if (unknownFormIds.length > 0 || unknownUnitIds.length > 0) {
+    throw new Error(
+      `FORM_SCHEMA_CONTRACT_VIOLATION:${toolKey}:` +
+      `form=[${unknownFormIds.join(",")}]:units=[${unknownUnitIds.join(",")}]`,
+    );
+  }
+
+  const raw_inputs: Record<string, TValue> = {};
   const selected_units: Record<string, string> = {};
 
-  for (const [formFieldId, schemaInputId] of Object.entries(formToSchemaMap)) {
+  for (const [formFieldId, schemaInputId] of mappingEntries) {
     if (formFieldId in formState) {
       raw_inputs[schemaInputId] = formState[formFieldId];
     }
-    // Map selected_units: if the selectedUnits use formFieldId, convert to schemaInputId
     if (formFieldId in selectedUnits) {
       selected_units[schemaInputId] = selectedUnits[formFieldId];
-    }
-  }
-
-  // Also carry over any schemaInputId keys directly present in formState/selectedUnits
-  // (the form uses schema input IDs as state keys, so this handles the identity mapping)
-  for (const [key, value] of Object.entries(formState)) {
-    if (!(key in raw_inputs)) {
-      raw_inputs[key] = value;
-    }
-  }
-  for (const [key, value] of Object.entries(selectedUnits)) {
-    if (!(key in selected_units)) {
-      selected_units[key] = value;
     }
   }
 

@@ -15,11 +15,59 @@ on:
     branches: [main]
     paths:
       - "math-kernel/**"
+      - "src/sectorcalc/formulas/free-v531/**"
+      - "src/sectorcalc/formulas/pro-v531/**"
+      - "src/sectorcalc/schemas/**"
+      - "src/sectorcalc/free-tools/free-tools-manifest.ts"
+      - "src/sectorcalc/runtime/active-tool-allowlist.ts"
+      - "src/sectorcalc/runtime/calculation-production-readiness.ts"
+      - "src/sectorcalc/runtime/pro-calculation-contract-overrides.ts"
+      - "src/sectorcalc/runtime/pro-schema-loader.ts"
+      - "src/sectorcalc/pro-form/**"
+      - "src/sectorcalc/pro-report/pro-report-contract-registry.ts"
+      - "src/app/api/pro-calculator/execute/route.ts"
+      - "src/app/api/tool-execute/route.ts"
+      - "tests/free-tools/**"
+      - "tests/pro-calculation-correctness/**"
+      - "tests/pro-v2/**"
+      - "tests/golden/free-v531/**"
+      - "tests/golden/hashes/free-v531/**"
+      - "tests/fixtures/pro-calculation-reference/**"
+      - "scripts/audit-premium-runtime.ts"
+      - "scripts/guard-active-tool-allowlist.mjs"
+      - "scripts/guard-pro-v2-*.mjs"
+      - "scripts/run-golden-tests.ts"
+      - "package.json"
+      - "package-lock.json"
       - ".github/workflows/math_verification.yml"
   pull_request:
     branches: [main]
     paths:
       - "math-kernel/**"
+      - "src/sectorcalc/formulas/free-v531/**"
+      - "src/sectorcalc/formulas/pro-v531/**"
+      - "src/sectorcalc/schemas/**"
+      - "src/sectorcalc/free-tools/free-tools-manifest.ts"
+      - "src/sectorcalc/runtime/active-tool-allowlist.ts"
+      - "src/sectorcalc/runtime/calculation-production-readiness.ts"
+      - "src/sectorcalc/runtime/pro-calculation-contract-overrides.ts"
+      - "src/sectorcalc/runtime/pro-schema-loader.ts"
+      - "src/sectorcalc/pro-form/**"
+      - "src/sectorcalc/pro-report/pro-report-contract-registry.ts"
+      - "src/app/api/pro-calculator/execute/route.ts"
+      - "src/app/api/tool-execute/route.ts"
+      - "tests/free-tools/**"
+      - "tests/pro-calculation-correctness/**"
+      - "tests/pro-v2/**"
+      - "tests/golden/free-v531/**"
+      - "tests/golden/hashes/free-v531/**"
+      - "tests/fixtures/pro-calculation-reference/**"
+      - "scripts/audit-premium-runtime.ts"
+      - "scripts/guard-active-tool-allowlist.mjs"
+      - "scripts/guard-pro-v2-*.mjs"
+      - "scripts/run-golden-tests.ts"
+      - "package.json"
+      - "package-lock.json"
       - ".github/workflows/math_verification.yml"
   workflow_dispatch:
   schedule:
@@ -34,11 +82,55 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  CI: "true"                       # Hypothesis deterministic profile (Phase.explicit + Phase.reuse only)
+  CI: "true"                       # Deterministic generated Hypothesis examples
   MATH_STRICT_MODE: "1"
   PYTHONUNBUFFERED: "1"
 
 jobs:
+  calculation-correctness-gate:
+    name: Certified Free + Pro Calculation Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Type-check calculation contracts
+        run: npx tsc --noEmit --incremental false
+
+      - name: Run independent Free and Pro verification suites
+        run: >-
+          npx vitest run
+          tests/free-tools/certified-free-tools.property.test.ts
+          tests/free-tools/certified-free-interval-client.test.ts
+          tests/free-tools/all-free-tools-golden.test.ts
+          tests/pro-calculation-correctness
+          src/sectorcalc/runtime/__tests__/v531-architecture.test.ts
+          tests/pro-v531-live-execution
+          tests/pro-v531-baris/productization.test.ts
+          tests/pro-v531-baris/entitlement-guard.test.ts
+          tests/pro-v2/form-api-formula-pipeline.test.ts
+          tests/pro-v2/tool-specific-report-isolation.test.ts
+
+      - name: Enforce certification, adapter, and golden release contracts
+        run: |
+          npm run guard:active-tools
+          npm run audit:runtime
+          npm run test:golden:free-v531
+          npm run guard:pro-v2-all-extended
+
   interval-arithmetic-gate:
     name: Interval Arithmetic + MMS Gate
     runs-on: ubuntu-latest
@@ -66,18 +158,19 @@ jobs:
       - name: Generate MMS test suite
         run: |
           cd math-kernel
-          python -c "
-from mms_generator import MmsSuiteGenerator, export_suite_to_json
-suite = MmsSuiteGenerator.generate_suite()
-path = export_suite_to_json('mms_suite.json')
-print(f'MMS Suite generated: {path}')
-print(f'  Total cases: {len(suite)}')
-categories = set(tc.category for tc in suite)
-print(f'  Categories: {categories}')
-for tc in suite:
-    has_exact = 'EXACT' if tc.exact_analytical_result is not None else 'SELF-CONSISTENCY'
-    print(f'    [{tc.category:6s}] {tc.name:45s} {has_exact}  tol={tc.tolerance:.0e}')
-"
+          python - <<'PY'
+          from mms_generator import MmsSuiteGenerator, export_suite_to_json
+
+          suite = MmsSuiteGenerator.generate_suite()
+          path = export_suite_to_json('mms_suite.json')
+          print(f'MMS Suite generated: {path}')
+          print(f'  Total cases: {len(suite)}')
+          categories = set(tc.category for tc in suite)
+          print(f'  Categories: {categories}')
+          for tc in suite:
+              has_exact = 'EXACT' if tc.exact_analytical_result is not None else 'SELF-CONSISTENCY'
+              print(f'    [{tc.category:6s}] {tc.name:45s} {has_exact}  tol={tc.tolerance:.0e}')
+          PY
           cat mms_suite.json | python -m json.tool | head -10
 
       - name: Run interval arithmetic pytest with strict bounds
@@ -114,30 +207,32 @@ for tc in suite:
       - name: Verify MMS suite passes all core tests
         run: |
           cd math-kernel
-          python -c "
-import json, sys
-with open('mms_suite.json') as f:
-    suite = json.load(f)
-print(f'Suite version: {suite[\"version\"]}')
-print(f'Total cases: {suite[\"total_cases\"]}')
+          python - <<'PY'
+          import json
+          import sys
 
-# Verify each case has required fields
-required = {'name', 'description', 'inputs', 'exact_analytical_result', 'tolerance',
-            'analytical_formula', 'category'}
-for case in suite['cases']:
-    missing = required - set(case.keys())
-    if missing:
-        print(f'FAIL: Case \"{case[\"name\"]}\" missing: {missing}')
-        sys.exit(1)
+          with open('mms_suite.json') as file:
+              suite = json.load(file)
+          print(f'Suite version: {suite["version"]}')
+          print(f'Total cases: {suite["total_cases"]}')
 
-# Verify core cases have exact analytical results
-for case in suite['cases']:
-    if case['category'] == 'core' and case['exact_analytical_result'] is None:
-        print(f'FAIL: Core case \"{case[\"name\"]}\" missing exact_analytical_result')
-        sys.exit(1)
+          required = {
+              'name', 'description', 'inputs', 'exact_analytical_result',
+              'tolerance', 'analytical_formula', 'category',
+          }
+          for case in suite['cases']:
+              missing = required - set(case.keys())
+              if missing:
+                  print(f'FAIL: Case "{case["name"]}" missing: {missing}')
+                  sys.exit(1)
 
-print('ALL MMS SUITE CHECKS PASSED')
-"
+          for case in suite['cases']:
+              if case['category'] == 'core' and case['exact_analytical_result'] is None:
+                  print(f'FAIL: Core case "{case["name"]}" missing exact_analytical_result')
+                  sys.exit(1)
+
+          print('ALL MMS SUITE CHECKS PASSED')
+          PY
       - name: Block deployment on interval breach
         if: failure()
         run: |

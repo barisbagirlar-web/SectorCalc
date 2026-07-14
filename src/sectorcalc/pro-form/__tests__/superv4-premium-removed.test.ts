@@ -30,8 +30,8 @@ describe("PremiumSchemaToolForm completely removed", () => {
   it("1. no source file imports PremiumSchemaToolForm", () => {
     const matches: string[] = [];
     for (const file of sourceFiles) {
-      // Skip the test file itself
-      if (file.endsWith("superv4-premium-removed.test.ts")) continue;
+      // Test guards may name forbidden legacy components as test data.
+      if (file.includes("/__tests__/")) continue;
       const content = readFileSync(file, "utf-8");
       if (content.includes("PremiumSchemaToolForm")) {
         matches.push(file);
@@ -72,6 +72,6 @@ describe("PremiumSchemaToolForm completely removed", () => {
         }
       }
     }
-    expect(pages.length).toBeGreaterThanOrEqual(5);
+    expect(pages).toContain("src/components/tools/PremiumToolPage.tsx");
   });
 });

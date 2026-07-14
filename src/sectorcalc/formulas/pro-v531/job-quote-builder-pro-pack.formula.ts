@@ -1,75 +1,89 @@
 import "server-only";
+
+import {
+  JOB_QUOTE_ARITHMETIC_MODE,
+  JOB_QUOTE_FORMULA_VERSION,
+  JOB_QUOTE_MODEL_ID,
+  evaluateJobQuote,
+} from "./job-quote-core";
+import { decimalToPresentationNumber, domainErrorMessage, isCanonicalDecimalSource, type Decimal, type DecimalSource } from "./pro-decimal-domain";
+import type { ProFormulaResult } from "./pro-formula-contract";
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
-
 export const toolKey = "job-quote-builder-pro-pack";
-export const formulaVersion = "5.3.1-pro-baris.2";
-
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
-
+export const formulaVersion = JOB_QUOTE_FORMULA_VERSION;
+export const arithmeticMode = JOB_QUOTE_ARITHMETIC_MODE;
+export const modelId = JOB_QUOTE_MODEL_ID;
+export const verificationEvidenceId = "tests/pro-calculation-correctness/job-quote.property.test.ts";
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
+const REQUIRED = [
+  "n_machine_rate", "n_cycle_time", "n_setup_time", "n_batch_quantity",
+  "n_material_cost", "n_target_margin", "n_annual_volume", "n_labor_rate",
+  "n_overhead_rate", "n_defect_or_loss_cost", "n_source_confidence_ratio",
+  "n_uncertainty_multiplier",
+] as const;
+
+function blocked(warnings: string[]): ProFormulaResult {
+  return { status: "BLOCKED", outputs: {}, decimalOutputs: {}, warnings, outputKeys: [], redaction_status: "PUBLIC_SAFE_REDACTED" };
+}
+
+export function calculate(inputs: Record<string, DecimalSource>): ProFormulaResult {
+  const invalid = REQUIRED.filter((key) => !isCanonicalDecimalSource(inputs[key]));
+  if (invalid.length > 0) return blocked([`Missing or non-finite normalized inputs: ${invalid.join(", ")}.`]);
+  const evaluated = evaluateJobQuote({
+    machineRatePerHour: inputs.n_machine_rate,
+    cycleSecondsPerUnit: inputs.n_cycle_time,
+    setupSecondsPerJob: inputs.n_setup_time,
+    jobQuantity: inputs.n_batch_quantity,
+    materialCostPerUnit: inputs.n_material_cost,
+    targetGrossMarginRatio: inputs.n_target_margin,
+    annualVolume: inputs.n_annual_volume,
+    laborRatePerHour: inputs.n_labor_rate,
+    annualOverheadPool: inputs.n_overhead_rate,
+    otherDirectJobCost: inputs.n_defect_or_loss_cost,
+    sourceConfidenceRatio: inputs.n_source_confidence_ratio,
+    uncertaintyCoverageMultiplier: inputs.n_uncertainty_multiplier,
+  });
+  if (!evaluated.ok) return blocked([domainErrorMessage(evaluated.error)]);
+  const value = evaluated.value;
+  const exact: Array<readonly [string, Decimal]> = [
+    ["out_setup_seconds_per_unit", value.setupSecondsPerUnit],
+    ["out_effective_seconds_per_unit", value.effectiveSecondsPerUnit],
+    ["out_machine_cost_per_unit", value.machineCostPerUnit],
+    ["out_labor_cost_per_unit", value.laborCostPerUnit],
+    ["out_overhead_cost_per_unit", value.overheadCostPerUnit],
+    ["out_material_cost_per_unit", value.materialCostPerUnit],
+    ["out_other_direct_cost_per_unit", value.otherDirectCostPerUnit],
+    ["out_fully_loaded_cost_per_unit", value.fullyLoadedCostPerUnit],
+    ["out_fully_loaded_job_cost", value.fullyLoadedJobCost],
+    ["out_target_quote_per_unit", value.targetQuotePerUnit],
+    ["out_target_quote_total", value.targetQuoteTotal],
+    ["out_gross_profit_per_unit", value.grossProfitPerUnit],
+    ["out_gross_profit_total", value.grossProfitTotal],
+    ["out_achieved_gross_margin_ratio", value.achievedGrossMarginRatio],
+    ["out_source_confidence_ratio", value.sourceConfidenceRatio],
+    ["out_cost_uncertainty_per_unit", value.costUncertaintyPerUnit],
+    ["out_cost_lower_bound_per_unit", value.costLowerBoundPerUnit],
+    ["out_cost_upper_bound_per_unit", value.costUpperBoundPerUnit],
+    ["out_quote_lower_bound_per_unit", value.quoteLowerBoundPerUnit],
+    ["out_quote_upper_bound_per_unit", value.quoteUpperBoundPerUnit],
+  ];
   const outputs: Record<string, number> = {};
-
-
-  const mr = get(inputs, "n_machine_rate");
-  const ct = get(inputs, "n_cycle_time");
-  const st = get(inputs, "n_setup_time");
-  const mc = get(inputs, "n_material_cost");
-  const tm = get(inputs, "n_target_margin");
-  const bq = get(inputs, "n_batch_quantity");
-  const vol = get(inputs, "n_annual_volume");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
-  const dc = get(inputs, "n_defect_or_loss_cost");
-  const conf = get(inputs, "n_source_confidence_ratio");
-  const unc = get(inputs, "n_uncertainty_multiplier");
-  const tc = ct + st;
-  const lc = lr * tc / 3600;
-  const mac = mr * tc / 3600;
-  const sc = dc * (1 - conf);
-  const oa = vol > 0 ? oh / vol * bq : 0;
-  const tjc = lc + mac + mc * bq + sc + oa;
-  const mu = 1 + tm;
-  const rp = tjc * mu;
-  const ra = rp * (1 + unc * (1 - conf));
-  const mp = ra > 0 ? (ra - tjc) / ra : 0;
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(tjc, 2);
-  outputs["out_demand_metric"] = round(tjc, 2);
-  outputs["out_capacity_metric"] = round(rp, 2);
-  outputs["out_utilization_margin"] = round(mp, 4);
-  outputs["out_money_at_risk"] = round(Math.max(0, tjc * (tm - mp)), 2);
-  outputs["out_threshold_crossing"] = mp >= tm ? 0 : 1;
-  outputs["out_fmea_trigger"] = mp < tm * 0.5 ? 1 : 0;
-  outputs["out_final_decision_state"] = mp >= tm ? 0 : (mp >= tm * 0.5 ? 1 : 2);
-  outputs["out_reference_deviation"] = round(Math.abs(rp - tjc) / (tjc || 1), 4);
-  outputs["out_derating_factor"] = round(conf, 4);
-  outputs["out_expanded_uncertainty"] = round(ra - rp, 4);
-  outputs["out_sensitivity_driver"] = lc > mac ? 1 : 0;
-  outputs["out_scenario_delta"] = round(Math.abs(tjc * unc * (1 - conf)), 2);
-  outputs["out_audit_hash_payload"] = 0;
-
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return {
-    status: ok ? "OK" : "REVIEW",
-    outputs,
-    warnings: warnings.length ? warnings : [],
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
-  };
+  const decimalOutputs: Record<string, string> = {};
+  for (const [id, exactValue] of exact) {
+    const presented = decimalToPresentationNumber(exactValue, id);
+    if (!presented.ok) return blocked([domainErrorMessage(presented.error)]);
+    outputs[id] = presented.value;
+    decimalOutputs[id] = exactValue.toString();
+  }
+  outputs.out_primary_unit_cost_driver = value.primaryUnitCostDriver;
+  outputs.out_decision_state = value.decisionState;
+  decimalOutputs.out_primary_unit_cost_driver = String(value.primaryUnitCostDriver);
+  decimalOutputs.out_decision_state = String(value.decisionState);
+  const warnings = value.decisionState === 2
+    ? ["Combined quote-cost uncertainty exceeds 25%; hold commercial release and strengthen evidence."]
+    : value.decisionState === 1 ? ["Combined quote-cost uncertainty exceeds 10%; review the quote before release."] : [];
+  return { status: warnings.length > 0 ? "REVIEW" : "OK", outputs, decimalOutputs, warnings,
+    outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
 }

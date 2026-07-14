@@ -28,6 +28,7 @@ from cachetools import TTLCache
 from mpmath import iv
 
 from math_models import get_model, validate_registry, MODEL_VERSION
+from interval_engine import interval_bounds_payload
 
 # ---------------------------------------------------------------------------
 # Precision
@@ -35,6 +36,7 @@ from math_models import get_model, validate_registry, MODEL_VERSION
 
 mp.mp.dps = 50
 mp.mp.pretty = False
+iv.dps = 50
 
 # ---------------------------------------------------------------------------
 # Domain Error
@@ -185,19 +187,8 @@ class EliteIntervalEngine:
             )
 
         # 6. Build output
-        if width > max_interval_width:
-            status = "WIDE_INTERVAL"
-        else:
-            status = "VERIFIED"
-
-        output = {
-            "value": float(result_iv.mid),
-            "lower_bound": float(result_iv.a),
-            "upper_bound": float(result_iv.b),
-            "ulp_error_margin": float(width / 2),
-            "status": status,
-            "model_version": MODEL_VERSION,
-        }
+        output = interval_bounds_payload(result_iv, max_interval_width)
+        output["model_version"] = MODEL_VERSION
 
         # 7. Store in cache
         self._cache[cache_key] = output
