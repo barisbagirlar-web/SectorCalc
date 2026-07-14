@@ -55,6 +55,22 @@ function assertEqualHeights(boxes, indexes, label, tolerance = 2) {
   assert(delta <= tolerance, `${label}: height delta ${delta.toFixed(2)}px exceeds ${tolerance}px`);
 }
 
+function controlGap(first, second) {
+  const horizontalOverlap = Math.min(first.right, second.right) - Math.max(first.left, second.left);
+  const verticalOverlap = Math.min(first.bottom, second.bottom) - Math.max(first.top, second.top);
+
+  if (verticalOverlap > 0) {
+    return Math.max(second.left - first.right, first.left - second.right, 0);
+  }
+  if (horizontalOverlap > 0) {
+    return Math.max(second.top - first.bottom, first.top - second.bottom, 0);
+  }
+
+  const horizontalGap = Math.max(second.left - first.right, first.left - second.right, 0);
+  const verticalGap = Math.max(second.top - first.bottom, first.top - second.bottom, 0);
+  return Math.hypot(horizontalGap, verticalGap);
+}
+
 async function readBoxes(locator) {
   return locator.evaluateAll((elements) => elements.map((element) => {
     const rect = element.getBoundingClientRect();
@@ -206,8 +222,8 @@ try {
 
       const primaryBox = await primaryCta.boundingBox();
       const secondaryBox = await secondaryCta.boundingBox();
-      assert(primaryBox && primaryBox.height >= 44, `${profile.name}: primary CTA touch target is below 44px`);
-      assert(secondaryBox && secondaryBox.height >= 44, `${profile.name}: secondary CTA touch target is below 44px`);
+      assert(primaryBox && primaryBox.width >= 48 && primaryBox.height >= 48, `${profile.name}: primary CTA touch target is below 48x48px`);
+      assert(secondaryBox && secondaryBox.width >= 48 && secondaryBox.height >= 48, `${profile.name}: secondary CTA touch target is below 48x48px`);
       assert(primaryBox.y + primaryBox.height <= profile.height + 1, `${profile.name}: primary CTA is outside the initial viewport`);
 
       const primaryStyles = await primaryCta.evaluate((element) => {
@@ -256,7 +272,7 @@ try {
         };
       });
       assert(proPrimaryStyles.text.length > 0, `${profile.name}: Pro primary CTA is blank`);
-      assert(proPrimaryStyles.width > 80 && proPrimaryStyles.height >= 44, `${profile.name}: Pro primary CTA geometry is invalid`);
+      assert(proPrimaryStyles.width >= 48 && proPrimaryStyles.height >= 48, `${profile.name}: Pro primary CTA geometry is below 48x48px`);
       const proPrimaryCtaRatio = contrastRatio(
         parseRgb(proPrimaryStyles.color),
         parseRgb(proPrimaryStyles.backgroundColor),
@@ -277,8 +293,34 @@ try {
       }));
       for (const button of buttonAudit) {
         assert(button.text.length > 0, `${profile.name}: blank homepage button detected`);
-        assert(button.width > 0 && button.height >= 44, `${profile.name}: invalid button geometry for ${button.text}`);
+        assert(button.width >= 48 && button.height >= 48, `${profile.name}: invalid 48x48px button geometry for ${button.text}`);
         assert(button.display !== "none" && button.visibility === "visible" && button.opacity >= 0.99, `${profile.name}: hidden button detected for ${button.text}`);
+      }
+
+      const actionRowControls = await page.locator(".sc-landing .sc-action-row").evaluateAll((rows) => rows.map((row) => (
+        Array.from(row.querySelectorAll("a, button"))
+          .map((element) => {
+            const rect = element.getBoundingClientRect();
+            const styles = window.getComputedStyle(element);
+            return {
+              text: String(element.textContent ?? "").replace(/\s+/g, " ").trim(),
+              left: rect.left,
+              right: rect.right,
+              top: rect.top,
+              bottom: rect.bottom,
+              visible: styles.display !== "none" && styles.visibility === "visible" && Number(styles.opacity) >= 0.99,
+            };
+          })
+          .filter((control) => control.visible)
+      )));
+      for (const [rowIndex, controls] of actionRowControls.entries()) {
+        for (let index = 1; index < controls.length; index += 1) {
+          const gap = controlGap(controls[index - 1], controls[index]);
+          assert(
+            gap >= 8,
+            `${profile.name}: action row ${rowIndex + 1} controls ${controls[index - 1].text} / ${controls[index].text} have only ${gap.toFixed(2)}px gap`,
+          );
+        }
       }
 
       const layout = await page.evaluate(() => ({
