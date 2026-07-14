@@ -1,7 +1,9 @@
 // SectorCalc PRO V2 — Execute Payload Adapter (Form State → API Payload)
 // Every PRO V2 tool must have an explicit formFieldId → schemaInputId mapping.
-// In the current architecture, the form state keys ARE schema input IDs (identity mapping).
-// This adapter formalizes the contract and prevents regression.
+// Certified FREE tools use a guarded identity map because their form state keys
+// are generated directly from the resolved schema input IDs.
+
+import { getActiveFreeToolSlugs } from "@/sectorcalc/free-tools/free-tools-manifest";
 
 // ── Explicit form→schema mapping for each LIVE PRO V2 tool ──
 // formFieldId (visible form state key) → schemaInputId (API/schema validation key)
@@ -19,6 +21,17 @@ export interface AdapterContract {
 function identityMap<const T extends readonly string[]>(ids: T): FormToSchemaMap {
   return Object.freeze(Object.fromEntries(ids.map((id) => [id, id])));
 }
+
+/**
+ * Sentinel used only for certified Free tools. The concrete identity map is
+ * materialized from the current form state in buildExecutePayload so a Free
+ * tool cannot execute fields that were not present in its resolved schema.
+ */
+const CERTIFIED_FREE_IDENTITY_MAP: FormToSchemaMap = Object.freeze({
+  __sectorcalc_certified_free_identity__: "__sectorcalc_certified_free_identity__",
+});
+
+const certifiedFreeToolSlugs = new Set(getActiveFreeToolSlugs());
 
 const GENERIC_JOB_COST_INPUT_IDS = [
   "machine_rate", "cycle_time", "setup_time", "batch_quantity", "material_cost", "target_margin",
@@ -145,12 +158,15 @@ export const formToSchemaMapRegistry: Record<string, FormToSchemaMap> = {
 };
 
 export function getFormToSchemaMap(slug: string): FormToSchemaMap | null {
-  return formToSchemaMapRegistry[slug] ?? null;
+  const explicitProMap = formToSchemaMapRegistry[slug];
+  if (explicitProMap) return explicitProMap;
+  return certifiedFreeToolSlugs.has(slug) ? CERTIFIED_FREE_IDENTITY_MAP : null;
 }
 
 // ── BuildExecutePayload ──
 // Transforms form state + selected units into the API execute request payload.
-// Uses the explicit formToSchemaInputMap to ensure every form field maps to the correct schema input ID.
+// PRO uses an explicit map. Certified FREE tools use a runtime identity map
+// materialized only from the current schema-owned form state.
 
 type AdapterValue = string | number | boolean | null;
 
@@ -188,7 +204,10 @@ export function buildExecutePayload<TValue extends AdapterValue>(
 ): AdapterPayload<TValue> {
   const { formState, selectedUnits, toolKey, toolId, schemaVersion, usageSessionId, formToSchemaMap } = input;
 
-  const mappingEntries = Object.entries(formToSchemaMap);
+  const effectiveMap = formToSchemaMap === CERTIFIED_FREE_IDENTITY_MAP
+    ? identityMap(Object.keys(formState).sort())
+    : formToSchemaMap;
+  const mappingEntries = Object.entries(effectiveMap);
   if (mappingEntries.length === 0) {
     throw new Error(`FORM_SCHEMA_MAP_EMPTY:${toolKey}`);
   }
