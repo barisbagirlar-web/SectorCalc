@@ -16,6 +16,10 @@ type SchemaOutputWithMetadata = ServerOutput & {
   base_unit?: string | null;
 };
 
+type SchemaWithDisplayCategory = SuperV4Schema & {
+  category_label?: string;
+};
+
 function enforceNoDefaultPresentation(input: SuperV4Input): SuperV4Input {
   const next = { ...input } as SuperV4Input & Record<string, unknown>;
   next.default_value = null;
@@ -75,6 +79,26 @@ export function allowEnteredValueAsExecutionEvidence(input: SuperV4Input): Super
       accepted_evidence: [...accepted, "user-provided value"],
     },
   };
+}
+
+/**
+ * Machining cost-per-part has a dedicated pricing profile. Other Machining &
+ * CNC tools expose hourly, capacity, utilization, or technical outputs and must
+ * use the generic cost/capacity result profile; otherwise the specialized
+ * adapter produces zero cards and the UI appears to calculate nothing.
+ * category_label preserves the public Machining & CNC taxonomy.
+ */
+function applyResultProfileRouting(schema: SuperV4Schema): SuperV4Schema {
+  const isMachining = schema.category === "Machining & CNC";
+  const hasPartCostOutput = schema.outputs.some((output) => output.id === "cost_per_part");
+  if (!isMachining || hasPartCostOutput) return schema;
+
+  const routed: SchemaWithDisplayCategory = {
+    ...schema,
+    category: "Production Operations",
+    category_label: "Machining & CNC",
+  };
+  return routed;
 }
 
 function applyBreakEvenCurrencyPresentation(schema: SuperV4Schema): SuperV4Schema {
@@ -164,9 +188,10 @@ function applyBreakEvenCurrencyPresentation(schema: SuperV4Schema): SuperV4Schem
 export function applySchemaPresentationOverrides(
   schema: SuperV4Schema,
 ): SuperV4Schema {
+  const profileSafe = applyResultProfileRouting(schema);
   const evidenceSafe: SuperV4Schema = {
-    ...schema,
-    inputs: schema.inputs.map(allowEnteredValueAsExecutionEvidence),
+    ...profileSafe,
+    inputs: profileSafe.inputs.map(allowEnteredValueAsExecutionEvidence),
   };
   const currencySafe = applyBreakEvenCurrencyPresentation(evidenceSafe);
   if (!certifiedProTools.has(currencySafe.tool_key)) return currencySafe;
