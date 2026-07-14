@@ -23,6 +23,9 @@
       }
     ],
     "paths": {
+      "@/sectorcalc/result-perspectives/universal-result-adapter": [
+        "./src/sectorcalc/result-perspectives/universal-result-adapter-runtime.ts"
+      ],
       "@/*": [
         "./src/*"
       ],
