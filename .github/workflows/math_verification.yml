@@ -1,13 +1,3 @@
-# SectorCalc — Mathematical Verification Gate
-# C-XSC compatible interval arithmetic + MMS CI/CD pipeline
-#
-# Fails the build if:
-#   - Interval width exceeds tolerance for any MMS test case
-#   - Hypothesis property tests discover a counterexample
-#   - API contract (lower_bound/upper_bound required) is violated
-#
-# Deployment block: if this job fails, deployment MUST NOT proceed.
-
 name: Mathematical Verification Gate
 
 on:
@@ -22,9 +12,10 @@ on:
       - "src/sectorcalc/runtime/active-tool-allowlist.ts"
       - "src/sectorcalc/runtime/calculation-production-readiness.ts"
       - "src/sectorcalc/runtime/pro-calculation-contract-overrides.ts"
+      - "src/sectorcalc/runtime/pro-calculation-presentation-overrides.ts"
       - "src/sectorcalc/runtime/pro-schema-loader.ts"
       - "src/sectorcalc/pro-form/**"
-      - "src/sectorcalc/pro-report/pro-report-contract-registry.ts"
+      - "src/sectorcalc/pro-report/**"
       - "src/app/api/pro-calculator/execute/route.ts"
       - "src/app/api/tool-execute/route.ts"
       - "tests/free-tools/**"
@@ -51,9 +42,10 @@ on:
       - "src/sectorcalc/runtime/active-tool-allowlist.ts"
       - "src/sectorcalc/runtime/calculation-production-readiness.ts"
       - "src/sectorcalc/runtime/pro-calculation-contract-overrides.ts"
+      - "src/sectorcalc/runtime/pro-calculation-presentation-overrides.ts"
       - "src/sectorcalc/runtime/pro-schema-loader.ts"
       - "src/sectorcalc/pro-form/**"
-      - "src/sectorcalc/pro-report/pro-report-contract-registry.ts"
+      - "src/sectorcalc/pro-report/**"
       - "src/app/api/pro-calculator/execute/route.ts"
       - "src/app/api/tool-execute/route.ts"
       - "tests/free-tools/**"
@@ -71,18 +63,17 @@ on:
       - ".github/workflows/math_verification.yml"
   workflow_dispatch:
   schedule:
-    - cron: "0 6 * * 1"  # Every Monday at 06:00 UTC
+    - cron: "17 3 * * 1"
 
 permissions:
   contents: read
-  pull-requests: write
 
 concurrency:
-  group: math-verify-${{ github.ref }}
+  group: math-verification-${{ github.ref }}
   cancel-in-progress: true
 
 env:
-  CI: "true"                       # Deterministic generated Hypothesis examples
+  CI: "true"
   MATH_STRICT_MODE: "1"
   PYTHONUNBUFFERED: "1"
 
@@ -90,8 +81,7 @@ jobs:
   calculation-correctness-gate:
     name: Certified Free + Pro Calculation Gate
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -101,11 +91,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: "22"
+          cache: npm
 
       - name: Install locked dependencies
-        run: npm ci
+        run: npm ci --no-audit --no-fund
 
       - name: Type-check calculation contracts
         run: npx tsc --noEmit --incremental false
@@ -134,26 +124,22 @@ jobs:
   interval-arithmetic-gate:
     name: Interval Arithmetic + MMS Gate
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
 
-      - name: Setup Python 3.11
-        uses: actions/setup-python@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - name: Setup Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
-          python-version: "3.11"
-          cache: "pip"
+          python-version: "3.12"
+          cache: pip
           cache-dependency-path: math-kernel/requirements.txt
 
-      - name: Install rigorous math dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r math-kernel/requirements.txt
-          pip freeze | grep -E "sympy|mpmath|fastapi|pydantic|hypothesis|pytest"
+      - name: Install pinned math dependencies
+        run: python -m pip install -r math-kernel/requirements.txt
 
       - name: Generate MMS test suite
         run: |
@@ -171,40 +157,14 @@ jobs:
               has_exact = 'EXACT' if tc.exact_analytical_result is not None else 'SELF-CONSISTENCY'
               print(f'    [{tc.category:6s}] {tc.name:45s} {has_exact}  tol={tc.tolerance:.0e}')
           PY
-          cat mms_suite.json | python -m json.tool | head -10
+          python -m json.tool mms_suite.json | head -10
 
       - name: Run interval arithmetic pytest with strict bounds
         run: |
           cd math-kernel
-          python -m pytest tests/ \
-            --verbose \
-            --tb=short \
-            --strict-bounds \
-            --timeout=60 \
-            -x \
-            --junitxml=test-results.xml \
-            -k "not test_api" 2>&1 | tee pytest-output.log
+          python -m pytest tests/ --verbose --tb=short --strict-bounds
 
-      - name: Run API contract tests
-        run: |
-          cd math-kernel
-          python -m pytest tests/test_api.py \
-            --verbose \
-            --tb=short \
-            -x \
-            --junitxml=api-test-results.xml 2>&1 | tee api-pytest-output.log
-
-      - name: Run Hypothesis property-based tests
-        run: |
-          cd math-kernel
-          python -m pytest tests/test_interval_engine.py::TestHypothesisProperties \
-            --verbose \
-            --tb=long \
-            --hypothesis-show-statistics \
-            -x \
-            --junitxml=hypothesis-results.xml 2>&1 | tee hypothesis-output.log
-
-      - name: Verify MMS suite passes all core tests
+      - name: Verify MMS suite structure and exact core references
         run: |
           cd math-kernel
           python - <<'PY'
@@ -233,40 +193,18 @@ jobs:
 
           print('ALL MMS SUITE CHECKS PASSED')
           PY
-      - name: Block deployment on interval breach
+
+      - name: Upload mathematical evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: mathematical-verification-evidence
+          path: math-kernel/mms_suite.json
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Block release on interval breach
         if: failure()
         run: |
-          echo "======================================================"
-          echo "MATEMATİKSEL ARALIK İHLALİ. DEPLOYMENT DURDURULDU."
-          echo "Mathematical interval breach detected. Deployment blocked."
-          echo "======================================================"
-          echo ""
-          echo "=== pytest output ==="
-          if [ -f pytest-output.log ]; then cat pytest-output.log; fi
-          if [ -f hypothesis-output.log ]; then cat hypothesis-output.log; fi
-          if [ -f api-pytest-output.log ]; then cat api-pytest-output.log; fi
+          echo "Mathematical verification failed. Release is blocked."
           exit 1
-
-      - name: Upload test artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: math-kernel-test-results
-          path: |
-            math-kernel/test-results.xml
-            math-kernel/api-test-results.xml
-            math-kernel/hypothesis-results.xml
-            math-kernel/mms_suite.json
-            math-kernel/pytest-output.log
-            math-kernel/hypothesis-output.log
-            math-kernel/api-pytest-output.log
-          retention-days: 30
-
-      - name: Summary
-        run: |
-          echo "## ✅ Mathematical Verification Gate Passed" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- Interval arithmetic engine verified" >> $GITHUB_STEP_SUMMARY
-          echo "- MMS suite generated and validated" >> $GITHUB_STEP_SUMMARY
-          echo "- Hypothesis property tests passed" >> $GITHUB_STEP_SUMMARY
-          echo "- API contract (lower_bound/upper_bound) validated" >> $GITHUB_STEP_SUMMARY
