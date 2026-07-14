@@ -6,10 +6,12 @@ import type {
   SuperV4Schema,
 } from "@/sectorcalc/pro-form/contract-types";
 import { CERTIFIED_PRO_TOOL_SLUGS } from "@/sectorcalc/formulas/pro-v531/pro-certified-tool-keys";
+import { resolveIndustrialExampleValue } from "@/sectorcalc/pro-form/example-value-resolver";
 import {
   GLOBAL_CURRENCY_CODES,
   resolveUniversalUnitContract,
   type CurrencyCode,
+  type ResolvedUniversalUnitContract,
 } from "@/sectorcalc/pro-form/universal-unit-catalog";
 
 const DISPLAY_CURRENCY_UNIT = "display_currency";
@@ -26,6 +28,10 @@ type SchemaOutputWithMetadata = ServerOutput & {
   quantity_kind?: string;
   base_unit?: string | null;
 };
+
+function uniqueStrings(values: Array<string | null | undefined>): string[] {
+  return [...new Set(values.filter((value): value is string => typeof value === "string" && value.length > 0))];
+}
 
 function uniqueEntries(entries: ConversionEntry[]): ConversionEntry[] {
   const byUnit = new Map<string, ConversionEntry>();
@@ -56,6 +62,34 @@ function normalizeExistingRegistryItem(item: ConversionRegistryItem | undefined)
   return entries;
 }
 
+function safeKindToken(value: string): string {
+  const token = value
+    .normalize("NFKD")
+    .replace(/[^a-zA-Z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .toLowerCase();
+  return token || "value";
+}
+
+/**
+ * Source schemas historically reused broad quantity kinds such as "number",
+ * "geometry", and "dimensionless" for unrelated dimensions. A conversion
+ * registry is keyed by quantity kind, so reuse can silently bind a pressure
+ * input to a currency or ratio registry. Runtime quantity kinds are therefore
+ * dimension-specific. Formula IDs and normalized input IDs remain unchanged.
+ */
+function runtimeQuantityKind(
+  input: SuperV4Input,
+  contract: ResolvedUniversalUnitContract,
+): string {
+  if (contract.dimension === "currency") return "runtime_currency";
+  if (contract.dimension === "dimensionless") return `runtime_dimensionless_${safeKindToken(input.id)}`;
+  if (contract.dimension === "custom") {
+    return `runtime_custom_${safeKindToken(input.base_unit ?? input.id)}`;
+  }
+  return `runtime_${safeKindToken(contract.dimension)}`;
+}
+
 function clamp(value: number, min: number | null | undefined, max: number | null | undefined): number {
   let result = value;
   if (typeof min === "number" && Number.isFinite(min)) result = Math.max(result, min);
@@ -74,30 +108,8 @@ function roundForInput(value: number, input: SuperV4Input): number {
   return Math.round((value + Number.EPSILON) * factor) / factor;
 }
 
-function numericReferenceFromSchema(input: SuperV4Input): number | null {
-  if (Array.isArray(input.reference_values)) {
-    for (const reference of input.reference_values) {
-      if (typeof reference?.value === "number" && Number.isFinite(reference.value)) return reference.value;
-      if (typeof reference?.low === "number" && typeof reference?.high === "number") {
-        return (reference.low + reference.high) / 2;
-      }
-    }
-  }
-
-  for (const range of [input.engineering_reference_range, input.engineering_range]) {
-    if (!range) continue;
-    if (typeof range.min === "number" && typeof range.max === "number") {
-      return (range.min + range.max) / 2;
-    }
-    if (typeof range.min === "number") return range.min;
-    if (typeof range.max === "number") return range.max;
-  }
-  return null;
-}
-
-function semanticExample(input: SuperV4Input, dimension: string): number {
+function fallbackExample(input: SuperV4Input, dimension: string): number {
   const identity = `${input.id} ${input.name}`.toLowerCase();
-
   if (dimension === "currency") {
     if (/hourly|per hour|labor rate|labour rate|machine rate|shop rate/.test(identity)) return 50;
     if (/per unit|unit cost|unit price|per part|per kg|per m\b/.test(identity)) return 25;
@@ -111,59 +123,49 @@ function semanticExample(input: SuperV4Input, dimension: string): number {
     if (/margin|discount|scrap|defect|loss/.test(identity)) return input.base_unit === "%" ? 10 : 0.1;
     return input.base_unit === "%" ? 50 : 0.5;
   }
-  if (dimension === "calendar_time") {
-    if (/year/.test(identity)) return 5;
-    if (/quarter/.test(identity)) return 4;
-    return 12;
-  }
-  if (dimension === "time") {
-    if (/second|\bsec\b/.test(identity)) return 60;
-    if (/minute|\bmin\b/.test(identity)) return 30;
-    if (/day/.test(identity)) return 30;
-    return 8;
-  }
+  if (dimension === "calendar_time") return /year/.test(identity) ? 5 : 12;
+  if (dimension === "time") return /second|\bsec\b/.test(identity) ? 60 : /minute|\bmin\b/.test(identity) ? 30 : 8;
   if (dimension === "count") return /batch/.test(identity) ? 10 : 100;
   if (dimension === "length") return input.base_unit === "mm" ? 100 : input.base_unit === "cm" ? 10 : 1;
   if (dimension === "area") return 10;
   if (dimension === "volume") return input.base_unit === "L" ? 100 : 1;
   if (dimension === "mass") return 10;
   if (dimension === "force") return input.base_unit === "kN" ? 10 : 1_000;
-  if (dimension === "pressure") {
-    if (input.base_unit === "bar") return 6;
-    if (input.base_unit === "psi") return 90;
-    if (input.base_unit === "kPa") return 600;
-    if (input.base_unit === "MPa") return 10;
-    return 600_000;
-  }
+  if (dimension === "pressure") return input.base_unit === "bar" ? 6 : input.base_unit === "psi" ? 90 : input.base_unit === "MPa" ? 10 : 600;
   if (dimension === "temperature_absolute") return input.base_unit === "K" ? 293.15 : 20;
   if (dimension === "energy") return input.base_unit === "kWh" ? 1_000 : 3_600_000;
   if (dimension === "power") return input.base_unit === "kW" ? 10 : 10_000;
-  if (dimension === "flow") return 1;
-  if (dimension === "speed") return 10;
-  if (dimension === "torque") return 100;
-  if (dimension === "density") return 1_000;
   if (dimension === "frequency") return input.base_unit === "rpm" ? 1_500 : 50;
   if (dimension === "angle") return input.base_unit === "rad" ? Math.PI / 4 : 45;
   return 10;
 }
 
-function deriveIllustrativeExample(input: SuperV4Input, dimension: string): number | null {
+function deriveIllustrativeExample(
+  toolKey: string,
+  input: SuperV4Input,
+  dimension: string,
+): number | null {
   if (input.type !== "number" && input.type !== "integer") return null;
-
-  const declared = numericReferenceFromSchema(input);
   const bounds = input.physical_hard_bounds;
-  let value = declared ?? semanticExample(input, dimension);
+  const record = input as PresentationInput;
+  const resolved = resolveIndustrialExampleValue({
+    toolSlug: toolKey,
+    toolKey,
+    inputId: input.id,
+    inputName: input.name,
+    unit: input.base_unit,
+    rangeMin: bounds?.min,
+    rangeMax: bounds?.max,
+    schemaExampleValue: record.example ?? record.sampleValue,
+    // Examples must never inherit a hidden executable default.
+    schemaDefaultValue: null,
+  });
 
-  if (bounds && typeof bounds.min === "number" && typeof bounds.max === "number") {
-    if (value < bounds.min || value > bounds.max) {
-      if (bounds.min > 0 && bounds.max / bounds.min >= 100) {
-        value = Math.sqrt(bounds.min * bounds.max);
-      } else {
-        value = bounds.min + (bounds.max - bounds.min) * 0.25;
-      }
-    }
-  }
-
+  let value = typeof resolved === "number"
+    ? resolved
+    : typeof resolved === "string" && resolved.trim() && Number.isFinite(Number(resolved))
+      ? Number(resolved)
+      : fallbackExample(input, dimension);
   value = clamp(value, bounds?.min, bounds?.max);
   if (input.type === "integer") value = Math.round(value);
   return Number.isFinite(value) ? roundForInput(value, input) : null;
@@ -176,8 +178,12 @@ function formatExampleNumber(value: number): string {
   }).format(value);
 }
 
-function applyIllustrativeReference(input: SuperV4Input, dimension: string): SuperV4Input {
-  const example = deriveIllustrativeExample(input, dimension);
+function applyIllustrativeReference(
+  toolKey: string,
+  input: SuperV4Input,
+  dimension: string,
+): SuperV4Input {
+  const example = deriveIllustrativeExample(toolKey, input, dimension);
   if (example === null) return input;
   const presentation = { ...input } as PresentationInput;
   const unit = dimension === "currency"
@@ -188,7 +194,9 @@ function applyIllustrativeReference(input: SuperV4Input, dimension: string): Sup
   presentation.example = example;
   presentation.sampleValue = example;
 
-  const baseHelp = (input.user_help_text ?? input.help_text ?? `Enter the project-specific ${input.name}.`)
+  const originalHelp = input.user_help_text ?? input.help_text ?? `Enter the project-specific ${input.name}.`;
+  const baseHelp = originalHelp
+    .replace(/\s*Illustrative input:.*$/i, "")
     .replace(/\s+/g, " ")
     .trim();
   const exampleSentence = `Illustrative input: ${exampleText}. Replace it with the verified project value; this example is not auto-filled.`;
@@ -205,20 +213,13 @@ function enforceNoDefaultPresentation(input: SuperV4Input): SuperV4Input {
   return next;
 }
 
-/**
- * The current calculator UI accepts project values directly and no longer
- * renders separate evidence checkboxes. The entered value is accepted for
- * execution, but is never represented as independently source-verified.
- */
 export function allowEnteredValueAsExecutionEvidence(input: SuperV4Input): SuperV4Input {
   const requirement = input.evidence_requirement;
   if (!requirement || typeof requirement === "string") return input;
   const accepted = Array.isArray(requirement.accepted_evidence)
     ? requirement.accepted_evidence
     : [];
-  if (accepted.some((value) => value.trim().toLowerCase() === "user-provided value")) {
-    return input;
-  }
+  if (accepted.some((value) => value.trim().toLowerCase() === "user-provided value")) return input;
   return {
     ...input,
     evidence_requirement: {
@@ -234,72 +235,97 @@ function isCurrencyOutput(output: SchemaOutputWithMetadata): boolean {
   return quantity.includes("currency") || unit.includes("currency") || /^[a-z]{3}(?:$|\/)/i.test(unit);
 }
 
-function applyUniversalUnits(schema: SuperV4Schema): SuperV4Schema {
-  const registry = { ...schema.unit_conversion_contract.conversion_registry };
-  const dimensionByQuantityKind = new Map<string, string>();
+function baseFirstDisplayUnits(input: SuperV4Input, contract: ResolvedUniversalUnitContract): string[] {
+  if (contract.dimension === "custom") {
+    return uniqueStrings([input.base_unit, ...input.allowed_display_units]);
+  }
+  return uniqueStrings([input.base_unit ?? contract.baseUnit, ...contract.displayUnits]);
+}
 
-  const inputs = schema.inputs.map((input) => {
-    const contract = resolveUniversalUnitContract(input);
-    const priorDimension = dimensionByQuantityKind.get(input.quantity_kind);
-    if (priorDimension && priorDimension !== contract.dimension && contract.dimension !== "dimensionless") {
-      throw new Error(
-        `UNIT_DIMENSION_CONFLICT:${schema.tool_key}:${input.quantity_kind}:${priorDimension}:${contract.dimension}`,
-      );
-    }
-    if (contract.dimension !== "dimensionless") {
-      dimensionByQuantityKind.set(input.quantity_kind, contract.dimension);
-    }
+function registryForInput(
+  input: SuperV4Input,
+  contract: ResolvedUniversalUnitContract,
+  existing: ConversionRegistryItem | undefined,
+): ConversionRegistryItem | null {
+  if (contract.dimension === "dimensionless" || !input.base_unit) return null;
 
-    const existing = registry[input.quantity_kind] as ConversionRegistryItem | undefined;
-
-    if (contract.monetary) {
-      const currencyUnits: ConversionEntry[] = [
+  if (contract.dimension === "currency") {
+    return {
+      base_unit: input.base_unit,
+      unit_family: "CURRENCY",
+      units: uniqueEntries([
         { unit: DISPLAY_CURRENCY_UNIT, factor: 1, label: NEUTRAL_CURRENCY_LABEL },
-        ...(input.base_unit ? [{ unit: input.base_unit, factor: 1, label: NEUTRAL_CURRENCY_LABEL }] : []),
-      ];
-      registry[input.quantity_kind] = {
-        base_unit: input.base_unit ?? existing?.base_unit ?? DISPLAY_CURRENCY_UNIT,
-        unit_family: "CURRENCY",
-        units: uniqueEntries([...normalizeExistingRegistryItem(existing), ...currencyUnits]),
-      };
+        { unit: input.base_unit, factor: 1, label: NEUTRAL_CURRENCY_LABEL },
+      ]),
+    };
+  }
 
-      const monetaryInput: SuperV4Input = {
-        ...input,
-        unit_selectable: false,
-        allowed_display_units: [DISPLAY_CURRENCY_UNIT],
-        physical_hard_bounds: input.physical_hard_bounds
-          ? { ...input.physical_hard_bounds, unit: NEUTRAL_CURRENCY_LABEL }
-          : input.physical_hard_bounds,
-        engineering_range: input.engineering_range
-          ? { ...input.engineering_range, unit: NEUTRAL_CURRENCY_LABEL }
-          : input.engineering_range,
-        engineering_reference_range: input.engineering_reference_range
-          ? { ...input.engineering_reference_range, unit: NEUTRAL_CURRENCY_LABEL }
-          : input.engineering_reference_range,
-      };
-      return applyIllustrativeReference(monetaryInput, contract.dimension);
-    }
+  if (contract.dimension === "custom") {
+    const existingUnits = normalizeExistingRegistryItem(existing);
+    const requiredIdentities = uniqueStrings([input.base_unit, ...input.allowed_display_units])
+      .map((unit) => ({ unit, factor: 1, label: unit }));
+    return {
+      base_unit: input.base_unit,
+      unit_family: existing?.unit_family,
+      units: uniqueEntries([...existingUnits, ...requiredIdentities]),
+    };
+  }
 
-    if (contract.units.length > 0 && contract.baseUnit) {
-      registry[input.quantity_kind] = {
-        base_unit: contract.baseUnit,
-        unit_family: existing?.unit_family,
-        units: uniqueEntries(contract.units),
-      };
-    }
+  return {
+    base_unit: contract.baseUnit ?? input.base_unit,
+    unit_family: existing?.unit_family,
+    units: uniqueEntries(contract.units),
+  };
+}
 
-    const nextInput: SuperV4Input = contract.displayUnits.length > 0
-      ? {
-          ...input,
-          allowed_display_units: contract.displayUnits,
-          unit_selectable: contract.displayUnits.length > 1,
-        }
-      : {
-          ...input,
-          allowed_display_units: input.base_unit ? [input.base_unit] : [],
-          unit_selectable: false,
-        };
-    return applyIllustrativeReference(nextInput, contract.dimension);
+function applyUniversalUnits(schema: SuperV4Schema): SuperV4Schema {
+  const sourceRegistry = schema.unit_conversion_contract.conversion_registry;
+  const registry = { ...sourceRegistry };
+  const runtimeKindByInput = new Map<string, string>();
+  const dimensionByInput = new Map<string, string>();
+
+  const inputs = schema.inputs.map((sourceInput) => {
+    const contract = resolveUniversalUnitContract(sourceInput);
+    const runtimeKind = runtimeQuantityKind(sourceInput, contract);
+    runtimeKindByInput.set(sourceInput.id, runtimeKind);
+    dimensionByInput.set(sourceInput.id, contract.dimension);
+
+    const existing = sourceRegistry[sourceInput.quantity_kind] as ConversionRegistryItem | undefined;
+    const monetary = contract.dimension === "currency";
+    const displayUnits = monetary
+      ? [DISPLAY_CURRENCY_UNIT]
+      : baseFirstDisplayUnits(sourceInput, contract);
+
+    const input: SuperV4Input = {
+      ...sourceInput,
+      quantity_kind: runtimeKind,
+      allowed_display_units: displayUnits,
+      unit_selectable: !monetary && displayUnits.length > 1,
+      physical_hard_bounds: monetary && sourceInput.physical_hard_bounds
+        ? { ...sourceInput.physical_hard_bounds, unit: NEUTRAL_CURRENCY_LABEL }
+        : sourceInput.physical_hard_bounds,
+      engineering_range: monetary && sourceInput.engineering_range
+        ? { ...sourceInput.engineering_range, unit: NEUTRAL_CURRENCY_LABEL }
+        : sourceInput.engineering_range,
+      engineering_reference_range: monetary && sourceInput.engineering_reference_range
+        ? { ...sourceInput.engineering_reference_range, unit: NEUTRAL_CURRENCY_LABEL }
+        : sourceInput.engineering_reference_range,
+    };
+
+    const registryItem = registryForInput(input, contract, existing);
+    if (registryItem) registry[runtimeKind] = registryItem;
+    return applyIllustrativeReference(schema.tool_key, input, contract.dimension);
+  });
+
+  const inputById = new Map(inputs.map((input) => [input.id, input]));
+  const normalizedInputs = schema.normalized_inputs.map((normalized) => {
+    const input = inputById.get(normalized.from_input);
+    if (!input) return normalized;
+    return {
+      ...normalized,
+      quantity_kind: runtimeKindByInput.get(input.id) ?? normalized.quantity_kind,
+      base_unit: input.base_unit ?? normalized.base_unit,
+    };
   });
 
   return {
@@ -313,6 +339,7 @@ function applyUniversalUnits(schema: SuperV4Schema): SuperV4Schema {
       conversion_registry: registry,
     },
     inputs,
+    normalized_inputs: normalizedInputs,
     outputs: schema.outputs.map((output) => {
       const typedOutput = output as SchemaOutputWithMetadata;
       return isCurrencyOutput(typedOutput)
@@ -322,11 +349,6 @@ function applyUniversalUnits(schema: SuperV4Schema): SuperV4Schema {
   };
 }
 
-/**
- * Applies presentation and execution-entry rules after server calculation
- * contracts are built. Formula IDs, input IDs, normalized IDs, and arithmetic
- * expressions remain unchanged.
- */
 export function applySchemaPresentationOverrides(schema: SuperV4Schema): SuperV4Schema {
   const evidenceSafe: SuperV4Schema = {
     ...schema,
@@ -343,10 +365,17 @@ export function applySchemaPresentationOverrides(schema: SuperV4Schema): SuperV4
     },
     inputs: unitsSafe.inputs.map((input) => {
       const noDefault = enforceNoDefaultPresentation(input);
-      const contract = resolveUniversalUnitContract(noDefault);
-      return applyIllustrativeReference(noDefault, contract.dimension);
+      const dimension = dimensionByRuntimeQuantityKind(noDefault.quantity_kind);
+      return applyIllustrativeReference(unitsSafe.tool_key, noDefault, dimension);
     }),
   };
+}
+
+function dimensionByRuntimeQuantityKind(quantityKind: string): string {
+  if (quantityKind === "runtime_currency") return "currency";
+  if (quantityKind.startsWith("runtime_custom_")) return "custom";
+  if (quantityKind.startsWith("runtime_dimensionless_")) return "dimensionless";
+  return quantityKind.replace(/^runtime_/, "");
 }
 
 export const DEFAULT_DISPLAY_CURRENCY: CurrencyCode = "USD";
