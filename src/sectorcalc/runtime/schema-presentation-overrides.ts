@@ -9,10 +9,10 @@ import { CERTIFIED_PRO_TOOL_SLUGS } from "@/sectorcalc/formulas/pro-v531/pro-cer
 import { resolveIndustrialExampleValue } from "@/sectorcalc/pro-form/example-value-resolver";
 import {
   GLOBAL_CURRENCY_CODES,
-  resolveUniversalUnitContract,
   type CurrencyCode,
   type ResolvedUniversalUnitContract,
 } from "@/sectorcalc/pro-form/universal-unit-catalog";
+import { resolveUniversalUnitContract } from "@/sectorcalc/pro-form/universal-unit-resolver";
 
 const DISPLAY_CURRENCY_UNIT = "display_currency";
 const NEUTRAL_CURRENCY_LABEL = "Currency";
@@ -350,8 +350,6 @@ function applyUniversalUnits(schema: SuperV4Schema): SuperV4Schema {
 }
 
 function dimensionByRuntimeQuantityKind(quantityKind: string): string {
-  const match = quantityKind.match(/^runtime_([a-z0-9]+(?:_[a-z0-9]+)*)_/);
-  if (!match) return "custom";
   const known = [
     "temperature_absolute", "temperature_interval", "calendar_time", "dimensionless",
     "currency", "length", "area", "volume", "mass", "force", "pressure", "energy",
