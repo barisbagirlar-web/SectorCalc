@@ -31,7 +31,11 @@ function resolveReportUnit(
   contractUnit: string | undefined,
   displayCurrency: string | null | undefined,
 ): string | null {
-  const unit = sourceUnit ?? contractUnit ?? null;
+  // The tool-specific report contract is the approved semantic layer. Generated
+  // schema output units may be generic or legacy, so a declared contract unit
+  // must take precedence. Raw source units are used only when no report unit is
+  // declared.
+  const unit = contractUnit ?? sourceUnit ?? null;
   if (!unit || !displayCurrency) return unit;
 
   if (unit === "currency") return displayCurrency;
