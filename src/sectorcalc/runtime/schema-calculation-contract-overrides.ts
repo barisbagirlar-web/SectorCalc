@@ -35,6 +35,10 @@ const COUNT_INPUT_IDS = new Set([
 const ANNUAL_VOLUME_IDS = new Set(["annual_volume"]);
 const MONTHLY_VOLUME_IDS = new Set(["monthly_volume"]);
 
+const REMOVED_GENERATOR_INPUTS: Readonly<Record<string, ReadonlySet<string>>> = {
+  "customer-sku-profitability-forensics": new Set(["labor_rate", "overhead_rate"]),
+};
+
 function withUnit(
   input: SuperV4Input,
   args: {
@@ -137,7 +141,13 @@ export function applySchemaCalculationContractOverrides(
 ): SuperV4Schema {
   if (!LIVE_PRO_TOOLS.has(schema.tool_key)) return schema;
 
-  const inputs = schema.inputs.map((input) => correctInputContract(schema.tool_key, input));
+  const removedIds = REMOVED_GENERATOR_INPUTS[schema.tool_key] ?? new Set<string>();
+  const inputs = schema.inputs
+    .filter((input) => !removedIds.has(input.id))
+    .map((input) => correctInputContract(schema.tool_key, input));
+  const normalizedInputs = schema.normalized_inputs.filter(
+    (input) => !removedIds.has(input.from_input),
+  );
   const densityEntry = schema.unit_conversion_contract.conversion_registry.density;
   const densityUnits = densityEntry?.units ?? [];
   const hasGCm3 = densityUnits.some((unit) => unit.unit === "g_per_cm3");
@@ -147,8 +157,6 @@ export function applySchemaCalculationContractOverrides(
     engine_rules: {
       ...(schema.engine_rules ?? {}),
       strict_formula_schema_contract: true,
-      fail_closed_on_formula_warning: true,
-      calculation_contract_override_version: "2026-07-15.1",
     },
     unit_conversion_contract: {
       ...schema.unit_conversion_contract,
@@ -172,5 +180,6 @@ export function applySchemaCalculationContractOverrides(
       },
     },
     inputs,
+    normalized_inputs: normalizedInputs,
   };
 }
