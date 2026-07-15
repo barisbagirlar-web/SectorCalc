@@ -1,97 +1,63 @@
-import "server-only";
-import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
+/**
+ * Energy Efficiency Grant & Incentive Feasibility Pack — formula engine
+ *
+ * SINGLE SOURCE OF TRUTH. Pure function, no eval/new Function.
+ * Conforms to ProFormulaModule contract.
+ */
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
 
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
+// ─── Type exports ───────────────────────────────────────────────────────────
+
+export interface EnergyEfficiencyInputs {
+  currentKwhPerYear: number;
+  targetKwhPerYear: number;
+  avgKwhRate: number;
+  implementationCost: number;
+  grantCoveragePct: number;
+  maintenanceCostSaving: number;
+  emissionFactorKgCo2PerKwh: number;
+  equipmentLifeYears: number;
+  discountRate: number;
+  sourceConfidence: number;
 }
 
-export const toolKey = "energy-efficiency-grant-incentive-feasibility-pack";
-export const formulaVersion = "5.3.1-pro-baris.1";
-
-function isFiniteNumber(v: unknown): v is number {
-  return typeof v === "number" && Number.isFinite(v);
+export interface EnergyEfficiencyOutputs {
+  out_evidenceCompleteness: number;
+  out_normalizedDemand: number;
+  out_referenceDeviation: number;
+  out_deratingFactor: number;
+  out_demandMetric: number;
+  out_capacityMetric: number;
+  out_utilizationMargin: number;
+  out_expandedUncertainty: number;
+  out_thresholdCrossing: number;
+  out_sensitivityDriver: number;
+  out_fmeaTrigger: number;
+  out_moneyAtRisk: number;
+  out_scenarioDelta: number;
+  out_auditHashPayload: number;
+  out_finalDecisionState: number;
 }
 
-function get(inputs: Record<string, number>, key: string): number {
-  const v = inputs[key];
-  return isFiniteNumber(v) ? v : 0;
-}
+// ─── Pure calculation ───────────────────────────────────────────────────────
 
-function round(v: number, d: number): number {
-  if (!isFiniteNumber(v)) return 0;
-  const f = Math.pow(10, d);
-  return Math.round(v * f) / f;
-}
+export function executeFormula(inputs: EnergyEfficiencyInputs): EnergyEfficiencyOutputs {
+  const {
+    currentKwhPerYear, targetKwhPerYear, avgKwhRate,
+    implementationCost, grantCoveragePct, maintenanceCostSaving,
+    emissionFactorKgCo2PerKwh, equipmentLifeYears, discountRate, sourceConfidence,
+  } = inputs;
 
-function safeDiv(n: number, d: number): number {
-  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
-  return n / d;
-}
+  const kwhSaving = currentKwhPerYear - targetKwhPerYear;
+  const moneySaving = kwhSaving * avgKwhRate + maintenanceCostSaving;
+  const grantAmount = implementationCost * grantCoveragePct;
+  const netCost = implementationCost - grantAmount;
+  const payback = netCost > 0 ? netCost / moneySaving : 0;
+  const totalSaving5yr = moneySaving * 5;
+  const roi = netCost > 0 ? (totalSaving5yr - netCost) / netCost * 100 : 999;
+  const co2Saving = kwhSaving * emissionFactorKgCo2PerKwh / 1000;
 
-export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
-
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
-
-  // --- Validate required inputs ---
-  const requiredKeys = [
-    "n_current_kwh_per_year",
-    "n_target_kwh_per_year",
-    "n_avg_kwh_rate",
-    "n_implementation_cost",
-    "n_grant_coverage_pct",
-    "n_maintenance_cost_saving",
-    "n_emission_factor_kgco2_per_kwh",
-    "n_equipment_life_years",
-    "n_discount_rate",
-    "n_source_confidence_ratio",
-  ];
-
-  let evidenceCount = 0;
-  for (const key of requiredKeys) {
-    if (!isFiniteNumber(inputs[key])) {
-      warnings.push("Missing or non-finite input: " + key);
-    } else {
-      evidenceCount++;
-    }
-  }
-
-  // --- Extract inputs ---
-  const n_current_kwh_per_year = get(inputs, "n_current_kwh_per_year");
-  const n_target_kwh_per_year = get(inputs, "n_target_kwh_per_year");
-  const n_avg_kwh_rate = get(inputs, "n_avg_kwh_rate");
-  const n_implementation_cost = get(inputs, "n_implementation_cost");
-  const n_grant_coverage_pct = get(inputs, "n_grant_coverage_pct");
-  const n_maintenance_cost_saving = get(inputs, "n_maintenance_cost_saving");
-  const n_emission_factor_kgco2_per_kwh = get(inputs, "n_emission_factor_kgco2_per_kwh");
-  const n_equipment_life_years = get(inputs, "n_equipment_life_years");
-  const n_discount_rate = get(inputs, "n_discount_rate");
-  const n_source_confidence_ratio = get(inputs, "n_source_confidence_ratio");
-
-  // --- Core energy efficiency feasibility logic ---
-  const kwh_saving = n_current_kwh_per_year - n_target_kwh_per_year;
-  const money_saving = kwh_saving * n_avg_kwh_rate + n_maintenance_cost_saving;
-  const grant_amount = n_implementation_cost * n_grant_coverage_pct;
-  const net_cost = n_implementation_cost - grant_amount;
-  const payback = net_cost > 0 ? net_cost / money_saving : 0;
-
-  const total_saving_5yr = money_saving * 5;
-  const roi = net_cost > 0
-    ? (total_saving_5yr - net_cost) / net_cost * 100
-    : 999;
-
-  const co2_saving = kwh_saving * n_emission_factor_kgco2_per_kwh / 1000;
-  const annual_co2_reduction = co2_saving;
-
-  // --- Decision ---
   let decision: number;
   if (payback <= 3) {
     decision = 0; // PROCEED
@@ -101,114 +67,148 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     decision = 2; // HOLD
   }
 
-  // --- Output 1: out_evidence_completeness ---
-  const totalInputs = requiredKeys.length;
-  const evidenceRatio = safeDiv(evidenceCount, totalInputs);
-  outputs["out_evidence_completeness"] = round(Math.min(1, Math.max(0, evidenceRatio)), 4);
+  const demandMetric = currentKwhPerYear * (avgKwhRate / 10);
+  const refDev = currentKwhPerYear > 0 ? (currentKwhPerYear - targetKwhPerYear) / currentKwhPerYear : 0;
+  const derating = 1 - (payback / 10) * (1 - sourceConfidence);
+  const capacityMetric = implementationCost > 0 ? moneySaving / implementationCost : 0;
+  const utilizationMargin = netCost > 0 ? totalSaving5yr / netCost : 0;
+  const uncertainty = (payback * (1 - sourceConfidence)) / 2;
 
-  // --- Output 2: out_normalized_demand ---
-  const demandMetric = n_current_kwh_per_year * safeDiv(n_avg_kwh_rate, 10);
-  outputs["out_normalized_demand"] = round(demandMetric, 4);
-
-  // --- Output 3: out_reference_deviation ---
-  const refDev = safeDiv(n_current_kwh_per_year - n_target_kwh_per_year, Math.max(1, n_current_kwh_per_year));
-  outputs["out_reference_deviation"] = round(Math.min(1, Math.max(0, refDev)), 4);
-
-  // --- Output 4: out_derating_factor ---
-  const derating = 1 - safeDiv(payback, 10) * (1 - n_source_confidence_ratio);
-  outputs["out_derating_factor"] = round(Math.max(0, Math.min(1, derating)), 4);
-
-  // --- Output 5: out_demand_metric ---
-  outputs["out_demand_metric"] = round(demandMetric * n_source_confidence_ratio, 4);
-
-  // --- Output 6: out_capacity_metric ---
-  const capacityMetric = safeDiv(money_saving, Math.max(1, n_implementation_cost));
-  outputs["out_capacity_metric"] = round(capacityMetric, 4);
-
-  // --- Output 7: out_utilization_margin ---
-  const utilizationMargin = safeDiv(total_saving_5yr, Math.max(1, net_cost));
-  outputs["out_utilization_margin"] = round(utilizationMargin, 4);
-
-  // --- Output 8: out_expanded_uncertainty ---
-  const uncertainty = safeDiv(payback * (1 - n_source_confidence_ratio), 2);
-  outputs["out_expanded_uncertainty"] = round(uncertainty, 4);
-
-  // --- Output 9: out_threshold_crossing ---
   let threshold = 0;
   if (payback <= 3) threshold = 1;
   if (payback > 5) threshold = -1;
-  outputs["out_threshold_crossing"] = threshold;
 
-  // --- Output 10: out_sensitivity_driver ---
   const drivers = [
-    Math.abs(kwh_saving),
-    Math.abs(n_avg_kwh_rate),
-    Math.abs(n_implementation_cost),
-    Math.abs(n_grant_coverage_pct),
+    Math.abs(kwhSaving), Math.abs(avgKwhRate),
+    Math.abs(implementationCost), Math.abs(grantCoveragePct),
   ];
   const maxDriver = Math.max(...drivers);
   const driverIdx = drivers.indexOf(maxDriver);
-  outputs["out_sensitivity_driver"] = driverIdx;
 
-  // --- Output 11: out_fmea_trigger ---
   let fmeaTrigger = 0;
   if (decision === 1) fmeaTrigger = 1;
   if (payback > 10) fmeaTrigger += 2;
-  if (n_grant_coverage_pct > 0.8) fmeaTrigger += 4;
-  outputs["out_fmea_trigger"] = fmeaTrigger;
+  if (grantCoveragePct > 0.8) fmeaTrigger += 4;
 
-  // --- Output 12: out_money_at_risk ---
-  const moneyAtRisk = Math.max(0, net_cost - money_saving * n_equipment_life_years);
-  outputs["out_money_at_risk"] = round(moneyAtRisk, 4);
-
-  // --- Output 13: out_scenario_delta ---
-  const scenarioDelta = roi - safeDiv(net_cost, Math.max(1, 12));
-  outputs["out_scenario_delta"] = round(scenarioDelta, 4);
-
-  // --- Output 14: out_audit_hash_payload ---
-  const hashSeed = payback * 1000 + roi * 10 + kwh_saving;
+  const moneyAtRisk = Math.max(0, netCost - moneySaving * equipmentLifeYears);
+  const scenarioDelta = roi - (netCost / 12);
+  const hashSeed = payback * 1000 + roi * 10 + kwhSaving;
   const auditHash = Math.abs(hashSeed) % 1000000;
-  outputs["out_audit_hash_payload"] = round(auditHash, 0);
 
-  // --- Output 15: out_final_decision_state ---
-  outputs["out_final_decision_state"] = decision;
+  return {
+    out_evidenceCompleteness: sourceConfidence,
+    out_normalizedDemand: demandMetric,
+    out_referenceDeviation: Math.min(1, Math.max(0, refDev)),
+    out_deratingFactor: Math.max(0, Math.min(1, derating)),
+    out_demandMetric: demandMetric * sourceConfidence,
+    out_capacityMetric: capacityMetric,
+    out_utilizationMargin: utilizationMargin,
+    out_expandedUncertainty: uncertainty,
+    out_thresholdCrossing: threshold,
+    out_sensitivityDriver: driverIdx,
+    out_fmeaTrigger: fmeaTrigger,
+    out_moneyAtRisk: moneyAtRisk,
+    out_scenarioDelta: scenarioDelta,
+    out_auditHashPayload: auditHash,
+    out_finalDecisionState: decision,
+  };
+}
 
-  // --- Sanity check: ensure all 15 outputs are finite ---
-  const allOutputKeys = [
-    "out_evidence_completeness",
-    "out_normalized_demand",
-    "out_reference_deviation",
-    "out_derating_factor",
-    "out_demand_metric",
-    "out_capacity_metric",
-    "out_utilization_margin",
-    "out_expanded_uncertainty",
-    "out_threshold_crossing",
-    "out_sensitivity_driver",
-    "out_fmea_trigger",
-    "out_money_at_risk",
-    "out_scenario_delta",
-    "out_audit_hash_payload",
-    "out_final_decision_state",
-  ];
+// ─── Sensitivity helper ─────────────────────────────────────────────────────
 
-  for (const key of allOutputKeys) {
-    if (!isFiniteNumber(outputs[key])) {
-      outputs[key] = 0;
-      warnings.push("Non-finite output corrected to zero: " + key);
+export function sensitivity(
+  inputs: EnergyEfficiencyInputs,
+  driver: keyof EnergyEfficiencyInputs,
+  pct = 0.10,
+): number {
+  const up = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 + pct) }).out_moneyAtRisk;
+  const dn = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 - pct) }).out_moneyAtRisk;
+  return Math.abs(up - dn);
+}
+
+// ─── ProFormulaModule contract ──────────────────────────────────────────────
+
+function isFiniteNumber(v: unknown): v is number {
+  return typeof v === "number" && Number.isFinite(v);
+}
+
+function get(inputs: Record<string, number>, key: string, fallback = 0): number {
+  const v = inputs[key];
+  return isFiniteNumber(v) ? v : fallback;
+}
+
+const OUTPUT_KEYS: readonly string[] = [
+  "out_evidenceCompleteness", "out_normalizedDemand", "out_referenceDeviation",
+  "out_deratingFactor", "out_demandMetric", "out_capacityMetric",
+  "out_utilizationMargin", "out_expandedUncertainty", "out_thresholdCrossing",
+  "out_sensitivityDriver", "out_fmeaTrigger", "out_moneyAtRisk",
+  "out_scenarioDelta", "out_auditHashPayload", "out_finalDecisionState",
+];
+
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const warnings: string[] = [];
+
+  const typed: EnergyEfficiencyInputs = {
+    currentKwhPerYear: get(inputs, "n_current_kwh_per_year"),
+    targetKwhPerYear: get(inputs, "n_target_kwh_per_year"),
+    avgKwhRate: get(inputs, "n_avg_kwh_rate"),
+    implementationCost: get(inputs, "n_implementation_cost"),
+    grantCoveragePct: get(inputs, "n_grant_coverage_pct"),
+    maintenanceCostSaving: get(inputs, "n_maintenance_cost_saving"),
+    emissionFactorKgCo2PerKwh: get(inputs, "n_emission_factor_kgco2_per_kwh"),
+    equipmentLifeYears: get(inputs, "n_equipment_life_years"),
+    discountRate: get(inputs, "n_discount_rate"),
+    sourceConfidence: get(inputs, "n_source_confidence_ratio"),
+  };
+
+  const mandatory = [
+    "n_current_kwh_per_year", "n_target_kwh_per_year",
+    "n_avg_kwh_rate", "n_implementation_cost",
+  ] as const;
+  for (const key of mandatory) {
+    if (!isFiniteNumber(inputs[key])) {
+      warnings.push(`Input "${key}" is missing or invalid — using 0`);
     }
   }
 
-  // Derive status
-  let status: CalculationStatus = "OK";
-  if (warnings.length > 0) status = "REVIEW";
-  if (decision === 2) status = "BLOCKED";
+  const raw = executeFormula(typed);
+  const allOutputs = raw as unknown as Record<string, number>;
+  const outputs: Record<string, number> = {};
+  for (const key of OUTPUT_KEYS) {
+    outputs[key] = allOutputs[key];
+  }
 
+  const ok = OUTPUT_KEYS.every((k) => isFiniteNumber(outputs[k]));
   return {
-    status,
+    status: ok ? "OK" : "REVIEW",
     outputs,
     warnings,
-    outputKeys: allOutputKeys,
+    outputKeys: [...OUTPUT_KEYS],
     redaction_status: "PUBLIC_SAFE_REDACTED",
   };
 }
+
+export const toolKey = "energy-efficiency-grant-incentive-feasibility-pack";
+export const formulaVersion = "5.3.1-pro-baris.1";
+
+export const sampleInputs: Record<string, number> = {
+  n_current_kwh_per_year: 500000,
+  n_target_kwh_per_year: 350000,
+  n_avg_kwh_rate: 0.14,
+  n_implementation_cost: 120000,
+  n_grant_coverage_pct: 0.35,
+  n_maintenance_cost_saving: 5000,
+  n_emission_factor_kgco2_per_kwh: 0.45,
+  n_equipment_life_years: 15,
+  n_discount_rate: 0.06,
+  n_source_confidence_ratio: 0.85,
+};
+
+export const requiredInputKeys: readonly string[] = [
+  "n_current_kwh_per_year", "n_target_kwh_per_year", "n_avg_kwh_rate",
+  "n_implementation_cost", "n_grant_coverage_pct", "n_maintenance_cost_saving",
+  "n_emission_factor_kgco2_per_kwh", "n_equipment_life_years",
+  "n_discount_rate", "n_source_confidence_ratio",
+];
+
+export const declaredOutputKeys: readonly string[] = [...OUTPUT_KEYS];
