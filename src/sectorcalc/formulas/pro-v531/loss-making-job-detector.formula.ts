@@ -15,7 +15,7 @@ import {
 } from "./pro-formula-safety";
 
 export const toolKey = "loss-making-job-detector";
-export const formulaVersion = "5.3.1-pro-baris.1";
+export const formulaVersion = "5.3.1-pro-baris.2";
 
 export const requiredInputKeys = [
   "n_machine_rate",
@@ -56,8 +56,10 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
   }
 
+  // Legacy normalized identifiers are retained for API compatibility, but the
+  // resolved schema presents their approved economic meanings to the user.
   const quotedPricePerUnit = v.n_machine_rate;
-  const materialCostPerUnit = v.n_material_cost;
+  const materialCostPerBatch = v.n_material_cost;
   const laborCostPerUnit = v.n_labor_rate;
   const overheadCostPerUnit = v.n_overhead_rate;
   const lossCostPerUnit = v.n_defect_or_loss_cost;
@@ -67,11 +69,13 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const confidence = v.n_source_confidence_ratio;
 
   requirePositive(quotedPricePerUnit, "Quoted selling price per unit", state);
-  requireNonNegative(materialCostPerUnit, "Material cost per unit", state);
+  requireNonNegative(materialCostPerBatch, "Material cost per batch", state);
   requireNonNegative(laborCostPerUnit, "Labor cost per unit", state);
   requireNonNegative(overheadCostPerUnit, "Overhead cost per unit", state);
-  requireNonNegative(lossCostPerUnit, "Loss cost per unit", state);
-  requireRange(targetMargin, -1, 1, "Target margin ratio", state, { maxInclusive: false });
+  requireNonNegative(lossCostPerUnit, "Defect or loss cost per unit", state);
+  requireRange(targetMargin, 0, 1, "Target gross margin ratio", state, {
+    maxInclusive: false,
+  });
   requireInteger(batchQuantity, 1, 1000000000, "Batch quantity", state);
   requireInteger(annualVolume, 1, 1000000000000, "Annual volume", state);
   requireRange(confidence, 0, 1, "Source confidence", state);
@@ -80,11 +84,31 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
   }
 
+  // All costs are converted to a per-unit basis before addition. The previous
+  // implementation added a per-batch material amount directly to per-unit
+  // labor, overhead and loss costs, producing a dimensionally invalid margin.
+  const materialCostPerUnit = divideOrError(
+    materialCostPerBatch,
+    batchQuantity,
+    "Material cost per unit",
+    state,
+  );
   const unitCost =
     materialCostPerUnit + laborCostPerUnit + overheadCostPerUnit + lossCostPerUnit;
   const unitMargin = quotedPricePerUnit - unitCost;
-  const marginRatio = divideOrError(unitMargin, quotedPricePerUnit, "Quoted margin ratio", state);
-  const targetPrice = divideOrError(unitCost, 1 - targetMargin, "Target-margin price", state);
+  const marginRatio = divideOrError(
+    unitMargin,
+    quotedPricePerUnit,
+    "Quoted gross margin ratio",
+    state,
+  );
+  const targetPrice = divideOrError(
+    unitCost,
+    1 - targetMargin,
+    "Target gross-margin price",
+    state,
+  );
+  const batchRevenue = quotedPricePerUnit * batchQuantity;
   const batchMargin = unitMargin * batchQuantity;
   const annualMargin = unitMargin * annualVolume;
   const annualLossExposure = Math.max(0, -annualMargin);
@@ -103,12 +127,14 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   else if (marginRatio < targetMargin || confidence < 0.7) decision = 1;
 
   if (confidence < 0.7) {
-    state.warnings.push("Source confidence is below 70%; verify quoted price and unit-cost evidence.");
+    state.warnings.push(
+      "Source confidence is below 70%; verify selling price, batch material cost and unit-cost evidence.",
+    );
   }
 
   const outputs: Record<string, number> = {
     out_evidence_completeness: roundDisplay(confidence, 4),
-    out_normalized_demand: roundDisplay(quotedPricePerUnit * batchQuantity, 2),
+    out_normalized_demand: roundDisplay(batchRevenue, 2),
     out_reference_deviation: roundDisplay(quotedPricePerUnit - targetPrice, 4),
     out_derating_factor: roundDisplay(confidence, 4),
     out_demand_metric: roundDisplay(unitMargin, 4),
