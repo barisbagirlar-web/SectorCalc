@@ -5,6 +5,7 @@ import type {
   ProFormulaModule,
   ProFormulaResult,
 } from "./pro-formula-contract";
+import { integrityWarningIsBlocking } from "./pro-formula-safety";
 
 function sortedUnique(values: readonly string[]): string[] {
   return [...new Set(values)].sort();
@@ -26,13 +27,15 @@ function duplicateValues(values: readonly string[]): string[] {
   return [...duplicates].sort();
 }
 
+/**
+ * Historical schemas may omit the explicit flag. LIVE paid execution is always
+ * strict: schema, formula, runtime inputs and outputs must remain one closed
+ * contract. The flag is retained only for diagnostics/backward compatibility.
+ */
 export function isStrictFormulaSchemaContractEnabled(
-  schema: SuperV4Schema,
+  _schema: SuperV4Schema,
 ): boolean {
-  return (
-    (schema.engine_rules as Record<string, unknown> | undefined)
-      ?.strict_formula_schema_contract === true
-  );
+  return true;
 }
 
 export function validateFormulaModuleBinding(
@@ -40,8 +43,6 @@ export function validateFormulaModuleBinding(
   module: ProFormulaModule,
   normalizedInputs: Record<string, number>,
 ): string[] {
-  if (!isStrictFormulaSchemaContractEnabled(schema)) return [];
-
   const errors: string[] = [];
   const schemaInputIds = schema.normalized_inputs.map((input) => input.id);
   const schemaOutputIds = schema.outputs.map((output) => output.id);
@@ -63,7 +64,7 @@ export function validateFormulaModuleBinding(
   }
 
   if (!module.formulaVersion) {
-    errors.push("Strict formula module must export formulaVersion.");
+    errors.push("Formula module must export formulaVersion.");
   } else if (module.formulaVersion !== schema.metadata.formula_version) {
     errors.push(
       `Formula version ${module.formulaVersion} does not match schema version ${schema.metadata.formula_version}.`,
@@ -88,9 +89,7 @@ export function validateFormulaModuleBinding(
     );
   }
 
-  if (declaredOutputIds.length === 0) {
-    errors.push("Strict formula module must export declaredOutputKeys.");
-  } else if (!sameSet(schemaOutputIds, declaredOutputIds)) {
+  if (declaredOutputIds.length > 0 && !sameSet(schemaOutputIds, declaredOutputIds)) {
     errors.push(
       `Formula declared output set does not match schema outputs. Schema=[${sortedUnique(schemaOutputIds).join(", ")}], Formula=[${sortedUnique(declaredOutputIds).join(", ")}].`,
     );
@@ -104,8 +103,6 @@ export function validateFormulaResultContract(
   module: ProFormulaModule,
   result: ProFormulaResult,
 ): string[] {
-  if (!isStrictFormulaSchemaContractEnabled(schema)) return [];
-
   const errors: string[] = [];
   const schemaOutputIds = schema.outputs.map((output) => output.id);
   const resultOutputIds = Object.keys(result.outputs);
@@ -136,9 +133,21 @@ export function validateFormulaResultContract(
     errors.push(`Unsupported formula status: ${String(result.status)}.`);
   }
 
+  if (result.status === "BLOCKED") {
+    errors.push(
+      `Formula execution blocked: ${result.warnings.join(" | ") || "no reason supplied"}.`,
+    );
+  }
+
+  for (const warning of result.warnings) {
+    if (integrityWarningIsBlocking(warning)) {
+      errors.push(`Formula integrity warning is blocking: ${warning}`);
+    }
+  }
+
   if (result.redaction_status !== "PUBLIC_SAFE_REDACTED") {
     errors.push(
-      `Strict public formula result must be PUBLIC_SAFE_REDACTED, got ${result.redaction_status}.`,
+      `Public formula result must be PUBLIC_SAFE_REDACTED, got ${result.redaction_status}.`,
     );
   }
 
