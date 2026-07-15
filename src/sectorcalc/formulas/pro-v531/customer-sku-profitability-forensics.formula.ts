@@ -70,7 +70,7 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   requireRange(logisticsPct, 0, 100, "Logistics cost (%)", state);
   requireRange(servicePct, 0, 100, "Service cost (%)", state);
   requireRange(returnPct, 0, 100, "Return rate (%)", state);
-  requireRange(targetMarginPct, -100, 100, "Target net margin (%)", state, {
+  requireRange(targetMarginPct, 0, 100, "Target net margin (%)", state, {
     maxInclusive: false,
   });
   requireRange(confidence, 0, 1, "Source confidence", state);
