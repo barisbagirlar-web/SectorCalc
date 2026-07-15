@@ -1,0 +1,105 @@
+name: PRO Live Browser E2E
+
+on:
+  push:
+    branches: [main, "fix/*", "feature/*", "release/*"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pro-live-browser-e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      OWNER_BYPASS_EMAIL: ${{ secrets.OWNER_BYPASS_EMAIL }}
+      E2E_OWNER_PASSWORD: ${{ secrets.E2E_OWNER_PASSWORD }}
+      NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
+      NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
+      NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
+      NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}
+      NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
+      NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
+      NEXT_PUBLIC_SITE_URL: http://127.0.0.1:3000
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Require browser credentials
+        shell: bash
+        run: |
+          test -n "$OWNER_BYPASS_EMAIL" || { echo "OWNER_BYPASS_EMAIL secret is missing"; exit 1; }
+          test -n "$E2E_OWNER_PASSWORD" || { echo "E2E_OWNER_PASSWORD secret is missing"; exit 1; }
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Run formula source and mathematical gates
+        shell: bash
+        run: |
+          node scripts/guard-pro-formula-fail-closed.mjs
+          npx vitest run tests/pro-formula-integrity/
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build application
+        run: npm run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+
+      - name: Start production server
+        shell: bash
+        run: |
+          npm run start > /tmp/sectorcalc-pro-live.log 2>&1 &
+          echo $! > /tmp/sectorcalc-pro-live.pid
+          for attempt in $(seq 1 90); do
+            if curl -fsS http://127.0.0.1:3000/login >/dev/null; then
+              echo "NEXT_SERVER_READY=PASS"
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/sectorcalc-pro-live.log
+          exit 1
+
+      - name: Run all 20 PRO browser contracts
+        run: npx tsx scripts/e2e-pro-live-tools.ts
+        env:
+          E2E_BASE_URL: http://127.0.0.1:3000
+
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pro-live-browser-e2e-evidence
+          path: artifacts/pro-live-browser-e2e
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Upload server log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pro-live-browser-e2e-server-log
+          path: /tmp/sectorcalc-pro-live.log
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Stop production server
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/sectorcalc-pro-live.pid ]; then
+            kill "$(cat /tmp/sectorcalc-pro-live.pid)" || true
+          fi
