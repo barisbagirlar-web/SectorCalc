@@ -69,7 +69,166 @@ function withUnit(
   };
 }
 
+function applyToolSpecificInputContract(
+  toolKey: string,
+  input: SuperV4Input,
+): SuperV4Input | null {
+  if (toolKey === "loss-making-job-detector") {
+    if (input.id === "machine_rate") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "Quoted Selling Price per Unit",
+        helpText: "Enter the quoted selling price per unit in the selected currency.",
+      });
+    }
+    if (input.id === "labor_rate") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "Labor Cost per Unit",
+      });
+    }
+    if (input.id === "overhead_rate") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "Overhead Cost per Unit",
+      });
+    }
+  }
+
+  if (toolKey === "receivables-cost-payment-term-addendum") {
+    if (input.id === "machine_rate") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "Invoice Amount",
+      });
+    }
+    if (input.id === "cycle_time") {
+      return withUnit(input, {
+        quantityKind: "time",
+        baseUnit: "day",
+        displayUnit: "day",
+        name: "Payment Term (days)",
+      });
+    }
+    if (input.id === "batch_quantity") {
+      return withUnit(input, {
+        quantityKind: "dimensionless",
+        baseUnit: "count",
+        displayUnit: "count",
+        name: "Annual Invoice Count",
+      });
+    }
+    if (input.id === "material_cost") {
+      return withUnit(input, {
+        quantityKind: "dimensionless",
+        baseUnit: "percent",
+        displayUnit: "percent",
+        name: "Annual Financing Rate (%)",
+      });
+    }
+    if (input.id === "overhead_rate") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "Administration Cost per Invoice",
+      });
+    }
+    if (input.id === "defect_or_loss_cost") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "Expected Credit Loss per Invoice",
+      });
+    }
+  }
+
+  if (toolKey === "setup-time-reduction-roi-smed") {
+    if (input.id === "machine_rate") {
+      return withUnit(input, {
+        quantityKind: "currency_rate",
+        baseUnit: "currency_unit_per_h",
+        displayUnit: "currency_unit_per_h",
+        name: "Downtime Cost Rate per Hour",
+      });
+    }
+    if (input.id === "setup_time") {
+      return withUnit(input, {
+        quantityKind: "time",
+        baseUnit: "s",
+        displayUnit: "s",
+        name: "Current Setup Time",
+      });
+    }
+    if (input.id === "batch_quantity") {
+      return withUnit(input, {
+        quantityKind: "time",
+        baseUnit: "s",
+        displayUnit: "s",
+        name: "Target Setup Time",
+      });
+    }
+    if (input.id === "annual_volume") {
+      return withUnit(input, {
+        quantityKind: "rate",
+        baseUnit: "changeover_per_year",
+        displayUnit: "changeover_per_year",
+        name: "Annual Changeovers",
+      });
+    }
+    if (input.id === "overhead_rate") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "SMED Implementation Cost",
+      });
+    }
+  }
+
+  if (toolKey === "product-sku-margin-ranker") {
+    if (input.id === "machine_rate") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "Unit Selling Price",
+      });
+    }
+    if (input.id === "overhead_rate") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "Annual Overhead Pool",
+      });
+    }
+    if (input.id === "defect_or_loss_cost") {
+      return withUnit(input, {
+        quantityKind: "currency",
+        baseUnit: "currency_unit",
+        displayUnit: "currency_unit",
+        name: "Annual Quality and Loss Cost",
+      });
+    }
+  }
+
+  return null;
+}
+
 function correctInputContract(toolKey: string, input: SuperV4Input): SuperV4Input {
+  const specific = applyToolSpecificInputContract(toolKey, input);
+  if (specific) return specific;
+
   if (COUNT_INPUT_IDS.has(input.id)) {
     return withUnit(input, {
       quantityKind: "dimensionless",
@@ -130,12 +289,6 @@ function correctInputContract(toolKey: string, input: SuperV4Input): SuperV4Inpu
   return input;
 }
 
-/**
- * Versioned correction layer for generated V5.3.1 schemas whose unit metadata
- * conflicts with the physical quantity consumed by the deterministic formula.
- * Both the form and execute API resolve this same corrected schema, so display,
- * normalization, validation and reporting remain one closed contract.
- */
 export function applySchemaCalculationContractOverrides(
   schema: SuperV4Schema,
 ): SuperV4Schema {
@@ -145,9 +298,19 @@ export function applySchemaCalculationContractOverrides(
   const inputs = schema.inputs
     .filter((input) => !removedIds.has(input.id))
     .map((input) => correctInputContract(schema.tool_key, input));
-  const normalizedInputs = schema.normalized_inputs.filter(
-    (input) => !removedIds.has(input.from_input),
-  );
+  const inputById = new Map(inputs.map((input) => [input.id, input]));
+  const normalizedInputs = schema.normalized_inputs
+    .filter((input) => !removedIds.has(input.from_input))
+    .map((input) => {
+      const sourceInput = inputById.get(input.from_input);
+      return sourceInput
+        ? {
+            ...input,
+            quantity_kind: sourceInput.quantity_kind,
+            base_unit: sourceInput.base_unit ?? input.base_unit,
+          }
+        : input;
+    });
   const densityEntry = schema.unit_conversion_contract.conversion_registry.density;
   const densityUnits = densityEntry?.units ?? [];
   const hasGCm3 = densityUnits.some((unit) => unit.unit === "g_per_cm3");
