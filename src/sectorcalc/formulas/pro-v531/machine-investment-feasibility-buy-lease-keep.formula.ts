@@ -1,241 +1,217 @@
 import "server-only";
+
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
-
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
+import type { ProFormulaResult } from "./pro-formula-contract";
+import {
+  createValidationState,
+  finalizeResult,
+  requireFiniteInputs,
+  requireInteger,
+  requireNonNegative,
+  requirePositive,
+  requireRange,
+  roundDisplay,
+} from "./pro-formula-safety";
 
 export const toolKey = "machine-investment-feasibility-buy-lease-keep";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
-function isFiniteNumber(v: unknown): v is number {
-  return typeof v === "number" && Number.isFinite(v);
-}
+export const requiredInputKeys = [
+  "n_initial_investment",
+  "n_annual_net_cash_flow",
+  "n_discount_rate",
+  "n_analysis_years",
+  "n_residual_value",
+  "n_stress_downside_factor",
+  "n_annual_volume",
+  "n_labor_rate",
+  "n_overhead_rate",
+  "n_defect_or_loss_cost",
+  "n_source_confidence_ratio",
+  "n_uncertainty_multiplier",
+] as const;
 
-function get(inputs: Record<string, number>, key: string): number {
-  const v = inputs[key];
-  return isFiniteNumber(v) ? v : 0;
-}
-
-function round(v: number, d: number): number {
-  if (!isFiniteNumber(v)) return 0;
-  const f = Math.pow(10, d);
-  return Math.round(v * f) / f;
-}
-
-function safeDiv(n: number, d: number): number {
-  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
-  return n / d;
-}
+export const declaredOutputKeys = [
+  "out_evidence_completeness",
+  "out_normalized_demand",
+  "out_reference_deviation",
+  "out_derating_factor",
+  "out_demand_metric",
+  "out_capacity_metric",
+  "out_utilization_margin",
+  "out_expanded_uncertainty",
+  "out_threshold_crossing",
+  "out_sensitivity_driver",
+  "out_fmea_trigger",
+  "out_money_at_risk",
+  "out_scenario_delta",
+  "out_audit_hash_payload",
+  "out_final_decision_state",
+] as const;
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
+function annuityNpv(
+  initialCost: number,
+  annualCashFlow: number,
+  discountRate: number,
+  years: number,
+  residualValue = 0,
+): number {
+  let npv = -initialCost;
+  for (let year = 1; year <= years; year += 1) {
+    npv += annualCashFlow / (1 + discountRate) ** year;
+  }
+  npv += residualValue / (1 + discountRate) ** years;
+  return npv;
+}
 
-  // --- Validate required inputs ---
-  const requiredKeys = [
-    "n_initial_investment",
-    "n_annual_net_cash_flow",
-    "n_discount_rate",
-    "n_analysis_years",
-    "n_residual_value",
-    "n_stress_downside_factor",
-    "n_annual_volume",
-    "n_labor_rate",
-    "n_overhead_rate",
-    "n_defect_or_loss_cost",
-    "n_source_confidence_ratio",
-    "n_uncertainty_multiplier",
-  ];
-
-  let evidenceCount = 0;
-  for (const key of requiredKeys) {
-    if (!isFiniteNumber(inputs[key])) {
-      warnings.push("Missing or non-finite input: " + key);
-    } else {
-      evidenceCount++;
-    }
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const state = createValidationState();
+  const v = requireFiniteInputs(inputs, requiredInputKeys, state);
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
   }
 
-  // --- Extract inputs ---
-  const n_initial_investment = get(inputs, "n_initial_investment");
-  const n_annual_net_cash_flow = get(inputs, "n_annual_net_cash_flow");
-  const n_discount_rate = get(inputs, "n_discount_rate");
-  const n_analysis_years = get(inputs, "n_analysis_years");
-  const n_residual_value = get(inputs, "n_residual_value");
-  const n_stress_downside_factor = get(inputs, "n_stress_downside_factor");
-  const n_annual_volume = get(inputs, "n_annual_volume");
-  const n_labor_rate = get(inputs, "n_labor_rate");
-  const n_overhead_rate = get(inputs, "n_overhead_rate");
-  const n_defect_or_loss_cost = get(inputs, "n_defect_or_loss_cost");
-  const n_source_confidence_ratio = get(inputs, "n_source_confidence_ratio");
-  const n_uncertainty_multiplier = get(inputs, "n_uncertainty_multiplier");
+  const buyCost = v.n_initial_investment;
+  const commonAnnualBenefit = v.n_annual_net_cash_flow;
+  const discountRate = v.n_discount_rate;
+  const years = v.n_analysis_years;
+  const buyResidual = v.n_residual_value;
+  const downsideRetention = v.n_stress_downside_factor;
+  const keepRefurbishmentCost = v.n_annual_volume;
+  const annualLeasePayment = v.n_labor_rate;
+  const leaseInitialFees = v.n_overhead_rate;
+  const keepAnnualBenefit = v.n_defect_or_loss_cost;
+  const confidence = v.n_source_confidence_ratio;
+  const uncertaintyMultiplier = v.n_uncertainty_multiplier;
 
-  // --- Derived parameters ---
-  const years = Math.max(1, Math.round(n_analysis_years));
-  const rate = n_discount_rate;
-  const stress = Math.max(0, Math.min(1, n_stress_downside_factor));
+  requirePositive(buyCost, "Buy purchase and installation cost", state);
+  requireNonNegative(commonAnnualBenefit, "Annual operating benefit", state);
+  requireRange(discountRate, 0, 1, "Discount rate", state, { maxInclusive: false });
+  requireInteger(years, 1, 100, "Analysis years", state);
+  requireNonNegative(buyResidual, "Buy residual value", state);
+  requireRange(downsideRetention, 0, 1, "Downside benefit retention", state);
+  requireNonNegative(keepRefurbishmentCost, "Keep refurbishment cost", state);
+  requireNonNegative(annualLeasePayment, "Annual lease payment", state);
+  requireNonNegative(leaseInitialFees, "Lease initial fees", state);
+  requireNonNegative(keepAnnualBenefit, "Keep annual net benefit", state);
+  requireRange(confidence, 0, 1, "Source confidence", state);
+  requireRange(uncertaintyMultiplier, 0, 5, "Uncertainty multiplier", state, {
+    minInclusive: false,
+  });
 
-  // --- Buy scenario NPV ---
-  const net_capex = n_initial_investment;
-  const annual_maintenance = n_overhead_rate * 0.2;
-  const annual_savings_buy = n_annual_net_cash_flow - annual_maintenance;
-  let npv_buy = -net_capex;
-  for (let y = 1; y <= years; y++) {
-    npv_buy += annual_savings_buy / Math.pow(1 + rate, y);
-  }
-  npv_buy += n_residual_value / Math.pow(1 + rate, years);
-
-  // --- Lease scenario NPV ---
-  const annual_lease_payment = n_initial_investment * 0.25;
-  let npv_lease = 0;
-  for (let y = 1; y <= years; y++) {
-    npv_lease += (n_annual_net_cash_flow - annual_lease_payment) / Math.pow(1 + rate, y);
+  if (buyResidual > buyCost) {
+    state.warnings.push("Buy residual value exceeds purchase cost; verify the terminal-value basis.");
   }
 
-  // --- Keep scenario NPV ---
-  let npv_keep = 0;
-  for (let y = 1; y <= years; y++) {
-    npv_keep += (n_annual_net_cash_flow * 0.5) / Math.pow(1 + rate, y);
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
   }
 
-  // --- Decision ---
-  const allNpv = [npv_buy, npv_lease, npv_keep];
-  const allNegative = allNpv.every((v) => v <= 0);
-  let decision: number;
-  if (allNegative) {
-    decision = 3; // REVIEW
-  } else {
-    const maxNpv = Math.max(npv_buy, npv_lease, npv_keep);
-    if (maxNpv === npv_buy) decision = 0; // BUY
-    else if (maxNpv === npv_lease) decision = 1; // LEASE
-    else decision = 2; // KEEP
+  const buyNpv = annuityNpv(
+    buyCost,
+    commonAnnualBenefit,
+    discountRate,
+    years,
+    buyResidual,
+  );
+  const leaseAnnualNet = commonAnnualBenefit - annualLeasePayment;
+  const leaseNpv = annuityNpv(
+    leaseInitialFees,
+    leaseAnnualNet,
+    discountRate,
+    years,
+  );
+  const keepNpv = annuityNpv(
+    keepRefurbishmentCost,
+    keepAnnualBenefit,
+    discountRate,
+    years,
+  );
+
+  const stressedBuyNpv = annuityNpv(
+    buyCost,
+    commonAnnualBenefit * downsideRetention,
+    discountRate,
+    years,
+    buyResidual,
+  );
+  const stressedLeaseNpv = annuityNpv(
+    leaseInitialFees,
+    commonAnnualBenefit * downsideRetention - annualLeasePayment,
+    discountRate,
+    years,
+  );
+  const stressedKeepNpv = annuityNpv(
+    keepRefurbishmentCost,
+    keepAnnualBenefit * downsideRetention,
+    discountRate,
+    years,
+  );
+
+  const baseNpvs = [buyNpv, leaseNpv, keepNpv];
+  const stressedNpvs = [stressedBuyNpv, stressedLeaseNpv, stressedKeepNpv];
+  const bestBaseNpv = Math.max(...baseNpvs);
+  const bestStressedNpv = Math.max(...stressedNpvs);
+  const baseDecision = baseNpvs.indexOf(bestBaseNpv); // 0 BUY, 1 LEASE, 2 KEEP
+  const stressedDecision = stressedNpvs.indexOf(bestStressedNpv);
+  const sortedBase = [...baseNpvs].sort((a, b) => b - a);
+  const decisionMargin = sortedBase[0] - sortedBase[1];
+  const downsideDelta = bestBaseNpv - bestStressedNpv;
+  const uncertainty =
+    Math.abs(downsideDelta) * uncertaintyMultiplier +
+    Math.abs(bestBaseNpv) * (1 - confidence);
+
+  let finalDecision = baseDecision;
+  let status: "OK" | "REVIEW" = "OK";
+  if (
+    bestBaseNpv <= 0 ||
+    bestStressedNpv < 0 ||
+    stressedDecision !== baseDecision ||
+    confidence < 0.7 ||
+    decisionMargin <= uncertainty
+  ) {
+    finalDecision = 3; // REVIEW
+    status = "REVIEW";
   }
 
-  // --- Output 1: out_evidence_completeness ---
-  const totalInputs = requiredKeys.length;
-  const evidenceRatio = safeDiv(evidenceCount, totalInputs);
-  outputs["out_evidence_completeness"] = round(Math.min(1, Math.max(0, evidenceRatio)), 4);
-
-  // --- Output 2: out_normalized_demand ---
-  const demandMetric = n_annual_volume * safeDiv(n_labor_rate, 1000);
-  outputs["out_normalized_demand"] = round(demandMetric, 4);
-
-  // --- Output 3: out_reference_deviation ---
-  const refDev = safeDiv(n_overhead_rate - n_labor_rate, Math.max(1, n_labor_rate));
-  outputs["out_reference_deviation"] = round(Math.min(1, Math.max(-1, refDev)), 4);
-
-  // --- Output 4: out_derating_factor ---
-  const derating = 1 - stress * n_uncertainty_multiplier * (1 - n_source_confidence_ratio);
-  outputs["out_derating_factor"] = round(Math.max(0, Math.min(1, derating)), 4);
-
-  // --- Output 5: out_demand_metric ---
-  outputs["out_demand_metric"] = round(demandMetric * n_source_confidence_ratio, 4);
-
-  // --- Output 6: out_capacity_metric ---
-  const capacityMetric = safeDiv(n_annual_net_cash_flow, Math.max(1, n_initial_investment));
-  outputs["out_capacity_metric"] = round(capacityMetric, 4);
-
-  // --- Output 7: out_utilization_margin ---
-  const sortedNpv = [...allNpv].sort((a, b) => b - a);
-  const margin = sortedNpv.length > 1 ? sortedNpv[0] - sortedNpv[1] : 0;
-  outputs["out_utilization_margin"] = round(margin, 4);
-
-  // --- Output 8: out_expanded_uncertainty ---
-  const bestNpv = sortedNpv[0] || 0;
-  const uncertainty = n_uncertainty_multiplier * (1 - n_source_confidence_ratio) * Math.abs(bestNpv);
-  outputs["out_expanded_uncertainty"] = round(uncertainty, 4);
-
-  // --- Output 9: out_threshold_crossing ---
-  let threshold = 0;
-  if (bestNpv > 0) threshold = 1;
-  if (n_defect_or_loss_cost > 0 && bestNpv < n_defect_or_loss_cost) threshold = -1;
-  outputs["out_threshold_crossing"] = threshold;
-
-  // --- Output 10: out_sensitivity_driver ---
-  const drivers = [
-    Math.abs(n_initial_investment),
-    Math.abs(n_annual_net_cash_flow),
-    Math.abs(n_overhead_rate),
-    Math.abs(n_labor_rate),
-  ];
-  const maxDriver = Math.max(...drivers);
-  const driverIdx = drivers.indexOf(maxDriver);
-  outputs["out_sensitivity_driver"] = driverIdx;
-
-  // --- Output 11: out_fmea_trigger ---
-  let fmeaTrigger = 0;
-  if (!allNegative && margin < 0.01 * Math.abs(bestNpv)) fmeaTrigger = 1;
-  if (stress > 0.3) fmeaTrigger += 2;
-  if (uncertainty > 0.2 * Math.abs(bestNpv)) fmeaTrigger += 4;
-  outputs["out_fmea_trigger"] = fmeaTrigger;
-
-  // --- Output 12: out_money_at_risk ---
-  const riskCost = n_defect_or_loss_cost * n_annual_volume * stress;
-  const moneyAtRisk = Math.max(0, riskCost - bestNpv * (1 - stress));
-  outputs["out_money_at_risk"] = round(moneyAtRisk, 4);
-
-  // --- Output 13: out_scenario_delta ---
-  const scenarioDelta = npv_buy - npv_lease;
-  outputs["out_scenario_delta"] = round(scenarioDelta, 4);
-
-  // --- Output 14: out_audit_hash_payload ---
-  const hashSeed =
-    npv_buy * 1000 +
-    npv_lease * 100 +
-    npv_keep * 10 +
-    n_initial_investment * 1.0;
-  const auditHash = Math.abs(hashSeed) % 1000000;
-  outputs["out_audit_hash_payload"] = round(auditHash, 0);
-
-  // --- Output 15: out_final_decision_state ---
-  outputs["out_final_decision_state"] = decision;
-
-  // --- Sanity check: ensure all 15 outputs are finite ---
-  const allOutputKeys = [
-    "out_evidence_completeness",
-    "out_normalized_demand",
-    "out_reference_deviation",
-    "out_derating_factor",
-    "out_demand_metric",
-    "out_capacity_metric",
-    "out_utilization_margin",
-    "out_expanded_uncertainty",
-    "out_threshold_crossing",
-    "out_sensitivity_driver",
-    "out_fmea_trigger",
-    "out_money_at_risk",
-    "out_scenario_delta",
-    "out_audit_hash_payload",
-    "out_final_decision_state",
-  ];
-
-  for (const key of allOutputKeys) {
-    if (!isFiniteNumber(outputs[key])) {
-      outputs[key] = 0;
-      warnings.push("Non-finite output corrected to zero: " + key);
-    }
+  if (stressedDecision !== baseDecision) {
+    state.warnings.push("The preferred option changes under the downside scenario.");
+  }
+  if (decisionMargin <= uncertainty) {
+    state.warnings.push("The NPV margin between the leading options is within the uncertainty band.");
+  }
+  if (confidence < 0.7) {
+    state.warnings.push("Source confidence is below 70%; verify buy, lease and keep cash-flow evidence.");
   }
 
-  // Derive status
-  let status: CalculationStatus = "OK";
-  if (warnings.length > 0) status = "REVIEW";
-  if (decision === 3) status = "BLOCKED";
+  const capitalDrivers = [buyCost, annualLeasePayment * years, keepRefurbishmentCost];
+  const sensitivityDriver = capitalDrivers.indexOf(Math.max(...capitalDrivers));
+  const moneyAtRisk = Math.max(0, -bestStressedNpv) + uncertainty;
 
-  return {
-    status,
-    outputs,
-    warnings,
-    outputKeys: allOutputKeys,
-    redaction_status: "PUBLIC_SAFE_REDACTED",
+  const outputs: Record<string, number> = {
+    out_evidence_completeness: roundDisplay(confidence, 4),
+    out_normalized_demand: roundDisplay(commonAnnualBenefit, 2),
+    out_reference_deviation: roundDisplay(decisionMargin, 2),
+    out_derating_factor: roundDisplay(downsideRetention * confidence, 4),
+    out_demand_metric: roundDisplay(buyNpv, 2),
+    out_capacity_metric: roundDisplay(leaseNpv, 2),
+    out_utilization_margin: roundDisplay(keepNpv, 2),
+    out_expanded_uncertainty: roundDisplay(uncertainty, 2),
+    out_threshold_crossing: bestBaseNpv > 0 ? 1 : 0,
+    out_sensitivity_driver: sensitivityDriver,
+    out_fmea_trigger: finalDecision === 3 ? 1 : 0,
+    out_money_at_risk: roundDisplay(moneyAtRisk, 2),
+    out_scenario_delta: roundDisplay(downsideDelta, 2),
+    out_audit_hash_payload: 0,
+    out_final_decision_state: finalDecision,
   };
+
+  return finalizeResult({
+    outputs,
+    outputKeys: declaredOutputKeys,
+    state,
+    status,
+  });
 }
