@@ -42,6 +42,37 @@ function resolveReportUnit(
   return unit;
 }
 
+function humanizeInputId(inputId: string): string {
+  return inputId
+    .replace(/^n_/, "")
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+function unwrapRawInput(
+  raw: unknown,
+): string | number | boolean | null {
+  if (
+    typeof raw === "string" ||
+    typeof raw === "number" ||
+    typeof raw === "boolean"
+  ) {
+    return raw;
+  }
+  if (raw && typeof raw === "object") {
+    const record = raw as Record<string, unknown>;
+    const candidate = record.display_value ?? record.base_value ?? record.value;
+    if (
+      typeof candidate === "string" ||
+      typeof candidate === "number" ||
+      typeof candidate === "boolean"
+    ) {
+      return candidate;
+    }
+  }
+  return null;
+}
+
 export function buildProReport(input: ProReportAdapterInput): ProReportAdapterResult | null {
   const contract =
     getProReportContractOverride(input.toolSlug) ??
@@ -61,8 +92,8 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
 
   if (contract.strict) {
     const requiredOutputIds = new Set(
-      contract.sections.flatMap((section) =>
-        section.entries.map((entry) => entry.sourceOutputId),
+      contract.sections.flatMap((reportSection) =>
+        reportSection.entries.map((reportEntry) => reportEntry.sourceOutputId),
       ),
     );
 
@@ -77,36 +108,61 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
     }
   }
 
-  const resolvedSections = contract.sections.map((section: ReportSection) => {
-    const entries = section.entries.map((entry) => {
-      const match = outputMap.get(entry.sourceOutputId);
+  const resolvedSections = contract.sections.map((reportSection: ReportSection) => {
+    const entries = reportSection.entries.map((reportEntry) => {
+      const match = outputMap.get(reportEntry.sourceOutputId);
       const value = resolveReportValue(
         match?.value,
-        entry.valueLabels,
-        entry.valueMultiplier,
+        reportEntry.valueLabels,
+        reportEntry.valueMultiplier,
       );
       return {
-        label: entry.businessLabel,
+        label: reportEntry.businessLabel,
         value,
         unit:
-          typeof value === "string" && entry.valueLabels
+          typeof value === "string" && reportEntry.valueLabels
             ? null
             : resolveReportUnit(
                 match?.unit ?? null,
-                entry.unit,
+                reportEntry.unit,
                 input.displayCurrency,
               ),
-        explanation: entry.explanation ?? null,
-        displayDecimals: entry.displayDecimals,
+        explanation: reportEntry.explanation ?? null,
+        displayDecimals: reportEntry.displayDecimals,
       };
     });
 
     return {
-      sectionTitle: section.sectionTitle,
-      priority: section.priority,
+      sectionTitle: reportSection.sectionTitle,
+      priority: reportSection.priority,
       entries,
     };
   });
+
+  const inputTraceEntries = Object.entries(input.rawInputs)
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([inputId, raw]) => {
+      const value = unwrapRawInput(raw);
+      const selectedUnit = input.selectedUnits[inputId] ?? null;
+      return {
+        label: humanizeInputId(inputId),
+        value,
+        unit: resolveReportUnit(
+          selectedUnit,
+          selectedUnit ?? undefined,
+          input.displayCurrency,
+        ),
+        explanation: null,
+      };
+    });
+
+  if (inputTraceEntries.length > 0) {
+    resolvedSections.push({
+      sectionTitle: "Input Trace",
+      priority: 90,
+      entries: inputTraceEntries,
+    });
+  }
 
   resolvedSections.sort((a, b) => a.priority - b.priority);
 
