@@ -1,4 +1,6 @@
 import type {
+  ConversionEntry,
+  ConversionRegistry,
   SuperV4Input,
   SuperV4Schema,
 } from "@/sectorcalc/pro-form/contract-types";
@@ -19,6 +21,19 @@ interface InputSemanticOverride {
   baseUnit: string;
   helpText: string;
 }
+
+const CURRENCY_DISPLAY_ALIASES: Readonly<Record<string, string>> = {
+  currency_unit: "Currency",
+  currency_unit_per_h: "Currency/h",
+  currency_unit_per_unit: "Currency/unit",
+  currency_unit_per_batch: "Currency/batch",
+  currency_unit_per_invoice: "Currency/invoice",
+  currency_unit_per_month: "Currency/month",
+  currency_unit_per_year: "Currency/year",
+  currency_unit_per_kWh: "Currency/kWh",
+  currency_unit_per_kg: "Currency/kg",
+  currency_unit_per_min: "Currency/min",
+};
 
 const PRO_ECONOMIC_BASES: Readonly<
   Record<string, Readonly<Record<string, string>>>
@@ -142,6 +157,10 @@ const PRO_ECONOMIC_BASES: Readonly<
   },
 };
 
+function currencyDisplayAlias(baseUnit: string): string {
+  return CURRENCY_DISPLAY_ALIASES[baseUnit] ?? baseUnit;
+}
+
 function applyInputSemantic(
   input: SuperV4Input,
   override: InputSemanticOverride,
@@ -162,11 +181,15 @@ function applyEconomicBasis(
   baseUnit: string,
   quantityKind = baseUnit === "currency_unit" ? "currency" : "currency_rate",
 ): SuperV4Input {
+  const displayAlias = currencyDisplayAlias(baseUnit);
   return {
     ...input,
     quantity_kind: quantityKind,
     base_unit: baseUnit,
-    allowed_display_units: [baseUnit],
+    // Internal base-unit identifiers never leak into the UI. The display alias
+    // is converted to the selected ISO code by replaceCurrencyLabel; no FX
+    // conversion is implied or performed.
+    allowed_display_units: [displayAlias],
     unit_selectable: false,
     physical_hard_bounds: input.physical_hard_bounds
       ? { ...input.physical_hard_bounds, unit: baseUnit }
@@ -187,6 +210,61 @@ function applyEconomicBasis(
   };
 }
 
+function addIdentityUnit(
+  units: ConversionEntry[],
+  unit: string,
+): ConversionEntry[] {
+  if (units.some((entry) => entry.unit === unit)) return units;
+  return [...units, { unit, factor: 1, label: unit }];
+}
+
+function addCurrencyDisplayAliases(
+  registry: ConversionRegistry,
+  inputs: SuperV4Input[],
+): ConversionRegistry {
+  const next: ConversionRegistry = { ...registry };
+  for (const input of inputs) {
+    if (!input.base_unit || !CURRENCY_DISPLAY_ALIASES[input.base_unit]) continue;
+    const quantityKind = input.quantity_kind;
+    const baseUnit = input.base_unit;
+    const alias = currencyDisplayAlias(baseUnit);
+    const current = next[quantityKind];
+    const units = addIdentityUnit(
+      addIdentityUnit(current?.units ? [...current.units] : [], baseUnit),
+      alias,
+    );
+    next[quantityKind] = {
+      base_unit: current?.base_unit ?? baseUnit,
+      unit_family: current?.unit_family ?? "CURRENCY",
+      units,
+    };
+  }
+  return next;
+}
+
+function markMonetaryOutputs(schema: SuperV4Schema): SuperV4Schema["outputs"] {
+  const explicitUnits: Readonly<Record<string, string>> = {
+    out_money_at_risk: "currency",
+    out_break_even_monthly_revenue: "currency/month",
+    out_current_revenue_gap: "currency/month",
+    out_stressed_monthly_revenue: "currency/month",
+    out_monthly_cash_burn: "currency/month",
+    out_survival_cash_target: "currency",
+    out_funding_gap: "currency",
+    out_uncertainty_cash_buffer: "currency",
+    out_base_annual_compensation: "currency/year",
+    out_workspace_facility_cost: "currency/year",
+    out_fully_loaded_annual_cost: "currency/year",
+    out_monthly_employer_cost: "currency/month",
+    out_total_cost_floor: "currency",
+    out_cost_per_meter: "currency/m",
+  };
+  return schema.outputs.map((output) => {
+    const unit = explicitUnits[output.id];
+    return unit ? { ...output, unit } : output;
+  });
+}
+
 function applyDeclaredEconomicBases(schema: SuperV4Schema): SuperV4Schema {
   const bases = PRO_ECONOMIC_BASES[schema.tool_key];
   if (!bases) return schema;
@@ -197,7 +275,15 @@ function applyDeclaredEconomicBases(schema: SuperV4Schema): SuperV4Schema {
   return {
     ...schema,
     inputs,
+    outputs: markMonetaryOutputs(schema),
     normalized_inputs: syncNormalizedInputs(schema, inputs),
+    unit_conversion_contract: {
+      ...schema.unit_conversion_contract,
+      conversion_registry: addCurrencyDisplayAliases(
+        schema.unit_conversion_contract.conversion_registry,
+        inputs,
+      ),
+    },
   };
 }
 
