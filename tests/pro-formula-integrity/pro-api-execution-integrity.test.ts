@@ -48,7 +48,7 @@ function buildWeldRequest(
       weld_length: "m",
       weld_throat: "mm",
       weld_density: "g_per_cm3",
-      wire_cost_per_kg: "currency_unit",
+      wire_cost_per_kg: "currency_unit_per_kg",
       gas_cost_per_min: "currency_unit_per_min",
       arc_time: "min",
       weld_time_min: "min",
