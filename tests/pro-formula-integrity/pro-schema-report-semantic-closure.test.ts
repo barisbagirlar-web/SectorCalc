@@ -62,6 +62,11 @@ describe("20 LIVE PRO schema, formula and report semantic closure", () => {
     it(`${module.toolKey}: missing, unknown and non-finite inputs fail closed`, () => {
       expect(requiredInputKeys.length).toBeGreaterThan(0);
       const firstRequiredKey = requiredInputKeys[0];
+      expect(firstRequiredKey).toBeDefined();
+      if (!firstRequiredKey) {
+        throw new Error(`${module.toolKey} has no required input contract`);
+      }
+
       const valid = { ...module.sampleInputs };
       const missing = { ...valid };
       delete missing[firstRequiredKey];
