@@ -20,36 +20,184 @@ interface InputSemanticOverride {
   helpText: string;
 }
 
+const PRO_ECONOMIC_BASES: Readonly<
+  Record<string, Readonly<Record<string, string>>>
+> = {
+  "break-even-survival-cash-calculator": {
+    monthly_fixed_cash_cost: "currency_unit_per_month",
+    monthly_debt_service: "currency_unit_per_month",
+    current_monthly_revenue: "currency_unit_per_month",
+    unrestricted_cash_balance: "currency_unit",
+    minimum_cash_buffer: "currency_unit",
+  },
+  "machine-hourly-rate-proof-report": {
+    machine_rate: "currency_unit_per_h",
+    material_cost: "currency_unit_per_unit",
+    labor_rate: "currency_unit_per_h",
+    overhead_rate: "currency_unit_per_h",
+    defect_or_loss_cost: "currency_unit_per_unit",
+  },
+  "loss-making-job-detector": {
+    machine_rate: "currency_unit_per_unit",
+    material_cost: "currency_unit_per_batch",
+    labor_rate: "currency_unit_per_unit",
+    overhead_rate: "currency_unit_per_unit",
+    defect_or_loss_cost: "currency_unit_per_unit",
+  },
+  "receivables-cost-payment-term-addendum": {
+    machine_rate: "currency_unit_per_invoice",
+    overhead_rate: "currency_unit_per_invoice",
+    defect_or_loss_cost: "currency_unit_per_invoice",
+  },
+  "setup-time-reduction-roi-smed": {
+    machine_rate: "currency_unit_per_h",
+    labor_rate: "currency_unit_per_h",
+    overhead_rate: "currency_unit",
+  },
+  "product-sku-margin-ranker": {
+    machine_rate: "currency_unit_per_unit",
+    material_cost: "currency_unit_per_unit",
+    labor_rate: "currency_unit_per_h",
+    overhead_rate: "currency_unit_per_year",
+    defect_or_loss_cost: "currency_unit_per_year",
+  },
+  "true-employee-cost-statement": {
+    labor_rate: "currency_unit_per_year",
+    overhead_rate: "currency_unit_per_year",
+  },
+  "job-quote-builder-pro-pack": {
+    machine_rate: "currency_unit_per_h",
+    material_cost: "currency_unit_per_unit",
+    labor_rate: "currency_unit_per_h",
+    overhead_rate: "currency_unit_per_h",
+    defect_or_loss_cost: "currency_unit_per_unit",
+  },
+  "machine-investment-feasibility-buy-lease-keep": {
+    initial_investment: "currency_unit",
+    annual_net_cash_flow: "currency_unit_per_year",
+    residual_value: "currency_unit",
+    annual_volume: "currency_unit",
+    labor_rate: "currency_unit_per_year",
+    overhead_rate: "currency_unit",
+    defect_or_loss_cost: "currency_unit_per_year",
+  },
+  "capital-equipment-investment-appraisal-npv-irr": {
+    initial_investment: "currency_unit",
+    annual_net_cash_flow: "currency_unit_per_year",
+    residual_value: "currency_unit",
+    defect_or_loss_cost: "currency_unit",
+  },
+  "customer-sku-profitability-forensics": {
+    unit_price: "currency_unit_per_unit",
+    unit_variable_cost: "currency_unit_per_unit",
+  },
+  "downtime-scrap-loss-statement": {
+    hourly_rate: "currency_unit_per_h",
+    unit_cost: "currency_unit_per_unit",
+    rework_rate: "currency_unit_per_h",
+    material_cost: "currency_unit",
+  },
+  "oee-loss-monetization-improvement-business-case": {
+    hourly_contribution: "currency_unit_per_h",
+    improvement_cost: "currency_unit",
+  },
+  "scrap-rework-cost-tracker": {
+    unit_material_cost: "currency_unit_per_unit",
+    unit_labor_cost: "currency_unit_per_unit",
+    rework_labor_rate: "currency_unit_per_h",
+  },
+  "outsource-vs-in-house-analyzer": {
+    in_house_material_cost: "currency_unit_per_unit",
+    in_house_labor_cost: "currency_unit_per_unit",
+    in_house_overhead: "currency_unit_per_unit",
+    in_house_setup_cost: "currency_unit",
+    outsource_unit_price: "currency_unit_per_unit",
+    outsource_logistics_cost: "currency_unit_per_unit",
+  },
+  "plant-wide-shop-rate-cost-structure-audit": {
+    total_annual_cost: "currency_unit_per_year",
+    machine_group_cost: "currency_unit_per_year",
+    overhead_pool: "currency_unit_per_year",
+    current_shop_rate: "currency_unit_per_h",
+  },
+  "fx-commodity-pass-through-pricer": {
+    base_price: "currency_unit_per_unit",
+  },
+  "energy-efficiency-grant-incentive-feasibility-pack": {
+    avg_kwh_rate: "currency_unit_per_kWh",
+    implementation_cost: "currency_unit",
+    maintenance_cost_saving: "currency_unit_per_year",
+  },
+  "motor-compressor-replacement-roi": {
+    avg_kwh_rate: "currency_unit_per_kWh",
+    replacement_cost: "currency_unit",
+    installation_cost: "currency_unit",
+    maintenance_saving_per_year: "currency_unit_per_year",
+  },
+  "weld-procedure-cost-consumable-estimation-suite": {
+    wire_cost_per_kg: "currency_unit_per_kg",
+    gas_cost_per_min: "currency_unit_per_min",
+    labor_rate: "currency_unit_per_h",
+    overhead_rate: "currency_unit_per_h",
+  },
+};
+
 function applyInputSemantic(
   input: SuperV4Input,
   override: InputSemanticOverride,
 ): SuperV4Input {
+  return applyEconomicBasis(
+    {
+      ...input,
+      name: override.name,
+      user_help_text: override.helpText,
+    },
+    override.baseUnit,
+    override.quantityKind,
+  );
+}
+
+function applyEconomicBasis(
+  input: SuperV4Input,
+  baseUnit: string,
+  quantityKind = baseUnit === "currency_unit" ? "currency" : "currency_rate",
+): SuperV4Input {
   return {
     ...input,
-    name: override.name,
-    quantity_kind: override.quantityKind,
-    base_unit: override.baseUnit,
-    allowed_display_units: [override.baseUnit],
+    quantity_kind: quantityKind,
+    base_unit: baseUnit,
+    allowed_display_units: [baseUnit],
     unit_selectable: false,
-    user_help_text: override.helpText,
     physical_hard_bounds: input.physical_hard_bounds
-      ? { ...input.physical_hard_bounds, unit: override.baseUnit }
+      ? { ...input.physical_hard_bounds, unit: baseUnit }
       : input.physical_hard_bounds,
     engineering_range: input.engineering_range
-      ? { ...input.engineering_range, unit: override.baseUnit }
+      ? { ...input.engineering_range, unit: baseUnit }
       : input.engineering_range,
     engineering_reference_range: input.engineering_reference_range
-      ? { ...input.engineering_reference_range, unit: override.baseUnit }
+      ? { ...input.engineering_reference_range, unit: baseUnit }
       : input.engineering_reference_range,
     ui_binding: input.ui_binding
       ? ({
           ...input.ui_binding,
           unit_dropdown_required: false,
-          semantic_tag: override.quantityKind.toLowerCase().includes("currency")
-            ? "monetary"
-            : (input.ui_binding as SemanticUiBinding).semantic_tag,
+          semantic_tag: "monetary",
         } as SemanticUiBinding)
       : input.ui_binding,
+  };
+}
+
+function applyDeclaredEconomicBases(schema: SuperV4Schema): SuperV4Schema {
+  const bases = PRO_ECONOMIC_BASES[schema.tool_key];
+  if (!bases) return schema;
+  const inputs = schema.inputs.map((input) => {
+    const baseUnit = bases[input.id];
+    return baseUnit ? applyEconomicBasis(input, baseUnit) : input;
+  });
+  return {
+    ...schema,
+    inputs,
+    normalized_inputs: syncNormalizedInputs(schema, inputs),
   };
 }
 
@@ -87,6 +235,10 @@ function closeSchemaToInputs(
     ...formula,
     uses: formula.uses.filter(
       (id) => !id.startsWith("n_") || normalizedIds.has(id),
+    ),
+    input_bindings: formula.input_bindings?.filter((id) => normalizedIds.has(id)),
+    normalized_input_bindings: formula.normalized_input_bindings?.filter((id) =>
+      normalizedIds.has(id),
     ),
   }));
   const formulaIds = new Set(formulas.map((formula) => formula.id));
@@ -198,6 +350,31 @@ function applyCapitalAppraisalClosure(schema: SuperV4Schema): SuperV4Schema {
   return closeSchemaToInputs(schema, inputs);
 }
 
+function applyCustomerSkuClosure(schema: SuperV4Schema): SuperV4Schema {
+  const inputs = schema.inputs.map((input) => {
+    if (input.id !== "target_margin") return input;
+    return {
+      ...input,
+      name: "Target Net Margin (%)",
+      physical_hard_bounds: input.physical_hard_bounds
+        ? { ...input.physical_hard_bounds, min: 0, max: 99.999999, unit: "percent" }
+        : input.physical_hard_bounds,
+      engineering_range: input.engineering_range
+        ? { ...input.engineering_range, min: 0, max: 99.999999, unit: "percent" }
+        : input.engineering_range,
+      engineering_reference_range: input.engineering_reference_range
+        ? {
+            ...input.engineering_reference_range,
+            min: 0,
+            max: 99.999999,
+            unit: "percent",
+          }
+        : input.engineering_reference_range,
+    };
+  });
+  return closeSchemaToInputs(schema, inputs);
+}
+
 /**
  * Final semantic closure runs after generated-schema corrections and before
  * presentation enrichment. It removes fields that do not participate in the
@@ -207,11 +384,15 @@ function applyCapitalAppraisalClosure(schema: SuperV4Schema): SuperV4Schema {
 export function applyFinalProSchemaContract(
   schema: SuperV4Schema,
 ): SuperV4Schema {
+  let closed = schema;
   if (schema.tool_key === "loss-making-job-detector") {
-    return applyLossDetectorClosure(schema);
+    closed = applyLossDetectorClosure(schema);
+  } else if (
+    schema.tool_key === "capital-equipment-investment-appraisal-npv-irr"
+  ) {
+    closed = applyCapitalAppraisalClosure(schema);
+  } else if (schema.tool_key === "customer-sku-profitability-forensics") {
+    closed = applyCustomerSkuClosure(schema);
   }
-  if (schema.tool_key === "capital-equipment-investment-appraisal-npv-irr") {
-    return applyCapitalAppraisalClosure(schema);
-  }
-  return schema;
+  return applyDeclaredEconomicBases(closed);
 }
