@@ -11,8 +11,11 @@ on:
       - "tests/free-tools/**"
       - "tests/pro-v2/**"
       - "tests/golden/**"
+      - "tests/pro-calculation-correctness/**"
+      - "tests/document-intelligence/payment-reconciliation.test.ts"
       - "scripts/audit-tool-formula-integrity.mjs"
       - "scripts/guard-free-result-panel.mjs"
+      - "tsconfig.production.json"
       - ".github/workflows/formula-engine-integrity-audit.yml"
   workflow_dispatch:
 
@@ -95,12 +98,36 @@ jobs:
       - name: Pro runtime tests
         run: npm run test:v5-runtime
 
-      - name: Typecheck
+      - name: Comprehensive calculation stress
+        shell: bash
+        run: |
+          mkdir -p artifacts/formula-integrity-audit
+          npx vitest run tests/pro-calculation-correctness/comprehensive-stress.test.ts \
+            --reporter=verbose 2>&1 | tee artifacts/formula-integrity-audit/comprehensive-stress.log
+
+      - name: Payment reconciliation stress
+        shell: bash
+        run: |
+          npx vitest run tests/document-intelligence/payment-reconciliation.test.ts \
+            --reporter=verbose 2>&1 | tee artifacts/formula-integrity-audit/payment-reconciliation.log
+
+      - name: Production typecheck
         shell: bash
         run: |
           mkdir -p artifacts/formula-integrity-audit
           set +e
-          npm run typecheck 2>&1 | tee artifacts/formula-integrity-audit/typecheck.log
+          npx tsc --noEmit -p tsconfig.production.json 2>&1 | tee artifacts/formula-integrity-audit/typecheck-production.log
+          status=${PIPESTATUS[0]}
+          set -e
+          exit "$status"
+
+      - name: Production build
+        shell: bash
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: |
+          set +e
+          npm run build 2>&1 | tee artifacts/formula-integrity-audit/build.log
           status=${PIPESTATUS[0]}
           set -e
           exit "$status"
