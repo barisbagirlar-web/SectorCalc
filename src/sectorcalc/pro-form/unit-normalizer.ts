@@ -15,32 +15,32 @@ export interface ConversionError {
 }
 
 /**
+ * Versioned compatibility map for legacy schemas whose UI label and declared
+ * display unit diverged. These are calculation-contract migrations, not
+ * heuristic conversions. Remove an entry only after the source schema is
+ * regenerated with the same explicit display unit.
+ */
+const LEGACY_DISPLAY_UNIT_OVERRIDES: Readonly<Record<string, string>> = {
+  weld_density: "g_per_cm3",
+};
+
+/**
  * Normalize a unit registry entry that may be in either array form (format A)
  * or flat-object form (format B) into a safe ConversionEntry array.
- *
- * Format A (array):
- *   { base_unit: "W", units: [{ unit: "W", factor: 1 }, { unit: "kW", factor: 1000 }] }
- *
- * Format B (flat-object, used by existing Pro schemas):
- *   { "W": { factor: 1, offset: 0 }, "kW": { factor: 1000, offset: 0 } }
- *
- * Returns a safe array of ConversionEntry.
  */
 export function normalizeUnitRegistryEntry(
   entry: Record<string, unknown>,
 ): ConversionEntry[] {
-  // Format A: has a "units" array
   if (Array.isArray(entry.units)) {
     return entry.units as ConversionEntry[];
   }
 
-  // Format B: keys are unit names, values are { factor, offset? }
   const units: ConversionEntry[] = [];
   for (const [unitName, unitValue] of Object.entries(entry)) {
     if (unitName === "base_unit" || unitName === "unit_family") continue;
     if (!unitValue || typeof unitValue !== "object") continue;
     const uv = unitValue as Record<string, unknown>;
-    if (typeof uv.factor !== "number") continue;
+    if (typeof uv.factor !== "number" || !Number.isFinite(uv.factor) || uv.factor === 0) continue;
     units.push({
       unit: unitName,
       factor: uv.factor,
@@ -52,6 +52,31 @@ export function normalizeUnitRegistryEntry(
   return units;
 }
 
+function normalizeDirectContractConversion(
+  displayValue: number,
+  displayUnit: string,
+  baseUnit: string,
+  quantityKind: string,
+): number | null {
+  if (
+    quantityKind === "density" &&
+    displayUnit === "g_per_cm3" &&
+    baseUnit === "kg_per_m3"
+  ) {
+    return displayValue * 1000;
+  }
+
+  if (
+    quantityKind === "density" &&
+    displayUnit === "kg_per_m3" &&
+    baseUnit === "g_per_cm3"
+  ) {
+    return displayValue / 1000;
+  }
+
+  return null;
+}
+
 export function normalizeInput(
   inputId: string,
   displayValue: number,
@@ -60,15 +85,33 @@ export function normalizeInput(
   quantityKind: string,
   registry: ConversionRegistry,
 ): NormalizedValue | ConversionError {
-  // Fast path: when display unit matches the base unit, no conversion needed.
-  // This also handles missing registry entries for quantity kinds whose base
-  // and display values are identical (e.g. dimensionless inputs with count units).
+  if (!Number.isFinite(displayValue)) {
+    return { inputId, reason: `Non-finite display value for ${inputId}` };
+  }
+
+  if (!displayUnit || !baseUnit) {
+    return { inputId, reason: `Missing display/base unit for ${inputId}` };
+  }
+
   if (displayUnit === baseUnit) {
     return {
       baseValue: displayValue,
       baseUnit,
       quantityKind,
     };
+  }
+
+  const direct = normalizeDirectContractConversion(
+    displayValue,
+    displayUnit,
+    baseUnit,
+    quantityKind,
+  );
+  if (direct !== null) {
+    if (!Number.isFinite(direct)) {
+      return { inputId, reason: `Unit conversion produced a non-finite value for ${inputId}` };
+    }
+    return { baseValue: direct, baseUnit, quantityKind };
   }
 
   const entry = registry[quantityKind];
@@ -96,18 +139,19 @@ export function normalizeInput(
     };
   }
 
-  // Convert: display -> base unit
-  // Step 1: display -> registry base
-  const baseValue =
+  const registryBaseValue =
     fromEntry.offset !== undefined
       ? (displayValue - fromEntry.offset) / fromEntry.factor
       : displayValue * fromEntry.factor;
 
-  // Step 2: registry base -> target base unit (if target != registry base)
   const finalValue =
     toEntry.offset !== undefined
-      ? baseValue * toEntry.factor + toEntry.offset
-      : baseValue / toEntry.factor;
+      ? registryBaseValue * toEntry.factor + toEntry.offset
+      : registryBaseValue / toEntry.factor;
+
+  if (!Number.isFinite(finalValue)) {
+    return { inputId, reason: `Unit conversion produced a non-finite value for ${inputId}` };
+  }
 
   return {
     baseValue: finalValue,
@@ -122,8 +166,11 @@ export function normalizeInputs(
   schema: {
     inputs: Array<{
       id: string;
+      name?: string;
+      normalized_id?: string;
       quantity_kind: string;
       base_unit: string | null;
+      unit_selectable?: boolean;
     }>;
   },
   registry: ConversionRegistry,
@@ -135,17 +182,18 @@ export function normalizeInputs(
     const rawValue = rawInputs[inp.id];
     if (rawValue === undefined || rawValue === null) continue;
 
-    const displayUnit = selectedUnits[inp.id] || inp.base_unit || "";
-    const baseUnit = inp.base_unit || displayUnit;
-
-    if (typeof rawValue !== "number") {
-      normalized[inp.id] = {
-        baseValue: rawValue as unknown as number,
-        baseUnit,
-        quantityKind: inp.quantity_kind,
-      };
+    if (typeof rawValue !== "number" || !Number.isFinite(rawValue)) {
+      errors.push({ inputId: inp.id, reason: `Input ${inp.id} must be a finite number` });
       continue;
     }
+
+    const legacyDisplayUnit = LEGACY_DISPLAY_UNIT_OVERRIDES[inp.id];
+    const configuredDisplayUnit = selectedUnits[inp.id] || inp.base_unit || "";
+    const displayUnit =
+      legacyDisplayUnit && inp.unit_selectable !== true
+        ? legacyDisplayUnit
+        : configuredDisplayUnit;
+    const baseUnit = inp.base_unit || displayUnit;
 
     const result = normalizeInput(
       inp.id,
@@ -173,7 +221,20 @@ export function preservePhysicalQuantity(
   quantityKind: string,
   registry: ConversionRegistry,
 ): { newValue: number } | ConversionError {
-  // Convert oldValue from oldUnit to newUnit (preserving physical quantity)
+  if (!Number.isFinite(oldValue)) {
+    return { inputId: quantityKind, reason: "Cannot convert a non-finite value" };
+  }
+
+  if (oldUnit === newUnit) return { newValue: oldValue };
+
+  const direct = normalizeDirectContractConversion(
+    oldValue,
+    oldUnit,
+    newUnit,
+    quantityKind,
+  );
+  if (direct !== null) return { newValue: direct };
+
   const entry = registry[quantityKind];
   if (!entry) {
     return {
@@ -193,7 +254,6 @@ export function preservePhysicalQuantity(
     return { inputId: newUnit, reason: `Unknown unit: ${newUnit}` };
   }
 
-  // Convert to registry base first, then to new unit
   const baseValue =
     oldEntry.offset !== undefined
       ? (oldValue - oldEntry.offset) / oldEntry.factor
@@ -203,6 +263,10 @@ export function preservePhysicalQuantity(
     newEntry.offset !== undefined
       ? baseValue * newEntry.factor + newEntry.offset
       : baseValue / newEntry.factor;
+
+  if (!Number.isFinite(newValue)) {
+    return { inputId: quantityKind, reason: "Unit conversion produced a non-finite value" };
+  }
 
   return { newValue };
 }
