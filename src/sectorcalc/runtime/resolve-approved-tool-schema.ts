@@ -14,6 +14,7 @@ import { getBarisProSchema, clearBarisSchemaCache } from "@/sectorcalc/runtime/b
 import { applySchemaPresentationOverrides } from "@/sectorcalc/runtime/schema-presentation-overrides";
 import { applySchemaCalculationContractOverrides } from "@/sectorcalc/runtime/schema-calculation-contract-overrides";
 import { applySchemaDomainContractOverrides } from "@/sectorcalc/runtime/schema-domain-contract-overrides";
+import { applyFinalProSchemaContract } from "@/sectorcalc/runtime/schema-final-pro-contract";
 import fs from "fs";
 import path from "path";
 
@@ -63,7 +64,8 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
     try {
       const calculationLocked = applySchemaCalculationContractOverrides(buildFn());
       const domainLocked = applySchemaDomainContractOverrides(calculationLocked);
-      superV4 = applySchemaPresentationOverrides(domainLocked);
+      const semanticallyClosed = applyFinalProSchemaContract(domainLocked);
+      superV4 = applySchemaPresentationOverrides(semanticallyClosed);
     } catch (err: unknown) {
       return { ok: false, reason: "CAUGHT_EXCEPTION", errors: ["Build threw: " + (err instanceof Error ? err.message : String(err))] };
     }
