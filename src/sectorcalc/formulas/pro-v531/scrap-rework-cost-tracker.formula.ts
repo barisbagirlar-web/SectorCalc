@@ -47,17 +47,20 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const monthly_quality_loss = total_produced > 0 ? (scrap_cost + rework_cost) * (monthly_volume / total_produced) : 0;
   const defect_rate = total_produced > 0 ? total_defect_units / total_produced : 0;
   const primary_driver = scrap_cost > rework_cost ? 0 : 1;
-  const decision = defect_rate <= defect_rate_target_pct / 100 ? 0 : (defect_cost_per_unit > unit_material_cost * 0.5 ? 2 : 1);
+  // NOTE (2026-07-15 audit): "percent" added as a selectable unit (was ratio-only despite the
+  // "_pct" name); normalizer now converts to ratio before calculate() runs, so the redundant
+  // /100 below was removed (3 occurrences).
+  const decision = defect_rate <= defect_rate_target_pct ? 0 : (defect_cost_per_unit > unit_material_cost * 0.5 ? 2 : 1);
 
   outputs["out_evidence_completeness"] = round(conf, 3);
   outputs["out_normalized_demand"] = round(total_defect_units, 0);
   outputs["out_reference_deviation"] = round(defect_rate, 4);
-  outputs["out_derating_factor"] = round(defect_rate_target_pct / 100, 4);
+  outputs["out_derating_factor"] = round(defect_rate_target_pct, 4);
   outputs["out_demand_metric"] = round(scrap_cost, 2);
   outputs["out_capacity_metric"] = round(rework_cost, 2);
   outputs["out_utilization_margin"] = round(defect_cost_per_unit, 4);
   outputs["out_expanded_uncertainty"] = round(monthly_quality_loss, 2);
-  outputs["out_threshold_crossing"] = defect_rate > defect_rate_target_pct / 100 ? 1 : 0;
+  outputs["out_threshold_crossing"] = defect_rate > defect_rate_target_pct ? 1 : 0;
   outputs["out_sensitivity_driver"] = primary_driver;
   outputs["out_fmea_trigger"] = defect_rate > 0.05 ? 1 : 0;
   outputs["out_money_at_risk"] = round(scrap_cost + rework_cost, 2);

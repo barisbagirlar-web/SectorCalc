@@ -186,7 +186,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_rework_hours: 120,
     n_rework_rate: 55,
     n_material_cost: 50000,
-    n_defect_rate_pct: 3.5,
+    n_defect_rate_pct: 0.035, // NOTE (2026-07-15 audit): now ratio-scale (percent option added), was raw percent
     n_source_confidence_ratio: 0.9,
   },
   "oee-loss-monetization-improvement-business-case": {
@@ -209,7 +209,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_unit_labor_cost: 15,
     n_rework_time_per_unit: 0.5,
     n_rework_labor_rate: 45,
-    n_defect_rate_target_pct: 2.0,
+    n_defect_rate_target_pct: 0.02, // NOTE (2026-07-15 audit): now ratio-scale (percent option added)
     n_total_produced: 10000,
     n_source_confidence_ratio: 0.9,
   },
@@ -243,14 +243,16 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_source_confidence_ratio: 0.9,
   },
   "fx-commodity-pass-through-pricer": {
+    // NOTE (2026-07-15 audit): material_cost_pct/fx_hedge_pct/commodity_hedge_pct now ratio-scale
+    // (percent option added to schema, formula's redundant /100 removed).
     n_base_price: 100,
     n_fx_rate_spot: 1.10,
     n_fx_rate_budget: 1.05,
     n_commodity_index_current: 180,
     n_commodity_index_budget: 160,
-    n_material_cost_pct: 40,
-    n_fx_hedge_pct: 60,
-    n_commodity_hedge_pct: 50,
+    n_material_cost_pct: 0.40,
+    n_fx_hedge_pct: 0.60,
+    n_commodity_hedge_pct: 0.50,
     n_annual_volume: 10000 / 31536000,
     n_source_confidence_ratio: 0.9,
   },
@@ -267,10 +269,13 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_source_confidence_ratio: 0.9,
   },
   "motor-compressor-replacement-roi": {
+    // NOTE (2026-07-15 audit): old values (90, 95) were percent-scale but the formula divided
+    // by 100 while the schema only offered "ratio" as a selectable unit (no percent option) --
+    // now fixed by adding percent as a real option and removing the formula's own /100.
     n_motor_power_kw: 75,
     n_annual_operating_hours: 6000,
-    n_current_efficiency_pct: 90,
-    n_new_efficiency_pct: 95,
+    n_current_efficiency_pct: 0.90,
+    n_new_efficiency_pct: 0.95,
     n_avg_kwh_rate: 0.12,
     n_replacement_cost: 12000,
     n_installation_cost: 4000,
@@ -289,7 +294,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_deposition_efficiency_pct: 85,
     n_gas_cost_per_min: 0.15,
     n_labor_rate: 55,
-    n_overhead_rate: 350000,
+    n_overhead_rate: 40,
     n_source_confidence_ratio: 0.9,
   },
 };

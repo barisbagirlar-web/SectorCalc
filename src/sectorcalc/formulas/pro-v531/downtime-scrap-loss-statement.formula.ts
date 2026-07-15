@@ -61,7 +61,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   outputs["out_evidence_completeness"] = round(conf, 3);
   outputs["out_normalized_demand"] = round(ph, 0);
-  outputs["out_reference_deviation"] = round(drp / 100, 4);
+  outputs["out_reference_deviation"] = round(drp, 4); // NOTE (2026-07-15 audit): drp is now normalized ratio (percent option added to schema); removed redundant /100
   outputs["out_derating_factor"] = round(ph > 0 ? downtime_hours / ph : 0, 4);
   outputs["out_demand_metric"] = round(downtime_cost, 2);
   outputs["out_capacity_metric"] = round(total_loss, 2);

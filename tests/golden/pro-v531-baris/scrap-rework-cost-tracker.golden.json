@@ -2,17 +2,23 @@
   "tool_key": "scrap-rework-cost-tracker",
   "schema_version": "5.3.1-pro-schema.1",
   "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": { "total_produced": 1000, "scrap_quantity": 50 },
+  "_verification_note": "Fixed defect_rate_target_pct double-normalization (percent option added, 3 redundant /100 removed). Values below computed by actually executing calculate() during the 2026-07-15 audit.",
+  "raw_inputs": {
+    "total_produced": 5000, "scrap_quantity": 80, "rework_quantity": 60, "unit_material_cost": 22,
+    "unit_labor_cost": 15, "rework_labor_rate": 45, "rework_time_per_unit": 0.5,
+    "defect_rate_target_pct": 0.02, "monthly_volume": 420, "source_confidence_ratio": 0.9
+  },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 1000,
-    "out_money_at_risk": 2000,
-    "out_final_decision_state": 0
+    "out_evidence_completeness": 0.9, "out_normalized_demand": 140, "out_reference_deviation": 0.028,
+    "out_derating_factor": 0.02, "out_demand_metric": 2960, "out_capacity_metric": 1350,
+    "out_utilization_margin": 30.7857, "out_expanded_uncertainty": 362.04, "out_threshold_crossing": 1,
+    "out_sensitivity_driver": 0, "out_fmea_trigger": 0, "out_money_at_risk": 4310,
+    "out_scenario_delta": 1610, "out_final_decision_state": 2
   },
   "expected_hashes": {
-    "output_hash": "oh-b2-scrap-",
-    "proof_pack_hash": "pph-b2-scrap-",
-    "audit_seal_stable_hash": "ash-b2-scrap-"
+    "output_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "proof_pack_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "audit_seal_stable_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED"
   },
   "expected_decision_status": "OK",
   "expected_warnings": []

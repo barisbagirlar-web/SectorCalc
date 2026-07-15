@@ -85,8 +85,12 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     ? (n_commodity_index_current - n_commodity_index_budget) / n_commodity_index_budget
     : 0;
 
-  const fx_impact = fx_change * (n_material_cost_pct / 100) * (1 - n_fx_hedge_pct / 100);
-  const comm_impact = comm_change * (n_material_cost_pct / 100) * (1 - n_commodity_hedge_pct / 100);
+  // NOTE (2026-07-15 audit): "percent" was just added as a selectable unit for these 3 fields
+  // (previously only "ratio" was offered despite the "_pct" name). The normalizer now converts
+  // a percent entry to ratio (0..1) before calculate() runs, so dividing by 100 here a second
+  // time would silently shrink all three 100x.
+  const fx_impact = fx_change * n_material_cost_pct * (1 - n_fx_hedge_pct);
+  const comm_impact = comm_change * n_material_cost_pct * (1 - n_commodity_hedge_pct);
 
   const total_pass_through = (fx_impact + comm_impact) * 100;
   const adjusted_price = n_base_price * (1 + fx_impact + comm_impact);
@@ -156,7 +160,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   let fmeaTrigger = 0;
   if (decision === 1) fmeaTrigger = 1;
   if (Math.abs(total_pass_through) > 15) fmeaTrigger += 2;
-  if (n_fx_hedge_pct < 50 && n_commodity_hedge_pct < 50) fmeaTrigger += 4;
+  if (n_fx_hedge_pct < 0.5 && n_commodity_hedge_pct < 0.5) fmeaTrigger += 4; // NOTE (2026-07-15 audit): threshold rescaled to ratio (was "< 50", now-ratio values are always < 50 and the condition was always true)
   outputs["out_fmea_trigger"] = fmeaTrigger;
 
   // --- Output 12: out_money_at_risk ---

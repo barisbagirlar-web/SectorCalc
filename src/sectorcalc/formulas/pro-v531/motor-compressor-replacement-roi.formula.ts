@@ -27,8 +27,12 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   const motor_power = get(inputs, "n_motor_power_kw");
   const annual_hours = get(inputs, "n_annual_operating_hours");
-  const current_eff = get(inputs, "n_current_efficiency_pct") / 100;
-  const new_eff = get(inputs, "n_new_efficiency_pct") / 100;
+  // NOTE (2026-07-15 audit): "percent" was just added as a selectable unit for these two
+  // fields (previously only "ratio" was offered despite the "_pct" name). The normalizer
+  // now converts a percent entry to ratio (0..1) before calculate() runs, so dividing by 100
+  // here a second time would silently shrink efficiency 100x. Use the normalized value as-is.
+  const current_eff = get(inputs, "n_current_efficiency_pct");
+  const new_eff = get(inputs, "n_new_efficiency_pct");
   const kwh_rate = get(inputs, "n_avg_kwh_rate");
   const replacement_cost = get(inputs, "n_replacement_cost");
   const installation_cost = get(inputs, "n_installation_cost");
