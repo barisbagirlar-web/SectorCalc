@@ -473,7 +473,14 @@ const TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> = {
 // ── PRO Tool example values ─────────────────────────────────────────────────────
 // Each key matches the PRO tool slug from active-tool-allowlist.ts.
 // Input IDs match raw schema.inputs[*].id (no normalized n_ prefix).
+// Values sourced from PRO_SAMPLE_INPUTS (brew-test harness), with sensible
+// defaults for any schema input not covered by the test sample set.
+//
+// NOTE: Tools 2–8 share an identical 12-input schema with different example
+// values. Tools 11–20 use raw IDs that differ from PRO_SAMPLE_INPUTS keys
+// (e.g. schema uses "source_confidence" not "source_confidence_ratio").
 const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> = {
+  // ── Tool 1: 10 inputs, all have schema example_value ──
   "break-even-survival-cash-calculator": {
     monthly_fixed_cash_cost: 120000,
     monthly_debt_service: 25000,
@@ -486,6 +493,7 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     source_confidence_ratio: 0.9,
     uncertainty_multiplier: 1.15,
   },
+  // ── Tools 2–8: 12-input shared schema ──
   "machine-hourly-rate-proof-report": {
     machine_rate: 85,
     cycle_time: 12,
@@ -496,40 +504,29 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     annual_volume: 100000,
     labor_rate: 45,
     overhead_rate: 350000,
+    defect_or_loss_cost: 12000,
     source_confidence_ratio: 0.9,
+    uncertainty_multiplier: 1.15,
   },
   "loss-making-job-detector": {
     machine_rate: 85,
+    cycle_time: 12,
+    setup_time: 8,
+    batch_quantity: 100,
     material_cost: 300,
+    target_margin: 0.25,
+    annual_volume: 5000,
     labor_rate: 55,
     overhead_rate: 75,
     defect_or_loss_cost: 20,
-    target_margin: 0.25,
-    batch_quantity: 100,
-    annual_volume: 5000,
     source_confidence_ratio: 0.9,
+    uncertainty_multiplier: 1.15,
   },
   "receivables-cost-payment-term-addendum": {
     machine_rate: 85,
     cycle_time: 12,
+    setup_time: 8,
     batch_quantity: 500,
-    material_cost: 25,
-    overhead_rate: 350000,
-    defect_or_loss_cost: 12000,
-    source_confidence_ratio: 0.9,
-  },
-  "setup-time-reduction-roi-smed": {
-    machine_rate: 85,
-    setup_time: 30,
-    batch_quantity: 500,
-    labor_rate: 45,
-    overhead_rate: 350000,
-    annual_volume: 100000,
-    source_confidence_ratio: 0.9,
-  },
-  "product-sku-margin-ranker": {
-    machine_rate: 85,
-    cycle_time: 12,
     material_cost: 25,
     target_margin: 0.3,
     annual_volume: 100000,
@@ -537,11 +534,49 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     overhead_rate: 350000,
     defect_or_loss_cost: 12000,
     source_confidence_ratio: 0.9,
+    uncertainty_multiplier: 1.15,
   },
-  "true-employee-cost-statement": {
+  "setup-time-reduction-roi-smed": {
+    machine_rate: 85,
+    cycle_time: 12,
+    setup_time: 30,
+    batch_quantity: 500,
+    material_cost: 25,
+    target_margin: 0.3,
+    annual_volume: 100000,
     labor_rate: 45,
     overhead_rate: 350000,
+    defect_or_loss_cost: 12000,
     source_confidence_ratio: 0.9,
+    uncertainty_multiplier: 1.15,
+  },
+  "product-sku-margin-ranker": {
+    machine_rate: 85,
+    cycle_time: 12,
+    setup_time: 8,
+    batch_quantity: 500,
+    material_cost: 25,
+    target_margin: 0.3,
+    annual_volume: 100000,
+    labor_rate: 45,
+    overhead_rate: 350000,
+    defect_or_loss_cost: 12000,
+    source_confidence_ratio: 0.9,
+    uncertainty_multiplier: 1.15,
+  },
+  "true-employee-cost-statement": {
+    machine_rate: 85,
+    cycle_time: 12,
+    setup_time: 8,
+    batch_quantity: 500,
+    material_cost: 25,
+    target_margin: 0.3,
+    annual_volume: 100000,
+    labor_rate: 45,
+    overhead_rate: 350000,
+    defect_or_loss_cost: 12000,
+    source_confidence_ratio: 0.9,
+    uncertainty_multiplier: 1.15,
   },
   "job-quote-builder-pro-pack": {
     machine_rate: 85,
@@ -557,6 +592,7 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     source_confidence_ratio: 0.9,
     uncertainty_multiplier: 1.1,
   },
+  // ── Tools 9–10: 12-input shared schema ──
   "machine-investment-feasibility-buy-lease-keep": {
     initial_investment: 500000,
     annual_net_cash_flow: 150000,
@@ -585,6 +621,7 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     source_confidence_ratio: 0.95,
     uncertainty_multiplier: 1.2,
   },
+  // ── Tool 11: raw input IDs use source_confidence (no _ratio suffix) ──
   "customer-sku-profitability-forensics": {
     unit_price: 100,
     unit_variable_cost: 60,
@@ -595,8 +632,9 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     target_margin: 30,
     labor_rate: 45,
     overhead_rate: 350000,
-    source_confidence_ratio: 0.9,
+    source_confidence: 0.9,
   },
+  // ── Tool 12 ──
   "downtime-scrap-loss-statement": {
     productive_hours: 2000,
     actual_hours: 1760,
@@ -607,8 +645,9 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     rework_rate: 55,
     material_cost: 50000,
     defect_rate_pct: 3.5,
-    source_confidence_ratio: 0.9,
+    source_confidence: 0.9,
   },
+  // ── Tool 13 ──
   "oee-loss-monetization-improvement-business-case": {
     planned_production_time: 480,
     operating_time: 420,
@@ -619,8 +658,9 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     ideal_cycle_time: 0.5,
     hourly_contribution: 100,
     improvement_cost: 50000,
-    source_confidence_ratio: 0.9,
+    source_confidence: 0.9,
   },
+  // ── Tool 14: defect_rate_target (no _pct), source_confidence ──
   "scrap-rework-cost-tracker": {
     monthly_volume: 10000,
     scrap_quantity: 150,
@@ -629,22 +669,25 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     unit_labor_cost: 15,
     rework_time_per_unit: 0.5,
     rework_labor_rate: 45,
-    defect_rate_target_pct: 2.0,
+    defect_rate_target: 2.0,
     total_produced: 10000,
-    source_confidence_ratio: 0.9,
+    source_confidence: 0.9,
   },
+  // ── Tool 15: outsource_logistics (no _cost), capacity_utilization (no _pct),
+  //    quality_risk_premium (no _pct), source_confidence ──
   "outsource-vs-in-house-analyzer": {
     in_house_labor_cost: 85,
     in_house_material_cost: 30,
     in_house_setup_cost: 500,
     in_house_overhead: 75,
     outsource_unit_price: 95,
-    outsource_logistics_cost: 8,
+    outsource_logistics: 8,
     annual_volume: 5000,
-    capacity_utilization_pct: 75,
-    quality_risk_premium_pct: 5,
-    source_confidence_ratio: 0.9,
+    capacity_utilization: 75,
+    quality_risk_premium: 5,
+    source_confidence: 0.9,
   },
+  // ── Tool 16: source_confidence ──
   "plant-wide-shop-rate-cost-structure-audit": {
     total_annual_cost: 2000000,
     total_productive_hours: 40000,
@@ -655,8 +698,9 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     current_shop_rate: 85,
     target_margin_pct: 25,
     utilization_pct: 80,
-    source_confidence_ratio: 0.9,
+    source_confidence: 0.9,
   },
+  // ── Tool 17: source_confidence ──
   "fx-commodity-pass-through-pricer": {
     base_price: 100,
     fx_rate_spot: 1.10,
@@ -667,20 +711,23 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     fx_hedge_pct: 60,
     commodity_hedge_pct: 50,
     annual_volume: 10000,
-    source_confidence_ratio: 0.9,
+    source_confidence: 0.9,
   },
+  // ── Tool 18: maintenance_saving (no _cost), emission_factor (no _kgco2),
+  //    source_confidence ──
   "energy-efficiency-grant-incentive-feasibility-pack": {
     current_kwh_per_year: 500000,
     target_kwh_per_year: 350000,
     avg_kwh_rate: 0.12,
     implementation_cost: 80000,
     grant_coverage_pct: 0.3,
-    maintenance_cost_saving: 5000,
-    emission_factor_kgco2_per_kwh: 0.45,
+    maintenance_saving: 5000,
+    emission_factor: 0.45,
     equipment_life_years: 10,
     discount_rate: 0.08,
-    source_confidence_ratio: 0.9,
+    source_confidence: 0.9,
   },
+  // ── Tool 19: maintenance_saving_yr, source_confidence ──
   "motor-compressor-replacement-roi": {
     motor_power_kw: 75,
     annual_operating_hours: 6000,
@@ -689,23 +736,25 @@ const PRO_TOOL_EXAMPLE_VALUES: Record<string, Record<string, ExamplePrimitive>> 
     avg_kwh_rate: 0.12,
     replacement_cost: 12000,
     installation_cost: 4000,
-    maintenance_saving_per_year: 2000,
+    maintenance_saving_yr: 2000,
     equipment_life_years: 10,
     discount_rate: 0.08,
-    source_confidence_ratio: 0.9,
+    source_confidence: 0.9,
   },
+  // ── Tool 20: weld_density (no _g_per_cm3), deposition_efficiency (no _pct),
+  //    source_confidence ──
   "weld-procedure-cost-consumable-estimation-suite": {
     weld_length_m: 50,
     weld_throat_mm: 8,
-    weld_density_g_per_cm3: 7.85,
-    weld_time_min: 120,
-    arc_time_min: 90,
+    weld_density: 7.85,
     wire_cost_per_kg: 15,
-    deposition_efficiency_pct: 85,
     gas_cost_per_min: 0.15,
+    arc_time_min: 90,
+    weld_time_min: 120,
     labor_rate: 55,
     overhead_rate: 350000,
-    source_confidence_ratio: 0.9,
+    deposition_efficiency: 85,
+    source_confidence: 0.9,
   },
 };
 
