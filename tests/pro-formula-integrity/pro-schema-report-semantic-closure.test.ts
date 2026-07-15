@@ -13,10 +13,14 @@ describe("20 LIVE PRO schema, formula and report semantic closure", () => {
   });
 
   for (const module of LIVE_MODULES) {
+    const requiredInputKeys = module.requiredInputKeys ?? Object.keys(module.sampleInputs);
+    const declaredOutputKeys = module.declaredOutputKeys ?? [];
+
     it(`${module.toolKey}: every report output is a declared server output`, () => {
+      expect(declaredOutputKeys.length).toBeGreaterThan(0);
       const report = getProReportContract(module.toolKey);
       expect(report, `${module.toolKey} requires a strict report contract`).not.toBeNull();
-      const declared = new Set(module.declaredOutputKeys);
+      const declared = new Set(declaredOutputKeys);
       for (const section of report?.sections ?? []) {
         for (const entry of section.entries) {
           expect(
@@ -28,6 +32,7 @@ describe("20 LIVE PRO schema, formula and report semantic closure", () => {
     });
 
     it(`${module.toolKey}: every normalized input has one visible semantic source and unit basis`, () => {
+      expect(requiredInputKeys.length).toBeGreaterThan(0);
       const resolved = resolveApprovedToolSchema(module.toolKey);
       expect(resolved.ok).toBe(true);
       if (!resolved.ok) return;
@@ -38,8 +43,8 @@ describe("20 LIVE PRO schema, formula and report semantic closure", () => {
           .map((input) => [input.normalized_id as string, input]),
       );
 
-      expect(visibleByNormalizedId.size).toBe(module.requiredInputKeys.length);
-      for (const normalizedId of module.requiredInputKeys) {
+      expect(visibleByNormalizedId.size).toBe(requiredInputKeys.length);
+      for (const normalizedId of requiredInputKeys) {
         const input = visibleByNormalizedId.get(normalizedId);
         expect(
           input,
@@ -55,9 +60,11 @@ describe("20 LIVE PRO schema, formula and report semantic closure", () => {
     });
 
     it(`${module.toolKey}: missing, unknown and non-finite inputs fail closed`, () => {
+      expect(requiredInputKeys.length).toBeGreaterThan(0);
+      const firstRequiredKey = requiredInputKeys[0];
       const valid = { ...module.sampleInputs };
       const missing = { ...valid };
-      delete missing[module.requiredInputKeys[0]];
+      delete missing[firstRequiredKey];
       const missingResult = module.calculate(missing);
       expect(missingResult.status).toBe("BLOCKED");
 
@@ -66,7 +73,7 @@ describe("20 LIVE PRO schema, formula and report semantic closure", () => {
 
       const nonFiniteResult = module.calculate({
         ...valid,
-        [module.requiredInputKeys[0]]: Number.NaN,
+        [firstRequiredKey]: Number.NaN,
       });
       expect(nonFiniteResult.status).toBe("BLOCKED");
     });
@@ -77,7 +84,7 @@ describe("20 LIVE PRO schema, formula and report semantic closure", () => {
       expect(first).toEqual(second);
       expect(first.status).not.toBe("BLOCKED");
       expect(Object.keys(first.outputs).sort()).toEqual(
-        [...module.declaredOutputKeys].sort(),
+        [...declaredOutputKeys].sort(),
       );
       for (const value of Object.values(first.outputs)) {
         expect(Number.isFinite(value)).toBe(true);
