@@ -1366,6 +1366,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     warnings={reportWarnings}
                     decisionStateLabel={reportDecisionState?.label}
                     decisionSeverity={reportDecisionState?.severity}
+                    firedInsights={proReportResult.firedInsights}
                   />
                 );
               })()}

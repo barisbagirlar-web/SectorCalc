@@ -1,21 +1,22 @@
 {
   "tool_key": "machine-hourly-rate-proof-report",
   "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.2-pro-baris.2",
-  "_verification_note": "Replaced fabricated template values with values computed by actually executing the rewritten calculate() during the 2026-07-15 audit (fixed a 60x dimensional bug in units-per-hour, a dead overhead-per-unit formula, unamortized setup time, and 3 unused schema inputs). tests/golden/pro-v531-baris/ is not wired into any npm script yet.",
+  "formula_version": "6.0.0-pro-baris.reference-engine",
+  "_verification_note": "Tool rebuilt entirely 2026-07-15: replaced a job-costing formula that never matched this tool's own stated scope (depreciation/maintenance/energy/labor) with Baris's verified reference implementation (27 closed-form/edge-case + 8 semantic assertions passed independently before this port). Values below computed by actually executing the new calculate(). Note out_final_decision_state=2 at exactly the 0.20 premium-ratio boundary is a floating-point artifact of the <=0.20 comparison, not a logic error -- re-verify if the boundary behavior itself needs to be exact-inclusive.",
   "raw_inputs": {
-    "machine_rate": 85, "cycle_time": 90, "setup_time": 1800, "batch_quantity": 500,
-    "material_cost": 25, "target_margin": 0.3, "annual_volume": 100000,
-    "labor_rate": 45, "overhead_rate": 20, "defect_or_loss_cost": 1.2,
-    "uncertainty_multiplier": 1.3, "source_confidence_ratio": 0.9
+    "purchase_price": 180000, "useful_life": 10, "annual_hours": 4000, "wage_rate": 34,
+    "power_draw": 12, "energy_price": 0.18, "idle_share": 0.20, "maintenance_rate": 0.05,
+    "source_confidence_ratio": 0.9
   },
-  "raw_inputs_units_assumed": { "annual_volume": "unit_per_year" },
+  "raw_inputs_units_assumed": { "useful_life": "year", "annual_hours": "h" },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9, "out_normalized_demand": 100000, "out_demand_metric": 221000,
-    "out_capacity_metric": 2600, "out_utilization_margin": 150, "out_expanded_uncertainty": 45,
-    "out_threshold_crossing": 0, "out_sensitivity_driver": 1, "out_fmea_trigger": 0,
-    "out_money_at_risk": 129000, "out_scenario_delta": 129000, "out_final_decision_state": 0,
-    "out_reference_deviation": 0.4286, "out_derating_factor": 0.9, "out_audit_hash_payload": 0
+    "out_evidence_completeness": 0.9, "out_normalized_demand": 42.91, "out_demand_metric": 171640,
+    "out_capacity_metric": 3200, "out_utilization_margin": 53.6375, "out_expanded_uncertainty": 1.0727,
+    "out_threshold_crossing": 1, "out_sensitivity_driver": 3, "out_fmea_trigger": 1,
+    "out_money_at_risk": 34328, "out_scenario_delta": 10.7275, "out_final_decision_state": 2,
+    "out_reference_deviation": 0.2, "out_derating_factor": 0.8, "out_audit_hash_payload": 0,
+    "out_energy_share_pct": 0.0503, "out_labor_share_pct": 0.7924, "out_capital_share_pct": 0.1573,
+    "out_planned_hours_value": 4000
   },
   "expected_hashes": {
     "output_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",

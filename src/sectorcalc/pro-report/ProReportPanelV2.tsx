@@ -43,6 +43,8 @@ interface ProReportPanelV2Props {
   warnings?: string[];
   decisionStateLabel?: string;
   decisionSeverity?: "pass" | "warning" | "danger" | "info";
+  /** Fired insight rules from buildProReport(). Optional -- most tools don't declare any yet. */
+  firedInsights?: Array<{ id: string; severity: "critical" | "opportunity" | "info"; message: string }>;
 }
 
 const severityClassMap: Record<string, string> = {
@@ -52,12 +54,19 @@ const severityClassMap: Record<string, string> = {
   info: "sc-report-severity-info",
 };
 
+const insightClassMap: Record<string, string> = {
+  critical: "sc-report-insight-critical",
+  opportunity: "sc-report-insight-opportunity",
+  info: "sc-report-insight-info",
+};
+
 export function ProReportPanelV2({
   toolTitle,
   sections,
   warnings,
   decisionStateLabel,
   decisionSeverity,
+  firedInsights,
 }: ProReportPanelV2Props) {
   const isEmpty = !sections || sections.length === 0;
 
@@ -94,6 +103,22 @@ export function ProReportPanelV2({
               <li key={i} className="sc-report-warning-item">{w}</li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {/* Engineering Insights (opt-in per tool via contract.insights) */}
+      {firedInsights && firedInsights.length > 0 && (
+        <div className="sc-report-insights">
+          <h4 className="sc-report-section-title">Engineering Insights</h4>
+          {firedInsights.map((ins) => (
+            <div
+              key={ins.id}
+              className={`sc-report-insight ${insightClassMap[ins.severity] ?? insightClassMap.info}`}
+            >
+              <span className="sc-report-insight-label">{ins.severity}</span>
+              <span dangerouslySetInnerHTML={{ __html: ins.message }} />
+            </div>
+          ))}
         </div>
       )}
 

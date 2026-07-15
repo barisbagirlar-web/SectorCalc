@@ -53,10 +53,17 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
     { value: string | number | boolean | null; unit: string | null }
   >();
   const outputCounts = new Map<string, number>();
+  // Raw numeric lookup for insight rules -- separate from outputMap because insight `when`/
+  // `message` functions need plain numbers (out_x > 0.15), not the display-formatted/relabeled
+  // values entries.value can hold (valueLabels, valueMultiplier, currency symbols, etc).
+  const numericOutputs: Record<string, number> = {};
 
   for (const output of input.outputs) {
     outputCounts.set(output.id, (outputCounts.get(output.id) ?? 0) + 1);
     outputMap.set(output.id, { value: output.value, unit: output.unit ?? null });
+    if (typeof output.value === "number" && Number.isFinite(output.value)) {
+      numericOutputs[output.id] = output.value;
+    }
   }
 
   if (contract.strict) {
@@ -107,8 +114,31 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
 
   resolvedSections.sort((a, b) => a.priority - b.priority);
 
+  const numericRawInputs: Record<string, number> = {};
+  for (const [key, value] of Object.entries(input.rawInputs)) {
+    if (typeof value === "number" && Number.isFinite(value)) {
+      numericRawInputs[key] = value;
+    }
+  }
+
+  const firedInsights = (contract.insights ?? [])
+    .filter((rule) => {
+      try {
+        return rule.when(numericOutputs, numericRawInputs);
+      } catch {
+        // A rule referencing an output this tool doesn't produce must not crash the report.
+        return false;
+      }
+    })
+    .map((rule) => ({
+      id: rule.id,
+      severity: rule.severity,
+      message: rule.message(numericOutputs, numericRawInputs),
+    }));
+
   return {
     contract,
     resolvedSections,
+    firedInsights,
   };
 }

@@ -32,18 +32,15 @@ export const breakEvenFormToSchemaMap: FormToSchemaMap = {
 
 // ── 2. machine-hourly-rate-proof-report ──
 export const machineHourlyFormToSchemaMap: FormToSchemaMap = {
-  machine_rate: "machine_rate",
-  cycle_time: "cycle_time",
-  setup_time: "setup_time",
-  batch_quantity: "batch_quantity",
-  material_cost: "material_cost",
-  target_margin: "target_margin",
-  annual_volume: "annual_volume",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  defect_or_loss_cost: "defect_or_loss_cost",
+  purchase_price: "purchase_price",
+  useful_life: "useful_life",
+  annual_hours: "annual_hours",
+  wage_rate: "wage_rate",
+  power_draw: "power_draw",
+  energy_price: "energy_price",
+  idle_share: "idle_share",
+  maintenance_rate: "maintenance_rate",
   source_confidence_ratio: "source_confidence_ratio",
-  uncertainty_multiplier: "uncertainty_multiplier",
 };
 
 // ── 3. loss-making-job-detector ──

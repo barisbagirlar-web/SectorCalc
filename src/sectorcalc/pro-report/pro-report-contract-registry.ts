@@ -118,22 +118,66 @@ register({
   toolSlug: "machine-hourly-rate-proof-report",
   sections: [
     section("Primary Results", 10, [
-      entry("out_utilization_margin", "Machine Hourly Rate", "hourly_rate", "USD/hr"),
-      entry("out_demand_metric", "Machine Operating Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Total Productive Hours", "number", "hrs"),
+      entry("out_utilization_margin", "True Machine Hourly Rate (Productive Hours Only)", "hourly_rate", "USD/hr"),
+      entry("out_normalized_demand", "Naive Rate (Ignores Idle Time)", "hourly_rate", "USD/hr"),
+      entry("out_scenario_delta", "Hidden Idle Premium", "hourly_rate", "USD/hr"),
+      entry("out_demand_metric", "Total Annual Cost", "currency", "USD"),
+      entry("out_capacity_metric", "Productive Hours / Year", "number", "hrs"),
     ]),
     section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Rate Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
+      entry("out_money_at_risk", "Annual Idle-Time Cost Exposure", "currency", "USD"),
+      entry("out_sensitivity_driver", "Dominant Cost Driver", "string"),
+      entry("out_fmea_trigger", "Idle Premium Above 15% Flag", "boolean"),
       entry("out_threshold_crossing", "Rate Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Rate Uncertainty", "hourly_rate", "USD/hr"),
+      entry("out_expanded_uncertainty", "Rate Uncertainty Band", "hourly_rate", "USD/hr"),
     ]),
     section("Quality & Decision", 30, [
       entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Utilization Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
+      entry("out_reference_deviation", "Idle Premium as % of Rate", "ratio"),
+      entry("out_derating_factor", "Productive Hours Derating Factor", "ratio"),
+      entry("out_final_decision_state", "Go / Review / Escalate Decision", "number"),
     ]),
+  ],
+  // Ported from Baris's reference implementation (verified 8/8 semantic tests before this
+  // registry entry existed). "outputs" here are the raw numeric out_* values from calculate(),
+  // exactly as ProReportAdapterInput.outputs delivers them -- no re-derivation, no client-side
+  // unit math, so these can't drift from what the server actually computed.
+  insights: [
+    {
+      id: "idle-premium-critical",
+      severity: "critical",
+      when: (o) => o.out_reference_deviation > 0.15,
+      message: (o) =>
+        `<strong>${(o.out_reference_deviation * 100).toFixed(0)}% of your hourly rate finances idle capacity</strong> (${o.out_scenario_delta.toFixed(2)}/h). Quoting on the naive rate of ${o.out_normalized_demand.toFixed(2)}/h loses that amount on every hour that actually produces something sellable. Cutting idle share by 5 points is worth more than most price negotiations.`,
+    },
+    {
+      id: "energy-share-opportunity",
+      severity: "opportunity",
+      when: (o) => o.out_energy_share_pct > 0.15,
+      message: (o) =>
+        `Energy is <strong>${(o.out_energy_share_pct * 100).toFixed(1)}% of total cost</strong> -- well above a typical ~5-10% share. A motor efficiency audit or load-shifting review on this machine is worth investigating.`,
+    },
+    {
+      id: "labor-share-info",
+      severity: "info",
+      when: (o) => o.out_labor_share_pct > 0.60,
+      message: (o) =>
+        `Labor is <strong>${(o.out_labor_share_pct * 100).toFixed(0)}% of the cost base</strong> -- this rate is wage-driven. Multi-machine tending or automation moves the needle here; negotiating the purchase price does not.`,
+    },
+    {
+      id: "capital-light-info",
+      severity: "info",
+      when: (o) => o.out_capital_share_pct < 0.15,
+      message: (o) =>
+        `Capital is only <strong>${(o.out_capital_share_pct * 100).toFixed(0)}% of cost</strong> -- this machine is cheap to own, expensive to run. Uptime and labor efficiency matter far more than the purchase price you negotiated.`,
+    },
+    {
+      id: "three-shift-context",
+      severity: "info",
+      when: (o) => o.out_planned_hours_value > 6000,
+      message: (o) =>
+        `${Math.round(o.out_planned_hours_value).toLocaleString("en-US")} planned hours/year is 3-shift territory. Confirm maintenance windows are excluded from "planned" hours -- a common source of 5-8% silent rate error when they aren't.`,
+    },
   ],
 });
 

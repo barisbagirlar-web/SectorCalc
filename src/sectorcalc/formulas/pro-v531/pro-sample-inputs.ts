@@ -22,19 +22,18 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_uncertainty_multiplier: 1.15,
   },
   "machine-hourly-rate-proof-report": {
-    // NOTE (2026-07-15 audit): old n_overhead_rate=350000 ($/h) was never sanity-checked.
-    // Added n_defect_or_loss_cost / n_uncertainty_multiplier (previously dead inputs, now wired).
-    n_machine_rate: 85,
-    n_cycle_time: 90,
-    n_setup_time: 1800,
-    n_batch_quantity: 500,
-    n_material_cost: 25,
-    n_target_margin: 0.3,
-    n_annual_volume: 100000 / 31536000,
-    n_labor_rate: 45,
-    n_overhead_rate: 20,
-    n_defect_or_loss_cost: 1.2,
-    n_uncertainty_multiplier: 1.3,
+    // NOTE (2026-07-15 audit): tool rebuilt entirely from a job-costing model to the
+    // asset-depreciation model its own schema scope always described (Baris supplied a
+    // verified reference implementation). n_useful_life and n_annual_hours are seconds
+    // (normalized "time" family), not raw years/hours.
+    n_purchase_price: 180000,
+    n_useful_life: 10 * 31536000,
+    n_annual_hours: 4000 * 3600,
+    n_wage_rate: 34,
+    n_power_draw: 12,
+    n_energy_price: 0.18,
+    n_idle_share: 0.20,
+    n_maintenance_rate: 0.05,
     n_source_confidence_ratio: 0.9,
   },
   "loss-making-job-detector": {

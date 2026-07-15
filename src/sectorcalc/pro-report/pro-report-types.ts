@@ -27,12 +27,40 @@ export interface ReportSection {
   entries: ReportOutputEntry[];
 }
 
+export interface ReportInsightRule {
+  id: string;
+  severity: "critical" | "opportunity" | "info";
+  /** Evaluated against raw numeric formula outputs (out_* keys) and raw normalized inputs (n_* keys). */
+  when: (outputs: Record<string, number>, rawInputs: Record<string, number>) => boolean;
+  message: (outputs: Record<string, number>, rawInputs: Record<string, number>) => string;
+}
+
+export interface ReportSensitivityDriver {
+  /** normalized_id of the schema input to perturb, e.g. "n_purchase_price" */
+  inputId: string;
+  label: string;
+}
+
 export interface ProReportContract {
   toolSlug: string;
   sections: ReportSection[];
   primarySection?: ReportSection;
   /** Fail closed when a declared report output is missing or duplicated. */
   strict?: boolean;
+  /**
+   * Optional narrative insight rules, evaluated server-side against the raw numeric outputs
+   * and raw normalized inputs of a single calculate() call. Added 2026-07-15 alongside the
+   * machine-hourly-rate-proof-report rebuild -- opt-in per tool, does not affect any tool
+   * that doesn't declare insights.
+   */
+  insights?: ReportInsightRule[];
+  /**
+   * Optional list of inputs to run a +/-10% sensitivity sweep against (re-invokes calculate()
+   * with each input perturbed in isolation, holding all others constant). Opt-in per tool.
+   */
+  sensitivityDrivers?: ReportSensitivityDriver[];
+  /** normalized_id of the primary output to track across the sensitivity sweep. */
+  sensitivityTargetOutput?: string;
 }
 
 export interface ProReportAdapterInput {
@@ -60,6 +88,13 @@ export interface ProReportAdapterResult {
       explanation: string | null;
       displayDecimals?: number;
     }>;
+  }>;
+  /** Insight rules from the contract whose `when()` matched this calculation's outputs. Empty
+   *  array if the tool declares no insights, or none fired. */
+  firedInsights: Array<{
+    id: string;
+    severity: "critical" | "opportunity" | "info";
+    message: string;
   }>;
 }
 
