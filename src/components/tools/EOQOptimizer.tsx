@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useScrollToResults } from "@/hooks/useScrollToResults";
 import {
   Bar,
   BarChart,
@@ -39,6 +40,7 @@ export function EOQOptimizer({ initialInputs, onSave }: EOQOptimizerProps) {
   const t = useTranslations("generatedTool.eoqOptimizer");
   const [inputs, setInputs] = useState<EOQOptimizerInputs>(() => mergeInitialInputs(initialInputs));
   const [output, setOutput] = useState<EOQOptimizerOutput | null>(null);
+  useScrollToResults(output !== null, "eoq-results");
 
   const costCurveData = useMemo(
     () => buildEOQCostCurve(inputs, output),
@@ -186,6 +188,7 @@ export function EOQOptimizer({ initialInputs, onSave }: EOQOptimizerProps) {
         </button>
       </div>
 
+      <div id="eoq-results">
       {output ? (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="rounded-lg border border-green-100 bg-green-50 p-4 text-center">
@@ -235,6 +238,7 @@ export function EOQOptimizer({ initialInputs, onSave }: EOQOptimizerProps) {
           </div>
         </div>
       ) : null}
+      </div>
     </section>
   );
 }

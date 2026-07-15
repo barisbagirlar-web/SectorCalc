@@ -6,6 +6,7 @@
 
 import type { ChangeEvent, ReactNode } from "react";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useScrollToResults } from "@/hooks/useScrollToResults";
 import type {
   CalcStatus,
   ExecuteResponse,
@@ -845,6 +846,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
   const isExecuting = state.executionState === "executing";
   const isServerBlocked = state.executionState === "server_blocked";
   const hasResult = hasServerResponse(response);
+  useScrollToResults(hasResult, "section-results");
 
   // ── Cross-tool contract assertion ──
   // Verify that the requested slug, tool key, and schema all match
@@ -1366,7 +1368,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
       )}
 
         {/* Results */}
-        <section className="pro-section pro-results" aria-label="Results">
+        <section id="section-results" className="pro-section pro-results" aria-label="Results">
           {vm.resultState.hasResult ? (
             (isFreeTier && isServerBlocked) ? (
               <div className="pro-free-validation-error">

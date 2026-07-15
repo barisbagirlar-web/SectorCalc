@@ -32,6 +32,7 @@ import {
   resolvePremiumAccessMode,
 } from "@/lib/features/billing/premium-access-mode";
 import { usePremiumToolAccess } from "@/lib/features/billing/use-premium-tool-access";
+import { useScrollToResults } from "@/hooks/useScrollToResults";
 import { buildVerdictReportData } from "@/lib/features/reports/verdict-report";
 import {
  PremiumDecisionReportPanel,
@@ -345,6 +346,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
     : (isCalculating ? "Calculating\u2026" : "Run calculation");
 
   const hasCalculated = submitted && Boolean(result) && !isCalculating;
+  useScrollToResults(hasCalculated, "premium-result-rail");
 
  const verdictReportData = useMemo(() => {
  if (!result) {
@@ -770,7 +772,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
            </div>
          </form>
        </main>
-       <aside className="rail">
+       <aside id="premium-result-rail" className="rail">
          {/* Decision */}
          <div className={`decision ${isDanger ? "review" : isOK ? "ok" : ""}`}>
            <div className="d-label">PRIMARY READOUT \u00b7 STATUS</div>
