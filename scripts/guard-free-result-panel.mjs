@@ -1,178 +1,127 @@
 // SectorCalc — Guard: Free Tool Result Panel Quality
-// Ensures no free tool has the legacy "Result: Result" pattern,
-// empty Decision State after valid calculation, or missing units.
+// Verifies the active V5.3.1 FREE execution/render path only.
+// Legacy/generated tool components are intentionally excluded because they are not
+// mounted by /tools/free/[slug] and must not create false release failures.
 
 import { readFileSync, existsSync, globSync } from "fs";
-import { resolve } from "path";
+import { resolve, relative } from "path";
 
 const ROOT = resolve(import.meta.dirname, "..");
 
 let pass = true;
 const errors = [];
 
-// ── 1. Check for "Result: Result" in source files ──
+function activeRendererFiles() {
+  const files = [];
+  const formPath = resolve(ROOT, "src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx");
+  if (existsSync(formPath)) files.push(formPath);
 
-console.log("Checking for 'Result: Result' duplicate pattern...");
-const sourceFiles = [
-  "src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx",
-  "src/sectorcalc/free-form/",
-  "src/components/tools/",
+  const freeFormDir = resolve(ROOT, "src/sectorcalc/free-form");
+  if (existsSync(freeFormDir)) {
+    files.push(...globSync(`${freeFormDir}/**/*.{tsx,ts}`));
+  }
+
+  return [...new Set(files)];
+}
+
+function sourceLocation(file, content, needle) {
+  const index = content.indexOf(needle);
+  if (index < 0) return null;
+  const line = content.slice(0, index).split("\n").length;
+  return `${relative(ROOT, file)}:${line}`;
+}
+
+const rendererFiles = activeRendererFiles();
+
+// 1. Active FREE renderer must not contain duplicate/legacy result copy.
+console.log("Checking active FREE renderer for legacy result patterns...");
+const forbiddenPatterns = [
+  "Result: Result",
+  "Result: <strong",
+  "Decision State —",
+  'Decision State "—"',
+  "sc-v531-free-interp-text",
 ];
 
-let foundDuplicate = false;
-for (const pattern of sourceFiles) {
-  let files;
-  if (pattern.endsWith("/")) {
-    const dir = resolve(ROOT, pattern);
-    if (!existsSync(dir)) continue;
-    files = globSync(`${dir}**/*.{tsx,ts}`);
-  } else {
-    const fp = resolve(ROOT, pattern);
-    if (!existsSync(fp)) continue;
-    files = [fp];
-  }
-  for (const file of files) {
-    const content = readFileSync(file, "utf-8");
-    if (content.includes("Result: Result") || content.includes('Result: <strong')) {
-      foundDuplicate = true;
-      errors.push(`FAIL: "Result: Result" pattern found in ${file.replace(ROOT, ".")}`);
+for (const file of rendererFiles) {
+  const content = readFileSync(file, "utf-8");
+  for (const pattern of forbiddenPatterns) {
+    const location = sourceLocation(file, content, pattern);
+    if (location) {
+      pass = false;
+      errors.push(`FAIL: Forbidden active FREE result pattern ${JSON.stringify(pattern)} at ${location}`);
     }
   }
 }
-if (!foundDuplicate) {
-  console.log("  PASS: No 'Result: Result' duplicate pattern found.");
+
+if (errors.length === 0) {
+  console.log("  PASS: No legacy result patterns in the active FREE renderer.");
 }
 
-// ── 2. Check for "Decision State —" in source files ──
+// 2. Required result-layer modules must exist.
+const requiredFiles = [
+  "src/sectorcalc/free-form/FreeToolResultPanel.tsx",
+  "src/sectorcalc/free-form/freeResultText.ts",
+  "src/sectorcalc/free-form/freeDecisionState.ts",
+  "src/sectorcalc/free-form/free-tool-result-panel.css",
+];
 
-console.log("Checking for empty Decision State...");
-let foundEmptyDs = false;
-for (const pattern of sourceFiles) {
-  let files;
-  if (pattern.endsWith("/")) {
-    const dir = resolve(ROOT, pattern);
-    if (!existsSync(dir)) continue;
-    files = globSync(`${dir}**/*.{tsx,ts}`);
-  } else {
-    const fp = resolve(ROOT, pattern);
-    if (!existsSync(fp)) continue;
-    files = [fp];
-  }
-  for (const file of files) {
-    const content = readFileSync(file, "utf-8");
-    if (content.includes('Decision State "—"') || content.includes("Decision State —")) {
-      foundEmptyDs = true;
-      errors.push(`FAIL: Empty "Decision State —" found in ${file.replace(ROOT, ".")}`);
-    }
-  }
-}
-if (!foundEmptyDs) {
-  console.log("  PASS: No empty Decision State pattern found.");
-}
-
-// ── 3. Check FreeToolResultPanel exists ──
-
-console.log("Checking FreeToolResultPanel exists...");
-const panelPath = resolve(ROOT, "src/sectorcalc/free-form/FreeToolResultPanel.tsx");
-if (existsSync(panelPath)) {
-  console.log("  PASS: FreeToolResultPanel.tsx exists.");
-} else {
-  pass = false;
-  errors.push("FAIL: FreeToolResultPanel.tsx does not exist.");
-}
-
-// ── 4. Check freeResultText.ts exists ──
-
-console.log("Checking freeResultText.ts exists...");
-const textPath = resolve(ROOT, "src/sectorcalc/free-form/freeResultText.ts");
-if (existsSync(textPath)) {
-  console.log("  PASS: freeResultText.ts exists.");
-} else {
-  pass = false;
-  errors.push("FAIL: freeResultText.ts does not exist.");
-}
-
-// ── 5. Check freeDecisionState.ts exists ──
-
-console.log("Checking freeDecisionState.ts exists...");
-const dsPath = resolve(ROOT, "src/sectorcalc/free-form/freeDecisionState.ts");
-if (existsSync(dsPath)) {
-  console.log("  PASS: freeDecisionState.ts exists.");
-} else {
-  pass = false;
-  errors.push("FAIL: freeDecisionState.ts does not exist.");
-}
-
-// ── 6. Check CSS exists ──
-
-console.log("Checking free-tool-result-panel.css exists...");
-const cssPath = resolve(ROOT, "src/sectorcalc/free-form/free-tool-result-panel.css");
-if (existsSync(cssPath)) {
-  console.log("  PASS: free-tool-result-panel.css exists.");
-} else {
-  pass = false;
-  errors.push("FAIL: free-tool-result-panel.css does not exist.");
-}
-
-// ── 7. Check that FreeToolResultPanel is imported in the form ──
-
-console.log("Checking FreeToolResultPanel is imported in UniversalIndustrialDecisionForm...");
-const formPath = resolve(ROOT, "src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx");
-if (existsSync(formPath)) {
-  const content = readFileSync(formPath, "utf-8");
-  if (content.includes("FreeToolResultPanel")) {
-    console.log("  PASS: FreeToolResultPanel imported in UniversalIndustrialDecisionForm.");
-  } else {
+for (const requiredFile of requiredFiles) {
+  const fullPath = resolve(ROOT, requiredFile);
+  if (!existsSync(fullPath)) {
     pass = false;
-    errors.push("FAIL: FreeToolResultPanel not imported in UniversalIndustrialDecisionForm.");
+    errors.push(`FAIL: Required FREE result-layer file missing: ${requiredFile}`);
+  } else {
+    console.log(`  PASS: ${requiredFile} exists.`);
   }
-} else {
+}
+
+// 3. The active universal form must import and mount FreeToolResultPanel.
+const formPath = resolve(ROOT, "src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx");
+if (!existsSync(formPath)) {
   pass = false;
   errors.push("FAIL: UniversalIndustrialDecisionForm.tsx not found.");
-}
-
-// ── 8. Check no raw number rendering bypasses FreeToolResultPanel ──
-
-console.log("Checking no free fallback bypasses FreeToolResultPanel...");
-if (existsSync(formPath)) {
+} else {
   const content = readFileSync(formPath, "utf-8");
-  // Check that the old fallback patterns are gone
-  if (content.includes("sc-v531-free-interp-text")) {
+  const importPattern = /import\s*\{\s*FreeToolResultPanel\s*\}\s*from\s*["']@\/sectorcalc\/free-form\/FreeToolResultPanel["']/;
+  const mountPattern = /<FreeToolResultPanel\b/;
+
+  if (!importPattern.test(content)) {
     pass = false;
-    errors.push("FAIL: Old free interpretation (sc-v531-free-interp-text) still present in form.");
+    errors.push("FAIL: Active form does not import FreeToolResultPanel from the canonical module.");
   } else {
-    console.log("  PASS: Legacy free interpretation removed.");
+    console.log("  PASS: Canonical FreeToolResultPanel import exists.");
   }
-  if (content.includes('Result: <strong')) {
+
+  if (!mountPattern.test(content)) {
     pass = false;
-    errors.push('FAIL: "Result: <strong" pattern still present (legacy interpretation).');
+    errors.push("FAIL: Active form does not mount FreeToolResultPanel.");
   } else {
-    console.log("  PASS: Legacy 'Result:' pattern removed.");
+    console.log("  PASS: FreeToolResultPanel is mounted in the active form.");
   }
 }
 
-// ── 9. Check CSS is imported in free tool page ──
-
-console.log("Checking CSS import in free tool page...");
+// 4. The public FREE route must load the canonical result-panel stylesheet.
 const pagePath = resolve(ROOT, "src/app/tools/free/[slug]/page.tsx");
-if (existsSync(pagePath)) {
+if (!existsSync(pagePath)) {
+  pass = false;
+  errors.push("FAIL: Public FREE tool page not found.");
+} else {
   const content = readFileSync(pagePath, "utf-8");
-  if (content.includes("free-tool-result-panel.css")) {
-    console.log("  PASS: free-tool-result-panel.css imported in free tool page.");
-  } else {
+  if (!content.includes("free-tool-result-panel.css")) {
     pass = false;
-    errors.push("FAIL: free-tool-result-panel.css not imported in free tool page.");
+    errors.push("FAIL: Public FREE tool page does not import free-tool-result-panel.css.");
+  } else {
+    console.log("  PASS: Public FREE route imports result-panel CSS.");
   }
 }
-
-// ── Result ──
 
 console.log("\n========================================");
 if (pass && errors.length === 0) {
   console.log("RESULT: ALL CHECKS PASSED");
 } else {
   console.log(`RESULT: ${errors.length} FAILURE(S)`);
-  errors.forEach((e) => console.log(`  ${e}`));
+  errors.forEach((error) => console.log(`  ${error}`));
 }
 
 process.exit(pass && errors.length === 0 ? 0 : 1);
