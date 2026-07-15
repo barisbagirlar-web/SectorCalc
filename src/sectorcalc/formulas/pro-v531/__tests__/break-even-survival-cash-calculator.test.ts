@@ -65,7 +65,7 @@ describe("Break-Even & Survival Cash Calculator formula", () => {
     expect(result.warnings.length).toBeGreaterThanOrEqual(3);
   });
 
-  it("blocks a materially unreliable source-confidence decision", async () => {
+  it("returns a valid business BLOCK decision for materially unreliable evidence", async () => {
     const { calculate } = await import(
       "../break-even-survival-cash-calculator.formula"
     );
@@ -82,7 +82,7 @@ describe("Break-Even & Survival Cash Calculator formula", () => {
     );
   });
 
-  it("blocks invalid contribution margin without non-finite outputs", async () => {
+  it("blocks invalid contribution margin without fabricated zero outputs", async () => {
     const { calculate } = await import(
       "../break-even-survival-cash-calculator.formula"
     );
@@ -93,8 +93,8 @@ describe("Break-Even & Survival Cash Calculator formula", () => {
     });
 
     expect(result.status).toBe("BLOCKED");
-    expect(result.outputs.out_decision_code).toBe(2);
-    expect(Object.values(result.outputs).every(Number.isFinite)).toBe(true);
+    expect(result.outputs).toEqual({});
+    expect(result.warnings.join(" ")).toMatch(/contribution margin ratio/i);
   });
 
   it("blocks unexpected normalized inputs to prevent cross-tool contamination", async () => {
@@ -108,6 +108,7 @@ describe("Break-Even & Survival Cash Calculator formula", () => {
     });
 
     expect(result.status).toBe("BLOCKED");
+    expect(result.outputs).toEqual({});
     expect(result.warnings.join(" ")).toContain("Unexpected normalized inputs");
   });
 
