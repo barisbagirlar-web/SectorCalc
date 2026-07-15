@@ -72,11 +72,3 @@ export function getAdminStorage(): Storage | null {
   }
   return getStorage(app);
 }
-
-export function getAdminStorage(): Storage | null {
- const app = getFirebaseAdminApp();
- if (!app) {
- return null;
- }
- return getStorage(app);
-}

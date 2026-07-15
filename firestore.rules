@@ -144,6 +144,36 @@ service cloud.firestore {
       allow read: if true;
       allow create, update, delete: if isAuthenticatedAdmin();
     }
+
+    // ── Document Intelligence ──────────────────────────────────
+    match /documentIntelligenceJobs/{jobId} {
+      allow read: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.userId == jobId.split('_')[0]
+        && isValidDiJobCreate(request.resource.data)
+        && !hasForbiddenDiFields(request.resource.data);
+      allow update: if false;  // Server SDK only
+      allow delete: if false;  // Server scheduler only
+
+      match /events/{eventId} {
+        allow read: if request.auth != null
+          && get(/databases/$(database)/documents/documentIntelligenceJobs/$(jobId)).data.userId == request.auth.uid;
+        allow write: if false;  // Server SDK only
+      }
+
+      match /rows/{rowId} {
+        allow read: if request.auth != null
+          && get(/databases/$(database)/documents/documentIntelligenceJobs/$(jobId)).data.userId == request.auth.uid;
+        allow write: if false;  // Server SDK only
+      }
+    }
+
+    // Admin access to all DI jobs
+    match /documentIntelligenceJobs/{jobId} {
+      allow read, write: if isAuthenticatedAdmin();
+    }
   }
 }
 
@@ -644,31 +674,3 @@ function hasForbiddenDiFields(data) {
   ]);
 }
 
-match /documentIntelligenceJobs/{jobId} {
-  allow read: if request.auth != null
-    && resource.data.userId == request.auth.uid;
-  allow create: if request.auth != null
-    && request.resource.data.userId == request.auth.uid
-    && request.resource.data.userId == jobId.split('_')[0]
-    && isValidDiJobCreate(request.resource.data)
-    && !hasForbiddenDiFields(request.resource.data);
-  allow update: if false;  // Server SDK only
-  allow delete: if false;  // Server scheduler only
-
-  match /events/{eventId} {
-    allow read: if request.auth != null
-      && get(/databases/$(database)/documents/documentIntelligenceJobs/$(jobId)).data.userId == request.auth.uid;
-    allow write: if false;  // Server SDK only
-  }
-
-  match /rows/{rowId} {
-    allow read: if request.auth != null
-      && get(/databases/$(database)/documents/documentIntelligenceJobs/$(jobId)).data.userId == request.auth.uid;
-    allow write: if false;  // Server SDK only
-  }
-}
-
-// Admin access to all DI jobs
-match /documentIntelligenceJobs/{jobId} {
-  allow read, write: if isAuthenticatedAdmin();
-}
