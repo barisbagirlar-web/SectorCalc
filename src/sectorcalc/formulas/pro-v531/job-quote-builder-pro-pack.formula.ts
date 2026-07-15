@@ -1,75 +1,157 @@
 import "server-only";
+
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
-
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
+import type { ProFormulaResult } from "./pro-formula-contract";
+import {
+  createValidationState,
+  divideOrError,
+  finalizeResult,
+  requireFiniteInputs,
+  requireInteger,
+  requireNonNegative,
+  requirePositive,
+  requireRange,
+  roundDisplay,
+} from "./pro-formula-safety";
 
 export const toolKey = "job-quote-builder-pro-pack";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+export const requiredInputKeys = [
+  "n_machine_rate",
+  "n_cycle_time",
+  "n_setup_time",
+  "n_batch_quantity",
+  "n_material_cost",
+  "n_target_margin",
+  "n_annual_volume",
+  "n_labor_rate",
+  "n_overhead_rate",
+  "n_defect_or_loss_cost",
+  "n_source_confidence_ratio",
+  "n_uncertainty_multiplier",
+] as const;
+
+export const declaredOutputKeys = [
+  "out_evidence_completeness",
+  "out_normalized_demand",
+  "out_reference_deviation",
+  "out_derating_factor",
+  "out_demand_metric",
+  "out_capacity_metric",
+  "out_utilization_margin",
+  "out_expanded_uncertainty",
+  "out_threshold_crossing",
+  "out_sensitivity_driver",
+  "out_fmea_trigger",
+  "out_money_at_risk",
+  "out_scenario_delta",
+  "out_audit_hash_payload",
+  "out_final_decision_state",
+] as const;
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const state = createValidationState();
+  const v = requireFiniteInputs(inputs, requiredInputKeys, state);
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
 
+  const machineRate = v.n_machine_rate;
+  const cycleSeconds = v.n_cycle_time;
+  const setupSeconds = v.n_setup_time;
+  const batchQuantity = v.n_batch_quantity;
+  const materialCostPerUnit = v.n_material_cost;
+  const targetMargin = v.n_target_margin;
+  const annualVolume = v.n_annual_volume;
+  const laborRate = v.n_labor_rate;
+  const overheadRate = v.n_overhead_rate;
+  const lossAllowancePerUnit = v.n_defect_or_loss_cost;
+  const confidence = v.n_source_confidence_ratio;
+  const uncertaintyMultiplier = v.n_uncertainty_multiplier;
 
-  const mr = get(inputs, "n_machine_rate");
-  const ct = get(inputs, "n_cycle_time");
-  const st = get(inputs, "n_setup_time");
-  const mc = get(inputs, "n_material_cost");
-  const tm = get(inputs, "n_target_margin");
-  const bq = get(inputs, "n_batch_quantity");
-  const vol = get(inputs, "n_annual_volume");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
-  const dc = get(inputs, "n_defect_or_loss_cost");
-  const conf = get(inputs, "n_source_confidence_ratio");
-  const unc = get(inputs, "n_uncertainty_multiplier");
-  const tc = ct + st;
-  const lc = lr * tc / 60;
-  const mac = mr * tc / 60;
-  const sc = dc * 0.1;
-  const oa = vol > 0 ? oh / vol * bq : 0;
-  const tjc = lc + mac + mc * bq + sc + oa;
-  const mu = 1 + tm;
-  const rp = tjc * mu;
-  const ra = rp * (1 + unc * 0.1);
-  const mp = ra > 0 ? (ra - tjc) / ra : 0;
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(tjc, 2);
-  outputs["out_demand_metric"] = round(tjc, 2);
-  outputs["out_capacity_metric"] = round(rp, 2);
-  outputs["out_utilization_margin"] = round(mp, 4);
-  outputs["out_money_at_risk"] = round(tjc * (tm - Math.max(mp, 0)), 2);
-  outputs["out_threshold_crossing"] = mp >= tm ? 0 : 1;
-  outputs["out_fmea_trigger"] = mp < tm * 0.5 ? 1 : 0;
-  outputs["out_final_decision_state"] = mp >= tm ? 0 : (mp >= tm * 0.5 ? 1 : 2);
-  outputs["out_reference_deviation"] = round(Math.abs(rp - tjc) / (tjc || 1), 4);
-  outputs["out_derating_factor"] = round(conf, 4);
-  outputs["out_expanded_uncertainty"] = round(ra - rp, 4);
-  outputs["out_sensitivity_driver"] = lc > mac ? 1 : 0;
-  outputs["out_scenario_delta"] = round(tjc * 0.15, 2);
-  outputs["out_audit_hash_payload"] = 0;
+  requireNonNegative(machineRate, "Machine rate", state);
+  requirePositive(cycleSeconds, "Cycle time", state);
+  requireNonNegative(setupSeconds, "Setup time", state);
+  requireInteger(batchQuantity, 1, 1000000000, "Batch quantity", state);
+  requireNonNegative(materialCostPerUnit, "Material cost per unit", state);
+  requireRange(targetMargin, 0, 1, "Target gross margin", state, { maxInclusive: false });
+  requireInteger(annualVolume, 1, 1000000000, "Annual volume", state);
+  requireNonNegative(laborRate, "Labor rate", state);
+  requireNonNegative(overheadRate, "Overhead rate", state);
+  requireNonNegative(lossAllowancePerUnit, "Loss allowance per unit", state);
+  requireRange(confidence, 0, 1, "Source confidence", state);
+  requireRange(uncertaintyMultiplier, 0, 5, "Uncertainty multiplier", state, {
+    minInclusive: false,
+  });
 
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return {
-    status: ok ? "OK" : "REVIEW",
-    outputs,
-    warnings: warnings.length ? warnings : [],
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
+
+  const cycleHoursPerUnit = cycleSeconds / 3600;
+  const setupHoursPerUnit = setupSeconds / 3600 / batchQuantity;
+  const processHoursPerUnit = cycleHoursPerUnit + setupHoursPerUnit;
+  const machineCostPerUnit = machineRate * processHoursPerUnit;
+  const laborCostPerUnit = laborRate * processHoursPerUnit;
+  const overheadCostPerUnit = overheadRate * processHoursPerUnit;
+  const costPerUnit =
+    materialCostPerUnit +
+    machineCostPerUnit +
+    laborCostPerUnit +
+    overheadCostPerUnit +
+    lossAllowancePerUnit;
+  const totalBatchCost = costPerUnit * batchQuantity;
+  const quotePerUnit = divideOrError(costPerUnit, 1 - targetMargin, "Gross-margin quote", state);
+  const totalQuote = quotePerUnit * batchQuantity;
+  const grossProfit = totalQuote - totalBatchCost;
+  const achievedMargin = divideOrError(grossProfit, totalQuote, "Achieved gross margin", state);
+  const uncertaintyAmount = totalBatchCost * (1 - confidence) * uncertaintyMultiplier;
+  const minimumRiskAdjustedQuote = totalQuote + uncertaintyAmount;
+
+  const costDrivers = [
+    materialCostPerUnit,
+    machineCostPerUnit,
+    laborCostPerUnit,
+    overheadCostPerUnit,
+    lossAllowancePerUnit,
+  ];
+  const sensitivityDriver = costDrivers.indexOf(Math.max(...costDrivers));
+
+  const annualRequiredHours = processHoursPerUnit * annualVolume;
+  let decision = 0;
+  if (confidence < 0.7 || annualRequiredHours > 8760) decision = 1;
+  if (annualRequiredHours > 8760) {
+    state.warnings.push("Annual required hours exceed one machine-year; verify capacity or machine count.");
+  }
+  if (confidence < 0.7) {
+    state.warnings.push("Source confidence is below 70%; verify cost and time evidence before issuing the quote.");
+  }
+
+  const outputs: Record<string, number> = {
+    out_evidence_completeness: roundDisplay(confidence, 4),
+    out_normalized_demand: roundDisplay(totalBatchCost, 2),
+    out_reference_deviation: roundDisplay(achievedMargin - targetMargin, 6),
+    out_derating_factor: roundDisplay(confidence, 4),
+    out_demand_metric: roundDisplay(totalBatchCost, 2),
+    out_capacity_metric: roundDisplay(minimumRiskAdjustedQuote, 2),
+    out_utilization_margin: roundDisplay(achievedMargin, 6),
+    out_expanded_uncertainty: roundDisplay(uncertaintyAmount, 2),
+    out_threshold_crossing: achievedMargin + 1e-9 >= targetMargin ? 0 : 1,
+    out_sensitivity_driver: sensitivityDriver,
+    out_fmea_trigger: decision > 0 ? 1 : 0,
+    out_money_at_risk: roundDisplay(uncertaintyAmount, 2),
+    out_scenario_delta: roundDisplay(grossProfit, 2),
+    out_audit_hash_payload: 0,
+    out_final_decision_state: decision,
   };
+
+  return finalizeResult({
+    outputs,
+    outputKeys: declaredOutputKeys,
+    state,
+    status: decision === 0 ? "OK" : "REVIEW",
+  });
 }
