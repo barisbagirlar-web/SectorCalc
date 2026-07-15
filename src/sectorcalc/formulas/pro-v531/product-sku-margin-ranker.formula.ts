@@ -69,7 +69,9 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   requirePositive(unitSellingPrice, "Unit selling price", state);
   requireNonNegative(cycleSeconds, "Cycle time", state);
   requireNonNegative(materialCostPerUnit, "Material cost per unit", state);
-  requireRange(targetMargin, -1, 1, "Target margin ratio", state, { maxInclusive: false });
+  requireRange(targetMargin, 0, 1, "Target gross margin ratio", state, {
+    maxInclusive: false,
+  });
   requireInteger(annualVolume, 1, 1000000000000, "Annual volume", state);
   requireNonNegative(laborRate, "Labor rate", state);
   requireNonNegative(annualOverheadPool, "Annual overhead pool", state);
@@ -96,7 +98,7 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const targetPrice = divideOrError(
     fullyLoadedCostPerUnit,
     1 - targetMargin,
-    "Target-margin SKU price",
+    "Target gross-margin SKU price",
     state,
   );
   const uncertainty = Math.abs(annualContribution) * (1 - confidence);
