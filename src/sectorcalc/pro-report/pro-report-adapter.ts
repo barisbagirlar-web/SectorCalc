@@ -35,9 +35,9 @@ function resolveReportUnit(
   if (!unit || !displayCurrency) return unit;
 
   if (unit === "currency") return displayCurrency;
-  if (unit === "currency/month") return `${displayCurrency}/month`;
-  if (unit === "currency/hour") return `${displayCurrency}/hour`;
-  if (unit === "currency/unit") return `${displayCurrency}/unit`;
+  if (unit.startsWith("currency/")) {
+    return `${displayCurrency}/${unit.slice("currency/".length)}`;
+  }
 
   return unit;
 }
@@ -69,6 +69,9 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
     for (const outputId of requiredOutputIds) {
       const match = outputMap.get(outputId);
       if (!match || match.value === null || outputCounts.get(outputId) !== 1) {
+        return null;
+      }
+      if (typeof match.value === "number" && !Number.isFinite(match.value)) {
         return null;
       }
     }
