@@ -28,12 +28,12 @@ import { MobileNavigationShell } from "@/components/layout/mobile/MobileNavigati
 const t = {
   products: 'Products', industries: 'Industries', pricing: 'Pricing', resources: 'Resources',
   signin: 'Sign in', getStarted: 'Get started',
-  col_free: 'Free tools', col_pro: 'Pro tools', col_engdiag: 'Engineering Diagnostics', col_di: 'Document Intelligence',
+  col_free: 'Free tools', col_pro: 'Pro tools', col_engdiag: 'Engineering Diagnostics',
   products_free_desc: 'Engineering calculators, no login',
   products_pro_desc: 'Real parameters, PDF export',
   products_engdiag_desc: 'Capture problems, find root causes and generate action reports',
-  products_di_desc: 'Convert manuals to structured, traceable operational data',
   view_all_industries: 'All industries',
+  docintel: 'Document Intelligence', docintel_d: 'Convert engineering documents into validated, ERP-ready data',
   res_blog: 'Case Studies', res_blog_d: 'Methods & case studies',
   res_docs: 'FMEA RPN Calculator', res_docs_d: 'Failure Mode & Effects Analysis',
   tools: 'tools', lang_note: 'All prices shown in USD',
@@ -230,8 +230,8 @@ export function SiteHeader({
                       <div className="pd">{t.products_engdiag_desc}</div>
                     </Link>
                     <Link href="/document-intelligence" prefetch={true} className="sc-mega-panel">
-                      <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg><span className="ph">{t.col_di}</span></div>
-                      <div className="pd">{t.products_di_desc}</div>
+                      <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><path d="M9 15l2 2 4-4" /></svg><span className="ph">Document Intelligence</span></div>
+                      <div className="pd">Convert engineering documents into validated, ERP-ready data</div>
                     </Link>
                   </div>
                 )}

@@ -247,6 +247,266 @@ function buildRevisionConflictsSheet(
   return ws;
 }
 
+/* ── Sheet: Procurement Ready (Section 62) ────────────────────── */
+
+function buildProcurementReadySheet(rows: DispositionResult): XLSX.WorkSheet {
+  const headers = [
+    "Part Number",
+    "Description",
+    "Quantity",
+    "Unit",
+    "Manufacturer",
+    "Manufacturer Part Number",
+    "Revision",
+    "Equipment",
+    "Subassembly",
+    "Material",
+    "Source Page",
+    "Procurement Status",
+    "Review Note",
+  ];
+
+  const data: unknown[][] = [headers];
+
+  for (const dr of rows.rows) {
+    if (dr.disposition !== "clean") continue;
+    const r = dr.row;
+    data.push([
+      safeCellValue(r.partNumberNormalized),
+      safeCellValue(r.descriptionNormalized),
+      safeCellValue(r.quantity),
+      safeCellValue(r.unit),
+      safeCellValue(r.manufacturer),
+      safeCellValue(r.manufacturerPartNumber),
+      safeCellValue(r.revision),
+      safeCellValue(r.equipment),
+      safeCellValue(r.subassembly),
+      safeCellValue(r.material),
+      safeCellValue(r.sourcePage),
+      "Ready",
+      "",
+    ]);
+  }
+
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  applyCommonWorkbookSettings(ws, [20, 30, 10, 8, 16, 20, 10, 14, 14, 14, 12, 18, 30]);
+  return ws;
+}
+
+/* ── Sheet: RFQ Preparation (Section 62) ──────────────────────── */
+
+function buildRfqPreparationSheet(rows: DispositionResult): XLSX.WorkSheet {
+  const headers = [
+    "Part Number",
+    "Description",
+    "Quantity",
+    "Unit",
+    "Manufacturer",
+    "Manufacturer Part Number",
+    "Revision",
+    "Delivery/Quote Notes",
+    "Supplier",
+    "Quoted Unit Price",
+    "Currency",
+    "Lead Time",
+  ];
+
+  const data: unknown[][] = [headers];
+
+  for (const dr of rows.rows) {
+    if (dr.disposition !== "clean") continue;
+    const r = dr.row;
+    data.push([
+      safeCellValue(r.partNumberNormalized),
+      safeCellValue(r.descriptionNormalized),
+      safeCellValue(r.quantity),
+      safeCellValue(r.unit),
+      safeCellValue(r.manufacturer),
+      safeCellValue(r.manufacturerPartNumber),
+      safeCellValue(r.revision),
+      "",  // Customer field
+      "",  // Customer field
+      "",  // Customer field
+      "",  // Customer field
+      "",  // Customer field
+    ]);
+  }
+
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  applyCommonWorkbookSettings(ws, [20, 30, 10, 8, 16, 20, 10, 20, 16, 16, 10, 14]);
+  return ws;
+}
+
+/* ── Sheet: Low Confidence Records ──────────────────────────────── */
+
+function buildLowConfidenceSheet(rows: DispositionResult): XLSX.WorkSheet {
+  const headers = [
+    "Item",
+    "Part Number",
+    "Description",
+    "Confidence",
+    "Source Page",
+    "Validation Flags",
+    "Recommended Action",
+  ];
+
+  const data: unknown[][] = [headers];
+
+  for (const dr of rows.rows) {
+    const r = dr.row;
+    if (r.confidence >= 0.7) continue;
+    data.push([
+      safeCellValue(r.itemNumber),
+      safeCellValue(r.partNumberNormalized ?? r.partNumberRaw),
+      safeCellValue(r.descriptionNormalized ?? r.descriptionRaw),
+      safeCellValue(r.confidence),
+      safeCellValue(r.sourcePage),
+      safeCellValue(r.validationFlags.join("; ")),
+      "Visually verify against source document — see Data Dictionary for field guidance",
+    ]);
+  }
+
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  applyCommonWorkbookSettings(ws, [6, 20, 30, 12, 12, 30, 60]);
+  return ws;
+}
+
+/* ── Sheet: CMMS Spare Parts Template (Section 61) ────────────── */
+
+function buildCmmsTemplateSheet(rows: BomRow[]): XLSX.WorkSheet {
+  const headers = [
+    "Equipment ID",
+    "Equipment Name",
+    "Part Number",
+    "Description",
+    "Quantity",
+    "Unit",
+    "Manufacturer",
+    "Manufacturer Part Number",
+    "Supplier",
+    "Storage Location",
+    "Min Stock Level",
+    "Max Stock Level",
+    "Reorder Point",
+    "Lead Time",
+    "Unit Price",
+    "Currency",
+    "Preferred",
+  ];
+
+  const data: unknown[][] = [headers];
+
+  for (const r of rows) {
+    if (!r.partNumberNormalized && !r.partNumberRaw) continue;
+    data.push([
+      safeCellValue(r.equipment ?? ""),
+      safeCellValue(r.equipment ?? ""),
+      safeCellValue(r.partNumberNormalized ?? r.partNumberRaw),
+      safeCellValue(r.descriptionNormalized ?? r.descriptionRaw),
+      safeCellValue(r.quantity),
+      safeCellValue(r.unit),
+      safeCellValue(r.manufacturer),
+      safeCellValue(r.manufacturerPartNumber),
+      "",  // Supplier — customer field
+      "",  // Storage Location — customer field
+      "",  // Min Stock Level — customer field
+      "",  // Max Stock Level — customer field
+      "",  // Reorder Point — customer field
+      "",  // Lead Time — customer field
+      "",  // Unit Price — customer field
+      "",  // Currency — customer field
+      "",  // Preferred — customer field
+    ]);
+  }
+
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  applyCommonWorkbookSettings(ws, [16, 24, 20, 30, 10, 8, 16, 20, 16, 16, 12, 12, 12, 10, 12, 10, 12]);
+  return ws;
+}
+
+/* ── Sheet: Asset Hierarchy (Section 60) ──────────────────────── */
+
+function buildAssetHierarchySheet(rows: BomRow[]): XLSX.WorkSheet {
+  const hasHierarchy = rows.some(
+    (r) => r.parentPartNumber != null || r.hierarchyLevel != null || r.hierarchyEvidence != null,
+  );
+  if (!hasHierarchy) {
+    const data: unknown[][] = [
+      ["Asset Hierarchy"],
+      [],
+      ["No hierarchical structure detected in this document."],
+      ["Extracted rows are presented as a flat BOM."],
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    ws["!cols"] = [{ wch: 60 }];
+    return ws;
+  }
+
+  const headers = [
+    "Item",
+    "Part Number",
+    "Description",
+    "Quantity",
+    "Parent Item Number",
+    "Parent Part Number",
+    "Hierarchy Level",
+    "Hierarchy Path",
+    "Hierarchy Evidence",
+    "Equipment",
+    "Subassembly",
+  ];
+
+  const data: unknown[][] = [headers];
+
+  for (const r of rows) {
+    data.push([
+      safeCellValue(r.itemNumber),
+      safeCellValue(r.partNumberNormalized),
+      safeCellValue(r.descriptionNormalized),
+      safeCellValue(r.quantity),
+      safeCellValue(r.parentItemNumber),
+      safeCellValue(r.parentPartNumber),
+      safeCellValue(r.hierarchyLevel),
+      safeCellValue(r.hierarchyPath),
+      safeCellValue(r.hierarchyEvidence),
+      safeCellValue(r.equipment),
+      safeCellValue(r.subassembly),
+    ]);
+  }
+
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  applyCommonWorkbookSettings(ws, [8, 20, 30, 10, 16, 20, 14, 36, 20, 16, 16]);
+  return ws;
+}
+
+/* ── Sheet: Dual-Pass Reconciliation Summary (Section 59) ──────── */
+
+function buildReconciliationSheet(rows: BomRow[]): XLSX.WorkSheet {
+  const headers = [
+    "Item",
+    "Part Number",
+    "Extraction Pass",
+    "Reconciliation Status",
+    "Review Required",
+  ];
+
+  const data: unknown[][] = [headers];
+
+  for (const r of rows) {
+    data.push([
+      safeCellValue(r.itemNumber),
+      safeCellValue(r.partNumberNormalized),
+      safeCellValue(r.extractionPass ?? "unknown"),
+      safeCellValue(r.reconciliationStatus ?? "unknown"),
+      safeCellValue(r.reviewRequired ? "Yes" : "No"),
+    ]);
+  }
+
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  applyCommonWorkbookSettings(ws, [8, 20, 16, 24, 14]);
+  return ws;
+}
+
 /* ── Sheet 6: Source Map ───────────────────────────────────────── */
 
 function buildSourceMapSheet(rows: BomRow[]): XLSX.WorkSheet {
@@ -316,9 +576,9 @@ function buildProcessingSummarySheet(
   return ws;
 }
 
-/* ── Sheet 8: Generic ERP Import Template ──────────────────────── */
+/* ── Sheet: Generic ERP Import Template ────────────────────────── */
 
-function buildImportTemplateSheet(): XLSX.WorkSheet {
+function buildGenericErpImportTemplateSheet(): XLSX.WorkSheet {
   const headers = [
     "Part Number",
     "Description",
@@ -391,12 +651,50 @@ export function generateMaintenanceBomWorkbook(input: WorkbookInput): Buffer {
   );
   XLSX.utils.book_append_sheet(
     wb,
-    buildImportTemplateSheet(),
+    buildGenericErpImportTemplateSheet(),
     "Generic ERP Import Template"
+  );
+  // Section 62: Procurement Ready
+  XLSX.utils.book_append_sheet(
+    wb,
+    buildProcurementReadySheet(input.disposition),
+    "Procurement Ready"
+  );
+  // Section 62: RFQ Preparation
+  XLSX.utils.book_append_sheet(
+    wb,
+    buildRfqPreparationSheet(input.disposition),
+    "RFQ Preparation"
+  );
+  // Section 61: CMMS Spare Parts Template
+  XLSX.utils.book_append_sheet(
+    wb,
+    buildCmmsTemplateSheet(input.rows),
+    "CMMS Spare Parts Template"
+  );
+  // Section 60: Asset Hierarchy
+  XLSX.utils.book_append_sheet(
+    wb,
+    buildAssetHierarchySheet(input.rows),
+    "Asset Hierarchy"
+  );
+  // Section 59: Dual-Pass Reconciliation
+  XLSX.utils.book_append_sheet(
+    wb,
+    buildReconciliationSheet(input.rows),
+    "Reconciliation"
+  );
+  // Low Confidence Records (dedicated sheet, independent of Review Required)
+  XLSX.utils.book_append_sheet(
+    wb,
+    buildLowConfidenceSheet(input.disposition),
+    "Low Confidence"
   );
 
   return Buffer.from(XLSX.write(wb, { type: "buffer", bookType: "xlsx" }));
 }
+
+/* Rename old buildImportTemplateSheet to avoid conflict */
 
 /* ── Procurement Exception Report ──────────────────────────────── */
 
@@ -505,6 +803,26 @@ export function generateExceptionReport(input: ExceptionReportInput): Buffer {
   ws = XLSX.utils.aoa_to_sheet(revData);
   applyCommonWorkbookSettings(ws, [20, 24, 14, 24, 10]);
   XLSX.utils.book_append_sheet(wb, ws, "Revision Conflicts");
+
+  // Low Confidence Records — dedicated data sheet
+  const lcHeaders = ["Row", "Part Number", "Description", "Confidence", "Source Page", "Validation Flags", "Recommended Action"];
+  const lcData: unknown[][] = [lcHeaders];
+  for (let i = 0; i < input.rows.length; i++) {
+    const r = input.rows[i];
+    if (r.confidence >= 0.7) continue;
+    lcData.push([
+      safeCellValue(i + 1),
+      safeCellValue(r.partNumberNormalized ?? r.partNumberRaw),
+      safeCellValue(r.descriptionNormalized ?? r.descriptionRaw),
+      safeCellValue(r.confidence),
+      safeCellValue(r.sourcePage),
+      safeCellValue(r.validationFlags.join("; ")),
+      "Verify against source document",
+    ]);
+  }
+  ws = XLSX.utils.aoa_to_sheet(lcData);
+  applyCommonWorkbookSettings(ws, [8, 20, 30, 12, 12, 30, 36]);
+  XLSX.utils.book_append_sheet(wb, ws, "Low Confidence Records");
 
   // Recommended Review Sequence
   const seqHeaders = ["Priority", "Area", "Reason", "Estimated Effort"];

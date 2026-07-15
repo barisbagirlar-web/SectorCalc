@@ -802,7 +802,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     let isPaidProTool = false;
-    if (!keyWasDeducted && userId && toolKey && !rawBody.usageSessionId) {
+    const hasNoSession = !rawBody.usageSessionId || rawBody.usageSessionId === "unified";
+    if (!keyWasDeducted && userId && toolKey && hasNoSession) {
       const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(toolKey!));
       const isFreeTool = schemaResult.source === "free_v531";
       if (!barisProduct && !isFreeTool) {
@@ -825,7 +826,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     registerFreePilotFormulas(validatedSchema);
     registerProPilotFormulas(validatedSchema);
 
-    if (toolKey && userId && !rawBody.usageSessionId) {
+    if (toolKey && userId && hasNoSession) {
       const tk: string = toolKey;
       const uid: string = userId;
       const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(tk));
@@ -915,7 +916,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       await markKeyExecuted(userId!, barisRequestId!);
     }
 
-    if (rawBody.usageSessionId && rawBody.usageSessionId !== "bypass-unlimited" && userId && toolKey) {
+    if (rawBody.usageSessionId && rawBody.usageSessionId !== "bypass-unlimited" && rawBody.usageSessionId !== "unified" && userId && toolKey) {
       const { decrementProSessionRuns } = await import("@/lib/credits/tool-usage-session.server");
       try {
         await decrementProSessionRuns({

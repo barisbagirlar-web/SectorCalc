@@ -93,10 +93,10 @@ function mockReconcile(
     }));
   }
 
-  mockFirestore.collection.mockImplementation((name: string) => {
+  mockFirestore.collection = vi.fn((name: string) => {
     if (name === "jobs") return jobsQuery;
     return txQuery;
-  });
+  }) as any;
 }
 
 /** Set up Firestore so "creditTransactions" returns the given docs. */
@@ -115,10 +115,10 @@ function mockTxDocs(docs: Record<string, unknown>[]) {
     size: docs.length,
     forEach: () => {},
   } as unknown as QuerySnapshot);
-  mockFirestore.collection.mockImplementation((name: string) => {
+  mockFirestore.collection = vi.fn((name: string) => {
     if (name === "creditTransactions") return txQuery;
     return createQuery();
-  });
+  }) as any;
 }
 
 /* ── assertJobConsumptionInvariant ───────────────────────────── */

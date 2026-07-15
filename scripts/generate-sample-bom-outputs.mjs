@@ -879,6 +879,38 @@ function buildProcessingSummarySheet(summary) {
   return ws;
 }
 
+/* ── Sheet: Low Confidence Records ────────────────────────────── */
+
+function buildLowConfidenceSheet(rows) {
+  const headers = [
+    "Row",
+    "Part Number",
+    "Description",
+    "Confidence",
+    "Source Page",
+    "Validation Flags",
+    "Recommended Action",
+  ];
+  const data = [headers];
+
+  for (const r of rows) {
+    if (r.confidence >= 0.7) continue;
+    data.push([
+      safeCellValue(r.itemNumber),
+      safeCellValue(r.partNumberNormalized ?? r.partNumberRaw),
+      safeCellValue(r.descriptionNormalized ?? r.descriptionRaw),
+      safeCellValue(r.confidence),
+      safeCellValue(r.sourcePage),
+      safeCellValue((r.validationFlags || []).join("; ")),
+      "Visually verify against source document",
+    ]);
+  }
+
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  applyCommonWorkbookSettings(ws, [8, 20, 30, 12, 12, 30, 40]);
+  return ws;
+}
+
 /* ── Sheet: Generic ERP Import Template ──────────────────────── */
 
 function buildImportTemplateSheet() {
@@ -911,6 +943,7 @@ function generateMaintenanceBomWorkbook(rows, groups, exceptions, conflicts, sum
   XLSX.utils.book_append_sheet(wb, buildDuplicatePartsSheet(groups, rows), "Duplicate Parts");
   XLSX.utils.book_append_sheet(wb, buildMissingFieldsSheet(exceptions, rows), "Missing Fields");
   XLSX.utils.book_append_sheet(wb, buildRevisionConflictsSheet(conflicts), "Revision Conflicts");
+  XLSX.utils.book_append_sheet(wb, buildLowConfidenceSheet(rows), "Low Confidence");
   XLSX.utils.book_append_sheet(wb, buildSourceMapSheet(rows), "Source Map");
   XLSX.utils.book_append_sheet(wb, buildProcessingSummarySheet(summary), "Processing Summary");
   XLSX.utils.book_append_sheet(wb, buildImportTemplateSheet(), "Generic ERP Import Template");

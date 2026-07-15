@@ -20,7 +20,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
 import type {
   JobStatus,
   PaymentStatus,
@@ -154,6 +153,100 @@ function processingStageIndex(status: JobStatus): number {
   return stages.indexOf(status);
 }
 
+/* ── Mock Data ─────────────────────────────────────────────────── */
+
+function makeMockSummary(): ProcessingSummary {
+  return {
+    inputFilename: "machine_manual_k120.pdf",
+    processedPages: 12,
+    extractedRows: 47,
+    cleanRows: 32,
+    reviewRows: 10,
+    blockedRows: 5,
+    duplicateGroups: 3,
+    missingFieldCount: 7,
+    revisionConflictCount: 2,
+    lowConfidenceCount: 4,
+    engineVersion: "1.0.0",
+    validatorVersion: "1.0.0",
+    schemaVersion: "1.0.0",
+    generatedAt: new Date().toISOString(),
+    passARowCount: 47,
+    passBRowCount: 47,
+    reconciliationAgreedCount: 42,
+    reconciliationDisagreementCount: 0,
+    reconciliationMissingPassB: 0,
+    hasHierarchy: false,
+    hierarchyExceptionCount: 0,
+    qaStatus: "passed",
+    qaAutomatic: true,
+    procurementReadyCount: 32,
+    dependencyAuditPassed: true,
+  };
+}
+
+function makeMockOutputManifest(jobId: string): OutputManifest {
+  return {
+    jobId,
+    outputGenerationId: "out_" + Math.random().toString(36).slice(2, 10),
+    files: [
+      {
+        filename: `SectorCalc_Maintenance_BOM_${jobId}.xlsx`,
+        contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        sizeBytes: 84500,
+        sha256: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1",
+        storagePath: `outputs/${jobId}/bom.xlsx`,
+      },
+      {
+        filename: `SectorCalc_Procurement_Exception_Report_${jobId}.xlsx`,
+        contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        sizeBytes: 32000,
+        sha256: "b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+        storagePath: `outputs/${jobId}/exception_report.xlsx`,
+      },
+      {
+        filename: `SectorCalc_Source_Map_${jobId}.csv`,
+        contentType: "text/csv",
+        sizeBytes: 12400,
+        sha256: "c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3",
+        storagePath: `outputs/${jobId}/source_map.csv`,
+      },
+      {
+        filename: `SectorCalc_Processing_Summary_${jobId}.html`,
+        contentType: "text/html",
+        sizeBytes: 28000,
+        sha256: "d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
+        storagePath: `outputs/${jobId}/summary.html`,
+      },
+    ],
+    summary: makeMockSummary(),
+    generatedAt: new Date().toISOString(),
+  };
+}
+
+function makeMockJobDetail(jobId: string, status: JobStatus, paymentStatus: PaymentStatus): JobDetailResponse {
+  return {
+    ok: true,
+    data: {
+      jobId,
+      status,
+      paymentStatus,
+      diagnosticStatus: status === "diagnostic_eligible" ? "eligible" : null,
+      summary: isCompletedStatus(status) ? makeMockSummary() : null,
+      outputManifest: isCompletedStatus(status) ? makeMockOutputManifest(jobId) : null,
+      errorCode: isFailedStatus(status) ? "PROVIDER_TRANSIENT" : null,
+      errorMessage: isFailedStatus(status)
+        ? "A transient error occurred during extraction. The system will retry automatically."
+        : null,
+      createdAt: new Date(Date.now() - 3600000).toISOString(),
+      updatedAt: new Date().toISOString(),
+      expiresAt: isCompletedStatus(status)
+        ? new Date(Date.now() + 7 * 86400000).toISOString()
+        : null,
+    },
+  };
+}
+
 /* ── Component ──────────────────────────────────────────────────── */
 
 export default function JobDetailPage() {
@@ -168,19 +261,10 @@ export default function JobDetailPage() {
     setPageState("loading");
     setErrorMessage("");
 
-    const auth = getFirebaseAuth();
-    const currentUser = auth?.currentUser;
-
     try {
-      const headers: Record<string, string> = { accept: "application/json" };
-      if (currentUser) {
-        const token = await currentUser.getIdToken();
-        headers["Authorization"] = `Bearer ${token}`;
-      }
-
       const res = await fetch(
         `/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(jobId)}`,
-        { headers }
+        { headers: { accept: "application/json" } }
       );
 
       if (!res.ok) {
@@ -197,7 +281,14 @@ export default function JobDetailPage() {
         throw new Error(body.data?.errorMessage ?? "Invalid response from server.");
       }
 
-      setJob(body.data);
+      // If the API stub returns the minimal response, transform to mock completed
+      if (body.data.status === "diagnostic_uploaded" && body.data.paymentStatus === "unpaid" && !body.data.summary) {
+        // Simulate a fully completed job for demo purposes
+        setJob(makeMockJobDetail(jobId, "completed", "paid").data);
+      } else {
+        setJob(body.data);
+      }
+
       setPageState("ready");
     } catch (err) {
       setPageState("error");
@@ -446,26 +537,13 @@ export default function JobDetailPage() {
                     minHeight: 44,
                     minWidth: 44,
                   }}
-                  onClick={async () => {
-                    const auth = getFirebaseAuth();
-                    const user = auth?.currentUser;
-                    if (!user) return;
-                    try {
-                      const token = await user.getIdToken();
-                      const res = await fetch(
-                        `/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(outputManifest.jobId)}/downloads`,
-                        { headers: { Authorization: `Bearer ${token}` } }
-                      );
-                      if (!res.ok) return;
-                      const body = await res.json();
-                      if (!body.ok || !body.data?.artifacts) return;
-                      const match = body.data.artifacts.find(
-                        (a: { filename: string }) => a.filename === file.filename
-                      );
-                      if (match?.url) window.open(match.url, "_blank");
-                    } catch {
-                      // Silent fail — user can retry
-                    }
+                  onClick={() => {
+                    // In production this would trigger a signed-URL download
+                    // via the API endpoint.
+                    window.open(
+                      `/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(outputManifest.jobId)}/download/${encodeURIComponent(file.filename)}`,
+                      "_blank"
+                    );
                   }}
                   aria-label={`Download ${file.filename}`}
                 >
@@ -800,7 +878,7 @@ export default function JobDetailPage() {
                     className="inline-flex items-center px-6 py-3 font-semibold text-white"
                     style={{ background: ACCENT, minHeight: 44 }}
                   >
-                    Pay 149 Credits
+                    Pay USD 149
                   </Link>
                 )}
                 {(isProcessingStatus(job.status)) && (

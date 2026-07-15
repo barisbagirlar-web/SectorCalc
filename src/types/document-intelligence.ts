@@ -107,6 +107,36 @@ export interface BomRow {
   revision: string | null;
   equipment: string | null;
   subassembly: string | null;
+
+  // ── BOM Hierarchy (Section 60) ──
+  parentItemNumber: number | null;
+  parentPartNumber: string | null;
+  hierarchyLevel: number | null;
+  hierarchyPath: string | null;
+  hierarchyEvidence: string | null;
+
+  // ── Dual-Pass Reconciliation (Section 59) ──
+  extractionPass: "pass_a" | "pass_b" | "both" | null;
+  reconciliationStatus: ReconciliationStatus | null;
+
+  // ── Procurement Readiness (Section 62) ──
+  procurementStatus: string | null;
+  reviewNote: string | null;
+
+  // ── Quantity/Unit Integrity (Section 63) ──
+  quantityRaw: string | null;
+  quantityParseStatus: QuantityParseStatus | null;
+  unitRaw: string | null;
+  unitNormalized: string | null;
+
+  // ── Description/Manufacturer Integrity (Section 64) ──
+  manufacturerRaw: string | null;
+  manufacturerNormalized: string | null;
+  manufacturerPartNumberRaw: string | null;
+  manufacturerPartNumberNormalized: string | null;
+  descriptionRawFull: string | null;
+
+  // ── Original fields ──
   sourceDocument: string;
   sourcePage: number;
   sourceTable: string;
@@ -117,6 +147,21 @@ export interface BomRow {
   reviewRequired: boolean;
   exportDisposition: ExportDisposition;
 }
+
+export type ReconciliationStatus =
+  | "agreed"
+  | "normalized_agreement"
+  | "disagreement"
+  | "missing_in_pass_a"
+  | "missing_in_pass_b"
+  | "invalid_source_reference";
+
+export type QuantityParseStatus =
+  | "valid"
+  | "ambiguous"
+  | "missing"
+  | "invalid"
+  | "informational_non_numeric";
 
 export type ValidationStatus = "clean" | "review_required" | "blocked";
 export type ExportDisposition = "clean" | "review_required" | "excluded_duplicate";
@@ -222,6 +267,27 @@ export interface ProcessingSummary {
   validatorVersion: string;
   schemaVersion: string;
   generatedAt: string;
+
+  // ── Dual-Pass Reconciliation (Section 59) ──
+  passARowCount: number;
+  passBRowCount: number;
+  reconciliationAgreedCount: number;
+  reconciliationDisagreementCount: number;
+  reconciliationMissingPassB: number;
+
+  // ── BOM Hierarchy (Section 60) ──
+  hasHierarchy: boolean;
+  hierarchyExceptionCount: number;
+
+  // ── QA (Section 66) ──
+  qaStatus: string;
+  qaAutomatic: boolean;
+
+  // ── Procurement Readiness (Section 62) ──
+  procurementReadyCount: number;
+
+  // ── Supply Chain (Section 49) ──
+  dependencyAuditPassed: boolean;
 }
 
 /* ── Output Manifest ───────────────────────────────────────────── */

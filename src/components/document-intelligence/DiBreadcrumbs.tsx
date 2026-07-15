@@ -15,7 +15,7 @@ export interface BreadcrumbItem {
   href?: string;
 }
 
-export function DiBreadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+export function DiBreadcrumbs({ segments }: { segments: BreadcrumbItem[] }) {
   return (
     <nav aria-label="Breadcrumb" style={{ marginBottom: "0.5rem" }}>
       <ol
@@ -40,8 +40,8 @@ export function DiBreadcrumbs({ items }: { items: BreadcrumbItem[] }) {
           </Link>
         </li>
         <li aria-hidden="true">/</li>
-        {items.map((item, idx) => {
-          const isLast = idx === items.length - 1;
+        {segments.map((item, idx) => {
+          const isLast = idx === segments.length - 1;
           return (
             <li key={item.label} style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
               <span aria-hidden="true" style={{ color: MUTED }}>/</span>

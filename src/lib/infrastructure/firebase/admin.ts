@@ -6,8 +6,8 @@ import {
   type ServiceAccount,
 } from "firebase-admin/app";
 import { getFirestore, type Firestore } from "firebase-admin/firestore";
-import { getAuth, type Auth } from "firebase-admin/auth";
 import { getStorage, type Storage } from "firebase-admin/storage";
+import { getAuth, type Auth } from "firebase-admin/auth";
 
 function parseServiceAccountJson(): Record<string, string> | null {
   const raw = process.env.FIREBASE_SERVICE_ACCOUNT_JSON?.trim();

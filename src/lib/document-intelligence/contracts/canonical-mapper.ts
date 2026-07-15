@@ -28,6 +28,9 @@ const COL_MANUFACTURER_PART_NUMBER = "manufacturer_part_number";
 const COL_REVISION = "revision";
 const COL_EQUIPMENT = "equipment";
 const COL_SUBASSEMBLY = "subassembly";
+const COL_PARENT_ITEM = "parent_item_number";
+const COL_PARENT_PART = "parent_part_number";
+const COL_HIERARCHY_EVIDENCE = "hierarchy_evidence";
 
 /* ── Helpers ───────────────────────────────────────────────────── */
 
@@ -132,6 +135,10 @@ export function mapExtractionToCanonicalRows(
     const revision = nullIfEmpty(getCellValue(extracted, COL_REVISION));
     const equipment = nullIfEmpty(getCellValue(extracted, COL_EQUIPMENT));
     const subassembly = nullIfEmpty(getCellValue(extracted, COL_SUBASSEMBLY));
+    const parentItemStr = getCellValue(extracted, COL_PARENT_ITEM);
+    const parentItemNumber = parentItemStr != null ? Number(parentItemStr) : null;
+    const parentPartNumber = nullIfEmpty(getCellValue(extracted, COL_PARENT_PART));
+    const hierarchyEvidence = nullIfEmpty(getCellValue(extracted, COL_HIERARCHY_EVIDENCE));
 
     const confidence = rowConfidence(extracted);
     const reviewReq = requiresReview(extracted, quantity, parseFailed);
@@ -161,6 +168,29 @@ export function mapExtractionToCanonicalRows(
       revision,
       equipment,
       subassembly,
+      // Hierarchy
+      parentItemNumber: Number.isFinite(parentItemNumber ?? NaN) ? parentItemNumber : null,
+      parentPartNumber,
+      hierarchyLevel: null,
+      hierarchyPath: null,
+      hierarchyEvidence,
+      // Dual-pass reconciliation
+      extractionPass: null,
+      reconciliationStatus: null,
+      // Procurement readiness
+      procurementStatus: null,
+      reviewNote: null,
+      // Quantity/Unit integrity
+      quantityRaw: getCellValue(extracted, COL_QUANTITY),
+      quantityParseStatus: parseFailed ? "invalid" : quantity != null ? "valid" : "missing",
+      unitRaw: getCellValue(extracted, COL_UNIT),
+      unitNormalized: unit,
+      // Manufacturer integrity
+      manufacturerRaw: getCellValue(extracted, COL_MANUFACTURER),
+      manufacturerNormalized: manufacturer,
+      manufacturerPartNumberRaw: getCellValue(extracted, COL_MANUFACTURER_PART_NUMBER),
+      manufacturerPartNumberNormalized: manufacturerPartNumber,
+      descriptionRawFull: descriptionRaw,
       sourceDocument,
       sourcePage: extracted.page,
       sourceTable: String(extracted.tableIndex),

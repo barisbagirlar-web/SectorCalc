@@ -96,6 +96,18 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
   ];
 }
 
+export function getDocumentIntelligenceSitemapRoutes(): readonly SitemapManifestItem[] {
+  return [
+    createItem("/document-intelligence", "hub", 0.85, "weekly"),
+    createItem(
+      "/document-intelligence/maintenance-bom-recovery",
+      "hub",
+      0.85,
+      "weekly",
+    ),
+  ];
+}
+
 export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/categories", "hub", 0.9, "weekly"),
@@ -205,6 +217,7 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
     ...getAuthorityGuideSitemapRoutes(),
     ...getPremiumAnalyzerSitemapRoutes(),
     ...getFreeToolSitemapRoutes(),
+    ...getDocumentIntelligenceSitemapRoutes(),
     ...getAiIndexSitemapRoutes(),
   ]);
 }

@@ -262,6 +262,17 @@ const SUMMARY: ProcessingSummary = {
   validatorVersion: "1.0.0",
   schemaVersion: "1.0.0",
   generatedAt: new Date().toISOString(),
+  passARowCount: 47,
+  passBRowCount: 47,
+  reconciliationAgreedCount: 42,
+  reconciliationDisagreementCount: 0,
+  reconciliationMissingPassB: 0,
+  hasHierarchy: false,
+  hierarchyExceptionCount: 0,
+  qaStatus: "passed",
+  qaAutomatic: true,
+  procurementReadyCount: 32,
+  dependencyAuditPassed: true,
 };
 
 /* ── Severity helpers ──────────────────────────────────────────── */
