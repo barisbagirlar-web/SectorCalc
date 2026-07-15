@@ -15,7 +15,7 @@ import {
 } from "./pro-formula-safety";
 
 export const toolKey = "loss-making-job-detector";
-export const formulaVersion = "5.3.1-pro-baris.2";
+export const formulaVersion = "5.3.1-pro-baris.1";
 
 export const requiredInputKeys = [
   "n_machine_rate",
