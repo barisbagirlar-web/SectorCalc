@@ -60,25 +60,13 @@ function round(value: number, decimals: number): number {
   return Math.round((value + Number.EPSILON) * factor) / factor;
 }
 
-function blockedResult(warnings: string[]): CalculationResult {
-  const outputs: Record<(typeof declaredOutputKeys)[number], number> = {
-    out_break_even_monthly_revenue: 0,
-    out_current_revenue_gap: 0,
-    out_stressed_monthly_revenue: 0,
-    out_monthly_cash_burn: 0,
-    out_cash_runway_months: 0,
-    out_survival_cash_target: 0,
-    out_funding_gap: 0,
-    out_margin_of_safety_ratio: 0,
-    out_source_confidence_ratio: 0,
-    out_uncertainty_cash_buffer: 0,
-    out_target_runway_breached: 1,
-    out_decision_code: 2,
-  };
-
+function invalidInputResult(warnings: string[]): CalculationResult {
   return {
     status: "BLOCKED",
-    outputs,
+    // Invalid or incomplete inputs have no valid business result. Returning
+    // zero-filled outputs would make a blocked calculation look like a genuine
+    // zero-obligation or zero-gap case.
+    outputs: {},
     warnings,
     outputKeys: [...declaredOutputKeys],
     redaction_status: "PUBLIC_SAFE_REDACTED",
@@ -111,7 +99,7 @@ export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
 export function calculate(inputs: Record<string, number>): CalculationResult {
   const parsed = readRequiredInputs(inputs);
-  if (!parsed.ok) return blockedResult(parsed.warnings);
+  if (!parsed.ok) return invalidInputResult(parsed.warnings);
 
   const fixedCashCost = parsed.values.n_monthly_fixed_cash_cost;
   const debtService = parsed.values.n_monthly_debt_service;
@@ -131,29 +119,29 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     unrestrictedCash < 0 ||
     minimumCashBuffer < 0
   ) {
-    return blockedResult(["Cash, revenue, and mandatory cost inputs must not be negative."]);
+    return invalidInputResult(["Cash, revenue, and mandatory cost inputs must not be negative."]);
   }
 
   if (contributionMarginRatio <= 0 || contributionMarginRatio > 1) {
-    return blockedResult(["Contribution Margin Ratio must be greater than 0 and no greater than 100%."]);
+    return invalidInputResult(["Contribution Margin Ratio must be greater than 0 and no greater than 100%."]);
   }
 
   if (targetSurvivalMonths <= 0 || targetSurvivalMonths > RUNWAY_CAP_MONTHS) {
-    return blockedResult([
+    return invalidInputResult([
       `Target Survival Months must be greater than 0 and no greater than ${RUNWAY_CAP_MONTHS}.`,
     ]);
   }
 
   if (downsideRevenueFactor < 0 || downsideRevenueFactor > 1) {
-    return blockedResult(["Downside Revenue Retention must be between 0% and 100%."]);
+    return invalidInputResult(["Downside Revenue Retention must be between 0% and 100%."]);
   }
 
   if (sourceConfidenceRatio < 0 || sourceConfidenceRatio > 1) {
-    return blockedResult(["Source Confidence Ratio must be between 0% and 100%."]);
+    return invalidInputResult(["Source Confidence Ratio must be between 0% and 100%."]);
   }
 
   if (uncertaintyMultiplier < 1 || uncertaintyMultiplier > 3) {
-    return blockedResult(["Uncertainty Coverage Multiplier must be between 1.00 and 3.00."]);
+    return invalidInputResult(["Uncertainty Coverage Multiplier must be between 1.00 and 3.00."]);
   }
 
   const monthlyObligations = fixedCashCost + debtService;
@@ -221,7 +209,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   };
 
   if (!Object.values(outputs).every(isFiniteNumber)) {
-    return blockedResult(["A non-finite result was produced; execution was blocked."]);
+    return invalidInputResult(["A non-finite result was produced; execution was blocked."]);
   }
 
   return {
