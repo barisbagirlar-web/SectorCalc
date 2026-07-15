@@ -1,21 +1,27 @@
 {
   "tool_key": "true-employee-cost-statement",
   "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
+  "formula_version": "5.3.2-pro-baris.2",
+  "_verification_note": "Schema and formula fully rebuilt during the 2026-07-15 audit -- the tool previously ran the wrong (manufacturing job-costing) schema through a formula that fabricated 8 of its 15 output figures as hardcoded constants (22.5% tax, $5000 insurance, 80% billable target, $0 equipment/workspace always). Values below computed by actually executing the new calculate(). tests/golden/pro-v531-baris/ is not wired into any npm script yet.",
   "raw_inputs": {
-    "machine_rate": 100
+    "annual_base_salary": 95000, "payroll_tax_rate": 0.0765, "annual_benefits_cost": 9500,
+    "annual_insurance_cost": 7200, "annual_training_cost": 2000, "annual_equipment_it_cost": 3000,
+    "annual_workspace_facility_cost": 6000, "target_billable_utilization_ratio": 0.8,
+    "source_confidence_ratio": 0.9, "uncertainty_multiplier": 1.2
   },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_utilization_margin": 0.25,
-    "out_money_at_risk": 25000,
-    "out_final_decision_state": 0
+    "out_base_annual_compensation": 95000, "out_employer_payroll_taxes": 7267.5, "out_benefits_cost": 9500,
+    "out_paid_leave_cost": 19000, "out_training_allocation": 2000, "out_equipment_it_cost": 3000,
+    "out_workspace_facility_cost": 6000, "out_insurance_burden": 7200, "out_fully_loaded_annual_cost": 148967.5,
+    "out_monthly_employer_cost": 12413.96, "out_productive_hours_annual": 1664, "out_productive_hourly_cost": 89.52,
+    "out_base_to_loaded_multiplier": 1.5681, "out_primary_cost_driver": 0, "out_decision_state": 2,
+    "out_evidence_completeness": 0.9, "out_expanded_uncertainty": 29793.5, "out_threshold_crossing": 1,
+    "out_fmea_trigger": 0
   },
   "expected_hashes": {
-    "output_hash": "oh-b1-true-e",
-    "proof_pack_hash": "pph-b1-true-e",
-    "audit_seal_stable_hash": "ash-b1-true-e"
+    "output_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "proof_pack_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "audit_seal_stable_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED"
   },
   "expected_decision_status": "OK",
   "expected_warnings": []

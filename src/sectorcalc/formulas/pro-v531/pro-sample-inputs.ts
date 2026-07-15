@@ -22,15 +22,19 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_uncertainty_multiplier: 1.15,
   },
   "machine-hourly-rate-proof-report": {
+    // NOTE (2026-07-15 audit): old n_overhead_rate=350000 ($/h) was never sanity-checked.
+    // Added n_defect_or_loss_cost / n_uncertainty_multiplier (previously dead inputs, now wired).
     n_machine_rate: 85,
-    n_cycle_time: 12,
-    n_setup_time: 8,
+    n_cycle_time: 90,
+    n_setup_time: 1800,
     n_batch_quantity: 500,
     n_material_cost: 25,
     n_target_margin: 0.3,
     n_annual_volume: 100000 / 31536000,
     n_labor_rate: 45,
-    n_overhead_rate: 350000,
+    n_overhead_rate: 20,
+    n_defect_or_loss_cost: 1.2,
+    n_uncertainty_multiplier: 1.3,
     n_source_confidence_ratio: 0.9,
   },
   "loss-making-job-detector": {
@@ -100,9 +104,20 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_unit_selling_price: 15,
   },
   "true-employee-cost-statement": {
-    n_labor_rate: 45,
-    n_overhead_rate: 350000,
+    // NOTE (2026-07-15 audit): schema+formula fully rebuilt -- old fixture had only
+    // labor_rate/overhead_rate from the wrong (manufacturing) domain template; the formula
+    // ignored them almost entirely and fabricated every other dollar figure as a hardcoded
+    // constant. Real HR-domain inputs below.
+    n_annual_base_salary: 95000,
+    n_payroll_tax_rate: 0.0765,
+    n_annual_benefits_cost: 9500,
+    n_annual_insurance_cost: 7200,
+    n_annual_training_cost: 2000,
+    n_annual_equipment_it_cost: 3000,
+    n_annual_workspace_facility_cost: 6000,
+    n_target_billable_utilization_ratio: 0.8,
     n_source_confidence_ratio: 0.9,
+    n_uncertainty_multiplier: 1.2,
   },
   "job-quote-builder-pro-pack": {
     n_machine_rate: 85,
