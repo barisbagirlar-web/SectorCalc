@@ -202,10 +202,42 @@ if (liveFailures > 0) {
   process.exit(1);
 }
 
+// --- Check 5: every LIVE tool must declare the standard report layer (insights,
+// sensitivityDrivers, paretoBreakdown) in pro-report-contract-registry.ts. This is the
+// standing rule for the 20-tool premium report architecture (2026-07-15) -- a tool cannot be
+// live without all three, and this check exists specifically so a 21st tool added later can't
+// silently skip the standard.
+const REGISTRY_PATH = join(ROOT, "src", "sectorcalc", "pro-report", "pro-report-contract-registry.ts");
+const registrySrc = readFileSync(REGISTRY_PATH, "utf8");
+const REPORT_LAYER_FIELDS = ["insights:", "sensitivityDrivers:", "paretoBreakdown:"];
+let reportLayerFailures = 0;
+
+for (const toolKey of LIVE_TOOL_KEYS) {
+  const blockMatch = registrySrc.match(
+    new RegExp(`toolSlug: "${toolKey}",[\\s\\S]*?\\n\\}\\);`)
+  );
+  if (!blockMatch) {
+    console.error(`\n[FAIL] ${toolKey}: no register({ toolSlug: "${toolKey}", ... }) block found in pro-report-contract-registry.ts.`);
+    reportLayerFailures++;
+    continue;
+  }
+  const block = blockMatch[0];
+  const missing = REPORT_LAYER_FIELDS.filter((f) => !block.includes(f));
+  if (missing.length > 0) {
+    console.error(`\n[FAIL] ${toolKey}: report contract is missing ${missing.join(", ")} -- every live tool must declare all three (insights, sensitivityDrivers, paretoBreakdown) per the standing report-architecture standard.`);
+    reportLayerFailures++;
+  }
+}
+
+if (reportLayerFailures > 0) {
+  console.error(`\n[GUARD FAIL] ${reportLayerFailures} live tool(s) missing required report-layer fields.`);
+  process.exit(1);
+}
+
 if (draftWarnings > 0) {
   console.warn(`\n[GUARD WARN] ${draftWarnings} finding(s) on non-live/draft PRO tools (not blocking).`);
 }
 
 console.log(
-  `[PASS] guard:pro-formula-schema-contract — ${schemaFiles.length} PRO schemas checked, ${LIVE_TOOL_KEYS.length} live tools verified clean.`
+  `[PASS] guard:pro-formula-schema-contract — ${schemaFiles.length} PRO schemas checked, ${LIVE_TOOL_KEYS.length} live tools verified clean, all with insights+sensitivity+pareto report layers.`
 );
