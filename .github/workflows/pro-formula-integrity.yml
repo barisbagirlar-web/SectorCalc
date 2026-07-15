@@ -25,26 +25,33 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install locked dependencies
-        run: npm ci --no-audit --no-fund
-
-      - name: Execute formula and type diagnostics
+      - name: Execute install, formula and type diagnostics
         id: diagnostics
         shell: bash
         run: |
           set +e
           : > pro-formula-integrity.log
 
-          echo "=== PRO FORMULA TESTS ===" | tee -a pro-formula-integrity.log
-          npx vitest run tests/pro-formula-integrity/ 2>&1 | tee -a pro-formula-integrity.log
-          test_status=${PIPESTATUS[0]}
-          echo "PRO_FORMULA_TEST_STATUS=${test_status}" | tee -a pro-formula-integrity.log
+          echo "=== NPM CI ===" | tee -a pro-formula-integrity.log
+          npm ci --no-audit --no-fund 2>&1 | tee -a pro-formula-integrity.log
+          install_status=${PIPESTATUS[0]}
+          echo "PRO_FORMULA_INSTALL_STATUS=${install_status}" | tee -a pro-formula-integrity.log
 
-          echo "=== TYPESCRIPT ===" | tee -a pro-formula-integrity.log
-          npm run typecheck 2>&1 | tee -a pro-formula-integrity.log
-          type_status=${PIPESTATUS[0]}
-          echo "PRO_FORMULA_TYPECHECK_STATUS=${type_status}" | tee -a pro-formula-integrity.log
+          test_status=99
+          type_status=99
+          if [ "$install_status" = "0" ]; then
+            echo "=== PRO FORMULA TESTS ===" | tee -a pro-formula-integrity.log
+            npx vitest run tests/pro-formula-integrity/ 2>&1 | tee -a pro-formula-integrity.log
+            test_status=${PIPESTATUS[0]}
+            echo "PRO_FORMULA_TEST_STATUS=${test_status}" | tee -a pro-formula-integrity.log
 
+            echo "=== TYPESCRIPT ===" | tee -a pro-formula-integrity.log
+            npm run typecheck 2>&1 | tee -a pro-formula-integrity.log
+            type_status=${PIPESTATUS[0]}
+            echo "PRO_FORMULA_TYPECHECK_STATUS=${type_status}" | tee -a pro-formula-integrity.log
+          fi
+
+          echo "install_status=${install_status}" >> "$GITHUB_OUTPUT"
           echo "test_status=${test_status}" >> "$GITHUB_OUTPUT"
           echo "type_status=${type_status}" >> "$GITHUB_OUTPUT"
           exit 0
@@ -61,6 +68,10 @@ jobs:
       - name: Enforce result
         shell: bash
         run: |
+          if [ "${{ steps.diagnostics.outputs.install_status }}" != "0" ]; then
+            echo "PRO_FORMULA_INSTALL=FAIL"
+            exit 1
+          fi
           if [ "${{ steps.diagnostics.outputs.test_status }}" != "0" ]; then
             echo "PRO_FORMULA_TESTS=FAIL"
             exit 1
