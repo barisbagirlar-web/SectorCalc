@@ -240,7 +240,8 @@ function buildCalculatorViewModel(
 
       // Clean reference helper — one user-facing line per input, en-US format
       // Priority: 1. engineering_range / engineering_reference_range, 2. meta.allowedRange,
-      // 3. physical_hard_bounds as "Input limit", 4. meta.defaultReference, 5. reference registry
+      // 3. physical_hard_bounds as "Input limit", 4. meta.defaultReference, 5. reference registry,
+      // 6. resolved initial value as suggested example
       const cleanReferenceHelper = (() => {
         // Priority 1: engineering_reference_range or engineering_range
         const er = input.engineering_reference_range ?? input.engineering_range;
@@ -274,6 +275,13 @@ function buildCalculatorViewModel(
         if (inputRegRefs?.references?.length) {
           const firstRef = inputRegRefs.references[0];
           return `Reference: ${firstRef.label} = ${firstRef.value} ${firstRef.unit}`;
+        }
+        // Priority 6: resolved initial example value as suggested reference
+        const rawVal = state.rawInputState[input.id];
+        if (rawVal !== null && rawVal !== undefined && rawVal !== "" && typeof rawVal === "number") {
+          const exampleUnit = input.base_unit ? formatCleanUnitLabel(input.base_unit) : "";
+          const unitStr = exampleUnit ? ` ${exampleUnit}` : "";
+          return `Suggested: e.g. ${rawVal}${unitStr}`;
         }
         return "";
       })();
@@ -2240,6 +2248,18 @@ function renderValueInput(
     ? "Use decimal point for cents, e.g. 500000.005"
     : "";
 
+  // Compute a reference placeholder for when the input value is empty.
+  // Shows "e.g. {value}" from the resolved initial example value as a hint.
+  const refPlaceholder = (() => {
+    // If the field already has a value, no placeholder needed
+    if (field.value !== null && field.value !== undefined && field.value !== "") return "";
+    // Derive from cleanReferenceHelper "Suggested: e.g. X" → "e.g. X"
+    if (field.cleanReferenceHelper?.startsWith("Suggested:")) {
+      return field.cleanReferenceHelper.replace(/^Suggested:\s*/, "");
+    }
+    return unitHint;
+  })();
+
   const inputClass = useValueInputClass ? "pro-value-input" : "pro-input";
 
   return (
@@ -2248,7 +2268,7 @@ function renderValueInput(
       className={inputClass}
       inputMode={field.type === "number" || field.type === "integer" ? "decimal" : "text"}
       type="text"
-      placeholder={unitHint || ""}
+      placeholder={refPlaceholder}
       value={field.type === "number" || field.type === "integer" ? (typeof field.value === "number" ? String(field.value) : "") : (typeof field.value === "string" ? field.value : "")}
       onChange={(e: ChangeEvent<HTMLInputElement>) => {
         if (field.type === "number" || field.type === "integer") {
