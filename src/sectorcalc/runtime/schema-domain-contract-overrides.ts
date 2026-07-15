@@ -246,6 +246,45 @@ function applyMachineInvestmentContract(schema: SuperV4Schema): SuperV4Schema {
   };
 }
 
+function applyWeldContract(schema: SuperV4Schema): SuperV4Schema {
+  const inputs = schema.inputs.map((input) => {
+    if (input.id !== "weld_density") return input;
+    return {
+      ...input,
+      physical_hard_bounds: input.physical_hard_bounds
+        ? {
+            ...input.physical_hard_bounds,
+            min: 500,
+            max: 25000,
+            unit: "kg_per_m3",
+          }
+        : input.physical_hard_bounds,
+      engineering_range: input.engineering_range
+        ? {
+            ...input.engineering_range,
+            min: 2000,
+            max: 20000,
+            unit: "kg_per_m3",
+          }
+        : input.engineering_range,
+      engineering_reference_range: input.engineering_reference_range
+        ? {
+            ...input.engineering_reference_range,
+            min: 2000,
+            max: 20000,
+            unit: "kg_per_m3",
+          }
+        : input.engineering_reference_range,
+    };
+  });
+
+  return {
+    ...schema,
+    inputs,
+    normalized_inputs: syncNormalizedInputs(schema, inputs),
+  };
+}
+
 /**
  * Corrects domain semantics that cannot be represented by the generated generic
  * rate/volume labels. This layer is resolved before form rendering and server
@@ -259,6 +298,9 @@ export function applySchemaDomainContractOverrides(
   }
   if (schema.tool_key === "machine-investment-feasibility-buy-lease-keep") {
     return applyMachineInvestmentContract(schema);
+  }
+  if (schema.tool_key === "weld-procedure-cost-consumable-estimation-suite") {
+    return applyWeldContract(schema);
   }
   return schema;
 }
