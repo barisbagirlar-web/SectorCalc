@@ -62,6 +62,9 @@ jobs:
       - name: Schema and formula binding
         run: npm run guard:v531-schema-formula-binding
 
+      - name: PRO fail-closed source guard
+        run: node scripts/guard-pro-formula-fail-closed.mjs
+
       - name: PRO mathematical integrity
         run: npx vitest run tests/pro-formula-integrity/
         env:
