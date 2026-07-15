@@ -56,9 +56,9 @@ describe("LIVE PRO closed formula contract", () => {
     });
 
     it(`${module.toolKey}: missing required input fails closed`, () => {
-      const [firstKey] = module.requiredInputKeys ?? [];
-      expect(firstKey).toBeTruthy();
-      const invalid = { ...module.sampleInputs };
+      const firstKey = module.requiredInputKeys?.[0];
+      if (!firstKey) throw new Error(`${module.toolKey} has no required input contract`);
+      const invalid: Record<string, number> = { ...module.sampleInputs };
       delete invalid[firstKey];
       const result = module.calculate(invalid);
       expect(result.status).toBe("BLOCKED");
@@ -232,8 +232,16 @@ describe("metamorphic and monotonic properties", () => {
   });
 
   it("OEE loss decreases as valuable time increases", () => {
-    const low = oee.calculate({ ...oee.sampleInputs, n_valuable_operating_time: 450, n_good_parts: 900 });
-    const high = oee.calculate({ ...oee.sampleInputs, n_valuable_operating_time: 475, n_good_parts: 950 });
+    const low = oee.calculate({
+      ...oee.sampleInputs,
+      n_valuable_operating_time: 450,
+      n_good_parts: 900,
+    });
+    const high = oee.calculate({
+      ...oee.sampleInputs,
+      n_valuable_operating_time: 475,
+      n_good_parts: 950,
+    });
     expect(output(high, "out_money_at_risk")).toBeLessThan(output(low, "out_money_at_risk"));
   });
 
