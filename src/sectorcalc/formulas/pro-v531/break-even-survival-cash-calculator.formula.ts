@@ -55,7 +55,7 @@ function isFiniteNumber(value: unknown): value is number {
 }
 
 function round(value: number, decimals: number): number {
-  if (!isFiniteNumber(value)) return 0;
+  if (!isFiniteNumber(value)) return Number.NaN;
   const factor = 10 ** decimals;
   return Math.round((value + Number.EPSILON) * factor) / factor;
 }
