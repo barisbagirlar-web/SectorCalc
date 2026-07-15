@@ -29,7 +29,16 @@ jobs:
         with:
           node-version: "20"
           cache: npm
-      - run: npm ci
+
+      - name: Generate locked workbook dependencies
+        run: |
+          npm install --package-lock-only --ignore-scripts --save-exact xlsx@0.18.5 archiver@7.0.1
+          npm install --package-lock-only --ignore-scripts --save-dev --save-exact @types/archiver@6.0.3
+          mkdir -p artifacts/formula-integrity-audit/generated-lock
+          cp package.json package-lock.json artifacts/formula-integrity-audit/generated-lock/
+
+      - name: Install locked dependencies
+        run: npm ci
 
       - name: Static schema, formula and input audit
         run: node scripts/audit-tool-formula-integrity.mjs
