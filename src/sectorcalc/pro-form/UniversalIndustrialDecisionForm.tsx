@@ -256,13 +256,17 @@ function buildCalculatorViewModel(
         if (meta.allowedRange) {
           return `Reference: ${meta.allowedRange}`;
         }
-        // Priority 3: resolved initial example value as suggested reference
+        // Priority 3: resolved initial example value or current raw string as suggested reference
         // (covers PRO tools with schema example_value and free tools with TOOL_EXAMPLE_VALUES)
+        // Accepts both number values and numeric strings (from raw-text input).
         const rawVal = state.rawInputState[input.id];
-        if (rawVal !== null && rawVal !== undefined && rawVal !== "" && typeof rawVal === "number") {
-          const exampleUnit = input.base_unit ? formatCleanUnitLabel(input.base_unit) : "";
-          const unitStr = exampleUnit ? ` ${exampleUnit}` : "";
-          return `Suggested: e.g. ${rawVal}${unitStr}`;
+        if (rawVal !== null && rawVal !== undefined && rawVal !== "") {
+          const numVal = typeof rawVal === "number" ? rawVal : (typeof rawVal === "string" ? Number(rawVal) : NaN);
+          if (Number.isFinite(numVal)) {
+            const exampleUnit = input.base_unit ? formatCleanUnitLabel(input.base_unit) : "";
+            const unitStr = exampleUnit ? ` ${exampleUnit}` : "";
+            return `Suggested: e.g. ${numVal}${unitStr}`;
+          }
         }
         // Priority 4: physical_hard_bounds as "Input limit"
         const hb = input.physical_hard_bounds;
@@ -2270,27 +2274,38 @@ function renderValueInput(
       inputMode={field.type === "number" || field.type === "integer" ? "decimal" : "text"}
       type="text"
       placeholder={refPlaceholder}
-      value={field.type === "number" || field.type === "integer" ? (typeof field.value === "number" ? String(field.value) : "") : (typeof field.value === "string" ? field.value : "")}
+      value={field.value !== null && field.value !== undefined ? String(field.value) : ""}
       onChange={(e: ChangeEvent<HTMLInputElement>) => {
         if (field.type === "number" || field.type === "integer") {
-          if (e.target.value === "") { onValueChange(null); return; }
           const raw = e.target.value.replace(",", ".");
-          const next = Number(raw);
-          if (Number.isFinite(next)) {
-            onValueChange(next);
+          if (raw === "") { onValueChange(null); return; }
+          // Store as number when the raw string parses cleanly (e.g. "85", "85.5").
+          // Only keep the raw string when it is an intermediate partial state
+          // (e.g. "85.", ".", "-") so the user can keep typing.
+          const parsed = Number(raw);
+          if (Number.isFinite(parsed) && !raw.endsWith(".") && !raw.startsWith(".")) {
+            onValueChange(parsed);
+          } else {
+            onValueChange(raw);
           }
-          // else: ignore invalid intermediate text (controlled input reverts to last valid value)
         } else {
           onValueChange(e.target.value);
         }
       }}
       onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
         // Normalize comma decimals on blur (e.g. "500000,005" → "500000.005")
-        if ((field.type === "number" || field.type === "integer") && e.target.value.includes(",")) {
-          const normalized = e.target.value.replace(",", ".");
-          const next = Number(normalized);
-          if (Number.isFinite(next)) {
-            onValueChange(next);
+        if ((field.type === "number" || field.type === "integer")) {
+          let raw = e.target.value;
+          if (raw.includes(",")) {
+            raw = raw.replace(",", ".");
+          }
+          // Normalize trailing-dot or leading-dot intermediate states to proper numbers
+          // (e.g. "85." → 85, ".5" → 0.5)
+          if (raw !== "" && raw !== "-" && raw !== "+") {
+            const parsed = Number(raw);
+            if (Number.isFinite(parsed) && parsed !== field.value) {
+              onValueChange(parsed);
+            }
           }
         }
       }}
