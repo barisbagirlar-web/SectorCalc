@@ -24,9 +24,6 @@ export const requiredInputKeys = [
   "n_analysis_years",
   "n_residual_value",
   "n_stress_downside_factor",
-  "n_annual_volume",
-  "n_labor_rate",
-  "n_overhead_rate",
   "n_defect_or_loss_cost",
   "n_source_confidence_ratio",
   "n_uncertainty_multiplier",
@@ -76,7 +73,7 @@ function solveIrr(
   let low = -0.999999;
   let high = 10;
   let lowValue = npvForRate(low, investment, annualCashFlow, years, residual);
-  let highValue = npvForRate(high, investment, annualCashFlow, years, residual);
+  const highValue = npvForRate(high, investment, annualCashFlow, years, residual);
 
   if (!Number.isFinite(lowValue) || !Number.isFinite(highValue) || lowValue * highValue > 0) {
     return null;
@@ -90,7 +87,6 @@ function solveIrr(
 
     if (lowValue * midValue <= 0) {
       high = mid;
-      highValue = midValue;
     } else {
       low = mid;
       lowValue = midValue;
@@ -114,10 +110,7 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const years = v.n_analysis_years;
   const residual = v.n_residual_value;
   const downsideRetention = v.n_stress_downside_factor;
-  const annualVolume = v.n_annual_volume;
-  const laborRate = v.n_labor_rate;
-  const overheadRate = v.n_overhead_rate;
-  const lossExposure = v.n_defect_or_loss_cost;
+  const additionalDownsideLossExposure = v.n_defect_or_loss_cost;
   const confidence = v.n_source_confidence_ratio;
   const uncertaintyMultiplier = v.n_uncertainty_multiplier;
 
@@ -127,10 +120,11 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   requireInteger(years, 1, 100, "Analysis years", state);
   requireNonNegative(residual, "Residual value", state);
   requireRange(downsideRetention, 0, 1, "Downside cash-flow retention", state);
-  requireNonNegative(annualVolume, "Annual volume", state);
-  requireNonNegative(laborRate, "Labor rate", state);
-  requireNonNegative(overheadRate, "Overhead rate", state);
-  requireNonNegative(lossExposure, "Defect or loss exposure", state);
+  requireNonNegative(
+    additionalDownsideLossExposure,
+    "Additional downside loss exposure",
+    state,
+  );
   requireRange(confidence, 0, 1, "Source confidence", state);
   requireRange(uncertaintyMultiplier, 0, 5, "Uncertainty multiplier", state, {
     minInclusive: false,
@@ -144,8 +138,8 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
   }
 
-  // Residual value is included once, at the terminal year. The previous engine
-  // incorrectly spread it across annual cash flow and added it again at exit.
+  // Residual value is included once at the terminal year. No unrelated volume,
+  // labor-rate or overhead-rate fields are accepted by this appraisal engine.
   const npv = npvForRate(discountRate, investment, annualCashFlow, years, residual);
   const stressedCashFlow = annualCashFlow * downsideRetention;
   const stressedNpv = npvForRate(discountRate, investment, stressedCashFlow, years, residual);
@@ -166,15 +160,25 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const scenarioDelta = npv - stressedNpv;
   const uncertainty =
     Math.abs(scenarioDelta) * uncertaintyMultiplier + Math.abs(npv) * (1 - confidence);
-  const moneyAtRisk = Math.max(0, -stressedNpv) + lossExposure;
+  const moneyAtRisk = Math.max(0, -stressedNpv) + additionalDownsideLossExposure;
 
   const sensitivityMagnitudes = [
     investment,
     annualCashFlow * years,
     residual,
-    Math.abs(npvForRate(Math.min(0.999999, discountRate + 0.01), investment, annualCashFlow, years, residual) - npv),
+    Math.abs(
+      npvForRate(
+        Math.min(0.999999, discountRate + 0.01),
+        investment,
+        annualCashFlow,
+        years,
+        residual,
+      ) - npv,
+    ),
   ];
-  const sensitivityDriver = sensitivityMagnitudes.indexOf(Math.max(...sensitivityMagnitudes));
+  const sensitivityDriver = sensitivityMagnitudes.indexOf(
+    Math.max(...sensitivityMagnitudes),
+  );
 
   let decision = 0;
   if (npv <= 0 || (irr !== null && irr <= discountRate)) decision = 2;
