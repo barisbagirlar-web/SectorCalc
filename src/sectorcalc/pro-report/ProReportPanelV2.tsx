@@ -37,6 +37,14 @@ function formatReportValue(
   return String(value) + (unit ? ` ${unit}` : "");
 }
 
+interface SensitivityDriverResult {
+  inputId: string;
+  label: string;
+  up: number | null;
+  down: number | null;
+  span: number | null;
+}
+
 interface ProReportPanelV2Props {
   toolTitle: string;
   sections: ResolvedReportSection[];
@@ -45,6 +53,8 @@ interface ProReportPanelV2Props {
   decisionSeverity?: "pass" | "warning" | "danger" | "info";
   /** Fired insight rules from buildProReport(). Optional -- most tools don't declare any yet. */
   firedInsights?: Array<{ id: string; severity: "critical" | "opportunity" | "info"; message: string }>;
+  /** +/-10% sensitivity sweep from /api/pro-calculator/sensitivity. Optional, opt-in per tool. */
+  sensitivity?: { targetOutput: string; drivers: SensitivityDriverResult[] } | null;
 }
 
 const severityClassMap: Record<string, string> = {
@@ -67,6 +77,7 @@ export function ProReportPanelV2({
   decisionStateLabel,
   decisionSeverity,
   firedInsights,
+  sensitivity,
 }: ProReportPanelV2Props) {
   const isEmpty = !sections || sections.length === 0;
 
@@ -105,6 +116,38 @@ export function ProReportPanelV2({
           </ul>
         </div>
       )}
+
+      {/* Sensitivity chart: "what moves the result most" (opt-in per tool) */}
+      {sensitivity && sensitivity.drivers.length > 0 && (() => {
+        const withSpan = sensitivity.drivers.filter((d) => d.span !== null) as Array<SensitivityDriverResult & { span: number }>;
+        if (withSpan.length === 0) return null;
+        const maxSpan = Math.max(...withSpan.map((d) => d.span), 1e-9);
+        return (
+          <div className="sc-report-sensitivity">
+            <h4 className="sc-report-section-title">What Moves This Result Most (±10% each input)</h4>
+            <div className="sc-report-sensitivity-bars">
+              {withSpan.map((d) => (
+                <div key={d.inputId} className="sc-report-sensitivity-row">
+                  <span className="sc-report-sensitivity-label">{d.label}</span>
+                  <div className="sc-report-sensitivity-track">
+                    <div
+                      className="sc-report-sensitivity-bar"
+                      style={{ width: `${Math.max(2, (100 * d.span) / maxSpan)}%` }}
+                    />
+                  </div>
+                  <span className="sc-report-sensitivity-value">
+                    ±{formatReportValue(d.span / 2, null, 2)}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="sc-report-sensitivity-note">
+              Ranked by impact on {sensitivity.targetOutput.replace(/^out_/, "").replace(/_/g, " ")} for a ±10% change in
+              each input, holding all others constant. Spend negotiation and improvement effort on the top bars first.
+            </p>
+          </div>
+        );
+      })()}
 
       {/* Engineering Insights (opt-in per tool via contract.insights) */}
       {firedInsights && firedInsights.length > 0 && (

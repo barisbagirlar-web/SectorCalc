@@ -151,10 +151,17 @@ register({
       entry("out_final_decision_state", "Go / Review / Escalate Decision", "number"),
     ]),
   ],
-  // Ported from Baris's reference implementation (verified 8/8 semantic tests before this
-  // registry entry existed). "outputs" here are the raw numeric out_* values from calculate(),
-  // exactly as ProReportAdapterInput.outputs delivers them -- no re-derivation, no client-side
-  // unit math, so these can't drift from what the server actually computed.
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_purchase_price", label: "Purchase Price" },
+    { inputId: "n_useful_life", label: "Useful Life" },
+    { inputId: "n_annual_hours", label: "Annual Hours" },
+    { inputId: "n_wage_rate", label: "Operator Wage" },
+    { inputId: "n_power_draw", label: "Power Draw" },
+    { inputId: "n_energy_price", label: "Energy Price" },
+    { inputId: "n_idle_share", label: "Idle Share" },
+    { inputId: "n_maintenance_rate", label: "Maintenance Rate" },
+  ],
   insights: [
     {
       id: "idle-premium-critical",
