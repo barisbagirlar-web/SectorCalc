@@ -69,7 +69,7 @@ describe("PRO semantic oracles 16-20", () => {
     expectClose(result, "out_reference_deviation", 0.5, 8);
   });
 
-  it("19 motor replacement reconciles electrical input energy and two-year NPV", () => {
+  it("19 motor replacement reconciles energy costs, NPV, return and payback", () => {
     const result = motor.calculate({
       n_motor_power_kw: 10,
       n_annual_operating_hours: 1000,
@@ -87,6 +87,8 @@ describe("PRO semantic oracles 16-20", () => {
     expectClose(result, "out_demand_metric", 1250, 8);
     expectClose(result, "out_capacity_metric", 1000, 8);
     expectClose(result, "out_utilization_margin", 250, 8);
+    expectClose(result, "out_normalized_demand", 400, 8);
+    expectClose(result, "out_derating_factor", 4, 8);
     expectClose(result, "out_scenario_delta", 4.8, 8);
   });
 
