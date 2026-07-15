@@ -1,75 +1,190 @@
 import "server-only";
+
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
-
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
+import type { ProFormulaResult } from "./pro-formula-contract";
+import {
+  createValidationState,
+  divideOrError,
+  finalizeResult,
+  requireFiniteInputs,
+  requireInteger,
+  requireNonNegative,
+  requirePositive,
+  requireRange,
+  roundDisplay,
+} from "./pro-formula-safety";
 
 export const toolKey = "oee-loss-monetization-improvement-business-case";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+export const requiredInputKeys = [
+  "n_planned_production_time",
+  "n_operating_time",
+  "n_net_operating_time",
+  "n_valuable_operating_time",
+  "n_ideal_cycle_time",
+  "n_total_parts",
+  "n_good_parts",
+  "n_hourly_contribution",
+  "n_improvement_cost",
+  "n_source_confidence_ratio",
+] as const;
+
+export const declaredOutputKeys = [
+  "out_evidence_completeness",
+  "out_normalized_demand",
+  "out_reference_deviation",
+  "out_derating_factor",
+  "out_demand_metric",
+  "out_capacity_metric",
+  "out_utilization_margin",
+  "out_expanded_uncertainty",
+  "out_threshold_crossing",
+  "out_sensitivity_driver",
+  "out_fmea_trigger",
+  "out_money_at_risk",
+  "out_scenario_delta",
+  "out_audit_hash_payload",
+  "out_final_decision_state",
+] as const;
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const state = createValidationState();
+  const v = requireFiniteInputs(inputs, requiredInputKeys, state);
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
 
-  const planned_production_time = get(inputs, "n_planned_production_time");
-  const operating_time = get(inputs, "n_operating_time");
-  const net_operating_time = get(inputs, "n_net_operating_time");
-  const valuable_operating_time = get(inputs, "n_valuable_operating_time");
-  const ideal_cycle_time = get(inputs, "n_ideal_cycle_time");
-  const total_parts = get(inputs, "n_total_parts");
-  const good_parts = get(inputs, "n_good_parts");
-  const hourly_contribution = get(inputs, "n_hourly_contribution");
-  const improvement_cost = get(inputs, "n_improvement_cost");
-  const conf = get(inputs, "n_source_confidence_ratio");
+  const plannedSeconds = v.n_planned_production_time;
+  const operatingSeconds = v.n_operating_time;
+  const netOperatingSeconds = v.n_net_operating_time;
+  const valuableSeconds = v.n_valuable_operating_time;
+  const idealCycleSeconds = v.n_ideal_cycle_time;
+  const totalParts = v.n_total_parts;
+  const goodParts = v.n_good_parts;
+  const hourlyContribution = v.n_hourly_contribution;
+  const improvementCost = v.n_improvement_cost;
+  const confidence = v.n_source_confidence_ratio;
 
-  if (!isFiniteNumber(inputs["n_planned_production_time"])) warnings.push("Missing: n_planned_production_time");
-  if (!isFiniteNumber(inputs["n_operating_time"])) warnings.push("Missing: n_operating_time");
-  if (!isFiniteNumber(inputs["n_net_operating_time"])) warnings.push("Missing: n_net_operating_time");
-  if (!isFiniteNumber(inputs["n_valuable_operating_time"])) warnings.push("Missing: n_valuable_operating_time");
+  requirePositive(plannedSeconds, "Planned production time", state);
+  requireNonNegative(operatingSeconds, "Operating time", state);
+  requireNonNegative(netOperatingSeconds, "Net operating time", state);
+  requireNonNegative(valuableSeconds, "Valuable operating time", state);
+  requirePositive(idealCycleSeconds, "Ideal cycle time", state);
+  requireInteger(totalParts, 1, 1000000000000, "Total parts", state);
+  requireInteger(goodParts, 0, totalParts, "Good parts", state);
+  requireNonNegative(hourlyContribution, "Hourly contribution", state);
+  requireNonNegative(improvementCost, "Improvement cost", state);
+  requireRange(confidence, 0, 1, "Source confidence", state);
 
-  const availability = planned_production_time > 0 ? operating_time / planned_production_time : 0;
-  const performance = net_operating_time > 0 ? (total_parts * ideal_cycle_time) / net_operating_time : 0;
-  const quality = total_parts > 0 ? good_parts / total_parts : 0;
+  if (operatingSeconds > plannedSeconds) {
+    state.errors.push("Operating time must not exceed planned production time.");
+  }
+  if (netOperatingSeconds > operatingSeconds) {
+    state.errors.push("Net operating time must not exceed operating time.");
+  }
+  if (valuableSeconds > netOperatingSeconds) {
+    state.errors.push("Valuable operating time must not exceed net operating time.");
+  }
+
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
+
+  const availability = divideOrError(
+    operatingSeconds,
+    plannedSeconds,
+    "OEE availability",
+    state,
+  );
+  const performance = divideOrError(
+    netOperatingSeconds,
+    operatingSeconds,
+    "OEE performance",
+    state,
+  );
+  const quality = divideOrError(
+    valuableSeconds,
+    netOperatingSeconds,
+    "OEE quality",
+    state,
+  );
   const oee = availability * performance * quality;
 
-  const avail_loss_value = (planned_production_time - operating_time) * hourly_contribution;
-  const perf_loss_value = (net_operating_time - valuable_operating_time) * hourly_contribution;
-  const qual_loss_value = total_parts > 0 ? (total_parts - good_parts) * ideal_cycle_time * hourly_contribution / 3600 : 0;
-  const total_oee_loss = avail_loss_value + perf_loss_value + qual_loss_value;
+  // Independent conservation identities from part counts. They are used as a
+  // cross-check, not as a second competing OEE definition.
+  const expectedNetSeconds = idealCycleSeconds * totalParts;
+  const expectedValuableSeconds = idealCycleSeconds * goodParts;
+  const netIdentityDeviation = divideOrError(
+    Math.abs(netOperatingSeconds - expectedNetSeconds),
+    Math.max(netOperatingSeconds, expectedNetSeconds, 1),
+    "Net operating time identity deviation",
+    state,
+  );
+  const valuableIdentityDeviation = divideOrError(
+    Math.abs(valuableSeconds - expectedValuableSeconds),
+    Math.max(valuableSeconds, expectedValuableSeconds, 1),
+    "Valuable operating time identity deviation",
+    state,
+  );
+  const identityDeviation = Math.max(netIdentityDeviation, valuableIdentityDeviation);
 
-  const improvement_value = total_oee_loss * 3 * 0.7;
-  const decision = improvement_value > improvement_cost * 2 ? 0 : (improvement_value > improvement_cost ? 1 : 2);
+  if (identityDeviation > 0.25) {
+    state.errors.push(
+      `Time and part-count identities differ by ${roundDisplay(identityDeviation * 100, 2)}%; verify units and source records.`,
+    );
+  } else if (identityDeviation > 0.05) {
+    state.warnings.push(
+      `Time and part-count identities differ by ${roundDisplay(identityDeviation * 100, 2)}%; review the time basis.`,
+    );
+  }
 
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(total_oee_loss, 2);
-  outputs["out_reference_deviation"] = round(oee, 4);
-  outputs["out_derating_factor"] = round(availability, 4);
-  outputs["out_demand_metric"] = round(avail_loss_value, 2);
-  outputs["out_capacity_metric"] = round(perf_loss_value, 2);
-  outputs["out_utilization_margin"] = round(performance, 4);
-  outputs["out_expanded_uncertainty"] = round(qual_loss_value, 2);
-  outputs["out_threshold_crossing"] = oee < 0.85 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = avail_loss_value > perf_loss_value ? 0 : 1;
-  outputs["out_fmea_trigger"] = quality < 0.95 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(total_oee_loss, 2);
-  outputs["out_scenario_delta"] = round(improvement_value, 2);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_final_decision_state"] = decision;
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
 
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  const availabilityLoss = ((plannedSeconds - operatingSeconds) / 3600) * hourlyContribution;
+  const performanceLoss = ((operatingSeconds - netOperatingSeconds) / 3600) * hourlyContribution;
+  const qualityLoss = ((netOperatingSeconds - valuableSeconds) / 3600) * hourlyContribution;
+  const totalOeeLoss = availabilityLoss + performanceLoss + qualityLoss;
+  const dominantLosses = [availabilityLoss, performanceLoss, qualityLoss];
+  const dominantDriver = dominantLosses.indexOf(Math.max(...dominantLosses));
+
+  // The schema has no recovery percentage or analysis horizon. Therefore the
+  // engine reports the measured-period loss and cost gap, but does not fabricate
+  // an annualized ROI or payback conclusion.
+  const businessCaseGap = totalOeeLoss - improvementCost;
+  state.warnings.push(
+    "Measured-period OEE loss is calculated; ROI requires an explicit recovery percentage and analysis horizon.",
+  );
+  if (confidence < 0.7) {
+    state.warnings.push("Source confidence is below 70%; verify production records before commitment.");
+  }
+
+  const outputs: Record<string, number> = {
+    out_evidence_completeness: roundDisplay(confidence, 4),
+    out_normalized_demand: roundDisplay(totalOeeLoss, 2),
+    out_reference_deviation: roundDisplay(oee, 4),
+    out_derating_factor: roundDisplay(availability, 4),
+    out_demand_metric: roundDisplay(availabilityLoss, 2),
+    out_capacity_metric: roundDisplay(performanceLoss, 2),
+    out_utilization_margin: roundDisplay(performance, 4),
+    out_expanded_uncertainty: roundDisplay(qualityLoss, 2),
+    out_threshold_crossing: oee < 0.85 ? 1 : 0,
+    out_sensitivity_driver: dominantDriver,
+    out_fmea_trigger: oee < 0.85 || identityDeviation > 0.05 ? 1 : 0,
+    out_money_at_risk: roundDisplay(totalOeeLoss, 2),
+    out_scenario_delta: roundDisplay(businessCaseGap, 2),
+    out_audit_hash_payload: 0,
+    out_final_decision_state: 1,
+  };
+
+  return finalizeResult({
+    outputs,
+    outputKeys: declaredOutputKeys,
+    state,
+    status: "REVIEW",
+  });
 }
