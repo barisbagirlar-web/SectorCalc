@@ -71,7 +71,9 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const confidence = v.n_source_confidence_ratio;
 
   requirePositive(outputPowerKw, "Motor/compressor output power", state);
-  requireRange(annualHours, 0, 8760, "Annual operating hours", state, { minInclusive: false });
+  requireRange(annualHours, 0, 8760, "Annual operating hours", state, {
+    minInclusive: false,
+  });
   requireRange(currentEfficiencyPct, 0, 100, "Current efficiency (%)", state, {
     minInclusive: false,
   });
@@ -83,8 +85,13 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   requireNonNegative(installationCost, "Installation cost", state);
   requireNonNegative(maintenanceSaving, "Annual maintenance saving", state);
   requireInteger(lifeYears, 1, 100, "Equipment life", state);
-  requireRange(discountRate, 0, 1, "Discount rate", state, { maxInclusive: false });
+  requireRange(discountRate, 0, 1, "Discount rate", state, {
+    maxInclusive: false,
+  });
   requireRange(confidence, 0, 1, "Source confidence", state);
+
+  const totalInvestment = replacementCost + installationCost;
+  requirePositive(totalInvestment, "Total replacement investment", state);
 
   if (state.errors.length > 0) {
     return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
@@ -108,30 +115,50 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const newEnergyCost = newKwh * energyRate;
   const energySaving = currentEnergyCost - newEnergyCost;
   const annualSaving = energySaving + maintenanceSaving;
-  const totalInvestment = replacementCost + installationCost;
+
+  // ROI and simple payback are undefined when the replacement does not produce
+  // positive annual cash savings. Do not emit an arbitrary 999-month sentinel.
+  if (annualSaving <= 0) {
+    state.errors.push(
+      "Replacement does not produce positive annual savings; ROI and payback are undefined.",
+    );
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
 
   let npv = -totalInvestment;
   for (let year = 1; year <= lifeYears; year += 1) {
     npv += annualSaving / (1 + discountRate) ** year;
   }
 
-  const paybackMonths = annualSaving > 0
-    ? divideOrError(totalInvestment, annualSaving, "Simple payback", state) * 12
-    : Number.POSITIVE_INFINITY;
-  const discountedReturnRatio = totalInvestment > 0
-    ? divideOrError(npv, totalInvestment, "Discounted return ratio", state)
-    : 0;
+  const paybackMonths =
+    divideOrError(totalInvestment, annualSaving, "Simple payback", state) * 12;
+  const discountedReturnRatio = divideOrError(
+    npv,
+    totalInvestment,
+    "Discounted return ratio",
+    state,
+  );
   const uncertainty = Math.abs(npv) * (1 - confidence);
 
   let decision = 0;
-  if (annualSaving <= 0 || npv <= 0) decision = 2;
-  else if (paybackMonths > 24 || confidence < 0.7 || newEfficiency <= currentEfficiency) decision = 1;
+  if (npv <= 0) decision = 2;
+  else if (
+    paybackMonths > 24 ||
+    confidence < 0.7 ||
+    newEfficiency <= currentEfficiency
+  ) {
+    decision = 1;
+  }
 
   if (newEfficiency <= currentEfficiency) {
-    state.warnings.push("New efficiency does not exceed current efficiency; verify nameplate and load-point data.");
+    state.warnings.push(
+      "New efficiency does not exceed current efficiency; verify nameplate and load-point data.",
+    );
   }
   if (confidence < 0.7) {
-    state.warnings.push("Source confidence is below 70%; verify measured load, hours and tariff evidence.");
+    state.warnings.push(
+      "Source confidence is below 70%; verify measured load, hours and tariff evidence.",
+    );
   }
 
   const drivers = [Math.abs(energySaving), maintenanceSaving, totalInvestment];
@@ -140,17 +167,20 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const outputs: Record<string, number> = {
     out_evidence_completeness: roundDisplay(confidence, 4),
     out_normalized_demand: roundDisplay(annualHours, 0),
-    out_reference_deviation: roundDisplay(newEfficiency - currentEfficiency, 6),
+    out_reference_deviation: roundDisplay(
+      newEfficiency - currentEfficiency,
+      6,
+    ),
     out_derating_factor: roundDisplay(confidence, 4),
     out_demand_metric: roundDisplay(currentEnergyCost, 2),
     out_capacity_metric: roundDisplay(newEnergyCost, 2),
     out_utilization_margin: roundDisplay(annualSaving, 2),
     out_expanded_uncertainty: roundDisplay(uncertainty, 2),
-    out_threshold_crossing: annualSaving > 0 && npv > 0 ? 1 : 0,
+    out_threshold_crossing: npv > 0 ? 1 : 0,
     out_sensitivity_driver: sensitivityDriver,
     out_fmea_trigger: decision > 0 ? 1 : 0,
     out_money_at_risk: roundDisplay(totalInvestment, 2),
-    out_scenario_delta: Number.isFinite(paybackMonths) ? roundDisplay(paybackMonths, 2) : 999,
+    out_scenario_delta: roundDisplay(paybackMonths, 2),
     out_audit_hash_payload: 0,
     out_final_decision_state: decision,
   };
