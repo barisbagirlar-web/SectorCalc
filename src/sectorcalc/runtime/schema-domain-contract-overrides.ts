@@ -11,6 +11,10 @@ interface FixedUnitOptions {
   helpText?: string;
 }
 
+type UiBindingWithSemanticTag = NonNullable<SuperV4Input["ui_binding"]> & {
+  semantic_tag?: string;
+};
+
 function fixedUnit(
   input: SuperV4Input,
   name: string,
@@ -18,6 +22,7 @@ function fixedUnit(
   unit: string,
   options: FixedUnitOptions = {},
 ): SuperV4Input {
+  const monetary = quantityKind.toLowerCase().includes("currency");
   return {
     ...input,
     name,
@@ -27,7 +32,11 @@ function fixedUnit(
     unit_selectable: false,
     user_help_text: options.helpText ?? input.user_help_text,
     ui_binding: input.ui_binding
-      ? { ...input.ui_binding, unit_dropdown_required: false }
+      ? ({
+          ...input.ui_binding,
+          unit_dropdown_required: false,
+          ...(monetary ? { semantic_tag: "monetary" } : {}),
+        } as UiBindingWithSemanticTag)
       : input.ui_binding,
     physical_hard_bounds: input.physical_hard_bounds
       ? {
@@ -95,6 +104,37 @@ function retainOutputContract(
   return { inputs, outputs, formulas };
 }
 
+function finalizeDomainContract(schema: SuperV4Schema): SuperV4Schema {
+  const inputs = schema.inputs.map((input) => {
+    const isMonetary = input.quantity_kind.toLowerCase().includes("currency");
+    if (!isMonetary || !input.ui_binding) return input;
+    return {
+      ...input,
+      ui_binding: {
+        ...input.ui_binding,
+        semantic_tag: "monetary",
+      } as UiBindingWithSemanticTag,
+    };
+  });
+  const inputIds = new Set(inputs.map((input) => input.id));
+  const inputGroups = schema.ui_contract.input_groups
+    .map((group) => ({
+      ...group,
+      fields: group.fields.filter((field) => inputIds.has(field)),
+    }))
+    .filter((group) => group.fields.length > 0);
+
+  return {
+    ...schema,
+    inputs,
+    normalized_inputs: syncNormalizedInputs(schema, inputs),
+    ui_contract: {
+      ...schema.ui_contract,
+      input_groups: inputGroups,
+    },
+  };
+}
+
 const TRUE_EMPLOYEE_OUTPUT_IDS = new Set([
   "out_base_annual_compensation",
   "out_workspace_facility_cost",
@@ -113,7 +153,7 @@ function applyTrueEmployeeContract(schema: SuperV4Schema): SuperV4Schema {
         input,
         "Annual Base Compensation",
         "currency",
-        "currency_unit",
+        "currency",
         {
           hardMin: 0,
           hardMax: 1e12,
@@ -129,7 +169,7 @@ function applyTrueEmployeeContract(schema: SuperV4Schema): SuperV4Schema {
         input,
         "Other Annual Employer Costs",
         "currency",
-        "currency_unit",
+        "currency",
         {
           hardMin: 0,
           hardMax: 1e12,
@@ -180,7 +220,7 @@ function applyMachineInvestmentContract(schema: SuperV4Schema): SuperV4Schema {
           input,
           "Buy: Purchase and Installation Cost",
           "currency",
-          "currency_unit",
+          "currency",
           { hardMin: 0, hardMax: 1e18 },
         );
       case "annual_net_cash_flow":
@@ -188,7 +228,7 @@ function applyMachineInvestmentContract(schema: SuperV4Schema): SuperV4Schema {
           input,
           "Annual Operating Benefit — Buy or Lease",
           "currency",
-          "currency_unit",
+          "currency",
           { hardMin: 0, hardMax: 1e18 },
         );
       case "residual_value":
@@ -196,7 +236,7 @@ function applyMachineInvestmentContract(schema: SuperV4Schema): SuperV4Schema {
           input,
           "Buy: Residual Value",
           "currency",
-          "currency_unit",
+          "currency",
           { hardMin: 0, hardMax: 1e18 },
         );
       case "labor_rate":
@@ -204,7 +244,7 @@ function applyMachineInvestmentContract(schema: SuperV4Schema): SuperV4Schema {
           input,
           "Lease: Annual Payment",
           "currency",
-          "currency_unit",
+          "currency",
           { hardMin: 0, hardMax: 1e18 },
         );
       case "overhead_rate":
@@ -212,7 +252,7 @@ function applyMachineInvestmentContract(schema: SuperV4Schema): SuperV4Schema {
           input,
           "Lease: Initial Fees",
           "currency",
-          "currency_unit",
+          "currency",
           { hardMin: 0, hardMax: 1e18 },
         );
       case "defect_or_loss_cost":
@@ -220,7 +260,7 @@ function applyMachineInvestmentContract(schema: SuperV4Schema): SuperV4Schema {
           input,
           "Keep: Annual Net Benefit",
           "currency",
-          "currency_unit",
+          "currency",
           { hardMin: 0, hardMax: 1e18 },
         );
       case "annual_volume":
@@ -228,7 +268,7 @@ function applyMachineInvestmentContract(schema: SuperV4Schema): SuperV4Schema {
           input,
           "Keep: Refurbishment Cost",
           "currency",
-          "currency_unit",
+          "currency",
           { hardMin: 0, hardMax: 1e18 },
         );
       default:
@@ -293,14 +333,17 @@ function applyWeldContract(schema: SuperV4Schema): SuperV4Schema {
 export function applySchemaDomainContractOverrides(
   schema: SuperV4Schema,
 ): SuperV4Schema {
+  let domainSchema = schema;
   if (schema.tool_key === "true-employee-cost-statement") {
-    return applyTrueEmployeeContract(schema);
+    domainSchema = applyTrueEmployeeContract(schema);
+  } else if (
+    schema.tool_key === "machine-investment-feasibility-buy-lease-keep"
+  ) {
+    domainSchema = applyMachineInvestmentContract(schema);
+  } else if (
+    schema.tool_key === "weld-procedure-cost-consumable-estimation-suite"
+  ) {
+    domainSchema = applyWeldContract(schema);
   }
-  if (schema.tool_key === "machine-investment-feasibility-buy-lease-keep") {
-    return applyMachineInvestmentContract(schema);
-  }
-  if (schema.tool_key === "weld-procedure-cost-consumable-estimation-suite") {
-    return applyWeldContract(schema);
-  }
-  return schema;
+  return finalizeDomainContract(domainSchema);
 }
