@@ -1,660 +1,426 @@
-// SectorCalc PRO V2 — Report Contract Registry
-// Maps every LIVE PRO tool slug to its ProReportContract.
-// Each contract defines tool-specific business-labeled sections and entries.
-
 import type {
   ProReportContract,
-  ReportSection,
   ReportOutputEntry,
+  ReportOutputFormat,
+  ReportSection,
 } from "./pro-report-types";
-
-// ---- Helper builders ----
-
-function primarySection(
-  heading: string,
-  entries: ReportOutputEntry[]
-): ReportSection {
-  return { sectionTitle: heading, priority: 0, entries };
-}
-
-function section(
-  title: string,
-  priority: number,
-  entries: ReportOutputEntry[]
-): ReportSection {
-  return { sectionTitle: title, priority, entries };
-}
 
 function entry(
   sourceOutputId: string,
   businessLabel: string,
-  format?: string,
+  format: ReportOutputFormat = "number",
   unit?: string,
-  explanation?: string
+  options: Partial<
+    Pick<
+      ReportOutputEntry,
+      "explanation" | "valueLabels" | "valueMultiplier" | "displayDecimals"
+    >
+  > = {},
 ): ReportOutputEntry {
-  return {
-    sourceOutputId,
-    businessLabel,
-    format: format as any,
-    unit,
-    explanation,
-  };
+  return { sourceOutputId, businessLabel, format, unit, ...options };
 }
 
-// ---- Registry ----
-
-export const proReportContractRegistry: Record<string, ProReportContract> = {};
-
-function register(contract: ProReportContract): void {
-  proReportContractRegistry[contract.toolSlug] = contract;
+function section(
+  sectionTitle: string,
+  priority: number,
+  entries: ReportOutputEntry[],
+): ReportSection {
+  return { sectionTitle, priority, entries };
 }
 
-// ---------------------------------------------------------------------------
-// 1. break-even-survival-cash-calculator
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "break-even-survival-cash-calculator",
-  sections: [
-    {
-      sectionTitle: "Break-Even Position",
-      priority: 10,
-      entries: [
-        {
-          sourceOutputId: "out_break_even_monthly_revenue",
-          businessLabel: "Break-Even Monthly Revenue",
-          format: "currency",
-          unit: "currency/month",
-          explanation: "Monthly revenue required to cover fixed cash costs and debt service at the entered contribution margin.",
-        },
-        {
-          sourceOutputId: "out_current_revenue_gap",
-          businessLabel: "Current Revenue Gap vs Break-Even",
-          format: "currency",
-          unit: "currency/month",
-          explanation: "Positive values are headroom; negative values are the monthly revenue shortfall.",
-        },
-        {
-          sourceOutputId: "out_margin_of_safety_ratio",
-          businessLabel: "Revenue Margin of Safety",
-          format: "percentage",
-          unit: "%",
-          valueMultiplier: 100,
-          explanation: "Current revenue headroom relative to current monthly revenue.",
-        },
-      ],
-    },
-    {
-      sectionTitle: "Survival Cash Stress",
-      priority: 20,
-      entries: [
-        { sourceOutputId: "out_stressed_monthly_revenue", businessLabel: "Stressed Monthly Revenue", format: "currency", unit: "currency/month" },
-        { sourceOutputId: "out_monthly_cash_burn", businessLabel: "Monthly Cash Burn Under Stress", format: "currency", unit: "currency/month" },
-        { sourceOutputId: "out_cash_runway_months", businessLabel: "Cash Runway Under Stress", format: "number", unit: "months" },
-        { sourceOutputId: "out_survival_cash_target", businessLabel: "Survival Cash Target", format: "currency", unit: "currency" },
-        { sourceOutputId: "out_funding_gap", businessLabel: "Funding Gap to Target", format: "currency", unit: "currency" },
-      ],
-    },
-    {
-      sectionTitle: "Control & Evidence",
-      priority: 30,
-      entries: [
-        { sourceOutputId: "out_evidence_completeness", businessLabel: "Input Confidence", format: "percentage", unit: "%", valueMultiplier: 100 },
-        { sourceOutputId: "out_uncertainty_cash_buffer", businessLabel: "Uncertainty Cash Buffer", format: "currency", unit: "currency" },
-        {
-          sourceOutputId: "out_threshold_crossing",
-          businessLabel: "Target Runway Status",
-          format: "string",
-          valueLabels: { "0": "WITHIN TARGET", "1": "BREACHED" },
-        },
-      ],
-    },
-  ],
-});
+function contract(
+  toolSlug: string,
+  sections: ReportSection[],
+): ProReportContract {
+  return { toolSlug, strict: true, sections };
+}
 
-// ---------------------------------------------------------------------------
-// 2. machine-hourly-rate-proof-report
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "machine-hourly-rate-proof-report",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Machine Hourly Rate", "hourly_rate", "USD/hr"),
-      entry("out_demand_metric", "Machine Operating Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Total Productive Hours", "number", "hrs"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Rate Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Rate Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Rate Uncertainty", "hourly_rate", "USD/hr"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Utilization Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+const confidence = entry(
+  "out_evidence_completeness",
+  "User-Declared Source Confidence",
+  "percentage",
+  "%",
+  {
+    valueMultiplier: 100,
+    displayDecimals: 1,
+    explanation:
+      "Confidence entered by the user; it is not an independent audit score.",
+  },
+);
 
-// ---------------------------------------------------------------------------
-// 3. loss-making-job-detector
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "loss-making-job-detector",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Job Margin", "percentage"),
-      entry("out_demand_metric", "Total Job Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Loss Exposure", "currency", "USD"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Primary Loss Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Loss Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Cost Uncertainty Band", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Margin Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+const genericDecision = entry(
+  "out_final_decision_state",
+  "Decision State",
+  "string",
+  undefined,
+  {
+    valueLabels: { "0": "READY", "1": "REVIEW", "2": "BLOCK" },
+  },
+);
 
-// ---------------------------------------------------------------------------
-// 4. receivables-cost-payment-term-addendum
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "receivables-cost-payment-term-addendum",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Cost of Extended Terms", "currency", "USD"),
-      entry("out_demand_metric", "Annual Receivables Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Working Capital Impact", "currency", "USD"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Cost Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Cost Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Cost Uncertainty Band", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Payment Risk Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+export const proReportContractRegistry: Record<string, ProReportContract> = {
+  "break-even-survival-cash-calculator": contract(
+    "break-even-survival-cash-calculator",
+    [
+      section("Break-Even Position", 10, [
+        entry("out_break_even_monthly_revenue", "Break-Even Monthly Revenue", "currency", "currency/month", { displayDecimals: 2 }),
+        entry("out_current_revenue_gap", "Current Revenue Gap", "currency", "currency/month", { displayDecimals: 2 }),
+        entry("out_margin_of_safety_ratio", "Revenue Margin of Safety", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      ]),
+      section("Survival Cash Stress", 20, [
+        entry("out_stressed_monthly_revenue", "Stressed Monthly Revenue", "currency", "currency/month", { displayDecimals: 2 }),
+        entry("out_monthly_cash_burn", "Monthly Cash Burn", "currency", "currency/month", { displayDecimals: 2 }),
+        entry("out_cash_runway_months", "Cash Runway", "number", "months", { displayDecimals: 2 }),
+        entry("out_survival_cash_target", "Survival Cash Target", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_funding_gap", "Funding Gap", "currency", "currency", { displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [
+        entry("out_source_confidence_ratio", "User-Declared Source Confidence", "percentage", "%", { valueMultiplier: 100, displayDecimals: 1 }),
+        entry("out_uncertainty_cash_buffer", "Uncertainty Cash Buffer", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_target_runway_breached", "Target Runway Status", "string", undefined, { valueLabels: { "0": "WITHIN TARGET", "1": "BREACHED" } }),
+        entry("out_decision_code", "Decision", "string", undefined, { valueLabels: { "0": "READY", "1": "REVIEW", "2": "BLOCK" } }),
+      ]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// 5. setup-time-reduction-roi-smed
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "setup-time-reduction-roi-smed",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "SMED ROI Multiplier", "ratio"),
-      entry("out_demand_metric", "Annual Setup Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Recovered Capacity Hours", "number", "hrs"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "ROI Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "ROI Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "ROI Uncertainty Band", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Improvement Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+  "machine-hourly-rate-proof-report": contract(
+    "machine-hourly-rate-proof-report",
+    [
+      section("Unit Economics", 10, [
+        entry("out_demand_metric", "Machine Cost per Unit", "currency", "currency/unit", { displayDecimals: 4 }),
+        entry("out_utilization_margin", "Entered Machine Hourly Rate", "hourly_rate", "currency/hour", { displayDecimals: 2 }),
+        entry("out_scenario_delta", "Gross Profit per Unit at Quote Floor", "currency", "currency/unit", { displayDecimals: 4 }),
+      ]),
+      section("Capacity and Exposure", 20, [
+        entry("out_capacity_metric", "Annual Required Productive Hours", "number", "hours/year", { displayDecimals: 2 }),
+        entry("out_expanded_uncertainty", "Uncertainty per Unit", "currency", "currency/unit", { displayDecimals: 4 }),
+        entry("out_money_at_risk", "Annual Uncertainty Exposure", "currency", "currency", { displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [confidence, genericDecision]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// 6. product-sku-margin-ranker
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "product-sku-margin-ranker",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Ranked Margin Score", "percentage"),
-      entry("out_demand_metric", "SKU Contribution Margin", "currency", "USD"),
-      entry("out_capacity_metric", "Volume-Weighted Margin", "currency", "USD"),
+  "loss-making-job-detector": contract("loss-making-job-detector", [
+    section("Job Economics", 10, [
+      entry("out_demand_metric", "Margin per Unit", "currency", "currency/unit", { displayDecimals: 4 }),
+      entry("out_capacity_metric", "Target-Margin Price per Unit", "currency", "currency/unit", { displayDecimals: 4 }),
+      entry("out_utilization_margin", "Quoted Margin", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      entry("out_scenario_delta", "Batch Margin", "currency", "currency", { displayDecimals: 2 }),
     ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Margin Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Margin Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Margin Uncertainty Band", "currency", "USD"),
+    section("Exposure", 20, [
+      entry("out_money_at_risk", "Annual Loss and Uncertainty Exposure", "currency", "currency", { displayDecimals: 2 }),
+      entry("out_reference_deviation", "Price Gap to Target", "currency", "currency/unit", { displayDecimals: 4 }),
     ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Margin Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+    section("Evidence and Decision", 30, [confidence, genericDecision]),
+  ]),
 
-// ---------------------------------------------------------------------------
-// 7. true-employee-cost-statement
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "true-employee-cost-statement",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_fully_loaded_annual_cost", "Fully Loaded Annual Cost", "currency", "USD"),
-      entry("out_base_annual_compensation", "Base Annual Compensation", "currency", "USD"),
-      entry("out_productive_hourly_cost", "Productive Hourly Cost", "hourly_rate", "USD/hr"),
-    ]),
-    section("Cost Breakdown", 15, [
-      entry("out_employer_payroll_taxes", "Employer Payroll Taxes", "currency", "USD"),
-      entry("out_benefits_cost", "Benefits Cost", "currency", "USD"),
-      entry("out_paid_leave_cost", "Paid Leave Cost", "currency", "USD"),
-      entry("out_training_allocation", "Training Allocation", "currency", "USD"),
-      entry("out_equipment_it_cost", "Equipment & IT Cost", "currency", "USD"),
-      entry("out_workspace_facility_cost", "Workspace / Facility Cost", "currency", "USD"),
-      entry("out_insurance_burden", "Insurance Burden", "currency", "USD"),
-    ]),
-    section("Productivity Metrics", 20, [
-      entry("out_productive_hours_annual", "Productive Hours (Annual)", "number", "hrs"),
-      entry("out_monthly_employer_cost", "Monthly Employer Cost", "currency", "USD"),
-      entry("out_base_to_loaded_multiplier", "Base-to-Loaded Multiplier", "ratio"),
-    ]),
-    section("Risk Assessment", 25, [
-      entry("out_primary_cost_driver", "Primary Cost Driver", "string"),
-      entry("out_expanded_uncertainty", "Cost Uncertainty Band", "currency", "USD"),
-      entry("out_threshold_crossing", "Burden Threshold Crossed", "boolean"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_decision_state", "Decision State", "number"),
-    ]),
-  ],
-});
+  "receivables-cost-payment-term-addendum": contract(
+    "receivables-cost-payment-term-addendum",
+    [
+      section("Payment-Term Cost Basis", 10, [
+        entry("out_utilization_margin", "Cost per Invoice", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_demand_metric", "Annual Receivables Cost", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_capacity_metric", "Invoice Amount Including Cost Basis", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_reference_deviation", "Cost-Recovery Addendum Rate", "percentage", "%", { valueMultiplier: 100, displayDecimals: 3 }),
+      ]),
+      section("Exposure", 20, [
+        entry("out_expanded_uncertainty", "Annual Uncertainty", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_money_at_risk", "Annual Cost at Risk", "currency", "currency/year", { displayDecimals: 2 }),
+      ]),
+      section("Review Requirement", 30, [
+        confidence,
+        entry("out_final_decision_state", "Decision State", "string", undefined, { valueLabels: { "0": "COST BASIS", "1": "CONTRACT REVIEW", "2": "BLOCK" } }),
+      ]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// 8. job-quote-builder-pro-pack
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "job-quote-builder-pro-pack",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Quote Margin", "percentage"),
-      entry("out_demand_metric", "Total Quote Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Quote Capacity Score", "number"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Quote Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Margin Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Quote Uncertainty Band", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Quote Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+  "setup-time-reduction-roi-smed": contract(
+    "setup-time-reduction-roi-smed",
+    [
+      section("SMED Benefit", 10, [
+        entry("out_normalized_demand", "Annual Recovered Capacity", "number", "hours/year", { displayDecimals: 2 }),
+        entry("out_demand_metric", "Annual Recoverable Value", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_utilization_margin", "Annual Return on Implementation Cost", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+        entry("out_scenario_delta", "Simple Payback", "number", "months", { displayDecimals: 2 }),
+      ]),
+      section("Investment and Uncertainty", 20, [
+        entry("out_money_at_risk", "Implementation Cost", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_expanded_uncertainty", "Annual Value Uncertainty", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_reference_deviation", "Setup-Time Reduction", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [confidence, genericDecision]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// 9. machine-investment-feasibility-buy-lease-keep
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "machine-investment-feasibility-buy-lease-keep",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Investment Feasibility Score", "ratio"),
-      entry("out_demand_metric", "Total Cost of Ownership", "currency", "USD"),
-      entry("out_capacity_metric", "Capacity Utilization Impact", "number", "hrs"),
+  "product-sku-margin-ranker": contract("product-sku-margin-ranker", [
+    section("SKU Economics", 10, [
+      entry("out_demand_metric", "Contribution per Unit", "currency", "currency/unit", { displayDecimals: 4 }),
+      entry("out_capacity_metric", "Unit Selling Price", "currency", "currency/unit", { displayDecimals: 4 }),
+      entry("out_utilization_margin", "Net Margin", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      entry("out_scenario_delta", "Annual Contribution", "currency", "currency/year", { displayDecimals: 2 }),
     ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Investment Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Feasibility Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "TCO Uncertainty Band", "currency", "USD"),
+    section("Exposure", 20, [
+      entry("out_reference_deviation", "Price Gap to Target Margin", "currency", "currency/unit", { displayDecimals: 4 }),
+      entry("out_money_at_risk", "Annual Margin at Risk", "currency", "currency/year", { displayDecimals: 2 }),
     ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Investment Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+    section("Evidence and Decision", 30, [confidence, genericDecision]),
+  ]),
 
-// ---------------------------------------------------------------------------
-// 10. capital-equipment-investment-appraisal-npv-irr
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "capital-equipment-investment-appraisal-npv-irr",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "NPV / IRR Score", "ratio"),
-      entry("out_demand_metric", "Net Present Value", "currency", "USD"),
-      entry("out_capacity_metric", "Capital Efficiency Ratio", "ratio"),
+  "true-employee-cost-statement": contract("true-employee-cost-statement", [
+    section("Verified Employer Cost", 10, [
+      entry("out_base_annual_compensation", "Annual Base Compensation", "currency", "currency/year", { displayDecimals: 2 }),
+      entry("out_workspace_facility_cost", "Other Annual Employer Costs", "currency", "currency/year", { displayDecimals: 2 }),
+      entry("out_fully_loaded_annual_cost", "Fully Loaded Annual Employer Cost", "currency", "currency/year", { displayDecimals: 2 }),
+      entry("out_monthly_employer_cost", "Monthly Employer Cost", "currency", "currency/month", { displayDecimals: 2 }),
+      entry("out_base_to_loaded_multiplier", "Base-to-Loaded Multiplier", "ratio", undefined, { displayDecimals: 4 }),
     ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "NPV Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "NPV Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "NPV Uncertainty Band", "currency", "USD"),
+    section("Evidence and Uncertainty", 20, [
+      confidence,
+      entry("out_expanded_uncertainty", "Cost Uncertainty", "currency", "currency/year", { displayDecimals: 2 }),
+      entry("out_decision_state", "Decision State", "string", undefined, { valueLabels: { "0": "READY", "1": "REVIEW", "2": "BLOCK" } }),
     ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Appraisal Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+  ]),
 
-// ---------------------------------------------------------------------------
-// 11. customer-sku-profitability-forensics
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "customer-sku-profitability-forensics",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Customer Profitability Score", "percentage"),
-      entry("out_demand_metric", "Net Profit per SKU", "currency", "USD"),
-      entry("out_capacity_metric", "Total Account Profit", "currency", "USD"),
+  "job-quote-builder-pro-pack": contract("job-quote-builder-pro-pack", [
+    section("Quote Basis", 10, [
+      entry("out_demand_metric", "Total Batch Cost", "currency", "currency", { displayDecimals: 2 }),
+      entry("out_capacity_metric", "Minimum Risk-Adjusted Quote", "currency", "currency", { displayDecimals: 2 }),
+      entry("out_utilization_margin", "Gross Margin at Quote Floor", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      entry("out_scenario_delta", "Batch Gross Profit", "currency", "currency", { displayDecimals: 2 }),
     ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Profit Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Profit Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Profit Uncertainty Band", "currency", "USD"),
+    section("Capacity and Exposure", 20, [
+      entry("out_expanded_uncertainty", "Quote Uncertainty Allowance", "currency", "currency", { displayDecimals: 2 }),
+      entry("out_money_at_risk", "Money at Risk", "currency", "currency", { displayDecimals: 2 }),
     ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Profit Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+    section("Evidence and Decision", 30, [confidence, genericDecision]),
+  ]),
 
-// ---------------------------------------------------------------------------
-// 12. downtime-scrap-loss-statement
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "downtime-scrap-loss-statement",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Total Loss Statement", "currency", "USD"),
-      entry("out_demand_metric", "Downtime Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Scrap & Rework Cost", "currency", "USD"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Loss Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Loss Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Loss Uncertainty Band", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Loss Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+  "machine-investment-feasibility-buy-lease-keep": contract(
+    "machine-investment-feasibility-buy-lease-keep",
+    [
+      section("Scenario NPV", 10, [
+        entry("out_demand_metric", "Buy NPV", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_capacity_metric", "Lease NPV", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_utilization_margin", "Keep NPV", "currency", "currency", { displayDecimals: 2 }),
+      ]),
+      section("Decision Robustness", 20, [
+        entry("out_reference_deviation", "NPV Margin Between Leading Options", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_scenario_delta", "Downside NPV Delta", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_expanded_uncertainty", "Decision Uncertainty Band", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_money_at_risk", "Money at Risk", "currency", "currency", { displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [
+        confidence,
+        entry("out_final_decision_state", "Preferred Alternative", "string", undefined, { valueLabels: { "0": "BUY", "1": "LEASE", "2": "KEEP", "3": "REVIEW" } }),
+      ]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// 13. oee-loss-monetization-improvement-business-case
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "oee-loss-monetization-improvement-business-case",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "OEE Improvement ROI", "ratio"),
-      entry("out_demand_metric", "Annual Loss Monetization", "currency", "USD"),
-      entry("out_capacity_metric", "Recoverable Capacity Value", "currency", "USD"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "OEE Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "OEE Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Improvement Uncertainty", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Improvement Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+  "capital-equipment-investment-appraisal-npv-irr": contract(
+    "capital-equipment-investment-appraisal-npv-irr",
+    [
+      section("Investment Return", 10, [
+        entry("out_demand_metric", "Net Present Value", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_capacity_metric", "Internal Rate of Return", "percentage", "%", { valueMultiplier: 100, displayDecimals: 3 }),
+        entry("out_utilization_margin", "Profitability Index", "ratio", undefined, { displayDecimals: 4 }),
+      ]),
+      section("Downside and Exposure", 20, [
+        entry("out_reference_deviation", "IRR Minus Discount Rate", "percentage", "%", { valueMultiplier: 100, displayDecimals: 3 }),
+        entry("out_scenario_delta", "Base-to-Downside NPV Delta", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_expanded_uncertainty", "NPV Uncertainty", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_money_at_risk", "Money at Risk", "currency", "currency", { displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [confidence, genericDecision]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// 14. scrap-rework-cost-tracker
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "scrap-rework-cost-tracker",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Total Scrap & Rework Cost", "currency", "USD"),
-      entry("out_demand_metric", "Monthly Scrap Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Monthly Rework Cost", "currency", "USD"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Cost Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Cost Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Cost Uncertainty Band", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Quality Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+  "customer-sku-profitability-forensics": contract(
+    "customer-sku-profitability-forensics",
+    [
+      section("Net Cost-to-Serve Margin", 10, [
+        entry("out_demand_metric", "Net Margin per Unit", "currency", "currency/unit", { displayDecimals: 4 }),
+        entry("out_capacity_metric", "Annual Net Margin", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_utilization_margin", "Net Margin Ratio", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+        entry("out_reference_deviation", "Margin Gap to Target", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      ]),
+      section("Exposure", 20, [
+        entry("out_scenario_delta", "Largest Annual Cost-to-Serve Burden", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_money_at_risk", "Margin at Risk", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_expanded_uncertainty", "Annual Margin Uncertainty", "currency", "currency/year", { displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [confidence, genericDecision]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// 15. outsource-vs-in-house-analyzer
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "outsource-vs-in-house-analyzer",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Net Cost Delta", "currency", "USD"),
-      entry("out_demand_metric", "In-House Unit Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Outsource Unit Cost", "currency", "USD"),
+  "downtime-scrap-loss-statement": contract("downtime-scrap-loss-statement", [
+    section("Loss Statement", 10, [
+      entry("out_demand_metric", "Downtime Cost", "currency", "currency", { displayDecimals: 2 }),
+      entry("out_capacity_metric", "Total Downtime, Scrap and Rework Loss", "currency", "currency", { displayDecimals: 2 }),
+      entry("out_money_at_risk", "Money at Risk", "currency", "currency", { displayDecimals: 2 }),
     ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Decision Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Cost Delta Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Decision Uncertainty Band", "currency", "USD"),
+    section("Operating Condition", 20, [
+      entry("out_utilization_margin", "Uptime Ratio", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      entry("out_derating_factor", "Downtime Ratio", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      entry("out_reference_deviation", "Entered Defect Rate", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      entry("out_scenario_delta", "Largest-to-Smallest Loss Component Gap", "currency", "currency", { displayDecimals: 2 }),
     ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Quality Risk Derating", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+    section("Evidence and Decision", 30, [confidence, genericDecision]),
+  ]),
 
-// ---------------------------------------------------------------------------
-// 16. plant-wide-shop-rate-cost-structure-audit
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "plant-wide-shop-rate-cost-structure-audit",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Calculated Shop Rate", "hourly_rate", "USD/hr"),
-      entry("out_demand_metric", "Total Annual Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Total Productive Hours", "number", "hrs"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Rate Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Rate Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Audit Uncertainty Band", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Cost Structure Derating", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+  "oee-loss-monetization-improvement-business-case": contract(
+    "oee-loss-monetization-improvement-business-case",
+    [
+      section("OEE and Loss Components", 10, [
+        entry("out_reference_deviation", "Overall Equipment Effectiveness", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+        entry("out_derating_factor", "Availability", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+        entry("out_utilization_margin", "Performance", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+        entry("out_demand_metric", "Availability Loss", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_capacity_metric", "Performance Loss", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_expanded_uncertainty", "Quality Loss", "currency", "currency", { displayDecimals: 2 }),
+      ]),
+      section("Business-Case Boundary", 20, [
+        entry("out_money_at_risk", "Measured-Period Total OEE Loss", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_scenario_delta", "Measured Loss Minus Improvement Cost", "currency", "currency", { displayDecimals: 2, explanation: "This is not ROI; ROI requires an explicit recovery rate and time horizon." }),
+      ]),
+      section("Evidence and Decision", 30, [
+        confidence,
+        entry("out_final_decision_state", "Decision State", "string", undefined, { valueLabels: { "0": "READY", "1": "RECOVERY MODEL REQUIRED", "2": "BLOCK" } }),
+      ]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// 17. fx-commodity-pass-through-pricer
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "fx-commodity-pass-through-pricer",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Adjusted Price", "currency", "USD"),
-      entry("out_demand_metric", "FX Impact on Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Commodity Impact on Cost", "currency", "USD"),
+  "scrap-rework-cost-tracker": contract("scrap-rework-cost-tracker", [
+    section("Quality Cost", 10, [
+      entry("out_demand_metric", "Recorded Scrap Cost", "currency", "currency", { displayDecimals: 2 }),
+      entry("out_capacity_metric", "Recorded Rework Cost", "currency", "currency", { displayDecimals: 2 }),
+      entry("out_utilization_margin", "Cost per Affected Unit", "currency", "currency/unit", { displayDecimals: 4 }),
+      entry("out_money_at_risk", "Recorded-Period Quality Loss", "currency", "currency", { displayDecimals: 2 }),
     ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Price Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Price Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Price Uncertainty Band", "currency", "USD"),
+    section("Defect Position", 20, [
+      entry("out_reference_deviation", "Observed Defect Rate", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      entry("out_derating_factor", "Target Defect Rate", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      entry("out_expanded_uncertainty", "Projected Monthly Uncertainty", "currency", "currency/month", { displayDecimals: 2 }),
+      entry("out_scenario_delta", "Scrap Cost Minus Rework Cost", "currency", "currency", { displayDecimals: 2 }),
     ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Pass-Through Derating", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+    section("Evidence and Decision", 30, [confidence, genericDecision]),
+  ]),
 
-// ---------------------------------------------------------------------------
-// 18. energy-efficiency-grant-incentive-feasibility-pack
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "energy-efficiency-grant-incentive-feasibility-pack",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Grant-Adjusted ROI", "ratio"),
-      entry("out_demand_metric", "Energy Cost Savings", "currency", "USD"),
-      entry("out_capacity_metric", "Grant Amount", "currency", "USD"),
+  "outsource-vs-in-house-analyzer": contract("outsource-vs-in-house-analyzer", [
+    section("Make-or-Buy Unit Cost", 10, [
+      entry("out_demand_metric", "In-House Unit Cost", "currency", "currency/unit", { displayDecimals: 4 }),
+      entry("out_capacity_metric", "Risk-Adjusted Outsource Unit Cost", "currency", "currency/unit", { displayDecimals: 4 }),
+      entry("out_scenario_delta", "Annual Outsource Savings Delta", "currency", "currency/year", { displayDecimals: 2 }),
     ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Feasibility Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "ROI Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Feasibility Uncertainty", "currency", "USD"),
+    section("Decision Boundary", 20, [
+      entry("out_utilization_margin", "Capacity Utilization", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      entry("out_expanded_uncertainty", "Unit-Cost Uncertainty Band", "currency", "currency/unit", { displayDecimals: 4 }),
+      entry("out_money_at_risk", "Annual Uncertainty Exposure", "currency", "currency/year", { displayDecimals: 2 }),
     ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Grant Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
+    section("Evidence and Decision", 30, [
+      confidence,
+      entry("out_final_decision_state", "Decision", "string", undefined, { valueLabels: { "0": "MAKE", "1": "BUY", "2": "REVIEW" } }),
     ]),
-  ],
-});
+  ]),
 
-// ---------------------------------------------------------------------------
-// 19. motor-compressor-replacement-roi
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "motor-compressor-replacement-roi",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_utilization_margin", "Replacement ROI", "ratio"),
-      entry("out_demand_metric", "Energy Cost Savings", "currency", "USD"),
-      entry("out_capacity_metric", "Payback Period", "number", "years"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "ROI Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "ROI Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "ROI Uncertainty Band", "currency", "USD"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Replacement Derating", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
-    ]),
-  ],
-});
+  "plant-wide-shop-rate-cost-structure-audit": contract(
+    "plant-wide-shop-rate-cost-structure-audit",
+    [
+      section("Cost Rates", 10, [
+        entry("out_demand_metric", "Plant-Wide Cost Rate", "hourly_rate", "currency/hour", { displayDecimals: 4 }),
+        entry("out_capacity_metric", "Machine-Group Cost Rate", "hourly_rate", "currency/hour", { displayDecimals: 4 }),
+        entry("out_reference_deviation", "Current Rate Gap to Pricing Floor", "hourly_rate", "currency/hour", { displayDecimals: 4 }),
+        entry("out_utilization_margin", "Realized Utilization", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      ]),
+      section("Recovery Exposure", 20, [
+        entry("out_money_at_risk", "Annual Under-Recovery", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_expanded_uncertainty", "Annual Cost Uncertainty", "currency", "currency/year", { displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [confidence, genericDecision]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// 20. weld-procedure-cost-consumable-estimation-suite
-// ---------------------------------------------------------------------------
-register({
-  toolSlug: "weld-procedure-cost-consumable-estimation-suite",
-  sections: [
-    section("Primary Results", 10, [
-      entry("out_total_cost_floor", "Total Weld Cost", "currency", "USD"),
-      entry("out_base_production_cost", "Base Production Cost", "currency", "USD"),
-      entry("out_cost_per_meter", "Cost per Meter", "currency", "USD/m"),
-    ]),
-    section("Cost Breakdown", 15, [
-      entry("out_wire_mass_kg", "Wire Mass", "number", "kg"),
-      entry("out_wire_cost", "Wire / Electrode Cost", "currency", "USD"),
-      entry("out_shielding_gas_cost", "Shielding Gas Cost", "currency", "USD"),
-      entry("out_labor_cost", "Labor Cost", "currency", "USD"),
-      entry("out_shop_overhead", "Shop Overhead", "currency", "USD"),
-    ]),
-    section("Efficiency Metrics", 20, [
-      entry("out_consumable_efficiency", "Deposition Efficiency", "percentage"),
-      entry("out_expanded_uncertainty", "Cost Uncertainty", "currency", "USD"),
-    ]),
-    section("Risk Assessment", 25, [
-      entry("out_sensitivity_driver", "Primary Cost Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
-      entry("out_threshold_crossing", "Cost Threshold Crossed", "boolean"),
-    ]),
-    section("Quality & Decision", 30, [
-      entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_decision_state", "Decision State", "number"),
-    ]),
-  ],
-});
+  "fx-commodity-pass-through-pricer": contract(
+    "fx-commodity-pass-through-pricer",
+    [
+      section("Pass-Through Price", 10, [
+        entry("out_demand_metric", "Adjusted Unit Price", "currency", "currency/unit", { displayDecimals: 4 }),
+        entry("out_capacity_metric", "Annual Escalation", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_utilization_margin", "Net Pass-Through Ratio", "percentage", "%", { valueMultiplier: 100, displayDecimals: 3 }),
+        entry("out_scenario_delta", "Escalation per Unit", "currency", "currency/unit", { displayDecimals: 4 }),
+      ]),
+      section("Exposure", 20, [
+        entry("out_reference_deviation", "FX Change vs Budget", "percentage", "%", { valueMultiplier: 100, displayDecimals: 3 }),
+        entry("out_money_at_risk", "Annual Pricing Uncertainty", "currency", "currency/year", { displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [confidence, genericDecision]),
+    ],
+  ),
 
-// ---------------------------------------------------------------------------
-// BASIC_FALLBACK — for tools not explicitly mapped
-// ---------------------------------------------------------------------------
-export const BASIC_FALLBACK_CONTRACT: ProReportContract = {
-  toolSlug: "__fallback__",
-  sections: [
-    section("Results", 10, [
-      entry("out_utilization_margin", "Primary Metric", "number"),
-      entry("out_demand_metric", "Demand Metric", "number"),
-      entry("out_capacity_metric", "Capacity Metric", "number"),
-    ]),
-    section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Primary Risk Driver", "string"),
-      entry("out_fmea_trigger", "Process Risk Trigger", "boolean"),
-      entry("out_threshold_crossing", "Threshold Crossing Flag", "boolean"),
-      entry("out_expanded_uncertainty", "Expanded Uncertainty", "number"),
-    ]),
-    section("Decision State", 30, [
-      entry("out_evidence_completeness", "Evidence Completeness", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Final Decision State", "number"),
-    ]),
-  ],
+  "energy-efficiency-grant-incentive-feasibility-pack": contract(
+    "energy-efficiency-grant-incentive-feasibility-pack",
+    [
+      section("Life-Cycle Economics", 10, [
+        entry("out_demand_metric", "Annual Cash Saving", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_capacity_metric", "Project NPV", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_utilization_margin", "Discounted Return Ratio", "ratio", undefined, { displayDecimals: 4 }),
+        entry("out_reference_deviation", "Annual Energy Reduction", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+      ]),
+      section("Impact and Exposure", 20, [
+        entry("out_scenario_delta", "Annual CO₂ Reduction", "number", "tCO₂/year", { displayDecimals: 3 }),
+        entry("out_expanded_uncertainty", "NPV Uncertainty", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_money_at_risk", "Money at Risk", "currency", "currency", { displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [confidence, genericDecision]),
+    ],
+  ),
+
+  "motor-compressor-replacement-roi": contract(
+    "motor-compressor-replacement-roi",
+    [
+      section("Energy and Cash Flow", 10, [
+        entry("out_demand_metric", "Current Annual Energy Cost", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_capacity_metric", "Replacement Annual Energy Cost", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_utilization_margin", "Annual Energy and Maintenance Saving", "currency", "currency/year", { displayDecimals: 2 }),
+        entry("out_scenario_delta", "Simple Payback", "number", "months", { displayDecimals: 2 }),
+      ]),
+      section("Investment and Exposure", 20, [
+        entry("out_reference_deviation", "Efficiency Improvement", "percentage", "%", { valueMultiplier: 100, displayDecimals: 2 }),
+        entry("out_money_at_risk", "Replacement Investment", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_expanded_uncertainty", "NPV Uncertainty", "currency", "currency", { displayDecimals: 2 }),
+      ]),
+      section("Evidence and Decision", 30, [confidence, genericDecision]),
+    ],
+  ),
+
+  "weld-procedure-cost-consumable-estimation-suite": contract(
+    "weld-procedure-cost-consumable-estimation-suite",
+    [
+      section("Calculated Cost Basis", 10, [
+        entry("out_total_cost_floor", "Total Weld Cost", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_base_production_cost", "Production Cost Before Shop Overhead", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_cost_per_meter", "Cost per Metre", "currency", "currency/m", { displayDecimals: 2 }),
+      ]),
+      section("Consumable and Labor Breakdown", 20, [
+        entry("out_wire_mass_kg", "Required Wire Mass", "number", "kg", { displayDecimals: 3 }),
+        entry("out_wire_cost", "Wire Cost", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_shielding_gas_cost", "Shielding Gas Cost", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_labor_cost", "Labor Cost", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_shop_overhead", "Shop Overhead", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_consumable_efficiency", "Deposition Efficiency", "percentage", "%", { valueMultiplier: 100, displayDecimals: 1 }),
+      ]),
+      section("Evidence and Review Boundary", 30, [
+        confidence,
+        entry("out_expanded_uncertainty", "Cost Uncertainty", "currency", "currency", { displayDecimals: 2 }),
+        entry("out_decision_state", "Decision State", "string", undefined, { valueLabels: { "0": "COST BASIS", "1": "BENCHMARK REQUIRED", "2": "BLOCK" }, explanation: "No competitive or margin claim is made without an entered benchmark or selling price." }),
+      ]),
+    ],
+  ),
 };
-
-// ---------------------------------------------------------------------------
-// Public API
-// ---------------------------------------------------------------------------
 
 export function getProReportContract(toolSlug: string): ProReportContract | null {
   return proReportContractRegistry[toolSlug] ?? null;
+}
+
+export function listProReportContractSlugs(): string[] {
+  return Object.keys(proReportContractRegistry).sort();
 }
