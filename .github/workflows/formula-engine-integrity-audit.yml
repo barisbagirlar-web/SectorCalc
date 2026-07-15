@@ -87,7 +87,14 @@ jobs:
         run: npm run test:v5-runtime
 
       - name: Typecheck
-        run: npm run typecheck
+        shell: bash
+        run: |
+          mkdir -p artifacts/formula-integrity-audit
+          set +e
+          npm run typecheck 2>&1 | tee artifacts/formula-integrity-audit/typecheck.log
+          status=${PIPESTATUS[0]}
+          set -e
+          exit "$status"
 
       - name: Upload audit report
         if: always()
