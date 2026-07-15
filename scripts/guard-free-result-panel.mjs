@@ -3,8 +3,8 @@
 // Legacy/generated tool components are intentionally excluded because they are not
 // mounted by /tools/free/[slug] and must not create false release failures.
 
-import { readFileSync, existsSync, globSync, mkdirSync, writeFileSync } from "fs";
-import { resolve, relative, join } from "path";
+import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, statSync } from "fs";
+import { resolve, relative, join, extname } from "path";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const ARTIFACT_DIR = join(ROOT, "artifacts", "formula-integrity-audit");
@@ -14,17 +14,30 @@ let pass = true;
 const errors = [];
 const diagnostics = [];
 
+function walkSourceFiles(dir) {
+  if (!existsSync(dir)) return [];
+  const files = [];
+  for (const entry of readdirSync(dir)) {
+    const path = join(dir, entry);
+    const stat = statSync(path);
+    if (stat.isDirectory()) {
+      files.push(...walkSourceFiles(path));
+      continue;
+    }
+    if ([".ts", ".tsx"].includes(extname(path))) files.push(path);
+  }
+  return files;
+}
+
 function activeRendererFiles() {
   const files = [];
   const formPath = resolve(ROOT, "src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx");
   if (existsSync(formPath)) files.push(formPath);
 
   const freeFormDir = resolve(ROOT, "src/sectorcalc/free-form");
-  if (existsSync(freeFormDir)) {
-    files.push(...globSync(`${freeFormDir}/**/*.{tsx,ts}`));
-  }
+  files.push(...walkSourceFiles(freeFormDir));
 
-  return [...new Set(files)];
+  return [...new Set(files)].sort();
 }
 
 function sourceLocation(file, content, needle) {
