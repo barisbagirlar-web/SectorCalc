@@ -14,7 +14,7 @@ import {
 } from "./pro-formula-safety";
 
 export const toolKey = "weld-procedure-cost-consumable-estimation-suite";
-export const formulaVersion = "5.3.1-pro-baris.2";
+export const formulaVersion = "5.3.1-pro-baris.1";
 
 export const requiredInputKeys = [
   "n_weld_length_m",
@@ -126,9 +126,6 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     state,
   );
 
-  // Broad process plausibility interlocks. These are deliberately generous;
-  // exceeding them indicates a unit/time/geometry contradiction rather than a
-  // normal process variation.
   if (travelSpeedMPerMin > 10) {
     state.errors.push(
       `Weld travel speed ${roundDisplay(travelSpeedMPerMin, 3)} m/min exceeds the calculation plausibility limit of 10 m/min.`,
@@ -156,9 +153,6 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const costDrivers = [wireCost, gasCost, laborCost, overheadCost];
   const sensitivityDriver = costDrivers.indexOf(Math.max(...costDrivers));
 
-  // No selling price, target margin or external benchmark is present in the
-  // schema. Therefore the engine may calculate cost but must not claim LOW COST,
-  // competitive pricing or commercial efficiency.
   state.warnings.push(
     "Cost calculated from the entered geometry and rates; no competitiveness or margin conclusion is made without a benchmark or selling price.",
   );
