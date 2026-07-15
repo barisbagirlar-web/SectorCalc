@@ -240,8 +240,8 @@ function buildCalculatorViewModel(
 
       // Clean reference helper — one user-facing line per input, en-US format
       // Priority: 1. engineering_range / engineering_reference_range, 2. meta.allowedRange,
-      // 3. physical_hard_bounds as "Input limit", 4. meta.defaultReference, 5. reference registry,
-      // 6. resolved initial value as suggested example
+      // 3. resolved initial value as suggested example, 4. physical_hard_bounds as "Input limit",
+      // 5. meta.defaultReference, 6. reference registry
       const cleanReferenceHelper = (() => {
         // Priority 1: engineering_reference_range or engineering_range
         const er = input.engineering_reference_range ?? input.engineering_range;
@@ -256,7 +256,15 @@ function buildCalculatorViewModel(
         if (meta.allowedRange) {
           return `Reference: ${meta.allowedRange}`;
         }
-        // Priority 3: physical_hard_bounds as "Input limit"
+        // Priority 3: resolved initial example value as suggested reference
+        // (covers PRO tools with schema example_value and free tools with TOOL_EXAMPLE_VALUES)
+        const rawVal = state.rawInputState[input.id];
+        if (rawVal !== null && rawVal !== undefined && rawVal !== "" && typeof rawVal === "number") {
+          const exampleUnit = input.base_unit ? formatCleanUnitLabel(input.base_unit) : "";
+          const unitStr = exampleUnit ? ` ${exampleUnit}` : "";
+          return `Suggested: e.g. ${rawVal}${unitStr}`;
+        }
+        // Priority 4: physical_hard_bounds as "Input limit"
         const hb = input.physical_hard_bounds;
         if (hb && hb.min !== null && hb.max !== null) {
           const unitLabel = hb.unit ? formatCleanUnitLabel(hb.unit) : "";
@@ -265,23 +273,16 @@ function buildCalculatorViewModel(
           const unitStr = unitLabel ? ` ${unitLabel}` : "";
           return `Input limit: ${minFormatted}–${maxFormatted}${unitStr}`;
         }
-        // Priority 4: meta.defaultReference
+        // Priority 5: meta.defaultReference
         if (meta.defaultReference) {
           return `Reference: ${meta.defaultReference}`;
         }
-        // Priority 5: reference registry (first matching reference as suggested value)
+        // Priority 6: reference registry (first matching reference as suggested value)
         const refRegKey = props.toolKey ?? props.schema?.tool_key ?? "";
         const inputRegRefs = refRegKey ? referenceRegistry[refRegKey]?.[input.id] : undefined;
         if (inputRegRefs?.references?.length) {
           const firstRef = inputRegRefs.references[0];
           return `Reference: ${firstRef.label} = ${firstRef.value} ${firstRef.unit}`;
-        }
-        // Priority 6: resolved initial example value as suggested reference
-        const rawVal = state.rawInputState[input.id];
-        if (rawVal !== null && rawVal !== undefined && rawVal !== "" && typeof rawVal === "number") {
-          const exampleUnit = input.base_unit ? formatCleanUnitLabel(input.base_unit) : "";
-          const unitStr = exampleUnit ? ` ${exampleUnit}` : "";
-          return `Suggested: e.g. ${rawVal}${unitStr}`;
         }
         return "";
       })();
