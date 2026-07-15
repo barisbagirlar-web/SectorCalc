@@ -1,82 +1,190 @@
 import "server-only";
+
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
-
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
+import type { ProFormulaResult } from "./pro-formula-contract";
+import {
+  createValidationState,
+  divideOrError,
+  finalizeResult,
+  requireFiniteInputs,
+  requireNonNegative,
+  requirePositive,
+  requireRange,
+  roundDisplay,
+} from "./pro-formula-safety";
 
 export const toolKey = "weld-procedure-cost-consumable-estimation-suite";
-export const formulaVersion = "5.3.1-pro-baris.1";
+export const formulaVersion = "5.3.1-pro-baris.2";
 
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+export const requiredInputKeys = [
+  "n_weld_length_m",
+  "n_weld_throat_mm",
+  "n_weld_density_g_per_cm3",
+  "n_wire_cost_per_kg",
+  "n_gas_cost_per_min",
+  "n_arc_time_min",
+  "n_weld_time_min",
+  "n_labor_rate",
+  "n_overhead_rate",
+  "n_deposition_efficiency_pct",
+  "n_source_confidence_ratio",
+] as const;
+
+export const declaredOutputKeys = [
+  "out_total_cost_floor",
+  "out_base_production_cost",
+  "out_cost_per_meter",
+  "out_wire_mass_kg",
+  "out_wire_cost",
+  "out_shielding_gas_cost",
+  "out_labor_cost",
+  "out_shop_overhead",
+  "out_consumable_efficiency",
+  "out_decision_state",
+  "out_evidence_completeness",
+  "out_expanded_uncertainty",
+  "out_threshold_crossing",
+  "out_sensitivity_driver",
+  "out_fmea_trigger",
+] as const;
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
+/**
+ * Equal-leg fillet weld using effective throat a:
+ *   cross-sectional area = a²
+ *   deposited mass = length × area × density
+ *
+ * The density input reaches this module in kg/m³. The legacy normalized key is
+ * retained for compatibility; unit-normalizer converts the UI g/cm³ value to
+ * kg/m³ before execution.
+ */
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const state = createValidationState();
+  const values = requireFiniteInputs(inputs, requiredInputKeys, state);
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
 
-  const weld_length = get(inputs, "n_weld_length_m");
-  const throat_mm = get(inputs, "n_weld_throat_mm");
-  const weld_density = get(inputs, "n_weld_density_g_per_cm3");
-  const wire_cost_per_kg = get(inputs, "n_wire_cost_per_kg");
-  const gas_cost_per_min = get(inputs, "n_gas_cost_per_min");
-  const arc_time = get(inputs, "n_arc_time_min");
-  const weld_time_min = get(inputs, "n_weld_time_min");
-  const labor_rate = get(inputs, "n_labor_rate");
-  const overhead_rate = get(inputs, "n_overhead_rate");
-  const dep_eff = get(inputs, "n_deposition_efficiency_pct") / 100;
-  const conf = get(inputs, "n_source_confidence_ratio");
+  const weldLengthM = values.n_weld_length_m;
+  const effectiveThroatMm = values.n_weld_throat_mm;
+  const densityKgM3 = values.n_weld_density_g_per_cm3;
+  const wireCostPerKg = values.n_wire_cost_per_kg;
+  const gasCostPerMin = values.n_gas_cost_per_min;
+  const arcTimeMin = values.n_arc_time_min;
+  const totalWeldTimeMin = values.n_weld_time_min;
+  const laborRatePerHour = values.n_labor_rate;
+  const overheadRatePerHour = values.n_overhead_rate;
+  const depositionEfficiencyPct = values.n_deposition_efficiency_pct;
+  const sourceConfidence = values.n_source_confidence_ratio;
 
-  if (!isFiniteNumber(inputs["n_weld_length_m"])) warnings.push("Missing: n_weld_length_m");
-  if (!isFiniteNumber(inputs["n_weld_throat_mm"])) warnings.push("Missing: n_weld_throat_mm");
-  if (!isFiniteNumber(inputs["n_wire_cost_per_kg"])) warnings.push("Missing: n_wire_cost_per_kg");
+  requirePositive(weldLengthM, "Weld length", state);
+  requirePositive(effectiveThroatMm, "Effective weld throat", state);
+  requireRange(densityKgM3, 500, 25000, "Weld metal density (kg/m³)", state);
+  requireNonNegative(wireCostPerKg, "Wire cost per kg", state);
+  requireNonNegative(gasCostPerMin, "Gas cost per minute", state);
+  requirePositive(arcTimeMin, "Arc-on time", state);
+  requirePositive(totalWeldTimeMin, "Total weld time", state);
+  requireNonNegative(laborRatePerHour, "Labor rate", state);
+  requireNonNegative(overheadRatePerHour, "Overhead rate", state);
+  requireRange(depositionEfficiencyPct, 0, 100, "Deposition efficiency (%)", state, {
+    minInclusive: false,
+  });
+  requireRange(sourceConfidence, 0, 1, "Source confidence", state);
 
-  const throat_m = throat_mm / 1000;
-  const weld_volume_g = weld_length * (throat_m * throat_m) / 2 * weld_density * 1000;
-  const wire_needed = dep_eff > 0 ? weld_volume_g / dep_eff : 0;
-  const consumable_cost = wire_needed / 1000 * wire_cost_per_kg;
-  const gas_cost = gas_cost_per_min * arc_time;
-  const labor_cost = labor_rate * weld_time_min / 60;
-  const overhead_cost = overhead_rate * weld_time_min / 60;
-  const total_cost = consumable_cost + gas_cost + labor_cost + overhead_cost;
-  const cost_per_meter = weld_length > 0 ? total_cost / weld_length : 0;
-  const decision = cost_per_meter > 50 ? 1 : (cost_per_meter > 20 ? 2 : 0);
+  if (totalWeldTimeMin < arcTimeMin) {
+    state.errors.push("Total weld time must be greater than or equal to arc-on time.");
+  }
 
-  // Tool-specific output keys for weld-procedure-cost-consumable-estimation-suite
-  outputs["out_total_cost_floor"] = round(total_cost, 2);
-  outputs["out_base_production_cost"] = round(total_cost - overhead_cost, 2);
-  outputs["out_cost_per_meter"] = round(cost_per_meter, 2);
-  outputs["out_wire_mass_kg"] = round(wire_needed / 1000, 3);
-  outputs["out_wire_cost"] = round(consumable_cost, 2);
-  outputs["out_shielding_gas_cost"] = round(gas_cost, 2);
-  outputs["out_labor_cost"] = round(labor_cost, 2);
-  outputs["out_shop_overhead"] = round(overhead_cost, 2);
-  outputs["out_consumable_efficiency"] = round(dep_eff, 3);
-  outputs["out_decision_state"] = decision;
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
 
-  // Preserved generic outputs for backward compatibility
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_expanded_uncertainty"] = round(overhead_cost * 0.1, 2);
-  outputs["out_threshold_crossing"] = cost_per_meter > 50 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = labor_cost > consumable_cost ? 1 : 0;
-  outputs["out_fmea_trigger"] = cost_per_meter > 30 ? 1 : 0;
+  const throatM = effectiveThroatMm / 1000;
+  const sectionAreaM2 = throatM ** 2;
+  const depositedVolumeM3 = weldLengthM * sectionAreaM2;
+  const depositedMassKg = depositedVolumeM3 * densityKgM3;
+  const depositionEfficiency = depositionEfficiencyPct / 100;
+  const wireMassKg = divideOrError(
+    depositedMassKg,
+    depositionEfficiency,
+    "Wire mass / deposition efficiency",
+    state,
+  );
 
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return {
-    status: ok ? "OK" : "REVIEW",
-    outputs,
-    warnings: warnings.length ? warnings : [],
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
+  const arcHours = arcTimeMin / 60;
+  const travelSpeedMPerMin = divideOrError(
+    weldLengthM,
+    arcTimeMin,
+    "Weld travel speed",
+    state,
+  );
+  const depositionRateKgPerHour = divideOrError(
+    depositedMassKg,
+    arcHours,
+    "Weld deposition rate",
+    state,
+  );
+
+  // Broad process plausibility interlocks. These are deliberately generous;
+  // exceeding them indicates a unit/time/geometry contradiction rather than a
+  // normal process variation.
+  if (travelSpeedMPerMin > 10) {
+    state.errors.push(
+      `Weld travel speed ${roundDisplay(travelSpeedMPerMin, 3)} m/min exceeds the calculation plausibility limit of 10 m/min.`,
+    );
+  }
+  if (depositionRateKgPerHour > 100) {
+    state.errors.push(
+      `Deposited metal rate ${roundDisplay(depositionRateKgPerHour, 3)} kg/h exceeds the calculation plausibility limit of 100 kg/h.`,
+    );
+  }
+
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
+
+  const wireCost = wireMassKg * wireCostPerKg;
+  const gasCost = gasCostPerMin * arcTimeMin;
+  const laborCost = laborRatePerHour * (totalWeldTimeMin / 60);
+  const overheadCost = overheadRatePerHour * (totalWeldTimeMin / 60);
+  const baseProductionCost = wireCost + gasCost + laborCost;
+  const totalCost = baseProductionCost + overheadCost;
+  const costPerMeter = divideOrError(totalCost, weldLengthM, "Cost per metre", state);
+  const uncertainty = totalCost * (1 - sourceConfidence);
+
+  const costDrivers = [wireCost, gasCost, laborCost, overheadCost];
+  const sensitivityDriver = costDrivers.indexOf(Math.max(...costDrivers));
+
+  // No selling price, target margin or external benchmark is present in the
+  // schema. Therefore the engine may calculate cost but must not claim LOW COST,
+  // competitive pricing or commercial efficiency.
+  state.warnings.push(
+    "Cost calculated from the entered geometry and rates; no competitiveness or margin conclusion is made without a benchmark or selling price.",
+  );
+
+  const outputs: Record<string, number> = {
+    out_total_cost_floor: roundDisplay(totalCost, 2),
+    out_base_production_cost: roundDisplay(baseProductionCost, 2),
+    out_cost_per_meter: roundDisplay(costPerMeter, 2),
+    out_wire_mass_kg: roundDisplay(wireMassKg, 3),
+    out_wire_cost: roundDisplay(wireCost, 2),
+    out_shielding_gas_cost: roundDisplay(gasCost, 2),
+    out_labor_cost: roundDisplay(laborCost, 2),
+    out_shop_overhead: roundDisplay(overheadCost, 2),
+    out_consumable_efficiency: roundDisplay(depositionEfficiency, 4),
+    out_decision_state: 1,
+    out_evidence_completeness: roundDisplay(sourceConfidence, 3),
+    out_expanded_uncertainty: roundDisplay(uncertainty, 2),
+    out_threshold_crossing: 0,
+    out_sensitivity_driver: sensitivityDriver,
+    out_fmea_trigger: sourceConfidence < 0.7 ? 1 : 0,
   };
+
+  return finalizeResult({
+    outputs,
+    outputKeys: declaredOutputKeys,
+    state,
+    status: "REVIEW",
+  });
 }
