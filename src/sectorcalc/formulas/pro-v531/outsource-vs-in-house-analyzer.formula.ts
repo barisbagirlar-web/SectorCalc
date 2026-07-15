@@ -1,130 +1,147 @@
 import "server-only";
+
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
-
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
+import type { ProFormulaResult } from "./pro-formula-contract";
+import {
+  createValidationState,
+  divideOrError,
+  finalizeResult,
+  requireFiniteInputs,
+  requireInteger,
+  requireNonNegative,
+  requireRange,
+  roundDisplay,
+} from "./pro-formula-safety";
 
 export const toolKey = "outsource-vs-in-house-analyzer";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
-function isFiniteNumber(v: unknown): v is number {
-  return typeof v === "number" && Number.isFinite(v);
-}
+export const requiredInputKeys = [
+  "n_in_house_material_cost",
+  "n_in_house_labor_cost",
+  "n_in_house_overhead",
+  "n_in_house_setup_cost",
+  "n_outsource_unit_price",
+  "n_outsource_logistics_cost",
+  "n_annual_volume",
+  "n_quality_risk_premium_pct",
+  "n_capacity_utilization_pct",
+  "n_source_confidence_ratio",
+] as const;
 
-function get(inputs: Record<string, number>, key: string): number {
-  const v = inputs[key];
-  return isFiniteNumber(v) ? v : 0;
-}
-
-function safeDiv(n: number, d: number): number {
-  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
-  return n / d;
-}
-
-function round(v: number, d: number): number {
-  if (!isFiniteNumber(v)) return 0;
-  const f = Math.pow(10, d);
-  return Math.round(v * f) / f;
-}
+export const declaredOutputKeys = [
+  "out_evidence_completeness",
+  "out_normalized_demand",
+  "out_reference_deviation",
+  "out_derating_factor",
+  "out_demand_metric",
+  "out_capacity_metric",
+  "out_utilization_margin",
+  "out_expanded_uncertainty",
+  "out_threshold_crossing",
+  "out_sensitivity_driver",
+  "out_fmea_trigger",
+  "out_money_at_risk",
+  "out_scenario_delta",
+  "out_audit_hash_payload",
+  "out_final_decision_state",
+] as const;
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
-
-  // Validate required inputs
-  const requiredInputs = [
-    "n_in_house_material_cost",
-    "n_in_house_labor_cost",
-    "n_in_house_overhead",
-    "n_in_house_setup_cost",
-    "n_outsource_unit_price",
-    "n_outsource_logistics_cost",
-    "n_annual_volume",
-    "n_quality_risk_premium_pct",
-    "n_capacity_utilization_pct",
-    "n_source_confidence_ratio"
-  ];
-  for (const key of requiredInputs) {
-    if (!isFiniteNumber(inputs[key])) {
-      warnings.push("Missing or non-finite input: " + key);
-    }
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const state = createValidationState();
+  const v = requireFiniteInputs(inputs, requiredInputKeys, state);
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
   }
 
-  // Extract inputs
-  const materialCost = get(inputs, "n_in_house_material_cost");
-  const laborCost = get(inputs, "n_in_house_labor_cost");
-  const overhead = get(inputs, "n_in_house_overhead");
-  const setupCost = get(inputs, "n_in_house_setup_cost");
-  const outsourceUnitPrice = get(inputs, "n_outsource_unit_price");
-  const logisticsCost = get(inputs, "n_outsource_logistics_cost");
-  const annualVolume = get(inputs, "n_annual_volume");
-  const qualityRiskPremiumPct = get(inputs, "n_quality_risk_premium_pct");
-  const capacityUtilizationPct = get(inputs, "n_capacity_utilization_pct");
-  const sourceConfidenceRatio = get(inputs, "n_source_confidence_ratio");
+  const materialCost = v.n_in_house_material_cost;
+  const laborCost = v.n_in_house_labor_cost;
+  const overheadCost = v.n_in_house_overhead;
+  const setupCost = v.n_in_house_setup_cost;
+  const outsourcePrice = v.n_outsource_unit_price;
+  const logisticsCost = v.n_outsource_logistics_cost;
+  const annualVolume = v.n_annual_volume;
+  const qualityRiskPct = v.n_quality_risk_premium_pct;
+  const utilizationPct = v.n_capacity_utilization_pct;
+  const confidence = v.n_source_confidence_ratio;
 
-  // Core calculations
-  const setupCostPerUnit = safeDiv(setupCost, Math.max(annualVolume, 1));
-  const inHouseUnitCost = materialCost + laborCost + overhead + setupCostPerUnit;
-  const inHouseTotalCost = inHouseUnitCost * annualVolume;
-  const outsourceUnitCost = outsourceUnitPrice + logisticsCost;
-  const outsourceTotalCost = outsourceUnitCost * annualVolume;
-  const capacityOppCost = (1 - capacityUtilizationPct / 100) * inHouseTotalCost * 0.3;
-  const riskPremium = outsourceTotalCost * qualityRiskPremiumPct / 100;
-  const riskAdjDelta = (inHouseTotalCost + capacityOppCost) - (outsourceTotalCost + riskPremium);
-  const savingsPerUnit = safeDiv(riskAdjDelta, Math.max(annualVolume, 1));
+  requireNonNegative(materialCost, "In-house material cost", state);
+  requireNonNegative(laborCost, "In-house labor cost", state);
+  requireNonNegative(overheadCost, "In-house overhead", state);
+  requireNonNegative(setupCost, "In-house setup cost", state);
+  requireNonNegative(outsourcePrice, "Outsource unit price", state);
+  requireNonNegative(logisticsCost, "Outsource logistics cost", state);
+  requireInteger(annualVolume, 1, 1000000000000, "Annual volume", state);
+  requireRange(qualityRiskPct, 0, 100, "Quality risk premium (%)", state);
+  requireRange(utilizationPct, 0, 100, "Capacity utilization (%)", state);
+  requireRange(confidence, 0, 1, "Source confidence", state);
 
-  // Decision logic: 0=MAKE, 1=BUY, 2=REVIEW
-  const threshold = inHouseTotalCost * 0.1;
-  let decisionFlag: number;
-  if (riskAdjDelta <= -threshold) {
-    decisionFlag = 0; // MAKE
-  } else if (riskAdjDelta >= threshold) {
-    decisionFlag = 1; // BUY
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
+
+  const setupPerUnit = divideOrError(setupCost, annualVolume, "Setup cost per unit", state);
+  const inHouseUnitCost = materialCost + laborCost + overheadCost + setupPerUnit;
+  const outsourceLandedUnitCost = outsourcePrice + logisticsCost;
+  const qualityRiskPremium = outsourceLandedUnitCost * (qualityRiskPct / 100);
+  const riskAdjustedOutsourceUnitCost = outsourceLandedUnitCost + qualityRiskPremium;
+  const savingsPerUnitFromOutsource = inHouseUnitCost - riskAdjustedOutsourceUnitCost;
+  const annualDelta = savingsPerUnitFromOutsource * annualVolume;
+  const uncertaintyBand =
+    Math.max(inHouseUnitCost, riskAdjustedOutsourceUnitCost) * (1 - confidence);
+  const annualMoneyAtRisk = uncertaintyBand * annualVolume;
+
+  // Capacity utilization is a constraint signal only. The prior model invented a
+  // monetary opportunity-cost coefficient. Without an entered opportunity-cost
+  // rate, no capacity premium is added to either scenario.
+  const highCapacityPressure = utilizationPct >= 90;
+  const economicallySeparated = Math.abs(savingsPerUnitFromOutsource) > uncertaintyBand;
+
+  let decision: number;
+  if (!economicallySeparated || confidence < 0.7 || highCapacityPressure) {
+    decision = 2; // REVIEW
+  } else if (savingsPerUnitFromOutsource > 0) {
+    decision = 1; // BUY
   } else {
-    decisionFlag = 2; // REVIEW
+    decision = 0; // MAKE
   }
 
-  // Map to all 15 output IDs
-  outputs["out_evidence_completeness"] = round(sourceConfidenceRatio, 4);
-  outputs["out_normalized_demand"] = round(annualVolume, 4);
-  outputs["out_reference_deviation"] = round(qualityRiskPremiumPct / 100, 4);
-  outputs["out_derating_factor"] = round(capacityUtilizationPct / 100, 4);
-  outputs["out_demand_metric"] = round(inHouseUnitCost, 4);
-  outputs["out_capacity_metric"] = round(outsourceUnitCost, 4);
-  outputs["out_utilization_margin"] = round(capacityUtilizationPct / 100, 4);
-  outputs["out_expanded_uncertainty"] = round(1 - sourceConfidenceRatio, 4);
-  outputs["out_threshold_crossing"] = round(decisionFlag, 4);
-  outputs["out_sensitivity_driver"] = round(Math.max(materialCost, laborCost, overhead, outsourceUnitPrice), 4);
-  outputs["out_fmea_trigger"] = round(decisionFlag === 2 ? 1 : 0, 4);
-  outputs["out_money_at_risk"] = round(Math.abs(riskAdjDelta), 4);
-  outputs["out_scenario_delta"] = round(savingsPerUnit, 4);
-  outputs["out_audit_hash_payload"] = round(annualVolume + sourceConfidenceRatio, 4);
-  outputs["out_final_decision_state"] = round(decisionFlag, 4);
-
-  // Sanity check
-  for (const key of Object.keys(outputs)) {
-    if (!isFiniteNumber(outputs[key])) {
-      outputs[key] = 0;
-      warnings.push("Non-finite output corrected to zero: " + key);
-    }
+  if (highCapacityPressure) {
+    state.warnings.push(
+      "Capacity utilization is at or above 90%; quantify the opportunity cost before final make/buy commitment.",
+    );
+  }
+  if (confidence < 0.7) {
+    state.warnings.push("Source confidence is below 70%; verify supplier quote and internal cost evidence.");
   }
 
-  const ok = warnings.length === 0;
-  return {
-    status: ok ? "OK" : "REVIEW",
-    outputs,
-    warnings: warnings.length ? warnings : [],
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
+  const drivers = [materialCost, laborCost, overheadCost, outsourcePrice, logisticsCost, qualityRiskPremium];
+  const sensitivityDriver = drivers.indexOf(Math.max(...drivers));
+
+  const outputs: Record<string, number> = {
+    out_evidence_completeness: roundDisplay(confidence, 4),
+    out_normalized_demand: roundDisplay(annualVolume, 0),
+    out_reference_deviation: roundDisplay(qualityRiskPct / 100, 4),
+    out_derating_factor: roundDisplay(utilizationPct / 100, 4),
+    out_demand_metric: roundDisplay(inHouseUnitCost, 4),
+    out_capacity_metric: roundDisplay(riskAdjustedOutsourceUnitCost, 4),
+    out_utilization_margin: roundDisplay(utilizationPct / 100, 4),
+    out_expanded_uncertainty: roundDisplay(uncertaintyBand, 4),
+    out_threshold_crossing: economicallySeparated ? 1 : 0,
+    out_sensitivity_driver: sensitivityDriver,
+    out_fmea_trigger: decision === 2 ? 1 : 0,
+    out_money_at_risk: roundDisplay(annualMoneyAtRisk, 2),
+    out_scenario_delta: roundDisplay(annualDelta, 2),
+    out_audit_hash_payload: 0,
+    out_final_decision_state: decision,
   };
+
+  return finalizeResult({
+    outputs,
+    outputKeys: declaredOutputKeys,
+    state,
+    status: decision === 2 ? "REVIEW" : "OK",
+  });
 }
