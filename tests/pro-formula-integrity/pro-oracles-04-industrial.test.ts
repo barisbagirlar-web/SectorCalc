@@ -49,7 +49,7 @@ describe("PRO semantic oracles 16-20", () => {
     expectClose(result, "out_reference_deviation", 0.1, 8);
   });
 
-  it("18 energy efficiency reconciles grant-adjusted investment and discounted saving", () => {
+  it("18 energy efficiency reconciles grant-adjusted NPV and project benefit-cost ratio", () => {
     const result = energy.calculate({
       n_current_kwh_per_year: 1000,
       n_target_kwh_per_year: 500,
@@ -65,7 +65,7 @@ describe("PRO semantic oracles 16-20", () => {
     expect(result.status).toBe("OK");
     expectClose(result, "out_demand_metric", 50, 8);
     expectClose(result, "out_capacity_metric", 10, 8);
-    expectClose(result, "out_utilization_margin", 0.25, 8);
+    expectClose(result, "out_utilization_margin", 1.25, 8);
     expectClose(result, "out_reference_deviation", 0.5, 8);
   });
 
