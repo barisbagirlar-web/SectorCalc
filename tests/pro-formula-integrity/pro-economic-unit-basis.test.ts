@@ -122,6 +122,19 @@ const EXPECTED_BASES: Readonly<Record<string, Readonly<Record<string, string>>>>
   },
 };
 
+const DISPLAY_ALIAS: Readonly<Record<string, string>> = {
+  currency_unit: "Currency",
+  currency_unit_per_h: "Currency/h",
+  currency_unit_per_unit: "Currency/unit",
+  currency_unit_per_batch: "Currency/batch",
+  currency_unit_per_invoice: "Currency/invoice",
+  currency_unit_per_month: "Currency/month",
+  currency_unit_per_year: "Currency/year",
+  currency_unit_per_kWh: "Currency/kWh",
+  currency_unit_per_kg: "Currency/kg",
+  currency_unit_per_min: "Currency/min",
+};
+
 describe("all LIVE PRO monetary inputs declare an exact economic basis", () => {
   expect(Object.keys(EXPECTED_BASES)).toHaveLength(20);
 
@@ -134,16 +147,36 @@ describe("all LIVE PRO monetary inputs declare an exact economic basis", () => {
 
       for (const [inputId, expectedBase] of Object.entries(expectedInputs)) {
         const input = byId.get(inputId);
+        const expectedAlias = DISPLAY_ALIAS[expectedBase];
+        expect(expectedAlias, `${expectedBase} needs a display alias`).toBeDefined();
         expect(input, `${toolKey}:${inputId} is missing`).toBeDefined();
         expect(input?.base_unit, `${toolKey}:${inputId}`).toBe(expectedBase);
         expect(input?.allowed_display_units, `${toolKey}:${inputId}`).toEqual([
-          expectedBase,
+          expectedAlias,
         ]);
         expect(input?.unit_selectable, `${toolKey}:${inputId}`).toBe(false);
         expect(
           (input?.ui_binding as { semantic_tag?: string } | undefined)?.semantic_tag,
           `${toolKey}:${inputId}`,
         ).toBe("monetary");
+
+        const registryItem =
+          resolved.schema.unit_conversion_contract.conversion_registry[
+            input?.quantity_kind ?? ""
+          ];
+        expect(registryItem, `${toolKey}:${inputId} registry`).toBeDefined();
+        expect(
+          registryItem?.units.some(
+            (entry) => entry.unit === expectedBase && entry.factor === 1,
+          ),
+          `${toolKey}:${inputId} base identity conversion`,
+        ).toBe(true);
+        expect(
+          registryItem?.units.some(
+            (entry) => entry.unit === expectedAlias && entry.factor === 1,
+          ),
+          `${toolKey}:${inputId} display identity conversion`,
+        ).toBe(true);
       }
     });
   }
