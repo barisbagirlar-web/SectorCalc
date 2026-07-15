@@ -109,10 +109,23 @@ register({
       ],
     },
   ],
+  insights: [
+    {
+      id: "break-even-runway-critical",
+      severity: "critical",
+      when: (o) => o.out_threshold_crossing === 1,
+      message: (o) =>
+        `Under the stressed scenario, cash runway is ${(o.out_cash_runway_months ?? 0).toFixed(1)} months against a ${'$'}${(o.out_funding_gap ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} funding gap to the survival target -- this needs a funding or cost-cutting decision now, not at the next board meeting.`,
+    },
+    {
+      id: "break-even-margin-of-safety-opportunity",
+      severity: "opportunity",
+      when: (o) => o.out_threshold_crossing === 0 && o.out_margin_of_safety_ratio > 0.20,
+      message: (o) =>
+        `Revenue margin of safety is ${((o.out_margin_of_safety_ratio ?? 0) * 100).toFixed(0)}% -- current revenue could drop by that much before hitting break-even. Comfortable room to absorb a slow month.`,
+    },
+  ],
 });
-
-// ---------------------------------------------------------------------------
-// 2. machine-hourly-rate-proof-report
 // ---------------------------------------------------------------------------
 register({
   toolSlug: "machine-hourly-rate-proof-report",
@@ -205,6 +218,20 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  insights: [
+    {
+      id: "loss-making-job-detector-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `This job is priced below its true fully-loaded cost. Annualized loss exposure is ${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}. Do not quote at the current price without renegotiating or cutting cost.`,
+    },
+    {
+      id: "loss-making-job-detector-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Contribution margin clears the target with room to spare -- this job is priced to actually make money, not just cover cost.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -230,6 +257,20 @@ register({
       entry("out_derating_factor", "Payment Risk Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  insights: [
+    {
+      id: "receivables-cost-payment-term-addendum-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The financing cost of these payment terms exceeds the review threshold (${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}/yr). Either shorten the terms or price the credit cost into the quote.`,
+    },
+    {
+      id: "receivables-cost-payment-term-addendum-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Financing cost of these terms is within a normal range -- no repricing needed on payment terms alone.`,
+    },
   ],
 });
 
@@ -257,6 +298,20 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  insights: [
+    {
+      id: "setup-time-reduction-roi-smed-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Payback on this SMED investment (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} committed) is too long to justify at current volumes -- the setup-time savings don't cover the investment fast enough.`,
+    },
+    {
+      id: "setup-time-reduction-roi-smed-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This SMED investment pays back inside the target window -- a defensible capital request.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -282,6 +337,20 @@ register({
       entry("out_derating_factor", "Margin Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  insights: [
+    {
+      id: "product-sku-margin-ranker-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `This SKU's contribution margin is below target at current volume -- annualized margin exposure is ${(o.out_capacity_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}. Reprice or delist before scaling volume further.`,
+    },
+    {
+      id: "product-sku-margin-ranker-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This SKU clears its target margin -- safe to grow volume on.`,
+    },
   ],
 });
 
@@ -321,10 +390,23 @@ register({
       entry("out_decision_state", "Decision State", "number"),
     ]),
   ],
+  insights: [
+    {
+      id: "true-employee-cost-statement-critical",
+      severity: "critical",
+      when: (o) => o.out_threshold_crossing === 1,
+      message: (o) =>
+        `Fully loaded cost is running well above base compensation -- ${(o.out_base_to_loaded_multiplier ?? 0).toFixed(2)}x the base salary. Budgeting or pricing against base salary alone understates true cost by this multiplier.`,
+    },
+    {
+      id: "true-employee-cost-statement-context",
+      severity: "info",
+      when: (o) => o.out_base_to_loaded_multiplier > 0,
+      message: (o) =>
+        `Fully loaded annual cost is $${(o.out_fully_loaded_annual_cost ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} against $${(o.out_base_annual_compensation ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} base -- use the loaded figure, not base salary, for margin and pricing decisions involving this role.`,
+    },
+  ],
 });
-
-// ---------------------------------------------------------------------------
-// 8. job-quote-builder-pro-pack
 // ---------------------------------------------------------------------------
 register({
   toolSlug: "job-quote-builder-pro-pack",
@@ -346,6 +428,20 @@ register({
       entry("out_derating_factor", "Quote Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  insights: [
+    {
+      id: "job-quote-builder-pro-pack-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `This quote's margin is below the safety threshold against a ${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} cost base -- sending it as-is risks a loss-making job.`,
+    },
+    {
+      id: "job-quote-builder-pro-pack-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This quote holds margin above target -- defensible to send as-is.`,
+    },
   ],
 });
 
@@ -373,6 +469,20 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  insights: [
+    {
+      id: "machine-investment-feasibility-buy-lease-keep-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The total cost of ownership (${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) makes this option unfavorable against the alternatives -- do not commit capital on this path without revisiting the comparison.`,
+    },
+    {
+      id: "machine-investment-feasibility-buy-lease-keep-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This option's total cost of ownership is favorable -- a defensible buy/lease/keep decision.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -398,6 +508,20 @@ register({
       entry("out_derating_factor", "Appraisal Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  insights: [
+    {
+      id: "capital-equipment-investment-appraisal-npv-irr-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Net present value (${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) does not clear the hurdle -- this investment destroys value at the current discount rate and cash flow assumptions.`,
+    },
+    {
+      id: "capital-equipment-investment-appraisal-npv-irr-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `NPV is positive and clears the hurdle rate -- this investment creates value at the assumptions entered.`,
+    },
   ],
 });
 
@@ -425,6 +549,20 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  insights: [
+    {
+      id: "customer-sku-profitability-forensics-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `This SKU is toxic at the account level -- net margin after logistics, service, and return costs is negative, with ${(o.out_capacity_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} in annualized exposure. Cut, reprice, or renegotiate terms.`,
+    },
+    {
+      id: "customer-sku-profitability-forensics-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This SKU is genuinely profitable after all servicing costs are accounted for, not just on paper gross margin.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -450,6 +588,20 @@ register({
       entry("out_derating_factor", "Loss Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  insights: [
+    {
+      id: "downtime-scrap-loss-statement-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Combined downtime, scrap, and rework loss (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) has crossed the escalation threshold against your material cost base -- this needs a root-cause review, not just tracking.`,
+    },
+    {
+      id: "downtime-scrap-loss-statement-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Losses from downtime, scrap, and rework are within a controlled range relative to material cost.`,
+    },
   ],
 });
 
@@ -477,6 +629,20 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  insights: [
+    {
+      id: "oee-loss-monetization-improvement-business-case-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The monetized value of closing this OEE gap (${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}/yr) justifies an improvement project -- the business case clears the threshold.`,
+    },
+    {
+      id: "oee-loss-monetization-improvement-business-case-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Recoverable OEE loss value is modest at current performance -- other improvement levers likely pay back faster.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -502,6 +668,20 @@ register({
       entry("out_derating_factor", "Quality Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  insights: [
+    {
+      id: "scrap-rework-cost-tracker-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Defect rate is above target and the combined scrap/rework cost (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) is materially eating into unit economics -- this is a quality escalation, not routine tracking.`,
+    },
+    {
+      id: "scrap-rework-cost-tracker-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Defect rate is at or below target -- scrap and rework cost is under control.`,
+    },
   ],
 });
 
@@ -529,6 +709,20 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  insights: [
+    {
+      id: "outsource-vs-in-house-analyzer-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The risk-adjusted cost delta (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} exposure) favors a decision change -- re-run this analysis before the next sourcing commitment.`,
+    },
+    {
+      id: "outsource-vs-in-house-analyzer-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `The current in-house/outsource split is cost-favorable once capacity opportunity cost and quality risk premium are both priced in.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -554,6 +748,20 @@ register({
       entry("out_derating_factor", "Cost Structure Derating", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  insights: [
+    {
+      id: "plant-wide-shop-rate-cost-structure-audit-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The audited plant-wide rate under-recovers cost at current utilization -- quoting on the naive rate alone (ignoring this audit) is losing money on every job.`,
+    },
+    {
+      id: "plant-wide-shop-rate-cost-structure-audit-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `The plant-wide shop rate recovers full cost at current utilization -- safe to quote against.`,
+    },
   ],
 });
 
@@ -581,6 +789,20 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  insights: [
+    {
+      id: "fx-commodity-pass-through-pricer-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Combined FX and commodity movement has crossed the repricing threshold -- ${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}/yr is exposed if the quote isn't repriced to reflect current rates.`,
+    },
+    {
+      id: "fx-commodity-pass-through-pricer-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `FX and commodity movement is within the no-reprice band -- the existing quote still holds.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -607,6 +829,20 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  insights: [
+    {
+      id: "energy-efficiency-grant-incentive-feasibility-pack-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Even after the grant offset, payback on this energy-efficiency project is too long to proceed at current energy prices and savings estimates.`,
+    },
+    {
+      id: "energy-efficiency-grant-incentive-feasibility-pack-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Grant-adjusted payback clears the proceed threshold -- a defensible capital request even without further incentive negotiation.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -632,6 +868,20 @@ register({
       entry("out_derating_factor", "Replacement Derating", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  insights: [
+    {
+      id: "motor-compressor-replacement-roi-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Payback on this motor/compressor replacement (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} committed) is long, but NPV over the equipment's life may still be positive -- check the NPV figure before rejecting on payback alone.`,
+    },
+    {
+      id: "motor-compressor-replacement-roi-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This replacement pays back inside a reasonable window and NPV is positive over the equipment's life -- a defensible upgrade.`,
+    },
   ],
 });
 
@@ -666,6 +916,20 @@ register({
       entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
       entry("out_decision_state", "Decision State", "number"),
     ]),
+  ],
+  insights: [
+    {
+      id: "weld-procedure-cost-consumable-estimation-suite-critical",
+      severity: "critical",
+      when: (o) => o.out_decision_state === 2,
+      message: (o) => `Cost per meter on this weld procedure (total ${(o.out_total_cost_floor ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) is above the review threshold -- check wire mass, deposition efficiency, and shop rate before quoting on this procedure.`,
+    },
+    {
+      id: "weld-procedure-cost-consumable-estimation-suite-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Cost per meter on this weld procedure is within the normal range -- safe to use as the basis for a quote.`,
+    },
   ],
 });
 
