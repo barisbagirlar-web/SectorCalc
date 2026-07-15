@@ -100,9 +100,10 @@ jobs:
       - name: Firestore index structure validation
         shell: bash
         run: |
+          set -euo pipefail
           if [ ! -f firestore.indexes.json ]; then
-            echo "firestore.indexes.json not found, skipping"
-            exit 0
+            echo "FIRESTORE_INDEXES_VALIDATION=FAIL missing firestore.indexes.json"
+            exit 1
           fi
           node -e "
             var d=JSON.parse(require('fs').readFileSync('firestore.indexes.json','utf8'));
