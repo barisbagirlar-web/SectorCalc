@@ -144,7 +144,11 @@ export function blockedResult(
 ): ProFormulaResult {
   return {
     status: "BLOCKED",
-    outputs: Object.fromEntries(outputKeys.map((key) => [key, 0])),
+    // A blocked calculation has no valid numeric result. Returning zero-filled
+    // outputs creates plausible-looking business values and can leak into report
+    // adapters. Keep the declared namespace for diagnostics, but expose no
+    // output values until every input and formula invariant passes.
+    outputs: {},
     warnings: [...reasons],
     outputKeys: [...outputKeys],
     redaction_status: "PUBLIC_SAFE_REDACTED",
