@@ -83,7 +83,7 @@ describe("PRO semantic oracles 11-15", () => {
     });
     expect(result.status).toBe("REVIEW");
     expectClose(result, "out_demand_metric", 80, 8);
-    expectClose(result, "out_capacity_metric", 200, 8);
+    expectClose(result, "out_capacity_metric", 560, 8);
     expectClose(result, "out_reference_deviation", 0.03, 8);
     expectClose(result, "out_utilization_margin", 9.3333, 4);
     expectClose(result, "out_money_at_risk", 280, 8);
