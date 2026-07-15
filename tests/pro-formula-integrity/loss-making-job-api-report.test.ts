@@ -30,7 +30,10 @@ function buildRequest(schema: SuperV4Schema): ExecuteRequest {
     source_confidence: 0.9,
   };
   const selectedUnits = Object.fromEntries(
-    schema.inputs.map((input) => [input.id, input.base_unit ?? ""]),
+    schema.inputs.map((input) => [
+      input.id,
+      input.allowed_display_units[0] ?? input.base_unit ?? "",
+    ]),
   );
 
   return {
