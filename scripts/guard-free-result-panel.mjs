@@ -3,13 +3,16 @@
 // Legacy/generated tool components are intentionally excluded because they are not
 // mounted by /tools/free/[slug] and must not create false release failures.
 
-import { readFileSync, existsSync, globSync } from "fs";
-import { resolve, relative } from "path";
+import { readFileSync, existsSync, globSync, mkdirSync, writeFileSync } from "fs";
+import { resolve, relative, join } from "path";
 
 const ROOT = resolve(import.meta.dirname, "..");
+const ARTIFACT_DIR = join(ROOT, "artifacts", "formula-integrity-audit");
+mkdirSync(ARTIFACT_DIR, { recursive: true });
 
 let pass = true;
 const errors = [];
+const diagnostics = [];
 
 function activeRendererFiles() {
   const files = [];
@@ -27,13 +30,19 @@ function activeRendererFiles() {
 function sourceLocation(file, content, needle) {
   const index = content.indexOf(needle);
   if (index < 0) return null;
-  const line = content.slice(0, index).split("\n").length;
-  return `${relative(ROOT, file)}:${line}`;
+  const before = content.slice(0, index);
+  const line = before.split("\n").length;
+  const lineStart = before.lastIndexOf("\n") + 1;
+  const lineEndRaw = content.indexOf("\n", index);
+  const lineEnd = lineEndRaw < 0 ? content.length : lineEndRaw;
+  return {
+    location: `${relative(ROOT, file)}:${line}`,
+    sourceLine: content.slice(lineStart, lineEnd).trim(),
+  };
 }
 
 const rendererFiles = activeRendererFiles();
 
-// 1. Active FREE renderer must not contain duplicate/legacy result copy.
 console.log("Checking active FREE renderer for legacy result patterns...");
 const forbiddenPatterns = [
   "Result: Result",
@@ -46,10 +55,12 @@ const forbiddenPatterns = [
 for (const file of rendererFiles) {
   const content = readFileSync(file, "utf-8");
   for (const pattern of forbiddenPatterns) {
-    const location = sourceLocation(file, content, pattern);
-    if (location) {
+    const match = sourceLocation(file, content, pattern);
+    if (match) {
       pass = false;
-      errors.push(`FAIL: Forbidden active FREE result pattern ${JSON.stringify(pattern)} at ${location}`);
+      const message = `FAIL: Forbidden active FREE result pattern ${JSON.stringify(pattern)} at ${match.location}`;
+      errors.push(message);
+      diagnostics.push(`${message}\n  ${match.sourceLine}`);
     }
   }
 }
@@ -58,7 +69,6 @@ if (errors.length === 0) {
   console.log("  PASS: No legacy result patterns in the active FREE renderer.");
 }
 
-// 2. Required result-layer modules must exist.
 const requiredFiles = [
   "src/sectorcalc/free-form/FreeToolResultPanel.tsx",
   "src/sectorcalc/free-form/freeResultText.ts",
@@ -76,7 +86,6 @@ for (const requiredFile of requiredFiles) {
   }
 }
 
-// 3. The active universal form must import and mount FreeToolResultPanel.
 const formPath = resolve(ROOT, "src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx");
 if (!existsSync(formPath)) {
   pass = false;
@@ -101,7 +110,6 @@ if (!existsSync(formPath)) {
   }
 }
 
-// 4. The public FREE route must load the canonical result-panel stylesheet.
 const pagePath = resolve(ROOT, "src/app/tools/free/[slug]/page.tsx");
 if (!existsSync(pagePath)) {
   pass = false;
@@ -115,6 +123,17 @@ if (!existsSync(pagePath)) {
     console.log("  PASS: Public FREE route imports result-panel CSS.");
   }
 }
+
+const report = [
+  "# Free Result Panel Guard",
+  "",
+  `Status: ${pass && errors.length === 0 ? "PASS" : "FAIL"}`,
+  "",
+  ...(diagnostics.length > 0 ? diagnostics : ["No forbidden active-renderer patterns found."]),
+  "",
+  ...errors.filter((error) => !diagnostics.some((item) => item.startsWith(error))),
+].join("\n");
+writeFileSync(join(ARTIFACT_DIR, "free-result-panel-guard.md"), report, "utf8");
 
 console.log("\n========================================");
 if (pass && errors.length === 0) {
