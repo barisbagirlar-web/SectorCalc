@@ -155,6 +155,34 @@ for (const schemaFile of schemaFiles) {
     }
   }
 
+    // 4. "_pct"-named field that does NOT offer "percent" as a selectable unit (so the
+  //    normalizer passes the raw entered number through unchanged, whatever scale the user
+  //    typed it in) but whose formula alias is divided by 100 anyway -- found in 5 tools
+  //    during the 2026-07-15 audit (motor-compressor x2, downtime-scrap x1, fx-commodity x3,
+  //    scrap-rework x1). The fix each time was to add "percent" as a real option AND remove
+  //    the formula's redundant /100 -- do the same for any new hit here.
+  for (const input of schema.inputs) {
+    const nid = input.normalized_id;
+    if (!nid) continue;
+    const looksLikePercent =
+      /pct|percent/i.test(input.id || "") || /percent/i.test(input.name || "");
+    if (!looksLikePercent) continue;
+    if ((input.allowed_display_units || []).includes("percent")) continue; // fine, real option exists
+    const aliasMatch = formulaSrc.match(
+      new RegExp(`const\\\\s+(\\\\w+)\\\\s*=\\\\s*get\\\\(inputs,\\\\s*"${nid}"\\\\)`)
+    );
+    const inlineDivide = new RegExp(
+      `get\\\\(inputs,\\\\s*"${nid}"\\\\)\\\\s*/\\\\s*100`
+    ).test(formulaSrc);
+    const aliasDivide =
+      aliasMatch && new RegExp(`\\\\b${aliasMatch[1]}\\\\s*/\\\\s*100\\\\b`).test(formulaSrc);
+    if (inlineDivide || aliasDivide) {
+      findings.push(
+        `PERCENT NAME WITHOUT PERCENT UNIT: "${input.id}" (${nid}) is named like a percent field but "percent" is not in allowed_display_units, so users can only enter a raw ratio -- yet the formula divides it by 100 as if a 0..100 percent had been entered.`
+      );
+    }
+  }
+
   if (findings.length === 0) continue;
 
   const label = isLive ? "FAIL" : "WARN (draft/non-live tool)";
