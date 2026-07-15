@@ -94,8 +94,6 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
   }
 
-  // Schema-normalized time values are seconds. Setup is absorbed across the
-  // batch; it is not added to every unit.
   const cycleHoursPerUnit = cycleTimeSeconds / 3600;
   const setupHoursPerUnit = setupTimeSeconds / 3600 / batchQuantity;
   const productiveHoursPerUnit = cycleHoursPerUnit + setupHoursPerUnit;
@@ -118,6 +116,20 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     state,
   );
   const unitGrossProfit = quoteFloorPerUnit - fullyLoadedCostPerUnit;
+  // A genuinely zero-cost process has a zero quote and zero markup. It is not
+  // evaluated through a fabricated denominator of 1. Any non-zero numerator
+  // with zero cost would be inconsistent and is blocked.
+  let quoteMarkupRatio = 0;
+  if (fullyLoadedCostPerUnit > 0) {
+    quoteMarkupRatio = divideOrError(
+      unitGrossProfit,
+      fullyLoadedCostPerUnit,
+      "Quote markup ratio",
+      state,
+    );
+  } else if (Math.abs(unitGrossProfit) > 1e-12) {
+    state.errors.push("Quote markup ratio is undefined for zero cost and non-zero gross profit.");
+  }
   const uncertaintyPerUnit =
     fullyLoadedCostPerUnit * (1 - sourceConfidence) * uncertaintyMultiplier;
   const moneyAtRisk = uncertaintyPerUnit * annualVolume;
@@ -147,10 +159,7 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const outputs: Record<string, number> = {
     out_evidence_completeness: roundDisplay(sourceConfidence, 4),
     out_normalized_demand: roundDisplay(annualVolume, 0),
-    out_reference_deviation: roundDisplay(
-      divideOrError(unitGrossProfit, fullyLoadedCostPerUnit || 1, "Quote markup ratio", state),
-      4,
-    ),
+    out_reference_deviation: roundDisplay(quoteMarkupRatio, 4),
     out_derating_factor: roundDisplay(sourceConfidence, 4),
     out_demand_metric: roundDisplay(machineCostPerUnit, 4),
     out_capacity_metric: roundDisplay(annualProductiveHours, 2),
