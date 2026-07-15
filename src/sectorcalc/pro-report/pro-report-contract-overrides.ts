@@ -102,20 +102,13 @@ const BREAK_EVEN_SURVIVAL_CASH_CONTRACT: ProReportContract = {
           sourceOutputId: "out_target_runway_breached",
           businessLabel: "Target Runway Status",
           format: "string",
-          valueLabels: {
-            "0": "WITHIN TARGET",
-            "1": "BREACHED",
-          },
+          valueLabels: { "0": "WITHIN TARGET", "1": "BREACHED" },
         },
         {
           sourceOutputId: "out_decision_code",
           businessLabel: "Decision",
           format: "string",
-          valueLabels: {
-            "0": "GO",
-            "1": "REVIEW",
-            "2": "BLOCK",
-          },
+          valueLabels: { "0": "GO", "1": "REVIEW", "2": "BLOCK" },
         },
       ],
     },
@@ -208,9 +201,175 @@ const LOSS_MAKING_JOB_CONTRACT: ProReportContract = {
   ],
 };
 
+const ENERGY_EFFICIENCY_CONTRACT: ProReportContract = {
+  toolSlug: "energy-efficiency-grant-incentive-feasibility-pack",
+  strict: true,
+  sections: [
+    {
+      sectionTitle: "Life-Cycle Economics",
+      priority: 10,
+      entries: [
+        {
+          sourceOutputId: "out_demand_metric",
+          businessLabel: "Annual Cash Saving",
+          format: "currency",
+          unit: "currency/year",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_capacity_metric",
+          businessLabel: "Grant-Adjusted Project NPV",
+          format: "currency",
+          unit: "currency",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_utilization_margin",
+          businessLabel: "Discounted Benefit-Cost Ratio",
+          format: "ratio",
+          displayDecimals: 4,
+          explanation:
+            "Present value of project savings divided by total implementation cost. This remains defined even when a grant covers all owner-funded investment.",
+        },
+        {
+          sourceOutputId: "out_reference_deviation",
+          businessLabel: "Annual Energy Reduction",
+          format: "percentage",
+          unit: "%",
+          valueMultiplier: 100,
+          displayDecimals: 2,
+        },
+      ],
+    },
+    {
+      sectionTitle: "Impact & Exposure",
+      priority: 20,
+      entries: [
+        {
+          sourceOutputId: "out_scenario_delta",
+          businessLabel: "Annual CO₂ Reduction",
+          format: "number",
+          unit: "tCO₂/year",
+          displayDecimals: 3,
+        },
+        {
+          sourceOutputId: "out_expanded_uncertainty",
+          businessLabel: "NPV Uncertainty",
+          format: "currency",
+          unit: "currency",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_money_at_risk",
+          businessLabel: "Money at Risk",
+          format: "currency",
+          unit: "currency",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_final_decision_state",
+          businessLabel: "Project Decision",
+          format: "string",
+          valueLabels: { "0": "VIABLE", "1": "REVIEW", "2": "NOT VIABLE" },
+        },
+      ],
+    },
+  ],
+};
+
+const MOTOR_REPLACEMENT_CONTRACT: ProReportContract = {
+  toolSlug: "motor-compressor-replacement-roi",
+  strict: true,
+  sections: [
+    {
+      sectionTitle: "Energy & Cash Flow",
+      priority: 10,
+      entries: [
+        {
+          sourceOutputId: "out_demand_metric",
+          businessLabel: "Current Annual Energy Cost",
+          format: "currency",
+          unit: "currency/year",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_capacity_metric",
+          businessLabel: "Replacement Annual Energy Cost",
+          format: "currency",
+          unit: "currency/year",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_utilization_margin",
+          businessLabel: "Annual Energy and Maintenance Saving",
+          format: "currency",
+          unit: "currency/year",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_normalized_demand",
+          businessLabel: "Project NPV",
+          format: "currency",
+          unit: "currency",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_derating_factor",
+          businessLabel: "Discounted Return Ratio",
+          format: "ratio",
+          displayDecimals: 4,
+        },
+        {
+          sourceOutputId: "out_scenario_delta",
+          businessLabel: "Simple Payback",
+          format: "number",
+          unit: "months",
+          displayDecimals: 2,
+        },
+      ],
+    },
+    {
+      sectionTitle: "Investment & Decision",
+      priority: 20,
+      entries: [
+        {
+          sourceOutputId: "out_reference_deviation",
+          businessLabel: "Efficiency Improvement",
+          format: "percentage",
+          unit: "%",
+          valueMultiplier: 100,
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_money_at_risk",
+          businessLabel: "Replacement Investment",
+          format: "currency",
+          unit: "currency",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_expanded_uncertainty",
+          businessLabel: "NPV Uncertainty",
+          format: "currency",
+          unit: "currency",
+          displayDecimals: 2,
+        },
+        {
+          sourceOutputId: "out_final_decision_state",
+          businessLabel: "Replacement Decision",
+          format: "string",
+          valueLabels: { "0": "VIABLE", "1": "REVIEW", "2": "NOT VIABLE" },
+        },
+      ],
+    },
+  ],
+};
+
 const OVERRIDES: Readonly<Record<string, ProReportContract>> = {
   [BREAK_EVEN_SURVIVAL_CASH_CONTRACT.toolSlug]: BREAK_EVEN_SURVIVAL_CASH_CONTRACT,
   [LOSS_MAKING_JOB_CONTRACT.toolSlug]: LOSS_MAKING_JOB_CONTRACT,
+  [ENERGY_EFFICIENCY_CONTRACT.toolSlug]: ENERGY_EFFICIENCY_CONTRACT,
+  [MOTOR_REPLACEMENT_CONTRACT.toolSlug]: MOTOR_REPLACEMENT_CONTRACT,
 };
 
 export function getProReportContractOverride(
