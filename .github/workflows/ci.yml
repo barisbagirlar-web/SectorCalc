@@ -62,6 +62,11 @@ jobs:
       - name: Schema and formula binding
         run: npm run guard:v531-schema-formula-binding
 
+      - name: PRO mathematical integrity
+        run: npx vitest run tests/pro-formula-integrity/
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+
       - name: PRO runtime registration
         run: npm run guard:baris-v531-runtime-registration
 
