@@ -1,21 +1,25 @@
 {
   "tool_key": "receivables-cost-payment-term-addendum",
   "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
+  "formula_version": "5.3.2-pro-baris.2",
+  "_verification_note": "Schema and formula were fully rebuilt during the 2026-07-15 audit (previous version used manufacturing job-costing inputs with no receivables/DSO/interest-rate fields at all -- the tool could not do what its own scope description said). Values below computed by actually executing the new calculate(). tests/golden/pro-v531-baris/ is not wired into any npm script yet.",
   "raw_inputs": {
-    "machine_rate": 100
+    "average_receivable_balance": 300000, "annual_interest_rate": 0.08,
+    "average_collection_days": 30, "invoice_volume": 2000000,
+    "source_confidence_ratio": 0.9, "uncertainty_multiplier": 1.3
   },
+  "raw_inputs_units_assumed": { "average_collection_days": "day" },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_utilization_margin": 0.25,
-    "out_money_at_risk": 25000,
-    "out_final_decision_state": 0
+    "out_evidence_completeness": 0.9, "out_normalized_demand": 2000000, "out_demand_metric": 13150.68,
+    "out_capacity_metric": 300000, "out_utilization_margin": 24000, "out_money_at_risk": 13150.68,
+    "out_threshold_crossing": 0, "out_fmea_trigger": 0, "out_final_decision_state": 0,
+    "out_reference_deviation": 0.1315, "out_derating_factor": 0.9, "out_expanded_uncertainty": 3945.21,
+    "out_sensitivity_driver": 0, "out_scenario_delta": 1972.6, "out_audit_hash_payload": 0
   },
   "expected_hashes": {
-    "output_hash": "oh-b1-receiv",
-    "proof_pack_hash": "pph-b1-receiv",
-    "audit_seal_stable_hash": "ash-b1-receiv"
+    "output_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "proof_pack_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "audit_seal_stable_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED"
   },
   "expected_decision_status": "OK",
   "expected_warnings": []

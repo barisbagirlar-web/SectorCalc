@@ -200,7 +200,11 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 0.0000115741
+            "factor": 1.15741e-05
+          },
+          {
+            "unit": "unit_per_year",
+            "factor": 3.17e-08
           }
         ]
       },
@@ -402,7 +406,7 @@
     },
     {
       "id": "weld_density",
-      "name": "Weld Density (g/cm³)",
+      "name": "Weld Density (g/cm\u00b3)",
       "symbol": "WD",
       "quantity_kind": "density",
       "unit_selectable": false,
@@ -422,8 +426,8 @@
         "unit": "kg_per_m3",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Weld Density (g/cm³) is below the physical or process hard bound.",
-        "semantic_error_message_max": "Weld Density (g/cm³) is above the physical or process hard bound."
+        "semantic_error_message_min": "Weld Density (g/cm\u00b3) is below the physical or process hard bound.",
+        "semantic_error_message_max": "Weld Density (g/cm\u00b3) is above the physical or process hard bound."
       },
       "engineering_range": null,
       "resolution": null,
@@ -455,7 +459,7 @@
           "engineering estimate"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Provide the weld density (g/cm³)."
+        "public_help_text": "Provide the weld density (g/cm\u00b3)."
       },
       "standard_clause_bindings": [],
       "formula_bindings": [],
@@ -477,8 +481,8 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Enter the weld density (g/cm³). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Weld Density (g/cm³) will downgrade evidence confidence."
+      "user_help_text": "Enter the weld density (g/cm\u00b3). Reference ranges are advisory.",
+      "warning_if_missing_or_estimated": "Missing or estimated Weld Density (g/cm\u00b3) will downgrade evidence confidence."
     },
     {
       "id": "wire_cost_per_kg",
@@ -2349,7 +2353,7 @@
     "type_a_support": true,
     "type_b_support": true,
     "combined_standard_uncertainty": "server-computed from registered sensitivity coefficients and source uncertainty contributors",
-    "expanded_uncertainty": "value ± expanded_uncertainty unit, k=coverage_factor",
+    "expanded_uncertainty": "value \u00b1 expanded_uncertainty unit, k=coverage_factor",
     "coverage_factor_policy": "user-verified or lab-policy value; no hidden default for critical output",
     "sensitivity_coefficients": "server registry only",
     "sensitivity_ranking_required": true,

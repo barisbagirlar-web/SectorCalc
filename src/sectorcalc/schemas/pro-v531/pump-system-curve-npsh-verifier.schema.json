@@ -228,6 +228,10 @@
           {
             "unit": "unit_per_day",
             "factor": 1.15741e-05
+          },
+          {
+            "unit": "unit_per_year",
+            "factor": 3.17e-08
           }
         ]
       }
@@ -989,7 +993,8 @@
         "unit_per_s",
         "unit_per_min",
         "unit_per_h",
-        "unit_per_day"
+        "unit_per_day",
+        "unit_per_year"
       ],
       "normalized_id": "n_annual_volume",
       "type": "number",
@@ -4360,7 +4365,7 @@
     "type_a_support": true,
     "type_b_support": true,
     "combined_standard_uncertainty": "server-computed from registered sensitivity coefficients and source uncertainty contributors",
-    "expanded_uncertainty": "value ± expanded_uncertainty unit, k=coverage_factor",
+    "expanded_uncertainty": "value \u00b1 expanded_uncertainty unit, k=coverage_factor",
     "coverage_factor_policy": "user-verified or lab-policy value; no hidden default for critical output",
     "sensitivity_coefficients": "server registry only",
     "sensitivity_ranking_required": true,

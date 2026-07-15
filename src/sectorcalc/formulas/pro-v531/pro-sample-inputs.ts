@@ -55,33 +55,48 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_quoted_job_price: 5200,
   },
   "receivables-cost-payment-term-addendum": {
-    n_machine_rate: 85,
-    n_cycle_time: 12,
-    n_batch_quantity: 500,
-    n_material_cost: 25,
-    n_overhead_rate: 350000,
-    n_defect_or_loss_cost: 12000,
+    // NOTE (2026-07-15 audit): schema+formula rebuilt entirely — old fixture used
+    // manufacturing job-costing keys (machine_rate, cycle_time, material_cost) that never
+    // matched this tool's actual domain (receivables financing cost).
+    n_average_receivable_balance: 300000,
+    n_annual_interest_rate: 0.08,
+    n_average_collection_days: 30 * 86400,
+    n_invoice_volume: 2000000,
     n_source_confidence_ratio: 0.9,
+    n_uncertainty_multiplier: 1.3,
   },
   "setup-time-reduction-roi-smed": {
+    // NOTE (2026-07-15 audit): old fixture had n_overhead_rate: 350000 (an "hourly rate" of
+    // $350,000/h) and no investment-cost/reduction-target inputs — never sanity-checked
+    // against the formula, which used to fabricate investment cost as oh*0.3 anyway.
     n_machine_rate: 85,
-    n_setup_time: 30,
+    n_setup_time: 3600,
     n_batch_quantity: 500,
     n_labor_rate: 45,
-    n_overhead_rate: 350000,
-    n_annual_volume: 100000,
+    n_overhead_rate: 30,
+    n_annual_volume: 100000 / 31536000,
     n_source_confidence_ratio: 0.9,
+    n_uncertainty_multiplier: 1.4,
+    n_smed_investment_cost: 45000,
+    n_setup_time_reduction_target_pct: 0.6,
   },
   "product-sku-margin-ranker": {
-    n_machine_rate: 85,
-    n_cycle_time: 12,
-    n_material_cost: 25,
+    // NOTE (2026-07-15 audit): old fixture had n_defect_or_loss_cost: 12000 (per unit!) and
+    // n_overhead_rate: 350000 ($/h) — not realistic, and price used to be fabricated as
+    // material_cost*1.4 rather than taken from a real input.
+    n_machine_rate: 80,
+    n_cycle_time: 120,
+    n_setup_time: 600,
+    n_batch_quantity: 200,
+    n_material_cost: 5,
     n_target_margin: 0.3,
-    n_annual_volume: 100000,
-    n_labor_rate: 45,
-    n_overhead_rate: 350000,
-    n_defect_or_loss_cost: 12000,
-    n_source_confidence_ratio: 0.9,
+    n_annual_volume: 20000 / 31536000,
+    n_labor_rate: 30,
+    n_overhead_rate: 15,
+    n_defect_or_loss_cost: 0.3,
+    n_source_confidence_ratio: 0.85,
+    n_uncertainty_multiplier: 1.4,
+    n_unit_selling_price: 15,
   },
   "true-employee-cost-statement": {
     n_labor_rate: 45,
@@ -131,15 +146,19 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_uncertainty_multiplier: 1.2,
   },
   "customer-sku-profitability-forensics": {
+    // NOTE (2026-07-15 audit): old values (5, 3, 2, 30 for ratio-family fields) only worked
+    // by coincidence with the old formula's now-removed double "/100" — they never matched
+    // the real runtime normalization contract (ratio 0..1) and would have been 100x wrong
+    // for any live user request going through normalizeInputs().
     n_unit_price: 100,
     n_unit_variable_cost: 60,
-    n_annual_volume: 10000,
-    n_logistics_cost_pct: 5,
-    n_service_cost_pct: 3,
-    n_return_rate_pct: 2,
-    n_target_margin: 30,
+    n_annual_volume: 10000 / 31536000,
+    n_logistics_cost_pct: 0.05,
+    n_service_cost_pct: 0.03,
+    n_return_rate_pct: 0.02,
+    n_target_margin: 0.30,
     n_labor_rate: 45,
-    n_overhead_rate: 350000,
+    n_overhead_rate: 30,
     n_source_confidence_ratio: 0.9,
   },
   "downtime-scrap-loss-statement": {

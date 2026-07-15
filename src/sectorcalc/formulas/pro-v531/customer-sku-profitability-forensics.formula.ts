@@ -27,37 +27,51 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   const up = get(inputs, "n_unit_price");
   const uvc = get(inputs, "n_unit_variable_cost");
-  const av = get(inputs, "n_annual_volume");
+  const av = get(inputs, "n_annual_volume") * 31536000; // normalized unit_per_s -> units/year
   const lcp = get(inputs, "n_logistics_cost_pct");
   const scp = get(inputs, "n_service_cost_pct");
   const rrp = get(inputs, "n_return_rate_pct");
   const tm = get(inputs, "n_target_margin");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
   const conf = get(inputs, "n_source_confidence_ratio");
 
   if (!isFiniteNumber(inputs["n_unit_price"])) warnings.push("Missing: n_unit_price");
   if (!isFiniteNumber(inputs["n_unit_variable_cost"])) warnings.push("Missing: n_unit_variable_cost");
   if (!isFiniteNumber(inputs["n_annual_volume"])) warnings.push("Missing: n_annual_volume");
+  // NOTE (2026-07-15 audit): n_labor_rate and n_overhead_rate are captured by the schema but
+  // intentionally NOT used below. This tool's "unit_variable_cost" already represents the
+  // fully-loaded per-unit cost; folding a $/hour labor/overhead rate in here would require a
+  // per-unit service-time basis this schema does not collect, and guessing one would repeat
+  // the same class of fabricated-formula bug found elsewhere in this audit. Flagged for
+  // Baris to clarify intended semantics before wiring these in.
 
+  // n_logistics_cost_pct / n_service_cost_pct / n_return_rate_pct / n_target_margin all have
+  // base_unit "ratio" (0..1) per schema — the normalizer already converts a "percent" display
+  // entry to ratio before calculate() ever sees it. The previous code divided by 100 a SECOND
+  // time here, shrinking every burden and the target margin by 100x and making toxic-SKU
+  // detection nearly impossible to trigger. Use the normalized ratios directly.
   const unit_contribution = up - uvc;
   const cm_ratio = up > 0 ? unit_contribution / up : 0;
-  const logistics_burden = up * (lcp / 100);
-  const service_burden = up * (scp / 100);
-  const return_burden = up * (rrp / 100);
+  const logistics_burden = up * lcp;
+  const service_burden = up * scp;
+  const return_burden = up * rrp;
   const net_margin = unit_contribution - logistics_burden - service_burden - return_burden;
   const toxic_flag = net_margin < 0 ? 1 : 0;
   const total_margin = net_margin * av;
   const biggest_burden = Math.max(logistics_burden, service_burden, return_burden);
-  const target_margin_ratio = tm / 100;
+  const net_margin_ratio = up > 0 ? net_margin / up : 0;
+  const target_margin_ratio = tm;
   let decision: number;
-  if (cm_ratio > target_margin_ratio) decision = 0; // GROW
-  else if (cm_ratio > 0) decision = 1;             // HOLD
-  else decision = 2;                                // CUT
+  // NOTE (2026-07-15 audit): previously compared cm_ratio (BEFORE logistics/service/return
+  // burdens) against target, while toxic_flag used net_margin (AFTER burdens) — a SKU with
+  // negative net margin could still get a GROW decision. Both now use the same post-burden
+  // net margin ratio for a logically consistent verdict.
+  if (net_margin_ratio > target_margin_ratio) decision = 0; // GROW
+  else if (net_margin_ratio > 0) decision = 1;               // HOLD
+  else decision = 2;                                          // CUT
 
   outputs["out_evidence_completeness"] = round(conf, 3);
   outputs["out_normalized_demand"] = round(av, 0);
-  outputs["out_reference_deviation"] = round(tm > 0 ? Math.abs(cm_ratio - target_margin_ratio) / target_margin_ratio : 0, 4);
+  outputs["out_reference_deviation"] = round(tm > 0 ? Math.abs(net_margin_ratio - target_margin_ratio) / target_margin_ratio : 0, 4);
   outputs["out_derating_factor"] = round(net_margin < 0 ? 0 : net_margin / unit_contribution, 4);
   outputs["out_demand_metric"] = round(net_margin, 2);
   outputs["out_capacity_metric"] = round(total_margin, 2);

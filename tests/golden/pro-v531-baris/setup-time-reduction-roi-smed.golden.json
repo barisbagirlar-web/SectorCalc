@@ -1,21 +1,25 @@
 {
   "tool_key": "setup-time-reduction-roi-smed",
   "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
+  "formula_version": "5.3.2-pro-baris.2",
+  "_verification_note": "Replaced fabricated template values with values computed by actually executing the rewritten calculate() during the 2026-07-15 audit, using a genuinely unattractive scenario (34.6mo payback -> BLOCK) to prove the tool can correctly say 'don't do this' and not just always say PASS. tests/golden/pro-v531-baris/ is not wired into any npm script yet.",
   "raw_inputs": {
-    "machine_rate": 100
+    "machine_rate": 85, "setup_time": 3600, "batch_quantity": 500, "labor_rate": 45,
+    "overhead_rate": 30, "annual_volume": 100000, "source_confidence_ratio": 0.9,
+    "uncertainty_multiplier": 1.4, "smed_investment_cost": 45000, "setup_time_reduction_target_pct": 0.6
   },
+  "raw_inputs_units_assumed": { "annual_volume": "unit_per_year" },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_utilization_margin": 0.25,
-    "out_money_at_risk": 25000,
-    "out_final_decision_state": 0
+    "out_evidence_completeness": 0.9, "out_normalized_demand": 200, "out_demand_metric": 26000,
+    "out_capacity_metric": 120, "out_utilization_margin": 0.3467, "out_money_at_risk": 45000,
+    "out_threshold_crossing": 1, "out_fmea_trigger": 1, "out_final_decision_state": 2,
+    "out_reference_deviation": 1.8846, "out_derating_factor": 0.9, "out_expanded_uncertainty": 6240,
+    "out_sensitivity_driver": 0, "out_scenario_delta": 2340, "out_audit_hash_payload": 0
   },
   "expected_hashes": {
-    "output_hash": "oh-b1-setup-",
-    "proof_pack_hash": "pph-b1-setup-",
-    "audit_seal_stable_hash": "ash-b1-setup-"
+    "output_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "proof_pack_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "audit_seal_stable_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED"
   },
   "expected_decision_status": "OK",
   "expected_warnings": []

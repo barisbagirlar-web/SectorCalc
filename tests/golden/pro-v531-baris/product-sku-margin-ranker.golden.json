@@ -1,21 +1,26 @@
 {
   "tool_key": "product-sku-margin-ranker",
   "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
+  "formula_version": "5.3.2-pro-baris.2",
+  "_verification_note": "Replaced fabricated template values (0.9/10000/0.25/25000/0, identical across 10+ tool fixtures) with values computed by actually executing the rewritten calculate() during the 2026-07-15 audit. tests/golden/pro-v531-baris/ is not wired into any npm script yet.",
   "raw_inputs": {
-    "machine_rate": 100
+    "machine_rate": 80, "cycle_time": 120, "setup_time": 600, "batch_quantity": 200,
+    "material_cost": 5, "target_margin": 0.3, "annual_volume": 20000,
+    "labor_rate": 30, "overhead_rate": 15, "defect_or_loss_cost": 0.3,
+    "source_confidence_ratio": 0.85, "uncertainty_multiplier": 1.4, "unit_selling_price": 15
   },
+  "raw_inputs_units_assumed": { "annual_volume": "unit_per_year", "unit_selling_price": "currency_unit (per unit)" },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10000,
-    "out_utilization_margin": 0.25,
-    "out_money_at_risk": 25000,
-    "out_final_decision_state": 0
+    "out_evidence_completeness": 0.85, "out_normalized_demand": 20000, "out_demand_metric": 5.4292,
+    "out_capacity_metric": 108583.33, "out_utilization_margin": 0.3619, "out_money_at_risk": 0,
+    "out_threshold_crossing": 0, "out_fmea_trigger": 0, "out_final_decision_state": 0,
+    "out_reference_deviation": 0.0885, "out_derating_factor": 1, "out_expanded_uncertainty": 3.8283,
+    "out_sensitivity_driver": 3, "out_scenario_delta": 16287.5, "out_audit_hash_payload": 0
   },
   "expected_hashes": {
-    "output_hash": "oh-b1-produc",
-    "proof_pack_hash": "pph-b1-produc",
-    "audit_seal_stable_hash": "ash-b1-produc"
+    "output_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "proof_pack_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "audit_seal_stable_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED"
   },
   "expected_decision_status": "OK",
   "expected_warnings": []
