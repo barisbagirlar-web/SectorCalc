@@ -244,6 +244,15 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Job Cost Breakdown",
+    segments: [
+      { outputId: "out_machine_cost_component", label: "Machine" },
+      { outputId: "out_labor_cost_component", label: "Labor" },
+      { outputId: "out_overhead_cost_component", label: "Overhead" },
+      { outputId: "out_material_defect_cost_component", label: "Material & Defect" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
@@ -392,6 +401,15 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Unit Cost Breakdown",
+    segments: [
+      { outputId: "out_machine_cost_component", label: "Machine" },
+      { outputId: "out_labor_cost_component", label: "Labor" },
+      { outputId: "out_overhead_cost_component", label: "Overhead" },
+      { outputId: "out_material_defect_cost_component", label: "Material & Defect" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
@@ -670,6 +688,14 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Servicing Cost Breakdown",
+    segments: [
+      { outputId: "out_logistics_burden_component", label: "Logistics" },
+      { outputId: "out_service_burden_component", label: "Service" },
+      { outputId: "out_return_burden_component", label: "Returns" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_unit_price", label: "Unit Price" },
@@ -721,6 +747,14 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Loss Breakdown",
+    segments: [
+      { outputId: "out_downtime_cost_component", label: "Downtime" },
+      { outputId: "out_scrap_cost_component", label: "Scrap" },
+      { outputId: "out_rework_cost_component", label: "Rework" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_productive_hours", label: "Productive Hours" },
@@ -823,6 +857,13 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Scrap vs Rework Breakdown",
+    segments: [
+      { outputId: "out_demand_metric", label: "Scrap" },
+      { outputId: "out_capacity_metric", label: "Rework" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_total_produced", label: "Total Produced" },

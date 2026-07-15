@@ -83,6 +83,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_money_at_risk"] = round(toxic_flag ? total_margin : 0, 2);
   outputs["out_scenario_delta"] = round(biggest_burden * av, 2);
   outputs["out_audit_hash_payload"] = 0;
+  outputs["out_logistics_burden_component"] = round(logistics_burden, 4);
+  outputs["out_service_burden_component"] = round(service_burden, 4);
+  outputs["out_return_burden_component"] = round(return_burden, 4);
   outputs["out_final_decision_state"] = decision;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));

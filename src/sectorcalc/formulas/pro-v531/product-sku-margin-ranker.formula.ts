@@ -101,6 +101,10 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_sensitivity_driver"] = dominantDriverIndex;
   outputs["out_scenario_delta"] = round(contributionMarginPerUnit * annualUnits * 0.15, 2);
   outputs["out_audit_hash_payload"] = 0;
+  outputs["out_machine_cost_component"] = round(machineCostPerUnit, 4);
+  outputs["out_labor_cost_component"] = round(laborCostPerUnit, 4);
+  outputs["out_overhead_cost_component"] = round(overheadCostPerUnit, 4);
+  outputs["out_material_defect_cost_component"] = round(materialAndDefectPerUnit, 4);
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
   return {

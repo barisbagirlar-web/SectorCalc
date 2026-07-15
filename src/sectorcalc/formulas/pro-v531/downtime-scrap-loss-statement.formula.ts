@@ -73,6 +73,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_money_at_risk"] = round(total_loss, 2);
   outputs["out_scenario_delta"] = round(Math.max(downtime_cost, scrap_material_loss, rework_loss) - Math.min(downtime_cost, scrap_material_loss, rework_loss), 2);
   outputs["out_audit_hash_payload"] = 0;
+  outputs["out_downtime_cost_component"] = round(downtime_cost, 2);
+  outputs["out_scrap_cost_component"] = round(scrap_material_loss, 2);
+  outputs["out_rework_cost_component"] = round(rework_loss, 2);
   outputs["out_final_decision_state"] = decision;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
