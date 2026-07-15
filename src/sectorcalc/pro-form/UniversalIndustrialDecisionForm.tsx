@@ -1404,6 +1404,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                     decisionSeverity={reportDecisionState?.severity}
                     firedInsights={proReportResult.firedInsights}
                     sensitivity={sensitivityData}
+                    paretoBreakdown={proReportResult.paretoBreakdown}
                   />
                 );
               })()}

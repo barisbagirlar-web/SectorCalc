@@ -41,6 +41,17 @@ export interface ReportSensitivityDriver {
   label: string;
 }
 
+export interface ParetoSegment {
+  /** out_* key holding this segment's numeric value (a cost/time/mass component, not a ratio). */
+  outputId: string;
+  label: string;
+}
+
+export interface ParetoBreakdown {
+  title: string;
+  segments: ParetoSegment[];
+}
+
 export interface ProReportContract {
   toolSlug: string;
   sections: ReportSection[];
@@ -61,6 +72,13 @@ export interface ProReportContract {
   sensitivityDrivers?: ReportSensitivityDriver[];
   /** normalized_id of the primary output to track across the sensitivity sweep. */
   sensitivityTargetOutput?: string;
+  /**
+   * Optional Pareto/cost-breakdown chart declaration: which raw numeric outputs together
+   * decompose one total, ranked by magnitude. Only declare this where the formula genuinely
+   * exposes separate component values (not just a dominant-driver index) -- do not invent a
+   * breakdown a tool's formula doesn't actually compute.
+   */
+  paretoBreakdown?: ParetoBreakdown;
 }
 
 export interface ProReportAdapterInput {
@@ -96,6 +114,8 @@ export interface ProReportAdapterResult {
     severity: "critical" | "opportunity" | "info";
     message: string;
   }>;
+  /** Resolved Pareto breakdown (sorted descending by value), null if the tool doesn't declare one. */
+  paretoBreakdown: { title: string; segments: Array<{ label: string; value: number }> } | null;
 }
 
 export type ResolvedReportSection = ProReportAdapterResult["resolvedSections"][number];

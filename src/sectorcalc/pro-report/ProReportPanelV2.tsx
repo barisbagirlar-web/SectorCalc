@@ -55,6 +55,8 @@ interface ProReportPanelV2Props {
   firedInsights?: Array<{ id: string; severity: "critical" | "opportunity" | "info"; message: string }>;
   /** +/-10% sensitivity sweep from /api/pro-calculator/sensitivity. Optional, opt-in per tool. */
   sensitivity?: { targetOutput: string; drivers: SensitivityDriverResult[] } | null;
+  /** Resolved Pareto/cost-breakdown chart from buildProReport(). Optional, opt-in per tool. */
+  paretoBreakdown?: { title: string; segments: Array<{ label: string; value: number }> } | null;
 }
 
 const severityClassMap: Record<string, string> = {
@@ -78,6 +80,7 @@ export function ProReportPanelV2({
   decisionSeverity,
   firedInsights,
   sensitivity,
+  paretoBreakdown,
 }: ProReportPanelV2Props) {
   const isEmpty = !sections || sections.length === 0;
 
@@ -116,6 +119,43 @@ export function ProReportPanelV2({
           </ul>
         </div>
       )}
+
+      {/* Pareto / cost-breakdown chart (opt-in per tool) */}
+      {paretoBreakdown && paretoBreakdown.segments.length > 0 && (() => {
+        const total = paretoBreakdown.segments.reduce((s, seg) => s + seg.value, 0);
+        if (total <= 0) return null;
+        const maxVal = Math.max(...paretoBreakdown.segments.map((s) => s.value));
+        let cumulative = 0;
+        return (
+          <div className="sc-report-pareto">
+            <h4 className="sc-report-section-title">{paretoBreakdown.title}</h4>
+            <div className="sc-report-pareto-bars">
+              {paretoBreakdown.segments.map((seg) => {
+                const pct = (100 * seg.value) / total;
+                cumulative += pct;
+                return (
+                  <div key={seg.label} className="sc-report-pareto-row">
+                    <span className="sc-report-pareto-label">{seg.label}</span>
+                    <div className="sc-report-pareto-track">
+                      <div
+                        className="sc-report-pareto-bar"
+                        style={{ width: `${Math.max(2, (100 * seg.value) / maxVal)}%` }}
+                      />
+                    </div>
+                    <span className="sc-report-pareto-value">
+                      {pct.toFixed(0)}% <span className="sc-report-pareto-cumulative">(cum. {cumulative.toFixed(0)}%)</span>
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="sc-report-sensitivity-note">
+              Ranked by share of total. Where a small number of components account for most of the total (the 80/20
+              pattern), fixing those first gives the largest return for the least effort.
+            </p>
+          </div>
+        );
+      })()}
 
       {/* Sensitivity chart: "what moves the result most" (opt-in per tool) */}
       {sensitivity && sensitivity.drivers.length > 0 && (() => {

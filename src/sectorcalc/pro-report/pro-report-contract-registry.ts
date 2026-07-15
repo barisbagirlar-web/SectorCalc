@@ -162,6 +162,14 @@ register({
       entry("out_final_decision_state", "Go / Review / Escalate Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Annual Cost Structure",
+    segments: [
+      { outputId: "out_capital_share_pct", label: "Depreciation + Maintenance" },
+      { outputId: "out_energy_share_pct", label: "Energy" },
+      { outputId: "out_labor_share_pct", label: "Labor" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_purchase_price", label: "Purchase Price" },
@@ -447,6 +455,18 @@ register({
       entry("out_decision_state", "Decision State", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Fully Loaded Cost Breakdown",
+    segments: [
+      { outputId: "out_employer_payroll_taxes", label: "Payroll Taxes" },
+      { outputId: "out_benefits_cost", label: "Benefits" },
+      { outputId: "out_paid_leave_cost", label: "Paid Leave" },
+      { outputId: "out_training_allocation", label: "Training" },
+      { outputId: "out_equipment_it_cost", label: "Equipment & IT" },
+      { outputId: "out_workspace_facility_cost", label: "Workspace / Facility" },
+      { outputId: "out_insurance_burden", label: "Insurance" },
+    ],
+  },
   sensitivityTargetOutput: "out_fully_loaded_annual_cost",
   sensitivityDrivers: [
     { inputId: "n_annual_base_salary", label: "Annual Base Salary" },
@@ -1117,6 +1137,15 @@ register({
       entry("out_decision_state", "Decision State", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Weld Cost Breakdown",
+    segments: [
+      { outputId: "out_wire_cost", label: "Wire / Electrode" },
+      { outputId: "out_shielding_gas_cost", label: "Shielding Gas" },
+      { outputId: "out_labor_cost", label: "Labor" },
+      { outputId: "out_shop_overhead", label: "Shop Overhead" },
+    ],
+  },
   sensitivityTargetOutput: "out_total_cost_floor",
   sensitivityDrivers: [
     { inputId: "n_weld_length_m", label: "Weld Length (m)" },

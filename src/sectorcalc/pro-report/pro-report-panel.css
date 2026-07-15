@@ -267,3 +267,49 @@
   margin-top: 8px;
   line-height: 1.5;
 }
+
+/* ── Pareto / Cost-Breakdown Chart (added 2026-07-15) ── */
+
+.sc-report-pareto {
+  margin-top: 20px;
+}
+
+.sc-report-pareto-bars {
+  margin-top: 10px;
+}
+
+.sc-report-pareto-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 9px;
+  font-size: 12.5px;
+}
+
+.sc-report-pareto-label {
+  width: 150px;
+  flex-shrink: 0;
+  color: #57544C;
+}
+
+.sc-report-pareto-track {
+  flex: 1;
+  background: #EFEBE2;
+  height: 16px;
+}
+
+.sc-report-pareto-bar {
+  height: 16px;
+  background: #C15F3C;
+}
+
+.sc-report-pareto-value {
+  font-family: "JetBrains Mono", monospace;
+  width: 140px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.sc-report-pareto-cumulative {
+  color: #8C887E;
+}
