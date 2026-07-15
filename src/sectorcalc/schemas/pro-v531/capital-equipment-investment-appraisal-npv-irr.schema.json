@@ -3254,6 +3254,123 @@
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
+    },
+    {
+      "id": "out_initial_investment_component",
+      "name": "Initial Investment Component",
+      "symbol": "C_initial_investment_component",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Initial Investment Component -- one segment of the total breakdown, used for the Pareto chart in the report layer.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_pv_cash_flows_component",
+      "name": "PV of Cash Flows Component",
+      "symbol": "C_pv_cash_flows_component",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "PV of Cash Flows Component -- one segment of the total breakdown, used for the Pareto chart in the report layer.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_pv_residual_component",
+      "name": "PV of Residual Value Component",
+      "symbol": "C_pv_residual_component",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "PV of Residual Value Component -- one segment of the total breakdown, used for the Pareto chart in the report layer.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
     }
   ],
   "output_formatting": {

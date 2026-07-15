@@ -140,8 +140,8 @@ export function buildProReport(input: ProReportAdapterInput): ProReportAdapterRe
   if (contract.paretoBreakdown) {
     const segments = contract.paretoBreakdown.segments
       .map((seg) => ({ label: seg.label, value: numericOutputs[seg.outputId] }))
-      .filter((seg): seg is { label: string; value: number } => typeof seg.value === "number" && Number.isFinite(seg.value) && seg.value >= 0)
-      .sort((a, b) => b.value - a.value);
+      .filter((seg): seg is { label: string; value: number } => typeof seg.value === "number" && Number.isFinite(seg.value))
+      .sort((a, b) => Math.abs(b.value) - Math.abs(a.value));
     if (segments.length > 0) {
       paretoBreakdown = { title: contract.paretoBreakdown.title, segments };
     }

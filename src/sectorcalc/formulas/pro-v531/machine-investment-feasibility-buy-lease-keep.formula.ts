@@ -199,6 +199,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // --- Output 15: out_final_decision_state ---
   outputs["out_final_decision_state"] = decision;
+  outputs["out_npv_buy_component"] = round(npv_buy, 2);
+  outputs["out_npv_lease_component"] = round(npv_lease, 2);
+  outputs["out_npv_keep_component"] = round(npv_keep, 2);
 
   // --- Sanity check: ensure all 15 outputs are finite ---
   const allOutputKeys = [
@@ -217,6 +220,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     "out_scenario_delta",
     "out_audit_hash_payload",
     "out_final_decision_state",
+    "out_npv_buy_component",
+    "out_npv_lease_component",
+    "out_npv_keep_component",
   ];
 
   for (const key of allOutputKeys) {

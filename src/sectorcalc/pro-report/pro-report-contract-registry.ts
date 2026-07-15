@@ -109,6 +109,13 @@ register({
       ],
     },
   ],
+  paretoBreakdown: {
+    title: "Monthly Obligations Breakdown",
+    segments: [
+      { outputId: "out_fixed_cash_cost_component", label: "Fixed Cash Cost" },
+      { outputId: "out_debt_service_component", label: "Debt Service" },
+    ],
+  },
   sensitivityTargetOutput: "out_break_even_monthly_revenue",
   sensitivityDrivers: [
     { inputId: "n_monthly_fixed_cash_cost", label: "Monthly Fixed Cash Cost" },
@@ -304,6 +311,13 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Receivables Cost Breakdown",
+    segments: [
+      { outputId: "out_utilization_margin", label: "AR Carrying Cost" },
+      { outputId: "out_demand_metric", label: "DSO-Driven Financing Cost" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_average_receivable_balance", label: "Average Receivable Balance" },
@@ -351,6 +365,13 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Setup Cost Breakdown (Before)",
+    segments: [
+      { outputId: "out_machine_share_component", label: "Machine" },
+      { outputId: "out_labor_share_component", label: "Labor" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
@@ -535,6 +556,15 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Quote Cost Breakdown",
+    segments: [
+      { outputId: "out_labor_cost_component", label: "Labor" },
+      { outputId: "out_machine_cost_component", label: "Machine" },
+      { outputId: "out_material_cost_component", label: "Material" },
+      { outputId: "out_overhead_and_scrap_component", label: "Overhead & Scrap" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
@@ -586,6 +616,14 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Buy vs Lease vs Keep (NPV)",
+    segments: [
+      { outputId: "out_npv_buy_component", label: "Buy" },
+      { outputId: "out_npv_lease_component", label: "Lease" },
+      { outputId: "out_npv_keep_component", label: "Keep" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_initial_investment", label: "Initial Investment" },
@@ -637,6 +675,14 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Cash Flow Composition",
+    segments: [
+      { outputId: "out_initial_investment_component", label: "Initial Investment" },
+      { outputId: "out_pv_cash_flows_component", label: "PV of Cash Flows" },
+      { outputId: "out_pv_residual_component", label: "PV of Residual" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_initial_investment", label: "Initial Investment" },
@@ -806,6 +852,14 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "OEE Loss Breakdown",
+    segments: [
+      { outputId: "out_availability_loss_component", label: "Availability Loss" },
+      { outputId: "out_performance_loss_component", label: "Performance Loss" },
+      { outputId: "out_quality_loss_component", label: "Quality Loss" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_planned_production_time", label: "Planned Production Time" },
@@ -915,6 +969,14 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "In-House Annual Cost Breakdown",
+    segments: [
+      { outputId: "out_material_cost_component", label: "Material" },
+      { outputId: "out_labor_cost_component", label: "Labor" },
+      { outputId: "out_overhead_cost_component", label: "Overhead" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_in_house_material_cost", label: "In-House Material Cost" },
@@ -966,6 +1028,13 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Cost Pool Breakdown",
+    segments: [
+      { outputId: "out_machine_group_cost_component", label: "Machine Group Cost" },
+      { outputId: "out_overhead_pool_component", label: "Overhead Pool" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_total_annual_cost", label: "Total Annual Cost" },
@@ -1017,6 +1086,13 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Price Impact Breakdown",
+    segments: [
+      { outputId: "out_fx_impact_component", label: "FX Impact" },
+      { outputId: "out_commodity_impact_component", label: "Commodity Impact" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_base_price", label: "Base Price" },
@@ -1068,6 +1144,13 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Net Cost After Grant",
+    segments: [
+      { outputId: "out_implementation_cost_component", label: "Implementation Cost" },
+      { outputId: "out_grant_offset_component", label: "Grant Offset" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_current_kwh_per_year", label: "Current kWh/Year" },
@@ -1119,6 +1202,13 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Energy Cost: Current vs New",
+    segments: [
+      { outputId: "out_current_energy_cost_component", label: "Current Motor" },
+      { outputId: "out_new_energy_cost_component", label: "New Motor" },
+    ],
+  },
   sensitivityTargetOutput: "out_utilization_margin",
   sensitivityDrivers: [
     { inputId: "n_motor_power_kw", label: "Motor Power (kW)" },

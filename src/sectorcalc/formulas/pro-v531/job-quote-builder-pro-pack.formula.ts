@@ -63,6 +63,10 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_sensitivity_driver"] = lc > mac ? 1 : 0;
   outputs["out_scenario_delta"] = round(tjc * 0.15, 2);
   outputs["out_audit_hash_payload"] = 0;
+  outputs["out_labor_cost_component"] = round(lc, 2);
+  outputs["out_machine_cost_component"] = round(mac, 2);
+  outputs["out_material_cost_component"] = round(mc * bq, 2);
+  outputs["out_overhead_and_scrap_component"] = round(oa + sc, 2);
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
   return {

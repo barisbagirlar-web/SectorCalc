@@ -88,6 +88,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_derating_factor"] = round(conf, 4);
   outputs["out_expanded_uncertainty"] = round(expandedUncertainty, 2);
   outputs["out_sensitivity_driver"] = mr >= lr ? 0 : 1;
+  outputs["out_machine_share_component"] = round(combinedRate > 0 ? annualSetupCostBefore * (mr / combinedRate) : 0, 2);
+  outputs["out_labor_share_component"] = round(combinedRate > 0 ? annualSetupCostBefore * (lr / combinedRate) : 0, 2);
   outputs["out_scenario_delta"] = round(annualSavings * 0.15, 2);
   outputs["out_audit_hash_payload"] = 0;
 

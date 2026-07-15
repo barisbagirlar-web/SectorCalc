@@ -172,6 +172,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // --- Output 15: out_final_decision_state ---
   outputs["out_final_decision_state"] = decision;
+  outputs["out_implementation_cost_component"] = round(n_implementation_cost, 2);
+  outputs["out_grant_offset_component"] = round(-grant_amount, 2);
+  outputs["out_net_cost_component"] = round(net_cost, 2);
 
   // --- Sanity check: ensure all 15 outputs are finite ---
   const allOutputKeys = [
@@ -190,6 +193,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     "out_scenario_delta",
     "out_audit_hash_payload",
     "out_final_decision_state",
+    "out_implementation_cost_component",
+    "out_grant_offset_component",
+    "out_net_cost_component",
   ];
 
   for (const key of allOutputKeys) {

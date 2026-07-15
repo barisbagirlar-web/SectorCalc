@@ -122,36 +122,38 @@ export function ProReportPanelV2({
 
       {/* Pareto / cost-breakdown chart (opt-in per tool) */}
       {paretoBreakdown && paretoBreakdown.segments.length > 0 && (() => {
-        const total = paretoBreakdown.segments.reduce((s, seg) => s + seg.value, 0);
+        const total = paretoBreakdown.segments.reduce((s, seg) => s + Math.abs(seg.value), 0);
         if (total <= 0) return null;
-        const maxVal = Math.max(...paretoBreakdown.segments.map((s) => s.value));
+        const maxVal = Math.max(...paretoBreakdown.segments.map((s) => Math.abs(s.value)));
         let cumulative = 0;
         return (
           <div className="sc-report-pareto">
             <h4 className="sc-report-section-title">{paretoBreakdown.title}</h4>
             <div className="sc-report-pareto-bars">
               {paretoBreakdown.segments.map((seg) => {
-                const pct = (100 * seg.value) / total;
+                const pct = (100 * Math.abs(seg.value)) / total;
                 cumulative += pct;
+                const isNegative = seg.value < 0;
                 return (
                   <div key={seg.label} className="sc-report-pareto-row">
                     <span className="sc-report-pareto-label">{seg.label}</span>
                     <div className="sc-report-pareto-track">
                       <div
-                        className="sc-report-pareto-bar"
-                        style={{ width: `${Math.max(2, (100 * seg.value) / maxVal)}%` }}
+                        className={`sc-report-pareto-bar${isNegative ? " sc-report-pareto-bar-negative" : ""}`}
+                        style={{ width: `${Math.max(2, (100 * Math.abs(seg.value)) / maxVal)}%` }}
                       />
                     </div>
                     <span className="sc-report-pareto-value">
-                      {pct.toFixed(0)}% <span className="sc-report-pareto-cumulative">(cum. {cumulative.toFixed(0)}%)</span>
+                      {isNegative ? "-" : ""}{pct.toFixed(0)}% <span className="sc-report-pareto-cumulative">(cum. {cumulative.toFixed(0)}%)</span>
                     </span>
                   </div>
                 );
               })}
             </div>
             <p className="sc-report-sensitivity-note">
-              Ranked by share of total. Where a small number of components account for most of the total (the 80/20
-              pattern), fixing those first gives the largest return for the least effort.
+              Ranked by magnitude. Where a small number of components account for most of the total (the 80/20
+              pattern), fixing those first gives the largest return for the least effort. Negative bars (shown in a
+              different color) work against the total rather than adding to it.
             </p>
           </div>
         );

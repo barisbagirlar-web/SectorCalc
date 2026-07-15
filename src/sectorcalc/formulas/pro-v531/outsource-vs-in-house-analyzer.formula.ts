@@ -120,6 +120,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_scenario_delta"] = round(savingsPerUnit, 4);
   outputs["out_audit_hash_payload"] = round(annualUnits + sourceConfidenceRatio, 4);
   outputs["out_final_decision_state"] = round(decisionFlag, 4);
+  outputs["out_material_cost_component"] = round(materialCost * annualUnits, 2);
+  outputs["out_labor_cost_component"] = round(laborCost * annualUnits, 2);
+  outputs["out_overhead_cost_component"] = round(overhead * annualUnits, 2);
 
   // Sanity check
   for (const key of Object.keys(outputs)) {

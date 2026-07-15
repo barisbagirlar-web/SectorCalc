@@ -88,10 +88,14 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   // --- NPV calculation ---
   const annual_cf = n_annual_net_cash_flow + safeDiv(n_residual_value, n_analysis_years);
   let npv = -n_initial_investment;
+  let pv_cash_flows = 0;
   for (let y = 1; y <= years; y++) {
-    npv += annual_cf / Math.pow(1 + rate, y);
+    const pv = annual_cf / Math.pow(1 + rate, y);
+    npv += pv;
+    pv_cash_flows += pv;
   }
-  npv += n_residual_value / Math.pow(1 + rate, years);
+  const pv_residual = n_residual_value / Math.pow(1 + rate, years);
+  npv += pv_residual;
 
   // --- IRR calculation (Newton's method) ---
   let irr = 0.1;
@@ -224,6 +228,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // --- Output 15: out_final_decision_state ---
   outputs["out_final_decision_state"] = decision;
+  outputs["out_initial_investment_component"] = round(n_initial_investment, 2);
+  outputs["out_pv_cash_flows_component"] = round(pv_cash_flows, 2);
+  outputs["out_pv_residual_component"] = round(pv_residual, 2);
 
   // --- Sanity check: ensure all 15 outputs are finite ---
   const allOutputKeys = [
@@ -242,6 +249,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     "out_scenario_delta",
     "out_audit_hash_payload",
     "out_final_decision_state",
+    "out_initial_investment_component",
+    "out_pv_cash_flows_component",
+    "out_pv_residual_component",
   ];
 
   for (const key of allOutputKeys) {

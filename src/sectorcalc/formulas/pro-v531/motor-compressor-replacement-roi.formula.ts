@@ -77,6 +77,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_scenario_delta"] = round(payback_months, 1);
   outputs["out_audit_hash_payload"] = 0;
   outputs["out_final_decision_state"] = decision;
+  outputs["out_current_energy_cost_component"] = round(current_energy_cost, 2);
+  outputs["out_new_energy_cost_component"] = round(new_energy_cost, 2);
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
   return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
