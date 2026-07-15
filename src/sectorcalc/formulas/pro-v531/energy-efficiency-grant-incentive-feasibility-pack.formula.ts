@@ -71,16 +71,20 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   requirePositive(currentKwh, "Current annual energy", state);
   requireNonNegative(targetKwh, "Target annual energy", state);
   requireNonNegative(energyRate, "Energy price", state);
-  requireNonNegative(implementationCost, "Implementation cost", state);
+  requirePositive(implementationCost, "Implementation cost", state);
   requireRange(grantCoveragePct, 0, 100, "Grant coverage (%)", state);
   requireNonNegative(maintenanceSaving, "Annual maintenance saving", state);
   requireNonNegative(emissionFactor, "Emission factor", state);
   requireInteger(lifeYears, 1, 100, "Equipment life", state);
-  requireRange(discountRate, 0, 1, "Discount rate", state, { maxInclusive: false });
+  requireRange(discountRate, 0, 1, "Discount rate", state, {
+    maxInclusive: false,
+  });
   requireRange(confidence, 0, 1, "Source confidence", state);
 
   if (targetKwh >= currentKwh) {
-    state.errors.push("Target annual energy must be lower than current annual energy for an efficiency project.");
+    state.errors.push(
+      "Target annual energy must be lower than current annual energy for an efficiency project.",
+    );
   }
 
   if (state.errors.length > 0) {
@@ -101,25 +105,44 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     npv += discountedSaving;
   }
 
-  const paybackYears = annualCashSaving > 0
-    ? divideOrError(netInvestment, annualCashSaving, "Simple payback", state)
-    : Number.POSITIVE_INFINITY;
-  const discountedReturn = netInvestment > 0
-    ? divideOrError(npv, netInvestment, "Discounted return ratio", state)
-    : presentValueSavings > 0 ? 1 : 0;
-  const co2SavingTonnes = energySavingKwh * emissionFactor / 1000;
+  const paybackYears =
+    annualCashSaving > 0
+      ? divideOrError(netInvestment, annualCashSaving, "Simple payback", state)
+      : null;
+  // Use the total implementation cost as the stable denominator. Owner-funded
+  // net investment can be zero under a 100% grant, where an NPV/net-investment
+  // ratio is undefined. This output is therefore an explicit discounted
+  // benefit-cost ratio rather than a fabricated fallback ROI.
+  const discountedBenefitCostRatio = divideOrError(
+    presentValueSavings,
+    implementationCost,
+    "Discounted benefit-cost ratio",
+    state,
+  );
+  const co2SavingTonnes = (energySavingKwh * emissionFactor) / 1000;
   const uncertainty = Math.abs(npv) * (1 - confidence);
 
   let decision = 0;
   if (annualCashSaving <= 0 || npv <= 0) decision = 2;
-  else if (paybackYears > 3 || confidence < 0.7) decision = 1;
+  else if ((paybackYears !== null && paybackYears > 3) || confidence < 0.7) {
+    decision = 1;
+  }
 
+  if (annualCashSaving <= 0) {
+    state.warnings.push(
+      "The project does not produce positive annual cash savings; simple payback is not defined.",
+    );
+  }
   if (confidence < 0.7) {
-    state.warnings.push("Source confidence is below 70%; verify meter, tariff and grant evidence.");
+    state.warnings.push(
+      "Source confidence is below 70%; verify meter, tariff and grant evidence.",
+    );
   }
 
   const drivers = [annualEnergySaving, maintenanceSaving, netInvestment];
-  const sensitivityDriver = drivers.indexOf(Math.max(...drivers.map(Math.abs)));
+  const sensitivityDriver = drivers.indexOf(
+    Math.max(...drivers.map(Math.abs)),
+  );
   const moneyAtRisk = Math.max(0, -npv) + uncertainty;
 
   const outputs: Record<string, number> = {
@@ -129,7 +152,10 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     out_derating_factor: roundDisplay(confidence, 4),
     out_demand_metric: roundDisplay(annualCashSaving, 2),
     out_capacity_metric: roundDisplay(npv, 2),
-    out_utilization_margin: roundDisplay(discountedReturn, 6),
+    out_utilization_margin: roundDisplay(
+      discountedBenefitCostRatio,
+      6,
+    ),
     out_expanded_uncertainty: roundDisplay(uncertainty, 2),
     out_threshold_crossing: npv > 0 ? 1 : 0,
     out_sensitivity_driver: sensitivityDriver,
@@ -139,10 +165,6 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     out_audit_hash_payload: 0,
     out_final_decision_state: decision,
   };
-
-  if (!Number.isFinite(paybackYears) && annualCashSaving > 0) {
-    state.errors.push("Payback calculation is non-finite.");
-  }
 
   return finalizeResult({
     outputs,
