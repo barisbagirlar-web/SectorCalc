@@ -12,6 +12,7 @@ on:
       - "tests/pro-v2/**"
       - "tests/golden/**"
       - "scripts/audit-tool-formula-integrity.mjs"
+      - "scripts/guard-free-result-panel.mjs"
       - ".github/workflows/formula-engine-integrity-audit.yml"
   workflow_dispatch:
 
@@ -55,7 +56,14 @@ jobs:
         run: npm run guard:free-catalog-integrity
 
       - name: Free result panel contract
-        run: npm run guard:free-result-panel
+        shell: bash
+        run: |
+          mkdir -p artifacts/formula-integrity-audit
+          set +e
+          npm run guard:free-result-panel 2>&1 | tee artifacts/formula-integrity-audit/free-result-panel-stdout.log
+          status=${PIPESTATUS[0]}
+          set -e
+          exit "$status"
 
       - name: Free execution smoke
         run: npm run smoke:free-tools-execution
