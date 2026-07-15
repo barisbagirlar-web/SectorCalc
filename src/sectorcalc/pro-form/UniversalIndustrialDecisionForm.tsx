@@ -57,6 +57,11 @@ import { buildProReport } from "@/sectorcalc/pro-report/pro-report-adapter";
 import { ProReportPanelV2 } from "@/sectorcalc/pro-report/ProReportPanelV2";
 import { assertCrossToolIdentity } from "@/sectorcalc/runtime/cross-tool-contract-assertions";
 import { registry as referenceRegistry } from "@/generated/reference-registry";
+import {
+  parseProNumericDraft,
+  sanitizeProNumericDraft,
+  type ProNumericFieldType,
+} from "./numeric-input-draft";
 
 // ── ViewModel types ────────────────────────────────────────────────────────────
 
@@ -2267,11 +2272,24 @@ function renderValueInput(
 
   const inputClass = useValueInputClass ? "pro-value-input" : "pro-input";
 
+  if (field.type === "number" || field.type === "integer") {
+    return (
+      <NumericValueInput
+        id={inputId}
+        className={inputClass}
+        fieldType={field.type}
+        placeholder={unitHint}
+        value={field.value}
+        onValueChange={onValueChange}
+      />
+    );
+  }
+
   return (
     <input
       id={inputId}
       className={inputClass}
-      inputMode={field.type === "number" || field.type === "integer" ? "decimal" : "text"}
+      inputMode="text"
       type="text"
       placeholder={refPlaceholder}
       value={field.value !== null && field.value !== undefined ? String(field.value) : ""}
@@ -2308,6 +2326,68 @@ function renderValueInput(
             }
           }
         }
+      }}
+    />
+  );
+}
+
+interface NumericValueInputProps {
+  id: string;
+  className: string;
+  fieldType: ProNumericFieldType;
+  placeholder: string;
+  value: FieldViewModel["value"];
+  onValueChange: (value: string | number | boolean | null) => void;
+}
+
+function NumericValueInput({
+  id,
+  className,
+  fieldType,
+  placeholder,
+  value,
+  onValueChange,
+}: NumericValueInputProps) {
+  const externalValue =
+    typeof value === "number" && Number.isFinite(value)
+      ? String(value)
+      : typeof value === "string"
+        ? value
+        : "";
+  const [draft, setDraft] = useState(externalValue);
+  const focusedRef = useRef(false);
+
+  useEffect(() => {
+    if (!focusedRef.current) setDraft(externalValue);
+  }, [externalValue]);
+
+  const commitDraft = useCallback((nextDraft: string) => {
+    const numericValue = parseProNumericDraft(nextDraft);
+    onValueChange(numericValue);
+  }, [onValueChange]);
+
+  return (
+    <input
+      id={id}
+      className={className}
+      inputMode={fieldType === "integer" ? "numeric" : "decimal"}
+      type="text"
+      placeholder={placeholder || ""}
+      value={draft}
+      onFocus={() => {
+        focusedRef.current = true;
+      }}
+      onChange={(event: ChangeEvent<HTMLInputElement>) => {
+        const nextDraft = sanitizeProNumericDraft(event.target.value, fieldType);
+        setDraft(nextDraft);
+        commitDraft(nextDraft);
+      }}
+      onBlur={() => {
+        focusedRef.current = false;
+        const numericValue = parseProNumericDraft(draft);
+        const normalizedDraft = numericValue === null ? "" : String(numericValue);
+        setDraft(normalizedDraft);
+        onValueChange(numericValue);
       }}
     />
   );
