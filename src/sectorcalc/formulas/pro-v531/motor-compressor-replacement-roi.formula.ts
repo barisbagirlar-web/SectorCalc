@@ -116,8 +116,6 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const energySaving = currentEnergyCost - newEnergyCost;
   const annualSaving = energySaving + maintenanceSaving;
 
-  // ROI and simple payback are undefined when the replacement does not produce
-  // positive annual cash savings. Do not emit an arbitrary 999-month sentinel.
   if (annualSaving <= 0) {
     state.errors.push(
       "Replacement does not produce positive annual savings; ROI and payback are undefined.",
@@ -166,12 +164,12 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
 
   const outputs: Record<string, number> = {
     out_evidence_completeness: roundDisplay(confidence, 4),
-    out_normalized_demand: roundDisplay(annualHours, 0),
+    out_normalized_demand: roundDisplay(npv, 2),
     out_reference_deviation: roundDisplay(
       newEfficiency - currentEfficiency,
       6,
     ),
-    out_derating_factor: roundDisplay(confidence, 4),
+    out_derating_factor: roundDisplay(discountedReturnRatio, 6),
     out_demand_metric: roundDisplay(currentEnergyCost, 2),
     out_capacity_metric: roundDisplay(newEnergyCost, 2),
     out_utilization_margin: roundDisplay(annualSaving, 2),
@@ -184,10 +182,6 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     out_audit_hash_payload: 0,
     out_final_decision_state: decision,
   };
-
-  if (!Number.isFinite(discountedReturnRatio)) {
-    state.errors.push("Discounted return ratio is non-finite.");
-  }
 
   return finalizeResult({
     outputs,
