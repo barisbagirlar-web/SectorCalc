@@ -1,0 +1,72 @@
+name: PRO Formula Integrity
+
+on:
+  push:
+    branches: [main, "fix/*", "feature/*", "release/*"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pro-formula-integrity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  formula-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Execute formula and type diagnostics
+        id: diagnostics
+        shell: bash
+        run: |
+          set +e
+          : > pro-formula-integrity.log
+
+          echo "=== PRO FORMULA TESTS ===" | tee -a pro-formula-integrity.log
+          npx vitest run tests/pro-formula-integrity/ 2>&1 | tee -a pro-formula-integrity.log
+          test_status=${PIPESTATUS[0]}
+          echo "PRO_FORMULA_TEST_STATUS=${test_status}" | tee -a pro-formula-integrity.log
+
+          echo "=== TYPESCRIPT ===" | tee -a pro-formula-integrity.log
+          npm run typecheck 2>&1 | tee -a pro-formula-integrity.log
+          type_status=${PIPESTATUS[0]}
+          echo "PRO_FORMULA_TYPECHECK_STATUS=${type_status}" | tee -a pro-formula-integrity.log
+
+          echo "test_status=${test_status}" >> "$GITHUB_OUTPUT"
+          echo "type_status=${type_status}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pro-formula-integrity-evidence
+          path: pro-formula-integrity.log
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Enforce result
+        shell: bash
+        run: |
+          if [ "${{ steps.diagnostics.outputs.test_status }}" != "0" ]; then
+            echo "PRO_FORMULA_TESTS=FAIL"
+            exit 1
+          fi
+          if [ "${{ steps.diagnostics.outputs.type_status }}" != "0" ]; then
+            echo "PRO_FORMULA_TYPECHECK=FAIL"
+            exit 1
+          fi
+          echo "PRO_FORMULA_INTEGRITY=PASS"
