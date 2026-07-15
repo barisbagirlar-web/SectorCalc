@@ -1,7 +1,10 @@
 // SectorCalc SuperV4 V5.3 — Schema Registry
 // Versioned approved schema store with hash binding for runtime verification.
 
+import "server-only";
+
 import type { SuperV4Schema } from "./contract-types";
+import { sha256Json } from "@/sectorcalc/pro-runtime/cryptographic-hash";
 
 export interface SchemaRecord {
   tool_id: string;
@@ -20,11 +23,6 @@ export interface SchemaRegistryOptions {
   cacheTtlMs?: number;
 }
 
-/**
- * Schema registry — loads approved schemas by tool_id + schema_version.
- * In production this reads from PostgreSQL jsonb or equivalent versioned store.
- * Current implementation: in-memory registry with stub schema loading.
- */
 export class SchemaRegistry {
   private cache = new Map<string, { record: SchemaRecord; expiresAt: number }>();
   private options: Required<SchemaRegistryOptions>;
@@ -39,11 +37,10 @@ export class SchemaRegistry {
     return `${toolId}::${schemaVersion}`;
   }
 
-  /**
-   * Register a schema in the registry.
-   * Called during offline schema generation / CI pipeline.
-   */
   register(record: SchemaRecord): void {
+    if (record.schema_hash !== SchemaRegistry.computeSchemaHash(record.public_schema_json)) {
+      throw new Error(`Schema hash mismatch for ${record.tool_key}.`);
+    }
     const key = this.cacheKey(record.tool_id, record.schema_version);
     this.cache.set(key, {
       record,
@@ -51,10 +48,6 @@ export class SchemaRegistry {
     });
   }
 
-  /**
-   * Fetch an approved active schema.
-   * Returns null if not found or not ACTIVE.
-   */
   fetchActive(toolId: string, schemaVersion: string): SchemaRecord | null {
     const key = this.cacheKey(toolId, schemaVersion);
     const entry = this.cache.get(key);
@@ -65,11 +58,17 @@ export class SchemaRegistry {
       return null;
     }
     if (entry.record.approval_status !== "ACTIVE") return null;
+    if (
+      entry.record.schema_hash !==
+      SchemaRegistry.computeSchemaHash(entry.record.public_schema_json)
+    ) {
+      this.cache.delete(key);
+      return null;
+    }
 
     return entry.record;
   }
 
-  /** Fetch any schema regardless of approval status (admin only). */
   fetchAny(toolId: string, schemaVersion: string): SchemaRecord | null {
     const key = this.cacheKey(toolId, schemaVersion);
     const entry = this.cache.get(key);
@@ -78,26 +77,23 @@ export class SchemaRegistry {
       this.cache.delete(key);
       return null;
     }
+    if (
+      entry.record.schema_hash !==
+      SchemaRegistry.computeSchemaHash(entry.record.public_schema_json)
+    ) {
+      this.cache.delete(key);
+      return null;
+    }
     return entry.record;
   }
 
-  /** Compute a deterministic schema hash from JSON string. */
   static computeSchemaHash(schema: SuperV4Schema): string {
-    const json = JSON.stringify(schema, Object.keys(schema).sort());
-    let hash = 0;
-    for (let i = 0; i < json.length; i++) {
-      const char = json.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
-    }
-    return `schema-${Math.abs(hash).toString(16).padStart(8, "0")}`;
+    return sha256Json(schema);
   }
 
-  /** Clear entire cache. */
   clear(): void {
     this.cache.clear();
   }
 }
 
-/** Singleton registry instance. */
 export const schemaRegistry = new SchemaRegistry();
