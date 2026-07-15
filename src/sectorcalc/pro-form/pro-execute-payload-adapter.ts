@@ -47,19 +47,26 @@ export const machineHourlyFormToSchemaMap: FormToSchemaMap = {
 };
 
 // ── 3. loss-making-job-detector ──
+// Rebuilt 2026-07-15: the previous map referenced a stale draft schema (labor_hours,
+// machine_cost, setup_cost, tooling_cost, selling_price, defect_rate) that does not match
+// any field in loss-making-job-detector.schema.json's current "inputs" array. Because none
+// of those keys ever matched real form state, buildExecutePayload's identity-passthrough
+// fallback silently carried the actual values — this map was dead code. Replaced with the
+// real schema field ids (1:1 identity, matching the convention used elsewhere in this file).
 export const lossMakingJobFormToSchemaMap: FormToSchemaMap = {
+  machine_rate: "machine_rate",
+  cycle_time: "cycle_time",
+  setup_time: "setup_time",
+  batch_quantity: "batch_quantity",
   material_cost: "material_cost",
-  labor_hours: "labor_hours",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  machine_cost: "machine_cost",
-  setup_cost: "setup_cost",
-  tooling_cost: "tooling_cost",
-  selling_price: "selling_price",
   target_margin: "target_margin",
   annual_volume: "annual_volume",
-  defect_rate: "defect_rate",
-  source_confidence: "source_confidence",
+  labor_rate: "labor_rate",
+  overhead_rate: "overhead_rate",
+  defect_or_loss_cost: "defect_or_loss_cost",
+  source_confidence_ratio: "source_confidence_ratio",
+  uncertainty_multiplier: "uncertainty_multiplier",
+  quoted_job_price: "quoted_job_price",
 };
 
 // ── 4. receivables-cost-payment-term-addendum ──

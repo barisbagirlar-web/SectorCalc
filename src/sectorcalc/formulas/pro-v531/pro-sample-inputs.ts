@@ -34,15 +34,25 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_source_confidence_ratio: 0.9,
   },
   "loss-making-job-detector": {
-    n_machine_rate: 85,
-    n_material_cost: 300,
-    n_labor_rate: 55,
-    n_overhead_rate: 75,
-    n_defect_or_loss_cost: 20,
+    // NOTE (2026-07-15 audit): this fixture was rewritten alongside the calculate() rewrite.
+    // n_cycle_time / n_setup_time are now load-bearing (previously dead inputs).
+    // n_annual_volume must be expressed in the schema's base_unit (unit_per_s), matching
+    // what the live execute route actually passes after normalizeInputs() — the old value
+    // (5000) was a raw yearly count, inconsistent with the runtime unit contract.
+    // n_quoted_job_price is new and required: the tool cannot detect a loss without it.
+    n_machine_rate: 80,
+    n_cycle_time: 600,
+    n_setup_time: 3600,
+    n_material_cost: 12,
+    n_labor_rate: 35,
+    n_overhead_rate: 20,
+    n_defect_or_loss_cost: 1.5,
     n_target_margin: 0.25,
     n_batch_quantity: 100,
-    n_annual_volume: 5000,
+    n_annual_volume: 5000 / 31536000,
     n_source_confidence_ratio: 0.9,
+    n_uncertainty_multiplier: 1.5,
+    n_quoted_job_price: 5200,
   },
   "receivables-cost-payment-term-addendum": {
     n_machine_rate: 85,

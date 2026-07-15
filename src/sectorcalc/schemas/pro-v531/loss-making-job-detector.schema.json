@@ -161,6 +161,10 @@
           {
             "unit": "unit_per_day",
             "factor": 0.0000115741
+          },
+          {
+            "unit": "unit_per_year",
+            "factor": 0.0000000317
           }
         ]
       },
@@ -938,7 +942,8 @@
         "unit_per_s",
         "unit_per_min",
         "unit_per_h",
-        "unit_per_day"
+        "unit_per_day",
+        "unit_per_year"
       ],
       "normalized_id": "n_annual_volume",
       "type": "number",
@@ -1645,6 +1650,124 @@
       },
       "user_help_text": "Use the project-specific value for Uncertainty Coverage Multiplier. Reference ranges are advisory and must not be used as automatic defaults.",
       "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence."
+    },
+    {
+      "id": "quoted_job_price",
+      "name": "Quoted / Planned Job Price",
+      "symbol": "P_job",
+      "quantity_kind": "currency",
+      "unit_selectable": true,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_quoted_job_price",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 50000000,
+        "unit": "USD",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 1,
+        "max": 5000000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on quote/PO price; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "quote or purchase order",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Total quoted or planned selling price for this specific job/batch. Required to detect underpricing; the tool cannot determine loss exposure without the actual or planned charge to the customer."
+      },
+      "source_priority": [
+        "quote or purchase order",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "quote or purchase order",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "quote or purchase order",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Quoted / Planned Job Price; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [
+        "F001",
+        "F002",
+        "F003",
+        "F004",
+        "F005",
+        "F006",
+        "F007",
+        "F008",
+        "F012"
+      ],
+      "output_bindings": [
+        "out_evidence_completeness",
+        "out_normalized_demand",
+        "out_reference_deviation",
+        "out_derating_factor",
+        "out_demand_metric",
+        "out_capacity_metric",
+        "out_utilization_margin",
+        "out_expanded_uncertainty",
+        "out_threshold_crossing",
+        "out_sensitivity_driver",
+        "out_fmea_trigger",
+        "out_money_at_risk"
+      ],
+      "warning_bindings": [
+        "W001",
+        "W002",
+        "W003",
+        "W004"
+      ],
+      "ui_binding": {
+        "group_id": "commercial_impact_inputs",
+        "field_order": 13,
+        "component": "number_with_unit",
+        "unit_dropdown_required": true,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the actual quoted price or planned selling price for this job/batch. This is what the customer is or will be charged — not a cost figure.",
+      "warning_if_missing_or_estimated": "Missing Quoted / Planned Job Price makes loss detection impossible; the tool blocks calculation until this is provided."
     }
   ],
   "normalized_inputs": [
@@ -1801,6 +1924,19 @@
         "Apply physical hard bounds for uncertainty_multiplier after unit conversion.",
         "Evaluate engineering reference range for uncertainty_multiplier after conversion.",
         "Reject non-finite normalized value for uncertainty_multiplier."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_quoted_job_price",
+      "from_input": "quoted_job_price",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for quoted_job_price after unit conversion.",
+        "Evaluate engineering reference range for quoted_job_price after conversion.",
+        "Reject non-finite normalized value for quoted_job_price."
       ],
       "audit_required": true
     }
