@@ -109,6 +109,17 @@ register({
       ],
     },
   ],
+  sensitivityTargetOutput: "out_break_even_monthly_revenue",
+  sensitivityDrivers: [
+    { inputId: "n_monthly_fixed_cash_cost", label: "Monthly Fixed Cash Cost" },
+    { inputId: "n_monthly_debt_service", label: "Monthly Debt Service" },
+    { inputId: "n_contribution_margin_ratio", label: "Contribution Margin Ratio" },
+    { inputId: "n_current_monthly_revenue", label: "Current Monthly Revenue" },
+    { inputId: "n_unrestricted_cash_balance", label: "Unrestricted Cash Balance" },
+    { inputId: "n_minimum_cash_buffer", label: "Minimum Cash Buffer" },
+    { inputId: "n_target_survival_months", label: "Target Survival Months" },
+    { inputId: "n_downside_revenue_factor", label: "Downside Revenue Retention" },
+  ],
   insights: [
     {
       id: "break-even-runway-critical",
@@ -225,6 +236,17 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
+    { inputId: "n_cycle_time", label: "Cycle Time per Unit" },
+    { inputId: "n_setup_time", label: "Batch Setup Time" },
+    { inputId: "n_batch_quantity", label: "Batch Quantity" },
+    { inputId: "n_material_cost", label: "Material Cost per Unit" },
+    { inputId: "n_target_margin", label: "Target Gross Margin" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
+  ],
   insights: [
     {
       id: "loss-making-job-detector-critical",
@@ -264,6 +286,13 @@ register({
       entry("out_derating_factor", "Payment Risk Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_average_receivable_balance", label: "Average Receivable Balance" },
+    { inputId: "n_annual_interest_rate", label: "Annual Cost of Capital / Interest Rate" },
+    { inputId: "n_average_collection_days", label: "Average Collection Period (DSO)" },
+    { inputId: "n_invoice_volume", label: "Annual Invoice Volume" },
   ],
   insights: [
     {
@@ -305,6 +334,16 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
+    { inputId: "n_setup_time", label: "Batch Setup Time" },
+    { inputId: "n_batch_quantity", label: "Batch Quantity" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
+    { inputId: "n_smed_investment_cost", label: "SMED Program Investment Cost" },
+    { inputId: "n_setup_time_reduction_target_pct", label: "Target Setup Time Reduction" },
+  ],
   insights: [
     {
       id: "setup-time-reduction-roi-smed-critical",
@@ -344,6 +383,17 @@ register({
       entry("out_derating_factor", "Margin Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
+    { inputId: "n_cycle_time", label: "Cycle Time per Unit" },
+    { inputId: "n_setup_time", label: "Batch Setup Time" },
+    { inputId: "n_batch_quantity", label: "Batch Quantity" },
+    { inputId: "n_material_cost", label: "Material Cost per Unit" },
+    { inputId: "n_target_margin", label: "Target Gross Margin" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
   ],
   insights: [
     {
@@ -397,6 +447,17 @@ register({
       entry("out_decision_state", "Decision State", "number"),
     ]),
   ],
+  sensitivityTargetOutput: "out_fully_loaded_annual_cost",
+  sensitivityDrivers: [
+    { inputId: "n_annual_base_salary", label: "Annual Base Salary" },
+    { inputId: "n_payroll_tax_rate", label: "Employer Payroll Tax Rate" },
+    { inputId: "n_annual_benefits_cost", label: "Annual Benefits Cost" },
+    { inputId: "n_annual_insurance_cost", label: "Annual Health/Life Insurance Cost" },
+    { inputId: "n_annual_training_cost", label: "Annual Training & Development Cost" },
+    { inputId: "n_annual_equipment_it_cost", label: "Annual Equipment & IT Cost" },
+    { inputId: "n_annual_workspace_facility_cost", label: "Annual Workspace & Facility Cost" },
+    { inputId: "n_target_billable_utilization_ratio", label: "Target Billable Utilization" },
+  ],
   insights: [
     {
       id: "true-employee-cost-statement-critical",
@@ -435,6 +496,17 @@ register({
       entry("out_derating_factor", "Quote Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
+    { inputId: "n_cycle_time", label: "Cycle Time per Unit" },
+    { inputId: "n_setup_time", label: "Batch Setup Time" },
+    { inputId: "n_batch_quantity", label: "Batch Quantity" },
+    { inputId: "n_material_cost", label: "Material Cost per Unit" },
+    { inputId: "n_target_margin", label: "Target Gross Margin" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
   ],
   insights: [
     {
@@ -476,6 +548,17 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_initial_investment", label: "Initial Investment" },
+    { inputId: "n_annual_net_cash_flow", label: "Annual Net Cash Flow" },
+    { inputId: "n_discount_rate", label: "Discount Rate" },
+    { inputId: "n_analysis_years", label: "Analysis Period" },
+    { inputId: "n_residual_value", label: "Residual Value" },
+    { inputId: "n_stress_downside_factor", label: "Downside Stress Factor" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
+  ],
   insights: [
     {
       id: "machine-investment-feasibility-buy-lease-keep-critical",
@@ -515,6 +598,17 @@ register({
       entry("out_derating_factor", "Appraisal Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_initial_investment", label: "Initial Investment" },
+    { inputId: "n_annual_net_cash_flow", label: "Annual Net Cash Flow" },
+    { inputId: "n_discount_rate", label: "Discount Rate" },
+    { inputId: "n_analysis_years", label: "Analysis Period" },
+    { inputId: "n_residual_value", label: "Residual Value" },
+    { inputId: "n_stress_downside_factor", label: "Downside Stress Factor" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
   ],
   insights: [
     {
@@ -556,6 +650,17 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_unit_price", label: "Unit Price" },
+    { inputId: "n_unit_variable_cost", label: "Unit Variable Cost" },
+    { inputId: "n_annual_volume", label: "Annual Volume" },
+    { inputId: "n_logistics_cost_pct", label: "Logistics Cost %" },
+    { inputId: "n_service_cost_pct", label: "Service Cost %" },
+    { inputId: "n_return_rate_pct", label: "Return Rate %" },
+    { inputId: "n_target_margin", label: "Target Margin" },
+    { inputId: "n_labor_rate", label: "Labor Rate" },
+  ],
   insights: [
     {
       id: "customer-sku-profitability-forensics-critical",
@@ -595,6 +700,17 @@ register({
       entry("out_derating_factor", "Loss Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_productive_hours", label: "Productive Hours" },
+    { inputId: "n_actual_hours", label: "Actual Hours" },
+    { inputId: "n_hourly_rate", label: "Hourly Rate" },
+    { inputId: "n_scrap_quantity", label: "Scrap Quantity" },
+    { inputId: "n_unit_cost", label: "Unit Cost" },
+    { inputId: "n_rework_hours", label: "Rework Hours" },
+    { inputId: "n_rework_rate", label: "Rework Rate" },
+    { inputId: "n_material_cost", label: "Material Cost" },
   ],
   insights: [
     {
@@ -636,6 +752,17 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_planned_production_time", label: "Planned Production Time" },
+    { inputId: "n_operating_time", label: "Operating Time" },
+    { inputId: "n_net_operating_time", label: "Net Operating Time" },
+    { inputId: "n_valuable_operating_time", label: "Valuable Operating Time" },
+    { inputId: "n_ideal_cycle_time", label: "Ideal Cycle Time" },
+    { inputId: "n_total_parts", label: "Total Parts" },
+    { inputId: "n_good_parts", label: "Good Parts" },
+    { inputId: "n_hourly_contribution", label: "Hourly Contribution" },
+  ],
   insights: [
     {
       id: "oee-loss-monetization-improvement-business-case-critical",
@@ -675,6 +802,17 @@ register({
       entry("out_derating_factor", "Quality Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_total_produced", label: "Total Produced" },
+    { inputId: "n_scrap_quantity", label: "Scrap Quantity" },
+    { inputId: "n_rework_quantity", label: "Rework Quantity" },
+    { inputId: "n_unit_material_cost", label: "Unit Material Cost" },
+    { inputId: "n_unit_labor_cost", label: "Unit Labor Cost" },
+    { inputId: "n_rework_labor_rate", label: "Rework Labor Rate" },
+    { inputId: "n_rework_time_per_unit", label: "Rework Time Per Unit" },
+    { inputId: "n_defect_rate_target_pct", label: "Defect Rate Target %" },
   ],
   insights: [
     {
@@ -716,6 +854,17 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_in_house_material_cost", label: "In-House Material Cost" },
+    { inputId: "n_in_house_labor_cost", label: "In-House Labor Cost" },
+    { inputId: "n_in_house_overhead", label: "In-House Overhead" },
+    { inputId: "n_in_house_setup_cost", label: "In-House Setup Cost" },
+    { inputId: "n_outsource_unit_price", label: "Outsource Unit Price" },
+    { inputId: "n_outsource_logistics_cost", label: "Outsource Logistics Cost" },
+    { inputId: "n_annual_volume", label: "Annual Volume" },
+    { inputId: "n_quality_risk_premium_pct", label: "Quality Risk Premium %" },
+  ],
   insights: [
     {
       id: "outsource-vs-in-house-analyzer-critical",
@@ -755,6 +904,17 @@ register({
       entry("out_derating_factor", "Cost Structure Derating", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_total_annual_cost", label: "Total Annual Cost" },
+    { inputId: "n_total_productive_hours", label: "Total Productive Hours" },
+    { inputId: "n_machine_group_cost", label: "Machine Group Cost" },
+    { inputId: "n_machine_group_hours", label: "Machine Group Hours" },
+    { inputId: "n_overhead_pool", label: "Overhead Pool" },
+    { inputId: "n_overhead_allocation_base", label: "Overhead Allocation Base" },
+    { inputId: "n_current_shop_rate", label: "Current Shop Rate" },
+    { inputId: "n_target_margin_pct", label: "Target Margin %" },
   ],
   insights: [
     {
@@ -796,6 +956,17 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_base_price", label: "Base Price" },
+    { inputId: "n_fx_rate_spot", label: "FX Rate (Spot)" },
+    { inputId: "n_fx_rate_budget", label: "FX Rate (Budget)" },
+    { inputId: "n_commodity_index_current", label: "Commodity Index (Current)" },
+    { inputId: "n_commodity_index_budget", label: "Commodity Index (Budget)" },
+    { inputId: "n_material_cost_pct", label: "Material Cost %" },
+    { inputId: "n_fx_hedge_pct", label: "FX Hedge %" },
+    { inputId: "n_commodity_hedge_pct", label: "Commodity Hedge %" },
+  ],
   insights: [
     {
       id: "fx-commodity-pass-through-pricer-critical",
@@ -836,6 +1007,17 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_current_kwh_per_year", label: "Current kWh/Year" },
+    { inputId: "n_target_kwh_per_year", label: "Target kWh/Year" },
+    { inputId: "n_avg_kwh_rate", label: "Avg kWh Rate" },
+    { inputId: "n_implementation_cost", label: "Implementation Cost" },
+    { inputId: "n_grant_coverage_pct", label: "Grant Coverage %" },
+    { inputId: "n_maintenance_cost_saving", label: "Maintenance Cost Saving" },
+    { inputId: "n_emission_factor_kgco2_per_kwh", label: "Emission Factor (kgCO₂/kWh)" },
+    { inputId: "n_equipment_life_years", label: "Equipment Life (Years)" },
+  ],
   insights: [
     {
       id: "energy-efficiency-grant-incentive-feasibility-pack-critical",
@@ -875,6 +1057,17 @@ register({
       entry("out_derating_factor", "Replacement Derating", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_motor_power_kw", label: "Motor Power (kW)" },
+    { inputId: "n_annual_operating_hours", label: "Annual Operating Hours" },
+    { inputId: "n_current_efficiency_pct", label: "Current Efficiency %" },
+    { inputId: "n_new_efficiency_pct", label: "New Efficiency %" },
+    { inputId: "n_avg_kwh_rate", label: "Avg kWh Rate" },
+    { inputId: "n_replacement_cost", label: "Replacement Cost" },
+    { inputId: "n_installation_cost", label: "Installation Cost" },
+    { inputId: "n_maintenance_saving_per_year", label: "Maintenance Saving/Year" },
   ],
   insights: [
     {
@@ -923,6 +1116,17 @@ register({
       entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
       entry("out_decision_state", "Decision State", "number"),
     ]),
+  ],
+  sensitivityTargetOutput: "out_total_cost_floor",
+  sensitivityDrivers: [
+    { inputId: "n_weld_length_m", label: "Weld Length (m)" },
+    { inputId: "n_weld_throat_mm", label: "Weld Throat (mm)" },
+    { inputId: "n_weld_density_g_per_cm3", label: "Weld Density (g/cm³)" },
+    { inputId: "n_wire_cost_per_kg", label: "Wire Cost per kg" },
+    { inputId: "n_gas_cost_per_min", label: "Gas Cost per Minute" },
+    { inputId: "n_arc_time_min", label: "Arc Time (min)" },
+    { inputId: "n_weld_time_min", label: "Weld Time (min)" },
+    { inputId: "n_labor_rate", label: "Labor Rate" },
   ],
   insights: [
     {
