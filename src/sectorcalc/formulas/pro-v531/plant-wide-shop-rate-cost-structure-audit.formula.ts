@@ -1,126 +1,151 @@
 import "server-only";
+
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
-
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
+import type { ProFormulaResult } from "./pro-formula-contract";
+import {
+  createValidationState,
+  divideOrError,
+  finalizeResult,
+  requireFiniteInputs,
+  requireNonNegative,
+  requirePositive,
+  requireRange,
+  roundDisplay,
+} from "./pro-formula-safety";
 
 export const toolKey = "plant-wide-shop-rate-cost-structure-audit";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
-function isFiniteNumber(v: unknown): v is number {
-  return typeof v === "number" && Number.isFinite(v);
-}
+export const requiredInputKeys = [
+  "n_total_annual_cost",
+  "n_total_productive_hours",
+  "n_machine_group_cost",
+  "n_machine_group_hours",
+  "n_overhead_pool",
+  "n_overhead_allocation_base",
+  "n_current_shop_rate",
+  "n_target_margin_pct",
+  "n_utilization_pct",
+  "n_source_confidence_ratio",
+] as const;
 
-function get(inputs: Record<string, number>, key: string): number {
-  const v = inputs[key];
-  return isFiniteNumber(v) ? v : 0;
-}
-
-function safeDiv(n: number, d: number): number {
-  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
-  return n / d;
-}
-
-function round(v: number, d: number): number {
-  if (!isFiniteNumber(v)) return 0;
-  const f = Math.pow(10, d);
-  return Math.round(v * f) / f;
-}
+export const declaredOutputKeys = [
+  "out_evidence_completeness",
+  "out_normalized_demand",
+  "out_reference_deviation",
+  "out_derating_factor",
+  "out_demand_metric",
+  "out_capacity_metric",
+  "out_utilization_margin",
+  "out_expanded_uncertainty",
+  "out_threshold_crossing",
+  "out_sensitivity_driver",
+  "out_fmea_trigger",
+  "out_money_at_risk",
+  "out_scenario_delta",
+  "out_audit_hash_payload",
+  "out_final_decision_state",
+] as const;
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
-
-  // Validate required inputs
-  const requiredInputs = [
-    "n_total_annual_cost",
-    "n_total_productive_hours",
-    "n_machine_group_cost",
-    "n_machine_group_hours",
-    "n_overhead_pool",
-    "n_overhead_allocation_base",
-    "n_current_shop_rate",
-    "n_target_margin_pct",
-    "n_utilization_pct",
-    "n_source_confidence_ratio"
-  ];
-  for (const key of requiredInputs) {
-    if (!isFiniteNumber(inputs[key])) {
-      warnings.push("Missing or non-finite input: " + key);
-    }
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const state = createValidationState();
+  const v = requireFiniteInputs(inputs, requiredInputKeys, state);
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
   }
 
-  // Extract inputs
-  const totalAnnualCost = get(inputs, "n_total_annual_cost");
-  const totalProductiveHours = get(inputs, "n_total_productive_hours");
-  const machineGroupCost = get(inputs, "n_machine_group_cost");
-  const machineGroupHours = get(inputs, "n_machine_group_hours");
-  const overheadPool = get(inputs, "n_overhead_pool");
-  const overheadAllocationBase = get(inputs, "n_overhead_allocation_base");
-  const currentShopRate = get(inputs, "n_current_shop_rate");
-  const targetMarginPct = get(inputs, "n_target_margin_pct");
-  const utilizationPct = get(inputs, "n_utilization_pct");
-  const sourceConfidenceRatio = get(inputs, "n_source_confidence_ratio");
+  const annualCost = v.n_total_annual_cost;
+  const practicalCapacityHours = v.n_total_productive_hours;
+  const machineGroupCost = v.n_machine_group_cost;
+  const machineGroupHours = v.n_machine_group_hours;
+  const overheadPool = v.n_overhead_pool;
+  const overheadAllocationBase = v.n_overhead_allocation_base;
+  const currentShopRate = v.n_current_shop_rate;
+  const targetMarginPct = v.n_target_margin_pct;
+  const utilizationPct = v.n_utilization_pct;
+  const confidence = v.n_source_confidence_ratio;
 
-  // Core calculations
-  const plantWideRate = safeDiv(totalAnnualCost, Math.max(totalProductiveHours, 1));
-  const machineGroupRate = safeDiv(machineGroupCost, Math.max(machineGroupHours, 1));
-  const overheadAbsRate = safeDiv(overheadPool, Math.max(overheadAllocationBase, 1));
-  const underRecovery = plantWideRate - (plantWideRate * utilizationPct / 100);
-  const pricingFloor = plantWideRate * (1 + targetMarginPct / 100);
-  const moneyAtRisk = underRecovery * totalProductiveHours;
+  requireNonNegative(annualCost, "Total annual cost", state);
+  requirePositive(practicalCapacityHours, "Practical capacity hours", state);
+  requireNonNegative(machineGroupCost, "Machine-group cost", state);
+  requirePositive(machineGroupHours, "Machine-group hours", state);
+  requireNonNegative(overheadPool, "Overhead pool", state);
+  requirePositive(overheadAllocationBase, "Overhead allocation base", state);
+  requireNonNegative(currentShopRate, "Current shop rate", state);
+  requireRange(targetMarginPct, 0, 100, "Target gross margin (%)", state, {
+    maxInclusive: false,
+  });
+  requireRange(utilizationPct, 0, 100, "Utilization (%)", state, {
+    minInclusive: false,
+  });
+  requireRange(confidence, 0, 1, "Source confidence", state);
 
-  // Decision logic: 0=OK, 1=REPRICE, 2=REVIEW
-  let decisionFlag: number;
-  if (currentShopRate >= pricingFloor) {
-    decisionFlag = 0; // OK
-  } else if (currentShopRate > 0 && currentShopRate < pricingFloor) {
-    decisionFlag = 1; // REPRICE
-  } else {
-    decisionFlag = 2; // REVIEW
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
   }
 
-  // Map to all 15 output IDs
-  outputs["out_evidence_completeness"] = round(sourceConfidenceRatio, 4);
-  outputs["out_normalized_demand"] = round(totalProductiveHours, 4);
-  outputs["out_reference_deviation"] = round(utilizationPct / 100, 4);
-  outputs["out_derating_factor"] = round(safeDiv(underRecovery, Math.max(plantWideRate, 1)), 4);
-  outputs["out_demand_metric"] = round(plantWideRate, 4);
-  outputs["out_capacity_metric"] = round(machineGroupRate, 4);
-  outputs["out_utilization_margin"] = round(utilizationPct / 100, 4);
-  outputs["out_expanded_uncertainty"] = round(overheadAbsRate, 4);
-  outputs["out_threshold_crossing"] = round(decisionFlag, 4);
-  outputs["out_sensitivity_driver"] = round(Math.max(plantWideRate, machineGroupRate, overheadAbsRate), 4);
-  outputs["out_fmea_trigger"] = round(decisionFlag === 2 ? 1 : 0, 4);
-  outputs["out_money_at_risk"] = round(Math.max(moneyAtRisk, 0), 4);
-  outputs["out_scenario_delta"] = round(pricingFloor - currentShopRate, 4);
-  outputs["out_audit_hash_payload"] = round(totalProductiveHours + sourceConfidenceRatio, 4);
-  outputs["out_final_decision_state"] = round(decisionFlag, 4);
+  const utilization = utilizationPct / 100;
+  const targetMargin = targetMarginPct / 100;
+  const realizedHours = practicalCapacityHours * utilization;
+  const plantCostRate = divideOrError(annualCost, realizedHours, "Plant-wide cost rate", state);
+  const machineGroupRate = divideOrError(
+    machineGroupCost,
+    machineGroupHours,
+    "Machine-group cost rate",
+    state,
+  );
+  const overheadAbsorptionRate = divideOrError(
+    overheadPool,
+    overheadAllocationBase,
+    "Overhead absorption rate",
+    state,
+  );
+  const governingCostRate = Math.max(plantCostRate, machineGroupRate + overheadAbsorptionRate);
+  const pricingFloor = divideOrError(
+    governingCostRate,
+    1 - targetMargin,
+    "Gross-margin shop-rate floor",
+    state,
+  );
+  const rateGap = pricingFloor - currentShopRate;
+  const underRecovery = Math.max(0, rateGap) * realizedHours;
+  const uncertainty = annualCost * (1 - confidence);
 
-  // Sanity check
-  for (const key of Object.keys(outputs)) {
-    if (!isFiniteNumber(outputs[key])) {
-      outputs[key] = 0;
-      warnings.push("Non-finite output corrected to zero: " + key);
-    }
+  let decision = 0;
+  if (rateGap > 0 || confidence < 0.7) decision = 1;
+  if (currentShopRate <= 0) decision = 2;
+
+  if (confidence < 0.7) {
+    state.warnings.push("Source confidence is below 70%; reconcile ledger pools and productive-hour evidence.");
   }
 
-  const ok = warnings.length === 0;
-  return {
-    status: ok ? "OK" : "REVIEW",
-    outputs,
-    warnings: warnings.length ? warnings : [],
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
+  const drivers = [plantCostRate, machineGroupRate, overheadAbsorptionRate];
+  const sensitivityDriver = drivers.indexOf(Math.max(...drivers));
+
+  const outputs: Record<string, number> = {
+    out_evidence_completeness: roundDisplay(confidence, 4),
+    out_normalized_demand: roundDisplay(realizedHours, 2),
+    out_reference_deviation: roundDisplay(rateGap, 4),
+    out_derating_factor: roundDisplay(utilization, 4),
+    out_demand_metric: roundDisplay(plantCostRate, 4),
+    out_capacity_metric: roundDisplay(machineGroupRate, 4),
+    out_utilization_margin: roundDisplay(utilization, 4),
+    out_expanded_uncertainty: roundDisplay(uncertainty, 2),
+    out_threshold_crossing: rateGap > 0 ? 1 : 0,
+    out_sensitivity_driver: sensitivityDriver,
+    out_fmea_trigger: decision > 0 ? 1 : 0,
+    out_money_at_risk: roundDisplay(underRecovery, 2),
+    out_scenario_delta: roundDisplay(rateGap, 4),
+    out_audit_hash_payload: 0,
+    out_final_decision_state: decision,
   };
+
+  return finalizeResult({
+    outputs,
+    outputKeys: declaredOutputKeys,
+    state,
+    status: decision === 0 ? "OK" : "REVIEW",
+  });
 }
