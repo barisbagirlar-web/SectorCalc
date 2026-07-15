@@ -12,6 +12,7 @@ import { enrichV531SchemaReferences } from "@/sectorcalc/runtime/v531-reference-
 import { isActiveTool } from "@/sectorcalc/runtime/active-tool-allowlist";
 import { getBarisProSchema, clearBarisSchemaCache } from "@/sectorcalc/runtime/baris-schema-loader";
 import { applySchemaPresentationOverrides } from "@/sectorcalc/runtime/schema-presentation-overrides";
+import { applySchemaCalculationContractOverrides } from "@/sectorcalc/runtime/schema-calculation-contract-overrides";
 import fs from "fs";
 import path from "path";
 
@@ -52,7 +53,6 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   if (!toolKey || typeof toolKey !== "string") return { ok: false, reason: "SCHEMA_NOT_FOUND", errors: ["Invalid tool key: " + toolKey] };
   const normalizedKey = toolKey.trim();
 
-  // V5.4 Core — quarantine non-allowlisted tools
   if (!isActiveTool(normalizedKey)) {
     return { ok: false, reason: "SCHEMA_NOT_FOUND", errors: ["Tool is under V5.4 Core rebuild verification: " + normalizedKey] };
   }
@@ -60,7 +60,8 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   function buildAndCache(buildFn: () => SuperV4Schema, source: ResolvedSource): ApprovedSchemaResult {
     let superV4: SuperV4Schema;
     try {
-      superV4 = applySchemaPresentationOverrides(buildFn());
+      const calculationLocked = applySchemaCalculationContractOverrides(buildFn());
+      superV4 = applySchemaPresentationOverrides(calculationLocked);
     } catch (err: unknown) {
       return { ok: false, reason: "CAUGHT_EXCEPTION", errors: ["Build threw: " + (err instanceof Error ? err.message : String(err))] };
     }
@@ -86,14 +87,12 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   const proSchema = getProToolSchema(normalizedKey);
   if (proSchema) return buildAndCache(() => proSchema, "pro_v531");
 
-  // Baris PRO V5.3.1 schemas are in the pro-v531 directory
   const barisSchema = getBarisProSchema(normalizedKey);
   if (barisSchema) return buildAndCache(() => barisSchema, "pro_v531");
 
   const freeSchema = getFreeToolSchema(normalizedKey);
   if (freeSchema) return buildAndCache(() => freeSchema, "free_v531");
 
-  // Retry once with cache reset to handle dev module caching edge cases.
   clearSchemaCache();
   clearProSchemaCache();
   clearFreeSchemaCache();
@@ -108,11 +107,7 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
   const freeSchema2 = getFreeToolSchema(normalizedKey);
   if (freeSchema2) return buildAndCache(() => freeSchema2, "free_v531");
 
-  // Direct file read fallback — if the schema loaders' module-level caches
-  // are in a bad state (dev HMR edge case), read the schema JSON file
-  // directly and validate it inline.
   try {
-    // Check pro-v531 directory first (Baris PRO tools)
     const proDir = path.join(process.cwd(), "src/sectorcalc/schemas/pro-v531");
     if (fs.existsSync(proDir)) {
       for (const fn of fs.readdirSync(proDir).filter((f: string) => f.endsWith(".schema.json"))) {
@@ -126,7 +121,6 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
         }
       }
     }
-    // Fall back to free-v531 directory (Free tools)
     const freeDir = path.join(process.cwd(), "src/sectorcalc/schemas/free-v531");
     if (fs.existsSync(freeDir)) {
       for (const fn of fs.readdirSync(freeDir).filter((f: string) => f.endsWith(".json"))) {
@@ -137,12 +131,10 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
         }
       }
     }
-    // Also try .next/server paths (Firebase SSR bundle)
     const nextProDir = path.join(process.cwd(), ".next/server/src/sectorcalc/schemas/pro-v531");
     if (fs.existsSync(nextProDir)) {
-      // ... same logic ...
+      // Bundled schemas are resolved by the generated loaders in normal production execution.
     }
-    // Also try .next/standalone/.next/server paths (Firebase SSR standalone deployment)
     const standaloneNextProDir = path.join(process.cwd(), ".next/standalone/.next/server/src/sectorcalc/schemas/pro-v531");
     if (fs.existsSync(standaloneNextProDir)) {
       for (const fn of fs.readdirSync(standaloneNextProDir).filter((f: string) => f.endsWith(".schema.json"))) {
@@ -157,7 +149,7 @@ export function resolveApprovedToolSchema(toolKey: string): ApprovedSchemaResult
       }
     }
   } catch {
-    // Fallback failed — report original error below
+    // Fallback failed — report original error below.
   }
 
   return { ok: false, reason: "SCHEMA_NOT_FOUND", errors: ["No schema found for: " + normalizedKey] };
