@@ -97,6 +97,21 @@ jobs:
       - name: Root-only routing guard
         run: npm run guard:root-only
 
+      - name: Firestore index structure validation
+        shell: bash
+        run: |
+          if [ ! -f firestore.indexes.json ]; then
+            echo "firestore.indexes.json not found, skipping"
+            exit 0
+          fi
+          node -e "
+            var d=JSON.parse(require('fs').readFileSync('firestore.indexes.json','utf8'));
+            var idxs=d.indexes||[];
+            var r=idxs.find(function(i){return i.collectionGroup==='reports'&&i.queryScope==='COLLECTION'&&i.fields&&i.fields.length===2&&i.fields[0].fieldPath==='uid'&&i.fields[0].order==='ASCENDING'&&i.fields[1].fieldPath==='createdAt'&&i.fields[1].order==='DESCENDING'});
+            if(!r){console.error('FIRESTORE_INDEXES_VALIDATION=FAIL');process.exit(1);}
+            console.log('FIRESTORE_INDEXES_VALIDATION=PASS');
+          "
+
       - name: Production build
         run: npm run build
         env:
