@@ -89,7 +89,6 @@ export const setupTimeRoiFormToSchemaMap: FormToSchemaMap = {
   setup_time: "setup_time",
   batch_quantity: "batch_quantity",
   labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
   annual_volume: "annual_volume",
   source_confidence_ratio: "source_confidence_ratio",
   uncertainty_multiplier: "uncertainty_multiplier",

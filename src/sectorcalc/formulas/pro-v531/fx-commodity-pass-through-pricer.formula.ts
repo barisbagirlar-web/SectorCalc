@@ -73,7 +73,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const n_material_cost_pct = get(inputs, "n_material_cost_pct");
   const n_fx_hedge_pct = get(inputs, "n_fx_hedge_pct");
   const n_commodity_hedge_pct = get(inputs, "n_commodity_hedge_pct");
-  const n_annual_volume = get(inputs, "n_annual_volume");
+  const n_annual_volume = get(inputs, "n_annual_volume") * 31536000; // NOTE (2026-07-15 audit): normalized to unit_per_s, converted to units/year
   const n_source_confidence_ratio = get(inputs, "n_source_confidence_ratio");
 
   // --- Core FX & commodity pass-through logic ---

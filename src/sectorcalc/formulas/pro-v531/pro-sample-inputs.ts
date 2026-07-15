@@ -28,7 +28,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_batch_quantity: 500,
     n_material_cost: 25,
     n_target_margin: 0.3,
-    n_annual_volume: 100000,
+    n_annual_volume: 100000 / 31536000,
     n_labor_rate: 45,
     n_overhead_rate: 350000,
     n_source_confidence_ratio: 0.9,
@@ -69,11 +69,12 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     // NOTE (2026-07-15 audit): old fixture had n_overhead_rate: 350000 (an "hourly rate" of
     // $350,000/h) and no investment-cost/reduction-target inputs — never sanity-checked
     // against the formula, which used to fabricate investment cost as oh*0.3 anyway.
+    // cycle_time/defect_or_loss_cost/material_cost/overhead_rate/target_margin removed from
+    // the schema entirely (dead inputs — this tool is pure setup-time ROI, not job costing).
     n_machine_rate: 85,
     n_setup_time: 3600,
     n_batch_quantity: 500,
     n_labor_rate: 45,
-    n_overhead_rate: 30,
     n_annual_volume: 100000 / 31536000,
     n_source_confidence_ratio: 0.9,
     n_uncertainty_multiplier: 1.4,
@@ -110,7 +111,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_batch_quantity: 500,
     n_material_cost: 25,
     n_target_margin: 0.3,
-    n_annual_volume: 100000,
+    n_annual_volume: 100000 / 31536000,
     n_labor_rate: 45,
     n_overhead_rate: 350000,
     n_defect_or_loss_cost: 12000,
@@ -124,7 +125,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_analysis_years: 5,
     n_residual_value: 50000,
     n_stress_downside_factor: 0.8,
-    n_annual_volume: 10000,
+    n_annual_volume: 10000 / 31536000,
     n_labor_rate: 80000,
     n_overhead_rate: 120000,
     n_defect_or_loss_cost: 15000,
@@ -138,7 +139,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_analysis_years: 5,
     n_residual_value: 50000,
     n_stress_downside_factor: 0.8,
-    n_annual_volume: 10000,
+    n_annual_volume: 10000 / 31536000,
     n_labor_rate: 80000,
     n_overhead_rate: 120000,
     n_defect_or_loss_cost: 15000,
@@ -198,18 +199,23 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_source_confidence_ratio: 0.9,
   },
   "outsource-vs-in-house-analyzer": {
+    // NOTE (2026-07-15 audit): old values (75, 5 for ratio-family fields; 5000 raw for
+    // annual_volume) only worked by coincidence with the formula's now-removed "/100" and
+    // raw-count usage — never matched the real runtime normalization contract.
     n_in_house_labor_cost: 85,
     n_in_house_material_cost: 30,
     n_in_house_setup_cost: 500,
     n_in_house_overhead: 75,
     n_outsource_unit_price: 95,
     n_outsource_logistics_cost: 8,
-    n_annual_volume: 5000,
-    n_capacity_utilization_pct: 75,
-    n_quality_risk_premium_pct: 5,
+    n_annual_volume: 5000 / 31536000,
+    n_capacity_utilization_pct: 0.75,
+    n_quality_risk_premium_pct: 0.05,
     n_source_confidence_ratio: 0.9,
   },
   "plant-wide-shop-rate-cost-structure-audit": {
+    // NOTE (2026-07-15 audit): old values (25, 80) only worked by coincidence with the
+    // formula's now-removed "/100" -- never matched the real ratio (0..1) contract.
     n_total_annual_cost: 2000000,
     n_total_productive_hours: 40000,
     n_machine_group_cost: 500000,
@@ -217,8 +223,8 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_overhead_pool: 600000,
     n_overhead_allocation_base: 40000,
     n_current_shop_rate: 85,
-    n_target_margin_pct: 25,
-    n_utilization_pct: 80,
+    n_target_margin_pct: 0.25,
+    n_utilization_pct: 0.80,
     n_source_confidence_ratio: 0.9,
   },
   "fx-commodity-pass-through-pricer": {
@@ -230,7 +236,7 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_material_cost_pct: 40,
     n_fx_hedge_pct: 60,
     n_commodity_hedge_pct: 50,
-    n_annual_volume: 10000,
+    n_annual_volume: 10000 / 31536000,
     n_source_confidence_ratio: 0.9,
   },
   "energy-efficiency-grant-incentive-feasibility-pack": {

@@ -76,8 +76,13 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const plantWideRate = safeDiv(totalAnnualCost, Math.max(totalProductiveHours, 1));
   const machineGroupRate = safeDiv(machineGroupCost, Math.max(machineGroupHours, 1));
   const overheadAbsRate = safeDiv(overheadPool, Math.max(overheadAllocationBase, 1));
-  const underRecovery = plantWideRate - (plantWideRate * utilizationPct / 100);
-  const pricingFloor = plantWideRate * (1 + targetMarginPct / 100);
+  // NOTE (2026-07-15 audit): n_target_margin_pct and n_utilization_pct both have schema
+  // base_unit "ratio" (0..1) -- the normalizer already converts a "percent" display entry to
+  // ratio before calculate() sees it. Dividing by 100 again shrank both 100x, meaning
+  // under-recovery and pricing floor were computed from a near-100% utilization assumption
+  // regardless of the real input.
+  const underRecovery = plantWideRate - (plantWideRate * utilizationPct);
+  const pricingFloor = plantWideRate * (1 + targetMarginPct);
   const moneyAtRisk = underRecovery * totalProductiveHours;
 
   // Decision logic: 0=OK, 1=REPRICE, 2=REVIEW
@@ -93,11 +98,11 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   // Map to all 15 output IDs
   outputs["out_evidence_completeness"] = round(sourceConfidenceRatio, 4);
   outputs["out_normalized_demand"] = round(totalProductiveHours, 4);
-  outputs["out_reference_deviation"] = round(utilizationPct / 100, 4);
+  outputs["out_reference_deviation"] = round(utilizationPct, 4);
   outputs["out_derating_factor"] = round(safeDiv(underRecovery, Math.max(plantWideRate, 1)), 4);
   outputs["out_demand_metric"] = round(plantWideRate, 4);
   outputs["out_capacity_metric"] = round(machineGroupRate, 4);
-  outputs["out_utilization_margin"] = round(utilizationPct / 100, 4);
+  outputs["out_utilization_margin"] = round(utilizationPct, 4);
   outputs["out_expanded_uncertainty"] = round(overheadAbsRate, 4);
   outputs["out_threshold_crossing"] = round(decisionFlag, 4);
   outputs["out_sensitivity_driver"] = round(Math.max(plantWideRate, machineGroupRate, overheadAbsRate), 4);

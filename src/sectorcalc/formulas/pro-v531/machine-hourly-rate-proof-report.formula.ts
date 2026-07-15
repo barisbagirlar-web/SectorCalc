@@ -31,7 +31,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const st = get(inputs, "n_setup_time");
   const mc = get(inputs, "n_material_cost");
   const tm = get(inputs, "n_target_margin");
-  const vol = get(inputs, "n_annual_volume");
+  const vol = get(inputs, "n_annual_volume") * 31536000; // NOTE (2026-07-15 audit): normalized to unit_per_s, converted to units/year
   const lr = get(inputs, "n_labor_rate");
   const oh = get(inputs, "n_overhead_rate");
   const conf = get(inputs, "n_source_confidence_ratio");

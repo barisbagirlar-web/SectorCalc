@@ -72,16 +72,26 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const capacityUtilizationPct = get(inputs, "n_capacity_utilization_pct");
   const sourceConfidenceRatio = get(inputs, "n_source_confidence_ratio");
 
+  // NOTE (2026-07-15 audit): two unit-contract bugs fixed here.
+  // (1) n_quality_risk_premium_pct and n_capacity_utilization_pct both have schema
+  //     base_unit "ratio" (0..1) — the normalizer already converts a "percent" display entry
+  //     to ratio before calculate() sees it. Dividing by 100 again shrank both 100x.
+  // (2) n_annual_volume is normalized to unit_per_s (a rate), not a raw yearly count. It was
+  //     being used directly as if it were units/year, making inHouseTotalCost/outsourceTotalCost
+  //     and everything derived from them wrong by a factor of ~31,536,000.
+  const SECONDS_PER_YEAR = 31536000;
+  const annualUnits = annualVolume * SECONDS_PER_YEAR;
+
   // Core calculations
-  const setupCostPerUnit = safeDiv(setupCost, Math.max(annualVolume, 1));
+  const setupCostPerUnit = safeDiv(setupCost, Math.max(annualUnits, 1));
   const inHouseUnitCost = materialCost + laborCost + overhead + setupCostPerUnit;
-  const inHouseTotalCost = inHouseUnitCost * annualVolume;
+  const inHouseTotalCost = inHouseUnitCost * annualUnits;
   const outsourceUnitCost = outsourceUnitPrice + logisticsCost;
-  const outsourceTotalCost = outsourceUnitCost * annualVolume;
-  const capacityOppCost = (1 - capacityUtilizationPct / 100) * inHouseTotalCost * 0.3;
-  const riskPremium = outsourceTotalCost * qualityRiskPremiumPct / 100;
+  const outsourceTotalCost = outsourceUnitCost * annualUnits;
+  const capacityOppCost = (1 - capacityUtilizationPct) * inHouseTotalCost * 0.3;
+  const riskPremium = outsourceTotalCost * qualityRiskPremiumPct;
   const riskAdjDelta = (inHouseTotalCost + capacityOppCost) - (outsourceTotalCost + riskPremium);
-  const savingsPerUnit = safeDiv(riskAdjDelta, Math.max(annualVolume, 1));
+  const savingsPerUnit = safeDiv(riskAdjDelta, Math.max(annualUnits, 1));
 
   // Decision logic: 0=MAKE, 1=BUY, 2=REVIEW
   const threshold = inHouseTotalCost * 0.1;
@@ -96,19 +106,19 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // Map to all 15 output IDs
   outputs["out_evidence_completeness"] = round(sourceConfidenceRatio, 4);
-  outputs["out_normalized_demand"] = round(annualVolume, 4);
-  outputs["out_reference_deviation"] = round(qualityRiskPremiumPct / 100, 4);
-  outputs["out_derating_factor"] = round(capacityUtilizationPct / 100, 4);
+  outputs["out_normalized_demand"] = round(annualUnits, 4);
+  outputs["out_reference_deviation"] = round(qualityRiskPremiumPct, 4);
+  outputs["out_derating_factor"] = round(capacityUtilizationPct, 4);
   outputs["out_demand_metric"] = round(inHouseUnitCost, 4);
   outputs["out_capacity_metric"] = round(outsourceUnitCost, 4);
-  outputs["out_utilization_margin"] = round(capacityUtilizationPct / 100, 4);
+  outputs["out_utilization_margin"] = round(capacityUtilizationPct, 4);
   outputs["out_expanded_uncertainty"] = round(1 - sourceConfidenceRatio, 4);
   outputs["out_threshold_crossing"] = round(decisionFlag, 4);
   outputs["out_sensitivity_driver"] = round(Math.max(materialCost, laborCost, overhead, outsourceUnitPrice), 4);
   outputs["out_fmea_trigger"] = round(decisionFlag === 2 ? 1 : 0, 4);
   outputs["out_money_at_risk"] = round(Math.abs(riskAdjDelta), 4);
   outputs["out_scenario_delta"] = round(savingsPerUnit, 4);
-  outputs["out_audit_hash_payload"] = round(annualVolume + sourceConfidenceRatio, 4);
+  outputs["out_audit_hash_payload"] = round(annualUnits + sourceConfidenceRatio, 4);
   outputs["out_final_decision_state"] = round(decisionFlag, 4);
 
   // Sanity check

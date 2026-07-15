@@ -73,7 +73,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const n_analysis_years = get(inputs, "n_analysis_years");
   const n_residual_value = get(inputs, "n_residual_value");
   const n_stress_downside_factor = get(inputs, "n_stress_downside_factor");
-  const n_annual_volume = get(inputs, "n_annual_volume");
+  const n_annual_volume = get(inputs, "n_annual_volume") * 31536000; // NOTE (2026-07-15 audit): normalized to unit_per_s, converted to units/year
   const n_labor_rate = get(inputs, "n_labor_rate");
   const n_overhead_rate = get(inputs, "n_overhead_rate");
   const n_defect_or_loss_cost = get(inputs, "n_defect_or_loss_cost");

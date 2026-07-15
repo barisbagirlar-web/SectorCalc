@@ -5,7 +5,7 @@
   "_verification_note": "Replaced fabricated template values with values computed by actually executing the rewritten calculate() during the 2026-07-15 audit, using a genuinely unattractive scenario (34.6mo payback -> BLOCK) to prove the tool can correctly say 'don't do this' and not just always say PASS. tests/golden/pro-v531-baris/ is not wired into any npm script yet.",
   "raw_inputs": {
     "machine_rate": 85, "setup_time": 3600, "batch_quantity": 500, "labor_rate": 45,
-    "overhead_rate": 30, "annual_volume": 100000, "source_confidence_ratio": 0.9,
+    "annual_volume": 100000, "source_confidence_ratio": 0.9,
     "uncertainty_multiplier": 1.4, "smed_investment_cost": 45000, "setup_time_reduction_target_pct": 0.6
   },
   "raw_inputs_units_assumed": { "annual_volume": "unit_per_year" },
