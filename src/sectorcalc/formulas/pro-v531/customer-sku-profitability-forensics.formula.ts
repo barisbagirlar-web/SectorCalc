@@ -1,76 +1,137 @@
 import "server-only";
+
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
-
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
-
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
-}
+import type { ProFormulaResult } from "./pro-formula-contract";
+import {
+  createValidationState,
+  divideOrError,
+  finalizeResult,
+  requireFiniteInputs,
+  requireInteger,
+  requireNonNegative,
+  requirePositive,
+  requireRange,
+  roundDisplay,
+} from "./pro-formula-safety";
 
 export const toolKey = "customer-sku-profitability-forensics";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+export const requiredInputKeys = [
+  "n_unit_price",
+  "n_unit_variable_cost",
+  "n_annual_volume",
+  "n_logistics_cost_pct",
+  "n_service_cost_pct",
+  "n_return_rate_pct",
+  "n_target_margin",
+  "n_source_confidence_ratio",
+] as const;
+
+export const declaredOutputKeys = [
+  "out_evidence_completeness",
+  "out_normalized_demand",
+  "out_reference_deviation",
+  "out_derating_factor",
+  "out_demand_metric",
+  "out_capacity_metric",
+  "out_utilization_margin",
+  "out_expanded_uncertainty",
+  "out_threshold_crossing",
+  "out_sensitivity_driver",
+  "out_fmea_trigger",
+  "out_money_at_risk",
+  "out_scenario_delta",
+  "out_audit_hash_payload",
+  "out_final_decision_state",
+] as const;
 
 export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const state = createValidationState();
+  const v = requireFiniteInputs(inputs, requiredInputKeys, state);
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
 
-  const up = get(inputs, "n_unit_price");
-  const uvc = get(inputs, "n_unit_variable_cost");
-  const av = get(inputs, "n_annual_volume");
-  const lcp = get(inputs, "n_logistics_cost_pct");
-  const scp = get(inputs, "n_service_cost_pct");
-  const rrp = get(inputs, "n_return_rate_pct");
-  const tm = get(inputs, "n_target_margin");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
-  const conf = get(inputs, "n_source_confidence_ratio");
+  const unitPrice = v.n_unit_price;
+  const unitVariableCost = v.n_unit_variable_cost;
+  const annualVolume = v.n_annual_volume;
+  const logisticsPct = v.n_logistics_cost_pct;
+  const servicePct = v.n_service_cost_pct;
+  const returnPct = v.n_return_rate_pct;
+  const targetMarginPct = v.n_target_margin;
+  const confidence = v.n_source_confidence_ratio;
 
-  if (!isFiniteNumber(inputs["n_unit_price"])) warnings.push("Missing: n_unit_price");
-  if (!isFiniteNumber(inputs["n_unit_variable_cost"])) warnings.push("Missing: n_unit_variable_cost");
-  if (!isFiniteNumber(inputs["n_annual_volume"])) warnings.push("Missing: n_annual_volume");
+  requirePositive(unitPrice, "Unit selling price", state);
+  requireNonNegative(unitVariableCost, "Unit variable cost", state);
+  requireInteger(annualVolume, 1, 1000000000000, "Annual volume", state);
+  requireRange(logisticsPct, 0, 100, "Logistics cost (%)", state);
+  requireRange(servicePct, 0, 100, "Service cost (%)", state);
+  requireRange(returnPct, 0, 100, "Return rate (%)", state);
+  requireRange(targetMarginPct, -100, 100, "Target net margin (%)", state, {
+    maxInclusive: false,
+  });
+  requireRange(confidence, 0, 1, "Source confidence", state);
 
-  const unit_contribution = up - uvc;
-  const cm_ratio = up > 0 ? unit_contribution / up : 0;
-  const logistics_burden = up * (lcp / 100);
-  const service_burden = up * (scp / 100);
-  const return_burden = up * (rrp / 100);
-  const net_margin = unit_contribution - logistics_burden - service_burden - return_burden;
-  const toxic_flag = net_margin < 0 ? 1 : 0;
-  const total_margin = net_margin * av;
-  const biggest_burden = Math.max(logistics_burden, service_burden, return_burden);
-  const target_margin_ratio = tm / 100;
-  let decision: number;
-  if (cm_ratio > target_margin_ratio) decision = 0; // GROW
-  else if (cm_ratio > 0) decision = 1;             // HOLD
-  else decision = 2;                                // CUT
+  const totalBurdenPct = logisticsPct + servicePct + returnPct;
+  if (totalBurdenPct > 100) {
+    state.errors.push("Combined logistics, service and return burden must not exceed 100% of unit price.");
+  }
 
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(av, 0);
-  outputs["out_reference_deviation"] = round(tm > 0 ? Math.abs(cm_ratio - target_margin_ratio) / target_margin_ratio : 0, 4);
-  outputs["out_derating_factor"] = round(net_margin < 0 ? 0 : net_margin / unit_contribution, 4);
-  outputs["out_demand_metric"] = round(net_margin, 2);
-  outputs["out_capacity_metric"] = round(total_margin, 2);
-  outputs["out_utilization_margin"] = round(cm_ratio, 4);
-  outputs["out_expanded_uncertainty"] = round(net_margin * 0.1, 2);
-  outputs["out_threshold_crossing"] = toxic_flag;
-  outputs["out_sensitivity_driver"] = biggest_burden === logistics_burden ? 0 : (biggest_burden === service_burden ? 1 : 2);
-  outputs["out_fmea_trigger"] = toxic_flag;
-  outputs["out_money_at_risk"] = round(toxic_flag ? total_margin : 0, 2);
-  outputs["out_scenario_delta"] = round(biggest_burden * av, 2);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_final_decision_state"] = decision;
+  if (state.errors.length > 0) {
+    return finalizeResult({ outputs: {}, outputKeys: declaredOutputKeys, state });
+  }
 
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  const logisticsBurden = unitPrice * logisticsPct / 100;
+  const serviceBurden = unitPrice * servicePct / 100;
+  const returnBurden = unitPrice * returnPct / 100;
+  const netMarginPerUnit =
+    unitPrice - unitVariableCost - logisticsBurden - serviceBurden - returnBurden;
+  const netMarginRatio = divideOrError(netMarginPerUnit, unitPrice, "Net margin ratio", state);
+  const annualNetMargin = netMarginPerUnit * annualVolume;
+  const targetMarginRatio = targetMarginPct / 100;
+  const marginGap = netMarginRatio - targetMarginRatio;
+  const uncertainty = Math.abs(annualNetMargin) * (1 - confidence);
+  const burdenDrivers = [unitVariableCost, logisticsBurden, serviceBurden, returnBurden];
+  const sensitivityDriver = burdenDrivers.indexOf(Math.max(...burdenDrivers));
+
+  let decision = 0;
+  if (netMarginPerUnit < 0) decision = 2;
+  else if (netMarginRatio < targetMarginRatio || confidence < 0.7) decision = 1;
+
+  if (confidence < 0.7) {
+    state.warnings.push("Source confidence is below 70%; verify price, cost-to-serve and return records.");
+  }
+
+  const outputs: Record<string, number> = {
+    out_evidence_completeness: roundDisplay(confidence, 4),
+    out_normalized_demand: roundDisplay(annualVolume, 0),
+    out_reference_deviation: roundDisplay(marginGap, 6),
+    out_derating_factor: roundDisplay(
+      unitPrice > unitVariableCost
+        ? Math.max(0, netMarginPerUnit / (unitPrice - unitVariableCost))
+        : 0,
+      6,
+    ),
+    out_demand_metric: roundDisplay(netMarginPerUnit, 4),
+    out_capacity_metric: roundDisplay(annualNetMargin, 2),
+    out_utilization_margin: roundDisplay(netMarginRatio, 6),
+    out_expanded_uncertainty: roundDisplay(uncertainty, 2),
+    out_threshold_crossing: netMarginRatio < targetMarginRatio ? 1 : 0,
+    out_sensitivity_driver: sensitivityDriver,
+    out_fmea_trigger: netMarginPerUnit < 0 ? 1 : 0,
+    out_money_at_risk: roundDisplay(netMarginPerUnit < 0 ? Math.abs(annualNetMargin) : uncertainty, 2),
+    out_scenario_delta: roundDisplay(Math.max(logisticsBurden, serviceBurden, returnBurden) * annualVolume, 2),
+    out_audit_hash_payload: 0,
+    out_final_decision_state: decision,
+  };
+
+  return finalizeResult({
+    outputs,
+    outputKeys: declaredOutputKeys,
+    state,
+    status: decision === 0 ? "OK" : "REVIEW",
+  });
 }
