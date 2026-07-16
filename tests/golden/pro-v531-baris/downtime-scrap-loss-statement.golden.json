@@ -2,18 +2,23 @@
   "tool_key": "downtime-scrap-loss-statement",
   "schema_version": "5.3.1-pro-schema.1",
   "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": { "productive_hours": 200, "actual_hours": 180 },
+  "_verification_note": "Fixed defect_rate_pct double-normalization (percent option added, redundant /100 removed). Values below computed by actually executing calculate() during the 2026-07-15 audit.",
+  "raw_inputs": {
+    "productive_hours": 2000, "actual_hours": 1760, "hourly_rate": 85, "scrap_quantity": 150,
+    "unit_cost": 25, "rework_hours": 120, "rework_rate": 55, "material_cost": 50000,
+    "defect_rate_pct": 0.035, "source_confidence_ratio": 0.9
+  },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 200,
-    "out_money_at_risk": 1000,
-    "out_final_decision_state": 0
+    "out_evidence_completeness": 0.9, "out_normalized_demand": 2000, "out_reference_deviation": 0.035,
+    "out_derating_factor": 0.12, "out_demand_metric": 20400, "out_capacity_metric": 30750,
+    "out_utilization_margin": 0.88, "out_expanded_uncertainty": 3075, "out_threshold_crossing": 1,
+    "out_sensitivity_driver": 0, "out_fmea_trigger": 1, "out_money_at_risk": 30750, "out_final_decision_state": 2
   },
   "expected_hashes": {
-    "output_hash": "oh-b2-down-",
-    "proof_pack_hash": "pph-b2-down-",
-    "audit_seal_stable_hash": "ash-b2-down-"
+    "output_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "proof_pack_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "audit_seal_stable_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED"
   },
-  "expected_decision_status": "OK",
+  "expected_decision_status": "BLOCKED",
   "expected_warnings": []
 }

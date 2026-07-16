@@ -1,18 +1,25 @@
 {
   "tool_key": "weld-procedure-cost-consumable-estimation-suite",
   "schema_version": "5.3.1-pro-schema.1",
-  "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": { "weld_length_m": 10, "weld_throat_mm": 5 },
+  "formula_version": "5.3.2-pro-baris.2",
+  "_verification_note": "Previous fixture used output keys (out_normalized_demand, out_money_at_risk) that don't even exist in this tool's actual output set (out_total_cost_floor, out_wire_mass_kg, etc -- this tool uses tool-specific keys, not the generic template). Also fixed a 1000x dimensional bug in weld_volume_g (m3->cm3 conversion used factor 1000 instead of 1,000,000). Values below computed by actually executing the corrected calculate() during the 2026-07-15 audit.",
+  "raw_inputs": {
+    "weld_length_m": 50, "weld_throat_mm": 8, "weld_density_g_per_cm3": 7.85,
+    "weld_time_min": 120, "arc_time_min": 90, "wire_cost_per_kg": 15,
+    "deposition_efficiency_pct": 85, "gas_cost_per_min": 0.15, "labor_rate": 55,
+    "overhead_rate": 40, "source_confidence_ratio": 0.9
+  },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 10,
-    "out_money_at_risk": 0,
-    "out_final_decision_state": 0
+    "out_total_cost_floor": 425.15, "out_base_production_cost": 345.15, "out_cost_per_meter": 8.5,
+    "out_wire_mass_kg": 14.776, "out_wire_cost": 221.65, "out_shielding_gas_cost": 13.5,
+    "out_labor_cost": 110, "out_shop_overhead": 80, "out_consumable_efficiency": 0.85,
+    "out_decision_state": 0, "out_evidence_completeness": 0.9, "out_expanded_uncertainty": 8,
+    "out_threshold_crossing": 0, "out_sensitivity_driver": 0, "out_fmea_trigger": 0
   },
   "expected_hashes": {
-    "output_hash": "oh-b2-weld-",
-    "proof_pack_hash": "pph-b2-weld-",
-    "audit_seal_stable_hash": "ash-b2-weld-"
+    "output_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "proof_pack_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "audit_seal_stable_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED"
   },
   "expected_decision_status": "OK",
   "expected_warnings": []

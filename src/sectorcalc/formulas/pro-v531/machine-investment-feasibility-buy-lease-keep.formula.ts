@@ -73,7 +73,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const n_analysis_years = get(inputs, "n_analysis_years");
   const n_residual_value = get(inputs, "n_residual_value");
   const n_stress_downside_factor = get(inputs, "n_stress_downside_factor");
-  const n_annual_volume = get(inputs, "n_annual_volume");
+  const n_annual_volume = get(inputs, "n_annual_volume") * 31536000; // NOTE (2026-07-15 audit): normalized to unit_per_s, converted to units/year
   const n_labor_rate = get(inputs, "n_labor_rate");
   const n_overhead_rate = get(inputs, "n_overhead_rate");
   const n_defect_or_loss_cost = get(inputs, "n_defect_or_loss_cost");
@@ -199,6 +199,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // --- Output 15: out_final_decision_state ---
   outputs["out_final_decision_state"] = decision;
+  outputs["out_npv_buy_component"] = round(npv_buy, 2);
+  outputs["out_npv_lease_component"] = round(npv_lease, 2);
+  outputs["out_npv_keep_component"] = round(npv_keep, 2);
 
   // --- Sanity check: ensure all 15 outputs are finite ---
   const allOutputKeys = [
@@ -217,6 +220,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     "out_scenario_delta",
     "out_audit_hash_payload",
     "out_final_decision_state",
+    "out_npv_buy_component",
+    "out_npv_lease_component",
+    "out_npv_keep_component",
   ];
 
   for (const key of allOutputKeys) {

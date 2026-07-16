@@ -73,7 +73,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const n_material_cost_pct = get(inputs, "n_material_cost_pct");
   const n_fx_hedge_pct = get(inputs, "n_fx_hedge_pct");
   const n_commodity_hedge_pct = get(inputs, "n_commodity_hedge_pct");
-  const n_annual_volume = get(inputs, "n_annual_volume");
+  const n_annual_volume = get(inputs, "n_annual_volume") * 31536000; // NOTE (2026-07-15 audit): normalized to unit_per_s, converted to units/year
   const n_source_confidence_ratio = get(inputs, "n_source_confidence_ratio");
 
   // --- Core FX & commodity pass-through logic ---
@@ -85,8 +85,12 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     ? (n_commodity_index_current - n_commodity_index_budget) / n_commodity_index_budget
     : 0;
 
-  const fx_impact = fx_change * (n_material_cost_pct / 100) * (1 - n_fx_hedge_pct / 100);
-  const comm_impact = comm_change * (n_material_cost_pct / 100) * (1 - n_commodity_hedge_pct / 100);
+  // NOTE (2026-07-15 audit): "percent" was just added as a selectable unit for these 3 fields
+  // (previously only "ratio" was offered despite the "_pct" name). The normalizer now converts
+  // a percent entry to ratio (0..1) before calculate() runs, so dividing by 100 here a second
+  // time would silently shrink all three 100x.
+  const fx_impact = fx_change * n_material_cost_pct * (1 - n_fx_hedge_pct);
+  const comm_impact = comm_change * n_material_cost_pct * (1 - n_commodity_hedge_pct);
 
   const total_pass_through = (fx_impact + comm_impact) * 100;
   const adjusted_price = n_base_price * (1 + fx_impact + comm_impact);
@@ -156,7 +160,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   let fmeaTrigger = 0;
   if (decision === 1) fmeaTrigger = 1;
   if (Math.abs(total_pass_through) > 15) fmeaTrigger += 2;
-  if (n_fx_hedge_pct < 50 && n_commodity_hedge_pct < 50) fmeaTrigger += 4;
+  if (n_fx_hedge_pct < 0.5 && n_commodity_hedge_pct < 0.5) fmeaTrigger += 4; // NOTE (2026-07-15 audit): threshold rescaled to ratio (was "< 50", now-ratio values are always < 50 and the condition was always true)
   outputs["out_fmea_trigger"] = fmeaTrigger;
 
   // --- Output 12: out_money_at_risk ---
@@ -175,6 +179,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   // --- Output 15: out_final_decision_state ---
   outputs["out_final_decision_state"] = decision;
+  outputs["out_fx_impact_component"] = round(fx_impact * n_base_price, 4);
+  outputs["out_commodity_impact_component"] = round(comm_impact * n_base_price, 4);
 
   // --- Sanity check: ensure all 15 outputs are finite ---
   const allOutputKeys = [
@@ -193,6 +199,8 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     "out_scenario_delta",
     "out_audit_hash_payload",
     "out_final_decision_state",
+    "out_fx_impact_component",
+    "out_commodity_impact_component",
   ];
 
   for (const key of allOutputKeys) {

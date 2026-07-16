@@ -61,7 +61,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
 
   outputs["out_evidence_completeness"] = round(conf, 3);
   outputs["out_normalized_demand"] = round(ph, 0);
-  outputs["out_reference_deviation"] = round(drp / 100, 4);
+  outputs["out_reference_deviation"] = round(drp, 4); // NOTE (2026-07-15 audit): drp is now normalized ratio (percent option added to schema); removed redundant /100
   outputs["out_derating_factor"] = round(ph > 0 ? downtime_hours / ph : 0, 4);
   outputs["out_demand_metric"] = round(downtime_cost, 2);
   outputs["out_capacity_metric"] = round(total_loss, 2);
@@ -73,6 +73,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_money_at_risk"] = round(total_loss, 2);
   outputs["out_scenario_delta"] = round(Math.max(downtime_cost, scrap_material_loss, rework_loss) - Math.min(downtime_cost, scrap_material_loss, rework_loss), 2);
   outputs["out_audit_hash_payload"] = 0;
+  outputs["out_downtime_cost_component"] = round(downtime_cost, 2);
+  outputs["out_scrap_cost_component"] = round(scrap_material_loss, 2);
+  outputs["out_rework_cost_component"] = round(rework_loss, 2);
   outputs["out_final_decision_state"] = decision;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));

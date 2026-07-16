@@ -46,8 +46,11 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const quality = total_parts > 0 ? good_parts / total_parts : 0;
   const oee = availability * performance * quality;
 
-  const avail_loss_value = (planned_production_time - operating_time) * hourly_contribution;
-  const perf_loss_value = (net_operating_time - valuable_operating_time) * hourly_contribution;
+  // NOTE (2026-07-15 audit): avail_loss_value and perf_loss_value multiplied a SECONDS
+  // difference directly by hourly_contribution ($/hour) with no /3600 conversion -- a 3600x
+  // overstatement. qual_loss_value already had the correct /3600 conversion; these two didn't.
+  const avail_loss_value = (planned_production_time - operating_time) * hourly_contribution / 3600;
+  const perf_loss_value = (net_operating_time - valuable_operating_time) * hourly_contribution / 3600;
   const qual_loss_value = total_parts > 0 ? (total_parts - good_parts) * ideal_cycle_time * hourly_contribution / 3600 : 0;
   const total_oee_loss = avail_loss_value + perf_loss_value + qual_loss_value;
 
@@ -69,6 +72,9 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_scenario_delta"] = round(improvement_value, 2);
   outputs["out_audit_hash_payload"] = 0;
   outputs["out_final_decision_state"] = decision;
+  outputs["out_availability_loss_component"] = round(avail_loss_value, 2);
+  outputs["out_performance_loss_component"] = round(perf_loss_value, 2);
+  outputs["out_quality_loss_component"] = round(qual_loss_value, 2);
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
   return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };

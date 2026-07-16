@@ -32,7 +32,7 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   const mc = get(inputs, "n_material_cost");
   const tm = get(inputs, "n_target_margin");
   const bq = get(inputs, "n_batch_quantity");
-  const vol = get(inputs, "n_annual_volume");
+  const vol = get(inputs, "n_annual_volume") * 31536000; // NOTE (2026-07-15 audit): normalized to unit_per_s, converted to units/year
   const lr = get(inputs, "n_labor_rate");
   const oh = get(inputs, "n_overhead_rate");
   const dc = get(inputs, "n_defect_or_loss_cost");
@@ -63,6 +63,10 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_sensitivity_driver"] = lc > mac ? 1 : 0;
   outputs["out_scenario_delta"] = round(tjc * 0.15, 2);
   outputs["out_audit_hash_payload"] = 0;
+  outputs["out_labor_cost_component"] = round(lc, 2);
+  outputs["out_machine_cost_component"] = round(mac, 2);
+  outputs["out_material_cost_component"] = round(mc * bq, 2);
+  outputs["out_overhead_and_scrap_component"] = round(oa + sc, 2);
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
   return {

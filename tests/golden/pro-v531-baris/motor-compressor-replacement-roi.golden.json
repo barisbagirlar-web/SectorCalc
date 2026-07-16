@@ -2,17 +2,24 @@
   "tool_key": "motor-compressor-replacement-roi",
   "schema_version": "5.3.1-pro-schema.1",
   "formula_version": "5.3.1-pro-baris.1",
-  "raw_inputs": { "motor_power_kw": 100, "annual_operating_hours": 8000 },
+  "_verification_note": "Fixed current_efficiency_pct/new_efficiency_pct: schema only allowed 'ratio' despite the '_pct' name, formula divided by 100 anyway -- added percent as a selectable unit, removed the now-redundant /100. Values below computed by actually executing calculate() during the 2026-07-15 audit.",
+  "raw_inputs": {
+    "motor_power_kw": 75, "annual_operating_hours": 6000, "current_efficiency_pct": 0.90,
+    "new_efficiency_pct": 0.95, "avg_kwh_rate": 0.12, "replacement_cost": 12000,
+    "installation_cost": 4000, "maintenance_saving_per_year": 2000, "equipment_life_years": 10,
+    "discount_rate": 0.08, "source_confidence_ratio": 0.9
+  },
   "expected_outputs": {
-    "out_evidence_completeness": 0.9,
-    "out_normalized_demand": 100,
-    "out_money_at_risk": 0,
-    "out_final_decision_state": 0
+    "out_evidence_completeness": 0.9, "out_normalized_demand": 6000, "out_reference_deviation": -0.05,
+    "out_derating_factor": 0.9, "out_demand_metric": 60000, "out_capacity_metric": 56842.11,
+    "out_utilization_margin": 5157.89, "out_expanded_uncertainty": 200, "out_threshold_crossing": 1,
+    "out_sensitivity_driver": 1, "out_fmea_trigger": 1, "out_money_at_risk": 16000,
+    "out_scenario_delta": 37.2, "out_final_decision_state": 0
   },
   "expected_hashes": {
-    "output_hash": "oh-b2-motor-",
-    "proof_pack_hash": "pph-b2-motor-",
-    "audit_seal_stable_hash": "ash-b2-motor-"
+    "output_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "proof_pack_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED",
+    "audit_seal_stable_hash": "REQUIRES_REAL_SHA256_FROM_AUDIT_HASH_PIPELINE_NOT_YET_GENERATED"
   },
   "expected_decision_status": "OK",
   "expected_warnings": []
