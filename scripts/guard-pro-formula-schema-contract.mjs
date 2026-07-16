@@ -183,6 +183,23 @@ for (const schemaFile of schemaFiles) {
     }
   }
 
+  // 6. A field with more than one entry in allowed_display_units but unit_selectable !== true.
+  //    The extra units are then invisible in the UI (no dropdown renders) AND, worse, any
+  //    downstream code that picks "the first allowed unit assuming it's selectable" (as the
+  //    form-api-formula-pipeline test does) silently uses base_unit instead -- if that unit's
+  //    raw entry range differs from base_unit's (e.g. percent 0-100 vs ratio 0-1), values pass
+  //    straight through unconverted and can push a formula into a nonsensical decision state.
+  //    Found and fixed in 10 fields across 7 tools on 2026-07-16; this check exists so it can't
+  //    silently happen again.
+  for (const input of schema.inputs) {
+    const allowed = input.allowed_display_units || [];
+    if (allowed.length > 1 && input.unit_selectable !== true) {
+      findings.push(
+        `UNIT NOT ACTUALLY SELECTABLE: "${input.id}" lists ${allowed.length} allowed_display_units (${allowed.join(", ")}) but unit_selectable is not true -- the extra units are dead weight in the schema and any code that assumes "allowed_display_units[0] is selectable" will silently use base_unit instead.`
+      );
+    }
+  }
+
   if (findings.length === 0) continue;
 
   const label = isLive ? "FAIL" : "WARN (draft/non-live tool)";

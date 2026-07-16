@@ -599,7 +599,7 @@
       "name": "Material Cost %",
       "symbol": "MCP",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
         "percent",
@@ -678,7 +678,7 @@
       "name": "FX Hedge %",
       "symbol": "FXH",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
         "percent",
@@ -757,7 +757,7 @@
       "name": "Commodity Hedge %",
       "symbol": "CH",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
         "percent",
@@ -836,7 +836,7 @@
       "name": "Annual Volume",
       "symbol": "AV",
       "quantity_kind": "rate",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "unit_per_s",
       "allowed_display_units": [
         "unit_per_s",

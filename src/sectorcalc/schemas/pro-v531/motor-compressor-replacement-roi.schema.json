@@ -420,7 +420,7 @@
       "name": "Current Efficiency %",
       "symbol": "CE",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
         "percent",
@@ -499,7 +499,7 @@
       "name": "New Efficiency %",
       "symbol": "NE",
       "quantity_kind": "dimensionless",
-      "unit_selectable": false,
+      "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
         "percent",
