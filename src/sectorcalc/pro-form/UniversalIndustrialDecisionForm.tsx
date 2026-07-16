@@ -2159,7 +2159,7 @@ function CalculatorInputField({
   const inferredUnit = !hasRealUnits && isNumeric ? inferFieldUnit(field.id, field.label) : null;
 
   return (
-    <div className="pro-field-card" data-criticality={field.criticality.toLowerCase()} data-error={showErrorState}>
+    <div className="sc-v531-field-card pro-field-card" data-criticality={field.criticality.toLowerCase()} data-error={showErrorState}>
       {/* Header: label + symbol */}
       <div className="pro-field-header">
         <label htmlFor={inputId} className="pro-field-title">{field.label}</label>
@@ -2174,7 +2174,7 @@ function CalculatorInputField({
         <div className="pro-field-control">
           {renderValueInput(inputId, field, onValueChange, true)}
           <select
-            className="pro-unit-select"
+            className="sc-v531-unit-select pro-unit-select"
             value={field.selectedUnit || nonEmptyUnits[0]}
             aria-label={`${field.label} unit`}
             onChange={(e: ChangeEvent<HTMLSelectElement>) => onUnitChange(e.target.value)}
@@ -2337,7 +2337,7 @@ function renderValueInput(
     return unitHint;
   })();
 
-  const inputClass = useValueInputClass ? "pro-value-input" : "pro-input";
+  const inputClass = useValueInputClass ? "sc-v531-value-input pro-value-input" : "sc-v531-value-input pro-input";
 
   if (field.type === "number" || field.type === "integer") {
     return (

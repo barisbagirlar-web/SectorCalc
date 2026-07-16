@@ -1301,7 +1301,8 @@
   }
 
   /* ── Advanced details ── */
-  .pro-advanced-summary {
+  .pro-advanced-summary,
+  .sc-v531-advanced-summary {
     padding: 8px var(--sc-mobile-page-x, 18px);
     display: flex;
     flex-direction: column;
@@ -1526,7 +1527,8 @@
    "Formula logic · ..." without separator, causing glued text.
    ═══════════════════════════════════════════════════════ */
 
-.pro-advanced-summary {
+.pro-advanced-summary,
+.sc-v531-advanced-summary {
   display: flex;
   align-items: baseline;
   gap: 12px;
@@ -1543,7 +1545,8 @@
   list-style: none;
 }
 
-.pro-advanced-summary::-webkit-details-marker {
+.pro-advanced-summary::-webkit-details-marker,
+.sc-v531-advanced-summary::-webkit-details-marker {
   display: none;
 }
 
