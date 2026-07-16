@@ -42,6 +42,15 @@ interface FieldDef {
 }
 
 const FIELDS: FieldDef[] = [
+  // ── Pricing ──
+  {
+    id: "quotedJobPrice", label: "Quoted job price",
+    unit: "/job", unitOptions: [],
+    domain: "flat", showPrefix: true, default: 500,
+    hint: "The actual price quoted or agreed for this job — the real revenue figure.",
+    ref: "price \u00B7 /job", group: "pricing",
+    hardMin: 0, hardMax: 1e8,
+  },
   // ── Cost Inputs ──
   {
     id: "machineRate", label: "Machine rate",
@@ -455,6 +464,7 @@ export default function LossMakingJobDetectorPage() {
               <table>
                 <thead><tr><th>Parameter</th><th className="n">Value</th></tr></thead>
                 <tbody>
+                  <tr><td>Quoted job price</td><td className="n">{curSym}{fmtNum(inputs.quotedJobPrice)}</td></tr>
                   <tr><td>Machine rate</td><td className="n">{curSym}{fmtNum(inputs.machineRate)}</td></tr>
                   <tr><td>Material cost</td><td className="n">{curSym}{fmtNum(inputs.materialCost)}</td></tr>
                   <tr><td>Labor rate</td><td className="n">{curSym}{fmtNum(inputs.laborRate)}</td></tr>

@@ -15,6 +15,7 @@ import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract"
 // ─── Type exports ───────────────────────────────────────────────────────────
 
 export interface LossMakingJobInputs {
+  quotedJobPrice: number;       // Real quoted/selling price for the job (canonical currency)
   machineRate: number;          // Machine rate (canonical currency/unit)
   materialCost: number;         // Material cost per batch (canonical currency)
   laborRate: number;            // Labor rate (canonical currency/unit)
@@ -48,16 +49,22 @@ export interface LossMakingJobOutputs {
 
 export function executeFormula(inputs: LossMakingJobInputs): LossMakingJobOutputs {
   const {
-    machineRate, materialCost, laborRate, overheadRate,
+    quotedJobPrice, machineRate, materialCost, laborRate, overheadRate,
     defectOrLossCost, targetMargin, batchQuantity, annualVolume,
     sourceConfidence,
   } = inputs;
 
+  // FIX (ported from a759fe2d9 audit): price was previously fabricated as
+  // machineRate * batchQuantity -- never using the tool's actual purpose (a real quoted
+  // price to compare against cost). Now uses the real quoted price input.
   const totalCost = machineRate + materialCost + laborRate + overheadRate + defectOrLossCost;
-  const price = machineRate * batchQuantity;
+  const price = quotedJobPrice;
   const gm = price - totalCost;
   const cm = price > 0 ? gm / price : 0;
-  const map = totalCost * (1 + targetMargin);
+  // FIX: minimum acceptable price now uses cost/(1-margin), consistent with the
+  // contribution-margin (margin-on-price) definition used for cm above -- previously used
+  // cost*(1+margin) (markup), an incompatible margin definition in the same formula.
+  const map = targetMargin < 1 ? totalCost / (1 - targetMargin) : totalCost;
   const loss = gm < 0 ? Math.abs(gm) : 0;
 
   const out_evidence_completeness = sourceConfidence;
@@ -70,7 +77,7 @@ export function executeFormula(inputs: LossMakingJobInputs): LossMakingJobOutput
   const out_fmea_trigger = loss > 0 ? 1 : 0;
   const out_final_decision_state = cm >= targetMargin ? 0 : (cm > 0 ? 1 : 2);
   const out_reference_deviation = price > 0
-    ? Math.abs(price - (totalCost * (1 + targetMargin))) / price
+    ? Math.abs(price - map) / price
     : 0;
   const out_derating_factor = 1.0;
   const out_expanded_uncertainty = totalCost * 0.1;
@@ -132,6 +139,7 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const warnings: string[] = [];
 
   const typed: LossMakingJobInputs = {
+    quotedJobPrice: get(inputs, "n_quoted_job_price"),
     machineRate: get(inputs, "n_machine_rate"),
     materialCost: get(inputs, "n_material_cost"),
     laborRate: get(inputs, "n_labor_rate"),
@@ -143,7 +151,7 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     sourceConfidence: get(inputs, "n_source_confidence_ratio"),
   };
 
-  const mandatory = ["n_machine_rate", "n_batch_quantity"] as const;
+  const mandatory = ["n_quoted_job_price", "n_machine_rate", "n_batch_quantity"] as const;
   for (const key of mandatory) {
     if (!isFiniteNumber(inputs[key])) {
       warnings.push(`Input "${key}" is missing or invalid — using 0`);
@@ -171,6 +179,7 @@ export const toolKey = "loss-making-job-detector";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
 export const sampleInputs: Record<string, number> = {
+  n_quoted_job_price: 500,
   n_machine_rate: 85,
   n_material_cost: 300,
   n_labor_rate: 55,
@@ -183,7 +192,7 @@ export const sampleInputs: Record<string, number> = {
 };
 
 export const requiredInputKeys: readonly string[] = [
-  "n_machine_rate", "n_material_cost", "n_labor_rate", "n_overhead_rate",
+  "n_quoted_job_price", "n_machine_rate", "n_material_cost", "n_labor_rate", "n_overhead_rate",
   "n_defect_or_loss_cost", "n_target_margin", "n_batch_quantity",
   "n_annual_volume", "n_source_confidence_ratio",
 ];
