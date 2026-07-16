@@ -120,7 +120,7 @@ try {
   await page.getByLabel("Display currency").selectOption("EUR");
   assert(await page.getByLabel("Display currency").inputValue() === "EUR", "Display currency did not remain EUR");
 
-  const evidenceCheckboxes = page.locator(".sc-v531-field-evidence input[type='checkbox']");
+  const evidenceCheckboxes = page.locator(".pro-field-evidence input[type='checkbox']");
   const evidenceCheckboxCount = await evidenceCheckboxes.count();
   assert(evidenceCheckboxCount === 20, `Expected 20 evidence checkboxes, found ${evidenceCheckboxCount}`);
   for (let index = 0; index < evidenceCheckboxCount; index += 1) {
@@ -138,7 +138,7 @@ try {
     "Derating rule D002",
   ]);
 
-  const calculateButton = page.locator(".sc-v531-primary-action").filter({ hasText: /^Calculate$/ }).first();
+  const calculateButton = page.locator(".pro-primary-action").filter({ hasText: /^Calculate$|Calculate \(1 credit\)|Sign in to calculate/ }).first();
   await calculateButton.waitFor({ timeout: 30_000 });
   assert(await calculateButton.isEnabled(), "Calculate button is disabled after authenticated owner bypass initialization");
 

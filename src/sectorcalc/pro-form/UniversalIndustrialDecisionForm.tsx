@@ -2132,7 +2132,7 @@ function CalculatorInputField({
   showErrors?: boolean;
   isFreeTier?: boolean;
 }) {
-  const inputId = `pro-input-${field.id}`;
+  const inputId = `sc-v531-input-${field.id}`;
   const hasBlocker = field.blockers.length > 0;
 
   // Only show red validation border when the user has attempted Calculate
