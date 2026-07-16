@@ -23,6 +23,7 @@ import "@/styles/pro-tool-break-even-survival-cash-calculator.css";
 import { CURRENCIES, DEFAULT_CURRENCY_INDEX, fmtNum, CURRENCY_NOTE, CANON_SUFFIX } from "@/tools/_shared/x1-utils";
 import { toCanonical } from "@/tools/_shared/units";
 import type { DomainKey } from "@/tools/_shared/units";
+import { WaterfallChart, TornadoChart, TimeDecayChart, KpiGauges, CHART_COLOR } from "@/tools/_shared/report-charts";
 
 /* ─── Field definitions ──────────────────────────────────────── */
 
@@ -421,6 +422,87 @@ export default function BreakEvenSurvivalCashPage() {
                   Funding gap: {result.out_funding_gap > 0 ? curSym + fmtNum(result.out_funding_gap) : "None"}.
                 </p>
               </div>
+            </div>
+
+            {/* Section 1b: Charts */}
+            <div className="sec">
+              <div className="sec-h">
+                <span className="sec-n">1b</span>
+                <span className="sec-t">Visual summary</span>
+              </div>
+              {(() => {
+                const revenue = inputs.currentMonthlyRevenue;
+                const cmRatio = inputs.contributionMarginRatio;
+                const variableCost = revenue * (1 - cmRatio);
+                const afterVariable = revenue - variableCost;
+                const afterFixed = afterVariable - inputs.monthlyFixedCashCost;
+                const netCashFlow = afterFixed - inputs.monthlyDebtService;
+
+                const sensDrivers = (
+                  ["monthlyFixedCashCost", "monthlyDebtService", "contributionMarginRatio", "downsideRevenueFactor", "uncertaintyMultiplier"] as const
+                ).map((key) => {
+                  const up = executeFormula({ ...inputs, [key]: inputs[key] * 1.1 }).out_cash_runway_months;
+                  const dn = executeFormula({ ...inputs, [key]: inputs[key] * 0.9 }).out_cash_runway_months;
+                  const labelMap: Record<string, string> = {
+                    monthlyFixedCashCost: "Fixed Cash Cost",
+                    monthlyDebtService: "Debt Service",
+                    contributionMarginRatio: "Contribution Margin",
+                    downsideRevenueFactor: "Downside Revenue Factor",
+                    uncertaintyMultiplier: "Uncertainty Multiplier",
+                  };
+                  return { label: labelMap[key], up, down: dn };
+                });
+
+                const horizonMonths = Math.max(1, Math.min(48, Math.ceil(Math.max(result.out_cash_runway_months, inputs.targetSurvivalMonths)) + 2));
+                const decayPoints = Array.from({ length: horizonMonths + 1 }, (_, t) => ({
+                  t,
+                  value: Math.max(inputs.minimumCashBuffer, inputs.unrestrictedCashBalance - result.out_monthly_cash_burn * t),
+                }));
+
+                const runwayPct = inputs.targetSurvivalMonths
+                  ? Math.min(1, result.out_cash_runway_months / (inputs.targetSurvivalMonths * 2))
+                  : Math.min(1, result.out_cash_runway_months / 24);
+                const runwayColor = result.out_cash_runway_months < inputs.targetSurvivalMonths ? CHART_COLOR.danger : result.out_cash_runway_months < 6 ? CHART_COLOR.warning : CHART_COLOR.positive;
+                const marginPct = Math.max(0, Math.min(1, (result.out_margin_of_safety_ratio + 0.2) / 0.6));
+                const marginColor = result.out_margin_of_safety_ratio < 0 ? CHART_COLOR.danger : result.out_margin_of_safety_ratio < 0.15 ? CHART_COLOR.warning : CHART_COLOR.positive;
+                const statusLabel = result.out_decision_code === 0 ? "HEALTHY" : result.out_decision_code === 1 ? "REVIEW" : "BLOCKED";
+                const statusColor = result.out_decision_code === 0 ? CHART_COLOR.positive : result.out_decision_code === 1 ? CHART_COLOR.warning : CHART_COLOR.danger;
+
+                return (
+                  <>
+                    <h4 style={{ fontFamily: "inherit", fontSize: 15, fontWeight: 600, margin: "0 0 4px" }}>Waterfall: Where the Cash Goes</h4>
+                    <WaterfallChart
+                      cur={curSym}
+                      steps={[
+                        { label: "Current Revenue", delta: revenue, isTotal: true },
+                        { label: "Variable Cost", delta: -variableCost },
+                        { label: "Fixed Cash Cost", delta: -inputs.monthlyFixedCashCost },
+                        { label: "Debt Service", delta: -inputs.monthlyDebtService },
+                        { label: "Net Cash Flow", delta: netCashFlow, isTotal: true },
+                      ]}
+                    />
+                    <h4 style={{ fontFamily: "inherit", fontSize: 15, fontWeight: 600, margin: "18px 0 4px" }}>Tornado: What Moves Cash Runway Most (±10%)</h4>
+                    <TornadoChart drivers={sensDrivers} baseline={result.out_cash_runway_months} cur="" />
+                    <h4 style={{ fontFamily: "inherit", fontSize: 15, fontWeight: 600, margin: "18px 0 4px" }}>Runway Decay: Cash Under Stress Over Time</h4>
+                    <TimeDecayChart
+                      cur={curSym}
+                      points={decayPoints}
+                      floorValue={inputs.minimumCashBuffer}
+                      floorLabel="Minimum Cash Buffer"
+                      targetT={inputs.targetSurvivalMonths}
+                      targetLabel={`Target (${inputs.targetSurvivalMonths}mo)`}
+                    />
+                    <h4 style={{ fontFamily: "inherit", fontSize: 15, fontWeight: 600, margin: "18px 0 4px" }}>Executive KPI Summary</h4>
+                    <KpiGauges
+                      items={[
+                        { label: "Cash Runway", valueLabel: `${result.out_cash_runway_months.toFixed(1)}mo`, pct: runwayPct, color: runwayColor },
+                        { label: "Margin of Safety", valueLabel: `${(result.out_margin_of_safety_ratio * 100).toFixed(1)}%`, pct: marginPct, color: marginColor },
+                        { label: "Status", valueLabel: statusLabel, pct: result.out_decision_code === 0 ? 1 : result.out_decision_code === 1 ? 0.5 : 0.12, color: statusColor },
+                      ]}
+                    />
+                  </>
+                );
+              })()}
             </div>
 
             {/* Section 2: Runway Analysis */}
