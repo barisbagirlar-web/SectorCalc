@@ -41,17 +41,35 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   if (!isFiniteNumber(inputs["n_net_operating_time"])) warnings.push("Missing: n_net_operating_time");
   if (!isFiniteNumber(inputs["n_valuable_operating_time"])) warnings.push("Missing: n_valuable_operating_time");
 
-  const availability = planned_production_time > 0 ? operating_time / planned_production_time : 0;
-  const performance = net_operating_time > 0 ? (total_parts * ideal_cycle_time) / net_operating_time : 0;
-  const quality = total_parts > 0 ? good_parts / total_parts : 0;
+  // GUARD (2026-07-16 audit): OEE's time cascade is physically ordered
+  // (planned >= operating >= net_operating >= valuable) and (total_parts >= good_parts).
+  // Any downstream value exceeding its upstream ceiling is not a real OEE state and
+  // previously produced a negative loss component (a "negative loss" reads as a gain,
+  // which is nonsensical for a loss-monetization report). Clamp to the ceiling and flag.
+  let cascade_violated = false;
+  let operating_time_c = operating_time;
+  if (operating_time_c > planned_production_time) { operating_time_c = planned_production_time; cascade_violated = true; }
+  let net_operating_time_c = net_operating_time;
+  if (net_operating_time_c > operating_time_c) { net_operating_time_c = operating_time_c; cascade_violated = true; }
+  let valuable_operating_time_c = valuable_operating_time;
+  if (valuable_operating_time_c > net_operating_time_c) { valuable_operating_time_c = net_operating_time_c; cascade_violated = true; }
+  let good_parts_c = good_parts;
+  if (good_parts_c > total_parts) { good_parts_c = total_parts; cascade_violated = true; }
+  if (cascade_violated) {
+    warnings.push("OEE time/parts cascade order violated (planned>=operating>=net>=valuable, total_parts>=good_parts); values clamped and flagged for review.");
+  }
+
+  const availability = planned_production_time > 0 ? operating_time_c / planned_production_time : 0;
+  const performance = net_operating_time_c > 0 ? (total_parts * ideal_cycle_time) / net_operating_time_c : 0;
+  const quality = total_parts > 0 ? good_parts_c / total_parts : 0;
   const oee = availability * performance * quality;
 
   // NOTE (2026-07-15 audit): avail_loss_value and perf_loss_value multiplied a SECONDS
   // difference directly by hourly_contribution ($/hour) with no /3600 conversion -- a 3600x
   // overstatement. qual_loss_value already had the correct /3600 conversion; these two didn't.
-  const avail_loss_value = (planned_production_time - operating_time) * hourly_contribution / 3600;
-  const perf_loss_value = (net_operating_time - valuable_operating_time) * hourly_contribution / 3600;
-  const qual_loss_value = total_parts > 0 ? (total_parts - good_parts) * ideal_cycle_time * hourly_contribution / 3600 : 0;
+  const avail_loss_value = (planned_production_time - operating_time_c) * hourly_contribution / 3600;
+  const perf_loss_value = (net_operating_time_c - valuable_operating_time_c) * hourly_contribution / 3600;
+  const qual_loss_value = total_parts > 0 ? (total_parts - good_parts_c) * ideal_cycle_time * hourly_contribution / 3600 : 0;
   const total_oee_loss = avail_loss_value + perf_loss_value + qual_loss_value;
 
   const improvement_value = total_oee_loss * 3 * 0.7;
@@ -77,5 +95,6 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_quality_loss_component"] = round(qual_loss_value, 2);
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  const status: CalculationStatus = !ok ? "REVIEW" : (cascade_violated ? "REVIEW" : "OK");
+  return { status, outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
 }
