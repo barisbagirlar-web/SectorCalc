@@ -50,14 +50,21 @@ export function executeFormula(inputs: DowntimeLossInputs): DowntimeLossOutputs 
     materialCost, defectRatePct, sourceConfidence,
   } = inputs;
 
-  const out_downtime_hours = productiveHours - actualHours;
+  // GUARD (ported 2026-07-16): Actual Hours cannot exceed Productive Hours -- that would
+  // imply negative downtime, which is not physically possible and previously produced a
+  // negative out_downtime_cost (money the shop supposedly "made" from downtime). Clamp to
+  // zero rather than silently returning a nonsensical negative loss figure.
+  const actualHoursClamped = actualHours > productiveHours ? productiveHours : actualHours;
+  const ahOverPh = actualHours > productiveHours;
+
+  const out_downtime_hours = productiveHours - actualHoursClamped;
   const out_downtime_cost = out_downtime_hours * hourlyRate;
   const out_scrap_material_loss = scrapQuantity * unitCost;
   const out_rework_loss = reworkHours * reworkRate;
   const out_total_loss = out_downtime_cost + out_scrap_material_loss + out_rework_loss;
 
   const out_uptime_ratio = productiveHours > 0
-    ? actualHours / productiveHours
+    ? actualHoursClamped / productiveHours
     : 0;
 
   // Pareto driver: 0 = downtime, 1 = scrap, 2 = rework
@@ -69,11 +76,12 @@ export function executeFormula(inputs: DowntimeLossInputs): DowntimeLossOutputs 
   }
 
   // Decision: 0 = ok, 1 = review, 2 = escalate
-  const out_decision_state = out_total_loss < materialCost * 0.05
+  let out_decision_state = out_total_loss < materialCost * 0.05
     ? 0
     : out_total_loss < materialCost * 0.15
       ? 1
       : 2;
+  if (ahOverPh) out_decision_state = Math.max(out_decision_state, 1);
 
   const out_threshold_crossing = out_decision_state > 0 ? 1 : 0;
   const out_fmea_trigger = out_decision_state >= 2 ? 1 : 0;

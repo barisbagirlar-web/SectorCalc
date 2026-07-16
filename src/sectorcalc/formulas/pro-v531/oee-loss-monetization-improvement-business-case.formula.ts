@@ -54,21 +54,34 @@ export function executeFormula(inputs: OEELossInputs): OEELossOutputs {
     sourceConfidence,
   } = inputs;
 
+  // GUARD (ported 2026-07-16): OEE's time cascade is physically ordered
+  // (planned >= operating >= net_operating >= valuable) and (total_parts >= good_parts).
+  // A downstream value exceeding its upstream ceiling is not a real OEE state and
+  // previously produced a negative loss component. Clamp to the ceiling.
+  // NOTE: this branch's own unit handling (plannedProductionTime declared in minutes vs.
+  // idealCycleTime in seconds, and availLossValue/perfLossValue with no /60 conversion
+  // applied to hourlyContribution) was NOT touched here -- that is a separate,
+  // unverified-on-this-branch question flagged back to the user rather than guessed at.
+  const operatingTimeC = Math.min(operatingTime, plannedProductionTime);
+  const netOperatingTimeC = Math.min(netOperatingTime, operatingTimeC);
+  const valuableOperatingTimeC = Math.min(valuableOperatingTime, netOperatingTimeC);
+  const goodPartsC = Math.min(goodParts, totalParts);
+
   const availability = plannedProductionTime > 0
-    ? operatingTime / plannedProductionTime
+    ? operatingTimeC / plannedProductionTime
     : 0;
-  const performance = netOperatingTime > 0
-    ? (totalParts * idealCycleTime) / netOperatingTime
+  const performance = netOperatingTimeC > 0
+    ? (totalParts * idealCycleTime) / netOperatingTimeC
     : 0;
   const quality = totalParts > 0
-    ? goodParts / totalParts
+    ? goodPartsC / totalParts
     : 0;
   const oee = availability * performance * quality;
 
-  const availLossValue = (plannedProductionTime - operatingTime) * hourlyContribution;
-  const perfLossValue = (netOperatingTime - valuableOperatingTime) * hourlyContribution;
+  const availLossValue = (plannedProductionTime - operatingTimeC) * hourlyContribution;
+  const perfLossValue = (netOperatingTimeC - valuableOperatingTimeC) * hourlyContribution;
   const qualLossValue = totalParts > 0
-    ? (totalParts - goodParts) * idealCycleTime * hourlyContribution / 3600
+    ? (totalParts - goodPartsC) * idealCycleTime * hourlyContribution / 3600
     : 0;
   const totalOeeLoss = availLossValue + perfLossValue + qualLossValue;
 
