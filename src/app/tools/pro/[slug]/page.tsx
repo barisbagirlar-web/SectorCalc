@@ -8,6 +8,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
 import { UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
 import { ProToolSessionWrapper } from "@/sectorcalc/pro-form/ProToolSessionWrapper";
+import { MachineHourlyRateBespokeForm } from "@/sectorcalc/pro-form/bespoke/MachineHourlyRateBespokeForm";
 import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 import { getBarisToolCategory } from "@/sectorcalc/formulas/pro-v531/baris-readiness-data";
@@ -97,6 +98,22 @@ export default async function ProToolDetailPage({
     return (
       <PageLayout>
         <ProToolAssistedDossier toolKey={slug} toolName={schema.tool_name} />
+      </PageLayout>
+    );
+  }
+
+  // Bespoke design pilot: a single, isolated visual skin for exactly this one tool,
+  // wired to the real schema/formula/report system (see MachineHourlyRateBespokeForm.tsx
+  // for the correctness contract). Every other tool below still renders the x1 universal
+  // form, completely untouched by this branch.
+  if (slug === "machine-hourly-rate-proof-report") {
+    return (
+      <PageLayout>
+        <article aria-label={schema.tool_name}>
+          <ProToolPaywallGate toolName={slug}>
+            <MachineHourlyRateBespokeForm schema={schema} toolKey={slug} />
+          </ProToolPaywallGate>
+        </article>
       </PageLayout>
     );
   }

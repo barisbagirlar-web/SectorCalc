@@ -56,6 +56,7 @@ import {
 import { buildProReport } from "@/sectorcalc/pro-report/pro-report-adapter";
 import { ProReportPanelV2 } from "@/sectorcalc/pro-report/ProReportPanelV2";
 import { BreakEvenReportCharts } from "@/sectorcalc/pro-report/charts/BreakEvenReportCharts";
+import { UniversalKpiPanel } from "@/sectorcalc/pro-report/charts/UniversalKpiPanel";
 import { assertCrossToolIdentity } from "@/sectorcalc/runtime/cross-tool-contract-assertions";
 import { registry as referenceRegistry } from "@/generated/reference-registry";
 import {
@@ -1468,6 +1469,15 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       firedInsights={proReportResult.firedInsights}
                       sensitivity={sensitivityData}
                       paretoBreakdown={proReportResult.paretoBreakdown}
+                    />
+                    <UniversalKpiPanel
+                      toolSlug={props.toolKey ?? props.schema?.tool_key ?? ""}
+                      currencyCode={selectedCurrency}
+                      outputs={Object.fromEntries(
+                        response.outputs
+                          .filter((o) => typeof o.value === "number" && Number.isFinite(o.value))
+                          .map((o) => [o.id, o.value as number]),
+                      )}
                     />
                     <BreakEvenReportCharts
                       toolSlug={props.toolKey ?? props.schema?.tool_key ?? ""}
