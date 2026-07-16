@@ -160,11 +160,11 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 1.15741e-05
+            "factor": 0.0000115741
           },
           {
             "unit": "unit_per_year",
-            "factor": 3.17e-08
+            "factor": 3.17e-8
           }
         ]
       },
@@ -342,7 +342,8 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the full installed cost: machine, freight, installation, base tooling, commissioning. Not just the invoice line for the machine itself.",
-      "warning_if_missing_or_estimated": "Estimated or missing Purchase Price (Installed) can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Purchase Price (Installed) can flip the decision state and will downgrade evidence confidence.",
+      "example_value": 180000
     },
     {
       "id": "useful_life",
@@ -363,7 +364,7 @@
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 15768000.0,
+        "min": 15768000,
         "max": 1261440000,
         "unit": "s",
         "basis": "PROCESS_LIMIT",
@@ -462,7 +463,8 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Economic life used for depreciation (often shorter than how long the machine will physically run).",
-      "warning_if_missing_or_estimated": "Estimated or missing Useful Life can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Useful Life can flip the decision state and will downgrade evidence confidence.",
+      "example_value": 10
     },
     {
       "id": "annual_hours",
@@ -582,7 +584,8 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Scheduled hours per year this machine is planned to run, before accounting for idle time.",
-      "warning_if_missing_or_estimated": "Estimated or missing Planned Operating Hours can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Planned Operating Hours can flip the decision state and will downgrade evidence confidence.",
+      "example_value": 4000
     },
     {
       "id": "wage_rate",
@@ -700,7 +703,8 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Fully loaded hourly operator cost: wage + employer taxes/contributions + benefits.",
-      "warning_if_missing_or_estimated": "Estimated or missing Operator Cost (Fully Loaded) can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Operator Cost (Fully Loaded) can flip the decision state and will downgrade evidence confidence.",
+      "example_value": 34
     },
     {
       "id": "power_draw",
@@ -821,7 +825,8 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Average power draw under actual load, not the nameplate/rated power (which overstates real draw).",
-      "warning_if_missing_or_estimated": "Estimated or missing Average Power Draw can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Average Power Draw can flip the decision state and will downgrade evidence confidence.",
+      "example_value": 12
     },
     {
       "id": "energy_price",
@@ -939,7 +944,8 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "All-in price per kWh including grid fees, levies and taxes — not just the energy commodity price.",
-      "warning_if_missing_or_estimated": "Estimated or missing Industrial Electricity Price can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Industrial Electricity Price can flip the decision state and will downgrade evidence confidence.",
+      "example_value": 0.18
     },
     {
       "id": "idle_share",
@@ -1058,7 +1064,8 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Share of planned hours where the machine is running/paid-for but not producing anything sellable.",
-      "warning_if_missing_or_estimated": "Estimated or missing Idle / Non-Productive Share can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Idle / Non-Productive Share can flip the decision state and will downgrade evidence confidence.",
+      "example_value": 0.2
     },
     {
       "id": "maintenance_rate",
@@ -1177,7 +1184,8 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Total annual maintenance cost (planned + unplanned, parts + labor) as a fraction of purchase price.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Maintenance (% of Price) can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Maintenance (% of Price) can flip the decision state and will downgrade evidence confidence.",
+      "example_value": 0.05
     },
     {
       "id": "source_confidence_ratio",
@@ -1296,7 +1304,8 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "How confident are you in these figures? 1.0 = measured/audited data, 0.5 = rough estimate.",
-      "warning_if_missing_or_estimated": "Missing Source Confidence Ratio downgrades evidence confidence but does not block calculation."
+      "warning_if_missing_or_estimated": "Missing Source Confidence Ratio downgrades evidence confidence but does not block calculation.",
+      "example_value": 0.9
     }
   ],
   "normalized_inputs": [
@@ -3029,6 +3038,102 @@
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
+    },
+    {
+      "id": "out_dep",
+      "name": "Dep",
+      "type": "number",
+      "unit": "currency_unit_per_period",
+      "description": "Dep calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_maint",
+      "name": "Maint",
+      "type": "number",
+      "unit": "currency_unit_per_period",
+      "description": "Maint calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_energy",
+      "name": "Energy",
+      "type": "number",
+      "unit": "currency_unit_per_period",
+      "description": "Energy calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_labor",
+      "name": "Labor",
+      "type": "number",
+      "unit": "currency_unit_per_period",
+      "description": "Labor calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_total",
+      "name": "Total",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Total calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_productiveHours",
+      "name": "Productive Hours",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Productive Hours calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_rate",
+      "name": "Rate",
+      "type": "number",
+      "unit": "ratio",
+      "description": "Rate calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_naive",
+      "name": "Naive",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Naive calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_premium",
+      "name": "Premium",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Premium calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_energyShare",
+      "name": "Energy Share",
+      "type": "number",
+      "unit": "currency_unit_per_period",
+      "description": "Energy Share calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_laborShare",
+      "name": "Labor Share",
+      "type": "number",
+      "unit": "currency_unit_per_period",
+      "description": "Labor Share calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_capitalShare",
+      "name": "Capital Share",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Capital Share calculated output.",
+      "criticality": "HIGH"
     }
   ],
   "output_formatting": {

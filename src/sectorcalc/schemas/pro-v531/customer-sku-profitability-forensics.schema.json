@@ -160,11 +160,11 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 1.15741e-05
+            "factor": 0.0000115741
           },
           {
             "unit": "unit_per_year",
-            "factor": 3.17e-08
+            "factor": 3.17e-8
           }
         ]
       },
@@ -2691,6 +2691,102 @@
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
+    },
+    {
+      "id": "out_unitContribution",
+      "name": "Unit Contribution",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Unit Contribution calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_contributionMarginRatio",
+      "name": "Contribution Margin Ratio",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Contribution Margin Ratio calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_logisticsBurden",
+      "name": "Logistics Burden",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Logistics Burden calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_serviceBurden",
+      "name": "Service Burden",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Service Burden calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_returnBurden",
+      "name": "Return Burden",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Return Burden calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_netMargin",
+      "name": "Net Margin",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Net Margin calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_toxicFlag",
+      "name": "Toxic Flag",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Toxic Flag calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_totalAnnualMargin",
+      "name": "Total Annual Margin",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Total Annual Margin calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_biggestBurdenIndex",
+      "name": "Biggest Burden Index",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Biggest Burden Index calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_decisionState",
+      "name": "Decision State",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Decision State calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_thresholdCrossing",
+      "name": "Threshold Crossing",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Threshold Crossing calculated output.",
+      "criticality": "HIGH"
+    },
+    {
+      "id": "out_fmeaTrigger",
+      "name": "Fmea Trigger",
+      "type": "number",
+      "unit": "currency_unit",
+      "description": "Fmea Trigger calculated output.",
+      "criticality": "HIGH"
     }
   ],
   "output_formatting": {
@@ -2784,7 +2880,7 @@
     "type_a_support": true,
     "type_b_support": true,
     "combined_standard_uncertainty": "server-computed from registered sensitivity coefficients and source uncertainty contributors",
-    "expanded_uncertainty": "value \u00b1 expanded_uncertainty unit, k=coverage_factor",
+    "expanded_uncertainty": "value ± expanded_uncertainty unit, k=coverage_factor",
     "coverage_factor_policy": "user-verified or lab-policy value; no hidden default for critical output",
     "sensitivity_coefficients": "server registry only",
     "sensitivity_ranking_required": true,

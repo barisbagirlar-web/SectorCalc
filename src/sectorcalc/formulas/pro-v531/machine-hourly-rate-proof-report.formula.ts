@@ -135,18 +135,18 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const warnings: string[] = [];
 
   const typed: MachineHourlyRateInputs = {
-    purchasePrice: get(inputs, "purchasePrice", 0),
-    usefulLife: get(inputs, "usefulLife", 0),
-    annualHours: get(inputs, "annualHours", 0),
-    wageRate: get(inputs, "wageRate", 0),
-    powerDraw: get(inputs, "powerDraw", 0),
-    energyPrice: get(inputs, "energyPrice", 0),
-    idleShare: get(inputs, "idleShare", 0),
-    maintenanceRate: get(inputs, "maintenanceRate", 0),
+    purchasePrice: get(inputs, "n_purchase_price", get(inputs, "purchasePrice", 0)),
+    usefulLife: get(inputs, "n_useful_life", get(inputs, "usefulLife", 0)),
+    annualHours: get(inputs, "n_annual_hours", get(inputs, "annualHours", 0)),
+    wageRate: get(inputs, "n_wage_rate", get(inputs, "wageRate", 0)),
+    powerDraw: get(inputs, "n_power_draw", get(inputs, "powerDraw", 0)),
+    energyPrice: get(inputs, "n_energy_price", get(inputs, "energyPrice", 0)),
+    idleShare: get(inputs, "n_idle_share", get(inputs, "idleShare", 0)),
+    maintenanceRate: get(inputs, "n_maintenance_rate", get(inputs, "maintenanceRate", 0)),
   };
 
   // Warn if mandatory fields are missing
-  const mandatory = ["purchasePrice", "usefulLife", "annualHours", "idleShare", "maintenanceRate"] as const;
+  const mandatory = ["n_purchase_price", "n_useful_life", "n_annual_hours", "n_idle_share", "n_maintenance_rate"] as const;
   for (const key of mandatory) {
     if (inputs[key] === undefined) {
       warnings.push(`Input "${key}" is missing — using 0`);
@@ -174,19 +174,19 @@ export const toolKey = "machine-hourly-rate-proof-report";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
 export const sampleInputs: Record<string, number> = {
-  purchasePrice: 180000,
-  usefulLife: 10,
-  annualHours: 4000,
-  wageRate: 34,
-  powerDraw: 12,
-  energyPrice: 0.18,
-  idleShare: 0.20,
-  maintenanceRate: 0.05,
+  n_purchase_price: 180000,
+  n_useful_life: 10,
+  n_annual_hours: 4000,
+  n_wage_rate: 34,
+  n_power_draw: 12,
+  n_energy_price: 0.18,
+  n_idle_share: 0.20,
+  n_maintenance_rate: 0.05,
 };
 
 export const requiredInputKeys: readonly string[] = [
-  "purchasePrice", "usefulLife", "annualHours", "wageRate",
-  "powerDraw", "energyPrice", "idleShare", "maintenanceRate",
+  "n_purchase_price", "n_useful_life", "n_annual_hours", "n_wage_rate",
+  "n_power_draw", "n_energy_price", "n_idle_share", "n_maintenance_rate",
 ];
 
 export const declaredOutputKeys: readonly string[] = [...OUTPUT_KEYS];

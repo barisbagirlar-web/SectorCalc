@@ -76,9 +76,9 @@ function readContractRegistry(): string {
 
 function extractFormulaOutputIds(formula: string): string[] {
   return Array.from(new Set([
-    ...Array.from(formula.matchAll(/id:\s*["'](out_[a-z_]+)["']/g), (match) => match[1]),
-    ...Array.from(formula.matchAll(/\[["'](out_[a-z_]+)["']\]/g), (match) => match[1]),
-    ...Array.from(formula.matchAll(/\b(out_[a-z_]+)\s*:/g), (match) => match[1]),
+    ...Array.from(formula.matchAll(/id:\s*["'](out_[a-zA-Z_]+)["']/g), (match) => match[1]),
+    ...Array.from(formula.matchAll(/\[["'](out_[a-zA-Z_]+)["']\]/g), (match) => match[1]),
+    ...Array.from(formula.matchAll(/\b(out_[a-zA-Z_]+)\s*:/g), (match) => match[1]),
   ]));
 }
 
