@@ -8,6 +8,7 @@ import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { buildHomeJsonLd } from "@/lib/features/semantic/build-home-jsonld";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import "@/styles/landing-page-accessibility.css";
+import "@/styles/landing-page-proportion.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   return createPageMetadata({

@@ -9,10 +9,30 @@
   color: #ffffff;
 }
 
+/* Anchor specificity must beat `.sc-landing a { color: inherit; }`. */
+.sc-landing a.sc-button-light {
+  background: #f0eee6;
+  color: #1a1915;
+}
+
+.sc-landing a.sc-button-light:hover {
+  background: #1a1915;
+  color: #f0eee6;
+}
+
 .sc-landing .sc-pro-section,
 .sc-landing .sc-pro-section h2,
 .sc-landing .sc-pro-section h3 {
-  color: #f7f2e8;
+  color: #f0eee6;
+}
+
+/* Keep high-impact statements within the desktop four-line reading contract. */
+.sc-landing .sc-pro-grid .sc-pro-copy h2 {
+  max-width: 15ch;
+}
+
+.sc-landing section.sc-sectors .sc-section-heading h2 {
+  max-width: 19ch;
 }
 
 @media (min-width: 721px) and (max-width: 960px) {
