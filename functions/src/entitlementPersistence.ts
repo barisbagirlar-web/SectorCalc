@@ -1,5 +1,6 @@
 import * as admin from "firebase-admin";
 import type Stripe from "stripe";
+import { readSubscriptionCurrentPeriodEnd } from "./stripeCompat";
 import {
   CHECKOUT_PLAN_PRO,
   CHECKOUT_PLAN_PRO_ANNUAL,
@@ -187,8 +188,9 @@ export async function upsertCheckoutSessionEntitlement(
   const now = new Date().toISOString();
   const premiumSlug = resolvePremiumSlug(session.metadata);
   const subscriptionId = readStripeId(session.subscription);
-  const currentPeriodEnd = subscription?.current_period_end
-    ? new Date(subscription.current_period_end * 1000).toISOString()
+  const rawCurrentPeriodEnd = readSubscriptionCurrentPeriodEnd(subscription);
+  const currentPeriodEnd = rawCurrentPeriodEnd
+    ? new Date(rawCurrentPeriodEnd * 1000).toISOString()
     : undefined;
 
   const sessionPayload: PremiumEntitlementWrite = {
@@ -243,8 +245,9 @@ export async function updateSubscriptionEntitlementStatus(
 
   const now = new Date().toISOString();
   const status = mapStripeSubscriptionStatusToEntitlementStatus(subscription.status);
-  const currentPeriodEnd = subscription.current_period_end
-    ? new Date(subscription.current_period_end * 1000).toISOString()
+  const rawCurrentPeriodEnd = readSubscriptionCurrentPeriodEnd(subscription);
+  const currentPeriodEnd = rawCurrentPeriodEnd
+    ? new Date(rawCurrentPeriodEnd * 1000).toISOString()
     : undefined;
 
   const payload: PremiumEntitlementWrite = {

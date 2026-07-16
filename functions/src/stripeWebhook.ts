@@ -16,6 +16,7 @@ import {
   updateSubscriptionEntitlementStatus,
   upsertCheckoutSessionEntitlement,
 } from "./entitlementPersistence";
+import { readSubscriptionCurrentPeriodEnd, readInvoiceSubscription } from "./stripeCompat";
 import { addUserCredits } from "./creditPersistence";
 
 const stripeSecretKey = defineString("STRIPE_SECRET_KEY", { default: "" });
@@ -106,8 +107,9 @@ function subscriptionPayloadFromStripe(
   customerId?: string,
   plan?: CheckoutPlan
 ): FirestoreSubscription {
-  const currentPeriodEnd = subscription.current_period_end
-    ? new Date(subscription.current_period_end * 1000).toISOString()
+  const rawCurrentPeriodEnd = readSubscriptionCurrentPeriodEnd(subscription);
+  const currentPeriodEnd = rawCurrentPeriodEnd
+    ? new Date(rawCurrentPeriodEnd * 1000).toISOString()
     : undefined;
 
   const resolvedPlan =
@@ -341,10 +343,11 @@ export async function handleStripeWebhook(
       }
       case "invoice.payment_failed": {
         const invoice = event.data.object as Stripe.Invoice;
+        const invoiceSubscription = readInvoiceSubscription(invoice);
         const subscriptionId =
-          typeof invoice.subscription === "string"
-            ? invoice.subscription
-            : invoice.subscription?.id;
+          typeof invoiceSubscription === "string"
+            ? invoiceSubscription
+            : invoiceSubscription?.id;
         if (subscriptionId) {
           await markSubscriptionEntitlementPaymentFailed(subscriptionId);
         }
