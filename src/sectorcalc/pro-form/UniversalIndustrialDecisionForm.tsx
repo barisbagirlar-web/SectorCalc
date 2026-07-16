@@ -55,6 +55,7 @@ import {
 } from "./unit-display-resolver";
 import { buildProReport } from "@/sectorcalc/pro-report/pro-report-adapter";
 import { ProReportPanelV2 } from "@/sectorcalc/pro-report/ProReportPanelV2";
+import { BreakEvenReportCharts } from "@/sectorcalc/pro-report/charts/BreakEvenReportCharts";
 import { assertCrossToolIdentity } from "@/sectorcalc/runtime/cross-tool-contract-assertions";
 import { registry as referenceRegistry } from "@/generated/reference-registry";
 import {
@@ -895,6 +896,47 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
     });
   }, [isPro, hasResult, response?.outputs, props.toolKey, props.schema?.tool_key, state.rawInputState, state.selectedUnitState, selectedCurrency]);
 
+  // ── Sensitivity chart (opt-in per tool via ProReportContract.sensitivityDrivers) ──
+  // Isolated fetch to a dedicated read-only endpoint, independent of the execute hook above --
+  // a failure or slow response here can never block or corrupt the main report.
+  type SensitivityDriverResult = { inputId: string; label: string; up: number | null; down: number | null; span: number | null };
+  const [sensitivityData, setSensitivityData] = useState<{ targetOutput: string; baseline: number | null; baseInputs: Record<string, number> | null; drivers: SensitivityDriverResult[] } | null>(null);
+  const toolSlugForSensitivity = props.toolKey ?? props.schema?.tool_key ?? "";
+
+  useEffect(() => {
+    if (!isPro || !hasResult || !proReportResult?.contract?.sensitivityDrivers?.length) {
+      setSensitivityData(null);
+      return;
+    }
+    let cancelled = false;
+    fetch("/api/pro-calculator/sensitivity", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tool_key: toolSlugForSensitivity,
+        raw_inputs: state.rawInputState,
+        selected_units: state.selectedUnitState,
+      }),
+    })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (cancelled || !data?.ok || !data.supported) return;
+        setSensitivityData({
+          targetOutput: data.targetOutput,
+          baseline: typeof data.baseline === "number" ? data.baseline : null,
+          baseInputs: data.baseInputs ?? null,
+          drivers: data.drivers ?? [],
+        });
+      })
+      .catch(() => {
+        // Sensitivity chart is a bonus, not a required part of the report -- swallow errors.
+      });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPro, hasResult, toolSlugForSensitivity, proReportResult?.contract?.sensitivityDrivers]);
+
   // Determine decision state from the response for ProReportPanelV2
   const reportDecisionState = useMemo<{ label: string; severity: "pass" | "warning" | "danger" | "info" } | null>(() => {
     if (!response?.decision_interpretation) return null;
@@ -1416,13 +1458,28 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   ? response.warnings.map((w) => w.message).filter(Boolean)
                   : [];
                 return (
-                  <ProReportPanelV2
-                    toolTitle={vm.title}
-                    sections={proReportResult.resolvedSections}
-                    warnings={reportWarnings}
-                    decisionStateLabel={reportDecisionState?.label}
-                    decisionSeverity={reportDecisionState?.severity}
-                  />
+                  <>
+                    <ProReportPanelV2
+                      toolTitle={vm.title}
+                      sections={proReportResult.resolvedSections}
+                      warnings={reportWarnings}
+                      decisionStateLabel={reportDecisionState?.label}
+                      decisionSeverity={reportDecisionState?.severity}
+                      firedInsights={proReportResult.firedInsights}
+                      sensitivity={sensitivityData}
+                      paretoBreakdown={proReportResult.paretoBreakdown}
+                    />
+                    <BreakEvenReportCharts
+                      toolSlug={props.toolKey ?? props.schema?.tool_key ?? ""}
+                      currencySymbol={selectedCurrency}
+                      outputs={Object.fromEntries(
+                        response.outputs
+                          .filter((o) => typeof o.value === "number" && Number.isFinite(o.value))
+                          .map((o) => [o.id, o.value as number]),
+                      )}
+                      sensitivity={sensitivityData}
+                    />
+                  </>
                 );
               })()}
 
