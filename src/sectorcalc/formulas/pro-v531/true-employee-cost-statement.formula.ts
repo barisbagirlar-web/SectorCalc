@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * True Employee Cost Statement — formula engine
  *

@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Energy Efficiency Grant & Incentive Feasibility Pack — formula engine
  *

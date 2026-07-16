@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Capital Equipment Investment Appraisal (NPV/IRR) — formula engine
  *

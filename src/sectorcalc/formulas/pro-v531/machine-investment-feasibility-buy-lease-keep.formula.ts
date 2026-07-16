@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Machine Investment Feasibility: Buy vs Lease vs Keep — formula engine
  *

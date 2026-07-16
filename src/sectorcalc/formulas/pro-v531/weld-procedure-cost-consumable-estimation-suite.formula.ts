@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Weld Procedure Cost & Consumable Estimation Suite — formula engine
  *

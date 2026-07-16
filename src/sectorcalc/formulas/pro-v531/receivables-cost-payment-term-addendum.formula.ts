@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Receivables Cost / Payment Term Addendum — formula engine
  *

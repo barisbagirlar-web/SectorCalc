@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Scrap & Rework Cost Tracker — formula engine
  *

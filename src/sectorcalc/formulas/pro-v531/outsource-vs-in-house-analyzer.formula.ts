@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Outsource vs In-House Analyzer — formula engine
  *

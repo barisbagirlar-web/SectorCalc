@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Product SKU Margin Ranker — formula engine
  *

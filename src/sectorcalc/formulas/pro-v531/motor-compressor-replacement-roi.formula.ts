@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Motor Compressor Replacement ROI — formula engine
  *

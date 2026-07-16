@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * OEE Loss Monetization & Improvement Business Case — formula engine
  *

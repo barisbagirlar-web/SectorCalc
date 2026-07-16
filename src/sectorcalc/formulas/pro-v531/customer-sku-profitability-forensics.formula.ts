@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Customer SKU Profitability Forensics — formula engine
  *

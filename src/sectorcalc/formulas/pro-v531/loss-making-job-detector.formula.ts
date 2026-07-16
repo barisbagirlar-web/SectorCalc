@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 /**
  * Loss-Making Job Detector — formula engine
  *
