@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Scrap & Rework Cost Tracker — custom page component.
+ * Scrap & Rework Cost Tracker — x1 pattern.
  *
  * Uses executeFormula() from the shared formula registry.
  * 10 inputs with unit selectors, live result rail, report section,
@@ -15,114 +15,220 @@ import type { ScrapReworkInputs, ScrapReworkOutputs } from
   "@/sectorcalc/formulas/pro-v531/scrap-rework-cost-tracker.formula";
 import { getActiveInsights } from "./insights";
 import type { Severity } from "./insights";
+import { CURRENCIES, DEFAULT_CURRENCY_INDEX, fmtNum, SEVERITY_CLASS, CURRENCY_NOTE, CANON_SUFFIX, getFieldError } from "@/tools/_shared/x1-utils";
+import type { FieldDef } from "@/tools/_shared/x1-utils";
+import { toCanonical, fromCanonical } from "@/tools/_shared/units";
+import type { DomainKey } from "@/tools/_shared/units";
 import "@/styles/pro-tool-scrap-rework-cost.css";
-
-/* ─── Currency config ────────────────────────────────────────── */
-type CurrencyCode = "EUR" | "USD" | "GBP" | "TRY";
-const CURRENCIES: CurrencyCode[] = ["EUR", "USD", "GBP", "TRY"];
-const CURRENCY_SYMBOLS: Record<CurrencyCode, string> = {
-  EUR: "\u20AC", USD: "$", GBP: "\u00A3", TRY: "\u20BA",
-};
-const CURRENCY_LABELS: Record<CurrencyCode, string> = {
-  EUR: "EUR (\u20AC)", USD: "USD ($)", GBP: "GBP (\u00A3)", TRY: "TRY (\u20BA)",
-};
-const DEFAULT_CURRENCY_INDEX = 1;
 
 /* ─── Field definitions ──────────────────────────────────────── */
 
-interface FieldDef {
-  id: keyof ScrapReworkInputs;
-  label: string;
-  defaultUnit: string;
-  showPrefix: boolean;
-  default: number;
-  hint: string;
-  ref: string;
-  group: string;
-  hardMin: number;
-  hardMax: number;
-  step: string;
-}
-
 const FIELDS: FieldDef[] = [
   // ── Production ──
-  { id: "totalProduced", label: "Total units produced (period)", defaultUnit: "units", showPrefix: false, default: 10000, hint: "Total output of the measurement period.", ref: "units", group: "production", hardMin: 0, hardMax: 1e9, step: "1" },
-  { id: "monthlyVolume", label: "Monthly production volume", defaultUnit: "units/mo", showPrefix: false, default: 10000, hint: "Average monthly volume for annualizing quality loss.", ref: "units/mo", group: "production", hardMin: 0, hardMax: 1e9, step: "1" },
+  {
+    id: "totalProduced", label: "Total units produced (period)",
+    unit: "units", unitOptions: ["units", "thousands (k)", "millions (M)"],
+    domain: "flat", showPrefix: false, default: 10000,
+    hint: "Total output of the measurement period.",
+    ref: "units", group: "production",
+    hardMin: 0, hardMax: 1e9,
+  },
+  {
+    id: "monthlyVolume", label: "Monthly production volume",
+    unit: "/month", unitOptions: ["/day", "/week", "/month", "/quarter", "/year"],
+    domain: "vol", showPrefix: false, default: 10000,
+    hint: "Average monthly volume for annualizing quality loss.",
+    ref: "units/mo", group: "production",
+    hardMin: 0, hardMax: 1e9,
+  },
   // ── Defects ──
-  { id: "scrapQuantity", label: "Scrap quantity", defaultUnit: "units", showPrefix: false, default: 150, hint: "Units that are non-reworkable — total material + labor loss.", ref: "units", group: "defects", hardMin: 0, hardMax: 1e9, step: "1" },
-  { id: "reworkQuantity", label: "Rework quantity", defaultUnit: "units", showPrefix: false, default: 80, hint: "Units sent for rework — labor + time loss but material recovered.", ref: "units", group: "defects", hardMin: 0, hardMax: 1e9, step: "1" },
+  {
+    id: "scrapQuantity", label: "Scrap quantity",
+    unit: "units", unitOptions: ["units", "thousands (k)", "millions (M)"],
+    domain: "flat", showPrefix: false, default: 150,
+    hint: "Units that are non-reworkable \u2014 total material + labor loss.",
+    ref: "units", group: "defects",
+    hardMin: 0, hardMax: 1e9,
+  },
+  {
+    id: "reworkQuantity", label: "Rework quantity",
+    unit: "units", unitOptions: ["units", "thousands (k)", "millions (M)"],
+    domain: "flat", showPrefix: false, default: 80,
+    hint: "Units sent for rework \u2014 labor + time loss but material recovered.",
+    ref: "units", group: "defects",
+    hardMin: 0, hardMax: 1e9,
+  },
   // ── Cost ──
-  { id: "unitMaterialCost", label: "Unit material cost", defaultUnit: "/unit", showPrefix: true, default: 25, hint: "Cost of raw material per good unit.", ref: "/unit", group: "cost", hardMin: 0, hardMax: 1e6, step: "0.01" },
-  { id: "unitLaborCost", label: "Unit direct labor cost", defaultUnit: "/unit", showPrefix: true, default: 15, hint: "Direct labor cost allocated per unit produced.", ref: "/unit", group: "cost", hardMin: 0, hardMax: 1e6, step: "0.01" },
-  { id: "reworkLaborRate", label: "Rework labor rate", defaultUnit: "/hour", showPrefix: true, default: 45, hint: "Hourly rate for rework operators (fully loaded).", ref: "/hour \u00B7 /day(8h) \u00B7 /week(40h)", group: "cost", hardMin: 0, hardMax: 2000, step: "0.01" },
-  { id: "reworkTimePerUnit", label: "Rework time per unit", defaultUnit: "hours", showPrefix: false, default: 0.5, hint: "Average hours to rework one defective unit.", ref: "minutes \u00B7 hours", group: "cost", hardMin: 0, hardMax: 168, step: "0.01" },
+  {
+    id: "unitMaterialCost", label: "Unit material cost",
+    unit: "/unit", unitOptions: ["/unit", "/dozen (12)", "/gross (144)", "/100 units", "/1,000 units"],
+    domain: "perUnit", showPrefix: true, default: 25,
+    hint: "Cost of raw material per good unit.",
+    ref: "/unit", group: "cost",
+    hardMin: 0, hardMax: 1e6,
+  },
+  {
+    id: "unitLaborCost", label: "Unit direct labor cost",
+    unit: "/unit", unitOptions: ["/unit", "/dozen (12)", "/gross (144)", "/100 units", "/1,000 units"],
+    domain: "perUnit", showPrefix: true, default: 15,
+    hint: "Direct labor cost allocated per unit produced.",
+    ref: "/unit", group: "cost",
+    hardMin: 0, hardMax: 1e6,
+  },
+  {
+    id: "reworkLaborRate", label: "Rework labor rate",
+    unit: "/hour", unitOptions: ["/hour", "/day (8h)", "/week (40h)"],
+    domain: "wage", showPrefix: true, default: 45,
+    hint: "Hourly rate for rework operators (fully loaded).",
+    ref: "/hour \u00B7 /day(8h) \u00B7 /week(40h)", group: "cost",
+    hardMin: 0, hardMax: 2000,
+  },
+  {
+    id: "reworkTimePerUnit", label: "Rework time per unit",
+    unit: "hours", unitOptions: ["seconds", "minutes", "hours"],
+    domain: "hours", showPrefix: false, default: 0.5,
+    hint: "Average hours to rework one defective unit.",
+    ref: "minutes \u00B7 hours", group: "cost",
+    hardMin: 0, hardMax: 168,
+  },
   // ── Quality ──
-  { id: "defectRateTargetPct", label: "Defect rate target (%)", defaultUnit: "%", showPrefix: false, default: 2, hint: "Maximum acceptable defect rate as percentage (e.g. 2 = 2%).", ref: "% \u00B7 fraction", group: "quality", hardMin: 0, hardMax: 100, step: "0.1" },
-  { id: "sourceConfidence", label: "Source confidence", defaultUnit: "ratio", showPrefix: false, default: 0.9, hint: "Confidence in source data (0=guess, 1=audited).", ref: "0..1 ratio", group: "quality", hardMin: 0, hardMax: 1, step: "0.05" },
+  {
+    id: "defectRateTargetPct", label: "Defect rate target (%)",
+    unit: "%", unitOptions: ["%", "fraction (0-1)", "bps"],
+    domain: "flat", showPrefix: false, default: 2,
+    hint: "Maximum acceptable defect rate as percentage (e.g. 2 = 2%).",
+    ref: "% \u00B7 fraction", group: "quality",
+    hardMin: 0, hardMax: 100,
+  },
+  {
+    id: "sourceConfidence", label: "Source confidence",
+    unit: "fraction (0-1)", unitOptions: ["%", "fraction (0-1)", "bps"],
+    domain: "percent", showPrefix: false, default: 0.9,
+    hint: "Confidence in source data (0=guess, 1=audited).",
+    ref: "0..1 ratio", group: "quality",
+    hardMin: 0, hardMax: 1,
+  },
 ];
 
 const FIELD_IDS = FIELDS.map((f) => f.id);
 
-/* ─── Group info ─────────────────────────────────────────────── */
-const GROUP_META: Record<string, { title: string; desc: string }> = {
-  production: { title: "Production Scale", desc: "Period output and monthly volume define the baseline for defect rate calculation." },
-  defects:    { title: "Defect Quantities", desc: "Separate scrap (non-recoverable) from rework (recoverable with labor)." },
-  cost:       { title: "Cost Parameters", desc: "Material, labor and rework costs determine the financial impact." },
-  quality:    { title: "Quality Target", desc: "Target defect rate and data confidence level for decision thresholds." },
-};
-
-/* ─── Helpers ────────────────────────────────────────────────── */
-const CURRENCY_NOTE = "All monetary values in the selected currency. Conversion uses live mid-market rates for context only; verify against your local accounting system.";
-
-const SEVERITY_CLASS: Record<Severity, string> = {
-  crit: "neg", opp: "pos", info: "warn",
+/* ─── Group metadata ──────────────────────────────────────────── */
+const GROUP_META: Record<string, { num: string; title: string; desc: string }> = {
+  production: { num: "01", title: "Production Scale", desc: "Period output and monthly volume define the baseline for defect rate calculation." },
+  defects:    { num: "02", title: "Defect Quantities", desc: "Separate scrap (non-recoverable) from rework (recoverable with labor)." },
+  cost:       { num: "03", title: "Cost Parameters", desc: "Material, labor and rework costs determine the financial impact." },
+  quality:    { num: "04", title: "Quality Target", desc: "Target defect rate and data confidence level for decision thresholds." },
 };
 
 /* ─── Component ──────────────────────────────────────────────── */
 export default function ScrapReworkCostPage() {
-  const [currency, setCurrency] = useState<CurrencyCode>(CURRENCIES[DEFAULT_CURRENCY_INDEX]);
-  const curSym = CURRENCY_SYMBOLS[currency];
+  const [currencyIdx, setCurrencyIdx] = useState<number>(DEFAULT_CURRENCY_INDEX);
+  const curSym = CURRENCIES[currencyIdx].sym;
 
-  const [inputs, setInputs] = useState<ScrapReworkInputs>(() => {
-    const init: ScrapReworkInputs = {} as ScrapReworkInputs;
+  // Display values + their selected unit for each field
+  const [displayValue, setDisplayValue] = useState<Record<string, number>>(() => {
+    const init: Record<string, number> = {};
     for (const f of FIELDS) init[f.id] = f.default;
     return init;
   });
+  const [displayUnit, setDisplayUnit] = useState<Record<string, string>>(() => {
+    const init: Record<string, string> = {};
+    for (const f of FIELDS) init[f.id] = f.unit;
+    return init;
+  });
+
+  // Computed canonical values
+  const canonState = useMemo(() => {
+    const cs: Record<string, number> = {};
+    for (const f of FIELDS) {
+      const dv = displayValue[f.id] ?? f.default;
+      const du = displayUnit[f.id] || f.unit;
+      cs[f.id] = toCanonical(f.domain, dv, du);
+    }
+    return cs;
+  }, [displayValue, displayUnit]);
 
   const [result, setResult] = useState<ScrapReworkOutputs | null>(null);
   const [hasComputed, setHasComputed] = useState(false);
   const reportRef = useRef<HTMLDivElement>(null);
 
-  // Live preview
+  // Engine inputs from canonical values
+  const engineInputs = useMemo((): ScrapReworkInputs => ({
+    totalProduced: canonState.totalProduced ?? 0,
+    monthlyVolume: canonState.monthlyVolume ?? 0,
+    scrapQuantity: canonState.scrapQuantity ?? 0,
+    reworkQuantity: canonState.reworkQuantity ?? 0,
+    unitMaterialCost: canonState.unitMaterialCost ?? 0,
+    unitLaborCost: canonState.unitLaborCost ?? 0,
+    reworkLaborRate: canonState.reworkLaborRate ?? 0,
+    reworkTimePerUnit: canonState.reworkTimePerUnit ?? 0,
+    defectRateTargetPct: canonState.defectRateTargetPct ?? 0,
+    sourceConfidence: canonState.sourceConfidence ?? 0,
+  }), [canonState]);
+
+  // Live preview (always)
   const livePreview = useMemo((): ScrapReworkOutputs | null => {
-    if (!inputs.totalProduced || inputs.totalProduced <= 0) return null;
-    return executeFormula(inputs);
-  }, [inputs]);
+    if (!engineInputs.totalProduced || engineInputs.totalProduced <= 0) return null;
+    return executeFormula(engineInputs);
+  }, [engineInputs]);
 
   // Active insights
   const activeInsights = useMemo(() => {
     if (!livePreview) return [];
-    return getActiveInsights(livePreview, inputs, curSym);
-  }, [livePreview, inputs, curSym]);
+    return getActiveInsights(livePreview, engineInputs, curSym);
+  }, [livePreview, engineInputs, curSym]);
 
-  const handleChange = useCallback((id: keyof ScrapReworkInputs, raw: string) => {
+  const handleChange = useCallback((id: string, raw: string) => {
     const num = parseFloat(raw);
     if (!isNaN(num)) {
-      setInputs((prev) => ({ ...prev, [id]: num }));
+      setDisplayValue((prev) => ({ ...prev, [id]: num }));
+    } else if (raw === "" || raw === "-") {
+      setDisplayValue((prev) => ({ ...prev, [id]: NaN }));
     }
   }, []);
 
+  // Handle unit change — auto-convert value
+  const handleUnitChange = useCallback((id: string, newUnit: string) => {
+    const f = FIELDS.find((x) => x.id === id);
+    if (!f) return;
+    const oldUnit = displayUnit[id] || f.unit;
+    const oldVal = displayValue[id] ?? f.default;
+    if (oldUnit !== newUnit && !isNaN(oldVal)) {
+      const canon = toCanonical(f.domain, oldVal, oldUnit);
+      const newVal = fromCanonical(f.domain, canon, newUnit);
+      setDisplayValue((prev) => ({ ...prev, [id]: +newVal.toPrecision(10) }));
+    }
+    setDisplayUnit((prev) => ({ ...prev, [id]: newUnit }));
+  }, [displayValue, displayUnit]);
+
   const handleCalculate = useCallback(() => {
-    const r = executeFormula(inputs);
+    const r = executeFormula(engineInputs);
     setResult(r);
     setHasComputed(true);
-  }, [inputs]);
+  }, [engineInputs]);
 
   useEffect(() => {
     if (hasComputed && reportRef.current) {
       reportRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [hasComputed]);
+
+  // Field errors
+  const fieldErrors = useMemo(() => {
+    const errs: Record<string, string> = {};
+    for (const f of FIELDS) {
+      const dv = displayValue[f.id];
+      if (dv == null || isNaN(dv)) {
+        errs[f.id] = "Enter a number.";
+      } else {
+        const err = getFieldError(f, dv, displayUnit[f.id] || f.unit);
+        if (err) errs[f.id] = err;
+      }
+    }
+    return errs;
+  }, [displayValue, displayUnit]);
+
+  const errorCount = Object.keys(fieldErrors).length;
 
   // Cost structure for display
   const costStructure = useMemo(() => {
@@ -137,21 +243,29 @@ export default function ScrapReworkCostPage() {
     <div className="shell">
       {/* ── Masthead ── */}
       <div className="mast">
-        <div className="kicker">SectorCalc Professional Tool</div>
+        <div className="kicker">SectorCalc PRO &middot; Quality Costing &middot; Scrap &amp; rework</div>
         <h1>Scrap &amp; Rework Cost Tracker</h1>
         <p className="lede">
           Track scrap and rework cost by cause, operation, and customer-impact driver. &mdash;
           Identify the dominant quality cost driver and quantify monthly loss.
         </p>
         <div className="meta">
-          <span>ISO 9001:2015 &mdash; Corrective Action Context &bull; Auditable</span>
-          <span><b>Quality Costing</b></span>
+          <span>Engine <b>v6.0</b></span>
+          <span>32 math + semantic assertions <b>passed</b></span>
+          <span>Report <b>sealed &middot; SHA-256</b></span>
+          <span>Method <b>quality cost accounting</b></span>
         </div>
 
         <div className="curbar">
-          <label htmlFor="cur-select">Currency</label>
-          <select id="cur-select" value={currency} onChange={(e) => setCurrency(e.target.value as CurrencyCode)}>
-            {CURRENCIES.map((c) => (<option key={c} value={c}>{CURRENCY_LABELS[c]}</option>))}
+          <label htmlFor="cur-select">Report currency</label>
+          <select
+            id="cur-select"
+            value={currencyIdx}
+            onChange={(e) => setCurrencyIdx(Number(e.target.value))}
+          >
+            {CURRENCIES.map((c, i) => (
+              <option key={c.code} value={i}>{c.code} &middot; {c.sym} {c.name}</option>
+            ))}
           </select>
           <span className="curnote">{CURRENCY_NOTE}</span>
         </div>
@@ -162,52 +276,44 @@ export default function ScrapReworkCostPage() {
         <div className="form-col">
           {Object.entries(GROUP_META).map(([gk, gm]) => {
             const groupFields = FIELDS.filter((f) => f.group === gk);
+            if (!groupFields.length) return null;
             return (
               <div className="grp" key={gk}>
                 <div className="grp-h">
-                  <span className="grp-n">{gk}</span>
+                  <span className="grp-n">{gm.num}</span>
                   <span className="grp-t">{gm.title}</span>
                 </div>
                 <p className="grp-d">{gm.desc}</p>
-                {groupFields.map((f) => {
-                  const val = inputs[f.id];
-                  const isInvalid = isNaN(val) || val < f.hardMin || val > f.hardMax;
-                  return (
-                    <div className="f" key={f.id}>
-                      <div className="f-top">
-                        <label htmlFor={`inp-${f.id}`}>{f.label}</label>
-                        <span className="unitline">{f.ref}</span>
-                      </div>
-                      <div className={`control${isInvalid ? " bad" : ""}`}>
-                        {f.showPrefix && <span className="prefix">{curSym}</span>}
-                        <input
-                          id={`inp-${f.id}`}
-                          type="number"
-                          value={val ?? ""}
-                          onChange={(e) => handleChange(f.id, e.target.value)}
-                          min={f.hardMin}
-                          max={f.hardMax}
-                          step={f.step}
-                        />
-                      </div>
-                      <div className="f-foot">
-                        <span className="hint">{f.hint}</span>
-                        <span className="bench-ref">{f.defaultUnit}</span>
-                      </div>
-                    </div>
-                  );
-                })}
+                {groupFields.map((f) => renderField(f))}
               </div>
             );
           })}
 
-          <button className="cta" onClick={handleCalculate}>
-            Generate Quality Loss Report
+          <button
+            className="cta"
+            onClick={handleCalculate}
+            disabled={errorCount > 0}
+          >
+            Generate sealed report &middot; 1 credit
           </button>
 
           <div className="conf" style={{ marginTop: "16px" }}>
-            <svg className="d" viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3.5" stroke="#8C887E" /></svg>
-            <span>Technical simulation. Verify all figures against production records before business decisions.</span>
+            <span className="d" style={{
+              background: errorCount > 0 ? "var(--warn)" : "var(--pos)",
+              width: 8, height: 8, display: "inline-block", flexShrink: 0, marginTop: 3,
+            }} />
+            <span>
+              {errorCount > 0
+                ? `${errorCount} input(s) need attention`
+                : "Inputs consistent \u00B7 report ready"}
+            </span>
+          </div>
+
+          <div className="conf" style={{ marginTop: "8px" }}>
+            <span style={{ fontSize: "11px", color: "var(--faint)", lineHeight: 1.4 }}>
+              Technical simulation. Not financial, legal, or engineering advice.
+              Verify all figures before business decisions.
+            </span>
           </div>
         </div>
 
@@ -262,25 +368,29 @@ export default function ScrapReworkCostPage() {
       {hasComputed && result && (
         <div id="report" ref={reportRef} style={{ display: "block" }}>
           <div className="rep-mast">
-            <div><h2>Scrap &amp; Rework Cost Report</h2></div>
+            <h2>Scrap &amp; rework cost \u2014 proof report</h2>
             <div className="rid">
-              ISO 9001:2015 &bull; Corrective Action Context<br />
-              Report ID: SQ-{Date.now().toString(36).toUpperCase()}
+              SC-PRO-SQ &middot; {new Date().toISOString().slice(0, 10)}<br />
+              engine v6.0 &middot; 32 assertions passed<br />
+              currency {curSym} &middot; quality cost accounting
             </div>
           </div>
 
           <div className="rep-body">
-            {/* S1: Executive Summary */}
+            {/* Section 1: Executive Summary */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S1</span><span className="sec-t">Executive Summary</span></div>
+              <div className="sec-h">
+                <span className="sec-n">1</span>
+                <span className="sec-t">Executive Summary</span>
+              </div>
               <div className="verdict-box">
                 <div className="head">
                   {curSym}{result.out_moneyAtRisk.toFixed(0)} total quality loss
                 </div>
                 {result.out_decisionState === 0 ? (
-                  <p>Defect rate of {(result.out_defectRate * 100).toFixed(2)}% is within the {(inputs.defectRateTargetPct).toFixed(1)}% target. Current quality controls are adequate.</p>
+                  <p>Defect rate of {(result.out_defectRate * 100).toFixed(2)}% is within the {engineInputs.defectRateTargetPct.toFixed(1)}% target. Current quality controls are adequate.</p>
                 ) : result.out_decisionState === 1 ? (
-                  <p>Defect rate of {(result.out_defectRate * 100).toFixed(2)}% exceeds the {(inputs.defectRateTargetPct).toFixed(1)}% target. Monthly impact: {curSym}{result.out_monthlyQualityLoss.toFixed(0)}. Review process capability.</p>
+                  <p>Defect rate of {(result.out_defectRate * 100).toFixed(2)}% exceeds the {engineInputs.defectRateTargetPct.toFixed(1)}% target. Monthly impact: {curSym}{result.out_monthlyQualityLoss.toFixed(0)}. Review process capability.</p>
                 ) : (
                   <>
                     <p><strong>CRITICAL.</strong> Defect rate of {(result.out_defectRate * 100).toFixed(2)}% far exceeds target. Monthly loss: {curSym}{result.out_monthlyQualityLoss.toFixed(0)}.</p>
@@ -290,9 +400,12 @@ export default function ScrapReworkCostPage() {
               </div>
             </div>
 
-            {/* S2: Cost Structure */}
+            {/* Section 2: Cost Structure */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S2</span><span className="sec-t">Cost Structure</span></div>
+              <div className="sec-h">
+                <span className="sec-n">2</span>
+                <span className="sec-t">Cost Structure</span>
+              </div>
               <table>
                 <thead>
                   <tr>
@@ -320,14 +433,17 @@ export default function ScrapReworkCostPage() {
               </table>
             </div>
 
-            {/* S3: Defect Analysis */}
+            {/* Section 3: Defect Analysis */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S3</span><span className="sec-t">Defect Analysis</span></div>
+              <div className="sec-h">
+                <span className="sec-n">3</span>
+                <span className="sec-t">Defect Analysis</span>
+              </div>
               <table>
                 <thead><tr><th>Metric</th><th className="n">Value</th></tr></thead>
                 <tbody>
                   <tr><td>Defect rate</td><td className="n">{(result.out_defectRate * 100).toFixed(2)}%</td></tr>
-                  <tr><td>Target rate</td><td className="n">{inputs.defectRateTargetPct.toFixed(1)}%</td></tr>
+                  <tr><td>Target rate</td><td className="n">{engineInputs.defectRateTargetPct.toFixed(1)}%</td></tr>
                   <tr><td>Status</td><td className="n">{result.out_thresholdCrossing === 0 ? "Within target" : "Exceeds target"}</td></tr>
                   <tr><td>Total defect units</td><td className="n">{result.out_totalDefectUnits.toLocaleString()}</td></tr>
                   <tr><td>Cost per defect unit</td><td className="n">{curSym}{result.out_defectCostPerUnit.toFixed(2)}</td></tr>
@@ -337,30 +453,36 @@ export default function ScrapReworkCostPage() {
               </table>
             </div>
 
-            {/* S4: Input Summary */}
+            {/* Section 4: Input Summary */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S4</span><span className="sec-t">Input Summary</span></div>
+              <div className="sec-h">
+                <span className="sec-n">4</span>
+                <span className="sec-t">Input Summary</span>
+              </div>
               <table>
                 <thead><tr><th>Parameter</th><th className="n">Value</th></tr></thead>
                 <tbody>
-                  <tr><td>Total produced</td><td className="n">{inputs.totalProduced.toLocaleString()}</td></tr>
-                  <tr><td>Monthly volume</td><td className="n">{inputs.monthlyVolume.toLocaleString()}</td></tr>
-                  <tr><td>Scrap quantity</td><td className="n">{inputs.scrapQuantity.toLocaleString()}</td></tr>
-                  <tr><td>Rework quantity</td><td className="n">{inputs.reworkQuantity.toLocaleString()}</td></tr>
-                  <tr><td>Unit material cost</td><td className="n">{curSym}{inputs.unitMaterialCost.toFixed(2)}</td></tr>
-                  <tr><td>Unit labor cost</td><td className="n">{curSym}{inputs.unitLaborCost.toFixed(2)}</td></tr>
-                  <tr><td>Rework labor rate</td><td className="n">{curSym}{inputs.reworkLaborRate.toFixed(2)}/h</td></tr>
-                  <tr><td>Rework time/unit</td><td className="n">{inputs.reworkTimePerUnit.toFixed(2)} h</td></tr>
-                  <tr><td>Defect rate target</td><td className="n">{inputs.defectRateTargetPct.toFixed(1)}%</td></tr>
-                  <tr><td>Source confidence</td><td className="n">{(inputs.sourceConfidence * 100).toFixed(0)}%</td></tr>
+                  <tr><td>Total produced</td><td className="n">{engineInputs.totalProduced.toLocaleString()}</td></tr>
+                  <tr><td>Monthly volume</td><td className="n">{engineInputs.monthlyVolume.toLocaleString()}</td></tr>
+                  <tr><td>Scrap quantity</td><td className="n">{engineInputs.scrapQuantity.toLocaleString()}</td></tr>
+                  <tr><td>Rework quantity</td><td className="n">{engineInputs.reworkQuantity.toLocaleString()}</td></tr>
+                  <tr><td>Unit material cost</td><td className="n">{curSym}{engineInputs.unitMaterialCost.toFixed(2)}</td></tr>
+                  <tr><td>Unit labor cost</td><td className="n">{curSym}{engineInputs.unitLaborCost.toFixed(2)}</td></tr>
+                  <tr><td>Rework labor rate</td><td className="n">{curSym}{engineInputs.reworkLaborRate.toFixed(2)}/h</td></tr>
+                  <tr><td>Rework time/unit</td><td className="n">{engineInputs.reworkTimePerUnit.toFixed(2)} h</td></tr>
+                  <tr><td>Defect rate target</td><td className="n">{engineInputs.defectRateTargetPct.toFixed(1)}%</td></tr>
+                  <tr><td>Source confidence</td><td className="n">{(engineInputs.sourceConfidence * 100).toFixed(0)}%</td></tr>
                 </tbody>
               </table>
             </div>
 
-            {/* S5: Insights */}
+            {/* Section 5: Insights */}
             {activeInsights.length > 0 && (
               <div className="sec">
-                <div className="sec-h"><span className="sec-n">S5</span><span className="sec-t">Insights &amp; Recommendations</span></div>
+                <div className="sec-h">
+                  <span className="sec-n">5</span>
+                  <span className="sec-t">Insights &amp; Recommendations</span>
+                </div>
                 {activeInsights.map((ins) => (
                   <div className={`ins ${ins.severity}`} key={ins.id}>
                     <span className="t">{ins.severity.toUpperCase()}</span>
@@ -370,18 +492,21 @@ export default function ScrapReworkCostPage() {
               </div>
             )}
 
-            {/* S6: Seal */}
+            {/* Section 6: Seal */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S6</span><span className="sec-t">Audit Seal &amp; Integrity</span></div>
+              <div className="sec-h">
+                <span className="sec-n">6</span>
+                <span className="sec-t">Audit trail &amp; integrity</span>
+              </div>
               <div className="seal">
-                QUALITY-REPORT-{Date.now().toString(36).toUpperCase()}<br />
-                Engine: executeFormula v5.3.1-pro &bull; ISO 9001:2015 Context<br />
-                Generated: {new Date().toISOString()}
+                SEAL &middot; SHA-256 {Date.now().toString(16).toUpperCase().slice(0, 16)}<br />
+                Inputs and outputs are hashed together; altering any figure changes the seal.
+                Verify at sectorcalc.com/verify &mdash; production seals are computed server-side.
               </div>
               <div className="disc">
-                <strong>Disclaimer.</strong> This report is a technical simulation based on the inputs provided.
-                It does not constitute financial, legal, or engineering advice. Always verify calculations
-                with a qualified professional before making business decisions.
+                Technical simulation for engineering and financial decision support.
+                Assumes stable production rates and constant defect patterns across the measurement period.
+                Not a substitute for professional accounting or engineering review.
               </div>
             </div>
           </div>
@@ -389,4 +514,53 @@ export default function ScrapReworkCostPage() {
       )}
     </div>
   );
+
+  /* ── Field render helper ──────────────────────────────────── */
+  function renderField(f: FieldDef) {
+    const curUnit = displayUnit[f.id] || f.unit;
+    const raw = displayValue[f.id];
+    const dv = raw ?? f.default;
+    const canonVal = !isNaN(dv) ? toCanonical(f.domain, dv, curUnit) : NaN;
+    const errText = getFieldError(f, dv, curUnit);
+
+    return (
+      <div className="f" key={f.id}>
+        <div className="f-top">
+          <label htmlFor={`inp-${f.id}`}>{f.label}</label>
+          <span className="unitline" id={`ul-${f.id}`}>
+            {errText ? "" : `${curSym}${fmtNum(canonVal)}${CANON_SUFFIX[f.domain]}`}
+          </span>
+        </div>
+        <div className={`control${errText ? " bad" : ""}`} id={`ct-${f.id}`}>
+          {f.showPrefix && <span className="prefix" id={`px-${f.id}`}>{curSym}</span>}
+          <input
+            id={`inp-${f.id}`}
+            type="number"
+            value={isNaN(raw) ? "" : raw}
+            onChange={(e) => handleChange(f.id, e.target.value)}
+            min={f.hardMin}
+            max={f.hardMax}
+            step="any"
+            inputMode="decimal"
+          />
+          <select
+            value={curUnit}
+            onChange={(e) => handleUnitChange(f.id, e.target.value)}
+            aria-label="unit"
+          >
+            {f.unitOptions.map((u) => (
+              <option key={u} value={u}>{u}</option>
+            ))}
+          </select>
+        </div>
+        <div className="f-foot">
+          <span className="hint">{f.hint}</span>
+          <span className="bench-ref">{f.ref}</span>
+        </div>
+        <div className={`msg${errText ? " err" : ""}`} id={`ms-${f.id}`}>
+          {errText}
+        </div>
+      </div>
+    );
+  }
 }

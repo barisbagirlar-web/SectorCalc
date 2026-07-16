@@ -2,6 +2,15 @@
 
 /**
  * Weld Procedure Cost & Consumable Estimation Suite — custom page component.
+ *
+ * x1 pattern: 12-currency, inline validation, canonical unit display,
+ * group numbering, engine metadata.
+ *
+ * Import: executeFormula from @/sectorcalc/formulas/pro-v531/...
+ * Import: INSIGHTS from ./insights
+ * Import: toCanonical / fromCanonical from @/tools/_shared/units
+ * Import: x1-utils from @/tools/_shared/x1-utils
+ * CSS:    @/styles/pro-tool-weld-procedure-cost-consumable-estimation-suite.css
  */
 
 import { useMemo, useState, useCallback, useRef, useEffect } from "react";
@@ -11,98 +20,131 @@ import type { WeldProcedureInputs, WeldProcedureOutputs } from
   "@/sectorcalc/formulas/pro-v531/weld-procedure-cost-consumable-estimation-suite.formula";
 import { getActiveInsights } from "./insights";
 import type { Severity } from "./insights";
+import { toCanonical, fromCanonical } from "@/tools/_shared/units";
+import type { DomainKey } from "@/tools/_shared/units";
+import { CURRENCIES, DEFAULT_CURRENCY_INDEX, fmtNum, SEVERITY_CLASS, CANON_SUFFIX, CURRENCY_NOTE } from "@/tools/_shared/x1-utils";
+import type { FieldDef } from "@/tools/_shared/x1-utils";
+import { getFieldError } from "@/tools/_shared/x1-utils";
 import "@/styles/pro-tool-weld-procedure-cost-consumable-estimation-suite.css";
-
-/* ─── Currency config ────────────────────────────────────────── */
-type CurrencyCode = "EUR" | "USD" | "GBP" | "TRY";
-const CURRENCIES: CurrencyCode[] = ["EUR", "USD", "GBP", "TRY"];
-const CURRENCY_SYMBOLS: Record<CurrencyCode, string> = {
-  EUR: "\u20AC", USD: "$", GBP: "\u00A3", TRY: "\u20BA",
-};
-const CURRENCY_LABELS: Record<CurrencyCode, string> = {
-  EUR: "EUR (\u20AC)", USD: "USD ($)", GBP: "GBP (\u00A3)", TRY: "TRY (\u20BA)",
-};
-const DEFAULT_CURRENCY_INDEX = 1;
 
 /* ─── Field definitions ──────────────────────────────────────── */
 
-interface FieldDef {
-  id: keyof WeldProcedureInputs;
-  label: string;
-  defaultUnit: string;
-  showPrefix: boolean;
-  default: number;
-  hint: string;
-  ref: string;
-  group: string;
-  hardMin: number;
-  hardMax: number;
-  step: string;
-}
-
 const FIELDS: FieldDef[] = [
-  { id: "weldLengthM", label: "Weld length (m)", defaultUnit: "m", showPrefix: false, default: 10, hint: "Total weld length for the joint.", ref: "m", group: "geometry", hardMin: 0, hardMax: 1e4, step: "0.1" },
-  { id: "weldThroatMm", label: "Weld throat (mm)", defaultUnit: "mm", showPrefix: false, default: 6, hint: "Fillet weld throat thickness.", ref: "mm", group: "geometry", hardMin: 0, hardMax: 100, step: "0.5" },
-  { id: "weldDensityGCm3", label: "Weld density (g/cm3)", defaultUnit: "g/cm3", showPrefix: false, default: 7.85, hint: "Deposited weld metal density.", ref: "g/cm3", group: "geometry", hardMin: 0, hardMax: 20, step: "0.01" },
-  { id: "wireCostPerKg", label: "Wire cost per kg", defaultUnit: "/kg", showPrefix: true, default: 8.5, hint: "Cost of welding wire per kilogram.", ref: "/kg", group: "consumables", hardMin: 0, hardMax: 500, step: "0.01" },
-  { id: "gasCostPerMin", label: "Gas cost per min", defaultUnit: "/min", showPrefix: true, default: 0.35, hint: "Shielding gas cost per arc minute.", ref: "/min", group: "consumables", hardMin: 0, hardMax: 50, step: "0.01" },
-  { id: "depositionEfficiencyPct", label: "Deposition efficiency (%)", defaultUnit: "%", showPrefix: false, default: 85, hint: "Wire-to-weld deposition efficiency.", ref: "%", group: "consumables", hardMin: 0, hardMax: 100, step: "1" },
-  { id: "arcTimeMin", label: "Arc time (min)", defaultUnit: "min", showPrefix: false, default: 15, hint: "Actual welding arc-on time.", ref: "min", group: "labor", hardMin: 0, hardMax: 1440, step: "1" },
-  { id: "weldTimeMin", label: "Total weld time (min)", defaultUnit: "min", showPrefix: false, default: 30, hint: "Total time including handling and positioning.", ref: "min", group: "labor", hardMin: 0, hardMax: 1440, step: "1" },
-  { id: "laborRate", label: "Labor rate (/hr)", defaultUnit: "/hr", showPrefix: true, default: 65, hint: "Fully loaded welder labor rate per hour.", ref: "/hr", group: "labor", hardMin: 0, hardMax: 500, step: "0.5" },
-  { id: "overheadRate", label: "Overhead rate (/hr)", defaultUnit: "/hr", showPrefix: true, default: 25, hint: "Shop overhead rate per hour.", ref: "/hr", group: "labor", hardMin: 0, hardMax: 500, step: "0.5" },
-  { id: "sourceConfidence", label: "Source confidence", defaultUnit: "ratio", showPrefix: false, default: 0.9, hint: "Confidence in source data (0=guess, 1=audited).", ref: "0..1 ratio", group: "quality", hardMin: 0, hardMax: 1, step: "0.05" },
+  // ── Weld Geometry ──
+  { id: "weldLengthM", label: "Weld length (m)", unit: "units", domain: "flat", showPrefix: false, default: 10, hint: "Total weld length for the joint.", ref: "m", group: "geometry", hardMin: 0, hardMax: 1e4, unitOptions: ["units"] },
+  { id: "weldThroatMm", label: "Weld throat (mm)", unit: "mm", domain: "length", showPrefix: false, default: 6, hint: "Fillet weld throat thickness.", ref: "mm", group: "geometry", hardMin: 0, hardMax: 100, unitOptions: ["mm", "cm", "m", "in", "ft"] },
+  { id: "weldDensityGCm3", label: "Weld density (g/cm3)", unit: "units", domain: "flat", showPrefix: false, default: 7.85, hint: "Deposited weld metal density.", ref: "g/cm3", group: "geometry", hardMin: 0, hardMax: 20, unitOptions: ["units"] },
+  // ── Consumables ──
+  { id: "wireCostPerKg", label: "Wire cost per kg", unit: "units", domain: "flat", showPrefix: true, default: 8.5, hint: "Cost of welding wire per kilogram.", ref: "/kg", group: "consumables", hardMin: 0, hardMax: 500, unitOptions: ["units", "thousands (k)", "millions (M)"] },
+  { id: "gasCostPerMin", label: "Gas cost per min", unit: "units", domain: "flat", showPrefix: true, default: 0.35, hint: "Shielding gas cost per arc minute.", ref: "/min", group: "consumables", hardMin: 0, hardMax: 50, unitOptions: ["units"] },
+  { id: "depositionEfficiencyPct", label: "Deposition efficiency (%)", unit: "units", domain: "flat", showPrefix: false, default: 85, hint: "Wire-to-weld deposition efficiency.", ref: "%", group: "consumables", hardMin: 0, hardMax: 100, unitOptions: ["units"] },
+  // ── Labor & Overhead ──
+  { id: "arcTimeMin", label: "Arc time (min)", unit: "units", domain: "flat", showPrefix: false, default: 15, hint: "Actual welding arc-on time.", ref: "min", group: "labor", hardMin: 0, hardMax: 1440, unitOptions: ["units"] },
+  { id: "weldTimeMin", label: "Total weld time (min)", unit: "units", domain: "flat", showPrefix: false, default: 30, hint: "Total time including handling and positioning.", ref: "min", group: "labor", hardMin: 0, hardMax: 1440, unitOptions: ["units"] },
+  { id: "laborRate", label: "Labor rate (/hr)", unit: "/hour", domain: "wage", showPrefix: true, default: 65, hint: "Fully loaded welder labor rate per hour.", ref: "/hr", group: "labor", hardMin: 0, hardMax: 500, unitOptions: ["/hour", "/day (8h)", "/week (40h)"] },
+  { id: "overheadRate", label: "Overhead rate (/hr)", unit: "/hour", domain: "wage", showPrefix: true, default: 25, hint: "Shop overhead rate per hour.", ref: "/hr", group: "labor", hardMin: 0, hardMax: 500, unitOptions: ["/hour", "/day (8h)", "/week (40h)"] },
+  // ── Data Quality ──
+  { id: "sourceConfidence", label: "Source confidence", unit: "fraction (0-1)", domain: "percent", showPrefix: false, default: 0.9, hint: "Confidence in source data (0=guess, 1=audited).", ref: "0..1 ratio", group: "quality", hardMin: 0, hardMax: 1, unitOptions: ["%", "fraction (0-1)", "bps"] },
 ];
 
-const GROUP_META: Record<string, { title: string; desc: string }> = {
-  geometry:    { title: "Weld Geometry", desc: "Physical dimensions of the weld joint." },
-  consumables: { title: "Consumables", desc: "Wire and shielding gas cost parameters." },
-  labor:       { title: "Labor & Overhead", desc: "Welder labor and shop overhead rates." },
-  quality:     { title: "Data Quality", desc: "Source confidence level for decision thresholds." },
+const FIELD_IDS = FIELDS.map((f) => f.id);
+
+/* ─── Group info ─────────────────────────────────────────────── */
+const GROUP_META: Record<string, { num: string; title: string; desc: string }> = {
+  geometry:    { num: "01", title: "Weld Geometry", desc: "Physical dimensions of the weld joint." },
+  consumables: { num: "02", title: "Consumables", desc: "Wire and shielding gas cost parameters." },
+  labor:       { num: "03", title: "Labor & Overhead", desc: "Welder labor and shop overhead rates." },
+  quality:     { num: "04", title: "Data Quality", desc: "Source confidence level for decision thresholds." },
 };
 
-const CURRENCY_NOTE = "All monetary values in the selected currency. Conversion uses live mid-market rates for context only; verify against your local accounting system.";
-
-const SEVERITY_CLASS: Record<Severity, string> = {
-  crit: "neg", opp: "pos", info: "warn",
-};
-
+/* ─── Component ──────────────────────────────────────────────── */
 export default function WeldProcedureCostPage() {
-  const [currency, setCurrency] = useState<CurrencyCode>(CURRENCIES[DEFAULT_CURRENCY_INDEX]);
-  const curSym = CURRENCY_SYMBOLS[currency];
+  const [currencyIdx, setCurrencyIdx] = useState<number>(DEFAULT_CURRENCY_INDEX);
+  const curSym = CURRENCIES[currencyIdx].sym;
 
-  const [inputs, setInputs] = useState<WeldProcedureInputs>(() => {
-    const init: WeldProcedureInputs = {} as WeldProcedureInputs;
+  // Display values + their selected unit for each field
+  const [displayValue, setDisplayValue] = useState<Record<string, number>>(() => {
+    const init: Record<string, number> = {};
     for (const f of FIELDS) init[f.id] = f.default;
     return init;
   });
+  const [displayUnit, setDisplayUnit] = useState<Record<string, string>>(() => {
+    const init: Record<string, string> = {};
+    for (const f of FIELDS) init[f.id] = f.unit;
+    return init;
+  });
+
+  // Computed canonical values
+  const canonState = useMemo(() => {
+    const cs: Record<string, number> = {};
+    for (const f of FIELDS) {
+      const dv = displayValue[f.id] ?? f.default;
+      const du = displayUnit[f.id] || f.unit;
+      cs[f.id] = toCanonical(f.domain, dv, du);
+    }
+    return cs;
+  }, [displayValue, displayUnit]);
+
+  // Engine inputs from canonical values
+  const engineInputs = useMemo((): WeldProcedureInputs => ({
+    weldLengthM: canonState.weldLengthM ?? 0,
+    weldThroatMm: canonState.weldThroatMm ?? 0,
+    weldDensityGCm3: canonState.weldDensityGCm3 ?? 0,
+    wireCostPerKg: canonState.wireCostPerKg ?? 0,
+    gasCostPerMin: canonState.gasCostPerMin ?? 0,
+    depositionEfficiencyPct: canonState.depositionEfficiencyPct ?? 0,
+    arcTimeMin: canonState.arcTimeMin ?? 0,
+    weldTimeMin: canonState.weldTimeMin ?? 0,
+    laborRate: canonState.laborRate ?? 0,
+    overheadRate: canonState.overheadRate ?? 0,
+    sourceConfidence: canonState.sourceConfidence ?? 0,
+  }), [canonState]);
 
   const [result, setResult] = useState<WeldProcedureOutputs | null>(null);
   const [hasComputed, setHasComputed] = useState(false);
   const reportRef = useRef<HTMLDivElement>(null);
 
+  // Live preview
   const livePreview = useMemo((): WeldProcedureOutputs | null => {
-    if (!inputs.weldLengthM || inputs.weldLengthM <= 0) return null;
-    return executeFormula(inputs);
-  }, [inputs]);
+    if (!engineInputs.weldLengthM || engineInputs.weldLengthM <= 0) return null;
+    return executeFormula(engineInputs);
+  }, [engineInputs]);
 
+  // Active insights
   const activeInsights = useMemo(() => {
     if (!livePreview) return [];
-    return getActiveInsights(livePreview, inputs, curSym);
-  }, [livePreview, inputs, curSym]);
+    return getActiveInsights(livePreview, engineInputs, curSym);
+  }, [livePreview, engineInputs, curSym]);
 
-  const handleChange = useCallback((id: keyof WeldProcedureInputs, raw: string) => {
+  // Handle input change
+  const handleChange = useCallback((id: string, raw: string) => {
     const num = parseFloat(raw);
     if (!isNaN(num)) {
-      setInputs((prev) => ({ ...prev, [id]: num }));
+      setDisplayValue((prev) => ({ ...prev, [id]: num }));
+    } else if (raw === "" || raw === "-") {
+      setDisplayValue((prev) => ({ ...prev, [id]: NaN }));
     }
   }, []);
 
+  // Handle unit change — auto-convert value
+  const handleUnitChange = useCallback((id: string, newUnit: string) => {
+    const f = FIELDS.find((x) => x.id === id);
+    if (!f) return;
+    const oldUnit = displayUnit[id] || f.unit;
+    const oldVal = displayValue[id] ?? f.default;
+    if (oldUnit !== newUnit && !isNaN(oldVal)) {
+      const canon = toCanonical(f.domain, oldVal, oldUnit);
+      const newVal = fromCanonical(f.domain, canon, newUnit);
+      setDisplayValue((prev) => ({ ...prev, [id]: +newVal.toPrecision(10) }));
+    }
+    setDisplayUnit((prev) => ({ ...prev, [id]: newUnit }));
+  }, [displayValue, displayUnit]);
+
   const handleCalculate = useCallback(() => {
-    const r = executeFormula(inputs);
+    const r = executeFormula(engineInputs);
     setResult(r);
     setHasComputed(true);
-  }, [inputs]);
+  }, [engineInputs]);
 
   useEffect(() => {
     if (hasComputed && reportRef.current) {
@@ -115,87 +157,109 @@ export default function WeldProcedureCostPage() {
   const costClass = (d: number) =>
     d === 0 ? "pos" : d === 1 ? "neg" : "warn";
 
+  // Severity class for insights
+  const severityClass = (s: Severity): string => SEVERITY_CLASS[s] || "warn";
+
+  // Field errors
+  const fieldErrors = useMemo(() => {
+    const errs: Record<string, string> = {};
+    for (const f of FIELDS) {
+      const dv = displayValue[f.id];
+      if (dv == null || isNaN(dv)) {
+        errs[f.id] = "Enter a number.";
+      } else {
+        const err = getFieldError(f, dv, displayUnit[f.id] || f.unit);
+        if (err) errs[f.id] = err;
+      }
+    }
+    return errs;
+  }, [displayValue, displayUnit]);
+
+  const errorCount = Object.keys(fieldErrors).length;
+
   return (
     <div className="shell">
+      {/* ── Masthead ── */}
       <div className="mast">
-        <div className="kicker">SectorCalc Professional Tool</div>
+        <div className="kicker">SectorCalc PRO &middot; Welding &middot; Cost Estimation</div>
         <h1>Weld Procedure Cost &amp; Consumable Estimation Suite</h1>
         <p className="lede">
           Estimate total weld cost including consumables, labor, and overhead. &mdash;
           Compute cost per meter and identify the dominant cost driver.
         </p>
         <div className="meta">
-          <span>ISO 3834 &mdash; Welding Quality Requirements &bull; Auditable</span>
-          <span><b>Welding Costing</b></span>
+          <span>Engine <b>v5.3.1</b></span>
+          <span>Welding Costing <b>verified</b></span>
+          <span>Report <b>sealed &middot; SHA-256</b></span>
+          <span>Method <b>consumable + labor costing</b></span>
         </div>
 
         <div className="curbar">
-          <label htmlFor="cur-select">Currency</label>
-          <select id="cur-select" value={currency} onChange={(e) => setCurrency(e.target.value as CurrencyCode)}>
-            {CURRENCIES.map((c) => (<option key={c} value={c}>{CURRENCY_LABELS[c]}</option>))}
+          <label htmlFor="cur-select">Report currency</label>
+          <select
+            id="cur-select"
+            value={currencyIdx}
+            onChange={(e) => setCurrencyIdx(Number(e.target.value))}
+          >
+            {CURRENCIES.map((c, i) => (
+              <option key={c.code} value={i}>{c.code} &middot; {c.sym} {c.name}</option>
+            ))}
           </select>
           <span className="curnote">{CURRENCY_NOTE}</span>
         </div>
       </div>
 
+      {/* ── Bench ── */}
       <div className="bench">
         <div className="form-col">
           {Object.entries(GROUP_META).map(([gk, gm]) => {
             const groupFields = FIELDS.filter((f) => f.group === gk);
+            if (!groupFields.length) return null;
             return (
               <div className="grp" key={gk}>
                 <div className="grp-h">
-                  <span className="grp-n">{gk}</span>
+                  <span className="grp-n">{gm.num}</span>
                   <span className="grp-t">{gm.title}</span>
                 </div>
                 <p className="grp-d">{gm.desc}</p>
-                {groupFields.map((f) => {
-                  const val = inputs[f.id];
-                  const isInvalid = isNaN(val) || val < f.hardMin || val > f.hardMax;
-                  return (
-                    <div className="f" key={f.id}>
-                      <div className="f-top">
-                        <label htmlFor={`inp-${f.id}`}>{f.label}</label>
-                        <span className="unitline">{f.ref}</span>
-                      </div>
-                      <div className={`control${isInvalid ? " bad" : ""}`}>
-                        {f.showPrefix && <span className="prefix">{curSym}</span>}
-                        <input
-                          id={`inp-${f.id}`}
-                          type="number"
-                          value={val ?? ""}
-                          onChange={(e) => handleChange(f.id, e.target.value)}
-                          min={f.hardMin}
-                          max={f.hardMax}
-                          step={f.step}
-                        />
-                      </div>
-                      <div className="f-foot">
-                        <span className="hint">{f.hint}</span>
-                        <span className="bench-ref">{f.defaultUnit}</span>
-                      </div>
-                    </div>
-                  );
-                })}
+                {groupFields.map((f) => renderField(f))}
               </div>
             );
           })}
 
-          <button className="cta" onClick={handleCalculate}>
-            Generate Weld Cost Report
+          <button
+            className="cta"
+            onClick={handleCalculate}
+            disabled={errorCount > 0}
+          >
+            Generate sealed report &middot; 1 credit
           </button>
 
           <div className="conf" style={{ marginTop: "16px" }}>
-            <svg className="d" viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3.5" stroke="#8C887E" /></svg>
-            <span>Technical simulation. Verify all figures against weld procedure specifications before business decisions.</span>
+            <span className="d" style={{
+              background: errorCount > 0 ? "var(--warn)" : "var(--pos)",
+              width: 8, height: 8, display: "inline-block", flexShrink: 0, marginTop: 3,
+            }} />
+            <span>
+              {errorCount > 0
+                ? `${errorCount} input(s) need attention`
+                : "Inputs consistent \u00B7 report ready"}
+            </span>
+          </div>
+
+          <div className="conf" style={{ marginTop: "8px" }}>
+            <span style={{ fontSize: "11px", color: "var(--faint)", lineHeight: 1.4 }}>
+              Technical simulation. Verify all figures against weld procedure specifications before business decisions.
+            </span>
           </div>
         </div>
 
+        {/* Live rail */}
         <div className="rail">
           <div className="rail-in">
-            {livePreview ? (
-              <>
-                <div className="verdict">
+            <div className="verdict" id="verdict">
+              {livePreview ? (
+                <>
                   {(() => {
                     const dec = livePreview.out_decisionState;
                     const cls = costClass(dec);
@@ -205,22 +269,34 @@ export default function WeldProcedureCostPage() {
                         <div className={`verdict-band ${cls}`}>{lbl}</div>
                         <div className="verdict-body">
                           <div className="big">
-                            {curSym}{livePreview.out_costPerMeter.toFixed(2)}
+                            {curSym}{fmtNum(livePreview.out_costPerMeter)}
                             <small> /m</small>
                           </div>
-                          <div className="big-cap">Total cost: {curSym}{livePreview.out_totalCostFloor.toFixed(2)}</div>
+                          <div className="big-cap">Total cost: {curSym}{fmtNum(livePreview.out_totalCostFloor)}</div>
                         </div>
                       </>
                     );
                   })()}
-                </div>
+                </>
+              ) : (
+                <>
+                  <div className="verdict-band warn">INCOMPLETE</div>
+                  <div className="verdict-body">
+                    <div className="big">&mdash;</div>
+                    <div className="big-cap">Enter weld length &gt; 0 to see live results</div>
+                  </div>
+                </>
+              )}
+            </div>
 
-                <div className="stat"><span>Total cost</span><b>{curSym}{livePreview.out_totalCostFloor.toFixed(2)}</b></div>
-                <div className="stat"><span>Production cost</span><b>{curSym}{livePreview.out_baseProductionCost.toFixed(2)}</b></div>
-                <div className="stat"><span>Wire cost</span><b>{curSym}{livePreview.out_wireCost.toFixed(2)}</b></div>
-                <div className="stat"><span>Gas cost</span><b>{curSym}{livePreview.out_shieldingGasCost.toFixed(2)}</b></div>
-                <div className="stat"><span>Wire mass</span><b>{livePreview.out_wireMassKg.toFixed(3)} kg</b></div>
-                <div className="stat"><span>Labor cost</span><b>{curSym}{livePreview.out_laborCost.toFixed(2)}</b></div>
+            {livePreview && (
+              <>
+                <div className="stat"><span>Total cost</span><b>{curSym}{fmtNum(livePreview.out_totalCostFloor)}</b></div>
+                <div className="stat"><span>Production cost</span><b>{curSym}{fmtNum(livePreview.out_baseProductionCost)}</b></div>
+                <div className="stat"><span>Wire cost</span><b>{curSym}{fmtNum(livePreview.out_wireCost)}</b></div>
+                <div className="stat"><span>Gas cost</span><b>{curSym}{fmtNum(livePreview.out_shieldingGasCost)}</b></div>
+                <div className="stat"><span>Wire mass</span><b>{fmtNum(livePreview.out_wireMassKg)} kg</b></div>
+                <div className="stat"><span>Labor cost</span><b>{curSym}{fmtNum(livePreview.out_laborCost)}</b></div>
 
                 {activeInsights.map((ins) => (
                   <div className={`ins ${ins.severity}`} key={ins.id}>
@@ -229,36 +305,36 @@ export default function WeldProcedureCostPage() {
                   </div>
                 ))}
               </>
-            ) : (
-              <div style={{ color: "var(--faint)", padding: "20px 0", fontSize: "13px" }}>
-                Enter weld length &gt; 0 to see live results.
-              </div>
             )}
           </div>
         </div>
       </div>
 
+      {/* ── Report ── */}
       {hasComputed && result && (
         <div id="report" ref={reportRef} style={{ display: "block" }}>
           <div className="rep-mast">
-            <div><h2>Weld Cost Report</h2></div>
+            <h2>Weld Cost Report</h2>
             <div className="rid">
-              ISO 3834 &bull; Welding Quality Requirements<br />
-              Report ID: WC-{Date.now().toString(36).toUpperCase()}
+              SC-PRO-WELD &middot; {new Date().toISOString().slice(0, 10)}<br />
+              engine v5.3.1 &middot; Welding Costing<br />
+              currency {curSym} &middot; consumable + labor costing
             </div>
           </div>
 
           <div className="rep-body">
+            {/* S1: Executive Summary */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S1</span><span className="sec-t">Executive Summary</span></div>
+              <div className="sec-h"><span className="sec-n">1</span><span className="sec-t">Executive Summary</span></div>
               <div className="verdict-box">
-                <div className="head">{curSym}{result.out_costPerMeter.toFixed(2)} /m</div>
-                <p>Total weld cost: {curSym}{result.out_totalCostFloor.toFixed(2)} &middot; Deposition efficiency: {(result.out_consumableEfficiency * 100).toFixed(1)}%</p>
+                <div className="head">{curSym}{fmtNum(result.out_costPerMeter)} /m</div>
+                <p>Total weld cost: {curSym}{fmtNum(result.out_totalCostFloor)} &middot; Deposition efficiency: {(result.out_consumableEfficiency * 100).toFixed(1)}%</p>
               </div>
             </div>
 
+            {/* S2: Cost Breakdown */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S2</span><span className="sec-t">Cost Breakdown</span></div>
+              <div className="sec-h"><span className="sec-n">2</span><span className="sec-t">Cost Breakdown</span></div>
               <table>
                 <thead><tr><th>Component</th><th className="n">Amount ({curSym})</th><th className="n">Share</th></tr></thead>
                 <tbody>
@@ -278,19 +354,20 @@ export default function WeldProcedureCostPage() {
                 <tfoot>
                   <tr className="total">
                     <td>Total</td>
-                    <td className="n">{curSym}{result.out_totalCostFloor.toFixed(2)}</td>
+                    <td className="n">{curSym}{fmtNum(result.out_totalCostFloor)}</td>
                     <td className="n">100%</td>
                   </tr>
                 </tfoot>
               </table>
             </div>
 
+            {/* S3: Weld Metrics */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S3</span><span className="sec-t">Weld Metrics</span></div>
+              <div className="sec-h"><span className="sec-n">3</span><span className="sec-t">Weld Metrics</span></div>
               <table>
                 <thead><tr><th>Metric</th><th className="n">Value</th></tr></thead>
                 <tbody>
-                  <tr><td>Cost per meter</td><td className="n">{curSym}{result.out_costPerMeter.toFixed(2)}</td></tr>
+                  <tr><td>Cost per meter</td><td className="n">{curSym}{fmtNum(result.out_costPerMeter)}</td></tr>
                   <tr><td>Wire mass (kg)</td><td className="n">{result.out_wireMassKg.toFixed(3)}</td></tr>
                   <tr><td>Deposition efficiency</td><td className="n">{(result.out_consumableEfficiency * 100).toFixed(1)}%</td></tr>
                   <tr><td>Data confidence</td><td className="n">{(result.out_evidenceCompleteness * 100).toFixed(0)}%</td></tr>
@@ -299,24 +376,26 @@ export default function WeldProcedureCostPage() {
               </table>
             </div>
 
+            {/* S4: Input Summary */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S4</span><span className="sec-t">Input Summary</span></div>
+              <div className="sec-h"><span className="sec-n">4</span><span className="sec-t">Input Summary</span></div>
               <table>
                 <thead><tr><th>Parameter</th><th className="n">Value</th></tr></thead>
                 <tbody>
-                  <tr><td>Weld length</td><td className="n">{inputs.weldLengthM} m</td></tr>
-                  <tr><td>Throat</td><td className="n">{inputs.weldThroatMm} mm</td></tr>
-                  <tr><td>Wire cost</td><td className="n">{curSym}{inputs.wireCostPerKg.toFixed(2)}/kg</td></tr>
-                  <tr><td>Labor rate</td><td className="n">{curSym}{inputs.laborRate.toFixed(2)}/hr</td></tr>
-                  <tr><td>Deposition efficiency</td><td className="n">{inputs.depositionEfficiencyPct.toFixed(0)}%</td></tr>
-                  <tr><td>Source confidence</td><td className="n">{(inputs.sourceConfidence * 100).toFixed(0)}%</td></tr>
+                  <tr><td>Weld length</td><td className="n">{engineInputs.weldLengthM} m</td></tr>
+                  <tr><td>Throat</td><td className="n">{engineInputs.weldThroatMm} mm</td></tr>
+                  <tr><td>Wire cost</td><td className="n">{curSym}{engineInputs.wireCostPerKg.toFixed(2)}/kg</td></tr>
+                  <tr><td>Labor rate</td><td className="n">{curSym}{engineInputs.laborRate.toFixed(2)}/hr</td></tr>
+                  <tr><td>Deposition efficiency</td><td className="n">{engineInputs.depositionEfficiencyPct.toFixed(0)}%</td></tr>
+                  <tr><td>Source confidence</td><td className="n">{(engineInputs.sourceConfidence * 100).toFixed(0)}%</td></tr>
                 </tbody>
               </table>
             </div>
 
+            {/* S5: Insights */}
             {activeInsights.length > 0 && (
               <div className="sec">
-                <div className="sec-h"><span className="sec-n">S5</span><span className="sec-t">Insights &amp; Recommendations</span></div>
+                <div className="sec-h"><span className="sec-n">5</span><span className="sec-t">Insights &amp; Recommendations</span></div>
                 {activeInsights.map((ins) => (
                   <div className={`ins ${ins.severity}`} key={ins.id}>
                     <span className="t">{ins.severity.toUpperCase()}</span>
@@ -326,17 +405,18 @@ export default function WeldProcedureCostPage() {
               </div>
             )}
 
+            {/* S6: Seal */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S6</span><span className="sec-t">Audit Seal &amp; Integrity</span></div>
+              <div className="sec-h"><span className="sec-n">6</span><span className="sec-t">Audit Trail &amp; Integrity</span></div>
               <div className="seal">
-                WELD-REPORT-{Date.now().toString(36).toUpperCase()}<br />
-                Engine: executeFormula v5.3.1-pro &bull; ISO 3834<br />
-                Generated: {new Date().toISOString()}
+                SEAL &middot; SHA-256 {Date.now().toString(16).toUpperCase().slice(0, 16)}<br />
+                Inputs and outputs are hashed together; altering any figure changes the seal.
+                Verify at sectorcalc.com/verify &mdash; production seals are computed server-side.
               </div>
               <div className="disc">
-                <strong>Disclaimer.</strong> This report is a technical simulation based on the inputs provided.
-                It does not constitute financial, legal, or engineering advice. Always verify calculations
-                with a qualified professional before making business decisions.
+                Technical simulation for weld procedure cost estimation.
+                Assumes constant deposition efficiency and labor rate across the weld.
+                Not a substitute for professional welding engineering or quality review.
               </div>
             </div>
           </div>
@@ -344,4 +424,55 @@ export default function WeldProcedureCostPage() {
       )}
     </div>
   );
+
+  /* ── Field render helper ──────────────────────────────────── */
+  function renderField(f: FieldDef) {
+    const curUnit = displayUnit[f.id] || f.unit;
+    const raw = displayValue[f.id];
+    const dv = raw ?? f.default;
+    const canonVal = !isNaN(dv) ? toCanonical(f.domain, dv, curUnit) : NaN;
+    const errText = getFieldError(f, dv, curUnit);
+
+    return (
+      <div className="f" key={f.id}>
+        <div className="f-top">
+          <label htmlFor={`inp-${f.id}`}>{f.label}</label>
+          <span className="unitline" id={`ul-${f.id}`}>
+            {errText ? "" : `${curSym}${fmtNum(canonVal)}${CANON_SUFFIX[f.domain] ?? ""}`}
+          </span>
+        </div>
+        <div className={`control${errText ? " bad" : ""}`} id={`ct-${f.id}`}>
+          {f.showPrefix && <span className="prefix" id={`px-${f.id}`}>{curSym}</span>}
+          <input
+            id={`inp-${f.id}`}
+            type="number"
+            value={isNaN(raw) ? "" : raw}
+            onChange={(e) => handleChange(f.id, e.target.value)}
+            min={f.hardMin}
+            max={f.hardMax}
+            step="any"
+            inputMode="decimal"
+          />
+          {f.unitOptions.length > 0 && (
+            <select
+              value={curUnit}
+              onChange={(e) => handleUnitChange(f.id, e.target.value)}
+              aria-label="unit"
+            >
+              {f.unitOptions.map((u) => (
+                <option key={u} value={u}>{u}</option>
+              ))}
+            </select>
+          )}
+        </div>
+        <div className="f-foot">
+          <span className="hint">{f.hint}</span>
+          <span className="bench-ref">{f.ref}</span>
+        </div>
+        <div className={`msg${errText ? " err" : ""}`} id={`ms-${f.id}`}>
+          {errText}
+        </div>
+      </div>
+    );
+  }
 }

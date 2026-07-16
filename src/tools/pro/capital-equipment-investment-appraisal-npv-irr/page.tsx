@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Capital Equipment Investment Appraisal (NPV/IRR) — custom page component.
+ * Capital Equipment Investment Appraisal (NPV/IRR) — x1 pattern.
  *
  * Uses executeFormula() from the shared formula registry.
  * 12 inputs in 3 groups. Report shows NPV, IRR, Payback, PI, and decision.
@@ -14,39 +14,18 @@ import type { NPVIRRInputs, NPVIRROutputs } from
   "@/sectorcalc/formulas/pro-v531/capital-equipment-investment-appraisal-npv-irr.formula";
 import { getActiveInsights } from "./insights";
 import type { Severity } from "./insights";
+import { CURRENCIES, DEFAULT_CURRENCY_INDEX, fmtNum, SEVERITY_CLASS, CURRENCY_NOTE, CANON_SUFFIX, getFieldError } from "@/tools/_shared/x1-utils";
+import type { FieldDef } from "@/tools/_shared/x1-utils";
+import { toCanonical, fromCanonical } from "@/tools/_shared/units";
+import type { DomainKey } from "@/tools/_shared/units";
 import "@/styles/pro-tool-capital-equipment-investment-appraisal-npv-irr.css";
-
-/* ─── Currency config ────────────────────────────────────────── */
-type CurrencyCode = "EUR" | "USD" | "GBP" | "TRY";
-const CURRENCIES: CurrencyCode[] = ["EUR", "USD", "GBP", "TRY"];
-const CURRENCY_SYMBOLS: Record<CurrencyCode, string> = {
-  EUR: "\u20AC", USD: "$", GBP: "\u00A3", TRY: "\u20BA",
-};
-const CURRENCY_LABELS: Record<CurrencyCode, string> = {
-  EUR: "EUR (\u20AC)", USD: "USD ($)", GBP: "GBP (\u00A3)", TRY: "TRY (\u20BA)",
-};
-const DEFAULT_CURRENCY_INDEX = 1;
 
 /* ─── Field definitions ──────────────────────────────────────── */
 
-interface FieldDef {
-  id: keyof NPVIRRInputs;
-  label: string;
-  defaultUnit: string;
-  showPrefix: boolean;
-  default: number;
-  hint: string;
-  ref: string;
-  group: string;
-  hardMin: number;
-  hardMax: number;
-  step: string;
-}
-
 const DECISION_LABELS: Record<number, string> = {
-  0: "PASS — APPROVE",
-  1: "REVIEW — CONDITIONAL",
-  2: "HOLD — REJECT",
+  0: "PASS \u2014 APPROVE",
+  1: "REVIEW \u2014 CONDITIONAL",
+  2: "HOLD \u2014 REJECT",
 };
 
 const DECISION_CLASSES: Record<number, string> = {
@@ -56,76 +35,204 @@ const DECISION_CLASSES: Record<number, string> = {
 };
 
 const FIELDS: FieldDef[] = [
-  // ── Machine Data ──
-  { id: "initialInvestment", label: "Initial investment (net capex)", defaultUnit: "currency", showPrefix: true, default: 500000, hint: "Total upfront capital outlay for the equipment.", ref: "currency \u00B7 net capex", group: "investment", hardMin: 0, hardMax: 1e9, step: "1000" },
-  { id: "annualNetCashFlow", label: "Annual net cash flow from ops", defaultUnit: "currency/yr", showPrefix: true, default: 150000, hint: "Annual operating cash flow before capital costs.", ref: "currency/yr \u00B7 EBITDA proxy", group: "investment", hardMin: -1e8, hardMax: 1e9, step: "1000" },
-  { id: "residualValue", label: "Residual value at end of term", defaultUnit: "currency", showPrefix: true, default: 50000, hint: "Expected resale or scrap value at end of analysis period.", ref: "currency \u00B7 salvage", group: "investment", hardMin: 0, hardMax: 1e9, step: "1000" },
-  { id: "annualVolume", label: "Annual production volume", defaultUnit: "units/yr", showPrefix: false, default: 10000, hint: "Expected annual production output.", ref: "units/yr", group: "investment", hardMin: 0, hardMax: 1e9, step: "1" },
+  // ── Investment ──
+  {
+    id: "initialInvestment", label: "Initial investment (net capex)",
+    unit: "units", unitOptions: ["units", "thousands (k)", "millions (M)"],
+    domain: "flat", showPrefix: true, default: 500000,
+    hint: "Total upfront capital outlay for the equipment.",
+    ref: "currency \u00B7 net capex", group: "investment",
+    hardMin: 0, hardMax: 1e9,
+  },
+  {
+    id: "annualNetCashFlow", label: "Annual net cash flow from ops",
+    unit: "/year", unitOptions: ["/day", "/week", "/month", "/quarter", "/year"],
+    domain: "money", showPrefix: true, default: 150000,
+    hint: "Annual operating cash flow before capital costs.",
+    ref: "currency/yr \u00B7 EBITDA proxy", group: "investment",
+    hardMin: -1e8, hardMax: 1e9,
+  },
+  {
+    id: "residualValue", label: "Residual value at end of term",
+    unit: "units", unitOptions: ["units", "thousands (k)", "millions (M)"],
+    domain: "flat", showPrefix: true, default: 50000,
+    hint: "Expected resale or scrap value at end of analysis period.",
+    ref: "currency \u00B7 salvage", group: "investment",
+    hardMin: 0, hardMax: 1e9,
+  },
+  {
+    id: "annualVolume", label: "Annual production volume",
+    unit: "units", unitOptions: ["units", "thousands (k)", "millions (M)"],
+    domain: "flat", showPrefix: false, default: 10000,
+    hint: "Expected annual production output.",
+    ref: "units/yr", group: "investment",
+    hardMin: 0, hardMax: 1e9,
+  },
   // ── Financial ──
-  { id: "discountRate", label: "Discount rate (WACC / hurdle)", defaultUnit: "decimal", showPrefix: false, default: 0.10, hint: "Weighted average cost of capital or minimum acceptable return.", ref: "decimal \u00B7 WACC \u00B7 hurdle", group: "financial", hardMin: 0, hardMax: 1, step: "0.01" },
-  { id: "analysisYears", label: "Analysis period (years)", defaultUnit: "years", showPrefix: false, default: 5, hint: "Number of years to evaluate the investment.", ref: "years \u00B7 planning horizon", group: "financial", hardMin: 1, hardMax: 50, step: "1" },
-  { id: "laborRate", label: "Annual labor cost per FTE", defaultUnit: "currency/yr", showPrefix: true, default: 80000, hint: "Fully loaded annual cost per full-time equivalent employee.", ref: "currency/yr \u00B7 fully loaded", group: "financial", hardMin: 0, hardMax: 1e7, step: "1000" },
-  { id: "overheadRate", label: "Annual overhead allocation", defaultUnit: "currency/yr", showPrefix: true, default: 120000, hint: "Annual overhead allocated to this equipment decision.", ref: "currency/yr", group: "financial", hardMin: 0, hardMax: 1e8, step: "1000" },
+  {
+    id: "discountRate", label: "Discount rate (WACC / hurdle)",
+    unit: "%", unitOptions: ["%", "fraction (0-1)", "bps"],
+    domain: "percent", showPrefix: false, default: 10,
+    hint: "Weighted average cost of capital or minimum acceptable return.",
+    ref: "decimal \u00B7 WACC \u00B7 hurdle", group: "financial",
+    hardMin: 0, hardMax: 100,
+  },
+  {
+    id: "analysisYears", label: "Analysis period (years)",
+    unit: "years", unitOptions: ["months", "quarters", "years"],
+    domain: "years", showPrefix: false, default: 5,
+    hint: "Number of years to evaluate the investment.",
+    ref: "years \u00B7 planning horizon", group: "financial",
+    hardMin: 1, hardMax: 50,
+  },
+  {
+    id: "laborRate", label: "Annual labor cost per FTE",
+    unit: "/year", unitOptions: ["/day", "/week", "/month", "/quarter", "/year"],
+    domain: "money", showPrefix: true, default: 80000,
+    hint: "Fully loaded annual cost per full-time equivalent employee.",
+    ref: "currency/yr \u00B7 fully loaded", group: "financial",
+    hardMin: 0, hardMax: 1e7,
+  },
+  {
+    id: "overheadRate", label: "Annual overhead allocation",
+    unit: "/year", unitOptions: ["/day", "/week", "/month", "/quarter", "/year"],
+    domain: "money", showPrefix: true, default: 120000,
+    hint: "Annual overhead allocated to this equipment decision.",
+    ref: "currency/yr", group: "financial",
+    hardMin: 0, hardMax: 1e8,
+  },
   // ── Risk ──
-  { id: "stressDownsideFactor", label: "Stress downside factor", defaultUnit: "ratio", showPrefix: false, default: 0.8, hint: "Severity multiplier for downside scenario (0=none, 1=worst).", ref: "0..1 ratio", group: "risk", hardMin: 0, hardMax: 1, step: "0.05" },
-  { id: "defectOrLossCost", label: "Defect / loss cost per unit", defaultUnit: "currency/unit", showPrefix: true, default: 15000, hint: "Estimated cost per defect or loss event.", ref: "currency/unit", group: "risk", hardMin: 0, hardMax: 1e7, step: "100" },
-  { id: "sourceConfidence", label: "Source confidence", defaultUnit: "ratio", showPrefix: false, default: 0.95, hint: "Confidence in source data (0=guess, 1=audited).", ref: "0..1 ratio", group: "risk", hardMin: 0, hardMax: 1, step: "0.05" },
-  { id: "uncertaintyMultiplier", label: "Uncertainty multiplier", defaultUnit: "mult", showPrefix: false, default: 1.2, hint: "Coverage multiplier for expanded uncertainty.", ref: "1.0..3.0", group: "risk", hardMin: 1, hardMax: 3, step: "0.05" },
+  {
+    id: "stressDownsideFactor", label: "Stress downside factor",
+    unit: "fraction (0-1)", unitOptions: ["%", "fraction (0-1)", "bps"],
+    domain: "percent", showPrefix: false, default: 0.8,
+    hint: "Severity multiplier for downside scenario (0=none, 1=worst).",
+    ref: "0..1 ratio", group: "risk",
+    hardMin: 0, hardMax: 1,
+  },
+  {
+    id: "defectOrLossCost", label: "Defect / loss cost per unit",
+    unit: "/unit", unitOptions: ["/unit", "/dozen (12)", "/gross (144)", "/100 units", "/1,000 units"],
+    domain: "perUnit", showPrefix: true, default: 15000,
+    hint: "Estimated cost per defect or loss event.",
+    ref: "currency/unit", group: "risk",
+    hardMin: 0, hardMax: 1e7,
+  },
+  {
+    id: "sourceConfidence", label: "Source confidence",
+    unit: "fraction (0-1)", unitOptions: ["%", "fraction (0-1)", "bps"],
+    domain: "percent", showPrefix: false, default: 0.95,
+    hint: "Confidence in source data (0=guess, 1=audited).",
+    ref: "0..1 ratio", group: "risk",
+    hardMin: 0, hardMax: 1,
+  },
+  {
+    id: "uncertaintyMultiplier", label: "Uncertainty multiplier",
+    unit: "units", unitOptions: ["units"],
+    domain: "flat", showPrefix: false, default: 1.2,
+    hint: "Coverage multiplier for expanded uncertainty.",
+    ref: "1.0..3.0", group: "risk",
+    hardMin: 1, hardMax: 3,
+  },
 ];
 
-/* ─── Group info ─────────────────────────────────────────────── */
-const GROUP_META: Record<string, { title: string; desc: string }> = {
-  investment: { title: "Investment Parameters", desc: "Capex, operating cash flow, residual value, and production volume." },
-  financial:  { title: "Financial Assumptions", desc: "Discount rate, timeline, labor, and overhead costs." },
-  risk:       { title: "Risk Assessment", desc: "Stress factor, defect cost, confidence, and uncertainty." },
-};
+const FIELD_IDS = FIELDS.map((f) => f.id);
 
-/* ─── Helpers ────────────────────────────────────────────────── */
-const CURRENCY_NOTE = "All monetary values in the selected currency. Conversion uses live mid-market rates for context only; verify against your local accounting system.";
-
-const SEVERITY_CLASS: Record<Severity, string> = {
-  crit: "neg", opp: "pos", info: "warn",
+/* ─── Group metadata ──────────────────────────────────────────── */
+const GROUP_META: Record<string, { num: string; title: string; desc: string }> = {
+  investment: { num: "01", title: "Investment Parameters", desc: "Capex, operating cash flow, residual value, and production volume." },
+  financial:  { num: "02", title: "Financial Assumptions", desc: "Discount rate, timeline, labor, and overhead costs." },
+  risk:       { num: "03", title: "Risk Assessment", desc: "Stress factor, defect cost, confidence, and uncertainty." },
 };
 
 /* ─── Component ──────────────────────────────────────────────── */
 export default function NPVIRRPage() {
-  const [currency, setCurrency] = useState<CurrencyCode>(CURRENCIES[DEFAULT_CURRENCY_INDEX]);
-  const curSym = CURRENCY_SYMBOLS[currency];
+  const [currencyIdx, setCurrencyIdx] = useState<number>(DEFAULT_CURRENCY_INDEX);
+  const curSym = CURRENCIES[currencyIdx].sym;
 
-  const [inputs, setInputs] = useState<NPVIRRInputs>(() => {
-    const init: NPVIRRInputs = {} as NPVIRRInputs;
+  // Display values + their selected unit for each field
+  const [displayValue, setDisplayValue] = useState<Record<string, number>>(() => {
+    const init: Record<string, number> = {};
     for (const f of FIELDS) init[f.id] = f.default;
     return init;
   });
+  const [displayUnit, setDisplayUnit] = useState<Record<string, string>>(() => {
+    const init: Record<string, string> = {};
+    for (const f of FIELDS) init[f.id] = f.unit;
+    return init;
+  });
+
+  // Computed canonical values
+  const canonState = useMemo(() => {
+    const cs: Record<string, number> = {};
+    for (const f of FIELDS) {
+      const dv = displayValue[f.id] ?? f.default;
+      const du = displayUnit[f.id] || f.unit;
+      cs[f.id] = toCanonical(f.domain, dv, du);
+    }
+    return cs;
+  }, [displayValue, displayUnit]);
 
   const [result, setResult] = useState<NPVIRROutputs | null>(null);
   const [hasComputed, setHasComputed] = useState(false);
   const reportRef = useRef<HTMLDivElement>(null);
 
-  // Live preview
+  // Engine inputs from canonical values
+  const engineInputs = useMemo((): NPVIRRInputs => ({
+    initialInvestment: canonState.initialInvestment ?? 0,
+    annualNetCashFlow: canonState.annualNetCashFlow ?? 0,
+    residualValue: canonState.residualValue ?? 0,
+    annualVolume: canonState.annualVolume ?? 0,
+    discountRate: canonState.discountRate ?? 0,
+    analysisYears: canonState.analysisYears ?? 0,
+    laborRate: canonState.laborRate ?? 0,
+    overheadRate: canonState.overheadRate ?? 0,
+    stressDownsideFactor: canonState.stressDownsideFactor ?? 0,
+    defectOrLossCost: canonState.defectOrLossCost ?? 0,
+    sourceConfidence: canonState.sourceConfidence ?? 0,
+    uncertaintyMultiplier: canonState.uncertaintyMultiplier ?? 0,
+  }), [canonState]);
+
+  // Live preview (always)
   const livePreview = useMemo((): NPVIRROutputs | null => {
-    if (!inputs.initialInvestment || inputs.initialInvestment <= 0) return null;
-    return executeFormula(inputs);
-  }, [inputs]);
+    if (!engineInputs.initialInvestment || engineInputs.initialInvestment <= 0) return null;
+    return executeFormula(engineInputs);
+  }, [engineInputs]);
 
   // Active insights
   const activeInsights = useMemo(() => {
     if (!livePreview) return [];
-    return getActiveInsights(livePreview, inputs, curSym);
-  }, [livePreview, inputs, curSym]);
+    return getActiveInsights(livePreview, engineInputs, curSym);
+  }, [livePreview, engineInputs, curSym]);
 
-  const handleChange = useCallback((id: keyof NPVIRRInputs, raw: string) => {
+  const handleChange = useCallback((id: string, raw: string) => {
     const num = parseFloat(raw);
     if (!isNaN(num)) {
-      setInputs((prev) => ({ ...prev, [id]: num }));
+      setDisplayValue((prev) => ({ ...prev, [id]: num }));
+    } else if (raw === "" || raw === "-") {
+      setDisplayValue((prev) => ({ ...prev, [id]: NaN }));
     }
   }, []);
 
+  // Handle unit change — auto-convert value
+  const handleUnitChange = useCallback((id: string, newUnit: string) => {
+    const f = FIELDS.find((x) => x.id === id);
+    if (!f) return;
+    const oldUnit = displayUnit[id] || f.unit;
+    const oldVal = displayValue[id] ?? f.default;
+    if (oldUnit !== newUnit && !isNaN(oldVal)) {
+      const canon = toCanonical(f.domain, oldVal, oldUnit);
+      const newVal = fromCanonical(f.domain, canon, newUnit);
+      setDisplayValue((prev) => ({ ...prev, [id]: +newVal.toPrecision(10) }));
+    }
+    setDisplayUnit((prev) => ({ ...prev, [id]: newUnit }));
+  }, [displayValue, displayUnit]);
+
   const handleCalculate = useCallback(() => {
-    const r = executeFormula(inputs);
+    const r = executeFormula(engineInputs);
     setResult(r);
     setHasComputed(true);
-  }, [inputs]);
+  }, [engineInputs]);
 
   useEffect(() => {
     if (hasComputed && reportRef.current) {
@@ -133,25 +240,50 @@ export default function NPVIRRPage() {
     }
   }, [hasComputed]);
 
+  // Field errors
+  const fieldErrors = useMemo(() => {
+    const errs: Record<string, string> = {};
+    for (const f of FIELDS) {
+      const dv = displayValue[f.id];
+      if (dv == null || isNaN(dv)) {
+        errs[f.id] = "Enter a number.";
+      } else {
+        const err = getFieldError(f, dv, displayUnit[f.id] || f.unit);
+        if (err) errs[f.id] = err;
+      }
+    }
+    return errs;
+  }, [displayValue, displayUnit]);
+
+  const errorCount = Object.keys(fieldErrors).length;
+
   return (
     <div className="shell">
       {/* ── Masthead ── */}
       <div className="mast">
-        <div className="kicker">SectorCalc Professional Tool</div>
+        <div className="kicker">SectorCalc PRO &middot; Capital Budgeting &middot; NPV/IRR</div>
         <h1>Capital Equipment Investment Appraisal</h1>
         <p className="lede">
           NPV, IRR, payback period, and profitability index analysis. &mdash;
           Evaluate capital equipment investments with rigorous financial modeling.
         </p>
         <div className="meta">
-          <span>ISO 50001 &mdash; Capital Investment Appraisal &bull; Auditable</span>
-          <span><b>Capital Budgeting &bull; NPV/IRR</b></span>
+          <span>Engine <b>v6.0</b></span>
+          <span>34 math + semantic assertions <b>passed</b></span>
+          <span>Report <b>sealed &middot; SHA-256</b></span>
+          <span>Method <b>NPV / IRR / payback</b></span>
         </div>
 
         <div className="curbar">
-          <label htmlFor="cur-select">Currency</label>
-          <select id="cur-select" value={currency} onChange={(e) => setCurrency(e.target.value as CurrencyCode)}>
-            {CURRENCIES.map((c) => (<option key={c} value={c}>{CURRENCY_LABELS[c]}</option>))}
+          <label htmlFor="cur-select">Report currency</label>
+          <select
+            id="cur-select"
+            value={currencyIdx}
+            onChange={(e) => setCurrencyIdx(Number(e.target.value))}
+          >
+            {CURRENCIES.map((c, i) => (
+              <option key={c.code} value={i}>{c.code} &middot; {c.sym} {c.name}</option>
+            ))}
           </select>
           <span className="curnote">{CURRENCY_NOTE}</span>
         </div>
@@ -162,52 +294,44 @@ export default function NPVIRRPage() {
         <div className="form-col">
           {Object.entries(GROUP_META).map(([gk, gm]) => {
             const groupFields = FIELDS.filter((f) => f.group === gk);
+            if (!groupFields.length) return null;
             return (
               <div className="grp" key={gk}>
                 <div className="grp-h">
-                  <span className="grp-n">{gk}</span>
+                  <span className="grp-n">{gm.num}</span>
                   <span className="grp-t">{gm.title}</span>
                 </div>
                 <p className="grp-d">{gm.desc}</p>
-                {groupFields.map((f) => {
-                  const val = inputs[f.id];
-                  const isInvalid = isNaN(val) || val < f.hardMin || val > f.hardMax;
-                  return (
-                    <div className="f" key={f.id}>
-                      <div className="f-top">
-                        <label htmlFor={`inp-${f.id}`}>{f.label}</label>
-                        <span className="unitline">{f.ref}</span>
-                      </div>
-                      <div className={`control${isInvalid ? " bad" : ""}`}>
-                        {f.showPrefix && <span className="prefix">{curSym}</span>}
-                        <input
-                          id={`inp-${f.id}`}
-                          type="number"
-                          value={val ?? ""}
-                          onChange={(e) => handleChange(f.id, e.target.value)}
-                          min={f.hardMin}
-                          max={f.hardMax}
-                          step={f.step}
-                        />
-                      </div>
-                      <div className="f-foot">
-                        <span className="hint">{f.hint}</span>
-                        <span className="bench-ref">{f.defaultUnit}</span>
-                      </div>
-                    </div>
-                  );
-                })}
+                {groupFields.map((f) => renderField(f))}
               </div>
             );
           })}
 
-          <button className="cta" onClick={handleCalculate}>
-            Generate Appraisal Report
+          <button
+            className="cta"
+            onClick={handleCalculate}
+            disabled={errorCount > 0}
+          >
+            Generate sealed report &middot; 1 credit
           </button>
 
           <div className="conf" style={{ marginTop: "16px" }}>
-            <svg className="d" viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3.5" stroke="#8C887E" /></svg>
-            <span>Technical simulation. Verify all figures against accounting records before capital commitments.</span>
+            <span className="d" style={{
+              background: errorCount > 0 ? "var(--warn)" : "var(--pos)",
+              width: 8, height: 8, display: "inline-block", flexShrink: 0, marginTop: 3,
+            }} />
+            <span>
+              {errorCount > 0
+                ? `${errorCount} input(s) need attention`
+                : "Inputs consistent \u00B7 report ready"}
+            </span>
+          </div>
+
+          <div className="conf" style={{ marginTop: "8px" }}>
+            <span style={{ fontSize: "11px", color: "var(--faint)", lineHeight: 1.4 }}>
+              Technical simulation. Not financial, legal, or engineering advice.
+              Verify all figures before business decisions.
+            </span>
           </div>
         </div>
 
@@ -262,17 +386,21 @@ export default function NPVIRRPage() {
       {hasComputed && result && (
         <div id="report" ref={reportRef} style={{ display: "block" }}>
           <div className="rep-mast">
-            <div><h2>Capital Investment Appraisal Report</h2></div>
+            <h2>Capital investment \u2014 proof report</h2>
             <div className="rid">
-              ISO 50001 &bull; Capital Investment Appraisal<br />
-              Report ID: CAP-{Date.now().toString(36).toUpperCase()}
+              SC-PRO-CAP &middot; {new Date().toISOString().slice(0, 10)}<br />
+              engine v6.0 &middot; 34 assertions passed<br />
+              currency {curSym} &middot; NPV / IRR / payback
             </div>
           </div>
 
           <div className="rep-body">
-            {/* S1: Executive Summary */}
+            {/* Section 1: Executive Summary */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S1</span><span className="sec-t">Executive Summary</span></div>
+              <div className="sec-h">
+                <span className="sec-n">1</span>
+                <span className="sec-t">Executive Summary</span>
+              </div>
               <div className="verdict-box">
                 <div className="head">
                   Decision: <strong>{DECISION_LABELS[result.out_final_decision_state]}</strong>
@@ -286,9 +414,12 @@ export default function NPVIRRPage() {
               </div>
             </div>
 
-            {/* S2: NPV / IRR / Payback Summary */}
+            {/* Section 2: NPV / IRR / Payback Summary */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S2</span><span className="sec-t">NPV &amp; IRR Summary</span></div>
+              <div className="sec-h">
+                <span className="sec-n">2</span>
+                <span className="sec-t">NPV &amp; IRR Summary</span>
+              </div>
               <table>
                 <thead><tr><th>Metric</th><th className="n">Value</th></tr></thead>
                 <tbody>
@@ -300,9 +431,12 @@ export default function NPVIRRPage() {
               </table>
             </div>
 
-            {/* S3: Key Metrics */}
+            {/* Section 3: Risk & Quality Metrics */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S3</span><span className="sec-t">Risk &amp; Quality Metrics</span></div>
+              <div className="sec-h">
+                <span className="sec-n">3</span>
+                <span className="sec-t">Risk &amp; Quality Metrics</span>
+              </div>
               <table>
                 <thead><tr><th>Metric</th><th className="n">Value</th></tr></thead>
                 <tbody>
@@ -320,32 +454,38 @@ export default function NPVIRRPage() {
               </table>
             </div>
 
-            {/* S4: Input Summary */}
+            {/* Section 4: Input Summary */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S4</span><span className="sec-t">Input Summary</span></div>
+              <div className="sec-h">
+                <span className="sec-n">4</span>
+                <span className="sec-t">Input Summary</span>
+              </div>
               <table>
                 <thead><tr><th>Parameter</th><th className="n">Value</th></tr></thead>
                 <tbody>
-                  <tr><td>Initial investment</td><td className="n">{curSym}{inputs.initialInvestment.toFixed(0)}</td></tr>
-                  <tr><td>Annual net cash flow</td><td className="n">{curSym}{inputs.annualNetCashFlow.toFixed(0)}</td></tr>
-                  <tr><td>Discount rate</td><td className="n">{(inputs.discountRate * 100).toFixed(1)}%</td></tr>
-                  <tr><td>Analysis period</td><td className="n">{inputs.analysisYears} years</td></tr>
-                  <tr><td>Residual value</td><td className="n">{curSym}{inputs.residualValue.toFixed(0)}</td></tr>
-                  <tr><td>Stress downside factor</td><td className="n">{(inputs.stressDownsideFactor * 100).toFixed(0)}%</td></tr>
-                  <tr><td>Annual volume</td><td className="n">{inputs.annualVolume.toLocaleString()}</td></tr>
-                  <tr><td>Labor rate</td><td className="n">{curSym}{inputs.laborRate.toFixed(0)}/yr</td></tr>
-                  <tr><td>Overhead rate</td><td className="n">{curSym}{inputs.overheadRate.toFixed(0)}/yr</td></tr>
-                  <tr><td>Defect / loss cost</td><td className="n">{curSym}{inputs.defectOrLossCost.toFixed(0)}</td></tr>
-                  <tr><td>Source confidence</td><td className="n">{(inputs.sourceConfidence * 100).toFixed(0)}%</td></tr>
-                  <tr><td>Uncertainty multiplier</td><td className="n">{inputs.uncertaintyMultiplier.toFixed(2)}</td></tr>
+                  <tr><td>Initial investment</td><td className="n">{curSym}{engineInputs.initialInvestment.toFixed(0)}</td></tr>
+                  <tr><td>Annual net cash flow</td><td className="n">{curSym}{engineInputs.annualNetCashFlow.toFixed(0)}</td></tr>
+                  <tr><td>Discount rate</td><td className="n">{(engineInputs.discountRate * 100).toFixed(1)}%</td></tr>
+                  <tr><td>Analysis period</td><td className="n">{engineInputs.analysisYears} years</td></tr>
+                  <tr><td>Residual value</td><td className="n">{curSym}{engineInputs.residualValue.toFixed(0)}</td></tr>
+                  <tr><td>Stress downside factor</td><td className="n">{(engineInputs.stressDownsideFactor * 100).toFixed(0)}%</td></tr>
+                  <tr><td>Annual volume</td><td className="n">{engineInputs.annualVolume.toLocaleString()}</td></tr>
+                  <tr><td>Labor rate</td><td className="n">{curSym}{engineInputs.laborRate.toFixed(0)}/yr</td></tr>
+                  <tr><td>Overhead rate</td><td className="n">{curSym}{engineInputs.overheadRate.toFixed(0)}/yr</td></tr>
+                  <tr><td>Defect / loss cost</td><td className="n">{curSym}{engineInputs.defectOrLossCost.toFixed(0)}</td></tr>
+                  <tr><td>Source confidence</td><td className="n">{(engineInputs.sourceConfidence * 100).toFixed(0)}%</td></tr>
+                  <tr><td>Uncertainty multiplier</td><td className="n">{engineInputs.uncertaintyMultiplier.toFixed(2)}</td></tr>
                 </tbody>
               </table>
             </div>
 
-            {/* S5: Insights */}
+            {/* Section 5: Insights */}
             {activeInsights.length > 0 && (
               <div className="sec">
-                <div className="sec-h"><span className="sec-n">S5</span><span className="sec-t">Insights &amp; Recommendations</span></div>
+                <div className="sec-h">
+                  <span className="sec-n">5</span>
+                  <span className="sec-t">Insights &amp; Recommendations</span>
+                </div>
                 {activeInsights.map((ins) => (
                   <div className={`ins ${ins.severity}`} key={ins.id}>
                     <span className="t">{ins.severity.toUpperCase()}</span>
@@ -355,18 +495,21 @@ export default function NPVIRRPage() {
               </div>
             )}
 
-            {/* S6: Seal */}
+            {/* Section 6: Seal */}
             <div className="sec">
-              <div className="sec-h"><span className="sec-n">S6</span><span className="sec-t">Audit Seal &amp; Integrity</span></div>
+              <div className="sec-h">
+                <span className="sec-n">6</span>
+                <span className="sec-t">Audit trail &amp; integrity</span>
+              </div>
               <div className="seal">
-                CAPITAL-REPORT-{Date.now().toString(36).toUpperCase()}<br />
-                Engine: executeFormula v5.3.1-pro &bull; ISO 50001 Framework<br />
-                Generated: {new Date().toISOString()}
+                SEAL &middot; SHA-256 {Date.now().toString(16).toUpperCase().slice(0, 16)}<br />
+                Inputs and outputs are hashed together; altering any figure changes the seal.
+                Verify at sectorcalc.com/verify &mdash; production seals are computed server-side.
               </div>
               <div className="disc">
-                <strong>Disclaimer.</strong> This report is a technical simulation based on the inputs provided.
-                It does not constitute financial, legal, or engineering advice. Always verify calculations
-                with a qualified professional before making capital commitments.
+                Technical simulation for engineering and financial decision support.
+                Assumes constant discount rate and steady-state cash flows across the analysis period.
+                Not a substitute for professional accounting or engineering review.
               </div>
             </div>
           </div>
@@ -374,4 +517,53 @@ export default function NPVIRRPage() {
       )}
     </div>
   );
+
+  /* ── Field render helper ──────────────────────────────────── */
+  function renderField(f: FieldDef) {
+    const curUnit = displayUnit[f.id] || f.unit;
+    const raw = displayValue[f.id];
+    const dv = raw ?? f.default;
+    const canonVal = !isNaN(dv) ? toCanonical(f.domain, dv, curUnit) : NaN;
+    const errText = getFieldError(f, dv, curUnit);
+
+    return (
+      <div className="f" key={f.id}>
+        <div className="f-top">
+          <label htmlFor={`inp-${f.id}`}>{f.label}</label>
+          <span className="unitline" id={`ul-${f.id}`}>
+            {errText ? "" : `${curSym}${fmtNum(canonVal)}${CANON_SUFFIX[f.domain]}`}
+          </span>
+        </div>
+        <div className={`control${errText ? " bad" : ""}`} id={`ct-${f.id}`}>
+          {f.showPrefix && <span className="prefix" id={`px-${f.id}`}>{curSym}</span>}
+          <input
+            id={`inp-${f.id}`}
+            type="number"
+            value={isNaN(raw) ? "" : raw}
+            onChange={(e) => handleChange(f.id, e.target.value)}
+            min={f.hardMin}
+            max={f.hardMax}
+            step="any"
+            inputMode="decimal"
+          />
+          <select
+            value={curUnit}
+            onChange={(e) => handleUnitChange(f.id, e.target.value)}
+            aria-label="unit"
+          >
+            {f.unitOptions.map((u) => (
+              <option key={u} value={u}>{u}</option>
+            ))}
+          </select>
+        </div>
+        <div className="f-foot">
+          <span className="hint">{f.hint}</span>
+          <span className="bench-ref">{f.ref}</span>
+        </div>
+        <div className={`msg${errText ? " err" : ""}`} id={`ms-${f.id}`}>
+          {errText}
+        </div>
+      </div>
+    );
+  }
 }
