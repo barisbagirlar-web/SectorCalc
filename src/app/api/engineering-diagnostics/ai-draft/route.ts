@@ -28,7 +28,7 @@ import {
   verifySignedInUser,
 } from "@/lib/infrastructure/firebase/verify-signed-in-user";
 import {
-  ensureDiagnosticAccess,
+  getRemainingDiagnosticUses,
 } from "@/sectorcalc/diagnostics/diagnostic-package";
 import { buildEngineeringAiDraft } from "@/sectorcalc/diagnostics/ai/diagnostic-ai-service";
 
@@ -85,18 +85,23 @@ export async function POST(req: Request) {
       );
     }
 
-    /* 2. Diagnostic package gate — user must have access */
-    const hasAccess = await ensureDiagnosticAccess(user.uid);
-    if (!hasAccess) {
+    /* 2. Diagnostic package gate — check remaining uses without auto-grant */
+    const remainingUses = await getRemainingDiagnosticUses(user.uid);
+    if (remainingUses <= 0) {
       return NextResponse.json(
         {
           ok: false,
           error: "INSUFFICIENT_DIAGNOSTIC_CREDITS",
-          message: "A diagnostic package is required for AI-assisted engineering reasoning.",
+          message: "A diagnostic package is required. Start a Full Diagnostic first.",
+          action: "Start Full Diagnostic",
         },
         { status: 402 },
       );
     }
+    /* Note: AI Draft is a preview/assist feature that uses remaining diagnostic
+       entitlement without decrementing. If you have remaining uses, you can
+       use the AI draft as a supplementary assistant at no extra cost.
+       The actual use is decremented when you generate the Full Diagnostic report. */
 
     /* 3. Parse and validate request body */
     let body: unknown;

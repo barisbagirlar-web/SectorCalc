@@ -19,7 +19,7 @@ const TOOL_KEY = "bolt-preload-clamp-force";
 const TOOL_NAME = "Bolt Preload and Clamp Force Calculator";
 const CATEGORY = "welding_steel";
 const FUNNEL_TARGET = "Connection PRO";
-const PRIMARY_METRIC_ID = "clamp_force_kn";
+const PRIMARY_METRIC_ID = "residual_clamp_force_kn";
 const DEFAULT_DECISION_STATE = "INSPECT" as const;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;

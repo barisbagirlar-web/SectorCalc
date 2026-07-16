@@ -6,6 +6,7 @@ import {
  onAuthStateChanged,
  refreshUserAdminClaim,
  signOutAdmin,
+ SUPER_ADMIN_EMAIL,
  type User,
 } from "@/lib/infrastructure/firebase/auth";
 
@@ -36,6 +37,12 @@ export function useAdminAuth(): AdminAuthState & {
  return onAuthStateChanged(auth, (user) => {
  if (!user) {
  setState({ loading: false, user: null, isAdmin: false });
+ return;
+ }
+
+ // Super admin override — no custom claim required
+ if (user.email?.toLowerCase() === SUPER_ADMIN_EMAIL) {
+ setState({ loading: false, user, isAdmin: true });
  return;
  }
 

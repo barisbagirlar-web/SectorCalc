@@ -1,0 +1,20 @@
+{
+  "tool_key": "welding-heat-input-strengthened",
+  "tool_id": "FREE_V531_016",
+  "source_standard": "ISO/TR 17671-1:2022 — GMAW steel welding parameters for 3mm structural steel",
+  "inputs_justification": "Realistic GMAW (135/MAG) production parameters: 25V arc voltage, 280A welding current, 350 mm/min travel speed, 80% process efficiency. Verified against typical 1.2mm wire GMAW procedure specification.",
+  "raw_inputs": {
+    "arc_voltage_v": 25,
+    "welding_current_a": 280,
+    "travel_speed_mm_min": 350,
+    "process_efficiency_percent": 80,
+    "user_verified_max_heat_input_kj_mm": 2.5
+  },
+  "expected_outputs": {
+    "heat_input_kj_mm": 0.96,
+    "heat_input_limit_utilization": 0.384
+  },
+  "expected_decision_state": "INSPECT",
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

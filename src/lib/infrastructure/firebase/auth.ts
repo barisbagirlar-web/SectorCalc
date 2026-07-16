@@ -12,6 +12,8 @@ import {
 import { getFirebaseApp } from "@/lib/infrastructure/firebase/client";
 import { clearSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
 
+export const SUPER_ADMIN_EMAIL = "barisbagirlar@gmail.com";
+
 let cachedAuth: Auth | null | undefined;
 let authEmulatorConnected = false;
 
@@ -100,6 +102,9 @@ export async function signInAdminWithGoogle(): Promise<User> {
 }
 
 export async function verifyUserAdminClaim(user: User): Promise<boolean> {
+  if (user.email?.toLowerCase() === SUPER_ADMIN_EMAIL) {
+    return true;
+  }
   await user.getIdToken(true);
   const tokenResult = await user.getIdTokenResult();
   return tokenResult.claims.admin === true;
@@ -116,6 +121,9 @@ export async function signOutAdmin(): Promise<void> {
 }
 
 export async function refreshUserAdminClaim(user: User): Promise<boolean> {
+  if (user.email?.toLowerCase() === SUPER_ADMIN_EMAIL) {
+    return true;
+  }
   await user.getIdToken(true);
   const tokenResult = await user.getIdTokenResult();
   return tokenResult.claims.admin === true;
@@ -144,6 +152,10 @@ export async function getCurrentUserAdminClaim(
   const user = auth?.currentUser;
   if (!user) {
     return false;
+  }
+
+  if (user.email?.toLowerCase() === SUPER_ADMIN_EMAIL) {
+    return true;
   }
 
   try {

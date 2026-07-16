@@ -19,7 +19,7 @@ const TOOL_KEY = "iso-286-tolerance-fit";
 const TOOL_NAME = "ISO 286 Tolerance & Fit Calculator";
 const CATEGORY = "machining_cnc";
 const FUNNEL_TARGET = "Inspection Copilot";
-const PRIMARY_METRIC_ID = "fit_clearance_range_mm";
+const PRIMARY_METRIC_ID = "maximum_clearance_mm";
 const DEFAULT_DECISION_STATE = "INSPECT" as const;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;

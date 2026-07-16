@@ -97,17 +97,12 @@ export function normalizeInput(
   }
 
   // Convert: display -> base unit
-  // Step 1: display -> registry base
-  const baseValue =
-    fromEntry.offset !== undefined
-      ? (displayValue - fromEntry.offset) / fromEntry.factor
-      : displayValue * fromEntry.factor;
+  // Registry convention: base_value = source_value * factor + offset
+  // Step 1: source unit -> registry neutral base
+  const baseValue = displayValue * fromEntry.factor + (fromEntry.offset ?? 0);
 
-  // Step 2: registry base -> target base unit (if target != registry base)
-  const finalValue =
-    toEntry.offset !== undefined
-      ? baseValue * toEntry.factor + toEntry.offset
-      : baseValue / toEntry.factor;
+  // Step 2: registry neutral base -> target base unit
+  const finalValue = (baseValue - (toEntry.offset ?? 0)) / toEntry.factor;
 
   return {
     baseValue: finalValue,
@@ -194,15 +189,9 @@ export function preservePhysicalQuantity(
   }
 
   // Convert to registry base first, then to new unit
-  const baseValue =
-    oldEntry.offset !== undefined
-      ? (oldValue - oldEntry.offset) / oldEntry.factor
-      : oldValue * oldEntry.factor;
-
-  const newValue =
-    newEntry.offset !== undefined
-      ? baseValue * newEntry.factor + newEntry.offset
-      : baseValue / newEntry.factor;
+  // Registry convention: base_value = source_value * factor + offset
+  const baseValue = oldValue * oldEntry.factor + (oldEntry.offset ?? 0);
+  const newValue = (baseValue - (newEntry.offset ?? 0)) / newEntry.factor;
 
   return { newValue };
 }

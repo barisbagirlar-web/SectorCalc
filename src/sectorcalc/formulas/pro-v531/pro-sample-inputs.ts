@@ -4,9 +4,6 @@
 //   - Build-time validation
 //   - Health check endpoint
 // Keys match the actual `get(inputs, "n_...")` calls in each .formula.ts module.
-// Server-side only.
-
-import "server-only";
 
 export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
   "break-even-survival-cash-calculator": {

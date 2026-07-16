@@ -118,7 +118,7 @@ if (exists("src/sectorcalc/pro-form/UniversalIndustrialDecisionForm.tsx")) {
 if (exists("src/sectorcalc/pro-form/universal-industrial-decision-form.css")) {
   const css = read("src/sectorcalc/pro-form/universal-industrial-decision-form.css");
 
-  for (const token of [".sc-v531-shell", "#F0EEE6", "#FAF9F5", "#1A1915", "#BD5D3A", "375px"]) {
+  for (const token of [".pro-shell", "#F0EEE6", "#FAF9F5", "#1A1915", "#BD5D3A", "375px"]) {
     if (!css.includes(token)) {
       failures.push(`universal-industrial-decision-form.css: missing locked CSS token: ${token}`);
     }

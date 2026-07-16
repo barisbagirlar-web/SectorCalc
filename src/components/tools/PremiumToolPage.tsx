@@ -32,6 +32,7 @@ import {
   resolvePremiumAccessMode,
 } from "@/lib/features/billing/premium-access-mode";
 import { usePremiumToolAccess } from "@/lib/features/billing/use-premium-tool-access";
+import { useScrollToResults } from "@/hooks/useScrollToResults";
 import { buildVerdictReportData } from "@/lib/features/reports/verdict-report";
 import {
  PremiumDecisionReportPanel,
@@ -244,21 +245,23 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   [runtimeSlug, locale],
  );
  const showCalculationSurface = runtimeTrust.calculationEligible;
- const {
- user,
- canAccessAnalyzer,
- isSuperUser,
- loading,
- error,
- creditBalance,
- hasCredits,
- needsCreditLoad,
- requiresCreditConsume,
- creditPending,
- consumeCreditForRun,
- startCreditPackCheckout,
- resetCreditRunSession,
- } = usePremiumToolAccess(tool.paidSlug);
+const {
+  user,
+  canAccessAnalyzer,
+  isSuperUser,
+  loading,
+  error,
+  creditBalance,
+  hasCredits,
+  needsCreditLoad,
+  requiresCreditConsume,
+  creditPending,
+  remainingUses,
+  totalUsesGranted,
+  consumeCreditForRun,
+  startCreditPackCheckout,
+  resetCreditRunSession,
+} = usePremiumToolAccess(tool.paidSlug);
 
  const [values, setValues] = useState<PremiumToolInputValues>(() =>
  useFullLoopRuntime
@@ -345,6 +348,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
     : (isCalculating ? "Calculating\u2026" : "Run calculation");
 
   const hasCalculated = submitted && Boolean(result) && !isCalculating;
+  useScrollToResults(hasCalculated, "premium-result-rail");
 
  const verdictReportData = useMemo(() => {
  if (!result) {
@@ -598,18 +602,30 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
     <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
    </Suspense>
   ) : null}
+  {/* Credit/Usage info */}
   {user && requiresCreditConsume && showCalculationSurface ? (
-   <p className="mt-2 text-sm text-body-charcoal">
-    Credits: {creditBalance}
-    {hasCredits ? " \u2014 1 credit per premium run." : null}
-   </p>
+   <div className="mt-2 text-sm text-body-charcoal">
+    {remainingUses > 0 ? (
+     <p>
+      <span className="font-semibold">{remainingUses}</span> premium run{remainingUses !== 1 ? "s" : ""} remaining
+      {totalUsesGranted > 0 ? <> \u00b7 {totalUsesGranted} total granted</> : null}
+     </p>
+    ) : creditBalance >= 1 ? (
+     <p>
+      Credit balance: <span className="font-semibold">{creditBalance}</span>
+      {" \u2014 "}1 credit unlocks 3 premium runs.
+     </p>
+    ) : (
+     <p>Credit balance: <span className="font-semibold">{creditBalance}</span></p>
+    )}
+   </div>
   ) : null}
   {needsCreditLoad && showCalculationSurface ? (
    <div className="mt-4 rounded-sm border border-amber/30 bg-premium-surface p-4 sm:p-5">
     <p className="text-xs font-semibold uppercase tracking-wider text-amber">Credits required</p>
     <h2 className="mt-2 text-lg font-bold text-premium-velvet">Load credits to run this analyzer</h2>
     <p className="mt-2 text-sm leading-relaxed text-body-charcoal">
-     Each full premium calculation uses 1 credit. SectorCalc Pro subscribers run without credits.
+     1 credit unlocks 3 premium runs. You need at least 1 credit to start.
     </p>
     <button
      type="button"
@@ -624,7 +640,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
      }
      className="sc-cta-primary mt-4 inline-flex min-h-[44px] items-center justify-center px-4 disabled:opacity-60"
     >
-     Load 5 credits \u2014 $4.99
+     Purchase credits
     </button>
    </div>
   ) : null}
@@ -770,7 +786,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
            </div>
          </form>
        </main>
-       <aside className="rail">
+       <aside id="premium-result-rail" className="rail">
          {/* Decision */}
          <div className={`decision ${isDanger ? "review" : isOK ? "ok" : ""}`}>
            <div className="d-label">PRIMARY READOUT \u00b7 STATUS</div>

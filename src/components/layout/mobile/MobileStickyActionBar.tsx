@@ -43,13 +43,13 @@ export function MobileStickyActionBar({ config }: MobileStickyActionBarProps) {
   return (
     <div
       ref={barRef}
-      className="sc-v531-mobile-action-bar"
+      className="pro-mobile-action-bar"
       data-tier={accessTier.toLowerCase()}
     >
-      <span className="sc-v531-mobile-bar-status">{status}</span>
+      <span className="pro-mobile-bar-status">{status}</span>
       <button
         type="button"
-        className="sc-v531-primary-button"
+        className="pro-primary-button"
         disabled={actionDisabled}
         onClick={onAction}
         aria-label={actionLabel}

@@ -1,5 +1,5 @@
 {
-  "tool_key": "machining-cost-per-part",
+  "tool_key": "machining-cost-per-part-mandated",
   "tool_id": "FREE_V531_001",
   "raw_inputs": {
     "batch_quantity": 500,
@@ -15,9 +15,11 @@
     "tooling_cost_per_edge": 12
   },
   "expected_outputs": {
-    "cost_per_part": 13.27,
-    "cycle_cost_per_part": 6.88
+    "cost_per_part": 13.266494845360826,
+    "quote_price_per_part": 16.58311855670103,
+    "batch_margin_value": 1658.3118556701022
   },
+  "expected_decision_state": "REPRICE",
   "expected_result_perspectives": {
     "primary_label": "Unit Cost per Part",
     "primary_value": 13.27,

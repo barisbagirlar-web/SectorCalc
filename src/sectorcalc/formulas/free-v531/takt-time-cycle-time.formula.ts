@@ -19,7 +19,7 @@ const TOOL_KEY = "takt-time-cycle-time";
 const TOOL_NAME = "Takt Time and Cycle Time Calculator";
 const CATEGORY = "production_operations";
 const FUNNEL_TARGET = "OEE/Downtime PRO";
-const PRIMARY_METRIC_ID = "capacity_gap";
+const PRIMARY_METRIC_ID = "capacity_gap_seconds";
 const DEFAULT_DECISION_STATE = "HOLD" as const;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;

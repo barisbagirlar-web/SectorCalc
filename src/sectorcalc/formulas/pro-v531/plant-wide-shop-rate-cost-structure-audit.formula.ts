@@ -1,91 +1,66 @@
-import "server-only";
-import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
+// @server-only
+/**
+ * Plant-Wide Shop Rate Cost Structure Audit — formula engine
+ *
+ * SINGLE SOURCE OF TRUTH. Pure function, no eval/new Function.
+ * Conforms to ProFormulaModule contract.
+ */
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
 
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
+// ─── Type exports ───────────────────────────────────────────────────────────
+
+export interface PlantWideShopRateInputs {
+  totalAnnualCost: number;
+  totalProductiveHours: number;
+  machineGroupCost: number;
+  machineGroupHours: number;
+  overheadPool: number;
+  overheadAllocationBase: number;
+  currentShopRate: number;
+  targetMarginPct: number;
+  utilizationPct: number;
+  sourceConfidence: number;
 }
 
-export const toolKey = "plant-wide-shop-rate-cost-structure-audit";
-export const formulaVersion = "5.3.1-pro-baris.1";
-
-function isFiniteNumber(v: unknown): v is number {
-  return typeof v === "number" && Number.isFinite(v);
+export interface PlantWideShopRateOutputs {
+  out_evidenceCompleteness: number;
+  out_normalizedDemand: number;
+  out_referenceDeviation: number;
+  out_deratingFactor: number;
+  out_demandMetric: number;
+  out_capacityMetric: number;
+  out_utilizationMargin: number;
+  out_expandedUncertainty: number;
+  out_thresholdCrossing: number;
+  out_sensitivityDriver: number;
+  out_fmeaTrigger: number;
+  out_moneyAtRisk: number;
+  out_scenarioDelta: number;
+  out_auditHashPayload: number;
+  out_finalDecisionState: number;
 }
 
-function get(inputs: Record<string, number>, key: string): number {
-  const v = inputs[key];
-  return isFiniteNumber(v) ? v : 0;
-}
+// ─── Pure calculation ───────────────────────────────────────────────────────
 
-function safeDiv(n: number, d: number): number {
-  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
-  return n / d;
-}
+export function executeFormula(inputs: PlantWideShopRateInputs): PlantWideShopRateOutputs {
+  const {
+    totalAnnualCost, totalProductiveHours, machineGroupCost, machineGroupHours,
+    overheadPool, overheadAllocationBase, currentShopRate,
+    targetMarginPct, utilizationPct, sourceConfidence,
+  } = inputs;
 
-function round(v: number, d: number): number {
-  if (!isFiniteNumber(v)) return 0;
-  const f = Math.pow(10, d);
-  return Math.round(v * f) / f;
-}
+  const ph = Math.max(totalProductiveHours, 1);
+  const mgh = Math.max(machineGroupHours, 1);
+  const oab = Math.max(overheadAllocationBase, 1);
 
-export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
-
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
-
-  // Validate required inputs
-  const requiredInputs = [
-    "n_total_annual_cost",
-    "n_total_productive_hours",
-    "n_machine_group_cost",
-    "n_machine_group_hours",
-    "n_overhead_pool",
-    "n_overhead_allocation_base",
-    "n_current_shop_rate",
-    "n_target_margin_pct",
-    "n_utilization_pct",
-    "n_source_confidence_ratio"
-  ];
-  for (const key of requiredInputs) {
-    if (!isFiniteNumber(inputs[key])) {
-      warnings.push("Missing or non-finite input: " + key);
-    }
-  }
-
-  // Extract inputs
-  const totalAnnualCost = get(inputs, "n_total_annual_cost");
-  const totalProductiveHours = get(inputs, "n_total_productive_hours");
-  const machineGroupCost = get(inputs, "n_machine_group_cost");
-  const machineGroupHours = get(inputs, "n_machine_group_hours");
-  const overheadPool = get(inputs, "n_overhead_pool");
-  const overheadAllocationBase = get(inputs, "n_overhead_allocation_base");
-  const currentShopRate = get(inputs, "n_current_shop_rate");
-  const targetMarginPct = get(inputs, "n_target_margin_pct");
-  const utilizationPct = get(inputs, "n_utilization_pct");
-  const sourceConfidenceRatio = get(inputs, "n_source_confidence_ratio");
-
-  // Core calculations
-  const plantWideRate = safeDiv(totalAnnualCost, Math.max(totalProductiveHours, 1));
-  const machineGroupRate = safeDiv(machineGroupCost, Math.max(machineGroupHours, 1));
-  const overheadAbsRate = safeDiv(overheadPool, Math.max(overheadAllocationBase, 1));
-  // NOTE (2026-07-15 audit): n_target_margin_pct and n_utilization_pct both have schema
-  // base_unit "ratio" (0..1) -- the normalizer already converts a "percent" display entry to
-  // ratio before calculate() sees it. Dividing by 100 again shrank both 100x, meaning
-  // under-recovery and pricing floor were computed from a near-100% utilization assumption
-  // regardless of the real input.
-  const underRecovery = plantWideRate - (plantWideRate * utilizationPct);
-  const pricingFloor = plantWideRate * (1 + targetMarginPct);
+  const plantWideRate = totalAnnualCost / ph;
+  const machineGroupRate = machineGroupCost / mgh;
+  const overheadAbsRate = overheadPool / oab;
+  const underRecovery = plantWideRate - (plantWideRate * utilizationPct / 100);
+  const pricingFloor = plantWideRate * (1 + targetMarginPct / 100);
   const moneyAtRisk = underRecovery * totalProductiveHours;
 
-  // Decision logic: 0=OK, 1=REPRICE, 2=REVIEW
   let decisionFlag: number;
   if (currentShopRate >= pricingFloor) {
     decisionFlag = 0; // OK
@@ -95,39 +70,120 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     decisionFlag = 2; // REVIEW
   }
 
-  // Map to all 15 output IDs
-  outputs["out_evidence_completeness"] = round(sourceConfidenceRatio, 4);
-  outputs["out_normalized_demand"] = round(totalProductiveHours, 4);
-  outputs["out_reference_deviation"] = round(utilizationPct, 4);
-  outputs["out_derating_factor"] = round(safeDiv(underRecovery, Math.max(plantWideRate, 1)), 4);
-  outputs["out_demand_metric"] = round(plantWideRate, 4);
-  outputs["out_capacity_metric"] = round(machineGroupRate, 4);
-  outputs["out_utilization_margin"] = round(utilizationPct, 4);
-  outputs["out_expanded_uncertainty"] = round(overheadAbsRate, 4);
-  outputs["out_threshold_crossing"] = round(decisionFlag, 4);
-  outputs["out_sensitivity_driver"] = round(Math.max(plantWideRate, machineGroupRate, overheadAbsRate), 4);
-  outputs["out_fmea_trigger"] = round(decisionFlag === 2 ? 1 : 0, 4);
-  outputs["out_money_at_risk"] = round(Math.max(moneyAtRisk, 0), 4);
-  outputs["out_scenario_delta"] = round(pricingFloor - currentShopRate, 4);
-  outputs["out_audit_hash_payload"] = round(totalProductiveHours + sourceConfidenceRatio, 4);
-  outputs["out_final_decision_state"] = round(decisionFlag, 4);
-  outputs["out_machine_group_cost_component"] = round(machineGroupCost, 2);
-  outputs["out_overhead_pool_component"] = round(overheadPool, 2);
+  return {
+    out_evidenceCompleteness: sourceConfidence,
+    out_normalizedDemand: totalProductiveHours,
+    out_referenceDeviation: utilizationPct / 100,
+    out_deratingFactor: plantWideRate > 0 ? underRecovery / plantWideRate : 0,
+    out_demandMetric: plantWideRate,
+    out_capacityMetric: machineGroupRate,
+    out_utilizationMargin: utilizationPct / 100,
+    out_expandedUncertainty: overheadAbsRate,
+    out_thresholdCrossing: decisionFlag,
+    out_sensitivityDriver: Math.max(plantWideRate, machineGroupRate, overheadAbsRate),
+    out_fmeaTrigger: decisionFlag === 2 ? 1 : 0,
+    out_moneyAtRisk: Math.max(moneyAtRisk, 0),
+    out_scenarioDelta: pricingFloor - currentShopRate,
+    out_auditHashPayload: totalProductiveHours + sourceConfidence,
+    out_finalDecisionState: decisionFlag,
+  };
+}
 
-  // Sanity check
-  for (const key of Object.keys(outputs)) {
-    if (!isFiniteNumber(outputs[key])) {
-      outputs[key] = 0;
-      warnings.push("Non-finite output corrected to zero: " + key);
+// ─── Sensitivity helper ─────────────────────────────────────────────────────
+
+export function sensitivity(
+  inputs: PlantWideShopRateInputs,
+  driver: keyof PlantWideShopRateInputs,
+  pct = 0.10,
+): number {
+  const up = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 + pct) }).out_moneyAtRisk;
+  const dn = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 - pct) }).out_moneyAtRisk;
+  return Math.abs(up - dn);
+}
+
+// ─── ProFormulaModule contract ──────────────────────────────────────────────
+
+function isFiniteNumber(v: unknown): v is number {
+  return typeof v === "number" && Number.isFinite(v);
+}
+
+function get(inputs: Record<string, number>, key: string, fallback = 0): number {
+  const v = inputs[key];
+  return isFiniteNumber(v) ? v : fallback;
+}
+
+const OUTPUT_KEYS: readonly string[] = [
+  "out_evidenceCompleteness", "out_normalizedDemand", "out_referenceDeviation",
+  "out_deratingFactor", "out_demandMetric", "out_capacityMetric",
+  "out_utilizationMargin", "out_expandedUncertainty", "out_thresholdCrossing",
+  "out_sensitivityDriver", "out_fmeaTrigger", "out_moneyAtRisk",
+  "out_scenarioDelta", "out_auditHashPayload", "out_finalDecisionState",
+];
+
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const warnings: string[] = [];
+
+  const typed: PlantWideShopRateInputs = {
+    totalAnnualCost: get(inputs, "n_total_annual_cost"),
+    totalProductiveHours: get(inputs, "n_total_productive_hours"),
+    machineGroupCost: get(inputs, "n_machine_group_cost"),
+    machineGroupHours: get(inputs, "n_machine_group_hours"),
+    overheadPool: get(inputs, "n_overhead_pool"),
+    overheadAllocationBase: get(inputs, "n_overhead_allocation_base"),
+    currentShopRate: get(inputs, "n_current_shop_rate"),
+    targetMarginPct: get(inputs, "n_target_margin_pct"),
+    utilizationPct: get(inputs, "n_utilization_pct"),
+    sourceConfidence: get(inputs, "n_source_confidence_ratio"),
+  };
+
+  const mandatory = [
+    "n_total_annual_cost", "n_total_productive_hours",
+    "n_machine_group_cost", "n_overhead_pool",
+  ] as const;
+  for (const key of mandatory) {
+    if (!isFiniteNumber(inputs[key])) {
+      warnings.push(`Input "${key}" is missing or invalid — using 0`);
     }
   }
 
-  const ok = warnings.length === 0;
+  const raw = executeFormula(typed);
+  const allOutputs = raw as unknown as Record<string, number>;
+  const outputs: Record<string, number> = {};
+  for (const key of OUTPUT_KEYS) {
+    outputs[key] = allOutputs[key];
+  }
+
+  const ok = OUTPUT_KEYS.every((k) => isFiniteNumber(outputs[k]));
   return {
     status: ok ? "OK" : "REVIEW",
     outputs,
-    warnings: warnings.length ? warnings : [],
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
+    warnings,
+    outputKeys: [...OUTPUT_KEYS],
+    redaction_status: "PUBLIC_SAFE_REDACTED",
   };
 }
+
+export const toolKey = "plant-wide-shop-rate-cost-structure-audit";
+export const formulaVersion = "5.3.1-pro-baris.1";
+
+export const sampleInputs: Record<string, number> = {
+  n_total_annual_cost: 1200000,
+  n_total_productive_hours: 32000,
+  n_machine_group_cost: 450000,
+  n_machine_group_hours: 12000,
+  n_overhead_pool: 380000,
+  n_overhead_allocation_base: 32000,
+  n_current_shop_rate: 65,
+  n_target_margin_pct: 15,
+  n_utilization_pct: 78,
+  n_source_confidence_ratio: 0.85,
+};
+
+export const requiredInputKeys: readonly string[] = [
+  "n_total_annual_cost", "n_total_productive_hours", "n_machine_group_cost",
+  "n_machine_group_hours", "n_overhead_pool", "n_overhead_allocation_base",
+  "n_current_shop_rate", "n_target_margin_pct", "n_utilization_pct",
+  "n_source_confidence_ratio",
+];
+
+export const declaredOutputKeys: readonly string[] = [...OUTPUT_KEYS];

@@ -1,0 +1,142 @@
+name: Formula Engine Integrity Audit
+
+on:
+  pull_request:
+    paths:
+      - "src/sectorcalc/schemas/**"
+      - "src/sectorcalc/formulas/**"
+      - "src/sectorcalc/runtime/**"
+      - "src/sectorcalc/pro-form/**"
+      - "src/sectorcalc/pro-runtime/**"
+      - "tests/free-tools/**"
+      - "tests/pro-v2/**"
+      - "tests/golden/**"
+      - "tests/pro-calculation-correctness/**"
+      - "tests/document-intelligence/payment-reconciliation.test.ts"
+      - "scripts/audit-tool-formula-integrity.mjs"
+      - "scripts/guard-free-result-panel.mjs"
+      - "tsconfig.production.json"
+      - ".github/workflows/formula-engine-integrity-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  formula-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Generate locked workbook dependencies
+        run: |
+          npm install --package-lock-only --ignore-scripts --save-exact xlsx@0.18.5 archiver@7.0.1
+          npm install --package-lock-only --ignore-scripts --save-dev --save-exact @types/archiver@6.0.3
+          mkdir -p artifacts/formula-integrity-audit/generated-lock
+          cp package.json package-lock.json artifacts/formula-integrity-audit/generated-lock/
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Static schema, formula and input audit
+        run: node scripts/audit-tool-formula-integrity.mjs
+
+      - name: Schema and formula binding
+        run: npm run guard:v531-schema-formula-binding
+
+      - name: Free schema contract
+        run: npm run guard:free-schema-contract
+
+      - name: Free formula contract
+        run: npm run guard:free-formula-contract
+
+      - name: Free unit and currency contract
+        run: npm run guard:free-units-and-currency
+
+      - name: Free public copy quality
+        run: npm run guard:free-public-copy-quality
+
+      - name: Free form render contract
+        run: npm run guard:free-form-render-contract
+
+      - name: Free catalog integrity
+        run: npm run guard:free-catalog-integrity
+
+      - name: Free result panel contract
+        shell: bash
+        run: |
+          mkdir -p artifacts/formula-integrity-audit
+          set +e
+          npm run guard:free-result-panel 2>&1 | tee artifacts/formula-integrity-audit/free-result-panel-stdout.log
+          status=${PIPESTATUS[0]}
+          set -e
+          exit "$status"
+
+      - name: Free execution smoke
+        run: npm run smoke:free-tools-execution
+
+      - name: Free mobile UX smoke
+        run: npm run smoke:free-tools-mobile-ux
+
+      - name: Free tool tests
+        run: npm run test:free-tools-golden
+
+      - name: Universal result perspectives
+        run: npm run guard:universal-result-perspectives
+
+      - name: Premium formula audit
+        run: npm run audit:premium
+
+      - name: Free golden mathematical tests
+        run: npm run test:golden:free-v531
+
+      - name: Pro runtime tests
+        run: npm run test:v5-runtime
+
+      - name: Comprehensive calculation stress
+        shell: bash
+        run: |
+          mkdir -p artifacts/formula-integrity-audit
+          npx vitest run tests/pro-calculation-correctness/comprehensive-stress.test.ts \
+            --reporter=verbose 2>&1 | tee artifacts/formula-integrity-audit/comprehensive-stress.log
+
+      - name: Payment reconciliation stress
+        shell: bash
+        run: |
+          npx vitest run tests/document-intelligence/payment-reconciliation.test.ts \
+            --reporter=verbose 2>&1 | tee artifacts/formula-integrity-audit/payment-reconciliation.log
+
+      - name: Production typecheck
+        shell: bash
+        run: |
+          mkdir -p artifacts/formula-integrity-audit
+          set +e
+          npx tsc --noEmit -p tsconfig.production.json 2>&1 | tee artifacts/formula-integrity-audit/typecheck-production.log
+          status=${PIPESTATUS[0]}
+          set -e
+          exit "$status"
+
+      - name: Production build
+        shell: bash
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: |
+          set +e
+          npm run build 2>&1 | tee artifacts/formula-integrity-audit/build.log
+          status=${PIPESTATUS[0]}
+          set -e
+          exit "$status"
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: formula-engine-integrity-audit
+          path: artifacts/formula-integrity-audit/
+          if-no-files-found: warn
+          retention-days: 14

@@ -41,7 +41,7 @@
   },
   "calculation_basis": {
     "basis_type": "PROTECTED_SERVER_FORMULA_GRAPH_WITH_PUBLIC_SAFE_SCHEMA_CONTRACT",
-    "formula_storage": "PRIVATE_SERVER_SIDE_FORMULA_MODULE",
+    "formula_storage": "PRIVATE_SERVER_SIDE_FORMULA_REGISTRY_REQUIRED_FOR_LIVE_EXECUTION",
     "public_schema_formula_exposure": "FORBIDDEN",
     "decision_depth": "monthly break-even, downside burn, runway, target cash, funding gap, and source-confidence decision graph"
   },

@@ -37,14 +37,6 @@ function formatReportValue(
   return String(value) + (unit ? ` ${unit}` : "");
 }
 
-interface SensitivityDriverResult {
-  inputId: string;
-  label: string;
-  up: number | null;
-  down: number | null;
-  span: number | null;
-}
-
 interface ProReportPanelV2Props {
   toolTitle: string;
   sections: ResolvedReportSection[];
@@ -65,6 +57,8 @@ const severityClassMap: Record<string, string> = {
   danger: "sc-report-severity-danger",
   info: "sc-report-severity-info",
 };
+
+type SensitivityDriverResult = { inputId: string; label: string; up: number | null; down: number | null; span: number | null };
 
 const insightClassMap: Record<string, string> = {
   critical: "sc-report-insight-critical",
@@ -233,9 +227,6 @@ export function ProReportPanelV2({
         if (withSpan.length === 0) return null;
         const baseline = sensitivity.baseline;
 
-        // True tornado (bidirectional, centered on baseline) when we have a baseline to
-        // center on; falls back to the original one-sided magnitude bar otherwise, so this
-        // never regresses a tool whose sensitivity payload predates the baseline field.
         if (typeof baseline === "number" && Number.isFinite(baseline)) {
           const withDirection = withSpan.filter((d) => d.up !== null && d.down !== null) as Array<
             SensitivityDriverResult & { span: number; up: number; down: number }
@@ -255,10 +246,8 @@ export function ProReportPanelV2({
                     const downDeltaPct = (Math.max(0, baseline - d.up) / maxDeviation) * 50;
                     const downUpDeltaPct = (Math.max(0, d.down - baseline) / maxDeviation) * 50;
                     const downDownDeltaPct = (Math.max(0, baseline - d.down) / maxDeviation) * 50;
-                    // "up" bar: which side of center the +10% result lands on
                     const upOnRight = d.up >= baseline;
                     const upWidth = upOnRight ? upDeltaPct : downDeltaPct;
-                    // "down" bar: which side of center the -10% result lands on
                     const downOnRight = d.down >= baseline;
                     const downWidth = downOnRight ? downUpDeltaPct : downDownDeltaPct;
                     return (
@@ -267,19 +256,11 @@ export function ProReportPanelV2({
                         <div className="sc-report-tornado-track">
                           <div
                             className="sc-report-tornado-bar sc-report-tornado-bar-up"
-                            style={
-                              upOnRight
-                                ? { left: "50%", width: `${upWidth}%` }
-                                : { right: "50%", width: `${upWidth}%` }
-                            }
+                            style={upOnRight ? { left: "50%", width: `${upWidth}%` } : { right: "50%", width: `${upWidth}%` }}
                           />
                           <div
                             className="sc-report-tornado-bar sc-report-tornado-bar-down"
-                            style={
-                              downOnRight
-                                ? { left: "50%", width: `${downWidth}%` }
-                                : { right: "50%", width: `${downWidth}%` }
-                            }
+                            style={downOnRight ? { left: "50%", width: `${downWidth}%` } : { right: "50%", width: `${downWidth}%` }}
                           />
                         </div>
                       </div>
@@ -306,14 +287,9 @@ export function ProReportPanelV2({
                 <div key={d.inputId} className="sc-report-sensitivity-row">
                   <span className="sc-report-sensitivity-label">{d.label}</span>
                   <div className="sc-report-sensitivity-track">
-                    <div
-                      className="sc-report-sensitivity-bar"
-                      style={{ width: `${Math.max(2, (100 * d.span) / maxSpan)}%` }}
-                    />
+                    <div className="sc-report-sensitivity-bar" style={{ width: `${Math.max(2, (100 * d.span) / maxSpan)}%` }} />
                   </div>
-                  <span className="sc-report-sensitivity-value">
-                    ±{formatReportValue(d.span / 2, null, 2)}
-                  </span>
+                  <span className="sc-report-sensitivity-value">±{formatReportValue(d.span / 2, null, 2)}</span>
                 </div>
               ))}
             </div>
@@ -330,10 +306,7 @@ export function ProReportPanelV2({
         <div className="sc-report-insights">
           <h4 className="sc-report-section-title">Engineering Insights</h4>
           {firedInsights.map((ins) => (
-            <div
-              key={ins.id}
-              className={`sc-report-insight ${insightClassMap[ins.severity] ?? insightClassMap.info}`}
-            >
+            <div key={ins.id} className={`sc-report-insight ${insightClassMap[ins.severity] ?? insightClassMap.info}`}>
               <span className="sc-report-insight-label">{ins.severity}</span>
               <span dangerouslySetInnerHTML={{ __html: ins.message }} />
             </div>

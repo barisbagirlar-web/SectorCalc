@@ -46,6 +46,8 @@ export interface FreeV531ExecuteResponse {
   readonly primaryMetricId: string;
   readonly outputs: readonly FreeV531OutputMetric[];
   readonly warnings: readonly FreeV531Warning[];
+  /** Optional execution-level errors. Successful executions omit this field. */
+  readonly errors?: readonly string[];
   readonly hiddenRiskSummary: string;
   readonly nextAction: string;
   readonly proUnlockReason: string;

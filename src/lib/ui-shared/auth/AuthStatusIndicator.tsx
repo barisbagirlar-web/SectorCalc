@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import { signOut } from "firebase/auth";
 import { useUserSubscription, warmUserSubscriptionStore } from "@/lib/features/billing/use-user-subscription";
 import { getAccountHref, getLoginHref } from "@/lib/features/tools/tool-links";
-import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
+import { getFirebaseAuth, SUPER_ADMIN_EMAIL } from "@/lib/infrastructure/firebase/auth";
 import { clearSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
 
 function LockIcon() {
@@ -71,6 +71,7 @@ export function AuthStatusIndicator() {
   }
 
   const displayName = user.email?.split("@")[0] ?? "Operator";
+  const isSuperAdmin = user.email?.toLowerCase() === SUPER_ADMIN_EMAIL;
   return (
     <div className="auth-status auth-status--active" role="status" aria-live="polite" aria-atomic="true" aria-label={`Authentication status: signed in as ${displayName}`}>
       <LockIcon/>
@@ -79,6 +80,15 @@ export function AuthStatusIndicator() {
         <span className="auth-status__label">Signed in as</span>
         <a href={accountHref} className="auth-status__link auth-status__link--user" title={user.email ?? undefined}>{displayName}</a>
       </span>
+      {isSuperAdmin && (
+        <a
+          href="/admin"
+          className="auth-status__admin-link"
+          title="Admin Panel"
+        >
+          Admin
+        </a>
+      )}
       <button
         type="button"
         className="auth-status__signout"

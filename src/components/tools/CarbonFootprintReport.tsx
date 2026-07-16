@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useScrollToResults } from "@/hooks/useScrollToResults";
 import {
   Bar,
   BarChart,
@@ -79,6 +80,7 @@ export function CarbonFootprintReport({
     mergeCarbonEmissionInputs(initialInputs),
   );
   const [results, setResults] = useState<CarbonEmissionResults | null>(null);
+  useScrollToResults(results !== null, "carbon-results");
   const [showDetail, setShowDetail] = useState(false);
   const [showFactors, setShowFactors] = useState(false);
   const [certificatePrice, setCertificatePrice] = useState(
@@ -387,6 +389,7 @@ export function CarbonFootprintReport({
         </button>
       </div>
 
+      <div id="carbon-results">
       {results ? (
         <div className="space-y-6">
           <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
@@ -486,6 +489,7 @@ export function CarbonFootprintReport({
           ) : null}
         </div>
       ) : null}
+      </div>
     </section>
   );
 }

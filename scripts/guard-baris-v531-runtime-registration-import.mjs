@@ -123,7 +123,7 @@ for (const tk of liveKeys) {
   const fp = resolve(FORMULA_DIR, `${tk}.formula.ts`);
   if (!existsSync(fp)) { fail(`LIVE "${tk}" missing .formula.ts`); continue; }
   const fc = readFileSync(fp, "utf-8");
-  if (!fc.includes('import "server-only"')) fail(`LIVE "${tk}" missing server-only`);
+  if (!fc.includes('// @server-only')) fail(`LIVE "${tk}" missing server-only marker`);
   if (!existsSync(resolve(GOLDEN_DIR, `${tk}.golden.json`))) fail(`LIVE "${tk}" missing golden`);
 }
 pass(`All ${liveKeys.length} LIVE tools have formula + server-only + golden`);

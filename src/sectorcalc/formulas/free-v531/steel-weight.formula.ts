@@ -19,7 +19,7 @@ const TOOL_KEY = "steel-weight";
 const TOOL_NAME = "Steel Weight Calculator";
 const CATEGORY = "welding_steel";
 const FUNNEL_TARGET = "Quote/Costing PRO";
-const PRIMARY_METRIC_ID = "steel_weight_kg";
+const PRIMARY_METRIC_ID = "net_steel_weight_kg";
 const DEFAULT_DECISION_STATE = "REPRICE" as const;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;

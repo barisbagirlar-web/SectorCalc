@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "@/lib/i18n-stub";
 import { AdminLocaleProvider } from "@/lib/features/admin/admin-locale-context";
+import { AdminShell } from "@/components/admin/AdminShell";
 import { LOCALE_COOKIE, isSupportedLocale, ROOT_LOCALE, type SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 import "../site-styles";
 import "../globals.css";
@@ -44,9 +45,11 @@ export default async function AdminRootLayout({
 
   return (
     <html lang={locale} className={inter.variable} suppressHydrationWarning>
-      <body className="min-w-0 overflow-x-hidden bg-white font-sans antialiased">
+      <body className="min-w-0 overflow-x-hidden bg-[#E8E6DE] font-sans antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <AdminLocaleProvider initialLocale={locale}>{children}</AdminLocaleProvider>
+          <AdminLocaleProvider initialLocale={locale}>
+            <AdminShell>{children}</AdminShell>
+          </AdminLocaleProvider>
         </NextIntlClientProvider>
       </body>
     </html>

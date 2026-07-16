@@ -144,6 +144,36 @@ service cloud.firestore {
       allow read: if true;
       allow create, update, delete: if isAuthenticatedAdmin();
     }
+
+    // ── Document Intelligence ──────────────────────────────────
+    match /documentIntelligenceJobs/{jobId} {
+      allow read: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.userId == jobId.split('_')[0]
+        && isValidDiJobCreate(request.resource.data)
+        && !hasForbiddenDiFields(request.resource.data);
+      allow update: if false;  // Server SDK only
+      allow delete: if false;  // Server scheduler only
+
+      match /events/{eventId} {
+        allow read: if request.auth != null
+          && get(/databases/$(database)/documents/documentIntelligenceJobs/$(jobId)).data.userId == request.auth.uid;
+        allow write: if false;  // Server SDK only
+      }
+
+      match /rows/{rowId} {
+        allow read: if request.auth != null
+          && get(/databases/$(database)/documents/documentIntelligenceJobs/$(jobId)).data.userId == request.auth.uid;
+        allow write: if false;  // Server SDK only
+      }
+    }
+
+    // Admin access to all DI jobs
+    match /documentIntelligenceJobs/{jobId} {
+      allow read, write: if isAuthenticatedAdmin();
+    }
   }
 }
 
@@ -605,3 +635,42 @@ function isValidToolFeedbackAdminUpdate(newData, oldData) {
     && isValidToolFeedbackStatus(newData.status)
     && isValidCreatedAt(newData.updatedAt);
 }
+
+// ── Document Intelligence ──────────────────────────────────────
+
+// Only server-allowed status values may be written by clients
+function isValidDiJobStatus(status) {
+  return status in [
+    'diagnostic_uploaded', 'diagnostic_scanning',
+    'diagnostic_eligible', 'diagnostic_manual_review',
+    'diagnostic_rejected', 'awaiting_payment'
+  ];
+}
+
+// Fields a client may set on job creation
+function isValidDiJobCreate(data) {
+  return data.keys().hasAll([
+    'userId', 'productCode', 'status', 'originalFilenameSanitized',
+    'mimeType', 'fileSizeBytes', 'createdAt', 'updatedAt'
+  ])
+  && data.keys().size() <= 10
+  && data.userId is string
+  && data.productCode == 'maintenance_bom_recovery'
+  && isValidDiJobStatus(data.status)
+  && data.originalFilenameSanitized is string
+  && data.mimeType is string
+  && data.fileSizeBytes is number
+  && data.createdAt is number
+  && data.updatedAt is number;
+}
+
+// Fields a client may NOT set — server-authoritative only
+function hasForbiddenDiFields(data) {
+  return data.keys().hasAny([
+    'paymentStatus', 'entitlementStatus', 'engineVersion',
+    'validatorVersion', 'schemaVersion', 'processingExecutionId',
+    'checkoutRequestId', 'paymentTransactionId', 'metricsSummary',
+    'failureCode', 'completedAt', 'startedAt'
+  ]);
+}
+

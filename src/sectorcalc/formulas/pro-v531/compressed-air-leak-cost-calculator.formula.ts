@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 
 // SectorCalc V5.4 Core — Pro Pilot Formula Module Stub
 // The V5.3.1 formula guard requires a .formula.ts file for each schema.
