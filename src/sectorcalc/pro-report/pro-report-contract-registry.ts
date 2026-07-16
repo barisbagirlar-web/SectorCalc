@@ -109,31 +109,139 @@ register({
       ],
     },
   ],
+  sensitivityTargetOutput: "out_break_even_monthly_revenue",
+  sensitivityDrivers: [
+    { inputId: "n_monthly_fixed_cash_cost", label: "Monthly Fixed Cash Cost" },
+    { inputId: "n_monthly_debt_service", label: "Monthly Debt Service" },
+    { inputId: "n_contribution_margin_ratio", label: "Contribution Margin Ratio" },
+    { inputId: "n_current_monthly_revenue", label: "Current Monthly Revenue" },
+    { inputId: "n_unrestricted_cash_balance", label: "Unrestricted Cash Balance" },
+    { inputId: "n_minimum_cash_buffer", label: "Minimum Cash Buffer" },
+    { inputId: "n_target_survival_months", label: "Target Survival Months" },
+    { inputId: "n_downside_revenue_factor", label: "Downside Revenue Retention" },
+  ],
+  insights: [
+    {
+      id: "break-even-runway-critical",
+      severity: "critical",
+      when: (o) => o.out_target_runway_breached === 1 && o.out_cash_runway_months < 6,
+      message: (o) =>
+        `Cash runway is ${(o.out_cash_runway_months ?? 0).toFixed(1)} months under the stressed scenario, against a ${'$'}${(o.out_funding_gap ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} funding gap to the survival target. Below six months, financing lead-time typically exceeds the window -- this needs a funding or cost-cutting decision now, not at the next board meeting.`,
+    },
+    {
+      id: "break-even-runway-watch",
+      severity: "critical",
+      when: (o) => o.out_target_runway_breached === 1 && o.out_cash_runway_months >= 6,
+      message: (o) =>
+        `Runway target is breached but not yet critical: ${(o.out_cash_runway_months ?? 0).toFixed(1)} months at a burn of ${'$'}${(o.out_monthly_cash_burn ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}/mo. Closing the ${'$'}${(o.out_funding_gap ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} gap to the survival cash target removes the flag.`,
+    },
+    {
+      id: "break-even-margin-of-safety-thin",
+      severity: "info",
+      when: (o) => o.out_target_runway_breached === 0 && o.out_margin_of_safety_ratio > 0 && o.out_margin_of_safety_ratio < 0.15,
+      message: (o) =>
+        `Margin of safety is only ${((o.out_margin_of_safety_ratio ?? 0) * 100).toFixed(1)}% -- current revenue could drop by that much before hitting break-even. This is a resilience number, not a growth number: treat it as recession headroom, not room to relax.`,
+    },
+    {
+      id: "break-even-margin-of-safety-opportunity",
+      severity: "opportunity",
+      when: (o) => o.out_target_runway_breached === 0 && o.out_margin_of_safety_ratio >= 0.20,
+      message: (o) =>
+        `Revenue margin of safety is ${((o.out_margin_of_safety_ratio ?? 0) * 100).toFixed(0)}% and the survival target is not breached -- current revenue could drop by that much before hitting break-even. Comfortable room to absorb a slow month.`,
+    },
+    {
+      id: "break-even-revenue-gap-context",
+      severity: "info",
+      when: (o) => Math.abs(o.out_current_revenue_gap ?? 0) > 0,
+      message: (o) => {
+        const gap = o.out_current_revenue_gap ?? 0;
+        return gap > 0
+          ? `Current revenue is ${'$'}${gap.toLocaleString("en-US", {maximumFractionDigits: 0})}/mo above accounting break-even -- the business is covering its fixed cost at today's volume.`
+          : `Current revenue is ${'$'}${Math.abs(gap).toLocaleString("en-US", {maximumFractionDigits: 0})}/mo below accounting break-even -- volume or price needs to move to close this gap before profitability, independent of the cash-runway picture.`;
+      },
+    },
+  ],
 });
-
-// ---------------------------------------------------------------------------
-// 2. machine-hourly-rate-proof-report
 // ---------------------------------------------------------------------------
 register({
   toolSlug: "machine-hourly-rate-proof-report",
   sections: [
     section("Primary Results", 10, [
-      entry("out_utilization_margin", "Machine Hourly Rate", "hourly_rate", "USD/hr"),
-      entry("out_demand_metric", "Machine Operating Cost", "currency", "USD"),
-      entry("out_capacity_metric", "Total Productive Hours", "number", "hrs"),
+      entry("out_utilization_margin", "True Machine Hourly Rate (Productive Hours Only)", "hourly_rate", "USD/hr"),
+      entry("out_normalized_demand", "Naive Rate (Ignores Idle Time)", "hourly_rate", "USD/hr"),
+      entry("out_scenario_delta", "Hidden Idle Premium", "hourly_rate", "USD/hr"),
+      entry("out_demand_metric", "Total Annual Cost", "currency", "USD"),
+      entry("out_capacity_metric", "Productive Hours / Year", "number", "hrs"),
     ]),
     section("Risk Assessment", 20, [
-      entry("out_sensitivity_driver", "Rate Sensitivity Driver", "string"),
-      entry("out_fmea_trigger", "FMEA Trigger Flag", "boolean"),
+      entry("out_money_at_risk", "Annual Idle-Time Cost Exposure", "currency", "USD"),
+      entry("out_sensitivity_driver", "Dominant Cost Driver", "string"),
+      entry("out_fmea_trigger", "Idle Premium Above 15% Flag", "boolean"),
       entry("out_threshold_crossing", "Rate Threshold Crossed", "boolean"),
-      entry("out_expanded_uncertainty", "Rate Uncertainty", "hourly_rate", "USD/hr"),
+      entry("out_expanded_uncertainty", "Rate Uncertainty Band", "hourly_rate", "USD/hr"),
     ]),
     section("Quality & Decision", 30, [
       entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
-      entry("out_reference_deviation", "Reference Deviation", "number"),
-      entry("out_derating_factor", "Utilization Derating Factor", "ratio"),
-      entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
+      entry("out_reference_deviation", "Idle Premium as % of Rate", "ratio"),
+      entry("out_derating_factor", "Productive Hours Derating Factor", "ratio"),
+      entry("out_final_decision_state", "Go / Review / Escalate Decision", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Annual Cost Structure",
+    segments: [
+      { outputId: "out_capital_share_pct", label: "Depreciation + Maintenance" },
+      { outputId: "out_energy_share_pct", label: "Energy" },
+      { outputId: "out_labor_share_pct", label: "Labor" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_purchase_price", label: "Purchase Price" },
+    { inputId: "n_useful_life", label: "Useful Life" },
+    { inputId: "n_annual_hours", label: "Annual Hours" },
+    { inputId: "n_wage_rate", label: "Operator Wage" },
+    { inputId: "n_power_draw", label: "Power Draw" },
+    { inputId: "n_energy_price", label: "Energy Price" },
+    { inputId: "n_idle_share", label: "Idle Share" },
+    { inputId: "n_maintenance_rate", label: "Maintenance Rate" },
+  ],
+  insights: [
+    {
+      id: "idle-premium-critical",
+      severity: "critical",
+      when: (o) => o.out_reference_deviation > 0.15,
+      message: (o) =>
+        `<strong>${(o.out_reference_deviation * 100).toFixed(0)}% of your hourly rate finances idle capacity</strong> (${o.out_scenario_delta.toFixed(2)}/h). Quoting on the naive rate of ${o.out_normalized_demand.toFixed(2)}/h loses that amount on every hour that actually produces something sellable. Cutting idle share by 5 points is worth more than most price negotiations.`,
+    },
+    {
+      id: "energy-share-opportunity",
+      severity: "opportunity",
+      when: (o) => o.out_energy_share_pct > 0.15,
+      message: (o) =>
+        `Energy is <strong>${(o.out_energy_share_pct * 100).toFixed(1)}% of total cost</strong> -- well above a typical ~5-10% share. A motor efficiency audit or load-shifting review on this machine is worth investigating.`,
+    },
+    {
+      id: "labor-share-info",
+      severity: "info",
+      when: (o) => o.out_labor_share_pct > 0.60,
+      message: (o) =>
+        `Labor is <strong>${(o.out_labor_share_pct * 100).toFixed(0)}% of the cost base</strong> -- this rate is wage-driven. Multi-machine tending or automation moves the needle here; negotiating the purchase price does not.`,
+    },
+    {
+      id: "capital-light-info",
+      severity: "info",
+      when: (o) => o.out_capital_share_pct < 0.15,
+      message: (o) =>
+        `Capital is only <strong>${(o.out_capital_share_pct * 100).toFixed(0)}% of cost</strong> -- this machine is cheap to own, expensive to run. Uptime and labor efficiency matter far more than the purchase price you negotiated.`,
+    },
+    {
+      id: "three-shift-context",
+      severity: "info",
+      when: (o) => o.out_planned_hours_value > 6000,
+      message: (o) =>
+        `${Math.round(o.out_planned_hours_value).toLocaleString("en-US")} planned hours/year is 3-shift territory. Confirm maintenance windows are excluded from "planned" hours -- a common source of 5-8% silent rate error when they aren't.`,
+    },
   ],
 });
 
@@ -161,6 +269,40 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Job Cost Breakdown",
+    segments: [
+      { outputId: "out_machine_cost_component", label: "Machine" },
+      { outputId: "out_labor_cost_component", label: "Labor" },
+      { outputId: "out_overhead_cost_component", label: "Overhead" },
+      { outputId: "out_material_defect_cost_component", label: "Material & Defect" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
+    { inputId: "n_cycle_time", label: "Cycle Time per Unit" },
+    { inputId: "n_setup_time", label: "Batch Setup Time" },
+    { inputId: "n_batch_quantity", label: "Batch Quantity" },
+    { inputId: "n_material_cost", label: "Material Cost per Unit" },
+    { inputId: "n_target_margin", label: "Target Gross Margin" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
+  ],
+  insights: [
+    {
+      id: "loss-making-job-detector-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `This job is priced below its true fully-loaded cost. Annualized loss exposure is ${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}. Do not quote at the current price without renegotiating or cutting cost.`,
+    },
+    {
+      id: "loss-making-job-detector-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Contribution margin clears the target with room to spare -- this job is priced to actually make money, not just cover cost.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -186,6 +328,34 @@ register({
       entry("out_derating_factor", "Payment Risk Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Receivables Cost Breakdown",
+    segments: [
+      { outputId: "out_utilization_margin", label: "AR Carrying Cost" },
+      { outputId: "out_demand_metric", label: "DSO-Driven Financing Cost" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_average_receivable_balance", label: "Average Receivable Balance" },
+    { inputId: "n_annual_interest_rate", label: "Annual Cost of Capital / Interest Rate" },
+    { inputId: "n_average_collection_days", label: "Average Collection Period (DSO)" },
+    { inputId: "n_invoice_volume", label: "Annual Invoice Volume" },
+  ],
+  insights: [
+    {
+      id: "receivables-cost-payment-term-addendum-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The financing cost of these payment terms exceeds the review threshold (${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}/yr). Either shorten the terms or price the credit cost into the quote.`,
+    },
+    {
+      id: "receivables-cost-payment-term-addendum-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Financing cost of these terms is within a normal range -- no repricing needed on payment terms alone.`,
+    },
   ],
 });
 
@@ -213,6 +383,37 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Setup Cost Breakdown (Before)",
+    segments: [
+      { outputId: "out_machine_share_component", label: "Machine" },
+      { outputId: "out_labor_share_component", label: "Labor" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
+    { inputId: "n_setup_time", label: "Batch Setup Time" },
+    { inputId: "n_batch_quantity", label: "Batch Quantity" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
+    { inputId: "n_smed_investment_cost", label: "SMED Program Investment Cost" },
+    { inputId: "n_setup_time_reduction_target_pct", label: "Target Setup Time Reduction" },
+  ],
+  insights: [
+    {
+      id: "setup-time-reduction-roi-smed-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Payback on this SMED investment (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} committed) is too long to justify at current volumes -- the setup-time savings don't cover the investment fast enough.`,
+    },
+    {
+      id: "setup-time-reduction-roi-smed-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This SMED investment pays back inside the target window -- a defensible capital request.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -238,6 +439,40 @@ register({
       entry("out_derating_factor", "Margin Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Unit Cost Breakdown",
+    segments: [
+      { outputId: "out_machine_cost_component", label: "Machine" },
+      { outputId: "out_labor_cost_component", label: "Labor" },
+      { outputId: "out_overhead_cost_component", label: "Overhead" },
+      { outputId: "out_material_defect_cost_component", label: "Material & Defect" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
+    { inputId: "n_cycle_time", label: "Cycle Time per Unit" },
+    { inputId: "n_setup_time", label: "Batch Setup Time" },
+    { inputId: "n_batch_quantity", label: "Batch Quantity" },
+    { inputId: "n_material_cost", label: "Material Cost per Unit" },
+    { inputId: "n_target_margin", label: "Target Gross Margin" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
+  ],
+  insights: [
+    {
+      id: "product-sku-margin-ranker-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `This SKU's contribution margin is below target at current volume -- annualized margin exposure is ${(o.out_capacity_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}. Reprice or delist before scaling volume further.`,
+    },
+    {
+      id: "product-sku-margin-ranker-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This SKU clears its target margin -- safe to grow volume on.`,
+    },
   ],
 });
 
@@ -277,10 +512,46 @@ register({
       entry("out_decision_state", "Decision State", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Fully Loaded Cost Breakdown",
+    segments: [
+      { outputId: "out_employer_payroll_taxes", label: "Payroll Taxes" },
+      { outputId: "out_benefits_cost", label: "Benefits" },
+      { outputId: "out_paid_leave_cost", label: "Paid Leave" },
+      { outputId: "out_training_allocation", label: "Training" },
+      { outputId: "out_equipment_it_cost", label: "Equipment & IT" },
+      { outputId: "out_workspace_facility_cost", label: "Workspace / Facility" },
+      { outputId: "out_insurance_burden", label: "Insurance" },
+    ],
+  },
+  sensitivityTargetOutput: "out_fully_loaded_annual_cost",
+  sensitivityDrivers: [
+    { inputId: "n_annual_base_salary", label: "Annual Base Salary" },
+    { inputId: "n_payroll_tax_rate", label: "Employer Payroll Tax Rate" },
+    { inputId: "n_annual_benefits_cost", label: "Annual Benefits Cost" },
+    { inputId: "n_annual_insurance_cost", label: "Annual Health/Life Insurance Cost" },
+    { inputId: "n_annual_training_cost", label: "Annual Training & Development Cost" },
+    { inputId: "n_annual_equipment_it_cost", label: "Annual Equipment & IT Cost" },
+    { inputId: "n_annual_workspace_facility_cost", label: "Annual Workspace & Facility Cost" },
+    { inputId: "n_target_billable_utilization_ratio", label: "Target Billable Utilization" },
+  ],
+  insights: [
+    {
+      id: "true-employee-cost-statement-critical",
+      severity: "critical",
+      when: (o) => o.out_threshold_crossing === 1,
+      message: (o) =>
+        `Fully loaded cost is running well above base compensation -- ${(o.out_base_to_loaded_multiplier ?? 0).toFixed(2)}x the base salary. Budgeting or pricing against base salary alone understates true cost by this multiplier.`,
+    },
+    {
+      id: "true-employee-cost-statement-context",
+      severity: "info",
+      when: (o) => o.out_base_to_loaded_multiplier > 0,
+      message: (o) =>
+        `Fully loaded annual cost is $${(o.out_fully_loaded_annual_cost ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} against $${(o.out_base_annual_compensation ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} base -- use the loaded figure, not base salary, for margin and pricing decisions involving this role.`,
+    },
+  ],
 });
-
-// ---------------------------------------------------------------------------
-// 8. job-quote-builder-pro-pack
 // ---------------------------------------------------------------------------
 register({
   toolSlug: "job-quote-builder-pro-pack",
@@ -302,6 +573,40 @@ register({
       entry("out_derating_factor", "Quote Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Quote Cost Breakdown",
+    segments: [
+      { outputId: "out_labor_cost_component", label: "Labor" },
+      { outputId: "out_machine_cost_component", label: "Machine" },
+      { outputId: "out_material_cost_component", label: "Material" },
+      { outputId: "out_overhead_and_scrap_component", label: "Overhead & Scrap" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_machine_rate", label: "Machine Hourly Rate" },
+    { inputId: "n_cycle_time", label: "Cycle Time per Unit" },
+    { inputId: "n_setup_time", label: "Batch Setup Time" },
+    { inputId: "n_batch_quantity", label: "Batch Quantity" },
+    { inputId: "n_material_cost", label: "Material Cost per Unit" },
+    { inputId: "n_target_margin", label: "Target Gross Margin" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
+  ],
+  insights: [
+    {
+      id: "job-quote-builder-pro-pack-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `This quote's margin is below the safety threshold against a ${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} cost base -- sending it as-is risks a loss-making job.`,
+    },
+    {
+      id: "job-quote-builder-pro-pack-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This quote holds margin above target -- defensible to send as-is.`,
+    },
   ],
 });
 
@@ -329,6 +634,39 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Buy vs Lease vs Keep (NPV)",
+    segments: [
+      { outputId: "out_npv_buy_component", label: "Buy" },
+      { outputId: "out_npv_lease_component", label: "Lease" },
+      { outputId: "out_npv_keep_component", label: "Keep" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_initial_investment", label: "Initial Investment" },
+    { inputId: "n_annual_net_cash_flow", label: "Annual Net Cash Flow" },
+    { inputId: "n_discount_rate", label: "Discount Rate" },
+    { inputId: "n_analysis_years", label: "Analysis Period" },
+    { inputId: "n_residual_value", label: "Residual Value" },
+    { inputId: "n_stress_downside_factor", label: "Downside Stress Factor" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
+  ],
+  insights: [
+    {
+      id: "machine-investment-feasibility-buy-lease-keep-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The total cost of ownership (${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) makes this option unfavorable against the alternatives -- do not commit capital on this path without revisiting the comparison.`,
+    },
+    {
+      id: "machine-investment-feasibility-buy-lease-keep-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This option's total cost of ownership is favorable -- a defensible buy/lease/keep decision.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -354,6 +692,39 @@ register({
       entry("out_derating_factor", "Appraisal Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Cash Flow Composition",
+    segments: [
+      { outputId: "out_initial_investment_component", label: "Initial Investment" },
+      { outputId: "out_pv_cash_flows_component", label: "PV of Cash Flows" },
+      { outputId: "out_pv_residual_component", label: "PV of Residual" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_initial_investment", label: "Initial Investment" },
+    { inputId: "n_annual_net_cash_flow", label: "Annual Net Cash Flow" },
+    { inputId: "n_discount_rate", label: "Discount Rate" },
+    { inputId: "n_analysis_years", label: "Analysis Period" },
+    { inputId: "n_residual_value", label: "Residual Value" },
+    { inputId: "n_stress_downside_factor", label: "Downside Stress Factor" },
+    { inputId: "n_annual_volume", label: "Annual Decision Volume" },
+    { inputId: "n_labor_rate", label: "Fully Loaded Labor Rate" },
+  ],
+  insights: [
+    {
+      id: "capital-equipment-investment-appraisal-npv-irr-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Net present value (${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) does not clear the hurdle -- this investment destroys value at the current discount rate and cash flow assumptions.`,
+    },
+    {
+      id: "capital-equipment-investment-appraisal-npv-irr-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `NPV is positive and clears the hurdle rate -- this investment creates value at the assumptions entered.`,
+    },
   ],
 });
 
@@ -381,6 +752,39 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Servicing Cost Breakdown",
+    segments: [
+      { outputId: "out_logistics_burden_component", label: "Logistics" },
+      { outputId: "out_service_burden_component", label: "Service" },
+      { outputId: "out_return_burden_component", label: "Returns" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_unit_price", label: "Unit Price" },
+    { inputId: "n_unit_variable_cost", label: "Unit Variable Cost" },
+    { inputId: "n_annual_volume", label: "Annual Volume" },
+    { inputId: "n_logistics_cost_pct", label: "Logistics Cost %" },
+    { inputId: "n_service_cost_pct", label: "Service Cost %" },
+    { inputId: "n_return_rate_pct", label: "Return Rate %" },
+    { inputId: "n_target_margin", label: "Target Margin" },
+    { inputId: "n_labor_rate", label: "Labor Rate" },
+  ],
+  insights: [
+    {
+      id: "customer-sku-profitability-forensics-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `This SKU is toxic at the account level -- net margin after logistics, service, and return costs is negative, with ${(o.out_capacity_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} in annualized exposure. Cut, reprice, or renegotiate terms.`,
+    },
+    {
+      id: "customer-sku-profitability-forensics-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This SKU is genuinely profitable after all servicing costs are accounted for, not just on paper gross margin.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -406,6 +810,39 @@ register({
       entry("out_derating_factor", "Loss Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Loss Breakdown",
+    segments: [
+      { outputId: "out_downtime_cost_component", label: "Downtime" },
+      { outputId: "out_scrap_cost_component", label: "Scrap" },
+      { outputId: "out_rework_cost_component", label: "Rework" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_productive_hours", label: "Productive Hours" },
+    { inputId: "n_actual_hours", label: "Actual Hours" },
+    { inputId: "n_hourly_rate", label: "Hourly Rate" },
+    { inputId: "n_scrap_quantity", label: "Scrap Quantity" },
+    { inputId: "n_unit_cost", label: "Unit Cost" },
+    { inputId: "n_rework_hours", label: "Rework Hours" },
+    { inputId: "n_rework_rate", label: "Rework Rate" },
+    { inputId: "n_material_cost", label: "Material Cost" },
+  ],
+  insights: [
+    {
+      id: "downtime-scrap-loss-statement-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Combined downtime, scrap, and rework loss (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) has crossed the escalation threshold against your material cost base -- this needs a root-cause review, not just tracking.`,
+    },
+    {
+      id: "downtime-scrap-loss-statement-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Losses from downtime, scrap, and rework are within a controlled range relative to material cost.`,
+    },
   ],
 });
 
@@ -433,6 +870,39 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "OEE Loss Breakdown",
+    segments: [
+      { outputId: "out_availability_loss_component", label: "Availability Loss" },
+      { outputId: "out_performance_loss_component", label: "Performance Loss" },
+      { outputId: "out_quality_loss_component", label: "Quality Loss" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_planned_production_time", label: "Planned Production Time" },
+    { inputId: "n_operating_time", label: "Operating Time" },
+    { inputId: "n_net_operating_time", label: "Net Operating Time" },
+    { inputId: "n_valuable_operating_time", label: "Valuable Operating Time" },
+    { inputId: "n_ideal_cycle_time", label: "Ideal Cycle Time" },
+    { inputId: "n_total_parts", label: "Total Parts" },
+    { inputId: "n_good_parts", label: "Good Parts" },
+    { inputId: "n_hourly_contribution", label: "Hourly Contribution" },
+  ],
+  insights: [
+    {
+      id: "oee-loss-monetization-improvement-business-case-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The monetized value of closing this OEE gap (${(o.out_demand_metric ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}/yr) justifies an improvement project -- the business case clears the threshold.`,
+    },
+    {
+      id: "oee-loss-monetization-improvement-business-case-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Recoverable OEE loss value is modest at current performance -- other improvement levers likely pay back faster.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -458,6 +928,38 @@ register({
       entry("out_derating_factor", "Quality Derating Factor", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Scrap vs Rework Breakdown",
+    segments: [
+      { outputId: "out_demand_metric", label: "Scrap" },
+      { outputId: "out_capacity_metric", label: "Rework" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_total_produced", label: "Total Produced" },
+    { inputId: "n_scrap_quantity", label: "Scrap Quantity" },
+    { inputId: "n_rework_quantity", label: "Rework Quantity" },
+    { inputId: "n_unit_material_cost", label: "Unit Material Cost" },
+    { inputId: "n_unit_labor_cost", label: "Unit Labor Cost" },
+    { inputId: "n_rework_labor_rate", label: "Rework Labor Rate" },
+    { inputId: "n_rework_time_per_unit", label: "Rework Time Per Unit" },
+    { inputId: "n_defect_rate_target_pct", label: "Defect Rate Target %" },
+  ],
+  insights: [
+    {
+      id: "scrap-rework-cost-tracker-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Defect rate is above target and the combined scrap/rework cost (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) is materially eating into unit economics -- this is a quality escalation, not routine tracking.`,
+    },
+    {
+      id: "scrap-rework-cost-tracker-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Defect rate is at or below target -- scrap and rework cost is under control.`,
+    },
   ],
 });
 
@@ -485,6 +987,39 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "In-House Annual Cost Breakdown",
+    segments: [
+      { outputId: "out_material_cost_component", label: "Material" },
+      { outputId: "out_labor_cost_component", label: "Labor" },
+      { outputId: "out_overhead_cost_component", label: "Overhead" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_in_house_material_cost", label: "In-House Material Cost" },
+    { inputId: "n_in_house_labor_cost", label: "In-House Labor Cost" },
+    { inputId: "n_in_house_overhead", label: "In-House Overhead" },
+    { inputId: "n_in_house_setup_cost", label: "In-House Setup Cost" },
+    { inputId: "n_outsource_unit_price", label: "Outsource Unit Price" },
+    { inputId: "n_outsource_logistics_cost", label: "Outsource Logistics Cost" },
+    { inputId: "n_annual_volume", label: "Annual Volume" },
+    { inputId: "n_quality_risk_premium_pct", label: "Quality Risk Premium %" },
+  ],
+  insights: [
+    {
+      id: "outsource-vs-in-house-analyzer-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The risk-adjusted cost delta (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} exposure) favors a decision change -- re-run this analysis before the next sourcing commitment.`,
+    },
+    {
+      id: "outsource-vs-in-house-analyzer-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `The current in-house/outsource split is cost-favorable once capacity opportunity cost and quality risk premium are both priced in.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -510,6 +1045,38 @@ register({
       entry("out_derating_factor", "Cost Structure Derating", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Cost Pool Breakdown",
+    segments: [
+      { outputId: "out_machine_group_cost_component", label: "Machine Group Cost" },
+      { outputId: "out_overhead_pool_component", label: "Overhead Pool" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_total_annual_cost", label: "Total Annual Cost" },
+    { inputId: "n_total_productive_hours", label: "Total Productive Hours" },
+    { inputId: "n_machine_group_cost", label: "Machine Group Cost" },
+    { inputId: "n_machine_group_hours", label: "Machine Group Hours" },
+    { inputId: "n_overhead_pool", label: "Overhead Pool" },
+    { inputId: "n_overhead_allocation_base", label: "Overhead Allocation Base" },
+    { inputId: "n_current_shop_rate", label: "Current Shop Rate" },
+    { inputId: "n_target_margin_pct", label: "Target Margin %" },
+  ],
+  insights: [
+    {
+      id: "plant-wide-shop-rate-cost-structure-audit-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `The audited plant-wide rate under-recovers cost at current utilization -- quoting on the naive rate alone (ignoring this audit) is losing money on every job.`,
+    },
+    {
+      id: "plant-wide-shop-rate-cost-structure-audit-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `The plant-wide shop rate recovers full cost at current utilization -- safe to quote against.`,
+    },
   ],
 });
 
@@ -537,6 +1104,38 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Price Impact Breakdown",
+    segments: [
+      { outputId: "out_fx_impact_component", label: "FX Impact" },
+      { outputId: "out_commodity_impact_component", label: "Commodity Impact" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_base_price", label: "Base Price" },
+    { inputId: "n_fx_rate_spot", label: "FX Rate (Spot)" },
+    { inputId: "n_fx_rate_budget", label: "FX Rate (Budget)" },
+    { inputId: "n_commodity_index_current", label: "Commodity Index (Current)" },
+    { inputId: "n_commodity_index_budget", label: "Commodity Index (Budget)" },
+    { inputId: "n_material_cost_pct", label: "Material Cost %" },
+    { inputId: "n_fx_hedge_pct", label: "FX Hedge %" },
+    { inputId: "n_commodity_hedge_pct", label: "Commodity Hedge %" },
+  ],
+  insights: [
+    {
+      id: "fx-commodity-pass-through-pricer-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Combined FX and commodity movement has crossed the repricing threshold -- ${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}/yr is exposed if the quote isn't repriced to reflect current rates.`,
+    },
+    {
+      id: "fx-commodity-pass-through-pricer-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `FX and commodity movement is within the no-reprice band -- the existing quote still holds.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -563,6 +1162,38 @@ register({
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
   ],
+  paretoBreakdown: {
+    title: "Net Cost After Grant",
+    segments: [
+      { outputId: "out_implementation_cost_component", label: "Implementation Cost" },
+      { outputId: "out_grant_offset_component", label: "Grant Offset" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_current_kwh_per_year", label: "Current kWh/Year" },
+    { inputId: "n_target_kwh_per_year", label: "Target kWh/Year" },
+    { inputId: "n_avg_kwh_rate", label: "Avg kWh Rate" },
+    { inputId: "n_implementation_cost", label: "Implementation Cost" },
+    { inputId: "n_grant_coverage_pct", label: "Grant Coverage %" },
+    { inputId: "n_maintenance_cost_saving", label: "Maintenance Cost Saving" },
+    { inputId: "n_emission_factor_kgco2_per_kwh", label: "Emission Factor (kgCO₂/kWh)" },
+    { inputId: "n_equipment_life_years", label: "Equipment Life (Years)" },
+  ],
+  insights: [
+    {
+      id: "energy-efficiency-grant-incentive-feasibility-pack-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Even after the grant offset, payback on this energy-efficiency project is too long to proceed at current energy prices and savings estimates.`,
+    },
+    {
+      id: "energy-efficiency-grant-incentive-feasibility-pack-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Grant-adjusted payback clears the proceed threshold -- a defensible capital request even without further incentive negotiation.`,
+    },
+  ],
 });
 
 // ---------------------------------------------------------------------------
@@ -588,6 +1219,38 @@ register({
       entry("out_derating_factor", "Replacement Derating", "ratio"),
       entry("out_final_decision_state", "Go / Review / Block Decision", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Energy Cost: Current vs New",
+    segments: [
+      { outputId: "out_current_energy_cost_component", label: "Current Motor" },
+      { outputId: "out_new_energy_cost_component", label: "New Motor" },
+    ],
+  },
+  sensitivityTargetOutput: "out_utilization_margin",
+  sensitivityDrivers: [
+    { inputId: "n_motor_power_kw", label: "Motor Power (kW)" },
+    { inputId: "n_annual_operating_hours", label: "Annual Operating Hours" },
+    { inputId: "n_current_efficiency_pct", label: "Current Efficiency %" },
+    { inputId: "n_new_efficiency_pct", label: "New Efficiency %" },
+    { inputId: "n_avg_kwh_rate", label: "Avg kWh Rate" },
+    { inputId: "n_replacement_cost", label: "Replacement Cost" },
+    { inputId: "n_installation_cost", label: "Installation Cost" },
+    { inputId: "n_maintenance_saving_per_year", label: "Maintenance Saving/Year" },
+  ],
+  insights: [
+    {
+      id: "motor-compressor-replacement-roi-critical",
+      severity: "critical",
+      when: (o) => o.out_final_decision_state === 2,
+      message: (o) => `Payback on this motor/compressor replacement (${(o.out_money_at_risk ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} committed) is long, but NPV over the equipment's life may still be positive -- check the NPV figure before rejecting on payback alone.`,
+    },
+    {
+      id: "motor-compressor-replacement-roi-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_final_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `This replacement pays back inside a reasonable window and NPV is positive over the equipment's life -- a defensible upgrade.`,
+    },
   ],
 });
 
@@ -622,6 +1285,40 @@ register({
       entry("out_evidence_completeness", "Input Confidence Score", "ratio"),
       entry("out_decision_state", "Decision State", "number"),
     ]),
+  ],
+  paretoBreakdown: {
+    title: "Weld Cost Breakdown",
+    segments: [
+      { outputId: "out_wire_cost", label: "Wire / Electrode" },
+      { outputId: "out_shielding_gas_cost", label: "Shielding Gas" },
+      { outputId: "out_labor_cost", label: "Labor" },
+      { outputId: "out_shop_overhead", label: "Shop Overhead" },
+    ],
+  },
+  sensitivityTargetOutput: "out_total_cost_floor",
+  sensitivityDrivers: [
+    { inputId: "n_weld_length_m", label: "Weld Length (m)" },
+    { inputId: "n_weld_throat_mm", label: "Weld Throat (mm)" },
+    { inputId: "n_weld_density_g_per_cm3", label: "Weld Density (g/cm³)" },
+    { inputId: "n_wire_cost_per_kg", label: "Wire Cost per kg" },
+    { inputId: "n_gas_cost_per_min", label: "Gas Cost per Minute" },
+    { inputId: "n_arc_time_min", label: "Arc Time (min)" },
+    { inputId: "n_weld_time_min", label: "Weld Time (min)" },
+    { inputId: "n_labor_rate", label: "Labor Rate" },
+  ],
+  insights: [
+    {
+      id: "weld-procedure-cost-consumable-estimation-suite-critical",
+      severity: "critical",
+      when: (o) => o.out_decision_state === 2,
+      message: (o) => `Cost per meter on this weld procedure (total ${(o.out_total_cost_floor ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}) is above the review threshold -- check wire mass, deposition efficiency, and shop rate before quoting on this procedure.`,
+    },
+    {
+      id: "weld-procedure-cost-consumable-estimation-suite-favorable",
+      severity: "opportunity",
+      when: (o) => o.out_decision_state === 0 && o.out_threshold_crossing === 0,
+      message: () => `Cost per meter on this weld procedure is within the normal range -- safe to use as the basis for a quote.`,
+    },
   ],
 });
 

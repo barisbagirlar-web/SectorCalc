@@ -114,7 +114,9 @@ const PRO_SLUGS = [
    ═══════════════════════════════════════════════════════════════════════ */
 
 describe("[1] FREE TOOLS — PRIMARY_METRIC_ID vs addMetric() output keys", () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const fs = require("fs");
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const path = require("path");
   const formulaDir = path.resolve(__dirname, "../../src/sectorcalc/formulas/free-v531");
   const formulaFiles = fs.readdirSync(formulaDir).filter((f: string) => f.endsWith(".formula.ts"));
@@ -161,7 +163,9 @@ describe("[2] FREE TOOLS — Execute with safe inputs", () => {
    ═══════════════════════════════════════════════════════════════════════ */
 
 describe("[3] PRO TOOLS — outputKey integrity", () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const fs = require("fs");
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const path = require("path");
 
   // compressed-air-leak-cost-calculator is a stub (returns static note only)
@@ -663,7 +667,9 @@ describe("[8] EDGE CASES — FREE tools (tolerant)", () => {
    ═══════════════════════════════════════════════════════════════════════ */
 
 describe("[9] REGISTRY INTEGRITY", () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const fs = require("fs");
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const path = require("path");
 
   it("all 50 FREE .formula.ts files registered", () => {

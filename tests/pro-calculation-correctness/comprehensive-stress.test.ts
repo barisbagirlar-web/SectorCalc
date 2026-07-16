@@ -230,7 +230,7 @@ describe("COMPREHENSIVE STRESS — ALL FREE TOOLS", () => {
         finite_count: finiteCount,
         primary_metric_value: primaryValue,
         primary_positive: primaryValue !== null ? primaryValue >= 0 : null,
-        errors: result.errors ?? [],
+        errors: result.errors ? [...result.errors] : [],
         warnings_count: (result.warnings ?? []).length,
         all_finite: finiteCount === outputs.length && outputs.length > 0,
         input_count: inputIds.length,

@@ -53,7 +53,9 @@ function makeContext(inputs: Record<string, number>): Parameters<typeof executeF
 
 describe("AST — No eval / no new Function", () => {
   it("source file contains no eval or new Function", () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const fs = require("fs");
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const path = require("path");
     const enginePath = path.resolve(
       __dirname,

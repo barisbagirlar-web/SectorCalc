@@ -58,12 +58,23 @@ const severityClassMap: Record<string, string> = {
   info: "sc-report-severity-info",
 };
 
+type SensitivityDriverResult = { inputId: string; label: string; up: number | null; down: number | null; span: number | null };
+
+const insightClassMap: Record<string, string> = {
+  critical: "sc-report-insight-critical",
+  opportunity: "sc-report-insight-opportunity",
+  info: "sc-report-insight-info",
+};
+
 export function ProReportPanelV2({
   toolTitle,
   sections,
   warnings,
   decisionStateLabel,
   decisionSeverity,
+  firedInsights,
+  sensitivity,
+  paretoBreakdown,
 }: ProReportPanelV2Props) {
   const isEmpty = !sections || sections.length === 0;
 
