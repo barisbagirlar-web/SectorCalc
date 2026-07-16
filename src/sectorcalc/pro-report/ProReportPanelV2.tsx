@@ -126,9 +126,76 @@ export function ProReportPanelV2({
         if (total <= 0) return null;
         const maxVal = Math.max(...paretoBreakdown.segments.map((s) => Math.abs(s.value)));
         let cumulative = 0;
+
+        // Waterfall: same segments, rendered as a running-total cascade (complements the
+        // ranked-magnitude view below by showing how the components sum toward the total).
+        const W = 640;
+        const H = 220;
+        const padL = 8;
+        const padR = 8;
+        const padT = 16;
+        const padB = 46;
+        const plotW = W - padL - padR;
+        const plotH = H - padT - padB;
+        const barW = plotW / (paretoBreakdown.segments.length + 1) - 14;
+        const wfY = (v: number) => padT + plotH - (Math.max(0, v) / total) * plotH;
+        let running = 0;
+        const wfSteps = paretoBreakdown.segments.map((seg) => {
+          const start = running;
+          running += Math.abs(seg.value);
+          return { label: seg.label, start, end: running, negative: seg.value < 0 };
+        });
+
         return (
-          <div className="sc-report-pareto">
-            <h4 className="sc-report-section-title">{paretoBreakdown.title}</h4>
+          <>
+            <div className="sc-report-chart-block">
+              <h4 className="sc-report-section-title">{paretoBreakdown.title} — Waterfall</h4>
+              <svg viewBox={`0 0 ${W} ${H}`} className="sc-report-chart-svg" role="img" aria-label="Cost breakdown waterfall">
+                <line x1={padL} y1={wfY(0)} x2={W - padR} y2={wfY(0)} stroke="#D4D2C8" strokeWidth={1} />
+                {wfSteps.map((s, i) => {
+                  const x = padL + i * (plotW / (wfSteps.length + 1)) + 7;
+                  const top = wfY(s.end);
+                  const bottom = wfY(s.start);
+                  return (
+                    <g key={s.label}>
+                      <rect
+                        x={x}
+                        y={top}
+                        width={barW}
+                        height={Math.max(1, bottom - top)}
+                        fill={s.negative ? "#9C3520" : "#C15F3C"}
+                      />
+                      <text x={x + barW / 2} y={top - 6} textAnchor="middle" fontSize="10.5" fontFamily="JetBrains Mono, monospace" fill="#1A1915">
+                        {formatReportValue(Math.abs(s.end - s.start), null, 0)}
+                      </text>
+                      <text x={x + barW / 2} y={H - padB + 16} textAnchor="middle" fontSize="9.5" fill="#8C887E">
+                        {s.label}
+                      </text>
+                    </g>
+                  );
+                })}
+                {/* running total bar */}
+                {(() => {
+                  const x = padL + wfSteps.length * (plotW / (wfSteps.length + 1)) + 7;
+                  return (
+                    <g>
+                      <rect x={x} y={wfY(total)} width={barW} height={Math.max(1, wfY(0) - wfY(total))} fill="#3A4D8F" />
+                      <text x={x + barW / 2} y={wfY(total) - 6} textAnchor="middle" fontSize="10.5" fontFamily="JetBrains Mono, monospace" fill="#1A1915">
+                        {formatReportValue(total, null, 0)}
+                      </text>
+                      <text x={x + barW / 2} y={H - padB + 16} textAnchor="middle" fontSize="9.5" fill="#8C887E">
+                        Total
+                      </text>
+                    </g>
+                  );
+                })()}
+              </svg>
+              <p className="sc-report-sensitivity-note">
+                Running total from left to right, ranked by the size of each component&apos;s contribution.
+              </p>
+            </div>
+            <div className="sc-report-pareto">
+            <h4 className="sc-report-section-title">{paretoBreakdown.title} — Ranked by Magnitude</h4>
             <div className="sc-report-pareto-bars">
               {paretoBreakdown.segments.map((seg) => {
                 const pct = (100 * Math.abs(seg.value)) / total;
@@ -156,6 +223,7 @@ export function ProReportPanelV2({
               different color) work against the total rather than adding to it.
             </p>
           </div>
+          </>
         );
       })()}
 
@@ -280,17 +348,26 @@ export function ProReportPanelV2({
           <div key={si} className="sc-report-section">
             <h4 className="sc-report-section-title">{section.sectionTitle}</h4>
             <div className="sc-report-grid">
-              {section.entries.map((entry, ei) => (
-                <div key={ei} className="sc-report-item">
-                  <span className="sc-report-item-label">{entry.label}</span>
-                  <span className="sc-report-item-value">
-                    {formatReportValue(entry.value, entry.unit, entry.displayDecimals)}
-                  </span>
-                  {entry.explanation && (
-                    <span className="sc-report-item-explanation">{entry.explanation}</span>
-                  )}
-                </div>
-              ))}
+              {section.entries.map((entry, ei) => {
+                const isPercent = entry.unit === "%" && typeof entry.value === "number" && Number.isFinite(entry.value);
+                const pct = isPercent ? Math.max(0, Math.min(100, Math.abs(entry.value as number))) : null;
+                return (
+                  <div key={ei} className="sc-report-item">
+                    <span className="sc-report-item-label">{entry.label}</span>
+                    <span className="sc-report-item-value">
+                      {formatReportValue(entry.value, entry.unit, entry.displayDecimals)}
+                    </span>
+                    {pct !== null && (
+                      <div className="sc-report-item-spark" aria-hidden="true">
+                        <div className="sc-report-item-spark-fill" style={{ width: `${pct}%` }} />
+                      </div>
+                    )}
+                    {entry.explanation && (
+                      <span className="sc-report-item-explanation">{entry.explanation}</span>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         ))}

@@ -410,6 +410,35 @@
   text-align: center;
 }
 
+.sc-report-kpi-flat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  height: 78px;
+  border: 1.5px solid;
+  padding: 8px;
+}
+
+.sc-report-kpi-flat-value {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.sc-report-item-spark {
+  margin-top: 6px;
+  height: 4px;
+  background: #EFEBE2;
+  width: 100%;
+}
+
+.sc-report-item-spark-fill {
+  height: 4px;
+  background: #3A4D8F;
+}
+
 @media (max-width: 768px) {
   .sc-report-kpi-gauge-row {
     justify-content: center;
