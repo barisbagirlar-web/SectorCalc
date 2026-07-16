@@ -124,16 +124,41 @@ register({
     {
       id: "break-even-runway-critical",
       severity: "critical",
-      when: (o) => o.out_threshold_crossing === 1,
+      when: (o) => o.out_target_runway_breached === 1 && o.out_cash_runway_months < 6,
       message: (o) =>
-        `Under the stressed scenario, cash runway is ${(o.out_cash_runway_months ?? 0).toFixed(1)} months against a ${'$'}${(o.out_funding_gap ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} funding gap to the survival target -- this needs a funding or cost-cutting decision now, not at the next board meeting.`,
+        `Cash runway is ${(o.out_cash_runway_months ?? 0).toFixed(1)} months under the stressed scenario, against a ${'$'}${(o.out_funding_gap ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} funding gap to the survival target. Below six months, financing lead-time typically exceeds the window -- this needs a funding or cost-cutting decision now, not at the next board meeting.`,
+    },
+    {
+      id: "break-even-runway-watch",
+      severity: "critical",
+      when: (o) => o.out_target_runway_breached === 1 && o.out_cash_runway_months >= 6,
+      message: (o) =>
+        `Runway target is breached but not yet critical: ${(o.out_cash_runway_months ?? 0).toFixed(1)} months at a burn of ${'$'}${(o.out_monthly_cash_burn ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})}/mo. Closing the ${'$'}${(o.out_funding_gap ?? 0).toLocaleString("en-US", {maximumFractionDigits: 0})} gap to the survival cash target removes the flag.`,
+    },
+    {
+      id: "break-even-margin-of-safety-thin",
+      severity: "info",
+      when: (o) => o.out_target_runway_breached === 0 && o.out_margin_of_safety_ratio > 0 && o.out_margin_of_safety_ratio < 0.15,
+      message: (o) =>
+        `Margin of safety is only ${((o.out_margin_of_safety_ratio ?? 0) * 100).toFixed(1)}% -- current revenue could drop by that much before hitting break-even. This is a resilience number, not a growth number: treat it as recession headroom, not room to relax.`,
     },
     {
       id: "break-even-margin-of-safety-opportunity",
       severity: "opportunity",
-      when: (o) => o.out_threshold_crossing === 0 && o.out_margin_of_safety_ratio > 0.20,
+      when: (o) => o.out_target_runway_breached === 0 && o.out_margin_of_safety_ratio >= 0.20,
       message: (o) =>
-        `Revenue margin of safety is ${((o.out_margin_of_safety_ratio ?? 0) * 100).toFixed(0)}% -- current revenue could drop by that much before hitting break-even. Comfortable room to absorb a slow month.`,
+        `Revenue margin of safety is ${((o.out_margin_of_safety_ratio ?? 0) * 100).toFixed(0)}% and the survival target is not breached -- current revenue could drop by that much before hitting break-even. Comfortable room to absorb a slow month.`,
+    },
+    {
+      id: "break-even-revenue-gap-context",
+      severity: "info",
+      when: (o) => Math.abs(o.out_current_revenue_gap ?? 0) > 0,
+      message: (o) => {
+        const gap = o.out_current_revenue_gap ?? 0;
+        return gap > 0
+          ? `Current revenue is ${'$'}${gap.toLocaleString("en-US", {maximumFractionDigits: 0})}/mo above accounting break-even -- the business is covering its fixed cost at today's volume.`
+          : `Current revenue is ${'$'}${Math.abs(gap).toLocaleString("en-US", {maximumFractionDigits: 0})}/mo below accounting break-even -- volume or price needs to move to close this gap before profitability, independent of the cash-runway picture.`;
+      },
     },
   ],
 });
