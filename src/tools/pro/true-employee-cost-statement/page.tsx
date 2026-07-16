@@ -44,21 +44,69 @@ interface FieldDef {
 const FIELDS: FieldDef[] = [
   // ── Compensation ──
   {
-    id: "annualSalary", label: "Annual salary / labor rate",
+    id: "annualSalary", label: "Annual base salary",
     unit: "/yr", unitOptions: [],
     domain: "flat", showPrefix: true, default: 75000,
-    hint: "Gross annual salary before deductions. Values below 100 treated as hourly rate.",
-    ref: "salary \u00B7 hourly \u00B7 annual", group: "compensation",
+    hint: "Gross annual base salary before any employer additions.",
+    ref: "salary \u00B7 annual", group: "compensation",
     hardMin: 0, hardMax: 1e9,
   },
-  // ── Overhead ──
+  // ── Employer additions ──
   {
-    id: "overheadRate", label: "Overhead allocation rate",
-    unit: "%", unitOptions: [],
-    domain: "percent", showPrefix: false, default: 15,
-    hint: "Indirect cost allocation rate as percentage of base salary.",
-    ref: "% \u00B7 ratio", group: "overhead",
-    hardMin: 0, hardMax: 100,
+    id: "payrollTaxRate", label: "Employer payroll tax rate",
+    unit: "ratio", unitOptions: [],
+    domain: "percent", showPrefix: false, default: 0.0765,
+    hint: "Employer-side payroll tax burden as a ratio (e.g. 0.0765 = 7.65%).",
+    ref: "0..1 ratio", group: "overhead",
+    hardMin: 0, hardMax: 1,
+  },
+  {
+    id: "annualBenefitsCost", label: "Annual benefits cost",
+    unit: "/yr", unitOptions: [],
+    domain: "flat", showPrefix: true, default: 12000,
+    hint: "Health insurance, retirement match, and other benefits, combined per year.",
+    ref: "cost \u00B7 /yr", group: "overhead",
+    hardMin: 0, hardMax: 1e7,
+  },
+  {
+    id: "annualInsuranceCost", label: "Annual insurance cost",
+    unit: "/yr", unitOptions: [],
+    domain: "flat", showPrefix: true, default: 3000,
+    hint: "Workers' comp and liability insurance allocated to this employee per year.",
+    ref: "cost \u00B7 /yr", group: "overhead",
+    hardMin: 0, hardMax: 1e7,
+  },
+  {
+    id: "annualTrainingCost", label: "Annual training cost",
+    unit: "/yr", unitOptions: [],
+    domain: "flat", showPrefix: true, default: 2000,
+    hint: "Training and professional development budget per year.",
+    ref: "cost \u00B7 /yr", group: "overhead",
+    hardMin: 0, hardMax: 1e7,
+  },
+  {
+    id: "annualEquipmentItCost", label: "Annual equipment & IT cost",
+    unit: "/yr", unitOptions: [],
+    domain: "flat", showPrefix: true, default: 2500,
+    hint: "Equipment, software licenses, and IT support allocated per year.",
+    ref: "cost \u00B7 /yr", group: "overhead",
+    hardMin: 0, hardMax: 1e7,
+  },
+  {
+    id: "annualWorkspaceFacilityCost", label: "Annual workspace/facility cost",
+    unit: "/yr", unitOptions: [],
+    domain: "flat", showPrefix: true, default: 6000,
+    hint: "Office space, utilities, and facility overhead allocated per year.",
+    ref: "cost \u00B7 /yr", group: "overhead",
+    hardMin: 0, hardMax: 1e7,
+  },
+  {
+    id: "targetBillableUtilizationRatio", label: "Target billable utilization",
+    unit: "ratio", unitOptions: [],
+    domain: "percent", showPrefix: false, default: 0.8,
+    hint: "Share of paid hours that are productive/billable (rest is paid leave, holidays, etc).",
+    ref: "0..1 ratio", group: "overhead",
+    hardMin: 0.01, hardMax: 1,
   },
   {
     id: "sourceConfidence", label: "Source confidence",
@@ -460,8 +508,14 @@ export default function TrueEmployeeCostPage() {
               <table>
                 <thead><tr><th>Parameter</th><th className="n">Value</th></tr></thead>
                 <tbody>
-                  <tr><td>Annual salary / labor rate</td><td className="n">{curSym}{fmtNum(inputs.annualSalary)}{inputs.annualSalary <= 100 ? "/h" : "/yr"}</td></tr>
-                  <tr><td>Overhead allocation rate</td><td className="n">{inputs.overheadRate.toFixed(1)}%</td></tr>
+                  <tr><td>Annual base salary</td><td className="n">{curSym}{fmtNum(inputs.annualSalary)}/yr</td></tr>
+                  <tr><td>Payroll tax rate</td><td className="n">{(inputs.payrollTaxRate * 100).toFixed(2)}%</td></tr>
+                  <tr><td>Annual benefits cost</td><td className="n">{curSym}{fmtNum(inputs.annualBenefitsCost)}</td></tr>
+                  <tr><td>Annual insurance cost</td><td className="n">{curSym}{fmtNum(inputs.annualInsuranceCost)}</td></tr>
+                  <tr><td>Annual training cost</td><td className="n">{curSym}{fmtNum(inputs.annualTrainingCost)}</td></tr>
+                  <tr><td>Annual equipment/IT cost</td><td className="n">{curSym}{fmtNum(inputs.annualEquipmentItCost)}</td></tr>
+                  <tr><td>Annual workspace/facility cost</td><td className="n">{curSym}{fmtNum(inputs.annualWorkspaceFacilityCost)}</td></tr>
+                  <tr><td>Target billable utilization</td><td className="n">{(inputs.targetBillableUtilizationRatio * 100).toFixed(0)}%</td></tr>
                   <tr><td>Source confidence</td><td className="n">{(inputs.sourceConfidence * 100).toFixed(0)}%</td></tr>
                 </tbody>
               </table>

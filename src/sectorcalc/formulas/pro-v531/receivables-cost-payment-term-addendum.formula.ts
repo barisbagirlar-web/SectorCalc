@@ -8,6 +8,13 @@
  * The `calculate` wrapper maps generic Record<string, number> inputs
  * (n_ prefix keys) to typed ReceivablesCostInputs, calls executeFormula(),
  * and wraps the result in ProFormulaResult format.
+ *
+ * FIX (ported from a759fe2d9 audit, 2026-07-16): this tool's own scope is "convert payment
+ * terms into financing cost percentage" but it previously ran unrelated manufacturing
+ * job-costing math (machine rate, cycle time, material cost, batch quantity) through a
+ * fabricated financing-rate clamp -- zero real receivables inputs. Rebuilt with the 4 real
+ * receivables-domain inputs: average receivable balance, annual interest rate, average
+ * collection period (DSO), and invoice volume.
  */
 
 import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
@@ -15,13 +22,11 @@ import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract"
 // ─── Type exports ───────────────────────────────────────────────────────────
 
 export interface ReceivablesCostInputs {
-  machineRate: number;          // Machine hourly rate (currency/hour)
-  cycleTime: number;            // Cycle time per unit (minutes)
-  materialCost: number;         // Material cost per unit (currency/unit)
-  batchQuantity: number;        // Batch quantity (count)
-  overheadRate: number;         // Annual overhead rate (currency)
-  defectOrLossCost: number;     // Defect or loss cost (currency)
-  sourceConfidence: number;     // Source confidence ratio (0..1)
+  averageReceivableBalance: number;  // Average outstanding AR balance (currency)
+  annualInterestRate: number;        // Cost of capital / borrowing rate (ratio, e.g. 0.08)
+  averageCollectionDays: number;     // Average days sales outstanding (days)
+  invoiceVolume: number;             // Annual invoiced revenue (currency/yr)
+  sourceConfidence: number;          // Source confidence ratio (0..1)
 }
 
 export interface ReceivablesCostOutputs {
@@ -46,31 +51,36 @@ export interface ReceivablesCostOutputs {
 
 export function executeFormula(inputs: ReceivablesCostInputs): ReceivablesCostOutputs {
   const {
-    machineRate, cycleTime, materialCost, batchQuantity,
-    overheadRate, defectOrLossCost, sourceConfidence,
+    averageReceivableBalance, annualInterestRate, averageCollectionDays,
+    invoiceVolume, sourceConfidence,
   } = inputs;
 
-  const ra = (machineRate * cycleTime / 60) * batchQuantity + materialCost * batchQuantity;
-  const fr = machineRate > 0 ? Math.min(Math.max(0.02, overheadRate / machineRate / 100), 0.25) : 0.02;
-  const fc = ra * fr * 60 / 365;
-  const ap = ra > 0 ? fc / ra : 0;
-  const rp = defectOrLossCost * 0.15;
-  const tfc = fc + rp;
+  // AR carrying cost: balance sitting outstanding, financed at the cost of capital.
+  const carryingCost = averageReceivableBalance * annualInterestRate;
+
+  // DSO-driven financing cost: the interest cost of collection taking averageCollectionDays
+  // instead of being collected instantly, applied to annual invoiced revenue.
+  const dsoFinancingCost = invoiceVolume * annualInterestRate * (averageCollectionDays / 365);
+
+  const totalFinancingCost = carryingCost + dsoFinancingCost;
+  const financingCostPct = invoiceVolume > 0 ? totalFinancingCost / invoiceVolume : 0;
 
   const out_evidence_completeness = sourceConfidence;
-  const out_normalized_demand = ra;
-  const out_demand_metric = fc;
-  const out_capacity_metric = ra + tfc;
-  const out_utilization_margin = ap;
-  const out_money_at_risk = tfc;
-  const out_threshold_crossing = ap > 0.05 ? 1 : 0;
-  const out_fmea_trigger = ap > 0.10 ? 1 : 0;
-  const out_final_decision_state = ap <= 0.05 ? 0 : (ap <= 0.10 ? 1 : 2);
-  const out_reference_deviation = ra > 0 ? Math.abs(ra - fc) / ra : 0;
+  const out_normalized_demand = invoiceVolume;
+  const out_demand_metric = carryingCost;
+  const out_capacity_metric = averageReceivableBalance + totalFinancingCost;
+  const out_utilization_margin = financingCostPct;
+  const out_money_at_risk = totalFinancingCost;
+  const out_threshold_crossing = financingCostPct > 0.02 ? 1 : 0;
+  const out_fmea_trigger = financingCostPct > 0.05 ? 1 : 0;
+  const out_final_decision_state = financingCostPct <= 0.02 ? 0 : (financingCostPct <= 0.05 ? 1 : 2);
+  const out_reference_deviation = invoiceVolume > 0
+    ? Math.abs(averageReceivableBalance - (invoiceVolume * averageCollectionDays / 365)) / invoiceVolume
+    : 0;
   const out_derating_factor = sourceConfidence;
-  const out_expanded_uncertainty = tfc * 0.1;
-  const out_sensitivity_driver = fc > rp ? 1 : 0;
-  const out_scenario_delta = tfc * 0.15;
+  const out_expanded_uncertainty = totalFinancingCost * 0.1;
+  const out_sensitivity_driver = carryingCost > dsoFinancingCost ? 0 : 1;
+  const out_scenario_delta = totalFinancingCost * 0.15;
   const out_audit_hash_payload = 0;
 
   return {
@@ -127,16 +137,14 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const warnings: string[] = [];
 
   const typed: ReceivablesCostInputs = {
-    machineRate: get(inputs, "n_machine_rate"),
-    cycleTime: get(inputs, "n_cycle_time"),
-    materialCost: get(inputs, "n_material_cost"),
-    batchQuantity: get(inputs, "n_batch_quantity"),
-    overheadRate: get(inputs, "n_overhead_rate"),
-    defectOrLossCost: get(inputs, "n_defect_or_loss_cost"),
+    averageReceivableBalance: get(inputs, "n_average_receivable_balance"),
+    annualInterestRate: get(inputs, "n_annual_interest_rate"),
+    averageCollectionDays: get(inputs, "n_average_collection_days"),
+    invoiceVolume: get(inputs, "n_invoice_volume"),
     sourceConfidence: get(inputs, "n_source_confidence_ratio"),
   };
 
-  const mandatory = ["n_machine_rate", "n_batch_quantity"] as const;
+  const mandatory = ["n_average_receivable_balance", "n_annual_interest_rate", "n_invoice_volume"] as const;
   for (const key of mandatory) {
     if (!isFiniteNumber(inputs[key])) {
       warnings.push(`Input "${key}" is missing or invalid — using 0`);
@@ -161,21 +169,19 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
 }
 
 export const toolKey = "receivables-cost-payment-term-addendum";
-export const formulaVersion = "5.3.1-pro-baris.1";
+export const formulaVersion = "5.3.1-pro-baris.2";
 
 export const sampleInputs: Record<string, number> = {
-  n_machine_rate: 85,
-  n_cycle_time: 12,
-  n_batch_quantity: 500,
-  n_material_cost: 25,
-  n_overhead_rate: 350000,
-  n_defect_or_loss_cost: 12000,
-  n_source_confidence_ratio: 0.9,
+  n_average_receivable_balance: 450000,
+  n_annual_interest_rate: 0.08,
+  n_average_collection_days: 52,
+  n_invoice_volume: 3200000,
+  n_source_confidence_ratio: 0.85,
 };
 
 export const requiredInputKeys: readonly string[] = [
-  "n_machine_rate", "n_cycle_time", "n_material_cost", "n_batch_quantity",
-  "n_overhead_rate", "n_defect_or_loss_cost", "n_source_confidence_ratio",
+  "n_average_receivable_balance", "n_annual_interest_rate",
+  "n_average_collection_days", "n_invoice_volume", "n_source_confidence_ratio",
 ];
 
 export const declaredOutputKeys: readonly string[] = [...OUTPUT_KEYS];

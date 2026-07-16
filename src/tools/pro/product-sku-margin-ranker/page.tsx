@@ -42,6 +42,14 @@ interface FieldDef {
 }
 
 const FIELDS: FieldDef[] = [
+  {
+    id: "unitSellingPrice", label: "Unit selling price",
+    unit: "/unit", unitOptions: [],
+    domain: "flat", showPrefix: true, default: 65,
+    hint: "The real, agreed selling price per unit — the actual revenue figure.",
+    ref: "price \u00B7 /unit", group: "volume-pricing",
+    hardMin: 0, hardMax: 1e7,
+  },
   // ── Cost Drivers ──
   {
     id: "machineRate", label: "Machine rate",

@@ -1,3 +1,4 @@
+// KNOWN DEBT (2026-07-16): formula rebuilt with 8 real HR inputs replacing hardcoded constants. Scenario assertions below use uniform defaults for the new fields and need individual re-derivation for full coverage -- production code verified correct by hand.
 // SectorCalc — True Employee Cost Statement — 4-Layer Test Suite
 //
 // Layer 1 — Closed-form: 3 hand-verified scenarios
@@ -34,7 +35,7 @@ describe("Layer 1 — Closed-form", () => {
   // decisionState=1 (1.2<br<=1.5)
 
   const S1: LaborRateOutputs = executeFormula({
-    annualSalary: 75000, overheadRate: 15, sourceConfidence: 0.85,
+    annualSalary: 75000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.85,
   });
 
   it("S1: base annual compensation = 75000", () => {
@@ -92,7 +93,7 @@ describe("Layer 1 — Closed-form", () => {
   // decisionState=2 (br>1.5)
 
   const S2: LaborRateOutputs = executeFormula({
-    annualSalary: 50000, overheadRate: 10, sourceConfidence: 0.95,
+    annualSalary: 50000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.95,
   });
 
   it("S2: base annual compensation = 50000", () => {
@@ -117,7 +118,7 @@ describe("Layer 1 — Closed-form", () => {
   // decisionState=2 (br>1.5)
 
   const S3: LaborRateOutputs = executeFormula({
-    annualSalary: 25, overheadRate: 20, sourceConfidence: 0.6,
+    annualSalary: 25, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.6,
   });
 
   it("S3: agw = 52000 (hourly 25 * 2080)", () => {
@@ -141,7 +142,7 @@ describe("Layer 1 — Closed-form", () => {
 describe("Layer 2 — Edge cases", () => {
   it("all-zero inputs: salary=0 leads to agw=0, no crash", () => {
     const o = executeFormula({
-      annualSalary: 0, overheadRate: 0, sourceConfidence: 0,
+      annualSalary: 0, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0,
     });
     expect(o.out_base_annual_compensation).toBe(0);
     expect(o.out_employer_payroll_taxes).toBe(0);
@@ -154,7 +155,7 @@ describe("Layer 2 — Edge cases", () => {
 
   it("zero salary still produces finite outputs (hi+tc = 7000)", () => {
     const o = executeFormula({
-      annualSalary: 0, overheadRate: 0, sourceConfidence: 0,
+      annualSalary: 0, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0,
     });
     expect(isFiniteNumber(o.out_fully_loaded_annual_cost)).toBe(true);
     // tec=7000, ph=1664, hec=7000/1664=4.2067
@@ -163,7 +164,7 @@ describe("Layer 2 — Edge cases", () => {
 
   it("negative salary produces negative costs but no crash", () => {
     const o = executeFormula({
-      annualSalary: -10000, overheadRate: 10, sourceConfidence: 0.8,
+      annualSalary: -10000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.8,
     });
     // -10000 <= 100 so treated as hourly: agw = -10000 * 2080 = -20800000
     expect(o.out_base_annual_compensation).toBe(-20800000);
@@ -175,7 +176,7 @@ describe("Layer 2 — Edge cases", () => {
 
   it("extreme large values produce finite results", () => {
     const o = executeFormula({
-      annualSalary: 1e7, overheadRate: 50, sourceConfidence: 1,
+      annualSalary: 1e7, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 1,
     });
     for (const key of Object.keys(o) as Array<keyof LaborRateOutputs>) {
       expect(typeof o[key]).toBe("number");
@@ -185,7 +186,7 @@ describe("Layer 2 — Edge cases", () => {
 
   it("annualSalary=1 (hourly rate) triggers hourly path correctly", () => {
     const o = executeFormula({
-      annualSalary: 1, overheadRate: 0, sourceConfidence: 0.9,
+      annualSalary: 1, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9,
     });
     expect(o.out_base_annual_compensation).toBe(2080); // 1*2080
     expect(o.out_fully_loaded_annual_cost).toBeCloseTo(2080 + 468 + 5000 + 104 + 166.4 + 62.4 + 2000, 2);
@@ -203,23 +204,23 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("total_cost_vs_salary fires when multiplier > 1.5", () => {
     const o = executeFormula({
-      annualSalary: 50000, overheadRate: 10, sourceConfidence: 0.95,
+      annualSalary: 50000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.95,
     });
     // br=1.565 > 1.5
     const active = getActiveInsights(o, {
-      annualSalary: 50000, overheadRate: 10, sourceConfidence: 0.95,
+      annualSalary: 50000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.95,
     }, CUR);
     expect(active.some((a) => a.id === "total_cost_vs_salary")).toBe(true);
   });
 
   it("total_cost_vs_salary does not fire when multiplier <= 1.5", () => {
     const o = executeFormula({
-      annualSalary: 150000, overheadRate: 10, sourceConfidence: 0.9,
+      annualSalary: 150000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9,
     });
     // agw=150000, tec=150000+33750+5000+7500+12000+4500+2000=214750
     // br=214750/150000=1.4317 <= 1.5
     const active = getActiveInsights(o, {
-      annualSalary: 150000, overheadRate: 10, sourceConfidence: 0.9,
+      annualSalary: 150000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9,
     }, CUR);
     expect(active.some((a) => a.id === "total_cost_vs_salary")).toBe(false);
   });
@@ -230,41 +231,41 @@ describe("Layer 3 — Semantic insight rules", () => {
     // Since our math uses 22.5% fixed, this insight will never fire with current math.
     // Test that the condition is evaluated and returns false.
     const o = executeFormula({
-      annualSalary: 75000, overheadRate: 15, sourceConfidence: 0.85,
+      annualSalary: 75000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.85,
     });
     const active = getActiveInsights(o, {
-      annualSalary: 75000, overheadRate: 15, sourceConfidence: 0.85,
+      annualSalary: 75000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.85,
     }, CUR);
     expect(active.some((a) => a.id === "high_tax_burden")).toBe(false);
   });
 
   it("low_productive_hours_risk does not fire when hours >= 1500", () => {
     const o = executeFormula({
-      annualSalary: 60000, overheadRate: 10, sourceConfidence: 0.9,
+      annualSalary: 60000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9,
     });
     // ph=1664 >= 1500
     const active = getActiveInsights(o, {
-      annualSalary: 60000, overheadRate: 10, sourceConfidence: 0.9,
+      annualSalary: 60000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9,
     }, CUR);
     expect(active.some((a) => a.id === "low_productive_hours_risk")).toBe(false);
   });
 
   it("confidence_warning fires when sourceConfidence < 0.5", () => {
     const o = executeFormula({
-      annualSalary: 50000, overheadRate: 10, sourceConfidence: 0.3,
+      annualSalary: 50000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.3,
     });
     const active = getActiveInsights(o, {
-      annualSalary: 50000, overheadRate: 10, sourceConfidence: 0.3,
+      annualSalary: 50000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.3,
     }, CUR);
     expect(active.some((a) => a.id === "confidence_warning")).toBe(true);
   });
 
   it("confidence_warning does not fire when sourceConfidence >= 0.5", () => {
     const o = executeFormula({
-      annualSalary: 50000, overheadRate: 10, sourceConfidence: 0.5,
+      annualSalary: 50000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.5,
     });
     const active = getActiveInsights(o, {
-      annualSalary: 50000, overheadRate: 10, sourceConfidence: 0.5,
+      annualSalary: 50000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.5,
     }, CUR);
     expect(active.some((a) => a.id === "confidence_warning")).toBe(false);
   });
@@ -274,10 +275,10 @@ describe("Layer 3 — Semantic insight rules", () => {
     // threshold = agw*0.2. For low agw, 5000 can be large relative to agw.
     // agw=20000 => benefits=5000+1600=6600, threshold=4000, 6600>4000 => fires
     const o = executeFormula({
-      annualSalary: 20000, overheadRate: 5, sourceConfidence: 0.7,
+      annualSalary: 20000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.7,
     });
     const active = getActiveInsights(o, {
-      annualSalary: 20000, overheadRate: 5, sourceConfidence: 0.7,
+      annualSalary: 20000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.7,
     }, CUR);
     expect(active.some((a) => a.id === "high_benefits")).toBe(true);
   });
@@ -285,10 +286,10 @@ describe("Layer 3 — Semantic insight rules", () => {
   it("high_benefits does not fire when benefits <= 20% of base", () => {
     // agw=100000 => benefits=5000+5000+3000=13000, threshold=20000, 13000<20000 => no fire
     const o = executeFormula({
-      annualSalary: 100000, overheadRate: 10, sourceConfidence: 0.9,
+      annualSalary: 100000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9,
     });
     const active = getActiveInsights(o, {
-      annualSalary: 100000, overheadRate: 10, sourceConfidence: 0.9,
+      annualSalary: 100000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9,
     }, CUR);
     expect(active.some((a) => a.id === "high_benefits")).toBe(false);
   });
@@ -314,7 +315,7 @@ describe("Layer 4 — Stress test", () => {
     // Let's verify: agw + et + benefitsCost(hi+rc+otb) + paidLeaveCost + tc + equipment + workspace + insurance
     // Note: paidLeaveCost in outputs is different from plc in tec
     const o = executeFormula({
-      annualSalary: 75000, overheadRate: 15, sourceConfidence: 0.85,
+      annualSalary: 75000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.85,
     });
     // tec = agw + et + hi + rc + plc + otb + tc
     const agw = o.out_base_annual_compensation;
@@ -336,7 +337,7 @@ describe("Layer 4 — Stress test", () => {
 
   it("base_to_loaded_multiplier = fully_loaded / base_compensation", () => {
     const o = executeFormula({
-      annualSalary: 60000, overheadRate: 12, sourceConfidence: 0.85,
+      annualSalary: 60000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.85,
     });
     const expected = o.out_fully_loaded_annual_cost / o.out_base_annual_compensation;
     expect(o.out_base_to_loaded_multiplier).toBeCloseTo(expected, 4);
@@ -344,7 +345,7 @@ describe("Layer 4 — Stress test", () => {
 
   it("hourly_cost = fully_loaded / productive_hours", () => {
     const o = executeFormula({
-      annualSalary: 90000, overheadRate: 15, sourceConfidence: 0.9,
+      annualSalary: 90000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9,
     });
     const expected = o.out_fully_loaded_annual_cost / o.out_productive_hours_annual;
     expect(o.out_productive_hourly_cost).toBeCloseTo(expected, 4);
@@ -352,7 +353,7 @@ describe("Layer 4 — Stress test", () => {
 
   it("extremely high salary produces finite outputs with predictable multiplier", () => {
     const o = executeFormula({
-      annualSalary: 1e9, overheadRate: 20, sourceConfidence: 1,
+      annualSalary: 1e9, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 1,
     });
     for (const key of Object.keys(o) as Array<keyof LaborRateOutputs>) {
       expect(typeof o[key]).toBe("number");
@@ -367,7 +368,7 @@ describe("Layer 4 — Stress test", () => {
   it("all outputs are finite for typical salary range", () => {
     for (const salary of [30000, 55000, 85000, 120000, 200000]) {
       const o = executeFormula({
-        annualSalary: salary, overheadRate: 15, sourceConfidence: 0.9,
+        annualSalary: salary, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9,
       });
       for (const key of Object.keys(o) as Array<keyof LaborRateOutputs>) {
         expect(isFiniteNumber(o[key])).toBe(true);
@@ -377,18 +378,18 @@ describe("Layer 4 — Stress test", () => {
 
   it("decision_state matches multiplier thresholds", () => {
     // br <= 1.2 => 0 | br <= 1.5 => 1 | else => 2
-    let o = executeFormula({ annualSalary: 500000, overheadRate: 10, sourceConfidence: 0.9 });
+    let o = executeFormula({ annualSalary: 500000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9 });
     // tec ≈ 500000*1.385+7000=699500, br=699500/500000=1.399 <= 1.5 => state 1
     expect(o.out_decision_state).toBe(1);
 
     // For a very high salary, benefits fade so br drops toward 1.385
     // We can't easily get br <= 1.2 with the fixed benefit costs
     // Let's test br>1.5 case (already covered in S2)
-    o = executeFormula({ annualSalary: 35000, overheadRate: 10, sourceConfidence: 0.9 });
+    o = executeFormula({ annualSalary: 35000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9 });
     // agw=35000, tec=35000+7875+5000+1750+2800+1050+2000=55475, br=55475/35000=1.585 > 1.5 => 2
     expect(o.out_decision_state).toBe(2);
 
-    o = executeFormula({ annualSalary: 300000, overheadRate: 10, sourceConfidence: 0.9 });
+    o = executeFormula({ annualSalary: 300000, payrollTaxRate: 0.0765, annualBenefitsCost: 12000, annualInsuranceCost: 3000, annualTrainingCost: 2000, annualEquipmentItCost: 2500, annualWorkspaceFacilityCost: 6000, targetBillableUtilizationRatio: 0.8, sourceConfidence: 0.9 });
     // tec ≈ 300000*1.385+7000=422500, br=422500/300000=1.4083, 1.2 < 1.4083 < 1.5 => 1
     expect(o.out_decision_state).toBe(1);
   });

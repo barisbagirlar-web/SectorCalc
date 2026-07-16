@@ -52,7 +52,7 @@ export const INSIGHTS: InsightRule[] = [
     severity: "opp",
     message: (o, i, cur) =>
       `At ${(o.out_utilization_margin * 100).toFixed(1)}% finance cost ratio, ` +
-      `a payment term addendum with a ${(i.machineRate > 0 ? (i.overheadRate / i.machineRate / 100).toFixed(1) : "N/A")}% ` +
+      `a payment term addendum with a ${(i.annualInterestRate > 0 ? (i.annualInterestRate * 100).toFixed(1) : "N/A")}% ` +
       `factoring rate could reduce carrying costs. ` +
       `Estimated savings: ${cur}${(o.out_demand_metric * 0.15).toFixed(0)} annually.`,
   },

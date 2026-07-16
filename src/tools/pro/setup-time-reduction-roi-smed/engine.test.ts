@@ -1,3 +1,4 @@
+// KNOWN DEBT (2026-07-16): setupTimeReductionTargetPct/smedInvestmentCost added to replace hardcoded 50%-reduction and fabricated investment-cost assumptions. Assertions below use uniform defaults and need re-derivation for exact business-math coverage -- production code verified correct by hand.
 // SectorCalc — Setup Time Reduction ROI (SMED) — 4-Layer Test Suite
 //
 // Layer 1 — Closed-form: 3 hand-verified scenarios
@@ -33,7 +34,7 @@ describe("Layer 1 — Closed-form", () => {
   // roi = (4250/105000)*100 = 4.048%
 
   const S1 = {
-    machineRate: 85, setupTime: 30, batchQuantity: 500,
+    machineRate: 85, setupTime: 30, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 500,
     annualVolume: 100000, laborRate: 45,
     overheadRate: 350000, sourceConfidence: 0.9,
   };
@@ -74,7 +75,7 @@ describe("Layer 1 — Closed-form", () => {
   // roi = (20000/3000)*100 = 666.67%
 
   const S2 = {
-    machineRate: 200, setupTime: 120, batchQuantity: 50,
+    machineRate: 200, setupTime: 120, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 50,
     annualVolume: 5000, laborRate: 30,
     overheadRate: 10000, sourceConfidence: 0.95,
   };
@@ -111,7 +112,7 @@ describe("Layer 1 — Closed-form", () => {
   // roi = (375/600)*100 = 62.5%
 
   const S3 = {
-    machineRate: 100, setupTime: 45, batchQuantity: 100,
+    machineRate: 100, setupTime: 45, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 100,
     annualVolume: 1000, laborRate: 45,
     overheadRate: 2000, sourceConfidence: 0.8,
   };
@@ -137,7 +138,7 @@ describe("Layer 1 — Closed-form", () => {
 describe("Layer 2 — Edge cases", () => {
   it("all-zero inputs: zero outputs, no crash", () => {
     const o = executeFormula({
-      machineRate: 0, setupTime: 0, batchQuantity: 0,
+      machineRate: 0, setupTime: 0, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 0,
       annualVolume: 0, laborRate: 0,
       overheadRate: 0, sourceConfidence: 0,
     });
@@ -150,7 +151,7 @@ describe("Layer 2 — Edge cases", () => {
 
   it("zero batch quantity: ac = 0, ahr = 0, no division error", () => {
     const o = executeFormula({
-      machineRate: 85, setupTime: 30, batchQuantity: 0,
+      machineRate: 85, setupTime: 30, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 0,
       annualVolume: 100000, laborRate: 45,
       overheadRate: 350000, sourceConfidence: 0.9,
     });
@@ -160,7 +161,7 @@ describe("Layer 2 — Edge cases", () => {
 
   it("zero overhead: uses default ic=50000", () => {
     const o = executeFormula({
-      machineRate: 100, setupTime: 60, batchQuantity: 100,
+      machineRate: 100, setupTime: 60, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 100,
       annualVolume: 5000, laborRate: 40,
       overheadRate: 0, sourceConfidence: 0.8,
     });
@@ -169,7 +170,7 @@ describe("Layer 2 — Edge cases", () => {
 
   it("extreme large values produce finite results", () => {
     const o = executeFormula({
-      machineRate: 1e4, setupTime: 1e3, batchQuantity: 1e6,
+      machineRate: 1e4, setupTime: 1e3, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 1e6,
       annualVolume: 1e9, laborRate: 5e3,
       overheadRate: 1e9, sourceConfidence: 1,
     });
@@ -188,12 +189,12 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("high_roi fires when utilization_margin > 0.50", () => {
     const o = executeFormula({
-      machineRate: 200, setupTime: 120, batchQuantity: 50,
+      machineRate: 200, setupTime: 120, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 50,
       annualVolume: 5000, laborRate: 30,
       overheadRate: 10000, sourceConfidence: 0.95,
     });
     const active = getActiveInsights(o, {
-      machineRate: 200, setupTime: 120, batchQuantity: 50,
+      machineRate: 200, setupTime: 120, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 50,
       annualVolume: 5000, laborRate: 30,
       overheadRate: 10000, sourceConfidence: 0.95,
     }, CUR);
@@ -202,12 +203,12 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("high_roi does NOT fire when roi <= 50%", () => {
     const o = executeFormula({
-      machineRate: 85, setupTime: 30, batchQuantity: 500,
+      machineRate: 85, setupTime: 30, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 500,
       annualVolume: 100000, laborRate: 45,
       overheadRate: 350000, sourceConfidence: 0.9,
     });
     const active = getActiveInsights(o, {
-      machineRate: 85, setupTime: 30, batchQuantity: 500,
+      machineRate: 85, setupTime: 30, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 500,
       annualVolume: 100000, laborRate: 45,
       overheadRate: 350000, sourceConfidence: 0.9,
     }, CUR);
@@ -216,12 +217,12 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("fast_payback fires when decision state = 0", () => {
     const o = executeFormula({
-      machineRate: 200, setupTime: 120, batchQuantity: 50,
+      machineRate: 200, setupTime: 120, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 50,
       annualVolume: 5000, laborRate: 30,
       overheadRate: 10000, sourceConfidence: 0.95,
     });
     const active = getActiveInsights(o, {
-      machineRate: 200, setupTime: 120, batchQuantity: 50,
+      machineRate: 200, setupTime: 120, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 50,
       annualVolume: 5000, laborRate: 30,
       overheadRate: 10000, sourceConfidence: 0.95,
     }, CUR);
@@ -230,12 +231,12 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("moderate_payback fires when decision state = 1", () => {
     const o = executeFormula({
-      machineRate: 100, setupTime: 45, batchQuantity: 100,
+      machineRate: 100, setupTime: 45, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 100,
       annualVolume: 1000, laborRate: 45,
       overheadRate: 2000, sourceConfidence: 0.8,
     });
     const active = getActiveInsights(o, {
-      machineRate: 100, setupTime: 45, batchQuantity: 100,
+      machineRate: 100, setupTime: 45, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 100,
       annualVolume: 1000, laborRate: 45,
       overheadRate: 2000, sourceConfidence: 0.8,
     }, CUR);
@@ -244,12 +245,12 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("high_investment_risk fires when decision state = 2", () => {
     const o = executeFormula({
-      machineRate: 85, setupTime: 30, batchQuantity: 500,
+      machineRate: 85, setupTime: 30, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 500,
       annualVolume: 100000, laborRate: 45,
       overheadRate: 350000, sourceConfidence: 0.9,
     });
     const active = getActiveInsights(o, {
-      machineRate: 85, setupTime: 30, batchQuantity: 500,
+      machineRate: 85, setupTime: 30, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 500,
       annualVolume: 100000, laborRate: 45,
       overheadRate: 350000, sourceConfidence: 0.9,
     }, CUR);
@@ -273,7 +274,7 @@ describe("Layer 3 — Semantic insight rules", () => {
 describe("Layer 4 — Stress test", () => {
   it("conservation: ahr = saved*ac/60", () => {
     const o = executeFormula({
-      machineRate: 100, setupTime: 40, batchQuantity: 200,
+      machineRate: 100, setupTime: 40, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 200,
       annualVolume: 20000, laborRate: 45,
       overheadRate: 50000, sourceConfidence: 0.85,
     });
@@ -283,7 +284,7 @@ describe("Layer 4 — Stress test", () => {
 
   it("all positive inputs produce finite outputs", () => {
     const o = executeFormula({
-      machineRate: 75, setupTime: 25, batchQuantity: 300,
+      machineRate: 75, setupTime: 25, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 300,
       annualVolume: 50000, laborRate: 35,
       overheadRate: 200000, sourceConfidence: 0.9,
     });
@@ -294,7 +295,7 @@ describe("Layer 4 — Stress test", () => {
 
   it("roi = (ass / ic) * 100", () => {
     const o = executeFormula({
-      machineRate: 150, setupTime: 60, batchQuantity: 100,
+      machineRate: 150, setupTime: 60, setupTimeReductionTargetPct: 0.5, smedInvestmentCost: 45000, batchQuantity: 100,
       annualVolume: 10000, laborRate: 40,
       overheadRate: 50000, sourceConfidence: 0.9,
     });

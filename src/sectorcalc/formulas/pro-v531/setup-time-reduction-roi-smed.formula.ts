@@ -8,6 +8,11 @@
  * The `calculate` wrapper maps generic Record<string, number> inputs
  * (n_ prefix keys) to typed SetupTimeReductionInputs, calls executeFormula(),
  * and wraps the result in ProFormulaResult format.
+ *
+ * FIX (ported from a759fe2d9 audit, 2026-07-16): investment cost was fabricated as
+ * overheadRate*0.3 (or a hardcoded $50,000 fallback), and setup-time savings assumed a
+ * fixed 50% reduction with no input backing it. Added real smedInvestmentCost and
+ * setupTimeReductionTargetPct inputs.
  */
 
 import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
@@ -15,13 +20,15 @@ import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract"
 // ─── Type exports ───────────────────────────────────────────────────────────
 
 export interface SetupTimeReductionInputs {
-  machineRate: number;          // Machine hourly rate (currency/hour)
-  setupTime: number;            // Current setup time per changeover (minutes)
-  batchQuantity: number;        // Batch quantity (count)
-  annualVolume: number;         // Annual production volume (count/year)
-  laborRate: number;            // Labor rate (currency/unit)
-  overheadRate: number;         // Annual overhead allocation (currency)
-  sourceConfidence: number;     // Source confidence ratio (0..1)
+  machineRate: number;               // Machine hourly rate (currency/hour)
+  setupTime: number;                 // Current setup time per changeover (minutes)
+  setupTimeReductionTargetPct: number; // Target setup time reduction (ratio, e.g. 0.5 = 50%)
+  smedInvestmentCost: number;        // Real one-time SMED implementation investment (currency)
+  batchQuantity: number;             // Batch quantity (count)
+  annualVolume: number;              // Annual production volume (count/year)
+  laborRate: number;                 // Labor rate (currency/unit)
+  overheadRate: number;              // Annual overhead allocation (currency)
+  sourceConfidence: number;          // Source confidence ratio (0..1)
 }
 
 export interface SetupTimeReductionOutputs {
@@ -46,16 +53,17 @@ export interface SetupTimeReductionOutputs {
 
 export function executeFormula(inputs: SetupTimeReductionInputs): SetupTimeReductionOutputs {
   const {
-    machineRate, setupTime, batchQuantity, annualVolume,
-    laborRate, overheadRate, sourceConfidence,
+    machineRate, setupTime, setupTimeReductionTargetPct, smedInvestmentCost,
+    batchQuantity, annualVolume, laborRate, overheadRate, sourceConfidence,
   } = inputs;
 
-  const saved = setupTime * 0.5;
+  const reductionRatio = Math.max(0, Math.min(1, setupTimeReductionTargetPct));
+  const saved = setupTime * reductionRatio;
   const ac = batchQuantity > 0 ? annualVolume / batchQuantity : 0;
   const ahr = saved * ac / 60;
   const acv = ahr * (machineRate - laborRate);
   const ass = saved * ac / 60 * machineRate;
-  const ic = overheadRate > 0 ? overheadRate * 0.3 : 50000;
+  const ic = smedInvestmentCost;
   const pbm = ass > 0 ? (ic / ass) * 12 : 999;
   const roi = ic > 0 ? (ass / ic) * 100 : 0;
 
@@ -74,6 +82,7 @@ export function executeFormula(inputs: SetupTimeReductionInputs): SetupTimeReduc
   const out_sensitivity_driver = ass > ic ? 1 : 0;
   const out_scenario_delta = ass * 0.15;
   const out_audit_hash_payload = 0;
+  void overheadRate;
 
   return {
     out_evidence_completeness,
@@ -131,6 +140,8 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const typed: SetupTimeReductionInputs = {
     machineRate: get(inputs, "n_machine_rate"),
     setupTime: get(inputs, "n_setup_time"),
+    setupTimeReductionTargetPct: get(inputs, "n_setup_time_reduction_target_pct", 0.5),
+    smedInvestmentCost: get(inputs, "n_smed_investment_cost"),
     batchQuantity: get(inputs, "n_batch_quantity"),
     annualVolume: get(inputs, "n_annual_volume"),
     laborRate: get(inputs, "n_labor_rate"),
@@ -138,7 +149,7 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     sourceConfidence: get(inputs, "n_source_confidence_ratio"),
   };
 
-  const mandatory = ["n_machine_rate", "n_setup_time"] as const;
+  const mandatory = ["n_machine_rate", "n_setup_time", "n_smed_investment_cost"] as const;
   for (const key of mandatory) {
     if (!isFiniteNumber(inputs[key])) {
       warnings.push(`Input "${key}" is missing or invalid — using 0`);
@@ -163,11 +174,13 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
 }
 
 export const toolKey = "setup-time-reduction-roi-smed";
-export const formulaVersion = "5.3.1-pro-baris.1";
+export const formulaVersion = "5.3.1-pro-baris.2";
 
 export const sampleInputs: Record<string, number> = {
   n_machine_rate: 85,
   n_setup_time: 30,
+  n_setup_time_reduction_target_pct: 0.5,
+  n_smed_investment_cost: 45000,
   n_batch_quantity: 500,
   n_labor_rate: 45,
   n_overhead_rate: 350000,
@@ -176,7 +189,8 @@ export const sampleInputs: Record<string, number> = {
 };
 
 export const requiredInputKeys: readonly string[] = [
-  "n_machine_rate", "n_setup_time", "n_batch_quantity", "n_labor_rate",
+  "n_machine_rate", "n_setup_time", "n_setup_time_reduction_target_pct",
+  "n_smed_investment_cost", "n_batch_quantity", "n_labor_rate",
   "n_overhead_rate", "n_annual_volume", "n_source_confidence_ratio",
 ];
 

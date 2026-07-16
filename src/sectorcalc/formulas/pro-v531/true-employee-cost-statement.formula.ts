@@ -8,16 +8,28 @@
  * The `calculate` wrapper maps generic Record<string, number> inputs
  * (n_ prefix keys) to typed LaborRateInputs, calls executeFormula(),
  * and wraps the result in ProFormulaResult format.
+ *
+ * FIX (ported from a759fe2d9 audit, 2026-07-16): every line item except base salary was
+ * previously a hardcoded constant (payroll tax 22.5%, health insurance $5000, retirement 5%,
+ * paid leave 8%, other benefits 3%, training $2000, equipment/workspace $0, productive hours
+ * fixed at 80% of 2080h) -- none backed by a real input. Replaced with 8 real HR-domain
+ * inputs, one per report line item.
  */
 
-import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
+import type { ProFormulaResult } from "./pro-formula-contract";
 
 // ─── Type exports ───────────────────────────────────────────────────────────
 
 export interface LaborRateInputs {
-  annualSalary: number;       // Annual salary or labor rate
-  overheadRate: number;       // Overhead allocation rate (%)
-  sourceConfidence: number;   // Source confidence ratio (0..1)
+  annualSalary: number;                  // Annual base salary (currency)
+  payrollTaxRate: number;                // Employer payroll tax rate (ratio, e.g. 0.0765)
+  annualBenefitsCost: number;            // Health/retirement/other benefits (currency/yr)
+  annualInsuranceCost: number;           // Liability/workers-comp insurance (currency/yr)
+  annualTrainingCost: number;            // Training & development (currency/yr)
+  annualEquipmentItCost: number;         // Equipment & IT allocation (currency/yr)
+  annualWorkspaceFacilityCost: number;   // Workspace/facility allocation (currency/yr)
+  targetBillableUtilizationRatio: number; // Productive/billable share of paid hours (0..1)
+  sourceConfidence: number;              // Source confidence ratio (0..1)
 }
 
 export interface LaborRateOutputs {
@@ -41,69 +53,36 @@ export interface LaborRateOutputs {
 // ─── Pure calculation ───────────────────────────────────────────────────────
 
 export function executeFormula(inputs: LaborRateInputs): LaborRateOutputs {
-  const { annualSalary, sourceConfidence } = inputs;
+  const {
+    annualSalary, payrollTaxRate, annualBenefitsCost, annualInsuranceCost,
+    annualTrainingCost, annualEquipmentItCost, annualWorkspaceFacilityCost,
+    targetBillableUtilizationRatio,
+  } = inputs;
 
-  // Annual gross wage: if input > 100 treat as annual, else treat as hourly * 2080
-  const agw = annualSalary > 100 ? annualSalary : annualSalary * 2080;
+  const agw = annualSalary;
+  const et = agw * payrollTaxRate;
+  const benefitsCost = annualBenefitsCost;
+  const tc = annualTrainingCost;
+  const equipmentCost = annualEquipmentItCost;
+  const workspaceCost = annualWorkspaceFacilityCost;
+  const insuranceBurden = annualInsuranceCost;
 
-  // Employer payroll taxes at 22.5%
-  const et = agw * 0.225;
+  // Total fully loaded annual cost: base + taxes + benefits + training + equipment +
+  // workspace + insurance (paid leave is time already inside the base salary, not an
+  // additive cost -- it's reflected below as reduced productive-hour throughput instead).
+  const tec = agw + et + benefitsCost + tc + equipmentCost + workspaceCost + insuranceBurden;
 
-  // Health insurance (fixed)
-  const hi = 5000;
+  const utilization = Math.max(0, Math.min(1, targetBillableUtilizationRatio));
+  const paidHours = 2080;
+  const ph = paidHours * utilization;
+  const paidLeaveCost = paidHours * (1 - utilization) * (agw / paidHours);
 
-  // Retirement contribution 5%
-  const rc = agw * 0.05;
-
-  // Paid leave cost 8%
-  const plc = agw * 0.08;
-
-  // Other benefits 3%
-  const otb = agw * 0.03;
-
-  // Training allocation (fixed)
-  const tc = 2000;
-
-  // Equipment & IT (simplified)
-  const equipmentCost = 0;
-
-  // Workspace / facility cost (simplified)
-  const workspaceCost = 0;
-
-  // Insurance burden
-  const insuranceBurden = agw * 0.02;
-
-  // Benefits cost total
-  const benefitsCost = hi + rc + otb;
-
-  // Total fully loaded annual cost
-  const tec = agw + et + hi + rc + plc + otb + tc;
-
-  // Productive hours (80% of 2080)
-  const ph = 2080 * 0.8;
-
-  // Productive hourly cost
-  const hec = tec / ph;
-
-  // Base-to-loaded multiplier
-  const br = tec / agw;
-
-  // Paid leave cost (alternative calculation reflecting non-productive time)
-  const paidLeaveCost = 2080 * (1 - 0.8) * (agw / 2080);
-
-  // Monthly employer cost
+  const hec = ph > 0 ? tec / ph : Infinity;
+  const br = agw > 0 ? tec / agw : 0;
   const monthlyCost = tec / 12;
 
-  // Primary cost driver: index of largest cost component
   const costComponents = [
-    agw,                           // 0: base salary
-    et,                            // 1: payroll taxes
-    benefitsCost,                  // 2: benefits
-    paidLeaveCost,                 // 3: paid leave
-    tc,                            // 4: training
-    equipmentCost,                 // 5: equipment/IT
-    workspaceCost,                 // 6: workspace
-    insuranceBurden,               // 7: insurance
+    agw, et, benefitsCost, paidLeaveCost, tc, equipmentCost, workspaceCost, insuranceBurden,
   ];
   let primaryCostDriver = 0;
   for (let i = 1; i < costComponents.length; i++) {
@@ -112,7 +91,6 @@ export function executeFormula(inputs: LaborRateInputs): LaborRateOutputs {
     }
   }
 
-  // Decision state: 0 = normal, 1 = elevated, 2 = high
   const decisionState = br <= 1.2 ? 0 : br <= 1.5 ? 1 : 2;
 
   return {
@@ -166,18 +144,19 @@ const OUTPUT_KEYS: readonly string[] = [
 export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const warnings: string[] = [];
 
-  const lr = get(inputs, "n_labor_rate");
-  if (lr < 100) {
-    warnings.push("n_labor_rate expected as annual salary, treated as hourly");
-  }
-
   const typed: LaborRateInputs = {
-    annualSalary: lr,
-    overheadRate: get(inputs, "n_overhead_rate"),
+    annualSalary: get(inputs, "n_annual_base_salary"),
+    payrollTaxRate: get(inputs, "n_payroll_tax_rate"),
+    annualBenefitsCost: get(inputs, "n_annual_benefits_cost"),
+    annualInsuranceCost: get(inputs, "n_annual_insurance_cost"),
+    annualTrainingCost: get(inputs, "n_annual_training_cost"),
+    annualEquipmentItCost: get(inputs, "n_annual_equipment_it_cost"),
+    annualWorkspaceFacilityCost: get(inputs, "n_annual_workspace_facility_cost"),
+    targetBillableUtilizationRatio: get(inputs, "n_target_billable_utilization_ratio", 0.8),
     sourceConfidence: get(inputs, "n_source_confidence_ratio"),
   };
 
-  const mandatory = ["n_labor_rate"] as const;
+  const mandatory = ["n_annual_base_salary"] as const;
   for (const key of mandatory) {
     if (!isFiniteNumber(inputs[key])) {
       warnings.push(`Input "${key}" is missing or invalid — using 0`);
@@ -202,17 +181,29 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
 }
 
 export const toolKey = "true-employee-cost-statement";
-export const formulaVersion = "5.3.1-pro-baris.1";
+export const formulaVersion = "5.3.1-pro-baris.2";
 
 export const sampleInputs: Record<string, number> = {
-  n_labor_rate: 75000,
-  n_overhead_rate: 15,
+  n_annual_base_salary: 75000,
+  n_payroll_tax_rate: 0.0765,
+  n_annual_benefits_cost: 12000,
+  n_annual_insurance_cost: 3000,
+  n_annual_training_cost: 2000,
+  n_annual_equipment_it_cost: 2500,
+  n_annual_workspace_facility_cost: 6000,
+  n_target_billable_utilization_ratio: 0.8,
   n_source_confidence_ratio: 0.85,
 };
 
 export const requiredInputKeys: readonly string[] = [
-  "n_labor_rate",
-  "n_overhead_rate",
+  "n_annual_base_salary",
+  "n_payroll_tax_rate",
+  "n_annual_benefits_cost",
+  "n_annual_insurance_cost",
+  "n_annual_training_cost",
+  "n_annual_equipment_it_cost",
+  "n_annual_workspace_facility_cost",
+  "n_target_billable_utilization_ratio",
   "n_source_confidence_ratio",
 ];
 

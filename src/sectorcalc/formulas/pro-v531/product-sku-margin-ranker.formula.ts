@@ -15,6 +15,7 @@ import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract"
 // ─── Type exports ───────────────────────────────────────────────────────────
 
 export interface ProductSkuMarginInputs {
+  unitSellingPrice: number;     // Real selling price per unit (currency/unit)
   machineRate: number;          // Machine hourly rate (currency/hour)
   cycleTime: number;            // Cycle time per unit (minutes)
   materialCost: number;         // Material cost per unit (currency/unit)
@@ -48,14 +49,16 @@ export interface ProductSkuMarginOutputs {
 
 export function executeFormula(inputs: ProductSkuMarginInputs): ProductSkuMarginOutputs {
   const {
-    machineRate, cycleTime, materialCost, targetMargin,
+    unitSellingPrice, machineRate, cycleTime, materialCost, targetMargin,
     annualVolume, laborRate, overheadRate, defectOrLossCost,
     sourceConfidence,
   } = inputs;
 
   const ch = cycleTime / 60;
   const tuc = materialCost + (laborRate * ch) + (machineRate * ch) + (annualVolume > 0 ? overheadRate / annualVolume : 0);
-  const up = materialCost * 1.4;
+  // FIX (ported from a759fe2d9 audit): price was fabricated as materialCost*1.4
+  // (ignoring the target margin input entirely). Now uses the real selling price.
+  const up = unitSellingPrice;
   const cm = up - tuc;
   const cmr = up > 0 ? cm / up : 0;
   const lc = materialCost * 0.1;
@@ -132,6 +135,7 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const warnings: string[] = [];
 
   const typed: ProductSkuMarginInputs = {
+    unitSellingPrice: get(inputs, "n_unit_selling_price"),
     machineRate: get(inputs, "n_machine_rate"),
     cycleTime: get(inputs, "n_cycle_time"),
     materialCost: get(inputs, "n_material_cost"),
@@ -143,7 +147,7 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
     sourceConfidence: get(inputs, "n_source_confidence_ratio"),
   };
 
-  const mandatory = ["n_machine_rate", "n_cycle_time", "n_material_cost"] as const;
+  const mandatory = ["n_unit_selling_price", "n_machine_rate", "n_cycle_time", "n_material_cost"] as const;
   for (const key of mandatory) {
     if (!isFiniteNumber(inputs[key])) {
       warnings.push(`Input "${key}" is missing or invalid — using 0`);
@@ -171,6 +175,7 @@ export const toolKey = "product-sku-margin-ranker";
 export const formulaVersion = "5.3.1-pro-baris.1";
 
 export const sampleInputs: Record<string, number> = {
+  n_unit_selling_price: 65,
   n_machine_rate: 85,
   n_cycle_time: 12,
   n_material_cost: 25,
@@ -183,7 +188,7 @@ export const sampleInputs: Record<string, number> = {
 };
 
 export const requiredInputKeys: readonly string[] = [
-  "n_machine_rate", "n_cycle_time", "n_material_cost", "n_target_margin",
+  "n_unit_selling_price", "n_machine_rate", "n_cycle_time", "n_material_cost", "n_target_margin",
   "n_annual_volume", "n_labor_rate", "n_overhead_rate",
   "n_defect_or_loss_cost", "n_source_confidence_ratio",
 ];

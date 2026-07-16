@@ -26,54 +26,38 @@ import "@/styles/pro-tool-receivables-cost-payment-term-addendum.css";
 const FIELDS: FieldDef[] = [
   // ── Receivables ──
   {
-    id: "machineRate", label: "Machine rate",
-    unit: "/hour", unitOptions: ["/hour", "/day (8h)", "/week (40h)"],
-    domain: "wage", showPrefix: true, default: 85,
-    hint: "Machine hourly rate for production.",
-    ref: "rate \u00B7 /hour", group: "receivables",
-    hardMin: 0, hardMax: 1e6,
-  },
-  {
-    id: "cycleTime", label: "Cycle time",
-    unit: "minutes", unitOptions: ["seconds", "minutes", "hours"],
-    domain: "hours", showPrefix: false, default: 12,
-    hint: "Cycle time per unit in minutes.",
-    ref: "minutes \u00B7 hours", group: "receivables",
-    hardMin: 0, hardMax: 1e4,
-  },
-  {
-    id: "materialCost", label: "Material cost per unit",
-    unit: "/unit", unitOptions: ["/unit", "/dozen (12)", "/gross (144)", "/100 units", "/1,000 units"],
-    domain: "perUnit", showPrefix: true, default: 25,
-    hint: "Cost of raw material per unit.",
-    ref: "/unit", group: "receivables",
-    hardMin: 0, hardMax: 1e6,
-  },
-  {
-    id: "batchQuantity", label: "Batch quantity",
-    unit: "units", unitOptions: ["units", "thousands (k)", "millions (M)"],
-    domain: "flat", showPrefix: false, default: 500,
-    hint: "Number of units per batch.",
-    ref: "count", group: "receivables",
+    id: "averageReceivableBalance", label: "Average receivable balance",
+    unit: "currency", unitOptions: [],
+    domain: "money", showPrefix: true, default: 450000,
+    hint: "Average outstanding accounts receivable balance.",
+    ref: "balance \u00B7 currency", group: "receivables",
     hardMin: 0, hardMax: 1e9,
+  },
+  {
+    id: "annualInterestRate", label: "Annual interest rate",
+    unit: "ratio", unitOptions: ["%", "fraction (0-1)"],
+    domain: "percent", showPrefix: false, default: 0.08,
+    hint: "Cost of capital or borrowing rate used to value the carrying cost of receivables.",
+    ref: "0..1 ratio", group: "receivables",
+    hardMin: 0, hardMax: 1,
+  },
+  {
+    id: "averageCollectionDays", label: "Average collection period (DSO)",
+    unit: "days", unitOptions: [],
+    domain: "flat", showPrefix: false, default: 52,
+    hint: "Average days sales outstanding — how long it takes to collect an invoice.",
+    ref: "days", group: "receivables",
+    hardMin: 0, hardMax: 365,
+  },
+  {
+    id: "invoiceVolume", label: "Annual invoice volume",
+    unit: "/year", unitOptions: [],
+    domain: "money", showPrefix: true, default: 3200000,
+    hint: "Total annual invoiced revenue passing through this payment-term structure.",
+    ref: "annual revenue", group: "receivables",
+    hardMin: 0, hardMax: 1e10,
   },
   // ── Cost Parameters ──
-  {
-    id: "overheadRate", label: "Overhead rate",
-    unit: "/year", unitOptions: ["/day", "/week", "/month", "/quarter", "/year"],
-    domain: "money", showPrefix: true, default: 350000,
-    hint: "Annual overhead allocation.",
-    ref: "annual cost", group: "cost-params",
-    hardMin: 0, hardMax: 1e9,
-  },
-  {
-    id: "defectOrLossCost", label: "Defect / loss cost",
-    unit: "/year", unitOptions: ["/day", "/week", "/month", "/quarter", "/year"],
-    domain: "money", showPrefix: true, default: 12000,
-    hint: "Annual defect or loss cost.",
-    ref: "annual cost", group: "cost-params",
-    hardMin: 0, hardMax: 1e9,
-  },
   {
     id: "sourceConfidence", label: "Source confidence",
     unit: "fraction (0-1)", unitOptions: ["%", "fraction (0-1)", "bps"],
@@ -126,18 +110,16 @@ export default function ReceivablesCostPage() {
 
   // Engine inputs from canonical values
   const engineInputs = useMemo((): ReceivablesCostInputs => ({
-    machineRate: canonState.machineRate ?? 0,
-    cycleTime: canonState.cycleTime ?? 0,
-    materialCost: canonState.materialCost ?? 0,
-    batchQuantity: canonState.batchQuantity ?? 0,
-    overheadRate: canonState.overheadRate ?? 0,
-    defectOrLossCost: canonState.defectOrLossCost ?? 0,
+    averageReceivableBalance: canonState.averageReceivableBalance ?? 0,
+    annualInterestRate: canonState.annualInterestRate ?? 0,
+    averageCollectionDays: canonState.averageCollectionDays ?? 0,
+    invoiceVolume: canonState.invoiceVolume ?? 0,
     sourceConfidence: canonState.sourceConfidence ?? 0,
   }), [canonState]);
 
   // Live preview (always)
   const livePreview = useMemo((): ReceivablesCostOutputs | null => {
-    if (!engineInputs.machineRate || engineInputs.machineRate <= 0) return null;
+    if (!engineInputs.invoiceVolume || engineInputs.invoiceVolume <= 0) return null;
     return executeFormula(engineInputs);
   }, [engineInputs]);
 
@@ -419,12 +401,10 @@ export default function ReceivablesCostPage() {
               <table>
                 <thead><tr><th>Parameter</th><th className="n">Value</th></tr></thead>
                 <tbody>
-                  <tr><td>Machine rate</td><td className="n">{curSym}{engineInputs.machineRate.toFixed(2)}/h</td></tr>
-                  <tr><td>Cycle time</td><td className="n">{engineInputs.cycleTime.toFixed(1)} min</td></tr>
-                  <tr><td>Material cost</td><td className="n">{curSym}{engineInputs.materialCost.toFixed(2)}/unit</td></tr>
-                  <tr><td>Batch quantity</td><td className="n">{engineInputs.batchQuantity.toLocaleString()}</td></tr>
-                  <tr><td>Overhead rate</td><td className="n">{curSym}{engineInputs.overheadRate.toFixed(0)}/yr</td></tr>
-                  <tr><td>Defect / loss cost</td><td className="n">{curSym}{engineInputs.defectOrLossCost.toFixed(0)}/yr</td></tr>
+                  <tr><td>Average receivable balance</td><td className="n">{curSym}{engineInputs.averageReceivableBalance.toFixed(0)}</td></tr>
+                  <tr><td>Annual interest rate</td><td className="n">{(engineInputs.annualInterestRate * 100).toFixed(2)}%</td></tr>
+                  <tr><td>Average collection period (DSO)</td><td className="n">{engineInputs.averageCollectionDays.toFixed(0)} days</td></tr>
+                  <tr><td>Annual invoice volume</td><td className="n">{curSym}{engineInputs.invoiceVolume.toFixed(0)}/yr</td></tr>
                   <tr><td>Source confidence</td><td className="n">{(engineInputs.sourceConfidence * 100).toFixed(0)}%</td></tr>
                 </tbody>
               </table>

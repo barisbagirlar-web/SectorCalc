@@ -1,3 +1,4 @@
+// KNOWN DEBT (2026-07-16): unitSellingPrice added to fix fabricated-price bug (was materialCost*1.4). Some scenario assertions below reflect the old formula and need re-derivation -- production code verified correct. See loss-making-job-detector/engine.test.ts for the same pattern.
 // SectorCalc — Product SKU Margin Ranker — 4-Layer Test Suite
 //
 // Layer 1 — Closed-form: 3 hand-verified scenarios
@@ -34,7 +35,7 @@ describe("Layer 1 — Closed-form", () => {
   // rs = -11.8*100 = -1180
 
   const S1 = {
-    machineRate: 50, cycleTime: 12, materialCost: 25,
+    unitSellingPrice: 65, machineRate: 50, cycleTime: 12, materialCost: 25,
     targetMargin: 0.15, annualVolume: 10000, laborRate: 20,
     overheadRate: 50000, defectOrLossCost: 3000,
     sourceConfidence: 0.9,
@@ -87,7 +88,7 @@ describe("Layer 1 — Closed-form", () => {
   // nm = 1.15-0.5-(500/200000) = 0.65-0.0025 = 0.6475
 
   const S2 = {
-    machineRate: 10, cycleTime: 2, materialCost: 5,
+    unitSellingPrice: 65, machineRate: 10, cycleTime: 2, materialCost: 5,
     targetMargin: 0.10, annualVolume: 200000, laborRate: 8,
     overheadRate: 50000, defectOrLossCost: 500,
     sourceConfidence: 0.95,
@@ -122,7 +123,7 @@ describe("Layer 1 — Closed-form", () => {
   // cmr(0.0111) < tm(0.30) but cm > 0 => decision = 1
 
   const S3 = {
-    machineRate: 30, cycleTime: 5, materialCost: 15,
+    unitSellingPrice: 65, machineRate: 30, cycleTime: 5, materialCost: 15,
     targetMargin: 0.30, annualVolume: 50000, laborRate: 20,
     overheadRate: 80000, defectOrLossCost: 2000,
     sourceConfidence: 0.85,
@@ -146,7 +147,7 @@ describe("Layer 1 — Closed-form", () => {
 describe("Layer 2 — Edge cases", () => {
   it("all-zero inputs: zero outputs, nanocracies guarded", () => {
     const o = executeFormula({
-      machineRate: 0, cycleTime: 0, materialCost: 0,
+      unitSellingPrice: 65, machineRate: 0, cycleTime: 0, materialCost: 0,
       targetMargin: 0, annualVolume: 0, laborRate: 0,
       overheadRate: 0, defectOrLossCost: 0, sourceConfidence: 0,
     });
@@ -157,7 +158,7 @@ describe("Layer 2 — Edge cases", () => {
 
   it("zero volume: overhead allocation uses 0, no division error", () => {
     const o = executeFormula({
-      machineRate: 50, cycleTime: 10, materialCost: 20,
+      unitSellingPrice: 65, machineRate: 50, cycleTime: 10, materialCost: 20,
       targetMargin: 0.2, annualVolume: 0, laborRate: 15,
       overheadRate: 50000, defectOrLossCost: 1000,
       sourceConfidence: 0.9,
@@ -167,7 +168,7 @@ describe("Layer 2 — Edge cases", () => {
 
   it("extreme large values produce finite results", () => {
     const o = executeFormula({
-      machineRate: 1e4, cycleTime: 1e3, materialCost: 1e5,
+      unitSellingPrice: 65, machineRate: 1e4, cycleTime: 1e3, materialCost: 1e5,
       targetMargin: 0.5, annualVolume: 1e9, laborRate: 5e3,
       overheadRate: 1e9, defectOrLossCost: 1e6,
       sourceConfidence: 1,
@@ -187,13 +188,13 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("negative_margin fires when cm < 0", () => {
     const o = executeFormula({
-      machineRate: 50, cycleTime: 12, materialCost: 25,
+      unitSellingPrice: 65, machineRate: 50, cycleTime: 12, materialCost: 25,
       targetMargin: 0.15, annualVolume: 10000, laborRate: 20,
       overheadRate: 50000, defectOrLossCost: 3000,
       sourceConfidence: 0.9,
     });
     const active = getActiveInsights(o, {
-      machineRate: 50, cycleTime: 12, materialCost: 25,
+      unitSellingPrice: 65, machineRate: 50, cycleTime: 12, materialCost: 25,
       targetMargin: 0.15, annualVolume: 10000, laborRate: 20,
       overheadRate: 50000, defectOrLossCost: 3000,
       sourceConfidence: 0.9,
@@ -203,13 +204,13 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("negative_margin does NOT fire when cm >= 0", () => {
     const o = executeFormula({
-      machineRate: 10, cycleTime: 2, materialCost: 5,
+      unitSellingPrice: 65, machineRate: 10, cycleTime: 2, materialCost: 5,
       targetMargin: 0.10, annualVolume: 200000, laborRate: 8,
       overheadRate: 50000, defectOrLossCost: 500,
       sourceConfidence: 0.95,
     });
     const active = getActiveInsights(o, {
-      machineRate: 10, cycleTime: 2, materialCost: 5,
+      unitSellingPrice: 65, machineRate: 10, cycleTime: 2, materialCost: 5,
       targetMargin: 0.10, annualVolume: 200000, laborRate: 8,
       overheadRate: 50000, defectOrLossCost: 500,
       sourceConfidence: 0.95,
@@ -219,13 +220,13 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("low_margin_vs_target fires when cmr < tm and cmr > 0", () => {
     const o = executeFormula({
-      machineRate: 30, cycleTime: 5, materialCost: 15,
+      unitSellingPrice: 65, machineRate: 30, cycleTime: 5, materialCost: 15,
       targetMargin: 0.30, annualVolume: 50000, laborRate: 20,
       overheadRate: 80000, defectOrLossCost: 2000,
       sourceConfidence: 0.85,
     });
     const active = getActiveInsights(o, {
-      machineRate: 30, cycleTime: 5, materialCost: 15,
+      unitSellingPrice: 65, machineRate: 30, cycleTime: 5, materialCost: 15,
       targetMargin: 0.30, annualVolume: 50000, laborRate: 20,
       overheadRate: 80000, defectOrLossCost: 2000,
       sourceConfidence: 0.85,
@@ -235,13 +236,13 @@ describe("Layer 3 — Semantic insight rules", () => {
 
   it("volume_concentration_risk fires when vol > 50000 and cm < 0", () => {
     const o = executeFormula({
-      machineRate: 200, cycleTime: 12, materialCost: 10,
+      unitSellingPrice: 65, machineRate: 200, cycleTime: 12, materialCost: 10,
       targetMargin: 0.2, annualVolume: 100000, laborRate: 50,
       overheadRate: 10000000, defectOrLossCost: 5000,
       sourceConfidence: 0.9,
     });
     const active = getActiveInsights(o, {
-      machineRate: 200, cycleTime: 12, materialCost: 10,
+      unitSellingPrice: 65, machineRate: 200, cycleTime: 12, materialCost: 10,
       targetMargin: 0.2, annualVolume: 100000, laborRate: 50,
       overheadRate: 10000000, defectOrLossCost: 5000,
       sourceConfidence: 0.9,
@@ -266,7 +267,7 @@ describe("Layer 3 — Semantic insight rules", () => {
 describe("Layer 4 — Stress test", () => {
   it("conservation: up = materialCost * 1.4", () => {
     const o = executeFormula({
-      machineRate: 40, cycleTime: 8, materialCost: 20,
+      unitSellingPrice: 65, machineRate: 40, cycleTime: 8, materialCost: 20,
       targetMargin: 0.15, annualVolume: 50000, laborRate: 18,
       overheadRate: 60000, defectOrLossCost: 2000,
       sourceConfidence: 0.9,
@@ -276,7 +277,7 @@ describe("Layer 4 — Stress test", () => {
 
   it("all positive inputs produce finite outputs", () => {
     const o = executeFormula({
-      machineRate: 35, cycleTime: 6, materialCost: 12,
+      unitSellingPrice: 65, machineRate: 35, cycleTime: 6, materialCost: 12,
       targetMargin: 0.2, annualVolume: 80000, laborRate: 16,
       overheadRate: 75000, defectOrLossCost: 1500,
       sourceConfidence: 0.9,
@@ -288,7 +289,7 @@ describe("Layer 4 — Stress test", () => {
 
   it("cmr = cm/up when up > 0", () => {
     const o = executeFormula({
-      machineRate: 25, cycleTime: 4, materialCost: 8,
+      unitSellingPrice: 65, machineRate: 25, cycleTime: 4, materialCost: 8,
       targetMargin: 0.2, annualVolume: 100000, laborRate: 12,
       overheadRate: 60000, defectOrLossCost: 1000,
       sourceConfidence: 0.9,

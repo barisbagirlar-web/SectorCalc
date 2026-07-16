@@ -42,6 +42,22 @@ const FIELDS: FieldDef[] = [
     hardMin: 0, hardMax: 1e4,
   },
   {
+    id: "setupTimeReductionTargetPct", label: "Setup time reduction target",
+    unit: "ratio", unitOptions: [],
+    domain: "percent", showPrefix: false, default: 0.5,
+    hint: "Realistic target reduction in setup time from a SMED program (e.g. 0.5 = 50%).",
+    ref: "0..1 ratio", group: "operations",
+    hardMin: 0, hardMax: 1,
+  },
+  {
+    id: "smedInvestmentCost", label: "SMED implementation investment",
+    unit: "currency", unitOptions: [],
+    domain: "money", showPrefix: true, default: 45000,
+    hint: "Real one-time investment cost for the SMED changeover-reduction program.",
+    ref: "cost \u00B7 one-time", group: "operations",
+    hardMin: 0, hardMax: 1e8,
+  },
+  {
     id: "batchQuantity", label: "Batch quantity",
     unit: "units", unitOptions: ["units", "thousands (k)", "millions (M)"],
     domain: "flat", showPrefix: false, default: 500,
@@ -128,6 +144,8 @@ export default function SetupTimeReductionRoiPage() {
   const engineInputs = useMemo((): SetupTimeReductionInputs => ({
     machineRate: canonState.machineRate ?? 0,
     setupTime: canonState.setupTime ?? 0,
+    setupTimeReductionTargetPct: canonState.setupTimeReductionTargetPct ?? 0.5,
+    smedInvestmentCost: canonState.smedInvestmentCost ?? 0,
     batchQuantity: canonState.batchQuantity ?? 0,
     annualVolume: canonState.annualVolume ?? 0,
     laborRate: canonState.laborRate ?? 0,
