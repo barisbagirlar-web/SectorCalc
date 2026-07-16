@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Downtime & Scrap Loss Statement — formula engine
  *

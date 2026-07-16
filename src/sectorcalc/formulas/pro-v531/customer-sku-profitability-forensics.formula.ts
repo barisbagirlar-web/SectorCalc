@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Customer SKU Profitability Forensics — formula engine
  *

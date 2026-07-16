@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Outsource vs In-House Analyzer — formula engine
  *

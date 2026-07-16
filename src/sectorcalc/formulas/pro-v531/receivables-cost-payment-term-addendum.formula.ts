@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Receivables Cost / Payment Term Addendum — formula engine
  *

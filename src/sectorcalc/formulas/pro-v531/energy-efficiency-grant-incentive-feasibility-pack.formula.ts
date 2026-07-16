@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Energy Efficiency Grant & Incentive Feasibility Pack — formula engine
  *

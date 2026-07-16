@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Job Quote Builder Pro Pack — formula engine
  *

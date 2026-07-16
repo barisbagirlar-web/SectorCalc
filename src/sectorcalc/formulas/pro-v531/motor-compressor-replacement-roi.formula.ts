@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Motor Compressor Replacement ROI — formula engine
  *

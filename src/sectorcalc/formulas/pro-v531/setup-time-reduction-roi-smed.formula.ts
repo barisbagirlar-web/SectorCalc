@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Setup Time Reduction ROI (SMED) — formula engine
  *

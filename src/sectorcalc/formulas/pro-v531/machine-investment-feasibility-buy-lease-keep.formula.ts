@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Machine Investment Feasibility: Buy vs Lease vs Keep — formula engine
  *

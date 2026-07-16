@@ -1,3 +1,4 @@
+import "server-only";
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
 export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";

@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Scrap & Rework Cost Tracker — formula engine
  *

@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Loss-Making Job Detector — formula engine
  *

@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Plant-Wide Shop Rate Cost Structure Audit — formula engine
  *

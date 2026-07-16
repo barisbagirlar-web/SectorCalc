@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Machine Hourly Rate Proof Report — formula engine
  *

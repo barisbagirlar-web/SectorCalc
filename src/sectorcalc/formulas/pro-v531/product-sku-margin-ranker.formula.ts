@@ -1,3 +1,4 @@
+import "server-only";
 /**
  * Product SKU Margin Ranker — formula engine
  *
