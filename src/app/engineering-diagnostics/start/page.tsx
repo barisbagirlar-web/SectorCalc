@@ -294,7 +294,7 @@ export default function EngineeringDiagnosticsStartPage() {
   const [photos, setPhotos] = useState<PhotoEntry[]>([]);
   const [hasDiagnosticAccess, setHasDiagnosticAccess] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<AnalyzeResponse | null>(null);
+  const [result, setResult] = useState<DiagnosticResult | null>(null);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [serverError, setServerError] = useState<string | null>(null);
 
@@ -454,33 +454,21 @@ export default function EngineeringDiagnosticsStartPage() {
       privacy_mode: form.privacy_mode,
     };
 
-    // Try to include auth token if available
-    let authHeaders: Record<string, string> = { "Content-Type": "application/json" };
-    try {
-      const t = await getCurrentUserIdToken();
-      if (t) {
-        authHeaders["Authorization"] = `Bearer ${t}`;
-      }
-    } catch {
-      // silent — gated preview still works without auth
-    }
-
     try {
       const res = await fetch("/api/engineering-diagnostics/analyze", {
         method: "POST",
-        headers: authHeaders,
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
 
       lastRequestBodyRef.current = body;
 
-      const data: AnalyzeResponse = await res.json();
+      const data: DiagnosticResult = await res.json();
 
       if (!res.ok) {
-        const errData = data as DiagnosticResult;
-        if (errData.issues && errData.issues.length > 0) {
+        if (data.issues) {
           const fieldErrors2: FieldErrors = {};
-          for (const issue of errData.issues) {
+          for (const issue of data.issues) {
             fieldErrors2[issue.path] = issue.message;
           }
           setFieldErrors(fieldErrors2);
