@@ -102,7 +102,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   const baseFlatInputs: Record<string, number> = {};
   for (const inp of schema.inputs) {
     const nv = normalized[inp.id];
-    if (nv && isFiniteNumber(nv.baseValue)) {
+    if (nv && isFiniteNumber(nv.baseValue) && inp.normalized_id) {
       baseFlatInputs[inp.normalized_id] = nv.baseValue;
     }
   }

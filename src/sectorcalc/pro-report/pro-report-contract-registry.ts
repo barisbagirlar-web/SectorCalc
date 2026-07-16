@@ -109,13 +109,6 @@ register({
       ],
     },
   ],
-  paretoBreakdown: {
-    title: "Monthly Obligations Breakdown",
-    segments: [
-      { outputId: "out_fixed_cash_cost_component", label: "Fixed Cash Cost" },
-      { outputId: "out_debt_service_component", label: "Debt Service" },
-    ],
-  },
   sensitivityTargetOutput: "out_break_even_monthly_revenue",
   sensitivityDrivers: [
     { inputId: "n_monthly_fixed_cash_cost", label: "Monthly Fixed Cash Cost" },

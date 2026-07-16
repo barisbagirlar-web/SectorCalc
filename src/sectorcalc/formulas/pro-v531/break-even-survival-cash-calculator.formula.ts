@@ -44,8 +44,6 @@ export const declaredOutputKeys = [
   "out_uncertainty_cash_buffer",
   "out_target_runway_breached",
   "out_decision_code",
-  "out_fixed_cash_cost_component",
-  "out_debt_service_component",
 ] as const;
 
 const RUNWAY_CAP_MONTHS = 120;
@@ -76,8 +74,6 @@ function blockedResult(warnings: string[]): CalculationResult {
     out_uncertainty_cash_buffer: 0,
     out_target_runway_breached: 1,
     out_decision_code: 2,
-    out_fixed_cash_cost_component: 0,
-    out_debt_service_component: 0,
   };
 
   return {
@@ -222,8 +218,6 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     out_uncertainty_cash_buffer: round(uncertaintyCashBuffer, 2),
     out_target_runway_breached: targetRunwayBreached ? 1 : 0,
     out_decision_code: decisionCode,
-    out_fixed_cash_cost_component: round(fixedCashCost, 2),
-    out_debt_service_component: round(debtService, 2),
   };
 
   if (!Object.values(outputs).every(isFiniteNumber)) {

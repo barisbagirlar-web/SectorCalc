@@ -1031,26 +1031,6 @@
       "type": "number",
       "decision_use": "STATUS",
       "public_explanation": "0 means GO, 1 means REVIEW, and 2 means BLOCK."
-    },
-    {
-      "id": "out_fixed_cash_cost_component",
-      "name": "Fixed Cash Cost Component",
-      "value": null,
-      "quantity_kind": "currency",
-      "base_unit": "currency_unit",
-      "type": "number",
-      "decision_use": "PRIMARY_DECISION",
-      "public_explanation": "Positive values are revenue headroom; negative values are the monthly shortfall."
-    },
-    {
-      "id": "out_debt_service_component",
-      "name": "Debt Service Component",
-      "value": null,
-      "quantity_kind": "currency",
-      "base_unit": "currency_unit",
-      "type": "number",
-      "decision_use": "PRIMARY_DECISION",
-      "public_explanation": "Positive values are revenue headroom; negative values are the monthly shortfall."
     }
   ],
   "output_formatting": {
