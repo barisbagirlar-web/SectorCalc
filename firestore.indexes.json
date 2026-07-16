@@ -1,13 +1,6 @@
 {
   "indexes": [
     {
-      "collectionGroup": "approvedReports",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "calculationHash", "order": "ASCENDING" }
-      ]
-    },
-    {
       "collectionGroup": "reports",
       "queryScope": "COLLECTION",
       "fields": [
