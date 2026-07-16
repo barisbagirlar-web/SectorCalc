@@ -40,7 +40,16 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   if (!isFiniteNumber(inputs["n_actual_hours"])) warnings.push("Missing: n_actual_hours");
   if (!isFiniteNumber(inputs["n_hourly_rate"])) warnings.push("Missing: n_hourly_rate");
 
-  const downtime_hours = ph - ah;
+  // GUARD (2026-07-16 audit): Actual Hours cannot exceed Productive Hours -- that would imply
+  // negative downtime, which is not physically possible and previously produced a negative
+  // downtime_cost (money the shop supposedly "made" from downtime). Clamp to zero and flag
+  // for review instead of silently returning a nonsensical negative loss figure.
+  let ah_capped = ah;
+  if (ah > ph) {
+    warnings.push("Actual Hours exceeds Productive Hours; downtime clamped to 0 and flagged for review.");
+    ah_capped = ph;
+  }
+  const downtime_hours = ph - ah_capped;
   const downtime_cost = downtime_hours * hr;
   const scrap_material_loss = sq * uc;
   const rework_loss = rh * rr;
@@ -79,5 +88,6 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
   outputs["out_final_decision_state"] = decision;
 
   const ok = Object.values(outputs).every(v => isFiniteNumber(v));
-  return { status: ok ? "OK" : "REVIEW", outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
+  const status: CalculationStatus = !ok ? "REVIEW" : (ah > ph ? "REVIEW" : "OK");
+  return { status, outputs, warnings: warnings.length ? warnings : [], outputKeys: Object.keys(outputs), redaction_status: "PUBLIC_SAFE_REDACTED" };
 }
