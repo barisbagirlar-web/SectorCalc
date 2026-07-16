@@ -54,7 +54,7 @@ interface ProReportPanelV2Props {
   /** Fired insight rules from buildProReport(). Optional -- most tools don't declare any yet. */
   firedInsights?: Array<{ id: string; severity: "critical" | "opportunity" | "info"; message: string }>;
   /** +/-10% sensitivity sweep from /api/pro-calculator/sensitivity. Optional, opt-in per tool. */
-  sensitivity?: { targetOutput: string; drivers: SensitivityDriverResult[] } | null;
+  sensitivity?: { targetOutput: string; baseline?: number | null; drivers: SensitivityDriverResult[] } | null;
   /** Resolved Pareto/cost-breakdown chart from buildProReport(). Optional, opt-in per tool. */
   paretoBreakdown?: { title: string; segments: Array<{ label: string; value: number }> } | null;
 }
@@ -163,6 +163,72 @@ export function ProReportPanelV2({
       {sensitivity && sensitivity.drivers.length > 0 && (() => {
         const withSpan = sensitivity.drivers.filter((d) => d.span !== null) as Array<SensitivityDriverResult & { span: number }>;
         if (withSpan.length === 0) return null;
+        const baseline = sensitivity.baseline;
+
+        // True tornado (bidirectional, centered on baseline) when we have a baseline to
+        // center on; falls back to the original one-sided magnitude bar otherwise, so this
+        // never regresses a tool whose sensitivity payload predates the baseline field.
+        if (typeof baseline === "number" && Number.isFinite(baseline)) {
+          const withDirection = withSpan.filter((d) => d.up !== null && d.down !== null) as Array<
+            SensitivityDriverResult & { span: number; up: number; down: number }
+          >;
+          if (withDirection.length > 0) {
+            const maxDeviation = Math.max(
+              ...withDirection.map((d) => Math.max(Math.abs(d.up - baseline), Math.abs(d.down - baseline))),
+              1e-9,
+            );
+            return (
+              <div className="sc-report-sensitivity sc-report-tornado">
+                <h4 className="sc-report-section-title">What Moves This Result Most (±10% each input)</h4>
+                <div className="sc-report-tornado-chart">
+                  <div className="sc-report-tornado-axis" />
+                  {withDirection.map((d) => {
+                    const upDeltaPct = (Math.max(0, d.up - baseline) / maxDeviation) * 50;
+                    const downDeltaPct = (Math.max(0, baseline - d.up) / maxDeviation) * 50;
+                    const downUpDeltaPct = (Math.max(0, d.down - baseline) / maxDeviation) * 50;
+                    const downDownDeltaPct = (Math.max(0, baseline - d.down) / maxDeviation) * 50;
+                    // "up" bar: which side of center the +10% result lands on
+                    const upOnRight = d.up >= baseline;
+                    const upWidth = upOnRight ? upDeltaPct : downDeltaPct;
+                    // "down" bar: which side of center the -10% result lands on
+                    const downOnRight = d.down >= baseline;
+                    const downWidth = downOnRight ? downUpDeltaPct : downDownDeltaPct;
+                    return (
+                      <div key={d.inputId} className="sc-report-tornado-row">
+                        <span className="sc-report-tornado-label">{d.label}</span>
+                        <div className="sc-report-tornado-track">
+                          <div
+                            className="sc-report-tornado-bar sc-report-tornado-bar-up"
+                            style={
+                              upOnRight
+                                ? { left: "50%", width: `${upWidth}%` }
+                                : { right: "50%", width: `${upWidth}%` }
+                            }
+                          />
+                          <div
+                            className="sc-report-tornado-bar sc-report-tornado-bar-down"
+                            style={
+                              downOnRight
+                                ? { left: "50%", width: `${downWidth}%` }
+                                : { right: "50%", width: `${downWidth}%` }
+                            }
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <p className="sc-report-sensitivity-note">
+                  Green = result at a +10% change in that input; red = result at a -10% change; bars are centered on
+                  the baseline {sensitivity.targetOutput.replace(/^out_/, "").replace(/_/g, " ")} of{" "}
+                  {formatReportValue(baseline, null, 2)}. Longer bars mean the result is more sensitive to that
+                  input — verify those inputs first.
+                </p>
+              </div>
+            );
+          }
+        }
+
         const maxSpan = Math.max(...withSpan.map((d) => d.span), 1e-9);
         return (
           <div className="sc-report-sensitivity">
