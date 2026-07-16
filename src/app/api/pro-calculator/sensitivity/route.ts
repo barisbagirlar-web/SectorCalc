@@ -142,5 +142,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     baseline,
     perturbationPct: PERTURBATION * 100,
     drivers: results,
+    // Base-unit normalized inputs, already computed above for the perturbation sweep.
+    // Exposed so chart-building code on the client (waterfall, runway decay, etc.) can use
+    // canonical values instead of re-deriving unit conversions from raw form state.
+    baseInputs: baseFlatInputs,
   });
 }
