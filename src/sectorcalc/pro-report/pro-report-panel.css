@@ -314,9 +314,59 @@
   color: #8C887E;
 }
 
-.sc-report-pareto-bar-negative {
-  background: #9C3520;
+.sc-report-tornado-chart {
+  margin-top: 10px;
 }
+
+.sc-report-tornado-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 9px;
+  font-size: 12.5px;
+}
+
+.sc-report-tornado-label {
+  width: 190px;
+  flex-shrink: 0;
+  color: #57544C;
+  text-align: right;
+}
+
+.sc-report-tornado-track {
+  position: relative;
+  flex: 1;
+  background: #EFEBE2;
+  height: 16px;
+}
+
+.sc-report-tornado-track::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  bottom: -3px;
+  width: 1px;
+  background: #B8B5AA;
+}
+
+.sc-report-tornado-bar {
+  position: absolute;
+  top: 0;
+  height: 16px;
+  min-width: 2px;
+}
+
+.sc-report-tornado-bar-up {
+  background: #2D8A4E;
+  opacity: 0.9;
+}
+
+.sc-report-tornado-bar-down {
+  background: #C53C3C;
+  opacity: 0.75;
+}
+
 
 /* ── Break-Even Report Chart Pack (added 2026-07-16) ── */
 
