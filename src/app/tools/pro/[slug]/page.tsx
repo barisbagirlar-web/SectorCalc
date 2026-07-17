@@ -120,7 +120,7 @@ export default async function ProToolDetailPage({
 
   return (
     <PageLayout>
-      <article aria-label={schema.tool_name} className="sc-v531-shell">
+      <article aria-label={schema.tool_name} className="pro-shell">
         <ProToolPaywallGate toolName={slug}>
           <ProToolSessionWrapper
             schema={schema}

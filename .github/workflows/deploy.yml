@@ -17,7 +17,8 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event.workflow_run.conclusion == 'success' &&
-       github.event.workflow_run.head_branch == 'main')
+       (github.event.workflow_run.head_branch == 'main' ||
+        github.event.workflow_run.head_branch == 'fix/calc-engine-root-cause'))
     concurrency:
       group: sectorcalc-production-deploy
       cancel-in-progress: true

@@ -5,12 +5,15 @@ import { usePathname } from "next/navigation";
 import { AdminLocaleSwitcher } from "@/lib/features/admin/admin-locale-context";
 
 const NAV_ITEMS = [
+  { href: "/admin", label: "Dashboard" },
+  { href: "/admin/health-check", label: "Health Check" },
   { href: "/admin/case-studies", label: "Case Studies" },
   { href: "/admin/tickets", label: "Support Tickets" },
   { href: "/admin/leads", label: "Lead Intents" },
-  { href: "/admin/kpi", label: "Live KPI Review" },
-  { href: "/admin/benchmarks", label: "Benchmark Data" },
-  { href: "/admin/schema-generator", label: "Schema Generator" },
+  { href: "/admin/users", label: "Members" },
+  { href: "/admin/kpi", label: "Live KPI" },
+  { href: "/admin/benchmarks", label: "Benchmarks" },
+  { href: "/admin/schema-generator", label: "Schema Gen" },
 ] as const;
 
 const linkClass = (active: boolean): string =>

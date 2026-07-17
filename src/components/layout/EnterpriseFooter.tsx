@@ -61,6 +61,9 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                   <Link href="/engineering-diagnostics" prefetch={true}>Engineering Diagnostics</Link>
                 </li>
                 <li>
+                  <Link href="/document-intelligence" prefetch={true}>Document Intelligence</Link>
+                </li>
+                <li>
                   <Link href="/pricing" prefetch={true}>Credit Pricing</Link>
                 </li>
                 <li>
@@ -127,6 +130,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           {/* Mobile essential view */}
           <div className="footer-mobile-essential">
             <Link href="/pricing">Pricing</Link>
+            <Link href="/document-intelligence">Document Intelligence</Link>
             <Link href="/free-tools">All Calculators</Link>
             <Link href="/verify">Report Verification</Link>
             <Link href="/about">About</Link>

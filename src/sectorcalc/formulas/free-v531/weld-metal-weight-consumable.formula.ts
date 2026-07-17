@@ -19,7 +19,7 @@ const TOOL_KEY = "weld-metal-weight-consumable";
 const TOOL_NAME = "Weld Metal Weight and Consumable Calculator";
 const CATEGORY = "welding_steel";
 const FUNNEL_TARGET = "Connection PRO";
-const PRIMARY_METRIC_ID = "weld_consumable_mass";
+const PRIMARY_METRIC_ID = "deposited_weld_metal_kg";
 const DEFAULT_DECISION_STATE = "REPRICE" as const;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;

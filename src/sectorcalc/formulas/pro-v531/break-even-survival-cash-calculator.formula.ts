@@ -1,4 +1,4 @@
-import "server-only";
+// @server-only
 import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
 
 export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
@@ -14,6 +14,101 @@ export interface CalculationResult {
   outputKeys: string[];
   redaction_status: RedactionStatus;
 }
+
+// ─── Typed input/output interfaces (for custom page component) ──────────────
+
+export interface BreakEvenInputs {
+  monthlyFixedCashCost: number;
+  monthlyDebtService: number;
+  contributionMarginRatio: number;
+  currentMonthlyRevenue: number;
+  unrestrictedCashBalance: number;
+  minimumCashBuffer: number;
+  targetSurvivalMonths: number;
+  downsideRevenueFactor: number;
+  sourceConfidence: number;
+  uncertaintyMultiplier: number;
+}
+
+export interface BreakEvenOutputs {
+  out_break_even_monthly_revenue: number;
+  out_current_revenue_gap: number;
+  out_stressed_monthly_revenue: number;
+  out_monthly_cash_burn: number;
+  out_cash_runway_months: number;
+  out_survival_cash_target: number;
+  out_funding_gap: number;
+  out_margin_of_safety_ratio: number;
+  out_source_confidence_ratio: number;
+  out_uncertainty_cash_buffer: number;
+  out_target_runway_breached: number;
+  out_decision_code: number;
+}
+
+// ─── Typed executeFormula for custom page components ────────────────────────
+
+const RUNWAY_CAP_MONTHS = 120;
+const EPSILON = 1e-9;
+
+export function executeFormula(inputs: BreakEvenInputs): BreakEvenOutputs {
+  const {
+    monthlyFixedCashCost, monthlyDebtService, contributionMarginRatio,
+    currentMonthlyRevenue, unrestrictedCashBalance, minimumCashBuffer,
+    targetSurvivalMonths, downsideRevenueFactor, sourceConfidence, uncertaintyMultiplier,
+  } = inputs;
+
+  const monthlyObligations = monthlyFixedCashCost + monthlyDebtService;
+  const breakEvenMonthlyRevenue = monthlyObligations / contributionMarginRatio;
+  const currentRevenueGap = currentMonthlyRevenue - breakEvenMonthlyRevenue;
+  const stressedMonthlyRevenue = currentMonthlyRevenue * downsideRevenueFactor;
+  const stressedContribution = stressedMonthlyRevenue * contributionMarginRatio;
+  const monthlyCashBurn = Math.max(0, monthlyObligations - stressedContribution);
+  const availableSurvivalCash = Math.max(0, unrestrictedCashBalance - minimumCashBuffer);
+  const cashRunwayMonths =
+    monthlyCashBurn > EPSILON
+      ? Math.min(RUNWAY_CAP_MONTHS, availableSurvivalCash / monthlyCashBurn)
+      : RUNWAY_CAP_MONTHS;
+
+  const targetBurnCoverage = monthlyCashBurn * targetSurvivalMonths;
+  const uncertaintyCashBuffer = targetBurnCoverage * Math.max(0, uncertaintyMultiplier - 1);
+  const survivalCashTarget = minimumCashBuffer + targetBurnCoverage + uncertaintyCashBuffer;
+  const fundingGap = Math.max(0, survivalCashTarget - unrestrictedCashBalance);
+  const marginOfSafetyRatio =
+    currentMonthlyRevenue > EPSILON
+      ? currentRevenueGap / currentMonthlyRevenue
+      : breakEvenMonthlyRevenue <= EPSILON
+        ? 0
+        : -1;
+  const targetRunwayBreached =
+    monthlyCashBurn > EPSILON && cashRunwayMonths + EPSILON < targetSurvivalMonths;
+
+  const decisionCode =
+    sourceConfidence < 0.5
+      ? 2
+      : fundingGap > EPSILON ||
+          currentRevenueGap < 0 ||
+          targetRunwayBreached ||
+          sourceConfidence < 0.7
+        ? 1
+        : 0;
+
+  return {
+    out_break_even_monthly_revenue: breakEvenMonthlyRevenue,
+    out_current_revenue_gap: currentRevenueGap,
+    out_stressed_monthly_revenue: stressedMonthlyRevenue,
+    out_monthly_cash_burn: monthlyCashBurn,
+    out_cash_runway_months: cashRunwayMonths,
+    out_survival_cash_target: survivalCashTarget,
+    out_funding_gap: fundingGap,
+    out_margin_of_safety_ratio: marginOfSafetyRatio,
+    out_source_confidence_ratio: sourceConfidence,
+    out_uncertainty_cash_buffer: uncertaintyCashBuffer,
+    out_target_runway_breached: targetRunwayBreached ? 1 : 0,
+    out_decision_code: decisionCode,
+  };
+}
+
+// ─── Legacy / registry calculate (preserved, unchanged) ─────────────────────
 
 export const toolKey = "break-even-survival-cash-calculator";
 export const formulaVersion = "5.3.1-pro-baris.3";
@@ -46,8 +141,6 @@ export const declaredOutputKeys = [
   "out_decision_code",
 ] as const;
 
-const RUNWAY_CAP_MONTHS = 120;
-const EPSILON = 1e-9;
 const REQUIRED_INPUT_SET = new Set<string>(requiredInputKeys);
 
 function isFiniteNumber(value: unknown): value is number {

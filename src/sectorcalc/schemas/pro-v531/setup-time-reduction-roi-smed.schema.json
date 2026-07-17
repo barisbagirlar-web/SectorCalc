@@ -1286,6 +1286,59 @@
       },
       "user_help_text": "Enter the realistic, evidence-based percentage reduction in setup time expected from the SMED program (e.g. from a pilot study or vendor quote), not an assumed 50%.",
       "warning_if_missing_or_estimated": "Missing Target Setup Time Reduction makes the calculation meaningless; the tool blocks output until this is provided."
+    },
+    {
+      "id": "overhead_rate",
+      "name": "Overhead Rate (Allocated)",
+      "symbol": "C_oh",
+      "quantity_kind": "currency_rate",
+      "unit_selectable": true,
+      "base_unit": "currency_unit_per_h",
+      "allowed_display_units": [
+        "currency_unit_per_h",
+        "currency_unit_per_unit",
+        "currency_unit_per_kg",
+        "currency_unit_per_m",
+        "currency_unit_per_kWh",
+        "currency_unit_per_tonne"
+      ],
+      "normalized_id": "n_overhead_rate",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 500000,
+        "unit": "currency_unit_per_h",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 20,
+        "max": 250,
+        "unit": "currency_unit_per_h",
+        "source": "SectorCalc industrial screening reference range based on payroll and overhead allocation; user must verify against project evidence."
+      },
+      "measurement_uncertainty": {
+        "typical_percentage": 10,
+        "basis": "Allocated overhead pool estimate; verify against financial records for production-grade calculation.",
+        "sensitivity": "HIGH"
+      },
+      "evidence_requirements": {
+        "minimum_confidence": "ESTIMATE",
+        "preferred_evidence": [
+          "Financial records proving the overhead allocation rate per hour (not per unit).",
+          "Signed management representation letter with overhead rate breakdown.",
+          "Industry benchmark or published survey data for similar production overhead rates."
+        ],
+        "document_gap_behavior": "WARN_AND_PASS",
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Enter the overhead rate to be allocated. Overhead includes indirect labor, facility costs, and support functions. Reference ranges are advisory and must not be used as automatic defaults.",
+      "warning_if_missing_or_estimated": "Missing or estimated Overhead Rate can flip the decision state and will downgrade evidence confidence."
     }
   ],
   "normalized_inputs": [
@@ -1351,6 +1404,19 @@
         "Apply physical hard bounds for labor_rate after unit conversion.",
         "Evaluate engineering reference range for labor_rate after conversion.",
         "Reject non-finite normalized value for labor_rate."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_overhead_rate",
+      "from_input": "overhead_rate",
+      "quantity_kind": "currency_rate",
+      "base_unit": "currency_unit_per_h",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for overhead_rate after unit conversion.",
+        "Evaluate engineering reference range for overhead_rate after conversion.",
+        "Reject non-finite normalized value for overhead_rate."
       ],
       "audit_required": true
     },

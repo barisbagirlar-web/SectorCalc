@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useScrollToResults } from "@/hooks/useScrollToResults";
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/Button";
@@ -534,6 +535,7 @@ function RpnCalculatorPanel() {
   const [occurrence, setOccurrence] = useState(5);
   const [detection, setDetection] = useState(4);
   const [result, setResult] = useState<RpnResult | null>(null);
+  useScrollToResults(result !== null, "fmea-results");
   
   const handleCalculate = useCallback(() => {
     setResult(calculateRpn(severity, occurrence, detection));
@@ -565,7 +567,7 @@ function RpnCalculatorPanel() {
         Calculate RPN
       </button>
 
-      <div aria-live="polite" aria-atomic="true">
+      <div id="fmea-results" aria-live="polite" aria-atomic="true">
         {result && (
           <div className="mt-8 border-t border-[var(--sc-border)] pt-8">
             <div className="grid md:grid-cols-2 gap-8">

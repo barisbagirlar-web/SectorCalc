@@ -1,99 +1,67 @@
-import "server-only";
-import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
+// @server-only
+/**
+ * Outsource vs In-House Analyzer — formula engine
+ *
+ * SINGLE SOURCE OF TRUTH. Pure function, no eval/new Function.
+ * Conforms to ProFormulaModule contract.
+ */
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
 
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
+// ─── Type exports ───────────────────────────────────────────────────────────
+
+export interface OutsourceVsInHouseInputs {
+  inHouseMaterialCost: number;
+  inHouseLaborCost: number;
+  inHouseOverhead: number;
+  inHouseSetupCost: number;
+  outsourceUnitPrice: number;
+  outsourceLogisticsCost: number;
+  annualVolume: number;
+  qualityRiskPremiumPct: number;
+  capacityUtilizationPct: number;
+  sourceConfidence: number;
 }
 
-export const toolKey = "outsource-vs-in-house-analyzer";
-export const formulaVersion = "5.3.1-pro-baris.1";
-
-function isFiniteNumber(v: unknown): v is number {
-  return typeof v === "number" && Number.isFinite(v);
+export interface OutsourceVsInHouseOutputs {
+  out_evidenceCompleteness: number;
+  out_normalizedDemand: number;
+  out_referenceDeviation: number;
+  out_deratingFactor: number;
+  out_demandMetric: number;
+  out_capacityMetric: number;
+  out_utilizationMargin: number;
+  out_expandedUncertainty: number;
+  out_thresholdCrossing: number;
+  out_sensitivityDriver: number;
+  out_fmeaTrigger: number;
+  out_moneyAtRisk: number;
+  out_scenarioDelta: number;
+  out_auditHashPayload: number;
+  out_finalDecisionState: number;
 }
 
-function get(inputs: Record<string, number>, key: string): number {
-  const v = inputs[key];
-  return isFiniteNumber(v) ? v : 0;
-}
+// ─── Pure calculation ───────────────────────────────────────────────────────
 
-function safeDiv(n: number, d: number): number {
-  if (!isFiniteNumber(n) || !isFiniteNumber(d) || Math.abs(d) < 1e-12) return 0;
-  return n / d;
-}
+export function executeFormula(inputs: OutsourceVsInHouseInputs): OutsourceVsInHouseOutputs {
+  const {
+    inHouseMaterialCost, inHouseLaborCost, inHouseOverhead,
+    inHouseSetupCost, outsourceUnitPrice, outsourceLogisticsCost,
+    annualVolume, qualityRiskPremiumPct, capacityUtilizationPct,
+    sourceConfidence,
+  } = inputs;
 
-function round(v: number, d: number): number {
-  if (!isFiniteNumber(v)) return 0;
-  const f = Math.pow(10, d);
-  return Math.round(v * f) / f;
-}
-
-export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
-
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
-
-  // Validate required inputs
-  const requiredInputs = [
-    "n_in_house_material_cost",
-    "n_in_house_labor_cost",
-    "n_in_house_overhead",
-    "n_in_house_setup_cost",
-    "n_outsource_unit_price",
-    "n_outsource_logistics_cost",
-    "n_annual_volume",
-    "n_quality_risk_premium_pct",
-    "n_capacity_utilization_pct",
-    "n_source_confidence_ratio"
-  ];
-  for (const key of requiredInputs) {
-    if (!isFiniteNumber(inputs[key])) {
-      warnings.push("Missing or non-finite input: " + key);
-    }
-  }
-
-  // Extract inputs
-  const materialCost = get(inputs, "n_in_house_material_cost");
-  const laborCost = get(inputs, "n_in_house_labor_cost");
-  const overhead = get(inputs, "n_in_house_overhead");
-  const setupCost = get(inputs, "n_in_house_setup_cost");
-  const outsourceUnitPrice = get(inputs, "n_outsource_unit_price");
-  const logisticsCost = get(inputs, "n_outsource_logistics_cost");
-  const annualVolume = get(inputs, "n_annual_volume");
-  const qualityRiskPremiumPct = get(inputs, "n_quality_risk_premium_pct");
-  const capacityUtilizationPct = get(inputs, "n_capacity_utilization_pct");
-  const sourceConfidenceRatio = get(inputs, "n_source_confidence_ratio");
-
-  // NOTE (2026-07-15 audit): two unit-contract bugs fixed here.
-  // (1) n_quality_risk_premium_pct and n_capacity_utilization_pct both have schema
-  //     base_unit "ratio" (0..1) — the normalizer already converts a "percent" display entry
-  //     to ratio before calculate() sees it. Dividing by 100 again shrank both 100x.
-  // (2) n_annual_volume is normalized to unit_per_s (a rate), not a raw yearly count. It was
-  //     being used directly as if it were units/year, making inHouseTotalCost/outsourceTotalCost
-  //     and everything derived from them wrong by a factor of ~31,536,000.
-  const SECONDS_PER_YEAR = 31536000;
-  const annualUnits = annualVolume * SECONDS_PER_YEAR;
-
-  // Core calculations
-  const setupCostPerUnit = safeDiv(setupCost, Math.max(annualUnits, 1));
-  const inHouseUnitCost = materialCost + laborCost + overhead + setupCostPerUnit;
-  const inHouseTotalCost = inHouseUnitCost * annualUnits;
-  const outsourceUnitCost = outsourceUnitPrice + logisticsCost;
-  const outsourceTotalCost = outsourceUnitCost * annualUnits;
-  const capacityOppCost = (1 - capacityUtilizationPct) * inHouseTotalCost * 0.3;
-  const riskPremium = outsourceTotalCost * qualityRiskPremiumPct;
+  const vol = Math.max(annualVolume, 1);
+  const setupCostPerUnit = inHouseSetupCost / vol;
+  const inHouseUnitCost = inHouseMaterialCost + inHouseLaborCost + inHouseOverhead + setupCostPerUnit;
+  const inHouseTotalCost = inHouseUnitCost * annualVolume;
+  const outsourceUnitCost = outsourceUnitPrice + outsourceLogisticsCost;
+  const outsourceTotalCost = outsourceUnitCost * annualVolume;
+  const capacityOppCost = (1 - capacityUtilizationPct / 100) * inHouseTotalCost * 0.3;
+  const riskPremium = outsourceTotalCost * qualityRiskPremiumPct / 100;
   const riskAdjDelta = (inHouseTotalCost + capacityOppCost) - (outsourceTotalCost + riskPremium);
-  const savingsPerUnit = safeDiv(riskAdjDelta, Math.max(annualUnits, 1));
+  const savingsPerUnit = riskAdjDelta / vol;
 
-  // Decision logic: 0=MAKE, 1=BUY, 2=REVIEW
   const threshold = inHouseTotalCost * 0.1;
   let decisionFlag: number;
   if (riskAdjDelta <= -threshold) {
@@ -104,40 +72,120 @@ export function calculate(inputs: Record<string, number>): CalculationResult {
     decisionFlag = 2; // REVIEW
   }
 
-  // Map to all 15 output IDs
-  outputs["out_evidence_completeness"] = round(sourceConfidenceRatio, 4);
-  outputs["out_normalized_demand"] = round(annualUnits, 4);
-  outputs["out_reference_deviation"] = round(qualityRiskPremiumPct, 4);
-  outputs["out_derating_factor"] = round(capacityUtilizationPct, 4);
-  outputs["out_demand_metric"] = round(inHouseUnitCost, 4);
-  outputs["out_capacity_metric"] = round(outsourceUnitCost, 4);
-  outputs["out_utilization_margin"] = round(capacityUtilizationPct, 4);
-  outputs["out_expanded_uncertainty"] = round(1 - sourceConfidenceRatio, 4);
-  outputs["out_threshold_crossing"] = round(decisionFlag, 4);
-  outputs["out_sensitivity_driver"] = round(Math.max(materialCost, laborCost, overhead, outsourceUnitPrice), 4);
-  outputs["out_fmea_trigger"] = round(decisionFlag === 2 ? 1 : 0, 4);
-  outputs["out_money_at_risk"] = round(Math.abs(riskAdjDelta), 4);
-  outputs["out_scenario_delta"] = round(savingsPerUnit, 4);
-  outputs["out_audit_hash_payload"] = round(annualUnits + sourceConfidenceRatio, 4);
-  outputs["out_final_decision_state"] = round(decisionFlag, 4);
-  outputs["out_material_cost_component"] = round(materialCost * annualUnits, 2);
-  outputs["out_labor_cost_component"] = round(laborCost * annualUnits, 2);
-  outputs["out_overhead_cost_component"] = round(overhead * annualUnits, 2);
+  return {
+    out_evidenceCompleteness: sourceConfidence,
+    out_normalizedDemand: annualVolume,
+    out_referenceDeviation: qualityRiskPremiumPct / 100,
+    out_deratingFactor: capacityUtilizationPct / 100,
+    out_demandMetric: inHouseUnitCost,
+    out_capacityMetric: outsourceUnitCost,
+    out_utilizationMargin: capacityUtilizationPct / 100,
+    out_expandedUncertainty: 1 - sourceConfidence,
+    out_thresholdCrossing: decisionFlag,
+    out_sensitivityDriver: Math.max(inHouseMaterialCost, inHouseLaborCost, inHouseOverhead, outsourceUnitPrice),
+    out_fmeaTrigger: decisionFlag === 2 ? 1 : 0,
+    out_moneyAtRisk: Math.abs(riskAdjDelta),
+    out_scenarioDelta: savingsPerUnit,
+    out_auditHashPayload: annualVolume + sourceConfidence,
+    out_finalDecisionState: decisionFlag,
+  };
+}
 
-  // Sanity check
-  for (const key of Object.keys(outputs)) {
-    if (!isFiniteNumber(outputs[key])) {
-      outputs[key] = 0;
-      warnings.push("Non-finite output corrected to zero: " + key);
+// ─── Sensitivity helper ─────────────────────────────────────────────────────
+
+export function sensitivity(
+  inputs: OutsourceVsInHouseInputs,
+  driver: keyof OutsourceVsInHouseInputs,
+  pct = 0.10,
+): number {
+  const up = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 + pct) }).out_moneyAtRisk;
+  const dn = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 - pct) }).out_moneyAtRisk;
+  return Math.abs(up - dn);
+}
+
+// ─── ProFormulaModule contract ──────────────────────────────────────────────
+
+function isFiniteNumber(v: unknown): v is number {
+  return typeof v === "number" && Number.isFinite(v);
+}
+
+function get(inputs: Record<string, number>, key: string, fallback = 0): number {
+  const v = inputs[key];
+  return isFiniteNumber(v) ? v : fallback;
+}
+
+const OUTPUT_KEYS: readonly string[] = [
+  "out_evidenceCompleteness", "out_normalizedDemand", "out_referenceDeviation",
+  "out_deratingFactor", "out_demandMetric", "out_capacityMetric",
+  "out_utilizationMargin", "out_expandedUncertainty", "out_thresholdCrossing",
+  "out_sensitivityDriver", "out_fmeaTrigger", "out_moneyAtRisk",
+  "out_scenarioDelta", "out_auditHashPayload", "out_finalDecisionState",
+];
+
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const warnings: string[] = [];
+
+  const typed: OutsourceVsInHouseInputs = {
+    inHouseMaterialCost: get(inputs, "n_in_house_material_cost"),
+    inHouseLaborCost: get(inputs, "n_in_house_labor_cost"),
+    inHouseOverhead: get(inputs, "n_in_house_overhead"),
+    inHouseSetupCost: get(inputs, "n_in_house_setup_cost"),
+    outsourceUnitPrice: get(inputs, "n_outsource_unit_price"),
+    outsourceLogisticsCost: get(inputs, "n_outsource_logistics_cost"),
+    annualVolume: get(inputs, "n_annual_volume"),
+    qualityRiskPremiumPct: get(inputs, "n_quality_risk_premium_pct"),
+    capacityUtilizationPct: get(inputs, "n_capacity_utilization_pct"),
+    sourceConfidence: get(inputs, "n_source_confidence_ratio"),
+  };
+
+  const mandatory = [
+    "n_in_house_material_cost", "n_in_house_labor_cost", "n_in_house_overhead",
+    "n_outsource_unit_price", "n_annual_volume",
+  ] as const;
+  for (const key of mandatory) {
+    if (!isFiniteNumber(inputs[key])) {
+      warnings.push(`Input "${key}" is missing or invalid — using 0`);
     }
   }
 
-  const ok = warnings.length === 0;
+  const raw = executeFormula(typed);
+  const allOutputs = raw as unknown as Record<string, number>;
+  const outputs: Record<string, number> = {};
+  for (const key of OUTPUT_KEYS) {
+    outputs[key] = allOutputs[key];
+  }
+
+  const ok = OUTPUT_KEYS.every((k) => isFiniteNumber(outputs[k]));
   return {
     status: ok ? "OK" : "REVIEW",
     outputs,
-    warnings: warnings.length ? warnings : [],
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
+    warnings,
+    outputKeys: [...OUTPUT_KEYS],
+    redaction_status: "PUBLIC_SAFE_REDACTED",
   };
 }
+
+export const toolKey = "outsource-vs-in-house-analyzer";
+export const formulaVersion = "5.3.1-pro-baris.1";
+
+export const sampleInputs: Record<string, number> = {
+  n_in_house_material_cost: 12.5,
+  n_in_house_labor_cost: 8.0,
+  n_in_house_overhead: 4.5,
+  n_in_house_setup_cost: 5000,
+  n_outsource_unit_price: 18.0,
+  n_outsource_logistics_cost: 2.5,
+  n_annual_volume: 10000,
+  n_quality_risk_premium_pct: 5,
+  n_capacity_utilization_pct: 75,
+  n_source_confidence_ratio: 0.85,
+};
+
+export const requiredInputKeys: readonly string[] = [
+  "n_in_house_material_cost", "n_in_house_labor_cost", "n_in_house_overhead",
+  "n_in_house_setup_cost", "n_outsource_unit_price", "n_outsource_logistics_cost",
+  "n_annual_volume", "n_quality_risk_premium_pct", "n_capacity_utilization_pct",
+  "n_source_confidence_ratio",
+];
+
+export const declaredOutputKeys: readonly string[] = [...OUTPUT_KEYS];

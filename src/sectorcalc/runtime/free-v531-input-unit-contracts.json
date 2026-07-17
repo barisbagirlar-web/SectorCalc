@@ -1,0 +1,123 @@
+{
+  "version": "1.0.0",
+  "contracts": {
+    "machining-cost-per-part": {
+      "cycle_seconds": { "quantity_kind": "time", "base_unit": "s", "allowed_display_units": ["s"], "unit_selectable": false },
+      "setup_minutes": { "quantity_kind": "time", "base_unit": "min", "allowed_display_units": ["min"], "unit_selectable": false }
+    },
+    "cnc-shop-hourly-rate": {
+      "annual_available_machine_hours": { "quantity_kind": "time", "base_unit": "h/year", "allowed_display_units": ["h/year"], "unit_selectable": false },
+      "annual_depreciation": { "quantity_kind": "currency", "base_unit": "display_currency/year", "allowed_display_units": ["display_currency/year"], "unit_selectable": false },
+      "average_power_kw": { "quantity_kind": "power", "base_unit": "kW", "allowed_display_units": ["kW"], "unit_selectable": false },
+      "consumables_per_hour": { "quantity_kind": "currency_rate", "base_unit": "display_currency/h", "allowed_display_units": ["display_currency/h"], "unit_selectable": false }
+    },
+    "iso-286-tolerance-fit": {
+      "hole_lower_deviation_um": { "quantity_kind": "length", "base_unit": "um", "allowed_display_units": ["um"], "unit_selectable": false },
+      "hole_upper_deviation_um": { "quantity_kind": "length", "base_unit": "um", "allowed_display_units": ["um"], "unit_selectable": false },
+      "shaft_lower_deviation_um": { "quantity_kind": "length", "base_unit": "um", "allowed_display_units": ["um"], "unit_selectable": false },
+      "shaft_upper_deviation_um": { "quantity_kind": "length", "base_unit": "um", "allowed_display_units": ["um"], "unit_selectable": false }
+    },
+    "surface-roughness-converter": {
+      "ra_um": { "quantity_kind": "length", "base_unit": "um", "allowed_display_units": ["um"], "unit_selectable": false }
+    },
+    "tool-life-tool-cost-per-part": {
+      "cutting_time_seconds_per_part": { "quantity_kind": "time_per_part", "base_unit": "s/part", "allowed_display_units": ["s/part"], "unit_selectable": false },
+      "taylor_c": { "quantity_kind": "model_constant", "base_unit": "model_constant", "allowed_display_units": ["model_constant"], "unit_selectable": false },
+      "taylor_n": { "quantity_kind": "dimensionless", "base_unit": "1", "allowed_display_units": ["1"], "unit_selectable": false },
+      "tool_change_minutes": { "quantity_kind": "time", "base_unit": "min", "allowed_display_units": ["min"], "unit_selectable": false }
+    },
+    "knurling-drill-point-depth": {
+      "drill_point_angle_deg": { "quantity_kind": "angle", "base_unit": "deg", "allowed_display_units": ["deg"], "unit_selectable": false }
+    },
+    "weld-metal-weight-consumable": {
+      "weld_cross_section_area_mm2": { "quantity_kind": "area", "base_unit": "mm2", "allowed_display_units": ["mm2"], "unit_selectable": false }
+    },
+    "welding-cost-per-meter": {
+      "consumable_kg_per_meter": { "quantity_kind": "mass_per_length", "base_unit": "kg/m", "allowed_display_units": ["kg/m"], "unit_selectable": false }
+    },
+    "steel-weight": {
+      "cross_section_area_mm2": { "quantity_kind": "area", "base_unit": "mm2", "allowed_display_units": ["mm2"], "unit_selectable": false }
+    },
+    "beam-load-deflection-quick-check": {
+      "second_moment_area_cm4": { "quantity_kind": "second_moment_area", "base_unit": "cm4", "allowed_display_units": ["cm4"], "unit_selectable": false },
+      "section_modulus_cm3": { "quantity_kind": "section_modulus", "base_unit": "cm3", "allowed_display_units": ["cm3"], "unit_selectable": false }
+    },
+    "sheet-metal-bend-allowance": {
+      "bend_angle_deg": { "quantity_kind": "angle", "base_unit": "deg", "allowed_display_units": ["deg"], "unit_selectable": false }
+    },
+    "oee": {
+      "downtime_minutes": { "quantity_kind": "time", "base_unit": "min", "allowed_display_units": ["min"], "unit_selectable": false },
+      "ideal_cycle_seconds": { "quantity_kind": "time", "base_unit": "s", "allowed_display_units": ["s"], "unit_selectable": false },
+      "planned_production_minutes": { "quantity_kind": "time", "base_unit": "min", "allowed_display_units": ["min"], "unit_selectable": false }
+    },
+    "downtime-cost": {
+      "downtime_hours": { "quantity_kind": "time", "base_unit": "h", "allowed_display_units": ["h"], "unit_selectable": false }
+    },
+    "takt-time-cycle-time": {
+      "actual_cycle_seconds": { "quantity_kind": "time", "base_unit": "s", "allowed_display_units": ["s"], "unit_selectable": false },
+      "available_production_minutes": { "quantity_kind": "time", "base_unit": "min", "allowed_display_units": ["min"], "unit_selectable": false }
+    },
+    "setup-time-cost": {
+      "changeovers_per_month": { "quantity_kind": "frequency", "base_unit": "changeovers/month", "allowed_display_units": ["changeovers/month"], "unit_selectable": false },
+      "setup_minutes": { "quantity_kind": "time", "base_unit": "min", "allowed_display_units": ["min"], "unit_selectable": false }
+    },
+    "line-balancing-efficiency": {
+      "line_cycle_time_seconds": { "quantity_kind": "time", "base_unit": "s", "allowed_display_units": ["s"], "unit_selectable": false },
+      "shift_hours": { "quantity_kind": "time", "base_unit": "h", "allowed_display_units": ["h"], "unit_selectable": false },
+      "total_task_time_seconds": { "quantity_kind": "time", "base_unit": "s", "allowed_display_units": ["s"], "unit_selectable": false }
+    },
+    "compressed-air-leak-cost": {
+      "annual_operating_hours": { "quantity_kind": "time", "base_unit": "h/year", "allowed_display_units": ["h/year"], "unit_selectable": false },
+      "compressor_specific_power_kw_per_cfm": { "quantity_kind": "specific_power", "base_unit": "kW/cfm", "allowed_display_units": ["kW/cfm"], "unit_selectable": false },
+      "estimated_leak_flow_cfm": { "quantity_kind": "volumetric_flow", "base_unit": "cfm", "allowed_display_units": ["cfm"], "unit_selectable": false }
+    },
+    "electric-motor-running-cost": {
+      "motor_power_kw": { "quantity_kind": "power", "base_unit": "kW", "allowed_display_units": ["kW"], "unit_selectable": false },
+      "operating_hours": { "quantity_kind": "time", "base_unit": "h", "allowed_display_units": ["h"], "unit_selectable": false }
+    },
+    "energy-cost-per-part": {
+      "auxiliary_kwh_per_part": { "quantity_kind": "energy_per_part", "base_unit": "kWh/part", "allowed_display_units": ["kWh/part"], "unit_selectable": false },
+      "average_machine_power_kw": { "quantity_kind": "power", "base_unit": "kW", "allowed_display_units": ["kW"], "unit_selectable": false },
+      "cycle_seconds_per_part": { "quantity_kind": "time_per_part", "base_unit": "s/part", "allowed_display_units": ["s/part"], "unit_selectable": false }
+    },
+    "cbam-cost-quick-estimator": {
+      "embedded_emission_tco2e_per_ton": { "quantity_kind": "emission_intensity", "base_unit": "tCO2e/t", "allowed_display_units": ["tCO2e/t"], "unit_selectable": false },
+      "export_product_mass_ton": { "quantity_kind": "mass", "base_unit": "t", "allowed_display_units": ["t"], "unit_selectable": false }
+    },
+    "diesel-fuel-co2-emissions": {
+      "fuel_volume_liters": { "quantity_kind": "volume", "base_unit": "L", "allowed_display_units": ["L"], "unit_selectable": false }
+    },
+    "product-carbon-footprint-basic": {
+      "allocated_process_emissions_kgco2e": { "quantity_kind": "emissions", "base_unit": "kgCO2e", "allowed_display_units": ["kgCO2e"], "unit_selectable": false },
+      "scope1_emissions_kgco2e": { "quantity_kind": "emissions", "base_unit": "kgCO2e", "allowed_display_units": ["kgCO2e"], "unit_selectable": false },
+      "scope2_emissions_kgco2e": { "quantity_kind": "emissions", "base_unit": "kgCO2e", "allowed_display_units": ["kgCO2e"], "unit_selectable": false }
+    },
+    "carbon-price-exposure": {
+      "exposed_emissions_tco2e": { "quantity_kind": "emissions", "base_unit": "tCO2e", "allowed_display_units": ["tCO2e"], "unit_selectable": false }
+    },
+    "true-employee-cost": {
+      "monthly_productive_hours": { "quantity_kind": "time", "base_unit": "h/month", "allowed_display_units": ["h/month"], "unit_selectable": false },
+      "monthly_severance_accrual": { "quantity_kind": "currency", "base_unit": "display_currency/month", "allowed_display_units": ["display_currency/month"], "unit_selectable": false }
+    },
+    "payment-term-cost": {
+      "payment_term_days": { "quantity_kind": "time", "base_unit": "day", "allowed_display_units": ["day"], "unit_selectable": false }
+    },
+    "machine-investment-payback": {
+      "annual_incremental_maintenance": { "quantity_kind": "currency", "base_unit": "display_currency/year", "allowed_display_units": ["display_currency/year"], "unit_selectable": false },
+      "annual_labor_savings": { "quantity_kind": "currency", "base_unit": "display_currency/year", "allowed_display_units": ["display_currency/year"], "unit_selectable": false },
+      "annual_scrap_savings": { "quantity_kind": "currency", "base_unit": "display_currency/year", "allowed_display_units": ["display_currency/year"], "unit_selectable": false },
+      "maximum_payback_months": { "quantity_kind": "time", "base_unit": "month", "allowed_display_units": ["month"], "unit_selectable": false }
+    },
+    "safety-stock-reorder-point": {
+      "lead_time_days": { "quantity_kind": "time", "base_unit": "day", "allowed_display_units": ["day"], "unit_selectable": false },
+      "lead_time_std_dev_days": { "quantity_kind": "time", "base_unit": "day", "allowed_display_units": ["day"], "unit_selectable": false },
+      "service_level_z_score": { "quantity_kind": "dimensionless", "base_unit": "1", "allowed_display_units": ["1"], "unit_selectable": false }
+    },
+    "pallet-container-load-cbm": {
+      "container_capacity_cbm": { "quantity_kind": "volume", "base_unit": "m3", "allowed_display_units": ["m3"], "unit_selectable": false }
+    },
+    "fabric-consumption-gsm": {
+      "fabric_gsm": { "quantity_kind": "areal_density", "base_unit": "g/m2", "allowed_display_units": ["g/m2"], "unit_selectable": false }
+    }
+  }
+}

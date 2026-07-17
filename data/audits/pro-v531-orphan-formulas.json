@@ -1,12 +1,12 @@
 {
-  "audit_timestamp": "2026-07-08T13:48:37.836Z",
+  "audit_timestamp": "2026-07-14T21:04:12.259Z",
   "audit_scope": "src/sectorcalc/formulas/pro-v531/*.formula.ts (excluding baris-* files)",
   "total_formula_files": 21,
   "active_registered": 20,
   "baris_live": 20,
-  "legacy_referenced": 0,
+  "legacy_referenced": 1,
   "orphan_unreferenced": 0,
-  "do_not_delete_unverified": 1,
+  "do_not_delete_unverified": 0,
   "classification": "DO_NOT_DELETE_UNVERIFIED",
   "production_impact_on_baris": "NONE",
   "blocked_reason": "135 sc_* files are legacy formula templates from the original 135 PRO schema set. They are referenced by schema files only, not by Baris runtime. They cannot be safely archived without schema ownership verification. They are excluded from Baris registry, routing, and client bundle.",
@@ -33,8 +33,8 @@
     "weld-procedure-cost-consumable-estimation-suite.formula.ts"
   ],
   "orphan_files": [],
-  "legacy_files": [],
-  "unverified_files": [
+  "legacy_files": [
     "compressed-air-leak-cost-calculator.formula.ts"
-  ]
+  ],
+  "unverified_files": []
 }

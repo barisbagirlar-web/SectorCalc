@@ -1,6 +1,23 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
 import { VERIFICATION_QUEUE_COLLECTION } from "@/lib/features/feedback/feedback-types";
+import { AdminSubNav } from "@/components/admin/AdminSubNav";
+import { PageLayout } from "@/components/layout/PageLayout";
+import { PageHero } from "@/components/layout/PageHero";
+import { Container } from "@/components/ui/Container";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import Link from "next/link";
+
+export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  ...createPageMetadata({
+    title: "Verification Queue (Admin)",
+    description: "Calculation feedback and result objections from users. Review and prioritize formula updates.",
+    path: "/admin/verification-queue",
+  }),
+  robots: { index: false, follow: false },
+};
 
 type QueueRow = {
   id: string;
@@ -12,8 +29,6 @@ type QueueRow = {
   createdAt: string;
   userId?: string;
 };
-
-export const dynamic = "force-dynamic";
 
 export default async function AdminVerificationQueuePage() {
   const db = getAdminFirestore();
@@ -40,7 +55,7 @@ export default async function AdminVerificationQueuePage() {
     }
   }
 
-  // Weekly Recommendations Report calculation (last 7 days)
+  // Weekly Recommendations Report (last 7 days)
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
   const sevenDaysAgoIso = sevenDaysAgo.toISOString();
@@ -61,83 +76,84 @@ export default async function AdminVerificationQueuePage() {
   const weeklyRecommendations = Array.from(weeklyRecommendationsMap.values()).sort((a, b) => b.count - a.count);
 
   return (
-    <main className="mx-auto max-w-5xl p-4 sm:p-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-semibold text-slate-900">Verification queue</h1>
-          <p className="mt-2 text-sm text-slate-600">
-            Calculation feedback and result objections (`verification_queue`).
-          </p>
-        </div>
-        <Link href="/admin/leads" className="text-sm font-semibold text-blue-700 hover:underline">
-          ← Admin leads
-        </Link>
-      </div>
+    <PageLayout>
+      <PageHero
+        eyebrow="Admin"
+        title="Verification Queue"
+        subtitle="Calculation feedback and result objections from users. Review, prioritize formula updates, and track resolution status."
+      />
+      <section className="bg-off-white py-10 md:py-14">
+        <Container>
+          <AdminSubNav />
 
-      {!db ? (
-        <p className="mt-4 text-sm text-amber-800">Admin Firestore unavailable in this environment.</p>
-      ) : null}
+          {!db ? (
+            <div className="mb-6 rounded-sm border border-amber/25 bg-amber/5 px-5 py-4 text-sm text-deep-navy">
+              <p className="font-semibold">Admin Firestore unavailable in this environment.</p>
+            </div>
+          ) : null}
 
-      {weeklyRecommendations.length > 0 ? (
-        <section className="mt-6 mb-8 rounded-xl border border-rose-200 bg-rose-50/40 p-5">
-          <h2 className="text-sm font-semibold text-rose-900 uppercase tracking-wider">
-            Weekly Formula Update Recommendations (Last 7 Days)
-          </h2>
-          <p className="text-xs text-rose-700 mt-1">
-            The following tools received result objections from users. Formula validation should be prioritized.
-          </p>
-          <div className="mt-4 overflow-x-auto">
-            <table className="min-w-full divide-y divide-rose-200 text-xs text-rose-900">
-              <thead>
-                <tr>
-                  <th className="px-3 py-2 text-left font-semibold">Tool Slug</th>
-                  <th className="px-3 py-2 text-center font-semibold">Objections</th>
-                  <th className="px-3 py-2 text-left font-semibold">Recent Comments</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-rose-200">
-                {weeklyRecommendations.map((rec) => (
-                  <tr key={rec.toolSlug}>
-                    <td className="px-3 py-2 font-medium">{rec.toolSlug}</td>
-                    <td className="px-3 py-2 text-center font-bold text-rose-700">{rec.count}</td>
-                    <td className="px-3 py-2 text-rose-800 italic">
-                      <ul className="list-disc pl-4 space-y-1">
-                        {rec.messages.map((m, idx) => (
-                          <li key={idx}>{m.slice(0, 80)}{m.length > 80 ? "..." : ""}</li>
-                        ))}
-                      </ul>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      ) : null}
-
-      <p className="mt-4 text-xs text-slate-500">{items.length} item(s) · newest first</p>
-
-      <ul className="mt-4 space-y-3">
-        {items.length === 0 ? (
-          <li className="rounded-lg border border-dashed border-slate-300 p-6 text-sm text-slate-600">
-            No feedback queued yet.
-          </li>
-        ) : (
-          items.map((item) => (
-            <li key={item.id} className="rounded-lg border border-slate-200 p-4 text-sm">
-              <div className="flex flex-wrap items-start justify-between gap-2">
-                <p className="font-medium text-slate-900">{item.toolSlug}</p>
-                <p className="text-xs text-slate-500">{item.createdAt || "-"}</p>
-              </div>
-              <p className="mt-1 text-xs text-slate-600">
-                {item.issueType} · {item.status} · {item.tier}
-                {item.userId ? ` · uid ${item.userId.slice(0, 8)}…` : ""}
+          {weeklyRecommendations.length > 0 ? (
+            <section className="mb-8 rounded-sm border border-red/20 bg-red/5 p-5">
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-red">
+                Weekly Formula Update Recommendations (Last 7 Days)
+              </h2>
+              <p className="mt-1 text-xs text-red/80">
+                The following tools received result objections from users. Formula validation should be prioritized.
               </p>
-              <p className="mt-2 whitespace-pre-wrap text-slate-700">{item.message.slice(0, 500)}</p>
-            </li>
-          ))
-        )}
-      </ul>
-    </main>
+              <div className="mt-4 overflow-x-auto">
+                <table className="min-w-full divide-y divide-red/20 text-xs text-deep-navy">
+                  <thead>
+                    <tr>
+                      <th className="px-3 py-2 text-left font-semibold">Tool Slug</th>
+                      <th className="px-3 py-2 text-center font-semibold">Objections</th>
+                      <th className="px-3 py-2 text-left font-semibold">Recent Comments</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-red/10">
+                    {weeklyRecommendations.map((rec) => (
+                      <tr key={rec.toolSlug}>
+                        <td className="px-3 py-2 font-medium">{rec.toolSlug}</td>
+                        <td className="px-3 py-2 text-center font-bold text-red">{rec.count}</td>
+                        <td className="px-3 py-2 italic text-red/80">
+                          <ul className="list-disc pl-4 space-y-1">
+                            {rec.messages.map((m, idx) => (
+                              <li key={idx}>{m.slice(0, 80)}{m.length > 80 ? "..." : ""}</li>
+                            ))}
+                          </ul>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          ) : null}
+
+          <p className="text-xs text-text-secondary">{items.length} item(s) · newest first</p>
+
+          <div className="mt-4 space-y-3">
+            {items.length === 0 ? (
+              <div className="rounded-sm border border-dashed border-slate/25 bg-white p-6 text-sm text-text-secondary">
+                No feedback queued yet.
+              </div>
+            ) : (
+              items.map((item) => (
+                <div key={item.id} className="rounded-sm border border-slate/20 bg-white p-4 text-sm shadow-card">
+                  <div className="flex flex-wrap items-start justify-between gap-2">
+                    <p className="font-medium text-deep-navy">{item.toolSlug}</p>
+                    <p className="text-xs text-text-secondary">{item.createdAt || "-"}</p>
+                  </div>
+                  <p className="mt-1 text-xs text-text-secondary">
+                    {item.issueType} · {item.status} · {item.tier}
+                    {item.userId ? ` · uid ${item.userId.slice(0, 8)}…` : ""}
+                  </p>
+                  <p className="mt-2 whitespace-pre-wrap text-deep-navy">{item.message.slice(0, 500)}</p>
+                </div>
+              ))
+            )}
+          </div>
+        </Container>
+      </section>
+    </PageLayout>
   );
 }

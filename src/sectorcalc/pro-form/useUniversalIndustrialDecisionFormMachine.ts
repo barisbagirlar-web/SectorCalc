@@ -645,8 +645,8 @@ function convertDisplayToBase(
   if (!display) return { ok: false, reason: `Unsupported display unit ${displayUnit}.` };
   if (!base) return { ok: false, reason: `Unsupported base unit ${baseUnit}.` };
 
-  const registryBaseValue = (value + (display.offset ?? 0)) * display.factor;
-  const targetValue = registryBaseValue / base.factor - (base.offset ?? 0);
+  const registryBaseValue = value * display.factor + (display.offset ?? 0);
+  const targetValue = (registryBaseValue - (base.offset ?? 0)) / base.factor;
   if (!Number.isFinite(targetValue)) return { ok: false, reason: "Non-finite conversion result." };
   return { ok: true, value: targetValue };
 }
@@ -665,8 +665,8 @@ function preserveDisplayQuantity(
   const newEntry = units.find((entry) => entry.unit === newUnit);
   if (!oldEntry || !newEntry) return { ok: false, reason: "Unsupported unit change." };
 
-  const registryBaseValue = (value + (oldEntry.offset ?? 0)) * oldEntry.factor;
-  const nextValue = registryBaseValue / newEntry.factor - (newEntry.offset ?? 0);
+  const registryBaseValue = value * oldEntry.factor + (oldEntry.offset ?? 0);
+  const nextValue = (registryBaseValue - (newEntry.offset ?? 0)) / newEntry.factor;
   if (!Number.isFinite(nextValue)) return { ok: false, reason: "Non-finite unit preservation result." };
   return { ok: true, value: nextValue };
 }

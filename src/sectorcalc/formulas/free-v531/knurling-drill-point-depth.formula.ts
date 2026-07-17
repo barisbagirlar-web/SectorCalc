@@ -19,7 +19,7 @@ const TOOL_KEY = "knurling-drill-point-depth";
 const TOOL_NAME = "Knurling and Drill Point Depth";
 const CATEGORY = "machining_cnc";
 const FUNNEL_TARGET = "Inspection Copilot";
-const PRIMARY_METRIC_ID = "depth_or_pitch_mm";
+const PRIMARY_METRIC_ID = "drill_point_depth_mm";
 const DEFAULT_DECISION_STATE = "INSPECT" as const;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;

@@ -1,117 +1,197 @@
-import "server-only";
-import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
+// @server-only
+/**
+ * Product SKU Margin Ranker — formula engine
+ *
+ * SINGLE SOURCE OF TRUTH. Pure function, no eval/new Function.
+ * Isomorphic — no Node-only or browser-only APIs.
+ *
+ * Conforms to ProFormulaModule contract for generated-registry.ts.
+ * The `calculate` wrapper maps generic Record<string, number> inputs
+ * (n_ prefix keys) to typed ProductSkuMarginInputs, calls executeFormula(),
+ * and wraps the result in ProFormulaResult format.
+ */
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
 
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
+// ─── Type exports ───────────────────────────────────────────────────────────
+
+export interface ProductSkuMarginInputs {
+  unitSellingPrice: number;     // Real selling price per unit (currency/unit)
+  machineRate: number;          // Machine hourly rate (currency/hour)
+  cycleTime: number;            // Cycle time per unit (minutes)
+  materialCost: number;         // Material cost per unit (currency/unit)
+  targetMargin: number;         // Target margin (ratio, e.g. 0.3 = 30%)
+  annualVolume: number;         // Annual production volume (count/year)
+  laborRate: number;            // Labor rate (currency/unit)
+  overheadRate: number;         // Annual overhead allocation (currency)
+  defectOrLossCost: number;     // Defect or loss cost (currency)
+  sourceConfidence: number;     // Source confidence ratio (0..1)
 }
 
-export const toolKey = "product-sku-margin-ranker";
-export const formulaVersion = "5.3.2-pro-baris.2";
+export interface ProductSkuMarginOutputs {
+  out_evidence_completeness: number;
+  out_normalized_demand: number;
+  out_demand_metric: number;
+  out_capacity_metric: number;
+  out_utilization_margin: number;
+  out_money_at_risk: number;
+  out_threshold_crossing: number;
+  out_fmea_trigger: number;
+  out_final_decision_state: number;
+  out_reference_deviation: number;
+  out_derating_factor: number;
+  out_expanded_uncertainty: number;
+  out_sensitivity_driver: number;
+  out_scenario_delta: number;
+  out_audit_hash_payload: number;
+}
 
-const SECONDS_PER_YEAR = 31536000;
+// ─── Pure calculation ───────────────────────────────────────────────────────
 
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+export function executeFormula(inputs: ProductSkuMarginInputs): ProductSkuMarginOutputs {
+  const {
+    unitSellingPrice, machineRate, cycleTime, materialCost, targetMargin,
+    annualVolume, laborRate, overheadRate, defectOrLossCost,
+    sourceConfidence,
+  } = inputs;
 
-export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
+  const ch = cycleTime / 60;
+  const tuc = materialCost + (laborRate * ch) + (machineRate * ch) + (annualVolume > 0 ? overheadRate / annualVolume : 0);
+  // FIX (ported from a759fe2d9 audit): price was fabricated as materialCost*1.4
+  // (ignoring the target margin input entirely). Now uses the real selling price.
+  const up = unitSellingPrice;
+  const cm = up - tuc;
+  const cmr = up > 0 ? cm / up : 0;
+  const lc = materialCost * 0.1;
+  const nm = cm - lc - (annualVolume > 0 ? defectOrLossCost / annualVolume : 0);
+  const rs = nm * 100;
 
-// Same unit contract as loss-making-job-detector (shared schema template):
-//   n_machine_rate / n_labor_rate / n_overhead_rate   currency_unit_per_h
-//   n_cycle_time / n_setup_time                        s
-//   n_material_cost / n_defect_or_loss_cost             currency_unit (per unit)
-//   n_annual_volume                                     unit_per_s
-//   n_unit_selling_price                                currency_unit (per unit — NEW, previously fabricated as mc*1.4)
+  const out_evidence_completeness = sourceConfidence;
+  const out_normalized_demand = annualVolume;
+  const out_demand_metric = cm;
+  const out_capacity_metric = up;
+  const out_utilization_margin = cmr;
+  const out_money_at_risk = Math.abs(cm) * annualVolume;
+  const out_threshold_crossing = cm > 0 ? 0 : 1;
+  const out_fmea_trigger = cm < 0 ? 1 : 0;
+  const out_final_decision_state = cm > 0 && cmr >= targetMargin ? 0 : (cm > 0 ? 1 : 2);
+  const out_reference_deviation = tuc > 0 ? Math.abs(up - tuc) / tuc : 0;
+  const out_derating_factor = sourceConfidence;
+  const out_expanded_uncertainty = cm * 0.1;
+  const out_sensitivity_driver = materialCost > laborRate * ch ? 1 : 0;
+  const out_scenario_delta = cm * annualVolume * 0.15;
+  const out_audit_hash_payload = 0;
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
+  return {
+    out_evidence_completeness,
+    out_normalized_demand,
+    out_demand_metric,
+    out_capacity_metric,
+    out_utilization_margin,
+    out_money_at_risk,
+    out_threshold_crossing,
+    out_fmea_trigger,
+    out_final_decision_state,
+    out_reference_deviation,
+    out_derating_factor,
+    out_expanded_uncertainty,
+    out_sensitivity_driver,
+    out_scenario_delta,
+    out_audit_hash_payload,
+  };
+}
+
+// ─── Sensitivity helper ─────────────────────────────────────────────────────
+
+export function sensitivity(
+  inputs: ProductSkuMarginInputs,
+  driver: keyof ProductSkuMarginInputs,
+  pct = 0.10,
+): number {
+  const up = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 + pct) }).out_money_at_risk;
+  const dn = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 - pct) }).out_money_at_risk;
+  return Math.abs(up - dn);
+}
+
+// ─── ProFormulaModule contract ──────────────────────────────────────────────
+
+function isFiniteNumber(v: unknown): v is number {
+  return typeof v === "number" && Number.isFinite(v);
+}
+
+function get(inputs: Record<string, number>, key: string, fallback = 0): number {
+  const v = inputs[key];
+  return isFiniteNumber(v) ? v : fallback;
+}
+
+const OUTPUT_KEYS: readonly string[] = [
+  "out_evidence_completeness", "out_normalized_demand", "out_demand_metric",
+  "out_capacity_metric", "out_utilization_margin", "out_money_at_risk",
+  "out_threshold_crossing", "out_fmea_trigger", "out_final_decision_state",
+  "out_reference_deviation", "out_derating_factor", "out_expanded_uncertainty",
+  "out_sensitivity_driver", "out_scenario_delta", "out_audit_hash_payload",
+];
+
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const warnings: string[] = [];
+
+  const typed: ProductSkuMarginInputs = {
+    unitSellingPrice: get(inputs, "n_unit_selling_price"),
+    machineRate: get(inputs, "n_machine_rate"),
+    cycleTime: get(inputs, "n_cycle_time"),
+    materialCost: get(inputs, "n_material_cost"),
+    targetMargin: get(inputs, "n_target_margin"),
+    annualVolume: get(inputs, "n_annual_volume"),
+    laborRate: get(inputs, "n_labor_rate"),
+    overheadRate: get(inputs, "n_overhead_rate"),
+    defectOrLossCost: get(inputs, "n_defect_or_loss_cost"),
+    sourceConfidence: get(inputs, "n_source_confidence_ratio"),
+  };
+
+  const mandatory = ["n_unit_selling_price", "n_machine_rate", "n_cycle_time", "n_material_cost"] as const;
+  for (const key of mandatory) {
+    if (!isFiniteNumber(inputs[key])) {
+      warnings.push(`Input "${key}" is missing or invalid — using 0`);
+    }
+  }
+
+  const raw = executeFormula(typed);
+  const allOutputs = raw as unknown as Record<string, number>;
   const outputs: Record<string, number> = {};
-
-  const mr = get(inputs, "n_machine_rate");
-  const ct = get(inputs, "n_cycle_time");
-  const st = get(inputs, "n_setup_time");
-  const bq = get(inputs, "n_batch_quantity");
-  const mc = get(inputs, "n_material_cost");
-  const tm = get(inputs, "n_target_margin");
-  const volPerSecond = get(inputs, "n_annual_volume");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
-  const dc = get(inputs, "n_defect_or_loss_cost");
-  const conf = get(inputs, "n_source_confidence_ratio");
-  const unc = get(inputs, "n_uncertainty_multiplier");
-  const sellingPrice = get(inputs, "n_unit_selling_price");
-
-  if (!isFiniteNumber(inputs["n_unit_selling_price"]) || sellingPrice <= 0) {
-    warnings.push("Missing or non-positive Unit Selling Price: margin ranking cannot be determined without the actual price charged for this SKU.");
-  }
-  if (tm >= 1) {
-    warnings.push("Target Margin >= 100% is mathematically undefined for a price-based contribution margin; minimum acceptable price was clamped.");
+  for (const key of OUTPUT_KEYS) {
+    outputs[key] = allOutputs[key];
   }
 
-  const setupPerUnitSeconds = bq > 0 ? st / bq : 0;
-  const unitTimeHours = (ct + setupPerUnitSeconds) / 3600;
-
-  const machineCostPerUnit = mr * unitTimeHours;
-  const laborCostPerUnit = lr * unitTimeHours;
-  const overheadCostPerUnit = oh * unitTimeHours;
-  const materialAndDefectPerUnit = mc + dc;
-  const totalCostPerUnit = machineCostPerUnit + laborCostPerUnit + overheadCostPerUnit + materialAndDefectPerUnit;
-
-  const contributionMarginPerUnit = sellingPrice - totalCostPerUnit;
-  const contributionMarginRatio = sellingPrice > 0 ? contributionMarginPerUnit / sellingPrice : 0;
-
-  const safeTm = tm < 1 ? tm : 0.999999;
-  const minAcceptablePrice = totalCostPerUnit / (1 - safeTm);
-
-  const annualUnits = volPerSecond * SECONDS_PER_YEAR;
-  const volumeWeightedMargin = contributionMarginPerUnit * annualUnits;
-
-  const costBreakdown = [machineCostPerUnit, laborCostPerUnit, overheadCostPerUnit, materialAndDefectPerUnit];
-  const dominantDriverIndex = costBreakdown.indexOf(Math.max(...costBreakdown));
-
-  const uncertaintyCoverage = unc > 1 ? unc - 1 : 0.1;
-  const expandedUncertainty = totalCostPerUnit * uncertaintyCoverage;
-
-  const deratingFactor = tm > 0 ? Math.min(1, Math.max(0, contributionMarginRatio / tm)) : 1;
-
-  let finalDecisionState: number;
-  if (contributionMarginPerUnit < 0) finalDecisionState = 2;
-  else if (contributionMarginRatio < tm) finalDecisionState = 1;
-  else finalDecisionState = 0;
-
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(annualUnits, 0);
-  outputs["out_demand_metric"] = round(contributionMarginPerUnit, 4);
-  outputs["out_capacity_metric"] = round(volumeWeightedMargin, 2);
-  outputs["out_utilization_margin"] = round(contributionMarginRatio, 4);
-  outputs["out_money_at_risk"] = round(contributionMarginPerUnit < 0 ? Math.abs(volumeWeightedMargin) : 0, 2);
-  outputs["out_threshold_crossing"] = contributionMarginRatio >= tm ? 0 : 1;
-  outputs["out_fmea_trigger"] = contributionMarginPerUnit < 0 ? 1 : 0;
-  outputs["out_final_decision_state"] = finalDecisionState;
-  outputs["out_reference_deviation"] = round(Math.abs(sellingPrice - minAcceptablePrice) / (sellingPrice || 1), 4);
-  outputs["out_derating_factor"] = round(deratingFactor, 4);
-  outputs["out_expanded_uncertainty"] = round(expandedUncertainty, 4);
-  outputs["out_sensitivity_driver"] = dominantDriverIndex;
-  outputs["out_scenario_delta"] = round(contributionMarginPerUnit * annualUnits * 0.15, 2);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_machine_cost_component"] = round(machineCostPerUnit, 4);
-  outputs["out_labor_cost_component"] = round(laborCostPerUnit, 4);
-  outputs["out_overhead_cost_component"] = round(overheadCostPerUnit, 4);
-  outputs["out_material_defect_cost_component"] = round(materialAndDefectPerUnit, 4);
-
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
+  const ok = OUTPUT_KEYS.every((k) => isFiniteNumber(outputs[k]));
   return {
     status: ok ? "OK" : "REVIEW",
     outputs,
     warnings,
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
+    outputKeys: [...OUTPUT_KEYS],
+    redaction_status: "PUBLIC_SAFE_REDACTED",
   };
 }
+
+export const toolKey = "product-sku-margin-ranker";
+export const formulaVersion = "5.3.1-pro-baris.1";
+
+export const sampleInputs: Record<string, number> = {
+  n_unit_selling_price: 65,
+  n_machine_rate: 85,
+  n_cycle_time: 12,
+  n_material_cost: 25,
+  n_target_margin: 0.3,
+  n_annual_volume: 100000,
+  n_labor_rate: 45,
+  n_overhead_rate: 350000,
+  n_defect_or_loss_cost: 12000,
+  n_source_confidence_ratio: 0.9,
+};
+
+export const requiredInputKeys: readonly string[] = [
+  "n_unit_selling_price", "n_machine_rate", "n_cycle_time", "n_material_cost", "n_target_margin",
+  "n_annual_volume", "n_labor_rate", "n_overhead_rate",
+  "n_defect_or_loss_cost", "n_source_confidence_ratio",
+];
+
+export const declaredOutputKeys: readonly string[] = [...OUTPUT_KEYS];

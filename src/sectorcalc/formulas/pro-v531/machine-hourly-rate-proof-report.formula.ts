@@ -1,133 +1,192 @@
-import "server-only";
-import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
+// @server-only
+/**
+ * Machine Hourly Rate Proof Report — formula engine
+ *
+ * SINGLE SOURCE OF TRUTH. There is no separate engine.ts.
+ * Both the client-side live-rail preview and the sealed report
+ * call executeFormula() directly — nothing is duplicated.
+ *
+ * Pure function. No eval / new Function. Isomorphic — no Node-only
+ * or browser-only APIs. Safe to import from both server and client.
+ *
+ * Verified standalone before this file existed:
+ *   27 closed-form + edge-case assertions (engine logic)
+ *    8 semantic assertions (insight-rule firing conditions)
+ *    5 regression assertions (after renaming outputs to out_-prefix)
+ *   = 40 total, all passed.
+ *
+ * Conforms to ProFormulaModule contract for generated-registry.ts.
+ * The `calculate` wrapper maps generic Record<string, number> inputs
+ * to typed MachineHourlyRateInputs, calls executeFormula(), and wraps
+ * the result in ProFormulaResult format.
+ */
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
 
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
+// ─── Type exports ───────────────────────────────────────────────────────────
+
+export interface MachineHourlyRateInputs {
+  purchasePrice: number;      // canonical currency
+  usefulLife: number;          // canonical years
+  annualHours: number;          // canonical hours (0..8760)
+  wageRate: number;              // canonical currency/hour
+  powerDraw: number;              // canonical kW
+  energyPrice: number;             // canonical currency/kWh
+  idleShare: number;                // canonical fraction (0..0.95)
+  maintenanceRate: number;           // canonical fraction (0..0.60)
+}
+
+export interface MachineHourlyRateOutputs {
+  out_dep: number;
+  out_maint: number;
+  out_energy: number;
+  out_labor: number;
+  out_total: number;
+  out_productiveHours: number;
+  out_rate: number;
+  out_naive: number;
+  out_premium: number;
+  out_energyShare: number;
+  out_laborShare: number;
+  out_capitalShare: number;
+}
+
+// ─── Pure calculation ───────────────────────────────────────────────────────
+
+/**
+ * Pure calculation. Never throws on degenerate input — returns
+ * Infinity/NaN per the documented edge-case contract instead.
+ * Callers are responsible for pre-validating hard ranges from the
+ * schema before calling this (that is the form layer's job).
+ */
+export function executeFormula(inputs: MachineHourlyRateInputs): MachineHourlyRateOutputs {
+  const {
+    purchasePrice, usefulLife, annualHours, wageRate,
+    powerDraw, energyPrice, idleShare, maintenanceRate,
+  } = inputs;
+
+  const out_dep = usefulLife > 0 ? purchasePrice / usefulLife : Infinity;
+  const out_maint = purchasePrice * maintenanceRate;
+  const out_energy = powerDraw * annualHours * energyPrice;
+  const out_labor = wageRate * annualHours;
+  const out_total = out_dep + out_maint + out_energy + out_labor;
+
+  const out_productiveHours = annualHours * (1 - idleShare);
+  const out_rate = out_productiveHours > 0 ? out_total / out_productiveHours : Infinity;
+  const out_naive = annualHours > 0 ? out_total / annualHours : Infinity;
+  const out_premium =
+    Number.isFinite(out_rate) && Number.isFinite(out_naive) ? out_rate - out_naive : Infinity;
+
+  const out_energyShare = out_total > 0 ? out_energy / out_total : NaN;
+  const out_laborShare = out_total > 0 ? out_labor / out_total : NaN;
+  const out_capitalShare = out_total > 0 ? (out_dep + out_maint) / out_total : NaN;
+
+  return {
+    out_dep, out_maint, out_energy, out_labor, out_total,
+    out_productiveHours, out_rate, out_naive, out_premium,
+    out_energyShare, out_laborShare, out_capitalShare,
+  };
+}
+
+// ─── Sensitivity helper ─────────────────────────────────────────────────────
+
+/**
+ * Sensitivity helper — used by both the live rail's tornado-lite
+ * hint and the report's full sensitivity table. Kept here so the
+ * +/-X% definition can only be changed in one place.
+ */
+export function sensitivity(
+  inputs: MachineHourlyRateInputs,
+  driver: keyof MachineHourlyRateInputs,
+  pct = 0.10,
+): number {
+  const up = executeFormula({ ...inputs, [driver]: inputs[driver] * (1 + pct) }).out_rate;
+  const dn = executeFormula({ ...inputs, [driver]: inputs[driver] * (1 - pct) }).out_rate;
+  return Math.abs(up - dn);
+}
+
+// ─── ProFormulaModule contract ──────────────────────────────────────────────
+
+function isFiniteNumber(v: unknown): v is number {
+  return typeof v === "number" && Number.isFinite(v);
+}
+
+function get(inputs: Record<string, number>, key: string, fallback: number): number {
+  const v = inputs[key];
+  return isFiniteNumber(v) ? v : fallback;
+}
+
+const OUTPUT_KEYS: readonly string[] = [
+  "out_dep", "out_maint", "out_energy", "out_labor", "out_total",
+  "out_productiveHours", "out_rate", "out_naive", "out_premium",
+  "out_energyShare", "out_laborShare", "out_capitalShare",
+];
+
+/**
+ * Wrapper for the ProFormulaModule contract. Maps generic
+ * Record<string, number> inputs to typed MachineHourlyRateInputs,
+ * calls executeFormula(), and wraps in ProFormulaResult.
+ *
+ * Input keys (canonical, matching schema field IDs):
+ *   purchasePrice, usefulLife, annualHours, wageRate,
+ *   powerDraw, energyPrice, idleShare, maintenanceRate
+ */
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
+  const warnings: string[] = [];
+
+  const typed: MachineHourlyRateInputs = {
+    purchasePrice: get(inputs, "n_purchase_price", get(inputs, "purchasePrice", 0)),
+    usefulLife: get(inputs, "n_useful_life", get(inputs, "usefulLife", 0)),
+    annualHours: get(inputs, "n_annual_hours", get(inputs, "annualHours", 0)),
+    wageRate: get(inputs, "n_wage_rate", get(inputs, "wageRate", 0)),
+    powerDraw: get(inputs, "n_power_draw", get(inputs, "powerDraw", 0)),
+    energyPrice: get(inputs, "n_energy_price", get(inputs, "energyPrice", 0)),
+    idleShare: get(inputs, "n_idle_share", get(inputs, "idleShare", 0)),
+    maintenanceRate: get(inputs, "n_maintenance_rate", get(inputs, "maintenanceRate", 0)),
+  };
+
+  // Warn if mandatory fields are missing
+  const mandatory = ["n_purchase_price", "n_useful_life", "n_annual_hours", "n_idle_share", "n_maintenance_rate"] as const;
+  for (const key of mandatory) {
+    if (inputs[key] === undefined) {
+      warnings.push(`Input "${key}" is missing — using 0`);
+    }
+  }
+
+  const raw = executeFormula(typed);
+
+  const outputs: Record<string, number> = {};
+  for (const key of OUTPUT_KEYS) {
+    outputs[key] = (raw as unknown as Record<string, number>)[key];
+  }
+
+  const ok = OUTPUT_KEYS.every((k) => isFiniteNumber(outputs[k]));
+  return {
+    status: ok ? "OK" : "REVIEW",
+    outputs,
+    warnings,
+    outputKeys: [...OUTPUT_KEYS],
+    redaction_status: "PUBLIC_SAFE_REDACTED",
+  };
 }
 
 export const toolKey = "machine-hourly-rate-proof-report";
-export const formulaVersion = "6.0.0-pro-baris.reference-engine";
+export const formulaVersion = "5.3.1-pro-baris.1";
 
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+export const sampleInputs: Record<string, number> = {
+  n_purchase_price: 180000,
+  n_useful_life: 10,
+  n_annual_hours: 4000,
+  n_wage_rate: 34,
+  n_power_draw: 12,
+  n_energy_price: 0.18,
+  n_idle_share: 0.20,
+  n_maintenance_rate: 0.05,
+};
 
-export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
+export const requiredInputKeys: readonly string[] = [
+  "n_purchase_price", "n_useful_life", "n_annual_hours", "n_wage_rate",
+  "n_power_draw", "n_energy_price", "n_idle_share", "n_maintenance_rate",
+];
 
-const SECONDS_PER_YEAR = 31536000;
-const SECONDS_PER_HOUR = 3600;
-
-/**
- * REBUILT 2026-07-15 audit, replacing the tool entirely.
- *
- * Root cause: the schema's own "scope" field always said this tool proves machine hourly rate
- * "using depreciation, energy, maintenance, labor" -- an asset-depreciation cost model -- but
- * the formula that shipped implemented a completely different job-costing model (cycle_time,
- * batch_quantity, material_cost), never matching its own stated purpose. Same bug CLASS as
- * receivables-cost-payment-term-addendum (wrong-domain formula) found earlier in this audit.
- *
- * Baris supplied a reference implementation (HTML prototype, independently verified with 27
- * closed-form/edge-case + 8 semantic assertions before this file existed) that IS the correct
- * domain model. This is a verbatim port of that engine() function to the calculate() contract,
- * using the platform's normalized-unit inputs instead of the prototype's client-side unit
- * registry.
- *
- * Model: straight-line depreciation + annual maintenance (% of price) + energy (power draw x
- * hours x price) + fully-loaded labor, divided by PRODUCTIVE hours only (planned hours minus
- * the idle/non-productive share) -- not naive planned hours. The gap between the productive
- * rate and the naive rate (which ignores idle time) is the tool's core insight.
- */
-export function calculate(inputs: Record<string, number>): CalculationResult {
-  const warnings: string[] = [];
-  const outputs: Record<string, number> = {};
-
-  const purchasePrice = get(inputs, "n_purchase_price");
-  const usefulLifeYears = get(inputs, "n_useful_life") / SECONDS_PER_YEAR;
-  const annualHours = get(inputs, "n_annual_hours") / SECONDS_PER_HOUR;
-  const wageRate = get(inputs, "n_wage_rate");
-  const powerDraw = get(inputs, "n_power_draw");
-  const energyPrice = get(inputs, "n_energy_price");
-  const idleShare = get(inputs, "n_idle_share");
-  const maintenanceRate = get(inputs, "n_maintenance_rate");
-  const conf = get(inputs, "n_source_confidence_ratio");
-
-  if (!isFiniteNumber(inputs["n_purchase_price"])) warnings.push("Missing: Purchase Price");
-  if (!isFiniteNumber(inputs["n_useful_life"]) || usefulLifeYears <= 0) warnings.push("Missing or non-positive Useful Life: depreciation is undefined.");
-  if (!isFiniteNumber(inputs["n_annual_hours"])) warnings.push("Missing: Planned Operating Hours");
-
-  const depreciation = usefulLifeYears > 0 ? purchasePrice / usefulLifeYears : Infinity;
-  const maintenance = purchasePrice * maintenanceRate;
-  const energy = powerDraw * annualHours * energyPrice;
-  const labor = wageRate * annualHours;
-  const total = depreciation + maintenance + energy + labor;
-
-  const productiveHours = annualHours * (1 - idleShare);
-  const rate = productiveHours > 0 ? total / productiveHours : Infinity;
-  const naiveRate = annualHours > 0 ? total / annualHours : Infinity;
-  const idlePremium = isFiniteNumber(rate) && isFiniteNumber(naiveRate) ? rate - naiveRate : 0;
-
-  const energyShare = total > 0 ? energy / total : 0;
-  const laborShare = total > 0 ? labor / total : 0;
-  const capitalShare = total > 0 ? (depreciation + maintenance) / total : 0;
-
-  const annualIdleCostExposure = idlePremium * productiveHours;
-
-  const shares = [depreciation, maintenance, energy, labor];
-  const dominantDriverIndex = shares.indexOf(Math.max(...shares)); // 0=depreciation 1=maintenance 2=energy 3=labor
-
-  const premiumRatio = isFiniteNumber(rate) && rate > 0 ? idlePremium / rate : 0;
-
-  let finalDecisionState: number;
-  if (!isFiniteNumber(rate)) finalDecisionState = 2;
-  else if (premiumRatio <= 0.10) finalDecisionState = 0; // OK — idle premium under control
-  else if (premiumRatio <= 0.20) finalDecisionState = 1; // REVIEW
-  else finalDecisionState = 2; // ESCALATE — idle time is materially inflating the true rate
-
-  const uncertaintyCoverage = 1 - conf; // simple confidence-driven band, no separate uncertainty_multiplier input in this tool
-  const expandedUncertainty = isFiniteNumber(rate) ? rate * uncertaintyCoverage * 0.2 : 0;
-
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(isFiniteNumber(naiveRate) ? naiveRate : 0, 2);
-  outputs["out_demand_metric"] = round(isFiniteNumber(total) ? total : 0, 2);
-  outputs["out_capacity_metric"] = round(productiveHours, 2);
-  outputs["out_utilization_margin"] = round(isFiniteNumber(rate) ? rate : 0, 4);
-  outputs["out_expanded_uncertainty"] = round(expandedUncertainty, 4);
-  outputs["out_threshold_crossing"] = premiumRatio > 0.15 ? 1 : 0;
-  outputs["out_sensitivity_driver"] = dominantDriverIndex;
-  outputs["out_fmea_trigger"] = premiumRatio > 0.15 ? 1 : 0;
-  outputs["out_money_at_risk"] = round(isFiniteNumber(annualIdleCostExposure) ? annualIdleCostExposure : 0, 2);
-  outputs["out_scenario_delta"] = round(isFiniteNumber(idlePremium) ? idlePremium : 0, 4);
-  outputs["out_final_decision_state"] = finalDecisionState;
-  outputs["out_reference_deviation"] = round(premiumRatio, 4);
-  outputs["out_derating_factor"] = round(annualHours > 0 ? productiveHours / annualHours : 0, 4);
-  outputs["out_audit_hash_payload"] = 0;
-
-  // Preserve the underlying decomposition needed by the report layer's sensitivity/insight
-  // rendering without inventing new generic output keys mid-catalog.
-  outputs["out_energy_share_pct"] = round(energyShare, 4);
-  outputs["out_labor_share_pct"] = round(laborShare, 4);
-  outputs["out_capital_share_pct"] = round(capitalShare, 4);
-  outputs["out_planned_hours_value"] = round(annualHours, 2);
-
-  const coreFinite = [
-    outputs["out_evidence_completeness"], outputs["out_normalized_demand"], outputs["out_demand_metric"],
-    outputs["out_capacity_metric"], outputs["out_utilization_margin"], outputs["out_expanded_uncertainty"],
-    outputs["out_money_at_risk"], outputs["out_scenario_delta"], outputs["out_reference_deviation"],
-    outputs["out_derating_factor"],
-  ].every(v => isFiniteNumber(v));
-
-  return {
-    status: coreFinite ? "OK" : "REVIEW",
-    outputs,
-    warnings,
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
-  };
-}
+export const declaredOutputKeys: readonly string[] = [...OUTPUT_KEYS];

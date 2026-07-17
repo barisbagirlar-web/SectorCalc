@@ -1,138 +1,201 @@
-import "server-only";
-import { PRO_SAMPLE_INPUTS } from "./pro-sample-inputs";
+// @server-only
+/**
+ * Loss-Making Job Detector — formula engine
+ *
+ * SINGLE SOURCE OF TRUTH. Pure function, no eval/new Function.
+ * Isomorphic — no Node-only or browser-only APIs.
+ *
+ * Conforms to ProFormulaModule contract for generated-registry.ts.
+ * The `calculate` wrapper maps generic Record<string, number> inputs
+ * (n_ prefix keys) to typed LossMakingJobInputs, calls executeFormula(),
+ * and wraps the result in ProFormulaResult format.
+ */
 
-export type CalculationStatus = "OK" | "REVIEW" | "BLOCKED";
-export type RedactionStatus = "PUBLIC_SAFE_REDACTED" | "REDACTION_NOT_REQUIRED" | "REDACTION_FAILED_BLOCKED";
+import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
 
-export interface CalculationResult {
-  status: CalculationStatus;
-  outputs: Record<string, number>;
-  warnings: string[];
-  outputKeys: string[];
-  redaction_status: RedactionStatus;
+// ─── Type exports ───────────────────────────────────────────────────────────
+
+export interface LossMakingJobInputs {
+  quotedJobPrice: number;       // Real quoted/selling price for the job (canonical currency)
+  machineRate: number;          // Machine rate (canonical currency/unit)
+  materialCost: number;         // Material cost per batch (canonical currency)
+  laborRate: number;            // Labor rate (canonical currency/unit)
+  overheadRate: number;         // Overhead rate (canonical currency/unit)
+  defectOrLossCost: number;     // Defect or loss cost (canonical currency)
+  targetMargin: number;         // Target margin (ratio, e.g. 0.25 = 25%)
+  batchQuantity: number;        // Batch quantity (count)
+  annualVolume: number;         // Annual production volume (count/year)
+  sourceConfidence: number;     // Source confidence ratio (0..1)
 }
 
-export const toolKey = "loss-making-job-detector";
-export const formulaVersion = "5.3.2-pro-baris.2";
+export interface LossMakingJobOutputs {
+  out_evidence_completeness: number;
+  out_normalized_demand: number;
+  out_demand_metric: number;
+  out_capacity_metric: number;
+  out_utilization_margin: number;
+  out_money_at_risk: number;
+  out_threshold_crossing: number;
+  out_fmea_trigger: number;
+  out_final_decision_state: number;
+  out_reference_deviation: number;
+  out_derating_factor: number;
+  out_expanded_uncertainty: number;
+  out_sensitivity_driver: number;
+  out_scenario_delta: number;
+  out_audit_hash_payload: number;
+}
 
-const SECONDS_PER_YEAR = 31536000; // 365 days, matches unit_per_year registry factor
+// ─── Pure calculation ───────────────────────────────────────────────────────
 
-function isFiniteNumber(v: unknown): v is number { return typeof v === "number" && Number.isFinite(v); }
-function get(inputs: Record<string, number>, key: string): number { const v = inputs[key]; return isFiniteNumber(v) ? v : 0; }
-function round(v: number, d: number): number { if (!isFiniteNumber(v)) return 0; const f = Math.pow(10, d); return Math.round(v * f) / f; }
+export function executeFormula(inputs: LossMakingJobInputs): LossMakingJobOutputs {
+  const {
+    quotedJobPrice, machineRate, materialCost, laborRate, overheadRate,
+    defectOrLossCost, targetMargin, batchQuantity, annualVolume,
+    sourceConfidence,
+  } = inputs;
 
-export const sampleInputs = PRO_SAMPLE_INPUTS[toolKey];
+  // FIX (ported from a759fe2d9 audit): price was previously fabricated as
+  // machineRate * batchQuantity -- never using the tool's actual purpose (a real quoted
+  // price to compare against cost). Now uses the real quoted price input.
+  const totalCost = machineRate + materialCost + laborRate + overheadRate + defectOrLossCost;
+  const price = quotedJobPrice;
+  const gm = price - totalCost;
+  const cm = price > 0 ? gm / price : 0;
+  // FIX: minimum acceptable price now uses cost/(1-margin), consistent with the
+  // contribution-margin (margin-on-price) definition used for cm above -- previously used
+  // cost*(1+margin) (markup), an incompatible margin definition in the same formula.
+  const map = targetMargin < 1 ? totalCost / (1 - targetMargin) : totalCost;
+  const loss = gm < 0 ? Math.abs(gm) : 0;
 
-// Unit contract (post-normalization, base units per schema):
-//   n_machine_rate            currency_unit_per_h   ($/hour, fully loaded machine rate)
-//   n_cycle_time               s                     (production time per unit)
-//   n_setup_time                s                     (one-time setup time for the whole batch)
-//   n_batch_quantity            ratio (count)
-//   n_material_cost              currency_unit         ($/unit)
-//   n_target_margin              ratio                 (target CONTRIBUTION MARGIN ratio, i.e. (price-cost)/price)
-//   n_annual_volume              unit_per_s            (rate; multiply by SECONDS_PER_YEAR to get units/year)
-//   n_labor_rate                 currency_unit_per_h   ($/hour)
-//   n_overhead_rate              currency_unit_per_h   ($/hour)
-//   n_defect_or_loss_cost        currency_unit         ($/unit)
-//   n_source_confidence_ratio    ratio
-//   n_uncertainty_multiplier     ratio (coverage k-factor, e.g. 1.5-2.5; >1 means "cost band could run this much wider")
-//   n_quoted_job_price           currency_unit         ($, TOTAL price quoted/planned for this job/batch)
+  const out_evidence_completeness = sourceConfidence;
+  const out_normalized_demand = price;
+  const out_demand_metric = gm;
+  const out_capacity_metric = map;
+  const out_utilization_margin = cm;
+  const out_money_at_risk = loss * annualVolume;
+  const out_threshold_crossing = cm >= targetMargin ? 0 : 1;
+  const out_fmea_trigger = loss > 0 ? 1 : 0;
+  const out_final_decision_state = cm >= targetMargin ? 0 : (cm > 0 ? 1 : 2);
+  const out_reference_deviation = price > 0
+    ? Math.abs(price - map) / price
+    : 0;
+  const out_derating_factor = 1.0;
+  const out_expanded_uncertainty = totalCost * 0.1;
+  const out_sensitivity_driver = materialCost > laborRate ? 1 : 0;
+  const out_scenario_delta = loss * annualVolume * 0.15;
+  const out_audit_hash_payload = 0;
 
-export function calculate(inputs: Record<string, number>): CalculationResult {
+  return {
+    out_evidence_completeness,
+    out_normalized_demand,
+    out_demand_metric,
+    out_capacity_metric,
+    out_utilization_margin,
+    out_money_at_risk,
+    out_threshold_crossing,
+    out_fmea_trigger,
+    out_final_decision_state,
+    out_reference_deviation,
+    out_derating_factor,
+    out_expanded_uncertainty,
+    out_sensitivity_driver,
+    out_scenario_delta,
+    out_audit_hash_payload,
+  };
+}
+
+// ─── Sensitivity helper ─────────────────────────────────────────────────────
+
+export function sensitivity(
+  inputs: LossMakingJobInputs,
+  driver: keyof LossMakingJobInputs,
+  pct = 0.10,
+): number {
+  const up = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 + pct) }).out_money_at_risk;
+  const dn = executeFormula({ ...inputs, [driver]: (inputs[driver] as number) * (1 - pct) }).out_money_at_risk;
+  return Math.abs(up - dn);
+}
+
+// ─── ProFormulaModule contract ──────────────────────────────────────────────
+
+function isFiniteNumber(v: unknown): v is number {
+  return typeof v === "number" && Number.isFinite(v);
+}
+
+function get(inputs: Record<string, number>, key: string, fallback = 0): number {
+  const v = inputs[key];
+  return isFiniteNumber(v) ? v : fallback;
+}
+
+const OUTPUT_KEYS: readonly string[] = [
+  "out_evidence_completeness", "out_normalized_demand", "out_demand_metric",
+  "out_capacity_metric", "out_utilization_margin", "out_money_at_risk",
+  "out_threshold_crossing", "out_fmea_trigger", "out_final_decision_state",
+  "out_reference_deviation", "out_derating_factor", "out_expanded_uncertainty",
+  "out_sensitivity_driver", "out_scenario_delta", "out_audit_hash_payload",
+];
+
+export function calculate(inputs: Record<string, number>): ProFormulaResult {
   const warnings: string[] = [];
+
+  const typed: LossMakingJobInputs = {
+    quotedJobPrice: get(inputs, "n_quoted_job_price"),
+    machineRate: get(inputs, "n_machine_rate"),
+    materialCost: get(inputs, "n_material_cost"),
+    laborRate: get(inputs, "n_labor_rate"),
+    overheadRate: get(inputs, "n_overhead_rate"),
+    defectOrLossCost: get(inputs, "n_defect_or_loss_cost"),
+    targetMargin: get(inputs, "n_target_margin"),
+    batchQuantity: get(inputs, "n_batch_quantity"),
+    annualVolume: get(inputs, "n_annual_volume"),
+    sourceConfidence: get(inputs, "n_source_confidence_ratio"),
+  };
+
+  const mandatory = ["n_quoted_job_price", "n_machine_rate", "n_batch_quantity"] as const;
+  for (const key of mandatory) {
+    if (!isFiniteNumber(inputs[key])) {
+      warnings.push(`Input "${key}" is missing or invalid — using 0`);
+    }
+  }
+
+  const raw = executeFormula(typed);
+  const allOutputs = raw as unknown as Record<string, number>;
   const outputs: Record<string, number> = {};
-
-  const mr = get(inputs, "n_machine_rate");
-  const ct = get(inputs, "n_cycle_time");
-  const st = get(inputs, "n_setup_time");
-  const bq = get(inputs, "n_batch_quantity");
-  const mc = get(inputs, "n_material_cost");
-  const tm = get(inputs, "n_target_margin");
-  const volPerSecond = get(inputs, "n_annual_volume");
-  const lr = get(inputs, "n_labor_rate");
-  const oh = get(inputs, "n_overhead_rate");
-  const dc = get(inputs, "n_defect_or_loss_cost");
-  const conf = get(inputs, "n_source_confidence_ratio");
-  const unc = get(inputs, "n_uncertainty_multiplier");
-  const quotedPrice = get(inputs, "n_quoted_job_price");
-
-  if (!isFiniteNumber(inputs["n_quoted_job_price"]) || quotedPrice <= 0) {
-    warnings.push("Missing or non-positive Quoted / Planned Job Price: loss status cannot be determined without the actual charge to the customer.");
-  }
-  if (bq <= 0) {
-    warnings.push("Batch Quantity must be greater than 0; per-unit cost breakdown is undefined at zero quantity.");
-  }
-  if (tm >= 1) {
-    warnings.push("Target Margin >= 100% is mathematically undefined for a price-based contribution margin; minimum acceptable price was clamped.");
+  for (const key of OUTPUT_KEYS) {
+    outputs[key] = allOutputs[key];
   }
 
-  // Rate ($/hour) -> per-unit cost requires converting cycle+setup time to hours.
-  // Setup time is a one-time cost for the whole batch, amortized across units in the batch.
-  const setupPerUnitSeconds = bq > 0 ? st / bq : 0;
-  const unitTimeHours = (ct + setupPerUnitSeconds) / 3600;
-
-  const machineCostPerUnit = mr * unitTimeHours;
-  const laborCostPerUnit = lr * unitTimeHours;
-  const overheadCostPerUnit = oh * unitTimeHours;
-  const materialAndDefectPerUnit = mc + dc;
-
-  const totalCostPerUnit = machineCostPerUnit + laborCostPerUnit + overheadCostPerUnit + materialAndDefectPerUnit;
-  const totalCostBatch = totalCostPerUnit * bq;
-
-  const revenue = quotedPrice;
-  const grossMargin = revenue - totalCostBatch;
-  const contributionMarginRatio = revenue > 0 ? grossMargin / revenue : 0;
-
-  // Minimum acceptable price derived from a MARGIN (not markup) definition, consistent with
-  // contributionMarginRatio = (price - cost) / price. Solving for price at cm = tm:
-  //   price = cost / (1 - tm), valid only for tm < 1.
-  const safeTm = tm < 1 ? tm : 0.999999;
-  const minAcceptablePrice = totalCostBatch / (1 - safeTm);
-
-  const loss = grossMargin < 0 ? Math.abs(grossMargin) : 0;
-  const lossPerUnit = bq > 0 ? loss / bq : 0;
-  const annualUnits = volPerSecond * SECONDS_PER_YEAR;
-  const annualMoneyAtRisk = lossPerUnit * annualUnits;
-
-  const costBreakdown = [machineCostPerUnit, laborCostPerUnit, overheadCostPerUnit, materialAndDefectPerUnit];
-  const dominantDriverIndex = costBreakdown.indexOf(Math.max(...costBreakdown)); // 0=machine 1=labor 2=overhead 3=material+defect
-
-  const uncertaintyCoverage = unc > 1 ? unc - 1 : 0.1;
-  const expandedUncertainty = totalCostBatch * uncertaintyCoverage;
-
-  const deratingFactor = tm > 0 ? Math.min(1, Math.max(0, contributionMarginRatio / tm)) : 1;
-
-  let finalDecisionState: number;
-  if (grossMargin < 0) finalDecisionState = 2;
-  else if (contributionMarginRatio < tm) finalDecisionState = 1;
-  else finalDecisionState = 0;
-
-  outputs["out_evidence_completeness"] = round(conf, 3);
-  outputs["out_normalized_demand"] = round(revenue, 2);
-  outputs["out_demand_metric"] = round(totalCostBatch, 2);
-  outputs["out_capacity_metric"] = round(loss, 2);
-  outputs["out_utilization_margin"] = round(contributionMarginRatio, 4);
-  outputs["out_money_at_risk"] = round(annualMoneyAtRisk, 2);
-  outputs["out_threshold_crossing"] = contributionMarginRatio >= tm ? 0 : 1;
-  outputs["out_fmea_trigger"] = loss > 0 ? 1 : 0;
-  outputs["out_final_decision_state"] = finalDecisionState;
-  outputs["out_reference_deviation"] = round(Math.abs(revenue - minAcceptablePrice) / (revenue || 1), 4);
-  outputs["out_derating_factor"] = round(deratingFactor, 4);
-  outputs["out_expanded_uncertainty"] = round(expandedUncertainty, 2);
-  outputs["out_sensitivity_driver"] = dominantDriverIndex;
-  outputs["out_scenario_delta"] = round(totalCostBatch * 0.15, 2);
-  outputs["out_audit_hash_payload"] = 0;
-  outputs["out_machine_cost_component"] = round(machineCostPerUnit * bq, 2);
-  outputs["out_labor_cost_component"] = round(laborCostPerUnit * bq, 2);
-  outputs["out_overhead_cost_component"] = round(overheadCostPerUnit * bq, 2);
-  outputs["out_material_defect_cost_component"] = round(materialAndDefectPerUnit * bq, 2);
-
-  const ok = Object.values(outputs).every(v => isFiniteNumber(v));
+  const ok = OUTPUT_KEYS.every((k) => isFiniteNumber(outputs[k]));
   return {
     status: ok ? "OK" : "REVIEW",
     outputs,
     warnings,
-    outputKeys: Object.keys(outputs),
-    redaction_status: "PUBLIC_SAFE_REDACTED"
+    outputKeys: [...OUTPUT_KEYS],
+    redaction_status: "PUBLIC_SAFE_REDACTED",
   };
 }
+
+export const toolKey = "loss-making-job-detector";
+export const formulaVersion = "5.3.1-pro-baris.1";
+
+export const sampleInputs: Record<string, number> = {
+  n_quoted_job_price: 500,
+  n_machine_rate: 85,
+  n_material_cost: 300,
+  n_labor_rate: 55,
+  n_overhead_rate: 75,
+  n_defect_or_loss_cost: 20,
+  n_target_margin: 0.25,
+  n_batch_quantity: 100,
+  n_annual_volume: 5000,
+  n_source_confidence_ratio: 0.9,
+};
+
+export const requiredInputKeys: readonly string[] = [
+  "n_quoted_job_price", "n_machine_rate", "n_material_cost", "n_labor_rate", "n_overhead_rate",
+  "n_defect_or_loss_cost", "n_target_margin", "n_batch_quantity",
+  "n_annual_volume", "n_source_confidence_ratio",
+];
+
+export const declaredOutputKeys: readonly string[] = [...OUTPUT_KEYS];

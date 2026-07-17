@@ -383,12 +383,22 @@ export function buildExecutePayload(input: AdapterInput): AdapterPayload {
   const { formState, selectedUnits, toolKey, toolId, schemaVersion, usageSessionId, formToSchemaMap } = input;
 
   // Map form state keys → schema input IDs using the explicit mapping
+  // Parse string values to numbers so the server accepts them.
   const raw_inputs: Record<string, string | number | boolean | null> = {};
   const selected_units: Record<string, string> = {};
 
+  const coerceValue = (v: string | number | boolean | null): string | number | boolean | null => {
+    if (typeof v === "string") {
+      if (v === "" || v === "." || v === "-" || v === "+") return null;
+      const n = Number(v);
+      return Number.isFinite(n) ? n : v;
+    }
+    return v;
+  };
+
   for (const [formFieldId, schemaInputId] of Object.entries(formToSchemaMap)) {
     if (formFieldId in formState) {
-      raw_inputs[schemaInputId] = formState[formFieldId];
+      raw_inputs[schemaInputId] = coerceValue(formState[formFieldId]);
     }
     // Map selected_units: if the selectedUnits use formFieldId, convert to schemaInputId
     if (formFieldId in selectedUnits) {
@@ -400,7 +410,7 @@ export function buildExecutePayload(input: AdapterInput): AdapterPayload {
   // (the form uses schema input IDs as state keys, so this handles the identity mapping)
   for (const [key, value] of Object.entries(formState)) {
     if (!(key in raw_inputs)) {
-      raw_inputs[key] = value;
+      raw_inputs[key] = coerceValue(value);
     }
   }
   for (const [key, value] of Object.entries(selectedUnits)) {

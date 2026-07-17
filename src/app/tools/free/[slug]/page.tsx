@@ -147,7 +147,7 @@ export default async function FreeToolDetailPage({
 
   return (
     <PageLayout>
-      <article aria-label={schema.tool_name} className="sc-v531-shell">
+      <article aria-label={schema.tool_name} className="pro-shell">
         <ProToolSessionWrapper
           schema={schema}
           toolKey={slug}

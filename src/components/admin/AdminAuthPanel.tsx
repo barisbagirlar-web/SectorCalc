@@ -41,7 +41,7 @@ export function AdminLoginForm() {
  }
 
  if (user && isAdmin) {
- router.replace("/admin/case-studies");
+ router.replace("/admin");
  }
  }, [authLoading, isAdmin, router, submitting, user]);
 
@@ -56,7 +56,7 @@ export function AdminLoginForm() {
  return false;
  }
 
- router.replace("/admin/case-studies");
+ router.replace("/admin");
  return true;
  },
  [router]

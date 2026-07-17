@@ -63,6 +63,8 @@
     "guard:engine-torque-real-execution": "node scripts/guard-engine-torque-real-execution.mjs",
     "guard:single-tool-form": "node scripts/guard-single-tool-form-runtime.mjs",
     "guard:public-tool-contracts": "node scripts/guard-public-tool-render-contracts.mjs",
+    "admin:health-check": "tsx scripts/admin-health-check.ts",
+    "admin:health-check:json": "tsx scripts/admin-health-check.ts --json",
     "guard:public-copy-no-schema-jargon": "node scripts/guard-public-copy-no-schema-jargon.mjs",
     "sanitize:public-copy": "node scripts/sanitize-public-schema-copy.mjs --write",
     "smoke:public-copy-render": "node scripts/smoke-public-copy-render.mjs",
@@ -176,12 +178,14 @@
     "serwist": "^9.5.11",
     "stripe": "^22.3.0",
     "tailwind-merge": "^3.6.0",
+    "xlsx": "^0.18.5",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
+    "@types/archiver": "^8.0.0",
     "@types/node": "^20",
     "@types/nodemailer": "^8.0.1",
     "@types/qrcode": "^1.5.6",

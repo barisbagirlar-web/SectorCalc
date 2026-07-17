@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
+import { useScrollToResults } from "@/hooks/useScrollToResults";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import {
   Bar,
@@ -162,6 +163,7 @@ export function ScenarioComparison({
   }, [primaryOutputKey, scenarios]);
 
   const allCalculated = scenarios.every((scenario) => scenario.result !== null);
+  useScrollToResults(allCalculated, "scenario-results");
 
   if (numericInputIds.length === 0) {
     return null;
@@ -232,6 +234,7 @@ export function ScenarioComparison({
         </button>
       </div>
 
+      <div id="scenario-results">
       {allCalculated && comparisonData.length > 0 ? (
         <div className="mt-6">
           <h4 className="text-sm font-semibold text-premium-velvet">{t("comparisonTitle")}</h4>
@@ -279,6 +282,7 @@ export function ScenarioComparison({
         {showTornado && tornadoData.length === 0 ? (
           <p className="mt-2 text-sm text-body-charcoal">{t("tornadoUnavailable")}</p>
         ) : null}
+      </div>
       </div>
     </section>
   );
