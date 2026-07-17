@@ -26,9 +26,18 @@
  *  - BUY operating cost is flat (new machine); only KEEP escalates.
  *  - break-even year is nominal/undiscounted (financing crossover); the NPV
  *    verdict is discounted. Two intentionally different bases.
+ *
+ * out_breakeven_year is always finite: when Buy's cumulative cost never
+ * drops below Lease's within any horizon (Buy's annual operating cost
+ * exceeds the annual lease payment), the "no crossover" case is encoded
+ * as NO_BREAKEVEN_YEAR rather than Infinity — every declared output must
+ * be a finite number per the PRO V2 formula/output contract. Callers
+ * should treat any value >= NO_BREAKEVEN_YEAR as "no break-even".
  */
 
 import type { ProFormulaModule, ProFormulaResult } from "./pro-formula-contract";
+
+export const NO_BREAKEVEN_YEAR = 999;
 
 // --- Type exports -----------------------------------------------------------
 
@@ -164,7 +173,7 @@ export function executeFormula(inp: InvestmentFeasibilityInputs): InvestmentFeas
 
   const buyAnnual = s.rows.length ? s.rows[0].buy : 0;
   const annualSaving = s.annualLease - buyAnnual;
-  const breakevenYear = annualSaving > 1e-9 ? inp.capex / annualSaving : Infinity;
+  const breakevenYear = annualSaving > 1e-9 ? inp.capex / annualSaving : NO_BREAKEVEN_YEAR;
 
   const winnerNpvAbs = Math.abs(sorted[0]);
   const decisionMarginPct = winnerNpvAbs > 1e-9 ? savingsVsSecond / winnerNpvAbs : 0;

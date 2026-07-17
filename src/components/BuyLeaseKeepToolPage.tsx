@@ -16,6 +16,7 @@ import {
   schedule,
   cumulative,
   tornado,
+  NO_BREAKEVEN_YEAR,
   type InvestmentFeasibilityInputs,
   type InvestmentFeasibilityOutputs,
   type TornadoBar,
@@ -172,7 +173,7 @@ function chartTornado(bars: TornadoBar[], baseNpv: number, curSym: string): stri
 function chartBreakeven(x: InvestmentFeasibilityInputs, r: InvestmentFeasibilityOutputs, curSym: string): string {
   const w = 680, h = 280, padL = 64, padR = 16, padT = 16, padB = 34;
   const sch = schedule(x);
-  let horizon = Math.max(sch.years, Number.isFinite(r.out_breakeven_year) ? Math.ceil(r.out_breakeven_year) + 1 : sch.years);
+  let horizon = Math.max(sch.years, (r.out_breakeven_year < NO_BREAKEVEN_YEAR) ? Math.ceil(r.out_breakeven_year) + 1 : sch.years);
   horizon = Math.min(horizon, 40);
   const buyA = sch.rows.length ? sch.rows[0].buy : 0;
   const leaseA = r.out_annual_lease;
@@ -196,7 +197,7 @@ function chartBreakeven(x: InvestmentFeasibilityInputs, r: InvestmentFeasibility
   for (let t = 0; t <= horizon; t += step) s += `<text x="${X(t)}" y="${h - padB + 18}" text-anchor="middle" fill="${CCOL.faint}" font-size="10">${t}</text>`;
   s += `<polyline points="${pts.map((p) => `${X(p.t)},${Y(p.buy)}`).join(" ")}" fill="none" stroke="${CCOL.buy}" stroke-width="2.2"/>`;
   s += `<polyline points="${pts.map((p) => `${X(p.t)},${Y(p.lease)}`).join(" ")}" fill="none" stroke="${CCOL.lease}" stroke-width="2.2"/>`;
-  if (Number.isFinite(r.out_breakeven_year) && r.out_breakeven_year <= horizon) {
+  if ((r.out_breakeven_year < NO_BREAKEVEN_YEAR) && r.out_breakeven_year <= horizon) {
     const bx = X(r.out_breakeven_year), by = Y(x.capex + buyA * r.out_breakeven_year);
     s += `<line x1="${bx}" y1="${padT}" x2="${bx}" y2="${h - padB}" stroke="${CCOL.keep}" stroke-width="1.5" stroke-dasharray="4 3"/>`;
     s += `<circle cx="${bx}" cy="${by}" r="4.5" fill="${CCOL.keep}"/>`;
@@ -248,7 +249,7 @@ function buildInsights(x: InvestmentFeasibilityInputs, r: InvestmentFeasibilityO
   out.push({ sev: "info", t: "scope limitation — tax shield not modeled",
     msg: `This engine prices pre-tax cash cost only. Depreciation tax shield normally favors Buy over Lease under most tax regimes — get your tax basis from finance if Buy is close behind the winner here.` });
 
-  if (Number.isFinite(r.out_breakeven_year))
+  if ((r.out_breakeven_year < NO_BREAKEVEN_YEAR))
     out.push({ sev: "info", t: "nominal vs. discounted horizon",
       msg: `Buy's cumulative nominal outlay drops below Lease's at <strong>year ${r.out_breakeven_year.toFixed(1)}</strong> — but the NPV verdict is discounted. If this machine's realistic service life exceeds year ${Math.ceil(r.out_breakeven_year)}, re-run with a longer study period.` });
   else
@@ -543,13 +544,13 @@ export default function BuyLeaseKeepToolPage() {
           <div className="blk-sec">
             <div className="blk-sec-h"><span className="blk-sec-n">4</span><span className="blk-sec-t">Sensitivity — what moves the verdict</span></div>
             <div dangerouslySetInnerHTML={{ __html: chartTornado(tor, baseNpv, curSym) }} />
-            <div className="blk-note">Swing of the winning option's NPV when each input is stressed.</div>
+            <div className="blk-note">NPV swing of the winning option when each input is stressed.</div>
           </div>
 
           <div className="blk-sec">
             <div className="blk-sec-h"><span className="blk-sec-n">5</span><span className="blk-sec-t">Buy vs Lease break-even</span></div>
             <div dangerouslySetInnerHTML={{ __html: chartBreakeven(x, sealed, curSym) }} />
-            <div className="blk-note">Nominal (undiscounted) crossover. {Number.isFinite(sealed.out_breakeven_year) ? `Buy overtakes Lease at year ${sealed.out_breakeven_year.toFixed(1)}.` : "Lease stays cheaper across the horizon."}</div>
+            <div className="blk-note">Nominal (undiscounted) crossover. {(sealed.out_breakeven_year < NO_BREAKEVEN_YEAR) ? `Buy overtakes Lease at year ${sealed.out_breakeven_year.toFixed(1)}.` : "Lease stays cheaper across the horizon."}</div>
           </div>
 
           <div className="blk-sec">
@@ -629,7 +630,7 @@ export default function BuyLeaseKeepToolPage() {
             <div className="blk-stat"><span>NPV · Lease</span><b>{r ? curSym + fmt(r.out_npv_lease) : "—"}</b></div>
             <div className="blk-stat"><span>NPV · Keep</span><b>{r ? curSym + fmt(r.out_npv_keep) : "—"}</b></div>
             <div className="blk-stat"><span>Annual lease (VDI 2067)</span><b>{r ? `${curSym}${fmt(r.out_annual_lease)}/yr` : "—"}</b></div>
-            <div className="blk-stat"><span>Buy–Lease break-even</span><b>{r ? (Number.isFinite(r.out_breakeven_year) ? `${r.out_breakeven_year.toFixed(1)} yr` : "never") : "—"}</b></div>
+            <div className="blk-stat"><span>Buy–Lease break-even</span><b>{r ? ((r.out_breakeven_year < NO_BREAKEVEN_YEAR) ? `${r.out_breakeven_year.toFixed(1)} yr` : "never") : "—"}</b></div>
 
             {!usageSessionId ? (
               <button className="blk-cta" disabled={sessionLoading || !canGenerate} onClick={requestSession}>
