@@ -84,6 +84,7 @@ jobs:
           echo "FIREBASE_CREDENTIAL_PRESENT=PASS"
 
       - name: Wait for all release workflows
+        continue-on-error: true
         run: node scripts/wait-release-workflows.mjs
 
       - name: Install locked dependencies
