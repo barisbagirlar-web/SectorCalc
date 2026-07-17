@@ -251,11 +251,7 @@ function get(inputs: Record<string, number>, key: string, fallback = 0): number 
   return isFiniteNumber(v) ? v : fallback;
 }
 
-function round(v: number, d: number): number {
-  if (!Number.isFinite(v)) return v;
-  const f = Math.pow(10, d);
-  return Math.round(v * f) / f;
-}
+
 
 const OUTPUT_KEYS: readonly string[] = [
   "out_lease_factor", "out_annual_lease", "out_opportunity_cost",
@@ -297,19 +293,22 @@ export function calculate(inputs: Record<string, number>): ProFormulaResult {
   if (typed.capex <= 0) warnings.push("CAPEX must be greater than 0 for a meaningful comparison");
 
   const raw = executeFormula(typed) as unknown as Record<string, number>;
+  // Full precision preserved here; the schema declares DISPLAY_ONLY rounding —
+  // rounding belongs to the report/UI formatting layer, not the sealed value.
   const outputs: Record<string, number> = {};
   for (const key of OUTPUT_KEYS) {
     outputs[key] = key === "out_evidence_completeness"
-      ? round(presentCount / REQUIRED_KEYS.length, 4)
-      : round(raw[key], 4);
+      ? presentCount / REQUIRED_KEYS.length
+      : raw[key];
   }
 
-  const finite = OUTPUT_KEYS.every(
-    (k) => (k === "out_breakeven_year" ? true : isFiniteNumber(outputs[k])),
-  );
+  const finite = OUTPUT_KEYS.every((k) => isFiniteNumber(outputs[k]));
+  const allRequiredPresent = presentCount === REQUIRED_KEYS.length;
   let status: "OK" | "REVIEW" | "BLOCKED" = finite ? "OK" : "REVIEW";
   if (warnings.length > 0) status = "REVIEW";
-  if (typed.capex <= 0) status = "BLOCKED";
+  // Fail closed: a result computed from fabricated (zero-filled) missing
+  // inputs must never present as a trustworthy OK/REVIEW verdict.
+  if (typed.capex <= 0 || !allRequiredPresent) status = "BLOCKED";
 
   return {
     status,

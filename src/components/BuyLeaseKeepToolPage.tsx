@@ -17,6 +17,7 @@ import {
   cumulative,
   tornado,
   NO_BREAKEVEN_YEAR,
+  declaredOutputKeys as SEALED_OUTPUT_KEYS,
   type InvestmentFeasibilityInputs,
   type InvestmentFeasibilityOutputs,
   type TornadoBar,
@@ -71,7 +72,7 @@ const FIELDS: Record<string, FieldDef> = {
 };
 const GROUPS: Record<number, { n: string; t: string; d: string }> = {
   1: { n: "01", t: "Global assumptions", d: "Shared by all three scenarios: what the machine costs new, the cost of capital, and how long you are analysing." },
-  2: { n: "02", t: "Lease terms (VDI 2067)", d: "You never type a rent figure — the annual lease is derived from CAPEX via the capital-recovery factor plus margin and insurance." },
+  2: { n: "02", t: "Lease terms (capital-recovery method)", d: "You never type a rent figure — the annual lease is derived from CAPEX via the capital-recovery factor plus margin and insurance." },
   3: { n: "03", t: "Buy — owning a new machine", d: "Operating cost of the newly purchased machine. Held flat (new asset)." },
   4: { n: "04", t: "Keep — running the existing machine", d: "Opportunity cost of not selling, plus ageing operating cost that escalates over time." },
   5: { n: "05", t: "Production & scrap", d: "Throughput and scrap economics, shared by the Buy and Keep lines." },
@@ -232,7 +233,7 @@ function buildInsights(x: InvestmentFeasibilityInputs, r: InvestmentFeasibilityO
 
   const allInIRR = x.discountRate + x.lessorMargin + x.insuranceRate;
   out.push({ sev: "info", t: "discount-rate identity check",
-    msg: `The same rate (<strong>${(100 * x.discountRate).toFixed(1)}%</strong>) discounts all three NPVs, drives the VDI 2067 lease factor, and annuitizes the Keep opportunity cost. The lessor's implied break-even IRR on this quote is exactly <strong>${(100 * allInIRR).toFixed(1)}%</strong> by construction — back-calculate a real quote's actual IRR before trusting the Lease number.` });
+    msg: `The same rate (<strong>${(100 * x.discountRate).toFixed(1)}%</strong>) discounts all three NPVs, drives the lease capital-recovery factor, and annuitizes the Keep opportunity cost. The lessor's implied break-even IRR on this quote is exactly <strong>${(100 * allInIRR).toFixed(1)}%</strong> by construction — back-calculate a real quote's actual IRR before trusting the Lease number.` });
 
   const racing = [{ n: "maintenance", v: x.maintEscalation }, { n: "scrap", v: x.scrapEscalation }].filter((e) => e.v > x.discountRate);
   if (racing.length) {
@@ -259,19 +260,9 @@ function buildInsights(x: InvestmentFeasibilityInputs, r: InvestmentFeasibilityO
   return out;
 }
 
-function mockHash(str: string): string {
-  let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
-  for (let i = 0; i < str.length; i++) {
-    const c = str.charCodeAt(i);
-    h1 = Math.imul(h1 ^ c, 2654435761); h2 = Math.imul(h2 ^ c, 1597334677);
-  }
-  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
-  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-  return (h2 >>> 0).toString(16).padStart(8, "0") + (h1 >>> 0).toString(16).padStart(8, "0");
-}
 
 interface ServerSeal { output_hash?: string; input_hash?: string; schema_hash?: string; hash_algorithm?: string; executed_at?: string }
-interface ServerResultState { outputs: Record<string, number>; seal?: ServerSeal }
+interface ServerResultState { outputs: Record<string, number>; seal: ServerSeal; inputs: InvestmentFeasibilityInputs; currency: string }
 
 export default function BuyLeaseKeepToolPage() {
   const [curSym, setCurSym] = useState("€");
@@ -281,17 +272,29 @@ export default function BuyLeaseKeepToolPage() {
   const [usageSessionId, setUsageSessionId] = useState<string | null>(null);
   const [remainingRuns, setRemainingRuns] = useState<number | null>(null);
   const [sessionLoading, setSessionLoading] = useState(false);
+  const [sessionError, setSessionError] = useState<string | null>(null);
   const [authToken, setAuthToken] = useState<string | null>(null);
-  const tokenFetched = useRef(false);
+  const lastUid = useRef<string | null | undefined>(undefined);
 
   const [isExecuting, setIsExecuting] = useState(false);
   const [serverResult, setServerResult] = useState<ServerResultState | null>(null);
   const [executeError, setExecuteError] = useState<string | null>(null);
 
+  // Reset every identity-scoped piece of state whenever the signed-in user
+  // changes (login, logout, account switch) — a stale token, credit session,
+  // or bypass flag must never carry over to a different identity.
   useEffect(() => {
-    if (user && !tokenFetched.current) {
-      tokenFetched.current = true;
-      user.getIdToken(false).then(setAuthToken).catch(() => {});
+    const uid = user?.uid ?? null;
+    if (lastUid.current === uid) return;
+    lastUid.current = uid;
+    setAuthToken(null);
+    setUsageSessionId(null);
+    setRemainingRuns(null);
+    setSessionError(null);
+    setExecuteError(null);
+    setServerResult(null);
+    if (user) {
+      user.getIdToken(false).then(setAuthToken).catch(() => setSessionError("Could not verify your session — please refresh."));
     }
   }, [user]);
 
@@ -305,6 +308,7 @@ export default function BuyLeaseKeepToolPage() {
   const requestSession = useCallback(async () => {
     if (user?.email && isProBypassEmail(user.email)) return;
     setSessionLoading(true);
+    setSessionError(null);
     try {
       if (!user) { window.location.href = `/login?next=${encodeURIComponent(window.location.pathname)}`; return; }
       const idToken = await user.getIdToken(false);
@@ -321,7 +325,9 @@ export default function BuyLeaseKeepToolPage() {
       const session = await res.json();
       setUsageSessionId(session.usageSessionId);
       setRemainingRuns(session.remainingRuns);
-    } catch { /* swallow */ } finally { setSessionLoading(false); }
+    } catch (err) {
+      setSessionError(err instanceof Error ? err.message : "Could not start a session — please try again.");
+    } finally { setSessionLoading(false); }
   }, [user]);
 
   const [fieldStates, setFieldStates] = useState<Record<string, FieldState>>(() => {
@@ -377,6 +383,11 @@ export default function BuyLeaseKeepToolPage() {
     if (!collectedInputs || isExecuting || !usageSessionId) return;
     setIsExecuting(true);
     setExecuteError(null);
+    // Snapshot the exact inputs and currency being submitted NOW — the report
+    // must render from this immutable snapshot, never from live editable
+    // state, so later edits to the form can't silently drift the proof report.
+    const snapshotInputs = collectedInputs;
+    const snapshotCurrency = curSym;
     try {
       const rawInputs: Record<string, number> = {};
       const selectedUnits: Record<string, string> = {};
@@ -409,11 +420,39 @@ export default function BuyLeaseKeepToolPage() {
       } else if (data.outputs && typeof data.outputs === "object") {
         Object.assign(outputsMap, data.outputs);
       }
+
+      // Fail closed: every declared output must be present and finite, the
+      // winner must be a valid scenario index, and a real server audit seal
+      // must be present — never fall back to local/mock values to paper over
+      // an incomplete sealed response.
+      const missingOrNonFinite = SEALED_OUTPUT_KEYS.filter(
+        (k) => typeof outputsMap[k] !== "number" || !Number.isFinite(outputsMap[k]),
+      );
+      const winnerOk = [0, 1, 2].includes(outputsMap.out_winner);
+      const seal = data.audit_seal as Record<string, unknown> | undefined;
+      const sealOk = !!seal && typeof seal.output_hash === "string" && seal.output_hash.length > 0
+        && typeof seal.hash_algorithm === "string";
+      if (missingOrNonFinite.length > 0 || !winnerOk || !sealOk) {
+        throw new Error(
+          `Sealed response incomplete (${[
+            missingOrNonFinite.length ? `missing/non-finite: ${missingOrNonFinite.join(", ")}` : null,
+            winnerOk ? null : "invalid winner",
+            sealOk ? null : "missing audit seal",
+          ].filter(Boolean).join("; ")}) — report withheld.`,
+        );
+      }
+
       setServerResult({
         outputs: outputsMap,
-        seal: data.audit_seal
-          ? { output_hash: data.audit_seal.output_hash, input_hash: data.audit_seal.input_hash, schema_hash: data.audit_seal.schema_hash, hash_algorithm: data.audit_seal.hash_algorithm, executed_at: data.audit_seal.executed_at }
-          : undefined,
+        seal: {
+          output_hash: seal!.output_hash as string,
+          input_hash: seal!.input_hash as string | undefined,
+          schema_hash: seal!.schema_hash as string | undefined,
+          hash_algorithm: seal!.hash_algorithm as string,
+          executed_at: seal!.executed_at as string | undefined,
+        },
+        inputs: snapshotInputs,
+        currency: snapshotCurrency,
       });
       setTimeout(() => reportRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
     } catch (err) {
@@ -421,7 +460,7 @@ export default function BuyLeaseKeepToolPage() {
     } finally {
       setIsExecuting(false);
     }
-  }, [collectedInputs, isExecuting, usageSessionId, authToken, fieldStates]);
+  }, [collectedInputs, isExecuting, usageSessionId, authToken, fieldStates, curSym]);
 
   const r = engineResult;
   const x = collectedInputs;
@@ -434,6 +473,7 @@ export default function BuyLeaseKeepToolPage() {
     const cls = st.error ? "blk-bad" : st.warn ? "blk-warn" : "";
     const msg = st.error ? st.error : st.warn ? `Outside typical industry range (${fmtRef(f, curSym)}). Value accepted — flagged for review.` : "";
     const msgCls = st.error ? "blk-err" : st.warn ? "blk-warn" : "";
+    const msgId = `ms_${id}`;
     const canonTxt = st.error ? "" : `= ${f.dom === "cur" ? curSym : ""}${fmt(f.dom === "pct" ? (st.canon ?? 0) * 100 : st.canon)}`;
     return (
       <div className="blk-f" key={id}>
@@ -449,6 +489,8 @@ export default function BuyLeaseKeepToolPage() {
             inputMode="decimal"
             value={st.value}
             onChange={(e) => updateField(id, e.target.value)}
+            aria-invalid={!!st.error}
+            aria-describedby={msg ? msgId : undefined}
           />
           {f.dom === "cur" && <span className="blk-prefix">{curSym}</span>}
           {f.dom === "pct" && <span className="blk-prefix" style={{ borderLeft: "1px solid var(--blk-line)", borderRight: "none" }}>%</span>}
@@ -457,43 +499,44 @@ export default function BuyLeaseKeepToolPage() {
           <span className="blk-hint">{f.hint} <em style={{ fontStyle: "normal", color: "var(--blk-faint)" }}>· {f.src}</em></span>
           <span className="blk-bench-ref">{fmtRef(f, curSym)}</span>
         </div>
-        {msg && <div className={`blk-msg ${msgCls}`}>{msg}</div>}
+        {msg && <div id={msgId} className={`blk-msg ${msgCls}`} role={st.error ? "alert" : "status"}>{msg}</div>}
       </div>
     );
   };
 
   const renderReport = () => {
-    if (!x || !r || !serverResult) return null;
+    if (!serverResult) return null;
     const s = serverResult.outputs;
-    const get = (id: keyof InvestmentFeasibilityOutputs | string, fallback: number) =>
-      typeof s[id as string] === "number" ? s[id as string] : fallback;
-
-    // headline scalars come from the SEALED server outputs (source of truth);
-    // chart substructure (per-year schedule / tornado) is recomputed client-side
-    // from the exact same inputs that were submitted — deterministic, matches.
+    // Every key here is guaranteed present and finite — validated fail-closed
+    // in handleGenerate before serverResult was ever set. No local fallback.
     const sealed: InvestmentFeasibilityOutputs = {
-      out_lease_factor: get("out_lease_factor", r.out_lease_factor),
-      out_annual_lease: get("out_annual_lease", r.out_annual_lease),
-      out_opportunity_cost: get("out_opportunity_cost", r.out_opportunity_cost),
-      out_npv_buy: get("out_npv_buy", r.out_npv_buy),
-      out_npv_lease: get("out_npv_lease", r.out_npv_lease),
-      out_npv_keep: get("out_npv_keep", r.out_npv_keep),
-      out_total_cost_buy: get("out_total_cost_buy", r.out_total_cost_buy),
-      out_total_cost_lease: get("out_total_cost_lease", r.out_total_cost_lease),
-      out_total_cost_keep: get("out_total_cost_keep", r.out_total_cost_keep),
-      out_winner: get("out_winner", r.out_winner),
-      out_savings_vs_second: get("out_savings_vs_second", r.out_savings_vs_second),
-      out_breakeven_year: get("out_breakeven_year", r.out_breakeven_year),
-      out_decision_margin_pct: get("out_decision_margin_pct", r.out_decision_margin_pct),
-      out_evidence_completeness: get("out_evidence_completeness", r.out_evidence_completeness),
+      out_lease_factor: s.out_lease_factor,
+      out_annual_lease: s.out_annual_lease,
+      out_opportunity_cost: s.out_opportunity_cost,
+      out_npv_buy: s.out_npv_buy,
+      out_npv_lease: s.out_npv_lease,
+      out_npv_keep: s.out_npv_keep,
+      out_total_cost_buy: s.out_total_cost_buy,
+      out_total_cost_lease: s.out_total_cost_lease,
+      out_total_cost_keep: s.out_total_cost_keep,
+      out_winner: s.out_winner,
+      out_savings_vs_second: s.out_savings_vs_second,
+      out_breakeven_year: s.out_breakeven_year,
+      out_decision_margin_pct: s.out_decision_margin_pct,
+      out_evidence_completeness: s.out_evidence_completeness,
     };
-    const cum = cumulative(x);
-    const tor = tornado(x);
+    // Report renders exclusively from the immutable submitted snapshot — never
+    // from live form state — so further edits to the form cannot drift the
+    // sealed report's charts, schedule, or currency out of sync with its numbers.
+    const rx = serverResult.inputs;
+    const repCur = serverResult.currency;
+    const cum = cumulative(rx);
+    const tor = tornado(rx);
     const baseNpv = [sealed.out_npv_buy, sealed.out_npv_lease, sealed.out_npv_keep][sealed.out_winner];
-    const ins = buildInsights(x, sealed, curSym);
-    const seal = serverResult.seal?.output_hash ?? mockHash(JSON.stringify(x)) + "…demo";
-    const sch = schedule(x);
-    const fmtMoney = (v: number) => curSym + fmt(v);
+    const ins = buildInsights(rx, sealed, repCur);
+    const seal = serverResult.seal.output_hash;
+    const sch = schedule(rx);
+    const fmtMoney = (v: number) => repCur + fmt(v);
 
     return (
       <div className="blk-report" ref={reportRef}>
@@ -501,55 +544,55 @@ export default function BuyLeaseKeepToolPage() {
           <h2>Buy vs Lease vs Keep — proof report</h2>
           <div className="blk-rid">
             SC-PRO-BLK · {new Date().toISOString().slice(0, 10)}<br />
-            engine v5.3.2-domain · VDI 2067 + ISO 15686-5<br />
-            currency {curSym} · discounted NPV
+            engine v5.3.2-domain · capital-recovery + ISO 15686-5<br />
+            currency {repCur} · discounted NPV
           </div>
         </div>
         <div className="blk-rep-body">
           <div className="blk-sec">
             <div className="blk-verdict-box">
               <div className="blk-head">Recommendation: {names[sealed.out_winner]}.</div>
-              <p>Over a {sch.years}-year horizon at a {(100 * x.discountRate).toFixed(1)}% discount rate, <strong>{names[sealed.out_winner]}</strong> has the highest NPV (least-negative total cost) at <strong>{fmtMoney([sealed.out_total_cost_buy, sealed.out_total_cost_lease, sealed.out_total_cost_keep][sealed.out_winner])}</strong> present value.</p>
-              <p>It saves <strong>{fmtMoney(sealed.out_savings_vs_second)}</strong> against the next-best option. Annual lease is derived from CAPEX by the VDI 2067 capital-recovery factor ({sealed.out_lease_factor.toFixed(5)}), not entered by hand.</p>
+              <p>Over a {sch.years}-year horizon at a {(100 * rx.discountRate).toFixed(1)}% discount rate, <strong>{names[sealed.out_winner]}</strong> has the highest NPV (least-negative total cost) at <strong>{fmtMoney([sealed.out_total_cost_buy, sealed.out_total_cost_lease, sealed.out_total_cost_keep][sealed.out_winner])}</strong> present value.</p>
+              <p>It saves <strong>{fmtMoney(sealed.out_savings_vs_second)}</strong> against the next-best option. Annual lease is derived from CAPEX by the lease capital-recovery factor ({sealed.out_lease_factor.toFixed(5)}), not entered by hand.</p>
             </div>
           </div>
 
           <div className="blk-sec">
             <div className="blk-sec-h"><span className="blk-sec-n">1</span><span className="blk-sec-t">Annual cost schedule</span></div>
             <table>
-              <thead><tr><th>Year</th><th style={{ textAlign: "right" }}>Buy {curSym}</th><th style={{ textAlign: "right" }}>Lease {curSym}</th><th style={{ textAlign: "right" }}>Keep {curSym}</th></tr></thead>
+              <thead><tr><th>Year</th><th style={{ textAlign: "right" }}>Buy {repCur}</th><th style={{ textAlign: "right" }}>Lease {repCur}</th><th style={{ textAlign: "right" }}>Keep {repCur}</th></tr></thead>
               <tbody>
-                <tr><td>0 (CAPEX)</td><td className="blk-n">{fmt(x.capex)}</td><td className="blk-n">0</td><td className="blk-n">0</td></tr>
+                <tr><td>0 (CAPEX)</td><td className="blk-n">{fmt(rx.capex)}</td><td className="blk-n">0</td><td className="blk-n">0</td></tr>
                 {sch.rows.map((row) => (
                   <tr key={row.year}><td>{row.year}</td><td className="blk-n">{fmt(row.buy)}</td><td className="blk-n">{fmt(row.lease)}</td><td className="blk-n">{fmt(row.keep)}</td></tr>
                 ))}
                 <tr className="blk-total"><td>NPV (discounted)</td><td className="blk-n">{fmt(sealed.out_npv_buy)}</td><td className="blk-n">{fmt(sealed.out_npv_lease)}</td><td className="blk-n">{fmt(sealed.out_npv_keep)}</td></tr>
               </tbody>
             </table>
-            <div className="blk-note">Buy operating cost is flat (new machine); Keep escalates with age. NPV row discounts every year at {(100 * x.discountRate).toFixed(1)}%.</div>
+            <div className="blk-note">Buy operating cost is flat (new machine); Keep escalates with age. NPV row discounts every year at {(100 * rx.discountRate).toFixed(1)}%.</div>
           </div>
 
           <div className="blk-sec">
             <div className="blk-sec-h"><span className="blk-sec-n">2</span><span className="blk-sec-t">Total cost of ownership (NPV)</span></div>
-            <div dangerouslySetInnerHTML={{ __html: chartNPV(sealed, curSym) }} />
+            <div dangerouslySetInnerHTML={{ __html: chartNPV(sealed, repCur) }} />
             <div className="blk-note">Present-value total cost per option. Shorter bar = cheaper. Winner highlighted.</div>
           </div>
 
           <div className="blk-sec">
             <div className="blk-sec-h"><span className="blk-sec-n">3</span><span className="blk-sec-t">Cumulative cash outflow</span></div>
-            <div dangerouslySetInnerHTML={{ __html: chartCumulative(cum, curSym) }} />
+            <div dangerouslySetInnerHTML={{ __html: chartCumulative(cum, repCur) }} />
             <div className="blk-note">Undiscounted running cost incl. upfront CAPEX for Buy.</div>
           </div>
 
           <div className="blk-sec">
             <div className="blk-sec-h"><span className="blk-sec-n">4</span><span className="blk-sec-t">Sensitivity — what moves the verdict</span></div>
-            <div dangerouslySetInnerHTML={{ __html: chartTornado(tor, baseNpv, curSym) }} />
+            <div dangerouslySetInnerHTML={{ __html: chartTornado(tor, baseNpv, repCur) }} />
             <div className="blk-note">NPV swing of the winning option when each input is stressed.</div>
           </div>
 
           <div className="blk-sec">
             <div className="blk-sec-h"><span className="blk-sec-n">5</span><span className="blk-sec-t">Buy vs Lease break-even</span></div>
-            <div dangerouslySetInnerHTML={{ __html: chartBreakeven(x, sealed, curSym) }} />
+            <div dangerouslySetInnerHTML={{ __html: chartBreakeven(rx, sealed, repCur) }} />
             <div className="blk-note">Nominal (undiscounted) crossover. {(sealed.out_breakeven_year < NO_BREAKEVEN_YEAR) ? `Buy overtakes Lease at year ${sealed.out_breakeven_year.toFixed(1)}.` : "Lease stays cheaper across the horizon."}</div>
           </div>
 
@@ -564,11 +607,11 @@ export default function BuyLeaseKeepToolPage() {
           </div>
 
           <div className="blk-seal">
-            SEAL · {serverResult.seal?.hash_algorithm ?? "SHA-256"} {seal}<br />
-            {serverResult.seal ? `Sealed server-side at ${serverResult.seal.executed_at ?? "—"}.` : "Inputs and outputs are hashed together; altering any figure changes the seal."}
+            SEAL · {serverResult.seal.hash_algorithm} {seal}<br />
+            Sealed server-side at {serverResult.seal.executed_at ?? "—"}.
           </div>
           <div className="blk-disc">
-            Technical simulation for engineering and financial decision support. Not a substitute for professional accounting or engineering review.
+            Technical simulation only; not financial, legal, or engineering advice. Users must verify results before making business decisions.
           </div>
         </div>
       </div>
@@ -580,10 +623,10 @@ export default function BuyLeaseKeepToolPage() {
       <div className="blk-mast">
         <div className="blk-kicker">SectorCalc PRO · Capital Investment · Life-cycle decision</div>
         <h1>Machine Investment Feasibility — Buy vs Lease vs Keep</h1>
-        <p className="blk-lede">Three ways to put a machine on the floor rarely cost the same. This tool prices all three over the full study period — VDI 2067 lease recovery, ISO 15686-5 life-cycle cost for keeping an ageing asset, and discounted NPV for the verdict.</p>
+        <p className="blk-lede">Three ways to put a machine on the floor rarely cost the same. This tool prices all three over the full study period — annuitized lease-recovery cost, ISO 15686-5 life-cycle cost for keeping an ageing asset, and discounted NPV for the verdict.</p>
         <div className="blk-meta">
           <span>Engine <b>v5.3.2-domain</b></span>
-          <span>Standards <b>VDI 2067 · ISO 15686-5 · IFRS 16</b></span>
+          <span>Standards <b>ISO 15686-5 · ISO 22400-2</b></span>
           <span>Report <b>sealed · SHA-256</b></span>
           <span>Method <b>discounted NPV</b></span>
         </div>
@@ -629,7 +672,7 @@ export default function BuyLeaseKeepToolPage() {
             <div className="blk-stat"><span>NPV · Buy</span><b>{r ? curSym + fmt(r.out_npv_buy) : "—"}</b></div>
             <div className="blk-stat"><span>NPV · Lease</span><b>{r ? curSym + fmt(r.out_npv_lease) : "—"}</b></div>
             <div className="blk-stat"><span>NPV · Keep</span><b>{r ? curSym + fmt(r.out_npv_keep) : "—"}</b></div>
-            <div className="blk-stat"><span>Annual lease (VDI 2067)</span><b>{r ? `${curSym}${fmt(r.out_annual_lease)}/yr` : "—"}</b></div>
+            <div className="blk-stat"><span>Annual lease (capital-recovery)</span><b>{r ? `${curSym}${fmt(r.out_annual_lease)}/yr` : "—"}</b></div>
             <div className="blk-stat"><span>Buy–Lease break-even</span><b>{r ? ((r.out_breakeven_year < NO_BREAKEVEN_YEAR) ? `${r.out_breakeven_year.toFixed(1)} yr` : "never") : "—"}</b></div>
 
             {!usageSessionId ? (
@@ -644,6 +687,7 @@ export default function BuyLeaseKeepToolPage() {
             {remainingRuns != null && usageSessionId !== BYPASS_SESSION_ID && (
               <div className="blk-conf">{remainingRuns} run(s) remaining this session.</div>
             )}
+            {sessionError && <div className="blk-conf" style={{ color: "var(--blk-neg)" }}>{sessionError}</div>}
             {executeError && <div className="blk-conf" style={{ color: "var(--blk-neg)" }}>{executeError}</div>}
             <div className="blk-conf">
               <span className="blk-d" style={{ background: r ? "var(--blk-pos)" : "var(--blk-warn)" }} />
