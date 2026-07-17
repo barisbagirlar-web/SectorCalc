@@ -30,6 +30,18 @@ jobs:
       DEPLOY_FORCE_REBUILD: "1"
       FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       GH_TOKEN: ${{ github.token }}
+      STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+      STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
+      STRIPE_PRICE_MONTHLY: ${{ secrets.STRIPE_PRICE_MONTHLY }}
+      STRIPE_PRICE_SINGLE_VERDICT: ${{ secrets.STRIPE_PRICE_SINGLE_VERDICT }}
+      STRIPE_PRICE_PRO_ANNUAL: ${{ secrets.STRIPE_PRICE_PRO_ANNUAL }}
+      STRIPE_PRICE_TEAM: ${{ secrets.STRIPE_PRICE_TEAM }}
+      STRIPE_PRICE_CREDITS_1: ${{ secrets.STRIPE_PRICE_CREDITS_1 }}
+      STRIPE_PRICE_CREDITS_5: ${{ secrets.STRIPE_PRICE_CREDITS_5 }}
+      STRIPE_PRICE_CREDITS_15: ${{ secrets.STRIPE_PRICE_CREDITS_15 }}
+      STRIPE_PRICE_CREDITS_30: ${{ secrets.STRIPE_PRICE_CREDITS_30 }}
+      STRIPE_PRICE_CREDITS_100: ${{ secrets.STRIPE_PRICE_CREDITS_100 }}
+      PUBLIC_SITE_URL: https://sectorcalc.com
 
     steps:
       - name: Resolve immutable release SHA
@@ -108,6 +120,24 @@ jobs:
             fs.writeFileSync("public/release.json", JSON.stringify(payload, null, 2) + "\n");
           '
           cat public/release.json
+
+      - name: Write Firebase Functions env file
+        shell: bash
+        run: |
+          mkdir -p functions
+          cat > /tmp/render-fn-env.mjs << 'RENDEREOS'
+          const fs = require("fs");
+          const envKeys = [
+            "STRIPE_SECRET_KEY","STRIPE_WEBHOOK_SECRET","STRIPE_PRICE_MONTHLY",
+            "STRIPE_PRICE_SINGLE_VERDICT","STRIPE_PRICE_PRO_ANNUAL","STRIPE_PRICE_TEAM",
+            "STRIPE_PRICE_CREDITS_1","STRIPE_PRICE_CREDITS_5","STRIPE_PRICE_CREDITS_15",
+            "STRIPE_PRICE_CREDITS_30","STRIPE_PRICE_CREDITS_100","PUBLIC_SITE_URL"
+          ];
+          const lines = envKeys.map(k => `${k}=${process.env[k] || ""}`).join("\n");
+          fs.writeFileSync("functions/.env", lines + "\n", "utf8");
+RENDEREOS
+          node /tmp/render-fn-env.mjs
+          echo "functions/.env written ($(wc -c < functions/.env) bytes)"
 
       - name: Deploy Firebase Hosting, Firestore rules, and SSR function
         shell: bash
