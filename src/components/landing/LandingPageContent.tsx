@@ -486,7 +486,7 @@ export function LandingPageContent() {
 
           <div className="scx-specialist-grid">
             <Link
-              href="/fmea-rpn-calculator"
+              href="/calculators/fmea-rpn"
               prefetch
               className="scx-specialist-card"
             >
