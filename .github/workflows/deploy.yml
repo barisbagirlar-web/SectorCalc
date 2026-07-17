@@ -1,4 +1,4 @@
-name: Deploy
+name: Firebase Deploy
 
 on:
   workflow_run:
@@ -16,6 +16,7 @@ jobs:
     name: Firebase production deploy
     if: >-
       github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
       (github.event.workflow_run.conclusion == 'success' &&
        (github.event.workflow_run.head_branch == 'main' ||
         github.event.workflow_run.head_branch == 'fix/calc-engine-root-cause'))
