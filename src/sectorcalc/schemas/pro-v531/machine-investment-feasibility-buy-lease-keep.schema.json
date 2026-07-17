@@ -1,7 +1,7 @@
 {
   "tool_id": "PRO_020",
   "tool_key": "machine-investment-feasibility-buy-lease-keep",
-  "tool_name": "Machine Investment Feasibility \u2014 Buy vs Lease vs Keep",
+  "tool_name": "Machine Investment Feasibility — Buy vs Lease vs Keep",
   "category": "Capital Investment",
   "scope": "Compare buy, lease, and keep options with utilization, maintenance, downtime, financing, and residual assumptions.",
   "primary_operation": "machine_buy_lease_keep_decision",
@@ -160,11 +160,11 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 1.15741e-05
+            "factor": 0.0000115741
           },
           {
             "unit": "unit_per_year",
-            "factor": 3.17e-08
+            "factor": 3.17e-8
           }
         ]
       },
@@ -205,31 +205,31 @@
   },
   "inputs": [
     {
-      "id": "initial_investment",
-      "name": "Initial Investment",
-      "symbol": "I0",
+      "id": "capex",
+      "name": "CAPEX — purchase price (installed)",
+      "symbol": "CAPEX",
       "quantity_kind": "currency",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "currency_unit",
       "allowed_display_units": [
         "currency_unit"
       ],
-      "normalized_id": "n_initial_investment",
+      "normalized_id": "n_capex",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 0,
-        "max": 50000000,
-        "unit": "USD",
+        "min": 1,
+        "max": 500000000,
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1000,
-        "max": 10000000,
+        "min": 15000,
+        "max": 2000000,
         "unit": "currency_unit",
         "source": "SectorCalc industrial screening reference range based on vendor quote or capex budget; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
@@ -249,7 +249,7 @@
         "source": "vendor quote or capex budget",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Up-front investment including installation and implementation costs."
+        "public_note": "New machine, installed and commissioned."
       },
       "source_priority": [
         "vendor quote or capex budget",
@@ -269,45 +269,17 @@
           "audit trail export"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Initial Investment; critical values are not defaulted."
+        "public_help_text": "Attach or cite evidence for CAPEX — purchase price (installed); critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
         "group_id": "operation_context",
         "field_order": 1,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
+        "unit_dropdown_required": false,
         "reference_values_visible": true,
         "advanced": false,
         "visible_in_modes": [
@@ -319,131 +291,20 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Initial Investment. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Initial Investment can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "annual_net_cash_flow",
-      "name": "Annual Net Cash Flow",
-      "symbol": "CF",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
-      "normalized_id": "n_annual_net_cash_flow",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": -50000000,
-        "max": 50000000,
-        "unit": "USD",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": -100000,
-        "max": 5000000,
+      "user_help_text": "New machine, installed and commissioned.",
+      "warning_if_missing_or_estimated": "Estimated or missing CAPEX — purchase price (installed) can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 15000,
+        "max": 2000000,
         "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on projection model; user must verify against project evidence.",
+        "source": "SectorCalc industrial screening reference range based on vendor quote or capex budget; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "projection model",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Annual incremental cash flow after operating cost and tax assumptions supplied by user."
-      },
-      "source_priority": [
-        "projection model",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "projection model",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "projection model",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Annual Net Cash Flow; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "geometry_or_process_definition",
-        "field_order": 2,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Annual Net Cash Flow. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Net Cash Flow can flip the decision state and will downgrade evidence confidence."
+      }
     },
     {
       "id": "discount_rate",
-      "name": "Discount Rate",
-      "symbol": "r",
+      "name": "Discount / Interest Rate",
+      "symbol": "i",
       "quantity_kind": "dimensionless",
       "unit_selectable": true,
       "base_unit": "ratio",
@@ -459,14 +320,14 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1,
+        "max": 0.4,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.02,
-        "max": 0.35,
+        "min": 0.06,
+        "max": 0.12,
         "unit": "ratio",
         "source": "SectorCalc industrial screening reference range based on finance policy; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
@@ -486,10 +347,10 @@
         "source": "finance policy",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Risk-adjusted discount rate used for present value screening."
+        "public_note": "Corporate cost of capital. Drives NPV and lease recovery."
       },
       "source_priority": [
-        "finance policy",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
@@ -506,43 +367,15 @@
           "audit trail export"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Discount Rate; critical values are not defaulted."
+        "public_help_text": "Attach or cite evidence for Discount / Interest Rate; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "material_or_asset_data",
-        "field_order": 3,
+        "group_id": "operation_context",
+        "field_order": 2,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
         "reference_values_visible": true,
@@ -556,42 +389,44 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Discount Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Discount Rate can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Corporate cost of capital. Drives NPV and lease recovery.",
+      "warning_if_missing_or_estimated": "Estimated or missing Discount / Interest Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.06,
+        "max": 0.12,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on finance policy; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
     },
     {
-      "id": "analysis_years",
-      "name": "Analysis Period",
+      "id": "study_years",
+      "name": "Study Period",
       "symbol": "n",
-      "quantity_kind": "time",
-      "unit_selectable": true,
-      "base_unit": "year",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
       "allowed_display_units": [
-        "year",
-        "month",
-        "day",
-        "h",
-        "min",
-        "s"
+        "ratio"
       ],
-      "normalized_id": "n_analysis_years",
+      "normalized_id": "n_study_years",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 0,
-        "max": 50,
-        "unit": "year",
+        "min": 1,
+        "max": 40,
+        "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 3,
+        "min": 5,
         "max": 10,
-        "unit": "year",
-        "source": "SectorCalc industrial screening reference range based on investment policy; user must verify against project evidence.",
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on engineering assumption register; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
       },
       "resolution": null,
@@ -606,65 +441,135 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "investment policy",
+        "source": "engineering assumption register",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Economic analysis period; terminal assumptions must be separately evidenced."
+        "public_note": "Analysis horizon and lease term, in years."
       },
       "source_priority": [
-        "investment policy",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
         "engineer-approved assumption register"
       ],
-      "source": "investment policy",
+      "source": "engineering assumption register",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "investment policy",
+          "engineering assumption register",
           "signed engineering note",
           "measurement record",
           "supplier certificate",
           "audit trail export"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Analysis Period; critical values are not defaulted."
+        "public_help_text": "Attach or cite evidence for Study Period; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "load_or_demand",
+        "group_id": "operation_context",
+        "field_order": 3,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Analysis horizon and lease term, in years.",
+      "warning_if_missing_or_estimated": "Estimated or missing Study Period can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 5,
+        "max": 10,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on engineering assumption register; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
+    },
+    {
+      "id": "lessor_margin",
+      "name": "Lessor Margin",
+      "symbol": "m",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": true,
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "percent",
+        "ratio"
+      ],
+      "normalized_id": "n_lessor_margin",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 0.2,
+        "unit": "ratio",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 0.01,
+        "max": 0.04,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on Equipment Lessor Council; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 6,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Equipment Lessor Council",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Leasing company profit spread (VDI 2067)."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "Equipment Lessor Council",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Equipment Lessor Council",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Lessor Margin; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "commercial_impact_inputs",
         "field_order": 4,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
@@ -679,20 +584,28 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Analysis Period. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Analysis Period can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Leasing company profit spread (VDI 2067).",
+      "warning_if_missing_or_estimated": "Estimated or missing Lessor Margin can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.01,
+        "max": 0.04,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on Equipment Lessor Council; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
     },
     {
-      "id": "residual_value",
-      "name": "Residual Value",
-      "symbol": "RV",
-      "quantity_kind": "currency",
+      "id": "insurance_rate",
+      "name": "Lease Insurance Rate",
+      "symbol": "ins",
+      "quantity_kind": "dimensionless",
       "unit_selectable": true,
-      "base_unit": "currency_unit",
+      "base_unit": "ratio",
       "allowed_display_units": [
-        "currency_unit"
+        "percent",
+        "ratio"
       ],
-      "normalized_id": "n_residual_value",
+      "normalized_id": "n_insurance_rate",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -700,21 +613,21 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 50000000,
-        "unit": "USD",
+        "max": 0.1,
+        "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0,
-        "max": 5000000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on asset valuation; user must verify against project evidence.",
+        "min": 0.003,
+        "max": 0.01,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on insurance policy quote; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
       },
       "resolution": null,
       "precision_policy": {
-        "input_decimals": 3,
+        "input_decimals": 6,
         "display_decimals": 3,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
@@ -724,65 +637,37 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "asset valuation",
+        "source": "insurance policy quote",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Estimated terminal residual value at the end of the analysis period."
+        "public_note": "All-risk cover folded into the lease factor."
       },
       "source_priority": [
-        "asset valuation",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
         "engineer-approved assumption register"
       ],
-      "source": "asset valuation",
+      "source": "insurance policy quote",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "asset valuation",
+          "insurance policy quote",
           "signed engineering note",
           "measurement record",
           "supplier certificate",
           "audit trail export"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Residual Value; critical values are not defaulted."
+        "public_help_text": "Attach or cite evidence for Lease Insurance Rate; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "capacity_or_process_capability",
+        "group_id": "commercial_impact_inputs",
         "field_order": 5,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
@@ -797,21 +682,707 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Residual Value. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Residual Value can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "All-risk cover folded into the lease factor.",
+      "warning_if_missing_or_estimated": "Estimated or missing Lease Insurance Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.003,
+        "max": 0.01,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on insurance policy quote; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
     },
     {
-      "id": "stress_downside_factor",
-      "name": "Downside Stress Factor",
-      "symbol": "S_down",
+      "id": "buy_maintenance",
+      "name": "Buy — Annual Maintenance",
+      "symbol": "M_buy",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_buy_maintenance",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 50000000,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 2000,
+        "max": 15000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on OEM service schedule; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "OEM service schedule",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "New machine, flat over the horizon."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "OEM service schedule",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "OEM service schedule",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Buy — Annual Maintenance; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "material_or_asset_data",
+        "field_order": 6,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "New machine, flat over the horizon.",
+      "warning_if_missing_or_estimated": "Estimated or missing Buy — Annual Maintenance can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 2000,
+        "max": 15000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on OEM service schedule; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
+    },
+    {
+      "id": "buy_energy",
+      "name": "Buy — Annual Energy",
+      "symbol": "E_buy",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_buy_energy",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 50000000,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 3000,
+        "max": 20000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on metered or nameplate kW; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "metered or nameplate kW",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Energy cost for the new machine."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "metered or nameplate kW",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "metered or nameplate kW",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Buy — Annual Energy; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "material_or_asset_data",
+        "field_order": 7,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Energy cost for the new machine.",
+      "warning_if_missing_or_estimated": "Estimated or missing Buy — Annual Energy can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 3000,
+        "max": 20000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on metered or nameplate kW; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
+    },
+    {
+      "id": "buy_insurance",
+      "name": "Buy — Annual Insurance",
+      "symbol": "Ins_buy",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_buy_insurance",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 50000000,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 0,
+        "max": 3000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on insurance policy quote; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "insurance policy quote",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Owner insurance (0 if self-insured)."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "insurance policy quote",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "insurance policy quote",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Buy — Annual Insurance; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "material_or_asset_data",
+        "field_order": 8,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Owner insurance (0 if self-insured).",
+      "warning_if_missing_or_estimated": "Estimated or missing Buy — Annual Insurance can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0,
+        "max": 3000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on insurance policy quote; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
+    },
+    {
+      "id": "market_value",
+      "name": "Keep — Current Market Value",
+      "symbol": "V_mkt",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_market_value",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 500000000,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 5000,
+        "max": 150000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on appraisal or resale comp; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "appraisal or resale comp",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Resale value forgone by keeping = opportunity cost (ISO 15686-5)."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "appraisal or resale comp",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "appraisal or resale comp",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Keep — Current Market Value; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "material_or_asset_data",
+        "field_order": 9,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Resale value forgone by keeping = opportunity cost (ISO 15686-5).",
+      "warning_if_missing_or_estimated": "Estimated or missing Keep — Current Market Value can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 5000,
+        "max": 150000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on appraisal or resale comp; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
+    },
+    {
+      "id": "keep_base_maintenance",
+      "name": "Keep — Year-1 Maintenance",
+      "symbol": "M0_keep",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_keep_base_maintenance",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 50000000,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 3000,
+        "max": 20000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on maintenance log, last 12mo; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "maintenance log, last 12mo",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Escalates with age (see advanced escalation inputs)."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "maintenance log, last 12mo",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "maintenance log, last 12mo",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Keep — Year-1 Maintenance; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "material_or_asset_data",
+        "field_order": 10,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Escalates with age (see advanced escalation inputs).",
+      "warning_if_missing_or_estimated": "Estimated or missing Keep — Year-1 Maintenance can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 3000,
+        "max": 20000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on maintenance log, last 12mo; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
+    },
+    {
+      "id": "keep_base_energy",
+      "name": "Keep — Year-1 Energy",
+      "symbol": "E0_keep",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_keep_base_energy",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 50000000,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 3000,
+        "max": 25000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on metered, last 12mo; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "metered, last 12mo",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Degrades with age (see advanced escalation inputs)."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "metered, last 12mo",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "metered, last 12mo",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Keep — Year-1 Energy; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "material_or_asset_data",
+        "field_order": 11,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Degrades with age (see advanced escalation inputs).",
+      "warning_if_missing_or_estimated": "Estimated or missing Keep — Year-1 Energy can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 3000,
+        "max": 25000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on metered, last 12mo; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
+    },
+    {
+      "id": "production_volume",
+      "name": "Annual Production Volume",
+      "symbol": "Q",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio"
+      ],
+      "normalized_id": "n_production_volume",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000,
+        "unit": "ratio",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 1000,
+        "max": 500000,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on MES or ERP throughput; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "MES or ERP throughput",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Shared by Buy and Keep (same production line)."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "MES or ERP throughput",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "MES or ERP throughput",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Annual Production Volume; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "load_or_demand",
+        "field_order": 12,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Shared by Buy and Keep (same production line).",
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Production Volume can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1000,
+        "max": 500000,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on MES or ERP throughput; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
+    },
+    {
+      "id": "scrap_rate_base",
+      "name": "Year-1 Scrap Rate",
+      "symbol": "s0",
       "quantity_kind": "dimensionless",
       "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "percent",
+        "ratio"
       ],
-      "normalized_id": "n_stress_downside_factor",
+      "normalized_id": "n_scrap_rate_base",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -825,10 +1396,10 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.5,
-        "max": 1,
+        "min": 0.005,
+        "max": 0.05,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on stress-test policy; user must verify against project evidence.",
+        "source": "SectorCalc industrial screening reference range based on quality record; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
       },
       "resolution": null,
@@ -843,66 +1414,38 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "stress-test policy",
+        "source": "quality record",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Cash-flow haircut for downside scenario review."
+        "public_note": "Escalates for Keep with wear (ISO 22400-2)."
       },
       "source_priority": [
-        "stress-test policy",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
         "engineer-approved assumption register"
       ],
-      "source": "stress-test policy",
+      "source": "quality record",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "stress-test policy",
+          "quality record",
           "signed engineering note",
           "measurement record",
           "supplier certificate",
           "audit trail export"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Downside Stress Factor; critical values are not defaulted."
+        "public_help_text": "Attach or cite evidence for Year-1 Scrap Rate; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
         "group_id": "quality_tolerance_calibration",
-        "field_order": 6,
+        "field_order": 13,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
         "reference_values_visible": true,
@@ -916,404 +1459,44 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Downside Stress Factor. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Downside Stress Factor can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "annual_volume",
-      "name": "Annual Decision Volume",
-      "symbol": "N",
-      "quantity_kind": "rate",
-      "unit_selectable": true,
-      "base_unit": "unit_per_s",
-      "allowed_display_units": [
-        "unit_per_s",
-        "unit_per_min",
-        "unit_per_h",
-        "unit_per_day",
-        "unit_per_year"
-      ],
-      "normalized_id": "n_annual_volume",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 10000000,
-        "unit": "units/year",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 1e-06,
-        "max": 0.5,
-        "unit": "unit_per_s",
-        "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
+      "user_help_text": "Escalates for Keep with wear (ISO 22400-2).",
+      "warning_if_missing_or_estimated": "Estimated or missing Year-1 Scrap Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.005,
+        "max": 0.05,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on quality record; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "planning or ERP schedule",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Annualized operating or sales volume used for impact normalization."
-      },
-      "source_priority": [
-        "planning or ERP schedule",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "planning or ERP schedule",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "planning or ERP schedule",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Annual Decision Volume; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "commercial_impact_inputs",
-        "field_order": 7,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Annual Decision Volume. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Decision Volume can flip the decision state and will downgrade evidence confidence."
+      }
     },
     {
-      "id": "labor_rate",
-      "name": "Fully Loaded Labor Rate",
-      "symbol": "C_labor",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_labor_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 500000,
-        "unit": "currency_unit_per_h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 20,
-        "max": 250,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on payroll and overhead allocation; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "payroll and overhead allocation",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Loaded labor rate including wages, burden, and reasonable supervision allocation."
-      },
-      "source_priority": [
-        "payroll and overhead allocation",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "payroll and overhead allocation",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "payroll and overhead allocation",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Fully Loaded Labor Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "evidence_and_source_status",
-        "field_order": 8,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Fully Loaded Labor Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Fully Loaded Labor Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "overhead_rate",
-      "name": "Allocated Overhead Rate",
-      "symbol": "C_oh",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_overhead_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 5000000,
-        "unit": "currency_unit_per_h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 10,
-        "max": 1000,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on cost accounting ledger; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "cost accounting ledger",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Allocated support cost used only for commercial impact and quote governance."
-      },
-      "source_priority": [
-        "cost accounting ledger",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "cost accounting ledger",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "cost accounting ledger",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Allocated Overhead Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "advanced_derating_inputs",
-        "field_order": 9,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Allocated Overhead Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Allocated Overhead Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "defect_or_loss_cost",
-      "name": "Unit Loss Cost",
-      "symbol": "C_loss",
+      "id": "unit_cost",
+      "name": "Cost per Scrapped Unit",
+      "symbol": "c_u",
       "quantity_kind": "currency",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "currency_unit",
       "allowed_display_units": [
         "currency_unit"
       ],
-      "normalized_id": "n_defect_or_loss_cost",
+      "normalized_id": "n_unit_cost",
       "type": "number",
       "required": true,
-      "criticality": "HIGH",
+      "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 50000000,
-        "unit": "USD",
+        "max": 1000000,
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 1,
-        "max": 100000,
+        "max": 200,
         "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on invoice, replacement cost, or management estimate; user must verify against project evidence.",
+        "source": "SectorCalc industrial screening reference range based on BOM and labor cost; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
       },
       "resolution": null,
@@ -1328,71 +1511,44 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "invoice, replacement cost, or management estimate",
+        "source": "BOM and labor cost",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Monetary exposure if the decision is wrong or a unit fails the intended requirement."
+        "public_note": "Material plus value-added lost per scrap unit."
       },
       "source_priority": [
-        "invoice, replacement cost, or management estimate",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
         "engineer-approved assumption register"
       ],
-      "source": "invoice, replacement cost, or management estimate",
+      "source": "BOM and labor cost",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "invoice, replacement cost, or management estimate",
+          "BOM and labor cost",
           "signed engineering note",
           "measurement record",
           "supplier certificate",
           "audit trail export"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Unit Loss Cost; critical values are not defaulted."
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Cost per Scrapped Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 10,
+        "group_id": "quality_tolerance_calibration",
+        "field_order": 14,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
+        "unit_dropdown_required": false,
         "reference_values_visible": true,
-        "advanced": true,
+        "advanced": false,
         "visible_in_modes": [
+          "quick",
           "engineering",
           "cost",
           "audit"
@@ -1400,38 +1556,45 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Unit Loss Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Unit Loss Cost can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Material plus value-added lost per scrap unit.",
+      "warning_if_missing_or_estimated": "Estimated or missing Cost per Scrapped Unit can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 200,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on BOM and labor cost; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
     },
     {
-      "id": "source_confidence_ratio",
-      "name": "Source Confidence Ratio",
-      "symbol": "Q_src",
+      "id": "maint_escalation",
+      "name": "Keep Maintenance Escalation",
+      "symbol": "g_m",
       "quantity_kind": "dimensionless",
       "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "percent",
+        "ratio"
       ],
-      "normalized_id": "n_source_confidence_ratio",
+      "normalized_id": "n_maint_escalation",
       "type": "number",
       "required": true,
-      "criticality": "MEDIUM",
+      "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1,
+        "max": 0.5,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.6,
-        "max": 1,
+        "min": 0.06,
+        "max": 0.12,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on evidence review; user must verify against project evidence.",
+        "source": "SectorCalc industrial screening reference range based on reliability engineering reference; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
       },
       "resolution": null,
@@ -1446,71 +1609,44 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "evidence review",
+        "source": "reliability engineering reference",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Reviewer-assigned confidence in source traceability."
+        "public_note": "Bathtub wear-out phase (O'Connor 2014)."
       },
       "source_priority": [
-        "evidence review",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
         "engineer-approved assumption register"
       ],
-      "source": "evidence review",
+      "source": "reliability engineering reference",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "evidence review",
+          "reliability engineering reference",
           "signed engineering note",
           "measurement record",
           "supplier certificate",
           "audit trail export"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Source Confidence Ratio; critical values are not defaulted."
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Keep Maintenance Escalation; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "geometry_or_process_definition",
-        "field_order": 11,
+        "group_id": "advanced_derating_inputs",
+        "field_order": 15,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
         "reference_values_visible": true,
         "advanced": true,
         "visible_in_modes": [
+          "quick",
           "engineering",
           "cost",
           "audit"
@@ -1518,38 +1654,45 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Source Confidence Ratio. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Bathtub wear-out phase (O'Connor 2014).",
+      "warning_if_missing_or_estimated": "Estimated or missing Keep Maintenance Escalation can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.06,
+        "max": 0.12,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on reliability engineering reference; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
     },
     {
-      "id": "uncertainty_multiplier",
-      "name": "Uncertainty Coverage Multiplier",
-      "symbol": "k_u",
+      "id": "energy_degradation",
+      "name": "Keep Energy Degradation",
+      "symbol": "g_e",
       "quantity_kind": "dimensionless",
       "unit_selectable": true,
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "percent",
+        "ratio"
       ],
-      "normalized_id": "n_uncertainty_multiplier",
+      "normalized_id": "n_energy_degradation",
       "type": "number",
       "required": true,
-      "criticality": "MEDIUM",
+      "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 5,
+        "max": 0.3,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1.5,
-        "max": 2.5,
+        "min": 0.015,
+        "max": 0.025,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on uncertainty policy; user must verify against project evidence.",
+        "source": "SectorCalc industrial screening reference range based on ASME PTC 47 reference; user must verify against project evidence.",
         "status": "NEEDS_SOURCE_VERIFICATION"
       },
       "resolution": null,
@@ -1564,71 +1707,44 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "uncertainty policy",
+        "source": "ASME PTC 47 reference",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Coverage multiplier used by the server uncertainty model."
+        "public_note": "Efficiency loss with age (ASME PTC 47)."
       },
       "source_priority": [
-        "uncertainty policy",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
         "engineer-approved assumption register"
       ],
-      "source": "uncertainty policy",
+      "source": "ASME PTC 47 reference",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "uncertainty policy",
+          "ASME PTC 47 reference",
           "signed engineering note",
           "measurement record",
           "supplier certificate",
           "audit trail export"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Uncertainty Coverage Multiplier; critical values are not defaulted."
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Keep Energy Degradation; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "material_or_asset_data",
-        "field_order": 12,
+        "group_id": "advanced_derating_inputs",
+        "field_order": 16,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
         "reference_values_visible": true,
         "advanced": true,
         "visible_in_modes": [
+          "quick",
           "engineering",
           "cost",
           "audit"
@@ -1636,34 +1752,126 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Uncertainty Coverage Multiplier. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Efficiency loss with age (ASME PTC 47).",
+      "warning_if_missing_or_estimated": "Estimated or missing Keep Energy Degradation can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.015,
+        "max": 0.025,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on ASME PTC 47 reference; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
+    },
+    {
+      "id": "scrap_escalation",
+      "name": "Keep Scrap-Rate Escalation",
+      "symbol": "g_s",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": true,
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "percent",
+        "ratio"
+      ],
+      "normalized_id": "n_scrap_escalation",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 0.5,
+        "unit": "ratio",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 0.03,
+        "max": 0.08,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on ISO 22400-2 reference; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 6,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "ISO 22400-2 reference",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Wear-induced defect growth (ISO 22400-2)."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "ISO 22400-2 reference",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "ISO 22400-2 reference",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Keep Scrap-Rate Escalation; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "advanced_derating_inputs",
+        "field_order": 17,
+        "component": "number_with_unit",
+        "unit_dropdown_required": true,
+        "reference_values_visible": true,
+        "advanced": true,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Wear-induced defect growth (ISO 22400-2).",
+      "warning_if_missing_or_estimated": "Estimated or missing Keep Scrap-Rate Escalation can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.03,
+        "max": 0.08,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on ISO 22400-2 reference; user must verify against project evidence.",
+        "status": "NEEDS_SOURCE_VERIFICATION"
+      }
     }
   ],
   "normalized_inputs": [
     {
-      "id": "n_initial_investment",
-      "from_input": "initial_investment",
+      "id": "n_capex",
+      "from_input": "capex",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for initial_investment after unit conversion.",
-        "Evaluate engineering reference range for initial_investment after conversion.",
-        "Reject non-finite normalized value for initial_investment."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_annual_net_cash_flow",
-      "from_input": "annual_net_cash_flow",
-      "quantity_kind": "currency",
-      "base_unit": "currency_unit",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for annual_net_cash_flow after unit conversion.",
-        "Evaluate engineering reference range for annual_net_cash_flow after conversion.",
-        "Reject non-finite normalized value for annual_net_cash_flow."
+        "Apply physical hard bounds for capex after unit conversion.",
+        "Evaluate engineering reference range for capex after conversion.",
+        "Reject non-finite normalized value for capex."
       ],
       "audit_required": true
     },
@@ -1681,119 +1889,197 @@
       "audit_required": true
     },
     {
-      "id": "n_analysis_years",
-      "from_input": "analysis_years",
-      "quantity_kind": "time",
-      "base_unit": "s",
+      "id": "n_study_years",
+      "from_input": "study_years",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for analysis_years after unit conversion.",
-        "Evaluate engineering reference range for analysis_years after conversion.",
-        "Reject non-finite normalized value for analysis_years."
+        "Apply physical hard bounds for study_years after unit conversion.",
+        "Evaluate engineering reference range for study_years after conversion.",
+        "Reject non-finite normalized value for study_years."
       ],
       "audit_required": true
     },
     {
-      "id": "n_residual_value",
-      "from_input": "residual_value",
+      "id": "n_lessor_margin",
+      "from_input": "lessor_margin",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for lessor_margin after unit conversion.",
+        "Evaluate engineering reference range for lessor_margin after conversion.",
+        "Reject non-finite normalized value for lessor_margin."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_insurance_rate",
+      "from_input": "insurance_rate",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for insurance_rate after unit conversion.",
+        "Evaluate engineering reference range for insurance_rate after conversion.",
+        "Reject non-finite normalized value for insurance_rate."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_buy_maintenance",
+      "from_input": "buy_maintenance",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for residual_value after unit conversion.",
-        "Evaluate engineering reference range for residual_value after conversion.",
-        "Reject non-finite normalized value for residual_value."
+        "Apply physical hard bounds for buy_maintenance after unit conversion.",
+        "Evaluate engineering reference range for buy_maintenance after conversion.",
+        "Reject non-finite normalized value for buy_maintenance."
       ],
       "audit_required": true
     },
     {
-      "id": "n_stress_downside_factor",
-      "from_input": "stress_downside_factor",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for stress_downside_factor after unit conversion.",
-        "Evaluate engineering reference range for stress_downside_factor after conversion.",
-        "Reject non-finite normalized value for stress_downside_factor."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_annual_volume",
-      "from_input": "annual_volume",
-      "quantity_kind": "rate",
-      "base_unit": "unit_per_s",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for annual_volume after unit conversion.",
-        "Evaluate engineering reference range for annual_volume after conversion.",
-        "Reject non-finite normalized value for annual_volume."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_labor_rate",
-      "from_input": "labor_rate",
-      "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for labor_rate after unit conversion.",
-        "Evaluate engineering reference range for labor_rate after conversion.",
-        "Reject non-finite normalized value for labor_rate."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_overhead_rate",
-      "from_input": "overhead_rate",
-      "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for overhead_rate after unit conversion.",
-        "Evaluate engineering reference range for overhead_rate after conversion.",
-        "Reject non-finite normalized value for overhead_rate."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_defect_or_loss_cost",
-      "from_input": "defect_or_loss_cost",
+      "id": "n_buy_energy",
+      "from_input": "buy_energy",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for defect_or_loss_cost after unit conversion.",
-        "Evaluate engineering reference range for defect_or_loss_cost after conversion.",
-        "Reject non-finite normalized value for defect_or_loss_cost."
+        "Apply physical hard bounds for buy_energy after unit conversion.",
+        "Evaluate engineering reference range for buy_energy after conversion.",
+        "Reject non-finite normalized value for buy_energy."
       ],
       "audit_required": true
     },
     {
-      "id": "n_source_confidence_ratio",
-      "from_input": "source_confidence_ratio",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "id": "n_buy_insurance",
+      "from_input": "buy_insurance",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for source_confidence_ratio after unit conversion.",
-        "Evaluate engineering reference range for source_confidence_ratio after conversion.",
-        "Reject non-finite normalized value for source_confidence_ratio."
+        "Apply physical hard bounds for buy_insurance after unit conversion.",
+        "Evaluate engineering reference range for buy_insurance after conversion.",
+        "Reject non-finite normalized value for buy_insurance."
       ],
       "audit_required": true
     },
     {
-      "id": "n_uncertainty_multiplier",
-      "from_input": "uncertainty_multiplier",
+      "id": "n_market_value",
+      "from_input": "market_value",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for market_value after unit conversion.",
+        "Evaluate engineering reference range for market_value after conversion.",
+        "Reject non-finite normalized value for market_value."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_keep_base_maintenance",
+      "from_input": "keep_base_maintenance",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for keep_base_maintenance after unit conversion.",
+        "Evaluate engineering reference range for keep_base_maintenance after conversion.",
+        "Reject non-finite normalized value for keep_base_maintenance."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_keep_base_energy",
+      "from_input": "keep_base_energy",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for keep_base_energy after unit conversion.",
+        "Evaluate engineering reference range for keep_base_energy after conversion.",
+        "Reject non-finite normalized value for keep_base_energy."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_production_volume",
+      "from_input": "production_volume",
       "quantity_kind": "dimensionless",
       "base_unit": "ratio",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for uncertainty_multiplier after unit conversion.",
-        "Evaluate engineering reference range for uncertainty_multiplier after conversion.",
-        "Reject non-finite normalized value for uncertainty_multiplier."
+        "Apply physical hard bounds for production_volume after unit conversion.",
+        "Evaluate engineering reference range for production_volume after conversion.",
+        "Reject non-finite normalized value for production_volume."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_scrap_rate_base",
+      "from_input": "scrap_rate_base",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for scrap_rate_base after unit conversion.",
+        "Evaluate engineering reference range for scrap_rate_base after conversion.",
+        "Reject non-finite normalized value for scrap_rate_base."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_unit_cost",
+      "from_input": "unit_cost",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for unit_cost after unit conversion.",
+        "Evaluate engineering reference range for unit_cost after conversion.",
+        "Reject non-finite normalized value for unit_cost."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_maint_escalation",
+      "from_input": "maint_escalation",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for maint_escalation after unit conversion.",
+        "Evaluate engineering reference range for maint_escalation after conversion.",
+        "Reject non-finite normalized value for maint_escalation."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_energy_degradation",
+      "from_input": "energy_degradation",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for energy_degradation after unit conversion.",
+        "Evaluate engineering reference range for energy_degradation after conversion.",
+        "Reject non-finite normalized value for energy_degradation."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_scrap_escalation",
+      "from_input": "scrap_escalation",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for scrap_escalation after unit conversion.",
+        "Evaluate engineering reference range for scrap_escalation after conversion.",
+        "Reject non-finite normalized value for scrap_escalation."
       ],
       "audit_required": true
     }
@@ -3370,6 +3656,513 @@
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
+    },
+    {
+      "id": "out_lease_factor",
+      "name": "VDI 2067 Lease Factor",
+      "symbol": "LF",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Lease Factor — CAPEX multiplier derived from the capital-recovery factor plus margin and insurance.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_annual_lease",
+      "name": "Annual Lease Payment",
+      "symbol": "L_annual",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Annual Lease Payment — fixed yearly lease cost derived from CAPEX via VDI 2067, not user-entered.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_opportunity_cost",
+      "name": "Keep Opportunity Cost",
+      "symbol": "OC",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Keep Opportunity Cost — annuitized value of not selling the existing machine.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_npv_buy",
+      "name": "Buy Scenario NPV",
+      "symbol": "NPV_buy",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Buy Scenario NPV — discounted present-value cost of owning a new machine.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_npv_lease",
+      "name": "Lease Scenario NPV",
+      "symbol": "NPV_lease",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Lease Scenario NPV — discounted present-value cost of leasing.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_npv_keep",
+      "name": "Keep Scenario NPV",
+      "symbol": "NPV_keep",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Keep Scenario NPV — discounted present-value cost of keeping the existing machine.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_total_cost_buy",
+      "name": "Buy Total Present Cost",
+      "symbol": "TC_buy",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Buy Total Present Cost — absolute present-value cost of Buy.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_total_cost_lease",
+      "name": "Lease Total Present Cost",
+      "symbol": "TC_lease",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Lease Total Present Cost — absolute present-value cost of Lease.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_total_cost_keep",
+      "name": "Keep Total Present Cost",
+      "symbol": "TC_keep",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Keep Total Present Cost — absolute present-value cost of Keep.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_winner",
+      "name": "Recommended Scenario",
+      "symbol": "W",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Recommended Scenario — 0=Buy, 1=Lease, 2=Keep; the option with the highest NPV (least-negative cost).",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_savings_vs_second",
+      "name": "Savings vs Next-Best",
+      "symbol": "ΔNPV",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Savings vs Next-Best — present-value advantage of the winning scenario over the runner-up.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_breakeven_year",
+      "name": "Buy-Lease Break-even Year",
+      "symbol": "t_be",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Buy-Lease Break-even Year — nominal (undiscounted) year at which cumulative Buy cost drops below cumulative Lease cost.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_decision_margin_pct",
+      "name": "Decision Margin",
+      "symbol": "m_dec",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Decision Margin — savings vs next-best as a fraction of the winning scenario cost; a robustness indicator.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
     }
   ],
   "output_formatting": {
@@ -3463,7 +4256,7 @@
     "type_a_support": true,
     "type_b_support": true,
     "combined_standard_uncertainty": "server-computed from registered sensitivity coefficients and source uncertainty contributors",
-    "expanded_uncertainty": "value \u00b1 expanded_uncertainty unit, k=coverage_factor",
+    "expanded_uncertainty": "value ± expanded_uncertainty unit, k=coverage_factor",
     "coverage_factor_policy": "user-verified or lab-policy value; no hidden default for critical output",
     "sensitivity_coefficients": "server registry only",
     "sensitivity_ranking_required": true,
@@ -4420,7 +5213,7 @@
   },
   "metadata": {
     "schema_version": "5.3.1-pro-schema.1",
-    "formula_version": "server-registry-required.1",
+    "formula_version": "5.3.2-domain.1",
     "prompt_version": "5.3.1",
     "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
     "runtime_llm_usage": "FORBIDDEN",
@@ -4445,7 +5238,7 @@
         "id": "QG-001",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify schema contract control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4456,7 +5249,7 @@
         "id": "QG-002",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify input evidence control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4467,7 +5260,7 @@
         "id": "QG-003",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify unit safety control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4478,7 +5271,7 @@
         "id": "QG-004",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify physical bounds control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4489,7 +5282,7 @@
         "id": "QG-005",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4500,7 +5293,7 @@
         "id": "QG-006",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify formula registry control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4511,7 +5304,7 @@
         "id": "QG-007",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify server execution control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4522,7 +5315,7 @@
         "id": "QG-008",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify redaction control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4533,7 +5326,7 @@
         "id": "QG-009",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify uncertainty control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4544,7 +5337,7 @@
         "id": "QG-010",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify FMEA control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4555,7 +5348,7 @@
         "id": "QG-011",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify business impact control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4566,7 +5359,7 @@
         "id": "QG-012",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify audit seal control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4577,7 +5370,7 @@
         "id": "QG-013",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify proof pack control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4588,7 +5381,7 @@
         "id": "QG-014",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify accessibility control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4599,7 +5392,7 @@
         "id": "QG-015",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify root-only routing control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4610,7 +5403,7 @@
         "id": "QG-016",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify non-English guard control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4621,7 +5414,7 @@
         "id": "QG-017",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify brand safety control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4632,7 +5425,7 @@
         "id": "QG-018",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify golden hashes control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4643,7 +5436,7 @@
         "id": "QG-019",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify schema contract control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4654,7 +5447,7 @@
         "id": "QG-020",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify input evidence control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4665,7 +5458,7 @@
         "id": "QG-021",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify unit safety control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4676,7 +5469,7 @@
         "id": "QG-022",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify physical bounds control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4687,7 +5480,7 @@
         "id": "QG-023",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4698,7 +5491,7 @@
         "id": "QG-024",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify formula registry control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4709,7 +5502,7 @@
         "id": "QG-025",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify server execution control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4720,7 +5513,7 @@
         "id": "QG-026",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify redaction control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4731,7 +5524,7 @@
         "id": "QG-027",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify uncertainty control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4742,7 +5535,7 @@
         "id": "QG-028",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify FMEA control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4753,7 +5546,7 @@
         "id": "QG-029",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify business impact control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4764,7 +5557,7 @@
         "id": "QG-030",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify audit seal control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4775,7 +5568,7 @@
         "id": "QG-031",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify proof pack control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4786,7 +5579,7 @@
         "id": "QG-032",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify accessibility control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4797,7 +5590,7 @@
         "id": "QG-033",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify root-only routing control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4808,7 +5601,7 @@
         "id": "QG-034",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify non-English guard control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4819,7 +5612,7 @@
         "id": "QG-035",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify brand safety control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4830,7 +5623,7 @@
         "id": "QG-036",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify golden hashes control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4841,7 +5634,7 @@
         "id": "QG-037",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify schema contract control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4852,7 +5645,7 @@
         "id": "QG-038",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify input evidence control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4863,7 +5656,7 @@
         "id": "QG-039",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify unit safety control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4874,7 +5667,7 @@
         "id": "QG-040",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify physical bounds control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4885,7 +5678,7 @@
         "id": "QG-041",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4896,7 +5689,7 @@
         "id": "QG-042",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify formula registry control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4907,7 +5700,7 @@
         "id": "QG-043",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify server execution control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4918,7 +5711,7 @@
         "id": "QG-044",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify redaction control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4929,7 +5722,7 @@
         "id": "QG-045",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify uncertainty control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4940,7 +5733,7 @@
         "id": "QG-046",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify FMEA control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4951,7 +5744,7 @@
         "id": "QG-047",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify business impact control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4962,7 +5755,7 @@
         "id": "QG-048",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify audit seal control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4973,7 +5766,7 @@
         "id": "QG-049",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify proof pack control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4984,7 +5777,7 @@
         "id": "QG-050",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify accessibility control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4995,7 +5788,7 @@
         "id": "QG-051",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify root-only routing control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5006,7 +5799,7 @@
         "id": "QG-052",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify non-English guard control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5017,7 +5810,7 @@
         "id": "QG-053",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify brand safety control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5028,7 +5821,7 @@
         "id": "QG-054",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify golden hashes control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5039,7 +5832,7 @@
         "id": "QG-055",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify schema contract control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5050,7 +5843,7 @@
         "id": "QG-056",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify input evidence control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5061,7 +5854,7 @@
         "id": "QG-057",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify unit safety control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5072,7 +5865,7 @@
         "id": "QG-058",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify physical bounds control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5083,7 +5876,7 @@
         "id": "QG-059",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5094,7 +5887,7 @@
         "id": "QG-060",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify formula registry control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5105,7 +5898,7 @@
         "id": "QG-061",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify server execution control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5116,7 +5909,7 @@
         "id": "QG-062",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify redaction control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5127,7 +5920,7 @@
         "id": "QG-063",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify uncertainty control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5138,7 +5931,7 @@
         "id": "QG-064",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify FMEA control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5149,7 +5942,7 @@
         "id": "QG-065",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify business impact control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5160,7 +5953,7 @@
         "id": "QG-066",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify audit seal control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5171,7 +5964,7 @@
         "id": "QG-067",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify proof pack control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5182,7 +5975,7 @@
         "id": "QG-068",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify accessibility control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5193,7 +5986,7 @@
         "id": "QG-069",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify root-only routing control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5204,7 +5997,7 @@
         "id": "QG-070",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify non-English guard control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5215,7 +6008,7 @@
         "id": "QG-071",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify brand safety control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5226,7 +6019,7 @@
         "id": "QG-072",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify golden hashes control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5237,7 +6030,7 @@
         "id": "QG-073",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify schema contract control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5248,7 +6041,7 @@
         "id": "QG-074",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify input evidence control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5259,7 +6052,7 @@
         "id": "QG-075",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify unit safety control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5270,7 +6063,7 @@
         "id": "QG-076",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify physical bounds control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5281,7 +6074,7 @@
         "id": "QG-077",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify engineering reference range control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5292,7 +6085,7 @@
         "id": "QG-078",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify formula registry control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5303,7 +6096,7 @@
         "id": "QG-079",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify server execution control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5314,7 +6107,7 @@
         "id": "QG-080",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify redaction control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5325,7 +6118,7 @@
         "id": "QG-081",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify uncertainty control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5336,7 +6129,7 @@
         "id": "QG-082",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify FMEA control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5347,7 +6140,7 @@
         "id": "QG-083",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify business impact control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5358,7 +6151,7 @@
         "id": "QG-084",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify audit seal control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5369,7 +6162,7 @@
         "id": "QG-085",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify proof pack control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5380,7 +6173,7 @@
         "id": "QG-086",
         "tool_key": "machine-investment-feasibility-buy-lease-keep",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Machine Investment Feasibility \u2014 Buy vs Lease vs Keep before production approval.",
+        "control_objective": "Verify accessibility control for Machine Investment Feasibility — Buy vs Lease vs Keep before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
