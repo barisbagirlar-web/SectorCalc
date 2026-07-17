@@ -62,7 +62,17 @@
   color: #fff;
 }
 
-/* Scroll fade — IntersectionObserver entrance (zero flash via useLayoutEffect) */
+/* Scroll fade — IntersectionObserver entrance.
+ * CRITICAL DESIGN RULE: Default state = VISIBLE.
+ * sc-fade-prep = below viewport (hidden).
+ * When prep is removed → CSS transition reveals content.
+ * If JS fails or observer never fires → content stays VISIBLE (safe fallback).
+ */
+[data-fade] {
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .sc-fade-prep {
   opacity: 0;
   transform: translateY(16px);
@@ -73,23 +83,21 @@
   transform: translateY(0);
 }
 
-[data-fade] {
-  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Staggered child reveal — items appear one by one on section scroll-in */
+/* Staggered child reveal — items appear one by one on section scroll-in.
+ * CRITICAL: Default opacity = 1. Only hidden under sc-fade-prep.
+ * This guarantees content is visible even if ScrollFade JS has an error.
+ */
 [data-stagger] > * {
-  opacity: 0;
-  transform: translateY(12px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
               transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: calc(var(--stagger-i, 0) * 70ms);
 }
 
-.sc-fade-visible [data-stagger] > * {
-  opacity: 1;
-  transform: translateY(0);
+.sc-fade-prep [data-stagger] > * {
+  opacity: 0;
+  transform: translateY(12px);
 }
 
 /* Animated counter — tabular-nums for alignment stability */
