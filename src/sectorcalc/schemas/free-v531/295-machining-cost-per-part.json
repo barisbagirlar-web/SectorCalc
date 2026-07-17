@@ -152,7 +152,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 10,
+        "max": 5000,
+        "unit": "count",
+        "source": "Typical job-shop production batch/lot size for CNC machining runs.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 5000,
+        "unit": "count",
+        "source": "Typical job-shop production batch/lot size for CNC machining runs.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 1,
+        "max": 1000000,
+        "unit": "count",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "cycle_seconds",
@@ -190,7 +211,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 10,
+        "max": 600,
+        "unit": "s",
+        "source": "Typical single-part CNC cycle time (turning/milling), simple to moderately complex parts.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 600,
+        "unit": "s",
+        "source": "Typical single-part CNC cycle time (turning/milling), simple to moderately complex parts.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 1,
+        "max": 36000,
+        "unit": "s",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "edge_life_parts",
@@ -228,7 +270,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 50,
+        "max": 2000,
+        "unit": "count",
+        "source": "Typical carbide insert tool-life range before edge replacement in general machining practice.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 50,
+        "max": 2000,
+        "unit": "count",
+        "source": "Typical carbide insert tool-life range before edge replacement in general machining practice.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 1,
+        "max": 100000,
+        "unit": "count",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "labor_hourly_rate",
@@ -266,7 +329,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 15,
+        "max": 75,
+        "unit": "USD/h",
+        "source": "Typical global range for fully-loaded CNC operator labor cost.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 15,
+        "max": 75,
+        "unit": "USD/h",
+        "source": "Typical global range for fully-loaded CNC operator labor cost.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000,
+        "unit": "USD/h",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "machine_hourly_rate",
@@ -304,7 +388,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 20,
+        "max": 2000,
+        "unit": "USD/h",
+        "source": "Same reference band used by SectorCalc's Machine Hourly Rate Proof Report tool for consistency across the platform.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 20,
+        "max": 2000,
+        "unit": "USD/h",
+        "source": "Same reference band used by SectorCalc's Machine Hourly Rate Proof Report tool for consistency across the platform.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 10000,
+        "unit": "USD/h",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "material_cost_per_blank",
@@ -342,7 +447,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 0.5,
+        "max": 500,
+        "unit": "USD",
+        "source": "Typical raw-material/blank cost range for small-to-mid machined components.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 0.5,
+        "max": 500,
+        "unit": "USD",
+        "source": "Typical raw-material/blank cost range for small-to-mid machined components.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000,
+        "unit": "USD",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "overhead_percent",
@@ -380,7 +506,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 15,
+        "max": 50,
+        "unit": "%",
+        "source": "Typical manufacturing shop overhead burden rate.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 15,
+        "max": 50,
+        "unit": "%",
+        "source": "Typical manufacturing shop overhead burden rate.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 300,
+        "unit": "%",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "scrap_percent",
@@ -418,7 +565,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 0.5,
+        "max": 5,
+        "unit": "%",
+        "source": "ISO 22400-2 (Manufacturing KPIs) — typical scrap-rate range for a mature CNC process.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 0.5,
+        "max": 5,
+        "unit": "%",
+        "source": "ISO 22400-2 (Manufacturing KPIs) — typical scrap-rate range for a mature CNC process.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 100,
+        "unit": "%",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "setup_minutes",
@@ -456,7 +624,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 15,
+        "max": 120,
+        "unit": "min",
+        "source": "Typical CNC setup/changeover time for an unoptimized-to-moderate job-shop process.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 15,
+        "max": 120,
+        "unit": "min",
+        "source": "Typical CNC setup/changeover time for an unoptimized-to-moderate job-shop process.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1440,
+        "unit": "min",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "target_margin_percent",
@@ -494,7 +683,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 10,
+        "max": 35,
+        "unit": "%",
+        "source": "Typical contract/job-shop machining profit margin on quoted price.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 35,
+        "unit": "%",
+        "source": "Typical contract/job-shop machining profit margin on quoted price.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 200,
+        "unit": "%",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     },
     {
       "id": "tooling_cost_per_edge",
@@ -532,7 +742,28 @@
       "output_bindings": [],
       "default_policy": "NO_DEFAULT",
       "user_help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
-      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only."
+      "help_text": "Enter the verified shop-floor value. Reference ranges are advisory only.",
+      "engineering_range": {
+        "min": 2,
+        "max": 30,
+        "unit": "USD",
+        "source": "Typical carbide insert / cutting-edge replacement cost.",
+        "status": "REFERENCE"
+      },
+      "engineering_reference_range": {
+        "min": 2,
+        "max": 30,
+        "unit": "USD",
+        "source": "Typical carbide insert / cutting-edge replacement cost.",
+        "status": "REFERENCE"
+      },
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 10000,
+        "unit": "USD",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      }
     }
   ],
   "normalized_inputs": [
