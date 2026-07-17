@@ -122,7 +122,7 @@ function Arrow() {
 
 export function LandingPageContent() {
   return (
-    <main className="sc-landing">
+    <div className="sc-landing">
       <section className="scx-hero" aria-labelledby="home-title">
         <div className="scx-shell scx-hero-grid">
           <div className="scx-hero-copy">
@@ -589,6 +589,6 @@ export function LandingPageContent() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
