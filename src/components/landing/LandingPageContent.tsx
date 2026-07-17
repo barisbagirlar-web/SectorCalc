@@ -1,5 +1,8 @@
 import Link from "next/link";
 import "@/styles/landing-page.css";
+import { AnimatedCounter } from "@/components/landing/AnimatedCounter";
+import { LiveCalcFlow } from "@/components/landing/LiveCalcFlow";
+import { ProductDemoFilm } from "@/components/landing/ProductDemoFilm";
 
 type IconName =
   | "calculator"
@@ -289,37 +292,6 @@ export function LandingPageContent() {
     <div className="sc-landing">
       <section className="sc-hero" aria-labelledby="home-title">
         <div className="sc-shell sc-hero-grid">
-          <div className="sc-hero-copy">
-            <p className="sc-kicker">
-              <span aria-hidden="true" />
-              Industrial decision intelligence
-            </p>
-            <h1 id="home-title">
-              Know the cost.
-              <span>See the risk.</span>
-              Make the call.
-            </h1>
-            <p className="sc-hero-lead">
-              SectorCalc turns operating inputs into decision-ready calculations for manufacturing,
-              engineering, operations and finance — before a weak estimate becomes an expensive
-              commitment.
-            </p>
-            <div className="sc-action-row">
-              <Link href="/free-tools" prefetch className="sc-button sc-button-primary">
-                Open free calculators
-                <span aria-hidden="true">→</span>
-              </Link>
-              <Link href="/pro-tools" prefetch className="sc-button sc-button-secondary">
-                Explore Pro decision tools
-              </Link>
-            </div>
-            <ul className="sc-hero-proof" aria-label="Platform capabilities">
-              <li>No login for free tools</li>
-              <li>Server-side Pro calculations</li>
-              <li>Report and verification workflows</li>
-            </ul>
-          </div>
-
           <div className="sc-report-preview" aria-label="Illustrative SectorCalc decision report">
             <div className="sc-report-topline">
               <div>
@@ -340,15 +312,15 @@ export function LandingPageContent() {
             <div className="sc-report-metrics">
               <div>
                 <span>TRUE HOURLY COST</span>
-                <strong>$117.40</strong>
+                <strong><AnimatedCounter value={117.4} prefix="$" decimals={2} /></strong>
               </div>
               <div>
                 <span>QUOTE MARGIN</span>
-                <strong>8.6%</strong>
+                <strong><AnimatedCounter value={8.6} suffix="%" decimals={1} /></strong>
               </div>
               <div>
                 <span>TARGET MARGIN</span>
-                <strong>20.0%</strong>
+                <strong><AnimatedCounter value={20} suffix="%" decimals={1} /></strong>
               </div>
             </div>
 
@@ -379,10 +351,41 @@ export function LandingPageContent() {
               <span>TRACE ID / SC-7F21</span>
             </div>
           </div>
+
+          <div className="sc-hero-copy">
+            <p className="sc-kicker">
+              <span aria-hidden="true" />
+              Industrial decision intelligence
+            </p>
+            <h1 id="home-title">
+              Know the cost.
+              <span>See the risk.</span>
+              Make the call.
+            </h1>
+            <p className="sc-hero-lead">
+              SectorCalc turns operating inputs into decision-ready calculations for manufacturing,
+              engineering, operations and finance — before a weak estimate becomes an expensive
+              commitment.
+            </p>
+            <div className="sc-action-row">
+              <Link href="/free-tools" prefetch className="sc-button sc-button-primary">
+                Open free calculators
+                <span aria-hidden="true">→</span>
+              </Link>
+              <Link href="/pro-tools" prefetch className="sc-button sc-button-secondary">
+                Explore Pro decision tools
+              </Link>
+            </div>
+            <ul className="sc-hero-proof" aria-label="Platform capabilities">
+              <li>No login for free tools</li>
+              <li>Server-side Pro calculations</li>
+              <li>Report and verification workflows</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section className="sc-proof-strip" aria-label="SectorCalc calculation principles">
+      <section data-fade className="sc-proof-strip" aria-label="SectorCalc calculation principles">
         <div className="sc-shell sc-proof-strip-inner">
           <p>FROM INPUT TO DECISION</p>
           <ul>
@@ -395,7 +398,7 @@ export function LandingPageContent() {
         </div>
       </section>
 
-      <section className="sc-section sc-products" aria-labelledby="product-paths-title">
+      <section data-fade className="sc-section sc-products" aria-labelledby="product-paths-title">
         <div className="sc-shell">
           <div className="sc-section-heading sc-section-heading-split">
             <div>
@@ -408,9 +411,9 @@ export function LandingPageContent() {
             </p>
           </div>
 
-          <div className="sc-product-grid">
-            {productPaths.map((product) => (
-              <article className="sc-product-card" key={product.title}>
+          <div className="sc-product-grid" data-stagger>
+            {productPaths.map((product, i) => (
+              <article className={`sc-product-card${product.index === "02" ? " sc-product-card-featured" : ""}`} key={product.title} style={{ "--stagger-i": i } as React.CSSProperties}>
                 <div className="sc-card-topline">
                   <span className="sc-icon-box"><Icon name={product.icon} /></span>
                   <span>{product.index}</span>
@@ -430,7 +433,7 @@ export function LandingPageContent() {
         </div>
       </section>
 
-      <section className="sc-section sc-workflow" aria-labelledby="workflow-title">
+      <section data-fade className="sc-section sc-workflow" aria-labelledby="workflow-title">
         <div className="sc-shell">
           <div className="sc-section-heading sc-section-heading-centered">
             <p className="sc-section-kicker">THE DIFFERENCE</p>
@@ -441,9 +444,9 @@ export function LandingPageContent() {
             </p>
           </div>
 
-          <div className="sc-workflow-grid">
-            {workflowSteps.map((step) => (
-              <article className="sc-workflow-step" key={step.index}>
+          <div className="sc-workflow-grid" data-stagger>
+            {workflowSteps.map((step, i) => (
+              <article className="sc-workflow-step" key={step.index} style={{ "--stagger-i": i } as React.CSSProperties}>
                 <div className="sc-workflow-number">{step.index}</div>
                 <span className="sc-workflow-icon"><Icon name={step.icon} /></span>
                 <h3>{step.title}</h3>
@@ -451,10 +454,12 @@ export function LandingPageContent() {
               </article>
             ))}
           </div>
+
+          <LiveCalcFlow />
         </div>
       </section>
 
-      <section className="sc-pro-section" aria-labelledby="pro-title">
+      <section data-fade className="sc-pro-section" aria-labelledby="pro-title">
         <div className="sc-shell sc-pro-grid">
           <div className="sc-pro-copy">
             <p className="sc-section-kicker">PRO DECISION TOOLS</p>
@@ -477,29 +482,29 @@ export function LandingPageContent() {
             </p>
           </div>
 
-          <div className="sc-pro-capabilities">
-            <article>
+          <div className="sc-pro-capabilities" data-stagger>
+            <article style={{ "--stagger-i": 0 } as React.CSSProperties}>
               <span>01</span>
               <div>
                 <h3>Sensitivity</h3>
                 <p>Identify which variables control the outcome and how far they can move.</p>
               </div>
             </article>
-            <article>
+            <article style={{ "--stagger-i": 1 } as React.CSSProperties}>
               <span>02</span>
               <div>
                 <h3>Risk boundary</h3>
                 <p>Show the threshold where the recommendation changes or escalation is required.</p>
               </div>
             </article>
-            <article>
+            <article style={{ "--stagger-i": 2 } as React.CSSProperties}>
               <span>03</span>
               <div>
                 <h3>Assumptions and limits</h3>
                 <p>Keep missing evidence, tolerances and model limitations visible to reviewers.</p>
               </div>
             </article>
-            <article>
+            <article style={{ "--stagger-i": 3 } as React.CSSProperties}>
               <span>04</span>
               <div>
                 <h3>Report workflow</h3>
@@ -510,7 +515,7 @@ export function LandingPageContent() {
         </div>
       </section>
 
-      <section className="sc-section sc-sectors" aria-labelledby="sectors-title">
+      <section data-fade className="sc-section sc-sectors" aria-labelledby="sectors-title">
         <div className="sc-shell">
           <div className="sc-section-heading sc-section-heading-split">
             <div>
@@ -523,9 +528,9 @@ export function LandingPageContent() {
             </p>
           </div>
 
-          <div className="sc-sector-grid">
-            {sectors.map((sector) => (
-              <article className="sc-sector-card" key={sector.title}>
+          <div className="sc-sector-grid" data-stagger>
+            {sectors.map((sector, i) => (
+              <article className="sc-sector-card" key={sector.title} style={{ "--stagger-i": i } as React.CSSProperties}>
                 <span className="sc-sector-icon"><Icon name={sector.icon} /></span>
                 <h3>{sector.title}</h3>
                 <p>{sector.text}</p>
@@ -535,7 +540,7 @@ export function LandingPageContent() {
         </div>
       </section>
 
-      <section className="sc-section sc-cases" aria-labelledby="cases-title">
+      <section data-fade className="sc-section sc-cases" aria-labelledby="cases-title">
         <div className="sc-shell">
           <div className="sc-section-heading sc-section-heading-split">
             <div>
@@ -547,8 +552,8 @@ export function LandingPageContent() {
             </Link>
           </div>
 
-          <div className="sc-case-grid">
-            <article className="sc-case-card">
+          <div className="sc-case-grid" data-stagger>
+            <article className="sc-case-card" style={{ "--stagger-i": 0 } as React.CSSProperties}>
               <p className="sc-case-index">01 / PRECISION MACHINING</p>
               <h3>Is the job profitable after real machine time, tooling, setup and scrap?</h3>
               <dl>
@@ -556,7 +561,7 @@ export function LandingPageContent() {
                 <div><dt>Commercial action</dt><dd>Accept, reprice, redesign process or decline the job</dd></div>
               </dl>
             </article>
-            <article className="sc-case-card">
+            <article className="sc-case-card" style={{ "--stagger-i": 1 } as React.CSSProperties}>
               <p className="sc-case-index">02 / ENERGY OPERATIONS</p>
               <h3>Does the efficiency project still pay back under realistic load and tariff changes?</h3>
               <dl>
@@ -564,7 +569,7 @@ export function LandingPageContent() {
                 <div><dt>Capital action</dt><dd>Approve, resize, defer or request additional evidence</dd></div>
               </dl>
             </article>
-            <article className="sc-case-card">
+            <article className="sc-case-card" style={{ "--stagger-i": 2 } as React.CSSProperties}>
               <p className="sc-case-index">03 / QUALITY & MAINTENANCE</p>
               <h3>Which failure mode should be funded first when risk, downtime and rework compete?</h3>
               <dl>
@@ -576,7 +581,7 @@ export function LandingPageContent() {
         </div>
       </section>
 
-      <section className="sc-section sc-professional" aria-labelledby="professional-title">
+      <section data-fade className="sc-section sc-professional" aria-labelledby="professional-title">
         <div className="sc-shell sc-professional-grid">
           <div className="sc-professional-copy">
             <p className="sc-section-kicker">PROFESSIONAL TRUST</p>
@@ -590,9 +595,9 @@ export function LandingPageContent() {
               Verify a report<span aria-hidden="true">→</span>
             </Link>
           </div>
-          <div className="sc-principle-grid">
-            {professionalPrinciples.map((principle) => (
-              <article key={principle.title}>
+          <div className="sc-principle-grid" data-stagger>
+            {professionalPrinciples.map((principle, i) => (
+              <article key={principle.title} style={{ "--stagger-i": i } as React.CSSProperties}>
                 <span><Icon name={principle.icon} /></span>
                 <h3>{principle.title}</h3>
                 <p>{principle.text}</p>
@@ -602,7 +607,7 @@ export function LandingPageContent() {
         </div>
       </section>
 
-      <section className="sc-final-cta" aria-labelledby="final-cta-title">
+      <section data-fade className="sc-final-cta" aria-labelledby="final-cta-title">
         <div className="sc-shell sc-final-cta-inner">
           <div>
             <p className="sc-section-kicker">START WITH THE DECISION</p>
@@ -620,7 +625,7 @@ export function LandingPageContent() {
         </div>
       </section>
 
-      <section className="sc-seo-summary" aria-label="SectorCalc platform summary">
+      <section data-fade className="sc-seo-summary" aria-label="SectorCalc platform summary">
         <div className="sc-shell">
           <p>
             SectorCalc provides industrial calculators and decision tools for manufacturing,
@@ -630,6 +635,8 @@ export function LandingPageContent() {
           </p>
         </div>
       </section>
+
+      <ProductDemoFilm />
     </div>
   );
 }
