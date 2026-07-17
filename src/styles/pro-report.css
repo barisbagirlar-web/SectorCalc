@@ -1,0 +1,525 @@
+/* ═══════════════════════════════════════════════════════════
+   SectorCalc PRO Report Design
+   Source: x1.html reference (Machine Hourly Rate Proof Report demo)
+   — ISO 9001:2015 audit-ready report layout
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --paper: #F7F5EF;
+  --panel: #FFFFFF;
+  --ink: #181713;
+  --ink-soft: #57544C;
+  --faint: #8C887E;
+  --line: #E4E0D6;
+  --line-soft: #EFEBE2;
+  --clay: #C15F3C;
+  --clay-deep: #9A4526;
+  --ledger: #3A4D8F;
+  --pos: #2E6B4E;
+  --pos-bg: #E7F1EB;
+  --warn: #8A5A12;
+  --warn-bg: #F8EFDC;
+  --neg: #9C3520;
+  --neg-bg: #F7E9E4;
+  --display: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+/* ── Shell ──────────────────────────────────────────── */
+.pro-report-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Masthead ───────────────────────────────────────── */
+.pro-report-mast {
+  border-bottom: 1.5px solid var(--ink);
+  padding: 34px 0 20px;
+}
+
+.pro-report-kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--clay);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.pro-report-kicker::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.pro-report-mast h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.02;
+  margin: 14px 0 8px;
+  letter-spacing: -.01em;
+}
+
+.pro-report-lede {
+  font-size: 16px;
+  color: var(--ink-soft);
+  max-width: 64ch;
+}
+
+.pro-report-meta {
+  display: flex;
+  gap: 22px;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+  flex-wrap: wrap;
+}
+
+.pro-report-meta b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ── Currency Bar ───────────────────────────────────── */
+.pro-report-curbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+.pro-report-curbar label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.pro-report-curbar select {
+  border: 1.25px solid var(--line);
+  background: var(--paper);
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 6px 10px;
+  color: var(--ink);
+  outline: none;
+  cursor: pointer;
+}
+
+.pro-report-curbar select:focus {
+  border-color: var(--ledger);
+}
+
+.pro-report-curnote {
+  font-size: 11.5px;
+  color: var(--faint);
+  flex: 1;
+  min-width: 220px;
+}
+
+/* ── Verdict Band ───────────────────────────────────── */
+.pro-report-verdict {
+  border: 1.25px solid var(--ink);
+  padding: 2px 0 0;
+  margin-bottom: 18px;
+}
+
+.pro-report-verdict-band {
+  padding: 6px 12px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.pro-report-verdict-band.go { background: var(--pos); }
+.pro-report-verdict-band.review { background: var(--warn); }
+.pro-report-verdict-band.block { background: var(--neg); }
+
+.pro-report-verdict-body {
+  padding: 16px 14px;
+}
+
+.pro-report-big {
+  font-family: var(--display);
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.01em;
+}
+
+.pro-report-big small {
+  font-size: 15px;
+  color: var(--faint);
+  font-weight: 400;
+}
+
+.pro-report-big-cap {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-top: 6px;
+}
+
+/* ── Stats ──────────────────────────────────────────── */
+.pro-report-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 9px 0;
+  border-top: 1px dashed var(--line);
+  font-size: 12.5px;
+}
+
+.pro-report-stat span { color: var(--ink-soft); }
+.pro-report-stat b { font-family: var(--mono); font-weight: 500; }
+
+/* ── Report Masthead ────────────────────────────────── */
+.pro-report-rep-mast {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pro-report-rep-mast h2 {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.pro-report-rid {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: #b9b4a7;
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* ── Report Body ────────────────────────────────────── */
+.pro-report-rep-body {
+  padding: 30px;
+}
+
+.pro-report-sec {
+  margin-bottom: 30px;
+}
+
+.pro-report-sec-h {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+
+.pro-report-sec-n {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--clay);
+  font-weight: 500;
+}
+
+.pro-report-sec-t {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 500;
+}
+
+/* ── Verdict Box ────────────────────────────────────── */
+.pro-report-verdict-box {
+  background: var(--paper);
+  border-left: 4px solid var(--clay);
+  padding: 18px 20px;
+}
+
+.pro-report-verdict-box .head {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.pro-report-verdict-box p {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  max-width: 74ch;
+}
+
+.pro-report-verdict-box p + p {
+  margin-top: 8px;
+}
+
+/* ── Tables ─────────────────────────────────────────── */
+.pro-report-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pro-report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.pro-report-table th,
+.pro-report-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.pro-report-table th {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-weight: 500;
+}
+
+.pro-report-table td.n {
+  font-family: var(--mono);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pro-report-table tr.pro-report-total td {
+  border-top: 1.5px solid var(--ink);
+  border-bottom: none;
+  font-weight: 600;
+}
+
+/* ── Bars (Sensitivity) ─────────────────────────────── */
+.pro-report-bars .row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 9px;
+  font-size: 12.5px;
+}
+
+.pro-report-bars .nm {
+  width: 170px;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+}
+
+.pro-report-bars .tk {
+  flex: 1;
+  background: var(--line-soft);
+  height: 18px;
+}
+
+.pro-report-bars .b {
+  height: 18px;
+  background: var(--ledger);
+}
+
+.pro-report-bars .vv {
+  font-family: var(--mono);
+  width: 92px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.pro-report-note {
+  font-size: 11.5px;
+  color: var(--faint);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ── Insights ───────────────────────────────────────── */
+.pro-report-ins {
+  padding: 13px 16px;
+  margin-bottom: 11px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  border-left: 3px solid;
+}
+
+.pro-report-ins.crit {
+  background: var(--neg-bg);
+  border-color: var(--neg);
+}
+
+.pro-report-ins.opp {
+  background: var(--pos-bg);
+  border-color: var(--pos);
+}
+
+.pro-report-ins.info {
+  background: var(--paper);
+  border-color: var(--faint);
+}
+
+.pro-report-ins .t {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 3px;
+  color: var(--ink-soft);
+}
+
+/* ── Seal ───────────────────────────────────────────── */
+.pro-report-seal {
+  margin-top: 8px;
+  padding: 14px 16px;
+  background: var(--paper);
+  border: 1px dashed var(--line);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--faint);
+  word-break: break-all;
+  line-height: 1.7;
+}
+
+/* ── Disclaimer ─────────────────────────────────────── */
+.pro-report-disc {
+  font-size: 11px;
+  color: var(--faint);
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  line-height: 1.6;
+}
+
+/* ── KPI Scorecard Grid ─────────────────────────────── */
+.pro-report-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.pro-report-kpi-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 16px;
+}
+
+.pro-report-kpi-card.state-pos { border-left: 3px solid var(--pos); }
+.pro-report-kpi-card.state-warn { border-left: 3px solid var(--warn); }
+.pro-report-kpi-card.state-neg { border-left: 3px solid var(--neg); }
+
+.pro-report-kpi-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--faint);
+  font-family: var(--mono);
+  margin-bottom: 6px;
+}
+
+.pro-report-kpi-value {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.pro-report-kpi-unit {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+  margin-top: 4px;
+}
+
+/* ── Gate bands (KPI scorecard) ─────────────────────── */
+.pro-report-gate-band {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  color: #fff;
+  margin-top: 8px;
+}
+
+.pro-report-gate-band.go { background: var(--pos); }
+.pro-report-gate-band.review { background: var(--warn); }
+.pro-report-gate-band.block { background: var(--neg); }
+
+/* ── Pareto SVG wrapper ─────────────────────────────── */
+.pro-report-pareto-wrap {
+  margin-bottom: 20px;
+}
+
+.pro-report-pareto-wrap svg {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+}
+
+/* ── Control Band (SPC) ─────────────────────────────── */
+.pro-report-control-band {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.pro-report-control-band svg {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+/* ── Empty state ────────────────────────────────────── */
+.pro-report-empty {
+  font-size: 14px;
+  color: var(--faint);
+  font-style: italic;
+  padding: 12px 0;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .pro-report-rep-mast {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pro-report-rep-body {
+    padding: 20px 16px;
+  }
+  .pro-report-bars .nm {
+    width: 120px;
+  }
+  .pro-report-kpi-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pro-report-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .pro-report-bars .nm {
+    width: 90px;
+    font-size: 11px;
+  }
+}
