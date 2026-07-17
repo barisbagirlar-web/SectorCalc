@@ -1,8 +1,7 @@
 "use client";
 
-// Machine Hourly Rate Proof Report — EXACT design from x1.html reference
-// Self-contained tool page. Live preview via pure formula engine (no credit).
-// Sealed report via /api/pro-calculator/execute (costs 1 credit).
+// Machine Hourly Rate Proof Report — EXACT x1.html design
+// CSS class names match x1.html VERBATIM. Scope: .x1-root-page parent wrapper.
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { executeFormula } from "@/sectorcalc/formulas/pro-v531/machine-hourly-rate-proof-report.formula";
@@ -13,23 +12,17 @@ import "@/styles/machine-hourly-rate-tool.css";
 
 const BYPASS_SESSION_ID = "bypass-unlimited";
 
-// ── Currency registry (exact from x1.html) ─────────────────────
+// ── Currency registry ──────────────────────────────────────────
 const CURRENCIES: Array<{ code: string; sym: string; name: string }> = [
-  { code: "EUR", sym: "€", name: "Euro" },
-  { code: "USD", sym: "$", name: "US dollar" },
-  { code: "GBP", sym: "£", name: "British pound" },
-  { code: "TRY", sym: "₺", name: "Turkish lira" },
-  { code: "JPY", sym: "¥", name: "Japanese yen" },
-  { code: "CNY", sym: "¥", name: "Chinese yuan" },
-  { code: "CHF", sym: "CHF", name: "Swiss franc" },
-  { code: "SEK", sym: "kr", name: "Swedish krona" },
-  { code: "AUD", sym: "A$", name: "Australian dollar" },
-  { code: "CAD", sym: "C$", name: "Canadian dollar" },
-  { code: "INR", sym: "₹", name: "Indian rupee" },
-  { code: "AED", sym: "AED", name: "UAE dirham" },
+  { code: "EUR", sym: "€", name: "Euro" }, { code: "USD", sym: "$", name: "US dollar" },
+  { code: "GBP", sym: "£", name: "British pound" }, { code: "TRY", sym: "₺", name: "Turkish lira" },
+  { code: "JPY", sym: "¥", name: "Japanese yen" }, { code: "CNY", sym: "¥", name: "Chinese yuan" },
+  { code: "CHF", sym: "CHF", name: "Swiss franc" }, { code: "SEK", sym: "kr", name: "Swedish krona" },
+  { code: "AUD", sym: "A$", name: "Australian dollar" }, { code: "CAD", sym: "C$", name: "Canadian dollar" },
+  { code: "INR", sym: "₹", name: "Indian rupee" }, { code: "AED", sym: "AED", name: "UAE dirham" },
 ];
 
-// ── Unit registry (exact from x1.html) ─────────────────────────
+// ── Unit registry ──────────────────────────────────────────────
 const UNITS: Record<string, { canon: string; list: Array<{ c: string; f: number }> }> = {
   flat: { canon: "cur", list: [{ c: "units", f: 1 }, { c: "thousands (k)", f: 1000 }, { c: "millions (M)", f: 1e6 }] },
   years: { canon: "yr", list: [{ c: "months", f: 1 / 12 }, { c: "quarters", f: 1 / 4 }, { c: "years", f: 1 }] },
@@ -43,7 +36,6 @@ const CANON_SUFFIX: Record<string, string> = { flat: "", years: " yr", hours: " 
 const toC = (dom: string, val: number, u: string) => val * UNITS[dom].list.find((x) => x.c === u)!.f;
 const fromC = (dom: string, val: number, u: string) => val / UNITS[dom].list.find((x) => x.c === u)!.f;
 
-// ── Field schema (exact from x1.html) ───────────────────────────
 interface FieldDef {
   ev: keyof MachineHourlyRateInputs;
   dom: string;
@@ -66,7 +58,7 @@ const FIELDS: Record<string, FieldDef> = {
   maintenanceRate: { ev: "maintenanceRate", dom: "percent", label: "Annual maintenance (% of price)", cur: false, def: 5, unit: "%", hard: [0, 60], hint: "Planned and unplanned, parts and labor, per year.", ref: "% · fraction" },
 };
 
-// ── Insights (exact from x1.html) ───────────────────────────────
+// ── Insights ────────────────────────────────────────────────────
 interface Insight { when: (r: MachineHourlyRateOutputs, v: MachineHourlyRateInputs) => boolean; sev: "crit" | "opp" | "info"; msg: (r: MachineHourlyRateOutputs, v: MachineHourlyRateInputs, sym: string) => string; }
 const INSIGHTS: Insight[] = [
   { when: (r) => Number.isFinite(r.out_premium) && r.out_premium / r.out_rate > 0.15, sev: "crit", msg: (r, v, sym) => `<strong>${(100 * r.out_premium / r.out_rate).toFixed(0)}% of your hourly rate finances idle capacity</strong> (${sym}${fmtNum(r.out_premium)}/h). Quoting on the naive rate of ${sym}${fmtNum(r.out_naive)}/h loses that amount on every hour that actually produces something sellable. Cutting idle share by 5 points is worth more than most price negotiations.` },
@@ -91,19 +83,14 @@ function mockHash(s: string): string {
   return (h2 >>> 0).toString(16).padStart(8, "0") + (h1 >>> 0).toString(16).padStart(8, "0") + "…demo";
 }
 
-// ── Field state per field ──────────────────────────────────────
 interface FieldState { value: string; unit: string; error: string | null; canon: number | null; }
-
-// ── Sensitivity driver ─────────────────────────────────────────
 interface SensDriver { nm: string; span: number; }
 
-// ── Component ───────────────────────────────────────────────────
 export default function MachineHourlyRateToolPage() {
-  // ── Currency state ──────────────────────────────────────────
   const [curSym, setCurSym] = useState("€");
   const reportRef = useRef<HTMLDivElement>(null);
 
-  // ── Credit session state ────────────────────────────────────
+  // ── Auth / session ─────────────────────────────────────────
   const { user } = useUserSubscription();
   const [usageSessionId, setUsageSessionId] = useState<string | null>(null);
   const [remainingRuns, setRemainingRuns] = useState<number | null>(null);
@@ -111,23 +98,11 @@ export default function MachineHourlyRateToolPage() {
   const [authToken, setAuthToken] = useState<string | null>(null);
   const tokenFetched = useRef(false);
 
-  // ── Execution state ─────────────────────────────────────────
-  const [isExecuting, setIsExecuting] = useState(false);
-  const [serverResult, setServerResult] = useState<{ outputs: Record<string, number>; seal?: { output_hash?: string; input_hash?: string; schema_hash?: string; hash_algorithm?: string; executed_at?: string } } | null>(null);
-  const [executeError, setExecuteError] = useState<string | null>(null);
-
   useEffect(() => {
-    if (user && !tokenFetched.current) {
-      tokenFetched.current = true;
-      user.getIdToken(false).then(setAuthToken).catch(() => {});
-    }
+    if (user && !tokenFetched.current) { tokenFetched.current = true; user.getIdToken(false).then(setAuthToken).catch(() => {}); }
   }, [user]);
-
   useEffect(() => {
-    if (user?.email && isProBypassEmail(user.email)) {
-      setUsageSessionId(BYPASS_SESSION_ID);
-      setRemainingRuns(999);
-    }
+    if (user?.email && isProBypassEmail(user.email)) { setUsageSessionId(BYPASS_SESSION_ID); setRemainingRuns(999); }
   }, [user?.email]);
 
   const requestSession = useCallback(async () => {
@@ -137,84 +112,72 @@ export default function MachineHourlyRateToolPage() {
       if (!user) { window.location.href = `/login?next=${encodeURIComponent(window.location.pathname)}`; return; }
       const idToken = await user.getIdToken(false);
       const res = await fetch("/api/pro-tool-session/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${idToken}` },
+        method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${idToken}` },
         body: JSON.stringify({ toolKey: "machine-hourly-rate-proof-report" }),
       });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        if (data.error === "INSUFFICIENT_CREDITS") { window.location.href = "/pricing"; return; }
-        throw new Error(data.error || "Session failed");
-      }
-      const session = await res.json();
-      setUsageSessionId(session.usageSessionId);
-      setRemainingRuns(session.remainingRuns);
+      if (!res.ok) { const d = await res.json().catch(() => ({})); if (d.error === "INSUFFICIENT_CREDITS") { window.location.href = "/pricing"; return; } throw new Error(d.error || "Session failed"); }
+      const s = await res.json(); setUsageSessionId(s.usageSessionId); setRemainingRuns(s.remainingRuns);
     } catch { /* swallow */ } finally { setSessionLoading(false); }
   }, [user]);
+
+  // ── Execution state ─────────────────────────────────────────
+  const [isExecuting, setIsExecuting] = useState(false);
+  const [serverResult, setServerResult] = useState<{ outputs: Record<string, number>; seal?: { output_hash?: string; input_hash?: string; schema_hash?: string; hash_algorithm?: string; executed_at?: string } } | null>(null);
+  const [executeError, setExecuteError] = useState<string | null>(null);
 
   // ── Field state ──────────────────────────────────────────────
   const [fieldStates, setFieldStates] = useState<Record<string, FieldState>>(() => {
     const s: Record<string, FieldState> = {};
-    for (const id of Object.keys(FIELDS)) {
-      const f = FIELDS[id];
-      s[id] = { value: String(f.def), unit: f.unit, error: null, canon: toC(f.dom, f.def, f.unit) };
-    }
+    for (const id of Object.keys(FIELDS)) { const f = FIELDS[id]; s[id] = { value: String(f.def), unit: f.unit, error: null, canon: toC(f.dom, f.def, f.unit) }; }
     return s;
   });
 
   const updateField = useCallback((id: string, newValue: string, newUnit?: string) => {
     setFieldStates((prev) => {
-      const f = FIELDS[id];
-      const st = prev[id];
-      const unit = newUnit ?? st.unit;
+      const f = FIELDS[id]; const st = prev[id]; const unit = newUnit ?? st.unit;
       const raw = parseFloat(newValue);
-      let error: string | null = null;
-      let canon: number | null = null;
+      let error: string | null = null; let canon: number | null = null;
       if (newValue.trim() === "" || isNaN(raw)) { error = "Enter a number."; }
-      else {
-        canon = toC(f.dom, raw, unit);
-        if (canon < f.hard[0] || canon > f.hard[1]) error = `Outside valid range (${f.hard[0]}–${f.hard[1]} ${UNITS[f.dom].canon}).`;
-      }
+      else { canon = toC(f.dom, raw, unit); if (canon < f.hard[0] || canon > f.hard[1]) error = `Outside valid range (${f.hard[0]}–${f.hard[1]} ${UNITS[f.dom].canon}).`; }
       return { ...prev, [id]: { value: newValue, unit, error, canon } };
     });
   }, []);
 
-  // ── Collect cannonical values ───────────────────────────────
+  const handleUnitChange = useCallback((id: string, newUnit: string) => {
+    setFieldStates((prev) => {
+      const f = FIELDS[id]; const st = prev[id];
+      const canon = toC(f.dom, parseFloat(st.value) || 0, st.unit);
+      const nf = UNITS[f.dom].list.find((u) => u.c === newUnit)!.f;
+      const newVal = (canon / nf);
+      const raw = parseFloat(newVal.toPrecision(10));
+      let error: string | null = null;
+      if (isNaN(raw)) { error = "Enter a number."; }
+      else { if (canon < f.hard[0] || canon > f.hard[1]) error = `Outside valid range (${f.hard[0]}–${f.hard[1]} ${UNITS[f.dom].canon}).`; }
+      return { ...prev, [id]: { value: String(raw), unit: newUnit, error, canon } };
+    });
+  }, []);
+
   const collectedInputs = useMemo((): MachineHourlyRateInputs | null => {
     const o: Partial<MachineHourlyRateInputs> = {};
-    for (const [id, st] of Object.entries(fieldStates)) {
-      if (st.error || st.canon == null) return null;
-      (o as any)[FIELDS[id].ev] = st.canon;
-    }
+    for (const [id, st] of Object.entries(fieldStates)) { if (st.error || st.canon == null) return null; (o as any)[FIELDS[id].ev] = st.canon; }
     return o as MachineHourlyRateInputs;
   }, [fieldStates]);
 
-  // ── Compute live preview ────────────────────────────────────
   const engineResult = useMemo((): MachineHourlyRateOutputs | null => {
-    if (!collectedInputs) return null;
-    try { return executeFormula(collectedInputs); } catch { return null; }
+    if (!collectedInputs) return null; try { return executeFormula(collectedInputs); } catch { return null; }
   }, [collectedInputs]);
 
-  // ── Count errors ────────────────────────────────────────────
   const errorCount = useMemo(() => Object.values(fieldStates).filter((s) => s.error).length, [fieldStates]);
-
-  // ── Sensitivity computation ───────────────────────────────────
-  interface DriverEntry { id: keyof MachineHourlyRateInputs; nm: string; }
-  const drivers: DriverEntry[] = [
-    { id: "purchasePrice", nm: "Purchase price" },
-    { id: "usefulLife", nm: "Useful life" },
-    { id: "annualHours", nm: "Annual hours" },
-    { id: "wageRate", nm: "Operator wage" },
-    { id: "powerDraw", nm: "Power draw" },
-    { id: "energyPrice", nm: "Energy price" },
-    { id: "idleShare", nm: "Idle share" },
-  ];
 
   const sensitivityData = useMemo((): SensDriver[] => {
     if (!collectedInputs) return [];
+    const drivers: Array<{ id: keyof MachineHourlyRateInputs; nm: string }> = [
+      { id: "purchasePrice", nm: "Purchase price" }, { id: "usefulLife", nm: "Useful life" }, { id: "annualHours", nm: "Annual hours" },
+      { id: "wageRate", nm: "Operator wage" }, { id: "powerDraw", nm: "Power draw" }, { id: "energyPrice", nm: "Energy price" },
+      { id: "idleShare", nm: "Idle share" },
+    ];
     return drivers.map((d) => {
-      const inputsWithDelta = { ...collectedInputs, [d.id]: collectedInputs[d.id] * 1.1 };
-      const up = executeFormula(inputsWithDelta).out_rate;
+      const up = executeFormula({ ...collectedInputs, [d.id]: collectedInputs[d.id] * 1.1 }).out_rate;
       const dn = executeFormula({ ...collectedInputs, [d.id]: collectedInputs[d.id] * 0.9 }).out_rate;
       return { nm: d.nm, span: Math.abs(up - dn) };
     }).sort((a, b) => b.span - a.span);
@@ -222,339 +185,239 @@ export default function MachineHourlyRateToolPage() {
 
   const sensMax = useMemo(() => Math.max(...sensitivityData.map((s) => s.span), 1e-9), [sensitivityData]);
 
-  // ── Insights ──────────────────────────────────────────────────
   const firedInsights = useMemo(() => {
     if (!collectedInputs || !engineResult) return [];
     return INSIGHTS.filter((i) => i.when(engineResult, collectedInputs));
   }, [collectedInputs, engineResult]);
 
-  // ── UNIT CHANGE handler ──────────────────────────────────────
-  const handleUnitChange = useCallback((id: string, newUnit: string) => {
-    setFieldStates((prev) => {
-      const f = FIELDS[id];
-      const st = prev[id];
-      const canon = toC(f.dom, parseFloat(st.value) || 0, st.unit);
-      const newVal = fromC(f.dom, canon, newUnit);
-      const raw = parseFloat(newVal.toPrecision(10));
-      let error: string | null = null;
-      if (isNaN(raw)) { error = "Enter a number."; }
-      else {
-        if (canon < f.hard[0] || canon > f.hard[1]) error = `Outside valid range (${f.hard[0]}–${f.hard[1]} ${UNITS[f.dom].canon}).`;
-      }
-      return { ...prev, [id]: { value: String(raw), unit: newUnit, error, canon } };
-    });
-  }, []);
-
-  // ── SUBMIT sealed report ─────────────────────────────────────
+  // ── Submit sealed report ─────────────────────────────────────
   const handleGenerate = useCallback(async () => {
     if (!collectedInputs || isExecuting || !usageSessionId) return;
-    setIsExecuting(true);
-    setExecuteError(null);
+    setIsExecuting(true); setExecuteError(null);
     try {
       const res = await fetch("/api/pro-calculator/execute", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
-        },
-        body: JSON.stringify({
-          tool_key: "machine-hourly-rate-proof-report",
-          raw_inputs: collectedInputs,
-          selected_units: Object.fromEntries(Object.entries(fieldStates).map(([k, v]) => [k, v.unit])),
-          usage_session_id: usageSessionId,
-        }),
+        method: "POST", headers: { "Content-Type": "application/json", ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}) },
+        body: JSON.stringify({ tool_key: "machine-hourly-rate-proof-report", raw_inputs: collectedInputs, selected_units: Object.fromEntries(Object.entries(fieldStates).map(([k, v]) => [k, v.unit])), usage_session_id: usageSessionId }),
       });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || `Server error ${res.status}`);
-      }
+      if (!res.ok) { const d = await res.json().catch(() => ({})); throw new Error(d.error || `Server error ${res.status}`); }
       const data = await res.json();
-      setServerResult({
-        outputs: data.outputs ?? {},
-        seal: data.audit_seal ? { output_hash: data.audit_seal.output_hash, input_hash: data.audit_seal.input_hash, schema_hash: data.audit_seal.schema_hash, hash_algorithm: data.audit_seal.hash_algorithm, executed_at: data.audit_seal.executed_at } : undefined,
-      });
+      setServerResult({ outputs: data.outputs ?? {}, seal: data.audit_seal ? { output_hash: data.audit_seal.output_hash, input_hash: data.audit_seal.input_hash, schema_hash: data.audit_seal.schema_hash, hash_algorithm: data.audit_seal.hash_algorithm, executed_at: data.audit_seal.executed_at } : undefined });
       setTimeout(() => reportRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
-    } catch (err: any) {
-      setExecuteError(err.message ?? "Execution failed");
-    } finally { setIsExecuting(false); }
+    } catch (err: any) { setExecuteError(err.message ?? "Execution failed"); } finally { setIsExecuting(false); }
   }, [collectedInputs, isExecuting, usageSessionId, authToken, fieldStates]);
 
-  // ── Render helpers ────────────────────────────────────────────
+  // ── Render ──────────────────────────────────────────────────────
   const sym = curSym;
   const r = engineResult;
   const inputs = collectedInputs;
 
   return (
-    <div className="x1-root">
-      <div className="x1-body">
-        <div className="x1-shell">
+    <div className="x1-root-page">
+      <div className="shell">
 
-          {/* ── Masthead ──────────────────────────────────── */}
-          <div className="x1-mast">
-            <div className="x1-kicker">SectorCalc PRO · Machinery &amp; Manufacturing · Cost proof</div>
-            <h1>Machine Hourly Rate Proof Report</h1>
-            <p className="x1-lede">
-              The rate you quote against and the rate the machine actually costs are rarely the same number. This tool
-              prices every productive hour — depreciation, maintenance, energy and labor, spread only across hours that
-              make something sellable.
-            </p>
-            <div className="x1-meta">
-              <span>Engine <b>v6.0</b></span>
-              <span>35 math + semantic assertions <b>passed</b></span>
-              <span>Report <b>sealed · SHA-256</b></span>
-              <span>Method <b>full absorption costing</b></span>
-            </div>
-            <div className="x1-curbar">
-              <label htmlFor="x1-curSel">Report currency</label>
-              <select id="x1-curSel" value={curSym} onChange={(e) => setCurSym(e.target.value)}>
-                {CURRENCIES.map((c) => (
-                  <option key={c.code} value={c.sym}>{c.code} · {c.sym} {c.name}</option>
-                ))}
-              </select>
-              <span className="x1-curnote">Symbol only — no exchange-rate conversion applied. Enter every figure in the same currency.</span>
-            </div>
+        {/* ── Masthead ───────────────────────────────────── */}
+        <div className="mast">
+          <div className="kicker">SectorCalc PRO · Machinery &amp; Manufacturing · Cost proof</div>
+          <h1>Machine Hourly Rate Proof Report</h1>
+          <p className="lede">The rate you quote against and the rate the machine actually costs are rarely the same number. This tool prices every productive hour — depreciation, maintenance, energy and labor, spread only across hours that make something sellable.</p>
+          <div className="meta">
+            <span>Engine <b>v6.0</b></span>
+            <span>35 math + semantic assertions <b>passed</b></span>
+            <span>Report <b>sealed · SHA-256</b></span>
+            <span>Method <b>full absorption costing</b></span>
           </div>
-
-          {/* ── Bench (form + rail) ───────────────────────── */}
-          <div className="x1-bench">
-            <div className="x1-form-col">
-              {/* Group 01: Machine & capital */}
-              <div className="x1-grp">
-                <div className="x1-grp-h"><span className="x1-grp-n">01</span><span className="x1-grp-t">Machine &amp; capital</span></div>
-                <div className="x1-grp-d">What the machine costs to own, and over how long that cost is spread.</div>
-                {["purchasePrice", "usefulLife", "annualHours"].map(renderField)}
-              </div>
-
-              {/* Group 02: Running cost */}
-              <div className="x1-grp">
-                <div className="x1-grp-h"><span className="x1-grp-n">02</span><span className="x1-grp-t">Running cost</span></div>
-                <div className="x1-grp-d">What it costs to actually operate the machine for those hours.</div>
-                {["wageRate", "powerDraw", "energyPrice"].map(renderField)}
-              </div>
-
-              {/* Advanced */}
-              <details open>
-                <summary style={{ paddingLeft: 18 }}>Advanced — idle time &amp; maintenance</summary>
-                <div>
-                  {["idleShare", "maintenanceRate"].map(renderField)}
-                </div>
-              </details>
-            </div>
-
-            {/* ── Rail ─────────────────────────────────── */}
-            <div className="x1-rail">
-              <div className="x1-rail-in">
-                <div className="x1-verdict" id="verdict">
-                  <div className={`x1-verdict-band ${r && !errorCount ? "x1-pos" : "x1-warn"}`}>
-                    {r && !errorCount ? "rate proven" : "incomplete"}
-                  </div>
-                  <div className="x1-verdict-body">
-                    <div className="x1-big">
-                      {r ? `${sym}${fmtNum(r.out_rate)}` : "—"}
-                      {r ? <small> /productive h</small> : null}
-                    </div>
-                    <div className="x1-big-cap">
-                      {r ? `vs ${sym}${fmtNum(r.out_naive)}/h naive` : "enter machine & capital data to begin"}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="x1-stat"><span>Naive rate (ignores idle)</span><b>{r ? `${sym}${fmtNum(r.out_naive)}/h` : "—"}</b></div>
-                <div className="x1-stat"><span>Hidden idle premium</span><b>{r ? `+${sym}${fmtNum(r.out_premium)}/h` : "—"}</b></div>
-                <div className="x1-stat"><span>Total annual cost</span><b>{r ? `${sym}${fmtNum(r.out_total)}/yr` : "—"}</b></div>
-                <div className="x1-stat"><span>Productive hours / yr</span><b>{r ? `${fmtNum(r.out_productiveHours)} h` : "—"}</b></div>
-
-                {!usageSessionId && !(user?.email && isProBypassEmail(user.email)) && (
-                  <button
-                    className="x1-cta"
-                    onClick={requestSession}
-                    disabled={sessionLoading}
-                    style={{ background: "#3A4D8F", borderColor: "#2c3a6b" }}
-                  >
-                    {sessionLoading ? "Starting session…" : "Start credit session"}
-                  </button>
-                )}
-
-                <button
-                  className="x1-cta"
-                  id="genBtn"
-                  disabled={!r || !!errorCount || isExecuting || !usageSessionId}
-                  onClick={handleGenerate}
-                >
-                  {isExecuting ? "Generating…" : "Generate sealed report · 1 credit"}
-                </button>
-
-                <div className="x1-conf">
-                  <span className="x1-d" style={{ background: r && !errorCount ? "var(--pos)" : "var(--warn)" }}></span>
-                  {errorCount > 0
-                    ? `${errorCount} input(s) need attention`
-                    : remainingRuns !== null
-                      ? `Inputs consistent · ${remainingRuns} runs remaining`
-                      : "Start a credit session to generate"}
-                </div>
-                {executeError && <div className="x1-msg x1-err">{executeError}</div>}
-              </div>
-            </div>
+          <div className="curbar">
+            <label htmlFor="curSel">Report currency</label>
+            <select id="curSel" value={curSym} onChange={(e) => setCurSym(e.target.value)}>
+              {CURRENCIES.map((c) => <option key={c.code} value={c.sym}>{c.code} · {c.sym} {c.name}</option>)}
+            </select>
+            <span className="curnote">Symbol only — no exchange-rate conversion applied. Enter every figure in the same currency.</span>
           </div>
-
-          {/* ── Report ──────────────────────────────────── */}
-          {serverResult && r && inputs && (
-            <div className="x1-report" ref={reportRef}>
-              <div className="x1-rep-mast">
-                <h2>Machine hourly rate — proof report</h2>
-                <div className="x1-rid">
-                  SC-PRO-MHR · {new Date().toISOString().slice(0, 10)}
-                  <br />
-                  engine v6.0 · 35 assertions passed
-                  <br />
-                  currency {curSym} · full absorption costing
-                </div>
-              </div>
-              <div className="x1-rep-body">
-
-                {/* Verdict */}
-                <div className="x1-sec">
-                  <div className="x1-verdict-box">
-                    <div className="x1-head">This machine truly costs {sym}{fmtNum(r.out_rate)} per productive hour.</div>
-                    <p>
-                      The naive rate — total annual cost divided by planned hours, ignoring idle time — is{" "}
-                      <strong>{sym}{fmtNum(r.out_naive)}/h</strong>. Quoting on that number hides a{" "}
-                      <strong>{sym}{fmtNum(r.out_premium)}/h loss</strong> on every hour that actually produces sellable output.
-                    </p>
-                    <p>
-                      Of {fmtNum(inputs.annualHours)} planned hours/year, only <strong>{fmtNum(r.out_productiveHours)}</strong>{" "}
-                      generate revenue; the rest is paid-for idle time.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Section 1: Annual cost structure */}
-                <div className="x1-sec">
-                  <div className="x1-sec-h"><span className="x1-sec-n">1</span><span className="x1-sec-t">Annual cost structure</span></div>
-                  <table>
-                    <thead>
-                      <tr><th>Component</th><th style={{ textAlign: "right" }}>{sym}/yr</th><th style={{ textAlign: "right" }}>Share</th><th style={{ textAlign: "right" }}>{sym}/productive h</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>Depreciation (straight-line, {fmtNum(inputs.usefulLife)} yr)</td><td className="x1-n">{fmtNum(r.out_dep)}</td><td className="x1-n">{(100 * r.out_dep / r.out_total).toFixed(1)}%</td><td className="x1-n">{(r.out_dep / r.out_productiveHours).toFixed(2)}</td></tr>
-                      <tr><td>Maintenance ({(100 * inputs.maintenanceRate).toFixed(1)}% of price)</td><td className="x1-n">{fmtNum(r.out_maint)}</td><td className="x1-n">{(100 * r.out_maint / r.out_total).toFixed(1)}%</td><td className="x1-n">{(r.out_maint / r.out_productiveHours).toFixed(2)}</td></tr>
-                      <tr><td>Energy ({fmtNum(inputs.powerDraw)} kW × {fmtNum(inputs.annualHours)} h × {sym}{inputs.energyPrice.toFixed(3)})</td><td className="x1-n">{fmtNum(r.out_energy)}</td><td className="x1-n">{(100 * r.out_energyShare).toFixed(1)}%</td><td className="x1-n">{(r.out_energy / r.out_productiveHours).toFixed(2)}</td></tr>
-                      <tr><td>Operator labor</td><td className="x1-n">{fmtNum(r.out_labor)}</td><td className="x1-n">{(100 * r.out_laborShare).toFixed(1)}%</td><td className="x1-n">{(r.out_labor / r.out_productiveHours).toFixed(2)}</td></tr>
-                      <tr className="x1-total"><td>Total</td><td className="x1-n">{fmtNum(r.out_total)}</td><td className="x1-n">100%</td><td className="x1-n">{r.out_rate.toFixed(2)}</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Section 2: Sensitivity */}
-                <div className="x1-sec">
-                  <div className="x1-sec-h"><span className="x1-sec-n">2</span><span className="x1-sec-t">What moves the rate most (±10% each input)</span></div>
-                  <div className="x1-bars">
-                    {sensitivityData.map((s) => (
-                      <div className="x1-row" key={s.nm}>
-                        <span className="x1-nm">{s.nm}</span>
-                        <div className="x1-tk"><div className="x1-b" style={{ width: `${(100 * s.span / sensMax).toFixed(0)}%` }}></div></div>
-                        <span className="x1-vv">±{sym}{(s.span / 2).toFixed(2)}/h</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="x1-note">
-                    Read: negotiating the purchase price 10% down is worth ±{sym}{(sensitivityData.find((s) => s.nm === "Purchase price")?.span ?? 0) / 2} — compare against the top bar before spending effort there.
-                  </div>
-                </div>
-
-                {/* Section 3: Insights */}
-                <div className="x1-sec">
-                  <div className="x1-sec-h"><span className="x1-sec-n">3</span><span className="x1-sec-t">Engineering insights</span></div>
-                  {firedInsights.length > 0
-                    ? firedInsights.map((ins, i) => (
-                        <div key={i} className={`x1-ins ${ins.sev === "crit" ? "x1-crit" : ins.sev === "opp" ? "x1-opp" : "x1-info"}`}>
-                          <span className="x1-t">{ins.sev === "crit" ? "critical" : ins.sev === "opp" ? "opportunity" : "context"}</span>
-                          <span dangerouslySetInnerHTML={{ __html: ins.msg(r, inputs, sym) }} />
-                        </div>
-                      ))
-                    : (
-                      <div className="x1-ins x1-info">
-                        <span className="x1-t">context</span>
-                        No threshold breaches — the cost structure is balanced across capital, labor and energy, with idle time under control.
-                      </div>
-                    )}
-                </div>
-
-                {/* Section 4: Method & formulas */}
-                <div className="x1-sec">
-                  <div className="x1-sec-h"><span className="x1-sec-n">4</span><span className="x1-sec-t">Method &amp; formulas</span></div>
-                  <table>
-                    <tbody>
-                      <tr><td>Depreciation</td><td className="x1-n">purchase price ÷ useful life (straight-line)</td></tr>
-                      <tr><td>Productive hours</td><td className="x1-n">planned hours × (1 − idle share)</td></tr>
-                      <tr><td>Rate</td><td className="x1-n">total annual cost ÷ productive hours</td></tr>
-                      <tr><td>Idle premium</td><td className="x1-n">rate − (total cost ÷ planned hours)</td></tr>
-                    </tbody>
-                  </table>
-                  <div className="x1-note">
-                    Full absorption costing. All inputs normalized to canonical units before computation; the engine is unit-blind.
-                    Formulas passed 27 closed-form/edge-case and 8 semantic assertions before this report existed.
-                  </div>
-                </div>
-
-                {/* Seal & disclaimer */}
-                <div className="x1-seal">
-                  SEAL · SHA-256 {serverResult.seal?.output_hash ?? mockHash(JSON.stringify(inputs) + r.out_rate)}
-                  <br />
-                  Inputs and outputs are hashed together; altering any figure changes the seal. Verify at sectorcalc.com/verify — production seals are computed server-side.
-                </div>
-                <div className="x1-disc">
-                  Technical simulation for engineering and financial decision support. Assumes straight-line depreciation and constant power draw/energy price across the planning horizon. Not a substitute for professional accounting or engineering review.
-                </div>
-              </div>
-            </div>
-          )}
         </div>
+
+        {/* ── Bench ──────────────────────────────────────── */}
+        <div className="bench">
+          <div className="form-col">
+
+            {/* Group 01 */}
+            <div className="grp">
+              <div className="grp-h"><span className="grp-n">01</span><span className="grp-t">Machine &amp; capital</span></div>
+              <div className="grp-d">What the machine costs to own, and over how long that cost is spread.</div>
+              {["purchasePrice", "usefulLife", "annualHours"].map(renderField)}
+            </div>
+
+            {/* Group 02 */}
+            <div className="grp">
+              <div className="grp-h"><span className="grp-n">02</span><span className="grp-t">Running cost</span></div>
+              <div className="grp-d">What it costs to actually operate the machine for those hours.</div>
+              {["wageRate", "powerDraw", "energyPrice"].map(renderField)}
+            </div>
+
+            {/* Advanced */}
+            <details open>
+              <summary>Advanced — idle time &amp; maintenance</summary>
+              <div style={{ paddingTop: 14 }}>
+                {["idleShare", "maintenanceRate"].map(renderField)}
+              </div>
+            </details>
+
+          </div>
+
+          {/* ── Rail ─────────────────────────────────────── */}
+          <div className="rail">
+            <div className="rail-in">
+              <div className="verdict" id="verdict">
+                <div className={`verdict-band ${r && !errorCount ? "pos" : "warn"}`} id="vBand">
+                  {r && !errorCount ? "rate proven" : "incomplete"}
+                </div>
+                <div className="verdict-body">
+                  <div className="big" id="vBig">
+                    {r ? <>{sym}{fmtNum(r.out_rate)}<small> /productive h</small></> : "—"}
+                  </div>
+                  <div className="big-cap" id="vCap">
+                    {r ? `vs ${sym}${fmtNum(r.out_naive)}/h naive` : "enter machine & capital data to begin"}
+                  </div>
+                </div>
+              </div>
+              <div className="stat"><span>Naive rate (ignores idle)</span><b id="sNaive">{r ? `${sym}${fmtNum(r.out_naive)}/h` : "—"}</b></div>
+              <div className="stat"><span>Hidden idle premium</span><b id="sPrem">{r ? `+${sym}${fmtNum(r.out_premium)}/h` : "—"}</b></div>
+              <div className="stat"><span>Total annual cost</span><b id="sTotal">{r ? `${sym}${fmtNum(r.out_total)}/yr` : "—"}</b></div>
+              <div className="stat"><span>Productive hours / yr</span><b id="sProd">{r ? `${fmtNum(r.out_productiveHours)} h` : "—"}</b></div>
+
+              {!usageSessionId && !(user?.email && isProBypassEmail(user.email)) && (
+                <button className="cta" onClick={requestSession} disabled={sessionLoading}
+                  style={{ background: "#3A4D8F", borderColor: "#2c3a6b" }}>
+                  {sessionLoading ? "Starting session…" : "Start credit session"}
+                </button>
+              )}
+              <button className="cta" id="genBtn" disabled={!r || !!errorCount || isExecuting || !usageSessionId} onClick={handleGenerate}>
+                {isExecuting ? "Generating…" : "Generate sealed report · 1 credit"}
+              </button>
+              <div className="conf" id="conf">
+                <span className="d" style={{ background: r && !errorCount ? "var(--pos)" : "var(--warn)" }}></span>
+                {errorCount > 0 ? `${errorCount} input(s) need attention` : remainingRuns !== null ? `Inputs consistent · ${remainingRuns} runs remaining` : "Start a credit session to generate"}
+              </div>
+              {executeError && <div className="msg err">{executeError}</div>}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Report ─────────────────────────────────────── */}
+        {serverResult && r && inputs && (
+          <div id="report" ref={reportRef} style={{ display: "block" }}>
+            <div className="rep-mast">
+              <h2>Machine hourly rate — proof report</h2>
+              <div className="rid">
+                SC-PRO-MHR · {new Date().toISOString().slice(0, 10)}<br />
+                engine v6.0 · 35 assertions passed<br />
+                currency {curSym} · full absorption costing
+              </div>
+            </div>
+            <div className="rep-body">
+
+              <div className="sec">
+                <div className="verdict-box">
+                  <div className="head">This machine truly costs {sym}{fmtNum(r.out_rate)} per productive hour.</div>
+                  <p>The naive rate — total annual cost divided by planned hours, ignoring idle time — is <strong>{sym}{fmtNum(r.out_naive)}/h</strong>. Quoting on that number hides a <strong>{sym}{fmtNum(r.out_premium)}/h loss</strong> on every hour that actually produces sellable output.</p>
+                  <p>Of {fmtNum(inputs.annualHours)} planned hours/year, only <strong>{fmtNum(r.out_productiveHours)}</strong> generate revenue; the rest is paid-for idle time.</p>
+                </div>
+              </div>
+
+              <div className="sec">
+                <div className="sec-h"><span className="sec-n">1</span><span className="sec-t">Annual cost structure</span></div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Component</th>
+                      <th style={{ textAlign: "right" }}>{sym}/yr</th>
+                      <th style={{ textAlign: "right" }}>Share</th>
+                      <th style={{ textAlign: "right" }}>{sym}/productive h</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Depreciation (straight-line, {fmtNum(inputs.usefulLife)} yr)</td><td className="n">{fmtNum(r.out_dep)}</td><td className="n">{(100 * r.out_dep / r.out_total).toFixed(1)}%</td><td className="n">{(r.out_dep / r.out_productiveHours).toFixed(2)}</td></tr>
+                    <tr><td>Maintenance ({(100 * inputs.maintenanceRate).toFixed(1)}% of price)</td><td className="n">{fmtNum(r.out_maint)}</td><td className="n">{(100 * r.out_maint / r.out_total).toFixed(1)}%</td><td className="n">{(r.out_maint / r.out_productiveHours).toFixed(2)}</td></tr>
+                    <tr><td>Energy ({fmtNum(inputs.powerDraw)} kW × {fmtNum(inputs.annualHours)} h × {sym}{inputs.energyPrice.toFixed(3)})</td><td className="n">{fmtNum(r.out_energy)}</td><td className="n">{(100 * r.out_energyShare).toFixed(1)}%</td><td className="n">{(r.out_energy / r.out_productiveHours).toFixed(2)}</td></tr>
+                    <tr><td>Operator labor</td><td className="n">{fmtNum(r.out_labor)}</td><td className="n">{(100 * r.out_laborShare).toFixed(1)}%</td><td className="n">{(r.out_labor / r.out_productiveHours).toFixed(2)}</td></tr>
+                    <tr className="total"><td>Total</td><td className="n">{fmtNum(r.out_total)}</td><td className="n">100%</td><td className="n">{r.out_rate.toFixed(2)}</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="sec">
+                <div className="sec-h"><span className="sec-n">2</span><span className="sec-t">What moves the rate most (±10% each input)</span></div>
+                <div className="bars">
+                  {sensitivityData.map((s) => (
+                    <div className="row" key={s.nm}>
+                      <span className="nm">{s.nm}</span>
+                      <div className="tk"><div className="b" style={{ width: `${(100 * s.span / sensMax).toFixed(0)}%` }}></div></div>
+                      <span className="vv">±{sym}{(s.span / 2).toFixed(2)}/h</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="note">Read: negotiating the purchase price 10% down is worth ±{sym}{(sensitivityData.find((s) => s.nm === "Purchase price")?.span ?? 0) / 2} — compare against the top bar before spending effort there.</div>
+              </div>
+
+              <div className="sec">
+                <div className="sec-h"><span className="sec-n">3</span><span className="sec-t">Engineering insights</span></div>
+                {firedInsights.length > 0
+                  ? firedInsights.map((ins, i) => (
+                    <div key={i} className={`ins ${ins.sev === "crit" ? "crit" : ins.sev === "opp" ? "opp" : "info"}`}>
+                      <span className="t">{ins.sev === "crit" ? "critical" : ins.sev === "opp" ? "opportunity" : "context"}</span>
+                      <span dangerouslySetInnerHTML={{ __html: ins.msg(r, inputs, sym) }} />
+                    </div>
+                  ))
+                  : <div className="ins info"><span className="t">context</span>No threshold breaches — the cost structure is balanced across capital, labor and energy, with idle time under control.</div>
+                }
+              </div>
+
+              <div className="sec">
+                <div className="sec-h"><span className="sec-n">4</span><span className="sec-t">Method &amp; formulas</span></div>
+                <table>
+                  <tbody>
+                    <tr><td>Depreciation</td><td className="n">purchase price ÷ useful life (straight-line)</td></tr>
+                    <tr><td>Productive hours</td><td className="n">planned hours × (1 − idle share)</td></tr>
+                    <tr><td>Rate</td><td className="n">total annual cost ÷ productive hours</td></tr>
+                    <tr><td>Idle premium</td><td className="n">rate − (total cost ÷ planned hours)</td></tr>
+                  </tbody>
+                </table>
+                <div className="note">Full absorption costing. All inputs normalized to canonical units before computation; the engine is unit-blind. Formulas passed 27 closed-form/edge-case and 8 semantic assertions before this report existed.</div>
+              </div>
+
+              <div className="seal">SEAL · SHA-256 {serverResult.seal?.output_hash ?? mockHash(JSON.stringify(inputs) + r.out_rate)}<br />Inputs and outputs are hashed together; altering any figure changes the seal. Verify at sectorcalc.com/verify — production seals are computed server-side.</div>
+              <div className="disc">Technical simulation for engineering and financial decision support. Assumes straight-line depreciation and constant power draw/energy price across the planning horizon. Not a substitute for professional accounting or engineering review.</div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
 
-  // ── Field renderer ──────────────────────────────────────────
+  // ── Field renderer ──────────────────────────────────────────────
   function renderField(id: string) {
     const f = FIELDS[id];
     if (!f) return null;
     const st = fieldStates[id];
     if (!st) return null;
-    const opts = UNITS[f.dom].list.map((u) => (
-      <option key={u.c} value={u.c}>{u.c}</option>
-    ));
+    const opts = UNITS[f.dom].list.map((u) => <option key={u.c} value={u.c}>{u.c}</option>);
 
     return (
-      <div className="x1-f" key={id} data-f={id}>
-        <div className="x1-f-top">
+      <div className="f" key={id} data-f={id}>
+        <div className="f-top">
           <label htmlFor={`in_${id}`}>{f.label}</label>
-          <span className="x1-unitline" id={`ul_${id}`}>
-            {st.error ? "" : `= ${f.cur ? curSym : ""}${fmtNum(st.canon)}${CANON_SUFFIX[f.dom]}`}
-          </span>
+          <span className="unitline" id={`ul_${id}`}>{st.error ? "" : `= ${f.cur ? curSym : ""}${fmtNum(st.canon)}${CANON_SUFFIX[f.dom]}`}</span>
         </div>
-        <div className={`x1-control${st.error ? " x1-bad" : ""}`} id={`ct_${id}`}>
-          {f.cur && <span className="x1-prefix" id={`px_${id}`}>{curSym}</span>}
-          <input
-            type="number"
-            id={`in_${id}`}
-            step="any"
-            value={st.value}
-            inputMode="decimal"
-            onChange={(e) => updateField(id, e.target.value)}
-          />
-          <select
-            value={st.unit}
-            onChange={(e) => handleUnitChange(id, e.target.value)}
-            aria-label="unit"
-          >
-            {opts}
-          </select>
+        <div className={`control${st.error ? " bad" : ""}`} id={`ct_${id}`}>
+          {f.cur && <span className="prefix" id={`px_${id}`}>{curSym}</span>}
+          <input type="number" id={`in_${id}`} step="any" value={st.value} inputMode="decimal"
+            onChange={(e) => updateField(id, e.target.value)} />
+          <select value={st.unit} onChange={(e) => handleUnitChange(id, e.target.value)} aria-label="unit">{opts}</select>
         </div>
-        <div className="x1-f-foot">
-          <span className="x1-hint">{f.hint}</span>
-          <span className="x1-bench-ref">{f.ref}</span>
+        <div className="f-foot">
+          <span className="hint">{f.hint}</span>
+          <span className="bench-ref">{f.ref}</span>
         </div>
-        <div className={`x1-msg${st.error ? " x1-err" : ""}`} id={`ms_${id}`}>{st.error || ""}</div>
+        <div className={`msg${st.error ? " err" : ""}`} id={`ms_${id}`}>{st.error || ""}</div>
       </div>
     );
   }
