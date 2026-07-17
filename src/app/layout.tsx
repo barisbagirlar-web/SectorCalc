@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "@/lib/i18n-stub";
 import { getMessages, setRequestLocale } from "@/lib/i18n-stub";
 import { AuthorAuthorityHeadLinks } from "@/components/seo/AuthorAuthorityHeadLinks";
@@ -36,6 +36,13 @@ const jetbrainsMono = JetBrains_Mono({
   preload: false,
 });
 
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   robots: metadataRobots(),
 };
@@ -64,7 +71,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir="ltr"
-      className={`${inter.variable} ${jetbrainsMono.variable}`.trim()}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${fraunces.variable}`.trim()}
       data-region={region}
       data-locale={locale}
     >
