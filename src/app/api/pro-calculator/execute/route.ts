@@ -1017,7 +1017,7 @@ export function buildFullBlockedResponse(pipelineState: string, reason: string):
       formulaVersion: "blocked",
       schemaVersion: "0.0.0",
       runtimeVersion: "superv4-v5.3-runtime-1.0.0",
-    }),
+    }, false),
     redaction_status: "PUBLIC_SAFE_REDACTED",
   };
 }

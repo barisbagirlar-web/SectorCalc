@@ -1,6 +1,7 @@
-// SectorCalc SuperV4 V5.3.1 Audit Seal Service (stub)
-// Creates cryptographic-style audit seals for calculation results.
+// SectorCalc SuperV4 V5.3.1 Audit Seal Service
+// Creates cryptographic audit seals for calculation results.
 
+import { createHash } from "crypto";
 import type { AuditSeal } from "../pro-form/contract-types";
 
 export interface AuditInput {
@@ -12,9 +13,15 @@ export interface AuditInput {
   runtimeVersion: string;
 }
 
-export function createAuditSeal(input: AuditInput): AuditSeal {
+/**
+ * @param sealed Whether this seal represents a genuine, completed calculation
+ *   (SEALED) or a blocked/failed request where no real computation occurred
+ *   (FAILED). Defaults to true — callers building a seal for a blocked or
+ *   error response must pass `false` explicitly.
+ */
+export function createAuditSeal(input: AuditInput, sealed: boolean = true): AuditSeal {
   return {
-    seal_status: "UNSEALED",
+    seal_status: sealed ? "SEALED" : "FAILED",
     hash_algorithm: "SHA-256",
     input_hash: input.inputHash,
     output_hash: input.outputHash,
@@ -28,14 +35,8 @@ export function createAuditSeal(input: AuditInput): AuditSeal {
   };
 }
 
+/** Real SHA-256 (Node's built-in crypto, synchronous — this route runs in the Node.js runtime). */
 export function computeHash(data: string): string {
-  // Stub: returns a deterministic hash-like string
-  // Production: use Web Crypto API (SubtleCrypto)
-  let hash = 0;
-  for (let i = 0; i < data.length; i++) {
-    const char = data.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash; // Convert to 32bit integer
-  }
-  return `sha256-stub-${Math.abs(hash).toString(16).padStart(8, "0")}`;
+  return createHash("sha256").update(data, "utf8").digest("hex");
 }
+
