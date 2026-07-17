@@ -123,7 +123,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p functions
-          cat > /tmp/render-fn-env.mjs << 'RENDEREOS'
+          node -e '
           const fs = require("fs");
           const envKeys = [
             "STRIPE_SECRET_KEY","STRIPE_WEBHOOK_SECRET","STRIPE_PRICE_MONTHLY",
@@ -133,8 +133,7 @@ jobs:
           ];
           const lines = envKeys.map(k => `${k}=${process.env[k] || ""}`).join("\n");
           fs.writeFileSync("functions/.env", lines + "\n", "utf8");
-RENDEREOS
-          node /tmp/render-fn-env.mjs
+          '
           echo "functions/.env written ($(wc -c < functions/.env) bytes)"
 
       - name: Deploy Firebase Hosting, Firestore rules, and SSR function
