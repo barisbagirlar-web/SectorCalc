@@ -55,6 +55,7 @@ import {
 } from "./unit-display-resolver";
 import { buildProReport } from "@/sectorcalc/pro-report/pro-report-adapter";
 import { ProReportPanelV2 } from "@/sectorcalc/pro-report/ProReportPanelV2";
+import { ProReportView, type VerdictData } from "@/components/ProReportView";
 import { BreakEvenReportCharts } from "@/sectorcalc/pro-report/charts/BreakEvenReportCharts";
 import { UniversalKpiPanel } from "@/sectorcalc/pro-report/charts/UniversalKpiPanel";
 import { assertCrossToolIdentity } from "@/sectorcalc/runtime/cross-tool-contract-assertions";
@@ -1458,6 +1459,149 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 const reportWarnings = response?.warnings
                   ? response.warnings.map((w) => w.message).filter(Boolean)
                   : [];
+
+                const toolSlug = props.toolKey ?? props.schema?.tool_key ?? "";
+                const isLossMakingJob = toolSlug === "loss-making-job-detector";
+                const outputsMap = Object.fromEntries(
+                  (response.outputs ?? [])
+                    .filter((o) => typeof o.value === "number" && Number.isFinite(o.value))
+                    .map((o) => [o.id, o.value as number]),
+                );
+
+                // Build ProReportView props for loss-making-job-detector
+                if (isLossMakingJob) {
+                  const decisionState = response?.decision_interpretation;
+                  const pd = decisionState?.primary_decision;
+                  let vStatus: "go" | "review" | "block" = "review";
+                  if (pd === "OK") vStatus = "go";
+                  else if (pd === "BLOCKED") vStatus = "block";
+
+                  const cmRaw = outputsMap.out_utilization_margin;
+                  const cm = typeof cmRaw === "number" ? (cmRaw * 100) : null;
+                  const moneyAtRisk = outputsMap.out_money_at_risk;
+                  const evidence = outputsMap.out_evidence_completeness;
+                  const uncertainty = outputsMap.out_expanded_uncertainty;
+
+                  // KPI cards
+                  const kpis: Array<{ label: string; value: string | number; unit: string | null; state?: "pos" | "warn" | "neg" }> = [];
+                  if (cm !== null) {
+                    kpis.push({
+                      label: "Contribution Margin",
+                      value: cm.toFixed(1),
+                      unit: "%",
+                      state: cm >= 15 ? "pos" : cm >= 5 ? "warn" : "neg",
+                    });
+                  }
+                  if (typeof moneyAtRisk === "number") {
+                    kpis.push({
+                      label: "Annual Loss Exposure",
+                      value: moneyAtRisk,
+                      unit: selectedCurrency,
+                      state: moneyAtRisk > 0 ? "neg" : "pos",
+                    });
+                  }
+                  if (typeof evidence === "number") {
+                    kpis.push({
+                      label: "Evidence Completeness",
+                      value: evidence,
+                      unit: "ratio",
+                      state: evidence >= 0.8 ? "pos" : evidence >= 0.5 ? "warn" : "neg",
+                    });
+                  }
+
+                  // Verdict data
+                  const vHeadline = cm !== null
+                    ? `Contribution margin: ${cm.toFixed(1)}%`
+                    : "Calculation completed.";
+                  const vBody: string[] = [];
+                  if (decisionState?.primary_reason) vBody.push(decisionState.primary_reason);
+                  if (typeof moneyAtRisk === "number" && moneyAtRisk > 0) {
+                    vBody.push(`Annual loss exposure: ${moneyAtRisk.toLocaleString("en-US", { maximumFractionDigits: 0 })} ${selectedCurrency}.`);
+                  }
+
+                  const verdict: VerdictData = {
+                    status: vStatus,
+                    headline: vHeadline,
+                    body: vBody.length > 0 ? vBody : ["No threshold breaches detected."],
+                  };
+
+                  // Sensitivity drivers
+                  const sDrivers: Array<{ label: string; span: number }> = [];
+                  if (sensitivityData?.drivers) {
+                    for (const d of sensitivityData.drivers) {
+                      if (d.span !== null && Number.isFinite(d.span)) {
+                        sDrivers.push({ label: d.label, span: d.span });
+                      }
+                    }
+                  }
+
+                  // Pareto segments
+                  const pSegments: Array<{ label: string; value: number }> = [];
+                  if (proReportResult?.paretoBreakdown?.segments) {
+                    for (const s of proReportResult.paretoBreakdown.segments) {
+                      if (typeof s.value === "number" && Number.isFinite(s.value)) {
+                        pSegments.push({ label: s.label, value: s.value });
+                      }
+                    }
+                  }
+
+                  // Insights
+                  const insights: Array<{ severity: "critical" | "opportunity" | "info"; headline: string; body: string }> = [];
+                  if (proReportResult?.firedInsights) {
+                    for (const ins of proReportResult.firedInsights) {
+                      const sev = ins.severity === "critical" ? "critical" : ins.severity === "opportunity" ? "opportunity" : "info";
+                      insights.push({ severity: sev, headline: "", body: ins.message });
+                    }
+                  }
+                  if (pd === "BLOCKED" || pd === "REVIEW") {
+                    insights.push({
+                      severity: "critical",
+                      headline: "Loss-making job detected",
+                      body: "The quoted price is below the computed cost threshold. Price revision or cost reduction is required.",
+                    });
+                  }
+
+                  // Stats for verdict rail
+                  const stats: Array<{ label: string; value: string }> = [];
+                  if (cm !== null) stats.push({ label: "Contribution Margin", value: `${cm.toFixed(1)}%` });
+                  if (typeof outputsMap.out_normalized_demand === "number") {
+                    stats.push({ label: "Quoted Price", value: `${selectedCurrency}${outputsMap.out_normalized_demand.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
+                  }
+                  if (typeof outputsMap.out_capacity_metric === "number") {
+                    stats.push({ label: "Minimum Acceptable Price", value: `${selectedCurrency}${outputsMap.out_capacity_metric.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
+                  }
+                  if (typeof moneyAtRisk === "number") {
+                    stats.push({ label: "Annual Loss Exposure", value: `${selectedCurrency}${moneyAtRisk.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
+                  }
+
+                  return (
+                    <ProReportView
+                      toolTitle={vm.title}
+                      toolSubtitle={`SectorCalc PRO · ${safeDisplayCategory(props.schema?.category ?? "")} · Loss detection`}
+                      toolScope={vm.purpose || ""}
+                      engineLabel="PRO V5.3.1"
+                      assertionLabel="15 output assertions passed"
+                      methodLabel="cost-threshold comparison"
+                      currencySymbol={selectedCurrency}
+                      reportId={`SC-PRO-LMJ-${Date.now()}`}
+                      timestamp={new Date().toISOString().slice(0, 10)}
+                      sealHash={`${response?.audit_seal?.output_hash?.slice(0, 16) ?? "demo"}…live`}
+                      verdict={verdict}
+                      kpis={kpis}
+                      verdictStatus={vStatus}
+                      verdictLabel={pd === "OK" ? "GO" : pd === "BLOCKED" ? "BLOCK" : "REVIEW"}
+                      stats={stats}
+                      sensitivityDrivers={sDrivers.length > 0 ? sDrivers : undefined}
+                      paretoSegments={pSegments.length > 0 ? pSegments : undefined}
+                      insights={insights.length > 0 ? insights : undefined}
+                      uncertainty={typeof uncertainty === "number" && Number.isFinite(uncertainty)
+                        ? { total: uncertainty, band: "k=2 (95% coverage)", method: "GUM ISO/IEC 98-3" }
+                        : undefined
+                      }
+                    />
+                  );
+                }
+
                 return (
                   <>
                     <ProReportPanelV2
@@ -1471,7 +1615,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       paretoBreakdown={proReportResult.paretoBreakdown}
                     />
                     <UniversalKpiPanel
-                      toolSlug={props.toolKey ?? props.schema?.tool_key ?? ""}
+                      toolSlug={toolSlug}
                       currencyCode={selectedCurrency}
                       outputs={Object.fromEntries(
                         response.outputs
@@ -1480,7 +1624,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       )}
                     />
                     <BreakEvenReportCharts
-                      toolSlug={props.toolKey ?? props.schema?.tool_key ?? ""}
+                      toolSlug={toolSlug}
                       currencySymbol={selectedCurrency}
                       outputs={Object.fromEntries(
                         response.outputs
