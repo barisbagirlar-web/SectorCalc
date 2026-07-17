@@ -10,6 +10,8 @@ import { buildHomeJsonLd } from "@/lib/features/semantic/build-home-jsonld";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import "@/styles/landing-page-accessibility.css";
 import "@/styles/landing-page-proportion.css";
+import "@/styles/landing-page-sections.css";
+import "@/styles/landing-page-responsive.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   return createPageMetadata({
