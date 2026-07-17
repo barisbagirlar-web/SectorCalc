@@ -62,15 +62,64 @@
   color: #fff;
 }
 
+/* Scroll fade — IntersectionObserver entrance (zero flash via useLayoutEffect) */
+.sc-fade-prep {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.sc-fade-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-fade] {
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Staggered child reveal — items appear one by one on section scroll-in */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--stagger-i, 0) * 70ms);
+}
+
+.sc-fade-visible [data-stagger] > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animated counter — tabular-nums for alignment stability */
+.sc-counter {
+  font-variant-numeric: tabular-nums;
+}
+
 .sc-shell {
   width: min(100%, var(--sc-shell));
   margin-inline: auto;
   padding-inline: 30px;
 }
 
+/* Section base — spacing now uses design scale (var(--space-7) = 96px) */
 .sc-section {
-  padding-block: 104px;
+  padding-block: var(--space-7);
   border-bottom: 1px solid var(--sc-line);
+}
+
+/* Section spacing hierarchy — primary sections get max spacing */
+.sc-products,
+.sc-workflow {
+  padding-block: var(--space-7);
+}
+
+/* Section spacing hierarchy — secondary sections get medium spacing */
+.sc-sectors,
+.sc-cases,
+.sc-professional {
+  padding-block: var(--space-6);
 }
 
 .sc-section-kicker {
@@ -94,10 +143,27 @@
 .sc-final-cta h2 {
   margin-bottom: 0;
   font-family: var(--sc-serif);
-  font-size: clamp(38px, 4.4vw, 62px);
   font-weight: 700;
   letter-spacing: -0.042em;
   line-height: 1.02;
+}
+
+/* Heading size hierarchy per section */
+.sc-products .sc-section-heading h2 {
+  font-size: clamp(38px, 4.4vw, 62px);
+}
+.sc-cases .sc-section-heading h2 {
+  font-size: clamp(34px, 4vw, 54px);
+}
+.sc-workflow .sc-section-heading-centered h2 {
+  font-size: clamp(34px, 4vw, 54px);
+}
+.sc-sectors .sc-section-heading h2 {
+  font-size: clamp(32px, 3.8vw, 50px);
+}
+.sc-professional-copy h2,
+.sc-final-cta h2 {
+  font-size: clamp(30px, 3.5vw, 46px);
 }
 
 .sc-section-heading-split {
@@ -154,9 +220,10 @@
   right: max(24px, calc((100vw - var(--sc-shell)) / 2 + 30px));
 }
 
+/* Hero grid: report preview (left, wider) + copy (right, narrower) */
 .sc-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
+  grid-template-columns: minmax(480px, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
   gap: 72px;
   min-height: 676px;
@@ -166,7 +233,6 @@
 .sc-hero-copy {
   position: relative;
   z-index: 1;
-  max-width: 650px;
 }
 
 .sc-kicker {
@@ -193,7 +259,7 @@
   flex-direction: column;
   margin-bottom: 28px;
   font-family: var(--sc-serif);
-  font-size: clamp(54px, 6.1vw, 86px);
+  font-size: clamp(48px, 5.5vw, 72px);
   font-weight: 700;
   letter-spacing: -0.055em;
   line-height: 0.94;
@@ -392,6 +458,12 @@
   font-weight: 600;
   letter-spacing: 0.035em;
   line-height: 1.25;
+  animation: sc-verdict-entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes sc-verdict-entrance {
+  from { opacity: 0.4; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .sc-verdict-block > span {
@@ -483,10 +555,22 @@
   color: rgba(247, 242, 232, 0.42);
 }
 
-/* Proof strip */
+/* Proof strip — copper left accent */
 .sc-proof-strip {
+  position: relative;
   border-bottom: 1px solid var(--sc-line);
   background: var(--sc-surface);
+}
+
+.sc-proof-strip::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--sc-copper);
+  content: "";
+  pointer-events: none;
 }
 
 .sc-proof-strip-inner {
@@ -531,14 +615,16 @@
   content: "";
 }
 
-/* Product cards */
+/* Product cards — dot-grid background */
 .sc-products {
   background: var(--sc-paper);
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='0.6' fill='%23171713' opacity='0.032'/%3E%3C/svg%3E");
+  background-size: 40px 40px;
 }
 
 .sc-product-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1.05fr 1.12fr 0.83fr;
   border-top: 1px solid var(--sc-line-strong);
   border-left: 1px solid var(--sc-line-strong);
 }
@@ -551,12 +637,27 @@
   border-bottom: 1px solid var(--sc-line-strong);
   background: rgba(255, 253, 248, 0.34);
   padding: 28px;
-  transition: background-color 160ms ease, transform 160ms ease;
+  transition: background-color 160ms ease, transform 160ms ease, border-color 160ms ease;
 }
 
 .sc-product-card:hover {
   background: var(--sc-surface);
+  border-color: var(--sc-copper);
   transform: translateY(-2px);
+}
+
+/* Featured (Pro) card — revenue driver */
+.sc-product-card-featured {
+  position: relative;
+  border-left: 2px solid var(--sc-copper);
+}
+
+.sc-product-card-featured .sc-product-label {
+  color: var(--sc-copper-dark);
+}
+
+.sc-product-card-featured .sc-text-link {
+  font-weight: 700;
 }
 
 .sc-card-topline {
@@ -652,14 +753,16 @@
   color: var(--sc-copper);
 }
 
-/* Workflow */
+/* Workflow — diagonal hatch background */
 .sc-workflow {
   background: var(--sc-surface);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='0' x2='60' y2='60' stroke='%23171713' stroke-width='0.4' opacity='0.028'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
 }
 
 .sc-workflow-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 0.95fr 1.08fr 0.88fr 1.09fr;
   border-top: 1px solid var(--sc-line);
   border-bottom: 1px solid var(--sc-line);
 }
@@ -724,9 +827,79 @@
   line-height: 1.65;
 }
 
+/* ============================================================
+   Live Calculation Flow — animated pipeline diagram
+   ============================================================ */
+.sc-calc-flow {
+  display: grid;
+  gap: 12px;
+  padding: 32px 30px 28px;
+}
+
+.sc-calc-flow-pipe {
+  width: 100%;
+  height: 40px;
+}
+
+.sc-calc-flow-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.sc-calc-flow-step {
+  padding: 16px 14px;
+  border: 1px solid rgba(23, 23, 19, 0.08);
+  background: rgba(255, 253, 248, 0.5);
+  transition: border-color 300ms ease, background-color 300ms ease, transform 300ms ease;
+}
+
+.sc-calc-flow-step-active {
+  border-color: var(--sc-copper);
+  background: rgba(255, 253, 248, 0.9);
+  transform: translateY(-2px);
+}
+
+.sc-calc-flow-icon {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--sc-muted);
+  transition: color 300ms ease;
+}
+
+.sc-calc-flow-step-active .sc-calc-flow-icon {
+  color: var(--sc-copper);
+}
+
+.sc-calc-flow-label {
+  margin-bottom: 6px;
+  font-family: var(--sc-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--sc-muted);
+  transition: color 300ms ease;
+}
+
+.sc-calc-flow-step-active .sc-calc-flow-label {
+  color: var(--sc-copper);
+}
+
+.sc-calc-flow-value {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--sc-ink-soft);
+  transition: color 300ms ease;
+}
+
+.sc-calc-flow-step-active .sc-calc-flow-value {
+  color: var(--sc-ink);
+}
+
 /* Pro section */
 .sc-pro-section {
-  padding-block: 104px;
+  padding-block: var(--space-7);
   border-bottom: 1px solid #000;
   background: var(--sc-dark);
   color: var(--sc-on-dark);
@@ -807,7 +980,7 @@
 
 .sc-sector-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1.08fr 0.88fr 1.04fr;
   gap: 0;
   border-top: 1px solid var(--sc-line);
   border-left: 1px solid var(--sc-line);
@@ -819,6 +992,11 @@
   border-bottom: 1px solid var(--sc-line);
   padding: 28px;
   background: rgba(255, 253, 248, 0.28);
+  transition: background-color 160ms ease;
+}
+
+.sc-sector-card:hover {
+  background: rgba(255, 253, 248, 0.72);
 }
 
 .sc-sector-icon {
@@ -855,7 +1033,7 @@
 
 .sc-case-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1.06fr 0.92fr 1.02fr;
   gap: 18px;
 }
 
@@ -864,6 +1042,12 @@
   border: 1px solid var(--sc-line-strong);
   background: var(--sc-surface);
   padding: 28px;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.sc-case-card:hover {
+  border-color: var(--sc-copper);
+  background: rgba(255, 253, 248, 0.78);
 }
 
 .sc-case-index {
@@ -909,9 +1093,11 @@
   line-height: 1.55;
 }
 
-/* Professional trust */
+/* Professional trust — vertical-line background */
 .sc-professional {
   background: var(--sc-surface);
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='15' y1='0' x2='15' y2='30' stroke='%23171713' stroke-width='0.3' opacity='0.025'/%3E%3C/svg%3E");
+  background-size: 30px 30px;
 }
 
 .sc-professional-grid {
@@ -934,7 +1120,7 @@
 
 .sc-principle-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 0.94fr 1.12fr 0.94fr;
   border-top: 1px solid var(--sc-line);
   border-left: 1px solid var(--sc-line);
 }
@@ -969,7 +1155,7 @@
 .sc-final-cta {
   border-bottom: 1px solid var(--sc-line);
   background: var(--sc-paper);
-  padding-block: 88px;
+  padding-block: var(--space-6);
 }
 
 .sc-final-cta-inner {
@@ -996,10 +1182,24 @@
   justify-content: flex-end;
 }
 
-/* SEO summary */
+/* SEO summary — copper accent divider */
 .sc-seo-summary {
+  position: relative;
   background: var(--sc-paper-strong);
   padding-block: 28px;
+  overflow: hidden;
+}
+
+.sc-seo-summary::before {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sc-copper), transparent);
+  opacity: 0.2;
+  content: "";
+  pointer-events: none;
 }
 
 .sc-seo-summary p {
@@ -1010,16 +1210,237 @@
   line-height: 1.65;
 }
 
+/* ============================================================
+   Product Demo Film — interactive brand tour
+   ============================================================ */
+.sc-demo-film {
+  padding-block: var(--space-7);
+  border-bottom: 1px solid var(--sc-line);
+  background: var(--sc-paper-strong);
+  background-image:
+    linear-gradient(90deg, transparent 0%, rgba(189,93,58,0.018) 50%, transparent 100%),
+    url("data:image/svg+xml,%3Csvg width='48' height='48' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='24' cy='24' r='0.5' fill='%23171713' opacity='0.025'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 48px 48px;
+}
+
+.sc-demo-film-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(160px, 0.8fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.sc-demo-content h2 {
+  margin-bottom: 36px;
+  font-family: var(--sc-serif);
+  font-size: clamp(32px, 3.8vw, 50px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+}
+
+.sc-demo-inputs {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid rgba(23, 23, 19, 0.1);
+  background: var(--sc-surface);
+}
+
+.sc-demo-inputs-label {
+  margin-bottom: 14px;
+  font-family: var(--sc-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--sc-muted);
+}
+
+.sc-demo-input-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.sc-demo-input-line:not(.sc-demo-input-active):not(.sc-demo-input-done) {
+  opacity: 0;
+  transform: translateX(-6px);
+}
+
+.sc-demo-input-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sc-demo-input-done {
+  opacity: 0.42;
+  transform: translateX(0);
+}
+
+.sc-demo-input-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--sc-copper);
+  flex-shrink: 0;
+}
+
+.sc-demo-input-text {
+  font-size: 14px;
+  font-family: var(--sc-mono);
+  color: var(--sc-ink-soft);
+  letter-spacing: -0.01em;
+}
+
+.sc-demo-input-done .sc-demo-input-text {
+  text-decoration: line-through;
+  text-decoration-color: var(--sc-copper);
+  text-decoration-thickness: 1px;
+}
+
+.sc-demo-result-block {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.sc-demo-result-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border: 1px solid rgba(23, 23, 19, 0.12);
+  background: var(--sc-surface);
+}
+
+.sc-demo-result-card svg {
+  color: var(--sc-copper);
+  flex-shrink: 0;
+}
+
+.sc-demo-result-label {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--sc-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: var(--sc-muted);
+}
+
+.sc-demo-result-value {
+  font-family: var(--sc-mono);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--sc-ink);
+}
+
+.sc-demo-verdict-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-family: var(--sc-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--sc-copper-dark);
+  background: rgba(189, 93, 58, 0.06);
+  border: 1px solid rgba(189, 93, 58, 0.16);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.sc-demo-verdict-badge[data-show="false"] {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.sc-demo-verdict-badge[data-show="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sc-demo-verdict-arrow {
+  color: var(--sc-copper);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.sc-demo-cta {
+  margin-top: 0;
+}
+
+/* Tool navigation (right panel) */
+.sc-demo-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--sc-line-strong);
+  background: var(--sc-surface);
+}
+
+.sc-demo-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 20px 18px;
+  border: 0;
+  border-bottom: 1px solid var(--sc-line);
+  background: transparent;
+  color: var(--sc-muted);
+  font-family: var(--sc-sans);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.sc-demo-nav-btn:last-child {
+  border-bottom: 0;
+}
+
+.sc-demo-nav-btn:hover {
+  background: rgba(23, 23, 19, 0.03);
+  color: var(--sc-ink);
+}
+
+.sc-demo-nav-active {
+  background: var(--sc-paper);
+  color: var(--sc-ink);
+  font-weight: 600;
+}
+
+.sc-demo-nav-active:hover {
+  background: var(--sc-paper);
+}
+
+.sc-demo-nav-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: inherit;
+  transition: color 150ms ease;
+}
+
+.sc-demo-nav-active .sc-demo-nav-icon {
+  color: var(--sc-copper);
+}
+
+.sc-demo-nav-label {
+  line-height: 1.3;
+}
+
 /* Responsive */
 @media (max-width: 1100px) {
   .sc-hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(390px, 0.9fr);
+    grid-template-columns: minmax(360px, 1fr) minmax(0, 0.85fr);
     gap: 44px;
     min-height: 620px;
   }
 
   .sc-hero h1 {
-    font-size: clamp(50px, 6vw, 72px);
+    font-size: clamp(46px, 5.5vw, 66px);
   }
 
   .sc-pro-grid,
@@ -1030,11 +1451,33 @@
   .sc-professional-grid {
     grid-template-columns: minmax(0, 0.72fr) minmax(500px, 1.28fr);
   }
+
+  .sc-demo-film-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .sc-demo-nav {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .sc-demo-nav-btn {
+    flex: 1;
+    justify-content: center;
+    border-bottom: 0;
+    border-right: 1px solid var(--sc-line);
+    padding: 16px 12px;
+  }
+
+  .sc-demo-nav-btn:last-child {
+    border-right: 0;
+  }
 }
 
 @media (max-width: 960px) {
   .sc-section {
-    padding-block: 82px;
+    padding-block: var(--space-6);
   }
 
   .sc-hero-grid {
@@ -1125,7 +1568,7 @@
   }
 
   .sc-section {
-    padding-block: 68px;
+    padding-block: var(--space-5);
   }
 
   .sc-section-heading {
@@ -1258,7 +1701,7 @@
   }
 
   .sc-pro-section {
-    padding-block: 70px;
+    padding-block: var(--space-5);
   }
 
   .sc-pro-capabilities article {
@@ -1284,11 +1727,57 @@
   }
 
   .sc-final-cta {
-    padding-block: 68px;
+    padding-block: var(--space-5);
   }
 
   .sc-final-cta-inner {
     gap: 30px;
+  }
+
+  /* Demo film responsive */
+  .sc-demo-film {
+    padding-block: var(--space-6);
+  }
+
+  .sc-demo-film-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .sc-demo-nav {
+    flex-direction: row;
+    gap: 0;
+    order: -1;
+  }
+
+  .sc-demo-nav-btn {
+    flex: 1;
+    justify-content: center;
+    border-bottom: 0;
+    border-right: 1px solid var(--sc-line);
+    padding: 14px 10px;
+    font-size: 11px;
+  }
+
+  .sc-demo-nav-btn:last-child {
+    border-right: 0;
+  }
+
+  .sc-demo-nav-icon {
+    display: none;
+  }
+
+  .sc-demo-inputs {
+    padding: 16px;
+  }
+
+  .sc-calc-flow-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .sc-calc-flow-pipe {
+    display: none;
   }
 }
 
@@ -1329,6 +1818,14 @@
   .sc-product-card h3,
   .sc-case-card h3 {
     font-size: 26px;
+  }
+
+  .sc-demo-content h2 {
+    font-size: 30px;
+  }
+
+  .sc-demo-result-value {
+    font-size: 18px;
   }
 }
 

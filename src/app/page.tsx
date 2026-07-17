@@ -4,6 +4,7 @@ export const revalidate = 3600;
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { LandingPageContent } from "@/components/landing/LandingPageContent";
+import { ScrollFade } from "@/components/landing/ScrollFade";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { buildHomeJsonLd } from "@/lib/features/semantic/build-home-jsonld";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
@@ -24,7 +25,9 @@ export default function HomePage() {
   return (
     <PageLayout hideFooterCta>
       <SemanticJsonLd data={buildHomeJsonLd("en")} />
-      <LandingPageContent />
+      <ScrollFade>
+        <LandingPageContent />
+      </ScrollFade>
     </PageLayout>
   );
 }
