@@ -300,21 +300,30 @@ try {
   // Post-deploy: patch standalone with server chunks and fix paths
   console.log("deploy-production: patching standalone SSR function…");
   if (patchStandaloneAfterDeploy()) {
-    console.log("deploy-production: redeploying patched functions…");
-    const fnStatus = run("npx", [
-      "firebase",
-      "deploy",
-      "--only",
-      "functions:ssrsectorcalcbf412",
-      "--project",
-      "sectorcalc-bf412",
-    ], {
-      env: {
-        ...process.env,
-        NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
-      },
-    });
-    process.exit(fnStatus);
+    // Check if Stripe env vars are non-placeholder before deploying functions
+    const stripeKey = process.env.STRIPE_SECRET_KEY || "";
+    const isStripeConfigured = stripeKey.length > 0 && !stripeKey.includes("sonra_doldur") && !stripeKey.includes("sk_test_") && stripeKey.startsWith("sk_live_");
+    if (isStripeConfigured) {
+      console.log("deploy-production: Stripe env vars configured, deploying functions…");
+      const fnStatus = run("npx", [
+        "firebase",
+        "deploy",
+        "--only",
+        "functions:ssrsectorcalcbf412",
+        "--project",
+        "sectorcalc-bf412",
+      ], {
+        env: {
+          ...process.env,
+          NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+        },
+      });
+      process.exit(fnStatus);
+    } else {
+      console.log("deploy-production: Stripe env vars not configured (placeholders). Skipping functions deploy.");
+      console.log("deploy-production: Hosting + Firestore rules deployed successfully.");
+      process.exit(0);
+    }
   }
 
   process.exit(0);
