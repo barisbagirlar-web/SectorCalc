@@ -39,6 +39,7 @@ const CURRENCIES: Array<{ code: string; sym: string }> = [
 
 // ── Field schema — id MUST equal schema.inputs[].id exactly ────────
 type Dom = "cur" | "pct" | "num";
+interface UnitOption { k: string; f: number; l: string } // f: multiplier from this display unit to canonical
 interface FieldDef {
   ev: keyof InvestmentFeasibilityInputs;
   dom: Dom;
@@ -50,11 +51,13 @@ interface FieldDef {
   hint: string;
   src: string;
   grp: number;
+  units?: UnitOption[]; // when present, renders a unit dropdown; canonical value = raw * factor
 }
 const FIELDS: Record<string, FieldDef> = {
   capex:                 { ev: "capex",               dom: "cur", label: "CAPEX — purchase price (installed)", def: 100000, hard: [1, 5e8], ref: [15000, 2000000], refUnit: "", hint: "New machine, installed and commissioned.", src: "vendor quote or capex budget", grp: 1 },
   discount_rate:         { ev: "discountRate",         dom: "pct", label: "Discount / interest rate",           def: 8,      hard: [0, 40],  ref: [6, 12],           refUnit: "%", hint: "Corporate cost of capital. Drives NPV and lease recovery.", src: "finance policy", grp: 1 },
-  study_years:           { ev: "studyYears",           dom: "num", label: "Study period (years)",               def: 7,      hard: [1, 40],  ref: [5, 10],           refUnit: "yr", hint: "Analysis horizon and lease term.", src: "engineering assumption register", grp: 1 },
+  study_years:           { ev: "studyYears",           dom: "num", label: "Study period",                       def: 7,      hard: [1, 40],  ref: [5, 10],           refUnit: "yr", hint: "Analysis horizon and lease term.", src: "engineering assumption register", grp: 1,
+                           units: [{ k: "yr", f: 1, l: "years" }, { k: "mo", f: 1 / 12, l: "months" }] },
   lessor_margin:         { ev: "lessorMargin",         dom: "pct", label: "Lessor margin",                      def: 2,      hard: [0, 20],  ref: [1, 4],            refUnit: "%", hint: "Leasing company profit spread.", src: "Equipment Lessor Council", grp: 2 },
   insurance_rate:        { ev: "insuranceRate",        dom: "pct", label: "Lease insurance rate",               def: 0.5,    hard: [0, 10],  ref: [0.3, 1],          refUnit: "%", hint: "All-risk cover folded into the lease factor.", src: "insurance policy quote", grp: 2 },
   buy_maintenance:       { ev: "buyMaintenance",       dom: "cur", label: "Buy — annual maintenance",           def: 5000,   hard: [0, 5e7], ref: [2000, 15000],     refUnit: "/yr", hint: "New machine, flat over the horizon.", src: "OEM service schedule", grp: 3 },
@@ -63,7 +66,8 @@ const FIELDS: Record<string, FieldDef> = {
   market_value:          { ev: "marketValue",          dom: "cur", label: "Keep — current market value",       def: 40000,  hard: [0, 5e8], ref: [5000, 150000],    refUnit: "", hint: "Resale value forgone by keeping = opportunity cost.", src: "appraisal or resale comp", grp: 4 },
   keep_base_maintenance: { ev: "keepBaseMaintenance",  dom: "cur", label: "Keep — year-1 maintenance",         def: 5000,   hard: [0, 5e7], ref: [3000, 20000],     refUnit: "/yr", hint: "Escalates with age (see Advanced).", src: "maintenance log, last 12mo", grp: 4 },
   keep_base_energy:      { ev: "keepBaseEnergy",       dom: "cur", label: "Keep — year-1 energy",              def: 8000,   hard: [0, 5e7], ref: [3000, 25000],     refUnit: "/yr", hint: "Degrades with age (see Advanced).", src: "metered, last 12mo", grp: 4 },
-  production_volume:     { ev: "productionVolume",     dom: "num", label: "Annual production volume",          def: 10000,  hard: [0, 1e9], ref: [1000, 500000],    refUnit: "u/yr", hint: "Shared by Buy and Keep (same line).", src: "MES/ERP throughput", grp: 5 },
+  production_volume:     { ev: "productionVolume",     dom: "num", label: "Annual production volume",          def: 10000,  hard: [0, 1e9], ref: [1000, 500000],    refUnit: "u/yr", hint: "Shared by Buy and Keep (same line).", src: "MES/ERP throughput", grp: 5,
+                           units: [{ k: "yr", f: 1, l: "units/yr" }, { k: "mo", f: 12, l: "units/mo" }] },
   scrap_rate_base:       { ev: "scrapRateBase",        dom: "pct", label: "Year-1 scrap rate",                  def: 2,      hard: [0, 100], ref: [0.5, 5],          refUnit: "%", hint: "Escalates for Keep with wear.", src: "ISO 22400-2", grp: 5 },
   unit_cost:             { ev: "unitCost",             dom: "cur", label: "Cost per scrapped unit",             def: 12,     hard: [0, 1e6], ref: [1, 200],          refUnit: "", hint: "Material + value added lost per scrap.", src: "BOM + labor cost", grp: 5 },
   maint_escalation:      { ev: "maintEscalation",      dom: "pct", label: "Keep maintenance escalation",        def: 8,      hard: [0, 50],  ref: [6, 12],           refUnit: "%/yr", hint: "Bathtub wear-out phase.", src: "O'Connor 2014, Ch.9", grp: 6 },
@@ -79,9 +83,20 @@ const GROUPS: Record<number, { n: string; t: string; d: string }> = {
   6: { n: "06", t: "Advanced — escalation coefficients", d: "Sourced industry defaults for how an ageing machine gets more expensive. Editable." },
 };
 
-interface FieldState { value: string; error: string | null; warn: boolean; canon: number | null; }
+interface FieldState { value: string; unit: string; error: string | null; warn: boolean; canon: number | null; }
 
-function toCanon(f: FieldDef, raw: number): number { return f.dom === "pct" ? raw / 100 : raw; }
+function unitFactor(f: FieldDef, unitKey: string): number {
+  if (!f.units) return 1;
+  return (f.units.find((u) => u.k === unitKey) ?? f.units[0]).f;
+}
+function toCanon(f: FieldDef, raw: number, unitKey: string): number {
+  const v = f.dom === "pct" ? raw / 100 : raw;
+  return v * unitFactor(f, unitKey);
+}
+function fromCanon(f: FieldDef, canon: number, unitKey: string): number {
+  const v = canon / unitFactor(f, unitKey);
+  return f.dom === "pct" ? v * 100 : v;
+}
 function boundValue(f: FieldDef, raw: number, canon: number): number { return f.dom === "pct" ? raw : canon; }
 function refCheck(f: FieldDef, canon: number): boolean {
   const lo = f.dom === "pct" ? f.ref[0] / 100 : f.ref[0];
@@ -334,8 +349,9 @@ export default function BuyLeaseKeepToolPage() {
     const s: Record<string, FieldState> = {};
     for (const id of Object.keys(FIELDS)) {
       const f = FIELDS[id];
-      const canon = toCanon(f, f.def);
-      s[id] = { value: String(f.def), error: null, warn: refCheck(f, canon), canon };
+      const unit = f.units ? f.units[0].k : "";
+      const canon = toCanon(f, f.def, unit);
+      s[id] = { value: String(f.def), unit, error: null, warn: refCheck(f, canon), canon };
     }
     return s;
   });
@@ -343,6 +359,7 @@ export default function BuyLeaseKeepToolPage() {
   const updateField = useCallback((id: string, newValue: string) => {
     setFieldStates((prev) => {
       const f = FIELDS[id];
+      const st = prev[id];
       const raw = parseFloat(newValue);
       let error: string | null = null;
       let warn = false;
@@ -350,7 +367,7 @@ export default function BuyLeaseKeepToolPage() {
       if (newValue.trim() === "" || Number.isNaN(raw)) {
         error = "Enter a number.";
       } else {
-        canon = toCanon(f, raw);
+        canon = toCanon(f, raw, st.unit);
         const bv = boundValue(f, raw, canon);
         if (bv < f.hard[0] || bv > f.hard[1]) {
           error = `Outside valid range (${f.hard[0]}–${f.hard[1]}${f.dom === "pct" ? "%" : ""}).`;
@@ -359,9 +376,23 @@ export default function BuyLeaseKeepToolPage() {
           warn = refCheck(f, canon);
         }
       }
-      return { ...prev, [id]: { value: newValue, error, warn, canon } };
+      return { ...prev, [id]: { ...st, value: newValue, error, warn, canon } };
     });
   }, []);
+
+  // Switching the display unit preserves the canonical quantity — e.g. 7 years
+  // becomes 84 months, not a raw re-interpretation of the number 7 as months.
+  const updateFieldUnit = useCallback((id: string, newUnit: string) => {
+    setFieldStates((prev) => {
+      const f = FIELDS[id];
+      const st = prev[id];
+      if (st.canon == null) return { ...prev, [id]: { ...st, unit: newUnit } };
+      const raw = fromCanon(f, st.canon, newUnit);
+      const rounded = Math.round(raw * 1000) / 1000;
+      return { ...prev, [id]: { ...st, unit: newUnit, value: String(rounded) } };
+    });
+  }, []);
+
 
   const collectedInputs = useMemo((): InvestmentFeasibilityInputs | null => {
     const o: Partial<InvestmentFeasibilityInputs> = {};
@@ -393,8 +424,16 @@ export default function BuyLeaseKeepToolPage() {
       const selectedUnits: Record<string, string> = {};
       for (const [id, st] of Object.entries(fieldStates)) {
         const f = FIELDS[id];
-        rawInputs[id] = parseFloat(st.value);
-        if (f.dom === "pct") selectedUnits[id] = "percent";
+        if (f.units) {
+          // Schema only declares the base unit (years / units-per-year) for
+          // these two fields — always submit the canonical value regardless
+          // of which display unit the user is currently viewing, so the
+          // per-field unit dropdown never causes a server-side misconversion.
+          rawInputs[id] = st.canon ?? parseFloat(st.value);
+        } else {
+          rawInputs[id] = parseFloat(st.value);
+          if (f.dom === "pct") selectedUnits[id] = "percent";
+        }
       }
       const res = await fetch("/api/pro-calculator/execute", {
         method: "POST",
@@ -474,7 +513,8 @@ export default function BuyLeaseKeepToolPage() {
     const msg = st.error ? st.error : st.warn ? `Outside typical industry range (${fmtRef(f, curSym)}). Value accepted — flagged for review.` : "";
     const msgCls = st.error ? "blk-err" : st.warn ? "blk-warn" : "";
     const msgId = `ms_${id}`;
-    const canonTxt = st.error ? "" : `= ${f.dom === "cur" ? curSym : ""}${fmt(f.dom === "pct" ? (st.canon ?? 0) * 100 : st.canon)}`;
+    const canonUnitLabel = f.units ? ` ${f.units[0].l}` : "";
+    const canonTxt = st.error ? "" : `= ${f.dom === "cur" ? curSym : ""}${fmt(f.dom === "pct" ? (st.canon ?? 0) * 100 : st.canon)}${canonUnitLabel}`;
     return (
       <div className="blk-f" key={id}>
         <div className="blk-f-top">
@@ -494,6 +534,16 @@ export default function BuyLeaseKeepToolPage() {
           />
           {f.dom === "cur" && <span className="blk-prefix">{curSym}</span>}
           {f.dom === "pct" && <span className="blk-prefix" style={{ borderLeft: "1px solid var(--blk-line)", borderRight: "none" }}>%</span>}
+          {f.units && (
+            <select
+              aria-label={`Unit for ${f.label}`}
+              value={st.unit}
+              onChange={(e) => updateFieldUnit(id, e.target.value)}
+              style={{ borderLeft: "1px solid var(--blk-line)", background: "var(--blk-panel)", fontFamily: "var(--blk-mono)", fontSize: "14px", padding: "8px", minHeight: "48px", color: "var(--blk-ink)" }}
+            >
+              {f.units.map((u) => <option key={u.k} value={u.k}>{u.l}</option>)}
+            </select>
+          )}
         </div>
         <div className="blk-f-foot">
           <span className="blk-hint">{f.hint} <em style={{ fontStyle: "normal", color: "var(--blk-faint)" }}>· {f.src}</em></span>
