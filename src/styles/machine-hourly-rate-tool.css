@@ -568,3 +568,55 @@
   margin-right: 6px;
 }
 @keyframes x1-spin { to { transform: rotate(360deg); } }
+
+/* ── Print / PDF export ──────────────────────────────────────────────
+   Same WYSIWYG approach as buy-lease-keep-tool.css and pro-report-panel.css:
+   isolates .x1-report (the already-verified on-screen report) rather than
+   a separate hand-built PDF template. */
+@media print {
+  @page { margin: 14mm 12mm; }
+
+  body * { visibility: hidden; }
+  .x1-report, .x1-report * { visibility: visible; }
+  .x1-report {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  .x1-verdict-box, .x1-sec, .x1-bars, .x1-curbar, .x1-seal, .x1-disc, tr {
+    break-inside: avoid;
+  }
+  .x1-sec-h, .x1-sec-t { break-after: avoid; }
+
+  .sc-report-feedback, .sc-report-quick-reaction, .x1-print-btn,
+  [class*="sticky"] {
+    display: none !important;
+  }
+}
+
+.x1-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 16px;
+  margin-top: 10px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  cursor: pointer;
+}
+.x1-print-btn:hover { border-color: var(--clay); color: var(--clay); }

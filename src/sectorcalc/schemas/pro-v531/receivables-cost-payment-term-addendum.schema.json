@@ -160,11 +160,11 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 1.15741e-05
+            "factor": 0.0000115741
           },
           {
             "unit": "unit_per_year",
-            "factor": 3.17e-08
+            "factor": 3.17e-8
           }
         ]
       },
@@ -229,11 +229,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.6,
+        "min": 0.7,
         "max": 1,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on evidence review; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical finance-verified evidence confidence.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -273,17 +273,7 @@
         "public_help_text": "Attach or cite evidence for Source Confidence Ratio; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -320,7 +310,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Source Confidence Ratio. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "uncertainty_multiplier",
@@ -347,11 +344,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1.5,
-        "max": 2.5,
+        "min": 1,
+        "max": 1.5,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on uncertainty policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical uncertainty coverage multiplier.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -391,17 +388,7 @@
         "public_help_text": "Attach or cite evidence for Uncertainty Coverage Multiplier; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -438,7 +425,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Uncertainty Coverage Multiplier. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 1.5,
+        "unit": "ratio",
+        "source": "Typical uncertainty coverage multiplier.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "average_receivable_balance",
@@ -464,11 +458,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1000,
-        "max": 10000000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on AR aging report or ERP export; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 20000,
+        "max": 5000000,
+        "unit": "USD",
+        "source": "Typical outstanding AR balance for an SME/mid-market B2B business.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -508,17 +502,7 @@
         "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -556,7 +540,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Average Receivable Balance. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Average Receivable Balance can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Average Receivable Balance can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 20000,
+        "max": 5000000,
+        "unit": "USD",
+        "source": "Typical outstanding AR balance for an SME/mid-market B2B business.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_interest_rate",
@@ -585,11 +576,11 @@
         "semantic_error_message_max": "Annual Interest Rate is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.02,
-        "max": 0.35,
+        "min": 0.04,
+        "max": 0.15,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on lender/bank facility terms; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical corporate cost of capital / short-term borrowing rate.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -629,17 +620,7 @@
         "public_help_text": "Attach or cite evidence for Target Gross Margin; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -677,7 +658,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Cost of Capital / Interest Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Cost of Capital / Interest Rate can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Cost of Capital / Interest Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.04,
+        "max": 0.15,
+        "unit": "ratio",
+        "source": "Typical corporate cost of capital / short-term borrowing rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "average_collection_days",
@@ -698,17 +686,17 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 365,
-        "unit": "day",
+        "max": 31536000,
+        "unit": "s",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 15,
-        "max": 180,
-        "unit": "day",
-        "source": "SectorCalc industrial screening reference range based on AR aging report; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 2592000,
+        "max": 6480000,
+        "unit": "s",
+        "source": "Typical DSO for B2B net-30/net-60 payment terms (30-75 days), in seconds.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -748,17 +736,7 @@
         "public_help_text": "Attach or cite evidence for Cycle Time per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -796,7 +774,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Average Collection Period (DSO). Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Average Collection Period (DSO) can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Average Collection Period (DSO) can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 2592000,
+        "max": 6480000,
+        "unit": "s",
+        "source": "Typical DSO for B2B net-30/net-60 payment terms (30-75 days), in seconds.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "invoice_volume",
@@ -822,11 +807,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 10000,
-        "max": 100000000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on AR aging report or ERP export; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 100000,
+        "max": 50000000,
+        "unit": "USD",
+        "source": "Typical annual B2B invoiced revenue.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -866,17 +851,7 @@
         "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -914,7 +889,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Invoice Volume. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Invoice Volume can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Invoice Volume can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 100000,
+        "max": 50000000,
+        "unit": "USD",
+        "source": "Typical annual B2B invoiced revenue.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [
@@ -1880,21 +1862,21 @@
         "percent"
       ],
       "type": "number",
-      "formula_source": "F001",
+      "formula_source": "F_engine",
       "decision_use": "DIAGNOSTIC",
       "proof_status_role": "DIAGNOSTIC",
       "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
       "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
       "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
       "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F001",
+      "governing_formula": "F_engine",
       "governing_input_sensitivity": [
         "critical measured input",
         "evidence confidence",
         "uncertainty contribution",
         "commercial exposure"
       ],
-      "public_explanation": "Evidence Completeness Index translates the protected receivables-cost-payment-term-addendum calculation into a public-safe decision-support metric.",
+      "public_explanation": "Evidence Completeness — fraction of required inputs present and valid.",
       "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
       "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
       "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
@@ -2308,21 +2290,21 @@
         "currency_unit"
       ],
       "type": "number",
-      "formula_source": "F012",
+      "formula_source": "F_engine",
       "decision_use": "BUSINESS_IMPACT",
       "proof_status_role": "BUSINESS_IMPACT",
       "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
       "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
       "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
       "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F012",
+      "governing_formula": "F_engine",
       "governing_input_sensitivity": [
         "critical measured input",
         "evidence confidence",
         "uncertainty contribution",
         "commercial exposure"
       ],
-      "public_explanation": "Money at Risk translates the protected receivables-cost-payment-term-addendum calculation into a public-safe decision-support metric.",
+      "public_explanation": "Money at Risk — the annual AR carrying cost (same value as out_carrying_cost, exposed under the platform-wide risk-metric name).",
       "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
       "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
       "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
@@ -2440,6 +2422,279 @@
         "commercial exposure"
       ],
       "public_explanation": "Final Decision State translates the protected receivables-cost-payment-term-addendum calculation into a public-safe decision-support metric.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_carrying_cost",
+      "name": "AR Carrying Cost",
+      "symbol": "Decision",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "PASS_FAIL",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "AR Carrying Cost — annual financing cost of the stated average receivable balance at the cost of capital.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_financing_cost_pct_of_revenue",
+      "name": "Financing Cost (% of Revenue)",
+      "symbol": "Decision",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "PASS_FAIL",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Financing Cost as a percentage of annual invoiced revenue.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_implied_ar_from_dso",
+      "name": "AR Implied by DSO",
+      "symbol": "Decision",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "PASS_FAIL",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "AR Balance Implied by DSO — annual revenue × DSO/365; a cross-check against the stated balance, not summed into the cost.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_ar_consistency_gap_pct",
+      "name": "AR Consistency Gap",
+      "symbol": "Decision",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "PASS_FAIL",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "AR Consistency Gap — how far the stated receivable balance differs from what DSO and revenue imply; a data-quality signal.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_collection_days",
+      "name": "Collection Days (DSO)",
+      "symbol": "Decision",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "PASS_FAIL",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Collection Days — average days sales outstanding, in days.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_savings_per_day_dso_reduction",
+      "name": "Savings per Day of DSO Reduction",
+      "symbol": "Decision",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "PASS_FAIL",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Savings per Day of DSO Reduction — the annual financing-cost saving from tightening collection terms by one day.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "USER_VERIFIED_REQUIRED",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_verdict",
+      "name": "Verdict",
+      "symbol": "Decision",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "PRIMARY_DECISION",
+      "proof_status_role": "PASS_FAIL",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Verdict — 0=financing cost under 2% of revenue, 1=2-5%, 2=over 5% (material financing drag).",
       "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
       "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
       "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
@@ -3501,7 +3756,7 @@
   },
   "metadata": {
     "schema_version": "5.3.1-pro-schema.1",
-    "formula_version": "server-registry-required.1",
+    "formula_version": "5.3.2-domain.1",
     "prompt_version": "5.3.1",
     "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
     "runtime_llm_usage": "FORBIDDEN",

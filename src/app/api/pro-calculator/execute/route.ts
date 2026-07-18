@@ -46,6 +46,12 @@ import {
   validateFormulaResultContract,
 } from "@/sectorcalc/formulas/pro-v531/formula-schema-contract";
 
+/** Server-error (500) response: the full ExecuteResponse contract plus a
+ *  diagnostic `error` message. Explicit type instead of `as unknown as
+ *  ExecuteResponse`, so the compiler still validates the ExecuteResponse
+ *  fields structurally — only `error` is genuinely additive. */
+type ExecuteServerErrorResponse = ExecuteResponse & { error: string };
+
 if (initBarisFormulaRegistry() < (LIVE_BATCH_KEYS?.size ?? 0)) {
   throw new Error("Baris PRO formula registry initialization failed — schema resolution will be unavailable");
 }
@@ -620,7 +626,15 @@ export function pass3PublicControl(
 
   const proofPack: PublicProofPack = { enabled: true, redaction_status: "PUBLIC_SAFE_REDACTED", sections };
 
-  const inputHash = computeHash(JSON.stringify(body.raw_inputs));
+  // Hash the canonical calculation state — normalized_id + base_value + base_unit,
+  // sorted — not the raw client payload. JSON.stringify(body.raw_inputs) is key-order
+  // dependent (equivalent payloads could hash differently) and ignores selected_units
+  // entirely (two requests with the same numbers but different units, e.g. 7 "yr" vs
+  // 7 "mo", would hash identically despite being different calculations).
+  const canonicalInputPayload = pass2Result.normalizedAudit
+    .map((a) => ({ id: a.normalized_id, base_value: a.base_value, base_unit: a.base_unit ?? null }))
+    .sort((a, b) => a.id.localeCompare(b.id));
+  const inputHash = computeHash(JSON.stringify(canonicalInputPayload));
   const schemaHash = SchemaRegistry.computeSchemaHash(validatedSchema);
 
   const auditSeal: AuditSeal = createAuditSeal({
@@ -957,8 +971,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
     }
     const message = error instanceof Error ? error.message : "Unknown server error";
+    const blocked = buildFullBlockedResponse("SERVER_ERROR", message);
     return NextResponse.json(
-      { status: "BLOCKED", pipeline_state: "SERVER_ERROR", error: message } as unknown as ExecuteResponse,
+      { ...blocked, error: message } satisfies ExecuteServerErrorResponse,
       { status: 500 },
     );
   }
@@ -1017,7 +1032,7 @@ export function buildFullBlockedResponse(pipelineState: string, reason: string):
       formulaVersion: "blocked",
       schemaVersion: "0.0.0",
       runtimeVersion: "superv4-v5.3-runtime-1.0.0",
-    }),
+    }, false),
     redaction_status: "PUBLIC_SAFE_REDACTED",
   };
 }

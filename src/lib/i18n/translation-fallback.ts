@@ -661,6 +661,31 @@ export const FALLBACK_MAP: Record<string, string> = {
     "Is this decision support or professional advice?",
   "premiumDecisionReport.legalAnswer":
     "Decision support only. Consult qualified professionals for legal, financial, or regulatory compliance.",
+
+  "betaPartner.feedback.prompt": "Was this report accurate and useful for your decision?",
+  "betaPartner.feedback.open": "Rate this report",
+  "betaPartner.feedback.eyebrow": "REPORT FEEDBACK",
+  "betaPartner.feedback.title": "Help us improve this calculator",
+  "betaPartner.feedback.optional": "Optional — takes about 30 seconds.",
+  "betaPartner.feedback.dismiss": "Not now",
+  "betaPartner.feedback.rating": "How would you rate this report? (1 = poor, 5 = excellent)",
+  "betaPartner.feedback.usefulness": "How useful was this for your decision?",
+  "betaPartner.feedback.formulaFit": "How well did the calculation match your real situation?",
+  "betaPartner.feedback.missingVariable": "Was anything missing from the inputs? (optional)",
+  "betaPartner.feedback.comment": "Anything else — a bug, a suggestion, or what would make this more useful?",
+  "betaPartner.feedback.benchmarkPermission":
+    "I'm willing to let SectorCalc use my anonymized inputs and results to improve industry benchmark ranges.",
+  "betaPartner.feedback.submit": "Submit feedback",
+  "betaPartner.feedback.submitting": "Submitting...",
+  "betaPartner.feedback.thankYou": "Thank you — your feedback helps us improve this calculator for everyone.",
+  "betaPartner.feedback.selectPlaceholder": "Select...",
+  "betaPartner.feedback.rateLimited": "You've submitted feedback recently — please try again later.",
+  "betaPartner.feedback.quickReactionLabel": "Was this report helpful?",
+  "betaPartner.feedback.quickReactionPrompt": "Was this helpful?",
+  "betaPartner.feedback.quickReactionUp": "Yes, this was helpful",
+  "betaPartner.feedback.quickReactionDown": "No, this wasn't helpful",
+  "betaPartner.feedback.quickReactionThanks": "Thanks for the feedback!",
+  "betaPartner.feedback.quickReactionError": "Couldn't save that — please try again.",
 };
 
 /**

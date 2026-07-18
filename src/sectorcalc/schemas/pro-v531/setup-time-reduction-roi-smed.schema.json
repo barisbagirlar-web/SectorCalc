@@ -1,7 +1,7 @@
 {
   "tool_id": "PRO_038",
   "tool_key": "setup-time-reduction-roi-smed",
-  "tool_name": "Setup Time Reduction ROI \u2014 SMED",
+  "tool_name": "Setup Time Reduction ROI — SMED",
   "category": "Lean Manufacturing",
   "scope": "Quantify setup-time reduction impact on capacity, labor, lost contribution, and implementation ROI.",
   "primary_operation": "smed_setup_reduction_roi",
@@ -160,11 +160,11 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 1.15741e-05
+            "factor": 0.0000115741
           },
           {
             "unit": "unit_per_year",
-            "factor": 3.17e-08
+            "factor": 3.1709791983764586e-8
           }
         ]
       },
@@ -235,9 +235,9 @@
       "engineering_range": {
         "min": 20,
         "max": 2000,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on shop rate proof; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "unit": "USD/h",
+        "source": "Same reference band as SectorCalc Machine Hourly Rate tool, for platform consistency.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -277,17 +277,7 @@
         "public_help_text": "Attach or cite evidence for Machine Hourly Rate; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -325,7 +315,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Machine Hourly Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Machine Hourly Rate can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Machine Hourly Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 20,
+        "max": 2000,
+        "unit": "USD/h",
+        "source": "Same reference band as SectorCalc Machine Hourly Rate tool, for platform consistency.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "setup_time",
@@ -356,11 +353,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 300,
-        "max": 72000,
+        "min": 600,
+        "max": 7200,
         "unit": "s",
-        "source": "SectorCalc industrial screening reference range based on setup log; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical batch setup/changeover time (10min–2hr) before SMED improvement.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -400,17 +397,7 @@
         "public_help_text": "Attach or cite evidence for Batch Setup Time; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -448,18 +435,24 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Batch Setup Time. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Batch Setup Time can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Batch Setup Time can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 600,
+        "max": 7200,
+        "unit": "s",
+        "source": "Typical batch setup/changeover time (10min–2hr) before SMED improvement.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "batch_quantity",
       "name": "Batch Quantity",
       "symbol": "Q_batch",
       "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
+      "unit_selectable": false,
+      "base_unit": "count",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "count"
       ],
       "normalized_id": "n_batch_quantity",
       "type": "integer",
@@ -470,16 +463,16 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 100000,
-        "unit": "units",
+        "unit": "count",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1,
-        "max": 100000,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on work order; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 10,
+        "max": 5000,
+        "unit": "count",
+        "source": "Typical production batch/lot size.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -519,17 +512,7 @@
         "public_help_text": "Attach or cite evidence for Batch Quantity; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -567,7 +550,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Batch Quantity. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Batch Quantity can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Batch Quantity can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 5000,
+        "unit": "count",
+        "source": "Typical production batch/lot size.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_volume",
@@ -597,11 +587,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1e-06,
-        "max": 0.5,
-        "unit": "unit_per_s",
-        "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 1000,
+        "max": 500000,
+        "unit": "units/year",
+        "source": "Typical annual production volume for the affected line.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -641,17 +631,7 @@
         "public_help_text": "Attach or cite evidence for Annual Decision Volume; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -689,7 +669,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Decision Volume. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Decision Volume can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Decision Volume can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1000,
+        "max": 500000,
+        "unit": "units/year",
+        "source": "Typical annual production volume for the affected line.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "labor_rate",
@@ -720,11 +707,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 20,
-        "max": 250,
+        "min": 15,
+        "max": 100,
         "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on payroll and overhead allocation; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical loaded operator labor rate.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -764,17 +751,7 @@
         "public_help_text": "Attach or cite evidence for Fully Loaded Labor Rate; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -812,7 +789,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Fully Loaded Labor Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Fully Loaded Labor Rate can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Fully Loaded Labor Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 15,
+        "max": 100,
+        "unit": "currency_unit_per_h",
+        "source": "Typical loaded operator labor rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence_ratio",
@@ -839,11 +823,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.6,
+        "min": 0.7,
         "max": 1,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on evidence review; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical finance/ops-verified evidence confidence.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -883,17 +867,7 @@
         "public_help_text": "Attach or cite evidence for Source Confidence Ratio; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -930,7 +904,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Source Confidence Ratio. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance/ops-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "uncertainty_multiplier",
@@ -957,11 +938,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1.5,
-        "max": 2.5,
+        "min": 1,
+        "max": 1.5,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on uncertainty policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical uncertainty coverage multiplier.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1001,17 +982,7 @@
         "public_help_text": "Attach or cite evidence for Uncertainty Coverage Multiplier; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1048,7 +1019,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Uncertainty Coverage Multiplier. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 1.5,
+        "unit": "ratio",
+        "source": "Typical uncertainty coverage multiplier.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "smed_investment_cost",
@@ -1074,11 +1052,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 500,
-        "max": 2000000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 2000,
+        "max": 200000,
+        "unit": "USD",
+        "source": "Typical SMED program implementation cost (training, tooling, quick-change fixtures).",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1095,7 +1073,7 @@
         "source": "project quote or finance record",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Total one-time investment cost for the SMED (setup reduction) program. Required \u2014 ROI cannot be computed from a guessed fraction of overhead rate."
+        "public_note": "Total one-time investment cost for the SMED (setup reduction) program. Required — ROI cannot be computed from a guessed fraction of overhead rate."
       },
       "source_priority": [
         "project quote or finance record",
@@ -1118,17 +1096,7 @@
         "public_help_text": "Attach or cite evidence for SMED Program Investment Cost; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1166,7 +1134,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the total investment required to implement the setup-time reduction program: quick-change fixtures, tooling, training, and downtime during rollout.",
-      "warning_if_missing_or_estimated": "Missing SMED Program Investment Cost makes the calculation meaningless; the tool blocks output until this is provided."
+      "warning_if_missing_or_estimated": "Missing SMED Program Investment Cost makes the calculation meaningless; the tool blocks output until this is provided.",
+      "engineering_reference_range": {
+        "min": 2000,
+        "max": 200000,
+        "unit": "USD",
+        "source": "Typical SMED program implementation cost (training, tooling, quick-change fixtures).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "setup_time_reduction_target_pct",
@@ -1193,11 +1168,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.05,
-        "max": 0.9,
+        "min": 0.2,
+        "max": 0.6,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical achievable SMED setup-time reduction (20-60%), per SMED literature.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1214,7 +1189,7 @@
         "source": "project quote or finance record",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Target setup time reduction ratio (0..1) based on pilot data or vendor commitment. Required \u2014 the previous formula silently assumed a fixed 50% for every job."
+        "public_note": "Target setup time reduction ratio (0..1) based on pilot data or vendor commitment. Required — the previous formula silently assumed a fixed 50% for every job."
       },
       "source_priority": [
         "project quote or finance record",
@@ -1237,17 +1212,7 @@
         "public_help_text": "Attach or cite evidence for Target Setup Time Reduction; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1285,7 +1250,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the realistic, evidence-based percentage reduction in setup time expected from the SMED program (e.g. from a pilot study or vendor quote), not an assumed 50%.",
-      "warning_if_missing_or_estimated": "Missing Target Setup Time Reduction makes the calculation meaningless; the tool blocks output until this is provided."
+      "warning_if_missing_or_estimated": "Missing Target Setup Time Reduction makes the calculation meaningless; the tool blocks output until this is provided.",
+      "engineering_reference_range": {
+        "min": 0.2,
+        "max": 0.6,
+        "unit": "ratio",
+        "source": "Typical achievable SMED setup-time reduction (20-60%), per SMED literature.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "overhead_rate",
@@ -1316,10 +1288,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 20,
-        "max": 250,
+        "min": 10,
+        "max": 200,
         "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on payroll and overhead allocation; user must verify against project evidence."
+        "source": "Typical allocated overhead rate.",
+        "status": "REFERENCE"
       },
       "measurement_uncertainty": {
         "typical_percentage": 10,
@@ -1338,7 +1311,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the overhead rate to be allocated. Overhead includes indirect labor, facility costs, and support functions. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Missing or estimated Overhead Rate can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Overhead Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 200,
+        "unit": "currency_unit_per_h",
+        "source": "Typical allocated overhead rate.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [
@@ -1372,7 +1352,7 @@
       "id": "n_batch_quantity",
       "from_input": "batch_quantity",
       "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "base_unit": "count",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for batch_quantity after unit conversion.",
@@ -2356,21 +2336,21 @@
         "percent"
       ],
       "type": "number",
-      "formula_source": "F001",
+      "formula_source": "F_engine",
       "decision_use": "DIAGNOSTIC",
       "proof_status_role": "DIAGNOSTIC",
       "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
       "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
       "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
       "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F001",
+      "governing_formula": "F_engine",
       "governing_input_sensitivity": [
         "critical measured input",
         "evidence confidence",
         "uncertainty contribution",
         "commercial exposure"
       ],
-      "public_explanation": "Evidence Completeness Index translates the protected setup-time-reduction-roi-smed calculation into a public-safe decision-support metric.",
+      "public_explanation": "Evidence Completeness — fraction of required inputs present and valid.",
       "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
       "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
       "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
@@ -2784,21 +2764,21 @@
         "currency_unit"
       ],
       "type": "number",
-      "formula_source": "F012",
+      "formula_source": "F_engine",
       "decision_use": "BUSINESS_IMPACT",
       "proof_status_role": "BUSINESS_IMPACT",
       "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
       "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
       "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
       "governing_clause": "No clause invented; project checker must map exact clause if required.",
-      "governing_formula": "F012",
+      "governing_formula": "F_engine",
       "governing_input_sensitivity": [
         "critical measured input",
         "evidence confidence",
         "uncertainty contribution",
         "commercial exposure"
       ],
-      "public_explanation": "Money at Risk translates the protected setup-time-reduction-roi-smed calculation into a public-safe decision-support metric.",
+      "public_explanation": "Money at Risk — the SMED program investment cost (same value as out_money_at_risk, exposed under the platform-wide risk-metric name).",
       "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
       "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
       "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
@@ -2932,12 +2912,11 @@
     {
       "id": "out_machine_share_component",
       "name": "Machine Share of Setup Cost",
-      "symbol": "C_machine_share_component",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "symbol": "C_machine",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
       "type": "number",
       "formula_source": "F_engine",
@@ -2971,12 +2950,11 @@
     {
       "id": "out_labor_share_component",
       "name": "Labor Share of Setup Cost",
-      "symbol": "C_labor_share_component",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "symbol": "C_labor",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
       "type": "number",
       "formula_source": "F_engine",
@@ -2994,6 +2972,234 @@
         "commercial exposure"
       ],
       "public_explanation": "Labor Share of Setup Cost -- one segment of the total breakdown, used for the Pareto chart in the report layer.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_annual_hours_reclaimed",
+      "name": "Annual Hours Reclaimed",
+      "symbol": "H_reclaim",
+      "quantity_kind": "time",
+      "base_unit": "h",
+      "allowed_display_units": [
+        "h"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Annual Hours Reclaimed — total machine-hours freed up per year by the setup-time reduction.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_overhead_share_component",
+      "name": "Overhead Share Component",
+      "symbol": "C_overhead",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Overhead Share Component — overhead-rate portion of the reclaimed-capacity value.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_annual_savings",
+      "name": "Annual Savings",
+      "symbol": "S_annual",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Annual Savings — total value of reclaimed capacity (machine + labor + overhead) per year.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_payback_months",
+      "name": "Payback Period",
+      "symbol": "T_payback",
+      "quantity_kind": "time",
+      "base_unit": "month",
+      "allowed_display_units": [
+        "month"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Payback Period — months to recover the SMED investment from annual savings.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_roi_pct",
+      "name": "Return on Investment",
+      "symbol": "ROI_pct",
+      "quantity_kind": "dimensionless",
+      "base_unit": "percent",
+      "allowed_display_units": [
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Return on Investment — annual savings as a percentage of the SMED investment.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_verdict",
+      "name": "Verdict",
+      "symbol": "V",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Verdict — 0=payback under 12 months, 1=12-24 months, 2=over 24 months.",
       "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
       "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
       "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
@@ -3098,7 +3304,7 @@
     "type_a_support": true,
     "type_b_support": true,
     "combined_standard_uncertainty": "server-computed from registered sensitivity coefficients and source uncertainty contributors",
-    "expanded_uncertainty": "value \u00b1 expanded_uncertainty unit, k=coverage_factor",
+    "expanded_uncertainty": "value ± expanded_uncertainty unit, k=coverage_factor",
     "coverage_factor_policy": "user-verified or lab-policy value; no hidden default for critical output",
     "sensitivity_coefficients": "server registry only",
     "sensitivity_ranking_required": true,
@@ -4055,7 +4261,7 @@
   },
   "metadata": {
     "schema_version": "5.3.1-pro-schema.1",
-    "formula_version": "server-registry-required.1",
+    "formula_version": "5.3.2-domain.1",
     "prompt_version": "5.3.1",
     "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
     "runtime_llm_usage": "FORBIDDEN",
@@ -4080,7 +4286,7 @@
         "id": "QG-001",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify schema contract control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4091,7 +4297,7 @@
         "id": "QG-002",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify input evidence control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4102,7 +4308,7 @@
         "id": "QG-003",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify unit safety control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4113,7 +4319,7 @@
         "id": "QG-004",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4124,7 +4330,7 @@
         "id": "QG-005",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4135,7 +4341,7 @@
         "id": "QG-006",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify formula registry control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4146,7 +4352,7 @@
         "id": "QG-007",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify server execution control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4157,7 +4363,7 @@
         "id": "QG-008",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify redaction control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4168,7 +4374,7 @@
         "id": "QG-009",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4179,7 +4385,7 @@
         "id": "QG-010",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify FMEA control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4190,7 +4396,7 @@
         "id": "QG-011",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify business impact control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4201,7 +4407,7 @@
         "id": "QG-012",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify audit seal control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4212,7 +4418,7 @@
         "id": "QG-013",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify proof pack control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4223,7 +4429,7 @@
         "id": "QG-014",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify accessibility control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4234,7 +4440,7 @@
         "id": "QG-015",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify root-only routing control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4245,7 +4451,7 @@
         "id": "QG-016",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify non-English guard control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4256,7 +4462,7 @@
         "id": "QG-017",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify brand safety control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4267,7 +4473,7 @@
         "id": "QG-018",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify golden hashes control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4278,7 +4484,7 @@
         "id": "QG-019",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify schema contract control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4289,7 +4495,7 @@
         "id": "QG-020",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify input evidence control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4300,7 +4506,7 @@
         "id": "QG-021",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify unit safety control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4311,7 +4517,7 @@
         "id": "QG-022",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4322,7 +4528,7 @@
         "id": "QG-023",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4333,7 +4539,7 @@
         "id": "QG-024",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify formula registry control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4344,7 +4550,7 @@
         "id": "QG-025",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify server execution control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4355,7 +4561,7 @@
         "id": "QG-026",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify redaction control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4366,7 +4572,7 @@
         "id": "QG-027",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4377,7 +4583,7 @@
         "id": "QG-028",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify FMEA control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4388,7 +4594,7 @@
         "id": "QG-029",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify business impact control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4399,7 +4605,7 @@
         "id": "QG-030",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify audit seal control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4410,7 +4616,7 @@
         "id": "QG-031",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify proof pack control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4421,7 +4627,7 @@
         "id": "QG-032",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify accessibility control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4432,7 +4638,7 @@
         "id": "QG-033",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify root-only routing control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4443,7 +4649,7 @@
         "id": "QG-034",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify non-English guard control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4454,7 +4660,7 @@
         "id": "QG-035",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify brand safety control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4465,7 +4671,7 @@
         "id": "QG-036",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify golden hashes control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4476,7 +4682,7 @@
         "id": "QG-037",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify schema contract control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4487,7 +4693,7 @@
         "id": "QG-038",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify input evidence control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4498,7 +4704,7 @@
         "id": "QG-039",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify unit safety control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4509,7 +4715,7 @@
         "id": "QG-040",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4520,7 +4726,7 @@
         "id": "QG-041",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4531,7 +4737,7 @@
         "id": "QG-042",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify formula registry control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4542,7 +4748,7 @@
         "id": "QG-043",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify server execution control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4553,7 +4759,7 @@
         "id": "QG-044",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify redaction control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4564,7 +4770,7 @@
         "id": "QG-045",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4575,7 +4781,7 @@
         "id": "QG-046",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify FMEA control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4586,7 +4792,7 @@
         "id": "QG-047",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify business impact control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4597,7 +4803,7 @@
         "id": "QG-048",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify audit seal control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4608,7 +4814,7 @@
         "id": "QG-049",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify proof pack control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4619,7 +4825,7 @@
         "id": "QG-050",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify accessibility control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4630,7 +4836,7 @@
         "id": "QG-051",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify root-only routing control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4641,7 +4847,7 @@
         "id": "QG-052",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify non-English guard control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4652,7 +4858,7 @@
         "id": "QG-053",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify brand safety control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4663,7 +4869,7 @@
         "id": "QG-054",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify golden hashes control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4674,7 +4880,7 @@
         "id": "QG-055",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify schema contract control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4685,7 +4891,7 @@
         "id": "QG-056",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify input evidence control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4696,7 +4902,7 @@
         "id": "QG-057",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify unit safety control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4707,7 +4913,7 @@
         "id": "QG-058",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4718,7 +4924,7 @@
         "id": "QG-059",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4729,7 +4935,7 @@
         "id": "QG-060",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify formula registry control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4740,7 +4946,7 @@
         "id": "QG-061",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify server execution control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4751,7 +4957,7 @@
         "id": "QG-062",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify redaction control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4762,7 +4968,7 @@
         "id": "QG-063",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4773,7 +4979,7 @@
         "id": "QG-064",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify FMEA control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4784,7 +4990,7 @@
         "id": "QG-065",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify business impact control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4795,7 +5001,7 @@
         "id": "QG-066",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify audit seal control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4806,7 +5012,7 @@
         "id": "QG-067",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify proof pack control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4817,7 +5023,7 @@
         "id": "QG-068",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify accessibility control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4828,7 +5034,7 @@
         "id": "QG-069",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify root-only routing control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4839,7 +5045,7 @@
         "id": "QG-070",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify non-English guard control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4850,7 +5056,7 @@
         "id": "QG-071",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify brand safety control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4861,7 +5067,7 @@
         "id": "QG-072",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify golden hashes control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4872,7 +5078,7 @@
         "id": "QG-073",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify schema contract control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4883,7 +5089,7 @@
         "id": "QG-074",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify input evidence control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4894,7 +5100,7 @@
         "id": "QG-075",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify unit safety control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4905,7 +5111,7 @@
         "id": "QG-076",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify physical bounds control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4916,7 +5122,7 @@
         "id": "QG-077",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify engineering reference range control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4927,7 +5133,7 @@
         "id": "QG-078",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify formula registry control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4938,7 +5144,7 @@
         "id": "QG-079",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify server execution control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4949,7 +5155,7 @@
         "id": "QG-080",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify redaction control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4960,7 +5166,7 @@
         "id": "QG-081",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify uncertainty control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4971,7 +5177,7 @@
         "id": "QG-082",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify FMEA control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4982,7 +5188,7 @@
         "id": "QG-083",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify business impact control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4993,7 +5199,7 @@
         "id": "QG-084",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify audit seal control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5004,7 +5210,7 @@
         "id": "QG-085",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify proof pack control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5015,7 +5221,7 @@
         "id": "QG-086",
         "tool_key": "setup-time-reduction-roi-smed",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Setup Time Reduction ROI \u2014 SMED before production approval.",
+        "control_objective": "Verify accessibility control for Setup Time Reduction ROI — SMED before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",

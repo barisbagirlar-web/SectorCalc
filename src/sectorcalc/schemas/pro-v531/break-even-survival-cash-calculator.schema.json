@@ -118,12 +118,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_reference_range": {
-        "min": 0,
-        "max": 10000000,
+        "min": 10000,
+        "max": 2000000,
         "unit": "currency_unit",
-        "source": "Advisory screening range; verify company records.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical SME/growth-stage monthly fixed cash operating cost (rent, payroll, utilities, insurance).",
+        "status": "REFERENCE"
       },
       "resolution": 0.01,
       "precision_policy": {
@@ -158,7 +157,14 @@
         "out_monthly_cash_burn",
         "out_survival_cash_target"
       ],
-      "user_help_text": "Recurring monthly cash costs excluding debt service. Replace the example before a real decision."
+      "user_help_text": "Recurring monthly cash costs excluding debt service. Replace the example before a real decision.",
+      "engineering_range": {
+        "min": 10000,
+        "max": 2000000,
+        "unit": "currency_unit",
+        "source": "Typical SME/growth-stage monthly fixed cash operating cost (rent, payroll, utilities, insurance).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "monthly_debt_service",
@@ -184,11 +190,10 @@
       },
       "engineering_reference_range": {
         "min": 0,
-        "max": 10000000,
+        "max": 500000,
         "unit": "currency_unit",
-        "source": "Advisory screening range; verify debt schedules.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical monthly principal+interest debt service for an SME credit facility.",
+        "status": "REFERENCE"
       },
       "resolution": 0.01,
       "precision_policy": {
@@ -223,7 +228,14 @@
         "out_monthly_cash_burn",
         "out_survival_cash_target"
       ],
-      "user_help_text": "Mandatory monthly financing payments. Replace the example before a real decision."
+      "user_help_text": "Mandatory monthly financing payments. Replace the example before a real decision.",
+      "engineering_range": {
+        "min": 0,
+        "max": 500000,
+        "unit": "currency_unit",
+        "source": "Typical monthly principal+interest debt service for an SME credit facility.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "contribution_margin_ratio",
@@ -249,12 +261,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_reference_range": {
-        "min": 0.05,
-        "max": 0.9,
+        "min": 0.2,
+        "max": 0.6,
         "unit": "ratio",
-        "source": "Advisory screening range; verify the contribution margin bridge.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical contribution margin range across manufacturing/services SMEs.",
+        "status": "REFERENCE"
       },
       "resolution": 0.0001,
       "precision_policy": {
@@ -290,7 +301,14 @@
         "out_monthly_cash_burn",
         "out_margin_of_safety_ratio"
       ],
-      "user_help_text": "Revenue remaining after variable cash costs. The example displays as 42%."
+      "user_help_text": "Revenue remaining after variable cash costs. The example displays as 42%.",
+      "engineering_range": {
+        "min": 0.2,
+        "max": 0.6,
+        "unit": "ratio",
+        "source": "Typical contribution margin range across manufacturing/services SMEs.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "current_monthly_revenue",
@@ -315,12 +333,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_reference_range": {
-        "min": 0,
-        "max": 100000000,
+        "min": 20000,
+        "max": 5000000,
         "unit": "currency_unit",
-        "source": "Advisory screening range; verify recent revenue records.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical SME/growth-stage monthly revenue range.",
+        "status": "REFERENCE"
       },
       "resolution": 0.01,
       "precision_policy": {
@@ -355,7 +372,14 @@
         "out_stressed_monthly_revenue",
         "out_margin_of_safety_ratio"
       ],
-      "user_help_text": "Current sustainable monthly revenue. Replace the example before a real decision."
+      "user_help_text": "Current sustainable monthly revenue. Replace the example before a real decision.",
+      "engineering_range": {
+        "min": 20000,
+        "max": 5000000,
+        "unit": "currency_unit",
+        "source": "Typical SME/growth-stage monthly revenue range.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "unrestricted_cash_balance",
@@ -380,12 +404,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_reference_range": {
-        "min": 0,
-        "max": 100000000,
+        "min": 10000,
+        "max": 3000000,
         "unit": "currency_unit",
-        "source": "Advisory screening range; verify bank evidence.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical unrestricted operating cash balance for an SME.",
+        "status": "REFERENCE"
       },
       "resolution": 0.01,
       "precision_policy": {
@@ -419,7 +442,14 @@
         "out_cash_runway_months",
         "out_funding_gap"
       ],
-      "user_help_text": "Cash available after excluding restricted funds. Replace the example before a real decision."
+      "user_help_text": "Cash available after excluding restricted funds. Replace the example before a real decision.",
+      "engineering_range": {
+        "min": 10000,
+        "max": 3000000,
+        "unit": "currency_unit",
+        "source": "Typical unrestricted operating cash balance for an SME.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "minimum_cash_buffer",
@@ -444,12 +474,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_reference_range": {
-        "min": 0,
-        "max": 100000000,
+        "min": 5000,
+        "max": 500000,
         "unit": "currency_unit",
-        "source": "Advisory screening range; management must verify the reserve policy.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical board/lender-mandated minimum cash reserve (often 1-3 months fixed cost).",
+        "status": "REFERENCE"
       },
       "resolution": 0.01,
       "precision_policy": {
@@ -484,7 +513,14 @@
         "out_survival_cash_target",
         "out_funding_gap"
       ],
-      "user_help_text": "Reserve management will not consume. Replace the example before a real decision."
+      "user_help_text": "Reserve management will not consume. Replace the example before a real decision.",
+      "engineering_range": {
+        "min": 5000,
+        "max": 500000,
+        "unit": "currency_unit",
+        "source": "Typical board/lender-mandated minimum cash reserve (often 1-3 months fixed cost).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "target_survival_months",
@@ -509,12 +545,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_reference_range": {
-        "min": 1,
-        "max": 24,
+        "min": 3,
+        "max": 18,
         "unit": "month",
-        "source": "Advisory planning range; management and lenders must verify the required horizon.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical target cash runway horizon used in going-concern and lender covenant planning.",
+        "status": "REFERENCE"
       },
       "resolution": 0.1,
       "precision_policy": {
@@ -548,7 +583,14 @@
         "out_survival_cash_target",
         "out_target_runway_breached"
       ],
-      "user_help_text": "Required runway under the downside scenario. Replace the example before a real decision."
+      "user_help_text": "Required runway under the downside scenario. Replace the example before a real decision.",
+      "engineering_range": {
+        "min": 3,
+        "max": 18,
+        "unit": "month",
+        "source": "Typical target cash runway horizon used in going-concern and lender covenant planning.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "downside_revenue_factor",
@@ -574,12 +616,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_reference_range": {
-        "min": 0.1,
-        "max": 1,
+        "min": 0.5,
+        "max": 0.9,
         "unit": "ratio",
-        "source": "Advisory stress range; verify the downside scenario.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical stress-test revenue retention factor used in downside scenario planning.",
+        "status": "REFERENCE"
       },
       "resolution": 0.0001,
       "precision_policy": {
@@ -614,7 +655,14 @@
         "out_monthly_cash_burn",
         "out_cash_runway_months"
       ],
-      "user_help_text": "Revenue retained in the downside scenario. The example displays as 70%."
+      "user_help_text": "Revenue retained in the downside scenario. The example displays as 70%.",
+      "engineering_range": {
+        "min": 0.5,
+        "max": 0.9,
+        "unit": "ratio",
+        "source": "Typical stress-test revenue retention factor used in downside scenario planning.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence_ratio",
@@ -643,9 +691,8 @@
         "min": 0.7,
         "max": 1,
         "unit": "ratio",
-        "source": "SectorCalc evidence-confidence screening range.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical evidence-confidence range for finance-department-verified figures.",
+        "status": "REFERENCE"
       },
       "resolution": 0.001,
       "precision_policy": {
@@ -678,7 +725,14 @@
         "out_source_confidence_ratio",
         "out_decision_code"
       ],
-      "user_help_text": "Confidence that inputs are current and traceable. The example displays as 90%."
+      "user_help_text": "Confidence that inputs are current and traceable. The example displays as 90%.",
+      "engineering_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical evidence-confidence range for finance-department-verified figures.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "uncertainty_multiplier",
@@ -703,12 +757,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_reference_range": {
-        "min": 1,
-        "max": 2,
+        "min": 1.1,
+        "max": 1.5,
         "unit": "ratio",
-        "source": "Advisory screening range; verify the uncertainty allowance policy.",
-        "status": "CONTEXT_ONLY",
-        "warning_behavior": "OUTSIDE"
+        "source": "Typical uncertainty coverage multiplier applied to burn-rate reserve targets.",
+        "status": "REFERENCE"
       },
       "resolution": 0.01,
       "precision_policy": {
@@ -741,7 +794,14 @@
         "out_uncertainty_cash_buffer",
         "out_survival_cash_target"
       ],
-      "user_help_text": "Coverage applied to the full target-period downside burn. Replace the example before a real decision."
+      "user_help_text": "Coverage applied to the full target-period downside burn. Replace the example before a real decision.",
+      "engineering_range": {
+        "min": 1.1,
+        "max": 1.5,
+        "unit": "ratio",
+        "source": "Typical uncertainty coverage multiplier applied to burn-rate reserve targets.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [

@@ -228,7 +228,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 500000,
+        "max": 20000000,
+        "unit": "USD/year",
+        "source": "Typical plant-wide annual cost base for a mid-size manufacturing site.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -281,7 +287,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the total annual cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Total Annual Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Total Annual Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 500000,
+        "max": 20000000,
+        "unit": "USD/year",
+        "source": "Typical plant-wide annual cost base for a mid-size manufacturing site.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "total_productive_hours",
@@ -306,7 +319,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 5000,
+        "max": 40000,
+        "unit": "h",
+        "source": "Typical plant-wide annual productive hours across multiple lines.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -359,7 +378,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the total productive hours. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Total Productive Hours will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Total Productive Hours will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 5000,
+        "max": 40000,
+        "unit": "h",
+        "source": "Typical plant-wide annual productive hours across multiple lines.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "machine_group_cost",
@@ -384,7 +410,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 50000,
+        "max": 2000000,
+        "unit": "USD",
+        "source": "Typical annual cost for a machine group/work center.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -437,7 +469,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the machine group cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Machine Group Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Machine Group Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 50000,
+        "max": 2000000,
+        "unit": "USD",
+        "source": "Typical annual cost for a machine group/work center.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "machine_group_hours",
@@ -462,7 +501,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 2000,
+        "max": 20000,
+        "unit": "h",
+        "source": "Typical annual hours for a machine group/work center.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -515,7 +560,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the machine group hours. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Machine Group Hours will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Machine Group Hours will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 2000,
+        "max": 20000,
+        "unit": "h",
+        "source": "Typical annual hours for a machine group/work center.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "overhead_pool",
@@ -540,7 +592,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 100000,
+        "max": 3000000,
+        "unit": "USD",
+        "source": "Typical annual plant overhead pool.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -593,7 +651,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the overhead pool. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Overhead Pool will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Overhead Pool will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 100000,
+        "max": 3000000,
+        "unit": "USD",
+        "source": "Typical annual plant overhead pool.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "overhead_allocation_base",
@@ -618,7 +683,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 2000,
+        "max": 20000,
+        "unit": "h",
+        "source": "Typical annual overhead allocation base hours.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -671,7 +742,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the overhead allocation base. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Overhead Allocation Base will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Overhead Allocation Base will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 2000,
+        "max": 20000,
+        "unit": "h",
+        "source": "Typical annual overhead allocation base hours.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "current_shop_rate",
@@ -696,7 +774,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 20,
+        "max": 2000,
+        "unit": "USD/h",
+        "source": "Same reference band as SectorCalc Machine Hourly Rate tool, for platform consistency.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -749,7 +833,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the current shop rate. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Current Shop Rate will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Current Shop Rate will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 20,
+        "max": 2000,
+        "unit": "USD/h",
+        "source": "Same reference band as SectorCalc Machine Hourly Rate tool, for platform consistency.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "target_margin_pct",
@@ -775,7 +866,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.1,
+        "max": 0.35,
+        "unit": "ratio",
+        "source": "Typical target margin range for a job-shop cost structure.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -828,7 +925,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the target margin %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Target Margin % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Target Margin % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.1,
+        "max": 0.35,
+        "unit": "ratio",
+        "source": "Typical target margin range for a job-shop cost structure.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "utilization_pct",
@@ -854,7 +958,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 60,
+        "max": 90,
+        "unit": "percent",
+        "source": "Typical plant utilization range.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -907,7 +1017,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the utilization %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Utilization % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Utilization % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 60,
+        "max": 90,
+        "unit": "percent",
+        "source": "Typical plant utilization range.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence",
@@ -932,7 +1049,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -985,7 +1108,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [

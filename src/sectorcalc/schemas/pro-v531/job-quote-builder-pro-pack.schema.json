@@ -235,9 +235,9 @@
       "engineering_range": {
         "min": 20,
         "max": 2000,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on shop rate proof; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "unit": "USD/h",
+        "source": "Same reference band as SectorCalc Machine Hourly Rate tool, for platform consistency.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -277,17 +277,7 @@
         "public_help_text": "Attach or cite evidence for Machine Hourly Rate; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -325,7 +315,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Machine Hourly Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Machine Hourly Rate can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Machine Hourly Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 20,
+        "max": 2000,
+        "unit": "USD/h",
+        "source": "Same reference band as SectorCalc Machine Hourly Rate tool, for platform consistency.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "cycle_time",
@@ -356,11 +353,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 30,
-        "max": 36000,
+        "min": 10,
+        "max": 3600,
         "unit": "s",
-        "source": "SectorCalc industrial screening reference range based on time study or CAM estimate; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical single-part machining cycle time.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -400,17 +397,7 @@
         "public_help_text": "Attach or cite evidence for Cycle Time per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -448,7 +435,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Cycle Time per Unit. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Cycle Time per Unit can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Cycle Time per Unit can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 3600,
+        "unit": "s",
+        "source": "Typical single-part machining cycle time.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "setup_time",
@@ -480,10 +474,10 @@
       },
       "engineering_range": {
         "min": 300,
-        "max": 72000,
+        "max": 7200,
         "unit": "s",
-        "source": "SectorCalc industrial screening reference range based on setup log; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical batch setup/changeover time (5min–2hr).",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -523,17 +517,7 @@
         "public_help_text": "Attach or cite evidence for Batch Setup Time; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -571,18 +555,24 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Batch Setup Time. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Batch Setup Time can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Batch Setup Time can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 300,
+        "max": 7200,
+        "unit": "s",
+        "source": "Typical batch setup/changeover time (5min–2hr).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "batch_quantity",
       "name": "Batch Quantity",
       "symbol": "Q_batch",
       "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
+      "unit_selectable": false,
+      "base_unit": "count",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "count"
       ],
       "normalized_id": "n_batch_quantity",
       "type": "integer",
@@ -593,16 +583,16 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 100000,
-        "unit": "units",
+        "unit": "count",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 1,
-        "max": 100000,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on work order; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "max": 10000,
+        "unit": "count",
+        "source": "Typical job-shop batch/lot size.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -642,17 +632,7 @@
         "public_help_text": "Attach or cite evidence for Batch Quantity; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -690,7 +670,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Batch Quantity. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Batch Quantity can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Batch Quantity can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 10000,
+        "unit": "count",
+        "source": "Typical job-shop batch/lot size.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "material_cost",
@@ -716,11 +703,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.1,
-        "max": 100000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on purchase invoice or BOM; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 1,
+        "max": 5000,
+        "unit": "USD",
+        "source": "Typical per-unit material cost.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -760,17 +747,7 @@
         "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -808,7 +785,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Material Cost per Unit. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Material Cost per Unit can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Material Cost per Unit can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 5000,
+        "unit": "USD",
+        "source": "Typical per-unit material cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "target_margin",
@@ -837,11 +821,11 @@
         "semantic_error_message_max": "Target Gross Margin is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.05,
-        "max": 0.7,
+        "min": 0.1,
+        "max": 0.4,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on pricing policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical job-shop quoted gross margin.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -881,17 +865,7 @@
         "public_help_text": "Attach or cite evidence for Target Gross Margin; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -929,7 +903,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Target Gross Margin. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Target Gross Margin can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Target Gross Margin can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.1,
+        "max": 0.4,
+        "unit": "ratio",
+        "source": "Typical job-shop quoted gross margin.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_volume",
@@ -959,11 +940,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.000001,
-        "max": 0.5,
-        "unit": "unit_per_s",
-        "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 100,
+        "max": 500000,
+        "unit": "units/year",
+        "source": "Typical annual decision volume for this part family.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1003,17 +984,7 @@
         "public_help_text": "Attach or cite evidence for Annual Decision Volume; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1051,7 +1022,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Decision Volume. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Decision Volume can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Decision Volume can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 100,
+        "max": 500000,
+        "unit": "units/year",
+        "source": "Typical annual decision volume for this part family.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "labor_rate",
@@ -1082,11 +1060,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 20,
-        "max": 250,
+        "min": 15,
+        "max": 100,
         "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on payroll and overhead allocation; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical loaded operator labor rate.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1126,17 +1104,7 @@
         "public_help_text": "Attach or cite evidence for Fully Loaded Labor Rate; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1174,7 +1142,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Fully Loaded Labor Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Fully Loaded Labor Rate can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Fully Loaded Labor Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 15,
+        "max": 100,
+        "unit": "currency_unit_per_h",
+        "source": "Typical loaded operator labor rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "overhead_rate",
@@ -1206,10 +1181,10 @@
       },
       "engineering_range": {
         "min": 10,
-        "max": 1000,
+        "max": 200,
         "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on cost accounting ledger; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical allocated overhead rate.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1249,17 +1224,7 @@
         "public_help_text": "Attach or cite evidence for Allocated Overhead Rate; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1296,7 +1261,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Allocated Overhead Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Allocated Overhead Rate can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Allocated Overhead Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 200,
+        "unit": "currency_unit_per_h",
+        "source": "Typical allocated overhead rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "defect_or_loss_cost",
@@ -1322,11 +1294,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1,
-        "max": 100000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on invoice, replacement cost, or management estimate; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 0,
+        "max": 50000,
+        "unit": "USD",
+        "source": "Typical unit loss/scrap cost exposure.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1366,17 +1338,7 @@
         "public_help_text": "Attach or cite evidence for Unit Loss Cost; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1413,7 +1375,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Unit Loss Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Unit Loss Cost can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Unit Loss Cost can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0,
+        "max": 50000,
+        "unit": "USD",
+        "source": "Typical unit loss/scrap cost exposure.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence_ratio",
@@ -1440,11 +1409,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.6,
+        "min": 0.7,
         "max": 1,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on evidence review; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical finance/ops-verified evidence confidence.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1484,17 +1453,7 @@
         "public_help_text": "Attach or cite evidence for Source Confidence Ratio; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1531,7 +1490,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Source Confidence Ratio. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance/ops-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "uncertainty_multiplier",
@@ -1558,11 +1524,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1.5,
-        "max": 2.5,
+        "min": 1,
+        "max": 1.5,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on uncertainty policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical uncertainty coverage multiplier.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1602,17 +1568,7 @@
         "public_help_text": "Attach or cite evidence for Uncertainty Coverage Multiplier; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1649,7 +1605,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Uncertainty Coverage Multiplier. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 1.5,
+        "unit": "ratio",
+        "source": "Typical uncertainty coverage multiplier.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [
@@ -1696,7 +1659,7 @@
       "id": "n_batch_quantity",
       "from_input": "batch_quantity",
       "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "base_unit": "count",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for batch_quantity after unit conversion.",
