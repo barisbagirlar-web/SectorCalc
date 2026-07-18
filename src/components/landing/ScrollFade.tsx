@@ -45,7 +45,20 @@ export function ScrollFade({ children }: { children: React.ReactNode }) {
       .filter((el) => el.classList.contains("sc-fade-prep"))
       .forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    // Fail-safe: if the observer never fires for a section (backgrounded tab
+    // during load, layout quirks, unsupported environments), force-reveal any
+    // section still queued so its content can never remain permanently hidden.
+    const fallback = window.setTimeout(() => {
+      root.querySelectorAll<HTMLElement>(".sc-fade-prep").forEach((el) => {
+        el.classList.add("sc-fade-visible");
+        el.classList.remove("sc-fade-prep");
+      });
+    }, 2200);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   return <div ref={rootRef}>{children}</div>;
