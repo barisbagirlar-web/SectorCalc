@@ -539,7 +539,7 @@ export default function BuyLeaseKeepToolPage() {
               aria-label={`Unit for ${f.label}`}
               value={st.unit}
               onChange={(e) => updateFieldUnit(id, e.target.value)}
-              style={{ borderLeft: "1px solid var(--blk-line)", background: "var(--blk-panel)", fontFamily: "var(--blk-mono)", fontSize: "12px", padding: "0 8px", color: "var(--blk-ink)" }}
+              style={{ borderLeft: "1px solid var(--blk-line)", background: "var(--blk-panel)", fontFamily: "var(--blk-mono)", fontSize: "14px", padding: "8px", minHeight: "48px", color: "var(--blk-ink)" }}
             >
               {f.units.map((u) => <option key={u.k} value={u.k}>{u.l}</option>)}
             </select>
