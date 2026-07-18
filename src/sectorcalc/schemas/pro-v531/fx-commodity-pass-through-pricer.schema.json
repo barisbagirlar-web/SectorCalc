@@ -227,7 +227,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 100000,
+        "unit": "USD",
+        "source": "Typical quoted unit or contract base price.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -280,7 +286,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the base price. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Base Price will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Base Price will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 100000,
+        "unit": "USD",
+        "source": "Typical quoted unit or contract base price.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "fx_rate_spot",
@@ -305,7 +318,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.5,
+        "max": 50,
+        "unit": "ratio",
+        "source": "Typical FX rate range for major and most minor currency pairs vs USD (excludes hyperinflated currencies, which this schema's own 0-100 hard bound also cannot represent).",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -358,7 +377,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the fx rate (spot). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated FX Rate (Spot) will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated FX Rate (Spot) will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.5,
+        "max": 50,
+        "unit": "ratio",
+        "source": "Typical FX rate range for major and most minor currency pairs vs USD (excludes hyperinflated currencies, which this schema's own 0-100 hard bound also cannot represent).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "fx_rate_budget",
@@ -383,7 +409,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.5,
+        "max": 50,
+        "unit": "ratio",
+        "source": "Typical FX rate range for major and most minor currency pairs vs USD (excludes hyperinflated currencies, which this schema's own 0-100 hard bound also cannot represent).",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -436,7 +468,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the fx rate (budget). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated FX Rate (Budget) will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated FX Rate (Budget) will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.5,
+        "max": 50,
+        "unit": "ratio",
+        "source": "Typical FX rate range for major and most minor currency pairs vs USD (excludes hyperinflated currencies, which this schema's own 0-100 hard bound also cannot represent).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "commodity_index_current",
@@ -461,7 +500,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 50,
+        "max": 300,
+        "unit": "ratio",
+        "source": "Typical commodity price index range (base 100).",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -514,7 +559,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the commodity index (current). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Commodity Index (Current) will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Commodity Index (Current) will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 50,
+        "max": 300,
+        "unit": "ratio",
+        "source": "Typical commodity price index range (base 100).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "commodity_index_budget",
@@ -539,7 +591,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 50,
+        "max": 300,
+        "unit": "ratio",
+        "source": "Typical budgeted commodity price index range (base 100).",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -592,7 +650,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the commodity index (budget). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Commodity Index (Budget) will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Commodity Index (Budget) will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 50,
+        "max": 300,
+        "unit": "ratio",
+        "source": "Typical budgeted commodity price index range (base 100).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "material_cost_pct",
@@ -618,7 +683,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 20,
+        "max": 70,
+        "unit": "percent",
+        "source": "Typical material cost share of total product cost.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -671,7 +742,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the material cost %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Material Cost % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Material Cost % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 20,
+        "max": 70,
+        "unit": "percent",
+        "source": "Typical material cost share of total product cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "fx_hedge_pct",
@@ -697,7 +775,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "source": "Typical FX exposure hedged range.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -750,7 +834,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the fx hedge %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated FX Hedge % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated FX Hedge % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "source": "Typical FX exposure hedged range.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "commodity_hedge_pct",
@@ -776,7 +867,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "source": "Typical commodity exposure hedged range.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -829,7 +926,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the commodity hedge %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Commodity Hedge % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Commodity Hedge % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "source": "Typical commodity exposure hedged range.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_volume",
@@ -855,7 +959,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1000,
+        "max": 1000000,
+        "unit": "units/year",
+        "source": "Typical annual contract/production volume.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -908,7 +1018,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the annual volume. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Annual Volume will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Annual Volume will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1000,
+        "max": 1000000,
+        "unit": "units/year",
+        "source": "Typical annual contract/production volume.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence",
@@ -933,7 +1050,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -986,7 +1109,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [

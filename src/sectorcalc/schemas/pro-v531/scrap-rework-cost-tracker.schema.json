@@ -227,7 +227,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1000,
+        "max": 500000,
+        "unit": "units",
+        "source": "Typical monthly total production volume.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -280,7 +286,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the total produced. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Total Produced will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Total Produced will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1000,
+        "max": 500000,
+        "unit": "units",
+        "source": "Typical monthly total production volume.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "scrap_quantity",
@@ -305,7 +318,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 10,
+        "max": 10000,
+        "unit": "units",
+        "source": "Typical monthly scrap unit count.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -358,7 +377,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the scrap quantity. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Scrap Quantity will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Scrap Quantity will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 10000,
+        "unit": "units",
+        "source": "Typical monthly scrap unit count.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "rework_quantity",
@@ -383,7 +409,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 10,
+        "max": 10000,
+        "unit": "units",
+        "source": "Typical monthly rework unit count.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -436,7 +468,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the rework quantity. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Rework Quantity will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Rework Quantity will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 10000,
+        "unit": "units",
+        "source": "Typical monthly rework unit count.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "unit_material_cost",
@@ -461,7 +500,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 500,
+        "unit": "USD/unit",
+        "source": "Typical per-unit material cost.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -514,7 +559,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the unit material cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Unit Material Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Unit Material Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 500,
+        "unit": "USD/unit",
+        "source": "Typical per-unit material cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "unit_labor_cost",
@@ -539,7 +591,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 200,
+        "unit": "USD/unit",
+        "source": "Typical per-unit direct labor cost.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -592,7 +650,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the unit labor cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Unit Labor Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Unit Labor Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 200,
+        "unit": "USD/unit",
+        "source": "Typical per-unit direct labor cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "rework_labor_rate",
@@ -617,7 +682,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 15,
+        "max": 100,
+        "unit": "currency_unit_per_h",
+        "source": "Typical loaded rework labor hourly rate.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -670,7 +741,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the rework labor rate. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Rework Labor Rate will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Rework Labor Rate will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 15,
+        "max": 100,
+        "unit": "currency_unit_per_h",
+        "source": "Typical loaded rework labor hourly rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "rework_time_per_unit",
@@ -695,7 +773,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 30,
+        "max": 3600,
+        "unit": "s",
+        "source": "Typical rework time per unit (30s–1hr).",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -748,7 +832,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the rework time per unit. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Rework Time Per Unit will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Rework Time Per Unit will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 30,
+        "max": 3600,
+        "unit": "s",
+        "source": "Typical rework time per unit (30s–1hr).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "defect_rate_target",
@@ -774,7 +865,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.5,
+        "max": 5,
+        "unit": "%",
+        "source": "ISO 22400-2 typical target defect-rate range.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -827,7 +924,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the defect rate target %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Defect Rate Target % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Defect Rate Target % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.5,
+        "max": 5,
+        "unit": "%",
+        "source": "ISO 22400-2 typical target defect-rate range.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "monthly_volume",
@@ -852,7 +956,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 500,
+        "max": 50000,
+        "unit": "units/month",
+        "source": "Typical monthly production volume.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -905,7 +1015,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the monthly volume. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Monthly Volume will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Monthly Volume will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 500,
+        "max": 50000,
+        "unit": "units/month",
+        "source": "Typical monthly production volume.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence",
@@ -930,7 +1047,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical quality/finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -983,7 +1106,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical quality/finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [

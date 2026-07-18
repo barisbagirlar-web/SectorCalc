@@ -160,11 +160,11 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 1.15741e-05
+            "factor": 0.0000115741
           },
           {
             "unit": "unit_per_year",
-            "factor": 3.17e-08
+            "factor": 3.17e-8
           }
         ]
       },
@@ -229,11 +229,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.6,
+        "min": 0.7,
         "max": 1,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on evidence review; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical HR/finance-verified evidence confidence.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -273,17 +273,7 @@
         "public_help_text": "Attach or cite evidence for Source Confidence Ratio; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -320,7 +310,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Source Confidence Ratio. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical HR/finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "uncertainty_multiplier",
@@ -347,11 +344,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1.5,
-        "max": 2.5,
+        "min": 1,
+        "max": 1.5,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on uncertainty policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical uncertainty coverage multiplier for cost estimates.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -391,17 +388,7 @@
         "public_help_text": "Attach or cite evidence for Uncertainty Coverage Multiplier; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -438,7 +425,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Uncertainty Coverage Multiplier. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 1.5,
+        "unit": "ratio",
+        "source": "Typical uncertainty coverage multiplier for cost estimates.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_base_salary",
@@ -464,11 +458,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 20000,
-        "max": 500000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on payroll/HR system export; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 25000,
+        "max": 150000,
+        "unit": "USD",
+        "source": "Typical global range for a skilled full-time employee base salary.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -508,17 +502,7 @@
         "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -556,7 +540,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Base Salary. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Base Salary can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Base Salary can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 25000,
+        "max": 150000,
+        "unit": "USD",
+        "source": "Typical global range for a skilled full-time employee base salary.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "payroll_tax_rate",
@@ -585,11 +576,11 @@
         "semantic_error_message_max": "Employer Payroll Tax Rate is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.05,
-        "max": 0.35,
+        "min": 0.07,
+        "max": 0.25,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on payroll policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical employer-side payroll tax/social-contribution rate range globally.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -629,17 +620,7 @@
         "public_help_text": "Attach or cite evidence for Target Gross Margin; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -677,7 +658,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Employer Payroll Tax Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Employer Payroll Tax Rate can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Employer Payroll Tax Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.07,
+        "max": 0.25,
+        "unit": "ratio",
+        "source": "Typical employer-side payroll tax/social-contribution rate range globally.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_benefits_cost",
@@ -703,11 +691,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0,
-        "max": 100000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on payroll/HR system export; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 2000,
+        "max": 30000,
+        "unit": "USD",
+        "source": "Typical annual employer benefits cost (non-insurance).",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -747,17 +735,7 @@
         "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -795,7 +773,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Benefits Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Benefits Cost can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Benefits Cost can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 2000,
+        "max": 30000,
+        "unit": "USD",
+        "source": "Typical annual employer benefits cost (non-insurance).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_insurance_cost",
@@ -821,11 +806,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0,
-        "max": 50000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on payroll/HR system export; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 1000,
+        "max": 15000,
+        "unit": "USD",
+        "source": "Typical annual employer-paid health/life insurance cost.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -865,17 +850,7 @@
         "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -913,7 +888,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Health/Life Insurance Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Health/Life Insurance Cost can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Health/Life Insurance Cost can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1000,
+        "max": 15000,
+        "unit": "USD",
+        "source": "Typical annual employer-paid health/life insurance cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_training_cost",
@@ -939,11 +921,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0,
-        "max": 50000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on payroll/HR system export; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 200,
+        "max": 5000,
+        "unit": "USD",
+        "source": "Typical annual training and development spend per employee.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -983,17 +965,7 @@
         "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1031,7 +1003,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Training & Development Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Training & Development Cost can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Training & Development Cost can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 200,
+        "max": 5000,
+        "unit": "USD",
+        "source": "Typical annual training and development spend per employee.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_equipment_it_cost",
@@ -1057,11 +1036,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0,
-        "max": 50000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on payroll/HR system export; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 500,
+        "max": 10000,
+        "unit": "USD",
+        "source": "Typical annual equipment and IT cost per employee.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1101,17 +1080,7 @@
         "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1149,7 +1118,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Equipment & IT Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Equipment & IT Cost can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Equipment & IT Cost can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 500,
+        "max": 10000,
+        "unit": "USD",
+        "source": "Typical annual equipment and IT cost per employee.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_workspace_facility_cost",
@@ -1175,11 +1151,11 @@
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0,
-        "max": 50000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on payroll/HR system export; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 1000,
+        "max": 15000,
+        "unit": "USD",
+        "source": "Typical annual workspace/facility cost allocation per employee.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1219,17 +1195,7 @@
         "public_help_text": "Attach or cite evidence for Material Cost per Unit; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1267,7 +1233,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Annual Workspace & Facility Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Workspace & Facility Cost can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Workspace & Facility Cost can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1000,
+        "max": 15000,
+        "unit": "USD",
+        "source": "Typical annual workspace/facility cost allocation per employee.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "target_billable_utilization_ratio",
@@ -1296,11 +1269,11 @@
         "semantic_error_message_max": "Target Billable Utilization is above the physical or process hard bound for this calculation boundary."
       },
       "engineering_range": {
-        "min": 0.5,
-        "max": 0.95,
+        "min": 0.6,
+        "max": 0.85,
         "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on payroll policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "Typical target billable utilization for a services/engineering role.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -1340,17 +1313,7 @@
         "public_help_text": "Attach or cite evidence for Target Gross Margin; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
+      "formula_bindings": [],
       "output_bindings": [
         "out_evidence_completeness",
         "out_normalized_demand",
@@ -1388,7 +1351,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Use the project-specific value for Target Billable Utilization. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Target Billable Utilization can flip the decision state and will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Estimated or missing Target Billable Utilization can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.6,
+        "max": 0.85,
+        "unit": "ratio",
+        "source": "Typical target billable utilization for a services/engineering role.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [

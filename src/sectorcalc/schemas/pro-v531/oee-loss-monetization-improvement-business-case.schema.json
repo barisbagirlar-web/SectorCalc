@@ -228,7 +228,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 100,
+        "max": 2000,
+        "unit": "h",
+        "source": "Typical monthly planned production hours for a single line.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -281,7 +287,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the planned production time. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Planned Production Time will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Planned Production Time will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 100,
+        "max": 2000,
+        "unit": "h",
+        "source": "Typical monthly planned production hours for a single line.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "operating_time",
@@ -306,7 +319,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 80,
+        "max": 1900,
+        "unit": "h",
+        "source": "Typical monthly operating hours after availability losses.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -359,7 +378,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the operating time. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Operating Time will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Operating Time will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 80,
+        "max": 1900,
+        "unit": "h",
+        "source": "Typical monthly operating hours after availability losses.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "net_operating_time",
@@ -384,7 +410,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 70,
+        "max": 1800,
+        "unit": "h",
+        "source": "Typical monthly net operating hours after performance losses.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -437,7 +469,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the net operating time. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Net Operating Time will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Net Operating Time will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 70,
+        "max": 1800,
+        "unit": "h",
+        "source": "Typical monthly net operating hours after performance losses.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "valuable_operating_time",
@@ -462,7 +501,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 60,
+        "max": 1700,
+        "unit": "h",
+        "source": "Typical monthly value-adding hours after quality losses.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -515,7 +560,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the valuable operating time. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Valuable Operating Time will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Valuable Operating Time will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 60,
+        "max": 1700,
+        "unit": "h",
+        "source": "Typical monthly value-adding hours after quality losses.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "ideal_cycle_time",
@@ -540,7 +592,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.001,
+        "max": 1,
+        "unit": "h",
+        "source": "Typical ideal cycle time per part (3.6s–3,600s), expressed in hours.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -593,7 +651,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the ideal cycle time. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Ideal Cycle Time will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Ideal Cycle Time will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.001,
+        "max": 1,
+        "unit": "h",
+        "source": "Typical ideal cycle time per part (3.6s–3,600s), expressed in hours.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "total_parts",
@@ -618,7 +683,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 100,
+        "max": 50000,
+        "unit": "units",
+        "source": "Typical monthly total parts run.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -671,7 +742,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the total parts. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Total Parts will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Total Parts will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 100,
+        "max": 50000,
+        "unit": "units",
+        "source": "Typical monthly total parts run.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "good_parts",
@@ -696,7 +774,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 90,
+        "max": 49000,
+        "unit": "units",
+        "source": "Typical monthly good (first-pass) parts.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -749,7 +833,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the good parts. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Good Parts will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Good Parts will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 90,
+        "max": 49000,
+        "unit": "units",
+        "source": "Typical monthly good (first-pass) parts.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "hourly_contribution",
@@ -774,7 +865,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 20,
+        "max": 2000,
+        "unit": "USD/h",
+        "source": "Same reference band as SectorCalc Machine Hourly Rate tool, for platform consistency.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -827,7 +924,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the hourly contribution. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Hourly Contribution will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Hourly Contribution will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 20,
+        "max": 2000,
+        "unit": "USD/h",
+        "source": "Same reference band as SectorCalc Machine Hourly Rate tool, for platform consistency.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "improvement_cost",
@@ -852,7 +956,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 5000,
+        "max": 500000,
+        "unit": "USD",
+        "source": "Typical OEE improvement project investment.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -905,7 +1015,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the improvement cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Improvement Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Improvement Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 5000,
+        "max": 500000,
+        "unit": "USD",
+        "source": "Typical OEE improvement project investment.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence",
@@ -930,7 +1047,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance/quality-verified evidence confidence.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -983,7 +1106,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance/quality-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [
