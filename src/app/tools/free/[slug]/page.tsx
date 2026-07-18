@@ -12,6 +12,7 @@ import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schem
 import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 import { getPublicToolTitle, getPublicToolMetaDescription } from "@/sectorcalc/public/public-tool-copy-adapter";
 import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
+import { SITE } from "@/config/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildToolPageGraph } from "@/lib/infrastructure/seo/tool-page-graph";
 import { EeatTrustBlock } from "@/components/seo/EeatTrustBlock";
@@ -104,6 +105,22 @@ function getToolDefinitionKey(slug: string): string | undefined {
   return TOOL_DEFINITION_KEY[slug];
 }
 
+/**
+ * Build global-English hreflang languages for a given tool path.
+ * en, en-us, en-gb, x-default all point to /en{path}.
+ */
+function buildToolHreflangLanguages(slug: string): Record<string, string> {
+  const baseUrl = SITE.url;
+  const localeUrl = `${baseUrl}/en/tools/free/${slug}`;
+
+  return {
+    en: localeUrl,
+    "en-us": localeUrl,
+    "en-gb": localeUrl,
+    "x-default": localeUrl,
+  };
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -118,6 +135,10 @@ export async function generateMetadata({
       title: `${name} | SectorCalc FREE`,
       description: `Free ${name} industrial calculator. Calculate costs, measure efficiency, and make data-driven decisions.`,
       robots: { index: true, follow: true },
+      alternates: {
+        canonical: `${SITE.url}/tools/free/${slug}`,
+        languages: buildToolHreflangLanguages(slug),
+      },
     };
   }
 
@@ -134,6 +155,10 @@ export async function generateMetadata({
     openGraph: {
       title: seoTitle,
       description: publicDesc,
+    },
+    alternates: {
+      canonical: `${SITE.url}/tools/free/${slug}`,
+      languages: buildToolHreflangLanguages(slug),
     },
   };
 }
