@@ -54,7 +54,13 @@ export function executeFormula(inputs: MotorCompressorInputs): MotorCompressorOu
 
   const currentEff = currentEfficiencyPct / 100;
   const newEff = newEfficiencyPct / 100;
-  const life = Math.max(1, Math.round(equipmentLifeYears));
+  // Defensive cap: see capital-equipment-investment-appraisal-npv-irr.formula.ts
+  // for the full rationale -- physical_hard_bounds enforces a sane range
+  // upstream, but this loop bound must never trust that alone. A non-finite
+  // value is treated as 1 year rather than silently skipping the ROI loop
+  // (t <= NaN is always false).
+  const safeLifeYears = Number.isFinite(equipmentLifeYears) ? equipmentLifeYears : 1;
+  const life = Math.min(100, Math.max(1, Math.round(safeLifeYears)));
 
   const currentKwh = currentEff > 0 ? motorPowerKw * annualOperatingHours / currentEff : 0;
   const newKwh = newEff > 0 ? motorPowerKw * annualOperatingHours / newEff : 0;

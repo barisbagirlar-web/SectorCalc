@@ -227,7 +227,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 5,
+        "max": 2000,
+        "unit": "USD",
+        "source": "Typical unit selling price.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -280,7 +286,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the unit price. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Unit Price will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Unit Price will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 5,
+        "max": 2000,
+        "unit": "USD",
+        "source": "Typical unit selling price.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "unit_variable_cost",
@@ -305,7 +318,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 2,
+        "max": 1000,
+        "unit": "USD",
+        "source": "Typical unit variable cost.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -358,7 +377,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the unit variable cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Unit Variable Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Unit Variable Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 2,
+        "max": 1000,
+        "unit": "USD",
+        "source": "Typical unit variable cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_volume",
@@ -384,7 +410,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 500,
+        "max": 1000000,
+        "unit": "units/year",
+        "source": "Typical annual sales volume for a SKU/customer.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -437,7 +469,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the annual volume. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Annual Volume will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Annual Volume will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 500,
+        "max": 1000000,
+        "unit": "units/year",
+        "source": "Typical annual sales volume for a SKU/customer.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "logistics_cost_pct",
@@ -462,7 +501,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 2,
+        "max": 15,
+        "unit": "%",
+        "source": "Typical logistics cost as a share of revenue.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -515,7 +560,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the logistics cost %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Logistics Cost % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Logistics Cost % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 2,
+        "max": 15,
+        "unit": "%",
+        "source": "Typical logistics cost as a share of revenue.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "service_cost_pct",
@@ -540,7 +592,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 10,
+        "unit": "%",
+        "source": "Typical customer service cost as a share of revenue.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -593,7 +651,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the service cost %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Service Cost % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Service Cost % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 10,
+        "unit": "%",
+        "source": "Typical customer service cost as a share of revenue.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "return_rate_pct",
@@ -618,7 +683,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.5,
+        "max": 8,
+        "unit": "percent",
+        "source": "Typical product return rate.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -671,7 +742,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the return rate %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Return Rate % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Return Rate % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.5,
+        "max": 8,
+        "unit": "percent",
+        "source": "Typical product return rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "target_margin",
@@ -697,7 +775,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.15,
+        "max": 0.4,
+        "unit": "ratio",
+        "source": "Typical target gross margin.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -750,7 +834,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the target margin. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Target Margin will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Target Margin will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.15,
+        "max": 0.4,
+        "unit": "ratio",
+        "source": "Typical target gross margin.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "labor_rate",
@@ -775,7 +866,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 15,
+        "max": 100,
+        "unit": "currency_unit_per_h",
+        "source": "Typical loaded labor rate.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -828,7 +925,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the labor rate. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Labor Rate will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Labor Rate will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 15,
+        "max": 100,
+        "unit": "currency_unit_per_h",
+        "source": "Typical loaded labor rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "overhead_rate",
@@ -853,7 +957,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 10,
+        "max": 200,
+        "unit": "currency_unit_per_h",
+        "source": "Typical allocated overhead rate.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -906,7 +1016,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the overhead rate. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Overhead Rate will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Overhead Rate will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 200,
+        "unit": "currency_unit_per_h",
+        "source": "Typical allocated overhead rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence",
@@ -931,7 +1048,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -984,7 +1107,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [

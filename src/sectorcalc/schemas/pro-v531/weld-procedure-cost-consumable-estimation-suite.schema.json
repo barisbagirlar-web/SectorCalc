@@ -269,7 +269,13 @@
         "semantic_error_message_min": "Weld Length (m) is below the physical or process hard bound.",
         "semantic_error_message_max": "Weld Length (m) is above the physical or process hard bound."
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.05,
+        "max": 10,
+        "unit": "m",
+        "source": "Typical single-joint to multi-pass weld length.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -322,7 +328,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the weld length (m). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Weld Length (m) will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Weld Length (m) will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.05,
+        "max": 10,
+        "unit": "m",
+        "source": "Typical single-joint to multi-pass weld length.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "weld_throat_mm",
@@ -349,7 +362,13 @@
         "semantic_error_message_min": "Weld Throat is below the physical or process hard bound.",
         "semantic_error_message_max": "Weld Throat is above the physical or process hard bound."
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 3,
+        "max": 12,
+        "unit": "mm",
+        "source": "Typical fillet weld throat size range.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -402,7 +421,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the weld throat (mm). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Weld Throat (mm) will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Weld Throat (mm) will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 3,
+        "max": 12,
+        "unit": "mm",
+        "source": "Typical fillet weld throat size range.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "weld_density",
@@ -429,7 +455,13 @@
         "semantic_error_message_min": "Weld Density (g/cm³) is below the physical or process hard bound.",
         "semantic_error_message_max": "Weld Density (g/cm³) is above the physical or process hard bound."
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 2700,
+        "max": 8000,
+        "unit": "kg_per_m3",
+        "source": "Typical structural weld-metal density range (aluminum to steel alloys).",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -482,7 +514,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the weld density (g/cm³). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Weld Density (g/cm³) will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Weld Density (g/cm³) will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 2700,
+        "max": 8000,
+        "unit": "kg_per_m3",
+        "source": "Typical structural weld-metal density range (aluminum to steel alloys).",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "wire_cost_per_kg",
@@ -507,7 +546,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 3,
+        "max": 25,
+        "unit": "currency_unit",
+        "source": "Typical filler wire cost per kg.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -560,7 +605,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the wire cost per kg. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Wire Cost per kg will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Wire Cost per kg will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 3,
+        "max": 25,
+        "unit": "currency_unit",
+        "source": "Typical filler wire cost per kg.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "gas_cost_per_min",
@@ -585,7 +637,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.05,
+        "max": 0.5,
+        "unit": "currency_unit_per_min",
+        "source": "Typical shielding gas cost per minute of arc time.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -638,7 +696,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the gas cost per minute (e.g., 0.18). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Gas Cost per Minute will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Gas Cost per Minute will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.05,
+        "max": 0.5,
+        "unit": "currency_unit_per_min",
+        "source": "Typical shielding gas cost per minute of arc time.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "arc_time_min",
@@ -663,7 +728,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 120,
+        "unit": "min",
+        "source": "Typical arc-on time per weld/job.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -716,7 +787,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the arc time (min). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Arc Time (min) will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Arc Time (min) will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 120,
+        "unit": "min",
+        "source": "Typical arc-on time per weld/job.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "weld_time_min",
@@ -741,7 +819,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 2,
+        "max": 180,
+        "unit": "min",
+        "source": "Typical total weld time per job including non-arc time.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -794,7 +878,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the weld time (min). Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Weld Time (min) will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Weld Time (min) will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 2,
+        "max": 180,
+        "unit": "min",
+        "source": "Typical total weld time per job including non-arc time.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "labor_rate",
@@ -819,7 +910,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 15,
+        "max": 100,
+        "unit": "currency_unit_per_h",
+        "source": "Typical loaded welder labor rate.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -872,7 +969,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the labor rate. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Labor Rate will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Labor Rate will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 15,
+        "max": 100,
+        "unit": "currency_unit_per_h",
+        "source": "Typical loaded welder labor rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "overhead_rate",
@@ -897,7 +1001,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 10,
+        "max": 200,
+        "unit": "currency_unit_per_h",
+        "source": "Typical allocated overhead rate.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -950,7 +1060,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the overhead rate. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Overhead Rate will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Overhead Rate will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 10,
+        "max": 200,
+        "unit": "currency_unit_per_h",
+        "source": "Typical allocated overhead rate.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "deposition_efficiency",
@@ -975,7 +1092,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 65,
+        "max": 95,
+        "unit": "percent",
+        "source": "Typical GMAW/SMAW deposition efficiency range.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -1028,7 +1151,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the deposition efficiency %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Deposition Efficiency % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Deposition Efficiency % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 65,
+        "max": 95,
+        "unit": "percent",
+        "source": "Typical GMAW/SMAW deposition efficiency range.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence",
@@ -1053,7 +1183,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical engineering-verified evidence confidence.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -1106,7 +1242,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical engineering-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [

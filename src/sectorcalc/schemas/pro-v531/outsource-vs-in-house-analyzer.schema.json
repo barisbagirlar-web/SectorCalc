@@ -227,7 +227,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 500,
+        "unit": "USD",
+        "source": "Typical per-unit in-house material cost.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -280,7 +286,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the in-house material cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated In-House Material Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated In-House Material Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 500,
+        "unit": "USD",
+        "source": "Typical per-unit in-house material cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "in_house_labor_cost",
@@ -305,7 +318,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 300,
+        "unit": "USD",
+        "source": "Typical per-unit in-house direct labor cost.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -358,7 +377,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the in-house labor cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated In-House Labor Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated In-House Labor Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 300,
+        "unit": "USD",
+        "source": "Typical per-unit in-house direct labor cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "in_house_overhead",
@@ -383,7 +409,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 200,
+        "unit": "USD",
+        "source": "Typical per-unit in-house overhead allocation.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -436,7 +468,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the in-house overhead. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated In-House Overhead will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated In-House Overhead will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 200,
+        "unit": "USD",
+        "source": "Typical per-unit in-house overhead allocation.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "in_house_setup_cost",
@@ -461,7 +500,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 100,
+        "max": 50000,
+        "unit": "USD",
+        "source": "Typical one-time in-house setup/tooling cost.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -514,7 +559,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the in-house setup cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated In-House Setup Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated In-House Setup Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 100,
+        "max": 50000,
+        "unit": "USD",
+        "source": "Typical one-time in-house setup/tooling cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "outsource_unit_price",
@@ -539,7 +591,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 800,
+        "unit": "USD",
+        "source": "Typical quoted per-unit outsourced price.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -592,7 +650,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the outsource unit price. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Outsource Unit Price will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Outsource Unit Price will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 800,
+        "unit": "USD",
+        "source": "Typical quoted per-unit outsourced price.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "outsource_logistics",
@@ -617,7 +682,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1,
+        "max": 100,
+        "unit": "USD",
+        "source": "Typical per-unit outbound/inbound logistics cost.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -670,7 +741,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the outsource logistics cost. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Outsource Logistics Cost will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Outsource Logistics Cost will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1,
+        "max": 100,
+        "unit": "USD",
+        "source": "Typical per-unit outbound/inbound logistics cost.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "annual_volume",
@@ -696,7 +774,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 1000,
+        "max": 500000,
+        "unit": "units/year",
+        "source": "Typical annual production volume.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -749,7 +833,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the annual volume. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Annual Volume will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Annual Volume will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 1000,
+        "max": 500000,
+        "unit": "units/year",
+        "source": "Typical annual production volume.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "quality_risk_premium",
@@ -774,7 +865,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0,
+        "max": 0.15,
+        "unit": "ratio",
+        "source": "Typical quality-risk premium applied to outsourced cost comparisons.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -827,7 +924,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the quality risk premium %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Quality Risk Premium % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Quality Risk Premium % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0,
+        "max": 0.15,
+        "unit": "ratio",
+        "source": "Typical quality-risk premium applied to outsourced cost comparisons.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "capacity_utilization",
@@ -853,7 +957,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.6,
+        "max": 0.95,
+        "unit": "ratio",
+        "source": "Typical in-house capacity utilization range.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -906,7 +1016,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the capacity utilization %. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Capacity Utilization % will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Capacity Utilization % will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.6,
+        "max": 0.95,
+        "unit": "ratio",
+        "source": "Typical in-house capacity utilization range.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "source_confidence",
@@ -931,7 +1048,13 @@
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
-      "engineering_range": null,
+      "engineering_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance/ops-verified evidence confidence.",
+        "status": "REFERENCE"
+      },
       "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
@@ -984,7 +1107,14 @@
         "required_for_clause_evidence": false
       },
       "user_help_text": "Enter the source confidence ratio. Reference ranges are advisory.",
-      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence."
+      "warning_if_missing_or_estimated": "Missing or estimated Source Confidence Ratio will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.7,
+        "max": 1,
+        "unit": "ratio",
+        "source": "Typical finance/ops-verified evidence confidence.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [

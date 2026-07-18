@@ -126,6 +126,7 @@ function buildIndustryRelationships(): JsonLdRecord[] {
             price: "0",
             priceCurrency: "USD",
             url: `${SITE_URL}/free-tools`,
+            availability: "https://schema.org/InStock",
           },
           {
             "@type": "Offer",
@@ -133,6 +134,7 @@ function buildIndustryRelationships(): JsonLdRecord[] {
             price: "19",
             priceCurrency: "USD",
             url: `${SITE_URL}/pricing`,
+            availability: "https://schema.org/InStock",
           },
         ],
       },
