@@ -69,12 +69,18 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     // NOTE (2026-07-15 audit): old fixture had n_overhead_rate: 350000 (an "hourly rate" of
     // $350,000/h) and no investment-cost/reduction-target inputs — never sanity-checked
     // against the formula, which used to fabricate investment cost as oh*0.3 anyway.
-    // cycle_time/defect_or_loss_cost/material_cost/overhead_rate/target_margin removed from
-    // the schema entirely (dead inputs — this tool is pure setup-time ROI, not job costing).
+    // cycle_time/defect_or_loss_cost/material_cost/target_margin removed from the schema
+    // entirely (dead inputs — this tool is pure setup-time ROI, not job costing).
+    // NOTE (2026-07-18 rewrite): n_overhead_rate re-added at a realistic $20/h — the old
+    // formula discarded it entirely (`void overheadRate`) so it was correctly omitted from
+    // this fixture at the time; the rewritten formula now uses it as the third burden-rate
+    // component (machine+labor+overhead all sit idle during setup), making it load-bearing
+    // again and required for a non-BLOCKED result.
     n_machine_rate: 85,
     n_setup_time: 3600,
     n_batch_quantity: 500,
     n_labor_rate: 45,
+    n_overhead_rate: 20,
     n_annual_volume: 100000 / 31536000,
     n_source_confidence_ratio: 0.9,
     n_uncertainty_multiplier: 1.4,
