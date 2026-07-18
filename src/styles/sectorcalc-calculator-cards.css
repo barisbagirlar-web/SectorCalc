@@ -449,15 +449,4 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .sc-calc-card,
-  .sc-calc-card::before,
-  .sc-calc-card::after,
-  .sc-card-link svg {
-    transition: none;
-  }
-
-  .sc-calc-card:hover {
-    transform: none;
-  }
-}
+/* Motion kept active on every device, including OS "reduce motion". */

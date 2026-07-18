@@ -124,10 +124,9 @@ export function SiteHeader({
           position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border);
         }
         .sc-h *, .sc-h *::before, .sc-h *::after { box-sizing: border-box; }
-        @media (prefers-reduced-motion: no-preference) {
-          .sc-mega, .sc-langmenu { animation: scFade .16s ease-out; }
-          @keyframes scFade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
-        }
+        /* Fade kept active on every device, including OS "reduce motion". */
+        .sc-mega, .sc-langmenu { animation: scFade .16s ease-out; }
+        @keyframes scFade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
         .sc-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 15px 24px; }
         .sc-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
         .sc-logo-img { height: 30px; width: auto; }
