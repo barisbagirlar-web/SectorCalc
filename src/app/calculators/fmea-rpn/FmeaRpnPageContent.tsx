@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { SITE, siteUrl } from "@/config/site";
+import { EeatTrustBlock } from "@/components/seo/EeatTrustBlock";
+import { FOUNDER_PROFILE } from "@/config/knowledge-graph";
 
 type RpnResult = {
   rpn: number;
@@ -1021,6 +1023,18 @@ export function FmeaRpnPageContent() {
               ]}
             />
           </SectionCard>
+          
+          <EeatTrustBlock
+            authorName={FOUNDER_PROFILE.name}
+            authorTitle={(FOUNDER_PROFILE.jobTitle as Record<string, string>).en ?? "Founder & CEO, SectorCalc"}
+            authorLinkedIn="https://www.linkedin.com/in/barisbagirlar"
+            methodology="IEC 60812:2018 + AIAG & VDA FMEA Handbook"
+            dataSources={[
+              { name: "IEC 60812:2018", url: "https://webstore.iec.ch/publication/26357" },
+              { name: "ISO 12100:2010", url: "https://www.iso.org/standard/51528.html" },
+            ]}
+            lastUpdated={new Date().toISOString()}
+          />
           
         </div>
       </main>

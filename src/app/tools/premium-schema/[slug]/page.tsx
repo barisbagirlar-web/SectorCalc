@@ -14,6 +14,8 @@ import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
+import { EeatTrustBlock } from "@/components/seo/EeatTrustBlock";
+import { FOUNDER_PROFILE } from "@/config/knowledge-graph";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { buildFAQJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import { assertSemanticToolContract } from "@/lib/features/semantic/semantic-tool-reader";
@@ -211,6 +213,17 @@ export default async function PremiumSchemaPilotPage({
           pageUrl={`/tools/premium-schema/${slug}`}
         />
         <ExpertAuthoritySection toolName={displayName} />
+        <EeatTrustBlock
+          authorName={FOUNDER_PROFILE.name}
+          authorTitle={(FOUNDER_PROFILE.jobTitle as Record<string, string>).en ?? "Founder & CEO, SectorCalc"}
+          authorLinkedIn="https://www.linkedin.com/in/barisbagirlar"
+          methodology="ISO 22400-2 + ECMI Cost Model v3.2"
+          dataSources={[
+            { name: "ISO 22400-2:2014", url: "https://www.iso.org/standard/62046.html" },
+            { name: "World Bank Open Data", url: "https://data.worldbank.org/" },
+          ]}
+          lastUpdated={new Date().toISOString()}
+        />
       </Container>
     </PageLayout>
   );

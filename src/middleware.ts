@@ -218,8 +218,10 @@ export default function middleware(request: NextRequest) {
   }
 
   // ── Hreflang locale routing: /en/..., /tr/..., /de/..., /ar/... ──
-  // Internally rewrite to bare path. Locale is available via x-locale header
-  // and `nextUrl.locale` so pages can conditionally serve locale-specific content.
+  // Internally rewrite to bare path. English content served under all prefixes.
+  // /en/ is indexable (x-default). /tr/, /de/, /ar/ are noindex until translations exist
+  // — serving English content under non-EN hreflang is a duplicate-content trap.
+  // VETO 1 fix: only /en/ gets "index"; non-EN locales get "noindex, follow".
   const localeMatch = pathname.match(/^\/(en|tr|de|ar)(\/.*)?$/);
   if (localeMatch) {
     const locale = localeMatch[1];
@@ -229,9 +231,8 @@ export default function middleware(request: NextRequest) {
 
     const response = NextResponse.rewrite(url);
     response.headers.set("x-hreflang-locale", locale);
-    // hreflang locale pages are canonicalized to bare path; allow crawl for discovery
-    // but canonical tag in HTML points to bare path (via createPageMetadata)
-    response.headers.set("x-robots-tag", "index, follow");
+    const robotsDirective = locale === "en" ? "index, follow" : "noindex, follow";
+    response.headers.set("x-robots-tag", robotsDirective);
     return applyRegionHeaders(response, request);
   }
 

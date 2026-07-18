@@ -45,15 +45,14 @@ function buildLocalizedPath(path: string, locale: HreflangLocale): string {
 }
 
 /**
- * Build hreflang alternates for 4 supported locales.
+ * Build hreflang languages for SEO.
+ *
+ * Only English (en) is active — tr/de/ar translations do not exist yet.
+ * Serving hreflang for untranslated pages triggers Google "return URL errors"
+ * and crawl budget waste. VETO 1 fix: en + x-default only.
  *
  * Canonical URL: bare path (English, no locale prefix).
- * hreflang="en": /en/{path} (x-default)
- * hreflang="tr": /tr/{path}
- * hreflang="de": /de/{path}
- * hreflang="ar": /ar/{path}
- *
- * Returns the Next.js Metadata.alternates.languages shape.
+ * hreflang="en": /en/{path} (also x-default)
  */
 function buildHreflangLanguages(path: string): Record<string, string> {
   const baseUrl = SITE.url;
@@ -62,9 +61,6 @@ function buildHreflangLanguages(path: string): Record<string, string> {
 
   return {
     en: `${baseUrl}/en${cleanPath}`,
-    tr: `${baseUrl}/tr${cleanPath}`,
-    de: `${baseUrl}/de${cleanPath}`,
-    ar: `${baseUrl}/ar${cleanPath}`,
     "x-default": `${baseUrl}/en${cleanPath}`,
   };
 }
