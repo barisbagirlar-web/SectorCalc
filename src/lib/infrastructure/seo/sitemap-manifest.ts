@@ -16,6 +16,7 @@ import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonom
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/features/freemium/resolve-free-to-premium-migration";
+import { getAllLeanCalcParams } from "@/lib/features/tools/lean-calc-registry";
 
 export type SitemapRouteType =
   | "core"
@@ -24,7 +25,8 @@ export type SitemapRouteType =
   | "premium_analyzer"
   | "seo_landing"
   | "authority_guide"
-  | "ai_index";
+  | "ai_index"
+  | "lean_tool";
 
 export type SitemapChangeFrequency = "daily" | "weekly" | "monthly" | "yearly";
 
@@ -169,6 +171,12 @@ export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
   ];
 }
 
+export function getLeanToolSitemapRoutes(): readonly SitemapManifestItem[] {
+  return getAllLeanCalcParams().map(({ concept, metric }) =>
+    createItem(`/lean/${concept}/${metric}`, "lean_tool", 0.82, "weekly"),
+  );
+}
+
 export function getCaseStudySitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/case-studies", "hub", 0.74, "monthly"),
@@ -217,6 +225,7 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
     ...getAuthorityGuideSitemapRoutes(),
     ...getPremiumAnalyzerSitemapRoutes(),
     ...getFreeToolSitemapRoutes(),
+    ...getLeanToolSitemapRoutes(),
     ...getDocumentIntelligenceSitemapRoutes(),
     ...getAiIndexSitemapRoutes(),
   ]);

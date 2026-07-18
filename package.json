@@ -55,6 +55,7 @@
     "guard:zero-turkish": "node scripts/guard-zero-turkish-build.mjs",
     "verify:english-purity": "npx tsx scripts/verify-english-purity.ts",
     "verify:engineering-purity": "npx tsx scripts/verify-engineering-purity.ts",
+    "verify:lean-ux": "npx tsx scripts/verify-lean-ux-invariants.ts",
     "guard:no-turkish-public-source": "node scripts/guard-no-turkish-public-source.mjs",
     "guard:free-schema-server-boundary": "node scripts/guard-free-schema-server-boundary.mjs",
     "guard:generated-schema-bindings": "node scripts/guard-generated-schema-bindings.mjs",

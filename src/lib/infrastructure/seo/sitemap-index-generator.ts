@@ -39,6 +39,7 @@ export const SUB_SITEMAPS: readonly SubSitemapMeta[] = [
 const ROUTE_TYPE_TO_SUB_SITEMAP: Record<string, SubSitemapType> = {
   free_tool: "tools",
   premium_analyzer: "tools",
+  lean_tool: "tools",
   authority_guide: "guides",
   seo_landing: "categories",
   core: "tools",

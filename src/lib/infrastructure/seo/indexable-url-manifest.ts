@@ -23,7 +23,8 @@ export type IndexableUrlType =
   | "premium_analyzer"
   | "seo_landing"
   | "authority_guide"
-  | "ai_index";
+  | "ai_index"
+  | "lean_tool";
 
 export type IndexableUrlPriority = "critical" | "high" | "medium";
 
@@ -244,6 +245,7 @@ export function countIndexableUrlsByType(): Record<IndexableUrlType, number> {
     seo_landing: 0,
     authority_guide: 0,
     ai_index: 0,
+    lean_tool: 0,
   };
   for (const item of getIndexableUrlManifest()) {
     counts[item.type] += 1;
