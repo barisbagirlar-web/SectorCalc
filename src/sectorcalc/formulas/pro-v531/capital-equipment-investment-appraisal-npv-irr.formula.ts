@@ -59,7 +59,17 @@ export interface ScheduleRow { year: number; cashFlow: number; terminal: number;
 export interface Schedule { years: number; rows: ScheduleRow[] }
 
 export function schedule(inp: CapitalAppraisalInputs): Schedule {
-  const years = Math.max(1, Math.round(inp.studyYears));
+  // Defensive cap: physical_hard_bounds enforces a sane range upstream in the
+  // real request pipeline, but this loop bound must never trust that alone --
+  // an extreme/malformed value reaching calculate() directly (bypassing the
+  // guard) would otherwise build an array with millions/billions of entries
+  // and exhaust memory. 100 years is far beyond any legitimate study period.
+  // A non-finite value is treated as 1 year rather than left to make the loop
+  // condition permanently false (t <= NaN is always false), which would
+  // silently return an empty schedule and a plausible-looking but wrong NPV
+  // instead of a visibly small, honest result.
+  const safeStudyYears = Number.isFinite(inp.studyYears) ? inp.studyYears : 1;
+  const years = Math.min(100, Math.max(1, Math.round(safeStudyYears)));
   const rows: ScheduleRow[] = [];
   for (let t = 1; t <= years; t++) {
     const cashFlow = inp.annualCashFlow * Math.pow(1 + inp.cashFlowGrowthRate, t - 1);
