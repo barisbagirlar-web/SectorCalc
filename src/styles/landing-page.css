@@ -62,39 +62,44 @@
   color: #fff;
 }
 
-/* Scroll fade — IntersectionObserver entrance (zero flash via useLayoutEffect) */
-.sc-fade-prep {
-  opacity: 0;
-  transform: translateY(16px);
+/* Scroll fade — ADDITIVE entrance animation (permanent anti-blank contract).
+   Default state of every block is fully VISIBLE. The ScrollFade component only
+   ever ADDS `.sc-fade-animate` to replay an entrance. If JS is disabled,
+   hydration fails, or the IntersectionObserver never fires, content stays
+   visible by default and can NEVER be permanently stuck at opacity 0. */
+@keyframes sc-fade-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.sc-fade-visible {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes sc-stagger-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-[data-fade] {
-  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+/* Section-level entrance. `both` fill keeps the from-state only for the
+   animation's own duration; the resolved default remains opacity 1. */
+.sc-fade-ready [data-fade].sc-fade-animate {
+  animation: sc-fade-enter 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Staggered child reveal — items appear one by one on section scroll-in.
-   Hidden ONLY after JS marks the tree ready (progressive enhancement):
-   without JS, with reduced-motion, or on hydration failure, content stays
-   visible instead of being stuck at opacity 0. */
-.sc-fade-ready [data-stagger] > * {
-  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--stagger-i, 0) * 70ms);
-}
-
-/* Hide staggered children ONLY while their section is queued to animate in
-   (marked .sc-fade-prep). A section that is already visible, was never marked,
-   or whose IntersectionObserver never fired keeps its content visible — so
-   staggered blocks can never remain permanently stuck at opacity 0. */
-.sc-fade-ready .sc-fade-prep [data-stagger] > * {
-  opacity: 0;
-  transform: translateY(12px);
+/* Staggered children replay a short offset entrance when their section
+   animates in. No persistent hidden state is ever applied. */
+.sc-fade-ready [data-fade].sc-fade-animate [data-stagger] > * {
+  animation: sc-stagger-enter 440ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--stagger-i, 0) * 70ms);
 }
 
 /* Animated counter — tabular-nums for alignment stability */
