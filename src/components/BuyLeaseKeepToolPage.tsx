@@ -665,10 +665,11 @@ export default function BuyLeaseKeepToolPage() {
             Technical simulation only; not financial, legal, or engineering advice. Users must verify results before making business decisions.
           </div>
           <PremiumReportFeedback
+            key={serverResult.seal.output_hash}
             schemaSlug={TOOL_KEY}
             sectorSlug="manufacturing"
             reportSlug={serverResult.seal.output_hash}
-            inputSnapshot={rx as unknown as Record<string, number>}
+            inputSnapshot={{ ...rx }}
             resultSnapshot={s}
             currency={repCur}
           />
