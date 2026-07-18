@@ -507,6 +507,14 @@ export default function MachineHourlyRateToolPage() {
                 <div className="x1-disc">
                   Technical simulation for engineering and financial decision support. Assumes straight-line depreciation and constant power draw/energy price across the planning horizon. Not a substitute for professional accounting or engineering review.
                 </div>
+                <button
+                  type="button"
+                  className="x1-print-btn"
+                  onClick={() => window.print()}
+                  aria-label="Download this report as a PDF"
+                >
+                  Download PDF
+                </button>
                 <PremiumReportFeedback
                   key={serverResult.seal?.output_hash ?? mockHash(JSON.stringify(inputs) + r.out_rate)}
                   schemaSlug="machine-hourly-rate-proof-report"
